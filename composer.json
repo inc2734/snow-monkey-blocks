@@ -1,0 +1,40 @@
+{
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0-or-later",
+  "require": {
+    "php": ">=5.6",
+    "inc2734/wp-github-plugin-updater": ">=0.1.1"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "*",
+    "wp-coding-standards/wpcs": "*",
+    "phpmd/phpmd": "2.*",
+    "phpunit/phpunit": "^5.7",
+    "doctrine/instantiator": "1.0.4",
+    "phpunit/php-token-stream": "1.4.11",
+    "phpdocumentor/reflection-docblock": "3.2.2",
+    "symfony/yaml": "3.4.1",
+    "pdepend/pdepend": "2.5.0",
+    "myclabs/deep-copy": "1.7.0"
+  },
+  "authors": [
+    {
+      "name": "Takashi Kitajima",
+      "email": "inc@2inc.org"
+    }
+  ],
+  "autoload": {
+    "psr-4" : {
+      "Snow_Monkey\\Plugin\\AwesomeCustomBlocks\\" : ""
+    }
+  },
+  "scripts": {
+    "test": [
+      "vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs",
+      "vendor/bin/phpcs -p -s -v -n . --standard=./phpcs.ruleset.xml --extensions=php",
+      "bash bin/phpunit.sh"
+    ],
+    "wpphpunit": "bash bin/wpphpunit.sh",
+    "phpunit": "bash bin/phpunit.sh"
+  }
+}

@@ -1,0 +1,107 @@
+# Copyright (C) 2018 {package-name}
+# This file is distributed under the same license as the {package-name} package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Snow Monkey Awesome Custom Blocks\n"
+"Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
+"POT-Creation-Date: 2018-08-08 13:24+0900\n"
+"PO-Revision-Date: 2018-08-08 13:24+0900\n"
+"Last-Translator: inc2734 <inc@2inc.org>\n"
+"Language-Team: Takashi Kitajima <inc@2inc.org>\n"
+"Language: ja_JP\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.4\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: vendor\n"
+"X-Poedit-SearchPathExcluded-1: node_modules\n"
+
+#: snow-monkey-awesome-custom-blocks.php:43
+msgid "Snow Monkey Awesome Custom Blocks"
+msgstr "Snow Monkey Awesome Custom Blocks"
+
+#: block/alert/block.js:12
+msgid "Alert"
+msgstr "アラート"
+
+#: block/alert/block.js:33
+msgid "Normal alert"
+msgstr "ノーマルアラート"
+
+#: block/alert/block.js:37
+msgid "Warning alert"
+msgstr "ワーニングアラート"
+
+#: block/alert/block.js:41
+msgid "Success alert"
+msgstr "サクセスアラート"
+
+#: block/alert/block.js:56
+msgid "Alert Settings"
+msgstr "アラート設定"
+
+#: block/alert/block.js:58 block/balloon/block.js:86 block/btn/block.js:92
+msgid "Type"
+msgstr "タイプ"
+
+#: block/balloon/block.js:12
+msgid "Balloon"
+msgstr "吹き出し"
+
+#: block/balloon/block.js:46
+msgid "Normal balloon"
+msgstr "吹き出し"
+
+#: block/balloon/block.js:50
+msgid "Reverse Balloon"
+msgstr "逆の吹き出し"
+
+#: block/balloon/block.js:84
+msgid "Balloon Settings"
+msgstr "吹き出し設定"
+
+#: block/balloon/block.js:106
+msgid "Name"
+msgstr "名前"
+
+#: block/btn/block.js:12 block/btn/block.js:18 block/btn/block.js:60
+msgid "Button"
+msgstr "ボタン"
+
+#: block/btn/block.js:40
+msgid "_self"
+msgstr "_self"
+
+#: block/btn/block.js:44
+msgid "_blank"
+msgstr "_blank"
+
+#: block/btn/block.js:51
+msgid "Normal button"
+msgstr "ノーマルボタン"
+
+#: block/btn/block.js:55
+msgid "Full button"
+msgstr "フルサイズのボタン"
+
+#: block/btn/block.js:79
+msgid "Button Settings"
+msgstr "ボタン設定"
+
+#: block/btn/block.js:81
+msgid "URL"
+msgstr "URL"
+
+#: block/btn/block.js:86
+msgid "Target"
+msgstr "Target"
+
+#~ msgid "Modifier"
+#~ msgstr "修飾子"
+
+#~ msgid "_target"
+#~ msgstr "_target"

@@ -1,0 +1,39 @@
+sudo: false
+language: php
+notifications:
+  email:
+    on_success: never
+    on_failure: change
+branches:
+  only:
+  - master
+  - develop
+  - "/\\d+\\.\\d+\\.\\d+?.*/"
+php:
+- 5.6
+- 7.1
+env:
+  global:
+  - GIT_COMMITTER_NAME=travis-ci
+  - GIT_COMMITTER_EMAIL=inc@2inc.org
+  - GIT_AUTHOR_NAME=travis-ci
+  - GIT_AUTHOR_EMAIL=inc@2inc.org
+  - WP_VERSION=latest WP_MULTISITE=0
+cache:
+  directories:
+  - node_modules
+  - vendor
+  - "$HOME/.composer/cache"
+install:
+- nvm install 8
+- npm install
+- composer install
+before_script:
+- bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
+- composer install
+script:
+- composer test
+before_deploy:
+- npm run zip
+- ls -la snow-monkey-awesome-custom-blocks.zip
+- export RELEASE_FILE=$(ls snow-monkey-awesome-custom-blocks.zip)

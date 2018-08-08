@@ -1,0 +1,8 @@
+.smacb-btn {
+  @include btn();
+
+  &--full {
+    width: 100%;
+    display: block;
+  }
+}

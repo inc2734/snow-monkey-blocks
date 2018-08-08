@@ -1,0 +1,30 @@
+{
+  "author": "inc2734",
+  "license": "GPL-2.0+",
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.56",
+    "@babel/preset-env": "^7.0.0-beta.56",
+    "babel-loader": "^8.0.0-beta.4",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "classnames": "^2.2.6",
+    "cpy-cli": "^2.0.0",
+    "npm-run-all": "^4.1.3",
+    "rimraf": "^2.6.2",
+    "sass-basis": "^9.1.1",
+    "webpack": "^4.16.4",
+    "webpack-cli": "^3.1.0"
+  },
+  "scripts": {
+    "clean:zip": "rimraf snow-monkey-awesome-custom-blocks.zip",
+    "build": "npm-run-all -p css js",
+    "prepublish": "npm run build",
+    "minify:css": "cssnano block/blocks.css block/blocks.min.css --no-zindex",
+    "css:sass": "node-sass --include-path=node_modules/node-normalize-scss block/blocks.scss -o block",
+    "css:postcss": "postcss block/blocks.css -r --no-map -c=postcss.config.js",
+    "css": "npm-run-all -s css:sass css:postcss && npm-run-all -p minify:css",
+    "js": "webpack block/blocks.js -o block/blocks-build.js --config webpack.config.js",
+    "zip:pack": "rsync -a --exclude='/vendor' --exclude='/node_modules' --exclude='.*' --exclude='*.ruleset.xml' --exclude='*.config.js' --exclude='*.xml.dist' --exclude='/bin' --exclude='package*.json' . snow-monkey-awesome-custom-blocks && cd snow-monkey-awesome-custom-blocks && composer install --no-dev",
+    "zip:archive": "zip -9 -qmr snow-monkey-awesome-custom-blocks.zip snow-monkey-awesome-custom-blocks",
+    "zip": "npm run clean:zip && npm run zip:pack && npm run zip:archive"
+  }
+}

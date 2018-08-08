@@ -1,0 +1,8 @@
+.DS_Store
+vendor/
+node_modules/
+block/blocks-build.js
+block/blocks.min.css
+block/blocks.css
+snow-monkey-awesome-custom-blocks.zip
+snow-monkey-awesome-custom-blocks
