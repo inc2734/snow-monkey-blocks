@@ -1,0 +1,15 @@
+.smacb-box {
+  @include _alert();
+  border: 1px solid _lighter($_color-gray);
+  border-radius: $_border-radius;
+  @include _padding(.5);
+
+  &__body {
+    @include content(.75);
+
+    // Gutenberg
+    > .editor-rich-text .editor-rich-text__tinymce {
+      @include content(.75); // = wpac-box__body
+    }
+  }
+}

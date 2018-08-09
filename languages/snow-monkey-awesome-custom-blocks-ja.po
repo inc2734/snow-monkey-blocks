@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Awesome Custom Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2018-08-08 13:24+0900\n"
-"PO-Revision-Date: 2018-08-08 13:24+0900\n"
+"POT-Creation-Date: 2018-08-09 21:37+0900\n"
+"PO-Revision-Date: 2018-08-09 21:37+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: vendor\n"
 "X-Poedit-SearchPathExcluded-1: node_modules\n"
 
-#: snow-monkey-awesome-custom-blocks.php:43
+#: snow-monkey-awesome-custom-blocks.php:40
 msgid "Snow Monkey Awesome Custom Blocks"
 msgstr "Snow Monkey Awesome Custom Blocks"
 
@@ -44,7 +44,7 @@ msgstr "サクセスアラート"
 msgid "Alert Settings"
 msgstr "アラート設定"
 
-#: block/alert/block.js:58 block/balloon/block.js:86 block/btn/block.js:92
+#: block/alert/block.js:58 block/balloon/block.js:86 block/btn/block.js:106
 msgid "Type"
 msgstr "タイプ"
 
@@ -68,35 +68,55 @@ msgstr "吹き出し設定"
 msgid "Name"
 msgstr "名前"
 
-#: block/btn/block.js:12 block/btn/block.js:18 block/btn/block.js:60
+#: block/box/block.js:10
+msgid "Box"
+msgstr "ボックス"
+
+#: block/box/block.js:44 block/btn/block.js:113
+msgid "Color Settings"
+msgstr "色設定"
+
+#: block/box/block.js:50 block/btn/block.js:119
+msgid "Background Color"
+msgstr "背景色"
+
+#: block/box/block.js:55
+msgid "Border Color"
+msgstr "枠線の色"
+
+#: block/box/block.js:60 block/btn/block.js:124
+msgid "Text Color"
+msgstr "文字色"
+
+#: block/btn/block.js:12 block/btn/block.js:18 block/btn/block.js:66
 msgid "Button"
 msgstr "ボタン"
 
-#: block/btn/block.js:40
+#: block/btn/block.js:46
 msgid "_self"
 msgstr "_self"
 
-#: block/btn/block.js:44
+#: block/btn/block.js:50
 msgid "_blank"
 msgstr "_blank"
 
-#: block/btn/block.js:51
+#: block/btn/block.js:57
 msgid "Normal button"
 msgstr "ノーマルボタン"
 
-#: block/btn/block.js:55
+#: block/btn/block.js:61
 msgid "Full button"
 msgstr "フルサイズのボタン"
 
-#: block/btn/block.js:79
+#: block/btn/block.js:93
 msgid "Button Settings"
 msgstr "ボタン設定"
 
-#: block/btn/block.js:81
+#: block/btn/block.js:95
 msgid "URL"
 msgstr "URL"
 
-#: block/btn/block.js:86
+#: block/btn/block.js:100
 msgid "Target"
 msgstr "Target"
 

@@ -9,6 +9,7 @@
 * Alert
 * Balloon
 * Button
+* Box
 
 ## How to use
 
