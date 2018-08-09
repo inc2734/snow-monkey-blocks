@@ -3,7 +3,7 @@
 import classnames from 'classnames';
 
 const { registerBlockType } = wp.blocks;
-const { RichText, InspectorControls } = wp.editor;
+const { RichText, InspectorControls, PanelColorSettings, ContrastChecker } = wp.editor;
 const { Button, PanelBody, SelectControl, TextControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
@@ -28,11 +28,17 @@ registerBlockType('snow-monkey-awesome-custom-blocks/btn', {
     modifier: {
       type: 'string',
       default: ''
+    },
+    backgroundColor: {
+      type: 'string'
+    },
+    textColor: {
+      type: 'string'
     }
   },
 
   edit({ attributes, setAttributes }) {
-    const { content, url, target, modifier } = attributes;
+    const { content, url, target, modifier, backgroundColor, textColor } = attributes;
 
     const optionsTarget = [
       {
@@ -73,6 +79,14 @@ registerBlockType('snow-monkey-awesome-custom-blocks/btn', {
       setAttributes({ modifier: value });
     };
 
+    const onChangeBackgroundColor = (value) => {
+      setAttributes({ backgroundColor: value });
+    };
+
+    const onChangeTextColor = (value) => {
+      setAttributes({ textColor: value });
+    };
+
     return (
       <Fragment>
         <InspectorControls>
@@ -95,14 +109,35 @@ registerBlockType('snow-monkey-awesome-custom-blocks/btn', {
               options={ optionsModifier }
             />
           </PanelBody>
+          <PanelColorSettings
+            title={ __('Color Settings', 'snow-monkey-awesome-custom-blocks') }
+            initialOpen={ false }
+            colorSettings={ [
+              {
+                value: backgroundColor,
+                onChange: onChangeBackgroundColor,
+                label: __('Background Color', 'snow-monkey-awesome-custom-blocks'),
+              },
+              {
+                value: textColor,
+                onChange: onChangeTextColor,
+                label: __('Text Color', 'snow-monkey-awesome-custom-blocks'),
+              },
+            ] }
+            >
+          </PanelColorSettings>
         </InspectorControls>
 
-        <span className={ classnames('smacb-btn', { [`smacb-btn--${modifier}`]: !! modifier }) } href={ url } target={ target }>
+        <span
+          className={ classnames('smacb-btn', { [`smacb-btn--${modifier}`]: !! modifier }) } href={ url } target={ target }
+          style={ { backgroundColor: backgroundColor } }
+          >
           <span className="smacb-btn__label">
             <RichText
               format="string"
               value={ content }
               onChange={ onChangeContent }
+              style={ { color: textColor } }
             />
           </span>
         </span>
@@ -111,11 +146,16 @@ registerBlockType('snow-monkey-awesome-custom-blocks/btn', {
   },
 
   save({ attributes }) {
-    const { content, url, target, modifier } = attributes;
+    const { content, url, target, modifier, backgroundColor, textColor } = attributes;
 
     return (
-      <a className={ classnames('smacb-btn', { [`smacb-btn--${modifier}`]: !! modifier }) } href={ url } target={ target }>
-        <span className="smacb-btn__label">
+      <a
+        className={ classnames('smacb-btn', { [`smacb-btn--${modifier}`]: !! modifier }) }
+        href={ url }
+        target={ target }
+        style={ { backgroundColor: backgroundColor } }
+        >
+        <span className="smacb-btn__label" style={ { color: textColor } }>
           { content }
         </span>
       </a>
