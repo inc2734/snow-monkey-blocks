@@ -42,7 +42,7 @@
   }
 
   &__body {
-    @include _content(.75);
+    @include content(.75);
     flex: 1 1 auto;
     border-radius: $_border-radius;
     word-break: break-all;
@@ -69,7 +69,7 @@
 
     // Gutenberg
     > .editor-rich-text .editor-rich-text__tinymce {
-      @include _content(.75); // = wpac-baloon__body
+      @include content(.75); // = wpac-baloon__body
     }
   }
 
