@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin name: Snow Monkey Awesome Custom Blocks
- * Version: 0.1.1
+ * Version: 0.1.2
  * Text Domain: snow-monkey-awesome-custom-blocks
  * Domain Path: /languages/
  *
@@ -94,7 +94,7 @@ class Bootstrap {
 	 * @return void
 	 */
 	public function _customizer_styles() {
-		if ( ! class_exists( '\Inc2734\Mimizuku_Core\Core' ) ) {
+		if ( 'snow-monkey' !== get_template() && 'snow-monkey/resources' !== get_template() ) {
 			return;
 		}
 
