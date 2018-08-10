@@ -1,0 +1,52 @@
+.smacb-pricing-table {
+  &__row {
+    @include _row();
+    border: 1px solid _lighter($_color-gray);
+  }
+
+  &__col {
+    @include _row__col();
+
+    &:not(:first-child) {
+      border-left: 1px solid _lighter($_color-gray);
+    }
+  }
+
+  &__item {
+    @include _padding(1);
+
+    &__title {
+      font-weight: bold;
+      text-align: center;
+    }
+
+    &__price {
+      @include _font-size-line-height($_base-font-size-px * 1.5);
+      font-weight: bold;
+      text-align: center;
+    }
+
+    &__lede {
+      color: $_color-gray;
+      @include _font-size-line-height($_base-font-size-px - 2);
+      text-align: center;
+    }
+
+    ul {
+      @include _list-unstyled();
+      @include _margin-top(1);
+      border-top: 1px solid _lighter($_color-gray);
+      text-align: center;
+
+      > li {
+        border-bottom: 1px solid _lighter($_color-gray);
+        @include _padding(.5, 0);
+      }
+    }
+
+    &__action {
+      @include _margin-top(1);
+      text-align: center;
+    }
+  }
+}

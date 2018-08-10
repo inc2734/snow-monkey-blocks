@@ -10,6 +10,7 @@
 * Balloon
 * Button
 * Box
+* Pricing table
 
 ## How to use
 

@@ -4,5 +4,7 @@ node_modules/
 block/blocks-build.js
 block/blocks.min.css
 block/blocks.css
+block/blocks-editor.min.css
+block/blocks-editor.css
 snow-monkey-awesome-custom-blocks.zip
 snow-monkey-awesome-custom-blocks

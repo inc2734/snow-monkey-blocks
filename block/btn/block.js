@@ -3,7 +3,7 @@
 import classnames from 'classnames';
 
 const { registerBlockType } = wp.blocks;
-const { RichText, InspectorControls, PanelColorSettings, ContrastChecker } = wp.editor;
+const { RichText, InspectorControls, PanelColorSettings } = wp.editor;
 const { Button, PanelBody, SelectControl, TextControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
@@ -14,12 +14,10 @@ registerBlockType('snow-monkey-awesome-custom-blocks/btn', {
   category: 'smacb',
   attributes: {
     content: {
-      type: 'string',
-      default: __('Button', 'snow-monkey-awesome-custom-blocks')
+      type: 'string'
     },
     url: {
       type: 'string',
-      default: ''
     },
     target: {
       type: 'string',
@@ -27,7 +25,6 @@ registerBlockType('snow-monkey-awesome-custom-blocks/btn', {
     },
     modifier: {
       type: 'string',
-      default: ''
     },
     backgroundColor: {
       type: 'string'
@@ -136,8 +133,10 @@ registerBlockType('snow-monkey-awesome-custom-blocks/btn', {
             <RichText
               format="string"
               value={ content }
+              placeholder={ __('Button', 'snow-monkey-awesome-custom-blocks') }
               onChange={ onChangeContent }
               style={ { color: textColor } }
+              formattingControls={ [] }
             />
           </span>
         </span>
