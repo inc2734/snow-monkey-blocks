@@ -4,8 +4,8 @@ import classnames from 'classnames';
 
 const { times } = lodash;
 const { registerBlockType } = wp.blocks;
-const { RichText, InspectorControls, InnerBlocks } = wp.editor;
-const { PanelBody, RangeControl, SelectControl, TextControl } = wp.components;
+const { InspectorControls, InnerBlocks } = wp.editor;
+const { PanelBody, RangeControl } = wp.components;
 const { Fragment } = wp.element;
 const { __, sprintf } = wp.i18n;
 
