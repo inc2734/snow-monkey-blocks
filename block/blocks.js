@@ -7,3 +7,5 @@ import './box/block.js';
 import './pricing-table/block.js';
 import './pricing-table2/block.js';
 import './pricing-table2/item.js';
+import './inner-columns/block.js';
+import './inner-columns/column.js';

@@ -6,7 +6,7 @@ const { PanelBody, RangeControl, SelectControl, TextControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
-registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table-item', {
+registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table--item', {
   title: __('Pricing table item', 'snow-monkey-awesome-custom-blocks'),
   category: 'smacb',
   supports: {
@@ -29,7 +29,6 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table-item', {
     },
     btnLabel: {
       type: 'string',
-      default: __('Button', 'snow-monkey-awesome-custom-blocks')
     },
     btnURL: {
       type: 'string',
@@ -147,7 +146,6 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table-item', {
           <RichText
             tagName="ul"
             multiline="li"
-            placeholder={ __('Write item…', 'snow-monkey-awesome-custom-blocks') }
             value={ list }
             onChange={ onChangeList }
           />

@@ -1,0 +1,17 @@
+.smacb-inner-columns {
+  border: 1px solid #f00;
+
+  > .editor-inner-blocks {
+    > .editor-block-list__layout {
+      @include _row();
+
+      > .editor-block-list__block {
+        @include _row__col();
+      }
+    }
+  }
+
+  &__col {
+    border: 1px solid #00f;
+  }
+}
