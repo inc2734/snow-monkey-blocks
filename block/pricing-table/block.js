@@ -118,7 +118,6 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table', {
       let _content = [...content];
       _content[ index ] = !! _content[ index ] ? _content[ index ] : [];
       _content[ index ].btnUrl = newContent;
-      console.log(_content);
       setAttributes( {
         content: _content,
       } );
