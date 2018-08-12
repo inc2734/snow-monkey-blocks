@@ -64,7 +64,7 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table2', {
           <InnerBlocks
             template={ TEMPLATE }
             allowedBlocks={ [] }
-            templateLock="insert"
+            templateLock="all"
           />
         </div>
       </Fragment>
