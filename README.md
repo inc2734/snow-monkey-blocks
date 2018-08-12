@@ -11,6 +11,7 @@
 * Button
 * Box
 * Pricing table
+* Section
 
 ## How to use
 
@@ -18,3 +19,10 @@
 1. Activate the plugin through the ‘Plugins’ menu in WordPress
 
 The custom blocks don't have styles. So you need create CSS for the custom blocks.
+
+## How to build
+
+```
+$ npm install
+$ npm run build
+```

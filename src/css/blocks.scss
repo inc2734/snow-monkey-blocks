@@ -1,0 +1,41 @@
+@charset 'UTF-8';
+
+$_font-path: '../../../../themes/snow-monkey/vendor/inc2734/wp-basis/src/assets/packages/sass-basis/src/font' !default;
+@import 'core/variable/variable';
+@import '../../node_modules/sass-basis/src/css/basis-core';
+@import 'core/mixin/mixin';
+
+// @todo Snow Monkey に移したほうが良い
+// 全幅
+.alignfull {
+  @include _media-max(md) {
+    margin-right: calc(50% - 50vw);
+    margin-left: calc(50% - 50vw);
+    width: auto;
+  }
+
+  [data-has-sidebar="false"] & {
+    margin-right: calc(50% - 50vw);
+    margin-left: calc(50% - 50vw);
+    width: auto;
+  }
+}
+
+// 幅広
+.alignwide {}
+
+@mixin content($coefficient: 1) {
+  > * {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  @include _content($coefficient);
+}
+
+@import '../../block/alert/block';
+@import '../../block/balloon/block';
+@import '../../block/btn/block';
+@import '../../block/box/block';
+@import '../../block/pricing-table/block';
+@import '../../block/section/block';

@@ -26,6 +26,11 @@ class Bootstrap {
 		add_action( 'wp_enqueue_scripts', [ $this, '_wp_enqueue_scripts' ] );
 		add_action( 'init', [ $this, '_activate_autoupdate' ] );
 		add_action( 'wp_loaded', [ $this, '_customizer_styles' ] );
+
+		// @todo Snow Monkey に移す
+		add_action( 'after_setup_theme', function() {
+			add_theme_support( 'align-wide' );
+		} );
 	}
 
 	/**
@@ -49,7 +54,7 @@ class Bootstrap {
 	 * @return void
 	 */
 	public function _enqueue_block_editor_assets() {
-		$relative_path = '/block/blocks-build.js';
+		$relative_path = '/dist/js/blocks-build.js';
 		$src  = plugin_dir_url( __FILE__ ) . $relative_path;
 		$path = plugin_dir_path( __FILE__ ) . $relative_path;
 
@@ -69,7 +74,7 @@ class Bootstrap {
 
 		wp_enqueue_script( 'snow-monkey-awesome-custom-blocks-editor-script' );
 
-		$relative_path = '/block/blocks-editor.min.css';
+		$relative_path = '/dist/css/blocks-editor.min.css';
 		$src  = plugin_dir_url( __FILE__ ) . $relative_path;
 		$path = plugin_dir_path( __FILE__ ) . $relative_path;
 
@@ -87,7 +92,7 @@ class Bootstrap {
 	 * @return void
 	 */
 	public function _wp_enqueue_scripts() {
-		$relative_path = '/block/blocks.min.css';
+		$relative_path = '/dist/css/blocks.min.css';
 		$src  = plugin_dir_url( __FILE__ ) . $relative_path;
 		$path = plugin_dir_path( __FILE__ ) . $relative_path;
 
