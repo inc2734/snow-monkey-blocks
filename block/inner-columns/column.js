@@ -20,11 +20,12 @@ registerBlockType('snow-monkey-awesome-custom-blocks/inner-columns--column', {
     },
   },
 
-  edit({ attributes, setAttributes, isSelected }) {
+  edit({ attributes }) {
     return (
       <div className="smacb-inner-columns__col">
         <InnerBlocks
           allowedBlocks={ [] }
+          templateLock="all"
         />
       </div>
     );

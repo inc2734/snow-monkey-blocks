@@ -15,35 +15,27 @@ registerBlockType('snow-monkey-awesome-custom-blocks/inner-columns', {
     inserter: false
   },
   attributes: {
-    columns: {
-      type: 'number',
-      default: 1,
-    },
     customClassName: {
       type: 'string',
       default: 'smacb-inner-columns'
     },
   },
 
-  edit({ attributes, setAttributes, isSelected }) {
-    const { columns } = attributes;
-
-    const getColumnsTemplate = (columns) => {
-      return times(columns, () => [ 'snow-monkey-awesome-custom-blocks/inner-columns--column' ]);
-    };
+  edit({ attributes, setAttributes }) {
+    const { customClassName } = attributes;
 
     return (
       <div className="smacb-inner-columns">
         <InnerBlocks
-          template={ getColumnsTemplate(columns) }
-          allowedBlocks={ [] }
+          allowedBlocks={ [ 'snow-monkey-awesome-custom-blocks/inner-columns--column' ] }
+          templateLock="all"
         />
       </div>
     );
   },
 
   save({ attributes }) {
-    const { columns, customClassName } = attributes;
+    const { customClassName } = attributes;
 
     return (
       <div className={ customClassName }>

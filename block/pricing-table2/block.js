@@ -39,7 +39,6 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table2', {
       [
         'snow-monkey-awesome-custom-blocks/inner-columns',
         {
-          columns: columns,
           customClassName: 'smacb-pricing-table__row'
         },
         getColumnsTemplate(columns)
@@ -53,7 +52,7 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table2', {
             <RangeControl
               label={ __('Columns', 'snow-monkey-awesome-custom-blocks') }
               value={ columns }
-              onChange={ ( value ) => setAttributes( { columns: value } ) }
+              onChange={ value => setAttributes({ columns: value }) }
               min="1"
               max="6"
             />
@@ -64,6 +63,7 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table2', {
           <InnerBlocks
             template={ TEMPLATE }
             allowedBlocks={ [] }
+            templateLock="insert"
           />
         </div>
       </Fragment>
