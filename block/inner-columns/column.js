@@ -1,7 +1,5 @@
 'use strict';
 
-import classnames from 'classnames';
-
 const { registerBlockType } = wp.blocks;
 const { InnerBlocks } = wp.editor;
 const { __ } = wp.i18n;

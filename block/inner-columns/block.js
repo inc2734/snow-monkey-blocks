@@ -19,13 +19,17 @@ registerBlockType('snow-monkey-awesome-custom-blocks/inner-columns', {
       type: 'string',
       default: 'smacb-inner-columns'
     },
+    direction: {
+      type: 'string',
+      default: 'row' // or column
+    }
   },
 
   edit({ attributes, setAttributes }) {
-    const { customClassName } = attributes;
+    const { customClassName, direction } = attributes;
 
     return (
-      <div className="smacb-inner-columns">
+      <div className={ classnames('smacb-inner-columns', [`smacb-inner-columns--${direction}`]) }>
         <InnerBlocks
           allowedBlocks={ [ 'snow-monkey-awesome-custom-blocks/inner-columns--column' ] }
           templateLock="all"

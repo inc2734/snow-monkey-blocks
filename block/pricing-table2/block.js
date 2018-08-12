@@ -39,7 +39,8 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table2', {
       [
         'snow-monkey-awesome-custom-blocks/inner-columns',
         {
-          customClassName: 'smacb-pricing-table__row'
+          customClassName: 'smacb-pricing-table__row',
+          direction: 'row'
         },
         getColumnsTemplate(columns)
       ]

@@ -1,8 +1,8 @@
 'use strict';
 
 const { registerBlockType } = wp.blocks;
-const { InnerBlocks, InspectorControls, PanelColorSettings, ContrastChecker } = wp.editor;
-const { Button, PanelBody, SelectControl, TextControl } = wp.components;
+const { InnerBlocks, InspectorControls, PanelColorSettings } = wp.editor;
+const { Button, PanelBody } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -25,18 +25,6 @@ registerBlockType('snow-monkey-awesome-custom-blocks/box', {
   edit({ attributes, setAttributes }) {
     const { backgroundColor, borderColor, textColor } = attributes;
 
-    const onChangeBackgroundColor = (value) => {
-      setAttributes({ backgroundColor: value });
-    };
-
-    const onChangeBorderColor = (value) => {
-      setAttributes({ borderColor: value });
-    };
-
-    const onChangeTextColor = (value) => {
-      setAttributes({ textColor: value });
-    };
-
     return (
       <Fragment>
         <InspectorControls>
@@ -46,17 +34,17 @@ registerBlockType('snow-monkey-awesome-custom-blocks/box', {
             colorSettings={ [
               {
                 value: backgroundColor,
-                onChange: onChangeBackgroundColor,
+                onChange: value => setAttributes({ backgroundColor: value }),
                 label: __('Background Color', 'snow-monkey-awesome-custom-blocks'),
               },
               {
                 value: borderColor,
-                onChange: onChangeBorderColor,
+                onChange: value => setAttributes({ borderColor: value }),
                 label: __('Border Color', 'snow-monkey-awesome-custom-blocks'),
               },
               {
                 value: textColor,
-                onChange: onChangeTextColor,
+                onChange: value => setAttributes({ textColor: value }),
                 label: __('Text Color', 'snow-monkey-awesome-custom-blocks'),
               },
             ] }

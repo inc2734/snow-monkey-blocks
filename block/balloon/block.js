@@ -33,30 +33,11 @@ registerBlockType('snow-monkey-awesome-custom-blocks/balloon', {
     },
     modifier: {
       type: 'string',
-      default: ''
     }
   },
 
   edit({ attributes, setAttributes }) {
     const { avatarID, avatarURL, balloonName, balloonBody, modifier } = attributes;
-
-    const optionsModifier = [
-      {
-        value: '',
-        label: __('Normal balloon', 'snow-monkey-awesome-custom-blocks')
-      },
-      {
-        value: 'reverse',
-        label: __('Reverse Balloon', 'snow-monkey-awesome-custom-blocks')
-      }
-    ];
-
-    const onSelectImage = (media) => {
-      return setAttributes({
-        avatarURL: media.url,
-        avatarID: media.id,
-      });
-    };
 
     const renderAvatar = (obj) => {
       return (
@@ -66,18 +47,6 @@ registerBlockType('snow-monkey-awesome-custom-blocks/balloon', {
       );
     };
 
-    const onChangeName = (value) => {
-      setAttributes({ balloonName: value });
-    };
-
-    const onChangeBody = (value) => {
-      setAttributes({ balloonBody: value });
-    };
-
-    const onChangeModifier = (value) => {
-      setAttributes({ modifier: value });
-    };
-
     return (
       <Fragment>
         <InspectorControls>
@@ -85,8 +54,17 @@ registerBlockType('snow-monkey-awesome-custom-blocks/balloon', {
             <SelectControl
               label={ __('Type', 'snow-monkey-awesome-custom-blocks') }
               value={ modifier }
-              onChange={ onChangeModifier }
-              options={ optionsModifier }
+              onChange={ value => setAttributes({ modifier: value }) }
+              options={ [
+                {
+                  value: '',
+                  label: __('Normal balloon', 'snow-monkey-awesome-custom-blocks')
+                },
+                {
+                  value: 'reverse',
+                  label: __('Reverse Balloon', 'snow-monkey-awesome-custom-blocks')
+                }
+              ] }
             />
           </PanelBody>
         </InspectorControls>
@@ -94,7 +72,7 @@ registerBlockType('snow-monkey-awesome-custom-blocks/balloon', {
           <div className="smacb-balloon__person">
             <div className="smacb-balloon__figure">
               <MediaUpload
-                onSelect={ onSelectImage }
+                onSelect={ media => setAttributes({ avatarURL: media.url, avatarID: media.id, }) }
                 type="image"
                 value={ avatarID }
                 render={ renderAvatar }
@@ -104,7 +82,7 @@ registerBlockType('snow-monkey-awesome-custom-blocks/balloon', {
               <PlainText
                 value={ balloonName }
                 placeholder={ __('Name', 'snow-monkey-awesome-custom-blocks') }
-                onChange={ onChangeName }
+                onChange={ value => setAttributes({ balloonName: value }) }
               />
             </div>
           </div>
@@ -113,7 +91,7 @@ registerBlockType('snow-monkey-awesome-custom-blocks/balloon', {
               tagName="div"
               multiline="p"
               value={ balloonBody }
-              onChange={ onChangeBody }
+              onChange={ value => setAttributes({ balloonBody: value }) }
             />
           </div>
         </div>

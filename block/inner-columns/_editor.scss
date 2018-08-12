@@ -1,13 +1,21 @@
 .smacb-inner-columns {
-  > .editor-inner-blocks {
-    > .editor-block-list__layout {
-      @include _row();
+  &--row {
+    > .editor-inner-blocks {
+      > .editor-block-list__layout {
+        @include _row();
+        flex-wrap: nowrap;
 
-      > .editor-block-list__block {
-        @include _row__col();
+        > .editor-block-list__block {
+          @include _row__col();
+        }
       }
     }
+  }
 
+  &--column {
+  }
+
+  .editor-inner-blocks {
     .editor-block-list__block {
       padding: 0;
     }

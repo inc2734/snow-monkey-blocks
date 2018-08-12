@@ -27,29 +27,6 @@ registerBlockType('snow-monkey-awesome-custom-blocks/alert', {
   edit({ attributes, setAttributes }) {
     const { content, modifier } = attributes;
 
-    const optionsModifier = [
-      {
-        value: '',
-        label: __('Normal alert', 'snow-monkey-awesome-custom-blocks')
-      },
-      {
-        value: 'warning',
-        label: __('Warning alert', 'snow-monkey-awesome-custom-blocks')
-      },
-      {
-        value: 'success',
-        label: __('Success alert', 'snow-monkey-awesome-custom-blocks')
-      }
-    ];
-
-    const onChangeContent = (value) => {
-      setAttributes({ content: value });
-    };
-
-    const onChangeModifier = (value) => {
-      setAttributes({ modifier: value });
-    };
-
     return (
       <Fragment>
         <InspectorControls>
@@ -57,8 +34,21 @@ registerBlockType('snow-monkey-awesome-custom-blocks/alert', {
             <SelectControl
               label={ __('Type', 'snow-monkey-awesome-custom-blocks') }
               value={ modifier }
-              onChange={ onChangeModifier }
-              options={ optionsModifier }
+              onChange={ value => setAttributes({ modifier: value }) }
+              options={ [
+                {
+                  value: '',
+                  label: __('Normal alert', 'snow-monkey-awesome-custom-blocks')
+                },
+                {
+                  value: 'warning',
+                  label: __('Warning alert', 'snow-monkey-awesome-custom-blocks')
+                },
+                {
+                  value: 'success',
+                  label: __('Success alert', 'snow-monkey-awesome-custom-blocks')
+                }
+              ] }
             />
           </PanelBody>
         </InspectorControls>
@@ -68,7 +58,7 @@ registerBlockType('snow-monkey-awesome-custom-blocks/alert', {
               tagName="div"
               multiline="p"
               value={ content }
-              onChange={ onChangeContent }
+              onChange={ value => setAttributes({ content: value }) }
             />
           </div>
         </div>
