@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Awesome Custom Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2018-08-10 16:47+0900\n"
-"PO-Revision-Date: 2018-08-10 16:47+0900\n"
+"POT-Creation-Date: 2018-08-12 11:39+0900\n"
+"PO-Revision-Date: 2018-08-12 11:40+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -89,15 +89,18 @@ msgid "Text Color"
 msgstr "文字色"
 
 #: block/btn/block.js:12 block/btn/block.js:63 block/btn/block.js:136
-#: block/pricing-table/block.js:47 block/pricing-table/block.js:249
+#: block/pricing-table/block.js:47 block/pricing-table/block.js:248
+#: block/pricing-table2/item.js:159
 msgid "Button"
 msgstr "ボタン"
 
-#: block/btn/block.js:43 block/pricing-table/block.js:139
+#: block/btn/block.js:43 block/pricing-table/block.js:138
+#: block/pricing-table2/item.js:89
 msgid "_self"
 msgstr "_self"
 
-#: block/btn/block.js:47 block/pricing-table/block.js:143
+#: block/btn/block.js:47 block/pricing-table/block.js:142
+#: block/pricing-table2/item.js:93
 msgid "_blank"
 msgstr "_blank"
 
@@ -109,50 +112,61 @@ msgstr "ノーマルボタン"
 msgid "Full button"
 msgstr "フルサイズのボタン"
 
-#: block/btn/block.js:90
+#: block/btn/block.js:90 block/pricing-table2/item.js:100
 msgid "Button Settings"
 msgstr "ボタン設定"
 
-#: block/btn/block.js:92 block/pricing-table/block.js:164
+#: block/btn/block.js:92 block/pricing-table/block.js:163
+#: block/pricing-table2/item.js:102
 msgid "URL"
 msgstr "URL"
 
-#: block/btn/block.js:97 block/pricing-table/block.js:171
+#: block/btn/block.js:97 block/pricing-table/block.js:170
+#: block/pricing-table2/item.js:107
 msgid "Target"
 msgstr "Target"
 
-#: block/pricing-table/block.js:13
-msgid "Pricing table"
-msgstr "価格表"
-
-#: block/pricing-table/block.js:150
-msgid "Columns Settings"
-msgstr "カラム設定"
-
-#: block/pricing-table/block.js:152
+#: block/inner-columns/block.js:11 block/pricing-table/block.js:151
+#: block/pricing-table2/block.js:53
 msgid "Columns"
 msgstr "カラム"
 
-#: block/pricing-table/block.js:162
+#: block/inner-columns/column.js:10
+msgid "Column"
+msgstr "カラム"
+
+#: block/pricing-table/block.js:13 block/pricing-table2/block.js:13
+msgid "Pricing table"
+msgstr "価格表"
+
+#: block/pricing-table/block.js:149 block/pricing-table2/block.js:51
+msgid "Columns Settings"
+msgstr "カラム設定"
+
+#: block/pricing-table/block.js:161
 #, javascript-format
 msgid "(%s) Button Settings"
 msgstr "(%s) ボタン設定"
 
-#: block/pricing-table/block.js:201
+#: block/pricing-table/block.js:200 block/pricing-table2/item.js:120
 msgid "Write title…"
 msgstr "タイトルを書く…"
 
-#: block/pricing-table/block.js:213
+#: block/pricing-table/block.js:212 block/pricing-table2/item.js:130
 msgid "Write price…"
 msgstr "価格を書く…"
 
-#: block/pricing-table/block.js:225
+#: block/pricing-table/block.js:224 block/pricing-table2/item.js:140
 msgid "Write lede…"
 msgstr "リード文を書く…"
 
-#: block/pricing-table/block.js:236
+#: block/pricing-table/block.js:235
 msgid "Write item…"
 msgstr "項目を書く…"
+
+#: block/pricing-table2/item.js:10
+msgid "Pricing table item"
+msgstr "価格表の項目"
 
 #~ msgid "Modifier"
 #~ msgstr "修飾子"

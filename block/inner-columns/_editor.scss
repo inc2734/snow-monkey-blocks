@@ -1,6 +1,4 @@
 .smacb-inner-columns {
-  border: 1px solid #f00;
-
   > .editor-inner-blocks {
     > .editor-block-list__layout {
       @include _row();
@@ -9,9 +7,28 @@
         @include _row__col();
       }
     }
+
+    .editor-block-list__block {
+      padding: 0;
+    }
+
+    .editor-block-list__block-edit {
+      margin-right: 0;
+      margin-left: 0;
+    }
   }
 
   &__col {
-    border: 1px solid #00f;
+    .editor-block-list__block {
+      pointer-events: auto;
+    }
+
+    .editor-block-list__layout {
+      margin: 0;
+    }
   }
+}
+
+[data-type="snow-monkey-awesome-custom-blocks/inner-columns"] {
+  pointer-events: none;
 }

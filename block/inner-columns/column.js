@@ -7,7 +7,7 @@ const { InnerBlocks } = wp.editor;
 const { __ } = wp.i18n;
 
 registerBlockType('snow-monkey-awesome-custom-blocks/inner-columns--column', {
-  title: __('A colum of inner columns', 'snow-monkey-awesome-custom-blocks'),
+  title: __('Column', 'snow-monkey-awesome-custom-blocks'),
   icon: 'columns',
   category: 'smacb',
   supports: {
