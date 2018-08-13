@@ -10,3 +10,4 @@ import '../../block/pricing-table2/item.js';
 import '../../block/inner-columns/block.js';
 import '../../block/inner-columns/column.js';
 import '../../block/section/block.js';
+import '../../block/section-has-image/block.js';

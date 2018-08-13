@@ -74,6 +74,15 @@ class Bootstrap {
 
 		wp_enqueue_script( 'snow-monkey-awesome-custom-blocks-editor-script' );
 
+		wp_localize_script(
+			'snow-monkey-awesome-custom-blocks-editor-script',
+			'smacb',
+			[
+				'pluginURL' => plugin_dir_url( __FILE__ ),
+				'pluginDir' => plugin_dir_path( __FILE__ ),
+			]
+		);
+
 		$relative_path = '/dist/css/blocks-editor.min.css';
 		$src  = plugin_dir_url( __FILE__ ) . $relative_path;
 		$path = plugin_dir_path( __FILE__ ) . $relative_path;

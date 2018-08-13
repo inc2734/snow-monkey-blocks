@@ -2,7 +2,6 @@
 
 const { registerBlockType } = wp.blocks;
 const { RichText, InnerBlocks, InspectorControls, PanelColorSettings } = wp.editor;
-const { PanelBody, SelectControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -43,7 +42,7 @@ registerBlockType('snow-monkey-awesome-custom-blocks/section', {
           </PanelColorSettings>
         </InspectorControls>
         <div className="smacb-section" style={ { backgroundColor: backgroundColor } }>
-          <div className="smacb-section__container">
+          <div className="c-container">
             <RichText
               className="smacb-section__title"
               format="string"
@@ -51,6 +50,7 @@ registerBlockType('snow-monkey-awesome-custom-blocks/section', {
               value={ title }
               onChange={ value => setAttributes({ title: value }) }
               formattingControls={ [] }
+              placeholder={ __('Write title…', 'snow-monkey-awesome-custom-blocks') }
             />
 
             <div className="smacb-section__body">
@@ -67,7 +67,7 @@ registerBlockType('snow-monkey-awesome-custom-blocks/section', {
 
     return (
       <div className="smacb-section" style={ { backgroundColor: backgroundColor } }>
-        <div className="smacb-section__container">
+        <div className="c-container">
           <h2 className="smacb-section__title">
             { title }
           </h2>

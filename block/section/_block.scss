@@ -5,8 +5,11 @@
     @include section-title();
   }
 
-  &__container {
-    @include _container();
+  [data-is-fluid-template="false"] &:not(.alignfull) {
+    > .#{$_prefix}c-container {
+      padding-right: 0;
+      padding-left: 0;
+    }
   }
 
   &__body {
@@ -18,10 +21,14 @@
   }
 
   .#{$_prefix}l-body--one-column-slim & {
-    &__container > * {
-      margin-right: auto;
-      margin-left: auto;
-      max-width: $one-column-slim-max-width;
+    > .#{$_prefix}c-container {
+      @include _media-min(lg) {
+        margin-right: auto;
+        margin-left: auto;
+        padding-right: 0;
+        padding-left: 0;
+        max-width: $one-column-slim-max-width;
+      }
     }
   }
 }
