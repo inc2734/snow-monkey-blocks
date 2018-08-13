@@ -3,10 +3,13 @@
     > .editor-inner-blocks {
       > .editor-block-list__layout {
         @include _row();
-        flex-wrap: nowrap;
+        @include _row--margin(1);
 
         > .editor-block-list__block {
-          @include _row__col();
+          margin-right: 0;
+          margin-left: 0;
+          @include _row__col(1, 2);
+          @include _row__col--margin(1);
         }
       }
     }
@@ -15,24 +18,32 @@
   &--column {
   }
 
-  .editor-inner-blocks {
-    .editor-block-list__block {
-      padding: 0;
-    }
+  > .editor-inner-blocks {
+    > .editor-block-list__layout {
+      > .editor-block-list__block {
+        padding: 0;
 
-    .editor-block-list__block-edit {
-      margin-right: 0;
-      margin-left: 0;
+        > .editor-block-list__block-edit {
+          margin: 0;
+        }
+      }
     }
   }
 
   &__col {
-    .editor-block-list__block {
-      pointer-events: auto;
-    }
+    > .editor-inner-blocks {
+      > .editor-block-list__layout {
+        margin: 0;
 
-    .editor-block-list__layout {
-      margin: 0;
+        > .editor-block-list__block {
+          pointer-events: auto;
+
+          > .editor-block-list__block-edit {
+            margin-top: 0;
+            margin-bottom: 0;
+          }
+        }
+      }
     }
   }
 }

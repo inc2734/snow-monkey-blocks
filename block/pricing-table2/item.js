@@ -14,24 +14,38 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table--item', {
   },
   attributes: {
     title: {
-      type: 'string',
+      type: 'array',
+      source: 'children',
+      selector: '.smacb-pricing-table__item__title',
+      default: []
     },
     price: {
-      type: 'string',
+      type: 'array',
+      source: 'children',
+      selector: '.smacb-pricing-table__item__price',
+      default: []
     },
     lede: {
-      type: 'string',
+      type: 'array',
+      source: 'children',
+      selector: '.smacb-pricing-table__item__lede',
+      default: []
     },
     list: {
       type: 'array',
       source: 'children',
       selector: 'ul',
+      default: []
     },
     btnLabel: {
-      type: 'string',
+      type: 'array',
+      source: 'children',
+      selector: '.smacb-btn__label',
+      default: []
     },
     btnURL: {
       type: 'string',
+      default: '',
     },
     btnTarget: {
       type: 'string',
@@ -94,35 +108,33 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table--item', {
         </InspectorControls>
 
         <div className="smacb-pricing-table__item">
-          <div className="smacb-pricing-table__item__title">
-            <RichText
-              format="string"
-              tagName="div"
-              placeholder={ __('Write title…', 'snow-monkey-awesome-custom-blocks') }
-              value={ title }
-              onChange={ value => setAttributes({ title: value }) }
-            />
-          </div>
+          <RichText
+            tagName="div"
+            className="smacb-pricing-table__item__title"
+            placeholder={ __('Write title…', 'snow-monkey-awesome-custom-blocks') }
+            value={ title }
+            onChange={ value => setAttributes({ title: value }) }
+          />
 
-          <div className="smacb-pricing-table__item__price">
+          { (price.length > 0 || isSelected) &&
             <RichText
-              format="string"
               tagName="div"
+              className="smacb-pricing-table__item__price"
               placeholder={ __('Write price…', 'snow-monkey-awesome-custom-blocks') }
               value={ price }
               onChange={ value => setAttributes({ price: value }) }
             />
-          </div>
+          }
 
-          <div className="smacb-pricing-table__item__lede">
+          { (lede.length > 0 || isSelected) &&
             <RichText
-              format="string"
               tagName="div"
+              className="smacb-pricing-table__item__lede"
               placeholder={ __('Write lede…', 'snow-monkey-awesome-custom-blocks') }
               value={ lede }
               onChange={ value => setAttributes({ lede: value }) }
             />
-          </div>
+          }
 
           <RichText
             tagName="ul"
@@ -131,13 +143,14 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table--item', {
             onChange={ value => setAttributes({ list: value }) }
           />
 
-          <div class="smacb-pricing-table__item__action">
-            <span class="smacb-pricing-table__item__btn smacb-btn" href={ btnURL } target={ btnTarget }
-              style={ { backgroundColor: btnBackgroundColor } }
-              >
-              <span className="smacb-btn__label">
+          { (btnLabel.length > 0 && btnURL && btnTarget || isSelected) &&
+            <div class="smacb-pricing-table__item__action">
+              <span class="smacb-pricing-table__item__btn smacb-btn" href={ btnURL } target={ btnTarget }
+                style={ { backgroundColor: btnBackgroundColor } }
+                >
                 <RichText
-                  format="string"
+                  tagName="span"
+                  className="smacb-btn__label"
                   placeholder={ __('Button', 'snow-monkey-awesome-custom-blocks') }
                   formattingControls={ [] }
                   value={ btnLabel }
@@ -145,8 +158,8 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table--item', {
                   style={ { color: btnTextColor } }
                 />
               </span>
-            </span>
-          </div>
+            </div>
+          }
         </div>
       </Fragment>
     );
@@ -161,11 +174,13 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table--item', {
           { title }
         </div>
 
-        <div className="smacb-pricing-table__item__price">
-          { price }
-        </div>
+        { price.length > 0 &&
+          <div className="smacb-pricing-table__item__price">
+            { price }
+          </div>
+        }
 
-        { lede &&
+        { lede.length > 0 &&
           <div className="smacb-pricing-table__item__lede">
             { lede }
           </div>
@@ -175,7 +190,7 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table--item', {
           { list }
         </ul>
 
-        { btnLabel && btnURL && btnTarget &&
+        { btnLabel.length > 0 && btnURL && btnTarget &&
           <div class="smacb-pricing-table__item__action">
             <a class="smacb-pricing-table__item__btn smacb-btn" href={ btnURL } target={ btnTarget }
               style={ { backgroundColor: btnBackgroundColor } }

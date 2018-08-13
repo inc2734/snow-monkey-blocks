@@ -14,8 +14,10 @@ registerBlockType('snow-monkey-awesome-custom-blocks/section-has-bgimage', {
   category: 'smacb',
   attributes: {
     title: {
-      type: 'string',
-      selector: '.smacb-section__title'
+      type: 'array',
+      source: 'children',
+      selector: '.smacb-section__title',
+      default: []
     },
     imageID: {
       type: 'number'
@@ -40,7 +42,7 @@ registerBlockType('snow-monkey-awesome-custom-blocks/section-has-bgimage', {
     align: ['wide', 'full']
   },
 
-  edit({ attributes, setAttributes }) {
+  edit({ attributes, setAttributes, isSelected }) {
     const { title, imageID, imageURL, height, contentsAlignment } = attributes;
 
     const renderImage = (obj) => {
@@ -107,15 +109,16 @@ registerBlockType('snow-monkey-awesome-custom-blocks/section-has-bgimage', {
             />
           </div>
           <div className="c-container">
-            <RichText
-              className="smacb-section__title"
-              format="string"
-              tagName="h2"
-              value={ title }
-              onChange={ value => setAttributes({ title: value }) }
-              formattingControls={ [] }
-              placeholder={ __('Write title…', 'snow-monkey-awesome-custom-blocks') }
-            />
+            { (title.length > 0 || isSelected) &&
+              <RichText
+                className="smacb-section__title"
+                tagName="h2"
+                value={ title }
+                onChange={ value => setAttributes({ title: value }) }
+                formattingControls={ [] }
+                placeholder={ __('Write title…', 'snow-monkey-awesome-custom-blocks') }
+              />
+            }
 
             <div className="smacb-section__body">
               <InnerBlocks />
@@ -140,9 +143,11 @@ registerBlockType('snow-monkey-awesome-custom-blocks/section-has-bgimage', {
           <img src={ imageURL } alt="" />
         </div>
         <div className="c-container">
-          <h2 className="smacb-section__title">
-            { title }
-          </h2>
+          { title.length > 0 &&
+            <h2 className="smacb-section__title">
+              { title }
+            </h2>
+          }
           <div className="smacb-section__body">
             <InnerBlocks.Content />
           </div>

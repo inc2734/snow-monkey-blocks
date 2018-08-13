@@ -29,7 +29,8 @@ registerBlockType('snow-monkey-awesome-custom-blocks/balloon', {
     balloonBody: {
       type: 'array',
       source: 'children',
-      selector: '.smacb-balloon__body'
+      selector: '.smacb-balloon__body',
+      default: []
     },
     modifier: {
       type: 'string',

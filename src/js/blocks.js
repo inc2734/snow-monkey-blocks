@@ -12,3 +12,5 @@ import '../../block/inner-columns/column.js';
 import '../../block/section/block.js';
 import '../../block/section-has-image/block.js';
 import '../../block/section-has-bgimage/block.js';
+import '../../block/section-has-items/block.js';
+import '../../block/section-has-items/item.js';

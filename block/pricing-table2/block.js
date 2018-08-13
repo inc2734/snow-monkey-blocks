@@ -10,7 +10,7 @@ const { Fragment } = wp.element;
 const { __, sprintf } = wp.i18n;
 
 registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table2', {
-  title: __('Pricing table', 'snow-monkey-awesome-custom-blocks'),
+  title: __('Pricing table2', 'snow-monkey-awesome-custom-blocks'),
   icon: 'warning',
   category: 'smacb',
   attributes: {

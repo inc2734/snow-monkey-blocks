@@ -1,0 +1,37 @@
+.smacb-section-has-items {
+  &__row {
+    @include _row();
+    @include _row--margin(1);
+  }
+
+  &__col {
+    @include _row__col(1, 1);
+    @include _row__col--margin(1);
+  }
+
+  @include _media-min(lg) {
+    @for $i from 1 through 6 {
+      &--lg-#{$i} {
+        .smacb-section-has-items__col {
+          @include _row__col--width(1 / $i * 100%);
+        }
+      }
+    }
+  }
+
+  &__item {
+    &__title {
+      font-weight: bold;
+    }
+
+    &__lede {
+      @include _margin-top(.25);
+      color: $_color-gray;
+      @include _font-size-line-height($_base-font-size-px - 2);
+    }
+
+    &__content {
+      @include _margin-top(.25);
+    }
+  }
+}

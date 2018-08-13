@@ -16,7 +16,8 @@ registerBlockType('snow-monkey-awesome-custom-blocks/alert', {
     content: {
       type: 'array',
       source: 'children',
-      selector: '.smacb-alert__body'
+      selector: '.smacb-alert__body',
+      default: []
     },
     modifier: {
       type: 'string',

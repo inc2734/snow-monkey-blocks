@@ -14,7 +14,10 @@ registerBlockType('snow-monkey-awesome-custom-blocks/btn', {
   category: 'smacb',
   attributes: {
     content: {
-      type: 'string'
+      type: 'array',
+      source: 'children',
+      selector: '.smacb-btn__label',
+      default: []
     },
     url: {
       type: 'string',
@@ -100,16 +103,15 @@ registerBlockType('snow-monkey-awesome-custom-blocks/btn', {
           className={ classnames('smacb-btn', { [`smacb-btn--${modifier}`]: !! modifier }) } href={ url } target={ target }
           style={ { backgroundColor: backgroundColor } }
           >
-          <span className="smacb-btn__label">
-            <RichText
-              format="string"
-              value={ content }
-              placeholder={ __('Button', 'snow-monkey-awesome-custom-blocks') }
-              onChange={ value => setAttributes({ content: value }) }
-              style={ { color: textColor } }
-              formattingControls={ [] }
-            />
-          </span>
+          <RichText
+            tagName="span"
+            className="smacb-btn__label"
+            value={ content }
+            placeholder={ __('Button', 'snow-monkey-awesome-custom-blocks') }
+            onChange={ value => setAttributes({ content: value }) }
+            style={ { color: textColor } }
+            formattingControls={ [] }
+          />
         </span>
       </Fragment>
     );
