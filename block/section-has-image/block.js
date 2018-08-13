@@ -15,7 +15,7 @@ registerBlockType('snow-monkey-awesome-custom-blocks/section-has-image', {
   attributes: {
     title: {
       type: 'string',
-      selector: '.smacb-section-has-image__title'
+      selector: '.smacb-section__title'
     },
     backgroundColor: {
       type: 'string'
@@ -26,7 +26,7 @@ registerBlockType('snow-monkey-awesome-custom-blocks/section-has-image', {
     imageURL: {
       type: 'string',
       source: 'attribute',
-      selector: '.smacb-section-lage-image__figure > img',
+      selector: '.smacb-section-has-image__figure > img',
       attribute: 'src',
       default: smacb.pluginURL + 'block/section-has-image/image.png'
     },

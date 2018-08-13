@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Awesome Custom Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2018-08-13 10:59+0900\n"
-"PO-Revision-Date: 2018-08-13 11:00+0900\n"
+"POT-Creation-Date: 2018-08-13 14:17+0900\n"
+"PO-Revision-Date: 2018-08-13 14:18+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -152,8 +152,8 @@ msgid "(%s) Button Settings"
 msgstr "(%s) ボタン設定"
 
 #: block/pricing-table/block.js:200 block/pricing-table2/item.js:101
-#: block/section-has-image/block.js:117 block/section/block.js:53
-#: dist/js/blocks-build.js:12
+#: block/section-has-bgimage/block.js:117 block/section-has-image/block.js:117
+#: block/section/block.js:53 dist/js/blocks-build.js:12
 msgid "Write title…"
 msgstr "タイトルを書く…"
 
@@ -173,25 +173,52 @@ msgstr "項目を書く…"
 msgid "Pricing table item"
 msgstr "価格表の項目"
 
+#: block/section-has-bgimage/block.js:12
+msgid "Section (has background image)"
+msgstr "セクション（背景画像あり）"
+
+#: block/section-has-bgimage/block.js:57 block/section-has-image/block.js:60
+#: dist/js/blocks-build.js:12
+msgid "Section Settings"
+msgstr "セクション設定"
+
+#: block/section-has-bgimage/block.js:59
+msgid "Height"
+msgstr "高さ"
+
+#: block/section-has-bgimage/block.js:64
+msgid "Fit"
+msgstr "フィット"
+
+#: block/section-has-bgimage/block.js:68
+msgid "Wide"
+msgstr "広め"
+
+#: block/section-has-bgimage/block.js:75
+msgid "Contents alignment"
+msgstr "コンテンツの水平位置"
+
+#: block/section-has-bgimage/block.js:80 block/section-has-image/block.js:71
+#: dist/js/blocks-build.js:12
+msgid "Left side"
+msgstr "左側"
+
+#: block/section-has-bgimage/block.js:84
+msgid "Center"
+msgstr "中央"
+
+#: block/section-has-bgimage/block.js:88 block/section-has-image/block.js:67
+#: dist/js/blocks-build.js:12
+msgid "Right side"
+msgstr "右側"
+
 #: block/section-has-image/block.js:12 dist/js/blocks-build.js:12
 msgid "Section (has image)"
 msgstr "セクション（画像あり）"
 
-#: block/section-has-image/block.js:60 dist/js/blocks-build.js:12
-msgid "Section Settings"
-msgstr "セクション設定"
-
 #: block/section-has-image/block.js:62 dist/js/blocks-build.js:12
 msgid "Image Position"
 msgstr "画像の位置"
-
-#: block/section-has-image/block.js:67 dist/js/blocks-build.js:12
-msgid "Right side"
-msgstr "右側"
-
-#: block/section-has-image/block.js:71 dist/js/blocks-build.js:12
-msgid "Left side"
-msgstr "左側"
 
 #: block/section-has-image/block.js:78 dist/js/blocks-build.js:12
 msgid "Image Column Size"
