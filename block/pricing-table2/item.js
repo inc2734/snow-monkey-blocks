@@ -19,6 +19,11 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table--item', {
       selector: '.smacb-pricing-table__item__title',
       default: []
     },
+    className: {
+      type: 'string',
+      source: 'children',
+      default: ''
+    },
     price: {
       type: 'array',
       source: 'children',
@@ -60,7 +65,7 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table--item', {
   },
 
   edit({ attributes, setAttributes, isSelected }) {
-    const { title, price, lede, list, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor } = attributes;
+    const { title, price, lede, list, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, className } = attributes;
 
     return (
       <Fragment>
@@ -107,7 +112,7 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table--item', {
           </PanelColorSettings>
         </InspectorControls>
 
-        <div className="smacb-pricing-table__item">
+        <div className={`smacb-pricing-table__item ${className}`}>
           <RichText
             tagName="div"
             className="smacb-pricing-table__item__title"
@@ -133,6 +138,16 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table--item', {
               placeholder={ __('Write lede…', 'snow-monkey-awesome-custom-blocks') }
               value={ lede }
               onChange={ value => setAttributes({ lede: value }) }
+            />
+          }
+          {
+            (className || isSelected) &&
+              <RichText
+              tagName="div"
+              className="smacb-pricing-table__item__className"
+              placeholder={ __('Write className (It is not shown html view)', 'snow-monkey-awesome-custom-blocks') }
+              value={ className }
+              onChange={ className => setAttributes({ className }) }
             />
           }
 
@@ -166,10 +181,10 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table--item', {
   },
 
   save({ attributes }) {
-    const { title, price, lede, list, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor } = attributes;
+    const { title, price, lede, list, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, className } = attributes;
 
     return (
-      <div className="smacb-pricing-table__item">
+      <div className={`smacb-pricing-table__item ${className}`}>
         <div className="smacb-pricing-table__item__title">
           { title }
         </div>
