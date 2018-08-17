@@ -1,8 +1,8 @@
 'use strict';
 
 const { registerBlockType } = wp.blocks;
-const { InnerBlocks, InspectorControls, PanelColorSettings } = wp.editor;
-const { Button, PanelBody } = wp.components;
+const { InnerBlocks, InspectorControls, ColorPalette } = wp.editor;
+const { Button, PanelBody, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -28,28 +28,28 @@ registerBlockType('snow-monkey-awesome-custom-blocks/box', {
     return (
       <Fragment>
         <InspectorControls>
-          <PanelColorSettings
-            title={ __('Color Settings', 'snow-monkey-awesome-custom-blocks') }
-            initialOpen={ false }
-            colorSettings={ [
-              {
-                value: backgroundColor,
-                onChange: value => setAttributes({ backgroundColor: value }),
-                label: __('Background Color', 'snow-monkey-awesome-custom-blocks'),
-              },
-              {
-                value: borderColor,
-                onChange: value => setAttributes({ borderColor: value }),
-                label: __('Border Color', 'snow-monkey-awesome-custom-blocks'),
-              },
-              {
-                value: textColor,
-                onChange: value => setAttributes({ textColor: value }),
-                label: __('Text Color', 'snow-monkey-awesome-custom-blocks'),
-              },
-            ] }
-            >
-          </PanelColorSettings>
+          <PanelBody title={ __('Box Settings', 'snow-monkey-awesome-custom-blocks') }>
+            <BaseControl label={ __('Background Color', 'snow-monkey-awesome-custom-blocks') }>
+              <ColorPalette
+                value={ backgroundColor }
+                onChange={ value => setAttributes({ backgroundColor: value }) }
+              />
+            </BaseControl>
+
+            <BaseControl label={ __('Border Color', 'snow-monkey-awesome-custom-blocks') }>
+              <ColorPalette
+                value={ borderColor }
+                onChange={ value => setAttributes({ borderColor: value }) }
+              />
+            </BaseControl>
+
+            <BaseControl label={ __('Text Color', 'snow-monkey-awesome-custom-blocks') }>
+              <ColorPalette
+                value={ textColor }
+                onChange={ value => setAttributes({ textColor: value }) }
+              />
+            </BaseControl>
+          </PanelBody>
         </InspectorControls>
 
         <div className="smacb-box" style={ { backgroundColor: backgroundColor, borderColor: borderColor, color: textColor } }>

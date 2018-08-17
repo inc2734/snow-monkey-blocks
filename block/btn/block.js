@@ -3,8 +3,8 @@
 import classnames from 'classnames';
 
 const { registerBlockType } = wp.blocks;
-const { RichText, InspectorControls, PanelColorSettings } = wp.editor;
-const { Button, PanelBody, SelectControl, TextControl } = wp.components;
+const { RichText, InspectorControls, ColorPalette } = wp.editor;
+const { Button, PanelBody, SelectControl, TextControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -49,6 +49,7 @@ registerBlockType('snow-monkey-awesome-custom-blocks/btn', {
               value={ url }
               onChange={ value => setAttributes({ url: value }) }
             />
+
             <SelectControl
               label={ __('Target', 'snow-monkey-awesome-custom-blocks') }
               value={ target }
@@ -64,6 +65,7 @@ registerBlockType('snow-monkey-awesome-custom-blocks/btn', {
                 }
               ] }
             />
+
             <SelectControl
               label={ __('Type', 'snow-monkey-awesome-custom-blocks') }
               value={ modifier }
@@ -79,24 +81,21 @@ registerBlockType('snow-monkey-awesome-custom-blocks/btn', {
                 }
               ] }
             />
+
+            <BaseControl label={ __('Background Color', 'snow-monkey-awesome-custom-blocks') }>
+              <ColorPalette
+                value={ backgroundColor }
+                onChange={ value => setAttributes({ backgroundColor: value }) }
+              />
+            </BaseControl>
+
+            <BaseControl label={ __('Text Color', 'snow-monkey-awesome-custom-blocks') }>
+              <ColorPalette
+                value={ textColor }
+                onChange={ value => setAttributes({ textColor: value }) }
+              />
+            </BaseControl>
           </PanelBody>
-          <PanelColorSettings
-            title={ __('Color Settings', 'snow-monkey-awesome-custom-blocks') }
-            initialOpen={ false }
-            colorSettings={ [
-              {
-                value: backgroundColor,
-                onChange: value => setAttributes({ backgroundColor: value }),
-                label: __('Background Color', 'snow-monkey-awesome-custom-blocks'),
-              },
-              {
-                value: textColor,
-                onChange: value => setAttributes({ textColor: value }),
-                label: __('Text Color', 'snow-monkey-awesome-custom-blocks'),
-              },
-            ] }
-            >
-          </PanelColorSettings>
         </InspectorControls>
 
         <span

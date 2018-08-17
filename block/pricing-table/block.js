@@ -2,10 +2,10 @@
 
 import classnames from 'classnames';
 
-const { get, times, flatten } = lodash;
+const { get, times } = lodash;
 const { registerBlockType } = wp.blocks;
-const { RichText, InspectorControls, PanelColorSettings } = wp.editor;
-const { PanelBody, RangeControl, SelectControl, TextControl } = wp.components;
+const { RichText, InspectorControls, ColorPalette } = wp.editor;
+const { PanelBody, RangeControl, SelectControl, TextControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const { __, sprintf } = wp.i18n;
 
@@ -60,16 +60,22 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table', {
           </PanelBody>
 
           { times(columns, (index) => {
-            const btnURL    = get(content, [index, 'btnURL']);
-            const btnTarget = get(content, [index, 'btnTarget']);
+            const btnURL             = get(content, [index, 'btnURL']);
+            const btnTarget          = get(content, [index, 'btnTarget']);
+            const btnBackgroundColor = get(content, [index, 'btnBackgroundColor']);
+            const btnTextColor       = get(content, [index, 'btnTextColor']);
 
             return (
-              <PanelBody title={ sprintf( __('(%s) Button Settings', 'snow-monkey-awesome-custom-blocks'), index + 1) }>
+              <PanelBody
+                title={ sprintf( __('(%s) Button Settings', 'snow-monkey-awesome-custom-blocks'), index + 1) }
+                initialOpen={ false }
+                >
                 <TextControl
                   label={ __('URL', 'snow-monkey-awesome-custom-blocks') }
                   value={ btnURL }
                   onChange={ value => setAttributes({ content: generateUpdatedAttribute(content, index, 'btnURL', value) }) }
                 />
+
                 <SelectControl
                   label={ __('Target', 'snow-monkey-awesome-custom-blocks') }
                   value={ btnTarget }
@@ -85,32 +91,23 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table', {
                   ] }
                   onChange={ value => setAttributes({ content: generateUpdatedAttribute(content, index, 'btnTarget', value) }) }
                 />
+
+                <BaseControl label={ __('Background Color', 'snow-monkey-awesome-custom-blocks') }>
+                  <ColorPalette
+                    value={ btnBackgroundColor }
+                    onChange={ value => setAttributes({ content: generateUpdatedAttribute(content, index, 'btnBackgroundColor', value) }) }
+                  />
+                </BaseControl>
+
+                <BaseControl label={ __('Text Color', 'snow-monkey-awesome-custom-blocks') }>
+                  <ColorPalette
+                    value={ btnTextColor }
+                    onChange={ value => setAttributes({ content: generateUpdatedAttribute(content, index, 'btnTextColor', value) }) }
+                  />
+                </BaseControl>
               </PanelBody>
             );
           } ) }
-
-          <PanelColorSettings
-            title={ __('Color Settings', 'snow-monkey-awesome-custom-blocks') }
-            initialOpen={ false }
-            colorSettings={ flatten(times(columns, (index) => {
-              const btnBackgroundColor = get(content, [index, 'btnBackgroundColor']);
-              const btnTextColor       = get(content, [index, 'btnTextColor']);
-
-              return [
-                {
-                  value: btnBackgroundColor,
-                  label: sprintf(__('(%s) Button Background Color', 'snow-monkey-awesome-custom-blocks'), index + 1),
-                  onChange: value => setAttributes({ content: generateUpdatedAttribute(content, index, 'btnBackgroundColor', value) })
-                },
-                {
-                  value: btnTextColor,
-                  label: sprintf(__('(%s) Button Text Color', 'snow-monkey-awesome-custom-blocks'), index + 1),
-                  onChange: value => setAttributes({ content: generateUpdatedAttribute(content, index, 'btnTextColor', value) })
-                }
-              ];
-            })) }
-          >
-          </PanelColorSettings>
         </InspectorControls>
 
         <div className={ classnames('smacb-pricing-table', [`smacb-pricing-table--${columns}`]) }>

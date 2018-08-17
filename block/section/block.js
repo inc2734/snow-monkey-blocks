@@ -1,7 +1,8 @@
 'use strict';
 
 const { registerBlockType } = wp.blocks;
-const { RichText, InnerBlocks, InspectorControls, PanelColorSettings } = wp.editor;
+const { RichText, InnerBlocks, InspectorControls, ColorPalette } = wp.editor;
+const { PanelBody, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -30,19 +31,16 @@ registerBlockType('snow-monkey-awesome-custom-blocks/section', {
     return (
       <Fragment>
         <InspectorControls>
-          <PanelColorSettings
-            title={ __('Color Settings', 'snow-monkey-awesome-custom-blocks') }
-            initialOpen={ false }
-            colorSettings={ [
-              {
-                value: backgroundColor,
-                onChange: value => setAttributes({ backgroundColor: value }),
-                label: __('Background Color', 'snow-monkey-awesome-custom-blocks'),
-              },
-            ] }
-            >
-          </PanelColorSettings>
+          <PanelBody title={ __('Section Settings', 'snow-monkey-awesome-custom-blocks') }>
+            <BaseControl label={ __('Background Color', 'snow-monkey-awesome-custom-blocks') }>
+              <ColorPalette
+                value={ backgroundColor }
+                onChange={ value => setAttributes({ backgroundColor: value }) }
+              />
+            </BaseControl>
+          </PanelBody>
         </InspectorControls>
+
         <div className="smacb-section" style={ { backgroundColor: backgroundColor } }>
           <div className="c-container">
             { (title.length > 0 || isSelected) &&

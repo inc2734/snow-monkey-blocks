@@ -3,8 +3,8 @@
 import classnames from 'classnames';
 
 const { registerBlockType } = wp.blocks;
-const { RichText, InnerBlocks, InspectorControls, PanelColorSettings, MediaUpload } = wp.editor;
-const { Button, PanelBody, SelectControl } = wp.components;
+const { RichText, InnerBlocks, InspectorControls, MediaUpload, ColorPalette } = wp.editor;
+const { Button, PanelBody, SelectControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -91,20 +91,16 @@ registerBlockType('snow-monkey-awesome-custom-blocks/section-has-image', {
               ] }
               onChange={ value => setAttributes({ imageColumnSize: value }) }
             />
+
+            <BaseControl label={ __('Background Color', 'snow-monkey-awesome-custom-blocks') }>
+              <ColorPalette
+                value={ backgroundColor }
+                onChange={ value => setAttributes({ backgroundColor: value }) }
+              />
+            </BaseControl>
           </PanelBody>
-          <PanelColorSettings
-            title={ __('Color Settings', 'snow-monkey-awesome-custom-blocks') }
-            initialOpen={ false }
-            colorSettings={ [
-              {
-                value: backgroundColor,
-                onChange: value => setAttributes({ backgroundColor: value }),
-                label: __('Background Color', 'snow-monkey-awesome-custom-blocks'),
-              },
-            ] }
-            >
-          </PanelColorSettings>
         </InspectorControls>
+
         <div className="smacb-section smacb-section-has-image" style={ { backgroundColor: backgroundColor } }>
           <div className="c-container">
             <div className={ classnames('c-row', 'c-row--margin', { 'c-row--reverse': 'left' === imagePosition }) }>
