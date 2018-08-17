@@ -39,26 +39,23 @@ registerBlockType('snow-monkey-awesome-custom-blocks/section-has-items', {
   edit({ attributes, setAttributes, isSelected }) {
     const { columns, perRowLarge, title, backgroundColor } = attributes;
 
-    const getColumnsTemplate = (columns) => {
-      return times(columns, () => [
-        'snow-monkey-awesome-custom-blocks/inner-columns--column',
-        {
-          customClassName: 'smacb-section-has-items__col'
-        },
-        [
-          [ 'snow-monkey-awesome-custom-blocks/section-has-items--item' ]
-        ]
-      ]);
-    };
 
     const TEMPLATE = [
       [
         'snow-monkey-awesome-custom-blocks/inner-columns',
         {
-          customClassName: 'smacb-section-has-items__row',
-          direction: 'row'
+          customClassName: 'c-row c-row--margin',
+          lg: perRowLarge,
         },
-        getColumnsTemplate(columns)
+        times(columns, () => [
+          'snow-monkey-awesome-custom-blocks/inner-columns--column',
+          {
+            customClassName: `c-row__col c-row__col--1-1 c-row__col--lg-1-${perRowLarge}`,
+          },
+          [
+            [ 'snow-monkey-awesome-custom-blocks/section-has-items--item' ]
+          ]
+        ])
       ]
     ];
 

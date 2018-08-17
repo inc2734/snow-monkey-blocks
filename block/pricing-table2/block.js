@@ -23,26 +23,23 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table2', {
   edit({ attributes, setAttributes, isSelected }) {
     const { columns } = attributes;
 
-    const getColumnsTemplate = (columns) => {
-      return times(columns, () => [
-        'snow-monkey-awesome-custom-blocks/inner-columns--column',
-        {
-          customClassName: 'smacb-pricing-table__col'
-        },
-        [
-          [ 'snow-monkey-awesome-custom-blocks/pricing-table--item' ]
-        ]
-      ]);
-    };
-
     const TEMPLATE = [
       [
         'snow-monkey-awesome-custom-blocks/inner-columns',
         {
-          customClassName: 'smacb-pricing-table__row',
-          direction: 'row'
+          customClassName: 'c-row c-row--margin',
+          sm: columns,
         },
-        getColumnsTemplate(columns)
+        times(columns, () => [
+          'snow-monkey-awesome-custom-blocks/inner-columns--column',
+          {
+            customClassName: `c-row__col ${columns}`,
+          },
+          [
+            [ 'snow-monkey-awesome-custom-blocks/pricing-table--item' ]
+          ]
+        ])
+
       ]
     ];
 

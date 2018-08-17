@@ -15,10 +15,12 @@ registerBlockType('snow-monkey-awesome-custom-blocks/inner-columns--column', {
     customClassName: {
       type: 'string',
       default: 'smacb-inner-columns__col'
-    }
+    },
   },
 
   edit({ attributes }) {
+    const { customClassName } = attributes;
+
     return (
       <div className="smacb-inner-columns__col">
         <InnerBlocks

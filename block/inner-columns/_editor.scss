@@ -1,30 +1,54 @@
 .smacb-inner-columns {
-  &--row {
-    > .editor-inner-blocks {
-      > .editor-block-list__layout {
-        @include _row();
-        @include _row--margin(1);
+  > .editor-inner-blocks {
+    > .editor-block-list__layout {
+      @include _row();
+      @include _row--margin(1);
 
-        > .editor-block-list__block {
-          margin-right: 0;
-          margin-left: 0;
-          @include _row__col(1, 2);
-          @include _row__col--margin(1);
+      > .editor-block-list__block {
+        margin-right: 0;
+        margin-left: 0;
+        padding: 0;
+        @include _row__col();
+        @include _row__col--margin(1);
+
+        > .editor-block-list__block-edit {
+          margin: 0;
         }
       }
     }
   }
 
-  &--column {
-  }
+  @for $i from 1 through 12 {
+    &--#{$i} {
+      > .editor-inner-blocks {
+        > .editor-block-list__layout {
+          > .editor-block-list__block {
+            @include _row__col--width(1 / $i * 100%);
+          }
+        }
+      }
+    }
 
-  > .editor-inner-blocks {
-    > .editor-block-list__layout {
-      > .editor-block-list__block {
-        padding: 0;
+    &--md-#{$i} {
+      > .editor-inner-blocks {
+        > .editor-block-list__layout {
+          > .editor-block-list__block {
+            @include _media-min(md) {
+              @include _row__col--width(1 / $i * 100%);
+            }
+          }
+        }
+      }
+    }
 
-        > .editor-block-list__block-edit {
-          margin: 0;
+    &--lg-#{$i} {
+      > .editor-inner-blocks {
+        > .editor-block-list__layout {
+          > .editor-block-list__block {
+            @include _media-min(lg) {
+              @include _row__col--width(1 / $i * 100%);
+            }
+          }
         }
       }
     }
