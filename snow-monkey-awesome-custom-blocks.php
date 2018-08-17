@@ -1,13 +1,15 @@
 <?php
 /**
  * Plugin name: Snow Monkey Awesome Custom Blocks
- * Version: 0.3.1
+ * Version: 0.3.2
  * Text Domain: snow-monkey-awesome-custom-blocks
  * Domain Path: /languages/
  *
  * @package snow-monkey-awesome-custom-blocks
  * @author inc2734
  * @license GPL-2.0+
+ *
+ * @todo 画像表示するところはフルサイズではなく適切なサイズの画像を表示するように変更
  */
 
 namespace Snow_Monkey\Plugin\AwesomeCustomBlocks;

@@ -3,7 +3,7 @@
     @include _row();
     border: 1px solid _lighter($_color-gray);
 
-    @include _media-min(md) {
+    @include _media-min(lg) {
       flex-wrap: nowrap;
     }
   }
@@ -16,7 +16,12 @@
     }
 
     &:not(:first-child) {
-      border-left: 1px solid _lighter($_color-gray);
+      border-top: 1px solid _lighter($_color-gray);
+
+      @include _media-min(lg) {
+        border-top: none;
+        border-left: 1px solid _lighter($_color-gray);
+      }
     }
   }
 

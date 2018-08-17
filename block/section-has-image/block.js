@@ -103,8 +103,8 @@ registerBlockType('snow-monkey-awesome-custom-blocks/section-has-image', {
 
         <div className="smacb-section smacb-section-has-image" style={ { backgroundColor: backgroundColor } }>
           <div className="c-container">
-            <div className={ classnames('c-row', 'c-row--margin', { 'c-row--reverse': 'left' === imagePosition }) }>
-              <div className={ classnames('c-row__col', 'c-row__col--1-1', { [`c-row__col--lg-${3 - imageColumnSize}-3`]: true }) }>
+            <div className={ classnames('c-row', 'c-row--margin', 'c-row--middle', { 'c-row--reverse': 'left' === imagePosition }) }>
+              <div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${3 - imageColumnSize}-3` }>
                 { (title.length > 0 || isSelected) &&
                   <RichText
                     className="smacb-section__title"
@@ -120,7 +120,7 @@ registerBlockType('snow-monkey-awesome-custom-blocks/section-has-image', {
                   <InnerBlocks />
                 </div>
               </div>
-              <div className={ classnames('c-row__col', 'c-row__col--1-1', { [`c-row__col--lg-${imageColumnSize}-3`]: true }) }>
+              <div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${imageColumnSize}-3` }>
                 <div className="smacb-section-has-image__figure">
                   <MediaUpload
                     onSelect={ media => setAttributes({ imageURL: media.url, imageID: media.id, }) }
@@ -143,8 +143,8 @@ registerBlockType('snow-monkey-awesome-custom-blocks/section-has-image', {
     return (
       <div className="smacb-section smacb-section-has-image" style={ { backgroundColor: backgroundColor } }>
         <div className="c-container">
-          <div className={ classnames('c-row', 'c-row--margin', { 'c-row--reverse': 'left' === imagePosition }) }>
-            <div className={ classnames('c-row__col', 'c-row__col--1-1', { [`c-row__col--lg-${3 - imageColumnSize}-3`]: true }) }>
+          <div className={ classnames('c-row', 'c-row--margin', 'c-row--middle', { 'c-row--reverse': 'left' === imagePosition }) }>
+            <div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${3 - imageColumnSize}-3` }>
               { title.length > 0 &&
                 <h2 className="smacb-section__title">
                   { title }
@@ -154,7 +154,7 @@ registerBlockType('snow-monkey-awesome-custom-blocks/section-has-image', {
                 <InnerBlocks.Content />
               </div>
             </div>
-            <div className={ classnames('c-row__col', 'c-row__col--1-1', { [`c-row__col--lg-${imageColumnSize}-3`]: true }) }>
+            <div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${imageColumnSize}-3` }>
               <div className="smacb-section-has-image__figure">
                 <img src={ imageURL } alt="" />
               </div>
