@@ -2,10 +2,18 @@
   &__row {
     @include _row();
     border: 1px solid _lighter($_color-gray);
+
+    @include _media-min(md) {
+      flex-wrap: nowrap;
+    }
   }
 
   &__col {
-    @include _row__col();
+    @include _row__col(1, 1);
+
+    @include _media-min(md) {
+      @include _row__col--width(1);
+    }
 
     &:not(:first-child) {
       border-left: 1px solid _lighter($_color-gray);

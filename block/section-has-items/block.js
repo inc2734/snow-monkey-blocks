@@ -42,7 +42,7 @@ registerBlockType('snow-monkey-awesome-custom-blocks/section-has-items', {
           btnBackgroundColor: '',
           btnTextColor: '',
           imageID: '',
-          imageURL: '',
+          imageURL: smacb.pluginURL + 'block/section-has-items/image.png',
         }
       ]
     }
