@@ -17,7 +17,7 @@ registerBlockType('snow-monkey-awesome-custom-blocks/btn', {
       type: 'array',
       source: 'children',
       selector: '.smacb-btn__label',
-      default: []
+      default: [ __('Button', 'snow-monkey-awesome-custom-blocks') ]
     },
     url: {
       type: 'string',
