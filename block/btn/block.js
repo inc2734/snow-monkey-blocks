@@ -36,6 +36,9 @@ registerBlockType('snow-monkey-awesome-custom-blocks/btn', {
       type: 'string'
     }
   },
+  supports: {
+    align: ['left', 'center', 'right']
+  },
 
   edit({ attributes, setAttributes }) {
     const { content, url, target, modifier, backgroundColor, textColor } = attributes;
@@ -98,20 +101,22 @@ registerBlockType('snow-monkey-awesome-custom-blocks/btn', {
           </PanelBody>
         </InspectorControls>
 
-        <span
-          className={ classnames('smacb-btn', { [`smacb-btn--${modifier}`]: !! modifier }) } href={ url } target={ target }
-          style={ { backgroundColor: backgroundColor } }
-          >
-          <RichText
-            tagName="span"
-            className="smacb-btn__label"
-            value={ content }
-            placeholder={ __('Button', 'snow-monkey-awesome-custom-blocks') }
-            onChange={ value => setAttributes({ content: value }) }
-            style={ { color: textColor } }
-            formattingControls={ [] }
-          />
-        </span>
+        <div className="u-clearfix smacb-btn-wrapper">
+          <span
+            className={ classnames('smacb-btn', { [`smacb-btn--${modifier}`]: !! modifier }) } href={ url } target={ target }
+            style={ { backgroundColor: backgroundColor } }
+            >
+            <RichText
+              tagName="span"
+              className="smacb-btn__label"
+              value={ content }
+              placeholder={ __('Button', 'snow-monkey-awesome-custom-blocks') }
+              onChange={ value => setAttributes({ content: value }) }
+              style={ { color: textColor } }
+              formattingControls={ [] }
+            />
+          </span>
+        </div>
       </Fragment>
     );
   },
@@ -120,16 +125,63 @@ registerBlockType('snow-monkey-awesome-custom-blocks/btn', {
     const { content, url, target, modifier, backgroundColor, textColor } = attributes;
 
     return (
-      <a
-        className={ classnames('smacb-btn', { [`smacb-btn--${modifier}`]: !! modifier }) }
-        href={ url }
-        target={ target }
-        style={ { backgroundColor: backgroundColor } }
-        >
-        <span className="smacb-btn__label" style={ { color: textColor } }>
-          { content }
-        </span>
-      </a>
+      <div className="u-clearfix smacb-btn-wrapper">
+        <a
+          className={ classnames('smacb-btn', { [`smacb-btn--${modifier}`]: !! modifier }) }
+          href={ url }
+          target={ target }
+          style={ { backgroundColor: backgroundColor } }
+          >
+          <span className="smacb-btn__label" style={ { color: textColor } }>
+            { content }
+          </span>
+        </a>
+      </div>
     );
   },
+
+  deprecated: [
+    {
+      attributes: {
+        content: {
+          type: 'array',
+          source: 'children',
+          selector: '.smacb-btn__label',
+          default: [ __('Button', 'snow-monkey-awesome-custom-blocks') ]
+        },
+        url: {
+          type: 'string',
+        },
+        target: {
+          type: 'string',
+          default: '_self'
+        },
+        modifier: {
+          type: 'string',
+        },
+        backgroundColor: {
+          type: 'string'
+        },
+        textColor: {
+          type: 'string'
+        }
+      },
+      save({ attributes }) {
+        const { content, url, target, modifier, backgroundColor, textColor } = attributes;
+
+        return (
+          <a
+            className={ classnames('smacb-btn', { [`smacb-btn--${modifier}`]: !! modifier }) }
+            href={ url }
+            target={ target }
+            style={ { backgroundColor: backgroundColor } }
+            >
+            <span className="smacb-btn__label" style={ { color: textColor } }>
+              { content }
+            </span>
+          </a>
+        );
+      }
+    }
+  ]
 } );

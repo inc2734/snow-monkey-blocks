@@ -6,3 +6,20 @@
     display: block;
   }
 }
+
+.smacb-btn-wrapper.alignleft,
+.smacb-btn-wrapper.alignright {
+  float: none;
+}
+
+.smacb-btn-wrapper.alignleft {
+  > .smacb-btn {
+    float: left;
+  }
+}
+
+.smacb-btn-wrapper.alignright {
+  > .smacb-btn {
+    float: right;
+  }
+}
