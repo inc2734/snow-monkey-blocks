@@ -5,25 +5,6 @@ $_font-path: '../../../../themes/snow-monkey/vendor/inc2734/wp-basis/src/assets/
 @import '../../node_modules/sass-basis/src/css/basis-core';
 @import 'core/mixin/mixin';
 
-// @todo Snow Monkey に移したほうが良い
-// 全幅
-.alignfull {
-  @include _media-max(md) {
-    margin-right: calc(50% - 50vw);
-    margin-left: calc(50% - 50vw);
-    width: auto;
-  }
-
-  [data-has-sidebar="false"] & {
-    margin-right: calc(50% - 50vw);
-    margin-left: calc(50% - 50vw);
-    width: auto;
-  }
-}
-
-// 幅広
-.alignwide {}
-
 @mixin content($coefficient: 1) {
   > * {
     margin-top: 0;
@@ -42,3 +23,4 @@ $_font-path: '../../../../themes/snow-monkey/vendor/inc2734/wp-basis/src/assets/
 @import '../../block/section-has-image/block';
 @import '../../block/section-has-bgimage/block';
 @import '../../block/section-has-items/block';
+@import '../../block/btn-box/block';

@@ -26,11 +26,6 @@ class Bootstrap {
 		add_action( 'wp_enqueue_scripts', [ $this, '_wp_enqueue_scripts' ] );
 		add_action( 'init', [ $this, '_activate_autoupdate' ] );
 		add_action( 'wp_loaded', [ $this, '_customizer_styles' ] );
-
-		// @todo Snow Monkey に移す
-		add_action( 'after_setup_theme', function() {
-			add_theme_support( 'align-wide' );
-		} );
 	}
 
 	/**

@@ -19,16 +19,4 @@
   & + & {
     margin-top: 0 !important;
   }
-
-  .#{$_prefix}l-body--one-column-slim & {
-    > .#{$_prefix}c-container {
-      @include _media-min(lg) {
-        margin-right: auto;
-        margin-left: auto;
-        padding-right: 0;
-        padding-left: 0;
-        max-width: $one-column-slim-max-width;
-      }
-    }
-  }
 }

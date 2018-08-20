@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Awesome Custom Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2018-08-17 15:56+0900\n"
-"PO-Revision-Date: 2018-08-17 15:56+0900\n"
+"POT-Creation-Date: 2018-08-20 23:38+0900\n"
+"PO-Revision-Date: 2018-08-20 23:38+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: vendor\n"
 "X-Poedit-SearchPathExcluded-1: node_modules\n"
 
-#: snow-monkey-awesome-custom-blocks.php:45
+#: snow-monkey-awesome-custom-blocks.php:40
 msgid "Snow Monkey Awesome Custom Blocks"
 msgstr "Snow Monkey Awesome Custom Blocks"
 
@@ -32,7 +32,7 @@ msgstr "アラート"
 msgid "Alert Settings"
 msgstr "アラート設定"
 
-#: block/alert/block.js:36 block/balloon/block.js:56 block/btn/block.js:70
+#: block/alert/block.js:36 block/balloon/block.js:56 block/btn/block.js:73
 msgid "Type"
 msgstr "タイプ"
 
@@ -72,59 +72,82 @@ msgstr "名前"
 msgid "Box"
 msgstr "ボックス"
 
-#: block/box/block.js:31
+#: block/box/block.js:35
 msgid "Box Settings"
 msgstr "ボックス設定"
 
-#: block/box/block.js:32 block/btn/block.js:85 block/pricing-table/block.js:95
+#: block/box/block.js:36 block/btn-box/block.js:60 block/btn-box/block.js:95
+#: block/btn/block.js:88 block/pricing-table/block.js:95
 #: block/section-has-image/block.js:95 block/section-has-items/block.js:87
 #: block/section-has-items/block.js:128 block/section/block.js:35
 msgid "Background Color"
 msgstr "背景色"
 
-#: block/box/block.js:39
+#: block/box/block.js:43
 msgid "Border Color"
 msgstr "枠線の色"
 
-#: block/box/block.js:46 block/btn/block.js:92 block/pricing-table/block.js:102
-#: block/section-has-items/block.js:135
+#: block/box/block.js:50 block/btn-box/block.js:102 block/btn/block.js:95
+#: block/pricing-table/block.js:102 block/section-has-items/block.js:135
 msgid "Text Color"
 msgstr "文字色"
 
-#: block/btn/block.js:12 block/btn/block.js:109
-#: block/pricing-table/block.js:175 block/section-has-items/block.js:236
+#: block/box/block.js:58
+msgid "Border width"
+msgstr "枠線の太さ"
+
+#: block/btn-box/block.js:10
+msgid "Button box"
+msgstr "ボタンボックス"
+
+#: block/btn-box/block.js:33 block/btn-box/block.js:130 block/btn/block.js:12
+#: block/btn/block.js:20 block/btn/block.js:113 block/btn/block.js:150
+#: block/pricing-table/block.js:175 block/section-has-items/block.js:237
 msgid "Button"
 msgstr "ボタン"
 
-#: block/btn/block.js:46
+#: block/btn-box/block.js:59
+msgid "Button box Settings"
+msgstr "ボタンボックス設定"
+
+#: block/btn-box/block.js:69 block/btn/block.js:49
 msgid "Button Settings"
 msgstr "ボタン設定"
 
-#: block/btn/block.js:48 block/pricing-table/block.js:74
-#: block/section-has-items/block.js:107
+#: block/btn-box/block.js:74 block/btn/block.js:51
+#: block/pricing-table/block.js:74 block/section-has-items/block.js:107
 msgid "URL"
 msgstr "URL"
 
-#: block/btn/block.js:54 block/pricing-table/block.js:80
-#: block/section-has-items/block.js:113
+#: block/btn-box/block.js:80 block/btn/block.js:57
+#: block/pricing-table/block.js:80 block/section-has-items/block.js:113
 msgid "Target"
 msgstr "Target"
 
-#: block/btn/block.js:60 block/pricing-table/block.js:85
-#: block/section-has-items/block.js:118
+#: block/btn-box/block.js:86 block/btn/block.js:63
+#: block/pricing-table/block.js:85 block/section-has-items/block.js:118
 msgid "_self"
 msgstr "_self"
 
-#: block/btn/block.js:64 block/pricing-table/block.js:89
-#: block/section-has-items/block.js:122
+#: block/btn-box/block.js:90 block/btn/block.js:67
+#: block/pricing-table/block.js:89 block/section-has-items/block.js:122
 msgid "_blank"
 msgstr "_blank"
 
-#: block/btn/block.js:76
+#: block/btn-box/block.js:119 block/pricing-table/block.js:150
+#: block/section-has-items/block.js:211
+msgid "Write lede…"
+msgstr "リード文を書く…"
+
+#: block/btn-box/block.js:143
+msgid "Write note…"
+msgstr "注釈を書く…"
+
+#: block/btn/block.js:79
 msgid "Normal button"
 msgstr "ノーマルボタン"
 
-#: block/btn/block.js:80
+#: block/btn/block.js:83
 msgid "Full button"
 msgstr "フルサイズのボタン"
 
@@ -147,17 +170,13 @@ msgstr "(%s) ボタン設定"
 
 #: block/pricing-table/block.js:131 block/section-has-bgimage/block.js:119
 #: block/section-has-image/block.js:115 block/section-has-items/block.js:158
-#: block/section-has-items/block.js:202 block/section/block.js:53
+#: block/section-has-items/block.js:203 block/section/block.js:53
 msgid "Write title…"
 msgstr "タイトルを書く…"
 
 #: block/pricing-table/block.js:140
 msgid "Write price…"
 msgstr "価格を書く…"
-
-#: block/pricing-table/block.js:150 block/section-has-items/block.js:210
-msgid "Write lede…"
-msgstr "リード文を書く…"
 
 #: block/section-has-bgimage/block.js:12
 msgid "Section (has background image)"
@@ -224,7 +243,7 @@ msgstr "セクション（項目あり）"
 msgid "Columns per row (large window)"
 msgstr "行あたりのカラム数（ラージウインドウ）"
 
-#: block/section-has-items/block.js:219
+#: block/section-has-items/block.js:220
 msgid "Write content…"
 msgstr "内容を書く…"
 
@@ -232,14 +251,23 @@ msgstr "内容を書く…"
 msgid "Section"
 msgstr "セクション"
 
+#~ msgid "Button URL"
+#~ msgstr "ボタンの URL"
+
+#~ msgid "Button Target"
+#~ msgstr "ボタンの Target"
+
+#~ msgid "Button Background Color"
+#~ msgstr "ボタンの背景色"
+
+#~ msgid "Button Text Color"
+#~ msgstr "ボタンの文字色"
+
 #~ msgid "Color Settings"
 #~ msgstr "色設定"
 
 #~ msgid "Column"
 #~ msgstr "カラム"
-
-#~ msgid "Write item…"
-#~ msgstr "項目を書く…"
 
 #~ msgid "Pricing table2"
 #~ msgstr "価格表2"
