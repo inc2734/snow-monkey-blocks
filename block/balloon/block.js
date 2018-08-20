@@ -73,7 +73,7 @@ registerBlockType('snow-monkey-awesome-custom-blocks/balloon', {
           <div className="smacb-balloon__person">
             <div className="smacb-balloon__figure">
               <MediaUpload
-                onSelect={ media => setAttributes({ avatarURL: media.url, avatarID: media.id, }) }
+                onSelect={ media => setAttributes({ avatarURL: media.sizes.thumbnail.url, avatarID: media.id }) }
                 type="image"
                 value={ avatarID }
                 render={ renderAvatar }

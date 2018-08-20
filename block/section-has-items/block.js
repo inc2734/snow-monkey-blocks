@@ -9,7 +9,7 @@ const { __, sprintf } = wp.i18n;
 
 registerBlockType('snow-monkey-awesome-custom-blocks/section-has-items', {
   title: __('Section (has items)', 'snow-monkey-awesome-custom-blocks'),
-  icon: 'warning',
+  icon: 'text',
   category: 'smacb',
   attributes: {
     title: {
@@ -187,7 +187,8 @@ registerBlockType('snow-monkey-awesome-custom-blocks/section-has-items', {
                         <div className="smacb-section-has-items__item__figure">
                           <MediaUpload
                             onSelect={ media => {
-                              setAttributes({ items: generateUpdatedAttribute(items, index, 'imageURL', media.url) });
+                              const imageURL = !! media.sizes.large ? media.sizes.large.url : media.url;
+                              setAttributes({ items: generateUpdatedAttribute(items, index, 'imageURL', imageURL) });
                               setAttributes({ items: generateUpdatedAttribute(items, index, 'imageID', media.id) });
                             } }
                             type="image"

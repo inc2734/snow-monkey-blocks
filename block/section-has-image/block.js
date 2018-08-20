@@ -123,7 +123,10 @@ registerBlockType('snow-monkey-awesome-custom-blocks/section-has-image', {
               <div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${imageColumnSize}-3` }>
                 <div className="smacb-section-has-image__figure">
                   <MediaUpload
-                    onSelect={ media => setAttributes({ imageURL: media.url, imageID: media.id, }) }
+                    onSelect={ media => {
+                      const imageURL = !! media.sizes.large ? media.sizes.large.url : media.url;
+                      setAttributes({ imageURL: imageURL, imageID: media.id, });
+                    } }
                     type="image"
                     value={ imageID }
                     render={ renderImage }
