@@ -2,7 +2,7 @@
 
 const { registerBlockType } = wp.blocks;
 const { InnerBlocks, InspectorControls, ColorPalette } = wp.editor;
-const { Button, PanelBody, BaseControl } = wp.components;
+const { Button, PanelBody, BaseControl, RangeControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -19,11 +19,15 @@ registerBlockType('snow-monkey-awesome-custom-blocks/box', {
     },
     textColor: {
       type: 'string'
+    },
+    borderWidth: {
+      type: 'number',
+      default: 1
     }
   },
 
   edit({ attributes, setAttributes }) {
-    const { backgroundColor, borderColor, textColor } = attributes;
+    const { backgroundColor, borderColor, textColor, borderWidth } = attributes;
 
     return (
       <Fragment>
@@ -49,10 +53,21 @@ registerBlockType('snow-monkey-awesome-custom-blocks/box', {
                 onChange={ value => setAttributes({ textColor: value }) }
               />
             </BaseControl>
+
+            <RangeControl
+              label={ __('Border width', 'snow-monkey-awesome-custom-blocks') }
+              value={ borderWidth }
+              onChange={ value => setAttributes({ borderWidth: value }) }
+              min="1"
+              max="5"
+            />
           </PanelBody>
         </InspectorControls>
 
-        <div className="smacb-box" style={ { backgroundColor: backgroundColor, borderColor: borderColor, color: textColor } }>
+        <div
+          className="smacb-box"
+          style={ { backgroundColor: backgroundColor, borderColor: borderColor, color: textColor, borderWidth: borderWidth } }
+          >
           <div className="smacb-box__body">
             <InnerBlocks
               allowedBlocks={ [ 'core/image', 'core/paragraph', 'core/list' ] }
@@ -64,10 +79,13 @@ registerBlockType('snow-monkey-awesome-custom-blocks/box', {
   },
 
   save({ attributes }) {
-    const { backgroundColor, borderColor, textColor } = attributes;
+    const { backgroundColor, borderColor, textColor, borderWidth } = attributes;
 
     return (
-      <div className="smacb-box" style={ { backgroundColor: backgroundColor, borderColor: borderColor, color: textColor } }>
+      <div
+        className="smacb-box"
+        style={ { backgroundColor: backgroundColor, borderColor: borderColor, color: textColor, borderWidth: borderWidth } }
+        >
         <div className="smacb-box__body">
           <InnerBlocks.Content />
         </div>
