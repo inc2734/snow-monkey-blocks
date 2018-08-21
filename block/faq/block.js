@@ -13,13 +13,22 @@ registerBlockType('snow-monkey-awesome-custom-blocks/faq', {
   category: 'smacb',
   attributes: {
     content: {
-      type: 'array',
-      default: [
-        {
-          question: [],
-          answer: [],
+      source: 'query',
+      selector: '.smacb-faq__item',
+      query: {
+        question: {
+          type: 'array',
+          source: 'children',
+          selector: '.smacb-faq__item__question',
+          default: [],
+        },
+        answer: {
+          type: 'array',
+          source: 'children',
+          selector: '.smacb-faq__item__answer',
+          default: [],
         }
-      ],
+      }
     },
     rows: {
       type: 'number',
