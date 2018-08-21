@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Awesome Custom Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2018-08-21 14:26+0900\n"
-"PO-Revision-Date: 2018-08-21 14:27+0900\n"
+"POT-Creation-Date: 2018-08-21 20:46+0900\n"
+"PO-Revision-Date: 2018-08-21 20:47+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -152,6 +152,26 @@ msgstr "ノーマルボタン"
 msgid "Full button"
 msgstr "フルサイズのボタン"
 
+#: block/faq/block.js:11
+msgid "FAQ"
+msgstr "FAQ"
+
+#: block/faq/block.js:43
+msgid "FAQ Settings"
+msgstr "FAQ 設定"
+
+#: block/faq/block.js:45 block/rating-box/block.js:46
+msgid "Rows"
+msgstr "行数"
+
+#: block/faq/block.js:64
+msgid "Write question…"
+msgstr "質問を書く…"
+
+#: block/faq/block.js:73
+msgid "Write answer…"
+msgstr "回答を書く…"
+
 #: block/pricing-table/block.js:11
 msgid "Pricing table"
 msgstr "価格表"
@@ -188,10 +208,6 @@ msgstr "レーティングボックス"
 msgid "Rating box Settings"
 msgstr "レーティングボックス設定"
 
-#: block/rating-box/block.js:46
-msgid "Rows"
-msgstr "行数"
-
 #: block/rating-box/block.js:61
 #, javascript-format
 msgid "(%d) Rating Settings"
@@ -199,7 +215,7 @@ msgstr "(%d) レーティング設定"
 
 #: block/rating-box/block.js:65
 msgid "Rating"
-msgstr ""
+msgstr "レーティング"
 
 #: block/rating-box/block.js:72
 msgid "Color"

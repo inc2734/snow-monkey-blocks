@@ -1,0 +1,42 @@
+.smacb-faq {
+  &__item {
+    border-bottom: 1px solid _lighter($_color-gray);
+    @include _padding(1, 0);
+
+    &:first-child {
+      border-top: 1px solid _lighter($_color-gray);
+    }
+
+    &__question,
+    &__answer {
+      position: relative;
+      @include _padding-left(1.25);
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        @include _font-size($_base-font-size-px * 1.5);
+        line-height: 1;
+        font-weight: normal;
+        color: $color-accent;
+      }
+    }
+
+    &__question {
+      @include _margin(0, 0, 1);
+      font-weight: bold;
+
+      &::before {
+        content: 'Q';
+      }
+    }
+
+    &__answer {
+      &::before {
+        content: 'A';
+      }
+    }
+  }
+}
