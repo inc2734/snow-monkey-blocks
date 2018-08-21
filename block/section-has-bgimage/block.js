@@ -102,7 +102,10 @@ registerBlockType('snow-monkey-awesome-custom-blocks/section-has-bgimage', {
           ) }>
           <div className="smacb-section-has-bgimage__bgimage">
             <MediaUpload
-              onSelect={ media => setAttributes({ imageURL: media.url, imageID: media.id, }) }
+              onSelect={ media => {
+                const imageURL = !! media.sizes.xlarge ? media.sizes.xlarge.url : media.url;
+                setAttributes({ imageURL: imageURL, imageID: media.id, })
+              } }
               type="image"
               value={ imageID }
               render={ renderImage }
