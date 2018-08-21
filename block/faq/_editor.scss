@@ -1,0 +1,10 @@
+.smacb-faq {
+  &__item {
+    &__question,
+    &__answer {
+      &[data-is-placeholder-visible="true"] {
+        position: absolute;
+      }
+    }
+  }
+}
