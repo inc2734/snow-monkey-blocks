@@ -31,20 +31,83 @@ registerBlockType('snow-monkey-awesome-custom-blocks/section-has-items', {
     },
     items: {
       type: 'array',
-      default: [
-        {
-          title: [],
-          lede: [],
-          summary: [],
-          btnLabel: [],
-          btnURL: '',
-          btnTarget: '',
-          btnBackgroundColor: '',
-          btnTextColor: '',
-          imageID: '',
-          imageURL: smacb.pluginURL + 'block/section-has-items/image.png',
+      source: 'query',
+      default: [],
+      selector: '.smacb-section-has-items__item',
+      query: {
+        title: {
+          type: 'array',
+          source: 'children',
+          selector: '.smacb-section-has-items__item__title',
+          default: []
+        },
+        lede: {
+          type: 'array',
+          source: 'children',
+          selector: '.smacb-section-has-items__item__lede',
+          default: []
+        },
+        summary: {
+          type: 'array',
+          source: 'children',
+          selector: '.smacb-section-has-items__item__content',
+          default: []
+        },
+        btnLabel: {
+          type: 'array',
+          source: 'children',
+          selector: '.smacb-section-has-items__item__btn > .smacb-btn__label',
+          default: []
+        },
+        btnLabel: {
+          type: 'array',
+          source: 'children',
+          selector: '.smacb-section-has-items__item__btn > .smacb-btn__label',
+          default: []
+        },
+        btnURL: {
+          type: 'string',
+          source: 'attribute',
+          selector: '.smacb-section-has-items__item__btn',
+          attribute: 'href',
+          default: ''
+        },
+        btnTarget: {
+          type: 'string',
+          source: 'attribute',
+          selector: '.smacb-section-has-items__item__btn',
+          attribute: 'target',
+          default: '_self'
+        },
+        btnBackgroundColor: {
+          type: 'string',
+          source: 'attribute',
+          selector: '.smacb-section-has-items__item__btn',
+          attribute: 'data-background-color',
+          default: ''
+        },
+        btnTextColor: {
+          type: 'string',
+          source: 'attribute',
+          selector: '.smacb-section-has-items__item__btn',
+          attribute: 'data-color',
+          default: ''
+        },
+        imageID: {
+          type: 'number',
+          source: 'attribute',
+          selector: '.smacb-section-has-items__item__figure > img',
+          attribute: 'data-image-id',
+          default: 0
+        },
+        imageURL: {
+          type: 'string',
+          source: 'attribute',
+          selector: '.smacb-section-has-items__item__figure > img',
+          attribute: 'src',
+          default: smacb.pluginURL + 'block/section-has-items/image.png'
         }
-      ]
+      }
     }
   },
   supports: {
@@ -93,10 +156,10 @@ registerBlockType('snow-monkey-awesome-custom-blocks/section-has-items', {
           </PanelBody>
 
           { times(columns, (index) => {
-            const btnURL             = get(items, [index, 'btnURL']);
-            const btnTarget          = get(items, [index, 'btnTarget']);
-            const btnBackgroundColor = get(items, [index, 'btnBackgroundColor']);
-            const btnTextColor       = get(items, [index, 'btnTextColor']);
+            const btnURL             = get(items, [index, 'btnURL'], '');
+            const btnTarget          = get(items, [index, 'btnTarget'], '_self');
+            const btnBackgroundColor = get(items, [index, 'btnBackgroundColor'], '');
+            const btnTextColor       = get(items, [index, 'btnTextColor'], '');
 
             return (
               <PanelBody
@@ -165,11 +228,11 @@ registerBlockType('snow-monkey-awesome-custom-blocks/section-has-items', {
                 const lede               = get(items, [index, 'lede'], []);
                 const summary            = get(items, [index, 'summary'], []);
                 const btnLabel           = get(items, [index, 'btnLabel'], []);
-                const btnURL             = get(items, [index, 'btnURL']);
-                const btnTarget          = get(items, [index, 'btnTarget']);
-                const btnBackgroundColor = get(items, [index, 'btnBackgroundColor']);
-                const btnTextColor       = get(items, [index, 'btnTextColor']);
-                const imageID            = get(items, [index, 'imageID']);
+                const btnURL             = get(items, [index, 'btnURL'], '');
+                const btnTarget          = get(items, [index, 'btnTarget'], '_self');
+                const btnBackgroundColor = get(items, [index, 'btnBackgroundColor'], '');
+                const btnTextColor       = get(items, [index, 'btnTextColor'], '');
+                const imageID            = get(items, [index, 'imageID'], 0);
                 const imageURL           = get(items, [index, 'imageURL'], smacb.pluginURL + 'block/section-has-items/image.png');
 
                 const renderImage = (obj) => {
@@ -229,6 +292,8 @@ registerBlockType('snow-monkey-awesome-custom-blocks/section-has-items', {
                             href={ btnURL }
                             target={ btnTarget }
                             style={ { backgroundColor: btnBackgroundColor } }
+                            data-background-color={ btnBackgroundColor }
+                            data-color={ btnTextColor }
                             >
                             <RichText
                               className="smacb-btn__label"
@@ -273,11 +338,11 @@ registerBlockType('snow-monkey-awesome-custom-blocks/section-has-items', {
               const lede               = get(items, [index, 'lede'], []);
               const summary            = get(items, [index, 'summary'], []);
               const btnLabel           = get(items, [index, 'btnLabel'], []);
-              const btnURL             = get(items, [index, 'btnURL']);
-              const btnTarget          = get(items, [index, 'btnTarget']);
-              const btnBackgroundColor = get(items, [index, 'btnBackgroundColor']);
-              const btnTextColor       = get(items, [index, 'btnTextColor']);
-              const imageID            = get(items, [index, 'imageID']);
+              const btnURL             = get(items, [index, 'btnURL'], '');
+              const btnTarget          = get(items, [index, 'btnTarget'], '_self');
+              const btnBackgroundColor = get(items, [index, 'btnBackgroundColor'], '');
+              const btnTextColor       = get(items, [index, 'btnTextColor'], '');
+              const imageID            = get(items, [index, 'imageID'], 0);
               const imageURL           = get(items, [index, 'imageURL'], smacb.pluginURL + 'block/section-has-items/image.png');
 
               return (
@@ -285,7 +350,7 @@ registerBlockType('snow-monkey-awesome-custom-blocks/section-has-items', {
                   <div className="smacb-section-has-items__item">
                     { !! imageID &&
                       <div className="smacb-section-has-items__item__figure">
-                        <img src={ imageURL } alt="" />
+                        <img src={ imageURL } alt="" data-image-id={ imageID } />
                       </div>
                     }
 
@@ -311,6 +376,8 @@ registerBlockType('snow-monkey-awesome-custom-blocks/section-has-items', {
                           href={ btnURL }
                           target={ btnTarget }
                           style={ { backgroundColor: btnBackgroundColor } }
+                          data-background-color={ btnBackgroundColor }
+                          data-color={ btnTextColor }
                           >
                           <span className="smacb-btn__label" style={ { color: btnTextColor } }>
                             { btnLabel }

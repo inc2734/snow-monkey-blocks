@@ -14,19 +14,69 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table', {
   attributes: {
     content: {
       type: 'array',
-      default: [
-        {
-          title: [],
-          price: [],
-          lede: [],
-          list: [],
-          btnLabel: [],
-          btnURL: '',
-          btnTarget: '',
-          btnBackgroundColor: '',
-          btnTextColor: '',
+      source: 'query',
+      selector: '.smacb-pricing-table__item',
+      default: [],
+      query: {
+        title: {
+          type: 'array',
+          source: 'children',
+          selector: '.smacb-pricing-table__item__title',
+          default: [],
+        },
+        price: {
+          type: 'array',
+          source: 'children',
+          selector: '.smacb-pricing-table__item__price',
+          default: [],
+        },
+        lede: {
+          type: 'array',
+          source: 'children',
+          selector: '.smacb-pricing-table__item__lede',
+          default: [],
+        },
+        list: {
+          type: 'array',
+          source: 'children',
+          selector: 'ul',
+          default: [],
+        },
+        btnLabel: {
+          type: 'array',
+          source: 'children',
+          selector: '.smacb-pricing-table__item__btn > .smacb-btn__label',
+          default: [],
+        },
+        btnURL: {
+          type: 'string',
+          source: 'attribute',
+          selector: '.smacb-pricing-table__item__btn',
+          attribute: 'href',
+          default: '',
+        },
+        btnTarget: {
+          type: 'string',
+          source: 'attribute',
+          selector: '.smacb-pricing-table__item__btn',
+          attribute: 'target',
+          default: '_self',
+        },
+        btnBackgroundColor: {
+          type: 'string',
+          source: 'attribute',
+          selector: '.smacb-pricing-table__item__btn',
+          attribute: 'data-background-color',
+          default: '',
+        },
+        btnTextColor: {
+          type: 'string',
+          source: 'attribute',
+          selector: '.smacb-pricing-table__item__btn',
+          attribute: 'data-color',
+          default: '',
         }
-      ],
+      }
     },
     columns: {
       type: 'number',
@@ -58,10 +108,10 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table', {
           </PanelBody>
 
           { times(columns, (index) => {
-            const btnURL             = get(content, [index, 'btnURL']);
-            const btnTarget          = get(content, [index, 'btnTarget']);
-            const btnBackgroundColor = get(content, [index, 'btnBackgroundColor']);
-            const btnTextColor       = get(content, [index, 'btnTextColor']);
+            const btnURL             = get(content, [index, 'btnURL'], '');
+            const btnTarget          = get(content, [index, 'btnTarget'], '_self');
+            const btnBackgroundColor = get(content, [index, 'btnBackgroundColor'], '');
+            const btnTextColor       = get(content, [index, 'btnTextColor'], '');
 
             return (
               <PanelBody
@@ -116,10 +166,10 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table', {
               const lede               = get(content, [index, 'lede'], []);
               const list               = get(content, [index, 'list'], []);
               const btnLabel           = get(content, [index, 'btnLabel'], []);
-              const btnURL             = get(content, [index, 'btnURL']);
-              const btnTarget          = get(content, [index, 'btnTarget']);
-              const btnBackgroundColor = get(content, [index, 'btnBackgroundColor']);
-              const btnTextColor       = get(content, [index, 'btnTextColor']);
+              const btnURL             = get(content, [index, 'btnURL'], '');
+              const btnTarget          = get(content, [index, 'btnTarget'], '_self');
+              const btnBackgroundColor = get(content, [index, 'btnBackgroundColor'], '');
+              const btnTextColor       = get(content, [index, 'btnTextColor'], '');
 
               return (
                 <div className="smacb-pricing-table__col">
@@ -165,6 +215,8 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table', {
                           href={ btnURL }
                           target={ btnTarget }
                           style={ { backgroundColor: btnBackgroundColor } }
+                          data-background-color={ btnBackgroundColor }
+                          data-color={ btnTextColor }
                           >
                           <RichText
                             className="smacb-btn__label"
@@ -199,10 +251,10 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table', {
             const lede               = get(content, [index, 'lede'], []);
             const list               = get(content, [index, 'list'], []);
             const btnLabel           = get(content, [index, 'btnLabel'], []);
-            const btnURL             = get(content, [index, 'btnURL']);
-            const btnTarget          = get(content, [index, 'btnTarget']);
-            const btnBackgroundColor = get(content, [index, 'btnBackgroundColor']);
-            const btnTextColor       = get(content, [index, 'btnTextColor']);
+            const btnURL             = get(content, [index, 'btnURL'], '');
+            const btnTarget          = get(content, [index, 'btnTarget'], '_self');
+            const btnBackgroundColor = get(content, [index, 'btnBackgroundColor'], '');
+            const btnTextColor       = get(content, [index, 'btnTextColor'], '');
 
             return (
               <div className="smacb-pricing-table__col">
@@ -233,6 +285,8 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table', {
                         href={ btnURL }
                         target={ btnTarget }
                         style={ { backgroundColor: btnBackgroundColor } }
+                        data-background-color={ btnBackgroundColor }
+                        data-color={ btnTextColor }
                         >
                         <span className="smacb-btn__label" style={ { color: btnTextColor } }>
                           { btnLabel }

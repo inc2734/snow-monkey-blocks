@@ -12,6 +12,9 @@ $cfs = Customizer_Framework::styles();
 $accent_color = get_theme_mod( 'accent-color' );
 
 $cfs->register(
-	[ '.smacb-faq__item__question::before', '.smacb-faq__item__answer::before' ],
+	[
+		'.smacb-faq__item__question__label',
+		'.smacb-faq__item__answer__label',
+	],
 	'color: ' . $accent_color
 );

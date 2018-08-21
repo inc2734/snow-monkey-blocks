@@ -9,34 +9,28 @@
 
     &__question,
     &__answer {
-      position: relative;
-      @include _padding-left(1.25);
+      @include _clearfix();
 
-      &::before {
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: block;
+      &__label {
+        @include _margin-right(1);
+        float: left;
         @include _font-size($_base-font-size-px * 1.5);
         line-height: 1;
         font-weight: normal;
         color: $color-accent;
+      }
+
+      &__body {
+        overflow: hidden;
       }
     }
 
     &__question {
       @include _margin(0, 0, 1);
       font-weight: bold;
-
-      &::before {
-        content: 'Q';
-      }
     }
 
     &__answer {
-      &::before {
-        content: 'A';
-      }
     }
   }
 }

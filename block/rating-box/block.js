@@ -14,13 +14,29 @@ registerBlockType('snow-monkey-awesome-custom-blocks/rating-box', {
   attributes: {
     ratings: {
       type: 'array',
-      default: [
-        {
-          title: [],
-          rating: 0,
-          color: '',
-        }
-      ],
+      source: 'query',
+      selector: '.smacb-rating-box__item',
+      default: [],
+      query: {
+        title: {
+          type: 'array',
+          source: 'children',
+          selector: '.smacb-rating-box__item__title',
+          default: [],
+        },
+        rating: {
+          type: 'number',
+          source: 'attribute',
+          attribute: 'data-rating',
+          default: 0
+        },
+        color: {
+          type: 'string',
+          source: 'attribute',
+          attribute: 'data-color',
+          default: ''
+        },
+      }
     },
     rows: {
       type: 'number',
@@ -88,7 +104,7 @@ registerBlockType('snow-monkey-awesome-custom-blocks/rating-box', {
               const color  = get(ratings, [index, 'color'], '');
 
               return (
-                <div className="smacb-rating-box__item">
+                <div className="smacb-rating-box__item" data-rating={ rating } data-color={ color }>
                   <RichText
                     className="smacb-rating-box__item__title"
                     placeholder={ __('Write title…', 'snow-monkey-awesome-custom-blocks') }
@@ -127,7 +143,7 @@ registerBlockType('snow-monkey-awesome-custom-blocks/rating-box', {
             const color  = get(ratings, [index, 'color'], '');
 
             return (
-              <div className="smacb-rating-box__item">
+              <div className="smacb-rating-box__item" data-rating={ rating } data-color={ color }>
                 <div className="smacb-rating-box__item__title" >
                   { title }
                 </div>

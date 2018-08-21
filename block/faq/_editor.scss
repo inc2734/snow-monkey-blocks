@@ -2,8 +2,8 @@
   &__item {
     &__question,
     &__answer {
-      &[data-is-placeholder-visible="true"] {
-        position: absolute;
+      .editor-rich-text {
+        overflow: hidden;
       }
     }
   }
