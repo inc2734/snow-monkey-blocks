@@ -1,7 +1,5 @@
 'use strict';
 
-import classnames from 'classnames';
-
 const { get, times } = lodash;
 const { registerBlockType } = wp.blocks;
 const { RichText, InspectorControls, ColorPalette } = wp.editor;
@@ -67,7 +65,7 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table', {
 
             return (
               <PanelBody
-                title={ sprintf( __('(%s) Button Settings', 'snow-monkey-awesome-custom-blocks'), index + 1) }
+                title={ sprintf( __('(%d) Button Settings', 'snow-monkey-awesome-custom-blocks'), index + 1) }
                 initialOpen={ false }
                 >
                 <TextControl
@@ -110,7 +108,7 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table', {
           } ) }
         </InspectorControls>
 
-        <div className={ classnames('smacb-pricing-table', [`smacb-pricing-table--${columns}`]) }>
+        <div className={ `smacb-pricing-table smacb-pricing-table--${columns}` }>
           <div className="smacb-pricing-table__row">
             { times(columns, (index) => {
               const title              = get(content, [index, 'title'], []);
@@ -193,7 +191,7 @@ registerBlockType('snow-monkey-awesome-custom-blocks/pricing-table', {
     const { content, columns } = attributes;
 
     return (
-      <div className={ classnames('smacb-pricing-table', [`smacb-pricing-table--${columns}`]) }>
+      <div className={ `smacb-pricing-table smacb-pricing-table--${columns}` }>
         <div className="smacb-pricing-table__row">
           { times(columns, (index) => {
             const title              = get(content, [index, 'title'], []);

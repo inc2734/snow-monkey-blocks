@@ -1,0 +1,42 @@
+.smacb-rating-box {
+  &__body {}
+
+  &__item {
+    &:not(:first-child) {
+      @include _padding-top(.5);
+    }
+
+    &__title {
+      font-weight: bold;
+    }
+
+    &__evaluation {
+      &__bar,
+      &__rating {
+        height: 10px;
+        border-radius: 3px;
+      }
+
+      &__bar {
+        position: relative;
+        background-color: _lighter($_color-gray);
+      }
+
+      &__rating {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #f9bb2d;
+      }
+
+      &__numeric {
+        position: absolute;
+        top: $_base-font-size-px * -1;
+        right: 0;
+        @include _font-size($_base-font-size-px - 4);
+        line-height: 1;
+        color: $_color-gray;
+      }
+    }
+  }
+}

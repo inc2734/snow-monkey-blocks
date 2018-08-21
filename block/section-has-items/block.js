@@ -100,7 +100,7 @@ registerBlockType('snow-monkey-awesome-custom-blocks/section-has-items', {
 
             return (
               <PanelBody
-                title={ sprintf( __('(%s) Button Settings', 'snow-monkey-awesome-custom-blocks'), index + 1) }
+                title={ sprintf( __('(%d) Button Settings', 'snow-monkey-awesome-custom-blocks'), index + 1) }
                 initialOpen={ false }
                 >
                 <TextControl
