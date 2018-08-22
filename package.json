@@ -26,7 +26,7 @@
     "clean:zip": "rimraf snow-monkey-awesome-custom-blocks.zip",
     "build": "npm-run-all -p css js",
     "prepublish": "npm run build",
-    "lint": "./node_modules/.bin/eslint .", 
+    "lint": "./node_modules/.bin/eslint .",
     "minify:css:front": "cssnano dist/css/blocks.css dist/css/blocks.min.css --no-zindex",
     "minify:css:editor": "cssnano dist/css/blocks-editor.css dist/css/blocks-editor.min.css --no-zindex",
     "css:front:sass": "node-sass --include-path=node_modules/node-normalize-scss src/css/blocks.scss -o dist/css",
