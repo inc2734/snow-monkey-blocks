@@ -12,3 +12,4 @@ import '../../block/section-has-items/block.js';
 import '../../block/btn-box/block.js';
 import '../../block/rating-box/block.js';
 import '../../block/faq/block.js';
+import '../../block/step/block.js';

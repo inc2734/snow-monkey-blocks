@@ -1,0 +1,5 @@
+.smacb-step__item__title {
+  &[data-is-placeholder-visible="true"] {
+    position: absolute;
+  }
+}
