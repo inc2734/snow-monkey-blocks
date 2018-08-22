@@ -7,6 +7,8 @@ const { PanelBody, RangeControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const { __, sprintf } = wp.i18n;
 
+console.log(wp.editor);
+
 registerBlockType('snow-monkey-awesome-custom-blocks/faq', {
   title: __('FAQ', 'snow-monkey-awesome-custom-blocks'),
   icon: 'businessman',
@@ -134,7 +136,6 @@ registerBlockType('snow-monkey-awesome-custom-blocks/faq', {
                       className="smacb-faq__item__answer__body"
                       placeholder={ __('Write answer…', 'snow-monkey-awesome-custom-blocks') }
                       value={ answer }
-                      formattingControls={ [] }
                       multiline="p"
                       onChange={ value => setAttributes({ content: generateUpdatedAttribute(content, index, 'answer', value) }) }
                     />

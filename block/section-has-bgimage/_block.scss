@@ -93,10 +93,4 @@
   &--wide {
     min-height: 75vh;
   }
-
-  [data-is-fluid-template="false"] &:not(.alignfull) {
-    > .#{$_prefix}c-container {
-      @include _padding(0, 1);
-    }
-  }
 }

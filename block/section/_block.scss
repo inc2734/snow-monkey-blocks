@@ -5,13 +5,6 @@
     @include section-title();
   }
 
-  [data-is-fluid-template="false"] &:not(.alignfull) {
-    > .#{$_prefix}c-container {
-      padding-right: 0;
-      padding-left: 0;
-    }
-  }
-
   &__body {
     @include entry-content();
   }
