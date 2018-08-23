@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Awesome Custom Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2018-08-22 14:55+0900\n"
-"PO-Revision-Date: 2018-08-22 14:55+0900\n"
+"POT-Creation-Date: 2018-08-23 11:44+0900\n"
+"PO-Revision-Date: 2018-08-23 11:44+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -80,7 +80,6 @@ msgstr "ボックス設定"
 #: block/btn/block.js:92 block/pricing-table/block.js:143
 #: block/section-has-image/block.js:97 block/section-has-items/block.js:144
 #: block/section-has-items/block.js:185 block/section/block.js:36
-#: dist/js/blocks-build.js:12
 msgid "Background Color"
 msgstr "背景色"
 
@@ -136,7 +135,7 @@ msgid "_blank"
 msgstr "_blank"
 
 #: block/btn-box/block.js:122 block/pricing-table/block.js:198
-#: block/section-has-items/block.js:268
+#: block/section-has-items/block.js:268 block/testimonial/block.js:142
 msgid "Write lede…"
 msgstr "リード文を書く…"
 
@@ -161,6 +160,7 @@ msgid "FAQ Settings"
 msgstr "FAQ 設定"
 
 #: block/faq/block.js:70 block/rating-box/block.js:62 block/step/block.js:56
+#: dist/js/blocks-build.js:12
 msgid "Rows"
 msgstr "行数"
 
@@ -194,6 +194,7 @@ msgid "Columns Settings"
 msgstr "カラム設定"
 
 #: block/pricing-table/block.js:102 block/section-has-items/block.js:129
+#: block/testimonial/block.js:79
 msgid "Columns"
 msgstr "カラム"
 
@@ -239,7 +240,7 @@ msgid "Section (has background image)"
 msgstr "セクション（背景画像あり）"
 
 #: block/section-has-bgimage/block.js:58 block/section-has-image/block.js:64
-#: block/section/block.js:35 dist/js/blocks-build.js:12
+#: block/section/block.js:35
 msgid "Section Settings"
 msgstr "セクション設定"
 
@@ -260,7 +261,6 @@ msgid "Contents alignment"
 msgstr "コンテンツの水平位置"
 
 #: block/section-has-bgimage/block.js:81 block/section-has-image/block.js:75
-#: dist/js/blocks-build.js:12
 msgid "Left side"
 msgstr "左側"
 
@@ -269,27 +269,26 @@ msgid "Center"
 msgstr "中央"
 
 #: block/section-has-bgimage/block.js:89 block/section-has-image/block.js:71
-#: dist/js/blocks-build.js:12
 msgid "Right side"
 msgstr "右側"
 
-#: block/section-has-image/block.js:12 dist/js/blocks-build.js:12
+#: block/section-has-image/block.js:12
 msgid "Section (has image)"
 msgstr "セクション（画像あり）"
 
-#: block/section-has-image/block.js:66 dist/js/blocks-build.js:12
+#: block/section-has-image/block.js:66
 msgid "Image Position"
 msgstr "画像の位置"
 
-#: block/section-has-image/block.js:82 dist/js/blocks-build.js:12
+#: block/section-has-image/block.js:82
 msgid "Image Column Size"
 msgstr "画像カラムのサイズ"
 
-#: block/section-has-image/block.js:87 dist/js/blocks-build.js:12
+#: block/section-has-image/block.js:87
 msgid "75%"
 msgstr "75%"
 
-#: block/section-has-image/block.js:91 dist/js/blocks-build.js:12
+#: block/section-has-image/block.js:91
 msgid "33%"
 msgstr "33%"
 
@@ -302,6 +301,7 @@ msgid "Columns per row (large window)"
 msgstr "行あたりのカラム数（ラージウインドウ）"
 
 #: block/section-has-items/block.js:277 block/step/block.js:84
+#: block/testimonial/block.js:127 dist/js/blocks-build.js:12
 msgid "Write content…"
 msgstr "内容を書く…"
 
@@ -309,13 +309,25 @@ msgstr "内容を書く…"
 msgid "Section"
 msgstr "セクション"
 
-#: block/step/block.js:11
+#: block/step/block.js:11 dist/js/blocks-build.js:12
 msgid "Step"
 msgstr "ステップ"
 
-#: block/step/block.js:54
+#: block/step/block.js:54 dist/js/blocks-build.js:12
 msgid "Step Settings"
 msgstr "ステップ設定"
+
+#: block/testimonial/block.js:11
+msgid "Testimonial"
+msgstr "お客様の声"
+
+#: block/testimonial/block.js:77
+msgid "Testimonial Settings"
+msgstr "お客様の声の設定"
+
+#: block/testimonial/block.js:134
+msgid "Write name…"
+msgstr "名前を書く…"
 
 #~ msgid "Button URL"
 #~ msgstr "ボタンの URL"
