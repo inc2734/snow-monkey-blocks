@@ -1,40 +1,65 @@
 .smacb-step {
-  counter-reset: step;
-
   &__item {
-    counter-increment: step;
-
     &:not(:first-child) {
       @include _margin-top(1.5);
     }
 
     &__title {
-      position: relative;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
       @include _margin-bottom(1);
       font-weight: bold;
-      @include _padding-left(2);
 
-      &::before {
-        position: absolute;
-        top: (($_base-font-size-px - 2) / 2 * -1);
-        left: 0;
-        content: counter(step);
-        @include _circle($_base-font-size-px * 2.5);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: $_color-text;
-        color: #fff;
-        font-weight: normal;
-        @include _font-size($_base-font-size-px - 4);
-        line-height: 1;
+      > .smacb-step__item__number {
+        @include _margin-right(.5);
+        flex: 0 0 ($_base-font-size-px * 2.5);
+      }
+
+      > span {
+        flex: 1 1 auto;
       }
     }
 
-    &__summary {
+    &__number {
+      @include _circle($_base-font-size-px * 2.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $_color-text;
+      color: #fff;
+      font-weight: normal;
+      @include _font-size($_base-font-size-px - 4);
+      line-height: 1;
+    }
+
+    &__body {
       @include _margin-left($_base-font-size-px * 2.5 / 2);
       @include _padding-left(1.25);
       border-left: 1px dotted _light($_color-gray);
+    }
+
+    &__summary {
+      @include content();
+    }
+
+    &__link {
+      @include _margin-top(1);
+      display: inline-flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+
+      &__label {
+        color: $color-accent;
+        text-decoration: underline;
+      }
+
+      .fa-arrow-circle-right {
+        margin-right: .75rem;
+        color: $color-accent;
+      }
     }
   }
 }

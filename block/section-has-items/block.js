@@ -280,7 +280,7 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/section-has-items', {
 												/>
 											}
 
-											{ ( btnLabel.length > 0 || !! btnURL || isSelected ) &&
+											{ ( ( btnLabel.length > 0 && !! btnURL ) || isSelected ) &&
 												<div className="smacb-section-has-items__item__action">
 													<span className="smacb-section-has-items__item__btn smacb-btn"
 														href={ btnURL }
@@ -364,7 +364,7 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/section-has-items', {
 										</div>
 										}
 
-										{ ( btnLabel.length > 0 || btnURL ) &&
+										{ btnLabel.length > 0 && btnURL &&
 										<div className="smacb-section-has-items__item__action">
 											<a className="smacb-section-has-items__item__btn smacb-btn"
 												href={ btnURL }

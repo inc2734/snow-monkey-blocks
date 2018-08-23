@@ -2,10 +2,10 @@
 
 const { get, times } = lodash;
 const { registerBlockType } = wp.blocks;
-const { RichText, InspectorControls } = wp.editor;
-const { PanelBody, RangeControl } = wp.components;
+const { RichText, InspectorControls, ColorPalette } = wp.editor;
+const { PanelBody, RangeControl, SelectControl, TextControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
-const { __ } = wp.i18n;
+const { __, sprintf } = wp.i18n;
 
 registerBlockType( 'snow-monkey-awesome-custom-blocks/step', {
 	title: __( 'Step', 'snow-monkey-awesome-custom-blocks' ),
@@ -21,7 +21,7 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/step', {
 				title: {
 					type: 'array',
 					source: 'children',
-					selector: '.smacb-step__item__title',
+					selector: '.smacb-step__item__title > span',
 					default: [],
 				},
 				summary: {
@@ -29,6 +29,33 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/step', {
 					source: 'children',
 					selector: '.smacb-step__item__summary',
 					default: [],
+				},
+				numberColor: {
+					type: 'string',
+					source: 'attribute',
+					selector: '.smacb-step__item__number',
+					attribute: 'data-number-color',
+					default: null,
+				},
+				linkLabel: {
+					type: 'array',
+					source: 'children',
+					selector: '.smacb-step__item__link__label',
+					default: [],
+				},
+				linkURL: {
+					type: 'string',
+					source: 'attribute',
+					selector: '.smacb-step__item__link',
+					attribute: 'href',
+					default: '',
+				},
+				linkTarget: {
+					type: 'string',
+					source: 'attribute',
+					selector: '.smacb-step__item__link',
+					attribute: 'target',
+					default: '_self',
 				},
 			},
 		},
@@ -38,7 +65,7 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/step', {
 		},
 	},
 
-	edit( { attributes, setAttributes } ) {
+	edit( { attributes, setAttributes, isSelected } ) {
 		const { rows, content } = attributes;
 
 		const generateUpdatedAttribute = ( parent, index, attribute, value ) => {
@@ -60,6 +87,48 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/step', {
 							max="50"
 						/>
 					</PanelBody>
+
+					{ times( rows, ( index ) => {
+						const numberColor = get( content, [ index, 'numberColor' ], null );
+						const linkURL = get( content, [ index, 'linkURL' ], '' );
+						const linkTarget = get( content, [ index, 'linkTarget' ], '_self' );
+
+						return (
+							<PanelBody
+								title={ sprintf( __( 'STEP.%d Settings', 'snow-monkey-awesome-custom-blocks' ), index + 1 ) }
+								initialOpen={ false }
+							>
+								<BaseControl label={ __( 'Number Color', 'snow-monkey-awesome-custom-blocks' ) }>
+									<ColorPalette
+										value={ numberColor }
+										onChange={ ( value ) => setAttributes( { content: generateUpdatedAttribute( content, index, 'numberColor', value ) } ) }
+									/>
+								</BaseControl>
+
+								<TextControl
+									label={ __( 'Link URL', 'snow-monkey-awesome-custom-blocks' ) }
+									value={ linkURL }
+									onChange={ ( value ) => setAttributes( { content: generateUpdatedAttribute( content, index, 'linkURL', value ) } ) }
+								/>
+
+								<SelectControl
+									label={ __( 'Link Target', 'snow-monkey-awesome-custom-blocks' ) }
+									value={ linkTarget }
+									options={ [
+										{
+											value: '_self',
+											label: __( '_self', 'snow-monkey-awesome-custom-blocks' ),
+										},
+										{
+											value: '_blank',
+											label: __( '_blank', 'snow-monkey-awesome-custom-blocks' ),
+										},
+									] }
+									onChange={ ( value ) => setAttributes( { content: generateUpdatedAttribute( content, index, 'linkTarget', value ) } ) }
+								/>
+							</PanelBody>
+						);
+					} ) }
 				</InspectorControls>
 
 				<div className="smacb-step">
@@ -67,25 +136,51 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/step', {
 						{ times( rows, ( index ) => {
 							const title = get( content, [ index, 'title' ], [] );
 							const summary = get( content, [ index, 'summary' ], [] );
+							const numberColor = get( content, [ index, 'numberColor' ], null );
+							const linkURL = get( content, [ index, 'linkURL' ], '' );
+							const linkTarget = get( content, [ index, 'linkTarget' ], '_self' );
+							const linkLabel = get( content, [ index, 'linkLabel' ], [] );
 
 							return (
 								<div className="smacb-step__item">
-									<RichText
-										className="smacb-step__item__title"
-										placeholder={ __( 'Write title…', 'snow-monkey-awesome-custom-blocks' ) }
-										value={ title }
-										formattingControls={ [] }
-										multiline={ false }
-										onChange={ ( value ) => setAttributes( { content: generateUpdatedAttribute( content, index, 'title', value ) } ) }
-									/>
+									<div className="smacb-step__item__title">
+										<div className="smacb-step__item__number" data-number-color={ numberColor } style={ { backgroundColor: numberColor } }>
+											{ index + 1 }
+										</div>
+										<span>
+											<RichText
+												placeholder={ __( 'Write title…', 'snow-monkey-awesome-custom-blocks' ) }
+												value={ title }
+												formattingControls={ [] }
+												multiline={ false }
+												onChange={ ( value ) => setAttributes( { content: generateUpdatedAttribute( content, index, 'title', value ) } ) }
+											/>
+										</span>
+									</div>
 
-									<RichText
-										className="smacb-step__item__summary"
-										placeholder={ __( 'Write content…', 'snow-monkey-awesome-custom-blocks' ) }
-										value={ summary }
-										multiline="p"
-										onChange={ ( value ) => setAttributes( { content: generateUpdatedAttribute( content, index, 'summary', value ) } ) }
-									/>
+									<div className="smacb-step__item__body">
+										<RichText
+											className="smacb-step__item__summary"
+											placeholder={ __( 'Write content…', 'snow-monkey-awesome-custom-blocks' ) }
+											value={ summary }
+											multiline="p"
+											onChange={ ( value ) => setAttributes( { content: generateUpdatedAttribute( content, index, 'summary', value ) } ) }
+										/>
+
+										{ ( ( linkLabel.length > 0 && !! linkURL ) || isSelected ) &&
+											<span className="smacb-step__item__link" href={ linkURL } target={ linkTarget }>
+												<i className="fas fa-arrow-circle-right" />
+												<RichText
+													className="smacb-step__item__link__label"
+													placeholder={ __( 'Link text', 'snow-monkey-awesome-custom-blocks' ) }
+													value={ linkLabel }
+													formattingControls={ [] }
+													multiline={ false }
+													onChange={ ( value ) => setAttributes( { content: generateUpdatedAttribute( content, index, 'linkLabel', value ) } ) }
+												/>
+											</span>
+										}
+									</div>
 								</div>
 							);
 						} ) }
@@ -104,14 +199,34 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/step', {
 					{ times( rows, ( index ) => {
 						const title = get( content, [ index, 'title' ], [] );
 						const summary = get( content, [ index, 'summary' ], [] );
+						const numberColor = get( content, [ index, 'numberColor' ], null );
+						const linkURL = get( content, [ index, 'linkURL' ], '' );
+						const linkTarget = get( content, [ index, 'linkTarget' ], '_self' );
+						const linkLabel = get( content, [ index, 'linkLabel' ], [] );
 
 						return (
 							<div className="smacb-step__item">
 								<div className="smacb-step__item__title">
-									{ title }
+									<div className="smacb-step__item__number" data-number-color={ numberColor } style={ { backgroundColor: numberColor } }>
+										{ index + 1 }
+									</div>
+									<span>
+										{ title }
+									</span>
 								</div>
-								<div className="smacb-step__item__summary">
-									{ summary }
+								<div className="smacb-step__item__body">
+									<div className="smacb-step__item__summary">
+										{ summary }
+									</div>
+
+									{ linkLabel.length > 0 && !! linkURL &&
+										<a className="smacb-step__item__link" href={ linkURL } target={ linkTarget }>
+											<i className="fas fa-arrow-circle-right" />
+											<span className="smacb-step__item__link__label">
+												{ linkLabel }
+											</span>
+										</a>
+									}
 								</div>
 							</div>
 						);
