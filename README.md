@@ -8,10 +8,18 @@
 
 * Alert
 * Balloon
-* Button
 * Box
+* Button
+* Button box
+* FAQ
 * Pricing table
+* Rating box
 * Section
+* Section ( has background image )
+* Section ( has image )
+* Section ( has items )
+* Step
+* Testimonial
 
 ## How to use
 
