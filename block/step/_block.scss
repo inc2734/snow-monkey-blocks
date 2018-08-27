@@ -1,5 +1,18 @@
 .smacb-step {
   &__item {
+    position: relative;
+    @include _padding-left(1.25);
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: ($_base-font-size-px * 3.5);
+      bottom: 0;
+      left: ($_base-font-size-px * 2.5 / 2);
+      border-left: 1px dotted _light($_color-gray);
+    }
+
     &:not(:first-child) {
       @include _margin-top(1.5);
     }
@@ -9,6 +22,7 @@
       flex-direction: row;
       flex-wrap: nowrap;
       align-items: center;
+      @include _margin-left(-1.25);
       @include _margin-bottom(1);
       font-weight: bold;
 
@@ -35,9 +49,6 @@
     }
 
     &__body {
-      @include _margin-left($_base-font-size-px * 2.5 / 2);
-      @include _padding-left(1.25);
-      border-left: 1px dotted _light($_color-gray);
     }
 
     &__summary {
@@ -59,6 +70,49 @@
       .fa-arrow-circle-right {
         margin-right: .75rem;
         color: $color-accent;
+      }
+    }
+
+    &--image-left,
+    &--image-right {
+      overflow: hidden;
+
+      .smacb-step__item__figure {
+        @include _media-min(md) {
+          max-width: 33%;
+        }
+      }
+
+      .smacb-step__item__body {
+        overflow: hidden;
+      }
+    }
+
+    &--image-left {
+      .smacb-step__item__figure {
+        @include _margin-bottom(.5);
+
+        @include _media-min(md) {
+          float: left;
+          @include _margin-right(1);
+        }
+      }
+    }
+
+    &--image-center {
+      .smacb-step__item__figure {
+        @include _margin-bottom(.5);
+      }
+    }
+
+    &--image-right {
+      .smacb-step__item__figure {
+        @include _margin-bottom(.5);
+
+        @include _media-min(md) {
+          float: right;
+          @include _margin-left(1);
+        }
       }
     }
   }
