@@ -6,10 +6,5 @@
 
   &__body {
     @include content(.75);
-
-    // Gutenberg
-    > .editor-rich-text .editor-rich-text__tinymce {
-      @include content(.75); // = wpac-box__body
-    }
   }
 }

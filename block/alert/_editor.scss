@@ -1,0 +1,25 @@
+@import 'settings';
+
+.smacb-alert {
+  &--warning {
+    &__body {
+      > * {
+        color: adjust-hue(darken(desaturate($alert-color, 60%), 60%), -30deg); // = .smacb-alert--warning
+      }
+    }
+  }
+
+  &--success {
+    &__body {
+      > * {
+        color: adjust-hue(darken(desaturate($alert-color, 70%), 70%), 40deg); // = .smacb-alert--success
+      }
+    }
+  }
+
+  &__body {
+    > * {
+      color: darken(desaturate($alert-color, 60%), 60%); // = .smacb-alert
+    }
+  }
+}

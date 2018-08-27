@@ -1,48 +1,38 @@
+@import 'settings';
+
 .smacb-alert {
-  $color: #fff9e6;
   @include _alert();
-  background-color: $color;
-  border: 1px solid darken(desaturate($color, 10%), 10%);
+  background-color: $alert-color;
+  border: 1px solid darken(desaturate($alert-color, 10%), 10%);
   border-radius: $_border-radius;
-  color: darken(desaturate($color, 60%), 60%);
+  color: darken(desaturate($alert-color, 60%), 60%);
   @include _padding(.5);
 
   &--warning {
-    background-color: adjust-hue($color, -30deg);
-    border-color: adjust-hue(darken(desaturate($color, 10%), 10%), -30deg);
-    color: adjust-hue(darken(desaturate($color, 60%), 60%), -30deg);
-
-    &__body {
-      // Gutenberg
-      > .editor-rich-text .editor-rich-text__tinymce > * {
-        color: adjust-hue(darken(desaturate($color, 60%), 60%), -30deg); // = .smacb-alert--warning
-      }
-    }
+    background-color: adjust-hue($alert-color, -30deg);
+    border-color: adjust-hue(darken(desaturate($alert-color, 10%), 10%), -30deg);
+    color: adjust-hue(darken(desaturate($alert-color, 60%), 60%), -30deg);
   }
 
   &--success {
-    background-color: adjust-hue($color, 40deg);
-    border-color: adjust-hue(darken(desaturate($color, 15%), 15%), 40deg);
-    color: adjust-hue(darken(desaturate($color, 70%), 70%), 40deg);
-
-    &__body {
-      // Gutenberg
-      > .editor-rich-text .editor-rich-text__tinymce > * {
-        color: adjust-hue(darken(desaturate($color, 70%), 70%), 40deg); // = .smacb-alert--success
-      }
-    }
+    background-color: adjust-hue($alert-color, 40deg);
+    border-color: adjust-hue(darken(desaturate($alert-color, 15%), 15%), 40deg);
+    color: adjust-hue(darken(desaturate($alert-color, 70%), 70%), 40deg);
   }
 
   &__body {
     @include content(.75);
+  }
 
-    // Gutenberg
-    > .editor-rich-text .editor-rich-text__tinymce {
-      @include content(.75); // = wpac-alert__body
+  &__title {
+    @include _margin-bottom(.25);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
 
-      > * {
-        color: darken(desaturate($color, 60%), 60%); // = .smacb-alert
-      }
+    .svg-inline--fa {
+      margin-right: 5px;
     }
   }
 }

@@ -13,6 +13,12 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/alert', {
 	icon: 'warning',
 	category: 'smacb',
 	attributes: {
+		title: {
+			type: 'array',
+			source: 'children',
+			selector: '.smacb-alert__title strong',
+			default: [],
+		},
 		content: {
 			type: 'array',
 			source: 'children',
@@ -25,8 +31,8 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/alert', {
 		},
 	},
 
-	edit( { attributes, setAttributes } ) {
-		const { content, modifier } = attributes;
+	edit( { attributes, setAttributes, isSelected } ) {
+		const { title, content, modifier } = attributes;
 
 		return (
 			<Fragment>
@@ -54,24 +60,45 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/alert', {
 					</PanelBody>
 				</InspectorControls>
 				<div className={ classnames( 'smacb-alert', { [ `smacb-alert--${ modifier }` ]: !! modifier } ) }>
-					<div className="smacb-alert__body">
-						<RichText
-							tagName="div"
-							multiline="p"
-							value={ content }
-							onChange={ ( value ) => setAttributes( { content: value } ) }
-						/>
-					</div>
+					{ ( 0 < title.length || isSelected ) &&
+						<div className="smacb-alert__title">
+							<i className="fas fa-exclamation-circle" />
+							<strong>
+								<RichText
+									multiline={ false }
+									value={ title }
+									placeholder={ __( 'Write title…', 'snow-monkey-awesome-custom-blocks' ) }
+									onChange={ ( value ) => setAttributes( { title: value } ) }
+								/>
+							</strong>
+						</div>
+					}
+
+					<RichText
+						className="smacb-alert__body"
+						multiline="p"
+						value={ content }
+						onChange={ ( value ) => setAttributes( { content: value } ) }
+					/>
 				</div>
 			</Fragment>
 		);
 	},
 
 	save( { attributes } ) {
-		const { content, modifier } = attributes;
+		const { title, content, modifier } = attributes;
 
 		return (
 			<div className={ classnames( 'smacb-alert', { [ `smacb-alert--${ modifier }` ]: !! modifier } ) }>
+				{ 0 < title.length &&
+					<div className="smacb-alert__title">
+						<i className="fas fa-exclamation-circle" />
+						<strong>
+							{ title }
+						</strong>
+					</div>
+				}
+
 				<div className="smacb-alert__body">
 					{ content }
 				</div>
