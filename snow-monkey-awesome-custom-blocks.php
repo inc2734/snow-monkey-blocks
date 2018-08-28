@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin name: Snow Monkey Awesome Custom Blocks
- * Version: 0.7.1
+ * Version: 0.7.2
  * Text Domain: snow-monkey-awesome-custom-blocks
  * Domain Path: /languages/
  *
