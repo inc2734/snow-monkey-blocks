@@ -8,7 +8,7 @@ const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
 registerBlockType( 'snow-monkey-awesome-custom-blocks/list', {
-	title: __( 'List', 'snow-monkey-awesome-custom-blocks' ),
+	title: __( 'Icon list', 'snow-monkey-awesome-custom-blocks' ),
 	description: __( 'Icons are displayed only on the actual screen.', 'snow-monkey-awesome-custom-blocks' ),
 	icon: 'editor-ul',
 	category: 'smacb',
