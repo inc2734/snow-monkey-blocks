@@ -72,9 +72,7 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/box', {
 					style={ { backgroundColor: backgroundColor, borderColor: borderColor, color: textColor, borderWidth: borderWidth } }
 				>
 					<div className="smacb-box__body">
-						<InnerBlocks
-							allowedBlocks={ [ 'core/image', 'core/paragraph', 'core/list' ] }
-						/>
+						<InnerBlocks />
 					</div>
 				</div>
 			</Fragment>
