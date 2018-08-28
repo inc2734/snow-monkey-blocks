@@ -11,3 +11,7 @@
   @import '../../block/faq/editor';
   @import '../../block/list/editor';
 }
+
+.edit-post-sidebar {
+  @import '../../block/list/editor-components';
+}

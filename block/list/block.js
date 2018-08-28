@@ -1,8 +1,9 @@
 'use strict';
 
+const { times } = lodash;
 const { registerBlockType } = wp.blocks;
 const { RichText, InspectorControls, ColorPalette } = wp.editor;
-const { PanelBody, SelectControl, BaseControl } = wp.components;
+const { PanelBody, BaseControl, Button } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -51,58 +52,71 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/list', {
 			return _content;
 		};
 
+		const iconList = [
+			{
+				value: 'angle-right',
+				label: __( 'angle-right', 'snow-monkey-awesome-custom-blocks' ),
+			},
+			{
+				value: 'angle-double-right',
+				label: __( 'angle-double-right', 'snow-monkey-awesome-custom-blocks' ),
+			},
+			{
+				value: 'arrow-alt-circle-right',
+				label: __( 'arrow-alt-circle-right', 'snow-monkey-awesome-custom-blocks' ),
+			},
+			{
+				value: 'arrow-right',
+				label: __( 'arrow-right', 'snow-monkey-awesome-custom-blocks' ),
+			},
+			{
+				value: 'check',
+				label: __( 'check', 'snow-monkey-awesome-custom-blocks' ),
+			},
+			{
+				value: 'check-circle',
+				label: __( 'check-circle', 'snow-monkey-awesome-custom-blocks' ),
+			},
+			{
+				value: 'check-square',
+				label: __( 'check-square', 'snow-monkey-awesome-custom-blocks' ),
+			},
+			{
+				value: 'chevron-circle-right',
+				label: __( 'chevron-circle-right', 'snow-monkey-awesome-custom-blocks' ),
+			},
+			{
+				value: 'hand-point-right',
+				label: __( 'hand-point-right', 'snow-monkey-awesome-custom-blocks' ),
+			},
+		];
+
 		return (
 			<Fragment>
 				<InspectorControls>
 					<PanelBody title={ __( 'List Settings', 'snow-monkey-awesome-custom-blocks' ) }>
-						<SelectControl
-							label={ __( 'Icon', 'snow-monkey-awesome-custom-blocks' ) }
-							value={ icon }
-							onChange={ ( value ) => {
-								setAttributes( { icon: value } );
+						<BaseControl label={ __( 'Icon', 'snow-monkey-awesome-custom-blocks' ) }>
+							<div className="smacb-list-icon-selector">
+								{ times( iconList.length, ( index ) => {
+									const value = iconList[ index ].value;
 
-								const _content = generateContentWidthIcon( content, value, iconColor );
-								setAttributes( { content: _content } );
-							} }
-							options={ [
-								{
-									value: 'angle-right',
-									label: __( 'angle-right', 'snow-monkey-awesome-custom-blocks' ),
-								},
-								{
-									value: 'angle-double-right',
-									label: __( 'angle-double-right', 'snow-monkey-awesome-custom-blocks' ),
-								},
-								{
-									value: 'arrow-alt-circle-right',
-									label: __( 'arrow-alt-circle-right', 'snow-monkey-awesome-custom-blocks' ),
-								},
-								{
-									value: 'arrow-right',
-									label: __( 'arrow-right', 'snow-monkey-awesome-custom-blocks' ),
-								},
-								{
-									value: 'check',
-									label: __( 'check', 'snow-monkey-awesome-custom-blocks' ),
-								},
-								{
-									value: 'check-circle',
-									label: __( 'check-circle', 'snow-monkey-awesome-custom-blocks' ),
-								},
-								{
-									value: 'check-square',
-									label: __( 'check-square', 'snow-monkey-awesome-custom-blocks' ),
-								},
-								{
-									value: 'chevron-circle-right',
-									label: __( 'chevron-circle-right', 'snow-monkey-awesome-custom-blocks' ),
-								},
-								{
-									value: 'hand-point-right',
-									label: __( 'hand-point-right', 'snow-monkey-awesome-custom-blocks' ),
-								},
-							] }
-						/>
+									return (
+										<Button
+											isDefault
+											isPrimary={ icon === value }
+											onClick={ () => {
+												setAttributes( { icon: value } );
+
+												const _content = generateContentWidthIcon( content, value, iconColor );
+												setAttributes( { content: _content } );
+											} }
+										>
+											<i className={ `fas fa-${ iconList[ index ].value }` } title={ iconList[ index ].label } />
+										</Button>
+									);
+								} ) }
+							</div>
+						</BaseControl>
 
 						<BaseControl label={ __( 'Icon Color', 'snow-monkey-awesome-custom-blocks' ) }>
 							<ColorPalette
