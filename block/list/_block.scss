@@ -1,0 +1,20 @@
+.smacb-list {
+  ul {
+    list-style: none;
+
+    > li {
+      position: relative;
+
+      & + li {
+        @include _margin-top(.25);
+      }
+
+      .smacb-list__icon {
+        position: absolute;
+        top: 6px;
+        left: -1.3em;
+        line-height: 1;
+      }
+    }
+  }
+}

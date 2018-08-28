@@ -14,3 +14,4 @@ import '../../block/rating-box/block.js';
 import '../../block/faq/block.js';
 import '../../block/step/block.js';
 import '../../block/testimonial/block.js';
+import '../../block/list/block.js';
