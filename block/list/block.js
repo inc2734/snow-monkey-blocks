@@ -9,7 +9,7 @@ const { __ } = wp.i18n;
 registerBlockType( 'snow-monkey-awesome-custom-blocks/list', {
 	title: __( 'List', 'snow-monkey-awesome-custom-blocks' ),
 	description: __( 'Icons are displayed only on the actual screen.', 'snow-monkey-awesome-custom-blocks' ),
-	icon: 'editor-list',
+	icon: 'editor-ul',
 	category: 'smacb',
 	attributes: {
 		content: {
@@ -32,6 +32,8 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/list', {
 		const { content, icon, iconColor } = attributes;
 
 		const generateContentWidthIcon = ( _content, _icon, _iconColor ) => {
+			_content = [ ..._content ];
+
 			for ( let i = 0; i < _content.length; i++ ) {
 				if ( !! _content[ i ].props.children[ 1 ] ) {
 					_content[ i ].props.children[ 0 ] = _content[ i ].props.children[ 1 ];
