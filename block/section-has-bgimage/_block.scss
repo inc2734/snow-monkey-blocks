@@ -93,4 +93,13 @@
   &--wide {
     min-height: 75vh;
   }
+
+  [data-is-fluid-template="true"] & {
+    &:not(.alignfull) {
+      .#{$_prefix}c-container {
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+  }
 }
