@@ -46,7 +46,6 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/btn', {
 
 	edit( { attributes, setAttributes } ) {
 		const { content, url, target, modifier, backgroundColor, textColor } = attributes;
-		console.log(content);
 
 		return (
 			<Fragment>
@@ -115,7 +114,7 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/btn', {
 							className="smacb-btn__label"
 							value={ content }
 							placeholder={ __( 'Button', 'snow-monkey-awesome-custom-blocks' ) }
-							onChange={ ( value ) => { console.log(value);setAttributes( { content: value } ) } }
+							onChange={ ( value ) => setAttributes( { content: value } ) }
 							style={ { color: textColor } }
 							formattingControls={ [] }
 						/>
@@ -142,5 +141,5 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/btn', {
 				</a>
 			</div>
 		);
-	}
+	},
 } );
