@@ -46,6 +46,7 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/btn', {
 
 	edit( { attributes, setAttributes } ) {
 		const { content, url, target, modifier, backgroundColor, textColor } = attributes;
+		console.log(content);
 
 		return (
 			<Fragment>
@@ -111,11 +112,10 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/btn', {
 						style={ { backgroundColor: backgroundColor } }
 					>
 						<RichText
-							tagName="span"
 							className="smacb-btn__label"
 							value={ content }
 							placeholder={ __( 'Button', 'snow-monkey-awesome-custom-blocks' ) }
-							onChange={ ( value ) => setAttributes( { content: value } ) }
+							onChange={ ( value ) => { console.log(value);setAttributes( { content: value } ) } }
 							style={ { color: textColor } }
 							formattingControls={ [] }
 						/>
@@ -142,50 +142,5 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/btn', {
 				</a>
 			</div>
 		);
-	},
-
-	deprecated: [
-		{
-			attributes: {
-				content: {
-					type: 'array',
-					source: 'children',
-					selector: '.smacb-btn__label',
-					default: [ __( 'Button', 'snow-monkey-awesome-custom-blocks' ) ],
-				},
-				url: {
-					type: 'string',
-				},
-				target: {
-					type: 'string',
-					default: '_self',
-				},
-				modifier: {
-					type: 'string',
-				},
-				backgroundColor: {
-					type: 'string',
-				},
-				textColor: {
-					type: 'string',
-				},
-			},
-			save( { attributes } ) {
-				const { content, url, target, modifier, backgroundColor, textColor } = attributes;
-
-				return (
-					<a
-						className={ classnames( 'smacb-btn', { [ `smacb-btn--${ modifier }` ]: !! modifier } ) }
-						href={ url }
-						target={ target }
-						style={ { backgroundColor: backgroundColor } }
-					>
-						<span className="smacb-btn__label" style={ { color: textColor } }>
-							{ content }
-						</span>
-					</a>
-				);
-			},
-		},
-	],
+	}
 } );
