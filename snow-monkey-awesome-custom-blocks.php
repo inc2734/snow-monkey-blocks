@@ -37,7 +37,13 @@ class Bootstrap {
 	public function _block_categories( $categories ) {
 		$categories[] = [
 			'slug'  => 'smacb',
-			'title' => __( 'Snow Monkey Awesome Custom Blocks', 'snow-monkey-awesome-custom-blocks' ),
+			'title' => __( 'Snow Monkey Awesome Custom Blocks', 'snow-monkey-awesome-custom-blocks' )
+								. __( '[Common blocks]', 'snow-monkey-awesome-custom-blocks' ),
+		];
+		$categories[] = [
+			'slug'  => 'smacb-section',
+			'title' => __( 'Snow Monkey Awesome Custom Blocks', 'snow-monkey-awesome-custom-blocks' )
+								. __( '[Sections]', 'snow-monkey-awesome-custom-blocks' ),
 		];
 
 		return $categories;

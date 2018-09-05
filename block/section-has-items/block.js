@@ -10,7 +10,7 @@ const { __, sprintf } = wp.i18n;
 registerBlockType( 'snow-monkey-awesome-custom-blocks/section-has-items', {
 	title: __( 'Section (has items)', 'snow-monkey-awesome-custom-blocks' ),
 	icon: 'text',
-	category: 'smacb',
+	category: 'smacb-section',
 	attributes: {
 		title: {
 			type: 'array',

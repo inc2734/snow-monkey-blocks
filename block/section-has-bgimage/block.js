@@ -9,7 +9,7 @@ const { __ } = wp.i18n;
 registerBlockType( 'snow-monkey-awesome-custom-blocks/section-has-bgimage', {
 	title: __( 'Section (has background image)', 'snow-monkey-awesome-custom-blocks' ),
 	icon: 'text',
-	category: 'smacb',
+	category: 'smacb-section',
 	attributes: {
 		title: {
 			type: 'array',
