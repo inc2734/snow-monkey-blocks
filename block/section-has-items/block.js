@@ -7,15 +7,15 @@ const { PanelBody, RangeControl, SelectControl, TextControl, Button, BaseControl
 const { Fragment } = wp.element;
 const { __, sprintf } = wp.i18n;
 
-registerBlockType( 'snow-monkey-awesome-custom-blocks/section-has-items', {
-	title: __( 'Section (has items)', 'snow-monkey-awesome-custom-blocks' ),
+registerBlockType( 'snow-monkey-blocks/section-has-items', {
+	title: __( 'Section (has items)', 'snow-monkey-blocks' ),
 	icon: 'text',
-	category: 'smacb-section',
+	category: 'smb-section',
 	attributes: {
 		title: {
 			type: 'array',
 			source: 'children',
-			selector: '.smacb-section__title',
+			selector: '.smb-section__title',
 			default: [],
 		},
 		columns: {
@@ -33,73 +33,73 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/section-has-items', {
 			type: 'array',
 			source: 'query',
 			default: [],
-			selector: '.smacb-section-has-items__item',
+			selector: '.smb-section-has-items__item',
 			query: {
 				title: {
 					type: 'array',
 					source: 'children',
-					selector: '.smacb-section-has-items__item__title',
+					selector: '.smb-section-has-items__item__title',
 					default: [],
 				},
 				lede: {
 					type: 'array',
 					source: 'children',
-					selector: '.smacb-section-has-items__item__lede',
+					selector: '.smb-section-has-items__item__lede',
 					default: [],
 				},
 				summary: {
 					type: 'array',
 					source: 'children',
-					selector: '.smacb-section-has-items__item__content',
+					selector: '.smb-section-has-items__item__content',
 					default: [],
 				},
 				btnLabel: {
 					type: 'array',
 					source: 'children',
-					selector: '.smacb-section-has-items__item__btn > .smacb-btn__label',
+					selector: '.smb-section-has-items__item__btn > .smb-btn__label',
 					default: [],
 				},
 				btnURL: {
 					type: 'string',
 					source: 'attribute',
-					selector: '.smacb-section-has-items__item__btn',
+					selector: '.smb-section-has-items__item__btn',
 					attribute: 'href',
 					default: '',
 				},
 				btnTarget: {
 					type: 'string',
 					source: 'attribute',
-					selector: '.smacb-section-has-items__item__btn',
+					selector: '.smb-section-has-items__item__btn',
 					attribute: 'target',
 					default: '_self',
 				},
 				btnBackgroundColor: {
 					type: 'string',
 					source: 'attribute',
-					selector: '.smacb-section-has-items__item__btn',
+					selector: '.smb-section-has-items__item__btn',
 					attribute: 'data-background-color',
 					default: null,
 				},
 				btnTextColor: {
 					type: 'string',
 					source: 'attribute',
-					selector: '.smacb-section-has-items__item__btn',
+					selector: '.smb-section-has-items__item__btn',
 					attribute: 'data-color',
 					default: null,
 				},
 				imageID: {
 					type: 'number',
 					source: 'attribute',
-					selector: '.smacb-section-has-items__item__figure > img',
+					selector: '.smb-section-has-items__item__figure > img',
 					attribute: 'data-image-id',
 					default: 0,
 				},
 				imageURL: {
 					type: 'string',
 					source: 'attribute',
-					selector: '.smacb-section-has-items__item__figure > img',
+					selector: '.smb-section-has-items__item__figure > img',
 					attribute: 'src',
-					default: smacb.pluginURL + 'block/section-has-items/image.png',
+					default: smb.pluginURL + 'block/section-has-items/image.png',
 				},
 			},
 		},
@@ -124,9 +124,9 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/section-has-items', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Columns Settings', 'snow-monkey-awesome-custom-blocks' ) }>
+					<PanelBody title={ __( 'Columns Settings', 'snow-monkey-blocks' ) }>
 						<RangeControl
-							label={ __( 'Columns', 'snow-monkey-awesome-custom-blocks' ) }
+							label={ __( 'Columns', 'snow-monkey-blocks' ) }
 							value={ columns }
 							onChange={ ( value ) => setAttributes( { columns: value } ) }
 							min="1"
@@ -134,14 +134,14 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/section-has-items', {
 						/>
 
 						<RangeControl
-							label={ __( 'Columns per row (large window)', 'snow-monkey-awesome-custom-blocks' ) }
+							label={ __( 'Columns per row (large window)', 'snow-monkey-blocks' ) }
 							value={ lg }
 							onChange={ ( value ) => setAttributes( { lg: value } ) }
 							min="1"
 							max="4"
 						/>
 
-						<BaseControl label={ __( 'Background Color', 'snow-monkey-awesome-custom-blocks' ) }>
+						<BaseControl label={ __( 'Background Color', 'snow-monkey-blocks' ) }>
 							<ColorPalette
 								value={ backgroundColor }
 								onChange={ ( value ) => setAttributes( { backgroundColor: value } ) }
@@ -157,39 +157,39 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/section-has-items', {
 
 						return (
 							<PanelBody
-								title={ sprintf( __( '(%d) Button Settings', 'snow-monkey-awesome-custom-blocks' ), index + 1 ) }
+								title={ sprintf( __( '(%d) Button Settings', 'snow-monkey-blocks' ), index + 1 ) }
 								initialOpen={ false }
 							>
 								<TextControl
-									label={ __( 'URL', 'snow-monkey-awesome-custom-blocks' ) }
+									label={ __( 'URL', 'snow-monkey-blocks' ) }
 									value={ btnURL }
 									onChange={ ( value ) => setAttributes( { items: generateUpdatedAttribute( items, index, 'btnURL', value ) } ) }
 								/>
 
 								<SelectControl
-									label={ __( 'Target', 'snow-monkey-awesome-custom-blocks' ) }
+									label={ __( 'Target', 'snow-monkey-blocks' ) }
 									value={ btnTarget }
 									options={ [
 										{
 											value: '_self',
-											label: __( '_self', 'snow-monkey-awesome-custom-blocks' ),
+											label: __( '_self', 'snow-monkey-blocks' ),
 										},
 										{
 											value: '_blank',
-											label: __( '_blank', 'snow-monkey-awesome-custom-blocks' ),
+											label: __( '_blank', 'snow-monkey-blocks' ),
 										},
 									] }
 									onChange={ ( value ) => setAttributes( { items: generateUpdatedAttribute( items, index, 'btnTarget', value ) } ) }
 								/>
 
-								<BaseControl label={ __( 'Background Color', 'snow-monkey-awesome-custom-blocks' ) }>
+								<BaseControl label={ __( 'Background Color', 'snow-monkey-blocks' ) }>
 									<ColorPalette
 										value={ btnBackgroundColor }
 										onChange={ ( value ) => setAttributes( { items: generateUpdatedAttribute( items, index, 'btnBackgroundColor', value ) } ) }
 									/>
 								</BaseControl>
 
-								<BaseControl label={ __( 'Text Color', 'snow-monkey-awesome-custom-blocks' ) }>
+								<BaseControl label={ __( 'Text Color', 'snow-monkey-blocks' ) }>
 									<ColorPalette
 										value={ btnTextColor }
 										onChange={ ( value ) => setAttributes( { items: generateUpdatedAttribute( items, index, 'btnTextColor', value ) } ) }
@@ -201,18 +201,18 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/section-has-items', {
 				</InspectorControls>
 
 				<div
-					className={ `smacb-section smacb-section-has-items smacb-section-has-items--lg-${ lg }` }
+					className={ `smb-section smb-section-has-items smb-section-has-items--lg-${ lg }` }
 					style={ { backgroundColor: backgroundColor } }
 				>
 					<div className="c-container">
 						{ ( title.length > 0 || isSelected ) &&
 							<RichText
-								className="smacb-section__title"
+								className="smb-section__title"
 								tagName="h2"
 								value={ title }
 								onChange={ ( value ) => setAttributes( { title: value } ) }
 								formattingControls={ [] }
-								placeholder={ __( 'Write title…', 'snow-monkey-awesome-custom-blocks' ) }
+								placeholder={ __( 'Write title…', 'snow-monkey-blocks' ) }
 							/>
 						}
 
@@ -227,7 +227,7 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/section-has-items', {
 								const btnBackgroundColor = get( items, [ index, 'btnBackgroundColor' ], '' );
 								const btnTextColor = get( items, [ index, 'btnTextColor' ], '' );
 								const imageID = get( items, [ index, 'imageID' ], 0 );
-								const imageURL = get( items, [ index, 'imageURL' ], smacb.pluginURL + 'block/section-has-items/image.png' );
+								const imageURL = get( items, [ index, 'imageURL' ], smb.pluginURL + 'block/section-has-items/image.png' );
 
 								const renderImage = ( obj ) => {
 									return (
@@ -239,9 +239,9 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/section-has-items', {
 
 								return (
 									<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-1-${ lg }` }>
-										<div className="smacb-section-has-items__item">
+										<div className="smb-section-has-items__item">
 											{ ( !! imageID || isSelected ) &&
-												<div className="smacb-section-has-items__item__figure">
+												<div className="smb-section-has-items__item__figure">
 													<MediaUpload
 														onSelect={ ( media ) => {
 															const newImageURL = !! media.sizes.large ? media.sizes.large.url : media.url;
@@ -256,16 +256,16 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/section-has-items', {
 											}
 
 											<RichText
-												className="smacb-section-has-items__item__title"
-												placeholder={ __( 'Write title…', 'snow-monkey-awesome-custom-blocks' ) }
+												className="smb-section-has-items__item__title"
+												placeholder={ __( 'Write title…', 'snow-monkey-blocks' ) }
 												value={ itemTitle }
 												onChange={ ( value ) => setAttributes( { items: generateUpdatedAttribute( items, index, 'title', value ) } ) }
 											/>
 
 											{ ( lede.length > 0 || isSelected ) &&
 												<RichText
-													className="smacb-section-has-items__item__lede"
-													placeholder={ __( 'Write lede…', 'snow-monkey-awesome-custom-blocks' ) }
+													className="smb-section-has-items__item__lede"
+													placeholder={ __( 'Write lede…', 'snow-monkey-blocks' ) }
 													value={ lede }
 													onChange={ ( value ) => setAttributes( { items: generateUpdatedAttribute( items, index, 'lede', value ) } ) }
 												/>
@@ -273,16 +273,16 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/section-has-items', {
 
 											{ ( summary.length > 0 || isSelected ) &&
 												<RichText
-													className="smacb-section-has-items__item__content"
-													placeholder={ __( 'Write content…', 'snow-monkey-awesome-custom-blocks' ) }
+													className="smb-section-has-items__item__content"
+													placeholder={ __( 'Write content…', 'snow-monkey-blocks' ) }
 													value={ summary }
 													onChange={ ( value ) => setAttributes( { items: generateUpdatedAttribute( items, index, 'summary', value ) } ) }
 												/>
 											}
 
 											{ ( ( btnLabel.length > 0 && !! btnURL ) || isSelected ) &&
-												<div className="smacb-section-has-items__item__action">
-													<span className="smacb-section-has-items__item__btn smacb-btn"
+												<div className="smb-section-has-items__item__action">
+													<span className="smb-section-has-items__item__btn smb-btn"
 														href={ btnURL }
 														target={ btnTarget }
 														style={ { backgroundColor: btnBackgroundColor } }
@@ -290,10 +290,10 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/section-has-items', {
 														data-color={ btnTextColor }
 													>
 														<RichText
-															className="smacb-btn__label"
+															className="smb-btn__label"
 															style={ { color: btnTextColor } }
 															value={ btnLabel }
-															placeholder={ __( 'Button', 'snow-monkey-awesome-custom-blocks' ) }
+															placeholder={ __( 'Button', 'snow-monkey-blocks' ) }
 															formattingControls={ [] }
 															onChange={ ( value ) => setAttributes( { items: generateUpdatedAttribute( items, index, 'btnLabel', value ) } ) }
 														/>
@@ -316,12 +316,12 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/section-has-items', {
 
 		return (
 			<div
-				className={ `smacb-section smacb-section-has-items smacb-section-has-items--lg-${ lg }` }
+				className={ `smb-section smb-section-has-items smb-section-has-items--lg-${ lg }` }
 				style={ { backgroundColor: backgroundColor } }
 			>
 				<div className="c-container">
 					{ title.length > 0 &&
-					<h2 className="smacb-section__title">
+					<h2 className="smb-section__title">
 						{ title }
 					</h2>
 					}
@@ -337,43 +337,43 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/section-has-items', {
 							const btnBackgroundColor = get( items, [ index, 'btnBackgroundColor' ], '' );
 							const btnTextColor = get( items, [ index, 'btnTextColor' ], '' );
 							const imageID = get( items, [ index, 'imageID' ], 0 );
-							const imageURL = get( items, [ index, 'imageURL' ], smacb.pluginURL + 'block/section-has-items/image.png' );
+							const imageURL = get( items, [ index, 'imageURL' ], smb.pluginURL + 'block/section-has-items/image.png' );
 
 							return (
 								<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-1-${ lg }` }>
-									<div className="smacb-section-has-items__item">
+									<div className="smb-section-has-items__item">
 										{ !! imageID &&
-										<div className="smacb-section-has-items__item__figure">
+										<div className="smb-section-has-items__item__figure">
 											<img src={ imageURL } alt="" data-image-id={ imageID } />
 										</div>
 										}
 
-										<div className="smacb-section-has-items__item__title">
+										<div className="smb-section-has-items__item__title">
 											{ itemTitle }
 										</div>
 
 										{ lede.length > 0 &&
-										<div className="smacb-section-has-items__item__lede">
+										<div className="smb-section-has-items__item__lede">
 											{ lede }
 										</div>
 										}
 
 										{ summary.length > 0 &&
-										<div className="smacb-section-has-items__item__content">
+										<div className="smb-section-has-items__item__content">
 											{ summary }
 										</div>
 										}
 
 										{ btnLabel.length > 0 && btnURL &&
-										<div className="smacb-section-has-items__item__action">
-											<a className="smacb-section-has-items__item__btn smacb-btn"
+										<div className="smb-section-has-items__item__action">
+											<a className="smb-section-has-items__item__btn smb-btn"
 												href={ btnURL }
 												target={ btnTarget }
 												style={ { backgroundColor: btnBackgroundColor } }
 												data-background-color={ btnBackgroundColor }
 												data-color={ btnTextColor }
 											>
-												<span className="smacb-btn__label" style={ { color: btnTextColor } }>
+												<span className="smb-btn__label" style={ { color: btnTextColor } }>
 													{ btnLabel }
 												</span>
 											</a>

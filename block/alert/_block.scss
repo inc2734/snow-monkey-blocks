@@ -1,6 +1,6 @@
 @import 'settings';
 
-.smacb-alert {
+.smb-alert {
   @include _alert();
   background-color: $alert-color;
   border: 1px solid darken(desaturate($alert-color, 10%), 10%);

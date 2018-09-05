@@ -1,6 +1,6 @@
 <?php
 /**
- * @package snow-monkey-awesome-custom-blocks
+ * @package snow-monkey-blocks
  * @author inc2734
  * @license GPL-2.0+
  */
@@ -13,8 +13,8 @@ $accent_color = get_theme_mod( 'accent-color' );
 
 $cfs->register(
 	[
-		'.smacb-faq__item__question__label',
-		'.smacb-faq__item__answer__label',
+		'.smb-faq__item__question__label',
+		'.smb-faq__item__answer__label',
 	],
 	'color: ' . $accent_color
 );

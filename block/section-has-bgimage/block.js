@@ -6,15 +6,15 @@ const { Button, PanelBody, SelectControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
-registerBlockType( 'snow-monkey-awesome-custom-blocks/section-has-bgimage', {
-	title: __( 'Section (has background image)', 'snow-monkey-awesome-custom-blocks' ),
+registerBlockType( 'snow-monkey-blocks/section-has-bgimage', {
+	title: __( 'Section (has background image)', 'snow-monkey-blocks' ),
 	icon: 'text',
-	category: 'smacb-section',
+	category: 'smb-section',
 	attributes: {
 		title: {
 			type: 'array',
 			source: 'children',
-			selector: '.smacb-section__title',
+			selector: '.smb-section__title',
 			default: [],
 		},
 		imageID: {
@@ -24,9 +24,9 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/section-has-bgimage', {
 		imageURL: {
 			type: 'string',
 			source: 'attribute',
-			selector: '.smacb-section-has-bgimage__bgimage > img',
+			selector: '.smb-section-has-bgimage__bgimage > img',
 			attribute: 'src',
-			default: smacb.pluginURL + 'block/section-has-bgimage/image.png',
+			default: smb.pluginURL + 'block/section-has-bgimage/image.png',
 		},
 		height: {
 			type: 'string',
@@ -55,46 +55,46 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/section-has-bgimage', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Section Settings', 'snow-monkey-awesome-custom-blocks' ) }>
+					<PanelBody title={ __( 'Section Settings', 'snow-monkey-blocks' ) }>
 						<SelectControl
-							label={ __( 'Height', 'snow-monkey-awesome-custom-blocks' ) }
+							label={ __( 'Height', 'snow-monkey-blocks' ) }
 							value={ height }
 							options={ [
 								{
 									value: 'fit',
-									label: __( 'Fit', 'snow-monkey-awesome-custom-blocks' ),
+									label: __( 'Fit', 'snow-monkey-blocks' ),
 								},
 								{
 									value: 'wide',
-									label: __( 'Wide', 'snow-monkey-awesome-custom-blocks' ),
+									label: __( 'Wide', 'snow-monkey-blocks' ),
 								},
 							] }
 							onChange={ ( value ) => setAttributes( { height: value } ) }
 						/>
 
 						<SelectControl
-							label={ __( 'Contents alignment', 'snow-monkey-awesome-custom-blocks' ) }
+							label={ __( 'Contents alignment', 'snow-monkey-blocks' ) }
 							value={ contentsAlignment }
 							options={ [
 								{
 									value: 'left',
-									label: __( 'Left side', 'snow-monkey-awesome-custom-blocks' ),
+									label: __( 'Left side', 'snow-monkey-blocks' ),
 								},
 								{
 									value: 'center',
-									label: __( 'Center', 'snow-monkey-awesome-custom-blocks' ),
+									label: __( 'Center', 'snow-monkey-blocks' ),
 								},
 								{
 									value: 'right',
-									label: __( 'Right side', 'snow-monkey-awesome-custom-blocks' ),
+									label: __( 'Right side', 'snow-monkey-blocks' ),
 								},
 							] }
 							onChange={ ( value ) => setAttributes( { contentsAlignment: value } ) }
 						/>
 					</PanelBody>
 				</InspectorControls>
-				<div className={ `smacb-section smacb-section-has-bgimage smacb-section-has-bgimage--${ contentsAlignment } smacb-section-has-bgimage--${ height }` }>
-					<div className="smacb-section-has-bgimage__bgimage">
+				<div className={ `smb-section smb-section-has-bgimage smb-section-has-bgimage--${ contentsAlignment } smb-section-has-bgimage--${ height }` }>
+					<div className="smb-section-has-bgimage__bgimage">
 						<MediaUpload
 							onSelect={ ( media ) => {
 								const newImageURL = !! media.sizes.xlarge ? media.sizes.xlarge.url : media.url;
@@ -108,16 +108,16 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/section-has-bgimage', {
 					<div className="c-container">
 						{ ( title.length > 0 || isSelected ) &&
 							<RichText
-								className="smacb-section__title"
+								className="smb-section__title"
 								tagName="h2"
 								value={ title }
 								onChange={ ( value ) => setAttributes( { title: value } ) }
 								formattingControls={ [] }
-								placeholder={ __( 'Write title…', 'snow-monkey-awesome-custom-blocks' ) }
+								placeholder={ __( 'Write title…', 'snow-monkey-blocks' ) }
 							/>
 						}
 
-						<div className="smacb-section__body">
+						<div className="smb-section__body">
 							<InnerBlocks />
 						</div>
 					</div>
@@ -130,17 +130,17 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/section-has-bgimage', {
 		const { title, imageURL, height, contentsAlignment } = attributes;
 
 		return (
-			<div className={ `smacb-section smacb-section-has-bgimage smacb-section-has-bgimage--${ contentsAlignment } smacb-section-has-bgimage--${ height }` }>
-				<div className="smacb-section-has-bgimage__bgimage">
+			<div className={ `smb-section smb-section-has-bgimage smb-section-has-bgimage--${ contentsAlignment } smb-section-has-bgimage--${ height }` }>
+				<div className="smb-section-has-bgimage__bgimage">
 					<img src={ imageURL } alt="" />
 				</div>
 				<div className="c-container">
 					{ title.length > 0 &&
-						<h2 className="smacb-section__title">
+						<h2 className="smb-section__title">
 							{ title }
 						</h2>
 					}
-					<div className="smacb-section__body">
+					<div className="smb-section__body">
 						<InnerBlocks.Content />
 					</div>
 				</div>

@@ -1,8 +1,8 @@
-# Snow Monkey Awesome Custom Blocks
+# Snow Monkey Blocks
 
-[![Build Status](https://travis-ci.org/inc2734/snow-monkey-awesome-custom-blocks.svg?branch=master)](https://travis-ci.org/inc2734/snow-monkey-awesome-custom-blocks)
-[![Latest Stable Version](https://poser.pugx.org/inc2734/snow-monkey-awesome-custom-blocks/v/stable)](https://packagist.org/packages/inc2734/snow-monkey-awesome-custom-blocks)
-[![License](https://poser.pugx.org/inc2734/snow-monkey-awesome-custom-blocks/license)](https://packagist.org/packages/inc2734/snow-monkey-awesome-custom-blocks)
+[![Build Status](https://travis-ci.org/inc2734/snow-monkey-blocks.svg?branch=master)](https://travis-ci.org/inc2734/snow-monkey-blocks)
+[![Latest Stable Version](https://poser.pugx.org/inc2734/snow-monkey-blocks/v/stable)](https://packagist.org/packages/inc2734/snow-monkey-blocks)
+[![License](https://poser.pugx.org/inc2734/snow-monkey-blocks/license)](https://packagist.org/packages/inc2734/snow-monkey-blocks)
 
 ## Custom Blocks
 

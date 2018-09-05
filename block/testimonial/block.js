@@ -7,47 +7,47 @@ const { Button, PanelBody, RangeControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
-registerBlockType( 'snow-monkey-awesome-custom-blocks/testimonial', {
-	title: __( 'Testimonial', 'snow-monkey-awesome-custom-blocks' ),
+registerBlockType( 'snow-monkey-blocks/testimonial', {
+	title: __( 'Testimonial', 'snow-monkey-blocks' ),
 	icon: 'admin-comments',
-	category: 'smacb',
+	category: 'smb',
 	attributes: {
 		items: {
 			type: 'array',
 			default: [],
-			selector: '.smacb-testimonial__item',
+			selector: '.smb-testimonial__item',
 			source: 'query',
 			query: {
 				avatarID: {
 					type: 'number',
 					source: 'attribute',
-					selector: '.smacb-testimonial__item__figure > img',
+					selector: '.smb-testimonial__item__figure > img',
 					attribute: 'data-image-id',
 					default: 0,
 				},
 				avatarURL: {
 					type: 'string',
 					source: 'attribute',
-					selector: '.smacb-testimonial__item__figure > img',
+					selector: '.smb-testimonial__item__figure > img',
 					attribute: 'src',
 					default: 'https://0.gravatar.com/avatar/00000000000000000000000000000000?s=128&d=mp&r=g',
 				},
 				name: {
 					type: 'array',
 					source: 'children',
-					selector: '.smacb-testimonial__item__name',
+					selector: '.smb-testimonial__item__name',
 					default: [],
 				},
 				lede: {
 					type: 'array',
 					source: 'children',
-					selector: '.smacb-testimonial__item__lede',
+					selector: '.smb-testimonial__item__lede',
 					default: [],
 				},
 				content: {
 					type: 'array',
 					source: 'children',
-					selector: '.smacb-testimonial__item__content',
+					selector: '.smb-testimonial__item__content',
 					default: [],
 				},
 			},
@@ -74,9 +74,9 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/testimonial', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Testimonial Settings', 'snow-monkey-awesome-custom-blocks' ) }>
+					<PanelBody title={ __( 'Testimonial Settings', 'snow-monkey-blocks' ) }>
 						<RangeControl
-							label={ __( 'Columns', 'snow-monkey-awesome-custom-blocks' ) }
+							label={ __( 'Columns', 'snow-monkey-blocks' ) }
 							value={ columns }
 							onChange={ ( value ) => setAttributes( { columns: value } ) }
 							min="1"
@@ -85,8 +85,8 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/testimonial', {
 					</PanelBody>
 				</InspectorControls>
 
-				<div className="smacb-testimonial">
-					<div className="smacb-testimonial__body">
+				<div className="smb-testimonial">
+					<div className="smb-testimonial__body">
 						<div className="c-row c-row--margin">
 							{ times( columns, ( index ) => {
 								const avatarID = get( items, [ index, 'avatarID' ], 0 );
@@ -105,9 +105,9 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/testimonial', {
 
 								return (
 									<div className="c-row__col c-row__col--1-1 c-row__col--md-1-2">
-										<div className="smacb-testimonial__item">
+										<div className="smb-testimonial__item">
 											{ ( !! avatarID || isSelected ) &&
-												<div className="smacb-testimonial__item__figure">
+												<div className="smb-testimonial__item__figure">
 													<MediaUpload
 														onSelect={ ( media ) => {
 															const newAvatarURL = !! media.sizes.thumbnail ? media.sizes.thumbnail.url : media.url;
@@ -121,25 +121,25 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/testimonial', {
 												</div>
 											}
 
-											<div className="smacb-testimonial__item__body">
+											<div className="smb-testimonial__item__body">
 												<RichText
-													className="smacb-testimonial__item__content"
-													placeholder={ __( 'Write content…', 'snow-monkey-awesome-custom-blocks' ) }
+													className="smb-testimonial__item__content"
+													placeholder={ __( 'Write content…', 'snow-monkey-blocks' ) }
 													value={ content }
 													onChange={ ( value ) => setAttributes( { items: generateUpdatedAttribute( items, index, 'content', value ) } ) }
 												/>
 
 												<RichText
-													className="smacb-testimonial__item__name"
-													placeholder={ __( 'Write name…', 'snow-monkey-awesome-custom-blocks' ) }
+													className="smb-testimonial__item__name"
+													placeholder={ __( 'Write name…', 'snow-monkey-blocks' ) }
 													value={ name }
 													onChange={ ( value ) => setAttributes( { items: generateUpdatedAttribute( items, index, 'name', value ) } ) }
 												/>
 
 												{ ( lede.length > 0 || isSelected ) &&
 													<RichText
-														className="smacb-testimonial__item__lede"
-														placeholder={ __( 'Write lede…', 'snow-monkey-awesome-custom-blocks' ) }
+														className="smb-testimonial__item__lede"
+														placeholder={ __( 'Write lede…', 'snow-monkey-blocks' ) }
 														value={ lede }
 														onChange={ ( value ) => setAttributes( { items: generateUpdatedAttribute( items, index, 'lede', value ) } ) }
 													/>
@@ -160,8 +160,8 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/testimonial', {
 		const { items, columns } = attributes;
 
 		return (
-			<div className="smacb-testimonial">
-				<div className="smacb-testimonial__body">
+			<div className="smb-testimonial">
+				<div className="smb-testimonial__body">
 					<div className="c-row c-row--margin">
 						{ times( columns, ( index ) => {
 							const avatarID = get( items, [ index, 'avatarID' ], 0 );
@@ -172,18 +172,18 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/testimonial', {
 
 							return (
 								<div className="c-row__col c-row__col--1-1 c-row__col--md-1-2">
-									<div className="smacb-testimonial__item">
-										<div className="smacb-testimonial__item__figure">
+									<div className="smb-testimonial__item">
+										<div className="smb-testimonial__item__figure">
 											<img src={ avatarURL } alt="" data-image-id={ avatarID } />
 										</div>
-										<div className="smacb-testimonial__item__body">
-											<div className="smacb-testimonial__item__content">
+										<div className="smb-testimonial__item__body">
+											<div className="smb-testimonial__item__content">
 												{ content }
 											</div>
-											<div className="smacb-testimonial__item__name">
+											<div className="smb-testimonial__item__name">
 												{ name }
 											</div>
-											<div className="smacb-testimonial__item__lede">
+											<div className="smb-testimonial__item__lede">
 												{ lede }
 											</div>
 										</div>

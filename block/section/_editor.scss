@@ -1,5 +1,5 @@
 [data-align="full"] {
-  .smacb-section {
+  .smb-section {
     > .#{$_prefix}c-container {
       @include _media-min(600px) {
         padding-right: 62px;

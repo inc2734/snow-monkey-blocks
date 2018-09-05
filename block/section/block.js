@@ -6,15 +6,15 @@ const { PanelBody, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
-registerBlockType( 'snow-monkey-awesome-custom-blocks/section', {
-	title: __( 'Section', 'snow-monkey-awesome-custom-blocks' ),
+registerBlockType( 'snow-monkey-blocks/section', {
+	title: __( 'Section', 'snow-monkey-blocks' ),
 	icon: 'text',
-	category: 'smacb-section',
+	category: 'smb-section',
 	attributes: {
 		title: {
 			type: 'array',
 			source: 'children',
-			selector: '.smacb-section__title',
+			selector: '.smb-section__title',
 			default: [],
 		},
 		backgroundColor: {
@@ -32,8 +32,8 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/section', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Section Settings', 'snow-monkey-awesome-custom-blocks' ) }>
-						<BaseControl label={ __( 'Background Color', 'snow-monkey-awesome-custom-blocks' ) }>
+					<PanelBody title={ __( 'Section Settings', 'snow-monkey-blocks' ) }>
+						<BaseControl label={ __( 'Background Color', 'snow-monkey-blocks' ) }>
 							<ColorPalette
 								value={ backgroundColor }
 								onChange={ ( value ) => setAttributes( { backgroundColor: value } ) }
@@ -42,20 +42,20 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/section', {
 					</PanelBody>
 				</InspectorControls>
 
-				<div className="smacb-section" style={ { backgroundColor: backgroundColor } }>
+				<div className="smb-section" style={ { backgroundColor: backgroundColor } }>
 					<div className="c-container">
 						{ ( title.length > 0 || isSelected ) &&
 							<RichText
-								className="smacb-section__title"
+								className="smb-section__title"
 								tagName="h2"
 								value={ title }
 								onChange={ ( value ) => setAttributes( { title: value } ) }
 								formattingControls={ [] }
-								placeholder={ __( 'Write title…', 'snow-monkey-awesome-custom-blocks' ) }
+								placeholder={ __( 'Write title…', 'snow-monkey-blocks' ) }
 							/>
 						}
 
-						<div className="smacb-section__body">
+						<div className="smb-section__body">
 							<InnerBlocks />
 						</div>
 					</div>
@@ -68,15 +68,15 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/section', {
 		const { title, backgroundColor } = attributes;
 
 		return (
-			<div className="smacb-section" style={ { backgroundColor: backgroundColor } }>
+			<div className="smb-section" style={ { backgroundColor: backgroundColor } }>
 				<div className="c-container">
 					{ title.length > 0 &&
-						<h2 className="smacb-section__title">
+						<h2 className="smb-section__title">
 							{ title }
 						</h2>
 					}
 
-					<div className="smacb-section__body">
+					<div className="smb-section__body">
 						<InnerBlocks.Content />
 					</div>
 				</div>

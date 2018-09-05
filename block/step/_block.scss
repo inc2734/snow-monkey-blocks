@@ -1,4 +1,4 @@
-.smacb-step {
+.smb-step {
   &__item {
     position: relative;
     @include _padding-left(1.25);
@@ -26,7 +26,7 @@
       @include _margin-bottom(1);
       font-weight: bold;
 
-      > .smacb-step__item__number {
+      > .smb-step__item__number {
         @include _margin-right(.5);
         flex: 0 0 ($_base-font-size-px * 2.5);
       }
@@ -77,19 +77,19 @@
     &--image-right {
       overflow: hidden;
 
-      .smacb-step__item__figure {
+      .smb-step__item__figure {
         @include _media-min(md) {
           max-width: 33%;
         }
       }
 
-      .smacb-step__item__body {
+      .smb-step__item__body {
         overflow: hidden;
       }
     }
 
     &--image-left {
-      .smacb-step__item__figure {
+      .smb-step__item__figure {
         @include _margin-bottom(.5);
 
         @include _media-min(md) {
@@ -100,13 +100,13 @@
     }
 
     &--image-center {
-      .smacb-step__item__figure {
+      .smb-step__item__figure {
         @include _margin-bottom(.5);
       }
     }
 
     &--image-right {
-      .smacb-step__item__figure {
+      .smb-step__item__figure {
         @include _margin-bottom(.5);
 
         @include _media-min(md) {

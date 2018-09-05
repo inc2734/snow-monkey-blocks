@@ -1,16 +1,16 @@
 <?php
 /**
- * Plugin name: Snow Monkey Awesome Custom Blocks
+ * Plugin name: Snow Monkey Blocks
  * Version: 0.7.3
- * Text Domain: snow-monkey-awesome-custom-blocks
+ * Text Domain: snow-monkey-blocks
  * Domain Path: /languages/
  *
- * @package snow-monkey-awesome-custom-blocks
+ * @package snow-monkey-blocks
  * @author inc2734
  * @license GPL-2.0+
  */
 
-namespace Snow_Monkey\Plugin\AwesomeCustomBlocks;
+namespace Snow_Monkey\Plugin\Blocks;
 
 class Bootstrap {
 
@@ -19,7 +19,7 @@ class Bootstrap {
 	}
 
 	public function _bootstrap() {
-		load_plugin_textdomain( 'snow-monkey-awesome-custom-blocks', false, basename( __DIR__ ) . '/languages' );
+		load_plugin_textdomain( 'snow-monkey-blocks', false, basename( __DIR__ ) . '/languages' );
 
 		add_filter( 'block_categories', [ $this, '_block_categories' ] );
 		add_action( 'enqueue_block_editor_assets', [ $this, '_enqueue_block_editor_assets' ] );
@@ -36,14 +36,14 @@ class Bootstrap {
 	 */
 	public function _block_categories( $categories ) {
 		$categories[] = [
-			'slug'  => 'smacb',
-			'title' => __( 'Snow Monkey Awesome Custom Blocks', 'snow-monkey-awesome-custom-blocks' )
-								. __( '[Common blocks]', 'snow-monkey-awesome-custom-blocks' ),
+			'slug'  => 'smb',
+			'title' => __( 'Snow Monkey Blocks', 'snow-monkey-blocks' )
+								. __( '[Common blocks]', 'snow-monkey-blocks' ),
 		];
 		$categories[] = [
-			'slug'  => 'smacb-section',
-			'title' => __( 'Snow Monkey Awesome Custom Blocks', 'snow-monkey-awesome-custom-blocks' )
-								. __( '[Sections]', 'snow-monkey-awesome-custom-blocks' ),
+			'slug'  => 'smb-section',
+			'title' => __( 'Snow Monkey Blocks', 'snow-monkey-blocks' )
+								. __( '[Sections]', 'snow-monkey-blocks' ),
 		];
 
 		return $categories;
@@ -60,7 +60,7 @@ class Bootstrap {
 		$path = plugin_dir_path( __FILE__ ) . $relative_path;
 
 		wp_register_script(
-			'snow-monkey-awesome-custom-blocks-editor-script',
+			'snow-monkey-blocks-editor-script',
 			$src,
 			[ 'wp-blocks', 'wp-element', 'wp-i18n' ],
 			filemtime( $path ),
@@ -68,16 +68,16 @@ class Bootstrap {
 		);
 
 		if ( function_exists( 'gutenberg_get_jed_locale_data' ) ) {
-			$locale  = gutenberg_get_jed_locale_data( 'snow-monkey-awesome-custom-blocks' );
-			$content = 'wp.i18n.setLocaleData( ' . json_encode( $locale ) . ', "snow-monkey-awesome-custom-blocks" );';
-			wp_script_add_data( 'snow-monkey-awesome-custom-blocks-editor-script', 'data', $content );
+			$locale  = gutenberg_get_jed_locale_data( 'snow-monkey-blocks' );
+			$content = 'wp.i18n.setLocaleData( ' . json_encode( $locale ) . ', "snow-monkey-blocks" );';
+			wp_script_add_data( 'snow-monkey-blocks-editor-script', 'data', $content );
 		}
 
-		wp_enqueue_script( 'snow-monkey-awesome-custom-blocks-editor-script' );
+		wp_enqueue_script( 'snow-monkey-blocks-editor-script' );
 
 		wp_localize_script(
-			'snow-monkey-awesome-custom-blocks-editor-script',
-			'smacb',
+			'snow-monkey-blocks-editor-script',
+			'smb',
 			[
 				'pluginURL' => plugin_dir_url( __FILE__ ),
 				'pluginDir' => plugin_dir_path( __FILE__ ),
@@ -89,7 +89,7 @@ class Bootstrap {
 		$path = plugin_dir_path( __FILE__ ) . $relative_path;
 
 		wp_enqueue_style(
-			'snow-monkey-awesome-custom-blocks-editor-style',
+			'snow-monkey-blocks-editor-style',
 			$src,
 			[],
 			filemtime( $path )
@@ -107,7 +107,7 @@ class Bootstrap {
 		$path = plugin_dir_path( __FILE__ ) . $relative_path;
 
 		wp_enqueue_style(
-			'snow-monkey-awesome-custom-blocks',
+			'snow-monkey-blocks',
 			$src,
 			[],
 			filemtime( $path )
@@ -136,10 +136,10 @@ class Bootstrap {
 		new \Inc2734\WP_GitHub_Plugin_Updater\GitHub_Plugin_Updater(
 			plugin_basename( __FILE__ ),
 			'inc2734',
-			'snow-monkey-awesome-custom-blocks'
+			'snow-monkey-blocks'
 		);
 	}
 }
 
 require_once( __DIR__ . '/vendor/autoload.php' );
-new \Snow_Monkey\Plugin\AwesomeCustomBlocks\Bootstrap();
+new \Snow_Monkey\Plugin\Blocks\Bootstrap();

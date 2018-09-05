@@ -1,6 +1,6 @@
 <?php
 /**
- * @package snow-monkey-awesome-custom-blocks
+ * @package snow-monkey-blocks
  * @author inc2734
  * @license GPL-2.0+
  */
@@ -12,15 +12,15 @@ $cfs = Customizer_Framework::styles();
 $accent_color = get_theme_mod( 'accent-color' );
 
 $cfs->register(
-	'.smacb-btn',
+	'.smb-btn',
 	'background-color: ' . $accent_color
 );
 
 $cfs->register(
 	[
-		'.smacb-btn:hover',
-		'.smacb-btn:active',
-		'.smacb-btn:focus',
+		'.smb-btn:hover',
+		'.smb-btn:active',
+		'.smb-btn:focus',
 	],
 	'background-color: ' . $cfs->darken( $accent_color, 0.05 ),
 	'@media (min-width: 64em)'

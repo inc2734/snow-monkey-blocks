@@ -2,7 +2,7 @@
 /**
  * Class SampleTest
  *
- * @package Snow_Monkey_Awesome_Custom_Blocks
+ * @package snow-monkey-blocks
  */
 
 /**

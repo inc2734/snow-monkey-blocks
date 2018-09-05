@@ -35,8 +35,8 @@ script:
 - npm run lint
 before_deploy:
 - npm run zip
-- ls -la snow-monkey-awesome-custom-blocks.zip
-- export RELEASE_FILE=$(ls snow-monkey-awesome-custom-blocks.zip)
+- ls -la snow-monkey-blocks.zip
+- export RELEASE_FILE=$(ls snow-monkey-blocks.zip)
 deploy:
   provider: releases
   api_key:
@@ -46,4 +46,4 @@ deploy:
   on:
     tags: true
     php: 7.1
-    repo: inc2734/snow-monkey-awesome-custom-blocks
+    repo: inc2734/snow-monkey-blocks

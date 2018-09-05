@@ -1,4 +1,4 @@
-.smacb-pricing-table {
+.smb-pricing-table {
   &__row {
     @include _row();
     border: 1px solid _lighter($_color-gray);

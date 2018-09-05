@@ -21,7 +21,7 @@ module.exports = {
     window: true,
     document: true,
     lodash: true,
-		smacb: true
+		smb: true
   },
   plugins: [
     'wordpress',

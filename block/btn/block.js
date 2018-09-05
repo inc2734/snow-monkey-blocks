@@ -8,16 +8,16 @@ const { PanelBody, SelectControl, TextControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
-registerBlockType( 'snow-monkey-awesome-custom-blocks/btn', {
-	title: __( 'Button', 'snow-monkey-awesome-custom-blocks' ),
+registerBlockType( 'snow-monkey-blocks/btn', {
+	title: __( 'Button', 'snow-monkey-blocks' ),
 	icon: 'embed-generic',
-	category: 'smacb',
+	category: 'smb',
 	attributes: {
 		content: {
 			type: 'array',
 			source: 'children',
-			selector: '.smacb-btn__label',
-			default: [ __( 'Button', 'snow-monkey-awesome-custom-blocks' ) ],
+			selector: '.smb-btn__label',
+			default: [ __( 'Button', 'snow-monkey-blocks' ) ],
 		},
 		url: {
 			type: 'string',
@@ -50,53 +50,53 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/btn', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Button Settings', 'snow-monkey-awesome-custom-blocks' ) }>
+					<PanelBody title={ __( 'Button Settings', 'snow-monkey-blocks' ) }>
 						<TextControl
-							label={ __( 'URL', 'snow-monkey-awesome-custom-blocks' ) }
+							label={ __( 'URL', 'snow-monkey-blocks' ) }
 							value={ url }
 							onChange={ ( value ) => setAttributes( { url: value } ) }
 						/>
 
 						<SelectControl
-							label={ __( 'Target', 'snow-monkey-awesome-custom-blocks' ) }
+							label={ __( 'Target', 'snow-monkey-blocks' ) }
 							value={ target }
 							onChange={ ( value ) => setAttributes( { target: value } ) }
 							options={ [
 								{
 									value: '_self',
-									label: __( '_self', 'snow-monkey-awesome-custom-blocks' ),
+									label: __( '_self', 'snow-monkey-blocks' ),
 								},
 								{
 									value: '_blank',
-									label: __( '_blank', 'snow-monkey-awesome-custom-blocks' ),
+									label: __( '_blank', 'snow-monkey-blocks' ),
 								},
 							] }
 						/>
 
 						<SelectControl
-							label={ __( 'Type', 'snow-monkey-awesome-custom-blocks' ) }
+							label={ __( 'Type', 'snow-monkey-blocks' ) }
 							value={ modifier }
 							onChange={ ( value ) => setAttributes( { modifier: value } ) }
 							options={ [
 								{
 									value: '',
-									label: __( 'Normal button', 'snow-monkey-awesome-custom-blocks' ),
+									label: __( 'Normal button', 'snow-monkey-blocks' ),
 								},
 								{
 									value: 'full',
-									label: __( 'Full button', 'snow-monkey-awesome-custom-blocks' ),
+									label: __( 'Full button', 'snow-monkey-blocks' ),
 								},
 							] }
 						/>
 
-						<BaseControl label={ __( 'Background Color', 'snow-monkey-awesome-custom-blocks' ) }>
+						<BaseControl label={ __( 'Background Color', 'snow-monkey-blocks' ) }>
 							<ColorPalette
 								value={ backgroundColor }
 								onChange={ ( value ) => setAttributes( { backgroundColor: value } ) }
 							/>
 						</BaseControl>
 
-						<BaseControl label={ __( 'Text Color', 'snow-monkey-awesome-custom-blocks' ) }>
+						<BaseControl label={ __( 'Text Color', 'snow-monkey-blocks' ) }>
 							<ColorPalette
 								value={ textColor }
 								onChange={ ( value ) => setAttributes( { textColor: value } ) }
@@ -105,15 +105,15 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/btn', {
 					</PanelBody>
 				</InspectorControls>
 
-				<div className="u-clearfix smacb-btn-wrapper">
+				<div className="u-clearfix smb-btn-wrapper">
 					<span
-						className={ classnames( 'smacb-btn', { [ `smacb-btn--${ modifier }` ]: !! modifier } ) } href={ url } target={ target }
+						className={ classnames( 'smb-btn', { [ `smb-btn--${ modifier }` ]: !! modifier } ) } href={ url } target={ target }
 						style={ { backgroundColor: backgroundColor } }
 					>
 						<RichText
-							className="smacb-btn__label"
+							className="smb-btn__label"
 							value={ content }
-							placeholder={ __( 'Button', 'snow-monkey-awesome-custom-blocks' ) }
+							placeholder={ __( 'Button', 'snow-monkey-blocks' ) }
 							onChange={ ( value ) => setAttributes( { content: value } ) }
 							style={ { color: textColor } }
 							formattingControls={ [] }
@@ -128,14 +128,14 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/btn', {
 		const { content, url, target, modifier, backgroundColor, textColor } = attributes;
 
 		return (
-			<div className="u-clearfix smacb-btn-wrapper">
+			<div className="u-clearfix smb-btn-wrapper">
 				<a
-					className={ classnames( 'smacb-btn', { [ `smacb-btn--${ modifier }` ]: !! modifier } ) }
+					className={ classnames( 'smb-btn', { [ `smb-btn--${ modifier }` ]: !! modifier } ) }
 					href={ url }
 					target={ target }
 					style={ { backgroundColor: backgroundColor } }
 				>
-					<span className="smacb-btn__label" style={ { color: textColor } }>
+					<span className="smb-btn__label" style={ { color: textColor } }>
 						{ content }
 					</span>
 				</a>

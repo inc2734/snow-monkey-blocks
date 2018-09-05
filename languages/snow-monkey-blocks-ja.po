@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Awesome Custom Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2018-08-28 21:07+0900\n"
-"PO-Revision-Date: 2018-08-28 21:07+0900\n"
+"POT-Creation-Date: 2018-09-05 12:31+0900\n"
+"PO-Revision-Date: 2018-09-05 12:31+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -20,9 +20,17 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: vendor\n"
 "X-Poedit-SearchPathExcluded-1: node_modules\n"
 
-#: snow-monkey-awesome-custom-blocks.php:40
-msgid "Snow Monkey Awesome Custom Blocks"
-msgstr "Snow Monkey Awesome Custom Blocks"
+#: snow-monkey-blocks.php:40 snow-monkey-blocks.php:45
+msgid "Snow Monkey Blocks"
+msgstr "Snow Monkey Blocks"
+
+#: snow-monkey-blocks.php:41
+msgid "[Common blocks]"
+msgstr "[共通ブロック]"
+
+#: snow-monkey-blocks.php:46
+msgid "[Sections]"
+msgstr "[セクション]"
 
 #: block/alert/block.js:12
 msgid "Alert"
@@ -101,7 +109,7 @@ msgid "Button box"
 msgstr "ボタンボックス"
 
 #: block/btn-box/block.js:34 block/btn-box/block.js:133 block/btn/block.js:12
-#: block/btn/block.js:20 block/btn/block.js:117 block/btn/block.js:154
+#: block/btn/block.js:20 block/btn/block.js:116
 #: block/pricing-table/block.js:225 block/section-has-items/block.js:296
 msgid "Button"
 msgstr "ボタン"
@@ -187,7 +195,7 @@ msgstr "質問を書く…"
 msgid "Write answer…"
 msgstr "回答を書く…"
 
-#: block/list/block.js:11
+#: block/list/block.js:11 dist/js/blocks-build.js:12
 msgid "Icon list"
 msgstr "アイコンリスト"
 
@@ -411,9 +419,8 @@ msgstr "お客様の声の設定"
 msgid "Write name…"
 msgstr "名前を書く…"
 
-#: dist/js/blocks-build.js:12
-msgid "List"
-msgstr "リスト"
+#~ msgid "List"
+#~ msgstr "リスト"
 
 #~ msgid "Button URL"
 #~ msgstr "ボタンの URL"

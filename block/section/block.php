@@ -1,6 +1,6 @@
 <?php
 /**
- * @package snow-monkey-awesome-custom-blocks
+ * @package snow-monkey-blocks
  * @author inc2734
  * @license GPL-2.0+
  */
@@ -12,8 +12,8 @@ $cfs = Customizer_Framework::styles();
 $accent_color = get_theme_mod( 'accent-color' );
 
 $cfs->register(
-	'.smacb-section__title::after',
+	'.smb-section__title::after',
 	'background-color: ' . $accent_color
 );
 
-snow_monkey_entry_content_styles( [ '.smacb-section__body' ] );
+snow_monkey_entry_content_styles( [ '.smb-section__body' ] );

@@ -6,21 +6,21 @@ const { PanelBody, BaseControl, TextControl, SelectControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
-registerBlockType( 'snow-monkey-awesome-custom-blocks/btn-box', {
-	title: __( 'Button box', 'snow-monkey-awesome-custom-blocks' ),
+registerBlockType( 'snow-monkey-blocks/btn-box', {
+	title: __( 'Button box', 'snow-monkey-blocks' ),
 	icon: 'embed-generic',
-	category: 'smacb',
+	category: 'smb',
 	attributes: {
 		lede: {
 			type: 'array',
 			source: 'children',
-			selector: '.smacb-btn-box__lede',
+			selector: '.smb-btn-box__lede',
 			default: [],
 		},
 		note: {
 			type: 'array',
 			source: 'children',
-			selector: '.smacb-btn-box__note',
+			selector: '.smb-btn-box__note',
 			default: [],
 		},
 		backgroundColor: {
@@ -30,8 +30,8 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/btn-box', {
 		btnLabel: {
 			type: 'array',
 			source: 'children',
-			selector: '.smacb-btn__label',
-			default: [ __( 'Button', 'snow-monkey-awesome-custom-blocks' ) ],
+			selector: '.smb-btn__label',
+			default: [ __( 'Button', 'snow-monkey-blocks' ) ],
 		},
 		btnURL: {
 			type: 'string',
@@ -60,8 +60,8 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/btn-box', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Button box Settings', 'snow-monkey-awesome-custom-blocks' ) }>
-						<BaseControl label={ __( 'Background Color', 'snow-monkey-awesome-custom-blocks' ) }>
+					<PanelBody title={ __( 'Button box Settings', 'snow-monkey-blocks' ) }>
+						<BaseControl label={ __( 'Background Color', 'snow-monkey-blocks' ) }>
 							<ColorPalette
 								value={ backgroundColor }
 								onChange={ ( value ) => setAttributes( { backgroundColor: value } ) }
@@ -70,39 +70,39 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/btn-box', {
 					</PanelBody>
 
 					<PanelBody
-						title={ __( 'Button Settings', 'snow-monkey-awesome-custom-blocks' ) }
+						title={ __( 'Button Settings', 'snow-monkey-blocks' ) }
 						initialOpen={ false }
 					>
 						<TextControl
-							label={ __( 'URL', 'snow-monkey-awesome-custom-blocks' ) }
+							label={ __( 'URL', 'snow-monkey-blocks' ) }
 							value={ btnURL }
 							onChange={ ( value ) => setAttributes( { btnURL: value } ) }
 						/>
 
 						<SelectControl
-							label={ __( 'Target', 'snow-monkey-awesome-custom-blocks' ) }
+							label={ __( 'Target', 'snow-monkey-blocks' ) }
 							value={ btnTarget }
 							onChange={ ( value ) => setAttributes( { btnTarget: value } ) }
 							options={ [
 								{
 									value: '_self',
-									label: __( '_self', 'snow-monkey-awesome-custom-blocks' ),
+									label: __( '_self', 'snow-monkey-blocks' ),
 								},
 								{
 									value: '_blank',
-									label: __( '_blank', 'snow-monkey-awesome-custom-blocks' ),
+									label: __( '_blank', 'snow-monkey-blocks' ),
 								},
 							] }
 						/>
 
-						<BaseControl label={ __( 'Background Color', 'snow-monkey-awesome-custom-blocks' ) }>
+						<BaseControl label={ __( 'Background Color', 'snow-monkey-blocks' ) }>
 							<ColorPalette
 								value={ btnBackgroundColor }
 								onChange={ ( value ) => setAttributes( { btnBackgroundColor: value } ) }
 							/>
 						</BaseControl>
 
-						<BaseControl label={ __( 'Text Color', 'snow-monkey-awesome-custom-blocks' ) }>
+						<BaseControl label={ __( 'Text Color', 'snow-monkey-blocks' ) }>
 							<ColorPalette
 								value={ btnTextColor }
 								onChange={ ( value ) => setAttributes( { btnTextColor: value } ) }
@@ -111,26 +111,26 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/btn-box', {
 					</PanelBody>
 				</InspectorControls>
 
-				<div className="smacb-btn-box" style={ { backgroundColor: backgroundColor } }>
+				<div className="smb-btn-box" style={ { backgroundColor: backgroundColor } }>
 					<div className="c-container">
 						{ ( lede.length > 0 || isSelected ) &&
 							<RichText
-								className="smacb-btn-box__lede"
+								className="smb-btn-box__lede"
 								value={ lede }
 								onChange={ ( value ) => setAttributes( { lede: value } ) }
 								formattingControls={ [] }
-								placeholder={ __( 'Write lede…', 'snow-monkey-awesome-custom-blocks' ) }
+								placeholder={ __( 'Write lede…', 'snow-monkey-blocks' ) }
 							/>
 						}
 
 						<span
-							className="smacb-btn smacb-btn--full" href={ btnURL } target={ btnTarget }
+							className="smb-btn smb-btn--full" href={ btnURL } target={ btnTarget }
 							style={ { backgroundColor: btnBackgroundColor } }
 						>
 							<RichText
-								className="smacb-btn__label"
+								className="smb-btn__label"
 								value={ btnLabel }
-								placeholder={ __( 'Button', 'snow-monkey-awesome-custom-blocks' ) }
+								placeholder={ __( 'Button', 'snow-monkey-blocks' ) }
 								onChange={ ( value ) => setAttributes( { btnLabel: value } ) }
 								style={ { color: btnTextColor } }
 								formattingControls={ [] }
@@ -139,11 +139,11 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/btn-box', {
 
 						{ ( note.length > 0 || isSelected ) &&
 							<RichText
-								className="smacb-btn-box__note"
+								className="smb-btn-box__note"
 								value={ note }
 								onChange={ ( value ) => setAttributes( { note: value } ) }
 								formattingControls={ [] }
-								placeholder={ __( 'Write note…', 'snow-monkey-awesome-custom-blocks' ) }
+								placeholder={ __( 'Write note…', 'snow-monkey-blocks' ) }
 							/>
 						}
 					</div>
@@ -156,25 +156,25 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/btn-box', {
 		const { lede, note, backgroundColor, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor } = attributes;
 
 		return (
-			<div className="smacb-btn-box" style={ { backgroundColor: backgroundColor } }>
+			<div className="smb-btn-box" style={ { backgroundColor: backgroundColor } }>
 				<div className="c-container">
 					{ lede.length > 0 &&
-						<div className="smacb-btn-box__lede">
+						<div className="smb-btn-box__lede">
 							{ lede }
 						</div>
 					}
 
 					<a
-						className="smacb-btn smacb-btn--full" href={ btnURL } target={ btnTarget }
+						className="smb-btn smb-btn--full" href={ btnURL } target={ btnTarget }
 						style={ { backgroundColor: btnBackgroundColor } }
 					>
-						<span className="smacb-btn__label" style={ { color: btnTextColor } }>
+						<span className="smb-btn__label" style={ { color: btnTextColor } }>
 							{ btnLabel }
 						</span>
 					</a>
 
 					{ note.length > 0 &&
-						<div className="smacb-btn-box__note">
+						<div className="smb-btn-box__note">
 							{ note }
 						</div>
 					}

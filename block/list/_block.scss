@@ -1,4 +1,4 @@
-.smacb-list {
+.smb-list {
   ul {
     list-style: none;
 
@@ -9,7 +9,7 @@
         @include _margin-top(.25);
       }
 
-      .smacb-list__icon {
+      .smb-list__icon {
         position: absolute;
         top: 6px;
         left: -1.3em;

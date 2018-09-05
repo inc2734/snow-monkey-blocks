@@ -8,21 +8,21 @@ const { PanelBody, SelectControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
-registerBlockType( 'snow-monkey-awesome-custom-blocks/alert', {
-	title: __( 'Alert', 'snow-monkey-awesome-custom-blocks' ),
+registerBlockType( 'snow-monkey-blocks/alert', {
+	title: __( 'Alert', 'snow-monkey-blocks' ),
 	icon: 'warning',
-	category: 'smacb',
+	category: 'smb',
 	attributes: {
 		title: {
 			type: 'array',
 			source: 'children',
-			selector: '.smacb-alert__title strong',
+			selector: '.smb-alert__title strong',
 			default: [],
 		},
 		content: {
 			type: 'array',
 			source: 'children',
-			selector: '.smacb-alert__body',
+			selector: '.smb-alert__body',
 			default: [],
 		},
 		modifier: {
@@ -37,37 +37,37 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/alert', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Alert Settings', 'snow-monkey-awesome-custom-blocks' ) }>
+					<PanelBody title={ __( 'Alert Settings', 'snow-monkey-blocks' ) }>
 						<SelectControl
-							label={ __( 'Type', 'snow-monkey-awesome-custom-blocks' ) }
+							label={ __( 'Type', 'snow-monkey-blocks' ) }
 							value={ modifier }
 							onChange={ ( value ) => setAttributes( { modifier: value } ) }
 							options={ [
 								{
 									value: '',
-									label: __( 'Normal alert', 'snow-monkey-awesome-custom-blocks' ),
+									label: __( 'Normal alert', 'snow-monkey-blocks' ),
 								},
 								{
 									value: 'warning',
-									label: __( 'Warning alert', 'snow-monkey-awesome-custom-blocks' ),
+									label: __( 'Warning alert', 'snow-monkey-blocks' ),
 								},
 								{
 									value: 'success',
-									label: __( 'Success alert', 'snow-monkey-awesome-custom-blocks' ),
+									label: __( 'Success alert', 'snow-monkey-blocks' ),
 								},
 							] }
 						/>
 					</PanelBody>
 				</InspectorControls>
-				<div className={ classnames( 'smacb-alert', { [ `smacb-alert--${ modifier }` ]: !! modifier } ) }>
+				<div className={ classnames( 'smb-alert', { [ `smb-alert--${ modifier }` ]: !! modifier } ) }>
 					{ ( 0 < title.length || isSelected ) &&
-						<div className="smacb-alert__title">
+						<div className="smb-alert__title">
 							<i className="fas fa-exclamation-circle" />
 							<strong>
 								<RichText
 									multiline={ false }
 									value={ title }
-									placeholder={ __( 'Write title…', 'snow-monkey-awesome-custom-blocks' ) }
+									placeholder={ __( 'Write title…', 'snow-monkey-blocks' ) }
 									onChange={ ( value ) => setAttributes( { title: value } ) }
 								/>
 							</strong>
@@ -75,7 +75,7 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/alert', {
 					}
 
 					<RichText
-						className="smacb-alert__body"
+						className="smb-alert__body"
 						multiline="p"
 						value={ content }
 						onChange={ ( value ) => setAttributes( { content: value } ) }
@@ -89,9 +89,9 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/alert', {
 		const { title, content, modifier } = attributes;
 
 		return (
-			<div className={ classnames( 'smacb-alert', { [ `smacb-alert--${ modifier }` ]: !! modifier } ) }>
+			<div className={ classnames( 'smb-alert', { [ `smb-alert--${ modifier }` ]: !! modifier } ) }>
 				{ 0 < title.length &&
-					<div className="smacb-alert__title">
+					<div className="smb-alert__title">
 						<i className="fas fa-exclamation-circle" />
 						<strong>
 							{ title }
@@ -99,7 +99,7 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/alert', {
 					</div>
 				}
 
-				<div className="smacb-alert__body">
+				<div className="smb-alert__body">
 					{ content }
 				</div>
 			</div>

@@ -1,4 +1,4 @@
-[data-type="snow-monkey-awesome-custom-blocks/btn"] {
+[data-type="snow-monkey-blocks/btn"] {
   &[data-align="left"],
   &[data-align="right"] {
     height: auto; // = Gutenberg default
@@ -21,8 +21,8 @@
 
   &[data-align="left"] {
     > .editor-block-list__block-edit {
-      > .smacb-btn-wrapper {
-        > .smacb-btn {
+      > .smb-btn-wrapper {
+        > .smb-btn {
           float: left;
         }
       }
@@ -31,8 +31,8 @@
 
   &[data-align="right"] {
     > .editor-block-list__block-edit {
-      > .smacb-btn-wrapper {
-        > .smacb-btn {
+      > .smb-btn-wrapper {
+        > .smb-btn {
           float: right;
         }
       }

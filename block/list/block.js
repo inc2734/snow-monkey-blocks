@@ -7,11 +7,11 @@ const { PanelBody, BaseControl, Button } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
-registerBlockType( 'snow-monkey-awesome-custom-blocks/list', {
-	title: __( 'Icon list', 'snow-monkey-awesome-custom-blocks' ),
-	description: __( 'Icons are displayed only on the actual screen.', 'snow-monkey-awesome-custom-blocks' ),
+registerBlockType( 'snow-monkey-blocks/list', {
+	title: __( 'Icon list', 'snow-monkey-blocks' ),
+	description: __( 'Icons are displayed only on the actual screen.', 'snow-monkey-blocks' ),
 	icon: 'editor-ul',
-	category: 'smacb',
+	category: 'smb',
 	attributes: {
 		content: {
 			type: 'array',
@@ -43,7 +43,7 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/list', {
 
 				_content[ i ].props.children[ 1 ] = _content[ i ].props.children[ 0 ];
 				_content[ i ].props.children[ 0 ] = (
-					<span className="smacb-list__icon" style={ { color: _iconColor } }>
+					<span className="smb-list__icon" style={ { color: _iconColor } }>
 						<i className={ `fas fa-${ _icon }` } />
 					</span>
 				);
@@ -55,48 +55,48 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/list', {
 		const iconList = [
 			{
 				value: 'angle-right',
-				label: __( 'angle-right', 'snow-monkey-awesome-custom-blocks' ),
+				label: __( 'angle-right', 'snow-monkey-blocks' ),
 			},
 			{
 				value: 'angle-double-right',
-				label: __( 'angle-double-right', 'snow-monkey-awesome-custom-blocks' ),
+				label: __( 'angle-double-right', 'snow-monkey-blocks' ),
 			},
 			{
 				value: 'arrow-alt-circle-right',
-				label: __( 'arrow-alt-circle-right', 'snow-monkey-awesome-custom-blocks' ),
+				label: __( 'arrow-alt-circle-right', 'snow-monkey-blocks' ),
 			},
 			{
 				value: 'arrow-right',
-				label: __( 'arrow-right', 'snow-monkey-awesome-custom-blocks' ),
+				label: __( 'arrow-right', 'snow-monkey-blocks' ),
 			},
 			{
 				value: 'check',
-				label: __( 'check', 'snow-monkey-awesome-custom-blocks' ),
+				label: __( 'check', 'snow-monkey-blocks' ),
 			},
 			{
 				value: 'check-circle',
-				label: __( 'check-circle', 'snow-monkey-awesome-custom-blocks' ),
+				label: __( 'check-circle', 'snow-monkey-blocks' ),
 			},
 			{
 				value: 'check-square',
-				label: __( 'check-square', 'snow-monkey-awesome-custom-blocks' ),
+				label: __( 'check-square', 'snow-monkey-blocks' ),
 			},
 			{
 				value: 'chevron-circle-right',
-				label: __( 'chevron-circle-right', 'snow-monkey-awesome-custom-blocks' ),
+				label: __( 'chevron-circle-right', 'snow-monkey-blocks' ),
 			},
 			{
 				value: 'hand-point-right',
-				label: __( 'hand-point-right', 'snow-monkey-awesome-custom-blocks' ),
+				label: __( 'hand-point-right', 'snow-monkey-blocks' ),
 			},
 		];
 
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'List Settings', 'snow-monkey-awesome-custom-blocks' ) }>
-						<BaseControl label={ __( 'Icon', 'snow-monkey-awesome-custom-blocks' ) }>
-							<div className="smacb-list-icon-selector">
+					<PanelBody title={ __( 'List Settings', 'snow-monkey-blocks' ) }>
+						<BaseControl label={ __( 'Icon', 'snow-monkey-blocks' ) }>
+							<div className="smb-list-icon-selector">
 								{ times( iconList.length, ( index ) => {
 									const value = iconList[ index ].value;
 
@@ -118,7 +118,7 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/list', {
 							</div>
 						</BaseControl>
 
-						<BaseControl label={ __( 'Icon Color', 'snow-monkey-awesome-custom-blocks' ) }>
+						<BaseControl label={ __( 'Icon Color', 'snow-monkey-blocks' ) }>
 							<ColorPalette
 								value={ iconColor }
 								onChange={ ( value ) => {
@@ -132,7 +132,7 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/list', {
 					</PanelBody>
 				</InspectorControls>
 
-				<div className="smacb-list">
+				<div className="smb-list">
 					<RichText
 						tagName="ul"
 						multiline="li"
@@ -151,7 +151,7 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/list', {
 		const { content } = attributes;
 
 		return (
-			<div className="smacb-list">
+			<div className="smb-list">
 				<ul>
 					{ content }
 				</ul>

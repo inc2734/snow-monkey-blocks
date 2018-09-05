@@ -23,7 +23,7 @@
     "webpack-cli": "^3.1.0"
   },
   "scripts": {
-    "clean:zip": "rimraf snow-monkey-awesome-custom-blocks.zip",
+    "clean:zip": "rimraf snow-monkey-blocks.zip",
     "build": "npm-run-all -p css js",
     "prepublish": "npm run build",
     "lint": "./node_modules/.bin/eslint .",
@@ -37,8 +37,8 @@
     "css:editor": "npm-run-all -s css:editor:sass css:editor:postcss && npm run minify:css:editor",
     "css": "npm-run-all -p css:front css:editor",
     "js": "webpack src/js/blocks.js -o dist/js/blocks-build.js --config webpack.config.js",
-    "zip:pack": "rsync -a --exclude='/vendor' --exclude='/node_modules' --exclude='.*' --exclude='*.ruleset.xml' --exclude='*.config.js' --exclude='*.xml.dist' --exclude='/bin' --exclude='package*.json' . snow-monkey-awesome-custom-blocks && cd snow-monkey-awesome-custom-blocks && composer install --no-dev",
-    "zip:archive": "zip -9 -qmr snow-monkey-awesome-custom-blocks.zip snow-monkey-awesome-custom-blocks",
+    "zip:pack": "rsync -a --exclude='/vendor' --exclude='/node_modules' --exclude='.*' --exclude='*.ruleset.xml' --exclude='*.config.js' --exclude='*.xml.dist' --exclude='/bin' --exclude='package*.json' . snow-monkey-blocks && cd snow-monkey-blocks && composer install --no-dev",
+    "zip:archive": "zip -9 -qmr snow-monkey-blocks.zip snow-monkey-blocks",
     "zip": "npm run clean:zip && npm run zip:pack && npm run zip:archive",
     "sync-sm-css": "rimraf src/css/core && cp -r ../../themes/snow-monkey/resources/src/css/core ./src/css/core && rimraf src/css/core/_core.scss"
   }

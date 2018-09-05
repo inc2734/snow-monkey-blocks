@@ -1,4 +1,4 @@
-.smacb-balloon {
+.smb-balloon {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -81,13 +81,13 @@
       align-items: center;
     }
 
-    .smacb-balloon__person {
+    .smb-balloon__person {
       @include _media-min(md) {
         margin: 0 0 0 20px;
       }
     }
 
-    .smacb-balloon__body {
+    .smb-balloon__body {
       &::before,
       &::after {
         left: auto;

@@ -1,4 +1,4 @@
-.smacb-section-has-bgimage {
+.smb-section-has-bgimage {
   position: relative;
   overflow: hidden;
   display: flex;
@@ -11,7 +11,7 @@
     color: #fff;
   }
 
-  .smacb-section__title {
+  .smb-section__title {
     color: #fff;
   }
 
@@ -49,12 +49,12 @@
   }
 
   &--left {
-    .smacb-section__title,
-    .smacb-section__body {
+    .smb-section__title,
+    .smb-section__body {
       text-align: left;
     }
 
-    .smacb-section__title {
+    .smb-section__title {
       &::after {
         margin-right: auto;
         margin-left: 0;
@@ -63,12 +63,12 @@
   }
 
   &--center {
-    .smacb-section__title,
-    .smacb-section__body {
+    .smb-section__title,
+    .smb-section__body {
       text-align: center;
     }
 
-    .smacb-section__title {
+    .smb-section__title {
       &::after {
         margin-right: auto;
         margin-left: auto;
@@ -77,12 +77,12 @@
   }
 
   &--right {
-    .smacb-section__title,
-    .smacb-section__body {
+    .smb-section__title,
+    .smb-section__body {
       text-align: right;
     }
 
-    .smacb-section__title {
+    .smb-section__title {
       &::after {
         margin-right: 0;
         margin-left: auto;

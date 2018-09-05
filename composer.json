@@ -25,7 +25,7 @@
   ],
   "autoload": {
     "psr-4" : {
-      "Snow_Monkey\\Plugin\\AwesomeCustomBlocks\\" : ""
+      "Snow_Monkey\\Plugin\\Blocks\\" : ""
     }
   },
   "scripts": {

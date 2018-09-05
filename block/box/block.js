@@ -6,10 +6,10 @@ const { PanelBody, BaseControl, RangeControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
-registerBlockType( 'snow-monkey-awesome-custom-blocks/box', {
-	title: __( 'Box', 'snow-monkey-awesome-custom-blocks' ),
+registerBlockType( 'snow-monkey-blocks/box', {
+	title: __( 'Box', 'snow-monkey-blocks' ),
 	icon: 'admin-comments',
-	category: 'smacb',
+	category: 'smb',
 	attributes: {
 		backgroundColor: {
 			type: 'string',
@@ -35,22 +35,22 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/box', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Box Settings', 'snow-monkey-awesome-custom-blocks' ) }>
-						<BaseControl label={ __( 'Background Color', 'snow-monkey-awesome-custom-blocks' ) }>
+					<PanelBody title={ __( 'Box Settings', 'snow-monkey-blocks' ) }>
+						<BaseControl label={ __( 'Background Color', 'snow-monkey-blocks' ) }>
 							<ColorPalette
 								value={ backgroundColor }
 								onChange={ ( value ) => setAttributes( { backgroundColor: value } ) }
 							/>
 						</BaseControl>
 
-						<BaseControl label={ __( 'Border Color', 'snow-monkey-awesome-custom-blocks' ) }>
+						<BaseControl label={ __( 'Border Color', 'snow-monkey-blocks' ) }>
 							<ColorPalette
 								value={ borderColor }
 								onChange={ ( value ) => setAttributes( { borderColor: value } ) }
 							/>
 						</BaseControl>
 
-						<BaseControl label={ __( 'Text Color', 'snow-monkey-awesome-custom-blocks' ) }>
+						<BaseControl label={ __( 'Text Color', 'snow-monkey-blocks' ) }>
 							<ColorPalette
 								value={ textColor }
 								onChange={ ( value ) => setAttributes( { textColor: value } ) }
@@ -58,7 +58,7 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/box', {
 						</BaseControl>
 
 						<RangeControl
-							label={ __( 'Border width', 'snow-monkey-awesome-custom-blocks' ) }
+							label={ __( 'Border width', 'snow-monkey-blocks' ) }
 							value={ borderWidth }
 							onChange={ ( value ) => setAttributes( { borderWidth: value } ) }
 							min="1"
@@ -68,10 +68,10 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/box', {
 				</InspectorControls>
 
 				<div
-					className="smacb-box"
+					className="smb-box"
 					style={ { backgroundColor: backgroundColor, borderColor: borderColor, color: textColor, borderWidth: borderWidth } }
 				>
-					<div className="smacb-box__body">
+					<div className="smb-box__body">
 						<InnerBlocks />
 					</div>
 				</div>
@@ -84,10 +84,10 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/box', {
 
 		return (
 			<div
-				className="smacb-box"
+				className="smb-box"
 				style={ { backgroundColor: backgroundColor, borderColor: borderColor, color: textColor, borderWidth: borderWidth } }
 			>
-				<div className="smacb-box__body">
+				<div className="smb-box__body">
 					<InnerBlocks.Content />
 				</div>
 			</div>

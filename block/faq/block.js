@@ -7,41 +7,41 @@ const { PanelBody, RangeControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const { __, sprintf } = wp.i18n;
 
-registerBlockType( 'snow-monkey-awesome-custom-blocks/faq', {
-	title: __( 'FAQ', 'snow-monkey-awesome-custom-blocks' ),
+registerBlockType( 'snow-monkey-blocks/faq', {
+	title: __( 'FAQ', 'snow-monkey-blocks' ),
 	icon: 'businessman',
-	category: 'smacb',
+	category: 'smb',
 	attributes: {
 		content: {
 			type: 'array',
 			source: 'query',
-			selector: '.smacb-faq__item',
+			selector: '.smb-faq__item',
 			default: [],
 			query: {
 				question: {
 					type: 'array',
 					source: 'children',
-					selector: '.smacb-faq__item__question__body',
+					selector: '.smb-faq__item__question__body',
 					default: [],
 				},
 				answer: {
 					type: 'array',
 					source: 'children',
-					selector: '.smacb-faq__item__answer__body',
+					selector: '.smb-faq__item__answer__body',
 					default: [],
 				},
 				questionColor: {
 					type: 'string',
 					default: null,
 					source: 'attribute',
-					selector: '.smacb-faq__item__question__label',
+					selector: '.smb-faq__item__question__label',
 					attribute: 'data-color',
 				},
 				answerColor: {
 					type: 'string',
 					default: null,
 					source: 'attribute',
-					selector: '.smacb-faq__item__answer__label',
+					selector: '.smb-faq__item__answer__label',
 					attribute: 'data-color',
 				},
 			},
@@ -65,9 +65,9 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/faq', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'FAQ Settings', 'snow-monkey-awesome-custom-blocks' ) }>
+					<PanelBody title={ __( 'FAQ Settings', 'snow-monkey-blocks' ) }>
 						<RangeControl
-							label={ __( 'Rows', 'snow-monkey-awesome-custom-blocks' ) }
+							label={ __( 'Rows', 'snow-monkey-blocks' ) }
 							value={ rows }
 							onChange={ ( value ) => setAttributes( { rows: value } ) }
 							min="1"
@@ -81,17 +81,17 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/faq', {
 
 						return (
 							<PanelBody
-								title={ sprintf( __( '(%d) Item Settings', 'snow-monkey-awesome-custom-blocks' ), index + 1 ) }
+								title={ sprintf( __( '(%d) Item Settings', 'snow-monkey-blocks' ), index + 1 ) }
 								initialOpen={ false }
 							>
-								<BaseControl label={ __( 'Question Color', 'snow-monkey-awesome-custom-blocks' ) }>
+								<BaseControl label={ __( 'Question Color', 'snow-monkey-blocks' ) }>
 									<ColorPalette
 										value={ questionColor }
 										onChange={ ( value ) => setAttributes( { content: generateUpdatedAttribute( content, index, 'questionColor', value ) } ) }
 									/>
 								</BaseControl>
 
-								<BaseControl label={ __( 'Answer Color', 'snow-monkey-awesome-custom-blocks' ) }>
+								<BaseControl label={ __( 'Answer Color', 'snow-monkey-blocks' ) }>
 									<ColorPalette
 										value={ answerColor }
 										onChange={ ( value ) => setAttributes( { content: generateUpdatedAttribute( content, index, 'answerColor', value ) } ) }
@@ -102,8 +102,8 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/faq', {
 					} ) }
 				</InspectorControls>
 
-				<div className="smacb-faq">
-					<div className="smacb-faq__body">
+				<div className="smb-faq">
+					<div className="smb-faq__body">
 						{ times( rows, ( index ) => {
 							const question = get( content, [ index, 'question' ], [] );
 							const answer = get( content, [ index, 'answer' ], [] );
@@ -111,14 +111,14 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/faq', {
 							const answerColor = get( content, [ index, 'answerColor' ], '' );
 
 							return (
-								<div className="smacb-faq__item">
-									<div className="smacb-faq__item__question">
-										<div className="smacb-faq__item__question__label" style={ { color: questionColor } } data-color={ questionColor }>
+								<div className="smb-faq__item">
+									<div className="smb-faq__item__question">
+										<div className="smb-faq__item__question__label" style={ { color: questionColor } } data-color={ questionColor }>
 											Q
 										</div>
 										<RichText
-											className="smacb-faq__item__question__body"
-											placeholder={ __( 'Write question…', 'snow-monkey-awesome-custom-blocks' ) }
+											className="smb-faq__item__question__body"
+											placeholder={ __( 'Write question…', 'snow-monkey-blocks' ) }
 											value={ question }
 											formattingControls={ [] }
 											multiline={ false }
@@ -126,13 +126,13 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/faq', {
 										/>
 									</div>
 
-									<div className="smacb-faq__item__answer">
-										<div className="smacb-faq__item__answer__label" style={ { color: answerColor } } data-color={ answerColor }>
+									<div className="smb-faq__item__answer">
+										<div className="smb-faq__item__answer__label" style={ { color: answerColor } } data-color={ answerColor }>
 											A
 										</div>
 										<RichText
-											className="smacb-faq__item__answer__body"
-											placeholder={ __( 'Write answer…', 'snow-monkey-awesome-custom-blocks' ) }
+											className="smb-faq__item__answer__body"
+											placeholder={ __( 'Write answer…', 'snow-monkey-blocks' ) }
 											value={ answer }
 											multiline="p"
 											onChange={ ( value ) => setAttributes( { content: generateUpdatedAttribute( content, index, 'answer', value ) } ) }
@@ -151,8 +151,8 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/faq', {
 		const { rows, content } = attributes;
 
 		return (
-			<div className="smacb-faq">
-				<div className="smacb-faq__body">
+			<div className="smb-faq">
+				<div className="smb-faq__body">
 					{ times( rows, ( index ) => {
 						const question = get( content, [ index, 'question' ], [] );
 						const answer = get( content, [ index, 'answer' ], [] );
@@ -160,21 +160,21 @@ registerBlockType( 'snow-monkey-awesome-custom-blocks/faq', {
 						const answerColor = get( content, [ index, 'answerColor' ], '' );
 
 						return (
-							<div className="smacb-faq__item">
-								<div className="smacb-faq__item__question">
-									<div className="smacb-faq__item__question__label" style={ { color: questionColor } } data-color={ questionColor }>
+							<div className="smb-faq__item">
+								<div className="smb-faq__item__question">
+									<div className="smb-faq__item__question__label" style={ { color: questionColor } } data-color={ questionColor }>
 										Q
 									</div>
-									<div className="smacb-faq__item__question__body">
+									<div className="smb-faq__item__question__body">
 										{ question }
 									</div>
 								</div>
 
-								<div className="smacb-faq__item__answer">
-									<div className="smacb-faq__item__answer__label" style={ { color: answerColor } } data-color={ answerColor }>
+								<div className="smb-faq__item__answer">
+									<div className="smb-faq__item__answer__label" style={ { color: answerColor } } data-color={ answerColor }>
 										A
 									</div>
-									<div className="smacb-faq__item__answer__body">
+									<div className="smb-faq__item__answer__body">
 										{ answer }
 									</div>
 								</div>
