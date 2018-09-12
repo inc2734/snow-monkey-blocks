@@ -1,8 +1,14 @@
 @import 'settings';
 
 .smb-alert {
+  &__body {
+    > * {
+      color: darken(desaturate($alert-color, 60%), 60%); // = .smb-alert
+    }
+  }
+
   &--warning {
-    &__body {
+    .smb-alert__body {
       > * {
         color: adjust-hue(darken(desaturate($alert-color, 60%), 60%), -30deg); // = .smb-alert--warning
       }
@@ -10,16 +16,10 @@
   }
 
   &--success {
-    &__body {
+    .smb-alert__body {
       > * {
         color: adjust-hue(darken(desaturate($alert-color, 70%), 70%), 40deg); // = .smb-alert--success
       }
-    }
-  }
-
-  &__body {
-    > * {
-      color: darken(desaturate($alert-color, 60%), 60%); // = .smb-alert
     }
   }
 }
