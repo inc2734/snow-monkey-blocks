@@ -1,10 +1,12 @@
 'use strict';
 
 import classnames from 'classnames';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+const { times } = lodash;
 const { registerBlockType } = wp.blocks;
 const { RichText, InspectorControls } = wp.editor;
-const { PanelBody, SelectControl } = wp.components;
+const { PanelBody, SelectControl, BaseControl, Button } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -29,10 +31,37 @@ registerBlockType( 'snow-monkey-blocks/alert', {
 			type: 'string',
 			default: '',
 		},
+		icon: {
+			type: 'string',
+			default: 'exclamation-circle',
+		},
 	},
 
 	edit( { attributes, setAttributes, isSelected } ) {
-		const { title, content, modifier } = attributes;
+		const { title, content, modifier, icon } = attributes;
+
+		const iconList = [
+			{
+				value: 'exclamation-circle',
+				label: __( 'exclamation-circle', 'snow-monkey-blocks' ),
+			},
+			{
+				value: 'check',
+				label: __( 'check', 'snow-monkey-blocks' ),
+			},
+			{
+				value: 'check-circle',
+				label: __( 'check-circle', 'snow-monkey-blocks' ),
+			},
+			{
+				value: 'check-square',
+				label: __( 'check-square', 'snow-monkey-blocks' ),
+			},
+			{
+				value: 'hand-point-right',
+				label: __( 'hand-point-right', 'snow-monkey-blocks' ),
+			},
+		];
 
 		return (
 			<Fragment>
@@ -57,12 +86,28 @@ registerBlockType( 'snow-monkey-blocks/alert', {
 								},
 							] }
 						/>
+
+						<BaseControl label={ __( 'Icon', 'snow-monkey-blocks' ) }>
+							<div className="smb-list-icon-selector">
+								{ times( iconList.length, ( index ) => {
+									return (
+										<Button
+											isDefault
+											isPrimary={ icon === iconList[ index ].value }
+											onClick={ () => setAttributes( { icon: iconList[ index ].value } ) }
+										>
+											<i className={ `fas fa-${ iconList[ index ].value }` } title={ iconList[ index ].label } />
+										</Button>
+									);
+								} ) }
+							</div>
+						</BaseControl>
 					</PanelBody>
 				</InspectorControls>
 				<div className={ classnames( 'smb-alert', { [ `smb-alert--${ modifier }` ]: !! modifier } ) }>
 					{ ( 0 < title.length || isSelected ) &&
 						<div className="smb-alert__title">
-							<i className="fas fa-exclamation-circle" />
+							<FontAwesomeIcon icon={ icon } />
 							<strong>
 								<RichText
 									multiline={ false }
@@ -86,13 +131,13 @@ registerBlockType( 'snow-monkey-blocks/alert', {
 	},
 
 	save( { attributes } ) {
-		const { title, content, modifier } = attributes;
+		const { title, content, modifier, icon } = attributes;
 
 		return (
 			<div className={ classnames( 'smb-alert', { [ `smb-alert--${ modifier }` ]: !! modifier } ) }>
 				{ 0 < title.length &&
 					<div className="smb-alert__title">
-						<i className="fas fa-exclamation-circle" />
+						<i className={ `fas fa-${ icon }` } />
 						<strong>
 							{ title }
 						</strong>
