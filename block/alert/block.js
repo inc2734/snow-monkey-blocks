@@ -10,6 +10,8 @@ const { PanelBody, SelectControl, BaseControl, Button } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
+let isIconUpdated = false;
+
 registerBlockType( 'snow-monkey-blocks/alert', {
 	title: __( 'Alert', 'snow-monkey-blocks' ),
 	icon: 'warning',
@@ -63,6 +65,18 @@ registerBlockType( 'snow-monkey-blocks/alert', {
 			},
 		];
 
+		const renderFontAwesomeIcon = () => {
+			const displayDefaultIcon = isIconUpdated ? 'none' : 'block';
+			return (
+				<Fragment>
+					<div style={ { display: displayDefaultIcon } }>
+						<i className={ `fas fa-${ icon }` } />
+					</div>
+					<FontAwesomeIcon icon={ icon } />
+				</Fragment>
+			);
+		};
+
 		return (
 			<Fragment>
 				<InspectorControls>
@@ -94,7 +108,10 @@ registerBlockType( 'snow-monkey-blocks/alert', {
 										<Button
 											isDefault
 											isPrimary={ icon === iconList[ index ].value }
-											onClick={ () => setAttributes( { icon: iconList[ index ].value } ) }
+											onClick={ () => {
+												isIconUpdated = true;
+												setAttributes( { icon: iconList[ index ].value } );
+											} }
 										>
 											<i className={ `fas fa-${ iconList[ index ].value }` } title={ iconList[ index ].label } />
 										</Button>
@@ -107,7 +124,7 @@ registerBlockType( 'snow-monkey-blocks/alert', {
 				<div className={ classnames( 'smb-alert', { [ `smb-alert--${ modifier }` ]: !! modifier } ) }>
 					{ ( 0 < title.length || isSelected ) &&
 						<div className="smb-alert__title">
-							<FontAwesomeIcon icon={ icon } />
+							{ renderFontAwesomeIcon() }
 							<strong>
 								<RichText
 									multiline={ false }
