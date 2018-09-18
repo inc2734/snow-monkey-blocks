@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin name: Snow Monkey Blocks
- * Version: 1.0.0
+ * Version: 1.0.1
  * Text Domain: snow-monkey-blocks
  * Domain Path: /languages/
  *
