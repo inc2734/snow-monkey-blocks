@@ -6,27 +6,7 @@
 
 ## Custom Blocks
 
-* Alert
-* Balloon
-* Box
-* Button
-* Button box
-* FAQ
-* Pricing table
-* Rating box
-* Section
-* Section ( has background image )
-* Section ( has image )
-* Section ( has items )
-* Step
-* Testimonial
-
-## How to use
-
-1. Upload Smart Custom Fields to the /wp-content/plugins/ directory
-1. Activate the plugin through the ‘Plugins’ menu in WordPress
-
-The custom blocks don't have styles. So you need create CSS for the custom blocks.
+See <a href="https://github.com/inc2734/snow-monkey-blocks/blob/master/readme.txt">readme.txt</a>
 
 ## How to build
 

@@ -1,0 +1,74 @@
+=== Snow Monkey Blocks ===
+Contributors: inc2734
+Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
+Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder
+Requires at least: 4.9
+Tested up to: 4.9
+Stable tag: 1.0.2
+Requires PHP: 5.6
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+
+Gutenberg blocks collection made by MonkeyWrench.
+
+== Description ==
+
+Snow Monkey Blocks is a collection of content blocks for the <a href="https://wordpress.org/plugins/gutenberg/" target="_blank">Gutenberg</a>. When you use Snow Monkey Blocks, you can quickly and easily create and launch landing pages or highly designed page. Of course, you dont need to write any code.
+
+Snow Monkey Blocks is optimized for the <a href="https://snow-monkey.2inc.org/" target="_blank">Snow Monkey</a> theme, but it can also be used with other themes. When used together with the <a href="https://snow-monkey.2inc.org/" target="_blank">Snow Monkey</a> theme, it can be displayed with the most beautiful balance, and it is displayed on the edit screen with the same design as the front screen.
+
+https://www.youtube.com/watch?v=uD6omb4TLdA&t=283s
+
+= Module blocks =
+
+* Alert
+* Balloon
+* Box
+* Button
+* Button box (Button with microcopy)
+* FAQ
+* Icon list
+* Pricing table
+* Rating box
+* Step
+* Testimonial
+
+= Section blocks =
+
+* Section
+* Section with background image
+* Section with image
+* Section with items (For example, features)
+
+== Installation ==
+
+This plugin can be installed directly from your site.
+
+1. Log in and navigate to Plugins → Add New.
+1. Type “Snow Monkey Blocks” into the Search and hit Enter.
+1. Locate the Snow Monkey Blocks plugin in the list of search results and click Install Now.
+1. Once installed, click the Activate link.
+
+== Screenshots ==
+
+1. Alert blocks
+2. Balloon blocks
+3. Box block (Color can be set freely)
+4. Button block (Color can be set freely)
+5. Button box block (Color can be set freely)
+6. FAQ block (The number of FAQ sets can be increased or decreased freely)
+7. Icon list block
+8. Pricing table block (The number of columns can be increased or decreased freely)
+9. Rating box block (The number of ratings can be increased or decreased freely)
+10. Rating box block (The number of steps can be increased or decreased freely)
+11. Testimonial block (The number of items can be increased or decreased freely)
+
+== Changelog ==
+
+= 1.0 =
+* A change since the previous version.
+* Another change.
+
+== Upgrade Notice ==
+
+Nothing in particular.
