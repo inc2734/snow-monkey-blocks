@@ -24,6 +24,7 @@ class Bootstrap {
 		add_filter( 'block_categories', [ $this, '_block_categories' ] );
 		add_action( 'enqueue_block_editor_assets', [ $this, '_enqueue_block_editor_assets' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, '_wp_enqueue_scripts' ] );
+		add_action( 'enqueue_block_assets', [ $this, '_enqueue_block_assets' ] );
 		add_action( 'init', [ $this, '_activate_autoupdate' ] );
 		add_action( 'wp_loaded', [ $this, '_customizer_styles' ] );
 	}
@@ -112,6 +113,37 @@ class Bootstrap {
 			[],
 			filemtime( $path )
 		);
+	}
+
+	/**
+	 * Enqueue assets for block
+	 *
+	 * @return void
+	 */
+	public function _enqueue_block_assets() {
+		if ( 'snow-monkey' !== get_template() && 'snow-monkey/resources' !== get_template() ) {
+			$relative_path = '/dist/packages/fontawesome-free/js/all.min.js';
+			$src  = plugin_dir_url( __FILE__ ) . $relative_path;
+			$path = plugin_dir_path( __FILE__ ) . $relative_path;
+
+			wp_enqueue_script(
+				'fontawesome5',
+				$src,
+				[],
+				filemtime( $path )
+			);
+
+			$relative_path = '/dist/css/fallback.min.css';
+			$src  = plugin_dir_url( __FILE__ ) . $relative_path;
+			$path = plugin_dir_path( __FILE__ ) . $relative_path;
+
+			wp_enqueue_style(
+				'snow-monkey-blocks-fallback',
+				$src,
+				[],
+				filemtime( $path )
+			);
+		}
 	}
 
 	/**
