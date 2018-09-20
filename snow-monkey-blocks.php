@@ -121,29 +121,31 @@ class Bootstrap {
 	 * @return void
 	 */
 	public function _enqueue_block_assets() {
-		if ( 'snow-monkey' !== get_template() && 'snow-monkey/resources' !== get_template() ) {
-			$relative_path = '/dist/packages/fontawesome-free/js/all.min.js';
-			$src  = plugin_dir_url( __FILE__ ) . $relative_path;
-			$path = plugin_dir_path( __FILE__ ) . $relative_path;
-
-			wp_enqueue_script(
-				'fontawesome5',
-				$src,
-				[],
-				filemtime( $path )
-			);
-
-			$relative_path = '/dist/css/fallback.min.css';
-			$src  = plugin_dir_url( __FILE__ ) . $relative_path;
-			$path = plugin_dir_path( __FILE__ ) . $relative_path;
-
-			wp_enqueue_style(
-				'snow-monkey-blocks-fallback',
-				$src,
-				[],
-				filemtime( $path )
-			);
+		if ( $this->_is_snow_monkey() ) {
+			return;
 		}
+
+		$relative_path = '/dist/packages/fontawesome-free/js/all.min.js';
+		$src  = plugin_dir_url( __FILE__ ) . $relative_path;
+		$path = plugin_dir_path( __FILE__ ) . $relative_path;
+
+		wp_enqueue_script(
+			'fontawesome5',
+			$src,
+			[],
+			filemtime( $path )
+		);
+
+		$relative_path = '/dist/css/fallback.min.css';
+		$src  = plugin_dir_url( __FILE__ ) . $relative_path;
+		$path = plugin_dir_path( __FILE__ ) . $relative_path;
+
+		wp_enqueue_style(
+			'snow-monkey-blocks-fallback',
+			$src,
+			[],
+			filemtime( $path )
+		);
 	}
 
 	/**
@@ -152,7 +154,7 @@ class Bootstrap {
 	 * @return void
 	 */
 	public function _customizer_styles() {
-		if ( 'snow-monkey' !== get_template() && 'snow-monkey/resources' !== get_template() ) {
+		if ( ! $this->_is_snow_monkey() ) {
 			return;
 		}
 
@@ -170,6 +172,15 @@ class Bootstrap {
 			'inc2734',
 			'snow-monkey-blocks'
 		);
+	}
+
+	/**
+	 * Return true when Snow Monkey is enabled
+	 *
+	 * @return boolean
+	 */
+	protected function _is_snow_monkey() {
+		return 'snow-monkey' === get_template() || 'snow-monkey/resources' === get_template();
 	}
 }
 
