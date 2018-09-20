@@ -49,6 +49,12 @@ This plugin can be installed directly from your site.
 1. Locate the Snow Monkey Blocks plugin in the list of search results and click Install Now.
 1. Once installed, click the Activate link.
 
+== Frequently Asked Questions ==
+
+= Can Snow Monkey Blocks be used with any theme? =
+
+Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <a href="https://snow-monkey.2inc.org/" target="_blank">Snow Monkey</a> theme for the best presentation. Other themes may require adjustment of margin between blocks.
+
 == Screenshots ==
 
 1. Alert blocks
