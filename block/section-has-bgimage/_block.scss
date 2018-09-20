@@ -103,7 +103,7 @@
   }
 
   [data-is-fluid-template="true"] & {
-    &:not(.alignfull) {
+    &:not(.alignfull):not(.alignwide) {
       .#{$_prefix}c-container {
         padding-right: 0;
         padding-left: 0;
