@@ -1,0 +1,17 @@
+.smb-section-has-bgimage {
+  .smb-section__title,
+  .smb-section__body .wp-block-paragraph {
+    color: #fff;
+  }
+
+  .smb-remove-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 1;
+  }
+
+  .editor-default-block-appender__content {
+    color: rgba(#fff, .8);
+  }
+}

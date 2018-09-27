@@ -67,16 +67,15 @@ registerBlockType( 'snow-monkey-blocks/section-has-image', {
 			}
 
 			return (
-				<div style={ { position: 'relative' } }>
+				<Fragment>
 					<img src={ imageURL } alt="" />
 					<button
-						style={ { position: 'absolute', top: '5px', right: '5px' } }
 						className="smb-remove-button"
 						onClick={ () => {
 							setAttributes( { imageURL: '', imageID: 0 } );
 						} }
 					>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
-				</div>
+				</Fragment>
 			);
 		};
 

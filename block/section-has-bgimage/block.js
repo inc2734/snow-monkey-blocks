@@ -1,8 +1,8 @@
 'use strict';
 
 const { registerBlockType } = wp.blocks;
-const { RichText, InnerBlocks, InspectorControls, MediaUpload, ColorPalette } = wp.editor;
-const { Button, PanelBody, SelectControl, RangeControl, BaseControl } = wp.components;
+const { RichText, InnerBlocks, InspectorControls, ColorPalette, MediaPlaceholder } = wp.editor;
+const { PanelBody, SelectControl, RangeControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -26,7 +26,7 @@ registerBlockType( 'snow-monkey-blocks/section-has-bgimage', {
 			source: 'attribute',
 			selector: '.smb-section-has-bgimage__bgimage > img',
 			attribute: 'src',
-			default: smb.pluginURL + 'block/section-has-bgimage/image.png',
+			default: '',
 		},
 		height: {
 			type: 'string',
@@ -50,15 +50,7 @@ registerBlockType( 'snow-monkey-blocks/section-has-bgimage', {
 	},
 
 	edit( { attributes, setAttributes, isSelected } ) {
-		const { title, imageID, imageURL, height, contentsAlignment, maskColor, maskOpacity } = attributes;
-
-		const renderImage = ( obj ) => {
-			return (
-				<Button className="image-button" onClick={ obj.open } style={ { padding: 0 } }>
-					<img src={ imageURL } alt="" />
-				</Button>
-			);
-		};
+		const { title, imageURL, height, contentsAlignment, maskColor, maskOpacity } = attributes;
 
 		return (
 			<Fragment>
@@ -117,18 +109,32 @@ registerBlockType( 'snow-monkey-blocks/section-has-bgimage', {
 						/>
 					</PanelBody>
 				</InspectorControls>
+				{ ! imageURL &&
+					<MediaPlaceholder
+						icon="format-image"
+						labels={ { title: __( 'Image' ), name: __( 'an image' ) } }
+						onSelect={ ( media ) => {
+							const newImageURL = !! media.sizes.large ? media.sizes.large.url : media.url;
+							setAttributes( { imageURL: newImageURL, imageID: media.id } );
+						} }
+						accept="image/*"
+						type="image"
+					/>
+				}
 				<div className={ `smb-section smb-section-has-bgimage smb-section-has-bgimage--${ contentsAlignment } smb-section-has-bgimage--${ height }` }>
+					{ !! imageURL &&
+						<button
+							className="smb-remove-button"
+							onClick={ () => {
+								setAttributes( { imageURL: '', imageID: 0 } );
+							} }
+						>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
+					}
 					<div className="smb-section-has-bgimage__mask" style={ { backgroundColor: maskColor } }></div>
 					<div className="smb-section-has-bgimage__bgimage" style={ { opacity: maskOpacity } }>
-						<MediaUpload
-							onSelect={ ( media ) => {
-								const newImageURL = !! media.sizes.xlarge ? media.sizes.xlarge.url : media.url;
-								setAttributes( { imageURL: newImageURL, imageID: media.id } );
-							} }
-							type="image"
-							value={ imageID }
-							render={ renderImage }
-						/>
+						{ imageURL &&
+							<img src={ imageURL } alt="" />
+						}
 					</div>
 					<div className="c-container">
 						{ ( title.length > 0 || isSelected ) &&
@@ -210,7 +216,9 @@ registerBlockType( 'snow-monkey-blocks/section-has-bgimage', {
 				return (
 					<div className={ `smb-section smb-section-has-bgimage smb-section-has-bgimage--${ contentsAlignment } smb-section-has-bgimage--${ height }` }>
 						<div className="smb-section-has-bgimage__bgimage">
-							<img src={ imageURL } alt="" />
+							{ imageURL &&
+								<img src={ imageURL } alt="" />
+							}
 						</div>
 						<div className="c-container">
 							{ title.length > 0 &&

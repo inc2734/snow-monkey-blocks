@@ -5,15 +5,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-
-  &,
-  p {
-    color: #fff;
-  }
-
-  .smb-section__title {
-    color: #fff;
-  }
+  color: #fff;
 
   &__bgimage {
     position: absolute;
