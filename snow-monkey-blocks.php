@@ -24,7 +24,9 @@ class Bootstrap {
 		add_filter( 'block_categories', [ $this, '_block_categories' ] );
 		add_action( 'enqueue_block_editor_assets', [ $this, '_enqueue_block_editor_assets' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, '_wp_enqueue_scripts' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, '_wp_enqueue_nopro_scripts' ] );
 		add_action( 'enqueue_block_assets', [ $this, '_enqueue_block_assets' ] );
+		add_action( 'enqueue_block_assets', [ $this, '_enqueue_block_nopro_assets' ] );
 		add_action( 'init', [ $this, '_activate_autoupdate' ] );
 		add_action( 'wp_loaded', [ $this, '_customizer_styles' ] );
 	}
@@ -90,7 +92,7 @@ class Bootstrap {
 		$path = plugin_dir_path( __FILE__ ) . $relative_path;
 
 		wp_enqueue_style(
-			'snow-monkey-blocks-editor-style',
+			'snow-monkey-blocks-editor',
 			$src,
 			[],
 			filemtime( $path )
@@ -111,6 +113,39 @@ class Bootstrap {
 			'snow-monkey-blocks',
 			$src,
 			[],
+			filemtime( $path )
+		);
+	}
+
+	/**
+	 * Enqueue nopro assets
+	 *
+	 * @return void
+	 */
+	public function _wp_enqueue_nopro_scripts() {
+		if ( is_pro() ) {
+			return;
+		}
+
+		$relative_path = '/dist/css/blocks-nopro.min.css';
+		$src  = plugin_dir_url( __FILE__ ) . $relative_path;
+		$path = plugin_dir_path( __FILE__ ) . $relative_path;
+
+		wp_enqueue_style(
+			'snow-monkey-blocks-nopro',
+			$src,
+			[],
+			filemtime( $path )
+		);
+
+		$relative_path = '/dist/js/blocks-nopro-build.js';
+		$src  = plugin_dir_url( __FILE__ ) . $relative_path;
+		$path = plugin_dir_path( __FILE__ ) . $relative_path;
+
+		wp_enqueue_script(
+			'snow-monkey-blocks-nopro',
+			$src,
+			[ 'jquery' ],
 			filemtime( $path )
 		);
 	}
@@ -142,6 +177,28 @@ class Bootstrap {
 
 		wp_enqueue_style(
 			'snow-monkey-blocks-fallback',
+			$src,
+			[],
+			filemtime( $path )
+		);
+	}
+
+	/**
+	 * Enqueue nopro assets for block
+	 *
+	 * @return void
+	 */
+	public function _enqueue_block_nopro_assets() {
+		if ( is_pro() ) {
+			return;
+		}
+
+		$relative_path = '/dist/css/blocks-editor-nopro.min.css';
+		$src  = plugin_dir_url( __FILE__ ) . $relative_path;
+		$path = plugin_dir_path( __FILE__ ) . $relative_path;
+
+		wp_enqueue_style(
+			'snow-monkey-blocks-editor-nopro',
 			$src,
 			[],
 			filemtime( $path )
@@ -186,3 +243,12 @@ class Bootstrap {
 
 require_once( __DIR__ . '/vendor/autoload.php' );
 new \Snow_Monkey\Plugin\Blocks\Bootstrap();
+
+/**
+ * Whether pro version
+ *
+ * @return boolean
+ */
+function is_pro() {
+	return apply_filters( 'snow_monkey_blocks_pro', false );
+}
