@@ -198,7 +198,7 @@ registerBlockType( 'snow-monkey-blocks/section-has-bgimage', {
 					source: 'attribute',
 					selector: '.smb-section-has-bgimage__bgimage > img',
 					attribute: 'src',
-					default: smb.pluginURL + 'block/section-has-bgimage/image.png',
+					default: '',
 				},
 				height: {
 					type: 'string',

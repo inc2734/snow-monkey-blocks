@@ -351,7 +351,7 @@ registerBlockType( 'snow-monkey-blocks/section-has-items', {
 							const btnBackgroundColor = get( items, [ index, 'btnBackgroundColor' ], '' );
 							const btnTextColor = get( items, [ index, 'btnTextColor' ], '' );
 							const imageID = get( items, [ index, 'imageID' ], 0 );
-							const imageURL = get( items, [ index, 'imageURL' ], smb.pluginURL + 'block/section-has-items/image.png' );
+							const imageURL = get( items, [ index, 'imageURL' ], '' );
 
 							return (
 								<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-1-${ lg }` }>
