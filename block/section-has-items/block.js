@@ -2,8 +2,8 @@
 
 const { times, get } = lodash;
 const { registerBlockType } = wp.blocks;
-const { InspectorControls, RichText, MediaUpload, ColorPalette } = wp.editor;
-const { PanelBody, RangeControl, SelectControl, TextControl, Button, BaseControl } = wp.components;
+const { InspectorControls, RichText, ColorPalette, MediaPlaceholder } = wp.editor;
+const { PanelBody, RangeControl, SelectControl, TextControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const { __, sprintf } = wp.i18n;
 
@@ -99,7 +99,7 @@ registerBlockType( 'snow-monkey-blocks/section-has-items', {
 					source: 'attribute',
 					selector: '.smb-section-has-items__item__figure > img',
 					attribute: 'src',
-					default: smb.pluginURL + 'block/section-has-items/image.png',
+					default: '',
 				},
 			},
 		},
@@ -227,13 +227,36 @@ registerBlockType( 'snow-monkey-blocks/section-has-items', {
 								const btnBackgroundColor = get( items, [ index, 'btnBackgroundColor' ], '' );
 								const btnTextColor = get( items, [ index, 'btnTextColor' ], '' );
 								const imageID = get( items, [ index, 'imageID' ], 0 );
-								const imageURL = get( items, [ index, 'imageURL' ], smb.pluginURL + 'block/section-has-items/image.png' );
+								const imageURL = get( items, [ index, 'imageURL' ], '' );
 
-								const renderImage = ( obj ) => {
+								const renderMedia = () => {
+									if ( ! imageURL ) {
+										return (
+											<MediaPlaceholder
+												icon="format-image"
+												labels={ { title: __( 'Image' ), name: __( 'an image' ) } }
+												onSelect={ ( media ) => {
+													const newImageURL = !! media.sizes.large ? media.sizes.large.url : media.url;
+													setAttributes( { items: generateUpdatedAttribute( items, index, 'imageURL', newImageURL ) } );
+													setAttributes( { items: generateUpdatedAttribute( items, index, 'imageID', media.id ) } );
+												} }
+												accept="image/*"
+												type="image"
+											/>
+										);
+									}
+
 									return (
-										<Button className="image-button" onClick={ obj.open } style={ { padding: 0 } }>
+										<Fragment>
 											<img src={ imageURL } alt="" />
-										</Button>
+											<button
+												className="smb-remove-button"
+												onClick={ () => {
+													setAttributes( { items: generateUpdatedAttribute( items, index, 'imageURL', '' ) } );
+													setAttributes( { items: generateUpdatedAttribute( items, index, 'imageID', 0 ) } );
+												} }
+											>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
+										</Fragment>
 									);
 								};
 
@@ -242,16 +265,7 @@ registerBlockType( 'snow-monkey-blocks/section-has-items', {
 										<div className="smb-section-has-items__item">
 											{ ( !! imageID || isSelected ) &&
 												<div className="smb-section-has-items__item__figure">
-													<MediaUpload
-														onSelect={ ( media ) => {
-															const newImageURL = !! media.sizes.large ? media.sizes.large.url : media.url;
-															setAttributes( { items: generateUpdatedAttribute( items, index, 'imageURL', newImageURL ) } );
-															setAttributes( { items: generateUpdatedAttribute( items, index, 'imageID', media.id ) } );
-														} }
-														type="image"
-														value={ imageID }
-														render={ renderImage }
-													/>
+													{ renderMedia() }
 												</div>
 											}
 
