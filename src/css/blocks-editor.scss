@@ -15,3 +15,14 @@
 .edit-post-sidebar {
   @import '../../block/list/editor-components';
 }
+
+.smb-remove-button {
+  display: inline-block;
+  font-size: 12px !important;
+  line-height: 1 !important;
+  border: 0;
+  padding: 6px 8px;
+  color: #fff;
+  background-color: #cd3034;
+  border-radius: 4px;
+}

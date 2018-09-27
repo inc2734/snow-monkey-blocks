@@ -3,8 +3,8 @@
 import classnames from 'classnames';
 
 const { registerBlockType } = wp.blocks;
-const { RichText, InnerBlocks, InspectorControls, MediaUpload, ColorPalette } = wp.editor;
-const { Button, PanelBody, SelectControl, BaseControl } = wp.components;
+const { RichText, InnerBlocks, InspectorControls, ColorPalette, MediaPlaceholder } = wp.editor;
+const { PanelBody, SelectControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -32,7 +32,7 @@ registerBlockType( 'snow-monkey-blocks/section-has-image', {
 			source: 'attribute',
 			selector: '.smb-section-has-image__figure > img',
 			attribute: 'src',
-			default: smb.pluginURL + 'block/section-has-image/image.png',
+			default: '',
 		},
 		imagePosition: {
 			type: 'string',
@@ -48,13 +48,35 @@ registerBlockType( 'snow-monkey-blocks/section-has-image', {
 	},
 
 	edit( { attributes, setAttributes, isSelected } ) {
-		const { title, backgroundColor, imageID, imageURL, imagePosition, imageColumnSize } = attributes;
+		const { title, backgroundColor, imageURL, imagePosition, imageColumnSize } = attributes;
 
-		const renderImage = ( obj ) => {
+		const renderMedia = () => {
+			if ( ! imageURL ) {
+				return (
+					<MediaPlaceholder
+						icon="format-image"
+						labels={ { title: __( 'Image' ), name: __( 'an image' ) } }
+						onSelect={ ( media ) => {
+							const newImageURL = !! media.sizes.large ? media.sizes.large.url : media.url;
+							setAttributes( { imageURL: newImageURL, imageID: media.id } );
+						} }
+						accept="image/*"
+						type="image"
+					/>
+				);
+			}
+
 			return (
-				<Button className="image-button" onClick={ obj.open } style={ { padding: 0 } }>
+				<div style={ { position: 'relative' } }>
 					<img src={ imageURL } alt="" />
-				</Button>
+					<button
+						style={ { position: 'absolute', top: '5px', right: '5px' } }
+						className="smb-remove-button"
+						onClick={ () => {
+							setAttributes( { imageURL: '', imageID: 0 } );
+						} }
+					>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
+				</div>
 			);
 		};
 
@@ -124,15 +146,7 @@ registerBlockType( 'snow-monkey-blocks/section-has-image', {
 							</div>
 							<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${ imageColumnSize }-3` }>
 								<div className="smb-section-has-image__figure">
-									<MediaUpload
-										onSelect={ ( media ) => {
-											const newImageURL = !! media.sizes.large ? media.sizes.large.url : media.url;
-											setAttributes( { imageURL: newImageURL, imageID: media.id } );
-										} }
-										type="image"
-										value={ imageID }
-										render={ renderImage }
-									/>
+									{ renderMedia() }
 								</div>
 							</div>
 						</div>
@@ -161,7 +175,9 @@ registerBlockType( 'snow-monkey-blocks/section-has-image', {
 						</div>
 						<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${ imageColumnSize }-3` }>
 							<div className="smb-section-has-image__figure">
-								<img src={ imageURL } alt="" />
+								{ imageURL &&
+									<img src={ imageURL } alt="" />
+								}
 							</div>
 						</div>
 					</div>
