@@ -35,10 +35,12 @@ https://www.youtube.com/watch?v=uD6omb4TLdA&t=283s
 
 = Section blocks =
 
-* [ Only with Snow Monkey theme ] Section
-* [ Only with Snow Monkey theme ] Section with background image
-* [ Only with Snow Monkey theme ] Section with image
-* [ Only with Snow Monkey theme ] Section with items (For example, features)
+By default these blocks are restricted. If you are using the theme that has 1 column template, you can activate these blocks using filter hooks.
+
+* Section
+* Section with background image
+* Section with image
+* Section with items (For example, features)
 
 == Installation ==
 
@@ -77,3 +79,10 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 == Upgrade Notice ==
 
 Nothing in particular.
+
+== 3rd party resources ==
+
+= Font Awesome =
+
+WebSite: https://fontawesome.com/
+License: https://fontawesome.com/license/free
