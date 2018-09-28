@@ -24,7 +24,6 @@ class Bootstrap {
 		new App\Setup\Assets();
 
 		add_filter( 'block_categories', [ $this, '_block_categories' ] );
-		add_action( 'init', [ $this, '_activate_autoupdate' ] );
 		add_action( 'wp_loaded', [ $this, '_customizer_styles' ] );
 		add_action( 'add_meta_boxes', [ $this, '_add_pr_meta_box' ] );
 	}
@@ -105,19 +104,6 @@ class Bootstrap {
 		}
 
 		\Inc2734\Mimizuku_Core\Core::include_files( __DIR__ . '/block/' );
-	}
-
-	/**
-	 * Activate auto update using GitHub
-	 *
-	 * @return [void]
-	 */
-	public function _activate_autoupdate() {
-		new \Inc2734\WP_GitHub_Plugin_Updater\GitHub_Plugin_Updater(
-			plugin_basename( __FILE__ ),
-			'inc2734',
-			'snow-monkey-blocks'
-		);
 	}
 }
 
