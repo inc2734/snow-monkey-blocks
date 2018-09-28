@@ -99,7 +99,7 @@ class Bootstrap {
 	 * @return void
 	 */
 	public function _customizer_styles() {
-		if ( ! is_snow_monkey() ) {
+		if ( ! method_exists( '\Inc2734\Mimizuku_Core\Core', 'include_files' ) ) {
 			return;
 		}
 
