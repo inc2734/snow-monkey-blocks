@@ -126,27 +126,31 @@ class Assets {
 			return;
 		}
 
-		$relative_path = '/dist/packages/fontawesome-free/js/all.min.js';
-		$src  = SNOW_MONKEY_BLOCKS_DIR_URL . $relative_path;
-		$path = SNOW_MONKEY_BLOCKS_DIR_PATH . $relative_path;
+		if ( apply_filters( 'snow_monkey_blocks_enqueue_fontawesome', true ) ) {
+			$relative_path = '/dist/packages/fontawesome-free/js/all.min.js';
+			$src  = SNOW_MONKEY_BLOCKS_DIR_URL . $relative_path;
+			$path = SNOW_MONKEY_BLOCKS_DIR_PATH . $relative_path;
 
-		wp_enqueue_script(
-			'fontawesome5',
-			$src,
-			[],
-			filemtime( $path )
-		);
+			wp_enqueue_script(
+				'fontawesome5',
+				$src,
+				[],
+				filemtime( $path )
+			);
+		}
 
-		$relative_path = '/dist/css/fallback.min.css';
-		$src  = SNOW_MONKEY_BLOCKS_DIR_URL . $relative_path;
-		$path = SNOW_MONKEY_BLOCKS_DIR_PATH . $relative_path;
+		if ( apply_filters( 'snow_monkey_blocks_enqueue_fallback_style', true ) ) {
+			$relative_path = '/dist/css/fallback.min.css';
+			$src  = SNOW_MONKEY_BLOCKS_DIR_URL . $relative_path;
+			$path = SNOW_MONKEY_BLOCKS_DIR_PATH . $relative_path;
 
-		wp_enqueue_style(
-			'snow-monkey-blocks-fallback',
-			$src,
-			[],
-			filemtime( $path )
-		);
+			wp_enqueue_style(
+				'snow-monkey-blocks-fallback',
+				$src,
+				[],
+				filemtime( $path )
+			);
+		}
 	}
 
 	/**
