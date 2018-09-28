@@ -35,10 +35,10 @@ https://www.youtube.com/watch?v=uD6omb4TLdA&t=283s
 
 = Section blocks =
 
-* 【Only with Snow Monkey theme】Section
-* 【Only with Snow Monkey theme】Section with background image
-* 【Only with Snow Monkey theme】Section with image
-* 【Only with Snow Monkey theme】Section with items (For example, features)
+* [ Only with Snow Monkey theme ] Section
+* [ Only with Snow Monkey theme ] Section with background image
+* [ Only with Snow Monkey theme ] Section with image
+* [ Only with Snow Monkey theme ] Section with items (For example, features)
 
 == Installation ==
 
