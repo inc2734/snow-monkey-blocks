@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder
 Requires at least: 4.9
 Tested up to: 4.9
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -72,6 +72,10 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 11. Testimonial block (The number of items can be increased or decreased freely)
 
 == Changelog ==
+
+= 1.0.4 =
+* Add filter hook `snow_monkey_blocks_enqueue_fontawesome`
+* Add filter hook `snow_monkey_blocks_enqueue_fallback_style`
 
 = 1.0.3 =
 * Initial release.
