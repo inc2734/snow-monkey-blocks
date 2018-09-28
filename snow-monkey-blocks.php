@@ -63,7 +63,7 @@ class Bootstrap {
 		$path = plugin_dir_path( __FILE__ ) . $relative_path;
 
 		wp_register_script(
-			'snow-monkey-blocks-editor-script',
+			'snow-monkey-blocks-editor',
 			$src,
 			[ 'wp-blocks', 'wp-element', 'wp-i18n' ],
 			filemtime( $path ),
@@ -73,13 +73,13 @@ class Bootstrap {
 		if ( function_exists( 'gutenberg_get_jed_locale_data' ) ) {
 			$locale  = gutenberg_get_jed_locale_data( 'snow-monkey-blocks' );
 			$content = 'wp.i18n.setLocaleData( ' . json_encode( $locale ) . ', "snow-monkey-blocks" );';
-			wp_script_add_data( 'snow-monkey-blocks-editor-script', 'data', $content );
+			wp_script_add_data( 'snow-monkey-blocks-editor', 'data', $content );
 		}
 
-		wp_enqueue_script( 'snow-monkey-blocks-editor-script' );
+		wp_enqueue_script( 'snow-monkey-blocks-editor' );
 
 		wp_localize_script(
-			'snow-monkey-blocks-editor-script',
+			'snow-monkey-blocks-editor',
 			'smb',
 			[
 				'pluginURL' => plugin_dir_url( __FILE__ ),
