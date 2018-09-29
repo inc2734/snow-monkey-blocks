@@ -60,7 +60,7 @@
     "js": "npm run clean:js && npm-run-all -p js:front js:front-nopro",
     "packages:fontawesome": "cpy 'fontawesome-free/**' '../../dist/packages' --cwd=node_modules/@fortawesome --parents",
     "packages": "npm run clean:packages && npm-run-all packages:*",
-    "zip:pack": "rsync -a --exclude='/vendor' --exclude='/node_modules' --exclude='.*' --exclude='*.ruleset.xml' --exclude='*.config.js' --exclude='*.xml.dist' --exclude='/bin' --exclude='/tests' --exclude='package*.json' --exclude='composer.*' . snow-monkey-blocks && cd snow-monkey-blocks && composer install --no-dev",
+    "zip:pack": "rsync -a --exclude='/vendor' --exclude='/node_modules' --exclude='.*' --exclude='*.ruleset.xml' --exclude='*.config.js' --exclude='*.xml.dist' --exclude='/bin' --exclude='/tests' --exclude='package*.json' . snow-monkey-blocks && cd snow-monkey-blocks && composer install --no-dev",
     "zip:archive": "zip -9 -qmr snow-monkey-blocks.zip snow-monkey-blocks",
     "zip": "npm run clean:zip && npm run zip:pack && npm run zip:archive",
     "sync-sm-css": "rimraf src/css/core && cp -r ../../themes/snow-monkey/resources/src/css/core ./src/css/core && rimraf src/css/core/_core.scss"
