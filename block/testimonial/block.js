@@ -122,12 +122,13 @@ registerBlockType( 'snow-monkey-blocks/testimonial', {
 											}
 
 											<div className="smb-testimonial__item__body">
-												<RichText
-													className="smb-testimonial__item__content"
-													placeholder={ __( 'Write content…', 'snow-monkey-blocks' ) }
-													value={ content }
-													onChange={ ( value ) => setAttributes( { items: generateUpdatedAttribute( items, index, 'content', value ) } ) }
-												/>
+												<div className="smb-testimonial__item__content">
+													<RichText
+														placeholder={ __( 'Write content…', 'snow-monkey-blocks' ) }
+														value={ content }
+														onChange={ ( value ) => setAttributes( { items: generateUpdatedAttribute( items, index, 'content', value ) } ) }
+													/>
+												</div>
 
 												<RichText
 													className="smb-testimonial__item__name"
