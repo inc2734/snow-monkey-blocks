@@ -68,7 +68,7 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 7. Icon list block
 8. Pricing table block (The number of columns can be increased or decreased freely)
 9. Rating box block (The number of ratings can be increased or decreased freely)
-10. Rating box block (The number of steps can be increased or decreased freely)
+10. Step block (The number of steps can be increased or decreased freely)
 11. Testimonial block (The number of items can be increased or decreased freely)
 
 == Changelog ==
