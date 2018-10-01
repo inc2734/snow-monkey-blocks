@@ -26,8 +26,13 @@ module.exports = {
   plugins: [
     'wordpress',
     'react',
-    'jsx-a11y',
+    'jsx-a11y'
   ],
+  "settings": {
+    "react": {
+      "version": "latest"
+    }
+  },
   rules: {
     'array-bracket-spacing': [ 'error', 'always' ],
     'arrow-parens': [ 'error', 'always' ],
