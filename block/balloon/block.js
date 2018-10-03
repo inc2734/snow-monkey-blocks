@@ -76,7 +76,10 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 					<div className="smb-balloon__person">
 						<div className="smb-balloon__figure">
 							<MediaUpload
-								onSelect={ ( media ) => setAttributes( { avatarURL: media.sizes.thumbnail.url, avatarID: media.id } ) }
+								onSelect={ ( media ) => {
+									const newAvatarURL = !! media.sizes.thumbnail ? media.sizes.thumbnail.url : media.url;
+									setAttributes( { avatarURL: newAvatarURL, avatarID: media.id } );
+								} }
 								type="image"
 								value={ avatarID }
 								render={ renderAvatar }
