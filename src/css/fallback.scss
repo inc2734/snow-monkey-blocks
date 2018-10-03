@@ -7,6 +7,12 @@
   @include _container();
 }
 
+.#{$_prefix}u-slim-width {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 46rem !important;
+}
+
 .#{$_prefix}c-row {
   @include _row();
 
