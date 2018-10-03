@@ -1,8 +1,10 @@
 'use strict';
 
+import classnames from 'classnames';
+
 const { registerBlockType } = wp.blocks;
 const { RichText, InnerBlocks, InspectorControls, ColorPalette } = wp.editor;
-const { PanelBody, BaseControl } = wp.components;
+const { PanelBody, BaseControl, SelectControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -21,18 +23,38 @@ registerBlockType( 'snow-monkey-blocks/section', {
 			type: 'string',
 			default: null,
 		},
+		contentsWidth: {
+			type: 'string',
+			default: null,
+		},
 	},
 	supports: {
 		align: [ 'wide', 'full' ],
 	},
 
 	edit( { attributes, setAttributes, isSelected } ) {
-		const { title, backgroundColor } = attributes;
+		const { title, backgroundColor, contentsWidth } = attributes;
 
 		return (
 			<Fragment>
 				<InspectorControls>
 					<PanelBody title={ __( 'Section Settings', 'snow-monkey-blocks' ) }>
+						<SelectControl
+							label={ __( 'Contents Width', 'snow-monkey-blocks' ) }
+							value={ contentsWidth }
+							onChange={ ( value ) => setAttributes( { contentsWidth: value } ) }
+							options={ [
+								{
+									value: '',
+									label: __( 'Normal', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'slim',
+									label: __( 'Slim', 'snow-monkey-blocks' ),
+								},
+							] }
+						/>
+
 						<BaseControl label={ __( 'Background Color', 'snow-monkey-blocks' ) }>
 							<ColorPalette
 								value={ backgroundColor }
@@ -43,7 +65,7 @@ registerBlockType( 'snow-monkey-blocks/section', {
 				</InspectorControls>
 
 				<div className="smb-section" style={ { backgroundColor: backgroundColor } }>
-					<div className="c-container">
+					<div className={ classnames( 'c-container', { 'u-slim-width': 'slim' === contentsWidth } ) }>
 						{ ( title.length > 0 || isSelected ) &&
 							<RichText
 								className="smb-section__title"
@@ -65,11 +87,11 @@ registerBlockType( 'snow-monkey-blocks/section', {
 	},
 
 	save( { attributes } ) {
-		const { title, backgroundColor } = attributes;
+		const { title, backgroundColor, contentsWidth } = attributes;
 
 		return (
 			<div className="smb-section" style={ { backgroundColor: backgroundColor } }>
-				<div className="c-container">
+				<div className={ classnames( 'c-container', { 'u-slim-width': 'slim' === contentsWidth } ) }>
 					{ title.length > 0 &&
 						<h2 className="smb-section__title">
 							{ title }

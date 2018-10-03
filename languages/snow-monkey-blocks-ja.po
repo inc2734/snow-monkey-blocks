@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Awesome Custom Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2018-09-28 13:12+0900\n"
-"PO-Revision-Date: 2018-09-28 13:14+0900\n"
+"POT-Creation-Date: 2018-10-03 23:51+0900\n"
+"PO-Revision-Date: 2018-10-03 23:52+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -20,23 +20,23 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: vendor\n"
 "X-Poedit-SearchPathExcluded-1: node_modules\n"
 
-#: snow-monkey-blocks.php:41 snow-monkey-blocks.php:46
+#: snow-monkey-blocks.php:44 snow-monkey-blocks.php:49
 msgid "Snow Monkey Blocks"
 msgstr "Snow Monkey Blocks"
 
-#: snow-monkey-blocks.php:42
+#: snow-monkey-blocks.php:45
 msgid "[Common blocks]"
 msgstr "[共通ブロック]"
 
-#: snow-monkey-blocks.php:47
+#: snow-monkey-blocks.php:50
 msgid "[Sections]"
 msgstr "[セクション]"
 
-#: snow-monkey-blocks.php:66
+#: snow-monkey-blocks.php:69
 msgid "[ PR ] Premium WordPress Theme Snow Monkey"
 msgstr "【PR】プレミアム WordPress テーマ Snow Monkey"
 
-#: snow-monkey-blocks.php:83
+#: snow-monkey-blocks.php:86
 #, php-format
 msgid ""
 "Snow Monkey Blocks is optimized for the %1$sSnow Monkey%2$s theme, but it "
@@ -45,7 +45,7 @@ msgstr ""
 "Snow Monkey Blocksは %1$sSnow Monkey%2$s テーマに最適化されていますが、他の"
 "テーマでも使用できます。"
 
-#: snow-monkey-blocks.php:88
+#: snow-monkey-blocks.php:91
 #, php-format
 msgid ""
 "When used together with the %1$sSnow Monkey%2$s theme, it can be displayed "
@@ -106,7 +106,7 @@ msgstr "アイコン"
 #: block/alert/block.js:132 block/pricing-table/block.js:179
 #: block/rating-box/block.js:109 block/section-has-bgimage/block.js:147
 #: block/section-has-image/block.js:138 block/section-has-items/block.js:215
-#: block/section-has-items/block.js:274 block/section/block.js:54
+#: block/section-has-items/block.js:274 block/section/block.js:76
 #: block/step/block.js:227 dist/js/blocks-build.js:17
 msgid "Write title…"
 msgstr "タイトルを書く…"
@@ -127,7 +127,7 @@ msgstr "吹き出し"
 msgid "Reverse Balloon"
 msgstr "逆の吹き出し"
 
-#: block/balloon/block.js:88
+#: block/balloon/block.js:91
 msgid "Name"
 msgstr "名前"
 
@@ -139,10 +139,10 @@ msgstr "ボックス"
 msgid "Box Settings"
 msgstr "ボックス設定"
 
-#: block/box/block.js:39 block/btn-box/block.js:64 block/btn-box/block.js:98
+#: block/box/block.js:39 block/btn-box/block.js:70 block/btn-box/block.js:104
 #: block/btn/block.js:92 block/pricing-table/block.js:143
 #: block/section-has-image/block.js:118 block/section-has-items/block.js:144
-#: block/section-has-items/block.js:185 block/section/block.js:36
+#: block/section-has-items/block.js:185 block/section/block.js:58
 msgid "Background Color"
 msgstr "背景色"
 
@@ -150,7 +150,7 @@ msgstr "背景色"
 msgid "Border Color"
 msgstr "枠線の色"
 
-#: block/box/block.js:53 block/btn-box/block.js:105 block/btn/block.js:99
+#: block/box/block.js:53 block/btn-box/block.js:111 block/btn/block.js:99
 #: block/pricing-table/block.js:150 block/section-has-items/block.js:192
 msgid "Text Color"
 msgstr "文字色"
@@ -159,62 +159,67 @@ msgstr "文字色"
 msgid "Border width"
 msgstr "枠線の太さ"
 
-#: block/btn-box/block.js:10
+#: block/btn-box/block.js:12
 msgid "Button box"
 msgstr "ボタンボックス"
 
-#: block/btn-box/block.js:34 block/btn-box/block.js:133 block/btn/block.js:12
-#: block/btn/block.js:20 block/btn/block.js:116
-#: block/pricing-table/block.js:225 block/section-has-items/block.js:310
+#: block/btn-box/block.js:36 block/btn-box/block.js:156
+#: block/btn-box/block.js:235 block/btn/block.js:12 block/btn/block.js:20
+#: block/btn/block.js:116 block/pricing-table/block.js:225
+#: block/section-has-items/block.js:310
 msgid "Button"
 msgstr "ボタン"
 
-#: block/btn-box/block.js:63
+#: block/btn-box/block.js:69
 msgid "Button box Settings"
 msgstr "ボタンボックス設定"
 
-#: block/btn-box/block.js:73 block/btn/block.js:53
+#: block/btn-box/block.js:79 block/btn/block.js:53
 msgid "Button Settings"
 msgstr "ボタン設定"
 
-#: block/btn-box/block.js:77 block/btn/block.js:55
+#: block/btn-box/block.js:83 block/btn/block.js:55
 #: block/pricing-table/block.js:122 block/section-has-items/block.js:164
 msgid "URL"
 msgstr "URL"
 
-#: block/btn-box/block.js:83 block/btn/block.js:61
+#: block/btn-box/block.js:89 block/btn/block.js:61
 #: block/pricing-table/block.js:128 block/section-has-items/block.js:170
 msgid "Target"
 msgstr "Target"
 
-#: block/btn-box/block.js:89 block/btn/block.js:67
+#: block/btn-box/block.js:95 block/btn/block.js:67
 #: block/pricing-table/block.js:133 block/section-has-items/block.js:175
 #: block/step/block.js:161
 msgid "_self"
 msgstr "_self"
 
-#: block/btn-box/block.js:93 block/btn/block.js:71
+#: block/btn-box/block.js:99 block/btn/block.js:71
 #: block/pricing-table/block.js:137 block/section-has-items/block.js:179
 #: block/step/block.js:165
 msgid "_blank"
 msgstr "_blank"
 
-#: block/btn-box/block.js:122 block/pricing-table/block.js:198
-#: block/section-has-items/block.js:282 block/testimonial/block.js:142
-msgid "Write lede…"
-msgstr "リード文を書く…"
+#: block/btn-box/block.js:119
+msgid "Button size"
+msgstr "ボタンサイズ"
 
-#: block/btn-box/block.js:146
-msgid "Write note…"
-msgstr "注釈を書く…"
-
-#: block/btn/block.js:83
+#: block/btn-box/block.js:125 block/btn/block.js:83
 msgid "Normal button"
 msgstr "ノーマルボタン"
 
-#: block/btn/block.js:87
+#: block/btn-box/block.js:129 block/btn/block.js:87
 msgid "Full button"
 msgstr "フルサイズのボタン"
+
+#: block/btn-box/block.js:144 block/pricing-table/block.js:198
+#: block/section-has-items/block.js:282 block/testimonial/block.js:143
+msgid "Write lede…"
+msgstr "リード文を書く…"
+
+#: block/btn-box/block.js:170
+msgid "Write note…"
+msgstr "注釈を書く…"
 
 #: block/faq/block.js:11 dist/js/blocks-build.js:17
 msgid "FAQ"
@@ -334,7 +339,7 @@ msgid "Section (has background image)"
 msgstr "セクション（背景画像あり）"
 
 #: block/section-has-bgimage/block.js:58 block/section-has-image/block.js:85
-#: block/section/block.js:35
+#: block/section/block.js:41
 msgid "Section Settings"
 msgstr "セクション設定"
 
@@ -424,9 +429,21 @@ msgstr "行あたりのカラム数（ラージウインドウ）"
 msgid "Write content…"
 msgstr "内容を書く…"
 
-#: block/section/block.js:10
+#: block/section/block.js:12
 msgid "Section"
 msgstr "セクション"
+
+#: block/section/block.js:43
+msgid "Contents Width"
+msgstr "コンテンツの幅"
+
+#: block/section/block.js:49
+msgid "Normal"
+msgstr "ノーマル"
+
+#: block/section/block.js:53
+msgid "Slim"
+msgstr "スリム"
 
 #: block/step/block.js:11
 msgid "Step"
@@ -465,7 +482,7 @@ msgstr "お客様の声"
 msgid "Testimonial Settings"
 msgstr "お客様の声の設定"
 
-#: block/testimonial/block.js:134
+#: block/testimonial/block.js:135
 msgid "Write name…"
 msgstr "名前を書く…"
 
