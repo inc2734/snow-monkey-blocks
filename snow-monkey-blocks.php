@@ -42,11 +42,13 @@ class Bootstrap {
 		$categories[] = [
 			'slug'  => 'smb',
 			'title' => __( 'Snow Monkey Blocks', 'snow-monkey-blocks' )
+								. ' '
 								. __( '[Common blocks]', 'snow-monkey-blocks' ),
 		];
 		$categories[] = [
 			'slug'  => 'smb-section',
 			'title' => __( 'Snow Monkey Blocks', 'snow-monkey-blocks' )
+								. ' '
 								. __( '[Sections]', 'snow-monkey-blocks' ),
 		];
 
