@@ -13,9 +13,9 @@ Gutenberg blocks collection made by MonkeyWrench.
 
 == Description ==
 
-Snow Monkey Blocks is a collection of content blocks for the <a href="https://wordpress.org/plugins/gutenberg/" target="_blank">Gutenberg</a>. When you use Snow Monkey Blocks, you can quickly and easily create and launch landing pages or highly designed page. Of course, you dont need to write any code.
+Snow Monkey Blocks is a collection of content blocks for <a href="https://wordpress.org/plugins/gutenberg/" target="_blank">Gutenberg</a>. With using this plugin, you can create and publish landing pages or highly designed page quickly and easily. Of course, you don't need to write any code.
 
-Snow Monkey Blocks is optimized for the <a href="https://snow-monkey.2inc.org/" target="_blank">Snow Monkey</a> theme, but it can also be used with other themes. When used together with the <a href="https://snow-monkey.2inc.org/" target="_blank">Snow Monkey</a> theme, it can be displayed with the most beautiful balance, and it is displayed on the edit screen with the same design as the front screen.
+Snow Monkey Blocks is optimized for the <a href="https://snow-monkey.2inc.org/" target="_blank">Snow Monkey</a> theme, but it can also be used with other themes. With using <a href="https://snow-monkey.2inc.org/" target="_blank">Snow Monkey</a> and this plugin together, output will be perfect designed and will be same view of edit screen.
 
 https://www.youtube.com/watch?v=uD6omb4TLdA&t=283s
 
