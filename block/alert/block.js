@@ -129,7 +129,7 @@ registerBlockType( 'snow-monkey-blocks/alert', {
 								<RichText
 									multiline={ false }
 									value={ title }
-									placeholder={ __( 'Write title…', 'snow-monkey-blocks' ) }
+									placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
 									onChange={ ( value ) => setAttributes( { title: value } ) }
 								/>
 							</strong>

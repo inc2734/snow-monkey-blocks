@@ -144,7 +144,7 @@ registerBlockType( 'snow-monkey-blocks/section-has-bgimage', {
 								value={ title }
 								onChange={ ( value ) => setAttributes( { title: value } ) }
 								formattingControls={ [] }
-								placeholder={ __( 'Write title…', 'snow-monkey-blocks' ) }
+								placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
 							/>
 						}
 

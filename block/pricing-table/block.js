@@ -176,7 +176,7 @@ registerBlockType( 'snow-monkey-blocks/pricing-table', {
 									<div className="smb-pricing-table__item">
 										<RichText
 											className="smb-pricing-table__item__title"
-											placeholder={ __( 'Write title…', 'snow-monkey-blocks' ) }
+											placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
 											value={ title }
 											formattingControls={ [] }
 											onChange={ ( value ) => setAttributes( { content: generateUpdatedAttribute( content, index, 'title', value ) } ) }
@@ -185,7 +185,7 @@ registerBlockType( 'snow-monkey-blocks/pricing-table', {
 										{ ( price.length > 0 || isSelected ) &&
 											<RichText
 												className="smb-pricing-table__item__price"
-												placeholder={ __( 'Write price…', 'snow-monkey-blocks' ) }
+												placeholder={ __( 'Write price...', 'snow-monkey-blocks' ) }
 												value={ price }
 												formattingControls={ [] }
 												onChange={ ( value ) => setAttributes( { content: generateUpdatedAttribute( content, index, 'price', value ) } ) }
@@ -195,7 +195,7 @@ registerBlockType( 'snow-monkey-blocks/pricing-table', {
 										{ ( lede.length > 0 || isSelected ) &&
 											<RichText
 												className="smb-pricing-table__item__lede"
-												placeholder={ __( 'Write lede…', 'snow-monkey-blocks' ) }
+												placeholder={ __( 'Write lede...', 'snow-monkey-blocks' ) }
 												value={ lede }
 												formattingControls={ [] }
 												onChange={ ( value ) => setAttributes( { content: generateUpdatedAttribute( content, index, 'lede', value ) } ) }

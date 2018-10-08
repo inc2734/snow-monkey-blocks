@@ -106,7 +106,7 @@ registerBlockType( 'snow-monkey-blocks/rating-box', {
 								<div className="smb-rating-box__item" data-rating={ rating } data-color={ color }>
 									<RichText
 										className="smb-rating-box__item__title"
-										placeholder={ __( 'Write title…', 'snow-monkey-blocks' ) }
+										placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
 										value={ itemTitle }
 										formattingControls={ [] }
 										multiline={ false }

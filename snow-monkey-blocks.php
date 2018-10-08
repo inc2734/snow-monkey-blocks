@@ -1,13 +1,12 @@
 <?php
 /**
  * Plugin name: Snow Monkey Blocks
- * Version: 1.0.7
+ * Version: 1.0.8
  * Description: Gutenberg blocks collection made by MonkeyWrench.
  * Author: inc2734
  * Author URI: https://2inc.org
  * License: GPL2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Domain Path: /languages/
  *
  * @package snow-monkey-blocks
  * @author inc2734

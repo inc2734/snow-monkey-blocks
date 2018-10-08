@@ -224,7 +224,7 @@ registerBlockType( 'snow-monkey-blocks/step', {
 										</div>
 										<span>
 											<RichText
-												placeholder={ __( 'Write title…', 'snow-monkey-blocks' ) }
+												placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
 												value={ title }
 												formattingControls={ [] }
 												multiline={ false }
@@ -242,7 +242,7 @@ registerBlockType( 'snow-monkey-blocks/step', {
 									<div className="smb-step__item__body">
 										<RichText
 											className="smb-step__item__summary"
-											placeholder={ __( 'Write content…', 'snow-monkey-blocks' ) }
+											placeholder={ __( 'Write content...', 'snow-monkey-blocks' ) }
 											value={ summary }
 											multiline="p"
 											onChange={ ( value ) => setAttributes( { content: generateUpdatedAttribute( content, index, 'summary', value ) } ) }

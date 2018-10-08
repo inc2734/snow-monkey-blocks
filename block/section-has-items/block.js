@@ -212,7 +212,7 @@ registerBlockType( 'snow-monkey-blocks/section-has-items', {
 								value={ title }
 								onChange={ ( value ) => setAttributes( { title: value } ) }
 								formattingControls={ [] }
-								placeholder={ __( 'Write title…', 'snow-monkey-blocks' ) }
+								placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
 							/>
 						}
 
@@ -271,7 +271,7 @@ registerBlockType( 'snow-monkey-blocks/section-has-items', {
 
 											<RichText
 												className="smb-section-has-items__item__title"
-												placeholder={ __( 'Write title…', 'snow-monkey-blocks' ) }
+												placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
 												value={ itemTitle }
 												onChange={ ( value ) => setAttributes( { items: generateUpdatedAttribute( items, index, 'title', value ) } ) }
 											/>
@@ -279,7 +279,7 @@ registerBlockType( 'snow-monkey-blocks/section-has-items', {
 											{ ( lede.length > 0 || isSelected ) &&
 												<RichText
 													className="smb-section-has-items__item__lede"
-													placeholder={ __( 'Write lede…', 'snow-monkey-blocks' ) }
+													placeholder={ __( 'Write lede...', 'snow-monkey-blocks' ) }
 													value={ lede }
 													onChange={ ( value ) => setAttributes( { items: generateUpdatedAttribute( items, index, 'lede', value ) } ) }
 												/>
@@ -288,7 +288,7 @@ registerBlockType( 'snow-monkey-blocks/section-has-items', {
 											{ ( summary.length > 0 || isSelected ) &&
 												<RichText
 													className="smb-section-has-items__item__content"
-													placeholder={ __( 'Write content…', 'snow-monkey-blocks' ) }
+													placeholder={ __( 'Write content...', 'snow-monkey-blocks' ) }
 													value={ summary }
 													onChange={ ( value ) => setAttributes( { items: generateUpdatedAttribute( items, index, 'summary', value ) } ) }
 												/>

@@ -31,7 +31,7 @@
     "clean:js": "rimraf dist/js",
     "clean:packages": "rimraf dist/packages",
     "clean:zip": "rimraf snow-monkey-blocks.zip",
-    "build": "npm-run-all -p css js packages",
+    "build": "npm run sync-sm-css && npm-run-all -p css js packages && npm run pot-to-php",
     "prepublish": "npm run build",
     "lint": "./node_modules/.bin/eslint .",
     "minify:css:front": "cssnano dist/css/blocks.css dist/css/blocks.min.css --no-zindex && rimraf dist/css/blocks.css",
@@ -63,6 +63,10 @@
     "zip:pack": "rsync -a --exclude='/vendor' --exclude='/node_modules' --exclude='.*' --exclude='*.ruleset.xml' --exclude='*.config.js' --exclude='*.xml.dist' --exclude='/bin' --exclude='/tests' --exclude='package*.json' . snow-monkey-blocks && cd snow-monkey-blocks && composer install --no-dev",
     "zip:archive": "zip -9 -qmr snow-monkey-blocks.zip snow-monkey-blocks",
     "zip": "npm run clean:zip && npm run zip:pack && npm run zip:archive",
-    "sync-sm-css": "rimraf src/css/core && cp -r ../../themes/snow-monkey/resources/src/css/core ./src/css/core && rimraf src/css/core/_core.scss"
+    "sync-sm-css": "rimraf src/css/core && cp -r ../../themes/snow-monkey/resources/src/css/core ./src/css/core && rimraf src/css/core/_core.scss",
+    "pot-to-php": "pot-to-php languages/snow-monkey-blocks-ja.po languages/snow-monkey-blocks-translations.php snow-monkey-blocks"
+  },
+  "dependencies": {
+    "@wordpress/i18n": "^3.0.0"
   }
 }

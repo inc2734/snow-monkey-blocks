@@ -121,10 +121,6 @@
     line-height: 1;
   }
 
-  &__term {
-    background-color: $color-accent;
-  }
-
   &__date {
     @include _font-size-line-height(11px);
   }
@@ -134,6 +130,5 @@
  * Full width
  */
 @mixin widget-full-width() {
-  margin-right: calc(50% - 50vw);
-  margin-left: calc(50% - 50vw);
+  @include alignfull();
 }

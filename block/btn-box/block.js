@@ -141,7 +141,7 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 								value={ lede }
 								onChange={ ( value ) => setAttributes( { lede: value } ) }
 								formattingControls={ [] }
-								placeholder={ __( 'Write lede…', 'snow-monkey-blocks' ) }
+								placeholder={ __( 'Write lede...', 'snow-monkey-blocks' ) }
 							/>
 						}
 
@@ -167,7 +167,7 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 								value={ note }
 								onChange={ ( value ) => setAttributes( { note: value } ) }
 								formattingControls={ [] }
-								placeholder={ __( 'Write note…', 'snow-monkey-blocks' ) }
+								placeholder={ __( 'Write note...', 'snow-monkey-blocks' ) }
 							/>
 						}
 					</div>

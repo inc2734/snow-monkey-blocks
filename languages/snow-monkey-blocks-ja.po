@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the {package-name} package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Snow Monkey Awesome Custom Blocks\n"
+"Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2018-10-03 23:51+0900\n"
-"PO-Revision-Date: 2018-10-03 23:52+0900\n"
+"POT-Creation-Date: 2018-10-08 21:02+0900\n"
+"PO-Revision-Date: 2018-10-08 21:10+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -19,24 +19,26 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: vendor\n"
 "X-Poedit-SearchPathExcluded-1: node_modules\n"
+"X-Poedit-SearchPathExcluded-2: dist\n"
+"X-Poedit-SearchPathExcluded-3: tests\n"
 
-#: snow-monkey-blocks.php:44 snow-monkey-blocks.php:49
+#: snow-monkey-blocks.php:44 snow-monkey-blocks.php:50
 msgid "Snow Monkey Blocks"
 msgstr "Snow Monkey Blocks"
 
-#: snow-monkey-blocks.php:45
+#: snow-monkey-blocks.php:46
 msgid "[Common blocks]"
 msgstr "[共通ブロック]"
 
-#: snow-monkey-blocks.php:50
+#: snow-monkey-blocks.php:52
 msgid "[Sections]"
 msgstr "[セクション]"
 
-#: snow-monkey-blocks.php:69
+#: snow-monkey-blocks.php:71
 msgid "[ PR ] Premium WordPress Theme Snow Monkey"
 msgstr "【PR】プレミアム WordPress テーマ Snow Monkey"
 
-#: snow-monkey-blocks.php:86
+#: snow-monkey-blocks.php:88
 #, php-format
 msgid ""
 "Snow Monkey Blocks is optimized for the %1$sSnow Monkey%2$s theme, but it "
@@ -45,7 +47,7 @@ msgstr ""
 "Snow Monkey Blocksは %1$sSnow Monkey%2$s テーマに最適化されていますが、他の"
 "テーマでも使用できます。"
 
-#: snow-monkey-blocks.php:91
+#: snow-monkey-blocks.php:93
 #, php-format
 msgid ""
 "When used together with the %1$sSnow Monkey%2$s theme, it can be displayed "
@@ -107,8 +109,8 @@ msgstr "アイコン"
 #: block/rating-box/block.js:109 block/section-has-bgimage/block.js:147
 #: block/section-has-image/block.js:138 block/section-has-items/block.js:215
 #: block/section-has-items/block.js:274 block/section/block.js:76
-#: block/step/block.js:227 dist/js/blocks-build.js:17
-msgid "Write title…"
+#: block/step/block.js:227
+msgid "Write title..."
 msgstr "タイトルを書く…"
 
 #: block/balloon/block.js:12
@@ -214,45 +216,44 @@ msgstr "フルサイズのボタン"
 
 #: block/btn-box/block.js:144 block/pricing-table/block.js:198
 #: block/section-has-items/block.js:282 block/testimonial/block.js:143
-msgid "Write lede…"
+msgid "Write lede..."
 msgstr "リード文を書く…"
 
 #: block/btn-box/block.js:170
-msgid "Write note…"
+msgid "Write note..."
 msgstr "注釈を書く…"
 
-#: block/faq/block.js:11 dist/js/blocks-build.js:17
+#: block/faq/block.js:11
 msgid "FAQ"
 msgstr "FAQ"
 
-#: block/faq/block.js:68 dist/js/blocks-build.js:17
+#: block/faq/block.js:68
 msgid "FAQ Settings"
 msgstr "FAQ 設定"
 
 #: block/faq/block.js:70 block/rating-box/block.js:62 block/step/block.js:103
-#: dist/js/blocks-build.js:17
 msgid "Rows"
 msgstr "行数"
 
-#: block/faq/block.js:84 dist/js/blocks-build.js:17
+#: block/faq/block.js:84
 #, javascript-format
 msgid "(%d) Item Settings"
 msgstr "(%d) 項目の設定"
 
-#: block/faq/block.js:87 dist/js/blocks-build.js:17
+#: block/faq/block.js:87
 msgid "Question Color"
 msgstr "質問の色"
 
-#: block/faq/block.js:94 dist/js/blocks-build.js:17
+#: block/faq/block.js:94
 msgid "Answer Color"
 msgstr "回答の色"
 
-#: block/faq/block.js:121 dist/js/blocks-build.js:17
-msgid "Write question…"
+#: block/faq/block.js:121
+msgid "Write question..."
 msgstr "質問を書く…"
 
-#: block/faq/block.js:135 dist/js/blocks-build.js:17
-msgid "Write answer…"
+#: block/faq/block.js:135
+msgid "Write answer..."
 msgstr "回答を書く…"
 
 #: block/list/block.js:11
@@ -310,27 +311,27 @@ msgid "(%d) Button Settings"
 msgstr "(%d) ボタン設定"
 
 #: block/pricing-table/block.js:188
-msgid "Write price…"
+msgid "Write price..."
 msgstr "価格を書く…"
 
-#: block/rating-box/block.js:11 dist/js/blocks-build.js:17
+#: block/rating-box/block.js:11
 msgid "Rating box"
 msgstr "レーティングボックス"
 
-#: block/rating-box/block.js:60 dist/js/blocks-build.js:17
+#: block/rating-box/block.js:60
 msgid "Rating box Settings"
 msgstr "レーティングボックス設定"
 
-#: block/rating-box/block.js:76 dist/js/blocks-build.js:17
+#: block/rating-box/block.js:76
 #, javascript-format
 msgid "(%d) Rating Settings"
 msgstr "(%d) レーティング設定"
 
-#: block/rating-box/block.js:80 dist/js/blocks-build.js:17
+#: block/rating-box/block.js:80
 msgid "Rating"
 msgstr "レーティング"
 
-#: block/rating-box/block.js:87 dist/js/blocks-build.js:17
+#: block/rating-box/block.js:87
 msgid "Color"
 msgstr "色"
 
@@ -426,7 +427,7 @@ msgstr "行あたりのカラム数（ラージウインドウ）"
 
 #: block/section-has-items/block.js:291 block/step/block.js:245
 #: block/testimonial/block.js:127
-msgid "Write content…"
+msgid "Write content..."
 msgstr "内容を書く…"
 
 #: block/section/block.js:12
@@ -483,20 +484,11 @@ msgid "Testimonial Settings"
 msgstr "お客様の声の設定"
 
 #: block/testimonial/block.js:135
-msgid "Write name…"
+msgid "Write name..."
 msgstr "名前を書く…"
 
-#: dist/js/blocks-build.js:17
-msgid "fa"
-msgstr ""
-
-#: dist/js/blocks-build.js:17
-msgid "currentColor"
-msgstr ""
-
-#: dist/js/blocks-build.js:17
-msgid "icon"
-msgstr "アイコン"
+#~ msgid "icon"
+#~ msgstr "アイコン"
 
 #~ msgid "List"
 #~ msgstr "リスト"

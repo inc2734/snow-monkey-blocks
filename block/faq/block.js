@@ -118,7 +118,7 @@ registerBlockType( 'snow-monkey-blocks/faq', {
 										</div>
 										<RichText
 											className="smb-faq__item__question__body"
-											placeholder={ __( 'Write question…', 'snow-monkey-blocks' ) }
+											placeholder={ __( 'Write question...', 'snow-monkey-blocks' ) }
 											value={ question }
 											formattingControls={ [] }
 											multiline={ false }
@@ -132,7 +132,7 @@ registerBlockType( 'snow-monkey-blocks/faq', {
 										</div>
 										<RichText
 											className="smb-faq__item__answer__body"
-											placeholder={ __( 'Write answer…', 'snow-monkey-blocks' ) }
+											placeholder={ __( 'Write answer...', 'snow-monkey-blocks' ) }
 											value={ answer }
 											multiline="p"
 											onChange={ ( value ) => setAttributes( { content: generateUpdatedAttribute( content, index, 'answer', value ) } ) }

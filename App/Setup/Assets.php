@@ -28,7 +28,7 @@ class Assets {
 		$src  = SNOW_MONKEY_BLOCKS_DIR_URL . $relative_path;
 		$path = SNOW_MONKEY_BLOCKS_DIR_PATH . $relative_path;
 
-		wp_register_script(
+		wp_enqueue_script(
 			'snow-monkey-blocks-editor',
 			$src,
 			[ 'wp-blocks', 'wp-element', 'wp-i18n' ],
@@ -39,10 +39,8 @@ class Assets {
 		if ( function_exists( 'gutenberg_get_jed_locale_data' ) ) {
 			$locale  = gutenberg_get_jed_locale_data( 'snow-monkey-blocks' );
 			$content = 'wp.i18n.setLocaleData( ' . json_encode( $locale ) . ', "snow-monkey-blocks" );';
-			wp_script_add_data( 'snow-monkey-blocks-editor', 'data', $content );
+			wp_add_inline_script( 'snow-monkey-blocks-editor', $content, 'before' );
 		}
-
-		wp_enqueue_script( 'snow-monkey-blocks-editor' );
 
 		wp_localize_script(
 			'snow-monkey-blocks-editor',

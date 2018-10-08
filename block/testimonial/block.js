@@ -124,7 +124,7 @@ registerBlockType( 'snow-monkey-blocks/testimonial', {
 											<div className="smb-testimonial__item__body">
 												<div className="smb-testimonial__item__content">
 													<RichText
-														placeholder={ __( 'Write content…', 'snow-monkey-blocks' ) }
+														placeholder={ __( 'Write content...', 'snow-monkey-blocks' ) }
 														value={ content }
 														onChange={ ( value ) => setAttributes( { items: generateUpdatedAttribute( items, index, 'content', value ) } ) }
 													/>
@@ -132,7 +132,7 @@ registerBlockType( 'snow-monkey-blocks/testimonial', {
 
 												<RichText
 													className="smb-testimonial__item__name"
-													placeholder={ __( 'Write name…', 'snow-monkey-blocks' ) }
+													placeholder={ __( 'Write name...', 'snow-monkey-blocks' ) }
 													value={ name }
 													onChange={ ( value ) => setAttributes( { items: generateUpdatedAttribute( items, index, 'name', value ) } ) }
 												/>
@@ -140,7 +140,7 @@ registerBlockType( 'snow-monkey-blocks/testimonial', {
 												{ ( lede.length > 0 || isSelected ) &&
 													<RichText
 														className="smb-testimonial__item__lede"
-														placeholder={ __( 'Write lede…', 'snow-monkey-blocks' ) }
+														placeholder={ __( 'Write lede...', 'snow-monkey-blocks' ) }
 														value={ lede }
 														onChange={ ( value ) => setAttributes( { items: generateUpdatedAttribute( items, index, 'lede', value ) } ) }
 													/>
