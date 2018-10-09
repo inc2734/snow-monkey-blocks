@@ -1,8 +1,8 @@
 .editor-block-types-list__item {
   &.editor-block-list-item-snow-monkey-blocks-section,
-  &.editor-block-list-item-snow-monkey-blocks-section-has-bgimage,
-  &.editor-block-list-item-snow-monkey-blocks-section-has-image,
-  &.editor-block-list-item-snow-monkey-blocks-section-has-items {
+  &.editor-block-list-item-snow-monkey-blocks-section-with-bgimage,
+  &.editor-block-list-item-snow-monkey-blocks-section-with-image,
+  &.editor-block-list-item-snow-monkey-blocks-section-with-items {
     position: relative;
 
     &::after {

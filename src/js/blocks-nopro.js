@@ -3,9 +3,9 @@
 jQuery( ( $ ) => {
 	const removeClasses = [
 		'.smb-section',
-		'.smb-section-has-bgimage',
-		'.smb-section-has-image',
-		'.smb-section-has-items',
+		'.smb-section-with-bgimage',
+		'.smb-section-with-image',
+		'.smb-section-with-items',
 	];
 
 	$.each( removeClasses, ( index, value ) => {

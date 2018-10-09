@@ -8,8 +8,8 @@ const { PanelBody, SelectControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
-registerBlockType( 'snow-monkey-blocks/section-has-image', {
-	title: __( 'Section (has image)', 'snow-monkey-blocks' ),
+registerBlockType( 'snow-monkey-blocks/section-with-image', {
+	title: __( 'Section (with image)', 'snow-monkey-blocks' ),
 	icon: 'text',
 	category: 'smb-section',
 	attributes: {
@@ -30,7 +30,7 @@ registerBlockType( 'snow-monkey-blocks/section-has-image', {
 		imageURL: {
 			type: 'string',
 			source: 'attribute',
-			selector: '.smb-section-has-image__figure > img',
+			selector: '.smb-section-with-image__figure > img',
 			attribute: 'src',
 			default: '',
 		},
@@ -124,7 +124,7 @@ registerBlockType( 'snow-monkey-blocks/section-has-image', {
 					</PanelBody>
 				</InspectorControls>
 
-				<div className="smb-section smb-section-has-image" style={ { backgroundColor: backgroundColor } }>
+				<div className="smb-section smb-section-with-image" style={ { backgroundColor: backgroundColor } }>
 					<div className="c-container">
 						<div className={ classnames( 'c-row', 'c-row--margin', 'c-row--middle', { 'c-row--reverse': 'left' === imagePosition } ) }>
 							<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${ 3 - imageColumnSize }-3` }>
@@ -144,7 +144,7 @@ registerBlockType( 'snow-monkey-blocks/section-has-image', {
 								</div>
 							</div>
 							<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${ imageColumnSize }-3` }>
-								<div className="smb-section-has-image__figure">
+								<div className="smb-section-with-image__figure">
 									{ renderMedia() }
 								</div>
 							</div>
@@ -159,7 +159,7 @@ registerBlockType( 'snow-monkey-blocks/section-has-image', {
 		const { title, backgroundColor, imageURL, imagePosition, imageColumnSize } = attributes;
 
 		return (
-			<div className="smb-section smb-section-has-image" style={ { backgroundColor: backgroundColor } }>
+			<div className="smb-section smb-section-with-image" style={ { backgroundColor: backgroundColor } }>
 				<div className="c-container">
 					<div className={ classnames( 'c-row', 'c-row--margin', 'c-row--middle', { 'c-row--reverse': 'left' === imagePosition } ) }>
 						<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${ 3 - imageColumnSize }-3` }>
@@ -173,7 +173,7 @@ registerBlockType( 'snow-monkey-blocks/section-has-image', {
 							</div>
 						</div>
 						<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${ imageColumnSize }-3` }>
-							<div className="smb-section-has-image__figure">
+							<div className="smb-section-with-image__figure">
 								{ imageURL &&
 									<img src={ imageURL } alt="" />
 								}

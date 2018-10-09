@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin name: Snow Monkey Blocks
- * Version: 1.0.8
+ * Version: 1.0.9
  * Description: Gutenberg blocks collection made by MonkeyWrench.
  * Author: inc2734
  * Author URI: https://2inc.org
@@ -22,8 +22,7 @@ class Bootstrap {
 	}
 
 	public function _bootstrap() {
-		load_plugin_textdomain( 'snow-monkey-blocks', false, basename( __DIR__ ) . '/languages' );
-
+		new App\Setup\TextDomain();
 		new App\Setup\Assets();
 
 		add_filter( 'block_categories', [ $this, '_block_categories' ] );

@@ -6,8 +6,8 @@ const { PanelBody, SelectControl, RangeControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
-registerBlockType( 'snow-monkey-blocks/section-has-bgimage', {
-	title: __( 'Section (has background image)', 'snow-monkey-blocks' ),
+registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
+	title: __( 'Section (with background image)', 'snow-monkey-blocks' ),
 	icon: 'text',
 	category: 'smb-section',
 	attributes: {
@@ -24,7 +24,7 @@ registerBlockType( 'snow-monkey-blocks/section-has-bgimage', {
 		imageURL: {
 			type: 'string',
 			source: 'attribute',
-			selector: '.smb-section-has-bgimage__bgimage > img',
+			selector: '.smb-section-with-bgimage__bgimage > img',
 			attribute: 'src',
 			default: '',
 		},
@@ -121,7 +121,7 @@ registerBlockType( 'snow-monkey-blocks/section-has-bgimage', {
 						type="image"
 					/>
 				}
-				<div className={ `smb-section smb-section-has-bgimage smb-section-has-bgimage--${ contentsAlignment } smb-section-has-bgimage--${ height }` }>
+				<div className={ `smb-section smb-section-with-bgimage smb-section-with-bgimage--${ contentsAlignment } smb-section-with-bgimage--${ height }` }>
 					{ !! imageURL &&
 						<button
 							className="smb-remove-button"
@@ -130,8 +130,8 @@ registerBlockType( 'snow-monkey-blocks/section-has-bgimage', {
 							} }
 						>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
 					}
-					<div className="smb-section-has-bgimage__mask" style={ { backgroundColor: maskColor } }></div>
-					<div className="smb-section-has-bgimage__bgimage" style={ { opacity: maskOpacity } }>
+					<div className="smb-section-with-bgimage__mask" style={ { backgroundColor: maskColor } }></div>
+					<div className="smb-section-with-bgimage__bgimage" style={ { opacity: maskOpacity } }>
 						{ imageURL &&
 							<img src={ imageURL } alt="" />
 						}
@@ -161,9 +161,9 @@ registerBlockType( 'snow-monkey-blocks/section-has-bgimage', {
 		const { title, imageURL, height, contentsAlignment, maskColor, maskOpacity } = attributes;
 
 		return (
-			<div className={ `smb-section smb-section-has-bgimage smb-section-has-bgimage--${ contentsAlignment } smb-section-has-bgimage--${ height }` }>
-				<div className="smb-section-has-bgimage__mask" style={ { backgroundColor: maskColor } }></div>
-				<div className="smb-section-has-bgimage__bgimage" style={ { opacity: maskOpacity } }>
+			<div className={ `smb-section smb-section-with-bgimage smb-section-with-bgimage--${ contentsAlignment } smb-section-with-bgimage--${ height }` }>
+				<div className="smb-section-with-bgimage__mask" style={ { backgroundColor: maskColor } }></div>
+				<div className="smb-section-with-bgimage__bgimage" style={ { opacity: maskOpacity } }>
 					<img src={ imageURL } alt="" />
 				</div>
 				<div className="c-container">
@@ -196,7 +196,7 @@ registerBlockType( 'snow-monkey-blocks/section-has-bgimage', {
 				imageURL: {
 					type: 'string',
 					source: 'attribute',
-					selector: '.smb-section-has-bgimage__bgimage > img',
+					selector: '.smb-section-with-bgimage__bgimage > img',
 					attribute: 'src',
 					default: '',
 				},
@@ -214,8 +214,8 @@ registerBlockType( 'snow-monkey-blocks/section-has-bgimage', {
 				const { title, imageURL, height, contentsAlignment } = attributes;
 
 				return (
-					<div className={ `smb-section smb-section-has-bgimage smb-section-has-bgimage--${ contentsAlignment } smb-section-has-bgimage--${ height }` }>
-						<div className="smb-section-has-bgimage__bgimage">
+					<div className={ `smb-section smb-section-with-bgimage smb-section-with-bgimage--${ contentsAlignment } smb-section-with-bgimage--${ height }` }>
+						<div className="smb-section-with-bgimage__bgimage">
 							{ imageURL &&
 								<img src={ imageURL } alt="" />
 							}
