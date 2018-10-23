@@ -103,11 +103,11 @@ class Bootstrap {
 	 * @return void
 	 */
 	public function _customizer_styles() {
-		if ( ! method_exists( '\Inc2734\Mimizuku_Core\Core', 'include_files' ) ) {
+		if ( ! function_exists( '\Inc2734\Mimizuku_Core\Helper\include_files' ) ) {
 			return;
 		}
 
-		\Inc2734\Mimizuku_Core\Core::include_files( __DIR__ . '/block/' );
+		\Inc2734\Mimizuku_Core\Helper\include_files( __DIR__ . '/block/' );
 	}
 }
 
