@@ -22,6 +22,10 @@ class Bootstrap {
 	}
 
 	public function _bootstrap() {
+		if ( ! function_exists( 'is_gutenberg_page' ) ) {
+			return;
+		}
+
 		new App\Setup\TextDomain();
 		new App\Setup\Assets();
 
@@ -112,6 +116,7 @@ class Bootstrap {
 }
 
 require_once( __DIR__ . '/vendor/autoload.php' );
+
 new \Snow_Monkey\Plugin\Blocks\Bootstrap();
 
 /**
