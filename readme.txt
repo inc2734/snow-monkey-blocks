@@ -71,8 +71,12 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 9. Rating box block (The number of ratings can be increased or decreased freely)
 10. Step block (The number of steps can be increased or decreased freely)
 11. Testimonial block (The number of items can be increased or decreased freely)
+12. Items block (The number of items can be increased or decreased freely)
 
 == Changelog ==
+
+= 1.1.0 =
+* Add items block.
 
 = 1.0.10 =
 * Fixed bug that Snow Monkey accent color is not reflected.
