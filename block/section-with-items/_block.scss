@@ -1,25 +1,2 @@
 .smb-section-with-items {
-  &__item {
-    &__figure {
-      @include _margin-bottom(.5);
-    }
-
-    &__title {
-      font-weight: bold;
-    }
-
-    &__lede {
-      color: $_color-gray;
-      @include _font-size-line-height($_base-font-size-px - 2);
-    }
-
-    &__content {
-      @include _margin-top(.25);
-    }
-
-    &__action {
-      @include _margin-top(.5);
-      text-align: center;
-    }
-  }
 }

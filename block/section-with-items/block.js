@@ -33,71 +33,71 @@ registerBlockType( 'snow-monkey-blocks/section-with-items', {
 			type: 'array',
 			source: 'query',
 			default: [],
-			selector: '.smb-section-with-items__item',
+			selector: '.smb-items__item',
 			query: {
 				title: {
 					type: 'array',
 					source: 'children',
-					selector: '.smb-section-with-items__item__title',
+					selector: '.smb-items__item__title',
 					default: [],
 				},
 				lede: {
 					type: 'array',
 					source: 'children',
-					selector: '.smb-section-with-items__item__lede',
+					selector: '.smb-items__item__lede',
 					default: [],
 				},
 				summary: {
 					type: 'array',
 					source: 'children',
-					selector: '.smb-section-with-items__item__content',
+					selector: '.smb-items__item__content',
 					default: [],
 				},
 				btnLabel: {
 					type: 'array',
 					source: 'children',
-					selector: '.smb-section-with-items__item__btn > .smb-btn__label',
+					selector: '.smb-items__item__btn > .smb-btn__label',
 					default: [],
 				},
 				btnURL: {
 					type: 'string',
 					source: 'attribute',
-					selector: '.smb-section-with-items__item__btn',
+					selector: '.smb-items__item__btn',
 					attribute: 'href',
 					default: '',
 				},
 				btnTarget: {
 					type: 'string',
 					source: 'attribute',
-					selector: '.smb-section-with-items__item__btn',
+					selector: '.smb-items__item__btn',
 					attribute: 'target',
 					default: '_self',
 				},
 				btnBackgroundColor: {
 					type: 'string',
 					source: 'attribute',
-					selector: '.smb-section-with-items__item__btn',
+					selector: '.smb-items__item__btn',
 					attribute: 'data-background-color',
 					default: null,
 				},
 				btnTextColor: {
 					type: 'string',
 					source: 'attribute',
-					selector: '.smb-section-with-items__item__btn',
+					selector: '.smb-items__item__btn',
 					attribute: 'data-color',
 					default: null,
 				},
 				imageID: {
 					type: 'number',
 					source: 'attribute',
-					selector: '.smb-section-with-items__item__figure > img',
+					selector: '.smb-items__item__figure > img',
 					attribute: 'data-image-id',
 					default: 0,
 				},
 				imageURL: {
 					type: 'string',
 					source: 'attribute',
-					selector: '.smb-section-with-items__item__figure > img',
+					selector: '.smb-items__item__figure > img',
 					attribute: 'src',
 					default: '',
 				},
@@ -262,15 +262,15 @@ registerBlockType( 'snow-monkey-blocks/section-with-items', {
 
 								return (
 									<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-1-${ lg }` }>
-										<div className="smb-section-with-items__item">
+										<div className="smb-items__item">
 											{ ( !! imageID || isSelected ) &&
-												<div className="smb-section-with-items__item__figure">
+												<div className="smb-items__item__figure">
 													{ renderMedia() }
 												</div>
 											}
 
 											<RichText
-												className="smb-section-with-items__item__title"
+												className="smb-items__item__title"
 												placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
 												value={ itemTitle }
 												onChange={ ( value ) => setAttributes( { items: generateUpdatedAttribute( items, index, 'title', value ) } ) }
@@ -278,7 +278,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-items', {
 
 											{ ( lede.length > 0 || isSelected ) &&
 												<RichText
-													className="smb-section-with-items__item__lede"
+													className="smb-items__item__lede"
 													placeholder={ __( 'Write lede...', 'snow-monkey-blocks' ) }
 													value={ lede }
 													onChange={ ( value ) => setAttributes( { items: generateUpdatedAttribute( items, index, 'lede', value ) } ) }
@@ -287,7 +287,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-items', {
 
 											{ ( summary.length > 0 || isSelected ) &&
 												<RichText
-													className="smb-section-with-items__item__content"
+													className="smb-items__item__content"
 													placeholder={ __( 'Write content...', 'snow-monkey-blocks' ) }
 													value={ summary }
 													onChange={ ( value ) => setAttributes( { items: generateUpdatedAttribute( items, index, 'summary', value ) } ) }
@@ -295,8 +295,8 @@ registerBlockType( 'snow-monkey-blocks/section-with-items', {
 											}
 
 											{ ( ( btnLabel.length > 0 && !! btnURL ) || isSelected ) &&
-												<div className="smb-section-with-items__item__action">
-													<span className="smb-section-with-items__item__btn smb-btn"
+												<div className="smb-items__item__action">
+													<span className="smb-items__item__btn smb-btn"
 														href={ btnURL }
 														target={ btnTarget }
 														style={ { backgroundColor: btnBackgroundColor } }
@@ -355,32 +355,32 @@ registerBlockType( 'snow-monkey-blocks/section-with-items', {
 
 							return (
 								<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-1-${ lg }` }>
-									<div className="smb-section-with-items__item">
+									<div className="smb-items__item">
 										{ !! imageID &&
-										<div className="smb-section-with-items__item__figure">
+										<div className="smb-items__item__figure">
 											<img src={ imageURL } alt="" data-image-id={ imageID } />
 										</div>
 										}
 
-										<div className="smb-section-with-items__item__title">
+										<div className="smb-items__item__title">
 											{ itemTitle }
 										</div>
 
 										{ lede.length > 0 &&
-										<div className="smb-section-with-items__item__lede">
+										<div className="smb-items__item__lede">
 											{ lede }
 										</div>
 										}
 
 										{ summary.length > 0 &&
-										<div className="smb-section-with-items__item__content">
+										<div className="smb-items__item__content">
 											{ summary }
 										</div>
 										}
 
 										{ btnLabel.length > 0 && btnURL &&
-										<div className="smb-section-with-items__item__action">
-											<a className="smb-section-with-items__item__btn smb-btn"
+										<div className="smb-items__item__action">
+											<a className="smb-items__item__btn smb-btn"
 												href={ btnURL }
 												target={ btnTarget }
 												style={ { backgroundColor: btnBackgroundColor } }
@@ -402,4 +402,180 @@ registerBlockType( 'snow-monkey-blocks/section-with-items', {
 			</div>
 		);
 	},
+
+	deprecated: [
+		{
+			attributes: {
+				title: {
+					type: 'array',
+					source: 'children',
+					selector: '.smb-section__title',
+					default: [],
+				},
+				columns: {
+					type: 'number',
+					default: 1,
+				},
+				lg: {
+					type: 'number',
+					default: 2,
+				},
+				backgroundColor: {
+					type: 'string',
+				},
+				items: {
+					type: 'array',
+					source: 'query',
+					default: [],
+					selector: '.smb-section-with-items__item',
+					query: {
+						title: {
+							type: 'array',
+							source: 'children',
+							selector: '.smb-section-with-items__item__title',
+							default: [],
+						},
+						lede: {
+							type: 'array',
+							source: 'children',
+							selector: '.smb-section-with-items__item__lede',
+							default: [],
+						},
+						summary: {
+							type: 'array',
+							source: 'children',
+							selector: '.smb-section-with-items__item__content',
+							default: [],
+						},
+						btnLabel: {
+							type: 'array',
+							source: 'children',
+							selector: '.smb-section-with-items__item__btn > .smb-btn__label',
+							default: [],
+						},
+						btnURL: {
+							type: 'string',
+							source: 'attribute',
+							selector: '.smb-section-with-items__item__btn',
+							attribute: 'href',
+							default: '',
+						},
+						btnTarget: {
+							type: 'string',
+							source: 'attribute',
+							selector: '.smb-section-with-items__item__btn',
+							attribute: 'target',
+							default: '_self',
+						},
+						btnBackgroundColor: {
+							type: 'string',
+							source: 'attribute',
+							selector: '.smb-section-with-items__item__btn',
+							attribute: 'data-background-color',
+							default: null,
+						},
+						btnTextColor: {
+							type: 'string',
+							source: 'attribute',
+							selector: '.smb-section-with-items__item__btn',
+							attribute: 'data-color',
+							default: null,
+						},
+						imageID: {
+							type: 'number',
+							source: 'attribute',
+							selector: '.smb-section-with-items__item__figure > img',
+							attribute: 'data-image-id',
+							default: 0,
+						},
+						imageURL: {
+							type: 'string',
+							source: 'attribute',
+							selector: '.smb-section-with-items__item__figure > img',
+							attribute: 'src',
+							default: '',
+						},
+					},
+				},
+			},
+
+			save( { attributes } ) {
+				const { columns, lg, title, backgroundColor, items } = attributes;
+
+				return (
+					<div
+						className={ `smb-section smb-section-with-items smb-section-with-items--lg-${ lg }` }
+						style={ { backgroundColor: backgroundColor } }
+					>
+						<div className="c-container">
+							{ title.length > 0 &&
+							<h2 className="smb-section__title">
+								{ title }
+							</h2>
+							}
+
+							<div className="c-row c-row--margin">
+								{ times( columns, ( index ) => {
+									const itemTitle = get( items, [ index, 'title' ], [] );
+									const lede = get( items, [ index, 'lede' ], [] );
+									const summary = get( items, [ index, 'summary' ], [] );
+									const btnLabel = get( items, [ index, 'btnLabel' ], [] );
+									const btnURL = get( items, [ index, 'btnURL' ], '' );
+									const btnTarget = get( items, [ index, 'btnTarget' ], '_self' );
+									const btnBackgroundColor = get( items, [ index, 'btnBackgroundColor' ], '' );
+									const btnTextColor = get( items, [ index, 'btnTextColor' ], '' );
+									const imageID = get( items, [ index, 'imageID' ], 0 );
+									const imageURL = get( items, [ index, 'imageURL' ], '' );
+
+									return (
+										<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-1-${ lg }` }>
+											<div className="smb-section-with-items__item">
+												{ !! imageID &&
+												<div className="smb-section-with-items__item__figure">
+													<img src={ imageURL } alt="" data-image-id={ imageID } />
+												</div>
+												}
+
+												<div className="smb-section-with-items__item__title">
+													{ itemTitle }
+												</div>
+
+												{ lede.length > 0 &&
+												<div className="smb-section-with-items__item__lede">
+													{ lede }
+												</div>
+												}
+
+												{ summary.length > 0 &&
+												<div className="smb-section-with-items__item__content">
+													{ summary }
+												</div>
+												}
+
+												{ btnLabel.length > 0 && btnURL &&
+												<div className="smb-section-with-items__item__action">
+													<a className="smb-section-with-items__item__btn smb-btn"
+														href={ btnURL }
+														target={ btnTarget }
+														style={ { backgroundColor: btnBackgroundColor } }
+														data-background-color={ btnBackgroundColor }
+														data-color={ btnTextColor }
+													>
+														<span className="smb-btn__label" style={ { color: btnTextColor } }>
+															{ btnLabel }
+														</span>
+													</a>
+												</div>
+												}
+											</div>
+										</div>
+									);
+								} ) }
+							</div>
+						</div>
+					</div>
+				);
+			},
+		},
+	],
 } );
