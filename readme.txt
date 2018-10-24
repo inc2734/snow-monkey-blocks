@@ -1,7 +1,7 @@
 === Snow Monkey Blocks ===
 Contributors: inc2734, mayukojpn
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
-Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder
+Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder , landingpage , microcopy ,step ,call to action
 Requires at least: 4.9
 Tested up to: 4.9
 Stable tag: 1.1.0
@@ -12,6 +12,8 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Gutenberg blocks collection made by MonkeyWrench.
 
 == Description ==
+
+Snow Monkey Blocksを使うと、<a href="https://wordpress.org/plugins/gutenberg/" target="_blank"> Gutenberg </a>に特徴、チェックリスト、よくある質問、流れ、お客様の声、CTAなどのブロックを追加し、レスポンシブ対応なランディングページをプログラミング知識不要で素早く簡単に作成して公開することができます。
 
 Snow Monkey Blocks is a collection of content blocks for <a href="https://wordpress.org/plugins/gutenberg/" target="_blank">Gutenberg</a>. With using this plugin, you can create and publish landing pages or highly designed page quickly and easily. Of course, you don't need to write any code.
 
