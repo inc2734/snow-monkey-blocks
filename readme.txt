@@ -1,5 +1,5 @@
 === Snow Monkey Blocks ===
-Contributors: inc2734, mayukojpn
+Contributors: inc2734, mayukojpn, livevalue
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 4.9
