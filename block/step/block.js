@@ -193,8 +193,10 @@ registerBlockType( 'snow-monkey-blocks/step', {
 											labels={ { title: __( 'Image' ), name: __( 'an image' ) } }
 											onSelect={ ( media ) => {
 												const newImageURL = !! media.sizes.large ? media.sizes.large.url : media.url;
-												setAttributes( { content: generateUpdatedAttribute( content, index, 'imageURL', newImageURL ) } );
-												setAttributes( { content: generateUpdatedAttribute( content, index, 'imageID', media.id ) } );
+												let newContent = content;
+												newContent = generateUpdatedAttribute( newContent, index, 'imageURL', newImageURL );
+												newContent = generateUpdatedAttribute( newContent, index, 'imageID', media.id );
+												setAttributes( { content: newContent } );
 											} }
 											accept="image/*"
 											type="image"

@@ -203,8 +203,10 @@ registerBlockType( 'snow-monkey-blocks/items', {
 											labels={ { title: __( 'Image' ), name: __( 'an image' ) } }
 											onSelect={ ( media ) => {
 												const newImageURL = !! media.sizes.large ? media.sizes.large.url : media.url;
-												setAttributes( { items: generateUpdatedAttribute( items, index, 'imageURL', newImageURL ) } );
-												setAttributes( { items: generateUpdatedAttribute( items, index, 'imageID', media.id ) } );
+												let newItems = items;
+												newItems = generateUpdatedAttribute( newItems, index, 'imageURL', newImageURL );
+												newItems = generateUpdatedAttribute( newItems, index, 'imageID', media.id );
+												setAttributes( { items: newItems } );
 											} }
 											accept="image/*"
 											type="image"
