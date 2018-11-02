@@ -30,7 +30,6 @@ class Bootstrap {
 		new App\Setup\Assets();
 
 		add_filter( 'block_categories', [ $this, '_block_categories' ] );
-		add_action( 'wp_loaded', [ $this, '_customizer_styles' ] );
 		add_action( 'add_meta_boxes', [ $this, '_add_pr_meta_box' ] );
 	}
 
@@ -99,19 +98,6 @@ class Bootstrap {
 			?>
 		</p>
 		<?php
-	}
-
-	/**
-	 * Apply styles from customizer settings of Snow Monkey
-	 *
-	 * @return void
-	 */
-	public function _customizer_styles() {
-		if ( ! function_exists( '\Inc2734\Mimizuku_Core\Helper\include_files' ) ) {
-			return;
-		}
-
-		\Inc2734\Mimizuku_Core\Helper\include_files( __DIR__ . '/block/' );
 	}
 }
 
