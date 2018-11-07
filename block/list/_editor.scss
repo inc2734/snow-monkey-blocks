@@ -9,6 +9,10 @@
         @include _circle(10px);
         border: 2px solid $_color-text;
       }
+
+      > .smb-list__icon {
+        display: none;
+      }
     }
   }
 }
