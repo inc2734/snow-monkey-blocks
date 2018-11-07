@@ -16,3 +16,5 @@ import '../../block/step/block.js';
 import '../../block/testimonial/block.js';
 import '../../block/list/block.js';
 import '../../block/items/block.js';
+
+import './_highlighter.js';

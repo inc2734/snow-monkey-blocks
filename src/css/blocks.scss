@@ -30,3 +30,7 @@ $_font-path: '../../../../themes/snow-monkey/vendor/inc2734/wp-basis/src/assets/
 @import '../../block/testimonial/block';
 @import '../../block/list/block';
 @import '../../block/items/block';
+
+.smb-highlighter {
+  background: linear-gradient(transparent 60%, rgba(#fffd6b, .7) 60%);
+}
