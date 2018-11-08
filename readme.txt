@@ -9,7 +9,7 @@ Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Gutenberg blocks collection made by MonkeyWrench.
+Gutenberg blocks collection made by MonkeyWrench. Gutenberg 4.4.0 or higher is required.
 
 == Description ==
 

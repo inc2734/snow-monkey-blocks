@@ -200,7 +200,7 @@ registerBlockType( 'snow-monkey-blocks/items', {
 									return (
 										<MediaPlaceholder
 											icon="format-image"
-											labels={ { title: __( 'Image' ), name: __( 'an image' ) } }
+											labels={ { title: __( 'Image' ) } }
 											onSelect={ ( media ) => {
 												const newImageURL = !! media.sizes.large ? media.sizes.large.url : media.url;
 												let newItems = items;
@@ -209,7 +209,7 @@ registerBlockType( 'snow-monkey-blocks/items', {
 												setAttributes( { items: newItems } );
 											} }
 											accept="image/*"
-											type="image"
+											allowedTypes={ [ 'image' ] }
 										/>
 									);
 								}
