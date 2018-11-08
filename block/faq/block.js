@@ -19,16 +19,12 @@ registerBlockType( 'snow-monkey-blocks/faq', {
 			default: [],
 			query: {
 				question: {
-					type: 'array',
-					source: 'children',
+					source: 'html',
 					selector: '.smb-faq__item__question__body',
-					default: [],
 				},
 				answer: {
-					type: 'array',
-					source: 'children',
+					source: 'html',
 					selector: '.smb-faq__item__answer__body',
-					default: [],
 				},
 				questionColor: {
 					type: 'string',
@@ -105,8 +101,8 @@ registerBlockType( 'snow-monkey-blocks/faq', {
 				<div className="smb-faq">
 					<div className="smb-faq__body">
 						{ times( rows, ( index ) => {
-							const question = get( content, [ index, 'question' ], [] );
-							const answer = get( content, [ index, 'answer' ], [] );
+							const question = get( content, [ index, 'question' ], '' );
+							const answer = get( content, [ index, 'answer' ], '' );
 							const questionColor = get( content, [ index, 'questionColor' ], '' );
 							const answerColor = get( content, [ index, 'answerColor' ], '' );
 
@@ -154,8 +150,8 @@ registerBlockType( 'snow-monkey-blocks/faq', {
 			<div className="smb-faq">
 				<div className="smb-faq__body">
 					{ times( rows, ( index ) => {
-						const question = get( content, [ index, 'question' ], [] );
-						const answer = get( content, [ index, 'answer' ], [] );
+						const question = get( content, [ index, 'question' ], '' );
+						const answer = get( content, [ index, 'answer' ], '' );
 						const questionColor = get( content, [ index, 'questionColor' ], '' );
 						const answerColor = get( content, [ index, 'answerColor' ], '' );
 
@@ -166,7 +162,7 @@ registerBlockType( 'snow-monkey-blocks/faq', {
 										Q
 									</div>
 									<div className="smb-faq__item__question__body">
-										{ question }
+										<RichText.Content value={ question } />
 									</div>
 								</div>
 
@@ -175,7 +171,7 @@ registerBlockType( 'snow-monkey-blocks/faq', {
 										A
 									</div>
 									<div className="smb-faq__item__answer__body">
-										{ answer }
+										<RichText.Content value={ answer } />
 									</div>
 								</div>
 							</div>

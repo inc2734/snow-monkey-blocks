@@ -19,34 +19,24 @@ registerBlockType( 'snow-monkey-blocks/pricing-table', {
 			default: [],
 			query: {
 				title: {
-					type: 'array',
-					source: 'children',
+					source: 'html',
 					selector: '.smb-pricing-table__item__title',
-					default: [],
 				},
 				price: {
-					type: 'array',
-					source: 'children',
+					source: 'html',
 					selector: '.smb-pricing-table__item__price',
-					default: [],
 				},
 				lede: {
-					type: 'array',
-					source: 'children',
+					source: 'html',
 					selector: '.smb-pricing-table__item__lede',
-					default: [],
 				},
 				list: {
-					type: 'array',
-					source: 'children',
+					source: 'html',
 					selector: 'ul',
-					default: [],
 				},
 				btnLabel: {
-					type: 'array',
-					source: 'children',
+					source: 'html',
 					selector: '.smb-pricing-table__item__btn > .smb-btn__label',
-					default: [],
 				},
 				btnURL: {
 					type: 'string',
@@ -161,11 +151,11 @@ registerBlockType( 'snow-monkey-blocks/pricing-table', {
 				<div className={ `smb-pricing-table smb-pricing-table--${ columns }` }>
 					<div className="smb-pricing-table__row">
 						{ times( columns, ( index ) => {
-							const title = get( content, [ index, 'title' ], [] );
-							const price = get( content, [ index, 'price' ], [] );
-							const lede = get( content, [ index, 'lede' ], [] );
-							const list = get( content, [ index, 'list' ], [] );
-							const btnLabel = get( content, [ index, 'btnLabel' ], [] );
+							const title = get( content, [ index, 'title' ], '' );
+							const price = get( content, [ index, 'price' ], '' );
+							const lede = get( content, [ index, 'lede' ], '' );
+							const list = get( content, [ index, 'list' ], '' );
+							const btnLabel = get( content, [ index, 'btnLabel' ], '' );
 							const btnURL = get( content, [ index, 'btnURL' ], '' );
 							const btnTarget = get( content, [ index, 'btnTarget' ], '_self' );
 							const btnBackgroundColor = get( content, [ index, 'btnBackgroundColor' ], '' );
@@ -182,7 +172,7 @@ registerBlockType( 'snow-monkey-blocks/pricing-table', {
 											onChange={ ( value ) => setAttributes( { content: generateUpdatedAttribute( content, index, 'title', value ) } ) }
 										/>
 
-										{ ( price.length > 0 || isSelected ) &&
+										{ ( ! RichText.isEmpty( price ) || isSelected ) &&
 											<RichText
 												className="smb-pricing-table__item__price"
 												placeholder={ __( 'Write price...', 'snow-monkey-blocks' ) }
@@ -192,7 +182,7 @@ registerBlockType( 'snow-monkey-blocks/pricing-table', {
 											/>
 										}
 
-										{ ( lede.length > 0 || isSelected ) &&
+										{ ( ! RichText.isEmpty( lede ) || isSelected ) &&
 											<RichText
 												className="smb-pricing-table__item__lede"
 												placeholder={ __( 'Write lede...', 'snow-monkey-blocks' ) }
@@ -209,7 +199,7 @@ registerBlockType( 'snow-monkey-blocks/pricing-table', {
 											onChange={ ( value ) => setAttributes( { content: generateUpdatedAttribute( content, index, 'list', value ) } ) }
 										/>
 
-										{ ( btnLabel.length > 0 || !! btnURL || isSelected ) &&
+										{ ( ! RichText.isEmpty( btnLabel ) || isSelected ) &&
 											<div className="smb-pricing-table__item__action">
 												<span className="smb-pricing-table__item__btn smb-btn"
 													href={ btnURL }
@@ -246,11 +236,11 @@ registerBlockType( 'snow-monkey-blocks/pricing-table', {
 			<div className={ `smb-pricing-table smb-pricing-table--${ columns }` }>
 				<div className="smb-pricing-table__row">
 					{ times( columns, ( index ) => {
-						const title = get( content, [ index, 'title' ], [] );
-						const price = get( content, [ index, 'price' ], [] );
-						const lede = get( content, [ index, 'lede' ], [] );
-						const list = get( content, [ index, 'list' ], [] );
-						const btnLabel = get( content, [ index, 'btnLabel' ], [] );
+						const title = get( content, [ index, 'title' ], '' );
+						const price = get( content, [ index, 'price' ], '' );
+						const lede = get( content, [ index, 'lede' ], '' );
+						const list = get( content, [ index, 'list' ], '' );
+						const btnLabel = get( content, [ index, 'btnLabel' ], '' );
 						const btnURL = get( content, [ index, 'btnURL' ], '' );
 						const btnTarget = get( content, [ index, 'btnTarget' ], '_self' );
 						const btnBackgroundColor = get( content, [ index, 'btnBackgroundColor' ], '' );
@@ -260,26 +250,26 @@ registerBlockType( 'snow-monkey-blocks/pricing-table', {
 							<div className="smb-pricing-table__col">
 								<div className="smb-pricing-table__item">
 									<div className="smb-pricing-table__item__title">
-										{ title }
+										<RichText.Content value={ title } />
 									</div>
 
-									{ price.length > 0 &&
+									{ ! RichText.isEmpty( price ) &&
 										<div className="smb-pricing-table__item__price">
-											{ price }
+											<RichText.Content value={ price } />
 										</div>
 									}
 
-									{ lede.length > 0 &&
+									{ ! RichText.isEmpty( lede ) &&
 										<div className="smb-pricing-table__item__lede">
-											{ lede }
+											<RichText.Content value={ lede } />
 										</div>
 									}
 
 									<ul>
-										{ list }
+										<RichText.Content value={ list } />
 									</ul>
 
-									{ ( btnLabel.length > 0 || btnURL ) &&
+									{ ( ! RichText.isEmpty( btnLabel.length ) || !! btnURL ) &&
 										<div className="smb-pricing-table__item__action">
 											<a className="smb-pricing-table__item__btn smb-btn"
 												href={ btnURL }
@@ -289,7 +279,7 @@ registerBlockType( 'snow-monkey-blocks/pricing-table', {
 												data-color={ btnTextColor }
 											>
 												<span className="smb-btn__label" style={ { color: btnTextColor } }>
-													{ btnLabel }
+													<RichText.Content value={ btnLabel } />
 												</span>
 											</a>
 										</div>

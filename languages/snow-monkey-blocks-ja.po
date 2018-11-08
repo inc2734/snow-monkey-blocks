@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2018-11-07 12:39+0900\n"
-"PO-Revision-Date: 2018-11-07 12:39+0900\n"
+"POT-Creation-Date: 2018-11-08 15:55+0900\n"
+"PO-Revision-Date: 2018-11-08 15:56+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -62,62 +62,61 @@ msgstr ""
 msgid "Alert"
 msgstr "アラート"
 
-#: languages/snow-monkey-blocks-translations.php:30 block/alert/block.js:48
+#: languages/snow-monkey-blocks-translations.php:30 block/alert/block.js:44
 msgid "exclamation-circle"
 msgstr "exclamation-circle"
 
-#: languages/snow-monkey-blocks-translations.php:34 block/alert/block.js:52
+#: languages/snow-monkey-blocks-translations.php:34 block/alert/block.js:48
 #: block/list/block.js:74
 msgid "check"
 msgstr "check"
 
-#: languages/snow-monkey-blocks-translations.php:38 block/alert/block.js:56
+#: languages/snow-monkey-blocks-translations.php:38 block/alert/block.js:52
 #: block/list/block.js:78
 msgid "check-circle"
 msgstr "check-circle"
 
-#: languages/snow-monkey-blocks-translations.php:42 block/alert/block.js:60
+#: languages/snow-monkey-blocks-translations.php:42 block/alert/block.js:56
 #: block/list/block.js:82
 msgid "check-square"
 msgstr "check-square"
 
-#: languages/snow-monkey-blocks-translations.php:46 block/alert/block.js:64
+#: languages/snow-monkey-blocks-translations.php:46 block/alert/block.js:60
 #: block/list/block.js:90
 msgid "hand-point-right"
 msgstr "hand-point-right"
 
-#: languages/snow-monkey-blocks-translations.php:49 block/alert/block.js:83
+#: languages/snow-monkey-blocks-translations.php:49 block/alert/block.js:79
 msgid "Alert Settings"
 msgstr "アラート設定"
 
-#: languages/snow-monkey-blocks-translations.php:53 block/alert/block.js:85
-#: block/balloon/block.js:59 block/btn/block.js:77
+#: languages/snow-monkey-blocks-translations.php:53 block/alert/block.js:81
+#: block/balloon/block.js:57 block/btn/block.js:76
 msgid "Type"
 msgstr "タイプ"
 
-#: languages/snow-monkey-blocks-translations.php:56 block/alert/block.js:91
+#: languages/snow-monkey-blocks-translations.php:56 block/alert/block.js:87
 msgid "Normal alert"
 msgstr "ノーマルアラート"
 
-#: languages/snow-monkey-blocks-translations.php:59 block/alert/block.js:95
+#: languages/snow-monkey-blocks-translations.php:59 block/alert/block.js:91
 msgid "Warning alert"
 msgstr "ワーニングアラート"
 
-#: languages/snow-monkey-blocks-translations.php:62 block/alert/block.js:99
+#: languages/snow-monkey-blocks-translations.php:62 block/alert/block.js:95
 msgid "Success alert"
 msgstr "サクセスアラート"
 
-#: languages/snow-monkey-blocks-translations.php:66 block/alert/block.js:104
+#: languages/snow-monkey-blocks-translations.php:66 block/alert/block.js:100
 #: block/list/block.js:98
 msgid "Icon"
 msgstr "アイコン"
 
-#: languages/snow-monkey-blocks-translations.php:74 block/alert/block.js:132
-#: block/items/block.js:242 block/pricing-table/block.js:179
-#: block/rating-box/block.js:109 block/section-with-bgimage/block.js:147
-#: block/section-with-image/block.js:138 block/section-with-items/block.js:215
-#: block/section-with-items/block.js:276 block/section/block.js:76
-#: block/step/block.js:229
+#: languages/snow-monkey-blocks-translations.php:74 block/alert/block.js:128
+#: block/items/block.js:234 block/pricing-table/block.js:169
+#: block/rating-box/block.js:107 block/section-with-bgimage/block.js:145
+#: block/section-with-image/block.js:136 block/section/block.js:74
+#: block/step/block.js:226
 msgid "Write title..."
 msgstr "タイトルを書く…"
 
@@ -125,19 +124,19 @@ msgstr "タイトルを書く…"
 msgid "Balloon"
 msgstr "吹き出し"
 
-#: languages/snow-monkey-blocks-translations.php:80 block/balloon/block.js:57
+#: languages/snow-monkey-blocks-translations.php:80 block/balloon/block.js:55
 msgid "Balloon Settings"
 msgstr "吹き出し設定"
 
-#: languages/snow-monkey-blocks-translations.php:83 block/balloon/block.js:65
+#: languages/snow-monkey-blocks-translations.php:83 block/balloon/block.js:63
 msgid "Normal balloon"
 msgstr "吹き出し"
 
-#: languages/snow-monkey-blocks-translations.php:86 block/balloon/block.js:69
+#: languages/snow-monkey-blocks-translations.php:86 block/balloon/block.js:67
 msgid "Reverse Balloon"
 msgstr "逆の吹き出し"
 
-#: languages/snow-monkey-blocks-translations.php:89 block/balloon/block.js:91
+#: languages/snow-monkey-blocks-translations.php:89 block/balloon/block.js:89
 msgid "Name"
 msgstr "名前"
 
@@ -150,10 +149,9 @@ msgid "Box Settings"
 msgstr "ボックス設定"
 
 #: languages/snow-monkey-blocks-translations.php:102 block/box/block.js:39
-#: block/btn-box/block.js:70 block/btn-box/block.js:104 block/btn/block.js:92
-#: block/items/block.js:166 block/pricing-table/block.js:143
-#: block/section-with-image/block.js:118 block/section-with-items/block.js:144
-#: block/section-with-items/block.js:185 block/section/block.js:58
+#: block/btn-box/block.js:65 block/btn-box/block.js:99 block/btn/block.js:91
+#: block/items/block.js:158 block/pricing-table/block.js:133
+#: block/section-with-image/block.js:116 block/section/block.js:56
 msgid "Background Color"
 msgstr "背景色"
 
@@ -162,8 +160,8 @@ msgid "Border Color"
 msgstr "枠線の色"
 
 #: languages/snow-monkey-blocks-translations.php:110 block/box/block.js:53
-#: block/btn-box/block.js:111 block/btn/block.js:99 block/items/block.js:173
-#: block/pricing-table/block.js:150 block/section-with-items/block.js:192
+#: block/btn-box/block.js:106 block/btn/block.js:98 block/items/block.js:165
+#: block/pricing-table/block.js:140
 msgid "Text Color"
 msgstr "文字色"
 
@@ -175,69 +173,67 @@ msgstr "枠線の太さ"
 msgid "Button box"
 msgstr "ボタンボックス"
 
-#: languages/snow-monkey-blocks-translations.php:122 block/btn-box/block.js:36
-#: block/btn-box/block.js:156 block/btn-box/block.js:235 block/btn/block.js:12
-#: block/btn/block.js:20 block/btn/block.js:116 block/items/block.js:278
-#: block/pricing-table/block.js:225 block/section-with-items/block.js:312
+#: languages/snow-monkey-blocks-translations.php:122 block/btn-box/block.js:31
+#: block/btn-box/block.js:151 block/btn-box/block.js:225 block/btn/block.js:12
+#: block/btn/block.js:19 block/btn/block.js:115 block/items/block.js:270
+#: block/pricing-table/block.js:215
 msgid "Button"
 msgstr "ボタン"
 
-#: languages/snow-monkey-blocks-translations.php:125 block/btn-box/block.js:69
+#: languages/snow-monkey-blocks-translations.php:125 block/btn-box/block.js:64
 msgid "Button box Settings"
 msgstr "ボタンボックス設定"
 
-#: languages/snow-monkey-blocks-translations.php:129 block/btn-box/block.js:79
-#: block/btn/block.js:53
+#: languages/snow-monkey-blocks-translations.php:129 block/btn-box/block.js:74
+#: block/btn/block.js:52
 msgid "Button Settings"
 msgstr "ボタン設定"
 
-#: languages/snow-monkey-blocks-translations.php:134 block/btn-box/block.js:83
-#: block/btn/block.js:55 block/items/block.js:145
-#: block/pricing-table/block.js:122 block/section-with-items/block.js:164
+#: languages/snow-monkey-blocks-translations.php:134 block/btn-box/block.js:78
+#: block/btn/block.js:54 block/items/block.js:137
+#: block/pricing-table/block.js:112
 msgid "URL"
 msgstr "URL"
 
-#: languages/snow-monkey-blocks-translations.php:139 block/btn-box/block.js:89
-#: block/btn/block.js:61 block/items/block.js:151
-#: block/pricing-table/block.js:128 block/section-with-items/block.js:170
+#: languages/snow-monkey-blocks-translations.php:139 block/btn-box/block.js:84
+#: block/btn/block.js:60 block/items/block.js:143
+#: block/pricing-table/block.js:118
 msgid "Target"
 msgstr "Target"
 
-#: languages/snow-monkey-blocks-translations.php:145 block/btn-box/block.js:95
-#: block/btn/block.js:67 block/items/block.js:156
-#: block/pricing-table/block.js:133 block/section-with-items/block.js:175
-#: block/step/block.js:161
+#: languages/snow-monkey-blocks-translations.php:145 block/btn-box/block.js:90
+#: block/btn/block.js:66 block/items/block.js:148
+#: block/pricing-table/block.js:123 block/step/block.js:158
 msgid "_self"
 msgstr "_self"
 
-#: languages/snow-monkey-blocks-translations.php:151 block/btn-box/block.js:99
-#: block/btn/block.js:71 block/items/block.js:160
-#: block/pricing-table/block.js:137 block/section-with-items/block.js:179
-#: block/step/block.js:165
+#: languages/snow-monkey-blocks-translations.php:151 block/btn-box/block.js:94
+#: block/btn/block.js:70 block/items/block.js:152
+#: block/pricing-table/block.js:127 block/step/block.js:162
 msgid "_blank"
 msgstr "_blank"
 
-#: languages/snow-monkey-blocks-translations.php:154 block/btn-box/block.js:119
+#: languages/snow-monkey-blocks-translations.php:154 block/btn-box/block.js:114
 msgid "Button size"
 msgstr "ボタンサイズ"
 
-#: languages/snow-monkey-blocks-translations.php:158 block/btn-box/block.js:125
-#: block/btn/block.js:83
+#: languages/snow-monkey-blocks-translations.php:158 block/btn-box/block.js:120
+#: block/btn/block.js:82
 msgid "Normal button"
 msgstr "ノーマルボタン"
 
-#: languages/snow-monkey-blocks-translations.php:162 block/btn-box/block.js:129
-#: block/btn/block.js:87
+#: languages/snow-monkey-blocks-translations.php:162 block/btn-box/block.js:124
+#: block/btn/block.js:86
 msgid "Full button"
 msgstr "フルサイズのボタン"
 
-#: languages/snow-monkey-blocks-translations.php:167 block/btn-box/block.js:144
-#: block/items/block.js:250 block/pricing-table/block.js:198
-#: block/section-with-items/block.js:284 block/testimonial/block.js:143
+#: languages/snow-monkey-blocks-translations.php:167 block/btn-box/block.js:139
+#: block/items/block.js:242 block/pricing-table/block.js:188
+#: block/testimonial/block.js:137
 msgid "Write lede..."
 msgstr "リード文を書く…"
 
-#: languages/snow-monkey-blocks-translations.php:170 block/btn-box/block.js:170
+#: languages/snow-monkey-blocks-translations.php:170 block/btn-box/block.js:165
 msgid "Write note..."
 msgstr "注釈を書く…"
 
@@ -245,33 +241,33 @@ msgstr "注釈を書く…"
 msgid "FAQ"
 msgstr "FAQ"
 
-#: languages/snow-monkey-blocks-translations.php:176 block/faq/block.js:68
+#: languages/snow-monkey-blocks-translations.php:176 block/faq/block.js:64
 msgid "FAQ Settings"
 msgstr "FAQ 設定"
 
-#: languages/snow-monkey-blocks-translations.php:180 block/faq/block.js:70
-#: block/rating-box/block.js:62 block/step/block.js:103
+#: languages/snow-monkey-blocks-translations.php:180 block/faq/block.js:66
+#: block/rating-box/block.js:60 block/step/block.js:100
 msgid "Rows"
 msgstr "行数"
 
-#: languages/snow-monkey-blocks-translations.php:183 block/faq/block.js:84
+#: languages/snow-monkey-blocks-translations.php:183 block/faq/block.js:80
 #, php-format, javascript-format
 msgid "(%d) Item Settings"
 msgstr "(%d) 項目の設定"
 
-#: languages/snow-monkey-blocks-translations.php:186 block/faq/block.js:87
+#: languages/snow-monkey-blocks-translations.php:186 block/faq/block.js:83
 msgid "Question Color"
 msgstr "質問の色"
 
-#: languages/snow-monkey-blocks-translations.php:189 block/faq/block.js:94
+#: languages/snow-monkey-blocks-translations.php:189 block/faq/block.js:90
 msgid "Answer Color"
 msgstr "回答の色"
 
-#: languages/snow-monkey-blocks-translations.php:192 block/faq/block.js:121
+#: languages/snow-monkey-blocks-translations.php:192 block/faq/block.js:117
 msgid "Write question..."
 msgstr "質問を書く…"
 
-#: languages/snow-monkey-blocks-translations.php:195 block/faq/block.js:135
+#: languages/snow-monkey-blocks-translations.php:195 block/faq/block.js:131
 msgid "Write answer..."
 msgstr "回答を書く…"
 
@@ -316,25 +312,24 @@ msgstr "アイコンの色"
 msgid "Pricing table"
 msgstr "価格表"
 
-#: languages/snow-monkey-blocks-translations.php:230 block/items/block.js:115
-#: block/pricing-table/block.js:100 block/section-with-items/block.js:127
+#: languages/snow-monkey-blocks-translations.php:230 block/items/block.js:107
+#: block/pricing-table/block.js:90
 msgid "Columns Settings"
 msgstr "カラム設定"
 
-#: languages/snow-monkey-blocks-translations.php:235 block/items/block.js:117
-#: block/pricing-table/block.js:102 block/section-with-items/block.js:129
-#: block/testimonial/block.js:79
+#: languages/snow-monkey-blocks-translations.php:235 block/items/block.js:109
+#: block/pricing-table/block.js:92 block/testimonial/block.js:73
 msgid "Columns"
 msgstr "カラム"
 
-#: languages/snow-monkey-blocks-translations.php:239 block/items/block.js:141
-#: block/pricing-table/block.js:118 block/section-with-items/block.js:160
+#: languages/snow-monkey-blocks-translations.php:239 block/items/block.js:133
+#: block/pricing-table/block.js:108
 #, php-format, javascript-format
 msgid "(%d) Button Settings"
 msgstr "(%d) ボタン設定"
 
 #: languages/snow-monkey-blocks-translations.php:243
-#: block/pricing-table/block.js:188
+#: block/pricing-table/block.js:178
 msgid "Write price..."
 msgstr "価格を書く…"
 
@@ -344,23 +339,23 @@ msgid "Rating box"
 msgstr "レーティングボックス"
 
 #: languages/snow-monkey-blocks-translations.php:251
-#: block/rating-box/block.js:60
+#: block/rating-box/block.js:58
 msgid "Rating box Settings"
 msgstr "レーティングボックス設定"
 
 #: languages/snow-monkey-blocks-translations.php:255
-#: block/rating-box/block.js:76
+#: block/rating-box/block.js:74
 #, php-format, javascript-format
 msgid "(%d) Rating Settings"
 msgstr "(%d) レーティング設定"
 
 #: languages/snow-monkey-blocks-translations.php:259
-#: block/rating-box/block.js:80
+#: block/rating-box/block.js:78
 msgid "Rating"
 msgstr "レーティング"
 
 #: languages/snow-monkey-blocks-translations.php:263
-#: block/rating-box/block.js:87
+#: block/rating-box/block.js:85
 msgid "Color"
 msgstr "色"
 
@@ -369,73 +364,71 @@ msgid "Section (has background image)"
 msgstr "セクション（背景画像あり）"
 
 #: languages/snow-monkey-blocks-translations.php:271
-#: block/section-with-bgimage/block.js:58 block/section-with-image/block.js:85
-#: block/section/block.js:41
+#: block/section-with-bgimage/block.js:56 block/section-with-image/block.js:83
+#: block/section/block.js:39
 msgid "Section Settings"
 msgstr "セクション設定"
 
 #: languages/snow-monkey-blocks-translations.php:275
-#: block/section-with-bgimage/block.js:60
+#: block/section-with-bgimage/block.js:58
 msgid "Height"
 msgstr "高さ"
 
 #: languages/snow-monkey-blocks-translations.php:279
-#: block/section-with-bgimage/block.js:65
+#: block/section-with-bgimage/block.js:63
 msgid "Fit"
 msgstr "フィット"
 
 #: languages/snow-monkey-blocks-translations.php:283
-#: block/section-with-bgimage/block.js:69
+#: block/section-with-bgimage/block.js:67
 msgid "Wide"
 msgstr "広め"
 
 #: languages/snow-monkey-blocks-translations.php:287
-#: block/section-with-bgimage/block.js:76
+#: block/section-with-bgimage/block.js:74
 msgid "Contents alignment"
 msgstr "コンテンツの水平位置"
 
 #: languages/snow-monkey-blocks-translations.php:292
-#: block/section-with-bgimage/block.js:81 block/section-with-image/block.js:96
-#: block/step/block.js:128
+#: block/section-with-bgimage/block.js:79 block/section-with-image/block.js:94
+#: block/step/block.js:125
 msgid "Left side"
 msgstr "左側"
 
 #: languages/snow-monkey-blocks-translations.php:296
-#: block/section-with-bgimage/block.js:85 block/step/block.js:132
+#: block/section-with-bgimage/block.js:83 block/step/block.js:129
 msgid "Center"
 msgstr "中央"
 
 #: languages/snow-monkey-blocks-translations.php:301
-#: block/section-with-bgimage/block.js:89 block/section-with-image/block.js:92
-#: block/step/block.js:136
+#: block/section-with-bgimage/block.js:87 block/section-with-image/block.js:90
+#: block/step/block.js:133
 msgid "Right side"
 msgstr "右側"
 
 #: languages/snow-monkey-blocks-translations.php:305
-#: block/section-with-bgimage/block.js:95
+#: block/section-with-bgimage/block.js:93
 msgid "Mask Color"
 msgstr "背景マスクの色"
 
 #: languages/snow-monkey-blocks-translations.php:309
-#: block/section-with-bgimage/block.js:103
+#: block/section-with-bgimage/block.js:101
 msgid "Mask Opacity"
 msgstr "背景マスクの透明度"
 
-#: languages/snow-monkey-blocks-translations.php:314 block/items/block.js:203
-#: block/section-with-bgimage/block.js:115 block/section-with-image/block.js:58
-#: block/section-with-items/block.js:237 block/step/block.js:193
+#: languages/snow-monkey-blocks-translations.php:314 block/items/block.js:195
+#: block/section-with-bgimage/block.js:113 block/section-with-image/block.js:56
+#: block/step/block.js:190
 msgid "Image"
 msgstr "画像"
 
-#: languages/snow-monkey-blocks-translations.php:319 block/items/block.js:203
-#: block/section-with-bgimage/block.js:115 block/section-with-image/block.js:58
-#: block/section-with-items/block.js:237 block/step/block.js:193
+#: languages/snow-monkey-blocks-translations.php:319
 msgid "an image"
 msgstr "画像"
 
-#: languages/snow-monkey-blocks-translations.php:324 block/items/block.js:226
-#: block/section-with-bgimage/block.js:131 block/section-with-image/block.js:77
-#: block/section-with-items/block.js:260 block/step/block.js:216
+#: languages/snow-monkey-blocks-translations.php:324 block/items/block.js:218
+#: block/section-with-bgimage/block.js:129 block/section-with-image/block.js:75
+#: block/step/block.js:213
 msgid "Remove"
 msgstr "削除"
 
@@ -444,22 +437,22 @@ msgid "Section (has image)"
 msgstr "セクション（画像あり）"
 
 #: languages/snow-monkey-blocks-translations.php:331
-#: block/section-with-image/block.js:87 block/step/block.js:123
+#: block/section-with-image/block.js:85 block/step/block.js:120
 msgid "Image Position"
 msgstr "画像の位置"
 
 #: languages/snow-monkey-blocks-translations.php:335
-#: block/section-with-image/block.js:103
+#: block/section-with-image/block.js:101
 msgid "Image Column Size"
 msgstr "画像カラムのサイズ"
 
 #: languages/snow-monkey-blocks-translations.php:339
-#: block/section-with-image/block.js:108
+#: block/section-with-image/block.js:106
 msgid "75%"
 msgstr "75%"
 
 #: languages/snow-monkey-blocks-translations.php:343
-#: block/section-with-image/block.js:112
+#: block/section-with-image/block.js:110
 msgid "33%"
 msgstr "33%"
 
@@ -467,14 +460,12 @@ msgstr "33%"
 msgid "Section (has items)"
 msgstr "セクション（項目あり）"
 
-#: languages/snow-monkey-blocks-translations.php:350 block/items/block.js:125
-#: block/section-with-items/block.js:137
+#: languages/snow-monkey-blocks-translations.php:350 block/items/block.js:117
 msgid "Columns per row (large window)"
 msgstr "行あたりのカラム数（ラージウインドウ）"
 
-#: languages/snow-monkey-blocks-translations.php:355 block/items/block.js:259
-#: block/section-with-items/block.js:293 block/step/block.js:247
-#: block/testimonial/block.js:127
+#: languages/snow-monkey-blocks-translations.php:355 block/items/block.js:251
+#: block/step/block.js:244 block/testimonial/block.js:121
 msgid "Write content..."
 msgstr "内容を書く…"
 
@@ -482,15 +473,15 @@ msgstr "内容を書く…"
 msgid "Section"
 msgstr "セクション"
 
-#: languages/snow-monkey-blocks-translations.php:361 block/section/block.js:43
+#: languages/snow-monkey-blocks-translations.php:361 block/section/block.js:41
 msgid "Contents Width"
 msgstr "コンテンツの幅"
 
-#: languages/snow-monkey-blocks-translations.php:364 block/section/block.js:49
+#: languages/snow-monkey-blocks-translations.php:364 block/section/block.js:47
 msgid "Normal"
 msgstr "ノーマル"
 
-#: languages/snow-monkey-blocks-translations.php:367 block/section/block.js:53
+#: languages/snow-monkey-blocks-translations.php:367 block/section/block.js:51
 msgid "Slim"
 msgstr "スリム"
 
@@ -498,28 +489,28 @@ msgstr "スリム"
 msgid "Step"
 msgstr "ステップ"
 
-#: languages/snow-monkey-blocks-translations.php:373 block/step/block.js:101
+#: languages/snow-monkey-blocks-translations.php:373 block/step/block.js:98
 msgid "Step Settings"
 msgstr "ステップ設定"
 
-#: languages/snow-monkey-blocks-translations.php:376 block/step/block.js:119
+#: languages/snow-monkey-blocks-translations.php:376 block/step/block.js:116
 #, php-format, javascript-format
 msgid "STEP.%d Settings"
 msgstr "ステップ.%d の設定"
 
-#: languages/snow-monkey-blocks-translations.php:379 block/step/block.js:142
+#: languages/snow-monkey-blocks-translations.php:379 block/step/block.js:139
 msgid "Number Color"
 msgstr "番号の色"
 
-#: languages/snow-monkey-blocks-translations.php:382 block/step/block.js:150
+#: languages/snow-monkey-blocks-translations.php:382 block/step/block.js:147
 msgid "Link URL"
 msgstr "リンク URL"
 
-#: languages/snow-monkey-blocks-translations.php:385 block/step/block.js:156
+#: languages/snow-monkey-blocks-translations.php:385 block/step/block.js:153
 msgid "Link Target"
 msgstr "リンク Target"
 
-#: languages/snow-monkey-blocks-translations.php:388 block/step/block.js:258
+#: languages/snow-monkey-blocks-translations.php:388 block/step/block.js:255
 msgid "Link text"
 msgstr "リンクテキスト"
 
@@ -529,12 +520,12 @@ msgid "Testimonial"
 msgstr "お客様の声"
 
 #: languages/snow-monkey-blocks-translations.php:396
-#: block/testimonial/block.js:77
+#: block/testimonial/block.js:71
 msgid "Testimonial Settings"
 msgstr "お客様の声の設定"
 
 #: languages/snow-monkey-blocks-translations.php:400
-#: block/testimonial/block.js:135
+#: block/testimonial/block.js:129
 msgid "Write name..."
 msgstr "名前を書く…"
 
@@ -549,7 +540,6 @@ msgid "Section (with image)"
 msgstr "セクション（画像あり）"
 
 #: languages/snow-monkey-blocks-translations.php:412
-#: block/section-with-items/block.js:11
 msgid "Section (with items)"
 msgstr "セクション（項目あり）"
 
@@ -557,8 +547,7 @@ msgstr "セクション（項目あり）"
 msgid "Items"
 msgstr "項目"
 
-#: src/js/_highlighter.js:13
-#, fuzzy
+#: languages/snow-monkey-blocks-translations.php:418 src/js/_highlighter.js:13
 msgid "Highlighter"
 msgstr "蛍光ペン"
 

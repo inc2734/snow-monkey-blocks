@@ -29,10 +29,8 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 			default: '',
 		},
 		balloonBody: {
-			type: 'array',
-			source: 'children',
+			source: 'html',
 			selector: '.smb-balloon__body',
-			default: [],
 		},
 		modifier: {
 			type: 'string',
@@ -120,7 +118,7 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 					</div>
 				</div>
 				<div className="smb-balloon__body">
-					{ balloonBody }
+					<RichText.Content value={ balloonBody } />
 				</div>
 			</div>
 		);

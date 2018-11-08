@@ -12,10 +12,8 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 	category: 'smb-section',
 	attributes: {
 		title: {
-			type: 'array',
-			source: 'children',
+			source: 'html',
 			selector: '.smb-section__title',
-			default: [],
 		},
 		imageID: {
 			type: 'number',
@@ -137,7 +135,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 						}
 					</div>
 					<div className="c-container">
-						{ ( title.length > 0 || isSelected ) &&
+						{ ( ! RichText.isEmpty( title ) || isSelected ) &&
 							<RichText
 								className="smb-section__title"
 								tagName="h2"
@@ -167,9 +165,9 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 					<img src={ imageURL } alt="" />
 				</div>
 				<div className="c-container">
-					{ title.length > 0 &&
+					{ ! RichText.isEmpty( title ) &&
 						<h2 className="smb-section__title">
-							{ title }
+							<RichText.Content value={ title } />
 						</h2>
 					}
 					<div className="smb-section__body">
@@ -184,10 +182,8 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 		{
 			attributes: {
 				title: {
-					type: 'array',
-					source: 'children',
+					source: 'html',
 					selector: '.smb-section__title',
-					default: [],
 				},
 				imageID: {
 					type: 'number',
@@ -221,9 +217,9 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 							}
 						</div>
 						<div className="c-container">
-							{ title.length > 0 &&
+							{ ! RichText.isEmpty( title ) &&
 								<h2 className="smb-section__title">
-									{ title }
+									<RichText.Content value={ title } />
 								</h2>
 							}
 							<div className="smb-section__body">

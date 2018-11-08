@@ -14,10 +14,8 @@ registerBlockType( 'snow-monkey-blocks/section-with-image', {
 	category: 'smb-section',
 	attributes: {
 		title: {
-			type: 'array',
-			source: 'children',
+			source: 'html',
 			selector: '.smb-section__title',
-			default: [],
 		},
 		backgroundColor: {
 			type: 'string',
@@ -128,7 +126,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-image', {
 					<div className="c-container">
 						<div className={ classnames( 'c-row', 'c-row--margin', 'c-row--middle', { 'c-row--reverse': 'left' === imagePosition } ) }>
 							<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${ 3 - imageColumnSize }-3` }>
-								{ ( title.length > 0 || isSelected ) &&
+								{ ( ! RichText.isEmpty( title ) || isSelected ) &&
 									<RichText
 										className="smb-section__title"
 										tagName="h2"
@@ -163,9 +161,9 @@ registerBlockType( 'snow-monkey-blocks/section-with-image', {
 				<div className="c-container">
 					<div className={ classnames( 'c-row', 'c-row--margin', 'c-row--middle', { 'c-row--reverse': 'left' === imagePosition } ) }>
 						<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${ 3 - imageColumnSize }-3` }>
-							{ title.length > 0 &&
+							{ ! RichText.isEmpty( title ) &&
 								<h2 className="smb-section__title">
-									{ title }
+									<RichText.Content value={ title } />
 								</h2>
 							}
 							<div className="smb-section__body">

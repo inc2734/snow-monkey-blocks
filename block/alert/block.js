@@ -18,16 +18,12 @@ registerBlockType( 'snow-monkey-blocks/alert', {
 	category: 'smb',
 	attributes: {
 		title: {
-			type: 'array',
-			source: 'children',
+			source: 'html',
 			selector: '.smb-alert__title strong',
-			default: [],
 		},
 		content: {
-			type: 'array',
-			source: 'children',
+			source: 'html',
 			selector: '.smb-alert__body',
-			default: [],
 		},
 		modifier: {
 			type: 'string',
@@ -122,7 +118,7 @@ registerBlockType( 'snow-monkey-blocks/alert', {
 					</PanelBody>
 				</InspectorControls>
 				<div className={ classnames( 'smb-alert', { [ `smb-alert--${ modifier }` ]: !! modifier } ) }>
-					{ ( 0 < title.length || isSelected ) &&
+					{ ( ! RichText.isEmpty( title ) || isSelected ) &&
 						<div className="smb-alert__title">
 							{ renderFontAwesomeIcon() }
 							<strong>
@@ -152,17 +148,17 @@ registerBlockType( 'snow-monkey-blocks/alert', {
 
 		return (
 			<div className={ classnames( 'smb-alert', { [ `smb-alert--${ modifier }` ]: !! modifier } ) }>
-				{ 0 < title.length &&
+				{ ! RichText.isEmpty( title ) &&
 					<div className="smb-alert__title">
 						<i className={ `fas fa-${ icon }` } />
 						<strong>
-							{ title }
+							<RichText.Content value={ title } />
 						</strong>
 					</div>
 				}
 
 				<div className="smb-alert__body">
-					{ content }
+					<RichText.Content value={ content } />
 				</div>
 			</div>
 		);

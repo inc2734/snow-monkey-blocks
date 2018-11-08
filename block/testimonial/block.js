@@ -33,22 +33,16 @@ registerBlockType( 'snow-monkey-blocks/testimonial', {
 					default: 'https://0.gravatar.com/avatar/00000000000000000000000000000000?s=128&d=mp&r=g',
 				},
 				name: {
-					type: 'array',
-					source: 'children',
+					source: 'html',
 					selector: '.smb-testimonial__item__name',
-					default: [],
 				},
 				lede: {
-					type: 'array',
-					source: 'children',
+					source: 'html',
 					selector: '.smb-testimonial__item__lede',
-					default: [],
 				},
 				content: {
-					type: 'array',
-					source: 'children',
+					source: 'html',
 					selector: '.smb-testimonial__item__content',
-					default: [],
 				},
 			},
 		},
@@ -137,7 +131,7 @@ registerBlockType( 'snow-monkey-blocks/testimonial', {
 													onChange={ ( value ) => setAttributes( { items: generateUpdatedAttribute( items, index, 'name', value ) } ) }
 												/>
 
-												{ ( lede.length > 0 || isSelected ) &&
+												{ ( ! RichText.isEmpty( lede ) || isSelected ) &&
 													<RichText
 														className="smb-testimonial__item__lede"
 														placeholder={ __( 'Write lede...', 'snow-monkey-blocks' ) }
@@ -179,14 +173,16 @@ registerBlockType( 'snow-monkey-blocks/testimonial', {
 										</div>
 										<div className="smb-testimonial__item__body">
 											<div className="smb-testimonial__item__content">
-												{ content }
+												<RichText.Content value={ content } />
 											</div>
 											<div className="smb-testimonial__item__name">
-												{ name }
+												<RichText.Content value={ name } />
 											</div>
-											<div className="smb-testimonial__item__lede">
-												{ lede }
-											</div>
+											{ ! RichText.isEmpty( lede ) &&
+												<div className="smb-testimonial__item__lede">
+													<RichText.Content value={ lede } />
+												</div>
+											}
 										</div>
 									</div>
 								</div>

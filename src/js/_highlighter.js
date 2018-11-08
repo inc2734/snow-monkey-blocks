@@ -13,7 +13,8 @@ registerFormatType( name, {
 	title: __( 'Highlighter', 'snow-monkey-blocks' ),
 	tagName: 'span',
 	className: 'smb-highlighter',
-	edit( { value, isActive, onChange } ) {
+	edit( props ) {
+		const { value, isActive, onChange } = props;
 		const onToggle = () => onChange( toggleFormat( value, { type: name } ) );
 
 		return (

@@ -14,10 +14,8 @@ registerBlockType( 'snow-monkey-blocks/section', {
 	category: 'smb-section',
 	attributes: {
 		title: {
-			type: 'array',
-			source: 'children',
+			source: 'html',
 			selector: '.smb-section__title',
-			default: [],
 		},
 		backgroundColor: {
 			type: 'string',
@@ -66,7 +64,7 @@ registerBlockType( 'snow-monkey-blocks/section', {
 
 				<div className="smb-section" style={ { backgroundColor: backgroundColor } }>
 					<div className={ classnames( 'c-container', { 'u-slim-width': 'slim' === contentsWidth } ) }>
-						{ ( title.length > 0 || isSelected ) &&
+						{ ( ! RichText.isEmpty( title ) || isSelected ) &&
 							<RichText
 								className="smb-section__title"
 								tagName="h2"
@@ -92,9 +90,9 @@ registerBlockType( 'snow-monkey-blocks/section', {
 		return (
 			<div className="smb-section" style={ { backgroundColor: backgroundColor } }>
 				<div className={ classnames( 'c-container', { 'u-slim-width': 'slim' === contentsWidth } ) }>
-					{ title.length > 0 &&
+					{ ! RichText.isEmpty( title ) &&
 						<h2 className="smb-section__title">
-							{ title }
+							<RichText.Content value={ title } />
 						</h2>
 					}
 

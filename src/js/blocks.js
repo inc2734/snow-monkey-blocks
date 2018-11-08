@@ -8,7 +8,6 @@ import '../../block/pricing-table/block.js';
 import '../../block/section/block.js';
 import '../../block/section-with-image/block.js';
 import '../../block/section-with-bgimage/block.js';
-import '../../block/section-with-items/block.js';
 import '../../block/btn-box/block.js';
 import '../../block/rating-box/block.js';
 import '../../block/faq/block.js';

@@ -14,26 +14,21 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 	category: 'smb',
 	attributes: {
 		lede: {
-			type: 'array',
-			source: 'children',
+			source: 'html',
 			selector: '.smb-btn-box__lede',
-			default: [],
 		},
 		note: {
-			type: 'array',
-			source: 'children',
+			source: 'html',
 			selector: '.smb-btn-box__note',
-			default: [],
 		},
 		backgroundColor: {
 			type: 'string',
 			default: null,
 		},
 		btnLabel: {
-			type: 'array',
-			source: 'children',
+			source: 'html',
 			selector: '.smb-btn__label',
-			default: [ __( 'Button', 'snow-monkey-blocks' ) ],
+			default: __( 'Button', 'snow-monkey-blocks' ),
 		},
 		btnURL: {
 			type: 'string',
@@ -135,7 +130,7 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 
 				<div className="smb-btn-box" style={ { backgroundColor: backgroundColor } }>
 					<div className="c-container">
-						{ ( lede.length > 0 || isSelected ) &&
+						{ ( ! RichText.isEmpty( lede ) || isSelected ) &&
 							<RichText
 								className="smb-btn-box__lede"
 								value={ lede }
@@ -161,7 +156,7 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 							</span>
 						</div>
 
-						{ ( note.length > 0 || isSelected ) &&
+						{ ( ! RichText.isEmpty( note ) || isSelected ) &&
 							<RichText
 								className="smb-btn-box__note"
 								value={ note }
@@ -182,9 +177,9 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 		return (
 			<div className="smb-btn-box" style={ { backgroundColor: backgroundColor } }>
 				<div className="c-container">
-					{ lede.length > 0 &&
+					{ ! RichText.isEmpty( lede ) &&
 						<div className="smb-btn-box__lede">
-							{ lede }
+							<RichText.Content value={ lede } />
 						</div>
 					}
 
@@ -194,14 +189,14 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 							style={ { backgroundColor: btnBackgroundColor } }
 						>
 							<span className="smb-btn__label" style={ { color: btnTextColor } }>
-								{ btnLabel }
+								<RichText.Content value={ btnLabel } />
 							</span>
 						</a>
 					</div>
 
-					{ note.length > 0 &&
+					{ ! RichText.isEmpty( note ) &&
 						<div className="smb-btn-box__note">
-							{ note }
+							<RichText.Content value={ note } />
 						</div>
 					}
 				</div>
@@ -213,26 +208,21 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 		{
 			attributes: {
 				lede: {
-					type: 'array',
-					source: 'children',
+					source: 'html',
 					selector: '.smb-btn-box__lede',
-					default: [],
 				},
 				note: {
-					type: 'array',
-					source: 'children',
+					source: 'html',
 					selector: '.smb-btn-box__note',
-					default: [],
 				},
 				backgroundColor: {
 					type: 'string',
 					default: null,
 				},
 				btnLabel: {
-					type: 'array',
-					source: 'children',
+					source: 'html',
 					selector: '.smb-btn__label',
-					default: [ __( 'Button', 'snow-monkey-blocks' ) ],
+					default: __( 'Button', 'snow-monkey-blocks' ),
 				},
 				btnURL: {
 					type: 'string',
@@ -273,22 +263,22 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 				return (
 					<div className="smb-btn-box" style={ btnBoxStyle }>
 						<div className="c-container">
-							{ lede.length > 0 &&
+							{ ! RichText.isEmpty( lede ) &&
 								<div className="smb-btn-box__lede">
-									{ lede }
+									<RichText.Content value={ lede } />
 								</div>
 							}
 
 							<a
 								className="smb-btn smb-btn--full" href={ btnURL } target={ btnTarget } style={ btnStyle }>
 								<span className="smb-btn__label" style={ btnLabelStyle }>
-									{ btnLabel }
+									<RichText.Content value={ btnLabel } />
 								</span>
 							</a>
 
-							{ note.length > 0 &&
+							{ ! RichText.isEmpty( note ) &&
 								<div className="smb-btn-box__note">
-									{ note }
+									<RichText.Content value={ note } />
 								</div>
 							}
 						</div>

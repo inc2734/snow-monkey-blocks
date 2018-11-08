@@ -14,10 +14,9 @@ registerBlockType( 'snow-monkey-blocks/btn', {
 	category: 'smb',
 	attributes: {
 		content: {
-			type: 'array',
-			source: 'children',
+			source: 'html',
 			selector: '.smb-btn__label',
-			default: [ __( 'Button', 'snow-monkey-blocks' ) ],
+			default: __( 'Button', 'snow-monkey-blocks' ),
 		},
 		url: {
 			type: 'string',
@@ -136,7 +135,7 @@ registerBlockType( 'snow-monkey-blocks/btn', {
 					style={ { backgroundColor: backgroundColor } }
 				>
 					<span className="smb-btn__label" style={ { color: textColor } }>
-						{ content }
+						<RichText.Content value={ content } />
 					</span>
 				</a>
 			</div>

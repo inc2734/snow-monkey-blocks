@@ -19,10 +19,8 @@ registerBlockType( 'snow-monkey-blocks/rating-box', {
 			default: [],
 			query: {
 				title: {
-					type: 'array',
-					source: 'children',
+					source: 'html',
 					selector: '.smb-rating-box__item__title',
-					default: [],
 				},
 				rating: {
 					type: 'number',
@@ -98,7 +96,7 @@ registerBlockType( 'snow-monkey-blocks/rating-box', {
 				<div className="smb-rating-box">
 					<div className="smb-rating-box__body">
 						{ times( rows, ( index ) => {
-							const itemTitle = get( ratings, [ index, 'title' ], [] );
+							const itemTitle = get( ratings, [ index, 'title' ], '' );
 							const rating = get( ratings, [ index, 'rating' ], 0 );
 							const color = get( ratings, [ index, 'color' ], '' );
 
@@ -144,7 +142,7 @@ registerBlockType( 'snow-monkey-blocks/rating-box', {
 						return (
 							<div className="smb-rating-box__item" data-rating={ rating } data-color={ color }>
 								<div className="smb-rating-box__item__title" >
-									{ title }
+									<RichText.Content value={ title } />
 								</div>
 
 								<div className="smb-rating-box__item__evaluation">

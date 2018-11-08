@@ -27,28 +27,20 @@ registerBlockType( 'snow-monkey-blocks/items', {
 			selector: '.smb-items__item',
 			query: {
 				title: {
-					type: 'array',
-					source: 'children',
+					source: 'html',
 					selector: '.smb-items__item__title',
-					default: [],
 				},
 				lede: {
-					type: 'array',
-					source: 'children',
+					source: 'html',
 					selector: '.smb-items__item__lede',
-					default: [],
 				},
 				summary: {
-					type: 'array',
-					source: 'children',
+					source: 'html',
 					selector: '.smb-items__item__content',
-					default: [],
 				},
 				btnLabel: {
-					type: 'array',
-					source: 'children',
+					source: 'html',
 					selector: '.smb-items__item__btn > .smb-btn__label',
-					default: [],
 				},
 				btnURL: {
 					type: 'string',
@@ -184,10 +176,10 @@ registerBlockType( 'snow-monkey-blocks/items', {
 				<div className={ `smb-items smb-items--lg-${ lg }` }>
 					<div className="c-row c-row--margin">
 						{ times( columns, ( index ) => {
-							const itemTitle = get( items, [ index, 'title' ], [] );
-							const lede = get( items, [ index, 'lede' ], [] );
-							const summary = get( items, [ index, 'summary' ], [] );
-							const btnLabel = get( items, [ index, 'btnLabel' ], [] );
+							const itemTitle = get( items, [ index, 'title' ], '' );
+							const lede = get( items, [ index, 'lede' ], '' );
+							const summary = get( items, [ index, 'summary' ], '' );
+							const btnLabel = get( items, [ index, 'btnLabel' ], '' );
 							const btnURL = get( items, [ index, 'btnURL' ], '' );
 							const btnTarget = get( items, [ index, 'btnTarget' ], '_self' );
 							const btnBackgroundColor = get( items, [ index, 'btnBackgroundColor' ], '' );
@@ -244,7 +236,7 @@ registerBlockType( 'snow-monkey-blocks/items', {
 											onChange={ ( value ) => setAttributes( { items: generateUpdatedAttribute( items, index, 'title', value ) } ) }
 										/>
 
-										{ ( lede.length > 0 || isSelected ) &&
+										{ ( ! RichText.isEmpty( lede ) || isSelected ) &&
 											<RichText
 												className="smb-items__item__lede"
 												placeholder={ __( 'Write lede...', 'snow-monkey-blocks' ) }
@@ -253,7 +245,7 @@ registerBlockType( 'snow-monkey-blocks/items', {
 											/>
 										}
 
-										{ ( summary.length > 0 || isSelected ) &&
+										{ ( ! RichText.isEmpty( summary ) || isSelected ) &&
 											<RichText
 												className="smb-items__item__content"
 												placeholder={ __( 'Write content...', 'snow-monkey-blocks' ) }
@@ -262,7 +254,7 @@ registerBlockType( 'snow-monkey-blocks/items', {
 											/>
 										}
 
-										{ ( ( btnLabel.length > 0 && !! btnURL ) || isSelected ) &&
+										{ ( ! RichText.isEmpty( btnLabel ) || isSelected ) &&
 											<div className="smb-items__item__action">
 												<span className="smb-items__item__btn smb-btn"
 													href={ btnURL }
@@ -299,10 +291,10 @@ registerBlockType( 'snow-monkey-blocks/items', {
 			<div className={ `smb-items smb-items--lg-${ lg }` }>
 				<div className="c-row c-row--margin">
 					{ times( columns, ( index ) => {
-						const itemTitle = get( items, [ index, 'title' ], [] );
-						const lede = get( items, [ index, 'lede' ], [] );
-						const summary = get( items, [ index, 'summary' ], [] );
-						const btnLabel = get( items, [ index, 'btnLabel' ], [] );
+						const itemTitle = get( items, [ index, 'title' ], '' );
+						const lede = get( items, [ index, 'lede' ], '' );
+						const summary = get( items, [ index, 'summary' ], '' );
+						const btnLabel = get( items, [ index, 'btnLabel' ], '' );
 						const btnURL = get( items, [ index, 'btnURL' ], '' );
 						const btnTarget = get( items, [ index, 'btnTarget' ], '_self' );
 						const btnBackgroundColor = get( items, [ index, 'btnBackgroundColor' ], '' );
@@ -320,22 +312,22 @@ registerBlockType( 'snow-monkey-blocks/items', {
 									}
 
 									<div className="smb-items__item__title">
-										{ itemTitle }
+										<RichText.Content value={ itemTitle } />
 									</div>
 
-									{ lede.length > 0 &&
+									{ ! RichText.isEmpty( lede ) &&
 									<div className="smb-items__item__lede">
-										{ lede }
+										<RichText.Content value={ lede } />
 									</div>
 									}
 
-									{ summary.length > 0 &&
+									{ ! RichText.isEmpty( summary ) &&
 									<div className="smb-items__item__content">
-										{ summary }
+										<RichText.Content value={ summary } />
 									</div>
 									}
 
-									{ btnLabel.length > 0 && btnURL &&
+									{ ( ! RichText.isEmpty( btnLabel ) && !! btnURL ) &&
 									<div className="smb-items__item__action">
 										<a className="smb-items__item__btn smb-btn"
 											href={ btnURL }
@@ -345,7 +337,7 @@ registerBlockType( 'snow-monkey-blocks/items', {
 											data-color={ btnTextColor }
 										>
 											<span className="smb-btn__label" style={ { color: btnTextColor } }>
-												{ btnLabel }
+												<RichText.Content value={ btnLabel } />
 											</span>
 										</a>
 									</div>

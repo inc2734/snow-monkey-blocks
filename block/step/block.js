@@ -19,16 +19,12 @@ registerBlockType( 'snow-monkey-blocks/step', {
 			default: [],
 			query: {
 				title: {
-					type: 'array',
-					source: 'children',
+					source: 'html',
 					selector: '.smb-step__item__title > span',
-					default: [],
 				},
 				summary: {
-					type: 'array',
-					source: 'children',
+					source: 'html',
 					selector: '.smb-step__item__summary',
-					default: [],
 				},
 				numberColor: {
 					type: 'string',
@@ -58,10 +54,8 @@ registerBlockType( 'snow-monkey-blocks/step', {
 					default: '',
 				},
 				linkLabel: {
-					type: 'array',
-					source: 'children',
+					source: 'html',
 					selector: '.smb-step__item__link__label',
-					default: [],
 				},
 				linkURL: {
 					type: 'string',
@@ -91,6 +85,9 @@ registerBlockType( 'snow-monkey-blocks/step', {
 		const generateUpdatedAttribute = ( parent, index, attribute, value ) => {
 			const newParent = [ ...parent ];
 			newParent[ index ] = get( newParent, index, {} );
+			if ( null === newParent[ index ] ) {
+				newParent[ index ] = {};
+			}
 			newParent[ index ][ attribute ] = value;
 			return newParent;
 		};
@@ -175,15 +172,15 @@ registerBlockType( 'snow-monkey-blocks/step', {
 				<div className="smb-step">
 					<div className="smb-step__body">
 						{ times( rows, ( index ) => {
-							const title = get( content, [ index, 'title' ], [] );
-							const summary = get( content, [ index, 'summary' ], [] );
+							const title = get( content, [ index, 'title' ], '' );
+							const summary = get( content, [ index, 'summary' ], '' );
 							const numberColor = get( content, [ index, 'numberColor' ], null );
 							const imagePosition = get( content, [ index, 'imagePosition' ], 'center' );
 							const imageID = get( content, [ index, 'imageID' ], 0 );
 							const imageURL = get( content, [ index, 'imageURL' ], '' );
 							const linkURL = get( content, [ index, 'linkURL' ], '' );
 							const linkTarget = get( content, [ index, 'linkTarget' ], '_self' );
-							const linkLabel = get( content, [ index, 'linkLabel' ], [] );
+							const linkLabel = get( content, [ index, 'linkLabel' ], '' );
 
 							const renderMedia = () => {
 								if ( ! imageURL ) {
@@ -250,7 +247,7 @@ registerBlockType( 'snow-monkey-blocks/step', {
 											onChange={ ( value ) => setAttributes( { content: generateUpdatedAttribute( content, index, 'summary', value ) } ) }
 										/>
 
-										{ ( ( linkLabel.length > 0 && !! linkURL ) || isSelected ) &&
+										{ ( ! RichText.isEmpty( linkLabel ) || isSelected ) &&
 											<span className="smb-step__item__link" href={ linkURL } target={ linkTarget }>
 												<i className="fas fa-arrow-circle-right" />
 												<RichText
@@ -280,15 +277,15 @@ registerBlockType( 'snow-monkey-blocks/step', {
 			<div className="smb-step">
 				<div className="smb-step__body">
 					{ times( rows, ( index ) => {
-						const title = get( content, [ index, 'title' ], [] );
-						const summary = get( content, [ index, 'summary' ], [] );
+						const title = get( content, [ index, 'title' ], '' );
+						const summary = get( content, [ index, 'summary' ], '' );
 						const numberColor = get( content, [ index, 'numberColor' ], null );
 						const imagePosition = get( content, [ index, 'imagePosition' ], 'left' );
 						const imageID = get( content, [ index, 'imageID' ], 0 );
 						const imageURL = get( content, [ index, 'imageURL' ], '' );
 						const linkURL = get( content, [ index, 'linkURL' ], '' );
 						const linkTarget = get( content, [ index, 'linkTarget' ], '_self' );
-						const linkLabel = get( content, [ index, 'linkLabel' ], [] );
+						const linkLabel = get( content, [ index, 'linkLabel' ], '' );
 
 						return (
 							<div className={ `smb-step__item smb-step__item--image-${ imagePosition }` } data-image-position={ imagePosition }>
@@ -297,7 +294,7 @@ registerBlockType( 'snow-monkey-blocks/step', {
 										{ index + 1 }
 									</div>
 									<span>
-										{ title }
+										<RichText.Content value={ title } />
 									</span>
 								</div>
 
@@ -309,14 +306,14 @@ registerBlockType( 'snow-monkey-blocks/step', {
 
 								<div className="smb-step__item__body">
 									<div className="smb-step__item__summary">
-										{ summary }
+										<RichText.Content value={ summary } />
 									</div>
 
-									{ linkLabel.length > 0 && !! linkURL &&
+									{ ! RichText.isEmpty( linkLabel ) && !! linkURL &&
 										<a className="smb-step__item__link" href={ linkURL } target={ linkTarget }>
 											<i className="fas fa-arrow-circle-right" />
 											<span className="smb-step__item__link__label">
-												{ linkLabel }
+												<RichText.Content value={ linkLabel } />
 											</span>
 										</a>
 									}
