@@ -38,7 +38,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-image', {
 		},
 		imageColumnSize: {
 			type: 'number',
-			default: 2,
+			default: 66,
 		},
 	},
 	supports: {
@@ -47,6 +47,22 @@ registerBlockType( 'snow-monkey-blocks/section-with-image', {
 
 	edit( { attributes, setAttributes, isSelected } ) {
 		const { title, backgroundColor, imageURL, imagePosition, imageColumnSize } = attributes;
+
+		let textColumnWidth = '1-3';
+		let imageColumnWidth = '2-3';
+		if ( 66 === parseInt( imageColumnSize ) ) {
+			textColumnWidth = '1-3';
+			imageColumnWidth = '2-3';
+		} else if ( 50 === parseInt( imageColumnSize ) ) {
+			textColumnWidth = '1-2';
+			imageColumnWidth = '1-2';
+		} else if ( 33 === parseInt( imageColumnSize ) ) {
+			textColumnWidth = '2-3';
+			imageColumnWidth = '1-3';
+		} else if ( 25 === parseInt( imageColumnSize ) ) {
+			textColumnWidth = '3-4';
+			imageColumnWidth = '1-4';
+		}
 
 		const renderMedia = () => {
 			if ( ! imageURL ) {
@@ -102,12 +118,20 @@ registerBlockType( 'snow-monkey-blocks/section-with-image', {
 							value={ imageColumnSize }
 							options={ [
 								{
-									value: '2',
-									label: __( '75%', 'snow-monkey-blocks' ),
+									value: 66,
+									label: __( '66%', 'snow-monkey-blocks' ),
 								},
 								{
-									value: '1',
+									value: 50,
+									label: __( '50%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 33,
 									label: __( '33%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 25,
+									label: __( '25%', 'snow-monkey-blocks' ),
 								},
 							] }
 							onChange={ ( value ) => setAttributes( { imageColumnSize: value } ) }
@@ -125,7 +149,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-image', {
 				<div className="smb-section smb-section-with-image" style={ { backgroundColor: backgroundColor } }>
 					<div className="c-container">
 						<div className={ classnames( 'c-row', 'c-row--margin', 'c-row--middle', { 'c-row--reverse': 'left' === imagePosition } ) }>
-							<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${ 3 - imageColumnSize }-3` }>
+							<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${ textColumnWidth }` }>
 								{ ( ! RichText.isEmpty( title ) || isSelected ) &&
 									<RichText
 										className="smb-section__title"
@@ -141,7 +165,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-image', {
 									<InnerBlocks />
 								</div>
 							</div>
-							<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${ imageColumnSize }-3` }>
+							<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${ imageColumnWidth }` }>
 								<div className="smb-section-with-image__figure">
 									{ renderMedia() }
 								</div>
@@ -156,11 +180,27 @@ registerBlockType( 'snow-monkey-blocks/section-with-image', {
 	save( { attributes } ) {
 		const { title, backgroundColor, imageURL, imagePosition, imageColumnSize } = attributes;
 
+		let textColumnWidth = '1-3';
+		let imageColumnWidth = '2-3';
+		if ( 66 === parseInt( imageColumnSize ) ) {
+			textColumnWidth = '1-3';
+			imageColumnWidth = '2-3';
+		} else if ( 50 === parseInt( imageColumnSize ) ) {
+			textColumnWidth = '1-2';
+			imageColumnWidth = '1-2';
+		} else if ( 33 === parseInt( imageColumnSize ) ) {
+			textColumnWidth = '2-3';
+			imageColumnWidth = '1-3';
+		} else if ( 25 === parseInt( imageColumnSize ) ) {
+			textColumnWidth = '3-4';
+			imageColumnWidth = '1-4';
+		}
+
 		return (
 			<div className="smb-section smb-section-with-image" style={ { backgroundColor: backgroundColor } }>
 				<div className="c-container">
 					<div className={ classnames( 'c-row', 'c-row--margin', 'c-row--middle', { 'c-row--reverse': 'left' === imagePosition } ) }>
-						<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${ 3 - imageColumnSize }-3` }>
+						<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${ textColumnWidth }` }>
 							{ ! RichText.isEmpty( title ) &&
 								<h2 className="smb-section__title">
 									<RichText.Content value={ title } />
@@ -170,7 +210,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-image', {
 								<InnerBlocks.Content />
 							</div>
 						</div>
-						<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${ imageColumnSize }-3` }>
+						<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${ imageColumnWidth }` }>
 							<div className="smb-section-with-image__figure">
 								{ imageURL &&
 									<img src={ imageURL } alt="" />
@@ -182,4 +222,80 @@ registerBlockType( 'snow-monkey-blocks/section-with-image', {
 			</div>
 		);
 	},
+
+	deprecated: [
+		{
+			attributes: {
+				title: {
+					source: 'html',
+					selector: '.smb-section__title',
+				},
+				backgroundColor: {
+					type: 'string',
+					default: null,
+				},
+				imageID: {
+					type: 'number',
+					default: 0,
+				},
+				imageURL: {
+					type: 'string',
+					source: 'attribute',
+					selector: '.smb-section-with-image__figure > img',
+					attribute: 'src',
+					default: '',
+				},
+				imagePosition: {
+					type: 'string',
+					default: 'right',
+				},
+				imageColumnSize: {
+					type: 'number',
+					default: 2,
+				},
+			},
+
+			migrate( { imageColumnSize } ) {
+				let newImageColumnSize = imageColumnSize;
+				if ( 1 === imageColumnSize ) {
+					newImageColumnSize = 33;
+				} else if ( 2 === imageColumnSize ) {
+					newImageColumnSize = 66;
+				}
+				return {
+					imageColumnSize: newImageColumnSize,
+				};
+			},
+
+			save( { attributes } ) {
+				const { title, backgroundColor, imageURL, imagePosition, imageColumnSize } = attributes;
+
+				return (
+					<div className="smb-section smb-section-with-image" style={ { backgroundColor: backgroundColor } }>
+						<div className="c-container">
+							<div className={ classnames( 'c-row', 'c-row--margin', 'c-row--middle', { 'c-row--reverse': 'left' === imagePosition } ) }>
+								<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${ 3 - imageColumnSize }-3` }>
+									{ ! RichText.isEmpty( title ) &&
+										<h2 className="smb-section__title">
+											<RichText.Content value={ title } />
+										</h2>
+									}
+									<div className="smb-section__body">
+										<InnerBlocks.Content />
+									</div>
+								</div>
+								<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${ imageColumnSize }-3` }>
+									<div className="smb-section-with-image__figure">
+										{ imageURL &&
+											<img src={ imageURL } alt="" />
+										}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				);
+			},
+		},
+	],
 } );
