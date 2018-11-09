@@ -306,9 +306,9 @@ registerBlockType( 'snow-monkey-blocks/items', {
 							<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-1-${ lg }` }>
 								<div className="smb-items__item">
 									{ !! imageID &&
-									<div className="smb-items__item__figure">
-										<img src={ imageURL } alt="" data-image-id={ imageID } />
-									</div>
+										<div className="smb-items__item__figure">
+											<img src={ imageURL } alt="" data-image-id={ imageID } />
+										</div>
 									}
 
 									<div className="smb-items__item__title">
@@ -316,31 +316,31 @@ registerBlockType( 'snow-monkey-blocks/items', {
 									</div>
 
 									{ ! RichText.isEmpty( lede ) &&
-									<div className="smb-items__item__lede">
-										<RichText.Content value={ lede } />
-									</div>
+										<div className="smb-items__item__lede">
+											<RichText.Content value={ lede } />
+										</div>
 									}
 
 									{ ! RichText.isEmpty( summary ) &&
-									<div className="smb-items__item__content">
-										<RichText.Content value={ summary } />
-									</div>
+										<div className="smb-items__item__content">
+											<RichText.Content value={ summary } />
+										</div>
 									}
 
 									{ ( ! RichText.isEmpty( btnLabel ) && !! btnURL ) &&
-									<div className="smb-items__item__action">
-										<a className="smb-items__item__btn smb-btn"
-											href={ btnURL }
-											target={ btnTarget }
-											style={ { backgroundColor: btnBackgroundColor } }
-											data-background-color={ btnBackgroundColor }
-											data-color={ btnTextColor }
-										>
-											<span className="smb-btn__label" style={ { color: btnTextColor } }>
-												<RichText.Content value={ btnLabel } />
-											</span>
-										</a>
-									</div>
+										<div className="smb-items__item__action">
+											<a className="smb-items__item__btn smb-btn"
+												href={ btnURL }
+												target={ btnTarget }
+												style={ { backgroundColor: btnBackgroundColor } }
+												data-background-color={ btnBackgroundColor }
+												data-color={ btnTextColor }
+											>
+												<span className="smb-btn__label" style={ { color: btnTextColor } }>
+													<RichText.Content value={ btnLabel } />
+												</span>
+											</a>
+										</div>
 									}
 								</div>
 							</div>

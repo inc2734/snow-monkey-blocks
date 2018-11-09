@@ -2,7 +2,7 @@
 
 const { get, times } = lodash;
 const { registerBlockType } = wp.blocks;
-const { RichText, InspectorControls, ColorPalette } = wp.editor;
+const { RichText, InspectorControls, ColorPalette, MediaPlaceholder } = wp.editor;
 const { PanelBody, RangeControl, SelectControl, TextControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const { __, sprintf } = wp.i18n;
@@ -65,6 +65,20 @@ registerBlockType( 'snow-monkey-blocks/pricing-table', {
 					selector: '.smb-pricing-table__item__btn',
 					attribute: 'data-color',
 					default: null,
+				},
+				imageID: {
+					type: 'number',
+					source: 'attribute',
+					selector: '.smb-pricing-table__item__figure > img',
+					attribute: 'data-image-id',
+					default: 0,
+				},
+				imageURL: {
+					type: 'string',
+					source: 'attribute',
+					selector: '.smb-pricing-table__item__figure > img',
+					attribute: 'src',
+					default: '',
 				},
 			},
 		},
@@ -160,10 +174,51 @@ registerBlockType( 'snow-monkey-blocks/pricing-table', {
 							const btnTarget = get( content, [ index, 'btnTarget' ], '_self' );
 							const btnBackgroundColor = get( content, [ index, 'btnBackgroundColor' ], '' );
 							const btnTextColor = get( content, [ index, 'btnTextColor' ], '' );
+							const imageID = get( content, [ index, 'imageID' ], 0 );
+							const imageURL = get( content, [ index, 'imageURL' ], '' );
+
+							const renderMedia = () => {
+								if ( ! imageURL ) {
+									return (
+										<MediaPlaceholder
+											icon="format-image"
+											labels={ { title: __( 'Image' ) } }
+											onSelect={ ( media ) => {
+												const newImageURL = !! media.sizes.large ? media.sizes.large.url : media.url;
+												let newContent = content;
+												newContent = generateUpdatedAttribute( newContent, index, 'imageURL', newImageURL );
+												newContent = generateUpdatedAttribute( newContent, index, 'imageID', media.id );
+												setAttributes( { content: newContent } );
+											} }
+											accept="image/*"
+											allowedTypes={ [ 'image' ] }
+										/>
+									);
+								}
+
+								return (
+									<Fragment>
+										<img src={ imageURL } alt="" />
+										<button
+											className="smb-remove-button"
+											onClick={ () => {
+												setAttributes( { content: generateUpdatedAttribute( content, index, 'imageURL', '' ) } );
+												setAttributes( { content: generateUpdatedAttribute( content, index, 'imageID', 0 ) } );
+											} }
+										>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
+									</Fragment>
+								);
+							};
 
 							return (
 								<div className="smb-pricing-table__col">
 									<div className="smb-pricing-table__item">
+										{ ( !! imageID || isSelected ) &&
+											<div className="smb-pricing-table__item__figure">
+												{ renderMedia() }
+											</div>
+										}
+
 										<RichText
 											className="smb-pricing-table__item__title"
 											placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
@@ -245,10 +300,18 @@ registerBlockType( 'snow-monkey-blocks/pricing-table', {
 						const btnTarget = get( content, [ index, 'btnTarget' ], '_self' );
 						const btnBackgroundColor = get( content, [ index, 'btnBackgroundColor' ], '' );
 						const btnTextColor = get( content, [ index, 'btnTextColor' ], '' );
+						const imageID = get( content, [ index, 'imageID' ], 0 );
+						const imageURL = get( content, [ index, 'imageURL' ], '' );
 
 						return (
 							<div className="smb-pricing-table__col">
 								<div className="smb-pricing-table__item">
+									{ !! imageID &&
+										<div className="smb-pricing-table__item__figure">
+											<img src={ imageURL } alt="" data-image-id={ imageID } />
+										</div>
+									}
+
 									<div className="smb-pricing-table__item__title">
 										<RichText.Content value={ title } />
 									</div>

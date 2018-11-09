@@ -28,6 +28,10 @@
   &__item {
     @include _padding(1);
 
+    &__figure {
+      @include _margin-bottom(1);
+    }
+
     &__title {
       font-weight: bold;
       text-align: center;
