@@ -17,6 +17,8 @@
   @import '../../block/items/editor';
   @import '../../block/pricing-table/editor';
   @import '../../block/slider/editor';
+  @import '../../block/rating-box/editor';
+  @import '../../block/testimonial/editor';
 }
 
 .edit-post-sidebar {
@@ -36,7 +38,7 @@
   transition: all .3s;
 
   @media(min-width: 1024px) {
-    opacity: .8;
+    opacity: .6;
 
     &:hover, &:active, &:focus {
       opacity: 1;
@@ -44,16 +46,21 @@
   }
 }
 
-.smb-add-button {
+.smb-add-item-button,
+.smb-remove-item-button {
+  margin: 5px !important;
+  box-shadow: 0 0 0 5px #fff;
   border: none;
   border-radius: 100%;
-  box-shadow: 0 0 0 5px #fff;
-  color: #21a1d0;
   line-height: 1 !important;
   padding: 0;
   cursor: pointer;
   outline: none;
   transition: all .3s;
+}
+
+.smb-add-item-button {
+  color: #21a1d0;
 
   &:focus {
     box-shadow: 0 0 0 5px rgba(#21a1d0, .2);
@@ -62,6 +69,20 @@
   @media(min-width: 1024px) {
     &:hover, &:active {
       box-shadow: 0 0 0 5px rgba(#21a1d0, .2);
+    }
+  }
+}
+
+.smb-remove-item-button {
+  color: #cd3034;
+
+  &:focus {
+    box-shadow: 0 0 0 5px rgba(#cd3034, .2);
+  }
+
+  @media(min-width: 1024px) {
+    &:hover, &:active {
+      box-shadow: 0 0 0 5px rgba(#cd3034, .2);
     }
   }
 }

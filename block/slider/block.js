@@ -204,8 +204,14 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 					</div>
 
 					{ isSelected &&
-						<div className="smb-add-button-wrapper">
-							<button className="smb-add-button" onClick={ () => setAttributes( { items: items + 1 } ) }>
+						<div className="smb-add-item-button-wrapper">
+							{ items > 0 &&
+								<button className="smb-remove-item-button" onClick={ () => setAttributes( { items: items - 1 } ) }>
+									<FontAwesomeIcon icon="minus-circle" />
+								</button>
+							}
+
+							<button className="smb-add-item-button" onClick={ () => setAttributes( { items: items + 1 } ) }>
 								<FontAwesomeIcon icon="plus-circle" />
 							</button>
 						</div>

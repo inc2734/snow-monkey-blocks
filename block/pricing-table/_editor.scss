@@ -1,9 +1,21 @@
-.smb-pricing-table__item__figure {
-  position: relative;
+.smb-pricing-table {
+  &__item__figure {
+    position: relative;
 
-  .smb-remove-button {
-    position: absolute;
-    top: 5px;
-    right: 5px;
+    .smb-remove-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+  }
+
+  &__col {
+    position: relative;
+
+    .smb-add-item-button-wrapper {
+      position: absolute;
+      top: 0;
+      right: -10px;
+    }
   }
 }

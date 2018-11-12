@@ -1,5 +1,8 @@
 'use strict';
 
+import generateUpdatedAttribute from '../../src/js/helper/generate-updated-attribute';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 const { times, get } = lodash;
 const { registerBlockType } = wp.blocks;
 const { RichText, MediaUpload, InspectorControls } = wp.editor;
@@ -54,16 +57,6 @@ registerBlockType( 'snow-monkey-blocks/testimonial', {
 
 	edit( { attributes, setAttributes, isSelected } ) {
 		const { items, columns } = attributes;
-
-		const generateUpdatedAttribute = ( parent, index, attribute, value ) => {
-			const newParent = [ ...parent ];
-			newParent[ index ] = get( newParent, index, {} );
-			if ( null === newParent[ index ] ) {
-				newParent[ index ] = {};
-			}
-			newParent[ index ][ attribute ] = value;
-			return newParent;
-		};
 
 		return (
 			<Fragment>
@@ -141,6 +134,20 @@ registerBlockType( 'snow-monkey-blocks/testimonial', {
 												}
 											</div>
 										</div>
+
+										{ index + 1 === columns && isSelected &&
+											<div className="smb-add-item-button-wrapper">
+												{ columns > 1 &&
+													<button className="smb-remove-item-button" onClick={ () => setAttributes( { columns: columns - 1 } ) }>
+														<FontAwesomeIcon icon="minus-circle" />
+													</button>
+												}
+
+												<button className="smb-add-item-button" onClick={ () => setAttributes( { columns: columns + 1 } ) }>
+													<FontAwesomeIcon icon="plus-circle" />
+												</button>
+											</div>
+										}
 									</div>
 								);
 							} ) }
