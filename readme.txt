@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 4.9
 Tested up to: 4.9
-Stable tag: 1.3.0
+Stable tag: 1.4.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -35,6 +35,7 @@ https://www.youtube.com/watch?v=uD6omb4TLdA&t=283s
 * Step
 * Testimonial
 * Items
+* Slider
 
 = Section blocks =
 
@@ -77,8 +78,13 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 10. Step block (The number of steps can be increased or decreased freely)
 11. Testimonial block (The number of items can be increased or decreased freely)
 12. Items block (The number of items can be increased or decreased freely)
+13. Slider block (The number of images can be increased or decreased freely)
 
 == Changelog ==
+
+= 1.4.0 =
+* Add slider block
+* Add repeatable item add/remove button.
 
 = 1.3.0 =
 * Add image field to the pricing table block.
