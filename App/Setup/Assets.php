@@ -79,6 +79,17 @@ class Assets {
 			[],
 			filemtime( $path )
 		);
+
+		$relative_path = '/dist/js/app.min.js';
+		$src  = SNOW_MONKEY_BLOCKS_DIR_URL . $relative_path;
+		$path = SNOW_MONKEY_BLOCKS_DIR_PATH . $relative_path;
+
+		wp_enqueue_script(
+			'snow-monkey-blocks',
+			$src,
+			[ 'jquery' ],
+			filemtime( $path )
+		);
 	}
 
 	/**
@@ -131,6 +142,41 @@ class Assets {
 
 			wp_enqueue_script(
 				'fontawesome5',
+				$src,
+				[],
+				filemtime( $path )
+			);
+		}
+
+		if ( apply_filters( 'snow_monkey_blocks_enqueue_slick', true ) ) {
+			$relative_path = '/dist/packages/slick/slick.min.js';
+			$src  = SNOW_MONKEY_BLOCKS_DIR_URL . $relative_path;
+			$path = SNOW_MONKEY_BLOCKS_DIR_PATH . $relative_path;
+
+			wp_enqueue_script(
+				'slick-carousel',
+				$src,
+				[ 'jquery' ],
+				filemtime( $path )
+			);
+
+			$relative_path = '/dist/packages/slick/slick.css';
+			$src  = SNOW_MONKEY_BLOCKS_DIR_URL . $relative_path;
+			$path = SNOW_MONKEY_BLOCKS_DIR_PATH . $relative_path;
+
+			wp_enqueue_style(
+				'slick-carousel',
+				$src,
+				[],
+				filemtime( $path )
+			);
+
+			$relative_path = '/dist/packages/slick/slick-theme.css';
+			$src  = SNOW_MONKEY_BLOCKS_DIR_URL . $relative_path;
+			$path = SNOW_MONKEY_BLOCKS_DIR_PATH . $relative_path;
+
+			wp_enqueue_style(
+				'slick-carousel-theme',
 				$src,
 				[],
 				filemtime( $path )

@@ -16,6 +16,7 @@
   @import '../../block/step/editor';
   @import '../../block/items/editor';
   @import '../../block/pricing-table/editor';
+  @import '../../block/slider/editor';
 }
 
 .edit-post-sidebar {
@@ -24,6 +25,7 @@
 
 .smb-remove-button {
   display: inline-block;
+  cursor: pointer;
   font-size: 12px !important;
   line-height: 1 !important;
   border: 0;
@@ -31,4 +33,35 @@
   color: #fff;
   background-color: #cd3034;
   border-radius: 4px;
+  transition: all .3s;
+
+  @media(min-width: 1024px) {
+    opacity: .8;
+
+    &:hover, &:active, &:focus {
+      opacity: 1;
+    }
+  }
+}
+
+.smb-add-button {
+  border: none;
+  border-radius: 100%;
+  box-shadow: 0 0 0 5px #fff;
+  color: #21a1d0;
+  line-height: 1 !important;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  transition: all .3s;
+
+  &:focus {
+    box-shadow: 0 0 0 5px rgba(#21a1d0, .2);
+  }
+
+  @media(min-width: 1024px) {
+    &:hover, &:active {
+      box-shadow: 0 0 0 5px rgba(#21a1d0, .2);
+    }
+  }
 }

@@ -1,0 +1,19 @@
+.smb-slider {
+  &__canvas {
+    visibility: hidden;
+
+    &.slick-initialized {
+      visibility: visible;
+    }
+  }
+
+  .slick-next {
+    right: 10px;
+    z-index: 1;
+  }
+
+  .slick-prev {
+    left: 10px;
+    z-index: 1;
+  }
+}

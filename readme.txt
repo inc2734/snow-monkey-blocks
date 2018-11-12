@@ -145,3 +145,8 @@ Nothing in particular.
 
 WebSite: https://fontawesome.com/
 License: https://fontawesome.com/license/free
+
+= slick =
+
+WebSite: http://kenwheeler.github.io/slick/
+License: https://github.com/kenwheeler/slick/blob/master/LICENSE
