@@ -1,9 +1,17 @@
-.smb-section-with-image__figure {
-  position: relative;
+.smb-section-with-image {
+  &__figure {
+    position: relative;
 
-  .smb-remove-button {
-    position: absolute;
-    top: 5px;
-    right: 5px;
+    .smb-remove-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+  }
+
+  // @todo MediaPlaceholder
+  .components-drop-zone,
+  .components-form-file-upload {
+    display: none !important;
   }
 }

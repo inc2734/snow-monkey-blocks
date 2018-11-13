@@ -12,4 +12,10 @@
   .smb-add-item-button-wrapper {
     text-align: center;
   }
+
+  // @todo MediaPlaceholder
+  .components-drop-zone,
+  .components-form-file-upload {
+    display: none !important;
+  }
 }

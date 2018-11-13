@@ -62,10 +62,6 @@
 .smb-add-item-button {
   color: #21a1d0;
 
-  &:focus {
-    box-shadow: 0 0 0 5px rgba(#21a1d0, .2);
-  }
-
   @media(min-width: 1024px) {
     &:hover, &:active {
       box-shadow: 0 0 0 5px rgba(#21a1d0, .2);
@@ -75,10 +71,6 @@
 
 .smb-remove-item-button {
   color: #cd3034;
-
-  &:focus {
-    box-shadow: 0 0 0 5px rgba(#cd3034, .2);
-  }
 
   @media(min-width: 1024px) {
     &:hover, &:active {

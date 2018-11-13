@@ -67,10 +67,10 @@ This file is distributed under the same license as the {package-name} package. *
 	__( 'Icon', 'snow-monkey-blocks' ),
 
 	// Reference: languages/snow-monkey-blocks-translations.php:74 block/alert/block.js:128
-	// Reference: block/items/block.js:234 block/pricing-table/block.js:224
-	// Reference: block/rating-box/block.js:107 block/section-with-bgimage/block.js:145
+	// Reference: block/items/block.js:227 block/pricing-table/block.js:220
+	// Reference: block/rating-box/block.js:103 block/section-with-bgimage/block.js:145
 	// Reference: block/section-with-image/block.js:160 block/section/block.js:74
-	// Reference: block/step/block.js:226
+	// Reference: block/step/block.js:219
 	__( 'Write title...', 'snow-monkey-blocks' ),
 
 	// Reference: languages/snow-monkey-blocks-translations.php:77 block/balloon/block.js:12
@@ -96,7 +96,7 @@ This file is distributed under the same license as the {package-name} package. *
 
 	// Reference: languages/snow-monkey-blocks-translations.php:101 block/box/block.js:39
 	// Reference: block/btn-box/block.js:65 block/btn-box/block.js:99 block/btn/block.js:91
-	// Reference: block/items/block.js:158 block/pricing-table/block.js:147
+	// Reference: block/items/block.js:151 block/pricing-table/block.js:143
 	// Reference: block/section-with-image/block.js:140 block/section/block.js:56
 	__( 'Background Color', 'snow-monkey-blocks' ),
 
@@ -104,8 +104,8 @@ This file is distributed under the same license as the {package-name} package. *
 	__( 'Border Color', 'snow-monkey-blocks' ),
 
 	// Reference: languages/snow-monkey-blocks-translations.php:109 block/box/block.js:53
-	// Reference: block/btn-box/block.js:106 block/btn/block.js:98 block/items/block.js:165
-	// Reference: block/pricing-table/block.js:154
+	// Reference: block/btn-box/block.js:106 block/btn/block.js:98 block/items/block.js:158
+	// Reference: block/pricing-table/block.js:150
 	__( 'Text Color', 'snow-monkey-blocks' ),
 
 	// Reference: languages/snow-monkey-blocks-translations.php:112 block/box/block.js:61
@@ -116,8 +116,8 @@ This file is distributed under the same license as the {package-name} package. *
 
 	// Reference: languages/snow-monkey-blocks-translations.php:121 block/btn-box/block.js:31
 	// Reference: block/btn-box/block.js:151 block/btn-box/block.js:225 block/btn/block.js:12
-	// Reference: block/btn/block.js:19 block/btn/block.js:115 block/items/block.js:270
-	// Reference: block/pricing-table/block.js:270
+	// Reference: block/btn/block.js:19 block/btn/block.js:115 block/items/block.js:263
+	// Reference: block/pricing-table/block.js:266
 	__( 'Button', 'snow-monkey-blocks' ),
 
 	// Reference: languages/snow-monkey-blocks-translations.php:124 block/btn-box/block.js:64
@@ -128,23 +128,23 @@ This file is distributed under the same license as the {package-name} package. *
 	__( 'Button Settings', 'snow-monkey-blocks' ),
 
 	// Reference: languages/snow-monkey-blocks-translations.php:133 block/btn-box/block.js:78
-	// Reference: block/btn/block.js:54 block/items/block.js:137
-	// Reference: block/pricing-table/block.js:126
+	// Reference: block/btn/block.js:54 block/items/block.js:130
+	// Reference: block/pricing-table/block.js:122
 	__( 'URL', 'snow-monkey-blocks' ),
 
 	// Reference: languages/snow-monkey-blocks-translations.php:138 block/btn-box/block.js:84
-	// Reference: block/btn/block.js:60 block/items/block.js:143
-	// Reference: block/pricing-table/block.js:132
+	// Reference: block/btn/block.js:60 block/items/block.js:136
+	// Reference: block/pricing-table/block.js:128
 	__( 'Target', 'snow-monkey-blocks' ),
 
 	// Reference: languages/snow-monkey-blocks-translations.php:143 block/btn-box/block.js:90
-	// Reference: block/btn/block.js:66 block/items/block.js:148
-	// Reference: block/pricing-table/block.js:137 block/step/block.js:158
+	// Reference: block/btn/block.js:66 block/items/block.js:141
+	// Reference: block/pricing-table/block.js:133 block/step/block.js:151
 	__( '_self', 'snow-monkey-blocks' ),
 
 	// Reference: languages/snow-monkey-blocks-translations.php:148 block/btn-box/block.js:94
-	// Reference: block/btn/block.js:70 block/items/block.js:152
-	// Reference: block/pricing-table/block.js:141 block/step/block.js:162
+	// Reference: block/btn/block.js:70 block/items/block.js:145
+	// Reference: block/pricing-table/block.js:137 block/step/block.js:155
 	__( '_blank', 'snow-monkey-blocks' ),
 
 	// Reference: languages/snow-monkey-blocks-translations.php:151 block/btn-box/block.js:114
@@ -159,36 +159,36 @@ This file is distributed under the same license as the {package-name} package. *
 	__( 'Full button', 'snow-monkey-blocks' ),
 
 	// Reference: languages/snow-monkey-blocks-translations.php:164 block/btn-box/block.js:139
-	// Reference: block/items/block.js:242 block/pricing-table/block.js:243
-	// Reference: block/testimonial/block.js:137
+	// Reference: block/items/block.js:235 block/pricing-table/block.js:239
+	// Reference: block/testimonial/block.js:130
 	__( 'Write lede...', 'snow-monkey-blocks' ),
 
 	// Reference: languages/snow-monkey-blocks-translations.php:167 block/btn-box/block.js:165
 	__( 'Write note...', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:170 block/faq/block.js:11
+	// Reference: languages/snow-monkey-blocks-translations.php:170 block/faq/block.js:14
 	__( 'FAQ', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:173 block/faq/block.js:64
+	// Reference: languages/snow-monkey-blocks-translations.php:173 block/faq/block.js:60
 	__( 'FAQ Settings', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:177 block/faq/block.js:66
-	// Reference: block/rating-box/block.js:60 block/step/block.js:100
+	// Reference: languages/snow-monkey-blocks-translations.php:177 block/faq/block.js:62
+	// Reference: block/rating-box/block.js:56 block/step/block.js:93
 	__( 'Rows', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:180 block/faq/block.js:80
+	// Reference: languages/snow-monkey-blocks-translations.php:180 block/faq/block.js:76
 	__( '(%d) Item Settings', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:183 block/faq/block.js:83
+	// Reference: languages/snow-monkey-blocks-translations.php:183 block/faq/block.js:79
 	__( 'Question Color', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:186 block/faq/block.js:90
+	// Reference: languages/snow-monkey-blocks-translations.php:186 block/faq/block.js:86
 	__( 'Answer Color', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:189 block/faq/block.js:117
+	// Reference: languages/snow-monkey-blocks-translations.php:189 block/faq/block.js:113
 	__( 'Write question...', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:192 block/faq/block.js:131
+	// Reference: languages/snow-monkey-blocks-translations.php:192 block/faq/block.js:127
 	__( 'Write answer...', 'snow-monkey-blocks' ),
 
 	// Reference: languages/snow-monkey-blocks-translations.php:195 block/list/block.js:11
@@ -219,43 +219,43 @@ This file is distributed under the same license as the {package-name} package. *
 	__( 'Icon Color', 'snow-monkey-blocks' ),
 
 	// Reference: languages/snow-monkey-blocks-translations.php:223
-	// Reference: block/pricing-table/block.js:11
+	// Reference: block/pricing-table/block.js:14
 	__( 'Pricing table', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:227 block/items/block.js:107
-	// Reference: block/pricing-table/block.js:104
+	// Reference: languages/snow-monkey-blocks-translations.php:227 block/items/block.js:100
+	// Reference: block/pricing-table/block.js:100
 	__( 'Columns Settings', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:231 block/items/block.js:109
-	// Reference: block/pricing-table/block.js:106 block/testimonial/block.js:73
+	// Reference: languages/snow-monkey-blocks-translations.php:231 block/items/block.js:102
+	// Reference: block/pricing-table/block.js:102 block/testimonial/block.js:66
 	__( 'Columns', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:235 block/items/block.js:133
-	// Reference: block/pricing-table/block.js:122
+	// Reference: languages/snow-monkey-blocks-translations.php:235 block/items/block.js:126
+	// Reference: block/pricing-table/block.js:118
 	__( '(%d) Button Settings', 'snow-monkey-blocks' ),
 
 	// Reference: languages/snow-monkey-blocks-translations.php:239
-	// Reference: block/pricing-table/block.js:233
+	// Reference: block/pricing-table/block.js:229
 	__( 'Write price...', 'snow-monkey-blocks' ),
 
 	// Reference: languages/snow-monkey-blocks-translations.php:243
-	// Reference: block/rating-box/block.js:11
+	// Reference: block/rating-box/block.js:14
 	__( 'Rating box', 'snow-monkey-blocks' ),
 
 	// Reference: languages/snow-monkey-blocks-translations.php:247
-	// Reference: block/rating-box/block.js:58
+	// Reference: block/rating-box/block.js:54
 	__( 'Rating box Settings', 'snow-monkey-blocks' ),
 
 	// Reference: languages/snow-monkey-blocks-translations.php:251
-	// Reference: block/rating-box/block.js:74
+	// Reference: block/rating-box/block.js:70
 	__( '(%d) Rating Settings', 'snow-monkey-blocks' ),
 
 	// Reference: languages/snow-monkey-blocks-translations.php:255
-	// Reference: block/rating-box/block.js:78
+	// Reference: block/rating-box/block.js:74
 	__( 'Rating', 'snow-monkey-blocks' ),
 
 	// Reference: languages/snow-monkey-blocks-translations.php:259
-	// Reference: block/rating-box/block.js:85
+	// Reference: block/rating-box/block.js:81
 	__( 'Color', 'snow-monkey-blocks' ),
 
 	// Reference: languages/snow-monkey-blocks-translations.php:262
@@ -284,16 +284,16 @@ This file is distributed under the same license as the {package-name} package. *
 
 	// Reference: languages/snow-monkey-blocks-translations.php:288
 	// Reference: block/section-with-bgimage/block.js:79 block/section-with-image/block.js:110
-	// Reference: block/step/block.js:125
+	// Reference: block/step/block.js:118
 	__( 'Left side', 'snow-monkey-blocks' ),
 
 	// Reference: languages/snow-monkey-blocks-translations.php:292
-	// Reference: block/section-with-bgimage/block.js:83 block/step/block.js:129
+	// Reference: block/section-with-bgimage/block.js:83 block/step/block.js:122
 	__( 'Center', 'snow-monkey-blocks' ),
 
 	// Reference: languages/snow-monkey-blocks-translations.php:297
 	// Reference: block/section-with-bgimage/block.js:87 block/section-with-image/block.js:106
-	// Reference: block/step/block.js:133
+	// Reference: block/step/block.js:126
 	__( 'Right side', 'snow-monkey-blocks' ),
 
 	// Reference: languages/snow-monkey-blocks-translations.php:301
@@ -304,139 +304,148 @@ This file is distributed under the same license as the {package-name} package. *
 	// Reference: block/section-with-bgimage/block.js:101
 	__( 'Mask Opacity', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:310 block/items/block.js:195
-	// Reference: block/pricing-table/block.js:185 block/section-with-bgimage/block.js:113
-	// Reference: block/section-with-image/block.js:72 block/slider/block.js:166
-	// Reference: block/step/block.js:190
+	// Reference: languages/snow-monkey-blocks-translations.php:311 block/items/block.js:188
+	// Reference: block/pricing-table/block.js:181 block/section-with-bgimage/block.js:113
+	// Reference: block/section-with-image/block.js:72 block/slider/block.js:164
+	// Reference: block/step/block.js:183
 	__( 'Image', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:313
+	// Reference: languages/snow-monkey-blocks-translations.php:314
 	__( 'an image', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:318 block/items/block.js:218
-	// Reference: block/pricing-table/block.js:208 block/section-with-bgimage/block.js:129
-	// Reference: block/section-with-image/block.js:91 block/slider/block.js:189
-	// Reference: block/step/block.js:213
+	// Reference: languages/snow-monkey-blocks-translations.php:320 block/items/block.js:211
+	// Reference: block/pricing-table/block.js:204 block/section-with-bgimage/block.js:129
+	// Reference: block/section-with-image/block.js:91 block/slider/block.js:187
+	// Reference: block/step/block.js:206
 	__( 'Remove', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:321
+	// Reference: languages/snow-monkey-blocks-translations.php:323
 	__( 'Section (has image)', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:325
-	// Reference: block/section-with-image/block.js:101 block/step/block.js:120
+	// Reference: languages/snow-monkey-blocks-translations.php:327
+	// Reference: block/section-with-image/block.js:101 block/step/block.js:113
 	__( 'Image Position', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:329
+	// Reference: languages/snow-monkey-blocks-translations.php:331
 	// Reference: block/section-with-image/block.js:117
 	__( 'Image Column Size', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:333
+	// Reference: languages/snow-monkey-blocks-translations.php:334
 	__( '75%', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:337
+	// Reference: languages/snow-monkey-blocks-translations.php:338
 	// Reference: block/section-with-image/block.js:130
 	__( '33%', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:340
+	// Reference: languages/snow-monkey-blocks-translations.php:341
 	__( 'Section (has items)', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:343 block/items/block.js:117
+	// Reference: languages/snow-monkey-blocks-translations.php:344 block/items/block.js:110
 	__( 'Columns per row (large window)', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:347 block/items/block.js:251
-	// Reference: block/step/block.js:244 block/testimonial/block.js:121
+	// Reference: languages/snow-monkey-blocks-translations.php:348 block/items/block.js:244
+	// Reference: block/step/block.js:237 block/testimonial/block.js:114
 	__( 'Write content...', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:350 block/section/block.js:12
+	// Reference: languages/snow-monkey-blocks-translations.php:351 block/section/block.js:12
 	__( 'Section', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:353 block/section/block.js:41
+	// Reference: languages/snow-monkey-blocks-translations.php:354 block/section/block.js:41
 	__( 'Contents Width', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:356 block/section/block.js:47
+	// Reference: languages/snow-monkey-blocks-translations.php:357 block/section/block.js:47
 	__( 'Normal', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:359 block/section/block.js:51
+	// Reference: languages/snow-monkey-blocks-translations.php:360 block/section/block.js:51
 	__( 'Slim', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:362 block/step/block.js:11
+	// Reference: languages/snow-monkey-blocks-translations.php:363 block/step/block.js:14
 	__( 'Step', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:365 block/step/block.js:98
+	// Reference: languages/snow-monkey-blocks-translations.php:366 block/step/block.js:91
 	__( 'Step Settings', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:368 block/step/block.js:116
+	// Reference: languages/snow-monkey-blocks-translations.php:369 block/step/block.js:109
 	__( 'STEP.%d Settings', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:371 block/step/block.js:139
+	// Reference: languages/snow-monkey-blocks-translations.php:372 block/step/block.js:132
 	__( 'Number Color', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:374 block/step/block.js:147
+	// Reference: languages/snow-monkey-blocks-translations.php:375 block/step/block.js:140
 	__( 'Link URL', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:377 block/step/block.js:153
+	// Reference: languages/snow-monkey-blocks-translations.php:378 block/step/block.js:146
 	__( 'Link Target', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:380 block/step/block.js:255
+	// Reference: languages/snow-monkey-blocks-translations.php:381 block/step/block.js:248
 	__( 'Link text', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:384
-	// Reference: block/testimonial/block.js:11
+	// Reference: languages/snow-monkey-blocks-translations.php:385
+	// Reference: block/testimonial/block.js:14
 	__( 'Testimonial', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:388
-	// Reference: block/testimonial/block.js:71
+	// Reference: languages/snow-monkey-blocks-translations.php:389
+	// Reference: block/testimonial/block.js:64
 	__( 'Testimonial Settings', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:392
-	// Reference: block/testimonial/block.js:129
+	// Reference: languages/snow-monkey-blocks-translations.php:393
+	// Reference: block/testimonial/block.js:122
 	__( 'Write name...', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:396
+	// Reference: languages/snow-monkey-blocks-translations.php:397
 	// Reference: block/section-with-bgimage/block.js:10
 	__( 'Section (with background image)', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:400
+	// Reference: languages/snow-monkey-blocks-translations.php:401
 	// Reference: block/section-with-image/block.js:12
 	__( 'Section (with image)', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:403
+	// Reference: languages/snow-monkey-blocks-translations.php:404
 	__( 'Section (with items)', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:406 block/items/block.js:11
+	// Reference: languages/snow-monkey-blocks-translations.php:407 block/items/block.js:14
 	__( 'Items', 'snow-monkey-blocks' ),
 
-	// Reference: languages/snow-monkey-blocks-translations.php:409 src/js/_highlighter.js:13
+	// Reference: languages/snow-monkey-blocks-translations.php:410 src/js/_highlighter.js:13
 	__( 'Highlighter', 'snow-monkey-blocks' ),
 
+	// Reference: languages/snow-monkey-blocks-translations.php:413
 	// Reference: block/section-with-image/block.js:122
 	__( '66%', 'snow-monkey-blocks' ),
 
+	// Reference: languages/snow-monkey-blocks-translations.php:416
 	// Reference: block/section-with-image/block.js:126
 	__( '50%', 'snow-monkey-blocks' ),
 
+	// Reference: languages/snow-monkey-blocks-translations.php:419
 	// Reference: block/section-with-image/block.js:134
 	__( '25%', 'snow-monkey-blocks' ),
 
-	// Reference: block/slider/block.js:28
+	// Reference: languages/snow-monkey-blocks-translations.php:422 block/slider/block.js:26
 	__( 'Slider', 'snow-monkey-blocks' ),
 
-	// Reference: block/slider/block.js:94
+	// Reference: languages/snow-monkey-blocks-translations.php:425 block/slider/block.js:92
 	__( 'Slider Settings', 'snow-monkey-blocks' ),
 
-	// Reference: block/slider/block.js:96
+	// Reference: languages/snow-monkey-blocks-translations.php:428 block/slider/block.js:94
 	__( 'Number of items', 'snow-monkey-blocks' ),
 
-	// Reference: block/slider/block.js:103
+	// Reference: languages/snow-monkey-blocks-translations.php:431 block/slider/block.js:101
 	__( '# of slides to show', 'snow-monkey-blocks' ),
 
-	// Reference: block/slider/block.js:110
+	// Reference: languages/snow-monkey-blocks-translations.php:434 block/slider/block.js:108
 	__( '# of slides to scroll', 'snow-monkey-blocks' ),
 
-	// Reference: block/slider/block.js:127
+	// Reference: languages/snow-monkey-blocks-translations.php:437 block/slider/block.js:125
 	__( 'Slide animation speed in milliseconds', 'snow-monkey-blocks' ),
 
-	// Reference: block/slider/block.js:135
-	__( 'Autoplay Speed in seconds', 'snow-monkey-blocks' )
+	// Reference: languages/snow-monkey-blocks-translations.php:440 block/slider/block.js:133
+	__( 'Autoplay Speed in seconds', 'snow-monkey-blocks' ),
+
+	// Reference: block/slider/block.js:115
+	__( 'Show dot indicators', 'snow-monkey-blocks' ),
+
+	// Reference: block/slider/block.js:120
+	__( 'Prev/Next Arrows', 'snow-monkey-blocks' )
 );
 /* THIS IS THE END OF THE GENERATED FILE */
