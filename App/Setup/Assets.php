@@ -88,7 +88,8 @@ class Assets {
 			'snow-monkey-blocks',
 			$src,
 			[ 'jquery' ],
-			filemtime( $path )
+			filemtime( $path ),
+			true
 		);
 	}
 
@@ -144,7 +145,8 @@ class Assets {
 				'fontawesome5',
 				$src,
 				[],
-				filemtime( $path )
+				filemtime( $path ),
+				true
 			);
 		}
 
@@ -157,7 +159,8 @@ class Assets {
 				'slick-carousel',
 				$src,
 				[ 'jquery' ],
-				filemtime( $path )
+				filemtime( $path ),
+				true
 			);
 
 			$relative_path = '/dist/packages/slick/slick.css';

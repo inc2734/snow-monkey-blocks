@@ -14,10 +14,8 @@ registerBlockType( 'snow-monkey-blocks/list', {
 	category: 'smb',
 	attributes: {
 		content: {
-			type: 'array',
-			source: 'children',
+			source: 'html',
 			selector: 'ul',
-			default: [],
 		},
 		icon: {
 			type: 'string',
@@ -31,26 +29,6 @@ registerBlockType( 'snow-monkey-blocks/list', {
 
 	edit( { attributes, setAttributes } ) {
 		const { content, icon, iconColor } = attributes;
-
-		const generateContentWidthIcon = ( _content, _icon, _iconColor ) => {
-			_content = [ ..._content ];
-
-			for ( let i = 0; i < _content.length; i++ ) {
-				if ( !! _content[ i ].props.children[ 1 ] ) {
-					_content[ i ].props.children[ 0 ] = _content[ i ].props.children[ 1 ];
-					delete _content[ i ].props.children[ 1 ];
-				}
-
-				_content[ i ].props.children[ 1 ] = _content[ i ].props.children[ 0 ];
-				_content[ i ].props.children[ 0 ] = (
-					<span className="smb-list__icon" style={ { color: _iconColor } }>
-						<i className={ `fas fa-${ _icon }` } />
-					</span>
-				);
-			}
-
-			return _content;
-		};
 
 		const iconList = [
 			{
@@ -104,12 +82,7 @@ registerBlockType( 'snow-monkey-blocks/list', {
 										<Button
 											isDefault
 											isPrimary={ icon === value }
-											onClick={ () => {
-												setAttributes( { icon: value } );
-
-												const _content = generateContentWidthIcon( content, value, iconColor );
-												setAttributes( { content: _content } );
-											} }
+											onClick={ () => setAttributes( { icon: value } ) }
 										>
 											<i className={ `fas fa-${ iconList[ index ].value }` } title={ iconList[ index ].label } />
 										</Button>
@@ -121,26 +94,18 @@ registerBlockType( 'snow-monkey-blocks/list', {
 						<BaseControl label={ __( 'Icon Color', 'snow-monkey-blocks' ) }>
 							<ColorPalette
 								value={ iconColor }
-								onChange={ ( value ) => {
-									setAttributes( { iconColor: value } );
-
-									const _content = generateContentWidthIcon( content, icon, value );
-									setAttributes( { content: _content } );
-								} }
+								onChange={ ( value ) => setAttributes( { iconColor: value } ) }
 							/>
 						</BaseControl>
 					</PanelBody>
 				</InspectorControls>
 
-				<div className="smb-list">
+				<div className="smb-list" data-icon={ icon } data-icon-color={ iconColor }>
 					<RichText
 						tagName="ul"
 						multiline="li"
 						value={ content }
-						onChange={ ( value ) => {
-							const _content = generateContentWidthIcon( value, icon, iconColor );
-							setAttributes( { content: _content } );
-						} }
+						onChange={ ( value ) => setAttributes( { content: value } ) }
 					/>
 				</div>
 			</Fragment>
@@ -148,12 +113,12 @@ registerBlockType( 'snow-monkey-blocks/list', {
 	},
 
 	save( { attributes } ) {
-		const { content } = attributes;
+		const { content, icon, iconColor } = attributes;
 
 		return (
-			<div className="smb-list">
+			<div className="smb-list" data-icon={ icon } data-icon-color={ iconColor }>
 				<ul>
-					{ content }
+					<RichText.Content value={ content } />
 				</ul>
 			</div>
 		);

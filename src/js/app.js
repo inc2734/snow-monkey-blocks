@@ -1,13 +1,7 @@
 'use strict';
 
-import $ from 'jquery';
+import smbList from './_list.js';
+new smbList();
 
-$( () => {
-	$( '[data-smb-slider]' ).each( ( i, e ) => {
-		const slider = $( e );
-		const config = slider.data( 'smb-slider' );
-		if ( !! config ) {
-			slider.slick( config );
-		}
-	} );
-} );
+import smbSlider from './_slider.js';
+new smbSlider();
