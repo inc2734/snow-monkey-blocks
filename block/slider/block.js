@@ -112,12 +112,12 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 							max="6"
 						/>
 						<ToggleControl
-							label="Show dot indicators"
+							label={ __( 'Show dot indicators', 'snow-monkey-blocks' ) }
 							checked={ dots }
 							onChange={ ( value ) => setAttributes( { dots: value } ) }
 						/>
 						<ToggleControl
-							label="Prev/Next Arrows"
+							label={ __( 'Prev/Next Arrows', 'snow-monkey-blocks' ) }
 							checked={ arrows }
 							onChange={ ( value ) => setAttributes( { arrows: value } ) }
 						/>
@@ -231,7 +231,7 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 			arrows: arrows,
 			speed: speed,
 			autoplay: autoplay,
-			autoplaySpeed: autoplaySpeed,
+			autoplaySpeed: autoplaySpeed * 1000,
 		} );
 
 		return (
