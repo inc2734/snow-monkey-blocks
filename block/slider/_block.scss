@@ -5,6 +5,18 @@
     &.slick-initialized {
       visibility: visible;
     }
+
+    &[dir="rtl"] {
+      .slick-next {
+        left: 10px;
+        right: auto;
+      }
+
+      .slick-prev {
+        right: 10px;
+        left: auto;
+      }
+    }
   }
 
   .slick-next {

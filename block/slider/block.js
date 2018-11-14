@@ -19,6 +19,7 @@ const generateSliderConfig = ( _config ) => {
 		speed: _config.speed,
 		autoplay: _config.autoplay,
 		autoplaySpeed: _config.autoplaySpeed,
+		rtl: _config.rtl,
 	};
 };
 
@@ -55,6 +56,10 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 			type: 'number',
 			default: 0,
 		},
+		rtl: {
+			type: 'boolean',
+			default: false,
+		},
 		content: {
 			type: 'array',
 			source: 'query',
@@ -84,7 +89,7 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 	},
 
 	edit( { attributes, setAttributes, isSelected } ) {
-		const { slidesToShow, slidesToScroll, dots, arrows, items, content, speed, autoplaySpeed } = attributes;
+		const { slidesToShow, slidesToScroll, dots, arrows, items, content, speed, autoplaySpeed, rtl } = attributes;
 
 		return (
 			<Fragment>
@@ -142,6 +147,11 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 							} }
 							min="0"
 							max="10"
+						/>
+						<ToggleControl
+							label={ __( 'Change the slider\'s direction to become right-to-left', 'snow-monkey-blocks' ) }
+							checked={ rtl }
+							onChange={ ( value ) => setAttributes( { rtl: value } ) }
 						/>
 					</PanelBody>
 				</InspectorControls>
@@ -222,7 +232,7 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 	},
 
 	save( { attributes } ) {
-		const { slidesToShow, slidesToScroll, dots, arrows, items, content, speed, autoplay, autoplaySpeed } = attributes;
+		const { slidesToShow, slidesToScroll, dots, arrows, items, content, speed, autoplay, autoplaySpeed, rtl } = attributes;
 
 		const config = generateSliderConfig( {
 			slidesToShow: slidesToShow,
@@ -232,11 +242,12 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 			speed: speed,
 			autoplay: autoplay,
 			autoplaySpeed: autoplaySpeed * 1000,
+			rtl: rtl,
 		} );
 
 		return (
 			<div className="smb-slider">
-				<div className="smb-slider__canvas" data-smb-slider={ JSON.stringify( config ) }>
+				<div className="smb-slider__canvas" dir={ true === config.rtl ? 'rtl' : 'ltr' } data-smb-slider={ JSON.stringify( config ) }>
 					{ times( items, ( index ) => {
 						const imageID = get( content, [ index, 'imageID' ], 0 );
 						const imageURL = get( content, [ index, 'imageURL' ], '' );
