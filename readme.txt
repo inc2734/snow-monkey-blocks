@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 4.9
 Tested up to: 4.9
-Stable tag: 1.4.0
+Stable tag: 1.4.1
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -81,6 +81,11 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 13. Slider block (The number of images can be increased or decreased freely)
 
 == Changelog ==
+
+= 1.4.1 =
+* Fix bug that autoSpeed settings of slider does not work properly.
+* Change to prevent image setting by D&D and direct file upload in MediaPlaceholder.
+* Refactoring icon list block. The icon renderd with JavaScript.
 
 = 1.4.0 =
 * Add slider block

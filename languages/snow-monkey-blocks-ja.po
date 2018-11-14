@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2018-11-13 10:49+0900\n"
-"PO-Revision-Date: 2018-11-13 10:50+0900\n"
+"POT-Creation-Date: 2018-11-14 12:47+0900\n"
+"PO-Revision-Date: 2018-11-14 12:47+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -67,22 +67,22 @@ msgid "exclamation-circle"
 msgstr "exclamation-circle"
 
 #: languages/snow-monkey-blocks-translations.php:35 block/alert/block.js:48
-#: block/list/block.js:74
+#: block/list/block.js:52
 msgid "check"
 msgstr "check"
 
 #: languages/snow-monkey-blocks-translations.php:39 block/alert/block.js:52
-#: block/list/block.js:78
+#: block/list/block.js:56
 msgid "check-circle"
 msgstr "check-circle"
 
 #: languages/snow-monkey-blocks-translations.php:43 block/alert/block.js:56
-#: block/list/block.js:82
+#: block/list/block.js:60
 msgid "check-square"
 msgstr "check-square"
 
 #: languages/snow-monkey-blocks-translations.php:47 block/alert/block.js:60
-#: block/list/block.js:90
+#: block/list/block.js:68
 msgid "hand-point-right"
 msgstr "hand-point-right"
 
@@ -108,7 +108,7 @@ msgid "Success alert"
 msgstr "サクセスアラート"
 
 #: languages/snow-monkey-blocks-translations.php:67 block/alert/block.js:100
-#: block/list/block.js:98
+#: block/list/block.js:76
 msgid "Icon"
 msgstr "アイコン"
 
@@ -279,31 +279,31 @@ msgstr "アイコンリスト"
 msgid "Icons are displayed only on the actual screen."
 msgstr "アイコンは実際の画面でのみ表示されます。"
 
-#: languages/snow-monkey-blocks-translations.php:201 block/list/block.js:58
+#: languages/snow-monkey-blocks-translations.php:201 block/list/block.js:36
 msgid "angle-right"
 msgstr "angle-right"
 
-#: languages/snow-monkey-blocks-translations.php:204 block/list/block.js:62
+#: languages/snow-monkey-blocks-translations.php:204 block/list/block.js:40
 msgid "angle-double-right"
 msgstr "angle-double-right"
 
-#: languages/snow-monkey-blocks-translations.php:207 block/list/block.js:66
+#: languages/snow-monkey-blocks-translations.php:207 block/list/block.js:44
 msgid "arrow-alt-circle-right"
 msgstr "arrow-alt-circle-right"
 
-#: languages/snow-monkey-blocks-translations.php:210 block/list/block.js:70
+#: languages/snow-monkey-blocks-translations.php:210 block/list/block.js:48
 msgid "arrow-right"
 msgstr "arrow-right"
 
-#: languages/snow-monkey-blocks-translations.php:213 block/list/block.js:86
+#: languages/snow-monkey-blocks-translations.php:213 block/list/block.js:64
 msgid "chevron-circle-right"
 msgstr "chevron-circle-right"
 
-#: languages/snow-monkey-blocks-translations.php:216 block/list/block.js:97
+#: languages/snow-monkey-blocks-translations.php:216 block/list/block.js:75
 msgid "List Settings"
 msgstr "リスト設定"
 
-#: languages/snow-monkey-blocks-translations.php:219 block/list/block.js:121
+#: languages/snow-monkey-blocks-translations.php:219 block/list/block.js:94
 msgid "Icon Color"
 msgstr "アイコンの色"
 
@@ -418,7 +418,7 @@ msgstr "背景マスクの透明度"
 
 #: languages/snow-monkey-blocks-translations.php:311 block/items/block.js:188
 #: block/pricing-table/block.js:181 block/section-with-bgimage/block.js:113
-#: block/section-with-image/block.js:72 block/slider/block.js:164
+#: block/section-with-image/block.js:72 block/slider/block.js:174
 #: block/step/block.js:183
 msgid "Image"
 msgstr "画像"
@@ -429,7 +429,7 @@ msgstr "画像"
 
 #: languages/snow-monkey-blocks-translations.php:320 block/items/block.js:211
 #: block/pricing-table/block.js:204 block/section-with-bgimage/block.js:129
-#: block/section-with-image/block.js:91 block/slider/block.js:187
+#: block/section-with-image/block.js:91 block/slider/block.js:197
 #: block/step/block.js:206
 msgid "Remove"
 msgstr "削除"
@@ -552,56 +552,60 @@ msgstr "項目"
 msgid "Highlighter"
 msgstr "蛍光ペン"
 
-#: languages/snow-monkey-blocks-translations.php:413
+#: languages/snow-monkey-blocks-translations.php:414
 #: block/section-with-image/block.js:122
 msgid "66%"
 msgstr "66%"
 
-#: languages/snow-monkey-blocks-translations.php:416
+#: languages/snow-monkey-blocks-translations.php:418
 #: block/section-with-image/block.js:126
 msgid "50%"
 msgstr "50%"
 
-#: languages/snow-monkey-blocks-translations.php:419
+#: languages/snow-monkey-blocks-translations.php:422
 #: block/section-with-image/block.js:134
 msgid "25%"
 msgstr "25%"
 
-#: languages/snow-monkey-blocks-translations.php:422 block/slider/block.js:26
+#: languages/snow-monkey-blocks-translations.php:425 block/slider/block.js:27
 msgid "Slider"
 msgstr "スライダー"
 
-#: languages/snow-monkey-blocks-translations.php:425 block/slider/block.js:92
+#: languages/snow-monkey-blocks-translations.php:428 block/slider/block.js:97
 msgid "Slider Settings"
 msgstr "スライダー設定"
 
-#: languages/snow-monkey-blocks-translations.php:428 block/slider/block.js:94
+#: languages/snow-monkey-blocks-translations.php:431 block/slider/block.js:99
 msgid "Number of items"
 msgstr "アイテム数"
 
-#: languages/snow-monkey-blocks-translations.php:431 block/slider/block.js:101
+#: languages/snow-monkey-blocks-translations.php:434 block/slider/block.js:106
 msgid "# of slides to show"
 msgstr "表示するスライド数"
 
-#: languages/snow-monkey-blocks-translations.php:434 block/slider/block.js:108
+#: languages/snow-monkey-blocks-translations.php:437 block/slider/block.js:113
 msgid "# of slides to scroll"
 msgstr "スクロールするスライド数"
 
-#: languages/snow-monkey-blocks-translations.php:437 block/slider/block.js:125
+#: languages/snow-monkey-blocks-translations.php:440 block/slider/block.js:130
 msgid "Slide animation speed in milliseconds"
 msgstr "スライドアニメーション速度（ミリ秒）"
 
-#: languages/snow-monkey-blocks-translations.php:440 block/slider/block.js:133
+#: languages/snow-monkey-blocks-translations.php:443 block/slider/block.js:138
 msgid "Autoplay Speed in seconds"
 msgstr "自動再生の間隔（秒）"
 
-#: block/slider/block.js:115
+#: languages/snow-monkey-blocks-translations.php:446 block/slider/block.js:120
 msgid "Show dot indicators"
 msgstr "ドットインジケータを表示する"
 
-#: block/slider/block.js:120
+#: languages/snow-monkey-blocks-translations.php:449 block/slider/block.js:125
 msgid "Prev/Next Arrows"
 msgstr "前/次の矢印"
+
+#: block/slider/block.js:152
+msgid "Change the slider's direction to become right-to-left"
+msgstr "スライダーの方向を右から左に変更"
 
 #~ msgid "icon"
 #~ msgstr "アイコン"
