@@ -1,0 +1,53 @@
+.smb-panels {
+  &__item {
+    display: block;
+    color: $_color-text;
+    text-decoration: none;
+    box-shadow: 0 0 35px 0 rgba(#000, .1);
+    text-align: center;
+    @include _transition(all);
+
+    @include _hover(lg) {
+      box-shadow: 0 7px 35px 0 rgba(#000, .15);
+    }
+
+    &__figure {
+    }
+
+    &__body {
+      @include _padding(.5);
+
+      @include _media-min(lg) {
+        @include _padding(1);
+      }
+    }
+
+    &__title {
+      font-weight: bold;
+    }
+
+    &__content {
+      @include _margin-top(.25);
+      @include _font-size-line-height($_base-font-size-px - 2);
+    }
+
+    &__action {
+      @include _margin-top(.5);
+    }
+
+    &__link {
+      color: $color-accent;
+      @include _font-size-line-height($_base-font-size-px - 2);
+    }
+  }
+
+  &[data-image-padding="true"] {
+    .smb-panels__item__figure {
+      @include _padding(.5, .5, 0);
+
+      @include _media-min(lg) {
+        @include _padding(1, 1, 0);
+      }
+    }
+  }
+}

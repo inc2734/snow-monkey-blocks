@@ -1,0 +1,27 @@
+.smb-panels {
+  &__item__figure {
+    position: relative;
+
+    .smb-remove-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+  }
+
+  .c-row__col {
+    position: relative;
+
+    .smb-add-item-button-wrapper {
+      position: absolute;
+      top: 0;
+      right: -10px;
+    }
+  }
+
+  // @todo MediaPlaceholder
+  .components-drop-zone,
+  .components-form-file-upload {
+    display: none !important;
+  }
+}

@@ -3,6 +3,7 @@
 $generated_i18n_strings = array(
 	/* translators: Copyright (C) 2018 {package-name}
 This file is distributed under the same license as the {package-name} package. */
+,
 
 	// Reference: languages/snow-monkey-blocks-translations.php:10 snow-monkey-blocks.php:46
 	// Reference: snow-monkey-blocks.php:52
