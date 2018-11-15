@@ -45,9 +45,6 @@ registerBlockType( 'snow-monkey-blocks/panels', {
 		},
 		imagePadding: {
 			type: 'boolean',
-			source: 'attribute',
-			selector: '.smb-panels',
-			attribute: 'data-image-padding',
 			default: false,
 		},
 		items: {
