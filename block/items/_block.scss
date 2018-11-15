@@ -2,6 +2,7 @@
   &__item {
     &__figure {
       @include _margin-bottom(.5);
+      text-align: center;
     }
 
     &__title {
@@ -11,6 +12,10 @@
     &__lede {
       color: $_color-gray;
       @include _font-size-line-height($_base-font-size-px - 2);
+
+      > a {
+        color: $_color-gray;
+      }
     }
 
     &__content {

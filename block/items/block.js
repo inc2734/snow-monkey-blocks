@@ -10,6 +10,18 @@ const { PanelBody, RangeControl, SelectControl, TextControl, BaseControl } = wp.
 const { Fragment } = wp.element;
 const { __, sprintf } = wp.i18n;
 
+const generateColClasses = ( sm, md, lg ) => {
+	let colClasses = [];
+	colClasses.push( 'c-row__col' );
+	colClasses.push( `c-row__col--1-${ sm }` );
+	if ( sm === md ) {
+		colClasses.push( `c-row__col--1-${ md }` );
+	}
+	colClasses.push( `c-row__col--lg-1-${ lg }` );
+	colClasses = colClasses.join( ' ' );
+	return colClasses;
+};
+
 registerBlockType( 'snow-monkey-blocks/items', {
 	title: __( 'Items', 'snow-monkey-blocks' ),
 	icon: 'screenoptions',
@@ -18,6 +30,14 @@ registerBlockType( 'snow-monkey-blocks/items', {
 		columns: {
 			type: 'number',
 			default: 2,
+		},
+		sm: {
+			type: 'number',
+			default: 1,
+		},
+		md: {
+			type: 'number',
+			default: 1,
 		},
 		lg: {
 			type: 'number',
@@ -92,7 +112,7 @@ registerBlockType( 'snow-monkey-blocks/items', {
 	},
 
 	edit( { attributes, setAttributes, isSelected } ) {
-		const { columns, lg, items } = attributes;
+		const { columns, sm, md, lg, items } = attributes;
 
 		return (
 			<Fragment>
@@ -110,6 +130,22 @@ registerBlockType( 'snow-monkey-blocks/items', {
 							label={ __( 'Columns per row (large window)', 'snow-monkey-blocks' ) }
 							value={ lg }
 							onChange={ ( value ) => setAttributes( { lg: value } ) }
+							min="1"
+							max="4"
+						/>
+
+						<RangeControl
+							label={ __( 'Columns per row (Medium window)', 'snow-monkey-blocks' ) }
+							value={ md }
+							onChange={ ( value ) => setAttributes( { md: value } ) }
+							min="1"
+							max="4"
+						/>
+
+						<RangeControl
+							label={ __( 'Columns per row (Small window)', 'snow-monkey-blocks' ) }
+							value={ sm }
+							onChange={ ( value ) => setAttributes( { sm: value } ) }
 							min="1"
 							max="4"
 						/>
@@ -166,7 +202,7 @@ registerBlockType( 'snow-monkey-blocks/items', {
 					} ) }
 				</InspectorControls>
 
-				<div className={ `smb-items smb-items--lg-${ lg }` }>
+				<div className={ `smb-items smb-items--sm-${ sm } smb-items--md-${ md } smb-items--lg-${ lg }` }>
 					<div className="c-row c-row--margin">
 						{ times( columns, ( index ) => {
 							const itemTitle = get( items, [ index, 'title' ], '' );
@@ -214,7 +250,7 @@ registerBlockType( 'snow-monkey-blocks/items', {
 							};
 
 							return (
-								<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-1-${ lg }` }>
+								<div className={ generateColClasses( sm, md, lg ) }>
 									<div className="smb-items__item">
 										{ ( !! imageID || isSelected ) &&
 											<div className="smb-items__item__figure">
@@ -292,7 +328,7 @@ registerBlockType( 'snow-monkey-blocks/items', {
 	},
 
 	save( { attributes } ) {
-		const { columns, lg, items } = attributes;
+		const { columns, sm, md, lg, items } = attributes;
 
 		return (
 			<div className={ `smb-items smb-items--lg-${ lg }` }>
@@ -310,7 +346,7 @@ registerBlockType( 'snow-monkey-blocks/items', {
 						const imageURL = get( items, [ index, 'imageURL' ], '' );
 
 						return (
-							<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-1-${ lg }` }>
+							<div className={ generateColClasses( sm, md, lg ) }>
 								<div className="smb-items__item">
 									{ !! imageID &&
 										<div className="smb-items__item__figure">
