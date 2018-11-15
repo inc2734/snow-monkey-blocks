@@ -2,6 +2,10 @@
   &__canvas {
     visibility: hidden;
 
+    &.slick-slider {
+      margin-bottom: 0;
+    }
+
     &.slick-initialized {
       visibility: visible;
     }
@@ -16,6 +20,27 @@
         right: 10px;
         left: auto;
       }
+
+      .smb-slider__item__caption {
+        direction: ltr;
+      }
+    }
+  }
+
+  &__item {
+    &__figure {
+      > img {
+        width: 100%;
+      }
+    }
+
+    &__caption {
+      @include _margin-top(.5);
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      color: $_color-gray;
+      @include _font-size-line-height($_base-font-size-px - 2);
     }
   }
 
@@ -27,5 +52,12 @@
   .slick-prev {
     left: 10px;
     z-index: 1;
+  }
+
+  .slick-dots {
+    @include _margin-top(.5);
+    position: static;
+    bottom: auto;
+    line-height: 1;
   }
 }

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const { get, times } = lodash;
 const { registerBlockType } = wp.blocks;
-const { InspectorControls, MediaPlaceholder } = wp.editor;
+const { InspectorControls, MediaPlaceholder, RichText } = wp.editor;
 const { PanelBody, RangeControl, ToggleControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
@@ -79,6 +79,10 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 					selector: '.smb-slider__item__figure > img',
 					attribute: 'src',
 					default: '',
+				},
+				caption: {
+					source: 'html',
+					selector: '.smb-slider__item__caption',
 				},
 			},
 		},
@@ -165,6 +169,7 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 
 							const imageID = get( content, [ index, 'imageID' ], 0 );
 							const imageURL = get( content, [ index, 'imageURL' ], '' );
+							const caption = get( content, [ index, 'caption' ], '' );
 
 							const renderMedia = () => {
 								if ( ! imageURL ) {
@@ -206,6 +211,15 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 											<div className="smb-step__item__figure">
 												{ renderMedia() }
 											</div>
+
+											{ ( ! RichText.isEmpty( caption ) || isSelected ) &&
+												<RichText
+													className="smb-slider__item__caption"
+													placeholder={ __( 'Write caption...', 'snow-monkey-blocks' ) }
+													value={ caption }
+													onChange={ ( value ) => setAttributes( { content: generateUpdatedAttribute( content, index, 'caption', value ) } ) }
+												/>
+											}
 										</div>
 									}
 								</Fragment>
@@ -251,6 +265,7 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 					{ times( items, ( index ) => {
 						const imageID = get( content, [ index, 'imageID' ], 0 );
 						const imageURL = get( content, [ index, 'imageURL' ], '' );
+						const caption = get( content, [ index, 'caption' ], '' );
 
 						return (
 							<Fragment>
@@ -259,6 +274,12 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 										<div className="smb-slider__item__figure">
 											<img src={ imageURL } alt="" data-image-id={ imageID } />
 										</div>
+
+										{ ! RichText.isEmpty( caption ) &&
+											<div className="smb-slider__item__caption">
+												<RichText.Content value={ caption } />
+											</div>
+										}
 									</div>
 								}
 							</Fragment>
