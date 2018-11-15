@@ -307,7 +307,7 @@ registerBlockType( 'snow-monkey-blocks/panels', {
 						const imageURL = get( items, [ index, 'imageURL' ], '' );
 
 						const renderItem = ( itemContent ) => {
-							if ( !! imageURL ) {
+							if ( !! linkURL ) {
 								return (
 									<a
 										className="smb-panels__item"
