@@ -15,6 +15,10 @@ export default class smbList {
 			const iconHtml = `<span class="smb-list__icon" style="color: ${ iconColor }"><i class="fas fa-${ icon }"></i></span>`;
 
 			this._forEachHtmlNodes( items, ( item ) => {
+				this._forEachHtmlNodes( item.getElementsByClassName( 'smb-list__icon' ), ( _icon ) => {
+					item.removeChild( _icon );
+				} );
+
 				item.innerHTML = iconHtml + item.innerHTML;
 			} );
 		} );
