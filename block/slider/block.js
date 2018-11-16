@@ -176,9 +176,9 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 									return (
 										<MediaPlaceholder
 											icon="format-image"
-											labels={ { title: __( 'Image' ), instructions: ' ' } }
+											labels={ { title: __( 'Image' ) } }
 											onSelect={ ( media ) => {
-												const newImageURL = !! media.sizes.large ? media.sizes.large.url : media.url;
+												const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
 												let newContent = content;
 												newContent = generateUpdatedAttribute( newContent, index, 'imageURL', newImageURL );
 												newContent = generateUpdatedAttribute( newContent, index, 'imageID', media.id );

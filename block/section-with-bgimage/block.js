@@ -110,9 +110,9 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 				{ ! imageURL &&
 					<MediaPlaceholder
 						icon="format-image"
-						labels={ { title: __( 'Image' ), instructions: ' ' } }
+						labels={ { title: __( 'Image' ) } }
 						onSelect={ ( media ) => {
-							const newImageURL = !! media.sizes.large ? media.sizes.large.url : media.url;
+							const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
 							setAttributes( { imageURL: newImageURL, imageID: media.id } );
 						} }
 						accept="image/*"

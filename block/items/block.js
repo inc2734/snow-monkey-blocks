@@ -221,9 +221,9 @@ registerBlockType( 'snow-monkey-blocks/items', {
 									return (
 										<MediaPlaceholder
 											icon="format-image"
-											labels={ { title: __( 'Image' ), instructions: ' ' } }
+											labels={ { title: __( 'Image' ) } }
 											onSelect={ ( media ) => {
-												const newImageURL = !! media.sizes.large ? media.sizes.large.url : media.url;
+												const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
 												let newItems = items;
 												newItems = generateUpdatedAttribute( newItems, index, 'imageURL', newImageURL );
 												newItems = generateUpdatedAttribute( newItems, index, 'imageID', media.id );
