@@ -1,4 +1,45 @@
 .smb-section {
+  position: relative;
+  overflow: hidden;
+
+  &__divider {
+    position: absolute;
+    right: 0;
+    left: 0;
+    line-height: 1;
+    font-size: 0;
+
+    svg {
+      position: absolute;
+      right: 0;
+      left: 0;
+      height: auto;
+      width: 100%;
+      max-height: 25vh;
+    }
+
+    &--top {
+      top: 0;
+
+      svg {
+        top: 0;
+        transform: rotateZ(180deg);
+      }
+    }
+
+    &--bottom {
+      bottom: 0;
+
+      svg {
+        bottom: 0;
+      }
+    }
+  }
+
+  .#{$_prefix}c-container {
+    position: relative;
+  }
+
   [data-is-fluid-template="true"] & {
     &:not(.alignfull):not(.alignwide) {
       .#{$_prefix}c-container {
