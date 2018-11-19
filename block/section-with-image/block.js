@@ -8,6 +8,29 @@ const { PanelBody, SelectControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
+const _getColumnsSize = ( imageColumnSize ) => {
+	let textColumnWidth = '1-3';
+	let imageColumnWidth = '2-3';
+	if ( 66 === parseInt( imageColumnSize ) ) {
+		textColumnWidth = '1-3';
+		imageColumnWidth = '2-3';
+	} else if ( 50 === parseInt( imageColumnSize ) ) {
+		textColumnWidth = '1-2';
+		imageColumnWidth = '1-2';
+	} else if ( 33 === parseInt( imageColumnSize ) ) {
+		textColumnWidth = '2-3';
+		imageColumnWidth = '1-3';
+	} else if ( 25 === parseInt( imageColumnSize ) ) {
+		textColumnWidth = '3-4';
+		imageColumnWidth = '1-4';
+	}
+
+	return {
+		textColumnWidth: textColumnWidth,
+		imageColumnWidth: imageColumnWidth,
+	};
+};
+
 registerBlockType( 'snow-monkey-blocks/section-with-image', {
 	title: __( 'Section (with image)', 'snow-monkey-blocks' ),
 	icon: 'text',
@@ -37,7 +60,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-image', {
 			default: 'right',
 		},
 		imageColumnSize: {
-			type: 'number',
+			type: 'string',
 			default: 66,
 		},
 	},
@@ -48,21 +71,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-image', {
 	edit( { attributes, setAttributes, isSelected } ) {
 		const { title, backgroundColor, imageURL, imagePosition, imageColumnSize } = attributes;
 
-		let textColumnWidth = '1-3';
-		let imageColumnWidth = '2-3';
-		if ( 66 === parseInt( imageColumnSize ) ) {
-			textColumnWidth = '1-3';
-			imageColumnWidth = '2-3';
-		} else if ( 50 === parseInt( imageColumnSize ) ) {
-			textColumnWidth = '1-2';
-			imageColumnWidth = '1-2';
-		} else if ( 33 === parseInt( imageColumnSize ) ) {
-			textColumnWidth = '2-3';
-			imageColumnWidth = '1-3';
-		} else if ( 25 === parseInt( imageColumnSize ) ) {
-			textColumnWidth = '3-4';
-			imageColumnWidth = '1-4';
-		}
+		const { textColumnWidth, imageColumnWidth } = _getColumnsSize( imageColumnSize );
 
 		const renderMedia = () => {
 			if ( ! imageURL ) {
@@ -180,21 +189,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-image', {
 	save( { attributes } ) {
 		const { title, backgroundColor, imageURL, imagePosition, imageColumnSize } = attributes;
 
-		let textColumnWidth = '1-3';
-		let imageColumnWidth = '2-3';
-		if ( 66 === parseInt( imageColumnSize ) ) {
-			textColumnWidth = '1-3';
-			imageColumnWidth = '2-3';
-		} else if ( 50 === parseInt( imageColumnSize ) ) {
-			textColumnWidth = '1-2';
-			imageColumnWidth = '1-2';
-		} else if ( 33 === parseInt( imageColumnSize ) ) {
-			textColumnWidth = '2-3';
-			imageColumnWidth = '1-3';
-		} else if ( 25 === parseInt( imageColumnSize ) ) {
-			textColumnWidth = '3-4';
-			imageColumnWidth = '1-4';
-		}
+		const { textColumnWidth, imageColumnWidth } = _getColumnsSize( imageColumnSize );
 
 		return (
 			<div className="smb-section smb-section-with-image" style={ { backgroundColor: backgroundColor } }>
@@ -250,16 +245,16 @@ registerBlockType( 'snow-monkey-blocks/section-with-image', {
 					default: 'right',
 				},
 				imageColumnSize: {
-					type: 'number',
+					type: 'string',
 					default: 2,
 				},
 			},
 
 			migrate( { imageColumnSize } ) {
 				let newImageColumnSize = imageColumnSize;
-				if ( 1 === imageColumnSize ) {
+				if ( 1 === parseInt( imageColumnSize ) ) {
 					newImageColumnSize = 33;
-				} else if ( 2 === imageColumnSize ) {
+				} else if ( 2 === parseInt( imageColumnSize ) ) {
 					newImageColumnSize = 66;
 				}
 				return {
