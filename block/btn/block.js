@@ -32,11 +32,9 @@ registerBlockType( 'snow-monkey-blocks/btn', {
 		},
 		backgroundColor: {
 			type: 'string',
-			default: null,
 		},
 		textColor: {
 			type: 'string',
-			default: null,
 		},
 	},
 	supports: {

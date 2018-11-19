@@ -23,7 +23,6 @@ registerBlockType( 'snow-monkey-blocks/list', {
 		},
 		iconColor: {
 			type: 'string',
-			default: null,
 		},
 	},
 

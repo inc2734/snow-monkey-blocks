@@ -34,7 +34,6 @@ registerBlockType( 'snow-monkey-blocks/step', {
 					source: 'attribute',
 					selector: '.smb-step__item__number',
 					attribute: 'data-number-color',
-					default: null,
 				},
 				imagePosition: {
 					type: 'string',

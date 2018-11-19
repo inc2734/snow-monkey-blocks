@@ -13,15 +13,12 @@ registerBlockType( 'snow-monkey-blocks/box', {
 	attributes: {
 		backgroundColor: {
 			type: 'string',
-			default: null,
 		},
 		borderColor: {
 			type: 'string',
-			default: null,
 		},
 		textColor: {
 			type: 'string',
-			default: null,
 		},
 		borderWidth: {
 			type: 'number',

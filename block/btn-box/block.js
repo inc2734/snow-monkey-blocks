@@ -23,7 +23,6 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 		},
 		backgroundColor: {
 			type: 'string',
-			default: null,
 		},
 		btnLabel: {
 			source: 'html',
@@ -40,11 +39,9 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 		},
 		btnBackgroundColor: {
 			type: 'string',
-			default: null,
 		},
 		btnTextColor: {
 			type: 'string',
-			default: null,
 		},
 		btnSize: {
 			type: 'string',
@@ -217,7 +214,6 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 				},
 				backgroundColor: {
 					type: 'string',
-					default: null,
 				},
 				btnLabel: {
 					source: 'html',
@@ -234,11 +230,9 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 				},
 				btnBackgroundColor: {
 					type: 'string',
-					default: null,
 				},
 				btnTextColor: {
 					type: 'string',
-					default: null,
 				},
 			},
 

@@ -31,14 +31,12 @@ registerBlockType( 'snow-monkey-blocks/faq', {
 				},
 				questionColor: {
 					type: 'string',
-					default: null,
 					source: 'attribute',
 					selector: '.smb-faq__item__question__label',
 					attribute: 'data-color',
 				},
 				answerColor: {
 					type: 'string',
-					default: null,
 					source: 'attribute',
 					selector: '.smb-faq__item__answer__label',
 					attribute: 'data-color',

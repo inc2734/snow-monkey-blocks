@@ -35,7 +35,6 @@ registerBlockType( 'snow-monkey-blocks/rating-box', {
 					type: 'string',
 					source: 'attribute',
 					attribute: 'data-color',
-					default: null,
 				},
 			},
 		},

@@ -20,7 +20,6 @@ registerBlockType( 'snow-monkey-blocks/section', {
 		},
 		backgroundColor: {
 			type: 'string',
-			default: null,
 		},
 		contentsWidth: {
 			type: 'string',

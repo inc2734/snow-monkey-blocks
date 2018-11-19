@@ -42,7 +42,6 @@ registerBlockType( 'snow-monkey-blocks/section-with-image', {
 		},
 		backgroundColor: {
 			type: 'string',
-			default: null,
 		},
 		imageID: {
 			type: 'number',
@@ -227,7 +226,6 @@ registerBlockType( 'snow-monkey-blocks/section-with-image', {
 				},
 				backgroundColor: {
 					type: 'string',
-					default: null,
 				},
 				imageID: {
 					type: 'number',

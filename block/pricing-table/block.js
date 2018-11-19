@@ -60,14 +60,12 @@ registerBlockType( 'snow-monkey-blocks/pricing-table', {
 					source: 'attribute',
 					selector: '.smb-pricing-table__item__btn',
 					attribute: 'data-background-color',
-					default: null,
 				},
 				btnTextColor: {
 					type: 'string',
 					source: 'attribute',
 					selector: '.smb-pricing-table__item__btn',
 					attribute: 'data-color',
-					default: null,
 				},
 				imageID: {
 					type: 'number',

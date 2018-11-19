@@ -84,14 +84,12 @@ registerBlockType( 'snow-monkey-blocks/items', {
 					source: 'attribute',
 					selector: '.smb-items__item__btn',
 					attribute: 'data-background-color',
-					default: null,
 				},
 				btnTextColor: {
 					type: 'string',
 					source: 'attribute',
 					selector: '.smb-items__item__btn',
 					attribute: 'data-color',
-					default: null,
 				},
 				imageID: {
 					type: 'number',
@@ -454,14 +452,12 @@ registerBlockType( 'snow-monkey-blocks/items', {
 							source: 'attribute',
 							selector: '.smb-items__item__btn',
 							attribute: 'data-background-color',
-							default: null,
 						},
 						btnTextColor: {
 							type: 'string',
 							source: 'attribute',
 							selector: '.smb-items__item__btn',
 							attribute: 'data-color',
-							default: null,
 						},
 						imageID: {
 							type: 'number',
