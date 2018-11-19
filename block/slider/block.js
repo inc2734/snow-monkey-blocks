@@ -91,6 +91,9 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 			default: 2,
 		},
 	},
+	supports: {
+		align: [ 'wide', 'full' ],
+	},
 
 	edit( { attributes, setAttributes, isSelected } ) {
 		const { slidesToShow, slidesToScroll, dots, arrows, items, content, speed, autoplaySpeed, rtl } = attributes;
