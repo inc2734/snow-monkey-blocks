@@ -28,6 +28,7 @@ class Bootstrap {
 
 		new App\Setup\TextDomain();
 		new App\Setup\Assets();
+		new App\Setup\DynamicBlocks();
 
 		add_filter( 'block_categories', [ $this, '_block_categories' ] );
 		add_action( 'add_meta_boxes', [ $this, '_add_pr_meta_box' ] );

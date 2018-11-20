@@ -4,22 +4,22 @@ $generated_i18n_strings = array(
 	/* translators: Copyright (C) 2018 {package-name}
 This file is distributed under the same license as the {package-name} package. */
 
-	// Reference: snow-monkey-blocks.php:46 snow-monkey-blocks.php:52
+	// Reference: snow-monkey-blocks.php:47 snow-monkey-blocks.php:53
 	__( 'Snow Monkey Blocks', 'snow-monkey-blocks' ),
 
-	// Reference: snow-monkey-blocks.php:48
+	// Reference: snow-monkey-blocks.php:49
 	__( '[Common blocks]', 'snow-monkey-blocks' ),
 
-	// Reference: snow-monkey-blocks.php:54
+	// Reference: snow-monkey-blocks.php:55
 	__( '[Sections]', 'snow-monkey-blocks' ),
 
-	// Reference: snow-monkey-blocks.php:73
+	// Reference: snow-monkey-blocks.php:74
 	__( '[ PR ] Premium WordPress Theme Snow Monkey', 'snow-monkey-blocks' ),
 
-	// Reference: snow-monkey-blocks.php:90
+	// Reference: snow-monkey-blocks.php:91
 	__( 'Snow Monkey Blocks is optimized for the %1$sSnow Monkey%2$s theme, but it can also be used with other themes.', 'snow-monkey-blocks' ),
 
-	// Reference: snow-monkey-blocks.php:95
+	// Reference: snow-monkey-blocks.php:96
 	__( 'When used together with the %1$sSnow Monkey%2$s theme, it can be displayed with the most beautiful balance, and it is displayed on the edit screen with the same design as the front screen.', 'snow-monkey-blocks' ),
 
 	// Reference: block/alert/block.js:16
@@ -275,6 +275,24 @@ This file is distributed under the same license as the {package-name} package. *
 	// Reference: block/rating-box/block.js:80 block/section/block.js:121
 	// Reference: block/section/block.js:162
 	__( 'Color', 'snow-monkey-blocks' ),
+
+	// Reference: block/recent-posts/block.js:10
+	__( 'Recent posts', 'snow-monkey-blocks' ),
+
+	// Reference: block/recent-posts/block.js:20
+	__( 'Recent Posts Settings', 'snow-monkey-blocks' ),
+
+	// Reference: block/recent-posts/block.js:22
+	__( 'Number of posts', 'snow-monkey-blocks' ),
+
+	// Reference: block/recent-posts/block.js:30
+	__( 'Layout', 'snow-monkey-blocks' ),
+
+	// Reference: block/recent-posts/block.js:36
+	__( 'Rich media', 'snow-monkey-blocks' ),
+
+	// Reference: block/recent-posts/block.js:40
+	__( 'Simple', 'snow-monkey-blocks' ),
 
 	// Reference: block/section-with-bgimage/block.js:10
 	__( 'Section (with background image)', 'snow-monkey-blocks' ),

@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2018-11-20 10:06+0900\n"
-"PO-Revision-Date: 2018-11-20 10:07+0900\n"
+"POT-Creation-Date: 2018-11-20 14:17+0900\n"
+"PO-Revision-Date: 2018-11-20 14:18+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -23,23 +23,23 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-3: tests\n"
 "X-Poedit-SearchPathExcluded-4: languages\n"
 
-#: snow-monkey-blocks.php:46 snow-monkey-blocks.php:52
+#: snow-monkey-blocks.php:47 snow-monkey-blocks.php:53
 msgid "Snow Monkey Blocks"
 msgstr "Snow Monkey Blocks"
 
-#: snow-monkey-blocks.php:48
+#: snow-monkey-blocks.php:49
 msgid "[Common blocks]"
 msgstr "[共通ブロック]"
 
-#: snow-monkey-blocks.php:54
+#: snow-monkey-blocks.php:55
 msgid "[Sections]"
 msgstr "[セクション]"
 
-#: snow-monkey-blocks.php:73
+#: snow-monkey-blocks.php:74
 msgid "[ PR ] Premium WordPress Theme Snow Monkey"
 msgstr "【PR】プレミアム WordPress テーマ Snow Monkey"
 
-#: snow-monkey-blocks.php:90
+#: snow-monkey-blocks.php:91
 #, php-format
 msgid ""
 "Snow Monkey Blocks is optimized for the %1$sSnow Monkey%2$s theme, but it "
@@ -48,7 +48,7 @@ msgstr ""
 "Snow Monkey Blocksは %1$sSnow Monkey%2$s テーマに最適化されていますが、他の"
 "テーマでも使用できます。"
 
-#: snow-monkey-blocks.php:95
+#: snow-monkey-blocks.php:96
 #, php-format
 msgid ""
 "When used together with the %1$sSnow Monkey%2$s theme, it can be displayed "
@@ -390,6 +390,30 @@ msgstr "レーティング"
 #: block/section/block.js:162
 msgid "Color"
 msgstr "色"
+
+#: block/recent-posts/block.js:10
+msgid "Recent posts"
+msgstr "最近の投稿"
+
+#: block/recent-posts/block.js:20
+msgid "Recent Posts Settings"
+msgstr "最近の投稿の設定"
+
+#: block/recent-posts/block.js:22
+msgid "Number of posts"
+msgstr "表示する投稿数"
+
+#: block/recent-posts/block.js:30
+msgid "Layout"
+msgstr "レイアウト"
+
+#: block/recent-posts/block.js:36
+msgid "Rich media"
+msgstr "リッチメディア"
+
+#: block/recent-posts/block.js:40
+msgid "Simple"
+msgstr "シンプル"
 
 #: block/section-with-bgimage/block.js:10
 msgid "Section (with background image)"

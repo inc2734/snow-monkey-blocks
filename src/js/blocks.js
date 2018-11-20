@@ -17,5 +17,6 @@ import '../../block/list/block.js';
 import '../../block/items/block.js';
 import '../../block/slider/block.js';
 import '../../block/panels/block.js';
+import '../../block/recent-posts/block.js';
 
 import './_highlighter.js';
