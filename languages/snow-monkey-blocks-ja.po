@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2018-11-20 14:17+0900\n"
-"PO-Revision-Date: 2018-11-20 14:18+0900\n"
+"POT-Creation-Date: 2018-11-20 15:22+0900\n"
+"PO-Revision-Date: 2018-11-20 15:22+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -22,6 +22,10 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-2: dist\n"
 "X-Poedit-SearchPathExcluded-3: tests\n"
 "X-Poedit-SearchPathExcluded-4: languages\n"
+
+#: block/pickup-slider/block.php:86
+msgid "READ MORE"
+msgstr "READ MORE"
 
 #: snow-monkey-blocks.php:47 snow-monkey-blocks.php:53
 msgid "Snow Monkey Blocks"
@@ -360,6 +364,34 @@ msgstr "(%d) リンク設定"
 #: block/panels/block.js:260
 msgid "Link"
 msgstr "リンク"
+
+#: block/pickup-slider/block.js:10 block/pickup-slider/block.js:48
+msgid "Pickup slider"
+msgstr "ピックアップスライダー"
+
+#: block/pickup-slider/block.js:20
+msgid "Pickup Slider Settings"
+msgstr "ピックアップスライダー設定"
+
+#: block/pickup-slider/block.js:22
+msgid "Display in random order"
+msgstr "ランダムな順序で表示"
+
+#: block/pickup-slider/block.js:28
+msgid "Link type"
+msgstr "リンクの種類"
+
+#: block/pickup-slider/block.js:34
+msgid "Button link"
+msgstr "ボタンリンク"
+
+#: block/pickup-slider/block.js:38
+msgid "Overall link"
+msgstr "全体リンク"
+
+#: block/pickup-slider/block.js:51
+msgid "Posts with \"pickup\" tag are displayed as sliders."
+msgstr "「pickup」タグが付与された記事をスライダーとして表示します。"
 
 #: block/pricing-table/block.js:14
 msgid "Pricing table"

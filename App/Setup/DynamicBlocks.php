@@ -16,6 +16,7 @@ class DynamicBlocks {
 		}
 
 		add_action( 'init', [ $this, '_recent_posts_block' ] );
+		add_action( 'init', [ $this, '_pickup_slider_block' ] );
 	}
 
 	/**
@@ -39,6 +40,32 @@ class DynamicBlocks {
 				],
 				'render_callback' => function( $attributes ) {
 					return $this->_render( 'recent-posts', $attributes );
+				},
+			]
+		);
+	}
+
+	/**
+	 * Recent posts block
+	 *
+	 * @return void
+	 */
+	public function _pickup_slider_block() {
+		register_block_type(
+			'snow-monkey-blocks/pickup-slider',
+			[
+				'attributes' => [
+					'random' => [
+						'type'    => 'boolean',
+						'default' => false,
+					],
+					'linkType' => [
+						'type'    => 'string',
+						'default' => 'button',
+					],
+				],
+				'render_callback' => function( $attributes ) {
+					return $this->_render( 'pickup-slider', $attributes );
 				},
 			]
 		);

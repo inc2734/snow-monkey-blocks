@@ -4,6 +4,9 @@ $generated_i18n_strings = array(
 	/* translators: Copyright (C) 2018 {package-name}
 This file is distributed under the same license as the {package-name} package. */
 
+	// Reference: block/pickup-slider/block.php:86
+	__( 'READ MORE', 'snow-monkey-blocks' ),
+
 	// Reference: snow-monkey-blocks.php:47 snow-monkey-blocks.php:53
 	__( 'Snow Monkey Blocks', 'snow-monkey-blocks' ),
 
@@ -253,6 +256,27 @@ This file is distributed under the same license as the {package-name} package. *
 
 	// Reference: block/panels/block.js:260
 	__( 'Link', 'snow-monkey-blocks' ),
+
+	// Reference: block/pickup-slider/block.js:10 block/pickup-slider/block.js:48
+	__( 'Pickup slider', 'snow-monkey-blocks' ),
+
+	// Reference: block/pickup-slider/block.js:20
+	__( 'Pickup Slider Settings', 'snow-monkey-blocks' ),
+
+	// Reference: block/pickup-slider/block.js:22
+	__( 'Display in random order', 'snow-monkey-blocks' ),
+
+	// Reference: block/pickup-slider/block.js:28
+	__( 'Link type', 'snow-monkey-blocks' ),
+
+	// Reference: block/pickup-slider/block.js:34
+	__( 'Button link', 'snow-monkey-blocks' ),
+
+	// Reference: block/pickup-slider/block.js:38
+	__( 'Overall link', 'snow-monkey-blocks' ),
+
+	// Reference: block/pickup-slider/block.js:51
+	__( 'Posts with "pickup" tag are displayed as sliders.', 'snow-monkey-blocks' ),
 
 	// Reference: block/pricing-table/block.js:14
 	__( 'Pricing table', 'snow-monkey-blocks' ),
