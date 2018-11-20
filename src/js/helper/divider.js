@@ -33,6 +33,16 @@ export default function divider( type, level, color ) {
 		);
 	};
 
+	const renderTriangleDivider = () => {
+		return (
+			<path
+				d={ `m${ ( 100 - level ) / 2 },100 l${ level },0 l${ -1 * level / 2 },${ -1 * level / 2 } z` }
+				strokeWidth="0"
+				fill={ color }
+			/>
+		);
+	};
+
 	const renderPath = () => {
 		switch ( type ) {
 			case 'tilt':
@@ -41,6 +51,8 @@ export default function divider( type, level, color ) {
 				return renderCurveDivider();
 			case 'wave':
 				return renderWaveDivider();
+			case 'triangle':
+				return renderTriangleDivider();
 		}
 	};
 

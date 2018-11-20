@@ -28,23 +28,23 @@ This file is distributed under the same license as the {package-name} package. *
 	// Reference: block/alert/block.js:44
 	__( 'exclamation-circle', 'snow-monkey-blocks' ),
 
-	// Reference: block/alert/block.js:48 block/list/block.js:52
+	// Reference: block/alert/block.js:48 block/list/block.js:51
 	__( 'check', 'snow-monkey-blocks' ),
 
-	// Reference: block/alert/block.js:52 block/list/block.js:56
+	// Reference: block/alert/block.js:52 block/list/block.js:55
 	__( 'check-circle', 'snow-monkey-blocks' ),
 
-	// Reference: block/alert/block.js:56 block/list/block.js:60
+	// Reference: block/alert/block.js:56 block/list/block.js:59
 	__( 'check-square', 'snow-monkey-blocks' ),
 
-	// Reference: block/alert/block.js:60 block/list/block.js:68
+	// Reference: block/alert/block.js:60 block/list/block.js:67
 	__( 'hand-point-right', 'snow-monkey-blocks' ),
 
 	// Reference: block/alert/block.js:79
 	__( 'Alert Settings', 'snow-monkey-blocks' ),
 
-	// Reference: block/alert/block.js:81 block/balloon/block.js:57 block/btn/block.js:76
-	// Reference: block/section/block.js:91 block/section/block.js:128
+	// Reference: block/alert/block.js:81 block/balloon/block.js:57 block/btn/block.js:74
+	// Reference: block/section/block.js:90 block/section/block.js:131
 	__( 'Type', 'snow-monkey-blocks' ),
 
 	// Reference: block/alert/block.js:87
@@ -56,14 +56,14 @@ This file is distributed under the same license as the {package-name} package. *
 	// Reference: block/alert/block.js:95
 	__( 'Success alert', 'snow-monkey-blocks' ),
 
-	// Reference: block/alert/block.js:100 block/list/block.js:76
+	// Reference: block/alert/block.js:100 block/list/block.js:75
 	__( 'Icon', 'snow-monkey-blocks' ),
 
-	// Reference: block/alert/block.js:128 block/items/block.js:263 block/panels/block.js:240
-	// Reference: block/pricing-table/block.js:220 block/rating-box/block.js:103
+	// Reference: block/alert/block.js:128 block/items/block.js:261 block/panels/block.js:240
+	// Reference: block/pricing-table/block.js:218 block/rating-box/block.js:102
 	// Reference: block/section-with-bgimage/block.js:145
-	// Reference: block/section-with-image/block.js:160 block/section/block.js:185
-	// Reference: block/step/block.js:219
+	// Reference: block/section-with-image/block.js:168 block/section/block.js:192
+	// Reference: block/step/block.js:218
 	__( 'Write title...', 'snow-monkey-blocks' ),
 
 	// Reference: block/balloon/block.js:12
@@ -84,134 +84,134 @@ This file is distributed under the same license as the {package-name} package. *
 	// Reference: block/box/block.js:10
 	__( 'Box', 'snow-monkey-blocks' ),
 
-	// Reference: block/box/block.js:38
+	// Reference: block/box/block.js:35
 	__( 'Box Settings', 'snow-monkey-blocks' ),
 
-	// Reference: block/box/block.js:39 block/btn-box/block.js:65 block/btn-box/block.js:99
-	// Reference: block/btn/block.js:91 block/items/block.js:187
-	// Reference: block/pricing-table/block.js:143 block/section-with-image/block.js:140
-	// Reference: block/section/block.js:81
+	// Reference: block/box/block.js:36 block/btn-box/block.js:62 block/btn-box/block.js:96
+	// Reference: block/btn/block.js:89 block/items/block.js:185
+	// Reference: block/pricing-table/block.js:141 block/section-with-image/block.js:148
+	// Reference: block/section/block.js:80
 	__( 'Background Color', 'snow-monkey-blocks' ),
 
-	// Reference: block/box/block.js:46
+	// Reference: block/box/block.js:43
 	__( 'Border Color', 'snow-monkey-blocks' ),
 
-	// Reference: block/box/block.js:53 block/btn-box/block.js:106 block/btn/block.js:98
-	// Reference: block/items/block.js:194 block/pricing-table/block.js:150
+	// Reference: block/box/block.js:50 block/btn-box/block.js:103 block/btn/block.js:96
+	// Reference: block/items/block.js:192 block/pricing-table/block.js:148
 	__( 'Text Color', 'snow-monkey-blocks' ),
 
-	// Reference: block/box/block.js:61
+	// Reference: block/box/block.js:58
 	__( 'Border width', 'snow-monkey-blocks' ),
 
 	// Reference: block/btn-box/block.js:12
 	__( 'Button box', 'snow-monkey-blocks' ),
 
-	// Reference: block/btn-box/block.js:31 block/btn-box/block.js:151
-	// Reference: block/btn-box/block.js:225 block/btn/block.js:12 block/btn/block.js:19
-	// Reference: block/btn/block.js:115 block/items/block.js:299
-	// Reference: block/pricing-table/block.js:266
+	// Reference: block/btn-box/block.js:30 block/btn-box/block.js:148
+	// Reference: block/btn-box/block.js:221 block/btn/block.js:12 block/btn/block.js:19
+	// Reference: block/btn/block.js:113 block/items/block.js:297
+	// Reference: block/pricing-table/block.js:264
 	__( 'Button', 'snow-monkey-blocks' ),
 
-	// Reference: block/btn-box/block.js:64
+	// Reference: block/btn-box/block.js:61
 	__( 'Button box Settings', 'snow-monkey-blocks' ),
 
-	// Reference: block/btn-box/block.js:74 block/btn/block.js:52
+	// Reference: block/btn-box/block.js:71 block/btn/block.js:50
 	__( 'Button Settings', 'snow-monkey-blocks' ),
 
-	// Reference: block/btn-box/block.js:78 block/btn/block.js:54 block/items/block.js:166
-	// Reference: block/panels/block.js:154 block/pricing-table/block.js:122
+	// Reference: block/btn-box/block.js:75 block/btn/block.js:52 block/items/block.js:164
+	// Reference: block/panels/block.js:154 block/pricing-table/block.js:120
 	__( 'URL', 'snow-monkey-blocks' ),
 
-	// Reference: block/btn-box/block.js:84 block/btn/block.js:60 block/items/block.js:172
-	// Reference: block/panels/block.js:160 block/pricing-table/block.js:128
+	// Reference: block/btn-box/block.js:81 block/btn/block.js:58 block/items/block.js:170
+	// Reference: block/panels/block.js:160 block/pricing-table/block.js:126
 	__( 'Target', 'snow-monkey-blocks' ),
 
-	// Reference: block/btn-box/block.js:90 block/btn/block.js:66 block/items/block.js:177
-	// Reference: block/panels/block.js:165 block/pricing-table/block.js:133
-	// Reference: block/step/block.js:151
+	// Reference: block/btn-box/block.js:87 block/btn/block.js:64 block/items/block.js:175
+	// Reference: block/panels/block.js:165 block/pricing-table/block.js:131
+	// Reference: block/step/block.js:150
 	__( '_self', 'snow-monkey-blocks' ),
 
-	// Reference: block/btn-box/block.js:94 block/btn/block.js:70 block/items/block.js:181
-	// Reference: block/panels/block.js:169 block/pricing-table/block.js:137
-	// Reference: block/step/block.js:155
+	// Reference: block/btn-box/block.js:91 block/btn/block.js:68 block/items/block.js:179
+	// Reference: block/panels/block.js:169 block/pricing-table/block.js:135
+	// Reference: block/step/block.js:154
 	__( '_blank', 'snow-monkey-blocks' ),
 
-	// Reference: block/btn-box/block.js:114
+	// Reference: block/btn-box/block.js:111
 	__( 'Button size', 'snow-monkey-blocks' ),
 
-	// Reference: block/btn-box/block.js:120 block/btn/block.js:82
+	// Reference: block/btn-box/block.js:117 block/btn/block.js:80
 	__( 'Normal button', 'snow-monkey-blocks' ),
 
-	// Reference: block/btn-box/block.js:124 block/btn/block.js:86
+	// Reference: block/btn-box/block.js:121 block/btn/block.js:84
 	__( 'Full button', 'snow-monkey-blocks' ),
 
-	// Reference: block/btn-box/block.js:139 block/items/block.js:271
-	// Reference: block/pricing-table/block.js:239 block/testimonial/block.js:130
+	// Reference: block/btn-box/block.js:136 block/items/block.js:269
+	// Reference: block/pricing-table/block.js:237 block/testimonial/block.js:130
 	__( 'Write lede...', 'snow-monkey-blocks' ),
 
-	// Reference: block/btn-box/block.js:165
+	// Reference: block/btn-box/block.js:162
 	__( 'Write note...', 'snow-monkey-blocks' ),
 
 	// Reference: block/faq/block.js:14
 	__( 'FAQ', 'snow-monkey-blocks' ),
 
-	// Reference: block/faq/block.js:60
+	// Reference: block/faq/block.js:58
 	__( 'FAQ Settings', 'snow-monkey-blocks' ),
 
-	// Reference: block/faq/block.js:62 block/rating-box/block.js:56 block/step/block.js:93
+	// Reference: block/faq/block.js:60 block/rating-box/block.js:55 block/step/block.js:92
 	__( 'Rows', 'snow-monkey-blocks' ),
 
-	// Reference: block/faq/block.js:76
+	// Reference: block/faq/block.js:74
 	__( '(%d) Item Settings', 'snow-monkey-blocks' ),
 
-	// Reference: block/faq/block.js:79
+	// Reference: block/faq/block.js:77
 	__( 'Question Color', 'snow-monkey-blocks' ),
 
-	// Reference: block/faq/block.js:86
+	// Reference: block/faq/block.js:84
 	__( 'Answer Color', 'snow-monkey-blocks' ),
 
-	// Reference: block/faq/block.js:113
+	// Reference: block/faq/block.js:111
 	__( 'Write question...', 'snow-monkey-blocks' ),
 
-	// Reference: block/faq/block.js:127
+	// Reference: block/faq/block.js:125
 	__( 'Write answer...', 'snow-monkey-blocks' ),
 
 	// Reference: block/items/block.js:26
 	__( 'Items', 'snow-monkey-blocks' ),
 
-	// Reference: block/items/block.js:120 block/panels/block.js:104
-	// Reference: block/pricing-table/block.js:100
+	// Reference: block/items/block.js:118 block/panels/block.js:104
+	// Reference: block/pricing-table/block.js:98
 	__( 'Columns Settings', 'snow-monkey-blocks' ),
 
-	// Reference: block/items/block.js:122 block/panels/block.js:106
-	// Reference: block/pricing-table/block.js:102 block/testimonial/block.js:66
+	// Reference: block/items/block.js:120 block/panels/block.js:106
+	// Reference: block/pricing-table/block.js:100 block/testimonial/block.js:66
 	__( 'Columns', 'snow-monkey-blocks' ),
 
-	// Reference: block/items/block.js:130 block/panels/block.js:114
+	// Reference: block/items/block.js:128 block/panels/block.js:114
 	__( 'Columns per row (large window)', 'snow-monkey-blocks' ),
 
-	// Reference: block/items/block.js:138 block/panels/block.js:122
+	// Reference: block/items/block.js:136 block/panels/block.js:122
 	__( 'Columns per row (Medium window)', 'snow-monkey-blocks' ),
 
-	// Reference: block/items/block.js:146 block/panels/block.js:130
+	// Reference: block/items/block.js:144 block/panels/block.js:130
 	__( 'Columns per row (Small window)', 'snow-monkey-blocks' ),
 
-	// Reference: block/items/block.js:162 block/pricing-table/block.js:118
+	// Reference: block/items/block.js:160 block/pricing-table/block.js:116
 	__( '(%d) Button Settings', 'snow-monkey-blocks' ),
 
-	// Reference: block/items/block.js:224 block/panels/block.js:195
-	// Reference: block/pricing-table/block.js:181 block/section-with-bgimage/block.js:113
-	// Reference: block/section-with-image/block.js:72 block/slider/block.js:179
-	// Reference: block/step/block.js:183
+	// Reference: block/items/block.js:222 block/panels/block.js:195
+	// Reference: block/pricing-table/block.js:179 block/section-with-bgimage/block.js:113
+	// Reference: block/section-with-image/block.js:80 block/slider/block.js:182
+	// Reference: block/step/block.js:182
 	__( 'Image', 'snow-monkey-blocks' ),
 
-	// Reference: block/items/block.js:247 block/panels/block.js:218
-	// Reference: block/pricing-table/block.js:204 block/section-with-bgimage/block.js:129
-	// Reference: block/section-with-image/block.js:91 block/slider/block.js:202
-	// Reference: block/step/block.js:206
+	// Reference: block/items/block.js:245 block/panels/block.js:218
+	// Reference: block/pricing-table/block.js:202 block/section-with-bgimage/block.js:129
+	// Reference: block/section-with-image/block.js:99 block/slider/block.js:205
+	// Reference: block/step/block.js:205
 	__( 'Remove', 'snow-monkey-blocks' ),
 
-	// Reference: block/items/block.js:280 block/panels/block.js:249 block/step/block.js:237
+	// Reference: block/items/block.js:278 block/panels/block.js:249 block/step/block.js:236
 	// Reference: block/testimonial/block.js:114
 	__( 'Write content...', 'snow-monkey-blocks' ),
 
@@ -221,25 +221,25 @@ This file is distributed under the same license as the {package-name} package. *
 	// Reference: block/list/block.js:12
 	__( 'Icons are displayed only on the actual screen.', 'snow-monkey-blocks' ),
 
-	// Reference: block/list/block.js:36
+	// Reference: block/list/block.js:35
 	__( 'angle-right', 'snow-monkey-blocks' ),
 
-	// Reference: block/list/block.js:40
+	// Reference: block/list/block.js:39
 	__( 'angle-double-right', 'snow-monkey-blocks' ),
 
-	// Reference: block/list/block.js:44
+	// Reference: block/list/block.js:43
 	__( 'arrow-alt-circle-right', 'snow-monkey-blocks' ),
 
-	// Reference: block/list/block.js:48
+	// Reference: block/list/block.js:47
 	__( 'arrow-right', 'snow-monkey-blocks' ),
 
-	// Reference: block/list/block.js:64
+	// Reference: block/list/block.js:63
 	__( 'chevron-circle-right', 'snow-monkey-blocks' ),
 
-	// Reference: block/list/block.js:75
+	// Reference: block/list/block.js:74
 	__( 'List Settings', 'snow-monkey-blocks' ),
 
-	// Reference: block/list/block.js:94
+	// Reference: block/list/block.js:93
 	__( 'Icon Color', 'snow-monkey-blocks' ),
 
 	// Reference: block/panels/block.js:26
@@ -257,30 +257,30 @@ This file is distributed under the same license as the {package-name} package. *
 	// Reference: block/pricing-table/block.js:14
 	__( 'Pricing table', 'snow-monkey-blocks' ),
 
-	// Reference: block/pricing-table/block.js:229
+	// Reference: block/pricing-table/block.js:227
 	__( 'Write price...', 'snow-monkey-blocks' ),
 
 	// Reference: block/rating-box/block.js:14
 	__( 'Rating box', 'snow-monkey-blocks' ),
 
-	// Reference: block/rating-box/block.js:54
+	// Reference: block/rating-box/block.js:53
 	__( 'Rating box Settings', 'snow-monkey-blocks' ),
 
-	// Reference: block/rating-box/block.js:70
+	// Reference: block/rating-box/block.js:69
 	__( '(%d) Rating Settings', 'snow-monkey-blocks' ),
 
-	// Reference: block/rating-box/block.js:74
+	// Reference: block/rating-box/block.js:73
 	__( 'Rating', 'snow-monkey-blocks' ),
 
-	// Reference: block/rating-box/block.js:81 block/section/block.js:118
-	// Reference: block/section/block.js:155
+	// Reference: block/rating-box/block.js:80 block/section/block.js:121
+	// Reference: block/section/block.js:162
 	__( 'Color', 'snow-monkey-blocks' ),
 
 	// Reference: block/section-with-bgimage/block.js:10
 	__( 'Section (with background image)', 'snow-monkey-blocks' ),
 
-	// Reference: block/section-with-bgimage/block.js:56 block/section-with-image/block.js:99
-	// Reference: block/section/block.js:64
+	// Reference: block/section-with-bgimage/block.js:56 block/section-with-image/block.js:107
+	// Reference: block/section/block.js:63
 	__( 'Section Settings', 'snow-monkey-blocks' ),
 
 	// Reference: block/section-with-bgimage/block.js:58
@@ -295,15 +295,15 @@ This file is distributed under the same license as the {package-name} package. *
 	// Reference: block/section-with-bgimage/block.js:74
 	__( 'Contents alignment', 'snow-monkey-blocks' ),
 
-	// Reference: block/section-with-bgimage/block.js:79 block/section-with-image/block.js:110
-	// Reference: block/step/block.js:118
+	// Reference: block/section-with-bgimage/block.js:79 block/section-with-image/block.js:118
+	// Reference: block/step/block.js:117
 	__( 'Left side', 'snow-monkey-blocks' ),
 
-	// Reference: block/section-with-bgimage/block.js:83 block/step/block.js:122
+	// Reference: block/section-with-bgimage/block.js:83 block/step/block.js:121
 	__( 'Center', 'snow-monkey-blocks' ),
 
-	// Reference: block/section-with-bgimage/block.js:87 block/section-with-image/block.js:106
-	// Reference: block/step/block.js:126
+	// Reference: block/section-with-bgimage/block.js:87 block/section-with-image/block.js:114
+	// Reference: block/step/block.js:125
 	__( 'Right side', 'snow-monkey-blocks' ),
 
 	// Reference: block/section-with-bgimage/block.js:93
@@ -312,109 +312,112 @@ This file is distributed under the same license as the {package-name} package. *
 	// Reference: block/section-with-bgimage/block.js:101
 	__( 'Mask Opacity', 'snow-monkey-blocks' ),
 
-	// Reference: block/section-with-image/block.js:12
+	// Reference: block/section-with-image/block.js:35
 	__( 'Section (with image)', 'snow-monkey-blocks' ),
 
-	// Reference: block/section-with-image/block.js:101 block/step/block.js:113
+	// Reference: block/section-with-image/block.js:109 block/step/block.js:112
 	__( 'Image Position', 'snow-monkey-blocks' ),
 
-	// Reference: block/section-with-image/block.js:117
+	// Reference: block/section-with-image/block.js:125
 	__( 'Image Column Size', 'snow-monkey-blocks' ),
 
-	// Reference: block/section-with-image/block.js:122
+	// Reference: block/section-with-image/block.js:130
 	__( '66%', 'snow-monkey-blocks' ),
 
-	// Reference: block/section-with-image/block.js:126
+	// Reference: block/section-with-image/block.js:134
 	__( '50%', 'snow-monkey-blocks' ),
 
-	// Reference: block/section-with-image/block.js:130
+	// Reference: block/section-with-image/block.js:138
 	__( '33%', 'snow-monkey-blocks' ),
 
-	// Reference: block/section-with-image/block.js:134
+	// Reference: block/section-with-image/block.js:142
 	__( '25%', 'snow-monkey-blocks' ),
 
 	// Reference: block/section/block.js:13
 	__( 'Section', 'snow-monkey-blocks' ),
 
-	// Reference: block/section/block.js:66
+	// Reference: block/section/block.js:65
 	__( 'Contents Width', 'snow-monkey-blocks' ),
 
-	// Reference: block/section/block.js:72
+	// Reference: block/section/block.js:71
 	__( 'Normal', 'snow-monkey-blocks' ),
 
-	// Reference: block/section/block.js:76
+	// Reference: block/section/block.js:75
 	__( 'Slim', 'snow-monkey-blocks' ),
 
-	// Reference: block/section/block.js:89
+	// Reference: block/section/block.js:88
 	__( 'Top divider Settings', 'snow-monkey-blocks' ),
 
-	// Reference: block/section/block.js:97 block/section/block.js:134
+	// Reference: block/section/block.js:96 block/section/block.js:137
 	__( 'Tilt', 'snow-monkey-blocks' ),
 
-	// Reference: block/section/block.js:101 block/section/block.js:138
+	// Reference: block/section/block.js:100 block/section/block.js:141
 	__( 'Curve', 'snow-monkey-blocks' ),
 
-	// Reference: block/section/block.js:105 block/section/block.js:142
+	// Reference: block/section/block.js:104 block/section/block.js:145
 	__( 'Wave', 'snow-monkey-blocks' ),
 
-	// Reference: block/section/block.js:111 block/section/block.js:148
+	// Reference: block/section/block.js:108 block/section/block.js:149
+	__( 'Triangle', 'snow-monkey-blocks' ),
+
+	// Reference: block/section/block.js:114 block/section/block.js:155
 	__( 'Level', 'snow-monkey-blocks' ),
 
-	// Reference: block/section/block.js:126
+	// Reference: block/section/block.js:129
 	__( 'Bottom divider Settings', 'snow-monkey-blocks' ),
 
 	// Reference: block/slider/block.js:27
 	__( 'Slider', 'snow-monkey-blocks' ),
 
-	// Reference: block/slider/block.js:101
+	// Reference: block/slider/block.js:104
 	__( 'Slider Settings', 'snow-monkey-blocks' ),
 
-	// Reference: block/slider/block.js:103
+	// Reference: block/slider/block.js:106
 	__( 'Number of items', 'snow-monkey-blocks' ),
 
-	// Reference: block/slider/block.js:110
+	// Reference: block/slider/block.js:113
 	__( '# of slides to show', 'snow-monkey-blocks' ),
 
-	// Reference: block/slider/block.js:117
+	// Reference: block/slider/block.js:120
 	__( '# of slides to scroll', 'snow-monkey-blocks' ),
 
-	// Reference: block/slider/block.js:124
+	// Reference: block/slider/block.js:127
 	__( 'Show dot indicators', 'snow-monkey-blocks' ),
 
-	// Reference: block/slider/block.js:129
+	// Reference: block/slider/block.js:132
 	__( 'Prev/Next Arrows', 'snow-monkey-blocks' ),
 
-	// Reference: block/slider/block.js:134
+	// Reference: block/slider/block.js:137
 	__( 'Slide animation speed in milliseconds', 'snow-monkey-blocks' ),
 
-	// Reference: block/slider/block.js:142
+	// Reference: block/slider/block.js:145
 	__( 'Autoplay Speed in seconds', 'snow-monkey-blocks' ),
 
-	// Reference: block/slider/block.js:156
+	// Reference: block/slider/block.js:159
 	__( 'Change the slider\'s direction to become right-to-left', 'snow-monkey-blocks' ),
 
-	// Reference: block/slider/block.js:218
+	// Reference: block/slider/block.js:221
 	__( 'Write caption...', 'snow-monkey-blocks' ),
 
 	// Reference: block/step/block.js:14
 	__( 'Step', 'snow-monkey-blocks' ),
 
-	// Reference: block/step/block.js:91
+	// Reference: block/step/block.js:90
 	__( 'Step Settings', 'snow-monkey-blocks' ),
 
-	// Reference: block/step/block.js:109
+	// Reference: block/step/block.js:108
 	__( 'STEP.%d Settings', 'snow-monkey-blocks' ),
 
-	// Reference: block/step/block.js:132
+	// Reference: block/step/block.js:131
 	__( 'Number Color', 'snow-monkey-blocks' ),
 
-	// Reference: block/step/block.js:140
+	// Reference: block/step/block.js:139
 	__( 'Link URL', 'snow-monkey-blocks' ),
 
-	// Reference: block/step/block.js:146
+	// Reference: block/step/block.js:145
 	__( 'Link Target', 'snow-monkey-blocks' ),
 
-	// Reference: block/step/block.js:248
+	// Reference: block/step/block.js:247
 	__( 'Link text', 'snow-monkey-blocks' ),
 
 	// Reference: block/testimonial/block.js:14

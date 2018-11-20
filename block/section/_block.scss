@@ -19,7 +19,7 @@
     }
 
     &--top {
-      top: 0;
+      top: -1px;
 
       svg {
         top: 0;
@@ -28,10 +28,19 @@
     }
 
     &--bottom {
-      bottom: 0;
+      bottom: -1px;
 
       svg {
         bottom: 0;
+      }
+    }
+
+    &--triangle {
+      svg {
+        margin: 0 auto;
+        max-width: 300px;
+        max-height: 300px;
+        height: auto;
       }
     }
   }
