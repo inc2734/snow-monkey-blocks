@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 4.9
 Tested up to: 4.9
-Stable tag: 1.7.0
+Stable tag: 1.7.1
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -37,6 +37,7 @@ https://www.youtube.com/watch?v=uD6omb4TLdA&t=283s
 * Items
 * Slider
 * Panels
+* Media text
 * Recent posts (Can be used only with Snow Monkey)
 * Pickup slider (Can be used only with Snow Monkey)
 
@@ -83,8 +84,12 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 12. Items block (The number of items can be increased or decreased freely)
 13. Slider block (The number of images can be increased or decreased freely)
 14. Panel block (The number of items can be increased or decreased freely)
+15. Media text block
 
 == Changelog ==
+
+= 1.7.1 =
+* Add the media text block.
 
 = 1.7.0 =
 * Add the recent posts block.
