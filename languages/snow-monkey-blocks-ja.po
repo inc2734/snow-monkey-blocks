@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2018-11-20 15:22+0900\n"
-"PO-Revision-Date: 2018-11-20 15:22+0900\n"
+"POT-Creation-Date: 2018-11-20 22:27+0900\n"
+"PO-Revision-Date: 2018-11-20 22:28+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -111,7 +111,8 @@ msgstr "サクセスアラート"
 msgid "Icon"
 msgstr "アイコン"
 
-#: block/alert/block.js:128 block/items/block.js:261 block/panels/block.js:240
+#: block/alert/block.js:128 block/items/block.js:261
+#: block/media-text/block.js:154 block/panels/block.js:240
 #: block/pricing-table/block.js:218 block/rating-box/block.js:102
 #: block/section-with-bgimage/block.js:145
 #: block/section-with-image/block.js:168 block/section/block.js:192
@@ -293,17 +294,17 @@ msgstr "行あたりのカラム数（スモールウインドウ）"
 msgid "(%d) Button Settings"
 msgstr "(%d) ボタン設定"
 
-#: block/items/block.js:222 block/panels/block.js:195
-#: block/pricing-table/block.js:179 block/section-with-bgimage/block.js:113
-#: block/section-with-image/block.js:80 block/slider/block.js:182
-#: block/step/block.js:182
+#: block/items/block.js:222 block/media-text/block.js:74
+#: block/panels/block.js:195 block/pricing-table/block.js:179
+#: block/section-with-bgimage/block.js:113 block/section-with-image/block.js:80
+#: block/slider/block.js:182 block/step/block.js:182
 msgid "Image"
 msgstr "画像"
 
-#: block/items/block.js:245 block/panels/block.js:218
-#: block/pricing-table/block.js:202 block/section-with-bgimage/block.js:129
-#: block/section-with-image/block.js:99 block/slider/block.js:205
-#: block/step/block.js:205
+#: block/items/block.js:245 block/media-text/block.js:93
+#: block/panels/block.js:218 block/pricing-table/block.js:202
+#: block/section-with-bgimage/block.js:129 block/section-with-image/block.js:99
+#: block/slider/block.js:205 block/step/block.js:205
 msgid "Remove"
 msgstr "削除"
 
@@ -347,6 +348,49 @@ msgstr "リスト設定"
 #: block/list/block.js:93
 msgid "Icon Color"
 msgstr "アイコンの色"
+
+#: block/media-text/block.js:35
+msgid "Media text"
+msgstr "メディアと文章"
+
+#: block/media-text/block.js:101
+msgid "Media Text Settings"
+msgstr "メディアと文章の設定"
+
+#: block/media-text/block.js:103 block/section-with-image/block.js:109
+#: block/step/block.js:112
+msgid "Image Position"
+msgstr "画像の位置"
+
+#: block/media-text/block.js:108 block/section-with-bgimage/block.js:87
+#: block/section-with-image/block.js:114 block/step/block.js:125
+msgid "Right side"
+msgstr "右側"
+
+#: block/media-text/block.js:112 block/section-with-bgimage/block.js:79
+#: block/section-with-image/block.js:118 block/step/block.js:117
+msgid "Left side"
+msgstr "左側"
+
+#: block/media-text/block.js:119 block/section-with-image/block.js:125
+msgid "Image Column Size"
+msgstr "画像カラムのサイズ"
+
+#: block/media-text/block.js:124 block/section-with-image/block.js:130
+msgid "66%"
+msgstr "66%"
+
+#: block/media-text/block.js:128 block/section-with-image/block.js:134
+msgid "50%"
+msgstr "50%"
+
+#: block/media-text/block.js:132 block/section-with-image/block.js:138
+msgid "33%"
+msgstr "33%"
+
+#: block/media-text/block.js:136 block/section-with-image/block.js:142
+msgid "25%"
+msgstr "25%"
 
 #: block/panels/block.js:26
 msgid "Panels"
@@ -472,19 +516,9 @@ msgstr "広め"
 msgid "Contents alignment"
 msgstr "コンテンツの水平位置"
 
-#: block/section-with-bgimage/block.js:79 block/section-with-image/block.js:118
-#: block/step/block.js:117
-msgid "Left side"
-msgstr "左側"
-
 #: block/section-with-bgimage/block.js:83 block/step/block.js:121
 msgid "Center"
 msgstr "中央"
-
-#: block/section-with-bgimage/block.js:87 block/section-with-image/block.js:114
-#: block/step/block.js:125
-msgid "Right side"
-msgstr "右側"
 
 #: block/section-with-bgimage/block.js:93
 msgid "Mask Color"
@@ -497,30 +531,6 @@ msgstr "背景マスクの透明度"
 #: block/section-with-image/block.js:35
 msgid "Section (with image)"
 msgstr "セクション（画像あり）"
-
-#: block/section-with-image/block.js:109 block/step/block.js:112
-msgid "Image Position"
-msgstr "画像の位置"
-
-#: block/section-with-image/block.js:125
-msgid "Image Column Size"
-msgstr "画像カラムのサイズ"
-
-#: block/section-with-image/block.js:130
-msgid "66%"
-msgstr "66%"
-
-#: block/section-with-image/block.js:134
-msgid "50%"
-msgstr "50%"
-
-#: block/section-with-image/block.js:138
-msgid "33%"
-msgstr "33%"
-
-#: block/section-with-image/block.js:142
-msgid "25%"
-msgstr "25%"
 
 #: block/section/block.js:13
 msgid "Section"

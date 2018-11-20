@@ -1,0 +1,11 @@
+.smb-media-text {
+  &__figure {
+    position: relative;
+
+    .smb-remove-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+  }
+}

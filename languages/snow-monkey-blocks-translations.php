@@ -62,7 +62,8 @@ This file is distributed under the same license as the {package-name} package. *
 	// Reference: block/alert/block.js:100 block/list/block.js:75
 	__( 'Icon', 'snow-monkey-blocks' ),
 
-	// Reference: block/alert/block.js:128 block/items/block.js:261 block/panels/block.js:240
+	// Reference: block/alert/block.js:128 block/items/block.js:261
+	// Reference: block/media-text/block.js:154 block/panels/block.js:240
 	// Reference: block/pricing-table/block.js:218 block/rating-box/block.js:102
 	// Reference: block/section-with-bgimage/block.js:145
 	// Reference: block/section-with-image/block.js:168 block/section/block.js:192
@@ -202,16 +203,16 @@ This file is distributed under the same license as the {package-name} package. *
 	// Reference: block/items/block.js:160 block/pricing-table/block.js:116
 	__( '(%d) Button Settings', 'snow-monkey-blocks' ),
 
-	// Reference: block/items/block.js:222 block/panels/block.js:195
-	// Reference: block/pricing-table/block.js:179 block/section-with-bgimage/block.js:113
-	// Reference: block/section-with-image/block.js:80 block/slider/block.js:182
-	// Reference: block/step/block.js:182
+	// Reference: block/items/block.js:222 block/media-text/block.js:74
+	// Reference: block/panels/block.js:195 block/pricing-table/block.js:179
+	// Reference: block/section-with-bgimage/block.js:113 block/section-with-image/block.js:80
+	// Reference: block/slider/block.js:182 block/step/block.js:182
 	__( 'Image', 'snow-monkey-blocks' ),
 
-	// Reference: block/items/block.js:245 block/panels/block.js:218
-	// Reference: block/pricing-table/block.js:202 block/section-with-bgimage/block.js:129
-	// Reference: block/section-with-image/block.js:99 block/slider/block.js:205
-	// Reference: block/step/block.js:205
+	// Reference: block/items/block.js:245 block/media-text/block.js:93
+	// Reference: block/panels/block.js:218 block/pricing-table/block.js:202
+	// Reference: block/section-with-bgimage/block.js:129 block/section-with-image/block.js:99
+	// Reference: block/slider/block.js:205 block/step/block.js:205
 	__( 'Remove', 'snow-monkey-blocks' ),
 
 	// Reference: block/items/block.js:278 block/panels/block.js:249 block/step/block.js:236
@@ -244,6 +245,39 @@ This file is distributed under the same license as the {package-name} package. *
 
 	// Reference: block/list/block.js:93
 	__( 'Icon Color', 'snow-monkey-blocks' ),
+
+	// Reference: block/media-text/block.js:35
+	__( 'Media text', 'snow-monkey-blocks' ),
+
+	// Reference: block/media-text/block.js:101
+	__( 'Media Text Settings', 'snow-monkey-blocks' ),
+
+	// Reference: block/media-text/block.js:103 block/section-with-image/block.js:109
+	// Reference: block/step/block.js:112
+	__( 'Image Position', 'snow-monkey-blocks' ),
+
+	// Reference: block/media-text/block.js:108 block/section-with-bgimage/block.js:87
+	// Reference: block/section-with-image/block.js:114 block/step/block.js:125
+	__( 'Right side', 'snow-monkey-blocks' ),
+
+	// Reference: block/media-text/block.js:112 block/section-with-bgimage/block.js:79
+	// Reference: block/section-with-image/block.js:118 block/step/block.js:117
+	__( 'Left side', 'snow-monkey-blocks' ),
+
+	// Reference: block/media-text/block.js:119 block/section-with-image/block.js:125
+	__( 'Image Column Size', 'snow-monkey-blocks' ),
+
+	// Reference: block/media-text/block.js:124 block/section-with-image/block.js:130
+	__( '66%', 'snow-monkey-blocks' ),
+
+	// Reference: block/media-text/block.js:128 block/section-with-image/block.js:134
+	__( '50%', 'snow-monkey-blocks' ),
+
+	// Reference: block/media-text/block.js:132 block/section-with-image/block.js:138
+	__( '33%', 'snow-monkey-blocks' ),
+
+	// Reference: block/media-text/block.js:136 block/section-with-image/block.js:142
+	__( '25%', 'snow-monkey-blocks' ),
 
 	// Reference: block/panels/block.js:26
 	__( 'Panels', 'snow-monkey-blocks' ),
@@ -337,16 +371,8 @@ This file is distributed under the same license as the {package-name} package. *
 	// Reference: block/section-with-bgimage/block.js:74
 	__( 'Contents alignment', 'snow-monkey-blocks' ),
 
-	// Reference: block/section-with-bgimage/block.js:79 block/section-with-image/block.js:118
-	// Reference: block/step/block.js:117
-	__( 'Left side', 'snow-monkey-blocks' ),
-
 	// Reference: block/section-with-bgimage/block.js:83 block/step/block.js:121
 	__( 'Center', 'snow-monkey-blocks' ),
-
-	// Reference: block/section-with-bgimage/block.js:87 block/section-with-image/block.js:114
-	// Reference: block/step/block.js:125
-	__( 'Right side', 'snow-monkey-blocks' ),
 
 	// Reference: block/section-with-bgimage/block.js:93
 	__( 'Mask Color', 'snow-monkey-blocks' ),
@@ -356,24 +382,6 @@ This file is distributed under the same license as the {package-name} package. *
 
 	// Reference: block/section-with-image/block.js:35
 	__( 'Section (with image)', 'snow-monkey-blocks' ),
-
-	// Reference: block/section-with-image/block.js:109 block/step/block.js:112
-	__( 'Image Position', 'snow-monkey-blocks' ),
-
-	// Reference: block/section-with-image/block.js:125
-	__( 'Image Column Size', 'snow-monkey-blocks' ),
-
-	// Reference: block/section-with-image/block.js:130
-	__( '66%', 'snow-monkey-blocks' ),
-
-	// Reference: block/section-with-image/block.js:134
-	__( '50%', 'snow-monkey-blocks' ),
-
-	// Reference: block/section-with-image/block.js:138
-	__( '33%', 'snow-monkey-blocks' ),
-
-	// Reference: block/section-with-image/block.js:142
-	__( '25%', 'snow-monkey-blocks' ),
 
 	// Reference: block/section/block.js:13
 	__( 'Section', 'snow-monkey-blocks' ),
