@@ -2,6 +2,10 @@
   position: relative;
   overflow: hidden;
 
+  & + & {
+    margin-top: 0 !important;
+  }
+
   &__divider {
     position: absolute;
     right: 0;
@@ -42,6 +46,13 @@
         max-height: 300px;
         height: auto;
       }
+    }
+  }
+
+  &__body {
+    .#{$_prefix}c-container {
+      padding-right: 0;
+      padding-left: 0;
     }
   }
 

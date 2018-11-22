@@ -12,6 +12,8 @@ use Snow_Monkey\Plugin\Blocks;
 class Assets {
 	public function __construct() {
 		add_action( 'enqueue_block_editor_assets', [ $this, '_enqueue_block_editor_assets' ] );
+		add_action( 'after_setup_theme', [ $this, '_enqueue_editor_style' ] );
+		add_filter( 'block_editor_settings', [ $this, '_enqueue_editor_style' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, '_wp_enqueue_scripts' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, '_wp_enqueue_nopro_scripts' ] );
 		add_action( 'enqueue_block_assets', [ $this, '_enqueue_block_assets' ] );
@@ -50,17 +52,30 @@ class Assets {
 				'pluginDir' => SNOW_MONKEY_BLOCKS_DIR_PATH,
 			]
 		);
+	}
+
+	/**
+	 * Enqueue block style for editor
+	 *
+	 * @return string||array
+	 * @return array
+	 */
+	public function _enqueue_editor_style( $editor_settings ) {
+		if ( ! function_exists( 'is_gutenberg_page' ) || isset( $_GET['classic-editor'] ) ) {
+			return $editor_settings;
+		}
+
+		if ( ! isset( $editor_settings['styles'] ) ) {
+			return $editor_settings;
+		}
 
 		$relative_path = '/dist/css/blocks-editor.min.css';
-		$src  = SNOW_MONKEY_BLOCKS_DIR_URL . $relative_path;
-		$path = SNOW_MONKEY_BLOCKS_DIR_PATH . $relative_path;
+		$src = SNOW_MONKEY_BLOCKS_DIR_PATH . $relative_path;
+		$editor_settings['styles'][] = [
+			'css' => file_get_contents( $src ),
+		];
 
-		wp_enqueue_style(
-			'snow-monkey-blocks-editor',
-			$src,
-			[],
-			filemtime( $path )
-		);
+		return $editor_settings;
 	}
 
 	/**

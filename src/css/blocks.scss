@@ -1,6 +1,6 @@
 @charset 'UTF-8';
 
-$_font-path: '../../../../themes/snow-monkey/vendor/inc2734/wp-basis/src/assets/packages/sass-basis/src/font' !default;
+$_font-path: false;
 @import 'core/variable/variable';
 @import '../../node_modules/sass-basis/src/css/basis-core';
 @import 'core/mixin/mixin';
@@ -31,6 +31,7 @@ $_font-path: '../../../../themes/snow-monkey/vendor/inc2734/wp-basis/src/assets/
 @import '../../block/items/block';
 @import '../../block/slider/block';
 @import '../../block/panels/block';
+@import '../../block/media-text/block';
 
 .smb-highlighter {
   background: linear-gradient(transparent 60%, rgba(#fffd6b, .7) 60%);

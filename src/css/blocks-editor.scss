@@ -1,27 +1,25 @@
 @charset 'UTF-8';
 
-.edit-post-visual-editor .editor-writing-flow {
-  @import 'blocks.scss';
+@import 'blocks.scss';
 
-  @import '../../block/alert/editor';
-  @import '../../block/balloon/editor';
-  @import '../../block/box/editor';
-  @import '../../block/section/editor';
-  @import '../../block/btn/editor';
-  @import '../../block/btn-box/editor';
-  @import '../../block/faq/editor';
-  @import '../../block/list/editor';
-  @import '../../block/section-with-bgimage/editor';
-  @import '../../block/section-with-image/editor';
-  @import '../../block/step/editor';
-  @import '../../block/items/editor';
-  @import '../../block/pricing-table/editor';
-  @import '../../block/slider/editor';
-  @import '../../block/rating-box/editor';
-  @import '../../block/testimonial/editor';
-  @import '../../block/panels/editor';
-  @import '../../block/media-text/editor';
-}
+@import '../../block/alert/editor';
+@import '../../block/balloon/editor';
+@import '../../block/box/editor';
+@import '../../block/section/editor';
+@import '../../block/btn/editor';
+@import '../../block/btn-box/editor';
+@import '../../block/faq/editor';
+@import '../../block/list/editor';
+@import '../../block/section-with-bgimage/editor';
+@import '../../block/section-with-image/editor';
+@import '../../block/step/editor';
+@import '../../block/items/editor';
+@import '../../block/pricing-table/editor';
+@import '../../block/slider/editor';
+@import '../../block/rating-box/editor';
+@import '../../block/testimonial/editor';
+@import '../../block/panels/editor';
+@import '../../block/media-text/editor';
 
 .edit-post-sidebar {
   @import '../../block/list/editor-components';
@@ -39,12 +37,12 @@
   border-radius: 4px;
   transition: all .3s;
 
-  @media(min-width: 1024px) {
+  @include _media-min(lg) {
     opacity: .6;
+  }
 
-    &:hover, &:active, &:focus {
-      opacity: 1;
-    }
+  @include _hover(lg) {
+    opacity: 1;
   }
 }
 
@@ -64,19 +62,50 @@
 .smb-add-item-button {
   color: #21a1d0;
 
-  @media(min-width: 1024px) {
-    &:hover, &:active {
-      box-shadow: 0 0 0 5px rgba(#21a1d0, .2);
-    }
+  @include _hover(lg) {
+    box-shadow: 0 0 0 5px rgba(#21a1d0, .2);
   }
 }
 
 .smb-remove-item-button {
   color: #cd3034;
 
-  @media(min-width: 1024px) {
-    &:hover, &:active {
-      box-shadow: 0 0 0 5px rgba(#cd3034, .2);
+  @include _hover(lg) {
+    box-shadow: 0 0 0 5px rgba(#cd3034, .2);
+  }
+}
+
+[data-type^="snow-monkey-blocks"] {
+  .editor-block-list__layout {
+    .editor-block-list__block {
+      &:first-child {
+        > .editor-block-list__block-edit {
+          margin-top: 0;
+        }
+      }
+      &:nth-last-child(2) {
+        > .editor-block-list__block-edit {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .editor-default-block-appender {
+    display: none;
+
+    > .editor-default-block-appender__content {
+      margin-bottom: 0;
+    }
+  }
+
+  &.is-selected {
+    .editor-default-block-appender {
+      display: block;
+
+      @include _hover(lg) {
+        outline: 1px solid #007cba;
+      }
     }
   }
 }

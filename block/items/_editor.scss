@@ -19,3 +19,8 @@
     }
   }
 }
+
+[data-type="snow-monkey-blocks/items"]::before,
+[data-type^="snow-monkey-blocks"] [data-type="snow-monkey-blocks/items"] > .editor-block-list__block-edit::before {
+  bottom: calc(#{_space(1)} - 14px);
+}

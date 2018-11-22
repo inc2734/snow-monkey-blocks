@@ -8,4 +8,13 @@
       right: 5px;
     }
   }
+
+  .editor-rich-text + .smb-media-text__body {
+    @include _margin-top(1);
+  }
+}
+
+[data-type="snow-monkey-blocks/media-text"]::before,
+[data-type^="snow-monkey-blocks"] [data-type="snow-monkey-blocks/media-text"] > .editor-block-list__block-edit::before {
+  bottom: calc(#{_space(1)} - 14px);
 }
