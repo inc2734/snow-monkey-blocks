@@ -102,6 +102,7 @@
   &.is-selected {
     .editor-default-block-appender {
       display: block;
+      outline: 1px solid rgba(145, 151, 162, .25);
 
       @include _hover(lg) {
         outline: 1px solid #007cba;
