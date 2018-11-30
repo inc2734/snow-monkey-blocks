@@ -3,8 +3,8 @@
 import classnames from 'classnames';
 
 const { registerBlockType } = wp.blocks;
-const { PlainText, RichText, MediaUpload, InspectorControls } = wp.editor;
-const { Button, PanelBody, SelectControl } = wp.components;
+const { PlainText, RichText, MediaUpload, InspectorControls, ColorPalette } = wp.editor;
+const { Button, PanelBody, SelectControl, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -45,7 +45,7 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 	},
 
 	edit( { attributes, setAttributes } ) {
-		const { avatarID, avatarURL, balloonName, balloonBody, modifier } = attributes;
+		const { avatarID, avatarURL, avatarBorderColor, balloonName, balloonBody, balloonBorderColor, modifier } = attributes;
 
 		const renderAvatar = ( obj ) => {
 			return (
@@ -74,25 +74,28 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 								},
 							] }
 						/>
+
 						<BaseControl label={ __( 'Avatar Border Color', 'snow-monkey-blocks' ) }>
 							<ColorPalette
 								value={ avatarBorderColor }
 								onChange={ ( value ) => setAttributes( { avatarBorderColor: value } ) }
 							/>
 						</BaseControl>
+
 						<BaseControl label={ __( 'Balloon Border Color', 'snow-monkey-blocks' ) }>
 							<ColorPalette
 								value={ balloonBorderColor }
 								onChange={ ( value ) => setAttributes( { balloonBorderColor: value } ) }
 							/>
 						</BaseControl>
+
 					</PanelBody>
 				</InspectorControls>
 				<div className={ classnames( 'smb-balloon', { [ `smb-balloon--${ modifier }` ]: !! modifier } ) }>
 					<div className="smb-balloon__person">
 						<div
 							className="smb-balloon__figure"
-							style={ { border-color: avatarBorderColor } }
+							style={ { borderColor: avatarBorderColor } }
 						>
 							<MediaUpload
 								onSelect={ ( media ) => {
@@ -114,7 +117,7 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 					</div>
 					<div
 						className="smb-balloon__body"
-						style={ { border-color: balloonBorderColor } }
+						style={ { borderColor: balloonBorderColor } }
 					>
 						<RichText
 							tagName="div"
@@ -129,14 +132,14 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 	},
 
 	save( { attributes } ) {
-		const { avatarURL, balloonName, balloonBody, modifier } = attributes;
+		const { avatarURL, avatarBorderColor, balloonName, balloonBody, balloonBorderColor, modifier } = attributes;
 
 		return (
 			<div className={ classnames( 'smb-balloon', { [ `smb-balloon--${ modifier }` ]: !! modifier } ) }>
 				<div className="smb-balloon__person">
 					<div
 						className="smb-balloon__figure"
-						style={ { border-color: avatarBorderColor } }
+						style={ { borderColor: avatarBorderColor } }
 					>
 						<img src={ avatarURL } alt="" />
 					</div>
@@ -146,7 +149,7 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 				</div>
 				<div
 					className="smb-balloon__body"
-					style={ { border-color: balloonBorderColor } }
+					style={ { borderColor: balloonBorderColor } }
 				>
 					<RichText.Content value={ balloonBody } />
 				</div>
