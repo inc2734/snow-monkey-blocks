@@ -2,6 +2,7 @@
 
 import generateUpdatedAttribute from '../../src/js/helper/generate-updated-attribute';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { deprecated } from './_deprecated.js';
 
 const { times, get } = lodash;
 const { registerBlockType } = wp.blocks;
@@ -85,7 +86,7 @@ registerBlockType( 'snow-monkey-blocks/testimonial', {
 								const renderAvatar = ( obj ) => {
 									return (
 										<Button className="image-button" onClick={ obj.open } style={ { padding: 0 } }>
-											<img src={ avatarURL } alt="" />
+											<img src={ avatarURL } alt="" className={ `wp-image-${ avatarID }` } />
 										</Button>
 									);
 								};
@@ -176,7 +177,7 @@ registerBlockType( 'snow-monkey-blocks/testimonial', {
 								<div className="c-row__col c-row__col--1-1 c-row__col--md-1-2">
 									<div className="smb-testimonial__item">
 										<div className="smb-testimonial__item__figure">
-											<img src={ avatarURL } alt="" data-image-id={ avatarID } />
+											<img src={ avatarURL } alt="" className={ `wp-image-${ avatarID }` } data-image-id={ avatarID } />
 										</div>
 										<div className="smb-testimonial__item__body">
 											<div className="smb-testimonial__item__content">
@@ -200,4 +201,6 @@ registerBlockType( 'snow-monkey-blocks/testimonial', {
 			</div>
 		);
 	},
+
+	deprecated: deprecated,
 } );

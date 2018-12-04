@@ -2,6 +2,7 @@
 
 import generateUpdatedAttribute from '../../src/js/helper/generate-updated-attribute';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { deprecated } from './_deprecated.js';
 
 const { get, times } = lodash;
 const { registerBlockType } = wp.blocks;
@@ -195,7 +196,7 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 
 								return (
 									<Fragment>
-										<img src={ imageURL } alt="" />
+										<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
 										<button
 											className="smb-remove-button"
 											onClick={ () => {
@@ -275,7 +276,7 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 								{ !! imageID &&
 									<div className="smb-slider__item">
 										<div className="smb-slider__item__figure">
-											<img src={ imageURL } alt="" data-image-id={ imageID } />
+											<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } data-image-id={ imageID } />
 										</div>
 
 										{ ! RichText.isEmpty( caption ) &&
@@ -292,4 +293,6 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 			</div>
 		);
 	},
+
+	deprecated: deprecated,
 } );

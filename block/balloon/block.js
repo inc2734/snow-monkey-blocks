@@ -1,6 +1,7 @@
 'use strict';
 
 import classnames from 'classnames';
+import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
 const { PlainText, RichText, MediaUpload, InspectorControls, ColorPalette } = wp.editor;
@@ -47,7 +48,7 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 		const renderAvatar = ( obj ) => {
 			return (
 				<Button className="image-button" onClick={ obj.open } style={ { padding: 0 } }>
-					<img src={ avatarURL } alt="" />
+					<img src={ avatarURL } alt="" className={ `wp-image-${ avatarID }` } />
 				</Button>
 			);
 		};
@@ -118,7 +119,7 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 	},
 
 	save( { attributes } ) {
-		const { avatarURL, avatarBorderColor, balloonName, balloonBody, modifier } = attributes;
+		const { avatarID, avatarURL, avatarBorderColor, balloonName, balloonBody, modifier } = attributes;
 
 		return (
 			<div className={ classnames( 'smb-balloon', { [ `smb-balloon--${ modifier }` ]: !! modifier } ) }>
@@ -127,7 +128,7 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 						className="smb-balloon__figure"
 						style={ { borderColor: avatarBorderColor } }
 					>
-						<img src={ avatarURL } alt="" />
+						<img src={ avatarURL } alt="" className={ `wp-image-${ avatarID }` } />
 					</div>
 					<div className="smb-balloon__name">
 						{ balloonName }
@@ -139,4 +140,6 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 			</div>
 		);
 	},
+
+	deprecated: deprecated,
 } );

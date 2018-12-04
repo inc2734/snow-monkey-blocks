@@ -1,6 +1,7 @@
 'use strict';
 
 import classnames from 'classnames';
+import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
 const { RichText, InnerBlocks, InspectorControls, MediaPlaceholder } = wp.editor;
@@ -62,7 +63,7 @@ registerBlockType( 'snow-monkey-blocks/media-text', {
 	},
 
 	edit( { attributes, setAttributes, isSelected } ) {
-		const { title, imageURL, imagePosition, imageColumnSize } = attributes;
+		const { title, imageID, imageURL, imagePosition, imageColumnSize } = attributes;
 
 		const { textColumnWidth, imageColumnWidth } = _getColumnsSize( imageColumnSize );
 
@@ -84,7 +85,7 @@ registerBlockType( 'snow-monkey-blocks/media-text', {
 
 			return (
 				<Fragment>
-					<img src={ imageURL } alt="" />
+					<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
 					<button
 						className="smb-remove-button"
 						onClick={ () => {
@@ -170,7 +171,7 @@ registerBlockType( 'snow-monkey-blocks/media-text', {
 	},
 
 	save( { attributes } ) {
-		const { title, imageURL, imagePosition, imageColumnSize } = attributes;
+		const { title, imageID, imageURL, imagePosition, imageColumnSize } = attributes;
 
 		const { textColumnWidth, imageColumnWidth } = _getColumnsSize( imageColumnSize );
 
@@ -190,7 +191,7 @@ registerBlockType( 'snow-monkey-blocks/media-text', {
 					<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${ imageColumnWidth }` }>
 						<div className="smb-media-text__figure">
 							{ imageURL &&
-								<img src={ imageURL } alt="" />
+								<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
 							}
 						</div>
 					</div>
@@ -198,4 +199,6 @@ registerBlockType( 'snow-monkey-blocks/media-text', {
 			</div>
 		);
 	},
+
+	deprecated: deprecated,
 } );

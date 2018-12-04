@@ -1,5 +1,7 @@
 'use strict';
 
+import { deprecated } from './_deprecated.js';
+
 const { registerBlockType } = wp.blocks;
 const { RichText, InnerBlocks, InspectorControls, ColorPalette, MediaPlaceholder } = wp.editor;
 const { PanelBody, SelectControl, RangeControl, BaseControl } = wp.components;
@@ -48,7 +50,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 	},
 
 	edit( { attributes, setAttributes, isSelected } ) {
-		const { title, imageURL, height, contentsAlignment, maskColor, maskOpacity } = attributes;
+		const { title, imageID, imageURL, height, contentsAlignment, maskColor, maskOpacity } = attributes;
 
 		return (
 			<Fragment>
@@ -131,7 +133,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 					<div className="smb-section-with-bgimage__mask" style={ { backgroundColor: maskColor } }></div>
 					<div className="smb-section-with-bgimage__bgimage" style={ { opacity: maskOpacity } }>
 						{ imageURL &&
-							<img src={ imageURL } alt="" />
+							<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
 						}
 					</div>
 					<div className="c-container">
@@ -156,13 +158,13 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 	},
 
 	save( { attributes } ) {
-		const { title, imageURL, height, contentsAlignment, maskColor, maskOpacity } = attributes;
+		const { title, imageID, imageURL, height, contentsAlignment, maskColor, maskOpacity } = attributes;
 
 		return (
 			<div className={ `smb-section smb-section-with-bgimage smb-section-with-bgimage--${ contentsAlignment } smb-section-with-bgimage--${ height }` }>
 				<div className="smb-section-with-bgimage__mask" style={ { backgroundColor: maskColor } }></div>
 				<div className="smb-section-with-bgimage__bgimage" style={ { opacity: maskOpacity } }>
-					<img src={ imageURL } alt="" />
+					<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
 				</div>
 				<div className="c-container">
 					{ ! RichText.isEmpty( title ) &&
@@ -178,57 +180,5 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 		);
 	},
 
-	deprecated: [
-		{
-			attributes: {
-				title: {
-					source: 'html',
-					selector: '.smb-section__title',
-				},
-				imageID: {
-					type: 'number',
-					default: 0,
-				},
-				imageURL: {
-					type: 'string',
-					source: 'attribute',
-					selector: '.smb-section-with-bgimage__bgimage > img',
-					attribute: 'src',
-					default: '',
-				},
-				height: {
-					type: 'string',
-					default: 'fit',
-				},
-				contentsAlignment: {
-					type: 'string',
-					default: 'left',
-				},
-			},
-
-			save( { attributes } ) {
-				const { title, imageURL, height, contentsAlignment } = attributes;
-
-				return (
-					<div className={ `smb-section smb-section-with-bgimage smb-section-with-bgimage--${ contentsAlignment } smb-section-with-bgimage--${ height }` }>
-						<div className="smb-section-with-bgimage__bgimage">
-							{ imageURL &&
-								<img src={ imageURL } alt="" />
-							}
-						</div>
-						<div className="c-container">
-							{ ! RichText.isEmpty( title ) &&
-								<h2 className="smb-section__title">
-									<RichText.Content value={ title } />
-								</h2>
-							}
-							<div className="smb-section__body">
-								<InnerBlocks.Content />
-							</div>
-						</div>
-					</div>
-				);
-			},
-		},
-	],
+	deprecated: deprecated,
 } );

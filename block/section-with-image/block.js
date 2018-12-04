@@ -1,6 +1,7 @@
 'use strict';
 
 import classnames from 'classnames';
+import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
 const { RichText, InnerBlocks, InspectorControls, ColorPalette, MediaPlaceholder } = wp.editor;
@@ -68,7 +69,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-image', {
 	},
 
 	edit( { attributes, setAttributes, isSelected } ) {
-		const { title, backgroundColor, imageURL, imagePosition, imageColumnSize } = attributes;
+		const { title, backgroundColor, imageID, imageURL, imagePosition, imageColumnSize } = attributes;
 
 		const { textColumnWidth, imageColumnWidth } = _getColumnsSize( imageColumnSize );
 
@@ -90,7 +91,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-image', {
 
 			return (
 				<Fragment>
-					<img src={ imageURL } alt="" />
+					<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
 					<button
 						className="smb-remove-button"
 						onClick={ () => {
@@ -186,7 +187,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-image', {
 	},
 
 	save( { attributes } ) {
-		const { title, backgroundColor, imageURL, imagePosition, imageColumnSize } = attributes;
+		const { title, backgroundColor, imageID, imageURL, imagePosition, imageColumnSize } = attributes;
 
 		const { textColumnWidth, imageColumnWidth } = _getColumnsSize( imageColumnSize );
 
@@ -207,7 +208,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-image', {
 						<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${ imageColumnWidth }` }>
 							<div className="smb-section-with-image__figure">
 								{ imageURL &&
-									<img src={ imageURL } alt="" />
+									<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
 								}
 							</div>
 						</div>
@@ -217,78 +218,5 @@ registerBlockType( 'snow-monkey-blocks/section-with-image', {
 		);
 	},
 
-	deprecated: [
-		{
-			attributes: {
-				title: {
-					source: 'html',
-					selector: '.smb-section__title',
-				},
-				backgroundColor: {
-					type: 'string',
-				},
-				imageID: {
-					type: 'number',
-					default: 0,
-				},
-				imageURL: {
-					type: 'string',
-					source: 'attribute',
-					selector: '.smb-section-with-image__figure > img',
-					attribute: 'src',
-					default: '',
-				},
-				imagePosition: {
-					type: 'string',
-					default: 'right',
-				},
-				imageColumnSize: {
-					type: 'string',
-					default: 2,
-				},
-			},
-
-			migrate( { imageColumnSize } ) {
-				let newImageColumnSize = imageColumnSize;
-				if ( 1 === parseInt( imageColumnSize ) ) {
-					newImageColumnSize = 33;
-				} else if ( 2 === parseInt( imageColumnSize ) ) {
-					newImageColumnSize = 66;
-				}
-				return {
-					imageColumnSize: newImageColumnSize,
-				};
-			},
-
-			save( { attributes } ) {
-				const { title, backgroundColor, imageURL, imagePosition, imageColumnSize } = attributes;
-
-				return (
-					<div className="smb-section smb-section-with-image" style={ { backgroundColor: backgroundColor } }>
-						<div className="c-container">
-							<div className={ classnames( 'c-row', 'c-row--margin', 'c-row--middle', { 'c-row--reverse': 'left' === imagePosition } ) }>
-								<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${ 3 - imageColumnSize }-3` }>
-									{ ! RichText.isEmpty( title ) &&
-										<h2 className="smb-section__title">
-											<RichText.Content value={ title } />
-										</h2>
-									}
-									<div className="smb-section__body">
-										<InnerBlocks.Content />
-									</div>
-								</div>
-								<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${ imageColumnSize }-3` }>
-									<div className="smb-section-with-image__figure">
-										{ imageURL &&
-											<img src={ imageURL } alt="" />
-										}
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				);
-			},
-		},
-	],
+	deprecated: deprecated,
 } );
