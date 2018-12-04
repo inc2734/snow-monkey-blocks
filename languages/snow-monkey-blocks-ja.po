@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2018-12-04 19:39+0900\n"
-"PO-Revision-Date: 2018-12-04 19:39+0900\n"
+"POT-Creation-Date: 2018-12-04 20:11+0900\n"
+"PO-Revision-Date: 2018-12-04 20:12+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -86,32 +86,40 @@ msgstr "check-square"
 msgid "hand-point-right"
 msgstr "hand-point-right"
 
-#: block/alert/block.js:79
+#: block/alert/block.js:64
+msgid "edit"
+msgstr "edit"
+
+#: block/alert/block.js:68
+msgid "lightbulb"
+msgstr "lightbulb"
+
+#: block/alert/block.js:87
 msgid "Alert Settings"
 msgstr "アラート設定"
 
-#: block/alert/block.js:81 block/balloon/block.js:61 block/btn/block.js:74
+#: block/alert/block.js:89 block/balloon/block.js:61 block/btn/block.js:74
 #: block/section/block.js:91 block/section/block.js:132
 msgid "Type"
 msgstr "タイプ"
 
-#: block/alert/block.js:87
+#: block/alert/block.js:95
 msgid "Normal alert"
 msgstr "ノーマルアラート"
 
-#: block/alert/block.js:91
+#: block/alert/block.js:99
 msgid "Warning alert"
 msgstr "ワーニングアラート"
 
-#: block/alert/block.js:95
+#: block/alert/block.js:103
 msgid "Success alert"
 msgstr "サクセスアラート"
 
-#: block/alert/block.js:100 block/list/block.js:75
+#: block/alert/block.js:108 block/list/block.js:75
 msgid "Icon"
 msgstr "アイコン"
 
-#: block/alert/block.js:128 block/items/block.js:260
+#: block/alert/block.js:136 block/items/block.js:260
 #: block/media-text/block.js:155 block/panels/block.js:239
 #: block/pricing-table/block.js:219 block/rating-box/block.js:102
 #: block/section-with-bgimage/block.js:147

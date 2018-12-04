@@ -59,6 +59,14 @@ registerBlockType( 'snow-monkey-blocks/alert', {
 				value: 'hand-point-right',
 				label: __( 'hand-point-right', 'snow-monkey-blocks' ),
 			},
+			{
+				value: 'edit',
+				label: __( 'edit', 'snow-monkey-blocks' ),
+			},
+			{
+				value: 'lightbulb',
+				label: __( 'lightbulb', 'snow-monkey-blocks' ),
+			},
 		];
 
 		const renderFontAwesomeIcon = () => {
