@@ -61,15 +61,14 @@
       flex-direction: row;
       flex-wrap: nowrap;
       align-items: center;
+      color: $color-accent;
 
       &__label {
-        color: $color-accent;
         text-decoration: underline;
       }
 
       .fa-arrow-circle-right {
         margin-right: .75rem;
-        color: $color-accent;
       }
     }
 

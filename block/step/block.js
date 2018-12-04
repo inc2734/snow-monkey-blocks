@@ -74,6 +74,11 @@ registerBlockType( 'snow-monkey-blocks/step', {
 					attribute: 'target',
 					default: '_self',
 				},
+				linkColor: {
+					source: 'string',
+					selector: '.smb-step__item__link',
+					attribute: 'data-color',
+				},
 			},
 		},
 		rows: {
@@ -103,6 +108,7 @@ registerBlockType( 'snow-monkey-blocks/step', {
 						const imagePosition = get( content, [ index, 'imagePosition' ], 'center' );
 						const linkURL = get( content, [ index, 'linkURL' ], '' );
 						const linkTarget = get( content, [ index, 'linkTarget' ], '_self' );
+						const linkColor = get( content, [ index, 'linkColor' ], '' );
 
 						return (
 							<PanelBody
@@ -157,6 +163,13 @@ registerBlockType( 'snow-monkey-blocks/step', {
 									] }
 									onChange={ ( value ) => setAttributes( { content: generateUpdatedAttribute( content, index, 'linkTarget', value ) } ) }
 								/>
+
+								<BaseControl label={ __( 'Link Color', 'snow-monkey-blocks' ) }>
+									<ColorPalette
+										value={ linkColor }
+										onChange={ ( value ) => setAttributes( { content: generateUpdatedAttribute( content, index, 'linkColor', value ) } ) }
+									/>
+								</BaseControl>
 							</PanelBody>
 						);
 					} ) }
@@ -174,6 +187,7 @@ registerBlockType( 'snow-monkey-blocks/step', {
 							const linkURL = get( content, [ index, 'linkURL' ], '' );
 							const linkTarget = get( content, [ index, 'linkTarget' ], '_self' );
 							const linkLabel = get( content, [ index, 'linkLabel' ], '' );
+							const linkColor = get( content, [ index, 'linkColor' ], '' );
 
 							const renderMedia = () => {
 								if ( ! imageURL ) {
@@ -241,7 +255,13 @@ registerBlockType( 'snow-monkey-blocks/step', {
 										/>
 
 										{ ( ! RichText.isEmpty( linkLabel ) || isSelected ) &&
-											<span className="smb-step__item__link" href={ linkURL } target={ linkTarget }>
+											<span
+												className="smb-step__item__link"
+												href={ linkURL }
+												target={ linkTarget }
+												data-color={ linkColor }
+												style={ { color: linkColor } }
+											>
 												<i className="fas fa-arrow-circle-right" />
 												<RichText
 													className="smb-step__item__link__label"
@@ -293,6 +313,7 @@ registerBlockType( 'snow-monkey-blocks/step', {
 						const linkURL = get( content, [ index, 'linkURL' ], '' );
 						const linkTarget = get( content, [ index, 'linkTarget' ], '_self' );
 						const linkLabel = get( content, [ index, 'linkLabel' ], '' );
+						const linkColor = get( content, [ index, 'linkColor' ], '' );
 
 						return (
 							<div className={ `smb-step__item smb-step__item--image-${ imagePosition }` } data-image-position={ imagePosition }>
@@ -316,8 +337,14 @@ registerBlockType( 'snow-monkey-blocks/step', {
 										<RichText.Content value={ summary } />
 									</div>
 
-									{ ! RichText.isEmpty( linkLabel ) && !! linkURL &&
-										<a className="smb-step__item__link" href={ linkURL } target={ linkTarget }>
+									{ ! RichText.isEmpty( linkLabel ) &&
+										<a
+											className="smb-step__item__link"
+											href={ linkURL }
+											target={ linkTarget }
+											data-color={ linkColor }
+											style={ { color: linkColor } }
+										>
 											<i className="fas fa-arrow-circle-right" />
 											<span className="smb-step__item__link__label">
 												<RichText.Content value={ linkLabel } />
