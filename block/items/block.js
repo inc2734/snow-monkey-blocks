@@ -493,7 +493,7 @@ registerBlockType( 'snow-monkey-blocks/items', {
 								const imageID = get( items, [ index, 'imageID' ], 0 );
 								const imageURL = get( items, [ index, 'imageURL' ], '' );
 
-								const generateColClasses = ( sm, md, lg ) => {
+								const _generateColClasses = () => {
 									let colClasses = [];
 									colClasses.push( 'c-row__col' );
 									colClasses.push( `c-row__col--1-${ sm }` );
@@ -506,7 +506,7 @@ registerBlockType( 'snow-monkey-blocks/items', {
 								};
 
 								return (
-									<div className={ generateColClasses( sm, md, lg ) }>
+									<div className={ _generateColClasses( sm, md, lg ) }>
 										<div className="smb-items__item">
 											{ !! imageID &&
 												<div className="smb-items__item__figure">

@@ -35,9 +35,6 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 			source: 'html',
 			selector: '.smb-balloon__body',
 		},
-		balloonBorderColor: {
-			type: 'string',
-		},
 		modifier: {
 			type: 'string',
 			default: '',
@@ -45,7 +42,7 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 	},
 
 	edit( { attributes, setAttributes } ) {
-		const { avatarID, avatarURL, avatarBorderColor, balloonName, balloonBody, balloonBorderColor, modifier } = attributes;
+		const { avatarID, avatarURL, avatarBorderColor, balloonName, balloonBody, modifier } = attributes;
 
 		const renderAvatar = ( obj ) => {
 			return (
@@ -81,14 +78,6 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 								onChange={ ( value ) => setAttributes( { avatarBorderColor: value } ) }
 							/>
 						</BaseControl>
-
-						<BaseControl label={ __( 'Balloon Border Color', 'snow-monkey-blocks' ) }>
-							<ColorPalette
-								value={ balloonBorderColor }
-								onChange={ ( value ) => setAttributes( { balloonBorderColor: value } ) }
-							/>
-						</BaseControl>
-
 					</PanelBody>
 				</InspectorControls>
 				<div className={ classnames( 'smb-balloon', { [ `smb-balloon--${ modifier }` ]: !! modifier } ) }>
@@ -115,10 +104,7 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 							/>
 						</div>
 					</div>
-					<div
-						className="smb-balloon__body"
-						style={ { borderColor: balloonBorderColor } }
-					>
+					<div className="smb-balloon__body">
 						<RichText
 							tagName="div"
 							multiline="p"
@@ -132,7 +118,7 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 	},
 
 	save( { attributes } ) {
-		const { avatarURL, avatarBorderColor, balloonName, balloonBody, balloonBorderColor, modifier } = attributes;
+		const { avatarURL, avatarBorderColor, balloonName, balloonBody, modifier } = attributes;
 
 		return (
 			<div className={ classnames( 'smb-balloon', { [ `smb-balloon--${ modifier }` ]: !! modifier } ) }>
@@ -147,10 +133,7 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 						{ balloonName }
 					</div>
 				</div>
-				<div
-					className="smb-balloon__body"
-					style={ { borderColor: balloonBorderColor } }
-				>
+				<div className="smb-balloon__body">
 					<RichText.Content value={ balloonBody } />
 				</div>
 			</div>

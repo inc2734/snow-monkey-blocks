@@ -478,7 +478,7 @@ registerBlockType( 'snow-monkey-blocks/panels', {
 									);
 								};
 
-								const generateColClasses = ( sm, md, lg ) => {
+								const _generateColClasses = () => {
 									let colClasses = [];
 									colClasses.push( 'c-row__col' );
 									colClasses.push( `c-row__col--1-${ sm }` );
@@ -491,7 +491,7 @@ registerBlockType( 'snow-monkey-blocks/panels', {
 								};
 
 								return (
-									<div className={ generateColClasses( sm, md, lg ) }>
+									<div className={ _generateColClasses( sm, md, lg ) }>
 										{
 											renderItem(
 												<Fragment>
@@ -532,6 +532,6 @@ registerBlockType( 'snow-monkey-blocks/panels', {
 					</div>
 				);
 			},
-		}
+		},
 	],
 } );
