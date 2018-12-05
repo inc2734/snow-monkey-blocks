@@ -3,7 +3,6 @@
 $generated_i18n_strings = array(
 	/* translators: Copyright (C) 2018 {package-name}
 This file is distributed under the same license as the {package-name} package. */
-,
 
 	// Reference: block/pickup-slider/block.php:86
 	__( 'READ MORE', 'snow-monkey-blocks' ),
@@ -44,26 +43,32 @@ This file is distributed under the same license as the {package-name} package. *
 	// Reference: block/alert/block.js:60 block/list/block.js:67
 	__( 'hand-point-right', 'snow-monkey-blocks' ),
 
-	// Reference: block/alert/block.js:79
+	// Reference: block/alert/block.js:64
+	__( 'edit', 'snow-monkey-blocks' ),
+
+	// Reference: block/alert/block.js:68
+	__( 'lightbulb', 'snow-monkey-blocks' ),
+
+	// Reference: block/alert/block.js:87
 	__( 'Alert Settings', 'snow-monkey-blocks' ),
 
-	// Reference: block/alert/block.js:81 block/balloon/block.js:61 block/btn/block.js:74
+	// Reference: block/alert/block.js:89 block/balloon/block.js:61 block/btn/block.js:74
 	// Reference: block/section/block.js:91 block/section/block.js:132
 	__( 'Type', 'snow-monkey-blocks' ),
 
-	// Reference: block/alert/block.js:87
+	// Reference: block/alert/block.js:95
 	__( 'Normal alert', 'snow-monkey-blocks' ),
 
-	// Reference: block/alert/block.js:91
+	// Reference: block/alert/block.js:99
 	__( 'Warning alert', 'snow-monkey-blocks' ),
 
-	// Reference: block/alert/block.js:95
+	// Reference: block/alert/block.js:103
 	__( 'Success alert', 'snow-monkey-blocks' ),
 
-	// Reference: block/alert/block.js:100 block/list/block.js:75
+	// Reference: block/alert/block.js:108 block/list/block.js:75
 	__( 'Icon', 'snow-monkey-blocks' ),
 
-	// Reference: block/alert/block.js:128 block/items/block.js:260
+	// Reference: block/alert/block.js:136 block/items/block.js:260
 	// Reference: block/media-text/block.js:155 block/panels/block.js:239
 	// Reference: block/pricing-table/block.js:219 block/rating-box/block.js:102
 	// Reference: block/section-with-bgimage/block.js:147
