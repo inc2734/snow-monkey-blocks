@@ -12,8 +12,7 @@ use Snow_Monkey\Plugin\Blocks;
 class Assets {
 	public function __construct() {
 		add_action( 'enqueue_block_editor_assets', [ $this, '_enqueue_block_editor_assets' ] );
-		add_action( 'admin_enqueue_scripts', [ $this, '_enqueue_editor_style' ] );
-		add_filter( 'block_editor_settings', [ $this, '_enqueue_editor_style' ] );
+		add_filter( 'block_editor_settings', [ $this, '_block_editor_settings' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, '_wp_enqueue_scripts' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, '_wp_enqueue_nopro_scripts' ] );
 		add_action( 'enqueue_block_assets', [ $this, '_enqueue_block_assets' ] );
@@ -60,8 +59,8 @@ class Assets {
 	 * @return string||array
 	 * @return array
 	 */
-	public function _enqueue_editor_style( $editor_settings ) {
-		if ( ! function_exists( 'is_gutenberg_page' ) || ! is_gutenberg_page() ) {
+	public function _block_editor_settings( $editor_settings ) {
+		if ( ! Blocks\is_block_editor() ) {
 			return $editor_settings;
 		}
 

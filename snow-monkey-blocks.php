@@ -22,7 +22,7 @@ class Bootstrap {
 	}
 
 	public function _bootstrap() {
-		if ( ! function_exists( 'is_gutenberg_page' ) ) {
+		if ( ! function_exists( '\is_gutenberg_page' ) && ! function_exists( '\use_block_editor_for_post' ) ) {
 			return;
 		}
 
@@ -65,7 +65,7 @@ class Bootstrap {
 	 * @return void
 	 */
 	public function _add_pr_meta_box( $post_type ) {
-		if ( ! is_gutenberg_page() || is_snow_monkey() ) {
+		if ( ! is_block_editor() || is_snow_monkey() ) {
 			return;
 		}
 
@@ -124,8 +124,6 @@ class Bootstrap {
 
 require_once( __DIR__ . '/vendor/autoload.php' );
 
-new \Snow_Monkey\Plugin\Blocks\Bootstrap();
-
 /**
  * Directory url of this plugin
  *
@@ -157,3 +155,29 @@ function is_pro() {
 function is_snow_monkey() {
 	return 'snow-monkey' === get_template() || 'snow-monkey/resources' === get_template();
 }
+
+/**
+ * Return true when active the Gutenberg plugin
+ *
+ * @return boolean
+ */
+function is_gutenberg_page() {
+	$post = get_post();
+	if ( ! $post ) {
+		return false;
+	}
+
+	return function_exists( '\is_gutenberg_page' ) && \is_gutenberg_page();
+}
+
+/**
+ * Return true when the page has block editor
+ *
+ * @return boolean
+ */
+function is_block_editor() {
+	return is_gutenberg_page()
+				 || ( function_exists( '\use_block_editor_for_post' ) && \use_block_editor_for_post( get_post() ) );
+}
+
+new \Snow_Monkey\Plugin\Blocks\Bootstrap();
