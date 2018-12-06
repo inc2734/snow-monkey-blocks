@@ -22,10 +22,6 @@ class Bootstrap {
 	}
 
 	public function _bootstrap() {
-		if ( ! function_exists( '\is_gutenberg_page' ) && ! function_exists( '\use_block_editor_for_post' ) ) {
-			return;
-		}
-
 		new App\Setup\TextDomain();
 		new App\Setup\Assets();
 		new App\Setup\DynamicBlocks();
