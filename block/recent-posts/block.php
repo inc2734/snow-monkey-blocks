@@ -5,6 +5,8 @@
  * @license GPL-2.0+
  */
 
+use Inc2734\Mimizuku_Core\Helper;
+
 $query_args = [
 	'post_type'      => 'post',
 	'posts_per_page' => $attributes['postsPerPage'],
@@ -37,13 +39,23 @@ $archive_layout  = $attributes['layout'];
 			<?php $recent_posts_query->the_post(); ?>
 			<li class="c-entries__item">
 				<?php
-				wpvc_get_template_part(
-					'template-parts/loop/entry-summary',
-					$_post_type,
-					[
-						'widget_layout' => $attributes['layout'],
-					]
-				);
+				$args = [
+					'widget_layout' => $attributes['layout'],
+				];
+
+				if ( function_exists( '\wpvc_get_template_part' ) ) {
+					wpvc_get_template_part(
+						'template-parts/loop/entry-summary',
+						$_post_type,
+						$args
+					);
+				} elseif ( function_exists( 'Helper\get_template_part' ) ) {
+					Helper\get_template_part(
+						'template-parts/loop/entry-summary',
+						$_post_type,
+						$args
+					);
+				}
 				?>
 			</li>
 		<?php endwhile; ?>
