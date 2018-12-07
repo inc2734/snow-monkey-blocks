@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.0
 Tested up to: 5.0
-Stable tag: 1.7.6
+Stable tag: 1.7.7
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -87,6 +87,10 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 15. Media text block
 
 == Changelog ==
+
+= 1.7.7 =
+* Fixed bug that Japanese translation was not applied in WordPress 5.0
+* Support Snow Monkey v5
 
 = 1.7.6 =
 * WordPress 5.0 compatible
