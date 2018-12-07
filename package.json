@@ -20,6 +20,7 @@
     "eslint-plugin-wordpress": "git://github.com/WordPress-Coding-Standards/eslint-plugin-wordpress.git#1774343f6226052a46b081e01db3fca8793cc9f1",
     "node-sass": "^4.10.0",
     "npm-run-all": "^4.1.5",
+    "po2json": "^1.0.0-alpha",
     "postcss-cli": "^6.0.1",
     "rimraf": "^2.6.2",
     "sass-basis": "^9.2.7",
@@ -32,7 +33,7 @@
     "clean:js": "rimraf dist/js",
     "clean:packages": "rimraf dist/packages",
     "clean:zip": "rimraf snow-monkey-blocks.zip",
-    "build": "npm-run-all -p css js packages && npm run pot-to-php",
+    "build": "npm-run-all -p css js packages po2json",
     "prepublish": "npm run build",
     "lint": "./node_modules/.bin/eslint .",
     "minify:css:front": "cssnano dist/css/blocks.css dist/css/blocks.min.css --no-zindex && rimraf dist/css/blocks.css",
@@ -67,7 +68,8 @@
     "zip:archive": "zip -9 -qmr snow-monkey-blocks.zip snow-monkey-blocks",
     "zip": "npm run clean:zip && npm run zip:pack && npm run zip:archive",
     "sync-sm-css": "rimraf src/css/core && cp -r ../../themes/snow-monkey/resources/src/css/core ./src/css/core && rimraf src/css/core/_core.scss",
-    "pot-to-php": "pot-to-php languages/snow-monkey-blocks-ja.po languages/snow-monkey-blocks-translations.php snow-monkey-blocks"
+    "po2json:snow-monkey-blocks-editor": "po2json languages/snow-monkey-blocks-ja.po languages/snow-monkey-blocks-ja-snow-monkey-blocks-editor.json -f jed",
+    "po2json": "npm-run-all -p po2json:*"
   },
   "dependencies": {
     "@wordpress/i18n": "^3.1.0"

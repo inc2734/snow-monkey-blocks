@@ -7,6 +7,7 @@
  * Author URI: https://2inc.org
  * License: GPL2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: snow-monkey-blocks
  *
  * @package snow-monkey-blocks
  * @author inc2734

@@ -40,7 +40,17 @@ class Assets {
 		if ( function_exists( 'gutenberg_get_jed_locale_data' ) ) {
 			$locale  = gutenberg_get_jed_locale_data( 'snow-monkey-blocks' );
 			$content = 'wp.i18n.setLocaleData( ' . json_encode( $locale ) . ', "snow-monkey-blocks" );';
-			wp_add_inline_script( 'snow-monkey-blocks-editor', $content, 'before' );
+			wp_add_inline_script(
+				'snow-monkey-blocks-editor',
+				$content,
+				'before'
+			);
+		} elseif ( function_exists( 'wp_set_script_translations' ) ) {
+			wp_set_script_translations(
+				'snow-monkey-blocks-editor',
+				'snow-monkey-blocks',
+				SNOW_MONKEY_BLOCKS_DIR_PATH . '/languages'
+			);
 		}
 
 		wp_localize_script(
