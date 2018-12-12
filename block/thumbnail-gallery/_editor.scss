@@ -1,4 +1,4 @@
-.smb-slider {
+.smb-thumbnail-gallery {
   &__canvas {
     visibility: visible !important;
   }
@@ -8,8 +8,8 @@
   }
 }
 
-[data-type="snow-monkey-blocks/slider"].is-selected {
-  .smb-slider {
+[data-type="snow-monkey-blocks/thumbnail-gallery"].is-selected {
+  .smb-thumbnail-gallery {
     &__canvas {
       @include _row();
       @include _row--margin(.5);

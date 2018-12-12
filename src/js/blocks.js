@@ -19,5 +19,6 @@ import '../../block/panels/block.js';
 import '../../block/recent-posts/block.js';
 import '../../block/pickup-slider/block.js';
 import '../../block/media-text/block.js';
+import '../../block/thumbnail-gallery/block.js';
 
 import './_highlighter.js';

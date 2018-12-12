@@ -31,6 +31,7 @@ $_font-path: false;
 @import '../../block/slider/block';
 @import '../../block/panels/block';
 @import '../../block/media-text/block';
+@import '../../block/thumbnail-gallery/block';
 
 .smb-highlighter {
   background: linear-gradient(transparent 60%, rgba(#fffd6b, .7) 60%);

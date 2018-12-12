@@ -5,3 +5,6 @@ new smbList();
 
 import smbSlider from './_slider.js';
 new smbSlider();
+
+import smbThumbnailGallery from './_thumbnail-gallery.js';
+new smbThumbnailGallery();

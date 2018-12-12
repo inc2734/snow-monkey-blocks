@@ -197,13 +197,17 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 								return (
 									<Fragment>
 										<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
-										<button
-											className="smb-remove-button"
-											onClick={ () => {
-												setAttributes( { content: generateUpdatedAttribute( content, index, 'imageURL', '' ) } );
-												setAttributes( { content: generateUpdatedAttribute( content, index, 'imageID', 0 ) } );
-											} }
-										>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
+										{ isSelected &&
+											<button
+												className="smb-remove-button"
+												onClick={ () => {
+													let newContent = content;
+													newContent = generateUpdatedAttribute( content, index, 'imageURL', '' );
+													newContent = generateUpdatedAttribute( content, index, 'imageID', 0 );
+													setAttributes( { content: newContent } );
+												} }
+											>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
+										}
 									</Fragment>
 								);
 							};
@@ -212,7 +216,7 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 								<Fragment>
 									{ ( !! imageID || isSelected ) &&
 										<div className="smb-slider__item">
-											<div className="smb-step__item__figure">
+											<div className="smb-slider__item__figure">
 												{ renderMedia() }
 											</div>
 

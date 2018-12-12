@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2018-12-12 11:49+0900\n"
-"PO-Revision-Date: 2018-12-12 11:49+0900\n"
+"POT-Creation-Date: 2018-12-12 14:52+0900\n"
+"PO-Revision-Date: 2018-12-12 14:52+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -307,14 +307,14 @@ msgstr "(%d) ボタン設定"
 #: block/items/block.js:221 block/media-text/block.js:75
 #: block/panels/block.js:194 block/pricing-table/block.js:180
 #: block/section-with-bgimage/block.js:115 block/slider/block.js:183
-#: block/step/block.js:197
+#: block/step/block.js:197 block/thumbnail-gallery/block.js:81
 msgid "Image"
 msgstr "画像"
 
 #: block/items/block.js:244 block/media-text/block.js:94
 #: block/panels/block.js:217 block/pricing-table/block.js:203
-#: block/section-with-bgimage/block.js:131 block/slider/block.js:206
-#: block/step/block.js:220
+#: block/section-with-bgimage/block.js:131 block/slider/block.js:209
+#: block/step/block.js:220 block/thumbnail-gallery/block.js:107
 msgid "Remove"
 msgstr "削除"
 
@@ -588,7 +588,7 @@ msgstr "スライダー"
 msgid "Slider Settings"
 msgstr "スライダー設定"
 
-#: block/slider/block.js:107
+#: block/slider/block.js:107 block/thumbnail-gallery/block.js:57
 msgid "Number of items"
 msgstr "アイテム数"
 
@@ -620,7 +620,7 @@ msgstr "自動再生の間隔（秒）"
 msgid "Change the slider's direction to become right-to-left"
 msgstr "スライダーの方向を右から左に変更"
 
-#: block/slider/block.js:222
+#: block/slider/block.js:226
 msgid "Write caption..."
 msgstr "キャプションを書く…"
 
@@ -668,6 +668,14 @@ msgstr "お客様の声の設定"
 #: block/testimonial/block.js:123
 msgid "Write name..."
 msgstr "名前を書く…"
+
+#: block/thumbnail-gallery/block.js:14
+msgid "Thumbnail gallery"
+msgstr "サムネイルギャラリー"
+
+#: block/thumbnail-gallery/block.js:55
+msgid "Thumbnail Gallery Settings"
+msgstr "サムネイルギャラリーの設定"
 
 #: src/js/_highlighter.js:13
 msgid "Highlighter"
