@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.0
 Tested up to: 5.0
-Stable tag: 1.7.7
+Stable tag: 2.0.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -38,6 +38,7 @@ https://www.youtube.com/watch?v=uD6omb4TLdA&t=283s
 * Slider
 * Panels
 * Media text
+* Thumbnail gallery
 * Recent posts (Can be used only with Snow Monkey)
 * Pickup slider (Can be used only with Snow Monkey)
 
@@ -47,7 +48,6 @@ By default these blocks are restricted. If you are using the theme that has 1 co
 
 * Section
 * Section with background image
-* Section with image
 
 = Formatter =
 
@@ -85,8 +85,15 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 13. Slider block (The number of images can be increased or decreased freely)
 14. Panel block (The number of items can be increased or decreased freely)
 15. Media text block
+15. Thumbnail gallery block (The number of images can be increased or decreased freely)
 
 == Changelog ==
+
+= 2.0.0 =
+* Fixed bug that the recent post blocks are not displayed in Snow Monkey v5.
+* If the position of the image in the media text block is on the left side, on the smartphone, change the image so that the image is displayed at the top.
+* Add the thumbnail gallery block.
+* Remove the section with image block.
 
 = 1.7.7 =
 * Fixed bug that Japanese translation was not applied in WordPress 5.0
