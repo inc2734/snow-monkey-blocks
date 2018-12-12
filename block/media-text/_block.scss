@@ -17,4 +17,12 @@
       padding-left: 0;
     }
 	}
+
+  > .c-row--reverse {
+    @include _media-max(md) {
+      > .c-row__col:first-child {
+        order: 1;
+      }
+    }
+  }
 }
