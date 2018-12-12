@@ -6,7 +6,6 @@ import '../../block/btn/block.js';
 import '../../block/box/block.js';
 import '../../block/pricing-table/block.js';
 import '../../block/section/block.js';
-import '../../block/section-with-image/block.js';
 import '../../block/section-with-bgimage/block.js';
 import '../../block/btn-box/block.js';
 import '../../block/rating-box/block.js';

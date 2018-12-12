@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2018-12-07 10:29+0900\n"
-"PO-Revision-Date: 2018-12-07 10:29+0900\n"
+"POT-Creation-Date: 2018-12-12 11:49+0900\n"
+"PO-Revision-Date: 2018-12-12 11:49+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -122,8 +122,7 @@ msgstr "アイコン"
 #: block/alert/block.js:136 block/items/block.js:260
 #: block/media-text/block.js:155 block/panels/block.js:239
 #: block/pricing-table/block.js:219 block/rating-box/block.js:102
-#: block/section-with-bgimage/block.js:147
-#: block/section-with-image/block.js:169 block/section/block.js:193
+#: block/section-with-bgimage/block.js:147 block/section/block.js:193
 #: block/step/block.js:233
 msgid "Write title..."
 msgstr "タイトルを書く…"
@@ -162,8 +161,7 @@ msgstr "ボックス設定"
 
 #: block/box/block.js:36 block/btn-box/block.js:63 block/btn-box/block.js:97
 #: block/btn/block.js:89 block/items/block.js:184
-#: block/pricing-table/block.js:142 block/section-with-image/block.js:149
-#: block/section/block.js:81
+#: block/pricing-table/block.js:142 block/section/block.js:81
 msgid "Background Color"
 msgstr "背景色"
 
@@ -308,15 +306,14 @@ msgstr "(%d) ボタン設定"
 
 #: block/items/block.js:221 block/media-text/block.js:75
 #: block/panels/block.js:194 block/pricing-table/block.js:180
-#: block/section-with-bgimage/block.js:115 block/section-with-image/block.js:81
-#: block/slider/block.js:183 block/step/block.js:197
+#: block/section-with-bgimage/block.js:115 block/slider/block.js:183
+#: block/step/block.js:197
 msgid "Image"
 msgstr "画像"
 
 #: block/items/block.js:244 block/media-text/block.js:94
 #: block/panels/block.js:217 block/pricing-table/block.js:203
-#: block/section-with-bgimage/block.js:131
-#: block/section-with-image/block.js:100 block/slider/block.js:206
+#: block/section-with-bgimage/block.js:131 block/slider/block.js:206
 #: block/step/block.js:220
 msgid "Remove"
 msgstr "削除"
@@ -370,38 +367,37 @@ msgstr "メディアと文章"
 msgid "Media Text Settings"
 msgstr "メディアと文章の設定"
 
-#: block/media-text/block.js:104 block/section-with-image/block.js:110
-#: block/step/block.js:119
+#: block/media-text/block.js:104 block/step/block.js:119
 msgid "Image Position"
 msgstr "画像の位置"
 
 #: block/media-text/block.js:109 block/section-with-bgimage/block.js:89
-#: block/section-with-image/block.js:115 block/step/block.js:132
+#: block/step/block.js:132
 msgid "Right side"
 msgstr "右側"
 
 #: block/media-text/block.js:113 block/section-with-bgimage/block.js:81
-#: block/section-with-image/block.js:119 block/step/block.js:124
+#: block/step/block.js:124
 msgid "Left side"
 msgstr "左側"
 
-#: block/media-text/block.js:120 block/section-with-image/block.js:126
+#: block/media-text/block.js:120
 msgid "Image Column Size"
 msgstr "画像カラムのサイズ"
 
-#: block/media-text/block.js:125 block/section-with-image/block.js:131
+#: block/media-text/block.js:125
 msgid "66%"
 msgstr "66%"
 
-#: block/media-text/block.js:129 block/section-with-image/block.js:135
+#: block/media-text/block.js:129
 msgid "50%"
 msgstr "50%"
 
-#: block/media-text/block.js:133 block/section-with-image/block.js:139
+#: block/media-text/block.js:133
 msgid "33%"
 msgstr "33%"
 
-#: block/media-text/block.js:137 block/section-with-image/block.js:143
+#: block/media-text/block.js:137
 msgid "25%"
 msgstr "25%"
 
@@ -508,8 +504,7 @@ msgstr "シンプル"
 msgid "Section (with background image)"
 msgstr "セクション（背景画像あり）"
 
-#: block/section-with-bgimage/block.js:58 block/section-with-image/block.js:108
-#: block/section/block.js:64
+#: block/section-with-bgimage/block.js:58 block/section/block.js:64
 msgid "Section Settings"
 msgstr "セクション設定"
 
@@ -540,10 +535,6 @@ msgstr "背景マスクの色"
 #: block/section-with-bgimage/block.js:103
 msgid "Mask Opacity"
 msgstr "背景マスクの透明度"
-
-#: block/section-with-image/block.js:36
-msgid "Section (with image)"
-msgstr "セクション（画像あり）"
 
 #: block/section/block.js:14
 msgid "Section"
@@ -681,6 +672,9 @@ msgstr "名前を書く…"
 #: src/js/_highlighter.js:13
 msgid "Highlighter"
 msgstr "蛍光ペン"
+
+#~ msgid "Section (with image)"
+#~ msgstr "セクション（画像あり）"
 
 #~ msgid "Section (has background image)"
 #~ msgstr "セクション（背景画像あり）"
