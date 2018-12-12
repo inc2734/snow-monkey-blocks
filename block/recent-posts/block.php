@@ -5,8 +5,6 @@
  * @license GPL-2.0+
  */
 
-use Inc2734\Mimizuku_Core\Helper;
-
 $query_args = [
 	'post_type'      => 'post',
 	'posts_per_page' => $attributes['postsPerPage'],
@@ -43,15 +41,22 @@ $archive_layout  = $attributes['layout'];
 					'widget_layout' => $attributes['layout'],
 				];
 
+				$template_slug = 'template-parts/loop/entry-summary';
 				if ( function_exists( '\wpvc_get_template_part' ) ) {
-					wpvc_get_template_part(
-						'template-parts/loop/entry-summary',
+					\wpvc_get_template_part(
+						$template_slug,
 						$_post_type,
 						$args
 					);
-				} elseif ( function_exists( 'Helper\get_template_part' ) ) {
-					Helper\get_template_part(
-						'template-parts/loop/entry-summary',
+				} elseif ( function_exists( '\Inc2734\Mimizuku_Core\Helper\get_template_part' ) ) {
+					\Inc2734\Mimizuku_Core\Helper\get_template_part(
+						$template_slug,
+						$_post_type,
+						$args
+					);
+				} elseif ( method_exists( '\Framework\Helper', 'get_template_part' ) ) {
+					\Framework\Helper::get_template_part(
+						$template_slug,
 						$_post_type,
 						$args
 					);
