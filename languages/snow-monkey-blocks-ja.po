@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2018-12-12 14:52+0900\n"
-"PO-Revision-Date: 2018-12-12 14:52+0900\n"
+"POT-Creation-Date: 2018-12-14 10:06+0900\n"
+"PO-Revision-Date: 2018-12-14 10:21+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -239,6 +239,39 @@ msgstr "リード文を書く…"
 #: block/btn-box/block.js:163
 msgid "Write note..."
 msgstr "注釈を書く…"
+
+#: block/categories-list/block.js:10 block/categories-list/block.js:34
+msgid "Categories list"
+msgstr "カテゴリー一覧"
+
+#: block/categories-list/block.js:11
+msgid "This block is displayed only on the actual screen."
+msgstr "このブロックは実際の画面でのみ表示されます。"
+
+#: block/categories-list/block.js:21
+msgid "Categories list Settings"
+msgstr "カテゴリー一覧設定"
+
+#: block/categories-list/block.js:23
+msgid "Categories list Articles"
+msgstr "最新記事件数"
+
+#: block/categories-list/block.js:37
+msgid "displayed categories list on the actual screen."
+msgstr "カテゴリー一覧は実際の画面でのみ表示されます。"
+
+#: block/categories-list/block.php:6
+msgid "articles"
+msgstr "記事"
+
+#: block/categories-list/block.php:7
+#, php-format
+msgid "%1$d latest_posts"
+msgstr "最新記事 (%1$d件)"
+
+#: block/categories-list/block.php:8
+msgid "no title"
+msgstr "タイトル未定義"
 
 #: block/faq/block.js:14
 msgid "FAQ"
