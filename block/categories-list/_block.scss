@@ -1,0 +1,134 @@
+.smb-categories-list {
+	margin-left: 0;
+	list-style: none;
+	padding: 0;
+	&:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+	&__cat {
+		border: 1px solid #eee;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: row;
+		margin-top: 16px;
+		min-height: 64px;
+		&:first-child {
+			margin-top: 0;
+		}
+		h4 {
+			background-color: #eee;
+			color: #111;
+			display: flex;
+			position: relative;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			min-width: 96px;
+			flex-flow: column;
+			padding: 8px;
+			span {
+				font-size: .75rem;
+				line-height: 1.69565;
+			}
+			&:after {
+				border: 8px solid transparent;
+				border-left-color: #eee;
+				content: '';
+				display: block;
+				height: 0;
+				position: absolute;
+				right: -16px;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 0;
+			}
+		}
+		.detail {
+			flex-grow: 1;
+			h5 {
+				margin: 8px 24px 0px 24px;
+			}
+			a {
+				text-decoration: none;
+				font-weight: bold;
+			}
+			.description {
+				display: inline-block;
+				margin: 8px 24px 8px 24px;
+				font-size: .75rem;
+				line-height: 1.69565;
+			}
+			h6 {
+				margin: 0 16px;
+				font-size: .75rem;
+				line-height: 1.86957;
+				font-weight: 700;
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-orient: horizontal;
+				-webkit-box-direction: normal;
+				-ms-flex-direction: row;
+				flex-direction: row;
+				-webkit-box-align: center;
+				-ms-flex-align: center;
+				align-items: center;
+				-webkit-box-pack: center;
+				-ms-flex-pack: center;
+				justify-content: center;
+				&:before, &:after {
+					display: block;
+					content: "";
+					height: 1px;
+					background-color: #111;
+					-webkit-box-flex: 1;
+					-ms-flex: 1 0 0%;
+					flex: 1 0 0%;
+					min-width: 20px;
+				}
+				&:before {
+					margin-right: .5em;
+				}
+				&:after {
+					margin-left: .5em;
+				}
+			}
+			.latest-articles-list {
+				list-style-type: none;
+				li {
+					a {
+						font-size: .75rem;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.smb-categories-list {
+		&__cat {
+			width: calc(50% - 16px);
+			margin-bottom: 8px;
+			float: left;
+			&:nth-child(2n - 1) h4 {
+				order: 1;
+				&:after {
+					border-left-color: transparent;
+					border-right-color: #eee;
+					left: -16px;
+					right: auto;
+				}
+			}
+			&:nth-child(2n) {
+				float: right;
+				margin-right: 0;
+			}
+			&:nth-child(-n+2) {
+				margin-top: 0;
+			}
+		}
+	}
+}
