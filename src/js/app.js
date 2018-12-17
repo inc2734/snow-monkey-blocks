@@ -8,3 +8,6 @@ new smbSlider();
 
 import smbThumbnailGallery from './_thumbnail-gallery.js';
 new smbThumbnailGallery();
+
+import smbCategoriesList from './_category-list.js';
+new smbCategoriesList();

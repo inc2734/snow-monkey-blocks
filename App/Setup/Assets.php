@@ -104,6 +104,18 @@ class Assets {
 			filemtime( $path )
 		);
 
+		$relative_path = 'dist/packages/masonry-layout/dist/masonry.pkgd.min.js';
+		$src  = SNOW_MONKEY_BLOCKS_DIR_URL . $relative_path;
+		$path = SNOW_MONKEY_BLOCKS_DIR_PATH . $relative_path;
+
+		wp_register_script(
+			'masonry-layout',
+			$src,
+			[],
+			filemtime( $path ),
+			true
+		);
+
 		$relative_path = '/dist/js/app.min.js';
 		$src  = SNOW_MONKEY_BLOCKS_DIR_URL . $relative_path;
 		$path = SNOW_MONKEY_BLOCKS_DIR_PATH . $relative_path;
@@ -111,7 +123,7 @@ class Assets {
 		wp_enqueue_script(
 			'snow-monkey-blocks',
 			$src,
-			[ 'jquery' ],
+			[ 'jquery', 'masonry-layout' ],
 			filemtime( $path ),
 			true
 		);
