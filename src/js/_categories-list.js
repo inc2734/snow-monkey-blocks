@@ -1,5 +1,7 @@
 'use strict';
 
+import Masonry from 'Masonry';
+
 export default class smbCategoriesList {
 	constructor() {
 		window.addEventListener( 'DOMContentLoaded', () => this._masonry(), false );
@@ -14,7 +16,7 @@ export default class smbCategoriesList {
 				itemSelector: '.smb-categories-list__item',
 				percentPosition: true,
 				horizontalOrder: true,
-			});
+			} );
 		} );
 	}
 

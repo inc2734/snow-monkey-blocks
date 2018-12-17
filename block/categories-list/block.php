@@ -17,24 +17,29 @@ $categories = get_categories(
 			<?php $category_detail = get_category( $category ); ?>
 
 			<li class="smb-categories-list__item">
-				<h4>
+				<div class="smb-categories-list__item__count">
 					<?php echo esc_html( $category_detail->count ); ?>
 					<span><?php esc_html_e( 'articles', 'snow-monkey-blocks' ); ?></span>
-				</h4>
+				</div>
 
-				<div class="detail">
-					<h5>
+				<div class="smb-categories-list__item__detail">
+					<div class="smb-categories-list__item__category-name">
 						<a href="<?php echo esc_url( get_category_link( $category_detail->term_id ) ); ?>">
 							<?php echo esc_html( $category_detail->cat_name ); ?>
 						</a>
-					</h5>
-					<span class="description">
-						<?php echo wp_kses_post( $category_detail->category_description ); ?>
-					</span>
+					</div>
+
+					<?php if ( $category_detail->category_description ) : ?>
+						<div class="smb-categories-list__item__category-description">
+							<?php echo wp_kses_post( $category_detail->category_description ); ?>
+						</div>
+					<?php endif; ?>
 
 					<?php if ( ! empty( $attributes['articles'] ) ) : ?>
-						<h6><?php echo esc_html( sprintf( __( '%1$d latest_posts', 'snow-monkey-blocks' ), $attributes['articles'] ) ); ?></h6>
-						<ul class="latest-articles-list">
+						<div class="smb-categories-list__item__recent-label">
+							<?php esc_html_e( 'Recent posts', 'snow-monkey-blocks' ); ?>
+						</div>
+						<ul class="smb-categories-list__item__list">
 							<?php
 							$_wp_query = new \WP_Query(
 								[
