@@ -11,13 +11,14 @@ use Snow_Monkey\Plugin\Blocks;
 
 class DynamicBlocks {
 	public function __construct() {
+		add_action( 'init', [ $this, '_categories_list_block' ] );
+
 		if ( ! Blocks\is_snow_monkey() ) {
 			return;
 		}
 
 		add_action( 'init', [ $this, '_recent_posts_block' ] );
 		add_action( 'init', [ $this, '_pickup_slider_block' ] );
-		add_action( 'init', [ $this, '_categories_list_block' ] );
 	}
 
 	/**

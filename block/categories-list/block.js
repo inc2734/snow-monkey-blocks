@@ -20,14 +20,15 @@ registerBlockType( 'snow-monkey-blocks/categories-list', {
 				<InspectorControls>
 					<PanelBody title={ __( 'Categories list Settings', 'snow-monkey-blocks' ) }>
 						<RangeControl
-							label={ __( 'Categories list Articles', 'snow-monkey-blocks' ) }
+							label={ __( 'Categories List Articles', 'snow-monkey-blocks' ) }
 							value={ articles }
 							onChange={ ( value ) => setAttributes( { articles: value } ) }
-							min="0"
+							min="1"
 							max="5"
 						/>
 					</PanelBody>
 				</InspectorControls>
+
 				<div className="components-placeholder">
 					<div className="components-placeholder__label">
 						<Dashicon icon="excerpt-view" />

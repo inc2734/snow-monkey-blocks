@@ -15,7 +15,7 @@ class Assets {
 		add_filter( 'block_editor_settings', [ $this, '_block_editor_settings' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, '_wp_enqueue_scripts' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, '_wp_enqueue_nopro_scripts' ] );
-		add_action( 'enqueue_block_assets', [ $this, '_enqueue_block_assets' ] );
+		add_action( 'enqueue_block_assets', [ $this, '_enqueue_block_no_snow_monkey_assets' ] );
 		add_action( 'enqueue_block_assets', [ $this, '_enqueue_block_nopro_assets' ] );
 	}
 
@@ -25,15 +25,19 @@ class Assets {
 	 * @return void
 	 */
 	public function _enqueue_block_editor_assets() {
-		$relative_path = '/dist/js/blocks-build.js';
-		$src  = SNOW_MONKEY_BLOCKS_DIR_URL . $relative_path;
-		$path = SNOW_MONKEY_BLOCKS_DIR_PATH . $relative_path;
+		wp_register_script(
+			'masonry-layout',
+			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/packages/masonry-layout/dist/masonry.pkgd.min.js',
+			[],
+			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/masonry-layout/dist/masonry.pkgd.min.js' ),
+			true
+		);
 
 		wp_enqueue_script(
 			'snow-monkey-blocks-editor',
-			$src,
-			[ 'wp-blocks', 'wp-element', 'wp-i18n' ],
-			filemtime( $path ),
+			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/blocks-build.js',
+			[ 'wp-blocks', 'wp-element', 'wp-i18n', 'masonry-layout' ],
+			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/blocks-build.js' ),
 			true
 		);
 
@@ -78,10 +82,8 @@ class Assets {
 			return $editor_settings;
 		}
 
-		$relative_path = '/dist/css/blocks-editor.min.css';
-		$src = SNOW_MONKEY_BLOCKS_DIR_PATH . $relative_path;
 		$editor_settings['styles'][] = [
-			'css' => file_get_contents( $src ),
+			'css' => file_get_contents( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/blocks-editor.min.css' ),
 		];
 
 		return $editor_settings;
@@ -93,38 +95,26 @@ class Assets {
 	 * @return void
 	 */
 	public function _wp_enqueue_scripts() {
-		$relative_path = '/dist/css/blocks.min.css';
-		$src  = SNOW_MONKEY_BLOCKS_DIR_URL . $relative_path;
-		$path = SNOW_MONKEY_BLOCKS_DIR_PATH . $relative_path;
-
 		wp_enqueue_style(
 			'snow-monkey-blocks',
-			$src,
+			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/css/blocks.min.css',
 			[],
-			filemtime( $path )
+			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/blocks.min.css' )
 		);
-
-		$relative_path = 'dist/packages/masonry-layout/dist/masonry.pkgd.min.js';
-		$src  = SNOW_MONKEY_BLOCKS_DIR_URL . $relative_path;
-		$path = SNOW_MONKEY_BLOCKS_DIR_PATH . $relative_path;
 
 		wp_register_script(
 			'masonry-layout',
-			$src,
+			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/packages/masonry-layout/dist/masonry.pkgd.min.js',
 			[],
-			filemtime( $path ),
+			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/masonry-layout/dist/masonry.pkgd.min.js' ),
 			true
 		);
 
-		$relative_path = '/dist/js/app.min.js';
-		$src  = SNOW_MONKEY_BLOCKS_DIR_URL . $relative_path;
-		$path = SNOW_MONKEY_BLOCKS_DIR_PATH . $relative_path;
-
 		wp_enqueue_script(
 			'snow-monkey-blocks',
-			$src,
+			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/app.min.js',
 			[ 'jquery', 'masonry-layout' ],
-			filemtime( $path ),
+			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/app.min.js' ),
 			true
 		);
 	}
@@ -139,26 +129,18 @@ class Assets {
 			return;
 		}
 
-		$relative_path = '/dist/css/blocks-nopro.min.css';
-		$src  = SNOW_MONKEY_BLOCKS_DIR_URL . $relative_path;
-		$path = SNOW_MONKEY_BLOCKS_DIR_PATH . $relative_path;
-
 		wp_enqueue_style(
 			'snow-monkey-blocks-nopro',
-			$src,
+			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/css/blocks-nopro.min.css',
 			[],
-			filemtime( $path )
+			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/blocks-nopro.min.css' )
 		);
-
-		$relative_path = '/dist/js/blocks-nopro-build.js';
-		$src  = SNOW_MONKEY_BLOCKS_DIR_URL . $relative_path;
-		$path = SNOW_MONKEY_BLOCKS_DIR_PATH . $relative_path;
 
 		wp_enqueue_script(
 			'snow-monkey-blocks-nopro',
-			$src,
+			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/blocks-nopro-build.js',
 			[ 'jquery' ],
-			filemtime( $path )
+			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/blocks-nopro-build.js' )
 		);
 	}
 
@@ -167,71 +149,51 @@ class Assets {
 	 *
 	 * @return void
 	 */
-	public function _enqueue_block_assets() {
+	public function _enqueue_block_no_snow_monkey_assets() {
 		if ( Blocks\is_snow_monkey() ) {
 			return;
 		}
 
 		if ( apply_filters( 'snow_monkey_blocks_enqueue_fontawesome', true ) ) {
-			$relative_path = '/dist/packages/fontawesome-free/js/all.min.js';
-			$src  = SNOW_MONKEY_BLOCKS_DIR_URL . $relative_path;
-			$path = SNOW_MONKEY_BLOCKS_DIR_PATH . $relative_path;
-
 			wp_enqueue_script(
 				'fontawesome5',
-				$src,
+				SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/packages/fontawesome-free/js/all.min.js',
 				[],
-				filemtime( $path ),
+				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/fontawesome-free/js/all.min.js' ),
 				true
 			);
 		}
 
 		if ( apply_filters( 'snow_monkey_blocks_enqueue_slick', true ) ) {
-			$relative_path = '/dist/packages/slick/slick.min.js';
-			$src  = SNOW_MONKEY_BLOCKS_DIR_URL . $relative_path;
-			$path = SNOW_MONKEY_BLOCKS_DIR_PATH . $relative_path;
-
 			wp_enqueue_script(
 				'slick-carousel',
-				$src,
+				SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/packages/slick/slick.min.js',
 				[ 'jquery' ],
-				filemtime( $path ),
+				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/slick/slick.min.js' ),
 				true
 			);
 
-			$relative_path = '/dist/packages/slick/slick.css';
-			$src  = SNOW_MONKEY_BLOCKS_DIR_URL . $relative_path;
-			$path = SNOW_MONKEY_BLOCKS_DIR_PATH . $relative_path;
-
 			wp_enqueue_style(
 				'slick-carousel',
-				$src,
+				SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/packages/slick/slick.css',
 				[],
-				filemtime( $path )
+				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/slick/slick.css' )
 			);
-
-			$relative_path = '/dist/packages/slick/slick-theme.css';
-			$src  = SNOW_MONKEY_BLOCKS_DIR_URL . $relative_path;
-			$path = SNOW_MONKEY_BLOCKS_DIR_PATH . $relative_path;
 
 			wp_enqueue_style(
 				'slick-carousel-theme',
-				$src,
+				SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/packages/slick/slick-theme.css',
 				[],
-				filemtime( $path )
+				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/slick/slick-theme.css' )
 			);
 		}
 
 		if ( apply_filters( 'snow_monkey_blocks_enqueue_fallback_style', true ) ) {
-			$relative_path = '/dist/css/fallback.min.css';
-			$src  = SNOW_MONKEY_BLOCKS_DIR_URL . $relative_path;
-			$path = SNOW_MONKEY_BLOCKS_DIR_PATH . $relative_path;
-
 			wp_enqueue_style(
 				'snow-monkey-blocks-fallback',
-				$src,
+				SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/css/fallback.min.css',
 				[],
-				filemtime( $path )
+				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/fallback.min.css' )
 			);
 		}
 	}
@@ -246,15 +208,11 @@ class Assets {
 			return;
 		}
 
-		$relative_path = '/dist/css/blocks-editor-nopro.min.css';
-		$src  = SNOW_MONKEY_BLOCKS_DIR_URL . $relative_path;
-		$path = SNOW_MONKEY_BLOCKS_DIR_PATH . $relative_path;
-
 		wp_enqueue_style(
 			'snow-monkey-blocks-editor-nopro',
-			$src,
+			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/css/blocks-editor-nopro.min.css',
 			[],
-			filemtime( $path )
+			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/blocks-editor-nopro.min.css' )
 		);
 	}
 }
