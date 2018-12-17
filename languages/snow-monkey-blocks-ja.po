@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2018-12-17 13:11+0900\n"
-"PO-Revision-Date: 2018-12-17 13:15+0900\n"
+"POT-Creation-Date: 2018-12-17 21:22+0900\n"
+"PO-Revision-Date: 2018-12-17 21:23+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -22,6 +22,14 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-2: dist\n"
 "X-Poedit-SearchPathExcluded-3: tests\n"
 "X-Poedit-SearchPathExcluded-4: languages\n"
+
+#: block/categories-list/block.php:22
+msgid "articles"
+msgstr "記事"
+
+#: block/categories-list/block.php:40 block/recent-posts/block.js:10
+msgid "Recent posts"
+msgstr "最近の投稿"
 
 #: block/pickup-slider/block.php:86
 msgid "READ MORE"
@@ -292,6 +300,26 @@ msgstr "右側"
 msgid "Numeric color"
 msgstr "数値の色"
 
+#: block/categories-list/block.js:10 block/categories-list/block.js:35
+msgid "Categories list"
+msgstr "カテゴリー一覧"
+
+#: block/categories-list/block.js:11
+msgid "This block is displayed only on the actual screen."
+msgstr "このブロックは実際の画面でのみ表示されます。"
+
+#: block/categories-list/block.js:21
+msgid "Categories list Settings"
+msgstr "カテゴリー一覧設定"
+
+#: block/categories-list/block.js:23
+msgid "Categories List Articles"
+msgstr "カテゴリーリストの記事数"
+
+#: block/categories-list/block.js:38
+msgid "displayed categories list on the actual screen."
+msgstr "カテゴリー一覧は実際の画面でのみ表示されます。"
+
 #: block/faq/block.js:14
 msgid "FAQ"
 msgstr "FAQ"
@@ -528,10 +556,6 @@ msgstr "レーティング"
 msgid "Color"
 msgstr "色"
 
-#: block/recent-posts/block.js:10
-msgid "Recent posts"
-msgstr "最近の投稿"
-
 #: block/recent-posts/block.js:20
 msgid "Recent Posts Settings"
 msgstr "最近の投稿の設定"
@@ -732,6 +756,12 @@ msgstr "サムネイルギャラリーの設定"
 #: src/js/_highlighter.js:13
 msgid "Highlighter"
 msgstr "蛍光ペン"
+
+#~ msgid "%1$d latest_posts"
+#~ msgstr "最新記事 (%1$d件)"
+
+#~ msgid "no title"
+#~ msgstr "タイトル未定義"
 
 #~ msgid "Section (with image)"
 #~ msgstr "セクション（画像あり）"

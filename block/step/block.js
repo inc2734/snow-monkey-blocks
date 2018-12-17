@@ -75,7 +75,8 @@ registerBlockType( 'snow-monkey-blocks/step', {
 					default: '_self',
 				},
 				linkColor: {
-					source: 'string',
+					type: 'string',
+					source: 'attribute',
 					selector: '.smb-step__item__link',
 					attribute: 'data-color',
 				},

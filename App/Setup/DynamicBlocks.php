@@ -11,6 +11,8 @@ use Snow_Monkey\Plugin\Blocks;
 
 class DynamicBlocks {
 	public function __construct() {
+		add_action( 'init', [ $this, '_categories_list_block' ] );
+
 		if ( ! Blocks\is_snow_monkey() ) {
 			return;
 		}
@@ -46,7 +48,7 @@ class DynamicBlocks {
 	}
 
 	/**
-	 * Recent posts block
+	 * Pickup_slider block
 	 *
 	 * @return void
 	 */
@@ -66,6 +68,28 @@ class DynamicBlocks {
 				],
 				'render_callback' => function( $attributes ) {
 					return $this->_render( 'pickup-slider', $attributes );
+				},
+			]
+		);
+	}
+
+	/**
+	 * Categories list block
+	 *
+	 * @return void
+	 */
+	public function _categories_list_block() {
+		register_block_type(
+			'snow-monkey-blocks/categories-list',
+			[
+				'attributes' => [
+					'articles' => [
+						'type'    => 'number',
+						'default' => '5',
+					],
+				],
+				'render_callback' => function( $attributes, $content ) {
+					return $this->_render( 'categories-list', $attributes, $content );
 				},
 			]
 		);
