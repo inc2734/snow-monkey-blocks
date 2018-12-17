@@ -36,27 +36,27 @@ registerBlockType( 'snow-monkey-blocks/evaluation-star', {
 		},
 	},
 
-	edit( { attributes, setAttributes, isSelected } ) {
+	edit( { attributes, setAttributes } ) {
 		const { evaluationValue, iconColor, isDisplayNumeric, numericAlign, numericColor } = attributes;
 		const renderEditEvaluationIcon = () => {
 			const displayDefaultIcon = isUpdated ? 'none' : 'inline-block';
 			const displayUpdatedIcon = isUpdated ? 'inline-block' : 'none';
 			const defaultOutputIcons = [];
 			const updatedOutputIcons = [];
-			const evaluationNumber = Number( evaluationValue );
+			let evaluationNumber = Number( evaluationValue );
 			if ( isNaN( evaluationNumber ) || evaluationNumber < 0 ) {
 				evaluationNumber = 0;
 			} else if ( evaluationNumber > 5 ) {
 				evaluationNumber = 5;
 			}
-			const fillIconCount  = Math.floor( evaluationNumber );
+			const fillIconCount = Math.floor( evaluationNumber );
 			const emptyIconCount = 5 - Math.ceil( evaluationNumber );
-			const halfIconCount  = ( fillIconCount + emptyIconCount ) == 5 ? 0 : 1;
+			const halfIconCount = ( fillIconCount + emptyIconCount ) === 5 ? 0 : 1;
 			for ( let i = 0; i < fillIconCount; i++ ) {
 				defaultOutputIcons.push( <FontAwesomeIcon icon={ [ 'fas', 'star' ] } /> );
 				updatedOutputIcons.push( <i className="fas fa-star" /> );
 			}
-			if ( halfIconCount != 0 ) {
+			if ( halfIconCount !== 0 ) {
 				defaultOutputIcons.push( <FontAwesomeIcon icon={ [ 'fas', 'star-half-alt' ] } /> );
 				updatedOutputIcons.push( <i className="fas fa-star-half-alt" /> );
 			}
@@ -90,7 +90,7 @@ registerBlockType( 'snow-monkey-blocks/evaluation-star', {
 									value = 5;
 								}
 								isUpdated = true;
-								setAttributes( { evaluationValue: value } )
+								setAttributes( { evaluationValue: value } );
 							} }
 							min={ 0 }
 							max={ 5 }
@@ -167,19 +167,19 @@ registerBlockType( 'snow-monkey-blocks/evaluation-star', {
 		const { evaluationValue, iconColor, isDisplayNumeric, numericAlign, numericColor } = attributes;
 		const renderSaveEvaluationIcon = () => {
 			const outputEvaluationIcons = [];
-			const evaluationNumber = Number( evaluationValue );
+			let evaluationNumber = Number( evaluationValue );
 			if ( isNaN( evaluationNumber ) || evaluationNumber < 0 ) {
 				evaluationNumber = 0;
 			} else if ( evaluationNumber > 5 ) {
 				evaluationNumber = 5;
 			}
-			const fillIconCount  = Math.floor( evaluationNumber );
+			const fillIconCount = Math.floor( evaluationNumber );
 			const emptyIconCount = 5 - Math.ceil( evaluationNumber );
-			const halfIconCount  = ( fillIconCount + emptyIconCount ) == 5 ? 0 : 1;
+			const halfIconCount = ( fillIconCount + emptyIconCount ) === 5 ? 0 : 1;
 			for ( let i = 0; i < fillIconCount; i++ ) {
 				outputEvaluationIcons.push( <i className="fas fa-star" /> );
 			}
-			if ( halfIconCount != 0 ) {
+			if ( halfIconCount !== 0 ) {
 				outputEvaluationIcons.push( <i className="fas fa-star-half-alt" /> );
 			}
 			for ( let j = 0; j < emptyIconCount; j++ ) {
