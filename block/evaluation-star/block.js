@@ -1,5 +1,6 @@
 'use strict';
 
+import toNumber from '../../src/js/helper/to-number';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const { registerBlockType } = wp.blocks;
@@ -38,32 +39,32 @@ registerBlockType( 'snow-monkey-blocks/evaluation-star', {
 
 	edit( { attributes, setAttributes } ) {
 		const { evaluationValue, iconColor, isDisplayNumeric, numericAlign, numericColor } = attributes;
+
 		const renderEditEvaluationIcon = () => {
 			const displayDefaultIcon = isUpdated ? 'none' : 'inline-block';
 			const displayUpdatedIcon = isUpdated ? 'inline-block' : 'none';
 			const defaultOutputIcons = [];
 			const updatedOutputIcons = [];
-			let evaluationNumber = Number( evaluationValue );
-			if ( isNaN( evaluationNumber ) || evaluationNumber < 0 ) {
-				evaluationNumber = 0;
-			} else if ( evaluationNumber > 5 ) {
-				evaluationNumber = 5;
-			}
+			const evaluationNumber = toNumber( evaluationValue, 0, 5 );
 			const fillIconCount = Math.floor( evaluationNumber );
 			const emptyIconCount = 5 - Math.ceil( evaluationNumber );
 			const halfIconCount = ( fillIconCount + emptyIconCount ) === 5 ? 0 : 1;
+
 			for ( let i = 0; i < fillIconCount; i++ ) {
 				defaultOutputIcons.push( <FontAwesomeIcon icon={ [ 'fas', 'star' ] } /> );
 				updatedOutputIcons.push( <i className="fas fa-star" /> );
 			}
+
 			if ( halfIconCount !== 0 ) {
 				defaultOutputIcons.push( <FontAwesomeIcon icon={ [ 'fas', 'star-half-alt' ] } /> );
 				updatedOutputIcons.push( <i className="fas fa-star-half-alt" /> );
 			}
+
 			for ( let j = 0; j < emptyIconCount; j++ ) {
 				defaultOutputIcons.push( <FontAwesomeIcon icon={ [ 'far', 'star' ] } /> );
 				updatedOutputIcons.push( <i className="far fa-star"></i> );
 			}
+
 			return (
 				<Fragment>
 					<div style={ { display: displayDefaultIcon } }>
@@ -75,6 +76,7 @@ registerBlockType( 'snow-monkey-blocks/evaluation-star', {
 				</Fragment>
 			);
 		};
+
 		return (
 			<Fragment>
 				<InspectorControls>
@@ -84,13 +86,8 @@ registerBlockType( 'snow-monkey-blocks/evaluation-star', {
 							help={ __( 'Five-grade evaluation', 'snow-monkey-blocks' ) }
 							value={ evaluationValue }
 							onChange={ ( value ) => {
-								if ( isNaN( value ) || value < 0 ) {
-									value = 0;
-								} else if ( value > 5 ) {
-									value = 5;
-								}
 								isUpdated = true;
-								setAttributes( { evaluationValue: value } );
+								setAttributes( { evaluationValue: toNumber( value, 0, 5 ) } );
 							} }
 							min={ 0 }
 							max={ 5 }
@@ -143,10 +140,11 @@ registerBlockType( 'snow-monkey-blocks/evaluation-star', {
 						</BaseControl>
 					</PanelBody>
 				</InspectorControls>
+
 				<div className="smb-evaluation-star">
 					<div className="smb-evaluation-star__body">
 						<span
-							className={ `smb-evaluation-star__numeric smb-evaluation-star__numeric__${ numericAlign }` }
+							className={ `smb-evaluation-star__numeric smb-evaluation-star__numeric--${ numericAlign }` }
 							style={ { color: numericColor, display: isDisplayNumeric ? 'inline' : 'none' } }
 						>
 							{ sprintf( '%.1f', Number( evaluationValue ) ) }
@@ -165,38 +163,40 @@ registerBlockType( 'snow-monkey-blocks/evaluation-star', {
 
 	save( { attributes } ) {
 		const { evaluationValue, iconColor, isDisplayNumeric, numericAlign, numericColor } = attributes;
+
 		const renderSaveEvaluationIcon = () => {
 			const outputEvaluationIcons = [];
-			let evaluationNumber = Number( evaluationValue );
-			if ( isNaN( evaluationNumber ) || evaluationNumber < 0 ) {
-				evaluationNumber = 0;
-			} else if ( evaluationNumber > 5 ) {
-				evaluationNumber = 5;
-			}
+			const evaluationNumber = toNumber( evaluationValue, 0, 5 );
 			const fillIconCount = Math.floor( evaluationNumber );
 			const emptyIconCount = 5 - Math.ceil( evaluationNumber );
 			const halfIconCount = ( fillIconCount + emptyIconCount ) === 5 ? 0 : 1;
+
 			for ( let i = 0; i < fillIconCount; i++ ) {
 				outputEvaluationIcons.push( <i className="fas fa-star" /> );
 			}
+
 			if ( halfIconCount !== 0 ) {
 				outputEvaluationIcons.push( <i className="fas fa-star-half-alt" /> );
 			}
-			for ( let j = 0; j < emptyIconCount; j++ ) {
+
+			for (
+				let j = 0; j < emptyIconCount; j++ ) {
 				outputEvaluationIcons.push( <i className="far fa-star" /> );
 			}
+
 			return (
 				<Fragment>
 					{ outputEvaluationIcons }
 				</Fragment>
 			);
 		};
+
 		return (
 			<div className="smb-evaluation-star">
 				<div className="smb-evaluation-star__body">
 					{ isDisplayNumeric &&
 						<span
-							className={ `smb-evaluation-star__numeric smb-evaluation-star__numeric__${ numericAlign }` }
+							className={ `smb-evaluation-star__numeric smb-evaluation-star__numeric--${ numericAlign }` }
 							style={ { color: numericColor } }
 						>
 							{ sprintf( '%.1f', Number( evaluationValue ) ) }
