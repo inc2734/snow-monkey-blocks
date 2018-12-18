@@ -42,6 +42,7 @@ https://www.youtube.com/watch?v=uD6omb4TLdA&t=283s
 * Recent posts (Can be used only with Snow Monkey)
 * Pickup slider (Can be used only with Snow Monkey)
 * Categories list
+* Contents outline (Can be used only with Snow Monkey)
 
 = Section blocks =
 
@@ -92,7 +93,8 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 == Changelog ==
 
 = 2.1.0 =
-Add the categories list block.
+* Add the categories list block.
+* Add the content outline block.
 
 = 2.0.0 =
 * Fixed bug that the recent post blocks are not displayed in Snow Monkey v5.

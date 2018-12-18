@@ -11,14 +11,32 @@ use Snow_Monkey\Plugin\Blocks;
 
 class DynamicBlocks {
 	public function __construct() {
-		add_action( 'init', [ $this, '_categories_list_block' ] );
+		$this->_register_common_blocks();
+		$this->_register_snow_monkey_dedicated_blocks();
+	}
 
+	/**
+	 * Register common blocks
+	 *
+	 * @return void
+	 */
+	protected function _register_common_blocks() {
+		add_action( 'init', [ $this, '_categories_list_block' ] );
+	}
+
+	/**
+	 * Register Snow Monkey dedicated blocks
+	 *
+	 * @return void
+	 */
+	protected function _register_snow_monkey_dedicated_blocks() {
 		if ( ! Blocks\is_snow_monkey() ) {
 			return;
 		}
 
 		add_action( 'init', [ $this, '_recent_posts_block' ] );
 		add_action( 'init', [ $this, '_pickup_slider_block' ] );
+		add_action( 'init', [ $this, '_contents_outline_block' ] );
 	}
 
 	/**
@@ -90,6 +108,28 @@ class DynamicBlocks {
 				],
 				'render_callback' => function( $attributes, $content ) {
 					return $this->_render( 'categories-list', $attributes, $content );
+				},
+			]
+		);
+	}
+
+	/**
+	 * Contents outline block
+	 *
+	 * @return void
+	 */
+	public function _contents_outline_block() {
+		register_block_type(
+			'snow-monkey-blocks/contents-outline',
+			[
+				'attributes' => [
+					'headings' => [
+						'type'    => 'string',
+						'default' => 'h2,h3,h4',
+					],
+				],
+				'render_callback' => function( $attributes, $content ) {
+					return $this->_render( 'contents-outline', $attributes, $content );
 				},
 			]
 		);

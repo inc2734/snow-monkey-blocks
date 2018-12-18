@@ -7,7 +7,8 @@ jQuery( ( $ ) => {
 		'.smb-section-with-image',
 		'.smb-section-with-items',
 		'.smb-recent-posts',
-		'.smb-categories-list',
+		'.smb-pickup-slider',
+		'.smb-contents-outline',
 	];
 
 	$.each( removeClasses, ( index, value ) => {

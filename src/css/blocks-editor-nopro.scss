@@ -3,7 +3,9 @@
   &.editor-block-list-item-snow-monkey-blocks-section-with-image,
   &.editor-block-list-item-snow-monkey-blocks-section-with-bgimage,
   &.editor-block-list-item-snow-monkey-blocks-section-with-items,
-  &.editor-block-list-item-snow-monkey-blocks-recent-posts {
+  &.editor-block-list-item-snow-monkey-blocks-recent-posts,
+  &.editor-block-list-item-snow-monkey-blocks-pickup-slider,
+  &.editor-block-list-item-snow-monkey-blocks-contents-outline {
     position: relative;
 
     &::after {
