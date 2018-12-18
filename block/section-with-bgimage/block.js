@@ -1,5 +1,6 @@
 'use strict';
 
+import toNumber from '../../src/js/helper/to-number';
 import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
@@ -102,7 +103,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 						<RangeControl
 							label={ __( 'Mask Opacity', 'snow-monkey-blocks' ) }
 							value={ maskOpacity }
-							onChange={ ( value ) => setAttributes( { maskOpacity: value } ) }
+							onChange={ ( value ) => setAttributes( { maskOpacity: toNumber( value, 0, 1 ) } ) }
 							min={ 0 }
 							max={ 1 }
 							step={ 0.1 }

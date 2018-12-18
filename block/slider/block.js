@@ -1,5 +1,6 @@
 'use strict';
 
+import toNumber from '../../src/js/helper/to-number';
 import generateUpdatedAttribute from '../../src/js/helper/generate-updated-attribute';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { deprecated } from './_deprecated.js';
@@ -106,21 +107,21 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 						<RangeControl
 							label={ __( 'Number of items', 'snow-monkey-blocks' ) }
 							value={ items }
-							onChange={ ( value ) => setAttributes( { items: value } ) }
+							onChange={ ( value ) => setAttributes( { items: toNumber( value, 1, 20 ) } ) }
 							min="1"
 							max="20"
 						/>
 						<RangeControl
 							label={ __( '# of slides to show', 'snow-monkey-blocks' ) }
 							value={ slidesToShow }
-							onChange={ ( value ) => setAttributes( { slidesToShow: value } ) }
+							onChange={ ( value ) => setAttributes( { slidesToShow: toNumber( value, 1, 6 ) } ) }
 							min="1"
 							max="6"
 						/>
 						<RangeControl
 							label={ __( '# of slides to scroll', 'snow-monkey-blocks' ) }
 							value={ slidesToScroll }
-							onChange={ ( value ) => setAttributes( { slidesToScroll: value } ) }
+							onChange={ ( value ) => setAttributes( { slidesToScroll: toNumber( value, 1, 6 ) } ) }
 							min="1"
 							max="6"
 						/>
@@ -137,7 +138,7 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 						<RangeControl
 							label={ __( 'Slide animation speed in milliseconds', 'snow-monkey-blocks' ) }
 							value={ speed }
-							onChange={ ( value ) => setAttributes( { speed: value } ) }
+							onChange={ ( value ) => setAttributes( { speed: toNumber( value, 100, 1000 ) } ) }
 							min="100"
 							max="1000"
 							step="100"
@@ -146,7 +147,7 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 							label={ __( 'Autoplay Speed in seconds', 'snow-monkey-blocks' ) }
 							value={ autoplaySpeed }
 							onChange={ ( value ) => {
-								setAttributes( { autoplaySpeed: value } );
+								setAttributes( { autoplaySpeed: toNumber( value, 0, 10 ) } );
 								if ( 0 < autoplaySpeed ) {
 									setAttributes( { autoplay: true } );
 								} else {

@@ -1,5 +1,6 @@
 'use strict';
 
+import toNumber from '../../src/js/helper/to-number';
 import generateUpdatedAttribute from '../../src/js/helper/generate-updated-attribute';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -56,7 +57,7 @@ registerBlockType( 'snow-monkey-blocks/thumbnail-gallery', {
 						<RangeControl
 							label={ __( 'Number of items', 'snow-monkey-blocks' ) }
 							value={ items }
-							onChange={ ( value ) => setAttributes( { items: value } ) }
+							onChange={ ( value ) => setAttributes( { items: toNumber( value, 1, 20 ) } ) }
 							min="1"
 							max="20"
 						/>

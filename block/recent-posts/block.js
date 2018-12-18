@@ -1,5 +1,7 @@
 'use strict';
 
+import toNumber from '../../src/js/helper/to-number';
+
 const { registerBlockType } = wp.blocks;
 const { InspectorControls } = wp.editor;
 const { PanelBody, SelectControl, RangeControl, ServerSideRender } = wp.components;
@@ -21,7 +23,7 @@ registerBlockType( 'snow-monkey-blocks/recent-posts', {
 						<RangeControl
 							label={ __( 'Number of posts', 'snow-monkey-blocks' ) }
 							value={ postsPerPage }
-							onChange={ ( value ) => setAttributes( { postsPerPage: value } ) }
+							onChange={ ( value ) => setAttributes( { postsPerPage: toNumber( value, 1, 12 ) } ) }
 							min="1"
 							max="12"
 						/>

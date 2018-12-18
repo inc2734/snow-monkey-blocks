@@ -1,5 +1,7 @@
 'use strict';
 
+import toNumber from '../../src/js/helper/to-number';
+
 const { registerBlockType } = wp.blocks;
 const { InspectorControls } = wp.editor;
 const { PanelBody, RangeControl, Dashicon } = wp.components;
@@ -22,7 +24,7 @@ registerBlockType( 'snow-monkey-blocks/categories-list', {
 						<RangeControl
 							label={ __( 'Categories List Articles', 'snow-monkey-blocks' ) }
 							value={ articles }
-							onChange={ ( value ) => setAttributes( { articles: value } ) }
+							onChange={ ( value ) => setAttributes( { articles: toNumber( value, 1, 5 ) } ) }
 							min="1"
 							max="5"
 						/>

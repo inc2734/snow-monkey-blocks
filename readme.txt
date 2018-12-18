@@ -95,6 +95,7 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 = 2.1.0 =
 * Add the categories list block.
 * Add the content outline block.
+* Fix RangeControl bug.
 
 = 2.0.0 =
 * Fixed bug that the recent post blocks are not displayed in Snow Monkey v5.

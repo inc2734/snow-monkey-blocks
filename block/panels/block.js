@@ -1,5 +1,6 @@
 'use strict';
 
+import toNumber from '../../src/js/helper/to-number';
 import generateUpdatedAttribute from '../../src/js/helper/generate-updated-attribute';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { deprecated } from './_deprecated.js';
@@ -104,7 +105,7 @@ registerBlockType( 'snow-monkey-blocks/panels', {
 						<RangeControl
 							label={ __( 'Columns', 'snow-monkey-blocks' ) }
 							value={ columns }
-							onChange={ ( value ) => setAttributes( { columns: value } ) }
+							onChange={ ( value ) => setAttributes( { columns: toNumber( value, 1, 24 ) } ) }
 							min="1"
 							max="24"
 						/>
@@ -112,7 +113,7 @@ registerBlockType( 'snow-monkey-blocks/panels', {
 						<RangeControl
 							label={ __( 'Columns per row (large window)', 'snow-monkey-blocks' ) }
 							value={ lg }
-							onChange={ ( value ) => setAttributes( { lg: value } ) }
+							onChange={ ( value ) => setAttributes( { lg: toNumber( value, 1, 4 ) } ) }
 							min="1"
 							max="4"
 						/>
@@ -120,7 +121,7 @@ registerBlockType( 'snow-monkey-blocks/panels', {
 						<RangeControl
 							label={ __( 'Columns per row (Medium window)', 'snow-monkey-blocks' ) }
 							value={ md }
-							onChange={ ( value ) => setAttributes( { md: value } ) }
+							onChange={ ( value ) => setAttributes( { md: toNumber( value, 1, 4 ) } ) }
 							min="1"
 							max="4"
 						/>
@@ -128,7 +129,7 @@ registerBlockType( 'snow-monkey-blocks/panels', {
 						<RangeControl
 							label={ __( 'Columns per row (Small window)', 'snow-monkey-blocks' ) }
 							value={ sm }
-							onChange={ ( value ) => setAttributes( { sm: value } ) }
+							onChange={ ( value ) => setAttributes( { sm: toNumber( value, 1, 4 ) } ) }
 							min="1"
 							max="4"
 						/>

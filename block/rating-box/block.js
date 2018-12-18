@@ -1,5 +1,6 @@
 'use strict';
 
+import toNumber from '../../src/js/helper/to-number';
 import generateUpdatedAttribute from '../../src/js/helper/generate-updated-attribute';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -54,7 +55,7 @@ registerBlockType( 'snow-monkey-blocks/rating-box', {
 						<RangeControl
 							label={ __( 'Rows', 'snow-monkey-blocks' ) }
 							value={ rows }
-							onChange={ ( value ) => setAttributes( { rows: value } ) }
+							onChange={ ( value ) => setAttributes( { rows: toNumber( value, 1, 10 ) } ) }
 							min="1"
 							max="10"
 						/>
@@ -72,7 +73,7 @@ registerBlockType( 'snow-monkey-blocks/rating-box', {
 								<RangeControl
 									label={ __( 'Rating', 'snow-monkey-blocks' ) }
 									value={ rating }
-									onChange={ ( value ) => setAttributes( { ratings: generateUpdatedAttribute( ratings, index, 'rating', value ) } ) }
+									onChange={ ( value ) => setAttributes( { ratings: generateUpdatedAttribute( ratings, index, 'rating', toNumber( value, 1, 10 ) ) } ) }
 									min="1"
 									max="10"
 								/>

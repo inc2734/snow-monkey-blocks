@@ -1,5 +1,7 @@
 'use strict';
 
+import toNumber from '../../src/js/helper/to-number';
+
 const { registerBlockType } = wp.blocks;
 const { InnerBlocks, InspectorControls, ColorPalette } = wp.editor;
 const { PanelBody, BaseControl, RangeControl } = wp.components;
@@ -57,7 +59,7 @@ registerBlockType( 'snow-monkey-blocks/box', {
 						<RangeControl
 							label={ __( 'Border width', 'snow-monkey-blocks' ) }
 							value={ borderWidth }
-							onChange={ ( value ) => setAttributes( { borderWidth: value } ) }
+							onChange={ ( value ) => setAttributes( { borderWidth: toNumber( value, 1, 5 ) } ) }
 							min="1"
 							max="5"
 						/>

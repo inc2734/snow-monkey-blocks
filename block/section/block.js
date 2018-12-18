@@ -1,5 +1,6 @@
 'use strict';
 
+import toNumber from '../../src/js/helper/to-number';
 import classnames from 'classnames';
 import divider from '../../src/js/helper/divider';
 import { deprecated } from './_deprecated.js';
@@ -114,7 +115,7 @@ registerBlockType( 'snow-monkey-blocks/section', {
 						<RangeControl
 							label={ __( 'Level', 'snow-monkey-blocks' ) }
 							value={ topDividerLevel }
-							onChange={ ( value ) => setAttributes( { topDividerLevel: value } ) }
+							onChange={ ( value ) => setAttributes( { topDividerLevel: toNumber( value, 0, 100 ) } ) }
 							min="0"
 							max="100"
 						/>
@@ -155,7 +156,7 @@ registerBlockType( 'snow-monkey-blocks/section', {
 						<RangeControl
 							label={ __( 'Level', 'snow-monkey-blocks' ) }
 							value={ bottomDividerLevel }
-							onChange={ ( value ) => setAttributes( { bottomDividerLevel: value } ) }
+							onChange={ ( value ) => setAttributes( { bottomDividerLevel: toNumber( value, 0, 100 ) } ) }
 							min="0"
 							max="100"
 						/>
