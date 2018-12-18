@@ -1,0 +1,21 @@
+.smb-evaluation-star {
+  &__body {
+    display: inline-block;
+  }
+  &__numeric {
+    font-weight: bold;
+    color: $_color-gray;
+  }
+  &__numeric__left {
+    float: left;
+    margin-right: 16px;
+  }
+  &__numeric__right {
+    float: right;
+    margin-left: 16px;
+  }
+  &__icon {
+    display: inline-block;
+    color: #f9bb2d;
+  }
+}

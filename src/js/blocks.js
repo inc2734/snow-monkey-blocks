@@ -22,5 +22,6 @@ import '../../block/media-text/block.js';
 import '../../block/thumbnail-gallery/block.js';
 import '../../block/categories-list/block.js';
 import '../../block/contents-outline/block.js';
+import '../../block/evaluation-star/block.js';
 
 import './_highlighter.js';
