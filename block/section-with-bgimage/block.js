@@ -1,11 +1,12 @@
 'use strict';
 
 import toNumber from '../../src/js/helper/to-number';
+import classnames from 'classnames';
 import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
 const { RichText, InnerBlocks, InspectorControls, ColorPalette, MediaPlaceholder } = wp.editor;
-const { PanelBody, SelectControl, RangeControl, BaseControl } = wp.components;
+const { PanelBody, SelectControl, RangeControl, BaseControl, ToggleControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -45,13 +46,17 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 			type: 'number',
 			default: 1,
 		},
+		parallax: {
+			type: 'boolean',
+			default: false,
+		},
 	},
 	supports: {
 		align: [ 'wide', 'full' ],
 	},
 
 	edit( { attributes, setAttributes, isSelected } ) {
-		const { title, imageID, imageURL, height, contentsAlignment, maskColor, maskOpacity } = attributes;
+		const { title, imageID, imageURL, height, contentsAlignment, maskColor, maskOpacity, parallax } = attributes;
 
 		return (
 			<Fragment>
@@ -108,8 +113,15 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 							max={ 1 }
 							step={ 0.1 }
 						/>
+
+						<ToggleControl
+							label={ __( 'Parallax', 'snow-monkey-blocks' ) }
+							checked={ parallax }
+							onChange={ ( value ) => setAttributes( { parallax: value } ) }
+						/>
 					</PanelBody>
 				</InspectorControls>
+
 				{ ! imageURL &&
 					<MediaPlaceholder
 						icon="format-image"
@@ -122,7 +134,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 						allowedTypes={ [ 'image' ] }
 					/>
 				}
-				<div className={ `smb-section smb-section-with-bgimage smb-section-with-bgimage--${ contentsAlignment } smb-section-with-bgimage--${ height }` }>
+				<div className={ classnames( `smb-section smb-section-with-bgimage smb-section-with-bgimage--${ contentsAlignment } smb-section-with-bgimage--${ height }`, { 'js-bg-parallax': !! parallax } ) }>
 					{ !! imageURL &&
 						<button
 							className="smb-remove-button"
@@ -132,7 +144,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 						>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
 					}
 					<div className="smb-section-with-bgimage__mask" style={ { backgroundColor: maskColor } }></div>
-					<div className="smb-section-with-bgimage__bgimage" style={ { opacity: maskOpacity } }>
+					<div className={ classnames( 'smb-section-with-bgimage__bgimage', { 'js-bg-parallax__bgimage': !! parallax } ) } style={ { opacity: maskOpacity } }>
 						{ imageURL &&
 							<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
 						}
@@ -159,12 +171,12 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 	},
 
 	save( { attributes } ) {
-		const { title, imageID, imageURL, height, contentsAlignment, maskColor, maskOpacity } = attributes;
+		const { title, imageID, imageURL, height, contentsAlignment, maskColor, maskOpacity, parallax } = attributes;
 
 		return (
-			<div className={ `smb-section smb-section-with-bgimage smb-section-with-bgimage--${ contentsAlignment } smb-section-with-bgimage--${ height }` }>
+			<div className={ classnames( `smb-section smb-section-with-bgimage smb-section-with-bgimage--${ contentsAlignment } smb-section-with-bgimage--${ height }`, { 'js-bg-parallax': !! parallax } ) }>
 				<div className="smb-section-with-bgimage__mask" style={ { backgroundColor: maskColor } }></div>
-				<div className="smb-section-with-bgimage__bgimage" style={ { opacity: maskOpacity } }>
+				<div className={ classnames( 'smb-section-with-bgimage__bgimage', { 'js-bg-parallax__bgimage': !! parallax } ) } style={ { opacity: maskOpacity } }>
 					<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
 				</div>
 				<div className="c-container">

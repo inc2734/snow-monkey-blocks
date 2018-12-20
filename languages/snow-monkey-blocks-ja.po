@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2018-12-18 12:47+0900\n"
-"PO-Revision-Date: 2018-12-18 12:48+0900\n"
+"POT-Creation-Date: 2018-12-20 21:00+0900\n"
+"PO-Revision-Date: 2018-12-20 21:00+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -107,7 +107,7 @@ msgid "Alert Settings"
 msgstr "アラート設定"
 
 #: block/alert/block.js:89 block/balloon/block.js:61 block/btn/block.js:74
-#: block/section/block.js:92 block/section/block.js:133
+#: block/section/block.js:93 block/section/block.js:134
 msgid "Type"
 msgstr "タイプ"
 
@@ -130,7 +130,7 @@ msgstr "アイコン"
 #: block/alert/block.js:136 block/items/block.js:261
 #: block/media-text/block.js:155 block/panels/block.js:240
 #: block/pricing-table/block.js:220 block/rating-box/block.js:103
-#: block/section-with-bgimage/block.js:148 block/section/block.js:194
+#: block/section-with-bgimage/block.js:160 block/section/block.js:195
 #: block/step/block.js:235
 msgid "Write title..."
 msgstr "タイトルを書く…"
@@ -169,7 +169,7 @@ msgstr "ボックス設定"
 
 #: block/box/block.js:38 block/btn-box/block.js:63 block/btn-box/block.js:97
 #: block/btn/block.js:89 block/items/block.js:185
-#: block/pricing-table/block.js:143 block/section/block.js:82
+#: block/pricing-table/block.js:143 block/section/block.js:83
 msgid "Background Color"
 msgstr "背景色"
 
@@ -410,14 +410,14 @@ msgstr "(%d) ボタン設定"
 
 #: block/items/block.js:222 block/media-text/block.js:75
 #: block/panels/block.js:195 block/pricing-table/block.js:181
-#: block/section-with-bgimage/block.js:116 block/slider/block.js:184
+#: block/section-with-bgimage/block.js:128 block/slider/block.js:184
 #: block/step/block.js:199 block/thumbnail-gallery/block.js:82
 msgid "Image"
 msgstr "画像"
 
 #: block/items/block.js:245 block/media-text/block.js:94
 #: block/panels/block.js:218 block/pricing-table/block.js:204
-#: block/section-with-bgimage/block.js:132 block/slider/block.js:210
+#: block/section-with-bgimage/block.js:144 block/slider/block.js:210
 #: block/step/block.js:222 block/thumbnail-gallery/block.js:108
 msgid "Remove"
 msgstr "削除"
@@ -475,12 +475,12 @@ msgstr "メディアと文章の設定"
 msgid "Image Position"
 msgstr "画像の位置"
 
-#: block/media-text/block.js:109 block/section-with-bgimage/block.js:90
+#: block/media-text/block.js:109 block/section-with-bgimage/block.js:95
 #: block/step/block.js:134
 msgid "Right side"
 msgstr "右側"
 
-#: block/media-text/block.js:113 block/section-with-bgimage/block.js:82
+#: block/media-text/block.js:113 block/section-with-bgimage/block.js:87
 #: block/step/block.js:126
 msgid "Left side"
 msgstr "左側"
@@ -575,8 +575,8 @@ msgstr "(%d) レーティング設定"
 msgid "Rating"
 msgstr "レーティング"
 
-#: block/rating-box/block.js:81 block/section/block.js:123
-#: block/section/block.js:164
+#: block/rating-box/block.js:81 block/section/block.js:124
+#: block/section/block.js:165
 msgid "Color"
 msgstr "色"
 
@@ -600,83 +600,87 @@ msgstr "リッチメディア"
 msgid "Simple"
 msgstr "シンプル"
 
-#: block/section-with-bgimage/block.js:13
+#: block/section-with-bgimage/block.js:14
 msgid "Section (with background image)"
 msgstr "セクション（背景画像あり）"
 
-#: block/section-with-bgimage/block.js:59 block/section/block.js:65
+#: block/section-with-bgimage/block.js:64 block/section/block.js:66
 msgid "Section Settings"
 msgstr "セクション設定"
 
-#: block/section-with-bgimage/block.js:61
+#: block/section-with-bgimage/block.js:66
 msgid "Height"
 msgstr "高さ"
 
-#: block/section-with-bgimage/block.js:66
+#: block/section-with-bgimage/block.js:71
 msgid "Fit"
 msgstr "フィット"
 
-#: block/section-with-bgimage/block.js:70
+#: block/section-with-bgimage/block.js:75
 msgid "Wide"
 msgstr "広め"
 
-#: block/section-with-bgimage/block.js:77
+#: block/section-with-bgimage/block.js:82
 msgid "Contents alignment"
 msgstr "コンテンツの水平位置"
 
-#: block/section-with-bgimage/block.js:86 block/step/block.js:130
+#: block/section-with-bgimage/block.js:91 block/step/block.js:130
 msgid "Center"
 msgstr "中央"
 
-#: block/section-with-bgimage/block.js:96
+#: block/section-with-bgimage/block.js:101
 msgid "Mask Color"
 msgstr "背景マスクの色"
 
-#: block/section-with-bgimage/block.js:104
+#: block/section-with-bgimage/block.js:109
 msgid "Mask Opacity"
 msgstr "背景マスクの透明度"
+
+#: block/section-with-bgimage/block.js:118
+msgid "Parallax"
+msgstr "パララックス"
 
 #: block/section/block.js:15
 msgid "Section"
 msgstr "セクション"
 
-#: block/section/block.js:67
+#: block/section/block.js:68
 msgid "Contents Width"
 msgstr "コンテンツの幅"
 
-#: block/section/block.js:73
+#: block/section/block.js:74
 msgid "Normal"
 msgstr "ノーマル"
 
-#: block/section/block.js:77
+#: block/section/block.js:78
 msgid "Slim"
 msgstr "スリム"
 
-#: block/section/block.js:90
+#: block/section/block.js:91
 msgid "Top divider Settings"
 msgstr "上の仕切りの設定"
 
-#: block/section/block.js:98 block/section/block.js:139
+#: block/section/block.js:99 block/section/block.js:140
 msgid "Tilt"
 msgstr "傾斜"
 
-#: block/section/block.js:102 block/section/block.js:143
+#: block/section/block.js:103 block/section/block.js:144
 msgid "Curve"
 msgstr "カーブ"
 
-#: block/section/block.js:106 block/section/block.js:147
+#: block/section/block.js:107 block/section/block.js:148
 msgid "Wave"
 msgstr "波"
 
-#: block/section/block.js:110 block/section/block.js:151
+#: block/section/block.js:111 block/section/block.js:152
 msgid "Triangle"
 msgstr "三角"
 
-#: block/section/block.js:116 block/section/block.js:157
+#: block/section/block.js:117 block/section/block.js:158
 msgid "Level"
 msgstr "レベル"
 
-#: block/section/block.js:131
+#: block/section/block.js:132
 msgid "Bottom divider Settings"
 msgstr "下の仕切りの設定"
 
