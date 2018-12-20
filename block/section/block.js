@@ -54,6 +54,7 @@ registerBlockType( 'snow-monkey-blocks/section', {
 	},
 	supports: {
 		align: [ 'wide', 'full' ],
+		anchor: true,
 	},
 
 	edit( { attributes, setAttributes, isSelected } ) {
