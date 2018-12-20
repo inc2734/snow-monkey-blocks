@@ -3,12 +3,13 @@
 import toNumber from '../../src/js/helper/to-number';
 import generateUpdatedAttribute from '../../src/js/helper/generate-updated-attribute';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { schema } from './_schema.js';
 import { deprecated } from './_deprecated.js';
 
 const { times, get } = lodash;
 const { registerBlockType } = wp.blocks;
 const { InspectorControls, RichText, ColorPalette, MediaPlaceholder } = wp.editor;
-const { PanelBody, RangeControl, SelectControl, TextControl, BaseControl } = wp.components;
+const { PanelBody, RangeControl, SelectControl, TextControl, BaseControl, Button, TabPanel, Dashicon } = wp.components;
 const { Fragment } = wp.element;
 const { __, sprintf } = wp.i18n;
 
@@ -26,91 +27,12 @@ registerBlockType( 'snow-monkey-blocks/items', {
 	title: __( 'Items', 'snow-monkey-blocks' ),
 	icon: 'screenoptions',
 	category: 'smb',
-	attributes: {
-		columns: {
-			type: 'number',
-			default: 2,
-		},
-		sm: {
-			type: 'number',
-			default: 1,
-		},
-		md: {
-			type: 'number',
-			default: 1,
-		},
-		lg: {
-			type: 'number',
-			default: 2,
-		},
-		items: {
-			type: 'array',
-			source: 'query',
-			default: [],
-			selector: '.smb-items__item',
-			query: {
-				title: {
-					source: 'html',
-					selector: '.smb-items__item__title',
-				},
-				lede: {
-					source: 'html',
-					selector: '.smb-items__item__lede',
-				},
-				summary: {
-					source: 'html',
-					selector: '.smb-items__item__content',
-				},
-				btnLabel: {
-					source: 'html',
-					selector: '.smb-items__item__btn > .smb-btn__label',
-				},
-				btnURL: {
-					type: 'string',
-					source: 'attribute',
-					selector: '.smb-items__item__btn',
-					attribute: 'href',
-					default: '',
-				},
-				btnTarget: {
-					type: 'string',
-					source: 'attribute',
-					selector: '.smb-items__item__btn',
-					attribute: 'target',
-					default: '_self',
-				},
-				btnBackgroundColor: {
-					type: 'string',
-					source: 'attribute',
-					selector: '.smb-items__item__btn',
-					attribute: 'data-background-color',
-				},
-				btnTextColor: {
-					type: 'string',
-					source: 'attribute',
-					selector: '.smb-items__item__btn',
-					attribute: 'data-color',
-				},
-				imageID: {
-					type: 'number',
-					source: 'attribute',
-					selector: '.smb-items__item__figure > img',
-					attribute: 'data-image-id',
-					default: 0,
-				},
-				imageURL: {
-					type: 'string',
-					source: 'attribute',
-					selector: '.smb-items__item__figure > img',
-					attribute: 'src',
-					default: '',
-				},
-			},
-		},
-	},
+	attributes: schema,
 
 	edit( { attributes, setAttributes, isSelected } ) {
-		const { columns, sm, md, lg, items } = attributes;
+		const { columns, sm, md, lg, itemTitleTagName, items } = attributes;
+
+		const itemTitleTagNames = [ 'div', 'h2', 'h3' ];
 
 		return (
 			<Fragment>
@@ -124,29 +46,82 @@ registerBlockType( 'snow-monkey-blocks/items', {
 							max="24"
 						/>
 
-						<RangeControl
-							label={ __( 'Columns per row (large window)', 'snow-monkey-blocks' ) }
-							value={ lg }
-							onChange={ ( value ) => setAttributes( { lg: toNumber( value, 1, 4 ) } ) }
-							min="1"
-							max="4"
-						/>
+						<TabPanel
+							className="smb-inspector-tabs"
+							tabs={ [
+								{
+									name: 'desktop',
+									title: <Dashicon icon="desktop" />,
+								},
+								{
+									name: 'tablet',
+									title: <Dashicon icon="tablet" />,
+								},
+								{
+									name: 'mobile',
+									title: <Dashicon icon="smartphone" />,
+								},
+							] }>
+							{
+								( tab ) => {
+									if ( tab.name ) {
+										if ( 'desktop' === tab.name ) {
+											return (
+												<RangeControl
+													label={ __( 'Columns per row (large window)', 'snow-monkey-blocks' ) }
+													value={ lg }
+													onChange={ ( value ) => setAttributes( { lg: toNumber( value, 1, 4 ) } ) }
+													min="1"
+													max="4"
+												/>
+											);
+										}
 
-						<RangeControl
-							label={ __( 'Columns per row (Medium window)', 'snow-monkey-blocks' ) }
-							value={ md }
-							onChange={ ( value ) => setAttributes( { md: toNumber( value, 1, 4 ) } ) }
-							min="1"
-							max="4"
-						/>
+										if ( 'tablet' === tab.name ) {
+											return (
+												<RangeControl
+													label={ __( 'Columns per row (Medium window)', 'snow-monkey-blocks' ) }
+													value={ md }
+													onChange={ ( value ) => setAttributes( { md: toNumber( value, 1, 4 ) } ) }
+													min="1"
+													max="4"
+												/>
+											);
+										}
 
-						<RangeControl
-							label={ __( 'Columns per row (Small window)', 'snow-monkey-blocks' ) }
-							value={ sm }
-							onChange={ ( value ) => setAttributes( { sm: toNumber( value, 1, 4 ) } ) }
-							min="1"
-							max="4"
-						/>
+										if ( 'mobile' === tab.name ) {
+											return (
+												<RangeControl
+													label={ __( 'Columns per row (Small window)', 'snow-monkey-blocks' ) }
+													value={ sm }
+													onChange={ ( value ) => setAttributes( { sm: toNumber( value, 1, 4 ) } ) }
+													min="1"
+													max="4"
+												/>
+											);
+										}
+									}
+								}
+							}
+						</TabPanel>
+					</PanelBody>
+
+					<PanelBody title={ __( 'Items Settings', 'snow-monkey-blocks' ) }>
+						<BaseControl label={ __( 'Item Title Tag', 'snow-monkey-blocks' ) }>
+							<div className="smb-list-icon-selector">
+								{ times( itemTitleTagNames.length, ( index ) => {
+									return (
+										<Button
+											isDefault
+											isPrimary={ itemTitleTagName === itemTitleTagNames[ index ] }
+											onClick={ () => setAttributes( { itemTitleTagName: itemTitleTagNames[ index ] } ) }
+										>
+											{ itemTitleTagNames[ index ] }
+										</Button>
+									);
+								} ) }
+							</div>
+						</BaseControl>
 					</PanelBody>
 
 					{ times( columns, ( index ) => {
@@ -257,6 +232,7 @@ registerBlockType( 'snow-monkey-blocks/items', {
 										}
 
 										<RichText
+											tagName={ itemTitleTagName }
 											className="smb-items__item__title"
 											placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
 											value={ itemTitle }
@@ -326,7 +302,7 @@ registerBlockType( 'snow-monkey-blocks/items', {
 	},
 
 	save( { attributes } ) {
-		const { columns, sm, md, lg, items } = attributes;
+		const { columns, sm, md, lg, itemTitleTagName, items } = attributes;
 
 		return (
 			<div className={ `smb-items smb-items--sm-${ sm } smb-items--md-${ md } smb-items--lg-${ lg }` }>
@@ -352,9 +328,11 @@ registerBlockType( 'snow-monkey-blocks/items', {
 										</div>
 									}
 
-									<div className="smb-items__item__title">
-										<RichText.Content value={ itemTitle } />
-									</div>
+									<RichText.Content
+										tagName={ itemTitleTagName }
+										className="smb-items__item__title"
+										value={ itemTitle }
+									/>
 
 									{ ! RichText.isEmpty( lede ) &&
 										<div className="smb-items__item__lede">

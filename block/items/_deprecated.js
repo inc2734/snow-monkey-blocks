@@ -1,91 +1,14 @@
 'use strict';
 
-const { times, get } = lodash;
+import { schema } from './_schema.js';
+
+const { times, get, omit } = lodash;
 const { RichText } = wp.editor;
 
 export const deprecated = [
 	{
 		attributes: {
-			columns: {
-				type: 'number',
-				default: 2,
-			},
-			sm: {
-				type: 'number',
-				default: 1,
-			},
-			md: {
-				type: 'number',
-				default: 1,
-			},
-			lg: {
-				type: 'number',
-				default: 2,
-			},
-			items: {
-				type: 'array',
-				source: 'query',
-				default: [],
-				selector: '.smb-items__item',
-				query: {
-					title: {
-						source: 'html',
-						selector: '.smb-items__item__title',
-					},
-					lede: {
-						source: 'html',
-						selector: '.smb-items__item__lede',
-					},
-					summary: {
-						source: 'html',
-						selector: '.smb-items__item__content',
-					},
-					btnLabel: {
-						source: 'html',
-						selector: '.smb-items__item__btn > .smb-btn__label',
-					},
-					btnURL: {
-						type: 'string',
-						source: 'attribute',
-						selector: '.smb-items__item__btn',
-						attribute: 'href',
-						default: '',
-					},
-					btnTarget: {
-						type: 'string',
-						source: 'attribute',
-						selector: '.smb-items__item__btn',
-						attribute: 'target',
-						default: '_self',
-					},
-					btnBackgroundColor: {
-						type: 'string',
-						source: 'attribute',
-						selector: '.smb-items__item__btn',
-						attribute: 'data-background-color',
-					},
-					btnTextColor: {
-						type: 'string',
-						source: 'attribute',
-						selector: '.smb-items__item__btn',
-						attribute: 'data-color',
-					},
-					imageID: {
-						type: 'number',
-						source: 'attribute',
-						selector: '.smb-items__item__figure > img',
-						attribute: 'data-image-id',
-						default: 0,
-					},
-					imageURL: {
-						type: 'string',
-						source: 'attribute',
-						selector: '.smb-items__item__figure > img',
-						attribute: 'src',
-						default: '',
-					},
-				},
-			},
+			...omit( schema, [ 'itemTitleTagName' ] ),
 		},
 
 		save( { attributes } ) {
@@ -169,86 +92,7 @@ export const deprecated = [
 	},
 	{
 		attributes: {
-			columns: {
-				type: 'number',
-				default: 2,
-			},
-			sm: {
-				type: 'number',
-				default: 1,
-			},
-			md: {
-				type: 'number',
-				default: 1,
-			},
-			lg: {
-				type: 'number',
-				default: 2,
-			},
-			items: {
-				type: 'array',
-				source: 'query',
-				default: [],
-				selector: '.smb-items__item',
-				query: {
-					title: {
-						source: 'html',
-						selector: '.smb-items__item__title',
-					},
-					lede: {
-						source: 'html',
-						selector: '.smb-items__item__lede',
-					},
-					summary: {
-						source: 'html',
-						selector: '.smb-items__item__content',
-					},
-					btnLabel: {
-						source: 'html',
-						selector: '.smb-items__item__btn > .smb-btn__label',
-					},
-					btnURL: {
-						type: 'string',
-						source: 'attribute',
-						selector: '.smb-items__item__btn',
-						attribute: 'href',
-						default: '',
-					},
-					btnTarget: {
-						type: 'string',
-						source: 'attribute',
-						selector: '.smb-items__item__btn',
-						attribute: 'target',
-						default: '_self',
-					},
-					btnBackgroundColor: {
-						type: 'string',
-						source: 'attribute',
-						selector: '.smb-items__item__btn',
-						attribute: 'data-background-color',
-					},
-					btnTextColor: {
-						type: 'string',
-						source: 'attribute',
-						selector: '.smb-items__item__btn',
-						attribute: 'data-color',
-					},
-					imageID: {
-						type: 'number',
-						source: 'attribute',
-						selector: '.smb-items__item__figure > img',
-						attribute: 'data-image-id',
-						default: 0,
-					},
-					imageURL: {
-						type: 'string',
-						source: 'attribute',
-						selector: '.smb-items__item__figure > img',
-						attribute: 'src',
-						default: '',
-					},
-				},
-			},
+			...omit( schema, [ 'itemTitleTagName' ] ),
 		},
 
 		save( { attributes } ) {

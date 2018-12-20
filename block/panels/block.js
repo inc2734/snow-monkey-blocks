@@ -3,12 +3,13 @@
 import toNumber from '../../src/js/helper/to-number';
 import generateUpdatedAttribute from '../../src/js/helper/generate-updated-attribute';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { schema } from './_schema.js';
 import { deprecated } from './_deprecated.js';
 
 const { times, get } = lodash;
 const { registerBlockType } = wp.blocks;
 const { InspectorControls, RichText, MediaPlaceholder } = wp.editor;
-const { PanelBody, RangeControl, SelectControl, TextControl, ToggleControl } = wp.components;
+const { PanelBody, RangeControl, SelectControl, TextControl, ToggleControl, BaseControl, Button, TabPanel, Dashicon } = wp.components;
 const { Fragment } = wp.element;
 const { __, sprintf } = wp.i18n;
 
@@ -26,77 +27,12 @@ registerBlockType( 'snow-monkey-blocks/panels', {
 	title: __( 'Panels', 'snow-monkey-blocks' ),
 	icon: 'screenoptions',
 	category: 'smb',
-	attributes: {
-		columns: {
-			type: 'number',
-			default: 2,
-		},
-		sm: {
-			type: 'number',
-			default: 1,
-		},
-		md: {
-			type: 'number',
-			default: 1,
-		},
-		lg: {
-			type: 'number',
-			default: 2,
-		},
-		imagePadding: {
-			type: 'boolean',
-			default: false,
-		},
-		items: {
-			type: 'array',
-			source: 'query',
-			default: [],
-			selector: '.smb-panels__item',
-			query: {
-				title: {
-					source: 'html',
-					selector: '.smb-panels__item__title',
-				},
-				summary: {
-					source: 'html',
-					selector: '.smb-panels__item__content',
-				},
-				linkLabel: {
-					source: 'html',
-					selector: '.smb-panels__item__link',
-				},
-				linkURL: {
-					type: 'string',
-					source: 'attribute',
-					attribute: 'href',
-					default: '',
-				},
-				linkTarget: {
-					type: 'string',
-					source: 'attribute',
-					attribute: 'target',
-					default: '_self',
-				},
-				imageID: {
-					type: 'number',
-					source: 'attribute',
-					selector: '.smb-panels__item__figure > img',
-					attribute: 'data-image-id',
-					default: 0,
-				},
-				imageURL: {
-					type: 'string',
-					source: 'attribute',
-					selector: '.smb-panels__item__figure > img',
-					attribute: 'src',
-					default: '',
-				},
-			},
-		},
-	},
+	attributes: schema,
 
 	edit( { attributes, setAttributes, isSelected } ) {
-		const { columns, sm, md, lg, imagePadding, items } = attributes;
+		const { columns, sm, md, lg, imagePadding, itemTitleTagName, items } = attributes;
+
+		const itemTitleTagNames = [ 'div', 'h2', 'h3' ];
 
 		return (
 			<Fragment>
@@ -110,35 +46,88 @@ registerBlockType( 'snow-monkey-blocks/panels', {
 							max="24"
 						/>
 
-						<RangeControl
-							label={ __( 'Columns per row (large window)', 'snow-monkey-blocks' ) }
-							value={ lg }
-							onChange={ ( value ) => setAttributes( { lg: toNumber( value, 1, 4 ) } ) }
-							min="1"
-							max="4"
-						/>
+						<TabPanel
+							className="smb-inspector-tabs"
+							tabs={ [
+								{
+									name: 'desktop',
+									title: <Dashicon icon="desktop" />,
+								},
+								{
+									name: 'tablet',
+									title: <Dashicon icon="tablet" />,
+								},
+								{
+									name: 'mobile',
+									title: <Dashicon icon="smartphone" />,
+								},
+							] }>
+							{
+								( tab ) => {
+									if ( tab.name ) {
+										if ( 'desktop' === tab.name ) {
+											return (
+												<RangeControl
+													label={ __( 'Columns per row (large window)', 'snow-monkey-blocks' ) }
+													value={ lg }
+													onChange={ ( value ) => setAttributes( { lg: toNumber( value, 1, 4 ) } ) }
+													min="1"
+													max="4"
+												/>
+											);
+										}
 
-						<RangeControl
-							label={ __( 'Columns per row (Medium window)', 'snow-monkey-blocks' ) }
-							value={ md }
-							onChange={ ( value ) => setAttributes( { md: toNumber( value, 1, 4 ) } ) }
-							min="1"
-							max="4"
-						/>
+										if ( 'tablet' === tab.name ) {
+											return (
+												<RangeControl
+													label={ __( 'Columns per row (Medium window)', 'snow-monkey-blocks' ) }
+													value={ md }
+													onChange={ ( value ) => setAttributes( { md: toNumber( value, 1, 4 ) } ) }
+													min="1"
+													max="4"
+												/>
+											);
+										}
 
-						<RangeControl
-							label={ __( 'Columns per row (Small window)', 'snow-monkey-blocks' ) }
-							value={ sm }
-							onChange={ ( value ) => setAttributes( { sm: toNumber( value, 1, 4 ) } ) }
-							min="1"
-							max="4"
-						/>
+										if ( 'mobile' === tab.name ) {
+											return (
+												<RangeControl
+													label={ __( 'Columns per row (Small window)', 'snow-monkey-blocks' ) }
+													value={ sm }
+													onChange={ ( value ) => setAttributes( { sm: toNumber( value, 1, 4 ) } ) }
+													min="1"
+													max="4"
+												/>
+											);
+										}
+									}
+								}
+							}
+						</TabPanel>
+					</PanelBody>
 
+					<PanelBody title={ __( 'Panels Settings', 'snow-monkey-blocks' ) }>
 						<ToggleControl
 							label={ __( 'Set padding around images', 'snow-monkey-blocks' ) }
 							checked={ imagePadding }
 							onChange={ ( value ) => setAttributes( { imagePadding: value } ) }
 						/>
+
+						<BaseControl label={ __( 'Item Title Tag', 'snow-monkey-blocks' ) }>
+							<div className="smb-list-icon-selector">
+								{ times( itemTitleTagNames.length, ( index ) => {
+									return (
+										<Button
+											isDefault
+											isPrimary={ itemTitleTagName === itemTitleTagNames[ index ] }
+											onClick={ () => setAttributes( { itemTitleTagName: itemTitleTagNames[ index ] } ) }
+										>
+											{ itemTitleTagNames[ index ] }
+										</Button>
+									);
+								} ) }
+							</div>
+						</BaseControl>
 					</PanelBody>
 
 					{ times( columns, ( index ) => {
@@ -236,6 +225,7 @@ registerBlockType( 'snow-monkey-blocks/panels', {
 										<div className="smb-panels__item__body">
 											{ ( ! RichText.isEmpty( itemTitle ) || isSelected ) &&
 												<RichText
+													tagName={ itemTitleTagName }
 													className="smb-panels__item__title"
 													placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
 													value={ itemTitle }
@@ -289,7 +279,7 @@ registerBlockType( 'snow-monkey-blocks/panels', {
 	},
 
 	save( { attributes } ) {
-		const { columns, sm, md, lg, imagePadding, items } = attributes;
+		const { columns, sm, md, lg, imagePadding, itemTitleTagName, items } = attributes;
 
 		return (
 			<div className={ `smb-panels smb-panels--sm-${ sm } smb-panels--md-${ md } smb-panels--lg-${ lg }` } data-image-padding={ imagePadding }>
@@ -340,9 +330,11 @@ registerBlockType( 'snow-monkey-blocks/panels', {
 
 											<div className="smb-panels__item__body">
 												{ ! RichText.isEmpty( itemTitle ) &&
-													<div className="smb-panels__item__title">
-														<RichText.Content value={ itemTitle } />
-													</div>
+													<RichText.Content
+														tagName={ itemTitleTagName }
+														className="smb-panels__item__title"
+														value={ itemTitle }
+													/>
 												}
 
 												{ ! RichText.isEmpty( summary ) &&

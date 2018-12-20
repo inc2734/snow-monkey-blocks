@@ -6,6 +6,8 @@
     }
 
     &__title {
+      margin: 0;
+      @include _font-size-line-height($_base-font-size-px);
       font-weight: bold;
     }
 
