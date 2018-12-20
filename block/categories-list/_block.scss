@@ -4,6 +4,7 @@
   }
 
   &__item {
+    right: 0; // Masonry width 100% hack
     border: 1px solid _lighter($_color-gray);
     box-sizing: border-box;
     display: flex;
@@ -38,9 +39,9 @@
 
       &::after {
         position: absolute;
-        right: 100%;
+        left: 100%;
         content: '';
-        @include _triangle-left(8px, 16px, _lighter($_color-gray));
+        @include _triangle-right(8px, 16px, _lighter($_color-gray));
       }
 
       span {
@@ -48,16 +49,14 @@
       }
 
       @include _media-min(md) {
-        .smb-categories-list__item:nth-child(2n) & {
-          &::after {
-            right: auto;
-            left: 100%;
-            @include _triangle-right(8px, 16px, _lighter($_color-gray));
-          }
-        }
-
         .smb-categories-list__item:nth-child(2n - 1) & {
           order: 1;
+
+          &::after {
+            left: auto;
+            right: 100%;
+            @include _triangle-left(8px, 16px, _lighter($_color-gray));
+          }
         }
       }
     }
@@ -116,7 +115,13 @@
 
     &__detail {
       flex-grow: 1;
-      @include _padding(.5);
+      @include _padding(.5, .5, .5, .75);
+
+      @include _media-min(md) {
+        .smb-categories-list__item:nth-child(2n - 1) & {
+          @include _padding(.5, .75, .5, .5);
+        }
+      }
 
       a {
         color: $_color-text;
