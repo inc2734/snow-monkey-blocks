@@ -1,41 +1,45 @@
 'use strict';
 
+import { schema } from './_schema.js';
+
+const { omit } = lodash;
 const { RichText, InnerBlocks } = wp.editor;
 
 export const deprecated = [
 	{
 		attributes: {
-			title: {
-				source: 'html',
-				selector: '.smb-section__title',
-			},
-			imageID: {
-				type: 'number',
-				default: 0,
-			},
-			imageURL: {
-				type: 'string',
-				source: 'attribute',
-				selector: '.smb-section-with-bgimage__bgimage > img',
-				attribute: 'src',
-				default: '',
-			},
-			height: {
-				type: 'string',
-				default: 'fit',
-			},
-			contentsAlignment: {
-				type: 'string',
-				default: 'left',
-			},
-			maskColor: {
-				type: 'string',
-				default: '#000',
-			},
-			maskOpacity: {
-				type: 'number',
-				default: 1,
-			},
+			...omit( schema, [ 'textColor', 'parallax' ] ),
+		},
+		supports: {
+			align: [ 'wide', 'full' ],
+		},
+
+		save( { attributes } ) {
+			const { title, imageID, imageURL, height, contentsAlignment, maskColor, maskOpacity } = attributes;
+
+			return (
+				<div className={ `smb-section smb-section-with-bgimage smb-section-with-bgimage--${ contentsAlignment } smb-section-with-bgimage--${ height }` }>
+					<div className="smb-section-with-bgimage__mask" style={ { backgroundColor: maskColor } }></div>
+					<div className="smb-section-with-bgimage__bgimage" style={ { opacity: maskOpacity } }>
+						<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
+					</div>
+					<div className="c-container">
+						{ ! RichText.isEmpty( title ) &&
+							<h2 className="smb-section__title">
+								<RichText.Content value={ title } />
+							</h2>
+						}
+						<div className="smb-section__body">
+							<InnerBlocks.Content />
+						</div>
+					</div>
+				</div>
+			);
+		},
+	},
+	{
+		attributes: {
+			...omit( schema, [ 'textColor', 'parallax' ] ),
 		},
 		supports: {
 			align: [ 'wide', 'full' ],
@@ -66,29 +70,7 @@ export const deprecated = [
 	},
 	{
 		attributes: {
-			title: {
-				source: 'html',
-				selector: '.smb-section__title',
-			},
-			imageID: {
-				type: 'number',
-				default: 0,
-			},
-			imageURL: {
-				type: 'string',
-				source: 'attribute',
-				selector: '.smb-section-with-bgimage__bgimage > img',
-				attribute: 'src',
-				default: '',
-			},
-			height: {
-				type: 'string',
-				default: 'fit',
-			},
-			contentsAlignment: {
-				type: 'string',
-				default: 'left',
-			},
+			...omit( schema, [ 'maskColor', 'maskOpacity', 'textColor', 'parallax' ] ),
 		},
 
 		save( { attributes } ) {
