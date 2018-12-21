@@ -1,0 +1,44 @@
+.smb-accordion {
+  &__item {
+    position: relative;
+
+    &:not(:first-child) {
+      @include _margin-top(.5);
+    }
+
+    &:not(:last-child) {
+      .smb-accordion__item__body {
+        @include _padding-bottom(1);
+      }
+    }
+
+    &__title {
+      background-color: _lighter( $_color-gray );
+      @include _padding(.25, .5);
+    }
+
+    &__control {
+      @include _position(absolute, 0, 0, 0, 0, 1);
+      appearance: none;
+      display: block;
+      cursor: pointer;
+      height: auto;
+      width: 100%;
+      opacity: 0;
+      outline: none;
+    }
+
+    &__body {
+      position: relative;
+      z-index: 2;
+      display: none;
+      @include _margin-top(.5);
+      @include _padding(0, .5);
+      @include _content();
+    }
+  }
+
+  .smb-accordion__item__control:checked + .smb-accordion__item__body {
+    display: block;
+  }
+}
