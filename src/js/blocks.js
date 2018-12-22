@@ -10,6 +10,7 @@ import '../../block/section-with-bgimage/block.js';
 import '../../block/btn-box/block.js';
 import '../../block/rating-box/block.js';
 import '../../block/faq/block.js';
+import '../../block/faq/_item.js';
 import '../../block/step/block.js';
 import '../../block/testimonial/block.js';
 import '../../block/list/block.js';

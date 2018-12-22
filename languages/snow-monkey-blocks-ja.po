@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2018-12-21 23:00+0900\n"
-"PO-Revision-Date: 2018-12-21 23:01+0900\n"
+"POT-Creation-Date: 2018-12-22 10:04+0900\n"
+"PO-Revision-Date: 2018-12-22 10:05+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -353,38 +353,33 @@ msgstr "右側"
 msgid "Numeric color"
 msgstr "数値の色"
 
-#: block/faq/block.js:15
-msgid "FAQ"
-msgstr "FAQ"
+#: block/faq/_item.js:10
+msgid "FAQ item"
+msgstr "FAQ の項目"
 
-#: block/faq/block.js:59
-msgid "FAQ Settings"
-msgstr "FAQ 設定"
+#: block/faq/_item.js:37
+msgid "FAQ Item Settings"
+msgstr "FAQ の項目の設定"
 
-#: block/faq/block.js:61 block/rating-box/block.js:56 block/step/block.js:100
-msgid "Rows"
-msgstr "行数"
-
-#: block/faq/block.js:75
-#, javascript-format
-msgid "(%d) Item Settings"
-msgstr "(%d) 項目の設定"
-
-#: block/faq/block.js:78
+#: block/faq/_item.js:38
 msgid "Question Color"
 msgstr "質問の色"
 
-#: block/faq/block.js:85
+#: block/faq/_item.js:45
 msgid "Answer Color"
 msgstr "回答の色"
 
-#: block/faq/block.js:112
+#: block/faq/_item.js:61
 msgid "Write question..."
 msgstr "質問を書く…"
 
-#: block/faq/block.js:126
+#: block/faq/_item.js:75
 msgid "Write answer..."
 msgstr "回答を書く…"
+
+#: block/faq/block.js:10
+msgid "FAQ"
+msgstr "FAQ"
 
 #: block/items/block.js:27
 msgid "Items"
@@ -582,6 +577,10 @@ msgstr "レーティングボックス"
 #: block/rating-box/block.js:54
 msgid "Rating box Settings"
 msgstr "レーティングボックス設定"
+
+#: block/rating-box/block.js:56 block/step/block.js:100
+msgid "Rows"
+msgstr "行数"
 
 #: block/rating-box/block.js:70
 #, javascript-format
@@ -801,6 +800,12 @@ msgstr "サムネイルギャラリーの設定"
 #: src/js/_highlighter.js:13
 msgid "Highlighter"
 msgstr "蛍光ペン"
+
+#~ msgid "FAQ Settings"
+#~ msgstr "FAQ 設定"
+
+#~ msgid "(%d) Item Settings"
+#~ msgstr "(%d) 項目の設定"
 
 #~ msgid "Columns per row (large window)"
 #~ msgstr "行あたりのカラム数（ラージウインドウ）"
