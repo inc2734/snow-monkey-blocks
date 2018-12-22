@@ -23,6 +23,49 @@
 @import '../../block/categories-list/editor';
 @import '../../block/accordion/editor';
 
+.#{$_prefix}c-row {
+  @each $size, $screen-min in $_sizes {
+    @include _media-min($screen-min) {
+      $prefix: _size-prefix($size);
+
+      @for $i from 1 through 6 {
+        &#{$prefix}-#{$i} {
+          margin: 0;
+
+          > .editor-inner-blocks {
+            flex: 1 1 0%;
+
+            > .editor-block-list__layout {
+              display: flex;
+              flex-wrap: wrap;
+
+              > [data-type^="snow-monkey-blocks"] {
+                @include _row__col--width(1 / $i * 100%);
+                margin-right: 0;
+                margin-left: 0;
+
+                > .editor-block-list__insertion-point,
+                > .components-drop-zone,
+                > .editor-block-mover {
+                  display: none !important;
+                }
+
+                > .editor-block-list__block-edit {
+                  margin-top: 0 !important;
+                }
+              }
+
+              > .block-list-appender {
+                @include _row__col--width(100%);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 .smb-remove-button {
   display: inline-block;
   cursor: pointer;
@@ -123,6 +166,8 @@
   }
 
   .block-list-appender {
+    position: relative;
+    top: 14px;
     display: none;
   }
 

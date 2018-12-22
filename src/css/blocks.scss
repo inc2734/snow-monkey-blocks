@@ -39,3 +39,19 @@ $_font-path: false;
 .smb-highlighter {
   background: linear-gradient(transparent 60%, rgba(#fffd6b, .7) 60%);
 }
+
+.#{$_prefix}c-row {
+  @each $size, $screen-min in $_sizes {
+    @include _media-min($screen-min) {
+      $prefix: _size-prefix($size);
+
+      @for $i from 1 through 6 {
+        &#{$prefix}-#{$i} {
+          > .#{$_prefix}c-row__col {
+            @include _row__col--width(1 / $i * 100%);
+          }
+        }
+      }
+    }
+  }
+}

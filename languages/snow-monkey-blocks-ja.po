@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2018-12-22 11:54+0900\n"
-"PO-Revision-Date: 2018-12-22 11:54+0900\n"
+"POT-Creation-Date: 2018-12-22 15:59+0900\n"
+"PO-Revision-Date: 2018-12-22 16:00+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -249,7 +249,7 @@ msgid "Full button"
 msgstr "フルサイズのボタン"
 
 #: block/btn-box/block.js:137 block/items/block.js:245
-#: block/pricing-table/block.js:239 block/testimonial/block.js:132
+#: block/pricing-table/block.js:239 block/testimonial/_item.js:87
 msgid "Write lede..."
 msgstr "リード文を書く…"
 
@@ -391,7 +391,7 @@ msgid "Columns Settings"
 msgstr "カラム設定"
 
 #: block/items/block.js:42 block/panels/block.js:42
-#: block/pricing-table/block.js:102 block/testimonial/block.js:68
+#: block/pricing-table/block.js:102
 msgid "Columns"
 msgstr "カラム"
 
@@ -431,7 +431,7 @@ msgid "Remove"
 msgstr "削除"
 
 #: block/items/block.js:254 block/panels/block.js:239 block/step/_item.js:183
-#: block/testimonial/block.js:116
+#: block/testimonial/_item.js:71
 msgid "Write content..."
 msgstr "内容を書く…"
 
@@ -776,17 +776,17 @@ msgstr "リンクテキスト"
 msgid "Step"
 msgstr "ステップ"
 
-#: block/testimonial/block.js:16
-msgid "Testimonial"
-msgstr "お客様の声"
+#: block/testimonial/_item.js:9
+msgid "Testimonial item"
+msgstr "お客様の声の項目"
 
-#: block/testimonial/block.js:66
-msgid "Testimonial Settings"
-msgstr "お客様の声の設定"
-
-#: block/testimonial/block.js:124
+#: block/testimonial/_item.js:79
 msgid "Write name..."
 msgstr "名前を書く…"
+
+#: block/testimonial/block.js:10
+msgid "Testimonial"
+msgstr "お客様の声"
 
 #: block/thumbnail-gallery/block.js:15
 msgid "Thumbnail gallery"
@@ -799,6 +799,9 @@ msgstr "サムネイルギャラリーの設定"
 #: src/js/_highlighter.js:13
 msgid "Highlighter"
 msgstr "蛍光ペン"
+
+#~ msgid "Testimonial Settings"
+#~ msgstr "お客様の声の設定"
 
 #~ msgid "STEP.%d Settings"
 #~ msgstr "ステップ.%d の設定"
