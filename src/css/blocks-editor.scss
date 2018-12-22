@@ -126,15 +126,22 @@
     display: none;
   }
 
-  &.is-selected + .block-list-appender,
   &.is-selected .editor-inner-blocks > .editor-block-list__layout > .block-list-appender {
     display: block;
   }
 
   // Touchable parent block
-  .editor-inner-blocks::before {
-    content: '';
-    @include _position(absolute, 0, -24px, 0 -24px);
-    display: block;
+  .editor-inner-blocks {
+    padding-top: 24px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -24px;
+      bottom: 0;
+      left: -24px;
+      display: block;
+    }
   }
 }

@@ -1,4 +1,6 @@
 .smb-step {
+  counter-reset: item;
+
   &__item {
     position: relative;
     @include _padding-left(1.25);
@@ -46,6 +48,18 @@
       font-weight: normal;
       @include _font-size($_base-font-size-px - 4);
       line-height: 1;
+
+      &::before {
+        counter-increment: item;
+        content: counter(item);
+      }
+
+      // Compatibility
+      .smb-step__item[data-image-position] & {
+        &::before {
+          display: none;
+        }
+      }
     }
 
     &__body {

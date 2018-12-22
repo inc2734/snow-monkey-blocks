@@ -12,6 +12,7 @@ import '../../block/rating-box/block.js';
 import '../../block/faq/block.js';
 import '../../block/faq/_item.js';
 import '../../block/step/block.js';
+import '../../block/step/_item.js';
 import '../../block/testimonial/block.js';
 import '../../block/list/block.js';
 import '../../block/items/block.js';

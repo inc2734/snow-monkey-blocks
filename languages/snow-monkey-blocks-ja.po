@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2018-12-22 10:04+0900\n"
-"PO-Revision-Date: 2018-12-22 10:05+0900\n"
+"POT-Creation-Date: 2018-12-22 11:54+0900\n"
+"PO-Revision-Date: 2018-12-22 11:54+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -139,7 +139,7 @@ msgstr "アイコン"
 #: block/media-text/block.js:155 block/panels/block.js:230
 #: block/pricing-table/block.js:220 block/rating-box/block.js:103
 #: block/section-with-bgimage/block.js:132 block/section/block.js:195
-#: block/step/block.js:235
+#: block/step/_item.js:165
 msgid "Write title..."
 msgstr "タイトルを書く…"
 
@@ -226,13 +226,13 @@ msgstr "Target"
 
 #: block/btn-box/block.js:88 block/btn/block.js:64 block/items/block.js:150
 #: block/panels/block.js:154 block/pricing-table/block.js:133
-#: block/step/block.js:159
+#: block/step/_item.js:141
 msgid "_self"
 msgstr "_self"
 
 #: block/btn-box/block.js:92 block/btn/block.js:68 block/items/block.js:154
 #: block/panels/block.js:158 block/pricing-table/block.js:137
-#: block/step/block.js:163
+#: block/step/_item.js:145
 msgid "_blank"
 msgstr "_blank"
 
@@ -419,18 +419,18 @@ msgstr "(%d) ボタン設定"
 #: block/items/block.js:197 block/media-text/block.js:75
 #: block/panels/block.js:184 block/pricing-table/block.js:181
 #: block/section-with-bgimage/block.js:100 block/slider/block.js:184
-#: block/step/block.js:199 block/thumbnail-gallery/block.js:82
+#: block/step/_item.js:72 block/thumbnail-gallery/block.js:82
 msgid "Image"
 msgstr "画像"
 
 #: block/items/block.js:220 block/media-text/block.js:94
 #: block/panels/block.js:207 block/pricing-table/block.js:204
 #: block/section-with-bgimage/block.js:116 block/slider/block.js:210
-#: block/step/block.js:222 block/thumbnail-gallery/block.js:108
+#: block/step/_item.js:93 block/thumbnail-gallery/block.js:108
 msgid "Remove"
 msgstr "削除"
 
-#: block/items/block.js:254 block/panels/block.js:239 block/step/block.js:253
+#: block/items/block.js:254 block/panels/block.js:239 block/step/_item.js:183
 #: block/testimonial/block.js:116
 msgid "Write content..."
 msgstr "内容を書く…"
@@ -479,17 +479,17 @@ msgstr "メディアと文章"
 msgid "Media Text Settings"
 msgstr "メディアと文章の設定"
 
-#: block/media-text/block.js:104 block/step/block.js:121
+#: block/media-text/block.js:104 block/step/_item.js:103
 msgid "Image Position"
 msgstr "画像の位置"
 
 #: block/media-text/block.js:109 block/section-with-bgimage/block.js:60
-#: block/step/block.js:134
+#: block/step/_item.js:116
 msgid "Right side"
 msgstr "右側"
 
 #: block/media-text/block.js:113 block/section-with-bgimage/block.js:52
-#: block/step/block.js:126
+#: block/step/_item.js:108
 msgid "Left side"
 msgstr "左側"
 
@@ -578,7 +578,7 @@ msgstr "レーティングボックス"
 msgid "Rating box Settings"
 msgstr "レーティングボックス設定"
 
-#: block/rating-box/block.js:56 block/step/block.js:100
+#: block/rating-box/block.js:56
 msgid "Rows"
 msgstr "行数"
 
@@ -640,7 +640,7 @@ msgstr "広め"
 msgid "Contents alignment"
 msgstr "コンテンツの水平位置"
 
-#: block/section-with-bgimage/block.js:56 block/step/block.js:130
+#: block/section-with-bgimage/block.js:56 block/step/_item.js:112
 msgid "Center"
 msgstr "中央"
 
@@ -744,38 +744,37 @@ msgstr "スライダーの方向を右から左に変更"
 msgid "Write caption..."
 msgstr "キャプションを書く…"
 
-#: block/step/block.js:16
-msgid "Step"
-msgstr "ステップ"
+#: block/step/_item.js:10
+msgid "Step item"
+msgstr "ステップの項目"
 
-#: block/step/block.js:98
-msgid "Step Settings"
-msgstr "ステップ設定"
+#: block/step/_item.js:101
+msgid "Step Item Settings"
+msgstr "ステップの項目の設定"
 
-#: block/step/block.js:117
-#, javascript-format
-msgid "STEP.%d Settings"
-msgstr "ステップ.%d の設定"
-
-#: block/step/block.js:140
+#: block/step/_item.js:122
 msgid "Number Color"
 msgstr "番号の色"
 
-#: block/step/block.js:148
+#: block/step/_item.js:130
 msgid "Link URL"
 msgstr "リンク URL"
 
-#: block/step/block.js:154
+#: block/step/_item.js:136
 msgid "Link Target"
 msgstr "リンク Target"
 
-#: block/step/block.js:169
+#: block/step/_item.js:151
 msgid "Link Color"
 msgstr "リンク色"
 
-#: block/step/block.js:270
+#: block/step/_item.js:199
 msgid "Link text"
 msgstr "リンクテキスト"
+
+#: block/step/block.js:10
+msgid "Step"
+msgstr "ステップ"
 
 #: block/testimonial/block.js:16
 msgid "Testimonial"
@@ -800,6 +799,9 @@ msgstr "サムネイルギャラリーの設定"
 #: src/js/_highlighter.js:13
 msgid "Highlighter"
 msgstr "蛍光ペン"
+
+#~ msgid "STEP.%d Settings"
+#~ msgstr "ステップ.%d の設定"
 
 #~ msgid "FAQ Settings"
 #~ msgstr "FAQ 設定"
