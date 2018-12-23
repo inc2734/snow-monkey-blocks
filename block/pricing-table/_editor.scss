@@ -9,13 +9,50 @@
     }
   }
 
-  &__col {
-    position: relative;
+  &__row {
+    display: block;
 
-    .smb-add-item-button-wrapper {
-      position: absolute;
-      top: 0;
-      right: -10px;
+    > .editor-inner-blocks {
+      > .editor-block-list__layout {
+        display: flex;
+        flex-wrap: wrap;
+
+        // like .smb-pricing-table__col
+        > [data-type="snow-monkey-blocks/pricing-table--item"] {
+          @include _row__col(1, 1);
+          padding-right: 0;
+          padding-left: 0;
+
+          @include _media-min(md) {
+            @include _row__col--width(1);
+          }
+
+          &:not(:first-child) {
+            border-top: 1px solid _lighter($_color-gray);
+
+            @include _media-min(lg) {
+              border-top: none;
+              border-left: 1px solid _lighter($_color-gray);
+            }
+          }
+
+          > .editor-block-list__insertion-point,
+          > .components-drop-zone,
+          > .editor-block-mover {
+            display: none !important;
+          }
+
+          > .editor-block-list__block-edit {
+            margin-top: 0 !important;
+            margin-right: 0 !important;
+            margin-left: 0 !important;
+          }
+        }
+
+        > .block-list-appender {
+          @include _row__col--width(100%);
+        }
+      }
     }
   }
 }

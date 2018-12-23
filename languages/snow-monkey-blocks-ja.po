@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2018-12-22 15:59+0900\n"
-"PO-Revision-Date: 2018-12-22 16:00+0900\n"
+"POT-Creation-Date: 2018-12-23 17:38+0900\n"
+"PO-Revision-Date: 2018-12-23 17:38+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -137,7 +137,7 @@ msgstr "アイコン"
 
 #: block/alert/block.js:136 block/items/block.js:237
 #: block/media-text/block.js:155 block/panels/block.js:230
-#: block/pricing-table/block.js:220 block/rating-box/block.js:103
+#: block/pricing-table/_item.js:154 block/rating-box/block.js:103
 #: block/section-with-bgimage/block.js:132 block/section/block.js:195
 #: block/step/_item.js:165
 msgid "Write title..."
@@ -177,7 +177,7 @@ msgstr "ボックス設定"
 
 #: block/box/block.js:38 block/btn-box/block.js:63 block/btn-box/block.js:97
 #: block/btn/block.js:89 block/items/block.js:160
-#: block/pricing-table/block.js:143 block/section/block.js:83
+#: block/pricing-table/_item.js:128 block/section/block.js:83
 msgid "Background Color"
 msgstr "背景色"
 
@@ -186,7 +186,7 @@ msgid "Border Color"
 msgstr "枠線の色"
 
 #: block/box/block.js:52 block/btn-box/block.js:104 block/btn/block.js:96
-#: block/items/block.js:167 block/pricing-table/block.js:150
+#: block/items/block.js:167 block/pricing-table/_item.js:135
 #: block/section-with-bgimage/block.js:82
 msgid "Text Color"
 msgstr "文字色"
@@ -198,7 +198,7 @@ msgstr "枠線の太さ"
 #: block/btn-box/_deprecated.js:23 block/btn-box/block.js:31
 #: block/btn-box/block.js:149 block/btn/block.js:12 block/btn/block.js:19
 #: block/btn/block.js:113 block/items/block.js:273
-#: block/pricing-table/block.js:266
+#: block/pricing-table/_item.js:198
 msgid "Button"
 msgstr "ボタン"
 
@@ -215,23 +215,23 @@ msgid "Button Settings"
 msgstr "ボタン設定"
 
 #: block/btn-box/block.js:76 block/btn/block.js:52 block/items/block.js:139
-#: block/panels/block.js:143 block/pricing-table/block.js:122
+#: block/panels/block.js:143 block/pricing-table/_item.js:107
 msgid "URL"
 msgstr "URL"
 
 #: block/btn-box/block.js:82 block/btn/block.js:58 block/items/block.js:145
-#: block/panels/block.js:149 block/pricing-table/block.js:128
+#: block/panels/block.js:149 block/pricing-table/_item.js:113
 msgid "Target"
 msgstr "Target"
 
 #: block/btn-box/block.js:88 block/btn/block.js:64 block/items/block.js:150
-#: block/panels/block.js:154 block/pricing-table/block.js:133
+#: block/panels/block.js:154 block/pricing-table/_item.js:118
 #: block/step/_item.js:141
 msgid "_self"
 msgstr "_self"
 
 #: block/btn-box/block.js:92 block/btn/block.js:68 block/items/block.js:154
-#: block/panels/block.js:158 block/pricing-table/block.js:137
+#: block/panels/block.js:158 block/pricing-table/_item.js:122
 #: block/step/_item.js:145
 msgid "_blank"
 msgstr "_blank"
@@ -249,7 +249,7 @@ msgid "Full button"
 msgstr "フルサイズのボタン"
 
 #: block/btn-box/block.js:137 block/items/block.js:245
-#: block/pricing-table/block.js:239 block/testimonial/_item.js:87
+#: block/pricing-table/_item.js:173 block/testimonial/_item.js:87
 msgid "Write lede..."
 msgstr "リード文を書く…"
 
@@ -386,12 +386,10 @@ msgid "Items"
 msgstr "項目"
 
 #: block/items/block.js:40 block/panels/block.js:40
-#: block/pricing-table/block.js:100
 msgid "Columns Settings"
 msgstr "カラム設定"
 
 #: block/items/block.js:42 block/panels/block.js:42
-#: block/pricing-table/block.js:102
 msgid "Columns"
 msgstr "カラム"
 
@@ -411,20 +409,20 @@ msgstr "項目設定"
 msgid "Item Title Tag"
 msgstr "各アイテムのタイトルタグ"
 
-#: block/items/block.js:135 block/pricing-table/block.js:118
+#: block/items/block.js:135
 #, javascript-format
 msgid "(%d) Button Settings"
 msgstr "(%d) ボタン設定"
 
 #: block/items/block.js:197 block/media-text/block.js:75
-#: block/panels/block.js:184 block/pricing-table/block.js:181
+#: block/panels/block.js:184 block/pricing-table/_item.js:76
 #: block/section-with-bgimage/block.js:100 block/slider/block.js:184
 #: block/step/_item.js:72 block/thumbnail-gallery/block.js:82
 msgid "Image"
 msgstr "画像"
 
 #: block/items/block.js:220 block/media-text/block.js:94
-#: block/panels/block.js:207 block/pricing-table/block.js:204
+#: block/panels/block.js:207 block/pricing-table/_item.js:97
 #: block/section-with-bgimage/block.js:116 block/slider/block.js:210
 #: block/step/_item.js:93 block/thumbnail-gallery/block.js:108
 msgid "Remove"
@@ -562,13 +560,21 @@ msgstr "全体リンク"
 msgid "Posts with \"pickup\" tag are displayed as sliders."
 msgstr "「pickup」タグが付与された記事をスライダーとして表示します。"
 
-#: block/pricing-table/block.js:16
-msgid "Pricing table"
-msgstr "価格表"
+#: block/pricing-table/_item.js:10
+msgid "Pricing table item"
+msgstr "価格表の項目"
 
-#: block/pricing-table/block.js:229
+#: block/pricing-table/_item.js:105
+msgid "Pricing Table Item Settings"
+msgstr "価格設定テーブルの項目設定"
+
+#: block/pricing-table/_item.js:163
 msgid "Write price..."
 msgstr "価格を書く…"
+
+#: block/pricing-table/block.js:10
+msgid "Pricing table"
+msgstr "価格表"
 
 #: block/rating-box/block.js:15
 msgid "Rating box"
@@ -886,9 +892,6 @@ msgstr "蛍光ペン"
 
 #~ msgid "Pricing table2"
 #~ msgstr "価格表2"
-
-#~ msgid "Pricing table item"
-#~ msgstr "価格表の項目"
 
 #~ msgid "Modifier"
 #~ msgstr "修飾子"
