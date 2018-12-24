@@ -86,7 +86,7 @@ export const deprecated = [
 			const migratedInnerBlocks = () => {
 				const ret = [];
 
-				for ( let index = 0; index <= attributes.columns; index++ ) {
+				for ( let index = 0; index <= attributes.content.length; index++ ) {
 					const title = get( attributes.content, [ index, 'title' ], '' );
 					const price = get( attributes.content, [ index, 'price' ], '' );
 					const lede = get( attributes.content, [ index, 'lede' ], '' );
@@ -126,7 +126,7 @@ export const deprecated = [
 		},
 
 		save( { attributes } ) {
-			const { content, columns } = attributes;
+			const { content } = attributes;
 
 			return (
 				<div className={ `smb-pricing-table` }>
@@ -134,7 +134,7 @@ export const deprecated = [
 						{ ( () => {
 							const ret = [];
 
-							for ( let index = 0; index <= columns; index++ ) {
+							for ( let index = 0; index < content.length; index++ ) {
 								const title = get( content, [ index, 'title' ], '' );
 								const price = get( content, [ index, 'price' ], '' );
 								const lede = get( content, [ index, 'lede' ], '' );

@@ -52,7 +52,7 @@ export const deprecated = [
 			const migratedInnerBlocks = () => {
 				const ret = [];
 
-				for ( let index = 0; index <= attributes.columns; index++ ) {
+				for ( let index = 0; index < attributes.items.length; index++ ) {
 					const avatarID = get( attributes.items, [ index, 'avatarID' ], 0 );
 					const avatarURL = get( attributes.items, [ index, 'avatarURL' ], 'https://0.gravatar.com/avatar/00000000000000000000000000000000?s=128&d=mp&r=g' );
 					const name = get( attributes.items, [ index, 'name' ], '' );
@@ -80,7 +80,7 @@ export const deprecated = [
 		},
 
 		save( { attributes } ) {
-			const { items, columns } = attributes;
+			const { items } = attributes;
 
 			return (
 				<div className="smb-testimonial">
@@ -88,7 +88,7 @@ export const deprecated = [
 						<div className="c-row c-row--margin">
 							{ ( () => {
 								const ret = [];
-								for ( let index = 0; index <= columns; index++ ) {
+								for ( let index = 0; index < items.length; index++ ) {
 									const avatarID = get( items, [ index, 'avatarID' ], 0 );
 									const avatarURL = get( items, [ index, 'avatarURL' ], 'https://0.gravatar.com/avatar/00000000000000000000000000000000?s=128&d=mp&r=g' );
 									const name = get( items, [ index, 'name' ], '' );

@@ -84,7 +84,7 @@ export const deprecated = [
 			const migratedInnerBlocks = () => {
 				const ret = [];
 
-				for ( let index = 0; index <= attributes.rows; index++ ) {
+				for ( let index = 0; index < attributes.content.length; index++ ) {
 					const title = get( attributes.content, [ index, 'title' ], '' );
 					const summary = get( attributes.content, [ index, 'summary' ], '' );
 					const numberColor = get( attributes.content, [ index, 'numberColor' ], null );
@@ -122,7 +122,7 @@ export const deprecated = [
 		},
 
 		save( { attributes } ) {
-			const { rows, content } = attributes;
+			const { content } = attributes;
 
 			return (
 				<div className="smb-step">
@@ -130,7 +130,7 @@ export const deprecated = [
 						{ ( () => {
 							const ret = [];
 
-							for ( let index = 0; index <= rows; index++ ) {
+							for ( let index = 0; index < content.length; index++ ) {
 								const title = get( content, [ index, 'title' ], '' );
 								const summary = get( content, [ index, 'summary' ], '' );
 								const numberColor = get( content, [ index, 'numberColor' ], null );

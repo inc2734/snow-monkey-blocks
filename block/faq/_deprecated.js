@@ -46,7 +46,7 @@ export const deprecated = [
 			const migratedInnerBlocks = () => {
 				const ret = [];
 
-				for ( let index = 0; index <= attributes.rows; index++ ) {
+				for ( let index = 0; index < attributes.content.length; index++ ) {
 					const question = get( attributes.content, [ index, 'question' ], '' );
 					const answer = get( attributes.content, [ index, 'answer' ], '' );
 					const questionColor = get( attributes.content, [ index, 'questionColor' ], '' );
@@ -72,14 +72,14 @@ export const deprecated = [
 		},
 
 		save( { attributes } ) {
-			const { rows, content } = attributes;
+			const { content } = attributes;
 
 			return (
 				<div className="smb-faq">
 					<div className="smb-faq__body">
 						{ ( () => {
 							const ret = [];
-							for ( let index = 0; index <= rows; index++ ) {
+							for ( let index = 0; index < content.length; index++ ) {
 								const question = get( content, [ index, 'question' ], '' );
 								const answer = get( content, [ index, 'answer' ], '' );
 								const questionColor = get( content, [ index, 'questionColor' ], '' );
