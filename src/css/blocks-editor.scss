@@ -40,6 +40,7 @@
               flex-wrap: wrap;
 
               > [data-type^="snow-monkey-blocks"] {
+                display: flex;
                 @include _row__col--width(1 / $i * 100%);
                 margin-right: 0;
                 margin-left: 0;
@@ -51,7 +52,16 @@
                 }
 
                 > .editor-block-list__block-edit {
+                  display: flex;
                   margin-top: 0 !important;
+
+                  > [data-block] {
+                    display: flex;
+
+                    > .#{$_prefix}c-row__col {
+                      display: flex;
+                    }
+                  }
                 }
               }
 
@@ -116,17 +126,16 @@
   }
 }
 
+.editor-writing-flow {
+  overflow: hidden;
+}
+
 [data-type^="snow-monkey-blocks"] {
   .editor-block-list__layout {
     .editor-block-list__block {
       &:first-child {
         > .editor-block-list__block-edit {
           margin-top: 0;
-        }
-      }
-      &:nth-last-child(2) {
-        > .editor-block-list__block-edit {
-          margin-bottom: 0;
         }
       }
     }

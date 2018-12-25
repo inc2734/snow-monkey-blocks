@@ -22,6 +22,7 @@ import '../../block/items/block.js';
 import '../../block/items/_item.js';
 import '../../block/slider/block.js';
 import '../../block/panels/block.js';
+import '../../block/panels/_item.js';
 import '../../block/recent-posts/block.js';
 import '../../block/pickup-slider/block.js';
 import '../../block/media-text/block.js';

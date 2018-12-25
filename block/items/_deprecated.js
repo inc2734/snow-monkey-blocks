@@ -110,6 +110,7 @@ export const deprecated = [
 					const imageURL = get( attributes.items, [ index, 'imageURL' ], '' );
 
 					return createBlock( 'snow-monkey-blocks/items--item', {
+						titleTagName: attributes.itemTitleTagName,
 						title: title,
 						lede: lede,
 						summary: summary,
@@ -138,6 +139,16 @@ export const deprecated = [
 			const { sm, md, lg, itemTitleTagName, items } = attributes;
 			const length = ( 'undefined' === typeof attributes.items ) ? 0 : attributes.items.length;
 
+			const generateColClasses = () => {
+				let colClasses = [];
+				colClasses.push( 'c-row__col' );
+				colClasses.push( `c-row__col--1-${ sm }` );
+				colClasses.push( `c-row__col--md-1-${ md }` );
+				colClasses.push( `c-row__col--lg-1-${ lg }` );
+				colClasses = colClasses.join( ' ' );
+				return colClasses;
+			};
+
 			return (
 				<div className={ `smb-items smb-items--sm-${ sm } smb-items--md-${ md } smb-items--lg-${ lg }` }>
 					<div className="c-row c-row--margin">
@@ -152,16 +163,6 @@ export const deprecated = [
 							const btnTextColor = get( items, [ index, 'btnTextColor' ], '' );
 							const imageID = get( items, [ index, 'imageID' ], 0 );
 							const imageURL = get( items, [ index, 'imageURL' ], '' );
-
-							const generateColClasses = () => {
-								let colClasses = [];
-								colClasses.push( 'c-row__col' );
-								colClasses.push( `c-row__col--1-${ sm }` );
-								colClasses.push( `c-row__col--md-1-${ md }` );
-								colClasses.push( `c-row__col--lg-1-${ lg }` );
-								colClasses = colClasses.join( ' ' );
-								return colClasses;
-							};
 
 							return (
 								<div className={ generateColClasses( sm, md, lg ) }>
