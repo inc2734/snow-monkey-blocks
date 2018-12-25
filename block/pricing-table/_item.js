@@ -141,7 +141,7 @@ registerBlockType( 'snow-monkey-blocks/pricing-table--item', {
 					</PanelBody>
 				</InspectorControls>
 
-				<div className="smb-pricing-table__col">
+				<div className="c-row__col">
 					<div className="smb-pricing-table__item">
 						{ ( !! imageID || isSelected ) &&
 							<div className="smb-pricing-table__item__figure">
@@ -212,7 +212,7 @@ registerBlockType( 'snow-monkey-blocks/pricing-table--item', {
 		const { title, price, lede, list, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, imageID, imageURL } = attributes;
 
 		return (
-			<div className="smb-pricing-table__col">
+			<div className="c-row__col">
 				<div className="smb-pricing-table__item">
 					{ !! imageID &&
 						<div className="smb-pricing-table__item__figure">

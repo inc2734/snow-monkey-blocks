@@ -9,6 +9,35 @@
     }
   }
 
+  .#{$_prefix}c-row {
+    > .editor-inner-blocks {
+      > .editor-block-list__layout {
+        > [data-type="snow-monkey-blocks/pricing-table--item"] {
+          @include _row__col(1, 1);
+          padding-right: 0;
+          padding-left: 0;
+
+          @include _media-min(md) {
+            @include _row__col--width(1);
+          }
+
+          > .editor-block-list__block-edit {
+            margin-right: 0 !important;
+            margin-left: 0 !important;
+
+            &::before {
+              top: 0;
+              right: 0;
+              bottom: 0;
+              left: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /*
   &__row {
     display: block;
 
@@ -55,4 +84,5 @@
       }
     }
   }
+  */
 }

@@ -32,12 +32,14 @@ registerBlockType( 'snow-monkey-blocks/panels--item', {
 		linkURL: {
 			type: 'string',
 			source: 'attribute',
+			selector: '.smb-panels__item',
 			attribute: 'href',
 			default: '',
 		},
 		linkTarget: {
 			type: 'string',
 			source: 'attribute',
+			selector: '.smb-panels__item',
 			attribute: 'target',
 			default: '_self',
 		},

@@ -18,7 +18,7 @@ registerBlockType( 'snow-monkey-blocks/testimonial', {
 		return (
 			<div className="smb-testimonial">
 				<div className="smb-testimonial__body">
-					<div className="c-row c-row--margin c-row--1 c-row--md-2">
+					<div className="c-row c-row--margin" data-columns="1" data-md-columns="2">
 						<InnerBlocks
 							allowedBlocks={ allowedBlocks }
 							template={ template }
@@ -34,7 +34,7 @@ registerBlockType( 'snow-monkey-blocks/testimonial', {
 		return (
 			<div className="smb-testimonial">
 				<div className="smb-testimonial__body">
-					<div className="c-row c-row--margin c-row--1 c-row--md-2">
+					<div className="c-row c-row--margin" data-columns="1" data-md-columns="2">
 						<InnerBlocks.Content />
 					</div>
 				</div>

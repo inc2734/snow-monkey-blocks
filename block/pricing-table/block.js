@@ -17,7 +17,7 @@ registerBlockType( 'snow-monkey-blocks/pricing-table', {
 
 		return (
 			<div className="smb-pricing-table">
-				<div className="smb-pricing-table__row">
+				<div className="c-row c-row--md-nowrap" data-columns>
 					<InnerBlocks
 						allowedBlocks={ allowedBlocks }
 						template={ template }
@@ -31,7 +31,7 @@ registerBlockType( 'snow-monkey-blocks/pricing-table', {
 	save() {
 		return (
 			<div className="smb-pricing-table">
-				<div className="smb-pricing-table__row">
+				<div className="c-row c-row--md-nowrap">
 					<InnerBlocks.Content />
 				</div>
 			</div>

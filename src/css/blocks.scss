@@ -43,10 +43,14 @@ $_font-path: false;
 .#{$_prefix}c-row {
   @each $size, $screen-min in $_sizes {
     @include _media-min($screen-min) {
-      $prefix: _size-prefix($size);
 
       @for $i from 1 through 6 {
-        &#{$prefix}-#{$i} {
+        $prefix: '';
+        @if $size != 'sm' {
+          $prefix: -#{$size};
+        }
+
+        &[data#{$prefix}-columns="#{$i}"] {
           > .#{$_prefix}c-row__col {
             @include _row__col--width(1 / $i * 100%);
           }

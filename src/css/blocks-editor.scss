@@ -23,50 +23,52 @@
 @import '../../block/categories-list/editor';
 @import '../../block/accordion/editor';
 
+.#{$_prefix}c-row[data-columns] {
+  margin: 0;
+
+  > .editor-inner-blocks {
+    flex: 1 1 0%;
+
+    > .editor-block-list__layout {
+      display: flex;
+      flex-wrap: wrap;
+
+      > [data-type^="snow-monkey-blocks"] {
+        margin-right: 0;
+        margin-left: 0;
+
+        > .editor-block-list__insertion-point,
+        > .components-drop-zone,
+        > .editor-block-mover {
+          display: none !important;
+        }
+
+        > .editor-block-list__block-edit {
+          margin-top: 0 !important;
+        }
+      }
+
+      > .block-list-appender {
+        @include _row__col--width(100%);
+      }
+    }
+  }
+}
+
 .#{$_prefix}c-row {
   @each $size, $screen-min in $_sizes {
     @include _media-min($screen-min) {
-      $prefix: _size-prefix($size);
+      $prefix: '';
+      @if $size != 'sm' {
+        $prefix: -#{$size};
+      }
 
       @for $i from 1 through 6 {
-        &#{$prefix}-#{$i} {
-          margin: 0;
-
+        &[data#{$prefix}-columns="#{$i}"] {
           > .editor-inner-blocks {
-            flex: 1 1 0%;
-
             > .editor-block-list__layout {
-              display: flex;
-              flex-wrap: wrap;
-
               > [data-type^="snow-monkey-blocks"] {
-                display: flex;
                 @include _row__col--width(1 / $i * 100%);
-                margin-right: 0;
-                margin-left: 0;
-
-                > .editor-block-list__insertion-point,
-                > .components-drop-zone,
-                > .editor-block-mover {
-                  display: none !important;
-                }
-
-                > .editor-block-list__block-edit {
-                  display: flex;
-                  margin-top: 0 !important;
-
-                  > [data-block] {
-                    display: flex;
-
-                    > .#{$_prefix}c-row__col {
-                      display: flex;
-                    }
-                  }
-                }
-              }
-
-              > .block-list-appender {
-                @include _row__col--width(100%);
               }
             }
           }

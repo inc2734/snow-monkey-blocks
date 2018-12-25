@@ -1,6 +1,22 @@
 .smb-pricing-table {
   background-color: #fff;
 
+  .#{$_prefix}c-row {
+    border: 1px solid _lighter($_color-gray);
+
+    &__col {
+      &:not(:first-child) {
+        border-top: 1px solid _lighter($_color-gray);
+
+        @include _media-min(lg) {
+          border-top: none;
+          border-left: 1px solid _lighter($_color-gray);
+        }
+      }
+    }
+  }
+
+  /*
   &__row {
     @include _row();
     border: 1px solid _lighter($_color-gray);
@@ -26,6 +42,7 @@
       }
     }
   }
+  */
 
   &__item {
     @include _padding(1);

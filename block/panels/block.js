@@ -114,7 +114,7 @@ registerBlockType( 'snow-monkey-blocks/panels', {
 				</InspectorControls>
 
 				<div className="smb-panels" data-image-padding={ imagePadding }>
-					<div className={ `c-row c-row--margin c-row--fill c-row--${ sm } c-row--md-${ md } c-row--lg-${ lg }` }>
+					<div className="c-row c-row--margin c-row--fill" data-columns={ sm } data-md-columns={ md } data-lg-columns={ lg }>
 						<InnerBlocks
 							allowedBlocks={ allowedBlocks }
 							template={ template }
@@ -131,7 +131,7 @@ registerBlockType( 'snow-monkey-blocks/panels', {
 
 		return (
 			<div className="smb-panels" data-image-padding={ imagePadding }>
-				<div className={ `c-row c-row--margin c-row--fill c-row--${ sm } c-row--md-${ md } c-row--lg-${ lg }` }>
+				<div className="c-row c-row--margin c-row--fill" data-columns={ sm } data-md-columns={ md } data-lg-columns={ lg }>
 					<InnerBlocks.Content />
 				</div>
 			</div>

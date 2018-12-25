@@ -100,7 +100,7 @@ registerBlockType( 'snow-monkey-blocks/items', {
 				</InspectorControls>
 
 				<div className="smb-items">
-					<div className={ `c-row c-row--margin c-row--${ sm } c-row--md-${ md } c-row--lg-${ lg }` }>
+					<div className="c-row c-row--margin" data-columns={ sm } data-md-columns={ md } data-lg-columns={ lg }>
 						<InnerBlocks
 							allowedBlocks={ allowedBlocks }
 							template={ template }
@@ -117,7 +117,7 @@ registerBlockType( 'snow-monkey-blocks/items', {
 
 		return (
 			<div className="smb-items">
-				<div className={ `c-row c-row--margin c-row--${ sm } c-row--md-${ md } c-row--lg-${ lg }` }>
+				<div className="c-row c-row--margin" data-columns={ sm } data-md-columns={ md } data-lg-columns={ lg }>
 					<InnerBlocks.Content />
 				</div>
 			</div>

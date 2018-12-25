@@ -8,19 +8,4 @@
       right: 5px;
     }
   }
-
-  .c-row__col {
-    position: relative;
-
-    .smb-add-item-button-wrapper {
-      position: absolute;
-      top: 0;
-      right: -10px;
-    }
-  }
-}
-
-[data-type="snow-monkey-blocks/panels"]::before,
-[data-type^="snow-monkey-blocks"] [data-type="snow-monkey-blocks/panels"] > .editor-block-list__block-edit::before {
-  bottom: calc(#{_space(1)} - 14px);
 }
