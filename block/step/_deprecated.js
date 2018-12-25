@@ -3,7 +3,6 @@
 const { get, times } = lodash;
 const { RichText } = wp.editor;
 const { createBlock } = wp.blocks;
-const { Fragment } = wp.element;
 
 export const deprecated = [
 	{
@@ -82,9 +81,9 @@ export const deprecated = [
 
 		migrate( attributes ) {
 			const migratedInnerBlocks = () => {
-				const ret = [];
+				const length = ( 'undefined' === typeof attributes.content ) ? 0 : attributes.content.length;
 
-				for ( let index = 0; index < attributes.content.length; index++ ) {
+				return times( length, ( index ) => {
 					const title = get( attributes.content, [ index, 'title' ], '' );
 					const summary = get( attributes.content, [ index, 'summary' ], '' );
 					const numberColor = get( attributes.content, [ index, 'numberColor' ], null );
@@ -96,23 +95,19 @@ export const deprecated = [
 					const linkLabel = get( attributes.content, [ index, 'linkLabel' ], '' );
 					const linkColor = get( attributes.content, [ index, 'linkColor' ], '' );
 
-					ret.push(
-						createBlock( 'snow-monkey-blocks/step--item', {
-							title: title,
-							summary: summary,
-							numberColor: numberColor,
-							imagePosition: imagePosition,
-							imageID: imageID,
-							imageURL: imageURL,
-							linkURL: linkURL,
-							linkTarget: linkTarget,
-							linkLabel: linkLabel,
-							linkColor: linkColor,
-						} )
-					);
-				}
-
-				return ret;
+					return createBlock( 'snow-monkey-blocks/step--item', {
+						title: title,
+						summary: summary,
+						numberColor: numberColor,
+						imagePosition: imagePosition,
+						imageID: Number( imageID ),
+						imageURL: imageURL,
+						linkURL: linkURL,
+						linkTarget: linkTarget,
+						linkLabel: linkLabel,
+						linkColor: linkColor,
+					} );
+				} );
 			};
 
 			return [
@@ -123,72 +118,63 @@ export const deprecated = [
 
 		save( { attributes } ) {
 			const { content } = attributes;
+			const length = ( 'undefined' === typeof attributes.content ) ? 0 : attributes.content.length;
 
 			return (
 				<div className="smb-step">
 					<div className="smb-step__body">
-						{ ( () => {
-							const ret = [];
-
-							for ( let index = 0; index < content.length; index++ ) {
-								const title = get( content, [ index, 'title' ], '' );
-								const summary = get( content, [ index, 'summary' ], '' );
-								const numberColor = get( content, [ index, 'numberColor' ], null );
-								const imagePosition = get( content, [ index, 'imagePosition' ], 'left' );
-								const imageID = get( content, [ index, 'imageID' ], 0 );
-								const imageURL = get( content, [ index, 'imageURL' ], '' );
-								const linkURL = get( content, [ index, 'linkURL' ], '' );
-								const linkTarget = get( content, [ index, 'linkTarget' ], '_self' );
-								const linkLabel = get( content, [ index, 'linkLabel' ], '' );
-								const linkColor = get( content, [ index, 'linkColor' ], '' );
-
-								ret.push(
-									<div className={ `smb-step__item smb-step__item--image-${ imagePosition }` } data-image-position={ imagePosition }>
-										<div className="smb-step__item__title">
-											<div className="smb-step__item__number" data-number-color={ numberColor } style={ { backgroundColor: numberColor } }>
-												{ index + 1 }
-											</div>
-											<span>
-												<RichText.Content value={ title } />
-											</span>
-										</div>
-
-										{ !! imageID &&
-											<div className="smb-step__item__figure">
-												<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } data-image-id={ imageID } />
-											</div>
-										}
-
-										<div className="smb-step__item__body">
-											<div className="smb-step__item__summary">
-												<RichText.Content value={ summary } />
-											</div>
-
-											{ ! RichText.isEmpty( linkLabel ) &&
-												<a
-													className="smb-step__item__link"
-													href={ linkURL }
-													target={ linkTarget }
-													data-color={ linkColor }
-													style={ { color: linkColor } }
-												>
-													<i className="fas fa-arrow-circle-right" />
-													<span className="smb-step__item__link__label">
-														<RichText.Content value={ linkLabel } />
-													</span>
-												</a>
-											}
-										</div>
-									</div>
-								);
-							}
+						{ times( length, ( index ) => {
+							const title = get( content, [ index, 'title' ], '' );
+							const summary = get( content, [ index, 'summary' ], '' );
+							const numberColor = get( content, [ index, 'numberColor' ], null );
+							const imagePosition = get( content, [ index, 'imagePosition' ], 'left' );
+							const imageID = get( content, [ index, 'imageID' ], 0 );
+							const imageURL = get( content, [ index, 'imageURL' ], '' );
+							const linkURL = get( content, [ index, 'linkURL' ], '' );
+							const linkTarget = get( content, [ index, 'linkTarget' ], '_self' );
+							const linkLabel = get( content, [ index, 'linkLabel' ], '' );
+							const linkColor = get( content, [ index, 'linkColor' ], '' );
 
 							return (
-								<Fragment>
-									{ ret }
-								</Fragment>
+								<div className={ `smb-step__item smb-step__item--image-${ imagePosition }` } data-image-position={ imagePosition }>
+									<div className="smb-step__item__title">
+										<div className="smb-step__item__number" data-number-color={ numberColor } style={ { backgroundColor: numberColor } }>
+											{ index + 1 }
+										</div>
+										<span>
+											<RichText.Content value={ title } />
+										</span>
+									</div>
+
+									{ !! imageID &&
+										<div className="smb-step__item__figure">
+											<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } data-image-id={ imageID } />
+										</div>
+									}
+
+									<div className="smb-step__item__body">
+										<div className="smb-step__item__summary">
+											<RichText.Content value={ summary } />
+										</div>
+
+										{ ! RichText.isEmpty( linkLabel ) &&
+											<a
+												className="smb-step__item__link"
+												href={ linkURL }
+												target={ linkTarget }
+												data-color={ linkColor }
+												style={ { color: linkColor } }
+											>
+												<i className="fas fa-arrow-circle-right" />
+												<span className="smb-step__item__link__label">
+													<RichText.Content value={ linkLabel } />
+												</span>
+											</a>
+										}
+									</div>
+								</div>
 							);
-						} )() }
+						} ) }
 					</div>
 				</div>
 			);

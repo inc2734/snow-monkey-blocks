@@ -1,9 +1,8 @@
 'use strict';
 
-const { get } = lodash;
+const { get, times } = lodash;
 const { RichText } = wp.editor;
 const { createBlock } = wp.blocks;
-const { Fragment } = wp.element;
 
 export const deprecated = [
 	{
@@ -39,23 +38,19 @@ export const deprecated = [
 
 		migrate( attributes ) {
 			const migratedInnerBlocks = () => {
-				const ret = [];
+				const length = ( 'undefined' === typeof attributes.ratings ) ? 0 : attributes.ratings.length;
 
-				for ( let index = 0; index < attributes.ratings.length; index++ ) {
+				return times( length, ( index ) => {
 					const title = get( attributes.ratings, [ index, 'title' ], '' );
 					const rating = get( attributes.ratings, [ index, 'rating' ], 0 );
 					const color = get( attributes.ratings, [ index, 'color' ], '' );
 
-					ret.push(
-						createBlock( 'snow-monkey-blocks/rating-box--item', {
-							title: title,
-							rating: rating,
-							color: color,
-						} )
-					);
-				}
-
-				return ret;
+					return createBlock( 'snow-monkey-blocks/rating-box--item', {
+						title: title,
+						rating: Number( rating ),
+						color: color,
+					} );
+				} );
 			};
 
 			return [
@@ -66,41 +61,33 @@ export const deprecated = [
 
 		save( { attributes } ) {
 			const { ratings } = attributes;
+			const length = ( 'undefined' === typeof attributes.ratings ) ? 0 : attributes.ratings.length;
 
 			return (
 				<div className="smb-rating-box">
 					<div className="smb-rating-box__body">
-						{ ( () => {
-							const ret = [];
-							for ( let index = 0; index < ratings.length; index++ ) {
-								const title = get( ratings, [ index, 'title' ], '' );
-								const rating = get( ratings, [ index, 'rating' ], 0 );
-								const color = get( ratings, [ index, 'color' ], '' );
-
-								ret.push(
-									<div className="smb-rating-box__item" data-rating={ rating } data-color={ color }>
-										<div className="smb-rating-box__item__title" >
-											<RichText.Content value={ title } />
-										</div>
-
-										<div className="smb-rating-box__item__evaluation">
-											<div className="smb-rating-box__item__evaluation__bar">
-												<div className="smb-rating-box__item__evaluation__numeric">
-													{ rating }
-												</div>
-												<div className="smb-rating-box__item__evaluation__rating" style={ { width: `${ rating * 10 }%`, backgroundColor: color } }></div>
-											</div>
-										</div>
-									</div>
-								);
-							}
+						{ times( length, ( index ) => {
+							const title = get( ratings, [ index, 'title' ], '' );
+							const rating = get( ratings, [ index, 'rating' ], 0 );
+							const color = get( ratings, [ index, 'color' ], '' );
 
 							return (
-								<Fragment>
-									{ ret }
-								</Fragment>
+								<div className="smb-rating-box__item" data-rating={ rating } data-color={ color }>
+									<div className="smb-rating-box__item__title" >
+										<RichText.Content value={ title } />
+									</div>
+
+									<div className="smb-rating-box__item__evaluation">
+										<div className="smb-rating-box__item__evaluation__bar">
+											<div className="smb-rating-box__item__evaluation__numeric">
+												{ rating }
+											</div>
+											<div className="smb-rating-box__item__evaluation__rating" style={ { width: `${ rating * 10 }%`, backgroundColor: color } }></div>
+										</div>
+									</div>
+								</div>
 							);
-						} )() }
+						} ) }
 					</div>
 				</div>
 			);

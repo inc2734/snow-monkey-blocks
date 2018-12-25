@@ -1,9 +1,8 @@
 'use strict';
 
-const { get } = lodash;
+const { get, times } = lodash;
 const { RichText } = wp.editor;
 const { createBlock } = wp.blocks;
-const { Fragment } = wp.element;
 
 export const deprecated = [
 	{
@@ -44,25 +43,21 @@ export const deprecated = [
 
 		migrate( attributes ) {
 			const migratedInnerBlocks = () => {
-				const ret = [];
+				const length = ( 'undefined' === typeof attributes.content ) ? 0 : attributes.content.length;
 
-				for ( let index = 0; index < attributes.content.length; index++ ) {
+				return times( length, ( index ) => {
 					const question = get( attributes.content, [ index, 'question' ], '' );
 					const answer = get( attributes.content, [ index, 'answer' ], '' );
 					const questionColor = get( attributes.content, [ index, 'questionColor' ], '' );
 					const answerColor = get( attributes.content, [ index, 'answerColor' ], '' );
 
-					ret.push(
-						createBlock( 'snow-monkey-blocks/faq--item', {
-							question: question,
-							answer: answer,
-							questionColor: questionColor,
-							answerColor: answerColor,
-						} )
-					);
-				}
-
-				return ret;
+					return createBlock( 'snow-monkey-blocks/faq--item', {
+						question: question,
+						answer: answer,
+						questionColor: questionColor,
+						answerColor: answerColor,
+					} );
+				} );
 			};
 
 			return [
@@ -73,47 +68,39 @@ export const deprecated = [
 
 		save( { attributes } ) {
 			const { content } = attributes;
+			const length = ( 'undefined' === typeof attributes.content ) ? 0 : attributes.content.length;
 
 			return (
 				<div className="smb-faq">
 					<div className="smb-faq__body">
-						{ ( () => {
-							const ret = [];
-							for ( let index = 0; index < content.length; index++ ) {
-								const question = get( content, [ index, 'question' ], '' );
-								const answer = get( content, [ index, 'answer' ], '' );
-								const questionColor = get( content, [ index, 'questionColor' ], '' );
-								const answerColor = get( content, [ index, 'answerColor' ], '' );
-
-								ret.push(
-									<div className="smb-faq__item">
-										<div className="smb-faq__item__question">
-											<div className="smb-faq__item__question__label" style={ { color: questionColor } } data-color={ questionColor }>
-												Q
-											</div>
-											<div className="smb-faq__item__question__body">
-												<RichText.Content value={ question } />
-											</div>
-										</div>
-
-										<div className="smb-faq__item__answer">
-											<div className="smb-faq__item__answer__label" style={ { color: answerColor } } data-color={ answerColor }>
-												A
-											</div>
-											<div className="smb-faq__item__answer__body">
-												<RichText.Content value={ answer } />
-											</div>
-										</div>
-									</div>
-								);
-							}
+						{ times( length, ( index ) => {
+							const question = get( content, [ index, 'question' ], '' );
+							const answer = get( content, [ index, 'answer' ], '' );
+							const questionColor = get( content, [ index, 'questionColor' ], '' );
+							const answerColor = get( content, [ index, 'answerColor' ], '' );
 
 							return (
-								<Fragment>
-									{ ret }
-								</Fragment>
+								<div className="smb-faq__item">
+									<div className="smb-faq__item__question">
+										<div className="smb-faq__item__question__label" style={ { color: questionColor } } data-color={ questionColor }>
+											Q
+										</div>
+										<div className="smb-faq__item__question__body">
+											<RichText.Content value={ question } />
+										</div>
+									</div>
+
+									<div className="smb-faq__item__answer">
+										<div className="smb-faq__item__answer__label" style={ { color: answerColor } } data-color={ answerColor }>
+											A
+										</div>
+										<div className="smb-faq__item__answer__body">
+											<RichText.Content value={ answer } />
+										</div>
+									</div>
+								</div>
 							);
-						} )() }
+						} ) }
 					</div>
 				</div>
 			);

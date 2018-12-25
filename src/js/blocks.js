@@ -19,6 +19,7 @@ import '../../block/testimonial/block.js';
 import '../../block/testimonial/_item.js';
 import '../../block/list/block.js';
 import '../../block/items/block.js';
+import '../../block/items/_item.js';
 import '../../block/slider/block.js';
 import '../../block/panels/block.js';
 import '../../block/recent-posts/block.js';

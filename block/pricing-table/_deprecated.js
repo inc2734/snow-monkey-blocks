@@ -3,7 +3,6 @@
 const { get, times } = lodash;
 const { RichText } = wp.editor;
 const { createBlock } = wp.blocks;
-const { Fragment } = wp.element;
 
 export const deprecated = [
 	{
@@ -84,9 +83,9 @@ export const deprecated = [
 
 		migrate( attributes ) {
 			const migratedInnerBlocks = () => {
-				const ret = [];
+				const length = ( 'undefined' === typeof attributes.content ) ? 0 : attributes.content.length;
 
-				for ( let index = 0; index <= attributes.content.length; index++ ) {
+				return times( length, ( index ) => {
 					const title = get( attributes.content, [ index, 'title' ], '' );
 					const price = get( attributes.content, [ index, 'price' ], '' );
 					const lede = get( attributes.content, [ index, 'lede' ], '' );
@@ -99,24 +98,20 @@ export const deprecated = [
 					const imageID = get( attributes.content, [ index, 'imageID' ], 0 );
 					const imageURL = get( attributes.content, [ index, 'imageURL' ], '' );
 
-					ret.push(
-						createBlock( 'snow-monkey-blocks/pricing-table--item', {
-							title: title,
-							price: price,
-							lede: lede,
-							list: list,
-							btnLabel: btnLabel,
-							btnURL: btnURL,
-							btnTarget: btnTarget,
-							btnBackgroundColor: btnBackgroundColor,
-							btnTextColor: btnTextColor,
-							imageID: imageID,
-							imageURL: imageURL,
-						} )
-					);
-				}
-
-				return ret;
+					return createBlock( 'snow-monkey-blocks/pricing-table--item', {
+						title: title,
+						price: price,
+						lede: lede,
+						list: list,
+						btnLabel: btnLabel,
+						btnURL: btnURL,
+						btnTarget: btnTarget,
+						btnBackgroundColor: btnBackgroundColor,
+						btnTextColor: btnTextColor,
+						imageID: Number( imageID ),
+						imageURL: imageURL,
+					} );
+				} );
 			};
 
 			return [
@@ -127,81 +122,72 @@ export const deprecated = [
 
 		save( { attributes } ) {
 			const { content } = attributes;
+			const length = ( 'undefined' === typeof attributes.content ) ? 0 : attributes.content.length;
 
 			return (
 				<div className={ `smb-pricing-table` }>
 					<div className="smb-pricing-table__row">
-						{ ( () => {
-							const ret = [];
-
-							for ( let index = 0; index < content.length; index++ ) {
-								const title = get( content, [ index, 'title' ], '' );
-								const price = get( content, [ index, 'price' ], '' );
-								const lede = get( content, [ index, 'lede' ], '' );
-								const list = get( content, [ index, 'list' ], '' );
-								const btnLabel = get( content, [ index, 'btnLabel' ], '' );
-								const btnURL = get( content, [ index, 'btnURL' ], '' );
-								const btnTarget = get( content, [ index, 'btnTarget' ], '_self' );
-								const btnBackgroundColor = get( content, [ index, 'btnBackgroundColor' ], '' );
-								const btnTextColor = get( content, [ index, 'btnTextColor' ], '' );
-								const imageID = get( content, [ index, 'imageID' ], 0 );
-								const imageURL = get( content, [ index, 'imageURL' ], '' );
-
-								ret.push(
-									<div className="smb-pricing-table__col">
-										<div className="smb-pricing-table__item">
-											{ !! imageID &&
-												<div className="smb-pricing-table__item__figure">
-													<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } data-image-id={ imageID } />
-												</div>
-											}
-
-											<div className="smb-pricing-table__item__title">
-												<RichText.Content value={ title } />
-											</div>
-
-											{ ! RichText.isEmpty( price ) &&
-												<div className="smb-pricing-table__item__price">
-													<RichText.Content value={ price } />
-												</div>
-											}
-
-											{ ! RichText.isEmpty( lede ) &&
-												<div className="smb-pricing-table__item__lede">
-													<RichText.Content value={ lede } />
-												</div>
-											}
-
-											<ul>
-												<RichText.Content value={ list } />
-											</ul>
-
-											{ ( ! RichText.isEmpty( btnLabel ) || !! btnURL ) &&
-												<div className="smb-pricing-table__item__action">
-													<a className="smb-pricing-table__item__btn smb-btn"
-														href={ btnURL }
-														target={ btnTarget }
-														style={ { backgroundColor: btnBackgroundColor } }
-														data-background-color={ btnBackgroundColor }
-														data-color={ btnTextColor }
-													>
-														<span className="smb-btn__label" style={ { color: btnTextColor } }>
-															<RichText.Content value={ btnLabel } />
-														</span>
-													</a>
-												</div>
-											}
-										</div>
-									</div>
-								);
-							}
+						{ times( length, ( index ) => {
+							const title = get( content, [ index, 'title' ], '' );
+							const price = get( content, [ index, 'price' ], '' );
+							const lede = get( content, [ index, 'lede' ], '' );
+							const list = get( content, [ index, 'list' ], '' );
+							const btnLabel = get( content, [ index, 'btnLabel' ], '' );
+							const btnURL = get( content, [ index, 'btnURL' ], '' );
+							const btnTarget = get( content, [ index, 'btnTarget' ], '_self' );
+							const btnBackgroundColor = get( content, [ index, 'btnBackgroundColor' ], '' );
+							const btnTextColor = get( content, [ index, 'btnTextColor' ], '' );
+							const imageID = get( content, [ index, 'imageID' ], 0 );
+							const imageURL = get( content, [ index, 'imageURL' ], '' );
 
 							return (
-								<Fragment>
-									{ ret }
-								</Fragment>
+								<div className="smb-pricing-table__col">
+									<div className="smb-pricing-table__item">
+										{ !! imageID &&
+											<div className="smb-pricing-table__item__figure">
+												<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } data-image-id={ imageID } />
+											</div>
+										}
+
+										<div className="smb-pricing-table__item__title">
+											<RichText.Content value={ title } />
+										</div>
+
+										{ ! RichText.isEmpty( price ) &&
+											<div className="smb-pricing-table__item__price">
+												<RichText.Content value={ price } />
+											</div>
+										}
+
+										{ ! RichText.isEmpty( lede ) &&
+											<div className="smb-pricing-table__item__lede">
+												<RichText.Content value={ lede } />
+											</div>
+										}
+
+										<ul>
+											<RichText.Content value={ list } />
+										</ul>
+
+										{ ( ! RichText.isEmpty( btnLabel ) || !! btnURL ) &&
+											<div className="smb-pricing-table__item__action">
+												<a className="smb-pricing-table__item__btn smb-btn"
+													href={ btnURL }
+													target={ btnTarget }
+													style={ { backgroundColor: btnBackgroundColor } }
+													data-background-color={ btnBackgroundColor }
+													data-color={ btnTextColor }
+												>
+													<span className="smb-btn__label" style={ { color: btnTextColor } }>
+														<RichText.Content value={ btnLabel } />
+													</span>
+												</a>
+											</div>
+										}
+									</div>
+								</div>
 							);
-						} )() }
+						} ) }
 					</div>
 				</div>
 			);
