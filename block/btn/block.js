@@ -3,8 +3,8 @@
 import classnames from 'classnames';
 
 const { registerBlockType } = wp.blocks;
-const { RichText, InspectorControls, ColorPalette } = wp.editor;
-const { PanelBody, SelectControl, TextControl, BaseControl } = wp.components;
+const { RichText, InspectorControls, PanelColorSettings, ContrastChecker } = wp.editor;
+const { PanelBody, SelectControl, TextControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -85,21 +85,29 @@ registerBlockType( 'snow-monkey-blocks/btn', {
 								},
 							] }
 						/>
-
-						<BaseControl label={ __( 'Background Color', 'snow-monkey-blocks' ) }>
-							<ColorPalette
-								value={ backgroundColor }
-								onChange={ ( value ) => setAttributes( { backgroundColor: value } ) }
-							/>
-						</BaseControl>
-
-						<BaseControl label={ __( 'Text Color', 'snow-monkey-blocks' ) }>
-							<ColorPalette
-								value={ textColor }
-								onChange={ ( value ) => setAttributes( { textColor: value } ) }
-							/>
-						</BaseControl>
 					</PanelBody>
+
+					<PanelColorSettings
+						title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
+						initialOpen={ false }
+						colorSettings={ [
+							{
+								value: backgroundColor,
+								onChange: ( value ) => setAttributes( { backgroundColor: value } ),
+								label: __( 'Background Color', 'snow-monkey-blocks' ),
+							},
+							{
+								value: textColor,
+								onChange: ( value ) => setAttributes( { textColor: value } ),
+								label: __( 'Text Color', 'snow-monkey-blocks' ),
+							},
+						] }
+					>
+						<ContrastChecker
+							backgroundColor={ backgroundColor }
+							textColor={ textColor }
+						/>
+					</PanelColorSettings>
 				</InspectorControls>
 
 				<div className="u-clearfix smb-btn-wrapper">

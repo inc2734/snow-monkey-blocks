@@ -1,8 +1,7 @@
 'use strict';
 
 const { registerBlockType } = wp.blocks;
-const { RichText, InspectorControls, ColorPalette } = wp.editor;
-const { PanelBody, BaseControl } = wp.components;
+const { RichText, InspectorControls, PanelColorSettings } = wp.editor;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -34,21 +33,22 @@ registerBlockType( 'snow-monkey-blocks/faq--item', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'FAQ Item Settings', 'snow-monkey-blocks' ) }>
-						<BaseControl label={ __( 'Question Color', 'snow-monkey-blocks' ) }>
-							<ColorPalette
-								value={ questionColor }
-								onChange={ ( value ) => setAttributes( { questionColor: value } ) }
-							/>
-						</BaseControl>
-
-						<BaseControl label={ __( 'Answer Color', 'snow-monkey-blocks' ) }>
-							<ColorPalette
-								value={ answerColor }
-								onChange={ ( value ) => setAttributes( { answerColor: value } ) }
-							/>
-						</BaseControl>
-					</PanelBody>
+					<PanelColorSettings
+						title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
+						colorSettings={ [
+							{
+								value: questionColor,
+								onChange: ( value ) => setAttributes( { questionColor: value } ),
+								label: __( 'Question Color', 'snow-monkey-blocks' ),
+							},
+							{
+								value: answerColor,
+								onChange: ( value ) => setAttributes( { answerColor: value } ),
+								label: __( 'Answer Color', 'snow-monkey-blocks' ),
+							},
+						] }
+					>
+					</PanelColorSettings>
 				</InspectorControls>
 
 				<div className="smb-faq__item">

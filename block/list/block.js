@@ -2,7 +2,7 @@
 
 const { times } = lodash;
 const { registerBlockType } = wp.blocks;
-const { RichText, InspectorControls, ColorPalette } = wp.editor;
+const { RichText, InspectorControls, PanelColorSettings } = wp.editor;
 const { PanelBody, BaseControl, Button } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
@@ -89,14 +89,20 @@ registerBlockType( 'snow-monkey-blocks/list', {
 								} ) }
 							</div>
 						</BaseControl>
-
-						<BaseControl label={ __( 'Icon Color', 'snow-monkey-blocks' ) }>
-							<ColorPalette
-								value={ iconColor }
-								onChange={ ( value ) => setAttributes( { iconColor: value } ) }
-							/>
-						</BaseControl>
 					</PanelBody>
+
+					<PanelColorSettings
+						title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
+						initialOpen={ false }
+						colorSettings={ [
+							{
+								value: iconColor,
+								onChange: ( value ) => setAttributes( { iconColor: value } ),
+								label: __( 'Icon Color', 'snow-monkey-blocks' ),
+							},
+						] }
+					>
+					</PanelColorSettings>
 				</InspectorControls>
 
 				<div className="smb-list" data-icon={ icon } data-icon-color={ iconColor }>

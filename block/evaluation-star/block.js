@@ -4,8 +4,8 @@ import toNumber from '../../src/js/helper/to-number';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const { registerBlockType } = wp.blocks;
-const { InspectorControls, ColorPalette } = wp.editor;
-const { PanelBody, BaseControl, RangeControl, ToggleControl, SelectControl } = wp.components;
+const { InspectorControls, PanelColorSettings } = wp.editor;
+const { PanelBody, RangeControl, ToggleControl, SelectControl } = wp.components;
 const { Fragment } = wp.element;
 const { __, sprintf } = wp.i18n;
 
@@ -94,23 +94,17 @@ registerBlockType( 'snow-monkey-blocks/evaluation-star', {
 							step={ 0.1 }
 						/>
 					</PanelBody>
-					<PanelBody title={ __( 'Icon Settings', 'snow-monkey-blocks' ) }>
-						<BaseControl label={ __( 'Icon color', 'snow-monkey-blocks' ) }>
-							<ColorPalette
-								value={ iconColor }
-								onChange={ ( value ) => {
-									isUpdated = true;
-									setAttributes( { iconColor: value } );
-								} }
-							/>
-						</BaseControl>
-					</PanelBody>
-					<PanelBody title={ __( 'Numeric Settings', 'snow-monkey-blocks' ) }>
+
+					<PanelBody
+						title={ __( 'Numeric Settings', 'snow-monkey-blocks' ) }
+						initialOpen={ false }
+					>
 						<ToggleControl
 							label={ __( 'Show numeric', 'snow-monkey-blocks' ) }
 							checked={ isDisplayNumeric }
 							onChange={ ( value ) => setAttributes( { isDisplayNumeric: value } ) }
 						/>
+
 						<SelectControl
 							label={ __( 'Numeric position', 'snow-monkey-blocks' ) }
 							value={ numericAlign }
@@ -129,16 +123,31 @@ registerBlockType( 'snow-monkey-blocks/evaluation-star', {
 								},
 							] }
 						/>
-						<BaseControl label={ __( 'Numeric color', 'snow-monkey-blocks' ) }>
-							<ColorPalette
-								value={ numericColor }
-								onChange={ ( value ) => {
+					</PanelBody>
+
+					<PanelColorSettings
+						title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
+						initialOpen={ false }
+						colorSettings={ [
+							{
+								value: numericColor,
+								onChange: ( value ) => {
 									isUpdated = true;
 									setAttributes( { numericColor: value } );
-								} }
-							/>
-						</BaseControl>
-					</PanelBody>
+								},
+								label: __( 'Numeric color', 'snow-monkey-blocks' ),
+							},
+							{
+								value: iconColor,
+								onChange: ( value ) => {
+									isUpdated = true;
+									setAttributes( { iconColor: value } );
+								},
+								label: __( 'Icon color', 'snow-monkey-blocks' ),
+							},
+						] }
+					>
+					</PanelColorSettings>
 				</InspectorControls>
 
 				<div className="smb-evaluation-star">

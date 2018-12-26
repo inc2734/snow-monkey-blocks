@@ -4,8 +4,8 @@ import classnames from 'classnames';
 import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
-const { PlainText, RichText, MediaUpload, InspectorControls, ColorPalette } = wp.editor;
-const { Button, PanelBody, SelectControl, BaseControl } = wp.components;
+const { PlainText, RichText, MediaUpload, InspectorControls, PanelColorSettings } = wp.editor;
+const { Button, PanelBody, SelectControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -72,15 +72,22 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 								},
 							] }
 						/>
-
-						<BaseControl label={ __( 'Avatar Border Color', 'snow-monkey-blocks' ) }>
-							<ColorPalette
-								value={ avatarBorderColor }
-								onChange={ ( value ) => setAttributes( { avatarBorderColor: value } ) }
-							/>
-						</BaseControl>
 					</PanelBody>
+
+					<PanelColorSettings
+						title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
+						initialOpen={ false }
+						colorSettings={ [
+							{
+								value: avatarBorderColor,
+								onChange: ( value ) => setAttributes( { avatarBorderColor: value } ),
+								label: __( 'Avatar Border Color', 'snow-monkey-blocks' ),
+							},
+						] }
+					>
+					</PanelColorSettings>
 				</InspectorControls>
+
 				<div className={ classnames( 'smb-balloon', { [ `smb-balloon--${ modifier }` ]: !! modifier } ) }>
 					<div className="smb-balloon__person">
 						<div

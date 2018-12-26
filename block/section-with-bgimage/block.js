@@ -6,8 +6,8 @@ import { schema } from './_schema.js';
 import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
-const { RichText, InnerBlocks, InspectorControls, ColorPalette, MediaPlaceholder } = wp.editor;
-const { PanelBody, SelectControl, RangeControl, BaseControl, ToggleControl } = wp.components;
+const { RichText, InnerBlocks, InspectorControls, PanelColorSettings, MediaPlaceholder } = wp.editor;
+const { PanelBody, SelectControl, RangeControl, ToggleControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -63,13 +63,6 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 							onChange={ ( value ) => setAttributes( { contentsAlignment: value } ) }
 						/>
 
-						<BaseControl label={ __( 'Mask Color', 'snow-monkey-blocks' ) }>
-							<ColorPalette
-								value={ maskColor }
-								onChange={ ( value ) => setAttributes( { maskColor: value } ) }
-							/>
-						</BaseControl>
-
 						<RangeControl
 							label={ __( 'Mask Opacity', 'snow-monkey-blocks' ) }
 							value={ maskOpacity }
@@ -79,19 +72,30 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 							step={ 0.1 }
 						/>
 
-						<BaseControl label={ __( 'Text Color', 'snow-monkey-blocks' ) }>
-							<ColorPalette
-								value={ textColor }
-								onChange={ ( value ) => setAttributes( { textColor: value } ) }
-							/>
-						</BaseControl>
-
 						<ToggleControl
 							label={ __( 'Parallax', 'snow-monkey-blocks' ) }
 							checked={ parallax }
 							onChange={ ( value ) => setAttributes( { parallax: value } ) }
 						/>
 					</PanelBody>
+
+					<PanelColorSettings
+						title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
+						initialOpen={ false }
+						colorSettings={ [
+							{
+								value: maskColor,
+								onChange: ( value ) => setAttributes( { maskColor: value } ),
+								label: __( 'Mask Color', 'snow-monkey-blocks' ),
+							},
+							{
+								value: textColor,
+								onChange: ( value ) => setAttributes( { textColor: value } ),
+								label: __( 'Text Color', 'snow-monkey-blocks' ),
+							},
+						] }
+					>
+					</PanelColorSettings>
 				</InspectorControls>
 
 				{ ! imageURL &&

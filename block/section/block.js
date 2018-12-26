@@ -6,7 +6,7 @@ import divider from '../../src/js/helper/divider';
 import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
-const { RichText, InnerBlocks, InspectorControls, ColorPalette } = wp.editor;
+const { RichText, InnerBlocks, InspectorControls, PanelColorSettings, ColorPalette } = wp.editor;
 const { PanelBody, BaseControl, SelectControl, RangeControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
@@ -79,14 +79,20 @@ registerBlockType( 'snow-monkey-blocks/section', {
 								},
 							] }
 						/>
-
-						<BaseControl label={ __( 'Background Color', 'snow-monkey-blocks' ) }>
-							<ColorPalette
-								value={ backgroundColor }
-								onChange={ ( value ) => setAttributes( { backgroundColor: value } ) }
-							/>
-						</BaseControl>
 					</PanelBody>
+
+					<PanelColorSettings
+						title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
+						initialOpen={ false }
+						colorSettings={ [
+							{
+								value: backgroundColor,
+								onChange: ( value ) => setAttributes( { backgroundColor: value } ),
+								label: __( 'Background Color', 'snow-monkey-blocks' ),
+							},
+						] }
+					>
+					</PanelColorSettings>
 
 					<PanelBody title={ __( 'Top divider Settings', 'snow-monkey-blocks' ) } initialOpen={ false }>
 						<SelectControl
@@ -123,6 +129,7 @@ registerBlockType( 'snow-monkey-blocks/section', {
 
 						<BaseControl label={ __( 'Color', 'snow-monkey-blocks' ) }>
 							<ColorPalette
+								className="editor-color-palette-control__color-palette"
 								value={ topDividerColor }
 								onChange={ ( value ) => setAttributes( { topDividerColor: value } ) }
 							/>
@@ -164,6 +171,7 @@ registerBlockType( 'snow-monkey-blocks/section', {
 
 						<BaseControl label={ __( 'Color', 'snow-monkey-blocks' ) }>
 							<ColorPalette
+								className="editor-color-palette-control__color-palette"
 								value={ bottomDividerColor }
 								onChange={ ( value ) => setAttributes( { bottomDividerColor: value } ) }
 							/>

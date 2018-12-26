@@ -4,8 +4,8 @@ import classnames from 'classnames';
 import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
-const { RichText, InspectorControls, ColorPalette } = wp.editor;
-const { PanelBody, BaseControl, TextControl, SelectControl } = wp.components;
+const { RichText, InspectorControls, PanelColorSettings, ContrastChecker } = wp.editor;
+const { PanelBody, TextControl, SelectControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -59,18 +59,8 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Button box Settings', 'snow-monkey-blocks' ) }>
-						<BaseControl label={ __( 'Background Color', 'snow-monkey-blocks' ) }>
-							<ColorPalette
-								value={ backgroundColor }
-								onChange={ ( value ) => setAttributes( { backgroundColor: value } ) }
-							/>
-						</BaseControl>
-					</PanelBody>
-
 					<PanelBody
 						title={ __( 'Button Settings', 'snow-monkey-blocks' ) }
-						initialOpen={ false }
 					>
 						<TextControl
 							label={ __( 'URL', 'snow-monkey-blocks' ) }
@@ -94,20 +84,6 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 							] }
 						/>
 
-						<BaseControl label={ __( 'Background Color', 'snow-monkey-blocks' ) }>
-							<ColorPalette
-								value={ btnBackgroundColor }
-								onChange={ ( value ) => setAttributes( { btnBackgroundColor: value } ) }
-							/>
-						</BaseControl>
-
-						<BaseControl label={ __( 'Text Color', 'snow-monkey-blocks' ) }>
-							<ColorPalette
-								value={ btnTextColor }
-								onChange={ ( value ) => setAttributes( { btnTextColor: value } ) }
-							/>
-						</BaseControl>
-
 						<SelectControl
 							label={ __( 'Button size', 'snow-monkey-blocks' ) }
 							value={ btnSize }
@@ -124,6 +100,33 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 							] }
 						/>
 					</PanelBody>
+
+					<PanelColorSettings
+						title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
+						initialOpen={ false }
+						colorSettings={ [
+							{
+								value: backgroundColor,
+								onChange: ( value ) => setAttributes( { backgroundColor: value } ),
+								label: __( 'Background Color', 'snow-monkey-blocks' ),
+							},
+							{
+								value: btnBackgroundColor,
+								onChange: ( value ) => setAttributes( { btnBackgroundColor: value } ),
+								label: __( 'Background Color of Button', 'snow-monkey-blocks' ),
+							},
+							{
+								value: btnTextColor,
+								onChange: ( value ) => setAttributes( { btnTextColor: value } ),
+								label: __( 'Text Color of Button', 'snow-monkey-blocks' ),
+							},
+						] }
+					>
+						<ContrastChecker
+							backgroundColor={ btnBackgroundColor }
+							textColor={ btnTextColor }
+						/>
+					</PanelColorSettings>
 				</InspectorControls>
 
 				<div className="smb-btn-box" style={ { backgroundColor: backgroundColor } }>

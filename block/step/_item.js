@@ -1,8 +1,8 @@
 'use strict';
 
 const { registerBlockType } = wp.blocks;
-const { RichText, InspectorControls, ColorPalette, MediaPlaceholder } = wp.editor;
-const { PanelBody, SelectControl, TextControl, BaseControl } = wp.components;
+const { RichText, InspectorControls, PanelColorSettings, MediaPlaceholder } = wp.editor;
+const { PanelBody, SelectControl, TextControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -118,14 +118,9 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 							] }
 							onChange={ ( value ) => setAttributes( { imagePosition: value } ) }
 						/>
+					</PanelBody>
 
-						<BaseControl label={ __( 'Number Color', 'snow-monkey-blocks' ) }>
-							<ColorPalette
-								value={ numberColor }
-								onChange={ ( value ) => setAttributes( { numberColor: value } ) }
-							/>
-						</BaseControl>
-
+					<PanelBody title={ __( 'Link Settings', 'snow-monkey-blocks' ) }>
 						<TextControl
 							label={ __( 'Link URL', 'snow-monkey-blocks' ) }
 							value={ linkURL }
@@ -147,14 +142,25 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 							] }
 							onChange={ ( value ) => setAttributes( { linkTarget: value } ) }
 						/>
-
-						<BaseControl label={ __( 'Link Color', 'snow-monkey-blocks' ) }>
-							<ColorPalette
-								value={ linkColor }
-								onChange={ ( value ) => setAttributes( { linkColor: value } ) }
-							/>
-						</BaseControl>
 					</PanelBody>
+
+					<PanelColorSettings
+						title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
+						initialOpen={ false }
+						colorSettings={ [
+							{
+								value: numberColor,
+								onChange: ( value ) => setAttributes( { numberColor: value } ),
+								label: __( 'Number Color', 'snow-monkey-blocks' ),
+							},
+							{
+								value: linkColor,
+								onChange: ( value ) => setAttributes( { linkColor: value } ),
+								label: __( 'Link Color', 'snow-monkey-blocks' ),
+							},
+						] }
+					>
+					</PanelColorSettings>
 				</InspectorControls>
 
 				<div className={ `smb-step__item smb-step__item--image-${ imagePosition }` }>

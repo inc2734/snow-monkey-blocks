@@ -3,8 +3,8 @@
 import toNumber from '../../src/js/helper/to-number';
 
 const { registerBlockType } = wp.blocks;
-const { RichText, InspectorControls, ColorPalette } = wp.editor;
-const { PanelBody, RangeControl, BaseControl } = wp.components;
+const { RichText, InspectorControls, PanelColorSettings } = wp.editor;
+const { PanelBody, RangeControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -41,14 +41,20 @@ registerBlockType( 'snow-monkey-blocks/rating-box--item', {
 							min="1"
 							max="10"
 						/>
-
-						<BaseControl label={ __( 'Color', 'snow-monkey-blocks' ) }>
-							<ColorPalette
-								value={ color }
-								onChange={ ( value ) => setAttributes( { color: value } ) }
-							/>
-						</BaseControl>
 					</PanelBody>
+
+					<PanelColorSettings
+						title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
+						initialOpen={ false }
+						colorSettings={ [
+							{
+								value: color,
+								onChange: ( value ) => setAttributes( { color: value } ),
+								label: __( 'Bar Color', 'snow-monkey-blocks' ),
+							},
+						] }
+					>
+					</PanelColorSettings>
 				</InspectorControls>
 
 				<div className="smb-rating-box__item">
