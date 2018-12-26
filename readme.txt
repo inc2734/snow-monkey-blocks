@@ -43,7 +43,7 @@ https://www.youtube.com/watch?v=uD6omb4TLdA&t=283s
 * Pickup slider (Can be used only with Snow Monkey)
 * Categories list
 * Contents outline (Can be used only with Snow Monkey)
-* Evaluation start
+* Evaluation star
 
 = Section blocks =
 
@@ -90,14 +90,14 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 15. Media text block
 16. Thumbnail gallery block (The number of images can be increased or decreased freely)
 17. Categories list block
-18. Evaluation start block
+18. Evaluation star block
 
 == Changelog ==
 
 = 2.1.0 =
 * Add the categories list block.
 * Add the content outline block.
-* Add the evaluation start block.
+* Add the evaluation star block.
 * Fix RangeControl bug.
 
 = 2.0.0 =
