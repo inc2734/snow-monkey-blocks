@@ -3,67 +3,48 @@
  * @package snow-monkey-blocks
  * @author inc2734
  * @license GPL-2.0+
+ *
+ * @see https://github.com/inc2734/wp-awesome-widgets/blob/master/src/widget/widget.php
+ * @see https://github.com/inc2734/snow-monkey/blob/master/resources/app/widget/snow-monkey-recent-posts/snow-monkey-recent-posts.php
  */
 
-$query_args = [
-	'post_type'      => 'post',
-	'posts_per_page' => $attributes['postsPerPage'],
+$widget_templates = apply_filters( 'inc2734_wp_awesome_widgets_widget_templates', 'templates/widget' );
+$custom_template  = $widget_templates . '/recent-posts.php';
+$default_template = get_template_directory() . '/app/widget/snow-monkey-recent-posts/_widget.php';
+
+$instance = [
+	'title'          => null,
+	'posts-per-page' => $attributes['postsPerPage'],
+	'layout'         => $attributes['layout'],
+	'link-text'      => null,
+	'link-url'       => null,
 ];
-$query_args = apply_filters( 'snow_monkey_blocks_recent_posts_args', $query_args );
-$_post_type = empty( $query_args['post_type'] ) ? '' : $query_args['post_type'];
 
-$recent_posts_query = new WP_Query(
-	array_merge(
-		$query_args,
-		[
-			'ignore_sticky_posts' => true,
-			'no_found_rows'       => true,
-			'suppress_filters'    => true,
-		]
-	)
-);
+$args     = [
+	'before_widget' => '',
+	'after_widget'  => '',
+	'widget_id'     => 'inc2734_wp_awesome_widgets_pickup_slider_' . rand(),
+	'id'            => null,
+];
 
-if ( ! $recent_posts_query->have_posts() ) {
-	return;
+ob_start();
+
+if ( file_exists( get_theme_file_path( $custom_template ) ) ) {
+	include( get_theme_file_path( $custom_template ) );
+} elseif ( file_exists( $default_template ) ) {
+	include( $default_template );
 }
 
-$infeed_ads      = get_option( 'mwt-google-infeed-ads' );
-$data_infeed_ads = ( $infeed_ads ) ? 'true' : 'false';
-$archive_layout  = $attributes['layout'];
+$widget = ob_get_clean();
+
+if ( empty( $widget ) ) {
+	return;
+}
 ?>
 <div class="smb-recent-posts">
-	<ul class="c-entries c-entries--<?php echo esc_attr( $archive_layout ); ?>" data-has-infeed-ads="<?php echo esc_attr( $data_infeed_ads ); ?>">
-		<?php while ( $recent_posts_query->have_posts() ) : ?>
-			<?php $recent_posts_query->the_post(); ?>
-			<li class="c-entries__item">
-				<?php
-				$args = [
-					'widget_layout' => $attributes['layout'],
-				];
-
-				$template_slug = 'template-parts/loop/entry-summary';
-				if ( function_exists( '\wpvc_get_template_part' ) ) {
-					\wpvc_get_template_part(
-						$template_slug,
-						$_post_type,
-						$args
-					);
-				} elseif ( function_exists( '\Inc2734\Mimizuku_Core\Helper\get_template_part' ) ) {
-					\Inc2734\Mimizuku_Core\Helper\get_template_part(
-						$template_slug,
-						$_post_type,
-						$args
-					);
-				} elseif ( method_exists( '\Framework\Helper', 'get_template_part' ) ) {
-					\Framework\Helper::get_template_part(
-						$template_slug,
-						$_post_type,
-						$args
-					);
-				}
-				?>
-			</li>
-		<?php endwhile; ?>
-		<?php wp_reset_postdata(); ?>
-	</ul>
+	<?php
+	// @codingStandardsIgnoreStart
+	echo apply_filters( 'inc2734_wp_awesome_widgets_render_widget', $widget, $args, $instance );
+	// @codingStandardsIgnoreEnd
+	?>
 </div>
