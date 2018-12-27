@@ -32,5 +32,6 @@ import '../../block/contents-outline/block.js';
 import '../../block/evaluation-star/block.js';
 import '../../block/accordion/block.js';
 import '../../block/accordion/_item.js';
+import '../../block/child-pages/block.js';
 
 import './_highlighter.js';

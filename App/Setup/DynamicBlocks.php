@@ -37,6 +37,7 @@ class DynamicBlocks {
 		add_action( 'init', [ $this, '_recent_posts_block' ] );
 		add_action( 'init', [ $this, '_pickup_slider_block' ] );
 		add_action( 'init', [ $this, '_contents_outline_block' ] );
+		add_action( 'init', [ $this, '_child_pages_block' ] );
 	}
 
 	/**
@@ -130,6 +131,22 @@ class DynamicBlocks {
 				],
 				'render_callback' => function( $attributes, $content ) {
 					return $this->_render( 'contents-outline', $attributes, $content );
+				},
+			]
+		);
+	}
+
+	/**
+	 * Contents outline block
+	 *
+	 * @return void
+	 */
+	public function _child_pages_block() {
+		register_block_type(
+			'snow-monkey-blocks/child-pages',
+			[
+				'render_callback' => function( $attributes, $content ) {
+					return $this->_render( 'child-pages', $attributes, $content );
 				},
 			]
 		);

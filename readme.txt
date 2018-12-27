@@ -44,6 +44,7 @@ https://www.youtube.com/watch?v=uD6omb4TLdA&t=283s
 * Categories list
 * Contents outline (Can be used only with Snow Monkey)
 * Evaluation star
+* Child pages (Can be used only with Snow Monkey)
 
 = Section blocks =
 

@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2018-12-27 09:20+0900\n"
-"PO-Revision-Date: 2018-12-27 09:30+0900\n"
+"POT-Creation-Date: 2018-12-27 11:37+0900\n"
+"PO-Revision-Date: 2018-12-27 11:38+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -30,10 +30,6 @@ msgstr "記事"
 #: block/categories-list/block.php:40 block/recent-posts/block.js:12
 msgid "Recent posts"
 msgstr "最近の投稿"
-
-#: block/pickup-slider/block.php:86
-msgid "READ MORE"
-msgstr "READ MORE"
 
 #: snow-monkey-blocks.php:44 snow-monkey-blocks.php:50
 msgid "Snow Monkey Blocks"
@@ -290,6 +286,14 @@ msgstr "カテゴリーリストの記事数"
 #: block/categories-list/block.js:40
 msgid "displayed categories list on the actual screen."
 msgstr "カテゴリー一覧は実際の画面でのみ表示されます。"
+
+#: block/child-pages/block.js:8 block/child-pages/block.js:17
+msgid "Child pages"
+msgstr "このページの子ページ"
+
+#: block/child-pages/block.js:20
+msgid "In the actual screen, it is displayed when the page have child pages."
+msgstr "実際の画面では、このページが子ページを持っている場合に表示されます。"
 
 #: block/contents-outline/block.js:12 block/contents-outline/block.js:61
 msgid "Contents outline"
@@ -768,6 +772,9 @@ msgstr "サムネイルギャラリー設定"
 #: src/js/_highlighter.js:13
 msgid "Highlighter"
 msgstr "蛍光ペン"
+
+#~ msgid "READ MORE"
+#~ msgstr "READ MORE"
 
 #~ msgid "Accordion item"
 #~ msgstr "アコーディオンの項目"
