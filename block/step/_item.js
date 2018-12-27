@@ -7,7 +7,7 @@ const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
 registerBlockType( 'snow-monkey-blocks/step--item', {
-	title: __( 'Step item', 'snow-monkey-blocks' ),
+	title: __( 'Item', 'snow-monkey-blocks' ),
 	icon: 'editor-ol',
 	category: 'smb',
 	parent: [ 'snow-monkey-blocks/step' ],
@@ -98,7 +98,7 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Step Item Settings', 'snow-monkey-blocks' ) }>
+					<PanelBody title={ __( 'Item Settings', 'snow-monkey-blocks' ) }>
 						<SelectControl
 							label={ __( 'Image Position', 'snow-monkey-blocks' ) }
 							value={ imagePosition }

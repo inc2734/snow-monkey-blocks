@@ -6,7 +6,7 @@ const { Button } = wp.components;
 const { __ } = wp.i18n;
 
 registerBlockType( 'snow-monkey-blocks/testimonial--item', {
-	title: __( 'Testimonial item', 'snow-monkey-blocks' ),
+	title: __( 'Item', 'snow-monkey-blocks' ),
 	icon: 'admin-comments',
 	category: 'smb',
 	parent: [ 'snow-monkey-blocks/testimonial' ],

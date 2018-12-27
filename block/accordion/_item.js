@@ -5,7 +5,7 @@ const { RichText, InnerBlocks } = wp.editor;
 const { __ } = wp.i18n;
 
 registerBlockType( 'snow-monkey-blocks/accordion--item', {
-	title: __( 'Accordion item', 'snow-monkey-blocks' ),
+	title: __( 'Item', 'snow-monkey-blocks' ),
 	icon: 'editor-justify',
 	category: 'smb',
 	parent: [ 'snow-monkey-blocks/accordion' ],

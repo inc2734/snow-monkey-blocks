@@ -6,7 +6,7 @@ const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
 registerBlockType( 'snow-monkey-blocks/faq--item', {
-	title: __( 'FAQ item', 'snow-monkey-blocks' ),
+	title: __( 'Item', 'snow-monkey-blocks' ),
 	icon: 'businessman',
 	category: 'smb',
 	parent: [ 'snow-monkey-blocks/faq' ],

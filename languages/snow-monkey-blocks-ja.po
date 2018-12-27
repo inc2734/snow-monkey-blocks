@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2018-12-26 12:59+0900\n"
-"PO-Revision-Date: 2018-12-26 13:01+0900\n"
+"POT-Creation-Date: 2018-12-27 09:20+0900\n"
+"PO-Revision-Date: 2018-12-27 09:30+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -70,9 +70,11 @@ msgstr ""
 "%1$sSnow Monkey%2$s テーマと一緒に使用すると、最も美しいバランスで表示され、"
 "フロントスクリーンと同じデザインで編集画面に表示されます。"
 
-#: block/accordion/_item.js:8
-msgid "Accordion item"
-msgstr "アコーディオンの項目"
+#: block/accordion/_item.js:8 block/faq/_item.js:9 block/panels/_item.js:11
+#: block/pricing-table/_item.js:10 block/rating-box/_item.js:12
+#: block/step/_item.js:10 block/testimonial/_item.js:9
+msgid "Item"
+msgstr "項目"
 
 #: block/accordion/block.js:8
 msgid "Accordion"
@@ -136,7 +138,7 @@ msgid "Icon"
 msgstr "アイコン"
 
 #: block/alert/block.js:136 block/items/_item.js:184
-#: block/media-text/block.js:155 block/panels/_item.js:156
+#: block/media-text/block.js:155 block/panels/_item.js:158
 #: block/pricing-table/_item.js:162 block/rating-box/_item.js:63
 #: block/section-with-bgimage/block.js:136 block/section/block.js:203
 #: block/step/_item.js:171
@@ -219,23 +221,23 @@ msgid "Button Settings"
 msgstr "ボタン設定"
 
 #: block/btn-box/block.js:66 block/btn/block.js:52 block/items/_item.js:128
-#: block/panels/_item.js:116 block/pricing-table/_item.js:107
+#: block/panels/_item.js:118 block/pricing-table/_item.js:107
 msgid "URL"
 msgstr "URL"
 
 #: block/btn-box/block.js:72 block/btn/block.js:58 block/items/_item.js:134
-#: block/panels/_item.js:122 block/pricing-table/_item.js:113
+#: block/panels/_item.js:124 block/pricing-table/_item.js:113
 msgid "Target"
 msgstr "Target"
 
 #: block/btn-box/block.js:78 block/btn/block.js:64 block/items/_item.js:139
-#: block/panels/_item.js:127 block/pricing-table/_item.js:118
+#: block/panels/_item.js:129 block/pricing-table/_item.js:118
 #: block/step/_item.js:136
 msgid "_self"
 msgstr "_self"
 
 #: block/btn-box/block.js:82 block/btn/block.js:68 block/items/_item.js:143
-#: block/panels/_item.js:131 block/pricing-table/_item.js:122
+#: block/panels/_item.js:133 block/pricing-table/_item.js:122
 #: block/step/_item.js:140
 msgid "_blank"
 msgstr "_blank"
@@ -361,10 +363,6 @@ msgstr "数値の色"
 msgid "Icon color"
 msgstr "アイコンの色"
 
-#: block/faq/_item.js:9
-msgid "FAQ item"
-msgstr "FAQ の項目"
-
 #: block/faq/_item.js:42
 msgid "Question Color"
 msgstr "質問の色"
@@ -411,7 +409,7 @@ msgstr "項目設定"
 msgid "Title Tag"
 msgstr "タイトルタグ"
 
-#: block/items/_item.js:201 block/panels/_item.js:165 block/step/_item.js:189
+#: block/items/_item.js:201 block/panels/_item.js:167 block/step/_item.js:189
 #: block/testimonial/_item.js:71
 msgid "Write content..."
 msgstr "内容を書く…"
@@ -502,15 +500,16 @@ msgstr "33%"
 msgid "25%"
 msgstr "25%"
 
-#: block/panels/_item.js:11
-msgid "Panels item"
-msgstr "パネルの項目"
+#: block/panels/_item.js:98 block/rating-box/_item.js:36
+#: block/step/_item.js:101
+msgid "Item Settings"
+msgstr "項目の設定"
 
-#: block/panels/_item.js:98
-msgid "Panels Item Settings"
-msgstr "パネル項目設定"
+#: block/panels/_item.js:116 block/step/_item.js:123
+msgid "Link Settings"
+msgstr "リンク設定"
 
-#: block/panels/_item.js:176
+#: block/panels/_item.js:178
 msgid "Link"
 msgstr "リンク"
 
@@ -554,10 +553,6 @@ msgstr "全体リンク"
 msgid "Posts with \"pickup\" tag are displayed as sliders."
 msgstr "「pickup」タグが付与された記事をスライダーとして表示します。"
 
-#: block/pricing-table/_item.js:10
-msgid "Pricing table item"
-msgstr "価格表の項目"
-
 #: block/pricing-table/_item.js:171
 msgid "Write price..."
 msgstr "価格を書く…"
@@ -565,14 +560,6 @@ msgstr "価格を書く…"
 #: block/pricing-table/block.js:10
 msgid "Pricing table"
 msgstr "価格表"
-
-#: block/rating-box/_item.js:12
-msgid "Rating box item"
-msgstr "レーティングボックスの項目"
-
-#: block/rating-box/_item.js:36
-msgid "Rating box item Settings"
-msgstr "レーティングボックス項目設定"
 
 #: block/rating-box/_item.js:38
 msgid "Rating"
@@ -738,18 +725,6 @@ msgstr "スライダーの方向を右から左に変更"
 msgid "Write caption..."
 msgstr "キャプションを書く…"
 
-#: block/step/_item.js:10
-msgid "Step item"
-msgstr "ステップの項目"
-
-#: block/step/_item.js:101
-msgid "Step Item Settings"
-msgstr "ステップ項目設定"
-
-#: block/step/_item.js:123
-msgid "Link Settings"
-msgstr "リンク設定"
-
 #: block/step/_item.js:125
 msgid "Link URL"
 msgstr "リンク URL"
@@ -774,10 +749,6 @@ msgstr "リンクテキスト"
 msgid "Step"
 msgstr "ステップ"
 
-#: block/testimonial/_item.js:9
-msgid "Testimonial item"
-msgstr "お客様の声項目"
-
 #: block/testimonial/_item.js:79
 msgid "Write name..."
 msgstr "名前を書く…"
@@ -797,6 +768,36 @@ msgstr "サムネイルギャラリー設定"
 #: src/js/_highlighter.js:13
 msgid "Highlighter"
 msgstr "蛍光ペン"
+
+#~ msgid "Accordion item"
+#~ msgstr "アコーディオンの項目"
+
+#~ msgid "FAQ item"
+#~ msgstr "FAQ の項目"
+
+#~ msgid "Panels item"
+#~ msgstr "パネルの項目"
+
+#~ msgid "Panels Item Settings"
+#~ msgstr "パネル項目設定"
+
+#~ msgid "Pricing table item"
+#~ msgstr "価格表の項目"
+
+#~ msgid "Rating box item"
+#~ msgstr "レーティングボックスの項目"
+
+#~ msgid "Rating box item Settings"
+#~ msgstr "レーティングボックス項目設定"
+
+#~ msgid "Step item"
+#~ msgstr "ステップの項目"
+
+#~ msgid "Step Item Settings"
+#~ msgstr "ステップ項目設定"
+
+#~ msgid "Testimonial item"
+#~ msgstr "お客様の声項目"
 
 #~ msgid "Button box Settings"
 #~ msgstr "ボタンボックス設定"

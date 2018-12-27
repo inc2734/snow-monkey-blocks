@@ -9,7 +9,7 @@ const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
 registerBlockType( 'snow-monkey-blocks/rating-box--item', {
-	title: __( 'Rating box item', 'snow-monkey-blocks' ),
+	title: __( 'Item', 'snow-monkey-blocks' ),
 	icon: 'editor-alignleft',
 	category: 'smb',
 	parent: [ 'snow-monkey-blocks/rating-box' ],
@@ -33,7 +33,7 @@ registerBlockType( 'snow-monkey-blocks/rating-box--item', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Rating box item Settings', 'snow-monkey-blocks' ) }>
+					<PanelBody title={ __( 'Item Settings', 'snow-monkey-blocks' ) }>
 						<RangeControl
 							label={ __( 'Rating', 'snow-monkey-blocks' ) }
 							value={ rating }

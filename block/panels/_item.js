@@ -8,7 +8,7 @@ const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
 registerBlockType( 'snow-monkey-blocks/panels--item', {
-	title: __( 'Panels item', 'snow-monkey-blocks' ),
+	title: __( 'Item', 'snow-monkey-blocks' ),
 	icon: 'screenoptions',
 	category: 'smb',
 	parent: [ 'snow-monkey-blocks/panels' ],
@@ -95,7 +95,7 @@ registerBlockType( 'snow-monkey-blocks/panels--item', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Panels Item Settings', 'snow-monkey-blocks' ) }>
+					<PanelBody title={ __( 'Item Settings', 'snow-monkey-blocks' ) }>
 						<BaseControl label={ __( 'Title Tag', 'snow-monkey-blocks' ) }>
 							<div className="smb-list-icon-selector">
 								{ times( titleTagNames.length, ( index ) => {
@@ -111,7 +111,9 @@ registerBlockType( 'snow-monkey-blocks/panels--item', {
 								} ) }
 							</div>
 						</BaseControl>
+					</PanelBody>
 
+					<PanelBody title={ __( 'Link Settings', 'snow-monkey-blocks' ) }>
 						<TextControl
 							label={ __( 'URL', 'snow-monkey-blocks' ) }
 							value={ linkURL }

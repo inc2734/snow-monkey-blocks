@@ -7,7 +7,7 @@ const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
 registerBlockType( 'snow-monkey-blocks/pricing-table--item', {
-	title: __( 'Pricing table item', 'snow-monkey-blocks' ),
+	title: __( 'Item', 'snow-monkey-blocks' ),
 	icon: 'warning',
 	category: 'smb',
 	parent: [ 'snow-monkey-blocks/pricing-table' ],
