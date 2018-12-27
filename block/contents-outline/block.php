@@ -1,9 +1,33 @@
 <?php
 /**
  * @package snow-monkey-blocks
- * @author inc2734
+ * @author kmix-39
  * @license GPL-2.0+
  */
-?>
 
-[wp_contents_outline post_id="<?php echo esc_attr( get_the_ID() ); ?>" headings="<?php echo esc_attr( $attributes['headings'] ); ?>" selector=".c-entry__content"]
+use Snow_Monkey\Plugin\Blocks\App\Setup\DynamicBlocks;
+use Snow_Monkey\Plugin\Blocks;
+
+if ( ! Blocks\is_snow_monkey() ) {
+	return;
+}
+
+add_action(
+	'init',
+	function() {
+		register_block_type(
+			'snow-monkey-blocks/contents-outline',
+			[
+				'attributes' => [
+					'headings' => [
+						'type'    => 'string',
+						'default' => 'h2,h3,h4',
+					],
+				],
+				'render_callback' => function( $attributes, $content ) {
+					return DynamicBlocks::render( 'contents-outline', $attributes, $content );
+				},
+			]
+		);
+	}
+);

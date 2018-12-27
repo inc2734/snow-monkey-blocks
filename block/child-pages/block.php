@@ -1,17 +1,27 @@
 <?php
 /**
  * @package snow-monkey-blocks
- * @author inc2734
+ * @author kmix-39
  * @license GPL-2.0+
- *
- * @see https://github.com/inc2734/snow-monkey/blob/master/resources/template-parts/content/child-pages.php
  */
 
-use Framework\Helper;
+use Snow_Monkey\Plugin\Blocks\App\Setup\DynamicBlocks;
+use Snow_Monkey\Plugin\Blocks;
 
-$pages_query = Helper::get_child_pages_query( get_the_ID() );
-if ( ! $pages_query->have_posts() ) {
+if ( ! Blocks\is_snow_monkey() ) {
 	return;
 }
 
-Helper::get_template_part( 'template-parts/content/child-pages' );
+add_action(
+	'init',
+	function() {
+		register_block_type(
+			'snow-monkey-blocks/child-pages',
+			[
+				'render_callback' => function( $attributes, $content ) {
+					return DynamicBlocks::render( 'child-pages', $attributes, $content );
+				},
+			]
+		);
+	}
+);
