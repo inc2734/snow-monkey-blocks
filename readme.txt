@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.0
 Tested up to: 5.0
-Stable tag: 2.1.0
+Stable tag: 3.0.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -45,6 +45,7 @@ https://www.youtube.com/watch?v=uD6omb4TLdA&t=283s
 * Contents outline (Can be used only with Snow Monkey)
 * Evaluation star
 * Child pages (Can be used only with Snow Monkey)
+* Accordion
 
 = Section blocks =
 
@@ -92,8 +93,20 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 16. Thumbnail gallery block (The number of images can be increased or decreased freely)
 17. Categories list block
 18. Evaluation star block
+19. Accordion block
 
 == Changelog ==
+
+= 3.0.0 =
+* Add the accordion block.
+* Add the child pages block.
+* Add parallax setting to the section with background image block.
+* Add text color setting to the section with background image block.
+* Add item title tag setting to the panel block and the items block.
+* Add anchor setting to the section block.
+* Fix the categories list block styles on mobile.
+* Refactoring repeatable blocks.
+* Refactoring color settings panel.
 
 = 2.1.0 =
 * Add the categories list block.
