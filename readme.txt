@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.0
 Tested up to: 5.0
-Stable tag: 3.0.0
+Stable tag: 3.0.1
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -96,6 +96,10 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 19. Accordion block
 
 == Changelog ==
+
+= 3.0.1 =
+* Fix bug that the accordion block and the child pages block not working on Snow Monkey v4
+* Fix bug that title of the section block can not be changed.
 
 = 3.0.0 =
 * Add the accordion block.
