@@ -7,11 +7,18 @@
  * @see https://github.com/inc2734/snow-monkey/blob/master/resources/template-parts/content/child-pages.php
  */
 
-use Framework\Helper;
+if ( class_exists( '\Framework\Helper' ) ) {
+	$pages_query = \Framework\Helper::get_child_pages_query( get_the_ID() );
+} else {
+	$pages_query = \Inc2734\Mimizuku_Core\Helper\get_child_pages_query( get_the_ID() );
+}
 
-$pages_query = Helper::get_child_pages_query( get_the_ID() );
 if ( ! $pages_query->have_posts() ) {
 	return;
 }
 
-Helper::get_template_part( 'template-parts/content/child-pages' );
+if ( class_exists( '\Framework\Helper' ) ) {
+	\Framework\Helper::get_template_part( 'template-parts/content/child-pages' );
+} else {
+	get_template_part( 'template-parts/child-pages' );
+}

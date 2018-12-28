@@ -5,6 +5,8 @@
  * @license GPL-2.0+
  */
 
-use Framework\Helper;
-
-Helper::get_template_part( 'template-parts/content/contents-outline' );
+if ( class_exists( '\Framework\Helper' ) ) {
+	\Framework\Helper::get_template_part( 'template-parts/content/contents-outline' );
+} else {
+	get_template_part( 'template-parts/contents-outline' );
+}
