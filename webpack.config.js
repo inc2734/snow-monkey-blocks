@@ -16,8 +16,9 @@ module.exports = {
   },
   externals: {
     react: 'React',
-		jquery: 'jQuery',
-		Masonry: 'Masonry'
+    'react-dom': 'ReactDOM',
+    jquery: 'jQuery',
+    Masonry: 'Masonry'
   },
   resolve: {
     extensions: ['.js', '.jsx']

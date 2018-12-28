@@ -10,12 +10,24 @@ $categories = get_categories(
 		'pad_counts' => true,
 	]
 );
+
+$exclusionId = [];
+if ( isset( $attributes['exclusionCategories'] ) && ! empty( $attributes['exclusionCategories'] ) ) {
+	$exclusionCategories = json_decode( $attributes['exclusionCategories'] );
+	foreach( $exclusionCategories as $exclusionCategory ) {
+		$exclusionId[] = $exclusionCategory -> value;
+	}
+}
 ?>
 <div class="smb-categories-list">
 	<ul class="smb-categories-list__list">
 		<?php foreach ( $categories as $category ) : ?>
-			<?php $category_detail = get_category( $category ); ?>
-
+			<?php
+				$category_detail = get_category( $category );
+				if ( in_array( $category_detail->term_id, $exclusionId ) ) {
+					continue;
+				}
+			?>
 			<li class="smb-categories-list__item">
 				<div class="smb-categories-list__item__count">
 					<?php echo esc_html( $category_detail->count ); ?>

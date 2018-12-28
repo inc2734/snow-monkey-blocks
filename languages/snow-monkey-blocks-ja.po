@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2018-12-27 11:37+0900\n"
-"PO-Revision-Date: 2018-12-27 11:38+0900\n"
+"POT-Creation-Date: 2018-12-28 11:40+0900\n"
+"PO-Revision-Date: 2018-12-28 11:41+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -267,23 +267,35 @@ msgstr "リード文を書く…"
 msgid "Write note..."
 msgstr "注釈を書く…"
 
-#: block/categories-list/block.js:12 block/categories-list/block.js:37
+#: block/categories-list/block.js:63 block/categories-list/block.js:118
 msgid "Categories list"
 msgstr "カテゴリー一覧"
 
-#: block/categories-list/block.js:13
+#: block/categories-list/block.js:64
 msgid "This block is displayed only on the actual screen."
 msgstr "このブロックは実際の画面でのみ表示されます。"
 
-#: block/categories-list/block.js:23
+#: block/categories-list/block.js:87
+msgid "Loading Setting Data"
+msgstr "設定データを読み込んでいます"
+
+#: block/categories-list/block.js:94
 msgid "Categories list Settings"
 msgstr "カテゴリー一覧設定"
 
-#: block/categories-list/block.js:25
+#: block/categories-list/block.js:96
 msgid "Categories List Articles"
 msgstr "カテゴリーリストの記事数"
 
-#: block/categories-list/block.js:40
+#: block/categories-list/block.js:103
+msgid "Exclusion Categories Settings"
+msgstr "除外カテゴリー設定"
+
+#: block/categories-list/block.js:104
+msgid "Exclusion Categories"
+msgstr "除外するカテゴリー"
+
+#: block/categories-list/block.js:121
 msgid "displayed categories list on the actual screen."
 msgstr "カテゴリー一覧は実際の画面でのみ表示されます。"
 
