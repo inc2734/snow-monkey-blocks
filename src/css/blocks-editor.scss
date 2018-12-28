@@ -191,6 +191,7 @@
 
   // Touchable parent block
   .editor-inner-blocks {
+    position: relative;
     padding-top: 24px;
 
     &::before {
