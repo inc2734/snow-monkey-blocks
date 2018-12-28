@@ -32,7 +32,7 @@
       position: relative;
       z-index: 2;
       display: none;
-      @include _margin-top(.5);
+      @include _margin-top(1);
       @include _padding(0, .5);
       @include _content();
     }
