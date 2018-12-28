@@ -16,7 +16,7 @@ export default function divider( type, level, color ) {
 	const renderCurveDivider = () => {
 		return (
 			<path
-				d={ `m0,${ 100 - level } q50,${ level },100,0 V100 L0,100 z` }
+				d={ `m0,${ 100 - level } q50,${ level * 2 },100,0 V100 L0,100 z` }
 				strokeWidth="0"
 				fill={ color }
 			/>
@@ -26,7 +26,7 @@ export default function divider( type, level, color ) {
 	const renderWaveDivider = () => {
 		return (
 			<path
-				d={ `m0,${ 100 - ( level / 2 ) } q20,${ level / 2 },40,0 t40,0 t40,0 V100 L0,100 z` }
+				d={ `m0,${ 100 - ( level / 2 ) } q20,${ level },40,0 t40,0 t40,0 V100 L0,100 z` }
 				strokeWidth="0"
 				fill={ color }
 			/>
@@ -36,7 +36,7 @@ export default function divider( type, level, color ) {
 	const renderTriangleDivider = () => {
 		return (
 			<path
-				d={ `m${ ( 100 - level ) / 2 },100 l${ level },0 l${ -1 * level / 2 },${ -1 * level / 2 } z` }
+				d={ `m${ ( 100 - level ) / 2 },100 l${ level },0 l${ -1 * level / 2 },${ -1 * level } z` }
 				strokeWidth="0"
 				fill={ color }
 			/>

@@ -18,7 +18,7 @@
       left: 0;
       height: auto;
       width: 100%;
-      max-height: 25vh;
+      max-height: 100px;
     }
 
     &--top {
@@ -41,9 +41,7 @@
     &--triangle {
       svg {
         margin: 0 auto;
-        max-width: 300px;
-        max-height: 300px;
-        height: auto;
+        max-width: 200px;
       }
     }
   }

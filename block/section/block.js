@@ -3,6 +3,7 @@
 import toNumber from '../../src/js/helper/to-number';
 import classnames from 'classnames';
 import divider from '../../src/js/helper/divider';
+import { schema } from './_schema.js';
 import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
@@ -15,43 +16,7 @@ registerBlockType( 'snow-monkey-blocks/section', {
 	title: __( 'Section', 'snow-monkey-blocks' ),
 	icon: 'text',
 	category: 'smb-section',
-	attributes: {
-		title: {
-			source: 'html',
-			selector: '.smb-section__title',
-		},
-		backgroundColor: {
-			type: 'string',
-		},
-		contentsWidth: {
-			type: 'string',
-			default: null,
-		},
-		topDividerType: {
-			type: 'string',
-			default: 'tilt',
-		},
-		topDividerLevel: {
-			type: 'number',
-			default: 0,
-		},
-		topDividerColor: {
-			type: 'string',
-			default: '#fff',
-		},
-		bottomDividerType: {
-			type: 'string',
-			default: 'tilt',
-		},
-		bottomDividerLevel: {
-			type: 'number',
-			default: 0,
-		},
-		bottomDividerColor: {
-			type: 'string',
-			default: '#fff',
-		},
-	},
+	attributes: schema,
 	supports: {
 		align: [ 'wide', 'full' ],
 		anchor: true,
@@ -192,20 +157,22 @@ registerBlockType( 'snow-monkey-blocks/section', {
 						</div>
 					}
 
-					<div className={ classnames( 'c-container', { 'u-slim-width': 'slim' === contentsWidth } ) }>
-						{ ( ! RichText.isEmpty( title ) || isSelected ) &&
-							<RichText
-								className="smb-section__title"
-								tagName="h2"
-								value={ title }
-								onChange={ ( value ) => setAttributes( { title: value } ) }
-								formattingControls={ [] }
-								placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
-							/>
-						}
+					<div className="smb-section__inner" style={ { paddingTop: topDividerLevel, paddingBottom: bottomDividerLevel } }>
+						<div className={ classnames( 'c-container', { 'u-slim-width': 'slim' === contentsWidth } ) }>
+							{ ( ! RichText.isEmpty( title ) || isSelected ) &&
+								<RichText
+									className="smb-section__title"
+									tagName="h2"
+									value={ title }
+									onChange={ ( value ) => setAttributes( { title: value } ) }
+									formattingControls={ [] }
+									placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
+								/>
+							}
 
-						<div className="smb-section__body">
-							<InnerBlocks />
+							<div className="smb-section__body">
+								<InnerBlocks />
+							</div>
 						</div>
 					</div>
 				</div>
@@ -230,15 +197,17 @@ registerBlockType( 'snow-monkey-blocks/section', {
 					</div>
 				}
 
-				<div className={ classnames( 'c-container', { 'u-slim-width': 'slim' === contentsWidth } ) }>
-					{ ! RichText.isEmpty( title ) &&
-						<h2 className="smb-section__title">
-							<RichText.Content value={ title } />
-						</h2>
-					}
+				<div className="smb-section__inner" style={ { paddingTop: topDividerLevel, paddingBottom: bottomDividerLevel } }>
+					<div className={ classnames( 'c-container', { 'u-slim-width': 'slim' === contentsWidth } ) }>
+						{ ! RichText.isEmpty( title ) &&
+							<h2 className="smb-section__title">
+								<RichText.Content value={ title } />
+							</h2>
+						}
 
-					<div className="smb-section__body">
-						<InnerBlocks.Content />
+						<div className="smb-section__body">
+							<InnerBlocks.Content />
+						</div>
 					</div>
 				</div>
 			</div>
