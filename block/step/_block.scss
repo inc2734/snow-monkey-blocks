@@ -88,16 +88,19 @@
 
     &--image-left,
     &--image-right {
-      overflow: hidden;
-
-      .smb-step__item__figure {
-        @include _media-min(md) {
-          max-width: 33%;
-        }
-      }
-
       .smb-step__item__body {
-        overflow: hidden;
+        @include _media-min(md) {
+          display: flex;
+
+          > .smb-step__item__figure {
+            flex: 1 1 auto;
+            max-width: 33%;
+          }
+
+          > .smb-step__item__summary {
+            flex: 1 1 0%;
+          }
+        }
       }
     }
 
@@ -106,7 +109,6 @@
         @include _margin-bottom(.5);
 
         @include _media-min(md) {
-          float: left;
           @include _margin-right(1);
         }
       }
@@ -123,7 +125,6 @@
         @include _margin-bottom(.5);
 
         @include _media-min(md) {
-          float: right;
           @include _margin-left(1);
         }
       }

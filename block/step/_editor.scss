@@ -9,6 +9,12 @@
     }
   }
 
+  &__item__summary {
+    > .editor-inner-blocks {
+      padding-top: 0 !important;
+    }
+  }
+
   .smb-add-item-button-wrapper {
     text-align: center;
   }
