@@ -9,14 +9,14 @@
       content: '';
       display: block;
       position: absolute;
-      top: ($_base-font-size-px * 3.5);
+      top: 0;
       bottom: 0;
       left: ($_base-font-size-px * 2.5 / 2);
       border-left: 1px dotted _light($_color-gray);
     }
 
     &:not(:first-child) {
-      @include _margin-top(1.5);
+      @include _padding-top(1.5);
     }
 
     &__title {
@@ -39,6 +39,8 @@
     }
 
     &__number {
+      position: relative;
+      z-index: 1;
       @include _circle($_base-font-size-px * 2.5);
       display: flex;
       align-items: center;
