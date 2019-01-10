@@ -41,6 +41,10 @@ registerBlockType( 'snow-monkey-blocks/recent-posts', {
 									value: 'simple',
 									label: __( 'Simple', 'snow-monkey-blocks' ),
 								},
+								{
+									value: 'text',
+									label: __( 'Text', 'snow-monkey-blocks' ),
+								},
 							] }
 						/>
 					</PanelBody>
