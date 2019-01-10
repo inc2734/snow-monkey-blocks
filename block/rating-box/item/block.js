@@ -1,6 +1,6 @@
 'use strict';
 
-import toNumber from '../../src/js/helper/to-number';
+import toNumber from '../../../src/js/helper/to-number';
 
 const { registerBlockType } = wp.blocks;
 const { RichText, InspectorControls, PanelColorSettings } = wp.editor;

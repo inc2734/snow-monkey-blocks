@@ -1,7 +1,9 @@
 'use strict';
 
-const { times } = lodash;
-const { registerBlockType, createBlock } = wp.blocks;
+import { deprecated } from './_deprecated.js';
+import { schema } from './_schema.js';
+
+const { registerBlockType } = wp.blocks;
 const { RichText, InspectorControls, PanelColorSettings, MediaPlaceholder, InnerBlocks } = wp.editor;
 const { PanelBody, SelectControl, TextControl } = wp.components;
 const { Fragment } = wp.element;
@@ -12,51 +14,7 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 	icon: 'editor-ol',
 	category: 'smb',
 	parent: [ 'snow-monkey-blocks/step' ],
-	attributes: {
-		title: {
-			source: 'html',
-			selector: '.smb-step__item__title > span',
-		},
-		numberColor: {
-			type: 'string',
-		},
-		imagePosition: {
-			type: 'string',
-			default: 'center',
-		},
-		imageID: {
-			type: 'number',
-			default: 0,
-		},
-		imageURL: {
-			type: 'string',
-			source: 'attribute',
-			selector: '.smb-step__item__figure > img',
-			attribute: 'src',
-			default: '',
-		},
-		linkLabel: {
-			source: 'html',
-			selector: '.smb-step__item__link__label',
-		},
-		linkURL: {
-			type: 'string',
-			source: 'attribute',
-			selector: '.smb-step__item__link',
-			attribute: 'href',
-			default: '',
-		},
-		linkTarget: {
-			type: 'string',
-			source: 'attribute',
-			selector: '.smb-step__item__link',
-			attribute: 'target',
-			default: '_self',
-		},
-		linkColor: {
-			type: 'string',
-		},
-	},
+	attributes: schema,
 
 	edit( { attributes, setAttributes, isSelected } ) {
 		const { title, numberColor, imagePosition, imageID, imageURL, linkLabel, linkURL, linkTarget, linkColor } = attributes;
@@ -253,122 +211,5 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 		);
 	},
 
-	deprecated: [
-		{
-			attributes: {
-				title: {
-					source: 'html',
-					selector: '.smb-step__item__title > span',
-				},
-				summary: {
-					source: 'html',
-					selector: '.smb-step__item__summary',
-				},
-				numberColor: {
-					type: 'string',
-				},
-				imagePosition: {
-					type: 'string',
-					default: 'center',
-				},
-				imageID: {
-					type: 'number',
-					default: 0,
-				},
-				imageURL: {
-					type: 'string',
-					source: 'attribute',
-					selector: '.smb-step__item__figure > img',
-					attribute: 'src',
-					default: '',
-				},
-				linkLabel: {
-					source: 'html',
-					selector: '.smb-step__item__link__label',
-				},
-				linkURL: {
-					type: 'string',
-					source: 'attribute',
-					selector: '.smb-step__item__link',
-					attribute: 'href',
-					default: '',
-				},
-				linkTarget: {
-					type: 'string',
-					source: 'attribute',
-					selector: '.smb-step__item__link',
-					attribute: 'target',
-					default: '_self',
-				},
-				linkColor: {
-					type: 'string',
-				},
-			},
-
-			migrate( attributes ) {
-				const migratedInnerBlocks = () => {
-					let summary = attributes.summary;
-					if ( summary.match( '</p></p>' ) ) {
-						summary = attributes.summary.split( '</p><p>' );
-					} else {
-						summary = attributes.summary.split();
-					}
-
-					return times( summary.length, ( index ) => {
-						const content = summary[ index ].replace( '<p>', '' ).replace( '</p>', '' );
-
-						return createBlock( 'core/paragraph', {
-							content: content,
-						} );
-					} );
-				};
-
-				return [
-					attributes,
-					migratedInnerBlocks(),
-				];
-			},
-
-			save( { attributes } ) {
-				const { title, summary, numberColor, imagePosition, imageID, imageURL, linkLabel, linkURL, linkTarget, linkColor } = attributes;
-
-				return (
-					<div className={ `smb-step__item smb-step__item--image-${ imagePosition }` }>
-						<div className="smb-step__item__title">
-							<div className="smb-step__item__number" style={ { backgroundColor: numberColor } }></div>
-							<span>
-								<RichText.Content value={ title } />
-							</span>
-						</div>
-
-						{ !! imageID &&
-							<div className="smb-step__item__figure">
-								<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
-							</div>
-						}
-
-						<div className="smb-step__item__body">
-							<div className="smb-step__item__summary">
-								<RichText.Content value={ summary } />
-							</div>
-
-							{ ! RichText.isEmpty( linkLabel ) &&
-								<a
-									className="smb-step__item__link"
-									href={ linkURL }
-									target={ linkTarget }
-									style={ { color: linkColor } }
-								>
-									<i className="fas fa-arrow-circle-right" />
-									<span className="smb-step__item__link__label">
-										<RichText.Content value={ linkLabel } />
-									</span>
-								</a>
-							}
-						</div>
-					</div>
-				);
-			},
-		},
-	],
+	deprecated: deprecated,
 } );
