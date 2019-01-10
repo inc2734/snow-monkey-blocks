@@ -5,8 +5,10 @@
  * @license GPL-2.0+
  */
 
-if ( class_exists( '\Framework\Helper' ) ) {
-	\Framework\Helper::get_template_part( 'template-parts/content/contents-outline' );
-} else {
-	get_template_part( 'template-parts/contents-outline' );
-}
+echo do_shortcode(
+	sprintf(
+		'[wp_contents_outline post_id="%1$d" selector=".c-entry__content" headings="%2$s" move_to_before_1st_heading="true"]',
+		get_the_ID(),
+		$attributes['headings']
+	)
+);
