@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.0
 Tested up to: 5.0
-Stable tag: 3.0.2
+Stable tag: 3.0.3
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -96,6 +96,12 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 19. Accordion block
 
 == Changelog ==
+
+= 3.0.3 =
+* Fixed bug that the contents outline heading restrictions are not reflected.
+* The item summary of the step block to InnerBlocks.
+* The item of items block is supported block link.
+* Add a simple layout with only text display on recent post block.
 
 = 3.0.2 =
 * Changed to add padding that is same of level of divider when section divider set.
