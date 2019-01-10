@@ -1,5 +1,17 @@
 .smb-items {
+  a.smb-items__item {
+    color: $_color-text;
+    text-decoration: none;
+    @include _transition(opacity);
+
+    @include _hover(lg) {
+      opacity: .8;
+    }
+  }
+
   &__item {
+    display: block;
+
     &__figure {
       @include _margin-bottom(.5);
       text-align: center;

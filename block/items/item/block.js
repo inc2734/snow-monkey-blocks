@@ -3,7 +3,7 @@
 const { times } = lodash;
 const { registerBlockType } = wp.blocks;
 const { InspectorControls, RichText, MediaPlaceholder, PanelColorSettings, ContrastChecker } = wp.editor;
-const { PanelBody, SelectControl, TextControl, BaseControl, Button } = wp.components;
+const { PanelBody, SelectControl, TextControl, BaseControl, Button, ToggleControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -64,10 +64,14 @@ registerBlockType( 'snow-monkey-blocks/items--item', {
 			attribute: 'src',
 			default: '',
 		},
+		isBlockLink: {
+			type: 'boolean',
+			default: false,
+		},
 	},
 
 	edit( { attributes, setAttributes, isSelected } ) {
-		const { titleTagName, title, lede, summary, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, imageID, imageURL } = attributes;
+		const { titleTagName, title, lede, summary, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, imageID, imageURL, isBlockLink } = attributes;
 
 		const titleTagNames = [ 'div', 'h2', 'h3' ];
 
@@ -121,6 +125,13 @@ registerBlockType( 'snow-monkey-blocks/items--item', {
 								} ) }
 							</div>
 						</BaseControl>
+
+						<ToggleControl
+							label={ __( 'Block link', 'snow-monkey-blocks' ) }
+							description={ __( 'Link is made not only to the button but to the whole block.', 'snow-monkey-blocks' ) }
+							checked={ isBlockLink }
+							onChange={ ( value ) => setAttributes( { isBlockLink: value } ) }
+						/>
 					</PanelBody>
 
 					<PanelBody title={ __( 'Button Settings', 'snow-monkey-blocks' ) }>
@@ -229,49 +240,97 @@ registerBlockType( 'snow-monkey-blocks/items--item', {
 	},
 
 	save( { attributes } ) {
-		const { titleTagName, title, lede, summary, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, imageID, imageURL } = attributes;
+		const { titleTagName, title, lede, summary, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, imageID, imageURL, isBlockLink } = attributes;
+
+		const renderItem = ( itemContent ) => {
+			if ( !! isBlockLink ) {
+				return (
+					<a
+						className="smb-items__item"
+						href={ btnURL }
+						target={ btnTarget }
+					>
+						{ itemContent }
+					</a>
+				);
+			}
+
+			return (
+				<div
+					className="smb-items__item"
+				>
+					{ itemContent }
+				</div>
+			);
+		};
+
+		const renderBtn = ( btnContent ) => {
+			if ( !! isBlockLink ) {
+				return (
+					<span className="smb-items__item__btn smb-btn"
+						href={ btnURL }
+						target={ btnTarget }
+						style={ { backgroundColor: btnBackgroundColor } }
+					>
+						{ btnContent }
+					</span>
+				);
+			}
+
+			return (
+				<a className="smb-items__item__btn smb-btn"
+					href={ btnURL }
+					target={ btnTarget }
+					style={ { backgroundColor: btnBackgroundColor } }
+				>
+					{ btnContent }
+				</a>
+			);
+		};
 
 		return (
 			<div className="c-row__col">
-				<div className="smb-items__item">
-					{ !! imageID &&
-						<div className="smb-items__item__figure">
-							<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
-						</div>
-					}
+				{
+					renderItem(
+						<Fragment>
+							{ !! imageID &&
+								<div className="smb-items__item__figure">
+									<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
+								</div>
+							}
 
-					<RichText.Content
-						tagName={ titleTagName }
-						className="smb-items__item__title"
-						value={ title }
-					/>
+							<RichText.Content
+								tagName={ titleTagName }
+								className="smb-items__item__title"
+								value={ title }
+							/>
 
-					{ ! RichText.isEmpty( lede ) &&
-						<div className="smb-items__item__lede">
-							<RichText.Content value={ lede } />
-						</div>
-					}
+							{ ! RichText.isEmpty( lede ) &&
+								<div className="smb-items__item__lede">
+									<RichText.Content value={ lede } />
+								</div>
+							}
 
-					{ ! RichText.isEmpty( summary ) &&
-						<div className="smb-items__item__content">
-							<RichText.Content value={ summary } />
-						</div>
-					}
+							{ ! RichText.isEmpty( summary ) &&
+								<div className="smb-items__item__content">
+									<RichText.Content value={ summary } />
+								</div>
+							}
 
-					{ ( ! RichText.isEmpty( btnLabel ) && !! btnURL ) &&
-						<div className="smb-items__item__action">
-							<a className="smb-items__item__btn smb-btn"
-								href={ btnURL }
-								target={ btnTarget }
-								style={ { backgroundColor: btnBackgroundColor } }
-							>
-								<span className="smb-btn__label" style={ { color: btnTextColor } }>
-									<RichText.Content value={ btnLabel } />
-								</span>
-							</a>
-						</div>
-					}
-				</div>
+							{ ( ! RichText.isEmpty( btnLabel ) && !! btnURL ) &&
+								<div className="smb-items__item__action">
+									{
+										renderBtn(
+											<span className="smb-btn__label" style={ { color: btnTextColor } }>
+												<RichText.Content value={ btnLabel } />
+											</span>
+										)
+									}
+								</div>
+							}
+						</Fragment>
+					)
+				}
 			</div>
 		);
 	},
