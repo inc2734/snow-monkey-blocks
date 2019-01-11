@@ -111,7 +111,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 					/>
 				}
 				<div className={ classnames( `smb-section smb-section-with-bgimage smb-section-with-bgimage--${ contentsAlignment } smb-section-with-bgimage--${ height }`, { 'js-bg-parallax': !! parallax } ) } style={ { color: textColor } }>
-					{ !! imageURL &&
+					{ !! imageURL && isSelected &&
 						<button
 							className="smb-remove-button"
 							onClick={ () => {

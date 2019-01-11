@@ -1,8 +1,8 @@
 'use strict';
 
 const { registerBlockType } = wp.blocks;
-const { RichText, InspectorControls, MediaPlaceholder, PanelColorSettings, ContrastChecker } = wp.editor;
-const { PanelBody, SelectControl, TextControl } = wp.components;
+const { RichText, InspectorControls, MediaPlaceholder, MediaUpload, PanelColorSettings, ContrastChecker } = wp.editor;
+const { PanelBody, SelectControl, TextControl, Button } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -68,17 +68,18 @@ registerBlockType( 'snow-monkey-blocks/pricing-table--item', {
 	edit( { attributes, setAttributes, isSelected } ) {
 		const { title, price, lede, list, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, imageID, imageURL } = attributes;
 
+		const onSelectImage = ( media ) => {
+			const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
+			setAttributes( { imageURL: newImageURL, imageID: media.id } );
+		};
+
 		const renderMedia = () => {
 			if ( ! imageURL ) {
 				return (
 					<MediaPlaceholder
 						icon="format-image"
 						labels={ { title: __( 'Image' ) } }
-						onSelect={ ( media ) => {
-							const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
-							setAttributes( { imageURL: newImageURL } );
-							setAttributes( { imageID: media.id } );
-						} }
+						onSelect={ onSelectImage }
 						accept="image/*"
 						allowedTypes={ [ 'image' ] }
 					/>
@@ -87,14 +88,26 @@ registerBlockType( 'snow-monkey-blocks/pricing-table--item', {
 
 			return (
 				<Fragment>
-					<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
-					<button
-						className="smb-remove-button"
-						onClick={ () => {
-							setAttributes( { imageURL: '' } );
-							setAttributes( { imageID: 0 } );
+					<MediaUpload
+						onSelect={ onSelectImage }
+						type="image"
+						value={ imageID }
+						render={ ( obj ) => {
+							return (
+								<Button className="image-button" onClick={ obj.open } style={ { padding: 0 } }>
+									<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
+								</Button>
+							);
 						} }
-					>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
+					/>
+					{ isSelected &&
+						<button
+							className="smb-remove-button"
+							onClick={ () => {
+								setAttributes( { imageURL: '', imageID: 0 } );
+							} }
+						>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
+					}
 				</Fragment>
 			);
 		};

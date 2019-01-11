@@ -6,8 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const { get, times } = lodash;
 const { registerBlockType } = wp.blocks;
-const { InspectorControls, MediaPlaceholder } = wp.editor;
-const { PanelBody, RangeControl } = wp.components;
+const { InspectorControls, MediaPlaceholder, MediaUpload } = wp.editor;
+const { PanelBody, RangeControl, Button } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -74,19 +74,21 @@ registerBlockType( 'snow-monkey-blocks/thumbnail-gallery', {
 							const imageID = get( content, [ index, 'imageID' ], 0 );
 							const imageURL = get( content, [ index, 'imageURL' ], '' );
 
+							const onSelectImage = ( media ) => {
+								const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
+								let newContent = content;
+								newContent = generateUpdatedAttribute( newContent, index, 'imageURL', newImageURL );
+								newContent = generateUpdatedAttribute( newContent, index, 'imageID', media.id );
+								setAttributes( { content: newContent } );
+							};
+
 							const renderMedia = () => {
 								if ( ! imageURL ) {
 									return (
 										<MediaPlaceholder
 											icon="format-image"
 											labels={ { title: __( 'Image' ) } }
-											onSelect={ ( media ) => {
-												const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
-												let newContent = content;
-												newContent = generateUpdatedAttribute( newContent, index, 'imageURL', newImageURL );
-												newContent = generateUpdatedAttribute( newContent, index, 'imageID', media.id );
-												setAttributes( { content: newContent } );
-											} }
+											onSelect={ onSelectImage }
 											accept="image/*"
 											allowedTypes={ [ 'image' ] }
 										/>
@@ -95,7 +97,18 @@ registerBlockType( 'snow-monkey-blocks/thumbnail-gallery', {
 
 								return (
 									<Fragment>
-										<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
+										<MediaUpload
+											onSelect={ onSelectImage }
+											type="image"
+											value={ imageID }
+											render={ ( obj ) => {
+												return (
+													<Button className="image-button" onClick={ obj.open } style={ { padding: 0 } }>
+														<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
+													</Button>
+												);
+											} }
+										/>
 										{ isSelected &&
 											<button
 												className="smb-remove-button"
