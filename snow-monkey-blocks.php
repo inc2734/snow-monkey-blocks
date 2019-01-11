@@ -126,14 +126,14 @@ require_once( __DIR__ . '/vendor/autoload.php' );
  *
  * @var string
  */
-define( 'SNOW_MONKEY_BLOCKS_DIR_URL', plugin_dir_url( __FILE__ ) );
+define( 'SNOW_MONKEY_BLOCKS_DIR_URL', untrailingslashit( plugin_dir_url( __FILE__ ) ) );
 
 /**
  * Directory path of this plugin
  *
  * @var string
  */
-define( 'SNOW_MONKEY_BLOCKS_DIR_PATH', plugin_dir_path( __FILE__ ) );
+define( 'SNOW_MONKEY_BLOCKS_DIR_PATH', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 
 /**
  * Whether pro version
