@@ -60,7 +60,7 @@ registerBlockType( 'snow-monkey-blocks/items', {
 										if ( 'desktop' === tab.name ) {
 											return (
 												<RangeControl
-													label={ __( 'Columns per row (large window)', 'snow-monkey-blocks' ) }
+													label={ __( 'Columns per row (Large window)', 'snow-monkey-blocks' ) }
 													value={ lg }
 													onChange={ ( value ) => setAttributes( { lg: toNumber( value, 1, 4 ) } ) }
 													min="1"
