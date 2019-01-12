@@ -67,6 +67,10 @@
           object-fit: cover;
         }
       }
+
+      > .smb-panels__item__body {
+        align-self: center;
+      }
     }
 
     &.smb-panels__item--reverse {
