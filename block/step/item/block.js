@@ -3,10 +3,11 @@
 import { deprecated } from './_deprecated.js';
 import { schema } from './_schema.js';
 
-const { registerBlockType } = wp.blocks;
-const { RichText, InspectorControls, PanelColorSettings, MediaPlaceholder, MediaUpload, InnerBlocks } = wp.editor;
-const { PanelBody, SelectControl, TextControl, Button } = wp.components;
+const { registerBlockType, createBlock } = wp.blocks;
+const { RichText, InspectorControls, PanelColorSettings, MediaPlaceholder, MediaUpload, InnerBlocks, BlockControls } = wp.editor;
+const { PanelBody, SelectControl, TextControl, Button, Toolbar, ToolbarButton } = wp.components;
 const { Fragment } = wp.element;
+const { select, dispatch } = wp.data;
 const { __ } = wp.i18n;
 
 registerBlockType( 'snow-monkey-blocks/step--item', {
@@ -16,7 +17,14 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 	parent: [ 'snow-monkey-blocks/step' ],
 	attributes: schema,
 
-	edit( { attributes, setAttributes, isSelected } ) {
+	edit( { attributes, setAttributes, isSelected, clientId } ) {
+		const onAddRow = () => {
+			const block = createBlock( 'snow-monkey-blocks/step--item' );
+			const rootClientId = select( 'core/editor' ).getBlockRootClientId( clientId );
+			const clientOrder = select( 'core/editor' ).getBlockIndex( clientId, rootClientId );
+			dispatch( 'core/editor' ).insertBlock( block, clientOrder + 1, rootClientId );
+		};
+
 		const { title, numberColor, imagePosition, imageID, imageURL, linkLabel, linkURL, linkTarget, linkColor } = attributes;
 
 		const onSelectImage = ( media ) => {
@@ -65,6 +73,17 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 
 		return (
 			<Fragment>
+				<BlockControls>
+					<Toolbar>
+						<ToolbarButton
+							className="components-toolbar__control"
+							label={ __( 'Add row', 'snow-monkey-blocks' ) }
+							title={ __( 'Add row', 'snow-monkey-blocks' ) }
+							icon="plus"
+							onClick={ onAddRow }
+						/>
+					</Toolbar>
+				</BlockControls>
 				<InspectorControls>
 					<PanelBody title={ __( 'Item Settings', 'snow-monkey-blocks' ) }>
 						<SelectControl
