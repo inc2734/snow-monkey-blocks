@@ -41,7 +41,7 @@ if ( empty( $widget ) ) {
 	return;
 }
 ?>
-<div class="smb-recent-posts">
+<div class="smb-recent-posts<?php echo !empty($attributes['className']) ? ' ' . $attributes['className'] : ''; ?>">
 	<?php
 	// @codingStandardsIgnoreStart
 	echo apply_filters( 'inc2734_wp_awesome_widgets_render_widget', $widget, $args, $instance );

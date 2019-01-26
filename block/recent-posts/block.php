@@ -27,6 +27,10 @@ add_action(
 						'type' => 'string',
 						'default' => 'rich-media',
 					],
+					'className' => [
+						'type' => 'string',
+						'default' => '',
+					]
 				],
 				'render_callback' => function( $attributes ) {
 					return DynamicBlocks::render( 'recent-posts', $attributes );
