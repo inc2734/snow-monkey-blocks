@@ -62,7 +62,7 @@ registerBlockType( 'snow-monkey-blocks/panels--item--horizontal', {
 		},
 	},
 
-	edit( { attributes, setAttributes, isSelected } ) {
+	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { titleTagName, title, summary, linkLabel, linkURL, linkTarget, imagePosition, imageID, imageURL } = attributes;
 
 		const titleTagNames = [ 'div', 'h2', 'h3' ];
@@ -175,7 +175,7 @@ registerBlockType( 'snow-monkey-blocks/panels--item--horizontal', {
 
 				<div className="c-row__col">
 					<div
-						className={ classnames( 'smb-panels__item', 'smb-panels__item--horizontal', { 'smb-panels__item--reverse': 'right' === imagePosition } ) }
+						className={ classnames( 'smb-panels__item', 'smb-panels__item--horizontal', { 'smb-panels__item--reverse': 'right' === imagePosition }, className ) }
 						href={ linkURL }
 						target={ linkTarget }
 					>

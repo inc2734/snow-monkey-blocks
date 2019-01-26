@@ -1,5 +1,7 @@
 'use strict';
 
+import classnames from 'classnames';
+
 const { times } = lodash;
 const { registerBlockType } = wp.blocks;
 const { InspectorControls, RichText, MediaPlaceholder, MediaUpload } = wp.editor;
@@ -56,7 +58,7 @@ registerBlockType( 'snow-monkey-blocks/panels--item', {
 		},
 	},
 
-	edit( { attributes, setAttributes, isSelected } ) {
+	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { titleTagName, title, summary, linkLabel, linkURL, linkTarget, imageID, imageURL } = attributes;
 
 		const titleTagNames = [ 'div', 'h2', 'h3' ];
@@ -153,7 +155,7 @@ registerBlockType( 'snow-monkey-blocks/panels--item', {
 
 				<div className="c-row__col">
 					<div
-						className="smb-panels__item"
+						className={ classnames( 'smb-panels__item', className ) }
 						href={ linkURL }
 						target={ linkTarget }
 					>

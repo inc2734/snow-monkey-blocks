@@ -1,5 +1,7 @@
 'use strict';
 
+import classnames from 'classnames';
+
 const { registerBlockType } = wp.blocks;
 const { RichText, InnerBlocks } = wp.editor;
 const { __ } = wp.i18n;
@@ -16,11 +18,11 @@ registerBlockType( 'snow-monkey-blocks/accordion--item', {
 		},
 	},
 
-	edit( { attributes, setAttributes } ) {
+	edit( { attributes, setAttributes, className } ) {
 		const { title } = attributes;
 
 		return (
-			<div className="smb-accordion__item">
+			<div className={ classnames( 'smb-accordion__item', className ) }>
 				<div className="smb-accordion__item__title">
 					<RichText
 						value={ title }

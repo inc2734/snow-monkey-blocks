@@ -62,7 +62,7 @@ registerBlockType( 'snow-monkey-blocks/media-text', {
 		},
 	},
 
-	edit( { attributes, setAttributes, isSelected } ) {
+	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { title, imageID, imageURL, imagePosition, imageColumnSize } = attributes;
 
 		const { textColumnWidth, imageColumnWidth } = _getColumnsSize( imageColumnSize );
@@ -157,7 +157,7 @@ registerBlockType( 'snow-monkey-blocks/media-text', {
 					</PanelBody>
 				</InspectorControls>
 
-				<div className="smb-media-text">
+				<div className={ classnames( 'smb-media-text', className ) }>
 					<div className={ classnames( 'c-row', 'c-row--margin', 'c-row--middle', { 'c-row--reverse': 'left' === imagePosition } ) }>
 						<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${ textColumnWidth }` }>
 							{ ( ! RichText.isEmpty( title ) || isSelected ) &&

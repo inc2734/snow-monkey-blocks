@@ -1,5 +1,7 @@
 'use strict';
 
+import classnames from 'classnames';
+
 const { times } = lodash;
 const { registerBlockType } = wp.blocks;
 const { InspectorControls, RichText, MediaPlaceholder, MediaUpload, PanelColorSettings, ContrastChecker } = wp.editor;
@@ -70,7 +72,7 @@ registerBlockType( 'snow-monkey-blocks/items--item', {
 		},
 	},
 
-	edit( { attributes, setAttributes, isSelected } ) {
+	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { titleTagName, title, lede, summary, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, imageID, imageURL, isBlockLink } = attributes;
 
 		const titleTagNames = [ 'div', 'h2', 'h3' ];
@@ -195,7 +197,7 @@ registerBlockType( 'snow-monkey-blocks/items--item', {
 				</InspectorControls>
 
 				<div className="c-row__col">
-					<div className="smb-items__item">
+					<div className={ classnames( 'smb-items__item', className ) }>
 						{ ( !! imageID || isSelected ) &&
 							<div className="smb-items__item__figure">
 								{ renderMedia() }

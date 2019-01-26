@@ -41,7 +41,7 @@ registerBlockType( 'snow-monkey-blocks/btn', {
 		align: [ 'left', 'center', 'right' ],
 	},
 
-	edit( { attributes, setAttributes } ) {
+	edit( { attributes, setAttributes, className } ) {
 		const { content, url, target, modifier, backgroundColor, textColor } = attributes;
 
 		return (
@@ -110,7 +110,7 @@ registerBlockType( 'snow-monkey-blocks/btn', {
 					</PanelColorSettings>
 				</InspectorControls>
 
-				<div className="u-clearfix smb-btn-wrapper">
+				<div className={ classnames( 'u-clearfix', 'smb-btn-wrapper', className ) }>
 					<span
 						className={ classnames( 'smb-btn', { [ `smb-btn--${ modifier }` ]: !! modifier } ) } href={ url } target={ target }
 						style={ { backgroundColor: backgroundColor } }

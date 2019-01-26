@@ -1,5 +1,6 @@
 'use strict';
 
+import classnames from 'classnames';
 import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
@@ -11,12 +12,12 @@ registerBlockType( 'snow-monkey-blocks/rating-box', {
 	icon: 'editor-alignleft',
 	category: 'smb',
 
-	edit() {
+	edit( { className } ) {
 		const allowedBlocks = [ 'snow-monkey-blocks/rating-box--item' ];
 		const template = [ [ 'snow-monkey-blocks/rating-box--item' ] ];
 
 		return (
-			<div className="smb-rating-box">
+			<div className={ classnames( 'smb-rating-box', className ) }>
 				<div className="smb-rating-box__body">
 					<InnerBlocks
 						allowedBlocks={ allowedBlocks }

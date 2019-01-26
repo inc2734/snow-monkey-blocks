@@ -1,5 +1,6 @@
 'use strict';
 
+import classnames from 'classnames';
 import toNumber from '../../src/js/helper/to-number';
 import { deprecated } from './_deprecated.js';
 
@@ -36,7 +37,7 @@ registerBlockType( 'snow-monkey-blocks/panels', {
 		},
 	},
 
-	edit( { attributes, setAttributes } ) {
+	edit( { attributes, setAttributes, className } ) {
 		const { sm, md, lg, imagePadding } = attributes;
 
 		const allowedBlocks = [ 'snow-monkey-blocks/panels--item' ];
@@ -113,7 +114,7 @@ registerBlockType( 'snow-monkey-blocks/panels', {
 					</PanelBody>
 				</InspectorControls>
 
-				<div className="smb-panels" data-image-padding={ imagePadding }>
+				<div className={ classnames( 'smb-panels', className ) } data-image-padding={ imagePadding }>
 					<div className="c-row c-row--margin c-row--fill" data-columns={ sm } data-md-columns={ md } data-lg-columns={ lg }>
 						<InnerBlocks
 							allowedBlocks={ allowedBlocks }

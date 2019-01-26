@@ -1,5 +1,7 @@
 'use strict';
 
+import classnames from 'classnames';
+
 const { registerBlockType } = wp.blocks;
 const { RichText, MediaUpload } = wp.editor;
 const { Button } = wp.components;
@@ -36,7 +38,7 @@ registerBlockType( 'snow-monkey-blocks/testimonial--item', {
 		},
 	},
 
-	edit( { attributes, setAttributes, isSelected } ) {
+	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { avatarID, avatarURL, name, lede, content } = attributes;
 
 		const renderAvatar = ( obj ) => {
@@ -48,7 +50,7 @@ registerBlockType( 'snow-monkey-blocks/testimonial--item', {
 		};
 
 		return (
-			<div className="c-row__col">
+			<div className={ classnames( 'c-row__col', className ) }>
 				<div className="smb-testimonial__item">
 					{ ( !! avatarID || isSelected ) &&
 						<div className="smb-testimonial__item__figure">

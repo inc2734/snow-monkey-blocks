@@ -1,5 +1,6 @@
 'use strict';
 
+import classnames from 'classnames';
 import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
@@ -11,12 +12,12 @@ registerBlockType( 'snow-monkey-blocks/testimonial', {
 	icon: 'admin-comments',
 	category: 'smb',
 
-	edit() {
+	edit( { className } ) {
 		const allowedBlocks = [ 'snow-monkey-blocks/testimonial--item' ];
 		const template = [ [ 'snow-monkey-blocks/testimonial--item' ] ];
 
 		return (
-			<div className="smb-testimonial">
+			<div className={ classnames( 'smb-testimonial', className ) }>
 				<div className="smb-testimonial__body">
 					<div className="c-row c-row--margin" data-columns="1" data-md-columns="2">
 						<InnerBlocks

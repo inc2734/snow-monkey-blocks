@@ -1,5 +1,6 @@
 'use strict';
 
+import classnames from 'classnames';
 import toNumber from '../../../src/js/helper/to-number';
 
 const { registerBlockType } = wp.blocks;
@@ -27,7 +28,7 @@ registerBlockType( 'snow-monkey-blocks/rating-box--item', {
 		},
 	},
 
-	edit( { attributes, setAttributes } ) {
+	edit( { attributes, setAttributes, className } ) {
 		const { title, rating, color } = attributes;
 
 		return (
@@ -57,7 +58,7 @@ registerBlockType( 'snow-monkey-blocks/rating-box--item', {
 					</PanelColorSettings>
 				</InspectorControls>
 
-				<div className="smb-rating-box__item">
+				<div className={ classnames( 'smb-rating-box__item', className ) }>
 					<RichText
 						className="smb-rating-box__item__title"
 						placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }

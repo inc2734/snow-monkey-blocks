@@ -20,7 +20,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 		align: [ 'wide', 'full' ],
 	},
 
-	edit( { attributes, setAttributes, isSelected } ) {
+	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { title, imageID, imageURL, height, contentsAlignment, maskColor, maskOpacity, textColor, parallax } = attributes;
 
 		return (
@@ -110,7 +110,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 						allowedTypes={ [ 'image' ] }
 					/>
 				}
-				<div className={ classnames( `smb-section smb-section-with-bgimage smb-section-with-bgimage--${ contentsAlignment } smb-section-with-bgimage--${ height }`, { 'js-bg-parallax': !! parallax } ) } style={ { color: textColor } }>
+				<div className={ classnames( `smb-section smb-section-with-bgimage smb-section-with-bgimage--${ contentsAlignment } smb-section-with-bgimage--${ height }`, { 'js-bg-parallax': !! parallax }, className ) } style={ { color: textColor } }>
 					{ !! imageURL && isSelected &&
 						<button
 							className="smb-remove-button"

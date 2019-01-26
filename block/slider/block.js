@@ -1,5 +1,6 @@
 'use strict';
 
+import classnames from 'classnames';
 import toNumber from '../../src/js/helper/to-number';
 import generateUpdatedAttribute from '../../src/js/helper/generate-updated-attribute';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -97,7 +98,7 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 		align: [ 'wide', 'full' ],
 	},
 
-	edit( { attributes, setAttributes, isSelected } ) {
+	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { slidesToShow, slidesToScroll, dots, arrows, items, content, speed, autoplaySpeed, rtl } = attributes;
 
 		return (
@@ -165,7 +166,7 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 					</PanelBody>
 				</InspectorControls>
 
-				<div className="smb-slider">
+				<div className={ classnames( 'smb-slider', className ) }>
 					<div className="smb-slider__canvas">
 						{ times( items, ( index ) => {
 							if ( ! isSelected && 0 < index ) {

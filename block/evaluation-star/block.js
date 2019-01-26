@@ -1,5 +1,6 @@
 'use strict';
 
+import classnames from 'classnames';
 import toNumber from '../../src/js/helper/to-number';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -37,7 +38,7 @@ registerBlockType( 'snow-monkey-blocks/evaluation-star', {
 		},
 	},
 
-	edit( { attributes, setAttributes } ) {
+	edit( { attributes, setAttributes, className } ) {
 		const { evaluationValue, iconColor, isDisplayNumeric, numericAlign, numericColor } = attributes;
 
 		const renderEditEvaluationIcon = () => {
@@ -150,7 +151,7 @@ registerBlockType( 'snow-monkey-blocks/evaluation-star', {
 					</PanelColorSettings>
 				</InspectorControls>
 
-				<div className="smb-evaluation-star">
+				<div className={ classnames( 'smb-evaluation-star', className ) }>
 					<div className="smb-evaluation-star__body">
 						<span
 							className={ `smb-evaluation-star__numeric smb-evaluation-star__numeric--${ numericAlign }` }

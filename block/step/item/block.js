@@ -1,5 +1,6 @@
 'use strict';
 
+import classnames from 'classnames';
 import { deprecated } from './_deprecated.js';
 import { schema } from './_schema.js';
 
@@ -16,7 +17,7 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 	parent: [ 'snow-monkey-blocks/step' ],
 	attributes: schema,
 
-	edit( { attributes, setAttributes, isSelected } ) {
+	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { title, numberColor, imagePosition, imageID, imageURL, linkLabel, linkURL, linkTarget, linkColor } = attributes;
 
 		const onSelectImage = ( media ) => {
@@ -131,7 +132,7 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 					</PanelColorSettings>
 				</InspectorControls>
 
-				<div className={ `smb-step__item smb-step__item--image-${ imagePosition }` }>
+				<div className={ classnames( `smb-step__item smb-step__item--image-${ imagePosition }`, className ) }>
 					<div className="smb-step__item__title">
 						<div className="smb-step__item__number" style={ { backgroundColor: numberColor } }></div>
 						<span>
