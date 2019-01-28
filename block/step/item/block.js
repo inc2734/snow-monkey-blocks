@@ -5,8 +5,8 @@ import { deprecated } from './_deprecated.js';
 import { schema } from './_schema.js';
 
 const { registerBlockType } = wp.blocks;
-const { RichText, InspectorControls, PanelColorSettings, MediaPlaceholder, MediaUpload, InnerBlocks } = wp.editor;
-const { PanelBody, SelectControl, TextControl, Button } = wp.components;
+const { RichText, InspectorControls, PanelColorSettings, MediaPlaceholder, MediaUpload, InnerBlocks, URLInput } = wp.editor;
+const { PanelBody, BaseControl, SelectControl, Button } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -90,11 +90,12 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 					</PanelBody>
 
 					<PanelBody title={ __( 'Link Settings', 'snow-monkey-blocks' ) }>
-						<TextControl
-							label={ __( 'Link URL', 'snow-monkey-blocks' ) }
-							value={ linkURL }
-							onChange={ ( value ) => setAttributes( { linkURL: value } ) }
-						/>
+						<BaseControl label={ __( 'Link URL', 'snow-monkey-blocks' ) }>
+							<URLInput
+								value={ linkURL }
+								onChange={ ( value ) => setAttributes( { linkURL: value } ) }
+							/>
+						</BaseControl>
 
 						<SelectControl
 							label={ __( 'Link Target', 'snow-monkey-blocks' ) }
