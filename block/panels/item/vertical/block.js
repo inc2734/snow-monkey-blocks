@@ -1,9 +1,10 @@
 'use strict';
 
 import classnames from 'classnames';
+import { schema } from './_schema.js';
 
 const { times } = lodash;
-const { registerBlockType } = wp.blocks;
+const { registerBlockType, createBlock } = wp.blocks;
 const { InspectorControls, RichText, MediaPlaceholder, MediaUpload } = wp.editor;
 const { PanelBody, SelectControl, TextControl, BaseControl, Button } = wp.components;
 const { Fragment } = wp.element;
@@ -14,49 +15,7 @@ registerBlockType( 'snow-monkey-blocks/panels--item', {
 	icon: 'screenoptions',
 	category: 'smb',
 	parent: [ 'snow-monkey-blocks/panels' ],
-	attributes: {
-		titleTagName: {
-			type: 'string',
-			default: 'div',
-		},
-		title: {
-			source: 'html',
-			selector: '.smb-panels__item__title',
-		},
-		summary: {
-			source: 'html',
-			selector: '.smb-panels__item__content',
-		},
-		linkLabel: {
-			source: 'html',
-			selector: '.smb-panels__item__link',
-		},
-		linkURL: {
-			type: 'string',
-			source: 'attribute',
-			selector: '.smb-panels__item',
-			attribute: 'href',
-			default: '',
-		},
-		linkTarget: {
-			type: 'string',
-			source: 'attribute',
-			selector: '.smb-panels__item',
-			attribute: 'target',
-			default: '_self',
-		},
-		imageID: {
-			type: 'number',
-			default: 0,
-		},
-		imageURL: {
-			type: 'string',
-			source: 'attribute',
-			selector: '.smb-panels__item__figure > img',
-			attribute: 'src',
-			default: '',
-		},
-	},
+	attributes: schema,
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { titleTagName, title, summary, linkLabel, linkURL, linkTarget, imageID, imageURL } = attributes;
@@ -269,5 +228,17 @@ registerBlockType( 'snow-monkey-blocks/panels--item', {
 				}
 			</div>
 		);
+	},
+
+	transforms: {
+		to: [
+			{
+				type: 'block',
+				blocks: [ 'snow-monkey-blocks/panels--item--horizontal' ],
+				transform: ( attributes ) => {
+					return createBlock( 'snow-monkey-blocks/panels--item--horizontal', attributes );
+				},
+			},
+		],
 	},
 } );
