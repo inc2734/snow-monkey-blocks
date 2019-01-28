@@ -179,14 +179,6 @@
   .block-list-appender {
     position: relative;
     top: 14px;
-    display: none;
-  }
-
-  &.is-selected .editor-inner-blocks > .editor-block-list__layout > .block-list-appender {
-    display: block;
-  }
-  &.is-selected .editor-inner-blocks .editor-inner-blocks .block-list-appender {
-    display: none;
   }
 
   // Touchable parent block
