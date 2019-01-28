@@ -1,5 +1,7 @@
 'use strict';
 
+import classnames from 'classnames';
+
 const { registerBlockType } = wp.blocks;
 const { InnerBlocks } = wp.editor;
 const { __ } = wp.i18n;
@@ -9,12 +11,12 @@ registerBlockType( 'snow-monkey-blocks/accordion', {
 	icon: 'editor-justify',
 	category: 'smb',
 
-	edit() {
+	edit( { className } ) {
 		const allowedBlocks = [ 'snow-monkey-blocks/accordion--item' ];
 		const template = [ [ 'snow-monkey-blocks/accordion--item' ] ];
 
 		return (
-			<div className="smb-accordion">
+			<div className={ classnames( 'smb-accordion', className ) }>
 				<InnerBlocks
 					allowedBlocks={ allowedBlocks }
 					template={ template }

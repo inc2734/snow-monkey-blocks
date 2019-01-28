@@ -1,5 +1,7 @@
 'use strict';
 
+import classnames from 'classnames';
+
 const { registerBlockType } = wp.blocks;
 const { RichText, InspectorControls, MediaPlaceholder, MediaUpload, PanelColorSettings, ContrastChecker } = wp.editor;
 const { PanelBody, SelectControl, TextControl, Button } = wp.components;
@@ -65,7 +67,7 @@ registerBlockType( 'snow-monkey-blocks/pricing-table--item', {
 		},
 	},
 
-	edit( { attributes, setAttributes, isSelected } ) {
+	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { title, price, lede, list, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, imageID, imageURL } = attributes;
 
 		const onSelectImage = ( media ) => {
@@ -162,7 +164,7 @@ registerBlockType( 'snow-monkey-blocks/pricing-table--item', {
 					</PanelColorSettings>
 				</InspectorControls>
 
-				<div className="c-row__col">
+				<div className={ classnames( 'c-row__col', className ) }>
 					<div className="smb-pricing-table__item">
 						{ ( !! imageID || isSelected ) &&
 							<div className="smb-pricing-table__item__figure">

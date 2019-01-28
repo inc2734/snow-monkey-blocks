@@ -1,5 +1,6 @@
 'use strict';
 
+import classnames from 'classnames';
 import toNumber from '../../src/js/helper/to-number';
 import generateUpdatedAttribute from '../../src/js/helper/generate-updated-attribute';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -47,7 +48,7 @@ registerBlockType( 'snow-monkey-blocks/thumbnail-gallery', {
 		align: [ 'wide', 'full' ],
 	},
 
-	edit( { attributes, setAttributes, isSelected } ) {
+	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { items, content } = attributes;
 
 		return (
@@ -64,7 +65,7 @@ registerBlockType( 'snow-monkey-blocks/thumbnail-gallery', {
 					</PanelBody>
 				</InspectorControls>
 
-				<div className="smb-thumbnail-gallery">
+				<div className={ classnames( 'smb-thumbnail-gallery', className ) }>
 					<div className="smb-thumbnail-gallery__canvas">
 						{ times( items, ( index ) => {
 							if ( ! isSelected && 0 < index ) {

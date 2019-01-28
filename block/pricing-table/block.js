@@ -1,5 +1,6 @@
 'use strict';
 
+import classnames from 'classnames';
 import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
@@ -11,12 +12,12 @@ registerBlockType( 'snow-monkey-blocks/pricing-table', {
 	icon: 'warning',
 	category: 'smb',
 
-	edit() {
+	edit( { className } ) {
 		const allowedBlocks = [ 'snow-monkey-blocks/pricing-table--item' ];
 		const template = [ [ 'snow-monkey-blocks/pricing-table--item' ] ];
 
 		return (
-			<div className="smb-pricing-table">
+			<div className={ classnames( 'smb-pricing-table', className ) }>
 				<div className="c-row c-row--md-nowrap" data-columns>
 					<InnerBlocks
 						allowedBlocks={ allowedBlocks }

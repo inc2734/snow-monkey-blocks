@@ -1,5 +1,7 @@
 'use strict';
 
+import classnames from 'classnames';
+
 const { registerBlockType } = wp.blocks;
 const { RichText, InspectorControls, PanelColorSettings } = wp.editor;
 const { Fragment } = wp.element;
@@ -27,7 +29,7 @@ registerBlockType( 'snow-monkey-blocks/faq--item', {
 		},
 	},
 
-	edit( { attributes, setAttributes } ) {
+	edit( { attributes, setAttributes, className } ) {
 		const { question, answer, questionColor, answerColor } = attributes;
 
 		return (
@@ -51,7 +53,7 @@ registerBlockType( 'snow-monkey-blocks/faq--item', {
 					</PanelColorSettings>
 				</InspectorControls>
 
-				<div className="smb-faq__item">
+				<div className={ classnames( 'smb-faq__item', className ) }>
 					<div className="smb-faq__item__question">
 						<div className="smb-faq__item__question__label" style={ { color: questionColor } }>
 							Q

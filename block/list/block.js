@@ -1,5 +1,7 @@
 'use strict';
 
+import classnames from 'classnames';
+
 const { times } = lodash;
 const { registerBlockType } = wp.blocks;
 const { RichText, InspectorControls, PanelColorSettings } = wp.editor;
@@ -26,7 +28,7 @@ registerBlockType( 'snow-monkey-blocks/list', {
 		},
 	},
 
-	edit( { attributes, setAttributes } ) {
+	edit( { attributes, setAttributes, className } ) {
 		const { content, icon, iconColor } = attributes;
 
 		const iconList = [
@@ -105,7 +107,7 @@ registerBlockType( 'snow-monkey-blocks/list', {
 					</PanelColorSettings>
 				</InspectorControls>
 
-				<div className="smb-list" data-icon={ icon } data-icon-color={ iconColor }>
+				<div className={ classnames( 'smb-list', className ) } data-icon={ icon } data-icon-color={ iconColor }>
 					<RichText
 						tagName="ul"
 						multiline="li"

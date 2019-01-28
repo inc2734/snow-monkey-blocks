@@ -53,7 +53,7 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 		align: [ 'wide', 'full' ],
 	},
 
-	edit( { attributes, setAttributes, isSelected } ) {
+	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { lede, note, backgroundColor, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, btnSize } = attributes;
 
 		return (
@@ -129,7 +129,7 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 					</PanelColorSettings>
 				</InspectorControls>
 
-				<div className="smb-btn-box" style={ { backgroundColor: backgroundColor } }>
+				<div className={ classnames( 'smb-btn-box', className ) } style={ { backgroundColor: backgroundColor } }>
 					<div className="c-container">
 						{ ( ! RichText.isEmpty( lede ) || isSelected ) &&
 							<RichText

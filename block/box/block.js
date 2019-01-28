@@ -1,5 +1,6 @@
 'use strict';
 
+import classnames from 'classnames';
 import toNumber from '../../src/js/helper/to-number';
 
 const { registerBlockType } = wp.blocks;
@@ -28,7 +29,7 @@ registerBlockType( 'snow-monkey-blocks/box', {
 		},
 	},
 
-	edit( { attributes, setAttributes } ) {
+	edit( { attributes, setAttributes, className } ) {
 		const { backgroundColor, borderColor, textColor, borderWidth } = attributes;
 
 		return (
@@ -73,7 +74,7 @@ registerBlockType( 'snow-monkey-blocks/box', {
 				</InspectorControls>
 
 				<div
-					className="smb-box"
+					className={ classnames( 'smb-box', className ) }
 					style={ { backgroundColor: backgroundColor, borderColor: borderColor, color: textColor, borderWidth: borderWidth } }
 				>
 					<div className="smb-box__body">

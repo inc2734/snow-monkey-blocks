@@ -35,7 +35,7 @@ registerBlockType( 'snow-monkey-blocks/alert', {
 		},
 	},
 
-	edit( { attributes, setAttributes, isSelected } ) {
+	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { title, content, modifier, icon } = attributes;
 
 		const iconList = [
@@ -125,7 +125,7 @@ registerBlockType( 'snow-monkey-blocks/alert', {
 						</BaseControl>
 					</PanelBody>
 				</InspectorControls>
-				<div className={ classnames( 'smb-alert', { [ `smb-alert--${ modifier }` ]: !! modifier } ) }>
+				<div className={ classnames( 'smb-alert', { [ `smb-alert--${ modifier }` ]: !! modifier }, className ) }>
 					{ ( ! RichText.isEmpty( title ) || isSelected ) &&
 						<div className="smb-alert__title">
 							{ renderFontAwesomeIcon() }

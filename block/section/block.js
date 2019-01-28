@@ -22,7 +22,7 @@ registerBlockType( 'snow-monkey-blocks/section', {
 		anchor: true,
 	},
 
-	edit( { attributes, setAttributes, isSelected } ) {
+	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { title, backgroundColor, contentsWidth, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
 
 		return (
@@ -144,7 +144,7 @@ registerBlockType( 'snow-monkey-blocks/section', {
 					</PanelBody>
 				</InspectorControls>
 
-				<div className="smb-section" style={ { backgroundColor: backgroundColor } }>
+				<div className={ classnames( 'smb-section', className ) } style={ { backgroundColor: backgroundColor } }>
 					{ !! topDividerLevel &&
 						<div className={ `smb-section__divider smb-section__divider--top smb-section__divider--${ topDividerType }` }>
 							{ divider( topDividerType, topDividerLevel, topDividerColor ) }

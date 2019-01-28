@@ -42,7 +42,7 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 		},
 	},
 
-	edit( { attributes, setAttributes } ) {
+	edit( { attributes, setAttributes, className } ) {
 		const { avatarID, avatarURL, avatarBorderColor, balloonName, balloonBody, modifier } = attributes;
 
 		const renderAvatar = ( obj ) => {
@@ -88,7 +88,7 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 					</PanelColorSettings>
 				</InspectorControls>
 
-				<div className={ classnames( 'smb-balloon', { [ `smb-balloon--${ modifier }` ]: !! modifier } ) }>
+				<div className={ classnames( 'smb-balloon', { [ `smb-balloon--${ modifier }` ]: !! modifier }, className ) }>
 					<div className="smb-balloon__person">
 						<div
 							className="smb-balloon__figure"
