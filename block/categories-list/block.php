@@ -18,6 +18,10 @@ add_action(
 						'type'    => 'number',
 						'default' => '5',
 					],
+					'exclusionCategories' => [
+						'type'    => 'string',
+						'default' => '',
+					],
 				],
 				'render_callback' => function( $attributes, $content ) {
 					return DynamicBlocks::render( 'categories-list', $attributes, $content );

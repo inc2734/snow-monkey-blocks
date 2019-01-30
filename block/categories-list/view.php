@@ -10,12 +10,21 @@ $categories = get_categories(
 		'pad_counts' => true,
 	]
 );
+
+$exclusionId = [];
+if ( isset( $attributes['exclusionCategories'] ) && ! empty( $attributes['exclusionCategories'] ) ) {
+	$exclusionId = explode( ',', $attributes['exclusionCategories'] );
+}
 ?>
 <div class="smb-categories-list">
 	<ul class="smb-categories-list__list">
 		<?php foreach ( $categories as $category ) : ?>
-			<?php $category_detail = get_category( $category ); ?>
-
+			<?php
+				$category_detail = get_category( $category );
+				if ( in_array( $category_detail->term_id, $exclusionId ) ) {
+					continue;
+				}
+			?>
 			<li class="smb-categories-list__item">
 				<div class="smb-categories-list__item__count">
 					<?php echo esc_html( $category_detail->count ); ?>
@@ -41,21 +50,19 @@ $categories = get_categories(
 						</div>
 						<ul class="smb-categories-list__item__list">
 							<?php
-							$_wp_query = new \WP_Query(
-								[
-									'cat'                 => $category_detail->term_id,
-									'posts_per_page'      => (string) $attributes['articles'],
-									'order'               => 'ASC',
-									'ignore_sticky_posts' => true,
-									'no_found_rows'       => true,
-									'suppress_filters'    => true,
-								]
-							);
+							$_wp_query = new \WP_Query( [
+								'cat' => $category_detail->term_id,
+								'posts_per_page' => (string) $attributes['articles'],
+								'order' => 'DESC',
+								'ignore_sticky_posts' => true,
+								'no_found_rows' => true,
+								'suppress_filters' => true,
+							] );
 							?>
 							<?php if ( $_wp_query->have_posts() ) : ?>
 								<?php while ( $_wp_query->have_posts() ) : ?>
 									<?php $_wp_query->the_post(); ?>
-									<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+									<li><a href="<?php the_permalink(); ?>"><?php echo ( get_the_title() === '' ? esc_html_e( '(no title)') : get_the_title() ); ?></a></li>
 								<?php endwhile; ?>
 								<?php wp_reset_postdata(); ?>
 							<?php endif; ?>
