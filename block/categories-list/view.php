@@ -11,9 +11,9 @@ $categories = get_categories(
 	]
 );
 
-$exclusionId = [];
+$exclusion_id = [];
 if ( isset( $attributes['exclusionCategories'] ) && ! empty( $attributes['exclusionCategories'] ) ) {
-	$exclusionId = explode( ',', $attributes['exclusionCategories'] );
+	$exclusion_id = explode( ',', $attributes['exclusionCategories'] );
 }
 ?>
 <div class="smb-categories-list">
@@ -21,7 +21,7 @@ if ( isset( $attributes['exclusionCategories'] ) && ! empty( $attributes['exclus
 		<?php foreach ( $categories as $category ) : ?>
 			<?php
 				$category_detail = get_category( $category );
-				if ( in_array( $category_detail->term_id, $exclusionId ) ) {
+				if ( in_array( $category_detail->term_id, $exclusion_id ) ) {
 					continue;
 				}
 			?>
@@ -50,19 +50,25 @@ if ( isset( $attributes['exclusionCategories'] ) && ! empty( $attributes['exclus
 						</div>
 						<ul class="smb-categories-list__item__list">
 							<?php
-							$_wp_query = new \WP_Query( [
-								'cat' => $category_detail->term_id,
-								'posts_per_page' => (string) $attributes['articles'],
-								'order' => 'DESC',
-								'ignore_sticky_posts' => true,
-								'no_found_rows' => true,
-								'suppress_filters' => true,
-							] );
+							$_wp_query = new \WP_Query(
+								[
+									'cat' => $category_detail->term_id,
+									'posts_per_page' => (string) $attributes['articles'],
+									'order' => 'DESC',
+									'ignore_sticky_posts' => true,
+									'no_found_rows' => true,
+									'suppress_filters' => true,
+								]
+							);
 							?>
 							<?php if ( $_wp_query->have_posts() ) : ?>
 								<?php while ( $_wp_query->have_posts() ) : ?>
 									<?php $_wp_query->the_post(); ?>
-									<li><a href="<?php the_permalink(); ?>"><?php echo ( get_the_title() === '' ? esc_html_e( '(no title)') : get_the_title() ); ?></a></li>
+									<li>
+										<a href="<?php the_permalink(); ?>">
+											<?php echo wp_kses_post( '' === get_the_title() ? __( '(no title)', 'snow-monkey-blocks' ) : get_the_title() ); ?>
+										</a>
+									</li>
 								<?php endwhile; ?>
 								<?php wp_reset_postdata(); ?>
 							<?php endif; ?>
