@@ -279,9 +279,27 @@ msgstr "注釈を書く…"
 msgid "Categories list"
 msgstr "カテゴリー一覧"
 
-#: block/categories-list/block.js:13
-msgid "This block is displayed only on the actual screen."
-msgstr "このブロックは実際の画面でのみ表示されます。"
+#: block/categories-list/block.js:64
+msgid "This is a block that displays a list of categories"
+msgstr "このブロックはカテゴリーの一覧を表示します"
+
+#: block/categories-list/block.js:78
+msgid "Loading Setting Data"
+msgstr "設定をロード中"
+
+#: block/categories-list/block.js:111
+msgid "Exclusion Categories Settings"
+msgstr "除外カテゴリーの設定"
+
+#: block/categories-list/block.js:112
+msgid ""
+"Categories with a post count of 0 are not displayed even if they are not "
+"excluded"
+msgstr "投稿数が0のカテゴリは、除外されていない場合でも表示されません"
+
+#: block/categories-list/block.js:141
+msgid "Only the actual contribution screen is displayed"
+msgstr "通常の投稿画面のみ表示されます"
 
 #: block/categories-list/block.js:23
 msgid "Categories list Settings"
@@ -291,9 +309,6 @@ msgstr "カテゴリー一覧設定"
 msgid "Categories List Articles"
 msgstr "カテゴリーリストの記事数"
 
-#: block/categories-list/block.js:40
-msgid "displayed categories list on the actual screen."
-msgstr "カテゴリー一覧は実際の画面でのみ表示されます。"
 
 #: block/child-pages/block.js:8 block/child-pages/block.js:17
 msgid "Child pages"
