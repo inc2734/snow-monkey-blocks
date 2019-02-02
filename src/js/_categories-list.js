@@ -1,6 +1,6 @@
 'use strict';
 
-import Masonry from 'Masonry';
+import Masonry from 'masonry-layout';
 
 export default class smbCategoriesList {
 	constructor() {

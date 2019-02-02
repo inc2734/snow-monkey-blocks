@@ -69,7 +69,6 @@
     "js": "npm run clean:js && npm-run-all -p js:*",
     "packages:fontawesome": "cpy 'fontawesome-free/js/**' 'fontawesome-free/LICENSE.txt' '../../dist/packages' --cwd=node_modules/@fortawesome --parents",
     "packages:slick-carousel": "cpy 'slick/**' '../../dist/packages' --cwd=node_modules/slick-carousel --parents",
-    "packages:masonry-layout": "cpy 'dist/**' '../../dist/packages/masonry-layout' --cwd=node_modules/masonry-layout --parents",
     "packages": "npm run clean:packages && npm-run-all packages:*",
     "zip:pack": "rsync -a --exclude='/vendor' --exclude='/node_modules' --exclude='.*' --exclude='*.ruleset.xml' --exclude='*.config.js' --exclude='*.xml.dist' --exclude='/bin' --exclude='/tests' --exclude='package*.json' . snow-monkey-blocks && cd snow-monkey-blocks && composer install --no-dev",
     "zip:archive": "zip -9 -qmr snow-monkey-blocks.zip snow-monkey-blocks",

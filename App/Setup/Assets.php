@@ -25,18 +25,10 @@ class Assets {
 	 * @return void
 	 */
 	public function _enqueue_block_editor_assets() {
-		wp_register_script(
-			'masonry-layout',
-			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/packages/masonry-layout/dist/masonry.pkgd.min.js',
-			[],
-			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/masonry-layout/dist/masonry.pkgd.min.js' ),
-			true
-		);
-
 		wp_enqueue_script(
 			'snow-monkey-blocks-editor',
 			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/blocks-build.js',
-			[ 'wp-blocks', 'wp-element', 'wp-i18n', 'masonry-layout' ],
+			[ 'wp-blocks', 'wp-element', 'wp-i18n' ],
 			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/blocks-build.js' ),
 			true
 		);
@@ -109,18 +101,10 @@ class Assets {
 			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/blocks.min.css' )
 		);
 
-		wp_register_script(
-			'masonry-layout',
-			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/packages/masonry-layout/dist/masonry.pkgd.min.js',
-			[],
-			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/masonry-layout/dist/masonry.pkgd.min.js' ),
-			true
-		);
-
 		wp_enqueue_script(
 			'snow-monkey-blocks',
 			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/app.min.js',
-			[ 'jquery', 'masonry-layout' ],
+			[ 'jquery' ],
 			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/app.min.js' ),
 			true
 		);
