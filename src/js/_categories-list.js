@@ -12,6 +12,7 @@ export default class smbCategoriesList {
 	_masonry() {
 		const categoryLists = document.getElementsByClassName( 'smb-categories-list__list' );
 		this._forEachHtmlNodes( categoryLists, ( categoryList ) => {
+			categoryList.classList.add( 'masonry-active' );
 			new Masonry( categoryList, {
 				itemSelector: '.smb-categories-list__item',
 				percentPosition: true,

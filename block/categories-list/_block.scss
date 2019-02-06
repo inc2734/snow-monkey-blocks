@@ -1,6 +1,36 @@
 .smb-categories-list {
   &__list {
     @include _list-unstyled();
+
+    &.masonry-active {
+      .smb-categories-list__item {
+        @include _media-min(md) {
+          width: calc(50% - #{_space(.25)});
+
+          &:nth-child(2) {
+            margin-top: 0;
+          }
+
+          &:nth-child(2n) {
+            transform: translateX(_space(.5));
+          }
+        }
+      }
+
+      .smb-categories-list__item:nth-child(2n - 1) {
+        .smb-categories-list__item__count {
+          @include _media-min(md) {
+            order: 1;
+
+            &::after {
+              left: auto;
+              right: 100%;
+              @include _triangle-left(8px, 16px, _lighter($_color-gray));
+            }
+          }
+        }
+      }
+    }
   }
 
   &__item {
@@ -12,18 +42,6 @@
 
     &:not(:first-child) {
       @include _margin-top(.5);
-    }
-
-    @include _media-min(md) {
-      width: calc(50% - #{_space(.25)});
-
-      &:nth-child(2) {
-        margin-top: 0;
-      }
-
-      &:nth-child(2n) {
-        transform: translateX(_space(.5));
-      }
     }
 
     &__count {
@@ -46,18 +64,6 @@
 
       span {
         @include _font-size-line-height($_base-font-size-px - 2);
-      }
-
-      @include _media-min(md) {
-        .smb-categories-list__item:nth-child(2n - 1) & {
-          order: 1;
-
-          &::after {
-            left: auto;
-            right: 100%;
-            @include _triangle-left(8px, 16px, _lighter($_color-gray));
-          }
-        }
       }
     }
 
