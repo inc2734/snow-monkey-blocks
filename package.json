@@ -2,33 +2,34 @@
   "author": "inc2734",
   "license": "GPL-2.0+",
   "devDependencies": {
-    "@babel/core": "^7.2.0",
-    "@babel/preset-env": "^7.2.0",
-    "@fortawesome/fontawesome-free": "^5.6.0",
-    "@fortawesome/fontawesome-svg-core": "^1.2.9",
-    "@fortawesome/react-fontawesome": "^0.1.3",
-    "autoprefixer": "^9.4.2",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@fortawesome/fontawesome-free": "^5.7.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.14",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "@inc2734/for-each-html-nodes": "^0.2.0",
+    "autoprefixer": "^9.4.7",
     "babel-eslint": "^10.0.1",
-    "babel-loader": "^8.0.4",
+    "babel-loader": "^8.0.5",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "classnames": "^2.2.6",
     "cpy-cli": "^2.0.0",
     "cssnano-cli": "^1.0.5",
-    "eslint": "^5.10.0",
+    "eslint": "^5.13.0",
     "eslint-config-wordpress": "^2.0.0",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-wordpress": "git://github.com/WordPress-Coding-Standards/eslint-plugin-wordpress.git#1774343f6226052a46b081e01db3fca8793cc9f1",
     "masonry-layout": "^4.2.2",
     "node-sass": "^4.11.0",
     "npm-run-all": "^4.1.5",
     "po2json": "^1.0.0-alpha",
-    "postcss-cli": "^6.0.1",
-    "rimraf": "^2.6.2",
+    "postcss-cli": "^6.1.1",
+    "rimraf": "^2.6.3",
     "sass-basis": "^9.2.7",
     "slick-carousel": "^1.8.1",
-    "webpack": "^4.27.1",
-    "webpack-cli": "^3.1.2"
+    "webpack": "^4.29.1",
+    "webpack-cli": "^3.2.3"
   },
   "scripts": {
     "clean:css": "rimraf dist/css",
@@ -78,6 +79,6 @@
     "po2json": "npm-run-all -p po2json:*"
   },
   "dependencies": {
-    "@wordpress/i18n": "^3.1.0"
+    "@wordpress/i18n": "^3.1.1"
   }
 }

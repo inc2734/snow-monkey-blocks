@@ -1,6 +1,7 @@
 'use strict';
 
 import $ from 'jquery';
+import forEachHtmlNodes from '@inc2734/for-each-html-nodes';
 
 export default class smbSlider {
 	constructor() {
@@ -10,17 +11,11 @@ export default class smbSlider {
 
 	_DOMContentLoaded() {
 		const sliders = document.querySelectorAll( this.selector );
-		this._forEachHtmlNodes( sliders, ( slider ) => {
+		forEachHtmlNodes( sliders, ( slider ) => {
 			const config = slider.getAttribute( 'data-smb-slider' );
 			if ( !! config ) {
 				$( slider ).slick( JSON.parse( config ) );
 			}
 		} );
-	}
-
-	_forEachHtmlNodes( htmlNodes, callback ) {
-		if ( 0 < htmlNodes.length ) {
-			[].forEach.call( htmlNodes, ( htmlNode ) => callback( htmlNode ) );
-		}
 	}
 }

@@ -1,6 +1,7 @@
 'use strict';
 
 import $ from 'jquery';
+import forEachHtmlNodes from '@inc2734/for-each-html-nodes';
 
 export default class smbThumbnailGallery {
 	constructor() {
@@ -9,7 +10,7 @@ export default class smbThumbnailGallery {
 
 	_DOMContentLoaded() {
 		const sliders = document.getElementsByClassName( 'smb-thumbnail-gallery' );
-		this._forEachHtmlNodes( sliders, ( slider ) => {
+		forEachHtmlNodes( sliders, ( slider ) => {
 			const canvases = slider.getElementsByClassName( 'smb-thumbnail-gallery__canvas' );
 			const navs = slider.getElementsByClassName( 'smb-thumbnail-gallery__nav' );
 
@@ -30,21 +31,11 @@ export default class smbThumbnailGallery {
 			const slick = $( canvas ).slick( canvasConfig );
 
 			const navItems = nav.getElementsByClassName( 'smb-thumbnail-gallery__nav__item' );
-			this._forEachHtmlNodes( navItems, ( navItem, index ) => {
+			forEachHtmlNodes( navItems, ( navItem, index ) => {
 				navItem.addEventListener( 'click', () => {
 					slick.slick( 'slickGoTo', index, false );
 				}, false );
 			} );
 		} );
-	}
-
-	_forEachHtmlNodes( htmlNodes, callback ) {
-		if ( 0 < htmlNodes.length ) {
-			let index = 0;
-			[].forEach.call( htmlNodes, ( htmlNode ) => {
-				callback( htmlNode, index );
-				index++;
-			} );
-		}
 	}
 }

@@ -113,6 +113,7 @@
       @include _list-unstyled();
       @include _font-size-line-height($_base-font-size-px - 2);
       @include _content(.25);
+      word-break: break-word;
 
       @include _media-min(md) {
         @include _line-height($_base-font-size-px + 4);
