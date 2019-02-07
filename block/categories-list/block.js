@@ -179,7 +179,7 @@ registerBlockType( 'snow-monkey-blocks/categories-list', {
 								{ label: __( 'category post count', 'snow-monkey-blocks' ), value: 'count' },
 								{ label: __( 'term_group', 'snow-monkey-blocks' ), value: 'term_group' },
 							] }
-							onChange={ ( value ) => { setAttributes( { orderby: value } ) } }
+							onChange={ ( value ) => setAttributes( { orderby: value } ) }
 						/>
 						<SelectControl
 							label={ __( 'order', 'snow-monkey-blocks' ) }
@@ -188,7 +188,7 @@ registerBlockType( 'snow-monkey-blocks/categories-list', {
 								{ label: __( 'asc', 'snow-monkey-blocks' ), value: 'asc' },
 								{ label: __( 'desc', 'snow-monkey-blocks' ), value: 'desc' },
 							] }
-							onChange={ ( value ) => { setAttributes( { order: value } ) } }
+							onChange={ ( value ) => setAttributes( { order: value } ) }
 						/>
 					</PanelBody>
 				</InspectorControls>
