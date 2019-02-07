@@ -7,7 +7,7 @@ const { apiFetch } = wp;
 const { registerStore, withSelect } = wp.data;
 const { registerBlockType } = wp.blocks;
 const { InspectorControls } = wp.editor;
-const { PanelBody, RangeControl, Spinner, CheckboxControl } = wp.components;
+const { PanelBody, RangeControl, Spinner, CheckboxControl, SelectControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -70,7 +70,7 @@ registerBlockType( 'snow-monkey-blocks/categories-list', {
 			articleCategories: select( 'snow-monkey-blocks/categories-list' ).receiveArticleCategories(),
 		};
 	} )( ( props ) => {
-		const { attributes: { articles, exclusionCategories }, articleCategories, className, setAttributes } = props;
+		const { attributes: { articles, exclusionCategories, orderby, order }, articleCategories, className, setAttributes } = props;
 		if ( ! articleCategories.length ) {
 			return (
 				<p className={ className }>
@@ -167,6 +167,30 @@ registerBlockType( 'snow-monkey-blocks/categories-list', {
 						/>
 					</PanelBody>
 					{ viewCategoriesPanel() }
+					<PanelBody title={ __( 'Display order settings', 'snow-monkey-blocks' ) }>
+						<p>{ __( 'The display order you set is valid only on the actual contribution screen', 'snow-monkey-blocks' ) }</p>
+						<SelectControl
+							label={ __( 'orderby', 'snow-monkey-blocks' ) }
+							value={ orderby }
+							options={ [
+								{ label: __( 'category id', 'snow-monkey-blocks' ), value: 'id' },
+								{ label: __( 'category name', 'snow-monkey-blocks' ), value: 'name' },
+								{ label: __( 'category slug', 'snow-monkey-blocks' ), value: 'slug' },
+								{ label: __( 'category post count', 'snow-monkey-blocks' ), value: 'count' },
+								{ label: __( 'term_group', 'snow-monkey-blocks' ), value: 'term_group' },
+							] }
+							onChange={ ( value ) => { setAttributes( { orderby: value } ) } }
+						/>
+						<SelectControl
+							label={ __( 'order', 'snow-monkey-blocks' ) }
+							value={ order }
+							options={ [
+								{ label: __( 'asc', 'snow-monkey-blocks' ), value: 'asc' },
+								{ label: __( 'desc', 'snow-monkey-blocks' ), value: 'desc' },
+							] }
+							onChange={ ( value ) => { setAttributes( { order: value } ) } }
+						/>
+					</PanelBody>
 				</InspectorControls>
 				{ viewCategoriesList() }
 			</Fragment>
