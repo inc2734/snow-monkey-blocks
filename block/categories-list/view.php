@@ -8,6 +8,8 @@
 $categories = get_categories(
 	[
 		'pad_counts' => true,
+		'orderby' => $attributes['orderby'],
+		'order' => $attributes['order'],
 	]
 );
 
