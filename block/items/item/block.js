@@ -4,8 +4,8 @@ import classnames from 'classnames';
 
 const { times } = lodash;
 const { registerBlockType } = wp.blocks;
-const { InspectorControls, RichText, MediaPlaceholder, MediaUpload, PanelColorSettings, ContrastChecker } = wp.editor;
-const { PanelBody, SelectControl, TextControl, BaseControl, Button, ToggleControl } = wp.components;
+const { InspectorControls, RichText, MediaPlaceholder, MediaUpload, PanelColorSettings, ContrastChecker, URLInput } = wp.editor;
+const { PanelBody, SelectControl, BaseControl, Button, ToggleControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -150,11 +150,12 @@ registerBlockType( 'snow-monkey-blocks/items--item', {
 					</PanelBody>
 
 					<PanelBody title={ __( 'Button Settings', 'snow-monkey-blocks' ) }>
-						<TextControl
-							label={ __( 'URL', 'snow-monkey-blocks' ) }
-							value={ btnURL }
-							onChange={ ( value ) => setAttributes( { btnURL: value } ) }
-						/>
+						<BaseControl label={ __( 'URL', 'snow-monkey-blocks' ) }>
+							<URLInput
+								value={ btnURL }
+								onChange={ ( value ) => setAttributes( { btnURL: value } ) }
+							/>
+						</BaseControl>
 
 						<SelectControl
 							label={ __( 'Target', 'snow-monkey-blocks' ) }

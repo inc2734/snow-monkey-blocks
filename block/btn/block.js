@@ -3,8 +3,8 @@
 import classnames from 'classnames';
 
 const { registerBlockType } = wp.blocks;
-const { RichText, InspectorControls, PanelColorSettings, ContrastChecker } = wp.editor;
-const { PanelBody, SelectControl, TextControl } = wp.components;
+const { RichText, InspectorControls, PanelColorSettings, ContrastChecker, URLInput } = wp.editor;
+const { PanelBody, BaseControl, SelectControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -48,12 +48,12 @@ registerBlockType( 'snow-monkey-blocks/btn', {
 			<Fragment>
 				<InspectorControls>
 					<PanelBody title={ __( 'Button Settings', 'snow-monkey-blocks' ) }>
-						<TextControl
-							label={ __( 'URL', 'snow-monkey-blocks' ) }
-							value={ url }
-							onChange={ ( value ) => setAttributes( { url: value } ) }
-						/>
-
+						<BaseControl label={ __( 'URL', 'snow-monkey-blocks' ) }>
+							<URLInput
+								value={ url }
+								onChange={ ( value ) => setAttributes( { url: value } ) }
+							/>
+						</BaseControl>
 						<SelectControl
 							label={ __( 'Target', 'snow-monkey-blocks' ) }
 							value={ target }

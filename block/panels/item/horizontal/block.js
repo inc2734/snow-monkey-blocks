@@ -5,8 +5,8 @@ import { schema } from './_schema.js';
 
 const { times } = lodash;
 const { registerBlockType, createBlock } = wp.blocks;
-const { InspectorControls, RichText, MediaPlaceholder, MediaUpload } = wp.editor;
-const { PanelBody, SelectControl, TextControl, BaseControl, Button } = wp.components;
+const { InspectorControls, RichText, MediaPlaceholder, MediaUpload, URLInput } = wp.editor;
+const { PanelBody, SelectControl, BaseControl, Button } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -104,11 +104,12 @@ registerBlockType( 'snow-monkey-blocks/panels--item--horizontal', {
 					</PanelBody>
 
 					<PanelBody title={ __( 'Link Settings', 'snow-monkey-blocks' ) }>
-						<TextControl
-							label={ __( 'URL', 'snow-monkey-blocks' ) }
-							value={ linkURL }
-							onChange={ ( value ) => setAttributes( { linkURL: value } ) }
-						/>
+						<BaseControl label={ __( 'URL', 'snow-monkey-blocks' ) }>
+							<URLInput
+								value={ linkURL }
+								onChange={ ( value ) => setAttributes( { linkURL: value } ) }
+							/>
+						</BaseControl>
 
 						<SelectControl
 							label={ __( 'Target', 'snow-monkey-blocks' ) }
