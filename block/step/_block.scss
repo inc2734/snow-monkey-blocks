@@ -123,6 +123,12 @@
     }
 
     &--image-right {
+      .smb-step__item__body {
+        @include _media-min(md) {
+          flex-direction: row-reverse;
+        }
+      }
+
       .smb-step__item__figure {
         @include _margin-bottom(.5);
 
