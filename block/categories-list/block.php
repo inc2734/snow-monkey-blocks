@@ -22,6 +22,14 @@ add_action(
 						'type'    => 'string',
 						'default' => '',
 					],
+					'orderby' => [
+						'type'    => 'string',
+						'default' => '',
+					],
+					'order' => [
+						'type'    => 'string',
+						'default' => '',
+					],
 				],
 				'render_callback' => function( $attributes, $content ) {
 					return DynamicBlocks::render( 'categories-list', $attributes, $content );

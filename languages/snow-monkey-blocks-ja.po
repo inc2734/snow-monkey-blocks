@@ -309,6 +309,49 @@ msgstr "カテゴリー一覧設定"
 msgid "Categories List Articles"
 msgstr "カテゴリーリストの記事数"
 
+#: block/categories-list/block.js:170
+msgid "Display order settings"
+msgstr "表示順の設定"
+
+#: block/categories-list/block.js:172
+msgid "orderby"
+msgstr "並べ替えの基準"
+
+#: block/categories-list/block.js:184
+msgid "order"
+msgstr "並べ替えの種別"
+
+#: block/categories-list/block.js:175
+msgid "category id"
+msgstr "カテゴリーID"
+
+#: block/categories-list/block.js:176
+msgid "category name"
+msgstr "カテゴリー名"
+
+#: block/categories-list/block.js:177
+msgid "category slug"
+msgstr "カテゴリースラッグ"
+
+#: block/categories-list/block.js:178
+msgid "category post count"
+msgstr "記事数"
+
+#: block/categories-list/block.js:179
+msgid "term_group"
+msgstr "タームグループ"
+
+#: block/categories-list/block.js:187
+msgid "asc"
+msgstr "昇順"
+
+#: block/categories-list/block.js:188
+msgid "desc"
+msgstr "降順"
+
+#: block/categories-list/block.js:192
+msgid "The display order you set is valid only on the actual contribution screen"
+msgstr "設定した表示順は実際の投稿画面でのみ有効です"
 
 #: block/child-pages/block.js:8 block/child-pages/block.js:17
 msgid "Child pages"
