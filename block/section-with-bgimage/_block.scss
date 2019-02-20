@@ -44,7 +44,7 @@
 
   > .#{$_prefix}c-container {
     position: relative;
-    flex: 1 1 0;
+    flex: 1 1 100%;
   }
 
   [data-is-fluid-template="true"] & {
@@ -104,6 +104,8 @@
   }
 
   &--wide {
-    min-height: 75vh;
+    @supports(object-fit: cover) { // For IE11
+      min-height: 75vh;
+    }
   }
 }
