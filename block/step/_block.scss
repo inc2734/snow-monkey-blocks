@@ -94,13 +94,13 @@
         @include _media-min(md) {
           display: flex;
 
-          > .smb-step__item__figure {
+          > .smb-step__item__figure,
+          > .smb-step__item__summary {
             flex: 1 1 auto;
-            max-width: 33%;
           }
 
-          > .smb-step__item__summary {
-            flex: 1 1 0%;
+          > .smb-step__item__figure {
+            max-width: 33%;
           }
         }
       }
