@@ -52,19 +52,35 @@
       flex-direction: row;
       text-align: left;
 
-      > .smb-panels__item__figure,
       > .smb-panels__item__body {
         flex: 1 1 auto;
       }
 
       > .smb-panels__item__figure {
+        position: relative;
         max-width: 50%;
+        flex: 0 0 50%;
+        overflow: hidden;
+
+        @supports(object-fit: cover) {
+          flex: 1 1 auto;
+        }
 
         img {
           height: 100%;
-          width: 100%;
-          object-position: 50% 50%;
-          object-fit: cover;
+          max-width: none;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+
+          @supports(object-fit: cover) {
+            position: static;
+            width: 100%;
+            max-width: 100%;
+            object-position: 50% 50%;
+            object-fit: cover;
+          }
         }
       }
 
