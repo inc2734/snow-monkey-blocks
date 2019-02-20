@@ -102,6 +102,7 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 * Fixed bug that layout of the section (with background image) block collapses on IE11
 * Fixed bug that layout of the slider block collapses on IE11
 * Fixed bug that layout of the step block collapses on IE11
+* Fixed bug that accordion block does not work correctly on IE11
 
 = 3.0.8 =
 * Fix bug that setting of right image is not reflected in the step block.
