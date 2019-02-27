@@ -26,9 +26,6 @@ export const schema = {
 	},
 	linkTarget: {
 		type: 'string',
-		source: 'attribute',
-		selector: '.smb-panels__item',
-		attribute: 'target',
 		default: '_self',
 	},
 	imageID: {

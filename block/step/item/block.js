@@ -25,20 +25,16 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 			setAttributes( { imageURL: newImageURL, imageID: media.id } );
 		};
 
-		const renderMedia = () => {
-			if ( ! imageURL ) {
-				return (
-					<MediaPlaceholder
-						icon="format-image"
-						labels={ { title: __( 'Image' ) } }
-						onSelect={ onSelectImage }
-						accept="image/*"
-						allowedTypes={ [ 'image' ] }
-					/>
-				);
-			}
-
-			return (
+		const StepItemFigureImg = () => {
+			return ! imageURL ? (
+				<MediaPlaceholder
+					icon="format-image"
+					labels={ { title: __( 'Image' ) } }
+					onSelect={ onSelectImage }
+					accept="image/*"
+					allowedTypes={ [ 'image' ] }
+				/>
+			) : (
 				<Fragment>
 					<MediaUpload
 						onSelect={ onSelectImage }
@@ -150,7 +146,7 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 					<div className="smb-step__item__body">
 						{ ( !! imageID || isSelected ) &&
 							<div className="smb-step__item__figure">
-								{ renderMedia() }
+								<StepItemFigureImg />
 							</div>
 						}
 
@@ -164,8 +160,9 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 								<span
 									className="smb-step__item__link"
 									href={ linkURL }
-									target={ linkTarget }
 									style={ { color: linkColor } }
+									target={ '_self' === linkTarget ? undefined : linkTarget }
+									rel={ '_self' === linkTarget ? undefined : 'noopener noreferrer' }
 								>
 									<i className="fas fa-arrow-circle-right" />
 									<RichText
@@ -211,8 +208,9 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 							<a
 								className="smb-step__item__link"
 								href={ linkURL }
-								target={ linkTarget }
 								style={ { color: linkColor } }
+								target={ '_self' === linkTarget ? undefined : linkTarget }
+								rel={ '_self' === linkTarget ? undefined : 'noopener noreferrer' }
 							>
 								<i className="fas fa-arrow-circle-right" />
 								<span className="smb-step__item__link__label">

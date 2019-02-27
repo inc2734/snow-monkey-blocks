@@ -1,11 +1,67 @@
 'use strict';
 
-const { times } = lodash;
-const { RichText } = wp.editor;
+const { times, merge } = lodash;
+const { RichText, InnerBlocks } = wp.editor;
 const { createBlock } = wp.blocks;
 import { schema } from './_schema.js';
 
 export const deprecated = [
+
+	{
+		attributes: merge(
+			schema,
+			{
+				linkTarget: {
+					type: 'string',
+					source: 'attribute',
+					selector: '.smb-step__item__link',
+					attribute: 'target',
+					default: '_self',
+				},
+			},
+		),
+
+		save( { attributes } ) {
+			const { title, numberColor, imagePosition, imageID, imageURL, linkLabel, linkURL, linkTarget, linkColor } = attributes;
+
+			return (
+				<div className={ `smb-step__item smb-step__item--image-${ imagePosition }` }>
+					<div className="smb-step__item__title">
+						<div className="smb-step__item__number" style={ { backgroundColor: numberColor } }></div>
+						<span>
+							<RichText.Content value={ title } />
+						</span>
+					</div>
+
+					<div className="smb-step__item__body">
+						{ !! imageID &&
+							<div className="smb-step__item__figure">
+								<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
+							</div>
+						}
+
+						<div className="smb-step__item__summary">
+							<InnerBlocks.Content />
+
+							{ ! RichText.isEmpty( linkLabel ) &&
+								<a
+									className="smb-step__item__link"
+									href={ linkURL }
+									target={ linkTarget }
+									style={ { color: linkColor } }
+								>
+									<i className="fas fa-arrow-circle-right" />
+									<span className="smb-step__item__link__label">
+										<RichText.Content value={ linkLabel } />
+									</span>
+								</a>
+							}
+						</div>
+					</div>
+				</div>
+			);
+		},
+	},
 	{
 		attributes: schema,
 

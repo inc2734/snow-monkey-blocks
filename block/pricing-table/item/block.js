@@ -1,6 +1,8 @@
 'use strict';
 
 import classnames from 'classnames';
+import { schema } from './_schema.js';
+import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
 const { RichText, InspectorControls, MediaPlaceholder, MediaUpload, PanelColorSettings, ContrastChecker, URLInput } = wp.editor;
@@ -13,59 +15,7 @@ registerBlockType( 'snow-monkey-blocks/pricing-table--item', {
 	icon: 'warning',
 	category: 'smb',
 	parent: [ 'snow-monkey-blocks/pricing-table' ],
-	attributes: {
-		title: {
-			source: 'html',
-			selector: '.smb-pricing-table__item__title',
-		},
-		price: {
-			source: 'html',
-			selector: '.smb-pricing-table__item__price',
-		},
-		lede: {
-			source: 'html',
-			selector: '.smb-pricing-table__item__lede',
-		},
-		list: {
-			source: 'html',
-			selector: 'ul',
-		},
-		btnLabel: {
-			source: 'html',
-			selector: '.smb-pricing-table__item__btn > .smb-btn__label',
-		},
-		btnURL: {
-			type: 'string',
-			source: 'attribute',
-			selector: '.smb-pricing-table__item__btn',
-			attribute: 'href',
-			default: '',
-		},
-		btnTarget: {
-			type: 'string',
-			source: 'attribute',
-			selector: '.smb-pricing-table__item__btn',
-			attribute: 'target',
-			default: '_self',
-		},
-		btnBackgroundColor: {
-			type: 'string',
-		},
-		btnTextColor: {
-			type: 'string',
-		},
-		imageID: {
-			type: 'number',
-			default: 0,
-		},
-		imageURL: {
-			type: 'string',
-			source: 'attribute',
-			selector: '.smb-pricing-table__item__figure > img',
-			attribute: 'src',
-			default: '',
-		},
-	},
+	attributes: schema,
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { title, price, lede, list, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, imageID, imageURL } = attributes;
@@ -75,20 +25,16 @@ registerBlockType( 'snow-monkey-blocks/pricing-table--item', {
 			setAttributes( { imageURL: newImageURL, imageID: media.id } );
 		};
 
-		const renderMedia = () => {
-			if ( ! imageURL ) {
-				return (
-					<MediaPlaceholder
-						icon="format-image"
-						labels={ { title: __( 'Image' ) } }
-						onSelect={ onSelectImage }
-						accept="image/*"
-						allowedTypes={ [ 'image' ] }
-					/>
-				);
-			}
-
-			return (
+		const PricingTableItemFigureImg = () => {
+			return ! imageURL ? (
+				<MediaPlaceholder
+					icon="format-image"
+					labels={ { title: __( 'Image' ) } }
+					onSelect={ onSelectImage }
+					accept="image/*"
+					allowedTypes={ [ 'image' ] }
+				/>
+			) : (
 				<Fragment>
 					<MediaUpload
 						onSelect={ onSelectImage }
@@ -169,7 +115,7 @@ registerBlockType( 'snow-monkey-blocks/pricing-table--item', {
 					<div className="smb-pricing-table__item">
 						{ ( !! imageID || isSelected ) &&
 							<div className="smb-pricing-table__item__figure">
-								{ renderMedia() }
+								<PricingTableItemFigureImg />
 							</div>
 						}
 
@@ -212,8 +158,9 @@ registerBlockType( 'snow-monkey-blocks/pricing-table--item', {
 							<div className="smb-pricing-table__item__action">
 								<span className="smb-pricing-table__item__btn smb-btn"
 									href={ btnURL }
-									target={ btnTarget }
 									style={ { backgroundColor: btnBackgroundColor } }
+									target={ '_self' === btnTarget ? undefined : btnTarget }
+									rel={ '_self' === btnTarget ? undefined : 'noopener noreferrer' }
 								>
 									<RichText
 										className="smb-btn__label"
@@ -268,8 +215,9 @@ registerBlockType( 'snow-monkey-blocks/pricing-table--item', {
 						<div className="smb-pricing-table__item__action">
 							<a className="smb-pricing-table__item__btn smb-btn"
 								href={ btnURL }
-								target={ btnTarget }
 								style={ { backgroundColor: btnBackgroundColor } }
+								target={ '_self' === btnTarget ? undefined : btnTarget }
+								rel={ '_self' === btnTarget ? undefined : 'noopener noreferrer' }
 							>
 								<span className="smb-btn__label" style={ { color: btnTextColor } }>
 									<RichText.Content value={ btnLabel } />
@@ -281,4 +229,6 @@ registerBlockType( 'snow-monkey-blocks/pricing-table--item', {
 			</div>
 		);
 	},
+
+	deprecated: deprecated,
 } );

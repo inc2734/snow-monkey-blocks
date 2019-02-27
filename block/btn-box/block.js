@@ -144,8 +144,11 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 
 						<div className="smb-btn-box__btn-wrapper">
 							<span
-								className={ classnames( 'smb-btn', { [ `smb-btn--${ btnSize }` ]: !! btnSize } ) } href={ btnURL } target={ btnTarget }
+								className={ classnames( 'smb-btn', { [ `smb-btn--${ btnSize }` ]: !! btnSize } ) }
+								href={ btnURL }
 								style={ { backgroundColor: btnBackgroundColor } }
+								target={ '_self' === btnTarget ? undefined : btnTarget }
+								rel={ '_self' === btnTarget ? undefined : 'noopener noreferrer' }
 							>
 								<RichText
 									className="smb-btn__label"
@@ -187,8 +190,11 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 
 					<div className="smb-btn-box__btn-wrapper">
 						<a
-							className={ classnames( 'smb-btn', { [ `smb-btn--${ btnSize }` ]: !! btnSize } ) } href={ btnURL } target={ btnTarget }
+							className={ classnames( 'smb-btn', { [ `smb-btn--${ btnSize }` ]: !! btnSize } ) }
+							href={ btnURL }
 							style={ { backgroundColor: btnBackgroundColor } }
+							target={ '_self' === btnTarget ? undefined : btnTarget }
+							rel={ '_self' === btnTarget ? undefined : 'noopener noreferrer' }
 						>
 							<span className="smb-btn__label" style={ { color: btnTextColor } }>
 								<RichText.Content value={ btnLabel } />

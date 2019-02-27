@@ -1,6 +1,7 @@
 'use strict';
 
 import classnames from 'classnames';
+import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
 const { RichText, InspectorControls, PanelColorSettings, ContrastChecker, URLInput } = wp.editor;
@@ -112,8 +113,11 @@ registerBlockType( 'snow-monkey-blocks/btn', {
 
 				<div className={ classnames( 'u-clearfix', 'smb-btn-wrapper', className ) }>
 					<span
-						className={ classnames( 'smb-btn', { [ `smb-btn--${ modifier }` ]: !! modifier } ) } href={ url } target={ target }
+						className={ classnames( 'smb-btn', { [ `smb-btn--${ modifier }` ]: !! modifier } ) }
+						href={ url }
 						style={ { backgroundColor: backgroundColor } }
+						target={ '_self' === target ? undefined : target }
+						rel={ '_self' === target ? undefined : 'noopener noreferrer' }
 					>
 						<RichText
 							className="smb-btn__label"
@@ -137,8 +141,9 @@ registerBlockType( 'snow-monkey-blocks/btn', {
 				<a
 					className={ classnames( 'smb-btn', { [ `smb-btn--${ modifier }` ]: !! modifier } ) }
 					href={ url }
-					target={ target }
 					style={ { backgroundColor: backgroundColor } }
+					target={ '_self' === target ? undefined : target }
+					rel={ '_self' === target ? undefined : 'noopener noreferrer' }
 				>
 					<span className="smb-btn__label" style={ { color: textColor } }>
 						<RichText.Content value={ content } />
@@ -147,4 +152,6 @@ registerBlockType( 'snow-monkey-blocks/btn', {
 			</div>
 		);
 	},
+
+	deprecated: deprecated,
 } );

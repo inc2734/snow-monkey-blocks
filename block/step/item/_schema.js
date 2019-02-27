@@ -36,9 +36,6 @@ export const schema = {
 	},
 	linkTarget: {
 		type: 'string',
-		source: 'attribute',
-		selector: '.smb-step__item__link',
-		attribute: 'target',
 		default: '_self',
 	},
 	linkColor: {

@@ -2,6 +2,7 @@
 
 import classnames from 'classnames';
 import { schema } from './_schema.js';
+import { deprecated } from './_deprecated.js';
 
 const { times } = lodash;
 const { registerBlockType, createBlock } = wp.blocks;
@@ -27,20 +28,16 @@ registerBlockType( 'snow-monkey-blocks/panels--item--horizontal', {
 			setAttributes( { imageURL: newImageURL, imageID: media.id } );
 		};
 
-		const renderMedia = () => {
-			if ( ! imageURL ) {
-				return (
-					<MediaPlaceholder
-						icon="format-image"
-						labels={ { title: __( 'Image' ) } }
-						onSelect={ onSelectImage }
-						accept="image/*"
-						allowedTypes={ [ 'image' ] }
-					/>
-				);
-			}
-
-			return (
+		const PanelsItemFigureImg = () => {
+			return ! imageURL ? (
+				<MediaPlaceholder
+					icon="format-image"
+					labels={ { title: __( 'Image' ) } }
+					onSelect={ onSelectImage }
+					accept="image/*"
+					allowedTypes={ [ 'image' ] }
+				/>
+			) : (
 				<Fragment>
 					<MediaUpload
 						onSelect={ onSelectImage }
@@ -133,11 +130,12 @@ registerBlockType( 'snow-monkey-blocks/panels--item--horizontal', {
 					<div
 						className={ classnames( 'smb-panels__item', 'smb-panels__item--horizontal', { 'smb-panels__item--reverse': 'right' === imagePosition }, className ) }
 						href={ linkURL }
-						target={ linkTarget }
+						target={ '_self' === linkTarget ? undefined : linkTarget }
+						rel={ '_self' === linkTarget ? undefined : 'noopener noreferrer' }
 					>
 						{ ( !! imageID || isSelected ) &&
 							<div className="smb-panels__item__figure">
-								{ renderMedia() }
+								<PanelsItemFigureImg />
 							</div>
 						}
 
@@ -182,70 +180,69 @@ registerBlockType( 'snow-monkey-blocks/panels--item--horizontal', {
 	save( { attributes } ) {
 		const { titleTagName, title, summary, linkLabel, linkURL, linkTarget, imagePosition, imageID, imageURL } = attributes;
 
-		const renderItem = ( itemContent ) => {
-			if ( !! linkURL ) {
-				return (
-					<a
-						className={ classnames( 'smb-panels__item', 'smb-panels__item--horizontal', { 'smb-panels__item--reverse': 'right' === imagePosition } ) }
-						href={ linkURL }
-						target={ linkTarget }
-					>
-						{ itemContent }
-					</a>
-				);
-			}
-
+		const PanelsItemContent = () => {
 			return (
-				<div
+				<Fragment>
+					{ !! imageID &&
+						<div className="smb-panels__item__figure">
+							<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
+						</div>
+					}
+
+					<div className="smb-panels__item__body">
+						{ ! RichText.isEmpty( title ) &&
+							<RichText.Content
+								tagName={ titleTagName }
+								className="smb-panels__item__title"
+								value={ title }
+							/>
+						}
+
+						{ ! RichText.isEmpty( summary ) &&
+							<div className="smb-panels__item__content">
+								<RichText.Content value={ summary } />
+							</div>
+						}
+
+						{ ! RichText.isEmpty( linkLabel ) &&
+							<div className="smb-panels__item__action">
+								<div className="smb-panels__item__link">
+									<RichText.Content value={ linkLabel } />
+								</div>
+							</div>
+						}
+					</div>
+				</Fragment>
+			);
+		};
+
+		const PanelsItem = () => {
+			return !! linkURL ? (
+				<a
 					className={ classnames( 'smb-panels__item', 'smb-panels__item--horizontal', { 'smb-panels__item--reverse': 'right' === imagePosition } ) }
 					href={ linkURL }
-					target={ linkTarget }
+					target={ '_self' === linkTarget ? undefined : linkTarget }
+					rel={ '_self' === linkTarget ? undefined : 'noopener noreferrer' }
 				>
-					{ itemContent }
+					<PanelsItemContent />
+				</a>
+			) : (
+				<div
+					className={ classnames( 'smb-panels__item', 'smb-panels__item--horizontal', { 'smb-panels__item--reverse': 'right' === imagePosition } ) }
+				>
+					<PanelsItemContent />
 				</div>
 			);
 		};
 
 		return (
 			<div className="c-row__col">
-				{
-					renderItem(
-						<Fragment>
-							{ !! imageID &&
-								<div className="smb-panels__item__figure">
-									<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
-								</div>
-							}
-
-							<div className="smb-panels__item__body">
-								{ ! RichText.isEmpty( title ) &&
-									<RichText.Content
-										tagName={ titleTagName }
-										className="smb-panels__item__title"
-										value={ title }
-									/>
-								}
-
-								{ ! RichText.isEmpty( summary ) &&
-									<div className="smb-panels__item__content">
-										<RichText.Content value={ summary } />
-									</div>
-								}
-
-								{ ! RichText.isEmpty( linkLabel ) &&
-									<div className="smb-panels__item__action">
-										<div className="smb-panels__item__link">
-											<RichText.Content value={ linkLabel } />
-										</div>
-									</div>
-								}
-							</div>
-						</Fragment>
-					)
-				}
+				<PanelsItem />
 			</div>
 		);
 	},
+
+	deprecated: deprecated,
 
 	transforms: {
 		to: [
