@@ -60,6 +60,16 @@ registerBlockType( 'snow-monkey-blocks/pricing-table--item', {
 			);
 		};
 
+		const classes = classnames( 'c-row__col', className );
+
+		const btnStyles = {
+			backgroundColor: btnBackgroundColor || undefined,
+		};
+
+		const btnLabelStyles = {
+			color: btnTextColor || undefined,
+		};
+
 		return (
 			<Fragment>
 				<InspectorControls>
@@ -111,7 +121,7 @@ registerBlockType( 'snow-monkey-blocks/pricing-table--item', {
 					</PanelColorSettings>
 				</InspectorControls>
 
-				<div className={ classnames( 'c-row__col', className ) }>
+				<div className={ classes }>
 					<div className="smb-pricing-table__item">
 						{ ( !! imageID || isSelected ) &&
 							<div className="smb-pricing-table__item__figure">
@@ -158,13 +168,13 @@ registerBlockType( 'snow-monkey-blocks/pricing-table--item', {
 							<div className="smb-pricing-table__item__action">
 								<span className="smb-pricing-table__item__btn smb-btn"
 									href={ btnURL }
-									style={ { backgroundColor: btnBackgroundColor } }
+									style={ btnStyles }
 									target={ '_self' === btnTarget ? undefined : btnTarget }
 									rel={ '_self' === btnTarget ? undefined : 'noopener noreferrer' }
 								>
 									<RichText
 										className="smb-btn__label"
-										style={ { color: btnTextColor } }
+										style={ btnLabelStyles }
 										value={ btnLabel }
 										placeholder={ __( 'Button', 'snow-monkey-blocks' ) }
 										formattingControls={ [] }
@@ -179,11 +189,21 @@ registerBlockType( 'snow-monkey-blocks/pricing-table--item', {
 		);
 	},
 
-	save( { attributes } ) {
+	save( { attributes, className } ) {
 		const { title, price, lede, list, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, imageID, imageURL } = attributes;
 
+		const classes = classnames( 'c-row__col', className );
+
+		const btnStyles = {
+			backgroundColor: btnBackgroundColor || undefined,
+		};
+
+		const btnLabelStyles = {
+			color: btnTextColor || undefined,
+		};
+
 		return (
-			<div className="c-row__col">
+			<div className={ classes }>
 				<div className="smb-pricing-table__item">
 					{ !! imageID &&
 						<div className="smb-pricing-table__item__figure">
@@ -215,11 +235,11 @@ registerBlockType( 'snow-monkey-blocks/pricing-table--item', {
 						<div className="smb-pricing-table__item__action">
 							<a className="smb-pricing-table__item__btn smb-btn"
 								href={ btnURL }
-								style={ { backgroundColor: btnBackgroundColor } }
+								style={ btnStyles }
 								target={ '_self' === btnTarget ? undefined : btnTarget }
 								rel={ '_self' === btnTarget ? undefined : 'noopener noreferrer' }
 							>
-								<span className="smb-btn__label" style={ { color: btnTextColor } }>
+								<span className="smb-btn__label" style={ btnLabelStyles }>
 									<RichText.Content value={ btnLabel } />
 								</span>
 							</a>

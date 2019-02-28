@@ -63,6 +63,8 @@ registerBlockType( 'snow-monkey-blocks/panels--item', {
 			);
 		};
 
+		const classes = classnames( 'c-row__col', className );
+
 		return (
 			<Fragment>
 				<InspectorControls>
@@ -110,9 +112,9 @@ registerBlockType( 'snow-monkey-blocks/panels--item', {
 					</PanelBody>
 				</InspectorControls>
 
-				<div className="c-row__col">
+				<div className={ classes }>
 					<div
-						className={ classnames( 'smb-panels__item', className ) }
+						className="smb-panels__item"
 						href={ linkURL }
 						target={ linkTarget }
 					>
@@ -160,7 +162,7 @@ registerBlockType( 'snow-monkey-blocks/panels--item', {
 		);
 	},
 
-	save( { attributes } ) {
+	save( { attributes, className } ) {
 		const { titleTagName, title, summary, linkLabel, linkURL, linkTarget, imageID, imageURL } = attributes;
 
 		const PanelsItemContent = () => {
@@ -199,6 +201,8 @@ registerBlockType( 'snow-monkey-blocks/panels--item', {
 			);
 		};
 
+		const classes = classnames( 'c-row__col', className );
+
 		const PanelsItem = () => {
 			return ( !! linkURL ? () => {
 				return (
@@ -221,7 +225,7 @@ registerBlockType( 'snow-monkey-blocks/panels--item', {
 		};
 
 		return (
-			<div className="c-row__col">
+			<div className={ classes }>
 				<PanelsItem />
 			</div>
 		);

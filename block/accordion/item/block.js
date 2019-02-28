@@ -1,6 +1,8 @@
 'use strict';
 
 import classnames from 'classnames';
+import { schema } from './_schema.js';
+import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
 const { RichText, InnerBlocks } = wp.editor;
@@ -11,18 +13,15 @@ registerBlockType( 'snow-monkey-blocks/accordion--item', {
 	icon: 'editor-justify',
 	category: 'smb',
 	parent: [ 'snow-monkey-blocks/accordion' ],
-	attributes: {
-		title: {
-			source: 'html',
-			selector: '.smb-accordion__item__title',
-		},
-	},
+	attributes: schema,
 
 	edit( { attributes, setAttributes, className } ) {
 		const { title } = attributes;
 
+		const classes = classnames( 'smb-accordion__item', className );
+
 		return (
-			<div className={ classnames( 'smb-accordion__item', className ) }>
+			<div className={ classes }>
 				<div className="smb-accordion__item__title">
 					<RichText
 						value={ title }
@@ -36,11 +35,13 @@ registerBlockType( 'snow-monkey-blocks/accordion--item', {
 		);
 	},
 
-	save( { attributes } ) {
+	save( { attributes, className } ) {
 		const { title } = attributes;
 
+		const classes = classnames( 'smb-accordion__item', className );
+
 		return (
-			<div className="smb-accordion__item">
+			<div className={ classes }>
 				<div className="smb-accordion__item__title">
 					<RichText.Content value={ title } />
 				</div>
@@ -51,4 +52,6 @@ registerBlockType( 'snow-monkey-blocks/accordion--item', {
 			</div>
 		);
 	},
+
+	deprecated: deprecated,
 } );

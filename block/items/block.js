@@ -2,6 +2,7 @@
 
 import classnames from 'classnames';
 import toNumber from '../../src/js/helper/to-number';
+import { schema } from './_schema.js';
 import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
@@ -14,26 +15,15 @@ registerBlockType( 'snow-monkey-blocks/items', {
 	title: __( 'Items', 'snow-monkey-blocks' ),
 	icon: 'screenoptions',
 	category: 'smb',
-	attributes: {
-		sm: {
-			type: 'number',
-			default: 1,
-		},
-		md: {
-			type: 'number',
-			default: 1,
-		},
-		lg: {
-			type: 'number',
-			default: 2,
-		},
-	},
+	attributes: schema,
 
 	edit( { attributes, setAttributes, className } ) {
 		const { sm, md, lg } = attributes;
 
 		const allowedBlocks = [ 'snow-monkey-blocks/items--item' ];
 		const template = [ [ 'snow-monkey-blocks/items--item' ] ];
+
+		const classes = classnames( 'smb-items', className );
 
 		return (
 			<Fragment>
@@ -100,7 +90,7 @@ registerBlockType( 'snow-monkey-blocks/items', {
 					</PanelBody>
 				</InspectorControls>
 
-				<div className={ classnames( 'smb-items', className ) }>
+				<div className={ classes }>
 					<div className="c-row c-row--margin" data-columns={ sm } data-md-columns={ md } data-lg-columns={ lg }>
 						<InnerBlocks
 							allowedBlocks={ allowedBlocks }
@@ -113,11 +103,13 @@ registerBlockType( 'snow-monkey-blocks/items', {
 		);
 	},
 
-	save( { attributes } ) {
+	save( { attributes, className } ) {
 		const { sm, md, lg } = attributes;
 
+		const classes = classnames( 'smb-items', className );
+
 		return (
-			<div className="smb-items">
+			<div className={ classes }>
 				<div className="c-row c-row--margin" data-columns={ sm } data-md-columns={ md } data-lg-columns={ lg }>
 					<InnerBlocks.Content />
 				</div>

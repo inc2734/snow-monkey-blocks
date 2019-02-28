@@ -2,6 +2,7 @@
 
 import classnames from 'classnames';
 import { deprecated } from './_deprecated.js';
+import { schema } from './_schema.js';
 
 const { registerBlockType } = wp.blocks;
 const { PlainText, RichText, MediaUpload, InspectorControls, PanelColorSettings } = wp.editor;
@@ -13,34 +14,7 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 	title: __( 'Balloon', 'snow-monkey-blocks' ),
 	icon: 'admin-comments',
 	category: 'smb',
-	attributes: {
-		avatarID: {
-			type: 'number',
-			default: 0,
-		},
-		avatarURL: {
-			type: 'string',
-			source: 'attribute',
-			selector: 'img',
-			attribute: 'src',
-			default: 'https://0.gravatar.com/avatar/00000000000000000000000000000000?s=128&d=mp&r=g',
-		},
-		avatarBorderColor: {
-			type: 'string',
-		},
-		balloonName: {
-			type: 'string',
-			default: '',
-		},
-		balloonBody: {
-			source: 'html',
-			selector: '.smb-balloon__body',
-		},
-		modifier: {
-			type: 'string',
-			default: '',
-		},
-	},
+	attributes: schema,
 
 	edit( { attributes, setAttributes, className } ) {
 		const { avatarID, avatarURL, avatarBorderColor, balloonName, balloonBody, modifier } = attributes;
@@ -52,6 +26,18 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 				</Button>
 			);
 		};
+
+		const balloonFigureStyles = {
+			borderColor: avatarBorderColor || undefined,
+		};
+
+		const classes = classnames(
+			{
+				'smb-balloon': true,
+				[ className ]: !! className,
+				[ `smb-balloon--${ modifier }` ]: !! modifier,
+			}
+		);
 
 		return (
 			<Fragment>
@@ -88,11 +74,11 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 					</PanelColorSettings>
 				</InspectorControls>
 
-				<div className={ classnames( 'smb-balloon', { [ `smb-balloon--${ modifier }` ]: !! modifier }, className ) }>
+				<div className={ classes }>
 					<div className="smb-balloon__person">
 						<div
 							className="smb-balloon__figure"
-							style={ { borderColor: avatarBorderColor } }
+							style={ balloonFigureStyles }
 						>
 							<MediaUpload
 								onSelect={ ( media ) => {
@@ -125,15 +111,27 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 		);
 	},
 
-	save( { attributes } ) {
+	save( { attributes, className } ) {
 		const { avatarID, avatarURL, avatarBorderColor, balloonName, balloonBody, modifier } = attributes;
 
+		const balloonFigureStyles = {
+			borderColor: avatarBorderColor || undefined,
+		};
+
+		const classes = classnames(
+			{
+				'smb-balloon': true,
+				[ className ]: !! className,
+				[ `smb-balloon--${ modifier }` ]: !! modifier,
+			}
+		);
+
 		return (
-			<div className={ classnames( 'smb-balloon', { [ `smb-balloon--${ modifier }` ]: !! modifier } ) }>
+			<div className={ classes }>
 				<div className="smb-balloon__person">
 					<div
 						className="smb-balloon__figure"
-						style={ { borderColor: avatarBorderColor } }
+						style={ balloonFigureStyles }
 					>
 						<img src={ avatarURL } alt="" className={ `wp-image-${ avatarID }` } />
 					</div>

@@ -3,6 +3,8 @@
 import classnames from 'classnames';
 import toNumber from '../../src/js/helper/to-number';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { schema } from './_schema.js';
+import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
 const { InspectorControls, PanelColorSettings } = wp.editor;
@@ -17,31 +19,12 @@ registerBlockType( 'snow-monkey-blocks/evaluation-star', {
 	description: __( 'Evaluate with star icons', 'snow-monkey-blocks' ),
 	icon: 'star-half',
 	category: 'smb',
-	attributes: {
-		evaluationValue: {
-			type: 'number',
-			default: 3,
-		},
-		iconColor: {
-			type: 'string',
-		},
-		isDisplayNumeric: {
-			type: 'boolean',
-			default: true,
-		},
-		numericAlign: {
-			type: 'string',
-			default: 'left',
-		},
-		numericColor: {
-			type: 'string',
-		},
-	},
+	attributes: schema,
 
 	edit( { attributes, setAttributes, className } ) {
 		const { evaluationValue, iconColor, isDisplayNumeric, numericAlign, numericColor } = attributes;
 
-		const renderEditEvaluationIcon = () => {
+		const EditEvaluationIcon = () => {
 			const displayDefaultIcon = isUpdated ? 'none' : 'inline-block';
 			const displayUpdatedIcon = isUpdated ? 'inline-block' : 'none';
 			const defaultOutputIcons = [];
@@ -76,6 +59,19 @@ registerBlockType( 'snow-monkey-blocks/evaluation-star', {
 					</div>
 				</Fragment>
 			);
+		};
+
+		const classes = classnames( 'smb-evaluation-star', className );
+
+		const bodyClasses = classnames( 'smb-evaluation-star__numeric', [ `smb-evaluation-star__numeric--${ numericAlign }` ] );
+
+		const evaluationStarBodyStyles = {
+			color: numericColor || undefined,
+			display: isDisplayNumeric ? 'inline' : 'none',
+		};
+
+		const evaluationStarIconStyles = {
+			color: iconColor || undefined,
 		};
 
 		return (
@@ -151,19 +147,13 @@ registerBlockType( 'snow-monkey-blocks/evaluation-star', {
 					</PanelColorSettings>
 				</InspectorControls>
 
-				<div className={ classnames( 'smb-evaluation-star', className ) }>
+				<div className={ classes }>
 					<div className="smb-evaluation-star__body">
-						<span
-							className={ `smb-evaluation-star__numeric smb-evaluation-star__numeric--${ numericAlign }` }
-							style={ { color: numericColor, display: isDisplayNumeric ? 'inline' : 'none' } }
-						>
+						<span className={ bodyClasses } style={ evaluationStarBodyStyles }>
 							{ sprintf( '%.1f', Number( evaluationValue ) ) }
 						</span>
-						<div
-							className="smb-evaluation-star__icon"
-							style={ { color: iconColor } }
-						>
-							{ renderEditEvaluationIcon() }
+						<div className="smb-evaluation-star__icon" style={ evaluationStarIconStyles }>
+							<EditEvaluationIcon />
 						</div>
 					</div>
 				</div>
@@ -171,10 +161,10 @@ registerBlockType( 'snow-monkey-blocks/evaluation-star', {
 		);
 	},
 
-	save( { attributes } ) {
+	save( { attributes, className } ) {
 		const { evaluationValue, iconColor, isDisplayNumeric, numericAlign, numericColor } = attributes;
 
-		const renderSaveEvaluationIcon = () => {
+		const SaveEvaluationIcon = () => {
 			const outputEvaluationIcons = [];
 			const evaluationNumber = toNumber( evaluationValue, 0, 5 );
 			const fillIconCount = Math.floor( evaluationNumber );
@@ -201,25 +191,33 @@ registerBlockType( 'snow-monkey-blocks/evaluation-star', {
 			);
 		};
 
+		const classes = classnames( 'smb-evaluation-star', className );
+
+		const bodyClasses = classnames( 'smb-evaluation-star__numeric', [ `smb-evaluation-star__numeric--${ numericAlign }` ] );
+
+		const evaluationStarBodyStyles = {
+			color: numericColor || undefined,
+		};
+
+		const evaluationStarIconStyles = {
+			color: iconColor || undefined,
+		};
+
 		return (
-			<div className="smb-evaluation-star">
+			<div className={ classes }>
 				<div className="smb-evaluation-star__body">
 					{ isDisplayNumeric &&
-						<span
-							className={ `smb-evaluation-star__numeric smb-evaluation-star__numeric--${ numericAlign }` }
-							style={ { color: numericColor } }
-						>
+						<span className={ bodyClasses } style={ evaluationStarBodyStyles }>
 							{ sprintf( '%.1f', Number( evaluationValue ) ) }
 						</span>
 					}
-					<div
-						className="smb-evaluation-star__icon"
-						style={ { color: iconColor } }
-					>
-						{ renderSaveEvaluationIcon() }
+					<div className="smb-evaluation-star__icon" style={ evaluationStarIconStyles }>
+						<SaveEvaluationIcon />
 					</div>
 				</div>
 			</div>
 		);
 	},
+
+	deprecated: deprecated,
 } );

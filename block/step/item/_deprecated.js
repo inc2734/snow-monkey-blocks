@@ -6,7 +6,51 @@ const { createBlock } = wp.blocks;
 import { schema } from './_schema.js';
 
 export const deprecated = [
+	{
+		attributes: schema,
 
+		save( { attributes } ) {
+			const { title, numberColor, imagePosition, imageID, imageURL, linkLabel, linkURL, linkTarget, linkColor } = attributes;
+
+			return (
+				<div className={ `smb-step__item smb-step__item--image-${ imagePosition }` }>
+					<div className="smb-step__item__title">
+						<div className="smb-step__item__number" style={ { backgroundColor: numberColor } }></div>
+						<span>
+							<RichText.Content value={ title } />
+						</span>
+					</div>
+
+					<div className="smb-step__item__body">
+						{ !! imageID &&
+							<div className="smb-step__item__figure">
+								<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
+							</div>
+						}
+
+						<div className="smb-step__item__summary">
+							<InnerBlocks.Content />
+
+							{ ! RichText.isEmpty( linkLabel ) &&
+								<a
+									className="smb-step__item__link"
+									href={ linkURL }
+									style={ { color: linkColor } }
+									target={ '_self' === linkTarget ? undefined : linkTarget }
+									rel={ '_self' === linkTarget ? undefined : 'noopener noreferrer' }
+								>
+									<i className="fas fa-arrow-circle-right" />
+									<span className="smb-step__item__link__label">
+										<RichText.Content value={ linkLabel } />
+									</span>
+								</a>
+							}
+						</div>
+					</div>
+				</div>
+			);
+		},
+	},
 	{
 		attributes: merge(
 			schema,

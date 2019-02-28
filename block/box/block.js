@@ -2,6 +2,8 @@
 
 import classnames from 'classnames';
 import toNumber from '../../src/js/helper/to-number';
+import { schema } from './_schema.js';
+import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
 const { InnerBlocks, InspectorControls, PanelColorSettings, ContrastChecker } = wp.editor;
@@ -13,24 +15,19 @@ registerBlockType( 'snow-monkey-blocks/box', {
 	title: __( 'Box', 'snow-monkey-blocks' ),
 	icon: 'admin-comments',
 	category: 'smb',
-	attributes: {
-		backgroundColor: {
-			type: 'string',
-		},
-		borderColor: {
-			type: 'string',
-		},
-		textColor: {
-			type: 'string',
-		},
-		borderWidth: {
-			type: 'number',
-			default: 1,
-		},
-	},
+	attributes: schema,
 
 	edit( { attributes, setAttributes, className } ) {
 		const { backgroundColor, borderColor, textColor, borderWidth } = attributes;
+
+		const boxStyles = {
+			backgroundColor: backgroundColor || undefined,
+			borderColor: borderColor || undefined,
+			color: textColor || undefined,
+			borderWidth: borderWidth || undefined,
+		};
+
+		const classes = classnames( 'smb-box', className );
 
 		return (
 			<Fragment>
@@ -73,10 +70,7 @@ registerBlockType( 'snow-monkey-blocks/box', {
 					</PanelColorSettings>
 				</InspectorControls>
 
-				<div
-					className={ classnames( 'smb-box', className ) }
-					style={ { backgroundColor: backgroundColor, borderColor: borderColor, color: textColor, borderWidth: borderWidth } }
-				>
+				<div className={ classes } style={ boxStyles }>
 					<div className="smb-box__body">
 						<InnerBlocks />
 					</div>
@@ -85,18 +79,26 @@ registerBlockType( 'snow-monkey-blocks/box', {
 		);
 	},
 
-	save( { attributes } ) {
+	save( { attributes, className } ) {
 		const { backgroundColor, borderColor, textColor, borderWidth } = attributes;
 
+		const boxStyles = {
+			backgroundColor: backgroundColor || undefined,
+			borderColor: borderColor || undefined,
+			color: textColor || undefined,
+			borderWidth: borderWidth || undefined,
+		};
+
+		const classes = classnames( 'smb-box', className );
+
 		return (
-			<div
-				className="smb-box"
-				style={ { backgroundColor: backgroundColor, borderColor: borderColor, color: textColor, borderWidth: borderWidth } }
-			>
+			<div className={ classes } style={ boxStyles }>
 				<div className="smb-box__body">
 					<InnerBlocks.Content />
 				</div>
 			</div>
 		);
 	},
+
+	deprecated: deprecated,
 } );

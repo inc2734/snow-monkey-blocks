@@ -1,67 +1,134 @@
 'use strict';
 
+import { schema } from './_schema.js';
+
+const { merge } = lodash;
 const { RichText } = wp.editor;
 const { Fragment } = wp.element;
 
 export const deprecated = [
 	{
-		attributes: {
-			titleTagName: {
-				type: 'string',
-				default: 'div',
-			},
-			title: {
-				source: 'html',
-				selector: '.smb-items__item__title',
-			},
-			lede: {
-				source: 'html',
-				selector: '.smb-items__item__lede',
-			},
-			summary: {
-				source: 'html',
-				selector: '.smb-items__item__content',
-			},
-			btnLabel: {
-				source: 'html',
-				selector: '.smb-items__item__btn > .smb-btn__label',
-			},
-			btnURL: {
-				type: 'string',
-				source: 'attribute',
-				selector: '.smb-items__item__btn',
-				attribute: 'href',
-				default: '',
-			},
-			btnTarget: {
-				type: 'string',
-				source: 'attribute',
-				selector: '.smb-items__item__btn',
-				attribute: 'target',
-				default: '_self',
-			},
-			btnBackgroundColor: {
-				type: 'string',
-			},
-			btnTextColor: {
-				type: 'string',
-			},
-			imageID: {
-				type: 'number',
-				default: 0,
-			},
-			imageURL: {
-				type: 'string',
-				source: 'attribute',
-				selector: '.smb-items__item__figure > img',
-				attribute: 'src',
-				default: '',
-			},
-			isBlockLink: {
-				type: 'boolean',
-				default: false,
-			},
+		attributes: merge(
+			schema,
+			{
+				imageURL: {
+					type: 'string',
+					default: '',
+				},
+			}
+		),
+
+		save( { attributes } ) {
+			const { titleTagName, title, lede, summary, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, imageID, imageURL, isBlockLink } = attributes;
+
+			const ItemsItemBtnContent = () => {
+				return (
+					<span className="smb-btn__label" style={ { color: btnTextColor } }>
+						<RichText.Content value={ btnLabel } />
+					</span>
+				);
+			};
+
+			const ItemsItemBtn = () => {
+				return !! isBlockLink ? (
+					<span className="smb-items__item__btn smb-btn"
+						href={ btnURL }
+						style={ { backgroundColor: btnBackgroundColor } }
+						target={ '_self' === btnTarget ? undefined : btnTarget }
+						rel={ '_self' === btnTarget ? undefined : 'noopener noreferrer' }
+					>
+						<ItemsItemBtnContent />
+					</span>
+				) : (
+					<a className="smb-items__item__btn smb-btn"
+						href={ btnURL }
+						style={ { backgroundColor: btnBackgroundColor } }
+						target={ '_self' === btnTarget ? undefined : btnTarget }
+						rel={ '_self' === btnTarget ? undefined : 'noopener noreferrer' }
+					>
+						<ItemsItemBtnContent />
+					</a>
+				);
+			};
+
+			const ItemsItemContent = () => {
+				return (
+					<Fragment>
+						{ !! imageID &&
+							<div className="smb-items__item__figure">
+								<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
+							</div>
+						}
+
+						<RichText.Content
+							tagName={ titleTagName }
+							className="smb-items__item__title"
+							value={ title }
+						/>
+
+						{ ! RichText.isEmpty( lede ) &&
+							<div className="smb-items__item__lede">
+								<RichText.Content value={ lede } />
+							</div>
+						}
+
+						{ ! RichText.isEmpty( summary ) &&
+							<div className="smb-items__item__content">
+								<RichText.Content value={ summary } />
+							</div>
+						}
+
+						{ ( ! RichText.isEmpty( btnLabel ) && !! btnURL ) &&
+							<div className="smb-items__item__action">
+								<ItemsItemBtn />
+							</div>
+						}
+					</Fragment>
+				);
+			};
+
+			const ItemsItem = () => {
+				return !! isBlockLink ? (
+					<a
+						className="smb-items__item"
+						href={ btnURL }
+						target={ '_self' === btnTarget ? undefined : btnTarget }
+						rel={ '_self' === btnTarget ? undefined : 'noopener noreferrer' }
+					>
+						<ItemsItemContent />
+					</a>
+				) : (
+					<div
+						className="smb-items__item"
+						href={ btnURL }
+						target={ '_self' === btnTarget ? undefined : btnTarget }
+						rel={ '_self' === btnTarget ? undefined : 'noopener noreferrer' }
+					>
+						<ItemsItemContent />
+					</div>
+				);
+			};
+
+			return (
+				<div className="c-row__col">
+					<ItemsItem />
+				</div>
+			);
 		},
+	},
+	{
+		attributes: merge(
+			schema,
+			{
+				btnTarget: {
+					type: 'string',
+					source: 'attribute',
+					selector: '.smb-items__item__btn',
+					attribute: 'target',
+					default: '_self',
+				},
+			}
+		),
 
 		save( { attributes } ) {
 			const { titleTagName, title, lede, summary, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, imageID, imageURL, isBlockLink } = attributes;
@@ -160,63 +227,18 @@ export const deprecated = [
 		},
 	},
 	{
-		attributes: {
-			titleTagName: {
-				type: 'string',
-				default: 'div',
-			},
-			title: {
-				source: 'html',
-				selector: '.smb-items__item__title',
-			},
-			lede: {
-				source: 'html',
-				selector: '.smb-items__item__lede',
-			},
-			summary: {
-				source: 'html',
-				selector: '.smb-items__item__content',
-			},
-			btnLabel: {
-				source: 'html',
-				selector: '.smb-items__item__btn > .smb-btn__label',
-			},
-			btnURL: {
-				type: 'string',
-				source: 'attribute',
-				selector: '.smb-items__item',
-				attribute: 'href',
-				default: '',
-			},
-			btnTarget: {
-				type: 'string',
-				source: 'attribute',
-				selector: '.smb-items__item',
-				attribute: 'target',
-				default: '_self',
-			},
-			btnBackgroundColor: {
-				type: 'string',
-			},
-			btnTextColor: {
-				type: 'string',
-			},
-			imageID: {
-				type: 'number',
-				default: 0,
-			},
-			imageURL: {
-				type: 'string',
-				source: 'attribute',
-				selector: '.smb-items__item__figure > img',
-				attribute: 'src',
-				default: '',
-			},
-			isBlockLink: {
-				type: 'boolean',
-				default: false,
-			},
-		},
+		attributes: merge(
+			schema,
+			{
+				btnTarget: {
+					type: 'string',
+					source: 'attribute',
+					selector: '.smb-items__item__btn',
+					attribute: 'target',
+					default: '_self',
+				},
+			}
+		),
 
 		save( { attributes } ) {
 			const { titleTagName, title, lede, summary, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, imageID, imageURL, isBlockLink } = attributes;

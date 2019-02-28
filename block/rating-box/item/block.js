@@ -2,6 +2,8 @@
 
 import classnames from 'classnames';
 import toNumber from '../../../src/js/helper/to-number';
+import { schema } from './_schema.js';
+import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
 const { RichText, InspectorControls, PanelColorSettings } = wp.editor;
@@ -14,22 +16,17 @@ registerBlockType( 'snow-monkey-blocks/rating-box--item', {
 	icon: 'editor-alignleft',
 	category: 'smb',
 	parent: [ 'snow-monkey-blocks/rating-box' ],
-	attributes: {
-		title: {
-			source: 'html',
-			selector: '.smb-rating-box__item__title',
-		},
-		rating: {
-			type: 'number',
-			default: 0,
-		},
-		color: {
-			type: 'string',
-		},
-	},
+	attributes: schema,
 
 	edit( { attributes, setAttributes, className } ) {
 		const { title, rating, color } = attributes;
+
+		const classes = classnames( 'smb-rating-box__item', className );
+
+		const itemEvaluationRatingStyles = {
+			width: `${ rating * 10 }%`,
+			backgroundColor: color || undefined,
+		};
 
 		return (
 			<Fragment>
@@ -58,7 +55,7 @@ registerBlockType( 'snow-monkey-blocks/rating-box--item', {
 					</PanelColorSettings>
 				</InspectorControls>
 
-				<div className={ classnames( 'smb-rating-box__item', className ) }>
+				<div className={ classes }>
 					<RichText
 						className="smb-rating-box__item__title"
 						placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
@@ -73,7 +70,7 @@ registerBlockType( 'snow-monkey-blocks/rating-box--item', {
 							<div className="smb-rating-box__item__evaluation__numeric">
 								{ rating }
 							</div>
-							<div className="smb-rating-box__item__evaluation__rating" style={ { width: `${ rating * 10 }%`, backgroundColor: color } }></div>
+							<div className="smb-rating-box__item__evaluation__rating" style={ itemEvaluationRatingStyles }></div>
 						</div>
 					</div>
 				</div>
@@ -81,11 +78,18 @@ registerBlockType( 'snow-monkey-blocks/rating-box--item', {
 		);
 	},
 
-	save( { attributes } ) {
+	save( { attributes, className } ) {
 		const { title, rating, color } = attributes;
 
+		const classes = classnames( 'smb-rating-box__item', className );
+
+		const itemEvaluationRatingStyles = {
+			width: `${ rating * 10 }%`,
+			backgroundColor: color || undefined,
+		};
+
 		return (
-			<div className="smb-rating-box__item">
+			<div className={ classes }>
 				<div className="smb-rating-box__item__title" >
 					<RichText.Content value={ title } />
 				</div>
@@ -95,10 +99,12 @@ registerBlockType( 'snow-monkey-blocks/rating-box--item', {
 						<div className="smb-rating-box__item__evaluation__numeric">
 							{ rating }
 						</div>
-						<div className="smb-rating-box__item__evaluation__rating" style={ { width: `${ rating * 10 }%`, backgroundColor: color } }></div>
+						<div className="smb-rating-box__item__evaluation__rating" style={ itemEvaluationRatingStyles }></div>
 					</div>
 				</div>
 			</div>
 		);
 	},
+
+	deprecated: deprecated,
 } );

@@ -60,6 +60,20 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 			);
 		};
 
+		const classes = classnames(
+			'smb-step__item',
+			`smb-step__item--image-${ imagePosition }`,
+			className
+		);
+
+		const itemNumberStyles = {
+			backgroundColor: numberColor || undefined,
+		};
+
+		const itemLinkStyles = {
+			color: linkColor || undefined,
+		};
+
 		return (
 			<Fragment>
 				<InspectorControls>
@@ -129,9 +143,9 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 					</PanelColorSettings>
 				</InspectorControls>
 
-				<div className={ classnames( `smb-step__item smb-step__item--image-${ imagePosition }`, className ) }>
+				<div className={ classes }>
 					<div className="smb-step__item__title">
-						<div className="smb-step__item__number" style={ { backgroundColor: numberColor } }></div>
+						<div className="smb-step__item__number" style={ itemNumberStyles }></div>
 						<span>
 							<RichText
 								placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
@@ -160,7 +174,7 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 								<span
 									className="smb-step__item__link"
 									href={ linkURL }
-									style={ { color: linkColor } }
+									style={ itemLinkStyles }
 									target={ '_self' === linkTarget ? undefined : linkTarget }
 									rel={ '_self' === linkTarget ? undefined : 'noopener noreferrer' }
 								>
@@ -182,13 +196,27 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 		);
 	},
 
-	save( { attributes } ) {
+	save( { attributes, className } ) {
 		const { title, numberColor, imagePosition, imageID, imageURL, linkLabel, linkURL, linkTarget, linkColor } = attributes;
 
+		const classes = classnames(
+			'smb-step__item',
+			`smb-step__item--image-${ imagePosition }`,
+			className
+		);
+
+		const itemNumberStyles = {
+			backgroundColor: numberColor || undefined,
+		};
+
+		const itemLinkStyles = {
+			color: linkColor || undefined,
+		};
+
 		return (
-			<div className={ `smb-step__item smb-step__item--image-${ imagePosition }` }>
+			<div className={ classes }>
 				<div className="smb-step__item__title">
-					<div className="smb-step__item__number" style={ { backgroundColor: numberColor } }></div>
+					<div className="smb-step__item__number" style={ itemNumberStyles }></div>
 					<span>
 						<RichText.Content value={ title } />
 					</span>
@@ -208,7 +236,7 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 							<a
 								className="smb-step__item__link"
 								href={ linkURL }
-								style={ { color: linkColor } }
+								style={ itemLinkStyles }
 								target={ '_self' === linkTarget ? undefined : linkTarget }
 								rel={ '_self' === linkTarget ? undefined : 'noopener noreferrer' }
 							>

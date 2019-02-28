@@ -16,8 +16,10 @@ registerBlockType( 'snow-monkey-blocks/step', {
 		const allowedBlocks = [ 'snow-monkey-blocks/step--item' ];
 		const template = [ [ 'snow-monkey-blocks/step--item' ] ];
 
+		const classes = classnames( 'smb-step', className );
+
 		return (
-			<div className={ classnames( 'smb-step', className ) }>
+			<div className={ classes }>
 				<div className="smb-step__body">
 					<InnerBlocks
 						allowedBlocks={ allowedBlocks }
@@ -29,9 +31,11 @@ registerBlockType( 'snow-monkey-blocks/step', {
 		);
 	},
 
-	save() {
+	save( { className } ) {
+		const classes = classnames( 'smb-step', className );
+
 		return (
-			<div className="smb-step">
+			<div className={ classes }>
 				<div className="smb-step__body">
 					<InnerBlocks.Content />
 				</div>

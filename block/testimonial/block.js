@@ -16,8 +16,10 @@ registerBlockType( 'snow-monkey-blocks/testimonial', {
 		const allowedBlocks = [ 'snow-monkey-blocks/testimonial--item' ];
 		const template = [ [ 'snow-monkey-blocks/testimonial--item' ] ];
 
+		const classes = classnames( 'smb-testimonial', className );
+
 		return (
-			<div className={ classnames( 'smb-testimonial', className ) }>
+			<div className={ classes }>
 				<div className="smb-testimonial__body">
 					<div className="c-row c-row--margin" data-columns="1" data-md-columns="2">
 						<InnerBlocks
@@ -31,9 +33,11 @@ registerBlockType( 'snow-monkey-blocks/testimonial', {
 		);
 	},
 
-	save() {
+	save( { className } ) {
+		const classes = classnames( 'smb-testimonial', className );
+
 		return (
-			<div className="smb-testimonial">
+			<div className={ classes }>
 				<div className="smb-testimonial__body">
 					<div className="c-row c-row--margin" data-columns="1" data-md-columns="2">
 						<InnerBlocks.Content />

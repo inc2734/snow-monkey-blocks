@@ -1,10 +1,27 @@
 'use strict';
 
+import { schema } from './_schema.js';
+
 const { times, get } = lodash;
-const { RichText } = wp.editor;
+const { RichText, InnerBlocks } = wp.editor;
 const { createBlock } = wp.blocks;
 
 export const deprecated = [
+	{
+		attributes: schema,
+
+		save( { attributes } ) {
+			const { sm, md, lg } = attributes;
+
+			return (
+				<div className="smb-items">
+					<div className="c-row c-row--margin" data-columns={ sm } data-md-columns={ md } data-lg-columns={ lg }>
+						<InnerBlocks.Content />
+					</div>
+				</div>
+			);
+		},
+	},
 	{
 		attributes: {
 			columns: {

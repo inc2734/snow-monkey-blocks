@@ -63,6 +63,16 @@ registerBlockType( 'snow-monkey-blocks/panels--item--horizontal', {
 			);
 		};
 
+		const classes = classnames( 'c-row__col', className );
+
+		const itemClasses = classnames(
+			{
+				'smb-panels__item': true,
+				'smb-panels__item--horizontal': true,
+				'smb-panels__item--reverse': 'right' === imagePosition,
+			}
+		);
+
 		return (
 			<Fragment>
 				<InspectorControls>
@@ -126,9 +136,9 @@ registerBlockType( 'snow-monkey-blocks/panels--item--horizontal', {
 					</PanelBody>
 				</InspectorControls>
 
-				<div className="c-row__col">
+				<div className={ classes }>
 					<div
-						className={ classnames( 'smb-panels__item', 'smb-panels__item--horizontal', { 'smb-panels__item--reverse': 'right' === imagePosition }, className ) }
+						className={ itemClasses }
 						href={ linkURL }
 						target={ '_self' === linkTarget ? undefined : linkTarget }
 						rel={ '_self' === linkTarget ? undefined : 'noopener noreferrer' }
@@ -177,7 +187,7 @@ registerBlockType( 'snow-monkey-blocks/panels--item--horizontal', {
 		);
 	},
 
-	save( { attributes } ) {
+	save( { attributes, className } ) {
 		const { titleTagName, title, summary, linkLabel, linkURL, linkTarget, imagePosition, imageID, imageURL } = attributes;
 
 		const PanelsItemContent = () => {
@@ -216,10 +226,20 @@ registerBlockType( 'snow-monkey-blocks/panels--item--horizontal', {
 			);
 		};
 
+		const classes = classnames( 'c-row__col', className );
+
+		const itemClasses = classnames(
+			{
+				'smb-panels__item': true,
+				'smb-panels__item--horizontal': true,
+				'smb-panels__item--reverse': 'right' === imagePosition,
+			}
+		);
+
 		const PanelsItem = () => {
 			return !! linkURL ? (
 				<a
-					className={ classnames( 'smb-panels__item', 'smb-panels__item--horizontal', { 'smb-panels__item--reverse': 'right' === imagePosition } ) }
+					className={ itemClasses }
 					href={ linkURL }
 					target={ '_self' === linkTarget ? undefined : linkTarget }
 					rel={ '_self' === linkTarget ? undefined : 'noopener noreferrer' }
@@ -227,16 +247,14 @@ registerBlockType( 'snow-monkey-blocks/panels--item--horizontal', {
 					<PanelsItemContent />
 				</a>
 			) : (
-				<div
-					className={ classnames( 'smb-panels__item', 'smb-panels__item--horizontal', { 'smb-panels__item--reverse': 'right' === imagePosition } ) }
-				>
+				<div className={ itemClasses }>
 					<PanelsItemContent />
 				</div>
 			);
 		};
 
 		return (
-			<div className="c-row__col">
+			<div className={ classes }>
 				<PanelsItem />
 			</div>
 		);

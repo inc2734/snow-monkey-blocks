@@ -1,10 +1,21 @@
 'use strict';
 
 const { get, times } = lodash;
-const { RichText } = wp.editor;
+const { RichText, InnerBlocks } = wp.editor;
 const { createBlock } = wp.blocks;
 
 export const deprecated = [
+	{
+		save() {
+			return (
+				<div className="smb-pricing-table">
+					<div className="c-row c-row--md-nowrap">
+						<InnerBlocks.Content />
+					</div>
+				</div>
+			);
+		},
+	},
 	{
 		attributes: {
 			content: {

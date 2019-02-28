@@ -1,11 +1,54 @@
 'use strict';
 
 import classnames from 'classnames';
+import divider from '../../src/js/helper/divider';
 import { schema } from './_schema.js';
 
 const { RichText, InnerBlocks } = wp.editor;
 
 export const deprecated = [
+	{
+		attributes: schema,
+
+		supports: {
+			align: [ 'wide', 'full' ],
+			anchor: true,
+		},
+
+		save( { attributes } ) {
+			const { title, backgroundColor, contentsWidth, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
+
+			return (
+				<div className="smb-section" style={ { backgroundColor: backgroundColor } }>
+					{ !! topDividerLevel &&
+						<div className={ `smb-section__divider smb-section__divider--top smb-section__divider--${ topDividerType }` }>
+							{ divider( topDividerType, topDividerLevel, topDividerColor ) }
+						</div>
+					}
+
+					{ !! bottomDividerLevel &&
+						<div className={ `smb-section__divider smb-section__divider--bottom smb-section__divider--${ topDividerType }` }>
+							{ divider( bottomDividerType, bottomDividerLevel, bottomDividerColor ) }
+						</div>
+					}
+
+					<div className="smb-section__inner" style={ { paddingTop: topDividerLevel, paddingBottom: bottomDividerLevel } }>
+						<div className={ classnames( 'c-container', { 'u-slim-width': 'slim' === contentsWidth } ) }>
+							{ ! RichText.isEmpty( title ) &&
+								<h2 className="smb-section__title">
+									<RichText.Content value={ title } />
+								</h2>
+							}
+
+							<div className="smb-section__body">
+								<InnerBlocks.Content />
+							</div>
+						</div>
+					</div>
+				</div>
+			);
+		},
+	},
 	{
 		attributes: schema,
 		supports: {

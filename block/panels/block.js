@@ -2,6 +2,7 @@
 
 import classnames from 'classnames';
 import toNumber from '../../src/js/helper/to-number';
+import { schema } from './_schema.js';
 import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
@@ -14,34 +15,15 @@ registerBlockType( 'snow-monkey-blocks/panels', {
 	title: __( 'Panels', 'snow-monkey-blocks' ),
 	icon: 'screenoptions',
 	category: 'smb',
-	attributes: {
-		sm: {
-			type: 'number',
-			default: 1,
-		},
-		md: {
-			type: 'number',
-			default: 1,
-		},
-		lg: {
-			type: 'number',
-			default: 2,
-		},
-		imagePadding: {
-			type: 'boolean',
-			default: false,
-		},
-		itemTitleTagName: { // backward compatibility
-			type: 'string',
-			default: 'div',
-		},
-	},
+	attributes: schema,
 
 	edit( { attributes, setAttributes, className } ) {
 		const { sm, md, lg, imagePadding } = attributes;
 
 		const allowedBlocks = [ 'snow-monkey-blocks/panels--item' ];
 		const template = [ [ 'snow-monkey-blocks/panels--item' ] ];
+
+		const classes = classnames( 'smb-panels', className );
 
 		return (
 			<Fragment>
@@ -114,7 +96,7 @@ registerBlockType( 'snow-monkey-blocks/panels', {
 					</PanelBody>
 				</InspectorControls>
 
-				<div className={ classnames( 'smb-panels', className ) } data-image-padding={ imagePadding }>
+				<div className={ classes } data-image-padding={ imagePadding }>
 					<div className="c-row c-row--margin c-row--fill" data-columns={ sm } data-md-columns={ md } data-lg-columns={ lg }>
 						<InnerBlocks
 							allowedBlocks={ allowedBlocks }
@@ -127,11 +109,13 @@ registerBlockType( 'snow-monkey-blocks/panels', {
 		);
 	},
 
-	save( { attributes } ) {
+	save( { attributes, className } ) {
 		const { sm, md, lg, imagePadding } = attributes;
 
+		const classes = classnames( 'smb-panels', className );
+
 		return (
-			<div className="smb-panels" data-image-padding={ imagePadding }>
+			<div className={ classes } data-image-padding={ imagePadding }>
 				<div className="c-row c-row--margin c-row--fill" data-columns={ sm } data-md-columns={ md } data-lg-columns={ lg }>
 					<InnerBlocks.Content />
 				</div>

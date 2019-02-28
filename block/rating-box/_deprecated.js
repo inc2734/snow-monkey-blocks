@@ -1,10 +1,21 @@
 'use strict';
 
 const { get, times } = lodash;
-const { RichText } = wp.editor;
+const { RichText, InnerBlocks } = wp.editor;
 const { createBlock } = wp.blocks;
 
 export const deprecated = [
+	{
+		save() {
+			return (
+				<div className="smb-rating-box">
+					<div className="smb-rating-box__body">
+						<InnerBlocks.Content />
+					</div>
+				</div>
+			);
+		},
+	},
 	{
 		attributes: {
 			ratings: {

@@ -4,6 +4,8 @@ import classnames from 'classnames';
 import toNumber from '../../src/js/helper/to-number';
 import generateUpdatedAttribute from '../../src/js/helper/generate-updated-attribute';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { schema } from './_schema.js';
+import { deprecated } from './_deprecated.js';
 
 const { get, times } = lodash;
 const { registerBlockType } = wp.blocks;
@@ -16,40 +18,15 @@ registerBlockType( 'snow-monkey-blocks/thumbnail-gallery', {
 	title: __( 'Thumbnail gallery', 'snow-monkey-blocks' ),
 	icon: 'format-gallery',
 	category: 'smb',
-	attributes: {
-		content: {
-			type: 'array',
-			source: 'query',
-			selector: '.smb-thumbnail-gallery__item',
-			default: [],
-			query: {
-				imageID: {
-					type: 'number',
-					source: 'attribute',
-					selector: '.smb-thumbnail-gallery__item__figure > img',
-					attribute: 'data-image-id',
-					default: 0,
-				},
-				imageURL: {
-					type: 'string',
-					source: 'attribute',
-					selector: '.smb-thumbnail-gallery__item__figure > img',
-					attribute: 'src',
-					default: '',
-				},
-			},
-		},
-		items: {
-			type: 'number',
-			default: 2,
-		},
-	},
+	attributes: schema,
 	supports: {
 		align: [ 'wide', 'full' ],
 	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { items, content } = attributes;
+
+		const classes = classnames( 'smb-thumbnail-gallery', className );
 
 		return (
 			<Fragment>
@@ -65,7 +42,7 @@ registerBlockType( 'snow-monkey-blocks/thumbnail-gallery', {
 					</PanelBody>
 				</InspectorControls>
 
-				<div className={ classnames( 'smb-thumbnail-gallery', className ) }>
+				<div className={ classes }>
 					<div className="smb-thumbnail-gallery__canvas">
 						{ times( items, ( index ) => {
 							if ( ! isSelected && 0 < index ) {
@@ -83,20 +60,16 @@ registerBlockType( 'snow-monkey-blocks/thumbnail-gallery', {
 								setAttributes( { content: newContent } );
 							};
 
-							const renderMedia = () => {
-								if ( ! imageURL ) {
-									return (
-										<MediaPlaceholder
-											icon="format-image"
-											labels={ { title: __( 'Image' ) } }
-											onSelect={ onSelectImage }
-											accept="image/*"
-											allowedTypes={ [ 'image' ] }
-										/>
-									);
-								}
-
-								return (
+							const ItemFigureImg = () => {
+								return ! imageURL ? (
+									<MediaPlaceholder
+										icon="format-image"
+										labels={ { title: __( 'Image' ) } }
+										onSelect={ onSelectImage }
+										accept="image/*"
+										allowedTypes={ [ 'image' ] }
+									/>
+								) : (
 									<Fragment>
 										<MediaUpload
 											onSelect={ onSelectImage }
@@ -130,7 +103,7 @@ registerBlockType( 'snow-monkey-blocks/thumbnail-gallery', {
 									{ ( !! imageID || isSelected ) &&
 										<div className="smb-thumbnail-gallery__item">
 											<div className="smb-thumbnail-gallery__item__figure">
-												{ renderMedia() }
+												<ItemFigureImg />
 											</div>
 										</div>
 									}
@@ -157,11 +130,13 @@ registerBlockType( 'snow-monkey-blocks/thumbnail-gallery', {
 		);
 	},
 
-	save( { attributes } ) {
+	save( { attributes, className } ) {
 		const { items, content } = attributes;
 
+		const classes = classnames( 'smb-thumbnail-gallery', className );
+
 		return (
-			<div className="smb-thumbnail-gallery">
+			<div className={ classes }>
 				<div className="smb-thumbnail-gallery__canvas">
 					{ times( items, ( index ) => {
 						const imageID = get( content, [ index, 'imageID' ], 0 );
@@ -202,4 +177,6 @@ registerBlockType( 'snow-monkey-blocks/thumbnail-gallery', {
 			</div>
 		);
 	},
+
+	deprecated: deprecated,
 } );

@@ -1,6 +1,7 @@
 'use strict';
 
 import classnames from 'classnames';
+import { schema } from './_schema.js';
 import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
@@ -36,31 +37,7 @@ registerBlockType( 'snow-monkey-blocks/media-text', {
 	title: __( 'Media text', 'snow-monkey-blocks' ),
 	icon: 'align-left',
 	category: 'smb',
-	attributes: {
-		title: {
-			source: 'html',
-			selector: '.smb-media-text__title',
-		},
-		imageID: {
-			type: 'number',
-			default: 0,
-		},
-		imageURL: {
-			type: 'string',
-			source: 'attribute',
-			selector: '.smb-media-text__figure > img',
-			attribute: 'src',
-			default: '',
-		},
-		imagePosition: {
-			type: 'string',
-			default: 'right',
-		},
-		imageColumnSize: {
-			type: 'string',
-			default: 66,
-		},
-	},
+	attributes: schema,
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { title, imageID, imageURL, imagePosition, imageColumnSize } = attributes;
@@ -72,7 +49,7 @@ registerBlockType( 'snow-monkey-blocks/media-text', {
 			setAttributes( { imageURL: newImageURL, imageID: media.id } );
 		};
 
-		const renderMedia = () => {
+		const MediaTextFigureImg = () => {
 			if ( ! imageURL ) {
 				return (
 					<MediaPlaceholder
@@ -110,6 +87,21 @@ registerBlockType( 'snow-monkey-blocks/media-text', {
 				</Fragment>
 			);
 		};
+
+		const classes = classnames( 'smb-media-text', className );
+
+		const rowClasses = classnames(
+			{
+				'c-row': true,
+				'c-row--margin': true,
+				'c-row--middle': true,
+				'c-row--reverse': 'left' === imagePosition,
+			}
+		);
+
+		const textColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', [ `c-row__col--lg-${ textColumnWidth }` ] );
+
+		const imageColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', [ `c-row__col--lg-${ imageColumnWidth }` ] );
 
 		return (
 			<Fragment>
@@ -157,9 +149,9 @@ registerBlockType( 'snow-monkey-blocks/media-text', {
 					</PanelBody>
 				</InspectorControls>
 
-				<div className={ classnames( 'smb-media-text', className ) }>
-					<div className={ classnames( 'c-row', 'c-row--margin', 'c-row--middle', { 'c-row--reverse': 'left' === imagePosition } ) }>
-						<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${ textColumnWidth }` }>
+				<div className={ classes }>
+					<div className={ rowClasses }>
+						<div className={ textColumnClasses }>
 							{ ( ! RichText.isEmpty( title ) || isSelected ) &&
 								<RichText
 									className="smb-media-text__title"
@@ -174,9 +166,9 @@ registerBlockType( 'snow-monkey-blocks/media-text', {
 								<InnerBlocks />
 							</div>
 						</div>
-						<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${ imageColumnWidth }` }>
+						<div className={ imageColumnClasses }>
 							<div className="smb-media-text__figure">
-								{ renderMedia() }
+								<MediaTextFigureImg />
 							</div>
 						</div>
 					</div>
@@ -185,15 +177,30 @@ registerBlockType( 'snow-monkey-blocks/media-text', {
 		);
 	},
 
-	save( { attributes } ) {
+	save( { attributes, className } ) {
 		const { title, imageID, imageURL, imagePosition, imageColumnSize } = attributes;
 
 		const { textColumnWidth, imageColumnWidth } = _getColumnsSize( imageColumnSize );
 
+		const classes = classnames( 'smb-media-text', className );
+
+		const rowClasses = classnames(
+			{
+				'c-row': true,
+				'c-row--margin': true,
+				'c-row--middle': true,
+				'c-row--reverse': 'left' === imagePosition,
+			}
+		);
+
+		const textColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', [ `c-row__col--lg-${ textColumnWidth }` ] );
+
+		const imageColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', [ `c-row__col--lg-${ imageColumnWidth }` ] );
+
 		return (
-			<div className="smb-media-text">
-				<div className={ classnames( 'c-row', 'c-row--margin', 'c-row--middle', { 'c-row--reverse': 'left' === imagePosition } ) }>
-					<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${ textColumnWidth }` }>
+			<div className={ classes }>
+				<div className={ rowClasses }>
+					<div className={ textColumnClasses }>
 						{ ! RichText.isEmpty( title ) &&
 							<h2 className="smb-media-text__title">
 								<RichText.Content value={ title } />
@@ -203,7 +210,7 @@ registerBlockType( 'snow-monkey-blocks/media-text', {
 							<InnerBlocks.Content />
 						</div>
 					</div>
-					<div className={ `c-row__col c-row__col--1-1 c-row__col--lg-${ imageColumnWidth }` }>
+					<div className={ imageColumnClasses }>
 						<div className="smb-media-text__figure">
 							{ imageURL &&
 								<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />

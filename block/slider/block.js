@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import toNumber from '../../src/js/helper/to-number';
 import generateUpdatedAttribute from '../../src/js/helper/generate-updated-attribute';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { schema } from './_schema.js';
 import { deprecated } from './_deprecated.js';
 
 const { get, times } = lodash;
@@ -30,76 +31,15 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 	title: __( 'Slider', 'snow-monkey-blocks' ),
 	icon: 'format-gallery',
 	category: 'smb',
-	attributes: {
-		slidesToShow: {
-			type: 'number',
-			default: 1,
-		},
-		slidesToScroll: {
-			type: 'number',
-			default: 1,
-		},
-		dots: {
-			type: 'boolean',
-			default: false,
-		},
-		arrows: {
-			type: 'boolean',
-			default: true,
-		},
-		speed: {
-			type: 'number',
-			default: 300,
-		},
-		autoplay: {
-			type: 'boolean',
-			default: false,
-		},
-		autoplaySpeed: {
-			type: 'number',
-			default: 0,
-		},
-		rtl: {
-			type: 'boolean',
-			default: false,
-		},
-		content: {
-			type: 'array',
-			source: 'query',
-			selector: '.smb-slider__item',
-			default: [],
-			query: {
-				imageID: {
-					type: 'number',
-					source: 'attribute',
-					selector: '.smb-slider__item__figure > img',
-					attribute: 'data-image-id',
-					default: 0,
-				},
-				imageURL: {
-					type: 'string',
-					source: 'attribute',
-					selector: '.smb-slider__item__figure > img',
-					attribute: 'src',
-					default: '',
-				},
-				caption: {
-					source: 'html',
-					selector: '.smb-slider__item__caption',
-				},
-			},
-		},
-		items: {
-			type: 'number',
-			default: 2,
-		},
-	},
+	attributes: schema,
 	supports: {
 		align: [ 'wide', 'full' ],
 	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { slidesToShow, slidesToScroll, dots, arrows, items, content, speed, autoplaySpeed, rtl } = attributes;
+
+		const classes = classnames( 'smb-slider', className );
 
 		return (
 			<Fragment>
@@ -166,7 +106,7 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 					</PanelBody>
 				</InspectorControls>
 
-				<div className={ classnames( 'smb-slider', className ) }>
+				<div className={ classes }>
 					<div className="smb-slider__canvas">
 						{ times( items, ( index ) => {
 							if ( ! isSelected && 0 < index ) {
@@ -185,20 +125,16 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 								setAttributes( { content: newContent } );
 							};
 
-							const renderMedia = () => {
-								if ( ! imageURL ) {
-									return (
-										<MediaPlaceholder
-											icon="format-image"
-											labels={ { title: __( 'Image' ) } }
-											onSelect={ onSelectImage }
-											accept="image/*"
-											allowedTypes={ [ 'image' ] }
-										/>
-									);
-								}
-
-								return (
+							const SliderItemFigureImg = () => {
+								return ! imageURL ? (
+									<MediaPlaceholder
+										icon="format-image"
+										labels={ { title: __( 'Image' ) } }
+										onSelect={ onSelectImage }
+										accept="image/*"
+										allowedTypes={ [ 'image' ] }
+									/>
+								) : (
 									<Fragment>
 										<MediaUpload
 											onSelect={ onSelectImage }
@@ -232,7 +168,7 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 									{ ( !! imageID || isSelected ) &&
 										<div className="smb-slider__item">
 											<div className="smb-slider__item__figure">
-												{ renderMedia() }
+												<SliderItemFigureImg />
 											</div>
 
 											{ ( ! RichText.isEmpty( caption ) || isSelected ) &&
@@ -268,7 +204,7 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 		);
 	},
 
-	save( { attributes } ) {
+	save( { attributes, className } ) {
 		const { slidesToShow, slidesToScroll, dots, arrows, items, content, speed, autoplay, autoplaySpeed, rtl } = attributes;
 
 		const config = generateSliderConfig( {
@@ -282,9 +218,12 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 			rtl: rtl,
 		} );
 
+		const classes = classnames( 'smb-slider', className );
+		const dir = true === config.rtl ? 'rtl' : 'ltr';
+
 		return (
-			<div className="smb-slider">
-				<div className="smb-slider__canvas" dir={ true === config.rtl ? 'rtl' : 'ltr' } data-smb-slider={ JSON.stringify( config ) }>
+			<div className={ classes }>
+				<div className="smb-slider__canvas" dir={ dir } data-smb-slider={ JSON.stringify( config ) }>
 					{ times( items, ( index ) => {
 						const imageID = get( content, [ index, 'imageID' ], 0 );
 						const imageURL = get( content, [ index, 'imageURL' ], '' );

@@ -16,8 +16,10 @@ registerBlockType( 'snow-monkey-blocks/rating-box', {
 		const allowedBlocks = [ 'snow-monkey-blocks/rating-box--item' ];
 		const template = [ [ 'snow-monkey-blocks/rating-box--item' ] ];
 
+		const classes = classnames( 'smb-rating-box', className );
+
 		return (
-			<div className={ classnames( 'smb-rating-box', className ) }>
+			<div className={ classes }>
 				<div className="smb-rating-box__body">
 					<InnerBlocks
 						allowedBlocks={ allowedBlocks }
@@ -29,9 +31,11 @@ registerBlockType( 'snow-monkey-blocks/rating-box', {
 		);
 	},
 
-	save() {
+	save( { className } ) {
+		const classes = classnames( 'smb-rating-box', className );
+
 		return (
-			<div className="smb-rating-box">
+			<div className={ classes }>
 				<div className="smb-rating-box__body">
 					<InnerBlocks.Content />
 				</div>

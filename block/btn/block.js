@@ -2,6 +2,7 @@
 
 import classnames from 'classnames';
 import { deprecated } from './_deprecated.js';
+import { schema } from './_schema.js';
 
 const { registerBlockType } = wp.blocks;
 const { RichText, InspectorControls, PanelColorSettings, ContrastChecker, URLInput } = wp.editor;
@@ -13,37 +14,30 @@ registerBlockType( 'snow-monkey-blocks/btn', {
 	title: __( 'Button', 'snow-monkey-blocks' ),
 	icon: 'embed-generic',
 	category: 'smb',
-	attributes: {
-		content: {
-			source: 'html',
-			selector: '.smb-btn__label',
-			default: __( 'Button', 'snow-monkey-blocks' ),
-		},
-		url: {
-			type: 'string',
-			default: '',
-		},
-		target: {
-			type: 'string',
-			default: '_self',
-		},
-		modifier: {
-			type: 'string',
-			default: '',
-		},
-		backgroundColor: {
-			type: 'string',
-		},
-		textColor: {
-			type: 'string',
-		},
-	},
+	attributes: schema,
 	supports: {
 		align: [ 'left', 'center', 'right' ],
 	},
 
 	edit( { attributes, setAttributes, className } ) {
 		const { content, url, target, modifier, backgroundColor, textColor } = attributes;
+
+		const wrapperClasses = classnames( 'u-clearfix', 'smb-btn-wrapper', className );
+
+		const classes = classnames(
+			{
+				'smb-btn': true,
+				[ `smb-btn--${ modifier }` ]: !! modifier,
+			}
+		);
+
+		const btnStyles = {
+			backgroundColor: backgroundColor || undefined,
+		};
+
+		const btnLabelStyles = {
+			color: textColor || undefined,
+		};
 
 		return (
 			<Fragment>
@@ -111,11 +105,11 @@ registerBlockType( 'snow-monkey-blocks/btn', {
 					</PanelColorSettings>
 				</InspectorControls>
 
-				<div className={ classnames( 'u-clearfix', 'smb-btn-wrapper', className ) }>
+				<div className={ wrapperClasses }>
 					<span
-						className={ classnames( 'smb-btn', { [ `smb-btn--${ modifier }` ]: !! modifier } ) }
+						className={ classes }
 						href={ url }
-						style={ { backgroundColor: backgroundColor } }
+						style={ btnStyles }
 						target={ '_self' === target ? undefined : target }
 						rel={ '_self' === target ? undefined : 'noopener noreferrer' }
 					>
@@ -124,7 +118,7 @@ registerBlockType( 'snow-monkey-blocks/btn', {
 							value={ content }
 							placeholder={ __( 'Button', 'snow-monkey-blocks' ) }
 							onChange={ ( value ) => setAttributes( { content: value } ) }
-							style={ { color: textColor } }
+							style={ btnLabelStyles }
 							formattingControls={ [] }
 						/>
 					</span>
@@ -133,19 +127,36 @@ registerBlockType( 'snow-monkey-blocks/btn', {
 		);
 	},
 
-	save( { attributes } ) {
+	save( { attributes, className } ) {
 		const { content, url, target, modifier, backgroundColor, textColor } = attributes;
 
+		const wrapperClasses = classnames( 'u-clearfix', 'smb-btn-wrapper', className );
+
+		const classes = classnames(
+			{
+				'smb-btn': true,
+				[ `smb-btn--${ modifier }` ]: !! modifier,
+			}
+		);
+
+		const btnStyles = {
+			backgroundColor: backgroundColor || undefined,
+		};
+
+		const btnLabelStyles = {
+			color: textColor || undefined,
+		};
+
 		return (
-			<div className="u-clearfix smb-btn-wrapper">
+			<div className={ wrapperClasses }>
 				<a
-					className={ classnames( 'smb-btn', { [ `smb-btn--${ modifier }` ]: !! modifier } ) }
+					className={ classes }
 					href={ url }
-					style={ { backgroundColor: backgroundColor } }
+					style={ btnStyles }
 					target={ '_self' === target ? undefined : target }
 					rel={ '_self' === target ? undefined : 'noopener noreferrer' }
 				>
-					<span className="smb-btn__label" style={ { color: textColor } }>
+					<span className="smb-btn__label" style={ btnLabelStyles }>
 						<RichText.Content value={ content } />
 					</span>
 				</a>

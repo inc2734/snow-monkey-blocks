@@ -1,6 +1,8 @@
 'use strict';
 
 import classnames from 'classnames';
+import { schema } from './_schema.js';
+import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
 const { RichText, MediaUpload } = wp.editor;
@@ -12,31 +14,7 @@ registerBlockType( 'snow-monkey-blocks/testimonial--item', {
 	icon: 'admin-comments',
 	category: 'smb',
 	parent: [ 'snow-monkey-blocks/testimonial' ],
-	attributes: {
-		avatarID: {
-			type: 'number',
-			default: 0,
-		},
-		avatarURL: {
-			type: 'string',
-			source: 'attribute',
-			selector: '.smb-testimonial__item__figure > img',
-			attribute: 'src',
-			default: 'https://0.gravatar.com/avatar/00000000000000000000000000000000?s=128&d=mp&r=g',
-		},
-		name: {
-			source: 'html',
-			selector: '.smb-testimonial__item__name',
-		},
-		lede: {
-			source: 'html',
-			selector: '.smb-testimonial__item__lede',
-		},
-		content: {
-			source: 'html',
-			selector: '.smb-testimonial__item__content',
-		},
-	},
+	attributes: schema,
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { avatarID, avatarURL, name, lede, content } = attributes;
@@ -49,8 +27,10 @@ registerBlockType( 'snow-monkey-blocks/testimonial--item', {
 			);
 		};
 
+		const colClasses = classnames( 'c-row__col', className );
+
 		return (
-			<div className={ classnames( 'c-row__col', className ) }>
+			<div className={ colClasses }>
 				<div className="smb-testimonial__item">
 					{ ( !! avatarID || isSelected ) &&
 						<div className="smb-testimonial__item__figure">
@@ -97,11 +77,13 @@ registerBlockType( 'snow-monkey-blocks/testimonial--item', {
 		);
 	},
 
-	save( { attributes } ) {
+	save( { attributes, className } ) {
 		const { avatarID, avatarURL, name, lede, content } = attributes;
 
+		const colClasses = classnames( 'c-row__col', className );
+
 		return (
-			<div className="c-row__col">
+			<div className={ colClasses }>
 				<div className="smb-testimonial__item">
 					<div className="smb-testimonial__item__figure">
 						<img src={ avatarURL } alt="" className={ `wp-image-${ avatarID }` } />
@@ -125,4 +107,6 @@ registerBlockType( 'snow-monkey-blocks/testimonial--item', {
 			</div>
 		);
 	},
+
+	deprecated: deprecated,
 } );

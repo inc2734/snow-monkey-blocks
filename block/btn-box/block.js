@@ -1,6 +1,7 @@
 'use strict';
 
 import classnames from 'classnames';
+import { schema } from './_schema.js';
 import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
@@ -13,48 +14,30 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 	title: __( 'Button box', 'snow-monkey-blocks' ),
 	icon: 'embed-generic',
 	category: 'smb',
-	attributes: {
-		lede: {
-			source: 'html',
-			selector: '.smb-btn-box__lede',
-		},
-		note: {
-			source: 'html',
-			selector: '.smb-btn-box__note',
-		},
-		backgroundColor: {
-			type: 'string',
-		},
-		btnLabel: {
-			source: 'html',
-			selector: '.smb-btn__label',
-			default: __( 'Button', 'snow-monkey-blocks' ),
-		},
-		btnURL: {
-			type: 'string',
-			default: '',
-		},
-		btnTarget: {
-			type: 'string',
-			default: '_self',
-		},
-		btnBackgroundColor: {
-			type: 'string',
-		},
-		btnTextColor: {
-			type: 'string',
-		},
-		btnSize: {
-			type: 'string',
-			default: null,
-		},
-	},
+	attributes: schema,
 	supports: {
 		align: [ 'wide', 'full' ],
 	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { lede, note, backgroundColor, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, btnSize } = attributes;
+
+		const classes = classnames( 'smb-btn-box', className );
+
+		const btnClasses = classnames(
+			{
+				'smb-btn': true,
+				[ `smb-btn--${ btnSize }` ]: !! btnSize,
+			}
+		);
+
+		const btnBoxStyle = {
+			backgroundColor: backgroundColor || undefined,
+		};
+
+		const btnBoxBtnStyles = {
+			backgroundColor: btnBackgroundColor || undefined,
+		};
 
 		return (
 			<Fragment>
@@ -130,7 +113,7 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 					</PanelColorSettings>
 				</InspectorControls>
 
-				<div className={ classnames( 'smb-btn-box', className ) } style={ { backgroundColor: backgroundColor } }>
+				<div className={ classes } style={ btnBoxStyle }>
 					<div className="c-container">
 						{ ( ! RichText.isEmpty( lede ) || isSelected ) &&
 							<RichText
@@ -144,9 +127,9 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 
 						<div className="smb-btn-box__btn-wrapper">
 							<span
-								className={ classnames( 'smb-btn', { [ `smb-btn--${ btnSize }` ]: !! btnSize } ) }
+								className={ btnClasses }
 								href={ btnURL }
-								style={ { backgroundColor: btnBackgroundColor } }
+								style={ btnBoxBtnStyles }
 								target={ '_self' === btnTarget ? undefined : btnTarget }
 								rel={ '_self' === btnTarget ? undefined : 'noopener noreferrer' }
 							>
@@ -176,11 +159,28 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 		);
 	},
 
-	save( { attributes } ) {
+	save( { attributes, className } ) {
 		const { lede, note, backgroundColor, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, btnSize } = attributes;
 
+		const classes = classnames( 'smb-btn-box', className );
+
+		const btnClasses = classnames(
+			{
+				'smb-btn': true,
+				[ `smb-btn--${ btnSize }` ]: !! btnSize,
+			}
+		);
+
+		const btnBoxStyle = {
+			backgroundColor: backgroundColor || undefined,
+		};
+
+		const btnBoxBtnStyles = {
+			backgroundColor: btnBackgroundColor || undefined,
+		};
+
 		return (
-			<div className="smb-btn-box" style={ { backgroundColor: backgroundColor } }>
+			<div className={ classes } style={ btnBoxStyle }>
 				<div className="c-container">
 					{ ! RichText.isEmpty( lede ) &&
 						<div className="smb-btn-box__lede">
@@ -190,9 +190,9 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 
 					<div className="smb-btn-box__btn-wrapper">
 						<a
-							className={ classnames( 'smb-btn', { [ `smb-btn--${ btnSize }` ]: !! btnSize } ) }
+							className={ btnClasses }
 							href={ btnURL }
-							style={ { backgroundColor: btnBackgroundColor } }
+							style={ btnBoxBtnStyles }
 							target={ '_self' === btnTarget ? undefined : btnTarget }
 							rel={ '_self' === btnTarget ? undefined : 'noopener noreferrer' }
 						>

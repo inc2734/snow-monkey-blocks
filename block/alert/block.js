@@ -2,6 +2,8 @@
 
 import classnames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { schema } from './_schema.js';
+import { deprecated } from './_deprecated.js';
 
 const { times } = lodash;
 const { registerBlockType } = wp.blocks;
@@ -16,24 +18,7 @@ registerBlockType( 'snow-monkey-blocks/alert', {
 	title: __( 'Alert', 'snow-monkey-blocks' ),
 	icon: 'warning',
 	category: 'smb',
-	attributes: {
-		title: {
-			source: 'html',
-			selector: '.smb-alert__title strong',
-		},
-		content: {
-			source: 'html',
-			selector: '.smb-alert__body',
-		},
-		modifier: {
-			type: 'string',
-			default: '',
-		},
-		icon: {
-			type: 'string',
-			default: 'exclamation-circle',
-		},
-	},
+	attributes: schema,
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { title, content, modifier, icon } = attributes;
@@ -69,8 +54,9 @@ registerBlockType( 'snow-monkey-blocks/alert', {
 			},
 		];
 
-		const renderFontAwesomeIcon = () => {
+		const TitleIcon = () => {
 			const displayDefaultIcon = isIconUpdated ? 'none' : 'block';
+
 			return (
 				<Fragment>
 					<div style={ { display: displayDefaultIcon } }>
@@ -80,6 +66,14 @@ registerBlockType( 'snow-monkey-blocks/alert', {
 				</Fragment>
 			);
 		};
+
+		const classes = classnames(
+			{
+				'smb-alert': true,
+				[ className ]: !! className,
+				[ `smb-alert--${ modifier }` ]: !! modifier,
+			}
+		);
 
 		return (
 			<Fragment>
@@ -125,10 +119,12 @@ registerBlockType( 'snow-monkey-blocks/alert', {
 						</BaseControl>
 					</PanelBody>
 				</InspectorControls>
-				<div className={ classnames( 'smb-alert', { [ `smb-alert--${ modifier }` ]: !! modifier }, className ) }>
+
+				<div className={ classes }>
 					{ ( ! RichText.isEmpty( title ) || isSelected ) &&
 						<div className="smb-alert__title">
-							{ renderFontAwesomeIcon() }
+							<TitleIcon />
+
 							<strong>
 								<RichText
 									multiline={ false }
@@ -151,11 +147,19 @@ registerBlockType( 'snow-monkey-blocks/alert', {
 		);
 	},
 
-	save( { attributes } ) {
+	save( { attributes, className } ) {
 		const { title, content, modifier, icon } = attributes;
 
+		const classes = classnames(
+			{
+				'smb-alert': true,
+				[ className ]: !! className,
+				[ `smb-alert--${ modifier }` ]: !! modifier,
+			}
+		);
+
 		return (
-			<div className={ classnames( 'smb-alert', { [ `smb-alert--${ modifier }` ]: !! modifier } ) }>
+			<div className={ classes }>
 				{ ! RichText.isEmpty( title ) &&
 					<div className="smb-alert__title">
 						<i className={ `fas fa-${ icon }` } />
@@ -171,4 +175,6 @@ registerBlockType( 'snow-monkey-blocks/alert', {
 			</div>
 		);
 	},
+
+	deprecated: deprecated,
 } );

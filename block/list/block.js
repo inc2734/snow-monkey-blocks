@@ -1,6 +1,8 @@
 'use strict';
 
 import classnames from 'classnames';
+import { schema } from './_schema.js';
+import { deprecated } from './_deprecated.js';
 
 const { times } = lodash;
 const { registerBlockType } = wp.blocks;
@@ -14,19 +16,7 @@ registerBlockType( 'snow-monkey-blocks/list', {
 	description: __( 'Icons are displayed only on the actual screen.', 'snow-monkey-blocks' ),
 	icon: 'editor-ul',
 	category: 'smb',
-	attributes: {
-		content: {
-			source: 'html',
-			selector: 'ul',
-		},
-		icon: {
-			type: 'string',
-			default: 'angle-right',
-		},
-		iconColor: {
-			type: 'string',
-		},
-	},
+	attributes: schema,
 
 	edit( { attributes, setAttributes, className } ) {
 		const { content, icon, iconColor } = attributes;
@@ -70,6 +60,8 @@ registerBlockType( 'snow-monkey-blocks/list', {
 			},
 		];
 
+		const classes = classnames( 'smb-list', className );
+
 		return (
 			<Fragment>
 				<InspectorControls>
@@ -107,7 +99,7 @@ registerBlockType( 'snow-monkey-blocks/list', {
 					</PanelColorSettings>
 				</InspectorControls>
 
-				<div className={ classnames( 'smb-list', className ) } data-icon={ icon } data-icon-color={ iconColor }>
+				<div className={ classes } data-icon={ icon } data-icon-color={ iconColor }>
 					<RichText
 						tagName="ul"
 						multiline="li"
@@ -119,15 +111,19 @@ registerBlockType( 'snow-monkey-blocks/list', {
 		);
 	},
 
-	save( { attributes } ) {
+	save( { attributes, className } ) {
 		const { content, icon, iconColor } = attributes;
 
+		const classes = classnames( 'smb-list', className );
+
 		return (
-			<div className="smb-list" data-icon={ icon } data-icon-color={ iconColor }>
+			<div className={ classes } data-icon={ icon } data-icon-color={ iconColor }>
 				<ul>
 					<RichText.Content value={ content } />
 				</ul>
 			</div>
 		);
 	},
+
+	deprecated: deprecated,
 } );

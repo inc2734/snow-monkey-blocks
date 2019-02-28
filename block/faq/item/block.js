@@ -1,6 +1,8 @@
 'use strict';
 
 import classnames from 'classnames';
+import { schema } from './_schema.js';
+import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
 const { RichText, InspectorControls, PanelColorSettings } = wp.editor;
@@ -12,25 +14,20 @@ registerBlockType( 'snow-monkey-blocks/faq--item', {
 	icon: 'businessman',
 	category: 'smb',
 	parent: [ 'snow-monkey-blocks/faq' ],
-	attributes: {
-		question: {
-			source: 'html',
-			selector: '.smb-faq__item__question__body',
-		},
-		answer: {
-			source: 'html',
-			selector: '.smb-faq__item__answer__body',
-		},
-		questionColor: {
-			type: 'string',
-		},
-		answerColor: {
-			type: 'string',
-		},
-	},
+	attributes: schema,
 
 	edit( { attributes, setAttributes, className } ) {
 		const { question, answer, questionColor, answerColor } = attributes;
+
+		const classes = classnames( 'smb-faq__item', className );
+
+		const faqItemQestionLabelStyles = {
+			color: questionColor || undefined,
+		};
+
+		const faqItemAnswerLabelStyles = {
+			color: answerColor || undefined,
+		};
 
 		return (
 			<Fragment>
@@ -53,9 +50,9 @@ registerBlockType( 'snow-monkey-blocks/faq--item', {
 					</PanelColorSettings>
 				</InspectorControls>
 
-				<div className={ classnames( 'smb-faq__item', className ) }>
+				<div className={ classes }>
 					<div className="smb-faq__item__question">
-						<div className="smb-faq__item__question__label" style={ { color: questionColor } }>
+						<div className="smb-faq__item__question__label" style={ faqItemQestionLabelStyles }>
 							Q
 						</div>
 						<RichText
@@ -69,7 +66,7 @@ registerBlockType( 'snow-monkey-blocks/faq--item', {
 					</div>
 
 					<div className="smb-faq__item__answer">
-						<div className="smb-faq__item__answer__label" style={ { color: answerColor } }>
+						<div className="smb-faq__item__answer__label" style={ faqItemAnswerLabelStyles }>
 							A
 						</div>
 						<RichText
@@ -85,13 +82,23 @@ registerBlockType( 'snow-monkey-blocks/faq--item', {
 		);
 	},
 
-	save( { attributes } ) {
+	save( { attributes, className } ) {
 		const { question, answer, questionColor, answerColor } = attributes;
 
+		const classes = classnames( 'smb-faq__item', className );
+
+		const faqItemQestionLabelStyles = {
+			color: questionColor || undefined,
+		};
+
+		const faqItemAnswerLabelStyles = {
+			color: answerColor || undefined,
+		};
+
 		return (
-			<div className="smb-faq__item">
+			<div className={ classes }>
 				<div className="smb-faq__item__question">
-					<div className="smb-faq__item__question__label" style={ { color: questionColor } }>
+					<div className="smb-faq__item__question__label" style={ faqItemQestionLabelStyles }>
 						Q
 					</div>
 					<div className="smb-faq__item__question__body">
@@ -100,7 +107,7 @@ registerBlockType( 'snow-monkey-blocks/faq--item', {
 				</div>
 
 				<div className="smb-faq__item__answer">
-					<div className="smb-faq__item__answer__label" style={ { color: answerColor } }>
+					<div className="smb-faq__item__answer__label" style={ faqItemAnswerLabelStyles }>
 						A
 					</div>
 					<div className="smb-faq__item__answer__body">
@@ -110,4 +117,6 @@ registerBlockType( 'snow-monkey-blocks/faq--item', {
 			</div>
 		);
 	},
+
+	deprecated: deprecated,
 } );

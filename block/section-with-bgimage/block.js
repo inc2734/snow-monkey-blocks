@@ -23,6 +23,36 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { title, imageID, imageURL, height, contentsAlignment, maskColor, maskOpacity, textColor, parallax } = attributes;
 
+		const classes = classnames(
+			{
+				'smb-section': true,
+				'smb-section-with-bgimage': true,
+				[ `smb-section-with-bgimage--${ contentsAlignment }` ]: true,
+				[ `smb-section-with-bgimage--${ height }` ]: true,
+				[ className ]: !! className,
+				'js-bg-parallax': !! parallax,
+			}
+		);
+
+		const bgimageClasses = classnames(
+			{
+				'smb-section-with-bgimage__bgimage': true,
+				'js-bg-parallax__bgimage': !! parallax,
+			}
+		);
+
+		const sectionStyles = {
+			color: textColor || undefined,
+		};
+
+		const maskStyles = {
+			backgroundColor: maskColor || undefined,
+		};
+
+		const bgimageStyles = {
+			opacity: maskOpacity,
+		};
+
 		return (
 			<Fragment>
 				<InspectorControls>
@@ -110,7 +140,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 						allowedTypes={ [ 'image' ] }
 					/>
 				}
-				<div className={ classnames( `smb-section smb-section-with-bgimage smb-section-with-bgimage--${ contentsAlignment } smb-section-with-bgimage--${ height }`, { 'js-bg-parallax': !! parallax }, className ) } style={ { color: textColor } }>
+				<div className={ classes } style={ sectionStyles }>
 					{ !! imageURL && isSelected &&
 						<button
 							className="smb-remove-button"
@@ -119,8 +149,8 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 							} }
 						>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
 					}
-					<div className="smb-section-with-bgimage__mask" style={ { backgroundColor: maskColor } }></div>
-					<div className={ classnames( 'smb-section-with-bgimage__bgimage', { 'js-bg-parallax__bgimage': !! parallax } ) } style={ { opacity: maskOpacity } }>
+					<div className="smb-section-with-bgimage__mask" style={ maskStyles }></div>
+					<div className={ bgimageClasses } style={ bgimageStyles }>
 						{ imageURL &&
 							<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
 						}
@@ -146,13 +176,43 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 		);
 	},
 
-	save( { attributes } ) {
+	save( { attributes, className } ) {
 		const { title, imageID, imageURL, height, contentsAlignment, maskColor, maskOpacity, textColor, parallax } = attributes;
 
+		const classes = classnames(
+			{
+				'smb-section': true,
+				'smb-section-with-bgimage': true,
+				[ `smb-section-with-bgimage--${ contentsAlignment }` ]: true,
+				[ `smb-section-with-bgimage--${ height }` ]: true,
+				[ className ]: !! className,
+				'js-bg-parallax': !! parallax,
+			}
+		);
+
+		const bgimageClasses = classnames(
+			{
+				'smb-section-with-bgimage__bgimage': true,
+				'js-bg-parallax__bgimage': !! parallax,
+			}
+		);
+
+		const sectionStyles = {
+			color: textColor || undefined,
+		};
+
+		const maskStyles = {
+			backgroundColor: maskColor || undefined,
+		};
+
+		const bgimageStyles = {
+			opacity: maskOpacity,
+		};
+
 		return (
-			<div className={ classnames( `smb-section smb-section-with-bgimage smb-section-with-bgimage--${ contentsAlignment } smb-section-with-bgimage--${ height }`, { 'js-bg-parallax': !! parallax } ) } style={ { color: textColor } }>
-				<div className="smb-section-with-bgimage__mask" style={ { backgroundColor: maskColor } }></div>
-				<div className={ classnames( 'smb-section-with-bgimage__bgimage', { 'js-bg-parallax__bgimage': !! parallax } ) } style={ { opacity: maskOpacity } }>
+			<div className={ classes } style={ sectionStyles }>
+				<div className="smb-section-with-bgimage__mask" style={ maskStyles }></div>
+				<div className={ bgimageClasses } style={ bgimageStyles }>
 					<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
 				</div>
 				<div className="c-container">

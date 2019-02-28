@@ -1,6 +1,7 @@
 'use strict';
 
 import classnames from 'classnames';
+import { schema } from './_schema.js';
 import { deprecated } from './_deprecated.js';
 
 const { times } = lodash;
@@ -15,57 +16,7 @@ registerBlockType( 'snow-monkey-blocks/items--item', {
 	icon: 'screenoptions',
 	category: 'smb',
 	parent: [ 'snow-monkey-blocks/items' ],
-	attributes: {
-		titleTagName: {
-			type: 'string',
-			default: 'div',
-		},
-		title: {
-			source: 'html',
-			selector: '.smb-items__item__title',
-		},
-		lede: {
-			source: 'html',
-			selector: '.smb-items__item__lede',
-		},
-		summary: {
-			source: 'html',
-			selector: '.smb-items__item__content',
-		},
-		btnLabel: {
-			source: 'html',
-			selector: '.smb-items__item__btn > .smb-btn__label',
-		},
-		btnURL: {
-			type: 'string',
-			source: 'attribute',
-			selector: '.smb-items__item__btn',
-			attribute: 'href',
-			default: '',
-		},
-		btnTarget: {
-			type: 'string',
-			default: '_self',
-		},
-		btnBackgroundColor: {
-			type: 'string',
-		},
-		btnTextColor: {
-			type: 'string',
-		},
-		imageID: {
-			type: 'number',
-			default: 0,
-		},
-		imageURL: {
-			type: 'string',
-			default: '',
-		},
-		isBlockLink: {
-			type: 'boolean',
-			default: false,
-		},
-	},
+	attributes: schema,
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { titleTagName, title, lede, summary, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, imageID, imageURL, isBlockLink } = attributes;
@@ -75,6 +26,16 @@ registerBlockType( 'snow-monkey-blocks/items--item', {
 		const onSelectImage = ( media ) => {
 			const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
 			setAttributes( { imageURL: newImageURL, imageID: media.id } );
+		};
+
+		const classes = classnames( 'c-row__col', className );
+
+		const itemBtnLabelStyles = {
+			color: btnTextColor || undefined,
+		};
+
+		const itemBtnStyles = {
+			backgroundColor: btnBackgroundColor || undefined,
 		};
 
 		const ItemsItemFigureImg = () => {
@@ -188,8 +149,8 @@ registerBlockType( 'snow-monkey-blocks/items--item', {
 					</PanelColorSettings>
 				</InspectorControls>
 
-				<div className="c-row__col">
-					<div className={ classnames( 'smb-items__item', className ) }>
+				<div className={ classes }>
+					<div className="smb-items__item">
 						{ ( !! imageID || isSelected ) &&
 							<div className="smb-items__item__figure">
 								<ItemsItemFigureImg />
@@ -226,13 +187,13 @@ registerBlockType( 'snow-monkey-blocks/items--item', {
 							<div className="smb-items__item__action">
 								<span className="smb-items__item__btn smb-btn"
 									href={ btnURL }
-									style={ { backgroundColor: btnBackgroundColor } }
+									style={ itemBtnStyles }
 									target={ '_self' === btnTarget ? undefined : btnTarget }
 									rel={ '_self' === btnTarget ? undefined : 'noopener noreferrer' }
 								>
 									<RichText
 										className="smb-btn__label"
-										style={ { color: btnTextColor } }
+										style={ itemBtnLabelStyles }
 										value={ btnLabel }
 										placeholder={ __( 'Button', 'snow-monkey-blocks' ) }
 										formattingControls={ [] }
@@ -247,12 +208,22 @@ registerBlockType( 'snow-monkey-blocks/items--item', {
 		);
 	},
 
-	save( { attributes } ) {
+	save( { attributes, className } ) {
 		const { titleTagName, title, lede, summary, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, imageID, imageURL, isBlockLink } = attributes;
+
+		const classes = classnames( 'c-row__col', className );
+
+		const itemBtnLabelStyles = {
+			color: btnTextColor || undefined,
+		};
+
+		const itemBtnStyles = {
+			backgroundColor: btnBackgroundColor || undefined,
+		};
 
 		const ItemsItemBtnContent = () => {
 			return (
-				<span className="smb-btn__label" style={ { color: btnTextColor } }>
+				<span className="smb-btn__label" style={ itemBtnLabelStyles }>
 					<RichText.Content value={ btnLabel } />
 				</span>
 			);
@@ -262,7 +233,7 @@ registerBlockType( 'snow-monkey-blocks/items--item', {
 			return !! isBlockLink ? (
 				<span className="smb-items__item__btn smb-btn"
 					href={ btnURL }
-					style={ { backgroundColor: btnBackgroundColor } }
+					style={ itemBtnStyles }
 					target={ '_self' === btnTarget ? undefined : btnTarget }
 					rel={ '_self' === btnTarget ? undefined : 'noopener noreferrer' }
 				>
@@ -271,7 +242,7 @@ registerBlockType( 'snow-monkey-blocks/items--item', {
 			) : (
 				<a className="smb-items__item__btn smb-btn"
 					href={ btnURL }
-					style={ { backgroundColor: btnBackgroundColor } }
+					style={ itemBtnStyles }
 					target={ '_self' === btnTarget ? undefined : btnTarget }
 					rel={ '_self' === btnTarget ? undefined : 'noopener noreferrer' }
 				>
@@ -327,19 +298,14 @@ registerBlockType( 'snow-monkey-blocks/items--item', {
 					<ItemsItemContent />
 				</a>
 			) : (
-				<div
-					className="smb-items__item"
-					href={ btnURL }
-					target={ '_self' === btnTarget ? undefined : btnTarget }
-					rel={ '_self' === btnTarget ? undefined : 'noopener noreferrer' }
-				>
+				<div className="smb-items__item">
 					<ItemsItemContent />
 				</div>
 			);
 		};
 
 		return (
-			<div className="c-row__col">
+			<div className={ classes }>
 				<ItemsItem />
 			</div>
 		);

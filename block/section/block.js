@@ -25,6 +25,36 @@ registerBlockType( 'snow-monkey-blocks/section', {
 	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { title, backgroundColor, contentsWidth, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
 
+		const classes = classnames( 'smb-section', className );
+
+		const topDividerClasses = classnames(
+			'smb-section__divider',
+			'smb-section__divider--top',
+			`smb-section__divider--${ topDividerType }`
+		);
+
+		const bottomDividerClasses = classnames(
+			'smb-section__divider',
+			'smb-section__divider--bottom',
+			`smb-section__divider--${ bottomDividerType }`
+		);
+
+		const containerClasses = classnames(
+			{
+				'c-container': true,
+				'u-slim-width': 'slim' === contentsWidth,
+			}
+		);
+
+		const sectionStyles = {
+			backgroundColor: backgroundColor || undefined,
+		};
+
+		const innerStyles = {
+			paddingTop: topDividerLevel,
+			paddingBottom: bottomDividerLevel,
+		};
+
 		return (
 			<Fragment>
 				<InspectorControls>
@@ -144,21 +174,21 @@ registerBlockType( 'snow-monkey-blocks/section', {
 					</PanelBody>
 				</InspectorControls>
 
-				<div className={ classnames( 'smb-section', className ) } style={ { backgroundColor: backgroundColor } }>
+				<div className={ classes } style={ sectionStyles }>
 					{ !! topDividerLevel &&
-						<div className={ `smb-section__divider smb-section__divider--top smb-section__divider--${ topDividerType }` }>
+						<div className={ topDividerClasses }>
 							{ divider( topDividerType, topDividerLevel, topDividerColor ) }
 						</div>
 					}
 
 					{ !! bottomDividerLevel &&
-						<div className={ `smb-section__divider smb-section__divider--bottom smb-section__divider--${ bottomDividerType }` }>
+						<div className={ bottomDividerClasses }>
 							{ divider( bottomDividerType, bottomDividerLevel, bottomDividerColor ) }
 						</div>
 					}
 
-					<div className="smb-section__inner" style={ { paddingTop: topDividerLevel, paddingBottom: bottomDividerLevel } }>
-						<div className={ classnames( 'c-container', { 'u-slim-width': 'slim' === contentsWidth } ) }>
+					<div className="smb-section__inner" style={ innerStyles }>
+						<div className={ containerClasses }>
 							{ ( ! RichText.isEmpty( title ) || isSelected ) &&
 								<RichText
 									className="smb-section__title"
@@ -180,25 +210,55 @@ registerBlockType( 'snow-monkey-blocks/section', {
 		);
 	},
 
-	save( { attributes } ) {
+	save( { attributes, className } ) {
 		const { title, backgroundColor, contentsWidth, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
 
+		const classes = classnames( 'smb-section', className );
+
+		const topDividerClasses = classnames(
+			'smb-section__divider',
+			'smb-section__divider--top',
+			`smb-section__divider--${ topDividerType }`
+		);
+
+		const bottomDividerClasses = classnames(
+			'smb-section__divider',
+			'smb-section__divider--bottom',
+			`smb-section__divider--${ bottomDividerType }`
+		);
+
+		const containerClasses = classnames(
+			{
+				'c-container': true,
+				'u-slim-width': 'slim' === contentsWidth,
+			}
+		);
+
+		const sectionStyles = {
+			backgroundColor: backgroundColor || undefined,
+		};
+
+		const innerStyles = {
+			paddingTop: topDividerLevel,
+			paddingBottom: bottomDividerLevel,
+		};
+
 		return (
-			<div className="smb-section" style={ { backgroundColor: backgroundColor } }>
+			<div className={ classes } style={ sectionStyles }>
 				{ !! topDividerLevel &&
-					<div className={ `smb-section__divider smb-section__divider--top smb-section__divider--${ topDividerType }` }>
+					<div className={ topDividerClasses }>
 						{ divider( topDividerType, topDividerLevel, topDividerColor ) }
 					</div>
 				}
 
 				{ !! bottomDividerLevel &&
-					<div className={ `smb-section__divider smb-section__divider--bottom smb-section__divider--${ topDividerType }` }>
+					<div className={ bottomDividerClasses }>
 						{ divider( bottomDividerType, bottomDividerLevel, bottomDividerColor ) }
 					</div>
 				}
 
-				<div className="smb-section__inner" style={ { paddingTop: topDividerLevel, paddingBottom: bottomDividerLevel } }>
-					<div className={ classnames( 'c-container', { 'u-slim-width': 'slim' === contentsWidth } ) }>
+				<div className="smb-section__inner" style={ innerStyles }>
+					<div className={ containerClasses }>
 						{ ! RichText.isEmpty( title ) &&
 							<h2 className="smb-section__title">
 								<RichText.Content value={ title } />
