@@ -21,6 +21,7 @@ import '../../block/list/block.js';
 import '../../block/items/block.js';
 import '../../block/items/item/block.js';
 import '../../block/slider/block.js';
+import '../../block/slider/item/block.js';
 import '../../block/panels/block.js';
 import '../../block/panels/item/vertical/block.js';
 import '../../block/panels/item/horizontal/block.js';

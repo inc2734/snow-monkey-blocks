@@ -33,34 +33,4 @@ export const schema = {
 		type: 'boolean',
 		default: false,
 	},
-	content: {
-		type: 'array',
-		source: 'query',
-		selector: '.smb-slider__item',
-		default: [],
-		query: {
-			imageID: {
-				type: 'number',
-				source: 'attribute',
-				selector: '.smb-slider__item__figure > img',
-				attribute: 'data-image-id',
-				default: 0,
-			},
-			imageURL: {
-				type: 'string',
-				source: 'attribute',
-				selector: '.smb-slider__item__figure > img',
-				attribute: 'src',
-				default: '',
-			},
-			caption: {
-				source: 'html',
-				selector: '.smb-slider__item__caption',
-			},
-		},
-	},
-	items: {
-		type: 'number',
-		default: 2,
-	},
 };

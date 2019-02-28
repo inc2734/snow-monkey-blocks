@@ -8,22 +8,34 @@
   }
 }
 
-[data-type="snow-monkey-blocks/slider"].is-selected {
+[data-type="snow-monkey-blocks/slider"] {
   .smb-slider {
     &__canvas {
-      @include _row();
-      @include _row--margin(.5);
-    }
+      > .editor-inner-blocks > .editor-block-list__layout {
+        @include _row();
+        @include _row--margin(.5);
 
-    &__item {
-      position: relative;
-      @include _row__col(1, 2);
-      @include _row__col--margin(.5);
+        > [data-type="snow-monkey-blocks/slider--item"] {
+          position: relative;
+          margin-right: 0;
+          margin-left: 0;
+          @include _row__col(1, 2);
+          @include _row__col--margin(.5);
 
-      .smb-remove-button {
-        position: absolute;
-        top: 5px;
-        right: 5px;
+          .smb-remove-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+          }
+
+          > .editor-block-list__block-edit {
+            margin: 0 !important;
+          }
+        }
+
+        > .block-list-appender {
+          flex: 1 1 100%;
+        }
       }
     }
   }

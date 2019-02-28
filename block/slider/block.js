@@ -2,15 +2,12 @@
 
 import classnames from 'classnames';
 import toNumber from '../../src/js/helper/to-number';
-import generateUpdatedAttribute from '../../src/js/helper/generate-updated-attribute';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { schema } from './_schema.js';
 import { deprecated } from './_deprecated.js';
 
-const { get, times } = lodash;
 const { registerBlockType } = wp.blocks;
-const { InspectorControls, MediaPlaceholder, MediaUpload, RichText } = wp.editor;
-const { PanelBody, RangeControl, ToggleControl, Button } = wp.components;
+const { InspectorControls, InnerBlocks } = wp.editor;
+const { PanelBody, RangeControl, ToggleControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -36,8 +33,11 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 		align: [ 'wide', 'full' ],
 	},
 
-	edit( { attributes, setAttributes, isSelected, className } ) {
-		const { slidesToShow, slidesToScroll, dots, arrows, items, content, speed, autoplaySpeed, rtl } = attributes;
+	edit( { attributes, setAttributes, className } ) {
+		const { slidesToShow, slidesToScroll, dots, arrows, speed, autoplaySpeed, rtl } = attributes;
+
+		const allowedBlocks = [ 'snow-monkey-blocks/slider--item' ];
+		const template = [ [ 'snow-monkey-blocks/slider--item' ] ];
 
 		const classes = classnames( 'smb-slider', className );
 
@@ -45,13 +45,6 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 			<Fragment>
 				<InspectorControls>
 					<PanelBody title={ __( 'Slider Settings', 'snow-monkey-blocks' ) }>
-						<RangeControl
-							label={ __( 'Number of items', 'snow-monkey-blocks' ) }
-							value={ items }
-							onChange={ ( value ) => setAttributes( { items: toNumber( value, 1, 20 ) } ) }
-							min="1"
-							max="20"
-						/>
 						<RangeControl
 							label={ __( '# of slides to show', 'snow-monkey-blocks' ) }
 							value={ slidesToShow }
@@ -108,104 +101,19 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 
 				<div className={ classes }>
 					<div className="smb-slider__canvas">
-						{ times( items, ( index ) => {
-							if ( ! isSelected && 0 < index ) {
-								return false;
-							}
-
-							const imageID = get( content, [ index, 'imageID' ], 0 );
-							const imageURL = get( content, [ index, 'imageURL' ], '' );
-							const caption = get( content, [ index, 'caption' ], '' );
-
-							const onSelectImage = ( media ) => {
-								const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
-								let newContent = content;
-								newContent = generateUpdatedAttribute( newContent, index, 'imageURL', newImageURL );
-								newContent = generateUpdatedAttribute( newContent, index, 'imageID', media.id );
-								setAttributes( { content: newContent } );
-							};
-
-							const SliderItemFigureImg = () => {
-								return ! imageURL ? (
-									<MediaPlaceholder
-										icon="format-image"
-										labels={ { title: __( 'Image' ) } }
-										onSelect={ onSelectImage }
-										accept="image/*"
-										allowedTypes={ [ 'image' ] }
-									/>
-								) : (
-									<Fragment>
-										<MediaUpload
-											onSelect={ onSelectImage }
-											type="image"
-											value={ imageID }
-											render={ ( obj ) => {
-												return (
-													<Button className="image-button" onClick={ obj.open } style={ { padding: 0 } }>
-														<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
-													</Button>
-												);
-											} }
-										/>
-										{ isSelected &&
-											<button
-												className="smb-remove-button"
-												onClick={ () => {
-													let newContent = content;
-													newContent = generateUpdatedAttribute( content, index, 'imageURL', '' );
-													newContent = generateUpdatedAttribute( content, index, 'imageID', 0 );
-													setAttributes( { content: newContent } );
-												} }
-											>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
-										}
-									</Fragment>
-								);
-							};
-
-							return (
-								<Fragment>
-									{ ( !! imageID || isSelected ) &&
-										<div className="smb-slider__item">
-											<div className="smb-slider__item__figure">
-												<SliderItemFigureImg />
-											</div>
-
-											{ ( ! RichText.isEmpty( caption ) || isSelected ) &&
-												<RichText
-													className="smb-slider__item__caption"
-													placeholder={ __( 'Write caption...', 'snow-monkey-blocks' ) }
-													value={ caption }
-													onChange={ ( value ) => setAttributes( { content: generateUpdatedAttribute( content, index, 'caption', value ) } ) }
-												/>
-											}
-										</div>
-									}
-								</Fragment>
-							);
-						} ) }
+						<InnerBlocks
+							allowedBlocks={ allowedBlocks }
+							template={ template }
+							templateLock={ false }
+						/>
 					</div>
-
-					{ isSelected &&
-						<div className="smb-add-item-button-wrapper">
-							{ items > 0 &&
-								<button className="smb-remove-item-button" onClick={ () => setAttributes( { items: items - 1 } ) }>
-									<FontAwesomeIcon icon="minus-circle" />
-								</button>
-							}
-
-							<button className="smb-add-item-button" onClick={ () => setAttributes( { items: items + 1 } ) }>
-								<FontAwesomeIcon icon="plus-circle" />
-							</button>
-						</div>
-					}
 				</div>
 			</Fragment>
 		);
 	},
 
 	save( { attributes, className } ) {
-		const { slidesToShow, slidesToScroll, dots, arrows, items, content, speed, autoplay, autoplaySpeed, rtl } = attributes;
+		const { slidesToShow, slidesToScroll, dots, arrows, speed, autoplay, autoplaySpeed, rtl } = attributes;
 
 		const config = generateSliderConfig( {
 			slidesToShow: slidesToShow,
@@ -224,29 +132,7 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 		return (
 			<div className={ classes }>
 				<div className="smb-slider__canvas" dir={ dir } data-smb-slider={ JSON.stringify( config ) }>
-					{ times( items, ( index ) => {
-						const imageID = get( content, [ index, 'imageID' ], 0 );
-						const imageURL = get( content, [ index, 'imageURL' ], '' );
-						const caption = get( content, [ index, 'caption' ], '' );
-
-						return (
-							<Fragment>
-								{ !! imageID &&
-									<div className="smb-slider__item">
-										<div className="smb-slider__item__figure">
-											<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } data-image-id={ imageID } />
-										</div>
-
-										{ ! RichText.isEmpty( caption ) &&
-											<div className="smb-slider__item__caption">
-												<RichText.Content value={ caption } />
-											</div>
-										}
-									</div>
-								}
-							</Fragment>
-						);
-					} ) }
+					<InnerBlocks.Content />
 				</div>
 			</div>
 		);
