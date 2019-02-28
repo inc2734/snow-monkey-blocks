@@ -10,8 +10,7 @@ branches:
   - develop
   - "/\\d+\\.\\d+\\.\\d+?.*/"
 php:
-- 5.6
-- 7.1
+- 7
 env:
   global:
   - GIT_COMMITTER_NAME=travis-ci
