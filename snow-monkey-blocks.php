@@ -68,7 +68,7 @@ class Bootstrap {
 
 		add_meta_box(
 			'snow-monkey-pr',
-			__( '[ PR ] Premium WordPress Theme Snow Monkey' ),
+			__( '[ PR ] Premium WordPress Theme Snow Monkey', 'snow-monkey-blocks' ),
 			[ $this, '_pr_meta_box_html' ],
 			$post_type,
 			'normal'
