@@ -1,3 +1,8 @@
+.smb-slider > .smb-slider__canvas.slick-initialized {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
 .smb-slider {
   &__canvas {
     visibility: hidden;
@@ -56,6 +61,7 @@
   }
 
   .slick-dots {
+    position: static;
     bottom: 0;
     line-height: 1;
   }
