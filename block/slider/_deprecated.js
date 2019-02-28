@@ -83,7 +83,7 @@ export const deprecated = [
 		},
 
 		save( { attributes, className } ) {
-			const { slidesToShow, slidesToScroll, dots, arrows, items, content, speed, autoplay, autoplaySpeed, rtl } = attributes;
+			const { slidesToShow, slidesToScroll, dots, arrows, content, speed, autoplay, autoplaySpeed, rtl } = attributes;
 			const length = ( 'undefined' === typeof content ) ? 0 : content.length;
 
 			const generateSliderConfig = ( _config ) => {

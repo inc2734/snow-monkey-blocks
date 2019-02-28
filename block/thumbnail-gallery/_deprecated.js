@@ -1,13 +1,145 @@
 'use strict';
 
-import { schema } from './_schema.js';
+import classnames from 'classnames';
 
 const { get, times } = lodash;
 const { Fragment } = wp.element;
+const { createBlock } = wp.blocks;
 
 export const deprecated = [
 	{
-		attributes: schema,
+		attributes: {
+			content: {
+				type: 'array',
+				source: 'query',
+				selector: '.smb-thumbnail-gallery__item',
+				default: [],
+				query: {
+					imageID: {
+						type: 'number',
+						source: 'attribute',
+						selector: '.smb-thumbnail-gallery__item__figure > img',
+						attribute: 'data-image-id',
+						default: 0,
+					},
+					imageURL: {
+						type: 'string',
+						source: 'attribute',
+						selector: '.smb-thumbnail-gallery__item__figure > img',
+						attribute: 'src',
+						default: '',
+					},
+				},
+			},
+			items: {
+				type: 'number',
+				default: 2,
+			},
+		},
+
+		supports: {
+			align: [ 'wide', 'full' ],
+		},
+
+		migrate( attributes ) {
+			const migratedInnerBlocks = () => {
+				const length = ( 'undefined' === typeof attributes.content ) ? 0 : attributes.content.length;
+
+				return times( length, ( index ) => {
+					const imageID = get( attributes.content, [ index, 'imageID' ], 0 );
+					const imageURL = get( attributes.content, [ index, 'imageURL' ], '' );
+
+					return createBlock( 'snow-monkey-blocks/thumbnail-gallery--item', {
+						imageID: Number( imageID ),
+						imageURL: imageURL,
+					} );
+				} );
+			};
+
+			return [
+				{},
+				migratedInnerBlocks(),
+			];
+		},
+
+		save( { attributes, className } ) {
+			const { content } = attributes;
+
+			const classes = classnames( 'smb-thumbnail-gallery', className );
+			const length = ( 'undefined' === typeof content ) ? 0 : content.length;
+
+			return (
+				<div className={ classes }>
+					<div className="smb-thumbnail-gallery__canvas">
+						{ times( length, ( index ) => {
+							const imageID = get( content, [ index, 'imageID' ], 0 );
+							const imageURL = get( content, [ index, 'imageURL' ], '' );
+
+							return (
+								<Fragment>
+									{ !! imageID &&
+										<div className="smb-thumbnail-gallery__item">
+											<div className="smb-thumbnail-gallery__item__figure">
+												<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } data-image-id={ imageID } />
+											</div>
+										</div>
+									}
+								</Fragment>
+							);
+						} ) }
+					</div>
+
+					<div className="smb-thumbnail-gallery__nav">
+						{ times( length, ( index ) => {
+							const imageID = get( content, [ index, 'imageID' ], 0 );
+							const imageURL = get( content, [ index, 'imageURL' ], '' );
+
+							return (
+								<Fragment>
+									{ !! imageID &&
+										<div className="smb-thumbnail-gallery__nav__item">
+											<div className="smb-thumbnail-gallery__nav__item__figure">
+												<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } data-image-id={ imageID } />
+											</div>
+										</div>
+									}
+								</Fragment>
+							);
+						} ) }
+					</div>
+				</div>
+			);
+		},
+	},
+	{
+		attributes: {
+			content: {
+				type: 'array',
+				source: 'query',
+				selector: '.smb-thumbnail-gallery__item',
+				default: [],
+				query: {
+					imageID: {
+						type: 'number',
+						source: 'attribute',
+						selector: '.smb-thumbnail-gallery__item__figure > img',
+						attribute: 'data-image-id',
+						default: 0,
+					},
+					imageURL: {
+						type: 'string',
+						source: 'attribute',
+						selector: '.smb-thumbnail-gallery__item__figure > img',
+						attribute: 'src',
+						default: '',
+					},
+				},
+			},
+			items: {
+				type: 'number',
+				default: 2,
+			},
+		},
 
 		supports: {
 			align: [ 'wide', 'full' ],

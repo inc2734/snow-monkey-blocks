@@ -4,27 +4,27 @@ import classnames from 'classnames';
 import { schema } from './_schema.js';
 
 const { registerBlockType } = wp.blocks;
-const { RichText, MediaPlaceholder, MediaUpload } = wp.editor;
+const { MediaPlaceholder, MediaUpload } = wp.editor;
 const { Button } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
-registerBlockType( 'snow-monkey-blocks/slider--item', {
+registerBlockType( 'snow-monkey-blocks/thumbnail-gallery--item', {
 	title: __( 'Items', 'snow-monkey-blocks' ),
-	icon: 'screenoptions',
+	icon: 'format-gallery',
 	category: 'smb',
-	parent: [ 'snow-monkey-blocks/slider' ],
+	parent: [ 'snow-monkey-blocks/thumbnail-gallery' ],
 	attributes: schema,
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
-		const { imageID, imageURL, caption } = attributes;
+		const { imageID, imageURL } = attributes;
 
 		const onSelectImage = ( media ) => {
 			const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
 			setAttributes( { imageURL: newImageURL, imageID: media.id } );
 		};
 
-		const SliderItemFigureImg = () => {
+		const ItemFigureImg = () => {
 			return ! imageURL ? (
 				<MediaPlaceholder
 					icon="format-image"
@@ -50,52 +50,43 @@ registerBlockType( 'snow-monkey-blocks/slider--item', {
 					{ isSelected &&
 						<button
 							className="smb-remove-button"
-							onClick={ () => {
-								setAttributes( { imageURL: '', imageID: 0 } );
-							} }
+							onClick={ () => setAttributes( { imageURL: '', imageID: 0 } ) }
 						>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
 					}
 				</Fragment>
 			);
 		};
 
-		const classes = classnames( 'smb-slider__item', className );
+		const classes = classnames( 'smb-thumbnail-gallery__item', className );
 
 		return (
-			<div className={ classes }>
-				<div className="smb-slider__item__figure">
-					<SliderItemFigureImg />
-				</div>
-
-				{ ( ! RichText.isEmpty( caption ) || isSelected ) &&
-					<RichText
-						className="smb-slider__item__caption"
-						placeholder={ __( 'Write caption...', 'snow-monkey-blocks' ) }
-						value={ caption }
-						onChange={ ( value ) => setAttributes( { caption: value } ) }
-					/>
+			<Fragment>
+				{ ( !! imageID || isSelected ) &&
+					<div className={ classes }>
+						<div className="smb-thumbnail-gallery__item__figure">
+							<ItemFigureImg />
+						</div>
+					</div>
 				}
-			</div>
+			</Fragment>
 		);
 	},
 
 	save( { attributes, className } ) {
-		const { imageID, imageURL, caption } = attributes;
+		const { imageID, imageURL } = attributes;
 
-		const classes = classnames( 'smb-slider__item', className );
+		const classes = classnames( 'smb-thumbnail-gallery__item', className );
 
 		return (
-			<div className={ classes }>
-				<div className="smb-slider__item__figure">
-					<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
-				</div>
-
-				{ ! RichText.isEmpty( caption ) &&
-					<div className="smb-slider__item__caption">
-						<RichText.Content value={ caption } />
+			<Fragment>
+				{ !! imageID &&
+					<div className={ classes }>
+						<div className="smb-thumbnail-gallery__item__figure">
+							<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
+						</div>
 					</div>
 				}
-			</div>
+			</Fragment>
 		);
 	},
 } );
