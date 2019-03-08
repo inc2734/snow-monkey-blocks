@@ -13,11 +13,12 @@ $custom_template  = $widget_templates . '/recent-posts.php';
 $default_template = get_template_directory() . '/app/widget/snow-monkey-recent-posts/_widget.php';
 
 $instance = [
-	'title'          => null,
-	'posts-per-page' => $attributes['postsPerPage'],
-	'layout'         => $attributes['layout'],
-	'link-text'      => null,
-	'link-url'       => null,
+	'title'               => null,
+	'posts-per-page'      => $attributes['postsPerPage'],
+	'layout'              => $attributes['layout'],
+	'ignore-sticky-posts' => $attributes['ignoreStickyPosts'],
+	'link-text'           => null,
+	'link-url'            => null,
 ];
 
 $args     = [

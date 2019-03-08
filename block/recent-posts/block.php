@@ -20,13 +20,17 @@ add_action(
 			[
 				'attributes' => [
 					'postsPerPage' => [
-						'type' => 'number',
+						'type'    => 'number',
 						'default' => 6,
 					],
 					'layout' => [
-						'type' => 'string',
+						'type'    => 'string',
 						'default' => 'rich-media',
 					],
+					'ignoreStickyPosts' => [
+						'type'    => 'boolean',
+						'default' => true,
+					]
 				],
 				'render_callback' => function( $attributes ) {
 					return DynamicBlocks::render( 'recent-posts', $attributes );

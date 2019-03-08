@@ -4,7 +4,7 @@ import toNumber from '../../src/js/helper/to-number';
 
 const { registerBlockType } = wp.blocks;
 const { InspectorControls } = wp.editor;
-const { PanelBody, SelectControl, RangeControl, ServerSideRender } = wp.components;
+const { PanelBody, SelectControl, RangeControl, ServerSideRender, ToggleControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -14,7 +14,7 @@ registerBlockType( 'snow-monkey-blocks/recent-posts', {
 	category: 'smb',
 
 	edit( { attributes, setAttributes } ) {
-		const { postsPerPage, layout } = attributes;
+		const { postsPerPage, layout, ignoreStickyPosts } = attributes;
 
 		return (
 			<Fragment>
@@ -46,6 +46,12 @@ registerBlockType( 'snow-monkey-blocks/recent-posts', {
 									label: __( 'Text', 'snow-monkey-blocks' ),
 								},
 							] }
+						/>
+
+						<ToggleControl
+							label={ __( 'Ignore sticky posts', 'snow-monkey-blocks' ) }
+							checked={ ignoreStickyPosts }
+							onChange={ ( value ) => setAttributes( { ignoreStickyPosts: value } ) }
 						/>
 					</PanelBody>
 				</InspectorControls>
