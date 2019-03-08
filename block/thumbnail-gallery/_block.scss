@@ -40,4 +40,20 @@
   &__nav {
     display: none !important;
   }
+
+  .slick-next {
+    right: 10px;
+    z-index: 1;
+  }
+
+  .slick-prev {
+    left: 10px;
+    z-index: 1;
+  }
+
+  .slick-dots {
+    position: static;
+    bottom: 0;
+    line-height: 1;
+  }
 }

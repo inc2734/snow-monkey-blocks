@@ -1,13 +1,33 @@
 'use strict';
 
-import smbList from './_list.js';
-new smbList();
+import List from '../../block/list/_list.js';
+import Slider from '../../block/slider/_slider.js';
+import ThumbnailGallery from '../../block/thumbnail-gallery/_thumbnail-gallery.js';
+import CategoriesList from '../../block/categories-list/_categories-list.js';
 
-import smbSlider from './_slider.js';
-new smbSlider();
+document.addEventListener(
+	'DOMContentLoaded',
+	() => {
+		new List();
+		new Slider();
+		new ThumbnailGallery();
+		new CategoriesList();
+	},
+	false
+);
 
-import smbThumbnailGallery from './_thumbnail-gallery.js';
-new smbThumbnailGallery();
+window.addEventListener(
+	'load',
+	() => {
+		new CategoriesList();
+	},
+	false
+);
 
-import smbCategoriesList from './_categories-list.js';
-new smbCategoriesList();
+window.addEventListener(
+	'resize',
+	() => {
+		new CategoriesList();
+	},
+	false
+);

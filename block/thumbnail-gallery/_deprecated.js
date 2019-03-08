@@ -1,12 +1,42 @@
 'use strict';
 
 import classnames from 'classnames';
+import { schema } from './_schema.js';
 
 const { get, times } = lodash;
 const { Fragment } = wp.element;
 const { createBlock } = wp.blocks;
+const { InnerBlocks } = wp.editor;
 
 export const deprecated = [
+	{
+		attributes: schema,
+
+		supports: {
+			align: [ 'wide', 'full' ],
+		},
+
+		migrate() {
+			return {
+				arrows: schema.arrows.default,
+				speed: schema.speed.default,
+				autoplay: schema.autoplay.default,
+				autoplaySpeed: schema.autoplaySpeed.default,
+			};
+		},
+
+		save( { className } ) {
+			const classes = classnames( 'smb-thumbnail-gallery', className );
+
+			return (
+				<div className={ classes }>
+					<div className="smb-thumbnail-gallery__canvas">
+						<InnerBlocks.Content />
+					</div>
+				</div>
+			);
+		},
+	},
 	{
 		attributes: {
 			content: {
