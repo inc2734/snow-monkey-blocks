@@ -62,10 +62,6 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 				setTimeout( () => new BgVideo( this.iframeRef ), 0 );
 			}
 
-			componentDidUpdate() {
-				new BgVideo( this.iframeRef );
-			}
-
 			render() {
 				return (
 					<iframe
