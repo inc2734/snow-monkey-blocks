@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2019-03-08 16:30+0900\n"
-"PO-Revision-Date: 2019-03-08 16:30+0900\n"
+"POT-Creation-Date: 2019-03-09 12:47+0900\n"
+"PO-Revision-Date: 2019-03-09 12:48+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -143,7 +143,8 @@ msgstr "アイコン"
 #: block/media-text/block.js:162 block/panels/item/horizontal/block.js:157
 #: block/panels/item/vertical/block.js:132
 #: block/pricing-table/item/block.js:134 block/rating-box/item/block.js:61
-#: block/section-with-bgimage/block.js:166 block/section/block.js:199
+#: block/section-with-bgimage/block.js:166
+#: block/section-with-bgvideo/block.js:187 block/section/block.js:199
 #: block/step/item/block.js:151
 msgid "Write title..."
 msgstr "タイトルを書く…"
@@ -169,7 +170,8 @@ msgstr "逆の吹き出し"
 #: block/faq/item/block.js:36 block/items/item/block.js:130
 #: block/list/block.js:89 block/pricing-table/item/block.js:102
 #: block/rating-box/item/block.js:45 block/section-with-bgimage/block.js:113
-#: block/section/block.js:80 block/step/item/block.js:128
+#: block/section-with-bgvideo/block.js:154 block/section/block.js:80
+#: block/step/item/block.js:128
 msgid "Color Settings"
 msgstr "色設定"
 
@@ -205,6 +207,7 @@ msgstr "枠線の色"
 #: block/box/block.js:62 block/btn/block.js:97
 #: block/pricing-table/item/block.js:113
 #: block/section-with-bgimage/block.js:124
+#: block/section-with-bgvideo/block.js:165
 msgid "Text Color"
 msgstr "文字色"
 
@@ -558,12 +561,14 @@ msgid "Image Position"
 msgstr "画像の位置"
 
 #: block/media-text/block.js:116 block/panels/item/horizontal/block.js:102
-#: block/section-with-bgimage/block.js:90 block/step/item/block.js:95
+#: block/section-with-bgimage/block.js:90
+#: block/section-with-bgvideo/block.js:137 block/step/item/block.js:95
 msgid "Right side"
 msgstr "右側"
 
 #: block/media-text/block.js:120 block/panels/item/horizontal/block.js:106
-#: block/section-with-bgimage/block.js:82 block/step/item/block.js:87
+#: block/section-with-bgimage/block.js:82
+#: block/section-with-bgvideo/block.js:129 block/step/item/block.js:87
 msgid "Left side"
 msgstr "左側"
 
@@ -699,31 +704,38 @@ msgstr "先頭固定表示を除外する"
 msgid "Section (with background image)"
 msgstr "セクション（背景画像あり）"
 
-#: block/section-with-bgimage/block.js:59 block/section/block.js:61
+#: block/section-with-bgimage/block.js:59
+#: block/section-with-bgvideo/block.js:83 block/section/block.js:61
 msgid "Section Settings"
 msgstr "セクション設定"
 
 #: block/section-with-bgimage/block.js:61
+#: block/section-with-bgvideo/block.js:108
 msgid "Height"
 msgstr "高さ"
 
 #: block/section-with-bgimage/block.js:66
+#: block/section-with-bgvideo/block.js:113
 msgid "Fit"
 msgstr "フィット"
 
 #: block/section-with-bgimage/block.js:70
+#: block/section-with-bgvideo/block.js:117
 msgid "Wide"
 msgstr "広め"
 
 #: block/section-with-bgimage/block.js:77
+#: block/section-with-bgvideo/block.js:124
 msgid "Contents alignment"
 msgstr "コンテンツの水平位置"
 
-#: block/section-with-bgimage/block.js:86 block/step/item/block.js:91
+#: block/section-with-bgimage/block.js:86
+#: block/section-with-bgvideo/block.js:133 block/step/item/block.js:91
 msgid "Center"
 msgstr "中央"
 
 #: block/section-with-bgimage/block.js:97
+#: block/section-with-bgvideo/block.js:144
 msgid "Mask Opacity"
 msgstr "背景マスクの透明度"
 
@@ -732,8 +744,25 @@ msgid "Parallax"
 msgstr "パララックス"
 
 #: block/section-with-bgimage/block.js:119
+#: block/section-with-bgvideo/block.js:160
 msgid "Mask Color"
 msgstr "背景マスクの色"
+
+#: block/section-with-bgvideo/block.js:23
+msgid "Section (with background video)"
+msgstr "セクション（背景動画あり）"
+
+#: block/section-with-bgvideo/block.js:84
+msgid "YouTube URL"
+msgstr "YouTube URL"
+
+#: block/section-with-bgvideo/block.js:92
+msgid "Video width"
+msgstr "動画の横幅"
+
+#: block/section-with-bgvideo/block.js:100
+msgid "Video height"
+msgstr "ビデオの高さ"
 
 #: block/section/block.js:16
 msgid "Section"
