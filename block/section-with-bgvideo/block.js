@@ -95,7 +95,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 						<RangeControl
 							label={ __( 'Video width', 'snow-monkey-blocks' ) }
 							value={ videoWidth }
-							onChange={ ( value ) => setAttributes( { postsPerPage: toNumber( value, 1, 12 ) } ) }
+							onChange={ ( value ) => setAttributes( { videoWidth: toNumber( value, 1, 960 ) } ) }
 							min="1"
 							max="960"
 						/>
@@ -103,7 +103,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 						<RangeControl
 							label={ __( 'Video height', 'snow-monkey-blocks' ) }
 							value={ videoHeight }
-							onChange={ ( value ) => setAttributes( { postsPerPage: toNumber( value, 1, 12 ) } ) }
+							onChange={ ( value ) => setAttributes( { videoHeight: toNumber( value, 1, 960 ) } ) }
 							min="1"
 							max="960"
 						/>
