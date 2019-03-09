@@ -1,0 +1,10 @@
+.smb-section-with-bgvideo {
+  > .smb-section-with-bgimage__bgimage {
+    > iframe {
+      max-height: none;
+      max-width: none;
+      min-height: auto;
+      min-width: auto;
+    }
+  }
+}

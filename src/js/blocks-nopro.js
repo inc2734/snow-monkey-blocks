@@ -6,6 +6,7 @@ jQuery( ( $ ) => {
 		'.smb-section-with-bgimage',
 		'.smb-section-with-image',
 		'.smb-section-with-items',
+		'.smb-section-with-video',
 		'.smb-recent-posts',
 		'.smb-pickup-slider',
 		'.smb-contents-outline',
