@@ -14,7 +14,11 @@ document.addEventListener(
 		new List();
 		new Slider();
 		new ThumbnailGallery();
-		new CategoriesList();
+
+		forEachHtmlNodes(
+			document.querySelectorAll( '.smb-categories-list__list' ),
+			( categoryList ) => new CategoriesList( categoryList )
+		);
 
 		forEachHtmlNodes(
 			document.querySelectorAll( '.smb-section-with-bgimage > .smb-section-with-bgimage__bgimage > iframe' ),
@@ -27,7 +31,10 @@ document.addEventListener(
 window.addEventListener(
 	'load',
 	() => {
-		new CategoriesList();
+		forEachHtmlNodes(
+			document.querySelectorAll( '.smb-categories-list__list' ),
+			( categoryList ) => new CategoriesList( categoryList )
+		);
 
 		forEachHtmlNodes(
 			document.querySelectorAll( '.smb-section-with-bgimage > .smb-section-with-bgimage__bgimage > iframe' ),
@@ -40,7 +47,10 @@ window.addEventListener(
 window.addEventListener(
 	'resize',
 	() => {
-		new CategoriesList();
+		forEachHtmlNodes(
+			document.querySelectorAll( '.smb-categories-list__list' ),
+			( categoryList ) => new CategoriesList( categoryList )
+		);
 
 		forEachHtmlNodes(
 			document.querySelectorAll( '.smb-section-with-bgimage > .smb-section-with-bgimage__bgimage > iframe' ),

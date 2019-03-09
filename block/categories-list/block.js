@@ -1,6 +1,7 @@
 'use strict';
 
 import toNumber from '../../src/js/helper/to-number';
+import CategoriesList from './_categories-list.js';
 
 const { remove, union, indexOf, compact } = lodash;
 const { apiFetch } = wp;
@@ -8,7 +9,7 @@ const { registerStore, withSelect } = wp.data;
 const { registerBlockType } = wp.blocks;
 const { InspectorControls } = wp.editor;
 const { PanelBody, RangeControl, Spinner, CheckboxControl, SelectControl } = wp.components;
-const { Fragment } = wp.element;
+const { Fragment, Component } = wp.element;
 const { __ } = wp.i18n;
 
 const actions = {
@@ -115,7 +116,7 @@ registerBlockType( 'snow-monkey-blocks/categories-list', {
 			);
 		};
 
-		const viewCategoriesList = () => {
+		const View = () => {
 			const articleCategoriesList = [];
 			articleCategories.map( ( category ) => {
 				if ( category.count > 0 && ( -1 === indexOf( exclusionCategories.split( ',' ), String( category.id ) ) ) ) {
@@ -145,11 +146,24 @@ registerBlockType( 'snow-monkey-blocks/categories-list', {
 					);
 				}
 			} );
+
+			class List extends Component {
+				componentDidMount() {
+					setTimeout( () => new CategoriesList( this.ulRef ), 0 );
+				}
+
+				render() {
+					return (
+						<ul className="smb-categories-list__list" ref={ ( ref ) => this.ulRef = ref }>
+							{ articleCategoriesList }
+						</ul>
+					);
+				}
+			}
+
 			return (
 				<div className="smb-categories-list">
-					<ul className="smb-categories-list__list">
-						{ articleCategoriesList }
-					</ul>
+					<List />
 				</div>
 			);
 		};
@@ -192,7 +206,8 @@ registerBlockType( 'snow-monkey-blocks/categories-list', {
 						/>
 					</PanelBody>
 				</InspectorControls>
-				{ viewCategoriesList() }
+
+				<View />
 			</Fragment>
 		);
 	} ),
