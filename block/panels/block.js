@@ -20,7 +20,7 @@ registerBlockType( 'snow-monkey-blocks/panels', {
 	edit( { attributes, setAttributes, className } ) {
 		const { sm, md, lg, imagePadding } = attributes;
 
-		const allowedBlocks = [ 'snow-monkey-blocks/panels--item' ];
+		const allowedBlocks = [ 'snow-monkey-blocks/panels--item', 'snow-monkey-blocks/panels--item--horizontal' ];
 		const template = [ [ 'snow-monkey-blocks/panels--item' ] ];
 
 		const classes = classnames( 'smb-panels', className );
