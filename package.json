@@ -8,14 +8,14 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.15",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@inc2734/for-each-html-nodes": "^0.2.0",
-    "autoprefixer": "^9.4.10",
+    "autoprefixer": "^9.5.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "classnames": "^2.2.6",
     "cpy-cli": "^2.0.0",
     "cssnano": "^4.1.10",
-    "eslint": "^5.15.1",
+    "eslint": "^5.15.3",
     "eslint-config-wordpress": "^2.0.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
@@ -29,7 +29,7 @@
     "sass-basis": "^9.2.10",
     "slick-carousel": "^1.8.1",
     "webpack": "^4.29.6",
-    "webpack-cli": "^3.2.3"
+    "webpack-cli": "^3.3.0"
   },
   "scripts": {
     "clean:css": "rimraf dist/css",
@@ -69,7 +69,6 @@
     "zip:pack": "rsync -a --exclude='/vendor' --exclude='/node_modules' --exclude='.*' --exclude='*.ruleset.xml' --exclude='*.config.js' --exclude='*.xml.dist' --exclude='/bin' --exclude='/tests' --exclude='package*.json' . snow-monkey-blocks && cd snow-monkey-blocks && composer install --no-dev",
     "zip:archive": "zip -9 -qmr snow-monkey-blocks.zip snow-monkey-blocks",
     "zip": "npm run clean:zip && npm run zip:pack && npm run zip:archive",
-    "sync-sm-css": "rimraf src/css/core && cp -r ../../themes/snow-monkey/resources/src/css/core ./src/css/core && rimraf src/css/core/_core.scss",
     "po2json:snow-monkey-blocks-editor": "po2json languages/snow-monkey-blocks-ja.po languages/snow-monkey-blocks-ja-snow-monkey-blocks-editor.json -f jed",
     "po2json": "npm-run-all -p po2json:*"
   },
