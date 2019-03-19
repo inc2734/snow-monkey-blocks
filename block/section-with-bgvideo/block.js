@@ -26,6 +26,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 	attributes: schema,
 	supports: {
 		align: [ 'wide', 'full' ],
+		anchor: true,
 	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
