@@ -1,7 +1,6 @@
 'use strict';
 
 const { remove, union, indexOf, compact } = lodash;
-
 const { registerBlockType } = wp.blocks;
 const { InspectorControls } = wp.editor;
 const { PanelBody, CheckboxControl } = wp.components;
@@ -12,6 +11,9 @@ registerBlockType( 'snow-monkey-blocks/contents-outline', {
 	title: __( 'Contents outline', 'snow-monkey-blocks' ),
 	icon: 'editor-ol',
 	category: 'smb',
+	supports: {
+		customClassName: false,
+	},
 
 	edit( { attributes, setAttributes } ) {
 		const { headings } = attributes;

@@ -18,6 +18,11 @@ add_action(
 		register_block_type(
 			'snow-monkey-blocks/child-pages',
 			[
+				'attributes' => [
+					'className' => [
+						'type' => 'string',
+					],
+				],
 				'render_callback' => function( $attributes, $content ) {
 					return DynamicBlocks::render( 'child-pages', $attributes, $content );
 				},

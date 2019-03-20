@@ -1,5 +1,6 @@
 'use strict';
 
+import classnames from 'classnames';
 import toNumber from '../../src/js/helper/to-number';
 import CategoriesList from './_categories-list.js';
 
@@ -72,6 +73,9 @@ registerBlockType( 'snow-monkey-blocks/categories-list', {
 		};
 	} )( ( props ) => {
 		const { attributes: { articles, exclusionCategories, orderby, order }, articleCategories, className, setAttributes } = props;
+
+		const classes = classnames( 'smb-categories-list', className );
+
 		if ( ! articleCategories.length ) {
 			return (
 				<p className={ className }>
@@ -162,7 +166,7 @@ registerBlockType( 'snow-monkey-blocks/categories-list', {
 			}
 
 			return (
-				<div className="smb-categories-list">
+				<div className={ classes }>
 					<List />
 				</div>
 			);

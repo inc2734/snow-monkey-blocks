@@ -30,7 +30,10 @@ add_action(
 					'ignoreStickyPosts' => [
 						'type'    => 'boolean',
 						'default' => true,
-					]
+					],
+					'className' => [
+						'type' => 'string',
+					],
 				],
 				'render_callback' => function( $attributes ) {
 					return DynamicBlocks::render( 'recent-posts', $attributes );

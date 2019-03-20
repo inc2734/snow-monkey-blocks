@@ -27,6 +27,9 @@ add_action(
 						'type'    => 'string',
 						'default' => 'button',
 					],
+					'className' => [
+						'type' => 'string',
+					],
 				],
 				'render_callback' => function( $attributes ) {
 					return DynamicBlocks::render( 'pickup-slider', $attributes );

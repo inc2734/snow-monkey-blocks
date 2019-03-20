@@ -16,9 +16,14 @@ if ( class_exists( '\Framework\Helper' ) ) {
 if ( ! $pages_query->have_posts() ) {
 	return;
 }
+?>
 
-if ( class_exists( '\Framework\Helper' ) ) {
-	\Framework\Helper::get_template_part( 'template-parts/content/child-pages' );
-} else {
-	get_template_part( 'template-parts/child-pages' );
-}
+<div class="smb-child-pages <?php echo esc_attr( $attributes['className'] ); ?>">
+	<?php
+	if ( class_exists( '\Framework\Helper' ) ) {
+		\Framework\Helper::get_template_part( 'template-parts/content/child-pages' );
+	} else {
+		get_template_part( 'template-parts/child-pages' );
+	}
+	?>
+</div>

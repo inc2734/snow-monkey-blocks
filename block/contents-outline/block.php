@@ -23,6 +23,9 @@ add_action(
 						'type'    => 'string',
 						'default' => 'h2,h3,h4',
 					],
+					'className' => [
+						'type' => 'string',
+					],
 				],
 				'render_callback' => function( $attributes, $content ) {
 					return DynamicBlocks::render( 'contents-outline', $attributes, $content );

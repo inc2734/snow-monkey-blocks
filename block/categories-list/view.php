@@ -18,7 +18,7 @@ if ( isset( $attributes['exclusionCategories'] ) && ! empty( $attributes['exclus
 	$exclusion_id = explode( ',', $attributes['exclusionCategories'] );
 }
 ?>
-<div class="smb-categories-list">
+<div class="smb-categories-list <?php echo esc_attr( $attributes['className'] ); ?>">
 	<ul class="smb-categories-list__list">
 		<?php foreach ( $categories as $category ) : ?>
 			<?php

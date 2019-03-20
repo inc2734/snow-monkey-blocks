@@ -30,6 +30,9 @@ add_action(
 						'type'    => 'string',
 						'default' => '',
 					],
+					'className' => [
+						'type' => 'string',
+					],
 				],
 				'render_callback' => function( $attributes, $content ) {
 					return DynamicBlocks::render( 'categories-list', $attributes, $content );
