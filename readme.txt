@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.0
 Tested up to: 5.1
-Stable tag: 3.1.3
+Stable tag: 3.1.4
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -97,6 +97,9 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 19. Accordion block
 
 == Changelog ==
+
+= 3.1.4 =
+* Fix bug that broken dynamic blocks when set custom class name.
 
 = 3.1.3 =
 * Add anchor setting to the section with background image block and the section with background video block.
