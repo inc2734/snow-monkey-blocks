@@ -17,6 +17,7 @@ $instance = [
 	'posts-per-page'      => $attributes['postsPerPage'],
 	'layout'              => $attributes['layout'],
 	'ignore-sticky-posts' => $attributes['ignoreStickyPosts'],
+	'post-category'       => $attributes['postCategory'],
 	'link-text'           => null,
 	'link-url'            => null,
 ];

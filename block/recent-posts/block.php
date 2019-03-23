@@ -31,6 +31,10 @@ add_action(
 						'type'    => 'boolean',
 						'default' => true,
 					],
+					'postCategory' => [
+						'type'    => 'string',
+						'default' => '',
+					],
 					'className' => [
 						'type' => 'string',
 					],

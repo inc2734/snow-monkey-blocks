@@ -72,7 +72,8 @@ registerBlockType( 'snow-monkey-blocks/categories-list', {
 			articleCategories: select( 'snow-monkey-blocks/categories-list' ).receiveArticleCategories(),
 		};
 	} )( ( props ) => {
-		const { attributes: { articles, exclusionCategories, orderby, order }, articleCategories, className, setAttributes } = props;
+		const { attributes, articleCategories, className, setAttributes } = props;
+		const { articles, exclusionCategories, orderby, order } = attributes;
 
 		const classes = classnames( 'smb-categories-list', className );
 

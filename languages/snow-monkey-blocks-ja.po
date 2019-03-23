@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2019-03-12 09:26+0900\n"
-"PO-Revision-Date: 2019-03-12 09:26+0900\n"
+"POT-Creation-Date: 2019-03-23 11:29+0900\n"
+"PO-Revision-Date: 2019-03-23 11:30+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -729,6 +729,26 @@ msgstr "テキスト"
 #: block/recent-posts/block.js:52
 msgid "Ignore sticky posts"
 msgstr "先頭固定表示を除外する"
+
+#: block/recent-posts/block.js:63
+msgid "This is a block that displays a list of recent posts"
+msgstr "このブロックは最近の投稿の一覧を表示します"
+
+#: block/recent-posts/block.js:87
+msgid "All"
+msgstr "すべて"
+
+#: block/recent-posts/block.js:97
+msgid "Categories Settings"
+msgstr "カテゴリー設定"
+
+#: block/recent-posts/block.js:98
+msgid "The category with no post is not displayed"
+msgstr "投稿のないカテゴリは表示されません"
+
+#: block/recent-posts/block.js:100
+msgid "Categories"
+msgstr "カテゴリー"
 
 #: block/section-with-bgimage/block.js:15
 msgid "Section (with background image)"
