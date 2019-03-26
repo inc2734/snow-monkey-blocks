@@ -32,7 +32,8 @@ add_action(
 						'default' => true,
 					],
 					'className' => [
-						'type' => 'string',
+						'type'    => 'string',
+						'default' => '',
 					],
 				],
 				'render_callback' => function( $attributes ) {

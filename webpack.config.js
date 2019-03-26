@@ -7,7 +7,12 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
+            presets: ['@babel/preset-env'],
+            plugins: [
+              [ '@babel/plugin-transform-react-jsx', {
+                pragma: 'wp.element.createElement'
+              } ]
+            ]
           }
         }
       }
@@ -15,8 +20,8 @@ module.exports = {
   },
   externals: {
     react: 'React',
-		jquery: 'jQuery',
-		Masonry: 'Masonry'
+    jquery: 'jQuery',
+    Masonry: 'Masonry'
   },
   resolve: {
     extensions: ['.js', '.jsx']

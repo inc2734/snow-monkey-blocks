@@ -3,5 +3,4 @@ node_modules/
 vendor/
 webpack.config.js
 postcss.config.js
-.babelrc
 .eslintrc.js

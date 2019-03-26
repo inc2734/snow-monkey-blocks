@@ -17,8 +17,11 @@ $exclusion_id = [];
 if ( isset( $attributes['exclusionCategories'] ) && ! empty( $attributes['exclusionCategories'] ) ) {
 	$exclusion_id = explode( ',', $attributes['exclusionCategories'] );
 }
+
+$classnames[] = 'smb-categories-list';
+$classnames[] = $attributes['className'];
 ?>
-<div class="smb-categories-list <?php echo esc_attr( $attributes['className'] ); ?>">
+<div class="<?php echo esc_attr( join( ' ', $classnames ) ); ?>">
 	<ul class="smb-categories-list__list">
 		<?php foreach ( $categories as $category ) : ?>
 			<?php

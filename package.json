@@ -3,6 +3,7 @@
   "license": "GPL-2.0+",
   "devDependencies": {
     "@babel/core": "^7.3.4",
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
     "@babel/preset-env": "^7.3.4",
     "@fortawesome/fontawesome-free": "^5.7.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.15",
@@ -11,7 +12,6 @@
     "autoprefixer": "^9.5.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
-    "babel-plugin-transform-react-jsx": "^6.24.1",
     "classnames": "^2.2.6",
     "cpy-cli": "^2.0.0",
     "cssnano": "^4.1.10",

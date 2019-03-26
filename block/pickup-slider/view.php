@@ -20,7 +20,7 @@ $instance = [
 $args     = [
 	'before_widget' => '',
 	'after_widget'  => '',
-	'widget_id'     => 'inc2734_wp_awesome_widgets_pickup_slider_' . rand(),
+	'widget_id'     => 'snow_monkey_blocks_pickup_slider_' . rand(),
 ];
 
 ob_start();
@@ -36,8 +36,11 @@ $widget = ob_get_clean();
 if ( empty( $widget ) ) {
 	return;
 }
+
+$classnames[] = 'smb-pickup-slider';
+$classnames[] = $attributes['className'];
 ?>
-<div class="smb-pickup-slider">
+<div class="<?php echo esc_attr( join( ' ', $classnames ) ); ?>">
 	<?php
 	// @codingStandardsIgnoreStart
 	echo apply_filters( 'inc2734_wp_awesome_widgets_render_widget', $widget, $args, $instance );

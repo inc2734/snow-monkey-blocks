@@ -24,7 +24,7 @@ $instance = [
 $args     = [
 	'before_widget' => '',
 	'after_widget'  => '',
-	'widget_id'     => 'inc2734_wp_awesome_widgets_pickup_slider_' . rand(),
+	'widget_id'     => 'snow_monkey_blocks_recent_posts_' . rand(),
 	'id'            => null,
 ];
 
@@ -41,8 +41,11 @@ $widget = ob_get_clean();
 if ( empty( $widget ) ) {
 	return;
 }
+
+$classnames[] = 'smb-recent-posts';
+$classnames[] = $attributes['className'];
 ?>
-<div class="smb-recent-posts <?php echo esc_attr( $attributes['className'] ); ?>">
+<div class="<?php echo esc_attr( join( ' ', $classnames ) ); ?>">
 	<?php
 	// @codingStandardsIgnoreStart
 	echo apply_filters( 'inc2734_wp_awesome_widgets_render_widget', $widget, $args, $instance );

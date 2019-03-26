@@ -28,7 +28,8 @@ add_action(
 						'default' => 'button',
 					],
 					'className' => [
-						'type' => 'string',
+						'type'    => 'string',
+						'default' => '',
 					],
 				],
 				'render_callback' => function( $attributes ) {

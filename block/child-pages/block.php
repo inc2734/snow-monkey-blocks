@@ -20,7 +20,8 @@ add_action(
 			[
 				'attributes' => [
 					'className' => [
-						'type' => 'string',
+						'type'    => 'string',
+						'default' => '',
 					],
 				],
 				'render_callback' => function( $attributes, $content ) {
