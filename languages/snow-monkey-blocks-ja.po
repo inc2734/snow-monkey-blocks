@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2019-03-12 09:26+0900\n"
-"PO-Revision-Date: 2019-03-12 09:26+0900\n"
+"POT-Creation-Date: 2019-03-26 14:47+0900\n"
+"PO-Revision-Date: 2019-03-26 14:48+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -23,16 +23,16 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-3: tests\n"
 "X-Poedit-SearchPathExcluded-4: languages\n"
 
-#: block/categories-list/view.php:33 block/categories-list/block.js:127
+#: block/categories-list/view.php:36 block/categories-list/block.js:131
 msgid "articles"
 msgstr "記事"
 
-#: block/categories-list/view.php:51 block/categories-list/block.js:139
+#: block/categories-list/view.php:54 block/categories-list/block.js:143
 #: block/recent-posts/block.js:12
 msgid "Recent posts"
 msgstr "最近の投稿"
 
-#: block/categories-list/view.php:71
+#: block/categories-list/view.php:74
 msgid "(no title)"
 msgstr "(タイトルなし)"
 
@@ -144,8 +144,8 @@ msgstr "アイコン"
 #: block/media-text/block.js:162 block/panels/item/horizontal/block.js:157
 #: block/panels/item/vertical/block.js:132
 #: block/pricing-table/item/block.js:134 block/rating-box/item/block.js:61
-#: block/section-with-bgimage/block.js:166
-#: block/section-with-bgvideo/block.js:187 block/section/block.js:199
+#: block/section-with-bgimage/block.js:167
+#: block/section-with-bgvideo/block.js:188 block/section/block.js:199
 #: block/step/item/block.js:151
 msgid "Write title..."
 msgstr "タイトルを書く…"
@@ -171,8 +171,8 @@ msgstr "逆の吹き出し"
 #: block/faq/item/block.js:36 block/items/item/block-link/block.js:122
 #: block/items/item/block.js:136 block/items/item/standard/block.js:122
 #: block/list/block.js:89 block/pricing-table/item/block.js:102
-#: block/rating-box/item/block.js:45 block/section-with-bgimage/block.js:113
-#: block/section-with-bgvideo/block.js:154 block/section/block.js:80
+#: block/rating-box/item/block.js:45 block/section-with-bgimage/block.js:114
+#: block/section-with-bgvideo/block.js:155 block/section/block.js:80
 #: block/step/item/block.js:128
 msgid "Color Settings"
 msgstr "色設定"
@@ -208,8 +208,8 @@ msgstr "枠線の色"
 
 #: block/box/block.js:62 block/btn/block.js:97
 #: block/pricing-table/item/block.js:113
-#: block/section-with-bgimage/block.js:124
-#: block/section-with-bgvideo/block.js:165
+#: block/section-with-bgimage/block.js:125
+#: block/section-with-bgvideo/block.js:166
 msgid "Text Color"
 msgstr "文字色"
 
@@ -296,82 +296,82 @@ msgstr "リード文を書く…"
 msgid "Write note..."
 msgstr "注釈を書く…"
 
-#: block/categories-list/block.js:64
+#: block/categories-list/block.js:65
 msgid "Categories list"
 msgstr "カテゴリー一覧"
 
-#: block/categories-list/block.js:65
+#: block/categories-list/block.js:66
 msgid "This is a block that displays a list of categories"
 msgstr "このブロックはカテゴリーの一覧を表示します"
 
-#: block/categories-list/block.js:79
+#: block/categories-list/block.js:83
 msgid "Loading Setting Data"
 msgstr "設定をロード中"
 
-#: block/categories-list/block.js:112
+#: block/categories-list/block.js:116
 msgid "Exclusion Categories Settings"
 msgstr "除外カテゴリーの設定"
 
-#: block/categories-list/block.js:113
+#: block/categories-list/block.js:117
 msgid ""
 "Categories with a post count of 0 are not displayed even if they are not "
 "excluded"
 msgstr "投稿数が0のカテゴリは、除外されていない場合でも表示されません"
 
-#: block/categories-list/block.js:142
+#: block/categories-list/block.js:146
 msgid "Only the actual contribution screen is displayed"
 msgstr "通常の投稿画面のみ表示されます"
 
-#: block/categories-list/block.js:174
+#: block/categories-list/block.js:178
 msgid "Categories list Settings"
 msgstr "カテゴリー一覧設定"
 
-#: block/categories-list/block.js:176
+#: block/categories-list/block.js:180
 msgid "Categories List Articles"
 msgstr "カテゴリーリストの記事数"
 
-#: block/categories-list/block.js:184
+#: block/categories-list/block.js:188
 msgid "Display order settings"
 msgstr "表示順の設定"
 
-#: block/categories-list/block.js:185
+#: block/categories-list/block.js:189
 msgid ""
 "The display order you set is valid only on the actual contribution screen"
 msgstr "設定した表示順は実際の投稿画面でのみ有効です"
 
-#: block/categories-list/block.js:187
+#: block/categories-list/block.js:191
 msgid "orderby"
 msgstr "並べ替えの基準"
 
-#: block/categories-list/block.js:190
+#: block/categories-list/block.js:194
 msgid "category id"
 msgstr "カテゴリーID"
 
-#: block/categories-list/block.js:191
+#: block/categories-list/block.js:195
 msgid "category name"
 msgstr "カテゴリー名"
 
-#: block/categories-list/block.js:192
+#: block/categories-list/block.js:196
 msgid "category slug"
 msgstr "カテゴリースラッグ"
 
-#: block/categories-list/block.js:193
+#: block/categories-list/block.js:197
 msgid "category post count"
 msgstr "記事数"
 
-#: block/categories-list/block.js:194
+#: block/categories-list/block.js:198
 msgid "term_group"
 msgstr "タームグループ"
 
-#: block/categories-list/block.js:199
+#: block/categories-list/block.js:203
 msgid "order"
 msgstr "並べ替えの種別"
 
-#: block/categories-list/block.js:202
+#: block/categories-list/block.js:206
 msgid "asc"
 msgstr "昇順"
 
-#: block/categories-list/block.js:203
+#: block/categories-list/block.js:207
 msgid "desc"
 msgstr "降順"
 
@@ -383,27 +383,27 @@ msgstr "このページの子ページ"
 msgid "In the actual screen, it is displayed when the page have child pages."
 msgstr "実際の画面では、このページが子ページを持っている場合に表示されます。"
 
-#: block/contents-outline/block.js:12 block/contents-outline/block.js:61
+#: block/contents-outline/block.js:11 block/contents-outline/block.js:63
 msgid "Contents outline"
 msgstr "目次"
 
-#: block/contents-outline/block.js:34
+#: block/contents-outline/block.js:36
 msgid "Contents Outline Settings"
 msgstr "目次設定"
 
-#: block/contents-outline/block.js:38
+#: block/contents-outline/block.js:40
 msgid "Show h2"
 msgstr "h2 を表示"
 
-#: block/contents-outline/block.js:45
+#: block/contents-outline/block.js:47
 msgid "Show h3"
 msgstr "h3 を表示"
 
-#: block/contents-outline/block.js:52
+#: block/contents-outline/block.js:54
 msgid "Show h4"
 msgstr "h4 を表示"
 
-#: block/contents-outline/block.js:64
+#: block/contents-outline/block.js:66
 msgid "In the actual screen, it is displayed when headings exists on the page."
 msgstr "実際の画面では、見出しがページに存在する場合に表示されます。"
 
@@ -501,7 +501,7 @@ msgstr "項目（ブロックリンク）"
 #: block/items/item/standard/block.js:44 block/media-text/block.js:57
 #: block/panels/item/horizontal/block.js:35
 #: block/panels/item/vertical/block.js:35 block/pricing-table/item/block.js:32
-#: block/section-with-bgimage/block.js:134 block/slider/item/block.js:31
+#: block/section-with-bgimage/block.js:135 block/slider/item/block.js:31
 #: block/step/item/block.js:32 block/thumbnail-gallery/item/block.js:31
 msgid "Image"
 msgstr "画像"
@@ -510,7 +510,7 @@ msgstr "画像"
 #: block/items/item/standard/block.js:69 block/media-text/block.js:85
 #: block/panels/item/horizontal/block.js:60
 #: block/panels/item/vertical/block.js:60 block/pricing-table/item/block.js:57
-#: block/section-with-bgimage/block.js:150 block/slider/item/block.js:56
+#: block/section-with-bgimage/block.js:151 block/slider/item/block.js:56
 #: block/step/item/block.js:57 block/thumbnail-gallery/item/block.js:54
 msgid "Remove"
 msgstr "削除"
@@ -591,14 +591,14 @@ msgid "Image Position"
 msgstr "画像の位置"
 
 #: block/media-text/block.js:116 block/panels/item/horizontal/block.js:102
-#: block/section-with-bgimage/block.js:90
-#: block/section-with-bgvideo/block.js:137 block/step/item/block.js:95
+#: block/section-with-bgimage/block.js:91
+#: block/section-with-bgvideo/block.js:138 block/step/item/block.js:95
 msgid "Right side"
 msgstr "右側"
 
 #: block/media-text/block.js:120 block/panels/item/horizontal/block.js:106
-#: block/section-with-bgimage/block.js:82
-#: block/section-with-bgvideo/block.js:129 block/step/item/block.js:87
+#: block/section-with-bgimage/block.js:83
+#: block/section-with-bgvideo/block.js:130 block/step/item/block.js:87
 msgid "Left side"
 msgstr "左側"
 
@@ -730,51 +730,60 @@ msgstr "テキスト"
 msgid "Ignore sticky posts"
 msgstr "先頭固定表示を除外する"
 
+#: block/recent-posts/block.js:60
+msgid "HTML Anchor"
+msgstr "HTML アンカー"
+
+#: block/recent-posts/block.js:61
+msgid "Anchors lets you link directly to a section on a page."
+msgstr ""
+"アンカーを使用すると、ページ上のセクションに直接リンクすることができます。"
+
 #: block/section-with-bgimage/block.js:15
 msgid "Section (with background image)"
 msgstr "セクション（背景画像あり）"
 
-#: block/section-with-bgimage/block.js:59
-#: block/section-with-bgvideo/block.js:83 block/section/block.js:61
+#: block/section-with-bgimage/block.js:60
+#: block/section-with-bgvideo/block.js:84 block/section/block.js:61
 msgid "Section Settings"
 msgstr "セクション設定"
 
-#: block/section-with-bgimage/block.js:61
-#: block/section-with-bgvideo/block.js:108
+#: block/section-with-bgimage/block.js:62
+#: block/section-with-bgvideo/block.js:109
 msgid "Height"
 msgstr "高さ"
 
-#: block/section-with-bgimage/block.js:66
-#: block/section-with-bgvideo/block.js:113
+#: block/section-with-bgimage/block.js:67
+#: block/section-with-bgvideo/block.js:114
 msgid "Fit"
 msgstr "フィット"
 
-#: block/section-with-bgimage/block.js:70
-#: block/section-with-bgvideo/block.js:117
+#: block/section-with-bgimage/block.js:71
+#: block/section-with-bgvideo/block.js:118
 msgid "Wide"
 msgstr "広め"
 
-#: block/section-with-bgimage/block.js:77
-#: block/section-with-bgvideo/block.js:124
+#: block/section-with-bgimage/block.js:78
+#: block/section-with-bgvideo/block.js:125
 msgid "Contents alignment"
 msgstr "コンテンツの水平位置"
 
-#: block/section-with-bgimage/block.js:86
-#: block/section-with-bgvideo/block.js:133 block/step/item/block.js:91
+#: block/section-with-bgimage/block.js:87
+#: block/section-with-bgvideo/block.js:134 block/step/item/block.js:91
 msgid "Center"
 msgstr "中央"
 
-#: block/section-with-bgimage/block.js:97
-#: block/section-with-bgvideo/block.js:144
+#: block/section-with-bgimage/block.js:98
+#: block/section-with-bgvideo/block.js:145
 msgid "Mask Opacity"
 msgstr "背景マスクの透明度"
 
-#: block/section-with-bgimage/block.js:106
+#: block/section-with-bgimage/block.js:107
 msgid "Parallax"
 msgstr "パララックス"
 
-#: block/section-with-bgimage/block.js:119
-#: block/section-with-bgvideo/block.js:160
+#: block/section-with-bgimage/block.js:120
+#: block/section-with-bgvideo/block.js:161
 msgid "Mask Color"
 msgstr "背景マスクの色"
 
@@ -782,15 +791,15 @@ msgstr "背景マスクの色"
 msgid "Section (with background video)"
 msgstr "セクション（背景動画あり）"
 
-#: block/section-with-bgvideo/block.js:84
+#: block/section-with-bgvideo/block.js:85
 msgid "YouTube URL"
 msgstr "YouTube URL"
 
-#: block/section-with-bgvideo/block.js:92
+#: block/section-with-bgvideo/block.js:93
 msgid "Video width"
 msgstr "動画の横幅"
 
-#: block/section-with-bgvideo/block.js:100
+#: block/section-with-bgvideo/block.js:101
 msgid "Video height"
 msgstr "ビデオの高さ"
 

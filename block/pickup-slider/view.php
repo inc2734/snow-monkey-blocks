@@ -13,14 +13,14 @@ $custom_template  = $widget_templates . '/pickup-slider.php';
 $default_template = get_template_directory() . '/vendor/inc2734/wp-awesome-widgets/src/widget/pickup-slider/_widget.php';
 
 $instance = [
-	'random' => $attributes['random'],
+	'random'    => $attributes['random'],
 	'link-type' => $attributes['linkType'],
 ];
 
 $args     = [
 	'before_widget' => '',
 	'after_widget'  => '',
-	'widget_id'     => 'snow_monkey_blocks_pickup_slider_' . rand(),
+	'widget_id'     => 'snow_monkey_blocks_pickup_slider-' . rand(),
 ];
 
 ob_start();

@@ -35,10 +35,17 @@ add_action(
 						'type'    => 'string',
 						'default' => '',
 					],
+					'myAnchor' => [
+						'type'    => 'string',
+						'default' => '',
+					],
 				],
 				'render_callback' => function( $attributes ) {
 					return DynamicBlocks::render( 'recent-posts', $attributes );
 				},
+				'supports' => [
+					'anchor' => false,
+				],
 			]
 		);
 	}
