@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2019-03-26 14:47+0900\n"
-"PO-Revision-Date: 2019-03-26 14:48+0900\n"
+"POT-Creation-Date: 2019-03-27 10:06+0900\n"
+"PO-Revision-Date: 2019-03-27 10:06+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -28,7 +28,7 @@ msgid "articles"
 msgstr "記事"
 
 #: block/categories-list/view.php:54 block/categories-list/block.js:143
-#: block/recent-posts/block.js:12
+#: block/recent-posts/block.js:10
 msgid "Recent posts"
 msgstr "最近の投稿"
 
@@ -702,39 +702,43 @@ msgstr "レーティング"
 msgid "Bar Color"
 msgstr "バーの色"
 
-#: block/recent-posts/block.js:22
+#: block/recent-posts/_edit.js:18
 msgid "Recent Posts Settings"
 msgstr "最近の投稿設定"
 
-#: block/recent-posts/block.js:24
+#: block/recent-posts/_edit.js:20
+msgid "Post Type"
+msgstr "投稿タイプ"
+
+#: block/recent-posts/_edit.js:27
 msgid "Number of posts"
 msgstr "表示する投稿数"
 
-#: block/recent-posts/block.js:32
+#: block/recent-posts/_edit.js:35
 msgid "Layout"
 msgstr "レイアウト"
 
-#: block/recent-posts/block.js:38
+#: block/recent-posts/_edit.js:41
 msgid "Rich media"
 msgstr "リッチメディア"
 
-#: block/recent-posts/block.js:42
+#: block/recent-posts/_edit.js:45
 msgid "Simple"
 msgstr "シンプル"
 
-#: block/recent-posts/block.js:46
+#: block/recent-posts/_edit.js:49
 msgid "Text"
 msgstr "テキスト"
 
-#: block/recent-posts/block.js:52
+#: block/recent-posts/_edit.js:55
 msgid "Ignore sticky posts"
 msgstr "先頭固定表示を除外する"
 
-#: block/recent-posts/block.js:60
+#: block/recent-posts/_edit.js:63
 msgid "HTML Anchor"
 msgstr "HTML アンカー"
 
-#: block/recent-posts/block.js:61
+#: block/recent-posts/_edit.js:64
 msgid "Anchors lets you link directly to a section on a page."
 msgstr ""
 "アンカーを使用すると、ページ上のセクションに直接リンクすることができます。"

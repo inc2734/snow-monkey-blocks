@@ -14,6 +14,7 @@ $default_template = get_template_directory() . '/app/widget/snow-monkey-recent-p
 
 $instance = [
 	'title'               => null,
+	'post-type'           => $attributes['postType'],
 	'posts-per-page'      => $attributes['postsPerPage'],
 	'layout'              => $attributes['layout'],
 	'ignore-sticky-posts' => $attributes['ignoreStickyPosts'],

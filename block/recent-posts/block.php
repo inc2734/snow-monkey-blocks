@@ -19,6 +19,10 @@ add_action(
 			'snow-monkey-blocks/recent-posts',
 			[
 				'attributes' => [
+					'postType' => [
+						'type'    => 'string',
+						'default' => 'post',
+					],
 					'postsPerPage' => [
 						'type'    => 'number',
 						'default' => 6,
