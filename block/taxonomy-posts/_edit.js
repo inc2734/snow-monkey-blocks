@@ -5,34 +5,53 @@ import buildTermsTree from '../../src/js/helper/build-terms-tree';
 
 const { find } = lodash;
 const { InspectorControls, InspectorAdvancedControls } = wp.editor;
-const { PanelBody, SelectControl, RangeControl, ServerSideRender, ToggleControl, TextControl, TreeSelect } = wp.components;
+const { PanelBody, SelectControl, RangeControl, ServerSideRender, ToggleControl, TextControl, TreeSelect, Dashicon } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
 export const edit = ( props ) => {
 	const { attributes, setAttributes, withSelect } = props;
-	const { termId, postsPerPage, layout, ignoreStickyPosts, myAnchor } = attributes;
-	const { taxonomiesTerms } = withSelect;
+	const { taxonomy, termId, postsPerPage, layout, ignoreStickyPosts, myAnchor } = attributes;
+	const { taxonomiesTerms, taxonomies } = withSelect;
+
+	const View = () => {
+		const selectedTerm = find( taxonomiesTerms[ taxonomy ], [ 'id', toNumber( termId ) ] );
+		if ( ! selectedTerm || ! selectedTerm.count ) {
+			return (
+				<div className="components-placeholder">
+					<div className="components-placeholder__label">
+						<Dashicon icon="editor-ul" />
+						{ __( 'Taxonomy posts', 'snow-monkey-blocks' ) }
+					</div>
+					<div className="components-placeholder__instructions">
+						{ __( 'No posts.', 'snow-monkey-blocks' ) }
+					</div>
+				</div>
+			);
+		}
+
+		return (
+			<ServerSideRender
+				block="snow-monkey-blocks/taxonomy-posts"
+				attributes={ attributes }
+			/>
+		);
+	};
 
 	return (
 		<Fragment>
 			<InspectorControls>
 				<PanelBody title={ __( 'Taxonomy Posts Settings', 'snow-monkey-blocks' ) }>
-					{ Object.keys( taxonomiesTerms ).map( ( taxnomyName, i ) => {
+					{ Object.keys( taxonomiesTerms ).map( ( taxnomySlug, i ) => {
+						const _taxonomy = find( taxonomies, [ 'slug', taxnomySlug ] );
 						return (
 							<TreeSelect
 								key={ i }
-								label={ taxnomyName }
+								label={ _taxonomy.name }
 								noOptionLabel="-"
-								onChange={ ( value ) => {
-									const term = find( taxonomiesTerms[ taxnomyName ], ( _term ) => toNumber( value ) === toNumber( _term.id ) );
-									setAttributes( {
-										taxonomy: !! term ? term.taxonomy : null,
-										termId: toNumber( value ),
-									} );
-								} }
+								onChange={ ( value ) => setAttributes( { taxonomy: taxnomySlug, termId: toNumber( value ) } ) }
 								selectedId={ termId }
-								tree={ buildTermsTree( taxonomiesTerms[ taxnomyName ] ) }
+								tree={ buildTermsTree( taxonomiesTerms[ taxnomySlug ] ) }
 							/>
 						);
 					} ) }
@@ -81,10 +100,7 @@ export const edit = ( props ) => {
 				/>
 			</InspectorAdvancedControls>
 
-			<ServerSideRender
-				block="snow-monkey-blocks/taxonomy-posts"
-				attributes={ attributes }
-			/>
+			<View />
 		</Fragment>
 	);
 };

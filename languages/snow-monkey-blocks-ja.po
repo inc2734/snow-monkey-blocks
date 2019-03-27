@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2019-03-27 10:06+0900\n"
-"PO-Revision-Date: 2019-03-27 10:06+0900\n"
+"POT-Creation-Date: 2019-03-27 22:02+0900\n"
+"PO-Revision-Date: 2019-03-27 22:02+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -710,35 +710,35 @@ msgstr "最近の投稿設定"
 msgid "Post Type"
 msgstr "投稿タイプ"
 
-#: block/recent-posts/_edit.js:27
+#: block/recent-posts/_edit.js:27 block/taxonomy-posts/_edit.js:41
 msgid "Number of posts"
 msgstr "表示する投稿数"
 
-#: block/recent-posts/_edit.js:35
+#: block/recent-posts/_edit.js:35 block/taxonomy-posts/_edit.js:49
 msgid "Layout"
 msgstr "レイアウト"
 
-#: block/recent-posts/_edit.js:41
+#: block/recent-posts/_edit.js:41 block/taxonomy-posts/_edit.js:55
 msgid "Rich media"
 msgstr "リッチメディア"
 
-#: block/recent-posts/_edit.js:45
+#: block/recent-posts/_edit.js:45 block/taxonomy-posts/_edit.js:59
 msgid "Simple"
 msgstr "シンプル"
 
-#: block/recent-posts/_edit.js:49
+#: block/recent-posts/_edit.js:49 block/taxonomy-posts/_edit.js:63
 msgid "Text"
 msgstr "テキスト"
 
-#: block/recent-posts/_edit.js:55
+#: block/recent-posts/_edit.js:55 block/taxonomy-posts/_edit.js:69
 msgid "Ignore sticky posts"
 msgstr "先頭固定表示を除外する"
 
-#: block/recent-posts/_edit.js:63
+#: block/recent-posts/_edit.js:63 block/taxonomy-posts/_edit.js:77
 msgid "HTML Anchor"
 msgstr "HTML アンカー"
 
-#: block/recent-posts/_edit.js:64
+#: block/recent-posts/_edit.js:64 block/taxonomy-posts/_edit.js:78
 msgid "Anchors lets you link directly to a section on a page."
 msgstr ""
 "アンカーを使用すると、ページ上のセクションに直接リンクすることができます。"
@@ -918,6 +918,14 @@ msgstr "リンク色"
 #: block/step/item/block.js:184
 msgid "Link text"
 msgstr "リンクテキスト"
+
+#: block/taxonomy-posts/_edit.js:20
+msgid "Taxonomy Posts Settings"
+msgstr "任意のタクソノミーの投稿設定"
+
+#: block/taxonomy-posts/block.js:10
+msgid "Taxonomy posts"
+msgstr "任意のタクソノミーの投稿"
 
 #: block/testimonial/block.js:11
 msgid "Testimonial"

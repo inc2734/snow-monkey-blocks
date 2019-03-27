@@ -19,11 +19,12 @@ registerBlockType( 'snow-monkey-blocks/taxonomy-posts', {
 
 		const taxonomiesTerms = {};
 		for ( const taxonomy of taxonomies ) {
-			taxonomiesTerms[ taxonomy.name ] = getEntityRecords( 'taxonomy', taxonomy.slug, { per_page: -1 } ) || [];
+			taxonomiesTerms[ taxonomy.slug ] = getEntityRecords( 'taxonomy', taxonomy.slug, { per_page: -1 } ) || [];
 		}
 
 		return {
 			withSelect: {
+				taxonomies: taxonomies,
 				taxonomiesTerms: taxonomiesTerms,
 			},
 		};
