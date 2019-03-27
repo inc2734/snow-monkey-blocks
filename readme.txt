@@ -40,6 +40,7 @@ https://www.youtube.com/watch?v=uD6omb4TLdA&t=283s
 * Media text
 * Thumbnail gallery
 * Recent posts (Can be used only with Snow Monkey)
+* Taxonomy posts (Can be used only with Snow Monkey)
 * Pickup slider (Can be used only with Snow Monkey)
 * Categories list
 * Contents outline (Can be used only with Snow Monkey)
