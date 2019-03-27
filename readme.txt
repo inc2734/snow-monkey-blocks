@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.0
 Tested up to: 5.1
-Stable tag: 3.1.6
+Stable tag: 3.2.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -98,6 +98,9 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 19. Accordion block
 
 == Changelog ==
+
+= 3.2.0 =
+* Add taxonomy posts block. This block working on Snow Monkey v5.4.7
 
 = 3.1.6 =
 * Add id to the recent posts block. So you can use `snow_monkey_recent_posts_widget_args_<id>` hook.
