@@ -11,8 +11,9 @@ registerBlockType( 'snow-monkey-blocks/recent-posts', {
 	icon: 'editor-ul',
 	category: 'smb',
 
-	edit: withSelect( ( select ) => {
-		const { getPostTypes } = select( 'core' );
+	edit: withSelect( ( select, props ) => {
+		const { getPostTypes, getEntityRecords } = select( 'core' );
+		const { attributes } = props;
 
 		const AllPostTypes = getPostTypes( { per_page: -1 } ) || [];
 		const postTypes = AllPostTypes.filter(
@@ -24,6 +25,7 @@ registerBlockType( 'snow-monkey-blocks/recent-posts', {
 		return {
 			withSelect: {
 				postTypes: postTypes,
+				latestPost: getEntityRecords( 'postType', attributes.postType, { per_page: 1 } ),
 			},
 		};
 	} )( edit ),

@@ -5,7 +5,7 @@ import buildTermsTree from '../../src/js/helper/build-terms-tree';
 
 const { find } = lodash;
 const { InspectorControls, InspectorAdvancedControls } = wp.editor;
-const { PanelBody, SelectControl, RangeControl, ServerSideRender, ToggleControl, TextControl, TreeSelect, Dashicon } = wp.components;
+const { PanelBody, SelectControl, RangeControl, ServerSideRender, ToggleControl, TextControl, TreeSelect, Placeholder, Spinner } = wp.components;
 const { Fragment, Component } = wp.element;
 const { __ } = wp.i18n;
 
@@ -32,15 +32,17 @@ export class edit extends Component {
 			const selectedTerm = find( taxonomiesTerms[ taxonomy ], [ 'id', toNumber( termId ) ] );
 			if ( ! selectedTerm || ! selectedTerm.count ) {
 				return (
-					<div className="components-placeholder">
-						<div className="components-placeholder__label">
-							<Dashicon icon="editor-ul" />
-							{ __( 'Taxonomy posts', 'snow-monkey-blocks' ) }
-						</div>
-						<div className="components-placeholder__instructions">
-							{ __( 'Loading posts or No posts.', 'snow-monkey-blocks' ) }
-						</div>
-					</div>
+					<Placeholder
+						icon="editor-ul"
+						label={ __( 'Taxonomy posts', 'snow-monkey-blocks' ) }
+					>
+						{ ! selectedTerm &&
+							<Spinner />
+						}
+						{ !! selectedTerm && ! selectedTerm.count &&
+							__( 'No posts found.' )
+						}
+					</Placeholder>
 				);
 			}
 

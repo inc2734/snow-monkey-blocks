@@ -3,14 +3,39 @@
 import toNumber from '../../src/js/helper/to-number';
 
 const { InspectorControls, InspectorAdvancedControls } = wp.editor;
-const { PanelBody, SelectControl, RangeControl, ServerSideRender, ToggleControl, TextControl } = wp.components;
+const { PanelBody, SelectControl, RangeControl, ServerSideRender, ToggleControl, TextControl, Placeholder, Spinner } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
 export const edit = ( props ) => {
 	const { attributes, setAttributes, withSelect } = props;
 	const { postType, postsPerPage, layout, ignoreStickyPosts, myAnchor } = attributes;
-	const { postTypes } = withSelect;
+	const { postTypes, latestPost } = withSelect;
+
+	const View = () => {
+		if ( ! latestPost || ! latestPost.length ) {
+			return (
+				<Placeholder
+					icon="editor-ul"
+					label={ __( 'Recent posts', 'snow-monkey-blocks' ) }
+				>
+					{ ! latestPost &&
+						<Spinner />
+					}
+					{ ( !! latestPost && ! latestPost.length ) &&
+						__( 'No posts found.' )
+					}
+				</Placeholder>
+			);
+		}
+
+		return (
+			<ServerSideRender
+				block="snow-monkey-blocks/recent-posts"
+				attributes={ attributes }
+			/>
+		);
+	};
 
 	return (
 		<Fragment>
@@ -67,10 +92,7 @@ export const edit = ( props ) => {
 				/>
 			</InspectorAdvancedControls>
 
-			<ServerSideRender
-				block="snow-monkey-blocks/recent-posts"
-				attributes={ attributes }
-			/>
+			<View />
 		</Fragment>
 	);
 };
