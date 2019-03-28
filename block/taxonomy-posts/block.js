@@ -19,7 +19,10 @@ registerBlockType( 'snow-monkey-blocks/taxonomy-posts', {
 
 		const taxonomiesTerms = {};
 		for ( const taxonomy of taxonomies ) {
-			taxonomiesTerms[ taxonomy.slug ] = getEntityRecords( 'taxonomy', taxonomy.slug, { per_page: -1 } ) || [];
+			const terms = getEntityRecords( 'taxonomy', taxonomy.slug, { per_page: -1 } ) || [];
+			if ( 0 < terms.length ) {
+				taxonomiesTerms[ taxonomy.slug ] = terms;
+			}
 		}
 
 		return {
