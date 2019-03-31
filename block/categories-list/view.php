@@ -30,7 +30,7 @@ $classnames[] = $attributes['className'];
 					continue;
 				}
 			?>
-			<li class="smb-categories-list__item">
+			<li class="smb-categories-list__item smb-categories-list__item__slug-<?php echo esc_heml( $category_detail->term_id ); ?>">
 				<div class="smb-categories-list__item__count">
 					<?php echo esc_html( $category_detail->count ); ?>
 					<span><?php esc_html_e( 'articles', 'snow-monkey-blocks' ); ?></span>
