@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.0
 Tested up to: 5.1
-Stable tag: 3.2.1
+Stable tag: 3.3.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -47,6 +47,7 @@ https://www.youtube.com/watch?v=uD6omb4TLdA&t=283s
 * Evaluation star
 * Child pages (Can be used only with Snow Monkey)
 * Accordion
+* Limited datetime
 
 = Section blocks =
 
@@ -96,8 +97,14 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 17. Categories list block
 18. Evaluation star block
 19. Accordion block
+20. Limited datetime block (The number of items can be increased or decreased freely)
 
 == Changelog ==
+
+= 3.3.0 =
+* Add limited datetime block.
+* Add toggle arrow to the accordion block.
+* Refactoring category list block.
 
 = 3.2.1 =
 * Refactoring taxonomy posts block.
