@@ -21,6 +21,7 @@
 @import '../../block/media-text/editor';
 @import '../../block/thumbnail-gallery/editor';
 @import '../../block/accordion/editor';
+@import '../../block/limited-datetime/editor';
 
 .#{$_prefix}c-row[data-columns] {
   margin: 0;

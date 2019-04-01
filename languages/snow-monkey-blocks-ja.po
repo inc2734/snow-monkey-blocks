@@ -541,6 +541,42 @@ msgstr "ボタンだけでなくブロック全体にリンクを張ります。
 msgid "Items (Standard)"
 msgstr "項目（スタンダード）"
 
+#: block/limited-datetime/block.js:14
+msgid "Limited DateTime"
+msgstr "期間限定の表示"
+
+#: block/limited-datetime/block.js:15 block/limited-datetime/block.js:80
+msgid "Only the set period is displayed"
+msgstr "設定した期間のみ表示されます"
+
+#: block/limited-datetime/block.js:30 block/limited-datetime/block.js:38
+msgid "Not used"
+msgstr "使用されません"
+
+#: block/limited-datetime/block.js:35 block/limited-datetime/block.js:43
+msgid "Not initialized properly"
+msgstr "正しく初期化されていません"
+
+#: block/limited-datetime/block.js:50
+msgid "Datetime setting"
+msgstr "日時の設定"
+
+#: block/limited-datetime/block.js:51 block/limited-datetime/block.js:83
+msgid "Start datetime"
+msgstr "開始日時"
+
+#: block/limited-datetime/block.js:53
+msgid "Use start datetime"
+msgstr "開始日時を使用する"
+
+#: block/limited-datetime/block.js:62 block/limited-datetime/block.js:85
+msgid "End datetime"
+msgstr "終了日時"
+
+#: block/limited-datetime/block.js:64
+msgid "Use end datetime"
+msgstr "終了日時を使用する"
+
 #: block/list/block.js:15
 msgid "Icon list"
 msgstr "アイコンリスト"
