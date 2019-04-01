@@ -35,8 +35,8 @@ add_action(
 						'default' => '',
 					],
 				],
-				'render_callback' => function( $attributes, $content ) {
-					return DynamicBlocks::render( 'categories-list', $attributes, $content );
+				'render_callback' => function( $attributes ) {
+					return DynamicBlocks::render( 'categories-list', $attributes );
 				},
 			]
 		);

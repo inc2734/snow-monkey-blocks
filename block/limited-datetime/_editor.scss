@@ -1,0 +1,17 @@
+.smb-limited-datetime {
+  &__placeholder {
+    min-height: auto;
+
+    > .components-placeholder__fieldset {
+      max-width: none;
+    }
+
+    dl {
+      display: flex;
+
+      > dt {
+        @include _margin-right(.25);
+      }
+    }
+  }
+}
