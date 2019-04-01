@@ -4,6 +4,10 @@
 
     > .components-placeholder__fieldset {
       max-width: none;
+
+      > * {
+        flex: 1 1 auto;
+      }
     }
 
     dl {
