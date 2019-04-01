@@ -18,11 +18,11 @@
       background-color: _lighter( $_color-gray );
       @include _padding(.25, .5);
 
-      > .smb-accordion__title__label {
+      &__label {
         flex: 1 1 auto;
       }
 
-      > .smb-accordion__title__icon {
+      &__icon {
         @include _transition(transform);
         flex: 0 0 auto;
       }
@@ -54,7 +54,7 @@
     display: block;
   }
 
-  .smb-accordion__item__control:checked + .smb-accordion__item__title > .smb-accordion__title__icon {
+  .smb-accordion__item__control:checked + .smb-accordion__item__title > .smb-accordion__item__title__icon {
     transform: rotate(180deg);
   }
 }
