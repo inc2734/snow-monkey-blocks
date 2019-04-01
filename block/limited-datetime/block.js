@@ -27,20 +27,21 @@ registerBlockType( 'snow-monkey-blocks/limited-datetime', {
 
 		const classes = classnames( 'smb-limited-datetime', className );
 
-		let formatedStartDate = __( 'Not used', 'snow-monkey-blocks' );
+		let formatedStartDate = __( 'Not been set.', 'snow-monkey-blocks' );
 		if ( isUseStartDate ) {
 			if ( startDate !== null ) {
 				formatedStartDate = moment( startDate ).format( 'YYYY/MM/DD ddd HH:mm' );
 			} else {
-				formatedStartDate = __( 'Not initialized properly', 'snow-monkey-blocks' );
+				formatedStartDate = __( 'Not initialized properly.', 'snow-monkey-blocks' );
 			}
 		}
-		let formatedEndDate = __( 'Not used', 'snow-monkey-blocks' );
+
+		let formatedEndDate = __( 'Not been set.', 'snow-monkey-blocks' );
 		if ( isUseEndDate ) {
 			if ( endDate !== null ) {
 				formatedEndDate = moment( endDate ).format( 'YYYY/MM/DD ddd HH:mm' );
 			} else {
-				formatedEndDate = __( 'Not initialized properly', 'snow-monkey-blocks' );
+				formatedEndDate = __( 'Not initialized properly.', 'snow-monkey-blocks' );
 			}
 		}
 
@@ -70,21 +71,29 @@ registerBlockType( 'snow-monkey-blocks/limited-datetime', {
 								onChange={ ( value ) => setAttributes( { endDate: value } ) }
 							/>
 						</BaseControl>
-
 					</PanelBody>
 				</InspectorControls>
+
 				<div className={ classes }>
 					<Placeholder
 						className="smb-limited-datetime__placeholder"
 						icon="calendar-alt"
 						label={ __( 'Only the set period is displayed', 'snow-monkey-blocks' ) }
 					>
-						<dl>
-							<dt>{ __( 'Start datetime', 'snow-monkey-blocks' ) }</dt>
-							<dd>{ formatedStartDate }</dd>
-							<dt>{ __( 'End datetime', 'snow-monkey-blocks' ) }</dt>
-							<dd>{ formatedEndDate }</dd>
-						</dl>
+						<div className="c-row c-row--lg-margin">
+							<div className="c-row__col c-row__col--1-1 c-row__col--lg-1-2">
+								<dl>
+									<dt>{ __( 'Start datetime', 'snow-monkey-blocks' ) }</dt>
+									<dd>{ formatedStartDate }</dd>
+								</dl>
+							</div>
+							<div className="c-row__col c-row__col--1-1 c-row__col--lg-1-2">
+								<dl>
+									<dt>{ __( 'End datetime', 'snow-monkey-blocks' ) }</dt>
+									<dd>{ formatedEndDate }</dd>
+								</dl>
+							</div>
+						</div>
 					</Placeholder>
 					<InnerBlocks />
 				</div>

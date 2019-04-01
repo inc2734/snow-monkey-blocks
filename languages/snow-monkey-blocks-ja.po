@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2019-03-27 22:02+0900\n"
-"PO-Revision-Date: 2019-03-27 22:02+0900\n"
+"POT-Creation-Date: 2019-04-01 14:59+0900\n"
+"PO-Revision-Date: 2019-04-01 14:59+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -23,12 +23,12 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-3: tests\n"
 "X-Poedit-SearchPathExcluded-4: languages\n"
 
-#: block/categories-list/view.php:36 block/categories-list/block.js:131
+#: block/categories-list/view.php:36 block/categories-list/_edit.js:73
 msgid "articles"
 msgstr "記事"
 
-#: block/categories-list/view.php:54 block/categories-list/block.js:143
-#: block/recent-posts/block.js:10
+#: block/categories-list/view.php:54 block/categories-list/_edit.js:85
+#: block/recent-posts/_edit.js:34 block/recent-posts/block.js:10
 msgid "Recent posts"
 msgstr "最近の投稿"
 
@@ -296,84 +296,84 @@ msgstr "リード文を書く…"
 msgid "Write note..."
 msgstr "注釈を書く…"
 
-#: block/categories-list/block.js:65
+#: block/categories-list/_edit.js:22 block/categories-list/block.js:59
 msgid "Categories list"
 msgstr "カテゴリー一覧"
 
-#: block/categories-list/block.js:66
-msgid "This is a block that displays a list of categories"
-msgstr "このブロックはカテゴリーの一覧を表示します"
-
-#: block/categories-list/block.js:83
+#: block/categories-list/_edit.js:25
 msgid "Loading Setting Data"
 msgstr "設定をロード中"
 
-#: block/categories-list/block.js:116
+#: block/categories-list/_edit.js:58
 msgid "Exclusion Categories Settings"
 msgstr "除外カテゴリーの設定"
 
-#: block/categories-list/block.js:117
+#: block/categories-list/_edit.js:59
 msgid ""
 "Categories with a post count of 0 are not displayed even if they are not "
 "excluded"
 msgstr "投稿数が0のカテゴリは、除外されていない場合でも表示されません"
 
-#: block/categories-list/block.js:146
+#: block/categories-list/_edit.js:88
 msgid "Only the actual contribution screen is displayed"
 msgstr "通常の投稿画面のみ表示されます"
 
-#: block/categories-list/block.js:178
+#: block/categories-list/_edit.js:120
 msgid "Categories list Settings"
 msgstr "カテゴリー一覧設定"
 
-#: block/categories-list/block.js:180
+#: block/categories-list/_edit.js:122
 msgid "Categories List Articles"
 msgstr "カテゴリーリストの記事数"
 
-#: block/categories-list/block.js:188
+#: block/categories-list/_edit.js:130
 msgid "Display order settings"
 msgstr "表示順の設定"
 
-#: block/categories-list/block.js:189
+#: block/categories-list/_edit.js:131
 msgid ""
 "The display order you set is valid only on the actual contribution screen"
 msgstr "設定した表示順は実際の投稿画面でのみ有効です"
 
-#: block/categories-list/block.js:191
+#: block/categories-list/_edit.js:133
 msgid "orderby"
 msgstr "並べ替えの基準"
 
-#: block/categories-list/block.js:194
+#: block/categories-list/_edit.js:136
 msgid "category id"
 msgstr "カテゴリーID"
 
-#: block/categories-list/block.js:195
+#: block/categories-list/_edit.js:137
 msgid "category name"
 msgstr "カテゴリー名"
 
-#: block/categories-list/block.js:196
+#: block/categories-list/_edit.js:138
 msgid "category slug"
 msgstr "カテゴリースラッグ"
 
-#: block/categories-list/block.js:197
+#: block/categories-list/_edit.js:139
 msgid "category post count"
 msgstr "記事数"
 
-#: block/categories-list/block.js:198
+#: block/categories-list/_edit.js:140
 msgid "term_group"
 msgstr "タームグループ"
 
-#: block/categories-list/block.js:203
+#: block/categories-list/_edit.js:145
 msgid "order"
 msgstr "並べ替えの種別"
 
-#: block/categories-list/block.js:206
+#: block/categories-list/_edit.js:148
 msgid "asc"
 msgstr "昇順"
 
-#: block/categories-list/block.js:207
+#: block/categories-list/_edit.js:149
 msgid "desc"
 msgstr "降順"
+
+#: block/categories-list/block.js:60
+msgid "This is a block that displays a list of categories"
+msgstr "このブロックはカテゴリーの一覧を表示します"
 
 #: block/child-pages/block.js:8 block/child-pages/block.js:17
 msgid "Child pages"
@@ -545,35 +545,35 @@ msgstr "項目（スタンダード）"
 msgid "Limited DateTime"
 msgstr "期間限定の表示"
 
-#: block/limited-datetime/block.js:15 block/limited-datetime/block.js:80
+#: block/limited-datetime/block.js:15 block/limited-datetime/block.js:81
 msgid "Only the set period is displayed"
 msgstr "設定した期間のみ表示されます"
 
-#: block/limited-datetime/block.js:30 block/limited-datetime/block.js:38
-msgid "Not used"
-msgstr "使用されません"
+#: block/limited-datetime/block.js:30 block/limited-datetime/block.js:39
+msgid "Not been set."
+msgstr "設定されていません。"
 
-#: block/limited-datetime/block.js:35 block/limited-datetime/block.js:43
-msgid "Not initialized properly"
-msgstr "正しく初期化されていません"
+#: block/limited-datetime/block.js:35 block/limited-datetime/block.js:44
+msgid "Not initialized properly."
+msgstr "正しく初期化されていません。"
 
-#: block/limited-datetime/block.js:50
+#: block/limited-datetime/block.js:51
 msgid "Datetime setting"
 msgstr "日時の設定"
 
-#: block/limited-datetime/block.js:51 block/limited-datetime/block.js:83
+#: block/limited-datetime/block.js:52 block/limited-datetime/block.js:86
 msgid "Start datetime"
 msgstr "開始日時"
 
-#: block/limited-datetime/block.js:53
+#: block/limited-datetime/block.js:54
 msgid "Use start datetime"
 msgstr "開始日時を使用する"
 
-#: block/limited-datetime/block.js:62 block/limited-datetime/block.js:85
+#: block/limited-datetime/block.js:63 block/limited-datetime/block.js:92
 msgid "End datetime"
 msgstr "終了日時"
 
-#: block/limited-datetime/block.js:64
+#: block/limited-datetime/block.js:65
 msgid "Use end datetime"
 msgstr "終了日時を使用する"
 
@@ -738,43 +738,47 @@ msgstr "レーティング"
 msgid "Bar Color"
 msgstr "バーの色"
 
-#: block/recent-posts/_edit.js:18
+#: block/recent-posts/_edit.js:40 block/taxonomy-posts/_edit.js:43
+msgid "No posts found."
+msgstr "投稿が見つかりません."
+
+#: block/recent-posts/_edit.js:57
 msgid "Recent Posts Settings"
 msgstr "最近の投稿設定"
 
-#: block/recent-posts/_edit.js:20
+#: block/recent-posts/_edit.js:59
 msgid "Post Type"
 msgstr "投稿タイプ"
 
-#: block/recent-posts/_edit.js:27 block/taxonomy-posts/_edit.js:41
+#: block/recent-posts/_edit.js:66 block/taxonomy-posts/_edit.js:76
 msgid "Number of posts"
 msgstr "表示する投稿数"
 
-#: block/recent-posts/_edit.js:35 block/taxonomy-posts/_edit.js:49
+#: block/recent-posts/_edit.js:74 block/taxonomy-posts/_edit.js:84
 msgid "Layout"
 msgstr "レイアウト"
 
-#: block/recent-posts/_edit.js:41 block/taxonomy-posts/_edit.js:55
+#: block/recent-posts/_edit.js:80 block/taxonomy-posts/_edit.js:90
 msgid "Rich media"
 msgstr "リッチメディア"
 
-#: block/recent-posts/_edit.js:45 block/taxonomy-posts/_edit.js:59
+#: block/recent-posts/_edit.js:84 block/taxonomy-posts/_edit.js:94
 msgid "Simple"
 msgstr "シンプル"
 
-#: block/recent-posts/_edit.js:49 block/taxonomy-posts/_edit.js:63
+#: block/recent-posts/_edit.js:88 block/taxonomy-posts/_edit.js:98
 msgid "Text"
 msgstr "テキスト"
 
-#: block/recent-posts/_edit.js:55 block/taxonomy-posts/_edit.js:69
+#: block/recent-posts/_edit.js:94 block/taxonomy-posts/_edit.js:104
 msgid "Ignore sticky posts"
 msgstr "先頭固定表示を除外する"
 
-#: block/recent-posts/_edit.js:63 block/taxonomy-posts/_edit.js:77
+#: block/recent-posts/_edit.js:102 block/taxonomy-posts/_edit.js:112
 msgid "HTML Anchor"
 msgstr "HTML アンカー"
 
-#: block/recent-posts/_edit.js:64 block/taxonomy-posts/_edit.js:78
+#: block/recent-posts/_edit.js:103 block/taxonomy-posts/_edit.js:113
 msgid "Anchors lets you link directly to a section on a page."
 msgstr ""
 "アンカーを使用すると、ページ上のセクションに直接リンクすることができます。"
@@ -955,13 +959,13 @@ msgstr "リンク色"
 msgid "Link text"
 msgstr "リンクテキスト"
 
-#: block/taxonomy-posts/_edit.js:20
-msgid "Taxonomy Posts Settings"
-msgstr "任意のタクソノミーの投稿設定"
-
-#: block/taxonomy-posts/block.js:10
+#: block/taxonomy-posts/_edit.js:37 block/taxonomy-posts/block.js:10
 msgid "Taxonomy posts"
 msgstr "任意のタクソノミーの投稿"
+
+#: block/taxonomy-posts/_edit.js:60
+msgid "Taxonomy Posts Settings"
+msgstr "任意のタクソノミーの投稿設定"
 
 #: block/testimonial/block.js:11
 msgid "Testimonial"
@@ -982,6 +986,9 @@ msgstr "サムネイルギャラリー設定"
 #: src/js/_highlighter.js:13
 msgid "Highlighter"
 msgstr "蛍光ペン"
+
+#~ msgid "Not used"
+#~ msgstr "使用されません"
 
 #~ msgid "Number of items"
 #~ msgstr "アイテム数"
