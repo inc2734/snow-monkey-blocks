@@ -82,6 +82,15 @@ msgstr "アコーディオン"
 msgid "Item"
 msgstr "項目"
 
+
+#: block/accordion/item/block.js:30
+msgid "Display in open state"
+msgstr "開いた状態で表示"
+
+#: block/accordion/item/block.js:42
+msgid "Enter title here"
+msgstr "タイトルを入力"
+
 #: block/alert/block.js:18
 msgid "Alert"
 msgstr "アラート"

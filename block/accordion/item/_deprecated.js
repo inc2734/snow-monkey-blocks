@@ -1,12 +1,43 @@
 'use strict';
 
-import { schema } from './_schema.js';
+import classnames from 'classnames';
 
 const { RichText, InnerBlocks } = wp.editor;
 
 export const deprecated = [
 	{
-		attributes: schema,
+		attributes: {
+			title: {
+				source: 'html',
+				selector: '.smb-accordion__item__title',
+			},
+		},
+
+		save( { attributes, className } ) {
+			const classes = classnames( 'smb-accordion__item', className );
+			const { title } = attributes;
+
+			return (
+				<div className={ classes }>
+					<div className="smb-accordion__item__title">
+						<RichText.Content value={ title } />
+					</div>
+					Test
+					<input type="checkbox" className="smb-accordion__item__control" />
+					<div className="smb-accordion__item__body">
+						<InnerBlocks.Content />
+					</div>
+				</div>
+			);
+		},
+	},
+	{
+		attributes: {
+			title: {
+				source: 'html',
+				selector: '.smb-accordion__item__title',
+			},
+		},
 
 		save( { attributes } ) {
 			const { title } = attributes;

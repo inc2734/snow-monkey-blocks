@@ -13,8 +13,19 @@
     }
 
     &__title {
+      display: flex;
+      align-items: center;
       background-color: _lighter( $_color-gray );
       @include _padding(.25, .5);
+
+      > .smb-accordion__item__title__label {
+        flex: 1 1 auto;
+      }
+
+      > .smb-accordion__item__title__icon {
+        @include _transition(transform);
+        flex: 0 0 auto;
+      }
     }
 
     &__control {
@@ -38,7 +49,12 @@
     }
   }
 
-  .smb-accordion__item__control:checked + .smb-accordion__item__body {
+  .smb-accordion__item__control:checked + .smb-accordion__item__body,
+  .smb-accordion__item__control:checked + .smb-accordion__item__title + .smb-accordion__item__body {
     display: block;
+  }
+
+  .smb-accordion__item__control:checked + .smb-accordion__item__title > .smb-accordion__item__title__icon {
+    transform: rotate(180deg);
   }
 }
