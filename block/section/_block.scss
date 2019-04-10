@@ -1,10 +1,6 @@
 .smb-section {
   position: relative;
 
-  & + & {
-    margin-top: 0 !important;
-  }
-
   &__divider {
     position: absolute;
     right: 0;
