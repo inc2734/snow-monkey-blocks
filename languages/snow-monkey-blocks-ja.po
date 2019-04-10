@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2019-04-10 15:08+0900\n"
-"PO-Revision-Date: 2019-04-10 15:16+0900\n"
+"POT-Creation-Date: 2019-04-10 15:50+0900\n"
+"PO-Revision-Date: 2019-04-10 15:50+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -1002,43 +1002,47 @@ msgstr "色"
 msgid "Bottom divider Settings"
 msgstr "下の仕切りの設定"
 
-#: block/slider/block.js:28
+#: block/slider/block.js:29
 msgid "Slider"
 msgstr "スライダー"
 
-#: block/slider/block.js:29
+#: block/slider/block.js:30
 msgid "Show attractive images as beautiful sliders."
 msgstr "魅力的な画像を美しいスライダーとして表示します。"
 
-#: block/slider/block.js:48
+#: block/slider/block.js:49
 msgid "Slider Settings"
 msgstr "スライダー設定"
 
-#: block/slider/block.js:50
+#: block/slider/block.js:51
 msgid "# of slides to show"
 msgstr "表示するスライド数"
 
-#: block/slider/block.js:57
+#: block/slider/block.js:58
 msgid "# of slides to scroll"
 msgstr "スクロールするスライド数"
 
-#: block/slider/block.js:64
+#: block/slider/block.js:65
 msgid "Show dot indicators"
 msgstr "ドットインジケータを表示する"
 
-#: block/slider/block.js:69 block/thumbnail-gallery/block.js:46
+#: block/slider/block.js:70 block/thumbnail-gallery/block.js:46
 msgid "Prev/Next Arrows"
 msgstr "前/次の矢印"
 
-#: block/slider/block.js:74 block/thumbnail-gallery/block.js:51
+#: block/slider/block.js:75 block/thumbnail-gallery/block.js:51
 msgid "Slide animation speed in milliseconds"
 msgstr "スライドアニメーション速度（ミリ秒）"
 
-#: block/slider/block.js:82 block/thumbnail-gallery/block.js:59
+#: block/slider/block.js:83 block/thumbnail-gallery/block.js:59
 msgid "Autoplay Speed in seconds"
 msgstr "自動再生の間隔（秒）"
 
-#: block/slider/block.js:96
+#: block/slider/block.js:97
+msgid "Enable fade"
+msgstr "フェードを有効にする"
+
+#: block/slider/block.js:102
 msgid "Change the slider's direction to become right-to-left"
 msgstr "スライダーの方向を右から左に変更"
 

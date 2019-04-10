@@ -10,8 +10,8 @@ branches:
   - develop
   - "/\\d+\\.\\d+\\.\\d+?.*/"
 php:
-- 7.1
 - 7.2
+- 7.3
 env:
   global:
   - GIT_COMMITTER_NAME=travis-ci
@@ -45,5 +45,5 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
-    php: 7.2
+    php: 7.3
     repo: inc2734/snow-monkey-blocks
