@@ -29,6 +29,10 @@ export const schema = {
 		type: 'number',
 		default: 0,
 	},
+	fade: {
+		type: 'boolean',
+		default: false,
+	},
 	rtl: {
 		type: 'boolean',
 		default: false,

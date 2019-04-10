@@ -20,6 +20,7 @@ const generateSliderConfig = ( _config ) => {
 		speed: _config.speed,
 		autoplay: _config.autoplay,
 		autoplaySpeed: _config.autoplaySpeed,
+		fade: _config.fade,
 		rtl: _config.rtl,
 	};
 };
@@ -35,7 +36,7 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 	},
 
 	edit( { attributes, setAttributes, className } ) {
-		const { slidesToShow, slidesToScroll, dots, arrows, speed, autoplaySpeed, rtl } = attributes;
+		const { slidesToShow, slidesToScroll, dots, arrows, speed, autoplaySpeed, fade, rtl } = attributes;
 
 		const allowedBlocks = [ 'snow-monkey-blocks/slider--item' ];
 		const template = [ [ 'snow-monkey-blocks/slider--item' ] ];
@@ -93,6 +94,11 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 							max="10"
 						/>
 						<ToggleControl
+							label={ __( 'Enable fade', 'snow-monkey-blocks' ) }
+							checked={ fade }
+							onChange={ ( value ) => setAttributes( { fade: value } ) }
+						/>
+						<ToggleControl
 							label={ __( 'Change the slider\'s direction to become right-to-left', 'snow-monkey-blocks' ) }
 							checked={ rtl }
 							onChange={ ( value ) => setAttributes( { rtl: value } ) }
@@ -114,7 +120,7 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 	},
 
 	save( { attributes, className } ) {
-		const { slidesToShow, slidesToScroll, dots, arrows, speed, autoplay, autoplaySpeed, rtl } = attributes;
+		const { slidesToShow, slidesToScroll, dots, arrows, speed, autoplay, autoplaySpeed, fade, rtl } = attributes;
 
 		const config = generateSliderConfig( {
 			slidesToShow: slidesToShow,
@@ -124,6 +130,7 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 			speed: speed,
 			autoplay: autoplay,
 			autoplaySpeed: autoplaySpeed * 1000,
+			fade: fade,
 			rtl: rtl,
 		} );
 

@@ -4,11 +4,56 @@ import classnames from 'classnames';
 import { schema } from './_schema.js';
 
 const { get, times, merge } = lodash;
-const { RichText } = wp.editor;
+const { RichText, InnerBlocks } = wp.editor;
 const { Fragment } = wp.element;
 const { createBlock } = wp.blocks;
 
 export const deprecated = [
+	{
+		attributes: schema,
+		supports: {
+			align: [ 'wide', 'full' ],
+		},
+
+		save( { attributes, className } ) {
+			const { slidesToShow, slidesToScroll, dots, arrows, speed, autoplay, autoplaySpeed, rtl } = attributes;
+
+			const generateSliderConfig = ( _config ) => {
+				return {
+					slidesToShow: _config.slidesToShow,
+					slidesToScroll: _config.slidesToScroll,
+					dots: _config.dots,
+					arrows: _config.arrows,
+					speed: _config.speed,
+					autoplay: _config.autoplay,
+					autoplaySpeed: _config.autoplaySpeed,
+					rtl: _config.rtl,
+				};
+			};
+
+			const config = generateSliderConfig( {
+				slidesToShow: slidesToShow,
+				slidesToScroll: slidesToScroll,
+				dots: dots,
+				arrows: arrows,
+				speed: speed,
+				autoplay: autoplay,
+				autoplaySpeed: autoplaySpeed * 1000,
+				rtl: rtl,
+			} );
+
+			const classes = classnames( 'smb-slider', className );
+			const dir = true === config.rtl ? 'rtl' : 'ltr';
+
+			return (
+				<div className={ classes }>
+					<div className="smb-slider__canvas" dir={ dir } data-smb-slider={ JSON.stringify( config ) }>
+						<InnerBlocks.Content />
+					</div>
+				</div>
+			);
+		},
+	},
 	{
 		attributes: merge(
 			schema,
