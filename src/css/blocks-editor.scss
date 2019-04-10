@@ -140,8 +140,6 @@
   }
 
   .editor-default-block-appender {
-    display: none;
-
     > .editor-default-block-appender__content {
       margin-bottom: 0;
     }
@@ -159,7 +157,6 @@
 
   &.is-selected {
     .editor-default-block-appender {
-      display: block;
       outline: 1px dashed rgba(145, 151, 162, .25);
 
       @include _hover(lg) {
