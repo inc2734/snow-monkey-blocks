@@ -22,6 +22,7 @@ const generateThumbnailGalellryConfig = ( _config ) => {
 
 registerBlockType( 'snow-monkey-blocks/thumbnail-gallery', {
 	title: __( 'Thumbnail gallery', 'snow-monkey-blocks' ),
+	description: __( 'You can display a slide show with thumbnails.', 'snow-monkey-blocks' ),
 	icon: 'format-gallery',
 	category: 'smb',
 	attributes: schema,

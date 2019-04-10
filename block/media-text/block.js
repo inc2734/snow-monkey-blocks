@@ -35,6 +35,7 @@ const _getColumnsSize = ( imageColumnSize ) => {
 
 registerBlockType( 'snow-monkey-blocks/media-text', {
 	title: __( 'Media text', 'snow-monkey-blocks' ),
+	description: __( 'Set media and words side-by-side for a richer layout.', 'snow-monkey-blocks' ),
 	icon: 'align-left',
 	category: 'smb',
 	attributes: schema,

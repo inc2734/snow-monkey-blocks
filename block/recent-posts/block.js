@@ -8,6 +8,7 @@ const { withSelect } = wp.data;
 
 registerBlockType( 'snow-monkey-blocks/recent-posts', {
 	title: __( 'Recent posts', 'snow-monkey-blocks' ),
+	description: __( 'You can display recent posts with richer.', 'snow-monkey-blocks' ),
 	icon: 'editor-ul',
 	category: 'smb',
 

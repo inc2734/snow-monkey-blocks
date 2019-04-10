@@ -14,6 +14,7 @@ const { __ } = wp.i18n;
 
 registerBlockType( 'snow-monkey-blocks/section', {
 	title: __( 'Section', 'snow-monkey-blocks' ),
+	description: __( 'Contents can be separated by appropriate margins.', 'snow-monkey-blocks' ),
 	icon: 'text',
 	category: 'smb-section',
 	attributes: schema,

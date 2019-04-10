@@ -9,6 +9,7 @@ const { __ } = wp.i18n;
 
 registerBlockType( 'snow-monkey-blocks/accordion', {
 	title: __( 'Accordion', 'snow-monkey-blocks' ),
+	description: __( 'You can set up a content area that expands and contracts like the accordion.', 'snow-monkey-blocks' ),
 	icon: 'editor-justify',
 	category: 'smb',
 

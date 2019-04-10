@@ -13,6 +13,7 @@ const { __ } = wp.i18n;
 
 registerBlockType( 'snow-monkey-blocks/panels--item', {
 	title: __( 'Item', 'snow-monkey-blocks' ),
+	description: __( 'It is a child block of the panels block.', 'snow-monkey-blocks' ),
 	icon: 'screenoptions',
 	category: 'smb',
 	parent: [ 'snow-monkey-blocks/panels' ],

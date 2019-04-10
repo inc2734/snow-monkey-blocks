@@ -11,6 +11,7 @@ const { __ } = wp.i18n;
 
 registerBlockType( 'snow-monkey-blocks/faq--item', {
 	title: __( 'Item', 'snow-monkey-blocks' ),
+	description: __( 'It is a child block of the FAQ block.', 'snow-monkey-blocks' ),
 	icon: 'businessman',
 	category: 'smb',
 	parent: [ 'snow-monkey-blocks/faq' ],

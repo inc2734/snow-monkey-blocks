@@ -9,6 +9,7 @@ const { __ } = wp.i18n;
 
 registerBlockType( 'snow-monkey-blocks/step', {
 	title: __( 'Step', 'snow-monkey-blocks' ),
+	description: __( 'Express the steps in an easy-to-understand manner.', 'snow-monkey-blocks' ),
 	icon: 'editor-ol',
 	category: 'smb',
 

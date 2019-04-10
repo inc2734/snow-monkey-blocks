@@ -13,6 +13,7 @@ const { __ } = wp.i18n;
 
 registerBlockType( 'snow-monkey-blocks/box', {
 	title: __( 'Box', 'snow-monkey-blocks' ),
+	description: __( 'It is a box.', 'snow-monkey-blocks' ),
 	icon: 'admin-comments',
 	category: 'smb',
 	attributes: schema,

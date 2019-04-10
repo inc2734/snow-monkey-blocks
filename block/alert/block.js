@@ -16,6 +16,7 @@ let isIconUpdated = false;
 
 registerBlockType( 'snow-monkey-blocks/alert', {
 	title: __( 'Alert', 'snow-monkey-blocks' ),
+	description: __( 'It is a block that warns visitors.', 'snow-monkey-blocks' ),
 	icon: 'warning',
 	category: 'smb',
 	attributes: schema,

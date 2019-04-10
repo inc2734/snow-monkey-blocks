@@ -9,6 +9,7 @@ const { __ } = wp.i18n;
 
 registerBlockType( 'snow-monkey-blocks/testimonial', {
 	title: __( 'Testimonial', 'snow-monkey-blocks' ),
+	description: __( 'Let\'s arrange the voice of the customer.', 'snow-monkey-blocks' ),
 	icon: 'admin-comments',
 	category: 'smb',
 

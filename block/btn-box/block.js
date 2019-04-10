@@ -12,6 +12,7 @@ const { __ } = wp.i18n;
 
 registerBlockType( 'snow-monkey-blocks/btn-box', {
 	title: __( 'Button box', 'snow-monkey-blocks' ),
+	description: __( 'It is a button with micro copy.', 'snow-monkey-blocks' ),
 	icon: 'embed-generic',
 	category: 'smb',
 	attributes: schema,

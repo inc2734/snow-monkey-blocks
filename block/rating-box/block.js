@@ -9,6 +9,7 @@ const { __ } = wp.i18n;
 
 registerBlockType( 'snow-monkey-blocks/rating-box', {
 	title: __( 'Rating box', 'snow-monkey-blocks' ),
+	description: __( 'Evaluate with bars.', 'snow-monkey-blocks' ),
 	icon: 'editor-alignleft',
 	category: 'smb',
 

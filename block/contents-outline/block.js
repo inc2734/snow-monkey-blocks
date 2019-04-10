@@ -9,6 +9,7 @@ const { __ } = wp.i18n;
 
 registerBlockType( 'snow-monkey-blocks/contents-outline', {
 	title: __( 'Contents outline', 'snow-monkey-blocks' ),
+	description: __( 'Display the table of contents above the first heading.', 'snow-monkey-blocks' ),
 	icon: 'editor-ol',
 	category: 'smb',
 	supports: {

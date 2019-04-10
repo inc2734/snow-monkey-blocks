@@ -13,6 +13,7 @@ const { __ } = wp.i18n;
 
 registerBlockType( 'snow-monkey-blocks/items', {
 	title: __( 'Items', 'snow-monkey-blocks' ),
+	description: __( 'Let\'s line up the contents.', 'snow-monkey-blocks' ),
 	icon: 'screenoptions',
 	category: 'smb',
 	attributes: schema,

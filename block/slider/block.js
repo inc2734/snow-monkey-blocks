@@ -26,6 +26,7 @@ const generateSliderConfig = ( _config ) => {
 
 registerBlockType( 'snow-monkey-blocks/slider', {
 	title: __( 'Slider', 'snow-monkey-blocks' ),
+	description: __( 'Show attractive images as beautiful sliders.', 'snow-monkey-blocks' ),
 	icon: 'format-gallery',
 	category: 'smb',
 	attributes: schema,
