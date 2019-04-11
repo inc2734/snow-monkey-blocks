@@ -5,6 +5,17 @@
       max-width: none;
       min-height: auto;
       min-width: auto;
+      display: none;
+
+      @include _media-min(lg) {
+        display: block;
+      }
+    }
+
+    > img {
+      @include _media-min(lg) {
+        display: none;
+      }
     }
   }
 }

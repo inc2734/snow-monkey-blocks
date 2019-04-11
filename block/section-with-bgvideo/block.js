@@ -1,14 +1,14 @@
 'use strict';
 
 import toNumber from '../../src/js/helper/to-number';
-import BgVideo from './_bgvideo.js';
 import classnames from 'classnames';
 import { schema } from './_schema.js';
+import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
 const { RichText, InnerBlocks, InspectorControls, PanelColorSettings, URLInput } = wp.editor;
 const { PanelBody, SelectControl, RangeControl, BaseControl } = wp.components;
-const { Fragment, Component } = wp.element;
+const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
 const getVideoId = ( videoURL ) => {
@@ -58,26 +58,6 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 			backgroundColor: maskColor || undefined,
 			opacity: 1 - maskOpacity,
 		};
-
-		class Video extends Component {
-			componentDidMount() {
-				setTimeout( () => new BgVideo( this.iframeRef ), 0 );
-			}
-
-			render() {
-				return (
-					<iframe
-						allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-						src={ `https://www.youtube.com/embed/${ getVideoId( videoURL ) }?controls=0&autoplay=1&showinfo=0&rel=0&disablekb=1&iv_load_policy=3&loop=1&playlist=${ getVideoId( videoURL ) }&playsinline=1&modestbranding=1` }
-						width={ videoWidth }
-						height={ videoHeight }
-						frameBorder="0"
-						title={ videoURL }
-						ref={ ( ref ) => this.iframeRef = ref }
-					/>
-				);
-			}
-		}
 
 		return (
 			<Fragment>
@@ -174,7 +154,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 				<div className={ classes } style={ sectionStyles }>
 					<div className={ bgvideoClasses }>
 						{ videoURL &&
-							<Video />
+							<img src={ `http://i.ytimg.com/vi/${ getVideoId( videoURL ) }/maxresdefault.jpg` } alt="" />
 						}
 					</div>
 					<div className="smb-section-with-bgimage__mask" style={ maskStyles }></div>
@@ -232,7 +212,10 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 			<div className={ classes } style={ sectionStyles }>
 				<div className={ bgvideoClasses }>
 					{ videoURL &&
-						<iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" src={ `https://www.youtube.com/embed/${ getVideoId( videoURL ) }?controls=0&autoplay=1&showinfo=0&rel=0&disablekb=1&iv_load_policy=3&loop=1&playlist=${ getVideoId( videoURL ) }&playsinline=1&modestbranding=1` } width={ videoWidth } height={ videoHeight } frameBorder="0" title={ videoURL } />
+						<Fragment>
+							<iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" src={ `https://www.youtube.com/embed/${ getVideoId( videoURL ) }?controls=0&autoplay=1&showinfo=0&rel=0&disablekb=1&iv_load_policy=3&loop=1&playlist=${ getVideoId( videoURL ) }&playsinline=1&modestbranding=1` } width={ videoWidth } height={ videoHeight } frameBorder="0" title={ videoURL } />
+							<img src={ `http://i.ytimg.com/vi/${ getVideoId( videoURL ) }/maxresdefault.jpg` } alt="" />
+						</Fragment>
 					}
 				</div>
 				<div className="smb-section-with-bgimage__mask" style={ maskStyles }></div>
@@ -249,4 +232,6 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 			</div>
 		);
 	},
+
+	deprecated: deprecated,
 } );
