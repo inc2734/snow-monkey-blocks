@@ -5,6 +5,12 @@
     width: 100%;
     display: block;
   }
+
+  .is-style-ghost & {
+    background-color: transparent !important;
+    border-width: 1px;
+    border-style: solid;
+  }
 }
 
 .smb-btn-wrapper.alignleft,

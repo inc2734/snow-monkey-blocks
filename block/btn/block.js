@@ -19,6 +19,10 @@ registerBlockType( 'snow-monkey-blocks/btn', {
 	supports: {
 		align: [ 'left', 'center', 'right' ],
 	},
+	styles: [
+		{ name: 'default', label: __( 'Default', 'snow-monkey-blocks' ), isDefault: true },
+		{ name: 'ghost', label: __( 'Ghost', 'snow-monkey-blocks' ) },
+	],
 
 	edit( { attributes, setAttributes, className } ) {
 		const { content, url, target, modifier, backgroundColor, textColor } = attributes;
@@ -35,6 +39,9 @@ registerBlockType( 'snow-monkey-blocks/btn', {
 		const btnStyles = {
 			backgroundColor: backgroundColor || undefined,
 		};
+		if ( 'is-style-ghost' === attributes.className ) {
+			btnStyles.borderColor = backgroundColor || '#fff';
+		}
 
 		const btnLabelStyles = {
 			color: textColor || undefined,
@@ -67,17 +74,17 @@ registerBlockType( 'snow-monkey-blocks/btn', {
 						/>
 
 						<SelectControl
-							label={ __( 'Type', 'snow-monkey-blocks' ) }
+							label={ __( 'Button size', 'snow-monkey-blocks' ) }
 							value={ modifier }
 							onChange={ ( value ) => setAttributes( { modifier: value } ) }
 							options={ [
 								{
 									value: '',
-									label: __( 'Normal button', 'snow-monkey-blocks' ),
+									label: __( 'Normal size', 'snow-monkey-blocks' ),
 								},
 								{
 									value: 'full',
-									label: __( 'Full button', 'snow-monkey-blocks' ),
+									label: __( 'Full size', 'snow-monkey-blocks' ),
 								},
 							] }
 						/>
@@ -143,6 +150,9 @@ registerBlockType( 'snow-monkey-blocks/btn', {
 		const btnStyles = {
 			backgroundColor: backgroundColor || undefined,
 		};
+		if ( 'is-style-ghost' === attributes.className ) {
+			btnStyles.borderColor = backgroundColor || '#fff';
+		}
 
 		const btnLabelStyles = {
 			color: textColor || undefined,
