@@ -21,7 +21,7 @@
 
   &[data-align="left"] {
     > .editor-block-list__block-edit {
-      > .smb-btn-wrapper {
+      .smb-btn-wrapper {
         > .smb-btn {
           float: left;
         }
@@ -31,7 +31,7 @@
 
   &[data-align="right"] {
     > .editor-block-list__block-edit {
-      > .smb-btn-wrapper {
+      .smb-btn-wrapper {
         > .smb-btn {
           float: right;
         }
