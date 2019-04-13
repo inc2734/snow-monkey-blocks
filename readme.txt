@@ -101,6 +101,10 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 
 == Changelog ==
 
+= 3.5.0 =
+* [Button] Add styles setting.
+* [Button box] Add styles setting.
+
 = 3.4.1 =
 * [Section with background video] Changed to display thumbnail instead of video for mobile.
 

@@ -19,6 +19,10 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 	supports: {
 		align: [ 'wide', 'full' ],
 	},
+	styles: [
+		{ name: 'default', label: __( 'Default', 'snow-monkey-blocks' ), isDefault: true },
+		{ name: 'ghost', label: __( 'Ghost', 'snow-monkey-blocks' ) },
+	],
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { lede, note, backgroundColor, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, btnSize } = attributes;
@@ -39,6 +43,9 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 		const btnBoxBtnStyles = {
 			backgroundColor: btnBackgroundColor || undefined,
 		};
+		if ( 'is-style-ghost' === attributes.className ) {
+			btnBoxBtnStyles.borderColor = btnBackgroundColor || '#fff';
+		}
 
 		return (
 			<Fragment>
@@ -179,6 +186,9 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 		const btnBoxBtnStyles = {
 			backgroundColor: btnBackgroundColor || undefined,
 		};
+		if ( 'is-style-ghost' === attributes.className ) {
+			btnBoxBtnStyles.borderColor = btnBackgroundColor || '#fff';
+		}
 
 		return (
 			<div className={ classes } style={ btnBoxStyle }>
