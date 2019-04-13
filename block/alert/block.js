@@ -56,14 +56,13 @@ registerBlockType( 'snow-monkey-blocks/alert', {
 		];
 
 		const TitleIcon = () => {
-			const displayDefaultIcon = isIconUpdated ? 'none' : 'block';
-
 			return (
 				<Fragment>
-					<div style={ { display: displayDefaultIcon } }>
-						<i className={ `fas fa-${ icon }` } />
-					</div>
-					<FontAwesomeIcon icon={ icon } />
+					{ ! isIconUpdated ? (
+						<span><i className={ `fas fa-${ icon }` } /></span>
+					) : (
+						<FontAwesomeIcon icon={ icon } />
+					) }
 				</Fragment>
 			);
 		};
@@ -124,7 +123,7 @@ registerBlockType( 'snow-monkey-blocks/alert', {
 				<div className={ classes }>
 					{ ( ! RichText.isEmpty( title ) || isSelected ) &&
 						<div className="smb-alert__title">
-							<TitleIcon />
+							<TitleIcon icon={ icon } />
 
 							<strong>
 								<RichText

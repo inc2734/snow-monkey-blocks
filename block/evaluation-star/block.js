@@ -25,8 +25,6 @@ registerBlockType( 'snow-monkey-blocks/evaluation-star', {
 		const { evaluationValue, iconColor, isDisplayNumeric, numericAlign, numericColor } = attributes;
 
 		const EditEvaluationIcon = () => {
-			const displayDefaultIcon = isUpdated ? 'none' : 'inline-block';
-			const displayUpdatedIcon = isUpdated ? 'inline-block' : 'none';
 			const defaultOutputIcons = [];
 			const updatedOutputIcons = [];
 			const evaluationNumber = toNumber( evaluationValue, 0, 5 );
@@ -51,12 +49,11 @@ registerBlockType( 'snow-monkey-blocks/evaluation-star', {
 
 			return (
 				<Fragment>
-					<div style={ { display: displayDefaultIcon } }>
-						{ updatedOutputIcons }
-					</div>
-					<div style={ { display: displayUpdatedIcon } }>
-						{ defaultOutputIcons }
-					</div>
+					{ ! isUpdated ? (
+						<span>{ updatedOutputIcons }</span>
+					) : (
+						<span>{ defaultOutputIcons }</span>
+					) }
 				</Fragment>
 			);
 		};
