@@ -166,7 +166,8 @@
     }
   }
 
-  .editor-rich-text__tinymce[data-is-placeholder-visible="true"] + .editor-rich-text__tinymce.wp-block-paragraph {
+  .editor-rich-text__tinymce[data-is-placeholder-visible="true"] + .editor-rich-text__tinymce.wp-block-paragraph,
+  .block-editor-rich-text__editable[data-is-placeholder-visible="true"] + .block-editor-rich-text__editable.wp-block-paragraph {
     margin-top: 0;
   }
 

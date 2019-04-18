@@ -68,7 +68,8 @@
     }
 
     // Gutenberg
-    > .editor-rich-text .editor-rich-text__tinymce {
+    > .editor-rich-text .editor-rich-text__tinymce
+    > .editor-rich-text .block-editor-rich-text__editable {
       @include content(.75); // = wpac-baloon__body
     }
   }
