@@ -3,7 +3,7 @@
 import toNumber from '../../src/js/helper/to-number';
 import buildTermsTree from '../../src/js/helper/build-terms-tree';
 
-const { find } = lodash;
+const { find, filter } = lodash;
 const { InspectorControls, InspectorAdvancedControls } = wp.editor;
 const { PanelBody, SelectControl, RangeControl, ServerSideRender, ToggleControl, TextControl, TreeSelect, Placeholder, Spinner } = wp.components;
 const { Fragment, Component } = wp.element;
@@ -30,7 +30,26 @@ export class edit extends Component {
 
 		const View = () => {
 			const selectedTerm = find( taxonomiesTerms[ taxonomy ], [ 'id', toNumber( termId ) ] );
-			if ( ! selectedTerm || ! selectedTerm.count ) {
+
+			function getSelectedTermCount( term, count = 0 ) {
+				if ( ! term ) {
+					return 0;
+				}
+				count += term.count;
+				const childTerms = filter( taxonomiesTerms[ taxonomy ], [ 'parent', toNumber( term.id ) ] );
+				childTerms.forEach(
+					( childTerm ) => {
+						if ( ! childTerm ) {
+							count += getSelectedTermCount( childTerm, count );
+						}
+					}
+				);
+				return count;
+			}
+
+			const selectedTermCount = getSelectedTermCount( selectedTerm );
+
+			if ( ! selectedTerm || ! selectedTermCount ) {
 				return (
 					<Placeholder
 						icon="editor-ul"
@@ -39,7 +58,7 @@ export class edit extends Component {
 						{ ! selectedTerm &&
 							<Spinner />
 						}
-						{ !! selectedTerm && ! selectedTerm.count &&
+						{ !! selectedTerm && ! selectedTermCount &&
 							__( 'No posts found.' )
 						}
 					</Placeholder>
