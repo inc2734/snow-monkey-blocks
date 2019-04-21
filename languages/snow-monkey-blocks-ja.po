@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2019-04-13 09:53+0900\n"
-"PO-Revision-Date: 2019-04-13 09:53+0900\n"
+"POT-Creation-Date: 2019-04-21 15:08+0900\n"
+"PO-Revision-Date: 2019-04-21 15:10+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -530,7 +530,32 @@ msgstr "FAQを列挙できます。"
 msgid "It is a child block of the FAQ block."
 msgstr "FAQブロックの子ブロックです。"
 
-#: block/faq/item/block.js:42
+#: block/faq/item/block.js:37
+msgid "Label Settings"
+msgstr "ラベル設定"
+
+#: block/faq/item/block.js:38
+msgid "Question Label"
+msgstr "質問のラベル"
+
+#: block/faq/item/block.js:41
+msgid "Q"
+msgstr "Q"
+
+#: block/faq/item/block.js:43 block/faq/item/block.js:51
+#, javascript-format
+msgid "Recommend length up to %d"
+msgstr "文字長は%dまでを推奨します"
+
+#: block/faq/item/block.js:46
+msgid "Answer Label"
+msgstr "回答のラベル"
+
+#: block/faq/item/block.js:49
+msgid "A"
+msgstr "A"
+
+#: block/faq/item/block.js:61
 msgid "Question Color"
 msgstr "質問の色"
 
