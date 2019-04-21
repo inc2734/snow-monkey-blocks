@@ -23,7 +23,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
-		const { title, imageID, imageURL, height, contentsAlignment, maskColor, maskOpacity, textColor, parallax } = attributes;
+		const { title, imageID, imageURL, imageALT, height, contentsAlignment, maskColor, maskOpacity, textColor, parallax } = attributes;
 
 		const classes = classnames(
 			{
@@ -136,7 +136,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 						labels={ { title: __( 'Image' ) } }
 						onSelect={ ( media ) => {
 							const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
-							setAttributes( { imageURL: newImageURL, imageID: media.id } );
+							setAttributes( { imageURL: newImageURL, imageID: media.id, imageALT: media.alt } );
 						} }
 						accept="image/*"
 						allowedTypes={ [ 'image' ] }
@@ -147,7 +147,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 						<button
 							className="smb-remove-button"
 							onClick={ () => {
-								setAttributes( { imageURL: '', imageID: 0 } );
+								setAttributes( { imageURL: '', imageALT: '', imageID: 0 } );
 							} }
 						>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
 					}
@@ -179,7 +179,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 	},
 
 	save( { attributes, className } ) {
-		const { title, imageID, imageURL, height, contentsAlignment, maskColor, maskOpacity, textColor, parallax } = attributes;
+		const { title, imageID, imageURL, imageALT, height, contentsAlignment, maskColor, maskOpacity, textColor, parallax } = attributes;
 
 		const classes = classnames(
 			{
@@ -215,7 +215,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 			<div className={ classes } style={ sectionStyles }>
 				<div className="smb-section-with-bgimage__mask" style={ maskStyles }></div>
 				<div className={ bgimageClasses } style={ bgimageStyles }>
-					<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
+					<img src={ imageURL } alt={ imageALT } className={ `wp-image-${ imageID }` } />
 				</div>
 				<div className="c-container">
 					{ ! RichText.isEmpty( title ) &&

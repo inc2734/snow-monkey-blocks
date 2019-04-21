@@ -16,6 +16,13 @@ export const schema = {
 		attribute: 'src',
 		default: '',
 	},
+	imageALT: {
+		type: 'string',
+		source: 'attribute',
+		selector: '.smb-section-with-bgimage__bgimage > img',
+		attribute: 'alt',
+		default: '',
+	},
 	height: {
 		type: 'string',
 		default: 'fit',

@@ -18,12 +18,12 @@ registerBlockType( 'snow-monkey-blocks/testimonial--item', {
 	attributes: schema,
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
-		const { avatarID, avatarURL, name, lede, content } = attributes;
+		const { avatarID, avatarURL, avatarALT, name, lede, content } = attributes;
 
 		const renderAvatar = ( obj ) => {
 			return (
 				<Button className="image-button" onClick={ obj.open } style={ { padding: 0 } }>
-					<img src={ avatarURL } alt="" className={ `wp-image-${ avatarID }` } />
+					<img src={ avatarURL } alt={ avatarALT } className={ `wp-image-${ avatarID }` } />
 				</Button>
 			);
 		};
@@ -38,8 +38,7 @@ registerBlockType( 'snow-monkey-blocks/testimonial--item', {
 							<MediaUpload
 								onSelect={ ( media ) => {
 									const newAvatarURL = !! media.sizes.thumbnail ? media.sizes.thumbnail.url : media.url;
-									setAttributes( { avatarURL: newAvatarURL } );
-									setAttributes( { avatarID: media.id } );
+									setAttributes( { avatarURL: newAvatarURL, avatarID: media.id, avatarALT: media.alt } );
 								} }
 								type="image"
 								value={ avatarID }
@@ -79,7 +78,7 @@ registerBlockType( 'snow-monkey-blocks/testimonial--item', {
 	},
 
 	save( { attributes, className } ) {
-		const { avatarID, avatarURL, name, lede, content } = attributes;
+		const { avatarID, avatarURL, avatarALT, name, lede, content } = attributes;
 
 		const colClasses = classnames( 'c-row__col', className );
 
@@ -87,7 +86,7 @@ registerBlockType( 'snow-monkey-blocks/testimonial--item', {
 			<div className={ colClasses }>
 				<div className="smb-testimonial__item">
 					<div className="smb-testimonial__item__figure">
-						<img src={ avatarURL } alt="" className={ `wp-image-${ avatarID }` } />
+						<img src={ avatarURL } alt={ avatarALT } className={ `wp-image-${ avatarID }` } />
 					</div>
 					<div className="smb-testimonial__item__body">
 						<div className="smb-testimonial__item__content">

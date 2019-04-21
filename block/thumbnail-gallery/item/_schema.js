@@ -12,4 +12,11 @@ export const schema = {
 		attribute: 'src',
 		default: '',
 	},
+	imageALT: {
+		type: 'string',
+		source: 'attribute',
+		selector: '.smb-thumbnail-gallery__item__figure > img',
+		attribute: 'alt',
+		default: '',
+	},
 };

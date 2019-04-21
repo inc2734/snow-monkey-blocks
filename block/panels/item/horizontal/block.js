@@ -20,13 +20,13 @@ registerBlockType( 'snow-monkey-blocks/panels--item--horizontal', {
 	attributes: schema,
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
-		const { titleTagName, title, summary, linkLabel, linkURL, linkTarget, imagePosition, imageID, imageURL } = attributes;
+		const { titleTagName, title, summary, linkLabel, linkURL, linkTarget, imagePosition, imageID, imageURL, imageALT } = attributes;
 
 		const titleTagNames = [ 'div', 'h2', 'h3' ];
 
 		const onSelectImage = ( media ) => {
 			const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
-			setAttributes( { imageURL: newImageURL, imageID: media.id } );
+			setAttributes( { imageURL: newImageURL, imageID: media.id, imageALT: media.alt } );
 		};
 
 		const PanelsItemFigureImg = () => {
@@ -47,7 +47,7 @@ registerBlockType( 'snow-monkey-blocks/panels--item--horizontal', {
 						render={ ( obj ) => {
 							return (
 								<Button className="image-button" onClick={ obj.open } style={ { padding: 0 } }>
-									<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
+									<img src={ imageURL } alt={ imageALT } className={ `wp-image-${ imageID }` } />
 								</Button>
 							);
 						} }
@@ -56,7 +56,7 @@ registerBlockType( 'snow-monkey-blocks/panels--item--horizontal', {
 						<button
 							className="smb-remove-button"
 							onClick={ () => {
-								setAttributes( { imageURL: '', imageID: 0 } );
+								setAttributes( { imageURL: '', imageALT: '', imageID: 0 } );
 							} }
 						>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
 					}
@@ -189,14 +189,14 @@ registerBlockType( 'snow-monkey-blocks/panels--item--horizontal', {
 	},
 
 	save( { attributes, className } ) {
-		const { titleTagName, title, summary, linkLabel, linkURL, linkTarget, imagePosition, imageID, imageURL } = attributes;
+		const { titleTagName, title, summary, linkLabel, linkURL, linkTarget, imagePosition, imageID, imageURL, imageALT } = attributes;
 
 		const PanelsItemContent = () => {
 			return (
 				<Fragment>
 					{ !! imageID &&
 						<div className="smb-panels__item__figure">
-							<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
+							<img src={ imageURL } alt={ imageALT } className={ `wp-image-${ imageID }` } />
 						</div>
 					}
 

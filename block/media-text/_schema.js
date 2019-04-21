@@ -16,6 +16,13 @@ export const schema = {
 		attribute: 'src',
 		default: '',
 	},
+	imageALT: {
+		type: 'string',
+		source: 'attribute',
+		selector: '.smb-media-text__figure > img',
+		attribute: 'alt',
+		default: '',
+	},
 	imagePosition: {
 		type: 'string',
 		default: 'right',
