@@ -154,7 +154,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 					<div className="smb-section-with-bgimage__mask" style={ maskStyles }></div>
 					<div className={ bgimageClasses } style={ bgimageStyles }>
 						{ imageURL &&
-							<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
+							<img src={ imageURL } alt={ imageALT } className={ `wp-image-${ imageID }` } />
 						}
 					</div>
 					<div className="c-container">
