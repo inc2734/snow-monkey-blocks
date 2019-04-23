@@ -11,7 +11,7 @@ registerBlockType( 'snow-monkey-blocks/testimonial', {
 	title: __( 'Testimonial', 'snow-monkey-blocks' ),
 	description: __( 'Let\'s arrange the voice of the customer.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#bd3c4f',
+		foreground: '#cd162c',
 		src: 'admin-comments',
 	},
 	category: 'smb',

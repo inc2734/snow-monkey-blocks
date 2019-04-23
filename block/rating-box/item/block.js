@@ -15,7 +15,7 @@ registerBlockType( 'snow-monkey-blocks/rating-box--item', {
 	title: __( 'Item', 'snow-monkey-blocks' ),
 	description: __( 'It is a child block of the rating box block.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#bd3c4f',
+		foreground: '#cd162c',
 		src: 'editor-alignleft',
 	},
 	category: 'smb',

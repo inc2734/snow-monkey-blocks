@@ -24,7 +24,7 @@ registerBlockType( 'snow-monkey-blocks/thumbnail-gallery', {
 	title: __( 'Thumbnail gallery', 'snow-monkey-blocks' ),
 	description: __( 'You can display a slide show with thumbnails.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#bd3c4f',
+		foreground: '#cd162c',
 		src: 'format-gallery',
 	},
 	category: 'smb',

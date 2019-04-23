@@ -13,7 +13,7 @@ registerBlockType( 'snow-monkey-blocks/testimonial--item', {
 	title: __( 'Item', 'snow-monkey-blocks' ),
 	description: __( 'It is a child block of the testimonial block.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#bd3c4f',
+		foreground: '#cd162c',
 		src: 'admin-comments',
 	},
 	category: 'smb',

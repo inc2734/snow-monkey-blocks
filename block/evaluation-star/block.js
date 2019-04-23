@@ -18,7 +18,7 @@ registerBlockType( 'snow-monkey-blocks/evaluation-star', {
 	title: __( 'Evaluation star', 'snow-monkey-blocks' ),
 	description: __( 'Evaluate with star icons', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#bd3c4f',
+		foreground: '#cd162c',
 		src: 'star-half',
 	},
 	category: 'smb',

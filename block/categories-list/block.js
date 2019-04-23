@@ -59,7 +59,7 @@ registerBlockType( 'snow-monkey-blocks/categories-list', {
 	title: __( 'Categories list', 'snow-monkey-blocks' ),
 	description: __( 'This is a block that displays a list of categories', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#bd3c4f',
+		foreground: '#cd162c',
 		src: 'excerpt-view',
 	},
 	category: 'smb',

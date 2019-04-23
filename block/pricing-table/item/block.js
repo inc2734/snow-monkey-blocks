@@ -14,7 +14,7 @@ registerBlockType( 'snow-monkey-blocks/pricing-table--item', {
 	title: __( 'Item', 'snow-monkey-blocks' ),
 	description: __( 'It is a child block of the pricing table block.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#bd3c4f',
+		foreground: '#cd162c',
 		src: 'warning',
 	},
 	category: 'smb',

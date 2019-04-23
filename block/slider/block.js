@@ -29,7 +29,7 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 	title: __( 'Slider', 'snow-monkey-blocks' ),
 	description: __( 'Show attractive images as beautiful sliders.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#bd3c4f',
+		foreground: '#cd162c',
 		src: 'format-gallery',
 	},
 	category: 'smb',

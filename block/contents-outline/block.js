@@ -11,7 +11,7 @@ registerBlockType( 'snow-monkey-blocks/contents-outline', {
 	title: __( 'Contents outline', 'snow-monkey-blocks' ),
 	description: __( 'Display the table of contents above the first heading.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#bd3c4f',
+		foreground: '#cd162c',
 		src: 'editor-ol',
 	},
 	category: 'smb',

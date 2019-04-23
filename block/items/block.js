@@ -15,7 +15,7 @@ registerBlockType( 'snow-monkey-blocks/items', {
 	title: __( 'Items', 'snow-monkey-blocks' ),
 	description: __( 'Let\'s line up the contents.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#bd3c4f',
+		foreground: '#cd162c',
 		src: 'screenoptions',
 	},
 	category: 'smb',

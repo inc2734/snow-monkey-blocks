@@ -15,7 +15,7 @@ registerBlockType( 'snow-monkey-blocks/list', {
 	title: __( 'Icon list', 'snow-monkey-blocks' ),
 	description: __( 'Icons are displayed only on the actual screen.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#bd3c4f',
+		foreground: '#cd162c',
 		src: 'editor-ul',
 	},
 	category: 'smb',

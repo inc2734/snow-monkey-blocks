@@ -18,7 +18,7 @@ registerBlockType( 'snow-monkey-blocks/alert', {
 	title: __( 'Alert', 'snow-monkey-blocks' ),
 	description: __( 'It is a block that warns visitors.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#bd3c4f',
+		foreground: '#cd162c',
 		src: 'warning',
 	},
 	category: 'smb',

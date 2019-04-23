@@ -13,7 +13,7 @@ registerBlockType( 'snow-monkey-blocks/thumbnail-gallery--item', {
 	title: __( 'Items', 'snow-monkey-blocks' ),
 	description: __( 'It is a child block of the thumbnail gallery block.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#bd3c4f',
+		foreground: '#cd162c',
 		src: 'format-gallery',
 	},
 	category: 'smb',

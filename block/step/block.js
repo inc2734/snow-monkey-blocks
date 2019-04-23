@@ -11,7 +11,7 @@ registerBlockType( 'snow-monkey-blocks/step', {
 	title: __( 'Step', 'snow-monkey-blocks' ),
 	description: __( 'Express the steps in an easy-to-understand manner.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#bd3c4f',
+		foreground: '#cd162c',
 		src: 'editor-ol',
 	},
 	category: 'smb',

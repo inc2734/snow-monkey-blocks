@@ -13,7 +13,7 @@ const { __ } = wp.i18n;
 registerBlockType( 'snow-monkey-blocks/accordion--item', {
 	title: __( 'Item', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#bd3c4f',
+		foreground: '#cd162c',
 		src: 'editor-justify',
 	},
 	category: 'smb',

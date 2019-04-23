@@ -13,7 +13,7 @@ registerBlockType( 'snow-monkey-blocks/slider--item', {
 	title: __( 'Items', 'snow-monkey-blocks' ),
 	description: __( 'It is a child block of the slider block.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#bd3c4f',
+		foreground: '#cd162c',
 		src: 'screenoptions',
 	},
 	category: 'smb',

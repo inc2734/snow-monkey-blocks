@@ -14,7 +14,7 @@ registerBlockType( 'snow-monkey-blocks/limited-datetime', {
 	title: __( 'Limited DateTime', 'snow-monkey-blocks' ),
 	description: __( 'Only the set period is displayed', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#bd3c4f',
+		foreground: '#cd162c',
 		src: 'calendar-alt',
 	},
 	category: 'smb',

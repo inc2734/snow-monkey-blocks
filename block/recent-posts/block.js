@@ -10,7 +10,7 @@ registerBlockType( 'snow-monkey-blocks/recent-posts', {
 	title: __( 'Recent posts', 'snow-monkey-blocks' ),
 	description: __( 'You can display recent posts with richer.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#bd3c4f',
+		foreground: '#cd162c',
 		src: 'editor-ul',
 	},
 	category: 'smb',

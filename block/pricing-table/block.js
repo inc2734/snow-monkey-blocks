@@ -11,7 +11,7 @@ registerBlockType( 'snow-monkey-blocks/pricing-table', {
 	title: __( 'Pricing table', 'snow-monkey-blocks' ),
 	description: __( 'Let\'s present the rate plan in an easy-to-understand manner.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#bd3c4f',
+		foreground: '#cd162c',
 		src: 'warning',
 	},
 	category: 'smb',

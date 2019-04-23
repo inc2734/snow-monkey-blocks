@@ -23,7 +23,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 	title: __( 'Section (with background video)', 'snow-monkey-blocks' ),
 	description: __( 'It is a section with a background video.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#bd3c4f',
+		foreground: '#cd162c',
 		src: 'text',
 	},
 	category: 'smb-section',

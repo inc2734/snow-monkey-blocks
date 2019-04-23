@@ -14,7 +14,7 @@ registerBlockType( 'snow-monkey-blocks/items--item--standard', {
 	title: __( 'Items (Standard)', 'snow-monkey-blocks' ),
 	description: __( 'It is a child block of the items block.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#bd3c4f',
+		foreground: '#cd162c',
 		src: 'screenoptions',
 	},
 	category: 'smb',

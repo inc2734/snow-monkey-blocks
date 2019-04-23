@@ -8,7 +8,7 @@ registerBlockType( 'snow-monkey-blocks/child-pages', {
 	title: __( 'Child pages', 'snow-monkey-blocks' ),
 	description: __( 'You can display child pages of this page.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#bd3c4f',
+		foreground: '#cd162c',
 		src: 'screenoptions',
 	},
 	category: 'smb',

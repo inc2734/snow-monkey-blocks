@@ -10,7 +10,7 @@ registerBlockType( 'snow-monkey-blocks/taxonomy-posts', {
 	title: __( 'Taxonomy posts', 'snow-monkey-blocks' ),
 	description: __( 'You can display recent posts linked to any taxonomy.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#bd3c4f',
+		foreground: '#cd162c',
 		src: 'editor-ul',
 	},
 	category: 'smb',

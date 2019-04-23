@@ -15,7 +15,7 @@ registerBlockType( 'snow-monkey-blocks/box', {
 	title: __( 'Box', 'snow-monkey-blocks' ),
 	description: __( 'It is a box.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#bd3c4f',
+		foreground: '#cd162c',
 		src: 'admin-comments',
 	},
 	category: 'smb',

@@ -11,7 +11,7 @@ registerBlockType( 'snow-monkey-blocks/rating-box', {
 	title: __( 'Rating box', 'snow-monkey-blocks' ),
 	description: __( 'Evaluate with bars.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#bd3c4f',
+		foreground: '#cd162c',
 		src: 'editor-alignleft',
 	},
 	category: 'smb',
