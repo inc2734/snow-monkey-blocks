@@ -120,7 +120,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 						colorSettings={ [
 							{
 								value: maskColor,
-								onChange: ( value ) => setAttributes( { maskColor: value } ),
+								onChange: ( value ) => setAttributes( { maskColor: value || 'transparent' } ),
 								label: __( 'Mask Color', 'snow-monkey-blocks' ),
 							},
 							{
