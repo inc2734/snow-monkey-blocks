@@ -12,7 +12,10 @@ const { __ } = wp.i18n;
 registerBlockType( 'snow-monkey-blocks/thumbnail-gallery--item', {
 	title: __( 'Items', 'snow-monkey-blocks' ),
 	description: __( 'It is a child block of the thumbnail gallery block.', 'snow-monkey-blocks' ),
-	icon: 'format-gallery',
+	icon: {
+		foreground: '#bd3c4f',
+		src: 'format-gallery',
+	},
 	category: 'smb',
 	parent: [ 'snow-monkey-blocks/thumbnail-gallery' ],
 	attributes: schema,

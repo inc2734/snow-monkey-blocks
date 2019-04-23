@@ -14,7 +14,10 @@ const { __ } = wp.i18n;
 registerBlockType( 'snow-monkey-blocks/list', {
 	title: __( 'Icon list', 'snow-monkey-blocks' ),
 	description: __( 'Icons are displayed only on the actual screen.', 'snow-monkey-blocks' ),
-	icon: 'editor-ul',
+	icon: {
+		foreground: '#bd3c4f',
+		src: 'editor-ul',
+	},
 	category: 'smb',
 	attributes: schema,
 

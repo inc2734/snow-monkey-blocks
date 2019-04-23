@@ -9,7 +9,10 @@ const { __ } = wp.i18n;
 registerBlockType( 'snow-monkey-blocks/pickup-slider', {
 	title: __( 'Pickup slider', 'snow-monkey-blocks' ),
 	description: __( 'Display posts with pickup tags as a slider.', 'snow-monkey-blocks' ),
-	icon: 'format-gallery',
+	icon: {
+		foreground: '#bd3c4f',
+		src: 'format-gallery',
+	},
 	category: 'smb',
 
 	edit( { attributes, setAttributes } ) {

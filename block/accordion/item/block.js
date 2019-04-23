@@ -12,7 +12,10 @@ const { __ } = wp.i18n;
 
 registerBlockType( 'snow-monkey-blocks/accordion--item', {
 	title: __( 'Item', 'snow-monkey-blocks' ),
-	icon: 'editor-justify',
+	icon: {
+		foreground: '#bd3c4f',
+		src: 'editor-justify',
+	},
 	category: 'smb',
 	parent: [ 'snow-monkey-blocks/accordion' ],
 	attributes: schema,

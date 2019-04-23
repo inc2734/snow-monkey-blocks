@@ -13,7 +13,10 @@ const { __ } = wp.i18n;
 registerBlockType( 'snow-monkey-blocks/btn', {
 	title: __( 'Button', 'snow-monkey-blocks' ),
 	description: __( 'Prompt visitors to take action with a button-style link.', 'snow-monkey-blocks' ),
-	icon: 'embed-generic',
+	icon: {
+		foreground: '#bd3c4f',
+		src: 'embed-generic',
+	},
 	category: 'smb',
 	attributes: schema,
 	supports: {

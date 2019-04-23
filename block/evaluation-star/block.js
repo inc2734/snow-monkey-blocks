@@ -17,7 +17,10 @@ let isUpdated = false;
 registerBlockType( 'snow-monkey-blocks/evaluation-star', {
 	title: __( 'Evaluation star', 'snow-monkey-blocks' ),
 	description: __( 'Evaluate with star icons', 'snow-monkey-blocks' ),
-	icon: 'star-half',
+	icon: {
+		foreground: '#bd3c4f',
+		src: 'star-half',
+	},
 	category: 'smb',
 	attributes: schema,
 

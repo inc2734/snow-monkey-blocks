@@ -13,7 +13,10 @@ const { __ } = wp.i18n;
 registerBlockType( 'snow-monkey-blocks/balloon', {
 	title: __( 'Balloon', 'snow-monkey-blocks' ),
 	description: __( 'It is a block that can express a conversation.', 'snow-monkey-blocks' ),
-	icon: 'admin-comments',
+	icon: {
+		foreground: '#bd3c4f',
+		src: 'admin-comments',
+	},
 	category: 'smb',
 	attributes: schema,
 
