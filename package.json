@@ -8,6 +8,7 @@
     "@fortawesome/fontawesome-free": "^5.7.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.15",
     "@fortawesome/react-fontawesome": "^0.1.4",
+    "@svgr/webpack": "^4.2.0",
     "@inc2734/for-each-html-nodes": "^0.2.0",
     "autoprefixer": "^9.5.0",
     "babel-eslint": "^10.0.1",
