@@ -12,7 +12,7 @@ export const schema = {
 		attribute: 'src',
 		default: '',
 	},
-	imageALT: {
+	imageAlt: {
 		type: 'string',
 		source: 'attribute',
 		selector: '.smb-slider__item__figure > img',

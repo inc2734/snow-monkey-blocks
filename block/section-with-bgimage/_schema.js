@@ -16,7 +16,7 @@ export const schema = {
 		attribute: 'src',
 		default: '',
 	},
-	imageALT: {
+	imageAlt: {
 		type: 'string',
 		source: 'attribute',
 		selector: '.smb-section-with-bgimage__bgimage > img',

@@ -19,13 +19,13 @@ registerBlockType( 'snow-monkey-blocks/items--item--standard', {
 	attributes: schema,
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
-		const { titleTagName, title, lede, summary, btnLabel, url, target, btnBackgroundColor, btnTextColor, imageID, imageURL, imageALT } = attributes;
+		const { titleTagName, title, lede, summary, btnLabel, url, target, btnBackgroundColor, btnTextColor, imageID, imageURL, imageAlt } = attributes;
 
 		const titleTagNames = [ 'div', 'h2', 'h3' ];
 
 		const onSelectImage = ( media ) => {
 			const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
-			setAttributes( { imageURL: newImageURL, imageID: media.id, imageALT: media.alt } );
+			setAttributes( { imageURL: newImageURL, imageID: media.id, imageAlt: media.alt } );
 		};
 
 		const classes = classnames( 'c-row__col', className );
@@ -56,7 +56,7 @@ registerBlockType( 'snow-monkey-blocks/items--item--standard', {
 						render={ ( obj ) => {
 							return (
 								<Button className="image-button" onClick={ obj.open } style={ { padding: 0 } }>
-									<img src={ imageURL } alt={ imageALT } className={ `wp-image-${ imageID }` } />
+									<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
 								</Button>
 							);
 						} }
@@ -65,7 +65,7 @@ registerBlockType( 'snow-monkey-blocks/items--item--standard', {
 						<button
 							className="smb-remove-button"
 							onClick={ () => {
-								setAttributes( { imageURL: '', imageALT: '', imageID: 0 } );
+								setAttributes( { imageURL: '', imageAlt: '', imageID: 0 } );
 							} }
 						>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
 					}
@@ -202,7 +202,7 @@ registerBlockType( 'snow-monkey-blocks/items--item--standard', {
 	},
 
 	save( { attributes, className } ) {
-		const { titleTagName, title, lede, summary, btnLabel, url, target, btnBackgroundColor, btnTextColor, imageID, imageURL, imageALT } = attributes;
+		const { titleTagName, title, lede, summary, btnLabel, url, target, btnBackgroundColor, btnTextColor, imageID, imageURL, imageAlt } = attributes;
 
 		const classes = classnames( 'c-row__col', className );
 
@@ -219,7 +219,7 @@ registerBlockType( 'snow-monkey-blocks/items--item--standard', {
 				<div className="smb-items__item">
 					{ !! imageID &&
 						<div className="smb-items__item__figure">
-							<img src={ imageURL } alt={ imageALT } className={ `wp-image-${ imageID }` } />
+							<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
 						</div>
 					}
 

@@ -18,11 +18,11 @@ registerBlockType( 'snow-monkey-blocks/thumbnail-gallery--item', {
 	attributes: schema,
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
-		const { imageID, imageURL, imageALT } = attributes;
+		const { imageID, imageURL, imageAlt } = attributes;
 
 		const onSelectImage = ( media ) => {
 			const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
-			setAttributes( { imageURL: newImageURL, imageID: media.id, imageALT: media.alt } );
+			setAttributes( { imageURL: newImageURL, imageID: media.id, imageAlt: media.alt } );
 		};
 
 		const ItemFigureImg = () => {
@@ -43,7 +43,7 @@ registerBlockType( 'snow-monkey-blocks/thumbnail-gallery--item', {
 						render={ ( obj ) => {
 							return (
 								<Button className="image-button" onClick={ obj.open } style={ { padding: 0 } }>
-									<img src={ imageURL } alt={ imageALT } className={ `wp-image-${ imageID }` } />
+									<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
 								</Button>
 							);
 						} }
@@ -51,7 +51,7 @@ registerBlockType( 'snow-monkey-blocks/thumbnail-gallery--item', {
 					{ isSelected &&
 						<button
 							className="smb-remove-button"
-							onClick={ () => setAttributes( { imageURL: '', imageALT: '', imageID: 0 } ) }
+							onClick={ () => setAttributes( { imageURL: '', imageAlt: '', imageID: 0 } ) }
 						>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
 					}
 				</Fragment>
@@ -74,7 +74,7 @@ registerBlockType( 'snow-monkey-blocks/thumbnail-gallery--item', {
 	},
 
 	save( { attributes, className } ) {
-		const { imageID, imageURL, imageALT } = attributes;
+		const { imageID, imageURL, imageAlt } = attributes;
 
 		const classes = classnames( 'smb-thumbnail-gallery__item', className );
 
@@ -83,7 +83,7 @@ registerBlockType( 'snow-monkey-blocks/thumbnail-gallery--item', {
 				{ !! imageID &&
 					<div className={ classes }>
 						<div className="smb-thumbnail-gallery__item__figure">
-							<img src={ imageURL } alt={ imageALT } className={ `wp-image-${ imageID }` } />
+							<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
 						</div>
 					</div>
 				}
