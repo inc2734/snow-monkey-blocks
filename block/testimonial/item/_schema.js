@@ -12,6 +12,13 @@ export const schema = {
 		attribute: 'src',
 		default: 'https://0.gravatar.com/avatar/00000000000000000000000000000000?s=128&d=mp&r=g',
 	},
+	avatarAlt: {
+		type: 'string',
+		source: 'attribute',
+		selector: '.smb-testimonial__item__figure > img',
+		attribute: 'alt',
+		default: '',
+	},
 	name: {
 		source: 'html',
 		selector: '.smb-testimonial__item__name',

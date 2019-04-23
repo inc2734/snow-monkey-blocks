@@ -18,12 +18,12 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 	attributes: schema,
 
 	edit( { attributes, setAttributes, className } ) {
-		const { avatarID, avatarURL, avatarBorderColor, balloonName, balloonBody, modifier } = attributes;
+		const { avatarID, avatarAlt, avatarURL, avatarBorderColor, balloonName, balloonBody, modifier } = attributes;
 
 		const renderAvatar = ( obj ) => {
 			return (
 				<Button className="image-button" onClick={ obj.open } style={ { padding: 0 } }>
-					<img src={ avatarURL } alt="" className={ `wp-image-${ avatarID }` } />
+					<img src={ avatarURL } alt={ avatarAlt } className={ `wp-image-${ avatarID }` } />
 				</Button>
 			);
 		};
@@ -84,7 +84,7 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 							<MediaUpload
 								onSelect={ ( media ) => {
 									const newAvatarURL = !! media.sizes.thumbnail ? media.sizes.thumbnail.url : media.url;
-									setAttributes( { avatarURL: newAvatarURL, avatarID: media.id } );
+									setAttributes( { avatarURL: newAvatarURL, avatarID: media.id, avatarAlt: media.alt } );
 								} }
 								type="image"
 								value={ avatarID }
@@ -113,7 +113,7 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 	},
 
 	save( { attributes, className } ) {
-		const { avatarID, avatarURL, avatarBorderColor, balloonName, balloonBody, modifier } = attributes;
+		const { avatarID, avatarAlt, avatarURL, avatarBorderColor, balloonName, balloonBody, modifier } = attributes;
 
 		const balloonFigureStyles = {
 			borderColor: avatarBorderColor || undefined,
@@ -134,7 +134,7 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 						className="smb-balloon__figure"
 						style={ balloonFigureStyles }
 					>
-						<img src={ avatarURL } alt="" className={ `wp-image-${ avatarID }` } />
+						<img src={ avatarURL } alt={ avatarAlt } className={ `wp-image-${ avatarID }` } />
 					</div>
 					<div className="smb-balloon__name">
 						{ balloonName }

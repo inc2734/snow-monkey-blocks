@@ -19,11 +19,11 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 	attributes: schema,
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
-		const { title, numberColor, imagePosition, imageID, imageURL, linkLabel, linkURL, linkTarget, linkColor } = attributes;
+		const { title, numberColor, imagePosition, imageID, imageURL, imageAlt, linkLabel, linkURL, linkTarget, linkColor } = attributes;
 
 		const onSelectImage = ( media ) => {
 			const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
-			setAttributes( { imageURL: newImageURL, imageID: media.id } );
+			setAttributes( { imageURL: newImageURL, imageID: media.id, imageAlt: media.alt } );
 		};
 
 		const StepItemFigureImg = () => {
@@ -44,7 +44,7 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 						render={ ( obj ) => {
 							return (
 								<Button className="image-button" onClick={ obj.open } style={ { padding: 0 } }>
-									<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
+									<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
 								</Button>
 							);
 						} }
@@ -53,7 +53,7 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 						<button
 							className="smb-remove-button"
 							onClick={ () => {
-								setAttributes( { imageURL: '', imageID: 0 } );
+								setAttributes( { imageURL: '', imageAlt: '', imageID: 0 } );
 							} }
 						>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
 					}
@@ -198,7 +198,7 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 	},
 
 	save( { attributes, className } ) {
-		const { title, numberColor, imagePosition, imageID, imageURL, linkLabel, linkURL, linkTarget, linkColor } = attributes;
+		const { title, numberColor, imagePosition, imageID, imageURL, imageAlt, linkLabel, linkURL, linkTarget, linkColor } = attributes;
 
 		const classes = classnames(
 			'smb-step__item',
@@ -226,7 +226,7 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 				<div className="smb-step__item__body">
 					{ !! imageID &&
 						<div className="smb-step__item__figure">
-							<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
+							<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
 						</div>
 					}
 

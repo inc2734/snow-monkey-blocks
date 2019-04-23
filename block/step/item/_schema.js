@@ -23,6 +23,13 @@ export const schema = {
 		attribute: 'src',
 		default: '',
 	},
+	imageAlt: {
+		type: 'string',
+		source: 'attribute',
+		selector: '.smb-step__item__figure > img',
+		attribute: 'alt',
+		default: '',
+	},
 	linkLabel: {
 		source: 'html',
 		selector: '.smb-step__item__link__label',

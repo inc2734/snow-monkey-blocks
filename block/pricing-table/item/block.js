@@ -19,11 +19,11 @@ registerBlockType( 'snow-monkey-blocks/pricing-table--item', {
 	attributes: schema,
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
-		const { title, price, lede, list, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, imageID, imageURL } = attributes;
+		const { title, price, lede, list, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, imageID, imageURL, imageAlt } = attributes;
 
 		const onSelectImage = ( media ) => {
 			const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
-			setAttributes( { imageURL: newImageURL, imageID: media.id } );
+			setAttributes( { imageURL: newImageURL, imageID: media.id, imageAlt: media.alt } );
 		};
 
 		const PricingTableItemFigureImg = () => {
@@ -44,7 +44,7 @@ registerBlockType( 'snow-monkey-blocks/pricing-table--item', {
 						render={ ( obj ) => {
 							return (
 								<Button className="image-button" onClick={ obj.open } style={ { padding: 0 } }>
-									<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
+									<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
 								</Button>
 							);
 						} }
@@ -53,7 +53,7 @@ registerBlockType( 'snow-monkey-blocks/pricing-table--item', {
 						<button
 							className="smb-remove-button"
 							onClick={ () => {
-								setAttributes( { imageURL: '', imageID: 0 } );
+								setAttributes( { imageURL: '', imageAlt: '', imageID: 0 } );
 							} }
 						>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
 					}
@@ -191,7 +191,7 @@ registerBlockType( 'snow-monkey-blocks/pricing-table--item', {
 	},
 
 	save( { attributes, className } ) {
-		const { title, price, lede, list, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, imageID, imageURL } = attributes;
+		const { title, price, lede, list, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, imageID, imageURL, imageAlt } = attributes;
 
 		const classes = classnames( 'c-row__col', className );
 
@@ -208,7 +208,7 @@ registerBlockType( 'snow-monkey-blocks/pricing-table--item', {
 				<div className="smb-pricing-table__item">
 					{ !! imageID &&
 						<div className="smb-pricing-table__item__figure">
-							<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
+							<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
 						</div>
 					}
 

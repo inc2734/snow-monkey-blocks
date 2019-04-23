@@ -12,6 +12,13 @@ export const schema = {
 		attribute: 'src',
 		default: '',
 	},
+	imageAlt: {
+		type: 'string',
+		source: 'attribute',
+		selector: '.smb-slider__item__figure > img',
+		attribute: 'alt',
+		default: '',
+	},
 	caption: {
 		source: 'html',
 		selector: '.smb-slider__item__caption',

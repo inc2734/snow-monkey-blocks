@@ -18,11 +18,11 @@ registerBlockType( 'snow-monkey-blocks/slider--item', {
 	attributes: schema,
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
-		const { imageID, imageURL, caption } = attributes;
+		const { imageID, imageURL, imageAlt, caption } = attributes;
 
 		const onSelectImage = ( media ) => {
 			const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
-			setAttributes( { imageURL: newImageURL, imageID: media.id } );
+			setAttributes( { imageURL: newImageURL, imageID: media.id, imageAlt: media.alt } );
 		};
 
 		const SliderItemFigureImg = () => {
@@ -43,7 +43,7 @@ registerBlockType( 'snow-monkey-blocks/slider--item', {
 						render={ ( obj ) => {
 							return (
 								<Button className="image-button" onClick={ obj.open } style={ { padding: 0 } }>
-									<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
+									<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
 								</Button>
 							);
 						} }
@@ -52,7 +52,7 @@ registerBlockType( 'snow-monkey-blocks/slider--item', {
 						<button
 							className="smb-remove-button"
 							onClick={ () => {
-								setAttributes( { imageURL: '', imageID: 0 } );
+								setAttributes( { imageURL: '', imageAlt: '', imageID: 0 } );
 							} }
 						>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
 					}
@@ -81,14 +81,14 @@ registerBlockType( 'snow-monkey-blocks/slider--item', {
 	},
 
 	save( { attributes, className } ) {
-		const { imageID, imageURL, caption } = attributes;
+		const { imageID, imageURL, imageAlt, caption } = attributes;
 
 		const classes = classnames( 'smb-slider__item', className );
 
 		return (
 			<div className={ classes }>
 				<div className="smb-slider__item__figure">
-					<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
+					<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
 				</div>
 
 				{ ! RichText.isEmpty( caption ) &&

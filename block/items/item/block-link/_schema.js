@@ -46,4 +46,11 @@ export const schema = {
 		attribute: 'src',
 		default: '',
 	},
+	imageAlt: {
+		type: 'string',
+		source: 'attribute',
+		selector: '.smb-items__item__figure > img',
+		attribute: 'alt',
+		default: '',
+	},
 };

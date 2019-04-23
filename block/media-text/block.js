@@ -41,7 +41,7 @@ registerBlockType( 'snow-monkey-blocks/media-text', {
 	attributes: schema,
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
-		const { title, imageID, imageURL, imagePosition, imageColumnSize } = attributes;
+		const { title, imageID, imageURL, imageAlt, imagePosition, imageColumnSize } = attributes;
 
 		const { textColumnWidth, imageColumnWidth } = _getColumnsSize( imageColumnSize );
 
@@ -72,7 +72,7 @@ registerBlockType( 'snow-monkey-blocks/media-text', {
 						render={ ( obj ) => {
 							return (
 								<Button className="image-button" onClick={ obj.open } style={ { padding: 0 } }>
-									<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
+									<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
 								</Button>
 							);
 						} }
@@ -81,7 +81,7 @@ registerBlockType( 'snow-monkey-blocks/media-text', {
 						<button
 							className="smb-remove-button"
 							onClick={ () => {
-								setAttributes( { imageURL: '', imageID: 0 } );
+								setAttributes( { imageURL: '', imageAlt: '', imageID: 0 } );
 							} }
 						>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
 					}
@@ -179,7 +179,7 @@ registerBlockType( 'snow-monkey-blocks/media-text', {
 	},
 
 	save( { attributes, className } ) {
-		const { title, imageID, imageURL, imagePosition, imageColumnSize } = attributes;
+		const { title, imageID, imageURL, imageAlt, imagePosition, imageColumnSize } = attributes;
 
 		const { textColumnWidth, imageColumnWidth } = _getColumnsSize( imageColumnSize );
 
@@ -214,7 +214,7 @@ registerBlockType( 'snow-monkey-blocks/media-text', {
 					<div className={ imageColumnClasses }>
 						<div className="smb-media-text__figure">
 							{ imageURL &&
-								<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
+								<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
 							}
 						</div>
 					</div>
