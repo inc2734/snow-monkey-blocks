@@ -6,8 +6,9 @@ import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
 const { RichText, InspectorControls, PanelColorSettings } = wp.editor;
+const { PanelBody, BaseControl, TextControl } = wp.components;
 const { Fragment } = wp.element;
-const { __ } = wp.i18n;
+const { __, sprintf } = wp.i18n;
 
 registerBlockType( 'snow-monkey-blocks/faq--item', {
 	title: __( 'Item', 'snow-monkey-blocks' ),
@@ -18,7 +19,7 @@ registerBlockType( 'snow-monkey-blocks/faq--item', {
 	attributes: schema,
 
 	edit( { attributes, setAttributes, className } ) {
-		const { question, answer, questionColor, answerColor } = attributes;
+		const { question, answer, questionColor, answerColor, questionLabel, answerLabel } = attributes;
 
 		const classes = classnames( 'smb-faq__item', className );
 
@@ -33,6 +34,24 @@ registerBlockType( 'snow-monkey-blocks/faq--item', {
 		return (
 			<Fragment>
 				<InspectorControls>
+					<PanelBody title={ __( 'Label Settings', 'snow-monkey-blocks' ) }>
+						<BaseControl label={ __( 'Question Label', 'snow-monkey-blocks' ) }>
+							<TextControl
+								value={ questionLabel }
+								placeholder={ __( 'Q', 'snow-monkey-blocks' ) }
+								onChange={ ( value ) => setAttributes( { questionLabel: value } ) }
+								help={ sprintf( __( 'Recommend length up to %d', 'snow-monkey-blocks' ), Number( 2 ) ) }
+							/>
+						</BaseControl>
+						<BaseControl label={ __( 'Answer Label', 'snow-monkey-blocks' ) }>
+							<TextControl
+								value={ answerLabel }
+								placeholder={ __( 'A', 'snow-monkey-blocks' ) }
+								onChange={ ( value ) => setAttributes( { answerLabel: value } ) }
+								help={ sprintf( __( 'Recommend length up to %d', 'snow-monkey-blocks' ), Number( 2 ) ) }
+							/>
+						</BaseControl>
+					</PanelBody>
 					<PanelColorSettings
 						title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
 						colorSettings={ [
@@ -54,7 +73,7 @@ registerBlockType( 'snow-monkey-blocks/faq--item', {
 				<div className={ classes }>
 					<div className="smb-faq__item__question">
 						<div className="smb-faq__item__question__label" style={ faqItemQestionLabelStyles }>
-							Q
+							{ questionLabel }
 						</div>
 						<RichText
 							className="smb-faq__item__question__body"
@@ -68,7 +87,7 @@ registerBlockType( 'snow-monkey-blocks/faq--item', {
 
 					<div className="smb-faq__item__answer">
 						<div className="smb-faq__item__answer__label" style={ faqItemAnswerLabelStyles }>
-							A
+							{ answerLabel }
 						</div>
 						<RichText
 							className="smb-faq__item__answer__body"
@@ -84,7 +103,7 @@ registerBlockType( 'snow-monkey-blocks/faq--item', {
 	},
 
 	save( { attributes, className } ) {
-		const { question, answer, questionColor, answerColor } = attributes;
+		const { question, answer, questionColor, answerColor, questionLabel, answerLabel } = attributes;
 
 		const classes = classnames( 'smb-faq__item', className );
 
@@ -100,7 +119,7 @@ registerBlockType( 'snow-monkey-blocks/faq--item', {
 			<div className={ classes }>
 				<div className="smb-faq__item__question">
 					<div className="smb-faq__item__question__label" style={ faqItemQestionLabelStyles }>
-						Q
+						{ questionLabel }
 					</div>
 					<div className="smb-faq__item__question__body">
 						<RichText.Content value={ question } />
@@ -109,7 +128,7 @@ registerBlockType( 'snow-monkey-blocks/faq--item', {
 
 				<div className="smb-faq__item__answer">
 					<div className="smb-faq__item__answer__label" style={ faqItemAnswerLabelStyles }>
-						A
+						{ answerLabel }
 					</div>
 					<div className="smb-faq__item__answer__body">
 						<RichText.Content value={ answer } />
