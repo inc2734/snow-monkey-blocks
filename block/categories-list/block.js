@@ -58,7 +58,10 @@ registerStore( 'snow-monkey-blocks/categories-list', {
 registerBlockType( 'snow-monkey-blocks/categories-list', {
 	title: __( 'Categories list', 'snow-monkey-blocks' ),
 	description: __( 'This is a block that displays a list of categories', 'snow-monkey-blocks' ),
-	icon: 'excerpt-view',
+	icon: {
+		foreground: '#bd3c4f',
+		src: 'excerpt-view',
+	},
 	category: 'smb',
 
 	edit: withSelect( ( select ) => {

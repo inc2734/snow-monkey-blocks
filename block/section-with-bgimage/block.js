@@ -14,7 +14,10 @@ const { __ } = wp.i18n;
 registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 	title: __( 'Section (with background image)', 'snow-monkey-blocks' ),
 	description: __( 'It is a section with a background image.', 'snow-monkey-blocks' ),
-	icon: 'text',
+	icon: {
+		foreground: '#bd3c4f',
+		src: 'text',
+	},
 	category: 'smb-section',
 	attributes: schema,
 	supports: {

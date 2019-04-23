@@ -14,7 +14,10 @@ const { __ } = wp.i18n;
 registerBlockType( 'snow-monkey-blocks/panels', {
 	title: __( 'Panels', 'snow-monkey-blocks' ),
 	description: __( 'Let\'s line up the contents like the panel.', 'snow-monkey-blocks' ),
-	icon: 'screenoptions',
+	icon: {
+		foreground: '#bd3c4f',
+		src: 'screenoptions',
+	},
 	category: 'smb',
 	attributes: schema,
 

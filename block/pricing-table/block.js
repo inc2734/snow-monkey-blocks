@@ -10,7 +10,10 @@ const { __ } = wp.i18n;
 registerBlockType( 'snow-monkey-blocks/pricing-table', {
 	title: __( 'Pricing table', 'snow-monkey-blocks' ),
 	description: __( 'Let\'s present the rate plan in an easy-to-understand manner.', 'snow-monkey-blocks' ),
-	icon: 'warning',
+	icon: {
+		foreground: '#bd3c4f',
+		src: 'warning',
+	},
 	category: 'smb',
 
 	edit( { className } ) {

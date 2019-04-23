@@ -12,7 +12,10 @@ const { __ } = wp.i18n;
 registerBlockType( 'snow-monkey-blocks/slider--item', {
 	title: __( 'Items', 'snow-monkey-blocks' ),
 	description: __( 'It is a child block of the slider block.', 'snow-monkey-blocks' ),
-	icon: 'screenoptions',
+	icon: {
+		foreground: '#bd3c4f',
+		src: 'screenoptions',
+	},
 	category: 'smb',
 	parent: [ 'snow-monkey-blocks/slider' ],
 	attributes: schema,

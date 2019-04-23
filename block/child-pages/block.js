@@ -7,7 +7,10 @@ const { __ } = wp.i18n;
 registerBlockType( 'snow-monkey-blocks/child-pages', {
 	title: __( 'Child pages', 'snow-monkey-blocks' ),
 	description: __( 'You can display child pages of this page.', 'snow-monkey-blocks' ),
-	icon: 'screenoptions',
+	icon: {
+		foreground: '#bd3c4f',
+		src: 'screenoptions',
+	},
 	category: 'smb',
 
 	edit() {

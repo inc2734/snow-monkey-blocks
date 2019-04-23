@@ -13,7 +13,10 @@ const { __ } = wp.i18n;
 registerBlockType( 'snow-monkey-blocks/step--item', {
 	title: __( 'Item', 'snow-monkey-blocks' ),
 	description: __( 'It is a child block of the step block.', 'snow-monkey-blocks' ),
-	icon: 'editor-ol',
+	icon: {
+		foreground: '#bd3c4f',
+		src: 'editor-ol',
+	},
 	category: 'smb',
 	parent: [ 'snow-monkey-blocks/step' ],
 	attributes: schema,

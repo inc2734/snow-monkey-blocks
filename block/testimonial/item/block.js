@@ -12,7 +12,10 @@ const { __ } = wp.i18n;
 registerBlockType( 'snow-monkey-blocks/testimonial--item', {
 	title: __( 'Item', 'snow-monkey-blocks' ),
 	description: __( 'It is a child block of the testimonial block.', 'snow-monkey-blocks' ),
-	icon: 'admin-comments',
+	icon: {
+		foreground: '#bd3c4f',
+		src: 'admin-comments',
+	},
 	category: 'smb',
 	parent: [ 'snow-monkey-blocks/testimonial' ],
 	attributes: schema,

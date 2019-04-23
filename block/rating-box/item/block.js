@@ -14,7 +14,10 @@ const { __ } = wp.i18n;
 registerBlockType( 'snow-monkey-blocks/rating-box--item', {
 	title: __( 'Item', 'snow-monkey-blocks' ),
 	description: __( 'It is a child block of the rating box block.', 'snow-monkey-blocks' ),
-	icon: 'editor-alignleft',
+	icon: {
+		foreground: '#bd3c4f',
+		src: 'editor-alignleft',
+	},
 	category: 'smb',
 	parent: [ 'snow-monkey-blocks/rating-box' ],
 	attributes: schema,
