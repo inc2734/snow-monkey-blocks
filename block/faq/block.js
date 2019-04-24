@@ -10,7 +10,10 @@ const { __ } = wp.i18n;
 registerBlockType( 'snow-monkey-blocks/faq', {
 	title: __( 'FAQ', 'snow-monkey-blocks' ),
 	description: __( 'You can list the FAQs.', 'snow-monkey-blocks' ),
-	icon: 'businessman',
+	icon: {
+		foreground: '#cd162c',
+		src: 'businessman',
+	},
 	category: 'smb',
 
 	edit( { className } ) {

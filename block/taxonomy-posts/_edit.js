@@ -31,23 +31,14 @@ export class edit extends Component {
 		const View = () => {
 			const selectedTerm = find( taxonomiesTerms[ taxonomy ], [ 'id', toNumber( termId ) ] );
 
-			function getSelectedTermCount( term, count = 0 ) {
-				if ( ! term ) {
-					return 0;
-				}
+			const getSelectedTermCount = ( term, count = 0 ) => {
 				count += term.count;
 				const childTerms = filter( taxonomiesTerms[ taxonomy ], [ 'parent', toNumber( term.id ) ] );
-				childTerms.forEach(
-					( childTerm ) => {
-						if ( ! childTerm ) {
-							count += getSelectedTermCount( childTerm, count );
-						}
-					}
-				);
-				return count;
-			}
+				const reducer = ( currentValue, childTerm ) => currentValue + getSelectedTermCount( childTerm, count );
+				return childTerms.reduce( reducer, count );
+			};
 
-			const selectedTermCount = getSelectedTermCount( selectedTerm );
+			const selectedTermCount = ( !! selectedTerm ) ? getSelectedTermCount( selectedTerm ) : 0;
 
 			if ( ! selectedTerm || ! selectedTermCount ) {
 				return (
