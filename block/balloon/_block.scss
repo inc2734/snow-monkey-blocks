@@ -51,9 +51,10 @@
     width: 100%;
 
     @include _top-balloon((
-      background-color: #fff,
-      border-color: _light($_color-gray),
-      border-size: 1px,
+      background-color: _lightest($_color-gray),
+      border-color: null,
+      border-size: null,
+      triangle-size: 10px,
     ));
 
     &::before,
@@ -64,7 +65,7 @@
 
     @include _media-min(md) {
       max-width: calc(100% - 80px);
-      @include _balloon-triangle(left, 10px, #fff, 1px, _light($_color-gray));
+      @include _balloon-triangle(left, 10px, _lightest($_color-gray));
     }
 
     // Gutenberg
@@ -96,7 +97,7 @@
       }
 
       @include _media-min(md) {
-        @include _balloon-triangle(right, 10px, #fff, 1px, _light($_color-gray));
+        @include _balloon-triangle(right, 10px, _lightest($_color-gray));
       }
     }
   }
