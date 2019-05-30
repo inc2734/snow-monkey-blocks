@@ -12,7 +12,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.4\n"
+"X-Generator: Poedit 2.2.2\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e\n"
@@ -23,6 +23,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-3: tests\n"
 "X-Poedit-SearchPathExcluded-4: languages\n"
 
+<<<<<<< HEAD
 #: block/categories-list/view.php:36 block/categories-list/_edit.js:73
 msgid "articles"
 msgstr "記事"
@@ -72,6 +73,8 @@ msgstr ""
 "%1$sSnow Monkey%2$s テーマと一緒に使用すると、最も美しいバランスで表示され、"
 "フロントスクリーンと同じデザインで編集画面に表示されます。"
 
+=======
+>>>>>>> 5a04efce68acfd0dd5f635a04757890803cf0031
 #: block/accordion/block.js:11
 msgid "Accordion"
 msgstr "アコーディオン"
@@ -159,7 +162,13 @@ msgstr "ワーニングアラート"
 msgid "Success alert"
 msgstr "サクセスアラート"
 
+<<<<<<< HEAD
 #: block/alert/block.js:105 block/list/block.js:72
+=======
+#: block/alert/block.js:105
+#: block/directory-structure/item/directory/block.js:74
+#: block/directory-structure/item/file/block.js:177 block/list/block.js:72
+>>>>>>> 5a04efce68acfd0dd5f635a04757890803cf0031
 msgid "Icon"
 msgstr "アイコン"
 
@@ -195,11 +204,22 @@ msgid "Reverse Balloon"
 msgstr "逆の吹き出し"
 
 #: block/balloon/block.js:68 block/box/block.js:50 block/btn-box/block.js:100
+<<<<<<< HEAD
 #: block/btn/block.js:97 block/evaluation-star/block.js:126
 #: block/faq/item/block.js:59 block/items/item/block-link/block.js:126
 #: block/items/item/block.js:139 block/items/item/standard/block.js:126
 #: block/list/block.js:92 block/pricing-table/item/block.js:106
 #: block/rating-box/item/block.js:49 block/section-with-bgimage/block.js:118
+=======
+#: block/btn/block.js:97 block/countdown/block.js:78
+#: block/directory-structure/item/directory/block.js:99
+#: block/directory-structure/item/file/block.js:202
+#: block/evaluation-star/block.js:126 block/faq/item/block.js:59
+#: block/items/item/block-link/block.js:126 block/items/item/block.js:139
+#: block/items/item/standard/block.js:126 block/list/block.js:92
+#: block/pricing-table/item/block.js:106 block/rating-box/item/block.js:49
+#: block/section-with-bgimage/block.js:118
+>>>>>>> 5a04efce68acfd0dd5f635a04757890803cf0031
 #: block/section-with-bgvideo/block.js:139 block/section/block.js:84
 #: block/step/item/block.js:132
 msgid "Color Settings"
@@ -260,7 +280,11 @@ msgstr "ボタンボックス"
 msgid "It is a button with micro copy."
 msgstr "マイクロコピー付きのボタンです。"
 
+<<<<<<< HEAD
 #: block/btn-box/block.js:26 block/btn/block.js:26
+=======
+#: block/btn-box/block.js:26 block/btn/block.js:26 block/countdown/block.js:27
+>>>>>>> 5a04efce68acfd0dd5f635a04757890803cf0031
 msgid "Default"
 msgstr "デフォルト"
 
@@ -370,6 +394,15 @@ msgid ""
 "excluded"
 msgstr "投稿数が0のカテゴリは、除外されていない場合でも表示されません"
 
+#: block/categories-list/_edit.js:73 block/categories-list/view.php:36
+msgid "articles"
+msgstr "記事"
+
+#: block/categories-list/_edit.js:85 block/categories-list/view.php:54
+#: block/recent-posts/_edit.js:34 block/recent-posts/block.js:10
+msgid "Recent posts"
+msgstr "最近の投稿"
+
 #: block/categories-list/_edit.js:88
 msgid "Only the actual contribution screen is displayed"
 msgstr "通常の投稿画面のみ表示されます"
@@ -431,6 +464,13 @@ msgstr "降順"
 msgid "This is a block that displays a list of categories"
 msgstr "このブロックはカテゴリーの一覧を表示します"
 
+<<<<<<< HEAD
+=======
+#: block/categories-list/view.php:74
+msgid "(no title)"
+msgstr "(タイトルなし)"
+
+>>>>>>> 5a04efce68acfd0dd5f635a04757890803cf0031
 #: block/child-pages/block.js:8 block/child-pages/block.js:21
 msgid "Child pages"
 msgstr "このページの子ページ"
@@ -470,6 +510,196 @@ msgstr "h4 を表示"
 #: block/contents-outline/block.js:70
 msgid "In the actual screen, it is displayed when headings exists on the page."
 msgstr "実際の画面では、見出しがページに存在する場合に表示されます。"
+
+#: block/countdown/block.js:16
+msgid "Countdown Timer"
+msgstr "カウントダウンタイマー"
+
+#: block/countdown/block.js:17
+msgid "Display the countdown until the set date and time (Front-end only)"
+msgstr "設定した日時までのカウントダウンを表示 (実画面のみ反映)"
+
+#: block/countdown/block.js:32
+msgid "Inline"
+msgstr "インライン"
+
+#: block/countdown/block.js:36
+msgid "Countdown"
+msgstr "カウントダウン"
+
+#: block/countdown/block.js:69
+msgid "Datetime Settings"
+msgstr "日時の設定"
+
+#: block/countdown/block.js:84
+msgid "Numeric Color"
+msgstr "数値の色"
+
+#: block/countdown/block.js:89
+msgid "Clock Color"
+msgstr "時刻の色"
+
+#: block/countdown/block.js:99 block/countdown/block.js:139
+msgid "Days"
+msgstr "日"
+
+#: block/countdown/block.js:102 block/countdown/block.js:142
+msgid "Hours"
+msgstr "時間"
+
+#: block/countdown/block.js:105 block/countdown/block.js:145
+msgid "Minutes"
+msgstr "分"
+
+#: block/countdown/block.js:108 block/countdown/block.js:148
+msgid "Seconds"
+msgstr "秒"
+
+#: block/directory-structure/block.js:14 block/directory-structure/block.js:22
+msgid "Directory structure"
+msgstr "ディレクトリ構造"
+
+#: block/directory-structure/block.js:15
+msgid "Display a list of directories and files"
+msgstr "ディレクトリとファイルの一覧を表示する"
+
+#: block/directory-structure/item/directory/block.js:18
+msgid "Directory item"
+msgstr "ディレクトリ項目"
+
+#: block/directory-structure/item/directory/block.js:19
+msgid "Display a directory item"
+msgstr "ディレクトリ項目を表示する"
+
+#: block/directory-structure/item/directory/block.js:45
+msgid "folder - Solid"
+msgstr "フォルダ - Solid"
+
+#: block/directory-structure/item/directory/block.js:51
+msgid "folder-open - Solid"
+msgstr "開いているフォルダ - Slid"
+
+#: block/directory-structure/item/directory/block.js:57
+msgid "folder-open - Regular"
+msgstr "開いているフォルダ - Regular"
+
+#: block/directory-structure/item/directory/block.js:63
+msgid "folder - Regular"
+msgstr "フォルダ - Regular"
+
+#: block/directory-structure/item/directory/block.js:73
+#: block/directory-structure/item/file/block.js:176
+msgid "Icon Settings"
+msgstr "アイコンの設定"
+
+#: block/directory-structure/item/directory/block.js:105
+#: block/directory-structure/item/file/block.js:208 block/list/block.js:98
+msgid "Icon Color"
+msgstr "アイコンの色"
+
+#: block/directory-structure/item/directory/block.js:117
+msgid "Write directory name..."
+msgstr "ディレクトリ名を書く…"
+
+#: block/directory-structure/item/file/block.js:18
+msgid "File item"
+msgstr "ファイル項目"
+
+#: block/directory-structure/item/file/block.js:19
+msgid "Display a file item"
+msgstr "ファイル項目を表示する"
+
+#: block/directory-structure/item/file/block.js:40
+msgid "file - Solid"
+msgstr "ファイル - Solid"
+
+#: block/directory-structure/item/file/block.js:46
+msgid "file-alt - Solid"
+msgstr "書類ファイル - Solid"
+
+#: block/directory-structure/item/file/block.js:52
+msgid "file-archive - Solid"
+msgstr "圧縮ファイル - Solid"
+
+#: block/directory-structure/item/file/block.js:58
+msgid "file-code - Solid"
+msgstr "コードファイル - Solid"
+
+#: block/directory-structure/item/file/block.js:64
+msgid "file-image - Solid"
+msgstr "画像ファイル - Solid"
+
+#: block/directory-structure/item/file/block.js:70
+msgid "file-audio - Solid"
+msgstr "音声ファイル - Solid"
+
+#: block/directory-structure/item/file/block.js:76
+msgid "file-video - Solid"
+msgstr "映像ファイル - Solid"
+
+#: block/directory-structure/item/file/block.js:82
+msgid "file-pdf - Solid"
+msgstr "PDFファイル - Solid"
+
+#: block/directory-structure/item/file/block.js:88
+msgid "file-excel - Solid"
+msgstr "Excelファイル - Solid"
+
+#: block/directory-structure/item/file/block.js:94
+msgid "file-word - Solid"
+msgstr "Wordファイル - Solid"
+
+#: block/directory-structure/item/file/block.js:100
+msgid "file-powerpoint - Solid"
+msgstr "PowerPointファイル - Solid"
+
+#: block/directory-structure/item/file/block.js:106
+msgid "file - Regular"
+msgstr "ファイル - Regular"
+
+#: block/directory-structure/item/file/block.js:112
+msgid "file-alt - Regular"
+msgstr "書類ファイル - Regular"
+
+#: block/directory-structure/item/file/block.js:118
+msgid "file-archive - Regular"
+msgstr "圧縮ファイル - Regular"
+
+#: block/directory-structure/item/file/block.js:124
+msgid "file-code - Regular"
+msgstr "コードファイル - Regular"
+
+#: block/directory-structure/item/file/block.js:130
+msgid "file-image - Regular"
+msgstr "画像ファイル - Regular"
+
+#: block/directory-structure/item/file/block.js:136
+msgid "file-audio - Regular"
+msgstr "音声ファイル - Regular"
+
+#: block/directory-structure/item/file/block.js:142
+msgid "file-video - Regular"
+msgstr "映像ファイル - Regular"
+
+#: block/directory-structure/item/file/block.js:148
+msgid "file-pdf - Regular"
+msgstr "PDFファイル - Regular"
+
+#: block/directory-structure/item/file/block.js:154
+msgid "file-excel - Regular"
+msgstr "Excelファイル - Regular"
+
+#: block/directory-structure/item/file/block.js:160
+msgid "file-word - Regular"
+msgstr "Wordファイル - Regular"
+
+#: block/directory-structure/item/file/block.js:166
+msgid "file-powerpoint - Regular"
+msgstr "PowerPointファイル - Regular"
+
+#: block/directory-structure/item/file/block.js:220
+msgid "Write file name..."
+msgstr "ファイル名を書く…"
 
 #: block/evaluation-star/block.js:18
 msgid "Evaluation star"
@@ -544,7 +774,11 @@ msgid "Q"
 msgstr "Q"
 
 #: block/faq/item/block.js:46 block/faq/item/block.js:54
+<<<<<<< HEAD
 #, python-format
+=======
+#, javascript-format
+>>>>>>> 5a04efce68acfd0dd5f635a04757890803cf0031
 msgid "Recommend length up to %d"
 msgstr "文字長は%dまでを推奨します"
 
@@ -719,10 +953,13 @@ msgstr "chevron-circle-right"
 msgid "List Settings"
 msgstr "リスト設定"
 
+<<<<<<< HEAD
 #: block/list/block.js:98
 msgid "Icon Color"
 msgstr "アイコンの色"
 
+=======
+>>>>>>> 5a04efce68acfd0dd5f635a04757890803cf0031
 #: block/media-text/block.js:37
 msgid "Media text"
 msgstr "メディアと文章"
@@ -875,8 +1112,12 @@ msgstr "レーティング"
 msgid "Bar Color"
 msgstr "バーの色"
 
+<<<<<<< HEAD
 #: block/recent-posts/_edit.js:40 block/recent-posts/_edit.js:132
 #: block/taxonomy-posts/_edit.js:53
+=======
+#: block/recent-posts/_edit.js:40 block/taxonomy-posts/_edit.js:53
+>>>>>>> 5a04efce68acfd0dd5f635a04757890803cf0031
 msgid "No posts found."
 msgstr "投稿が見つかりません."
 
@@ -888,6 +1129,7 @@ msgstr "最近の投稿設定"
 msgid "Post Type"
 msgstr "投稿タイプ"
 
+<<<<<<< HEAD
 #: block/recent-posts/_edit.js:66 block/recent-posts/_edit.js:158
 #: block/taxonomy-posts/_edit.js:86
 msgid "Number of posts"
@@ -925,6 +1167,37 @@ msgstr "HTML アンカー"
 
 #: block/recent-posts/_edit.js:103 block/recent-posts/_edit.js:195
 #: block/taxonomy-posts/_edit.js:123
+=======
+#: block/recent-posts/_edit.js:66 block/taxonomy-posts/_edit.js:86
+msgid "Number of posts"
+msgstr "表示する投稿数"
+
+#: block/recent-posts/_edit.js:74 block/taxonomy-posts/_edit.js:94
+msgid "Layout"
+msgstr "レイアウト"
+
+#: block/recent-posts/_edit.js:80 block/taxonomy-posts/_edit.js:100
+msgid "Rich media"
+msgstr "リッチメディア"
+
+#: block/recent-posts/_edit.js:84 block/taxonomy-posts/_edit.js:104
+msgid "Simple"
+msgstr "シンプル"
+
+#: block/recent-posts/_edit.js:88 block/taxonomy-posts/_edit.js:108
+msgid "Text"
+msgstr "テキスト"
+
+#: block/recent-posts/_edit.js:94 block/taxonomy-posts/_edit.js:114
+msgid "Ignore sticky posts"
+msgstr "先頭固定表示を除外する"
+
+#: block/recent-posts/_edit.js:102 block/taxonomy-posts/_edit.js:122
+msgid "HTML Anchor"
+msgstr "HTML アンカー"
+
+#: block/recent-posts/_edit.js:103 block/taxonomy-posts/_edit.js:123
+>>>>>>> 5a04efce68acfd0dd5f635a04757890803cf0031
 msgid "Anchors lets you link directly to a section on a page."
 msgstr ""
 "アンカーを使用すると、ページ上のセクションに直接リンクすることができます。"
@@ -1185,6 +1458,200 @@ msgstr "サムネイルギャラリー設定"
 msgid "It is a child block of the thumbnail gallery block."
 msgstr "サムネイルギャラリーブロックの子ブロックです。"
 
+<<<<<<< HEAD
 #: src/js/_highlighter.js:13 src/js/_highlighter.js:24
 msgid "Highlighter"
 msgstr "蛍光ペン"
+=======
+#: snow-monkey-blocks.php:44 snow-monkey-blocks.php:50
+msgid "Snow Monkey Blocks"
+msgstr "Snow Monkey Blocks"
+
+#: snow-monkey-blocks.php:46
+msgid "[Common blocks]"
+msgstr "[共通ブロック]"
+
+#: snow-monkey-blocks.php:52
+msgid "[Sections]"
+msgstr "[セクション]"
+
+#: snow-monkey-blocks.php:71
+msgid "[ PR ] Premium WordPress Theme Snow Monkey"
+msgstr "【PR】プレミアム WordPress テーマ Snow Monkey"
+
+#: snow-monkey-blocks.php:88
+#, php-format
+msgid ""
+"Snow Monkey Blocks is optimized for the %1$sSnow Monkey%2$s theme, but it "
+"can also be used with other themes."
+msgstr ""
+"Snow Monkey Blocksは %1$sSnow Monkey%2$s テーマに最適化されていますが、他の"
+"テーマでも使用できます。"
+
+#: snow-monkey-blocks.php:93
+#, php-format
+msgid ""
+"When used together with the %1$sSnow Monkey%2$s theme, it can be displayed "
+"with the most beautiful balance, and it is displayed on the edit screen with "
+"the same design as the front screen."
+msgstr ""
+"%1$sSnow Monkey%2$s テーマと一緒に使用すると、最も美しいバランスで表示され、"
+"フロントスクリーンと同じデザインで編集画面に表示されます。"
+
+#: src/js/_highlighter.js:13
+msgid "Highlighter"
+msgstr "蛍光ペン"
+
+#~ msgid "Not used"
+#~ msgstr "使用されません"
+
+#~ msgid "Number of items"
+#~ msgstr "アイテム数"
+
+#~ msgid "READ MORE"
+#~ msgstr "READ MORE"
+
+#~ msgid "Accordion item"
+#~ msgstr "アコーディオンの項目"
+
+#~ msgid "Panels item"
+#~ msgstr "パネルの項目"
+
+#~ msgid "Panels Item Settings"
+#~ msgstr "パネル項目設定"
+
+#~ msgid "Pricing table item"
+#~ msgstr "価格表の項目"
+
+#~ msgid "Rating box item"
+#~ msgstr "レーティングボックスの項目"
+
+#~ msgid "Rating box item Settings"
+#~ msgstr "レーティングボックス項目設定"
+
+#~ msgid "Step item"
+#~ msgstr "ステップの項目"
+
+#~ msgid "Step Item Settings"
+#~ msgstr "ステップ項目設定"
+
+#~ msgid "Testimonial item"
+#~ msgstr "お客様の声項目"
+
+#~ msgid "Button box Settings"
+#~ msgstr "ボタンボックス設定"
+
+#~ msgid "FAQ Item Settings"
+#~ msgstr "FAQ の項目の設定"
+
+#~ msgid "Items item"
+#~ msgstr "項目の項目の設定"
+
+#~ msgid "Items Item Settings"
+#~ msgstr "項目の項目の設定"
+
+#~ msgid "Pricing Table Item Settings"
+#~ msgstr "価格設定テーブルの項目設定"
+
+#~ msgid "Columns Settings"
+#~ msgstr "カラム設定"
+
+#~ msgid "Columns"
+#~ msgstr "カラム"
+
+#~ msgid "(%d) Button Settings"
+#~ msgstr "(%d) ボタン設定"
+
+#~ msgid "(%d) Link Settings"
+#~ msgstr "(%d) リンク設定"
+
+#~ msgid "Rows"
+#~ msgstr "行数"
+
+#~ msgid "(%d) Rating Settings"
+#~ msgstr "(%d) レーティング設定"
+
+#~ msgid "Testimonial Settings"
+#~ msgstr "お客様の声の設定"
+
+#~ msgid "STEP.%d Settings"
+#~ msgstr "ステップ.%d の設定"
+
+#~ msgid "FAQ Settings"
+#~ msgstr "FAQ 設定"
+
+#~ msgid "(%d) Item Settings"
+#~ msgstr "(%d) 項目の設定"
+
+#~ msgid "%1$d latest_posts"
+#~ msgstr "最新記事 (%1$d件)"
+
+#~ msgid "Section (with image)"
+#~ msgstr "セクション（画像あり）"
+
+#~ msgid "Section (has background image)"
+#~ msgstr "セクション（背景画像あり）"
+
+#~ msgid "an image"
+#~ msgstr "画像"
+
+#~ msgid "Section (has image)"
+#~ msgstr "セクション（画像あり）"
+
+#~ msgid "75%"
+#~ msgstr "75%"
+
+#~ msgid "Section (has items)"
+#~ msgstr "セクション（項目あり）"
+
+#~ msgid "Section (with items)"
+#~ msgstr "セクション（項目あり）"
+
+#~ msgid "Top Divider Type"
+#~ msgstr "上の仕切りのタイプ"
+
+#~ msgid "Top Divider Level"
+#~ msgstr "上の仕切りのレベル"
+
+#~ msgid "Top Divider Color"
+#~ msgstr "上の仕切りの色"
+
+#~ msgid "Bottom Divider Type"
+#~ msgstr "下の仕切りのタイプ"
+
+#~ msgid "Bottom Divider Level"
+#~ msgstr "下の仕切りのレベル"
+
+#~ msgid "Bottom Divider Color"
+#~ msgstr "下の仕切りの色"
+
+#~ msgid "icon"
+#~ msgstr "アイコン"
+
+#~ msgid "List"
+#~ msgstr "リスト"
+
+#~ msgid "Button URL"
+#~ msgstr "ボタンの URL"
+
+#~ msgid "Button Target"
+#~ msgstr "ボタンの Target"
+
+#~ msgid "Button Background Color"
+#~ msgstr "ボタンの背景色"
+
+#~ msgid "Button Text Color"
+#~ msgstr "ボタンの文字色"
+
+#~ msgid "Column"
+#~ msgstr "カラム"
+
+#~ msgid "Pricing table2"
+#~ msgstr "価格表2"
+
+#~ msgid "Modifier"
+#~ msgstr "修飾子"
+
+#~ msgid "_target"
+#~ msgstr "_target"
+>>>>>>> 5a04efce68acfd0dd5f635a04757890803cf0031

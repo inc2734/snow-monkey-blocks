@@ -1,0 +1,16 @@
+.smb-directory-structure--item--directory {
+	p {
+		display: flex;
+		flex-wrap: wrap;
+		span {
+			display: flex;
+			align-items: center;
+		}
+	}
+	&__name {
+		padding: 0 .46739rem;
+	}
+	&__list {
+		margin-left: 16px;
+	}
+}

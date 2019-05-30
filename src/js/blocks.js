@@ -33,5 +33,9 @@ import '../../block/evaluation-star/block.js';
 import '../../block/accordion/block.js';
 import '../../block/accordion/item/block.js';
 import '../../block/limited-datetime/block.js';
+import '../../block/countdown/block.js';
+import '../../block/directory-structure/block.js';
+import '../../block/directory-structure/item/directory/block.js';
+import '../../block/directory-structure/item/file/block.js';
 
 import './_highlighter.js';

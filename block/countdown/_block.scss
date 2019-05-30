@@ -1,0 +1,44 @@
+.smb-countdown {
+	ul {
+		margin-left: 0;
+	}
+	&__list {
+		display: flex;
+		align-items: center;
+		align-self: center;
+		flex-wrap: wrap;
+		flex-direction: row;
+		&-item {
+			list-style-type: none;
+			text-align: center;
+			&__numeric {
+				display: block;
+				margin: 0 .46739rem;
+				font-size: 1.5rem;
+				font-weight: 700;
+				line-height: 1;
+				.is-style-inline & {
+					display: inline;
+				}
+			}
+			&__clock {
+				display: block;
+				margin: 0 .46739rem;
+				font-size: 0.75rem;
+				line-height: 2.15942;
+				.is-style-inline & {
+					display: inline;
+				}
+			}
+		}
+	}
+	.align-center {
+		justify-content: center;
+	}
+	.align-left {
+		justify-content: flex-start;
+	}
+	.align-right {
+		justify-content: flex-end;
+	}
+}

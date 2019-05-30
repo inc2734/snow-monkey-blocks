@@ -1,0 +1,13 @@
+.smb-directory-structure--item--file {
+	&__name {
+		padding: 0;
+		div {
+			display: inline;
+		}
+		.editor-rich-text__editable,
+		.block-editor-rich-text__editable {
+			display: inline-block;
+			padding: 0 .46739rem;
+		}
+	}
+}
