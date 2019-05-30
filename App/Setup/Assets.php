@@ -109,6 +109,8 @@ class Assets {
 			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/blocks.min.css' )
 		);
 
+		wp_enqueue_script( 'moment' );
+
 		wp_enqueue_script(
 			'snow-monkey-blocks',
 			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/app.min.js',
@@ -134,6 +136,8 @@ class Assets {
 			[],
 			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/blocks-nopro.min.css' )
 		);
+
+		wp_enqueue_script( 'moment' );
 
 		wp_enqueue_script(
 			'snow-monkey-blocks-nopro',

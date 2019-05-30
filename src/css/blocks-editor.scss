@@ -23,6 +23,9 @@
 @import '../../block/thumbnail-gallery/editor';
 @import '../../block/accordion/editor';
 @import '../../block/limited-datetime/editor';
+@import '../../block/countdown/editor';
+@import '../../block/directory-structure/item/directory/editor';
+@import '../../block/directory-structure/item/file/editor';
 
 .#{$_prefix}c-row[data-columns] {
   margin: 0;

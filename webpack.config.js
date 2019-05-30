@@ -3,7 +3,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /(\.js|\.jsx)$/,
         use: {
           loader: 'babel-loader',
           options: {
@@ -40,6 +40,6 @@ module.exports = {
     moment: 'moment'
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx', '.json']
   }
 };
