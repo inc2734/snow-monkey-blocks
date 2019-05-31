@@ -3,12 +3,12 @@
 export const schema = {
 	name: {
 		source: 'html',
-		selector: '.smb-directory-structure--item--directory__name',
+		selector: '.smb-directory-structure__item__name',
 		default: '',
 	},
 	iconVendor: {
 		type: 'string',
-		default: 'far',
+		default: 'fas',
 	},
 	iconClass: {
 		type: 'string',

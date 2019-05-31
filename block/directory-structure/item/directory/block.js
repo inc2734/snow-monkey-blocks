@@ -30,12 +30,19 @@ registerBlockType( 'snow-monkey-blocks/directory-structure--item--directory', {
 			'snow-monkey-blocks/directory-structure--item--directory',
 			'snow-monkey-blocks/directory-structure--item--file',
 		];
+
 		const blockClasses = classnames(
 			{
-				'smb-directory-structure--item--directory': true,
+				'smb-directory-structure__item': true,
+				'smb-directory-structure__item--directory': true,
 				[ className ]: !! className,
 			}
 		);
+
+		const itemNameClasses = 'smb-directory-structure__item__name';
+
+		const itemListClasses = 'smb-directory-structure__item__list';
+
 		const iconStyles = {
 			color: attributes.iconColor || undefined,
 		};
@@ -112,7 +119,7 @@ registerBlockType( 'snow-monkey-blocks/directory-structure--item--directory', {
 						<span className="fa-fw" style={ iconStyles }>
 							<FontAwesomeIcon icon={ [ attributes.iconVendor, attributes.iconClass ] } />
 						</span>
-						<span className="smb-directory-structure--item--directory__name">
+						<span className={ itemNameClasses }>
 							<RichText
 								placeholder={ __( 'Write directory name...', 'snow-monkey-blocks' ) }
 								value={ attributes.name }
@@ -120,7 +127,7 @@ registerBlockType( 'snow-monkey-blocks/directory-structure--item--directory', {
 							/>
 						</span>
 					</p>
-					<div className="smb-directory-structure--item--directory__list">
+					<div className={ itemListClasses }>
 						<InnerBlocks
 							allowedBlocks={ allowedBlocks }
 							templateLock={ false }
@@ -134,10 +141,16 @@ registerBlockType( 'snow-monkey-blocks/directory-structure--item--directory', {
 	save( { attributes, className } ) {
 		const blockClasses = classnames(
 			{
-				'smb-directory-structure--item--directory': true,
+				'smb-directory-structure__item': true,
+				'smb-directory-structure__item--directory': true,
 				[ className ]: !! className,
 			}
 		);
+
+		const itemNameClasses = 'smb-directory-structure__item__name';
+
+		const itemListClasses = 'smb-directory-structure__item__list';
+
 		const iconStyles = {
 			color: attributes.iconColor || undefined,
 		};
@@ -148,9 +161,9 @@ registerBlockType( 'snow-monkey-blocks/directory-structure--item--directory', {
 					<span className="fa-fw" style={ iconStyles }>
 						<i className={ `${ attributes.iconVendor } fa-${ attributes.iconClass }` } />
 					</span>
-					<span className="smb-directory-structure--item--directory__name"><RichText.Content value={ attributes.name } /></span>
+					<span className={ itemNameClasses }><RichText.Content value={ attributes.name } /></span>
 				</p>
-				<div className="smb-directory-structure--item--directory__list">
+				<div className={ itemListClasses }>
 					<InnerBlocks.Content />
 				</div>
 			</div>
@@ -158,5 +171,4 @@ registerBlockType( 'snow-monkey-blocks/directory-structure--item--directory', {
 	},
 
 	transforms: transforms,
-
 } );

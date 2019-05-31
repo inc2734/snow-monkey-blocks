@@ -1,4 +1,32 @@
 .smb-directory-structure {
-	border: 1px solid #eee;
-	padding: .46739rem;
+  background-color: _lightest($_color-gray);
+  @include _padding(.5);
+
+  > * {
+    @include _margin-top(.25);
+  }
+
+  &__item {
+  	p {
+  		display: flex;
+      flex-wrap: nowrap;
+      align-items: flex-start;
+  	}
+  }
+
+  .fa-fw {
+    width: auto;
+  }
+
+  &__item__name {
+    margin-left: .5rem;
+	}
+
+  &__item__list {
+  	margin-left: 1.5rem;
+
+    > * {
+      @include _margin-top(.25);
+    }
+  }
 }

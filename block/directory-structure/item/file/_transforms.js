@@ -12,7 +12,7 @@ export const transforms = {
 			transform: ( attributes ) => {
 				return createBlock( 'notwiz-blocks/directory-structure--item--directory', {
 					name: attributes.name,
-					iconVendor: 'far',
+					iconVendor: 'fas',
 					iconClass: 'folder',
 					iconColor: attributes.iconColor,
 				} );

@@ -28,13 +28,18 @@ registerBlockType( 'snow-monkey-blocks/directory-structure--item--file', {
 	edit( { attributes, setAttributes, className } ) {
 		const blockClasses = classnames(
 			{
-				'smb-directory-structure--item--file': true,
+				'smb-directory-structure__item': true,
+				'smb-directory-structure__item--file': true,
 				[ className ]: !! className,
 			}
 		);
+
+		const itemNameClasses = 'smb-directory-structure__item__name';
+
 		const iconStyles = {
 			color: attributes.iconColor || undefined,
 		};
+
 		const iconList = [
 			{
 				label: __( 'file - Solid', 'snow-monkey-blocks' ),
@@ -43,130 +48,10 @@ registerBlockType( 'snow-monkey-blocks/directory-structure--item--file', {
 				value: 'file',
 			},
 			{
-				label: __( 'file-alt - Solid', 'snow-monkey-blocks' ),
-				key: 'file-alt-solid',
-				vendor: 'fas',
-				value: 'file-alt',
-			},
-			{
-				label: __( 'file-archive - Solid', 'snow-monkey-blocks' ),
-				key: 'file-archive-solid',
-				vendor: 'fas',
-				value: 'file-archive',
-			},
-			{
-				label: __( 'file-code - Solid', 'snow-monkey-blocks' ),
-				key: 'file-code-solid',
-				vendor: 'fas',
-				value: 'file-code',
-			},
-			{
-				label: __( 'file-image - Solid', 'snow-monkey-blocks' ),
-				key: 'file-image-solid',
-				vendor: 'fas',
-				value: 'file-image',
-			},
-			{
-				label: __( 'file-audio - Solid', 'snow-monkey-blocks' ),
-				key: 'file-audio-solid',
-				vendor: 'fas',
-				value: 'file-audio',
-			},
-			{
-				label: __( 'file-video - Solid', 'snow-monkey-blocks' ),
-				key: 'file-video-solid',
-				vendor: 'fas',
-				value: 'file-video',
-			},
-			{
-				label: __( 'file-pdf - Solid', 'snow-monkey-blocks' ),
-				key: 'file-pdf-solid',
-				vendor: 'fas',
-				value: 'file-pdf',
-			},
-			{
-				label: __( 'file-excel - Solid', 'snow-monkey-blocks' ),
-				key: 'file-excel-solid',
-				vendor: 'fas',
-				value: 'file-excel',
-			},
-			{
-				label: __( 'file-word - Solid', 'snow-monkey-blocks' ),
-				key: 'file-word-solid',
-				vendor: 'fas',
-				value: 'file-word',
-			},
-			{
-				label: __( 'file-powerpoint - Solid', 'snow-monkey-blocks' ),
-				key: 'file-powerpoint-solid',
-				vendor: 'fas',
-				value: 'file-powerpoint',
-			},
-			{
 				label: __( 'file - Regular', 'snow-monkey-blocks' ),
 				key: 'file-regular',
 				vendor: 'far',
 				value: 'file',
-			},
-			{
-				label: __( 'file-alt - Regular', 'snow-monkey-blocks' ),
-				key: 'file-alt-regular',
-				vendor: 'far',
-				value: 'file-alt',
-			},
-			{
-				label: __( 'file-archive - Regular', 'snow-monkey-blocks' ),
-				key: 'file-archive-regular',
-				vendor: 'far',
-				value: 'file-archive',
-			},
-			{
-				label: __( 'file-code - Regular', 'snow-monkey-blocks' ),
-				key: 'file-audio-regular',
-				vendor: 'far',
-				value: 'file-code',
-			},
-			{
-				label: __( 'file-image - Regular', 'snow-monkey-blocks' ),
-				key: 'file-image-regular',
-				vendor: 'far',
-				value: 'file-image',
-			},
-			{
-				label: __( 'file-audio - Regular', 'snow-monkey-blocks' ),
-				key: 'file-audio-regular',
-				vendor: 'far',
-				value: 'file-audio',
-			},
-			{
-				label: __( 'file-video - Regular', 'snow-monkey-blocks' ),
-				key: 'file-video-regular',
-				vendor: 'far',
-				value: 'file-video',
-			},
-			{
-				label: __( 'file-pdf - Regular', 'snow-monkey-blocks' ),
-				key: 'file-pdf-regular',
-				vendor: 'far',
-				value: 'file-pdf',
-			},
-			{
-				label: __( 'file-excel - Regular', 'snow-monkey-blocks' ),
-				key: 'file-excel-regular',
-				vendor: 'far',
-				value: 'file-excel',
-			},
-			{
-				label: __( 'file-word - Regular', 'snow-monkey-blocks' ),
-				key: 'file-word-regular',
-				vendor: 'far',
-				value: 'file-word',
-			},
-			{
-				label: __( 'file-powerpoint - Regular', 'snow-monkey-blocks' ),
-				key: 'file-powerpoint-regular',
-				vendor: 'far',
-				value: 'file-powerpoint',
 			},
 		];
 
@@ -215,7 +100,7 @@ registerBlockType( 'snow-monkey-blocks/directory-structure--item--file', {
 						<span className="fa-fw" style={ iconStyles }>
 							<FontAwesomeIcon icon={ [ attributes.iconVendor, attributes.iconClass ] } />
 						</span>
-						<span className="smb-directory-structure--item--file__name">
+						<span className={ itemNameClasses }>
 							<RichText
 								placeholder={ __( 'Write file name...', 'snow-monkey-blocks' ) }
 								value={ attributes.name }
@@ -231,10 +116,14 @@ registerBlockType( 'snow-monkey-blocks/directory-structure--item--file', {
 	save( { attributes, className } ) {
 		const blockClasses = classnames(
 			{
-				'smb-directory-structure--item--file': true,
+				'smb-directory-structure__item': true,
+				'smb-directory-structure__item--file': true,
 				[ className ]: !! className,
 			}
 		);
+
+		const itemNameClasses = 'smb-directory-structure__item__name';
+
 		const iconStyles = {
 			color: attributes.iconColor || undefined,
 		};
@@ -245,12 +134,11 @@ registerBlockType( 'snow-monkey-blocks/directory-structure--item--file', {
 					<span className="fa-fw" style={ iconStyles }>
 						<i className={ `${ attributes.iconVendor } fa-${ attributes.iconClass }` } />
 					</span>
-					<span className="smb-directory-structure--item--file__name"><RichText.Content value={ attributes.name } /></span>
+					<span className={ itemNameClasses }><RichText.Content value={ attributes.name } /></span>
 				</p>
 			</div>
 		);
 	},
 
 	transforms: transforms,
-
 } );

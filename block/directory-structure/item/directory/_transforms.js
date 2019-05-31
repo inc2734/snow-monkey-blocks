@@ -12,8 +12,8 @@ export const transforms = {
 			transform: ( attributes ) => {
 				return createBlock( 'snow-monkey-blocks/directory-structure--item--file', {
 					name: attributes.name,
-					iconVendor: 'far',
-					iconClass: 'file-alt',
+					iconVendor: 'fas',
+					iconClass: 'file',
 					iconColor: attributes.iconColor,
 				} );
 			},
