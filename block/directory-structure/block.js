@@ -1,8 +1,8 @@
 'use strict';
 
 import classnames from 'classnames';
+import blockIcon from './block-icon.svg';
 
-import { SnowMonkeyBlocksSvg } from '../../gutenberg/settings/svg.js';
 import { blockConfig } from '../../src/js/config/block.js';
 
 const { registerBlockType } = wp.blocks;
@@ -15,7 +15,7 @@ registerBlockType( 'snow-monkey-blocks/directory-structure', {
 	description: __( 'Display a list of directories and files', 'snow-monkey-blocks' ),
 	icon: {
 		foreground: blockConfig.blockIconColor,
-		src: SnowMonkeyBlocksSvg.blockIconDirectoryStructure,
+		src: blockIcon,
 	},
 	category: blockConfig.blockCategories.common,
 	keywords: [

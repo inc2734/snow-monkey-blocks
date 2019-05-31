@@ -1,8 +1,8 @@
 'use strict';
 
 import classnames from 'classnames';
+import blockIcon from './block-icon.svg';
 
-import { SnowMonkeyBlocksSvg } from '../../gutenberg/settings/svg.js';
 import { blockConfig } from '../../src/js/config/block.js';
 import { schema } from './_schema.js';
 
@@ -17,7 +17,7 @@ registerBlockType( 'snow-monkey-blocks/countdown', {
 	description: __( 'Display the countdown until the set date and time (Front-end only)', 'snow-monkey-blocks' ),
 	icon: {
 		foreground: blockConfig.blockIconColor,
-		src: blockConfig.blockIconCountdown,
+		src: blockIcon,
 	},
 	category: blockConfig.blockCategories.common,
 	attributes: schema,

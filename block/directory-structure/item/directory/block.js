@@ -1,10 +1,10 @@
 'use strict';
 
 import classnames from 'classnames';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import blockIcon from './block-icon.svg';
 
-import { SnowMonkeyBlocksSvg } from '../../../../gutenberg/settings/svg.js';
 import { blockConfig } from '../../../../src/js/config/block.js';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { schema } from './_schema.js';
 import { transforms } from './_transforms.js';
 
@@ -19,7 +19,7 @@ registerBlockType( 'snow-monkey-blocks/directory-structure--item--directory', {
 	description: __( 'Display a directory item', 'snow-monkey-blocks' ),
 	icon: {
 		foreground: blockConfig.blockIconColor,
-		src: SnowMonkeyBlocksSvg.blockIconDirectoryStructureItemDirectory,
+		src: blockIcon,
 	},
 	category: blockConfig.blockCategories.common,
 	attributes: schema,
