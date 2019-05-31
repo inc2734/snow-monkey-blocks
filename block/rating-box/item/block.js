@@ -1,6 +1,8 @@
 'use strict';
 
 import classnames from 'classnames';
+
+import { blockConfig } from '../../../src/js/config/block.js';
 import toNumber from '../../../src/js/helper/to-number';
 import { schema } from './_schema.js';
 import { deprecated } from './_deprecated.js';
@@ -15,10 +17,10 @@ registerBlockType( 'snow-monkey-blocks/rating-box--item', {
 	title: __( 'Item', 'snow-monkey-blocks' ),
 	description: __( 'It is a child block of the rating box block.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#cd162c',
+		foreground: blockConfig.blockIconColor,
 		src: 'editor-alignleft',
 	},
-	category: 'smb',
+	category: blockConfig.blockCategories.common,
 	parent: [ 'snow-monkey-blocks/rating-box' ],
 	attributes: schema,
 

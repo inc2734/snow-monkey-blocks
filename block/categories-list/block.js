@@ -1,5 +1,6 @@
 'use strict';
 
+import { blockConfig } from '../../src/js/config/block.js';
 import { edit } from './_edit.js';
 
 const { registerBlockType } = wp.blocks;
@@ -59,10 +60,10 @@ registerBlockType( 'snow-monkey-blocks/categories-list', {
 	title: __( 'Categories list', 'snow-monkey-blocks' ),
 	description: __( 'This is a block that displays a list of categories', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#cd162c',
+		foreground: blockConfig.blockIconColor,
 		src: 'excerpt-view',
 	},
-	category: 'smb',
+	category: blockConfig.blockCategories.common,
 
 	edit: withSelect( ( select ) => {
 		return {

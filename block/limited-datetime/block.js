@@ -2,6 +2,8 @@
 
 import classnames from 'classnames';
 import moment from 'moment';
+
+import { blockConfig } from '../../src/js/config/block.js';
 import { schema } from './_schema.js';
 
 const { registerBlockType } = wp.blocks;
@@ -14,10 +16,10 @@ registerBlockType( 'snow-monkey-blocks/limited-datetime', {
 	title: __( 'Limited DateTime', 'snow-monkey-blocks' ),
 	description: __( 'Only the set period is displayed', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#cd162c',
+		foreground: blockConfig.blockIconColor,
 		src: 'calendar-alt',
 	},
-	category: 'smb',
+	category: blockConfig.blockCategories.common,
 	attributes: schema,
 	supports: {
 		alignWide: false,

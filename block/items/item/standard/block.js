@@ -1,6 +1,8 @@
 'use strict';
 
 import classnames from 'classnames';
+
+import { blockConfig } from '../../../../src/js/config/block.js';
 import { schema } from './_schema.js';
 
 const { times } = lodash;
@@ -14,10 +16,10 @@ registerBlockType( 'snow-monkey-blocks/items--item--standard', {
 	title: __( 'Items (Standard)', 'snow-monkey-blocks' ),
 	description: __( 'It is a child block of the items block.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#cd162c',
+		foreground: blockConfig.blockIconColor,
 		src: 'screenoptions',
 	},
-	category: 'smb',
+	category: blockConfig.blockCategories.common,
 	parent: [ 'snow-monkey-blocks/items' ],
 	attributes: schema,
 

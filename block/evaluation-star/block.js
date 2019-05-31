@@ -2,6 +2,8 @@
 
 import classnames from 'classnames';
 import toNumber from '../../src/js/helper/to-number';
+
+import { blockConfig } from '../../src/js/config/block.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { schema } from './_schema.js';
 import { deprecated } from './_deprecated.js';
@@ -18,10 +20,10 @@ registerBlockType( 'snow-monkey-blocks/evaluation-star', {
 	title: __( 'Evaluation star', 'snow-monkey-blocks' ),
 	description: __( 'Evaluate with star icons', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#cd162c',
+		foreground: blockConfig.blockIconColor,
 		src: 'star-half',
 	},
-	category: 'smb',
+	category: blockConfig.blockCategories.common,
 	attributes: schema,
 
 	edit( { attributes, setAttributes, className } ) {

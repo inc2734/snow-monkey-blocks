@@ -2,6 +2,8 @@
 
 import classnames from 'classnames';
 import toNumber from '../../src/js/helper/to-number';
+
+import { blockConfig } from '../../src/js/config/block.js';
 import { schema } from './_schema.js';
 import { deprecated } from './_deprecated.js';
 
@@ -15,10 +17,10 @@ registerBlockType( 'snow-monkey-blocks/box', {
 	title: __( 'Box', 'snow-monkey-blocks' ),
 	description: __( 'It is a box.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#cd162c',
+		foreground: blockConfig.blockIconColor,
 		src: 'admin-comments',
 	},
-	category: 'smb',
+	category: blockConfig.blockCategories.common,
 	attributes: schema,
 
 	edit( { attributes, setAttributes, className } ) {

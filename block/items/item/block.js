@@ -1,6 +1,8 @@
 'use strict';
 
 import classnames from 'classnames';
+
+import { blockConfig } from '../../../src/js/config/block.js';
 import { schema } from './_schema.js';
 import { deprecated } from './_deprecated.js';
 
@@ -20,10 +22,10 @@ const { __ } = wp.i18n;
 registerBlockType( 'snow-monkey-blocks/items--item', {
 	title: __( 'Items', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#cd162c',
+		foreground: blockConfig.blockIconColor,
 		src: 'screenoptions',
 	},
-	category: 'smb',
+	category: blockConfig.blockCategories.common,
 	parent: [ 'DEPRECATED' ],
 	attributes: schema,
 

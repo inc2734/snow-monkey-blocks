@@ -1,6 +1,8 @@
 'use strict';
 
 import classnames from 'classnames';
+
+import { blockConfig } from '../../src/js/config/block.js';
 import { schema } from './_schema.js';
 import { deprecated } from './_deprecated.js';
 
@@ -14,10 +16,10 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 	title: __( 'Button box', 'snow-monkey-blocks' ),
 	description: __( 'It is a button with micro copy.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#cd162c',
+		foreground: blockConfig.blockIconColor,
 		src: 'embed-generic',
 	},
-	category: 'smb',
+	category: blockConfig.blockCategories.common,
 	attributes: schema,
 	supports: {
 		align: [ 'wide', 'full' ],

@@ -3,7 +3,7 @@
 import classnames from 'classnames';
 
 import { SnowMonkeyBlocksSvg } from '../../gutenberg/settings/svg.js';
-import { SnowMonkeyBlocksBlockSettings } from '../../gutenberg/settings/block.js';
+import { blockConfig } from '../../src/js/config/block.js';
 
 const { registerBlockType } = wp.blocks;
 const { InnerBlocks } = wp.editor;
@@ -14,10 +14,10 @@ registerBlockType( 'snow-monkey-blocks/directory-structure', {
 	title: __( 'Directory structure', 'snow-monkey-blocks' ),
 	description: __( 'Display a list of directories and files', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: SnowMonkeyBlocksBlockSettings.blockIconColor,
+		foreground: blockConfig.blockIconColor,
 		src: SnowMonkeyBlocksSvg.blockIconDirectoryStructure,
 	},
-	category: SnowMonkeyBlocksBlockSettings.blockCategories.common,
+	category: blockConfig.blockCategories.common,
 	keywords: [
 		__( 'Directory structure', 'snow-monkey-blocks' ),
 	],

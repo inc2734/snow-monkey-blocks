@@ -1,5 +1,7 @@
 'use strict';
 
+import { blockConfig } from '../../src/js/config/block.js';
+
 const { registerBlockType } = wp.blocks;
 const { Dashicon } = wp.components;
 const { __ } = wp.i18n;
@@ -8,10 +10,10 @@ registerBlockType( 'snow-monkey-blocks/child-pages', {
 	title: __( 'Child pages', 'snow-monkey-blocks' ),
 	description: __( 'You can display child pages of this page.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#cd162c',
+		foreground: blockConfig.blockIconColor,
 		src: 'screenoptions',
 	},
-	category: 'smb',
+	category: blockConfig.blockCategories.common,
 
 	edit() {
 		return (

@@ -1,6 +1,8 @@
 'use strict';
 
 import classnames from 'classnames';
+
+import { blockConfig } from '../../src/js/config/block.js';
 import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
@@ -11,10 +13,10 @@ registerBlockType( 'snow-monkey-blocks/rating-box', {
 	title: __( 'Rating box', 'snow-monkey-blocks' ),
 	description: __( 'Evaluate with bars.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#cd162c',
+		foreground: blockConfig.blockIconColor,
 		src: 'editor-alignleft',
 	},
-	category: 'smb',
+	category: blockConfig.blockCategories.common,
 
 	edit( { className } ) {
 		const allowedBlocks = [ 'snow-monkey-blocks/rating-box--item' ];

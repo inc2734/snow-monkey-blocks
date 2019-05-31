@@ -1,5 +1,7 @@
 'use strict';
 
+import { blockConfig } from '../../src/js/config/block.js';
+
 const { registerBlockType } = wp.blocks;
 const { InspectorControls } = wp.editor;
 const { PanelBody, SelectControl, ToggleControl, Dashicon } = wp.components;
@@ -10,10 +12,10 @@ registerBlockType( 'snow-monkey-blocks/pickup-slider', {
 	title: __( 'Pickup slider', 'snow-monkey-blocks' ),
 	description: __( 'Display posts with pickup tags as a slider.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#cd162c',
+		foreground: blockConfig.blockIconColor,
 		src: 'format-gallery',
 	},
-	category: 'smb',
+	category: blockConfig.blockCategories.common,
 
 	edit( { attributes, setAttributes } ) {
 		const { random, linkType } = attributes;

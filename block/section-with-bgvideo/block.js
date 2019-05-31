@@ -2,6 +2,8 @@
 
 import toNumber from '../../src/js/helper/to-number';
 import classnames from 'classnames';
+
+import { blockConfig } from '../../src/js/config/block.js';
 import { schema } from './_schema.js';
 import { deprecated } from './_deprecated.js';
 
@@ -23,10 +25,10 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 	title: __( 'Section (with background video)', 'snow-monkey-blocks' ),
 	description: __( 'It is a section with a background video.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#cd162c',
+		foreground: blockConfig.blockIconColor,
 		src: 'text',
 	},
-	category: 'smb-section',
+	category: blockConfig.blockCategories.section,
 	attributes: schema,
 	supports: {
 		align: [ 'wide', 'full' ],

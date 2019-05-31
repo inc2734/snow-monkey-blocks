@@ -3,7 +3,7 @@
 import classnames from 'classnames';
 
 import { SnowMonkeyBlocksSvg } from '../../gutenberg/settings/svg.js';
-import { SnowMonkeyBlocksBlockSettings } from '../../gutenberg/settings/block.js';
+import { blockConfig } from '../../src/js/config/block.js';
 import { schema } from './_schema.js';
 
 const { registerBlockType } = wp.blocks;
@@ -16,10 +16,10 @@ registerBlockType( 'snow-monkey-blocks/countdown', {
 	title: __( 'Countdown Timer', 'snow-monkey-blocks' ),
 	description: __( 'Display the countdown until the set date and time (Front-end only)', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: SnowMonkeyBlocksBlockSettings.blockIconColor,
-		src: SnowMonkeyBlocksSvg.blockIconCountdown,
+		foreground: blockConfig.blockIconColor,
+		src: blockConfig.blockIconCountdown,
 	},
-	category: SnowMonkeyBlocksBlockSettings.blockCategories.common,
+	category: blockConfig.blockCategories.common,
 	attributes: schema,
 	styles: [
 		{

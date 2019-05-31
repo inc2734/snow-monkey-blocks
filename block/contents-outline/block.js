@@ -1,5 +1,7 @@
 'use strict';
 
+import { blockConfig } from '../../src/js/config/block.js';
+
 const { remove, union, indexOf, compact } = lodash;
 const { registerBlockType } = wp.blocks;
 const { InspectorControls } = wp.editor;
@@ -11,10 +13,10 @@ registerBlockType( 'snow-monkey-blocks/contents-outline', {
 	title: __( 'Contents outline', 'snow-monkey-blocks' ),
 	description: __( 'Display the table of contents above the first heading.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#cd162c',
+		foreground: blockConfig.blockIconColor,
 		src: 'editor-ol',
 	},
-	category: 'smb',
+	category: blockConfig.blockCategories.common,
 	supports: {
 		customClassName: false,
 	},

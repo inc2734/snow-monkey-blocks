@@ -1,6 +1,8 @@
 'use strict';
 
 import classnames from 'classnames';
+
+import { blockConfig } from '../../../src/js/config/block.js';
 import { schema } from './_schema.js';
 
 const { registerBlockType } = wp.blocks;
@@ -13,10 +15,10 @@ registerBlockType( 'snow-monkey-blocks/slider--item', {
 	title: __( 'Items', 'snow-monkey-blocks' ),
 	description: __( 'It is a child block of the slider block.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#cd162c',
+		foreground: blockConfig.blockIconColor,
 		src: 'screenoptions',
 	},
-	category: 'smb',
+	category: blockConfig.blockCategories.common,
 	parent: [ 'snow-monkey-blocks/slider' ],
 	attributes: schema,
 

@@ -1,6 +1,8 @@
 'use strict';
 
 import classnames from 'classnames';
+
+import { blockConfig } from '../../src/js/config/block.js';
 import { deprecated } from './_deprecated.js';
 import { schema } from './_schema.js';
 
@@ -14,10 +16,10 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 	title: __( 'Balloon', 'snow-monkey-blocks' ),
 	description: __( 'It is a block that can express a conversation.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#cd162c',
+		foreground: blockConfig.blockIconColor,
 		src: 'admin-comments',
 	},
-	category: 'smb',
+	category: blockConfig.blockCategories.common,
 	attributes: schema,
 
 	edit( { attributes, setAttributes, className } ) {

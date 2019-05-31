@@ -1,6 +1,8 @@
 'use strict';
 
 import classnames from 'classnames';
+
+import { blockConfig } from '../../src/js/config/block.js';
 import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
@@ -11,10 +13,10 @@ registerBlockType( 'snow-monkey-blocks/pricing-table', {
 	title: __( 'Pricing table', 'snow-monkey-blocks' ),
 	description: __( 'Let\'s present the rate plan in an easy-to-understand manner.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#cd162c',
+		foreground: blockConfig.blockIconColor,
 		src: 'warning',
 	},
-	category: 'smb',
+	category: blockConfig.blockCategories.common,
 
 	edit( { className } ) {
 		const allowedBlocks = [ 'snow-monkey-blocks/pricing-table--item' ];

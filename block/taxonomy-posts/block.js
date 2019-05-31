@@ -1,5 +1,6 @@
 'use strict';
 
+import { blockConfig } from '../../src/js/config/block.js';
 import { edit } from './_edit.js';
 
 const { registerBlockType } = wp.blocks;
@@ -10,10 +11,10 @@ registerBlockType( 'snow-monkey-blocks/taxonomy-posts', {
 	title: __( 'Taxonomy posts', 'snow-monkey-blocks' ),
 	description: __( 'You can display recent posts linked to any taxonomy.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#cd162c',
+		foreground: blockConfig.blockIconColor,
 		src: 'editor-ul',
 	},
-	category: 'smb',
+	category: blockConfig.blockCategories.common,
 
 	edit: withSelect( ( select ) => {
 		const { getTaxonomies, getEntityRecords } = select( 'core' );

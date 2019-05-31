@@ -1,6 +1,6 @@
 'use strict';
 
-export const SnowMonkeyBlocksBlockSettings = {
+export const blockConfig = {
 	blockCategories: {
 		common: 'smb',
 		section: 'smb-section',

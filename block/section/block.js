@@ -3,6 +3,8 @@
 import toNumber from '../../src/js/helper/to-number';
 import classnames from 'classnames';
 import divider from '../../src/js/helper/divider';
+
+import { blockConfig } from '../../src/js/config/block.js';
 import { schema } from './_schema.js';
 import { deprecated } from './_deprecated.js';
 
@@ -16,10 +18,10 @@ registerBlockType( 'snow-monkey-blocks/section', {
 	title: __( 'Section', 'snow-monkey-blocks' ),
 	description: __( 'Contents can be separated by appropriate margins.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#cd162c',
+		foreground: blockConfig.blockIconColor,
 		src: 'text',
 	},
-	category: 'smb-section',
+	category: blockConfig.blockCategories.section,
 	attributes: schema,
 	supports: {
 		align: [ 'wide', 'full' ],

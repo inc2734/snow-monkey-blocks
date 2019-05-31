@@ -1,6 +1,8 @@
 'use strict';
 
 import classnames from 'classnames';
+
+import { blockConfig } from '../../src/js/config/block.js';
 import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
@@ -11,10 +13,10 @@ registerBlockType( 'snow-monkey-blocks/accordion', {
 	title: __( 'Accordion', 'snow-monkey-blocks' ),
 	description: __( 'You can set up a content area that expands and contracts like the accordion.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#cd162c',
+		foreground: blockConfig.blockIconColor,
 		src: 'editor-justify',
 	},
-	category: 'smb',
+	category: blockConfig.blockCategories.common,
 
 	edit( { className } ) {
 		const allowedBlocks = [ 'snow-monkey-blocks/accordion--item' ];

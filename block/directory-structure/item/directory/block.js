@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { SnowMonkeyBlocksSvg } from '../../../../gutenberg/settings/svg.js';
-import { SnowMonkeyBlocksBlockSettings } from '../../../../gutenberg/settings/block.js';
+import { blockConfig } from '../../../../src/js/config/block.js';
 import { schema } from './_schema.js';
 import { transforms } from './_transforms.js';
 
@@ -18,10 +18,10 @@ registerBlockType( 'snow-monkey-blocks/directory-structure--item--directory', {
 	title: __( 'Directory item', 'snow-monkey-blocks' ),
 	description: __( 'Display a directory item', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: SnowMonkeyBlocksBlockSettings.blockIconColor,
+		foreground: blockConfig.blockIconColor,
 		src: SnowMonkeyBlocksSvg.blockIconDirectoryStructureItemDirectory,
 	},
-	category: SnowMonkeyBlocksBlockSettings.blockCategories.common,
+	category: blockConfig.blockCategories.common,
 	attributes: schema,
 	parent: [ 'snow-monkey-blocks/directory-structure' ],
 

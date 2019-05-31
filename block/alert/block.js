@@ -1,6 +1,8 @@
 'use strict';
 
 import classnames from 'classnames';
+
+import { blockConfig } from '../../src/js/config/block.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { schema } from './_schema.js';
 import { deprecated } from './_deprecated.js';
@@ -18,10 +20,10 @@ registerBlockType( 'snow-monkey-blocks/alert', {
 	title: __( 'Alert', 'snow-monkey-blocks' ),
 	description: __( 'It is a block that warns visitors.', 'snow-monkey-blocks' ),
 	icon: {
-		foreground: '#cd162c',
+		foreground: blockConfig.blockIconColor,
 		src: 'warning',
 	},
-	category: 'smb',
+	category: blockConfig.blockCategories.common,
 	attributes: schema,
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
