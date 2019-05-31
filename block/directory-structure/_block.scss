@@ -2,7 +2,7 @@
   background-color: _lightest($_color-gray);
   @include _padding(.5);
 
-  > * {
+  > *:not(first-child) {
     @include _margin-top(.25);
   }
 
