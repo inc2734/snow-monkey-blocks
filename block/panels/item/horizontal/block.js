@@ -27,7 +27,7 @@ registerBlockType( 'snow-monkey-blocks/panels--item--horizontal', {
 	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { titleTagName, title, summary, linkLabel, linkURL, linkTarget, imagePosition, imageID, imageURL, imageAlt } = attributes;
 
-		const titleTagNames = [ 'div', 'h2', 'h3' ];
+		const titleTagNames = [ 'div', 'h2', 'h3', 'none' ];
 
 		const onSelectImage = ( media ) => {
 			const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
@@ -156,7 +156,7 @@ registerBlockType( 'snow-monkey-blocks/panels--item--horizontal', {
 						}
 
 						<div className="smb-panels__item__body">
-							{ ( ! RichText.isEmpty( title ) || isSelected ) &&
+							{ ( ! RichText.isEmpty( title ) || isSelected ) && 'none' !== titleTagName &&
 								<RichText
 									tagName={ titleTagName }
 									className="smb-panels__item__title"
@@ -206,7 +206,7 @@ registerBlockType( 'snow-monkey-blocks/panels--item--horizontal', {
 					}
 
 					<div className="smb-panels__item__body">
-						{ ! RichText.isEmpty( title ) &&
+						{ ! RichText.isEmpty( title ) && 'none' !== titleTagName &&
 							<RichText.Content
 								tagName={ titleTagName }
 								className="smb-panels__item__title"

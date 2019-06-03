@@ -26,7 +26,7 @@ registerBlockType( 'snow-monkey-blocks/items--item--block-link', {
 	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { titleTagName, title, lede, summary, btnLabel, url, target, btnBackgroundColor, btnTextColor, imageID, imageURL, imageAlt } = attributes;
 
-		const titleTagNames = [ 'div', 'h2', 'h3' ];
+		const titleTagNames = [ 'div', 'h2', 'h3', 'none' ];
 
 		const onSelectImage = ( media ) => {
 			const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
@@ -155,13 +155,15 @@ registerBlockType( 'snow-monkey-blocks/items--item--block-link', {
 							</div>
 						}
 
-						<RichText
-							tagName={ titleTagName }
-							className="smb-items__item__title"
-							placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
-							value={ title }
-							onChange={ ( value ) => setAttributes( { title: value } ) }
-						/>
+						{ 'none' !== titleTagName &&
+							<RichText
+								tagName={ titleTagName }
+								className="smb-items__item__title"
+								placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
+								value={ title }
+								onChange={ ( value ) => setAttributes( { title: value } ) }
+							/>
+						}
 
 						{ ( ! RichText.isEmpty( lede ) || isSelected ) &&
 							<RichText
@@ -228,11 +230,13 @@ registerBlockType( 'snow-monkey-blocks/items--item--block-link', {
 						</div>
 					}
 
-					<RichText.Content
-						tagName={ titleTagName }
-						className="smb-items__item__title"
-						value={ title }
-					/>
+					{ 'none' !== titleTagName &&
+						<RichText.Content
+							tagName={ titleTagName }
+							className="smb-items__item__title"
+							value={ title }
+						/>
+					}
 
 					{ ! RichText.isEmpty( lede ) &&
 						<div className="smb-items__item__lede">
