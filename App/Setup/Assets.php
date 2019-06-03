@@ -14,6 +14,7 @@ class Assets {
 		add_action( 'enqueue_block_editor_assets', [ $this, '_enqueue_block_editor_assets' ] );
 		add_filter( 'block_editor_settings', [ $this, '_block_editor_settings' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, '_wp_enqueue_scripts' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, '_wp_enqueue_pro_scripts' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, '_wp_enqueue_nopro_scripts' ] );
 		add_action( 'enqueue_block_assets', [ $this, '_enqueue_block_no_snow_monkey_assets' ] );
 		add_action( 'enqueue_block_editor_assets', [ $this, '_enqueue_block_editor_nopro_assets' ] );
@@ -117,6 +118,33 @@ class Assets {
 			[ 'jquery' ],
 			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/app.min.js' ),
 			true
+		);
+	}
+
+	/**
+	 * Enqueue pro assets
+	 * The parallax effect for section with bgimage block
+	 *
+	 * @return void
+	 */
+	public function _wp_enqueue_pro_scripts() {
+		if ( ! Blocks\is_pro() ) {
+			return;
+		}
+
+		wp_enqueue_script(
+			\Framework\Helper::get_main_script_handle() . '-background-parallax-scroll',
+			get_theme_file_uri( '/assets/js/background-parallax-scroll.min.js' ),
+			[ 'jquery' ],
+			filemtime( get_theme_file_path( '/assets/js/background-parallax-scroll.min.js' ) ),
+			true
+		);
+
+		wp_enqueue_style(
+			'jquery.background-parallax-scroll',
+			get_theme_file_uri( '/assets/packages/jquery.background-parallax-scroll/dist/jquery.background-parallax-scroll.min.css' ),
+			[ \Framework\Helper::get_main_style_handle() ],
+			filemtime( get_theme_file_path( '/assets/packages/jquery.background-parallax-scroll/dist/jquery.background-parallax-scroll.min.css' ) )
 		);
 	}
 
