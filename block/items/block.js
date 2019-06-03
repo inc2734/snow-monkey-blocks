@@ -61,7 +61,7 @@ registerBlockType( 'snow-monkey-blocks/items', {
 													value={ lg }
 													onChange={ ( value ) => setAttributes( { lg: toNumber( value, 1, 4 ) } ) }
 													min="1"
-													max="4"
+													max="6"
 												/>
 											);
 										}
@@ -73,7 +73,7 @@ registerBlockType( 'snow-monkey-blocks/items', {
 													value={ md }
 													onChange={ ( value ) => setAttributes( { md: toNumber( value, 1, 4 ) } ) }
 													min="1"
-													max="4"
+													max="6"
 												/>
 											);
 										}
@@ -85,7 +85,7 @@ registerBlockType( 'snow-monkey-blocks/items', {
 													value={ sm }
 													onChange={ ( value ) => setAttributes( { sm: toNumber( value, 1, 4 ) } ) }
 													min="1"
-													max="4"
+													max="6"
 												/>
 											);
 										}
