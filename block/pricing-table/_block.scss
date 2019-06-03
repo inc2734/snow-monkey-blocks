@@ -1,9 +1,25 @@
 .smb-pricing-table {
   background-color: #fff;
+  border: 1px solid _lighter($_color-gray);
+
+  @include _media-min(md) {
+    overflow: auto;
+    white-space: nowrap;
+
+    &::-webkit-scrollbar{
+      height: 5px;
+    }
+
+    &::-webkit-scrollbar-track{
+      background: #f1f1f1;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #bcbcbc;
+    }
+  }
 
   .#{$_prefix}c-row {
-    border: 1px solid _lighter($_color-gray);
-
     &__col {
       &:not(:first-child) {
         border-top: 1px solid _lighter($_color-gray);
@@ -15,34 +31,6 @@
       }
     }
   }
-
-  /*
-  &__row {
-    @include _row();
-    border: 1px solid _lighter($_color-gray);
-
-    @include _media-min(lg) {
-      flex-wrap: nowrap;
-    }
-  }
-
-  &__col {
-    @include _row__col(1, 1);
-
-    @include _media-min(md) {
-      @include _row__col--width(1);
-    }
-
-    &:not(:first-child) {
-      border-top: 1px solid _lighter($_color-gray);
-
-      @include _media-min(lg) {
-        border-top: none;
-        border-left: 1px solid _lighter($_color-gray);
-      }
-    }
-  }
-  */
 
   &__item {
     @include _padding(1);
