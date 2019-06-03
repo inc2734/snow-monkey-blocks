@@ -59,7 +59,7 @@ registerBlockType( 'snow-monkey-blocks/items', {
 												<RangeControl
 													label={ __( 'Columns per row (Large window)', 'snow-monkey-blocks' ) }
 													value={ lg }
-													onChange={ ( value ) => setAttributes( { lg: toNumber( value, 1, 4 ) } ) }
+													onChange={ ( value ) => setAttributes( { lg: toNumber( value, 1, 6 ) } ) }
 													min="1"
 													max="6"
 												/>
@@ -71,7 +71,7 @@ registerBlockType( 'snow-monkey-blocks/items', {
 												<RangeControl
 													label={ __( 'Columns per row (Medium window)', 'snow-monkey-blocks' ) }
 													value={ md }
-													onChange={ ( value ) => setAttributes( { md: toNumber( value, 1, 4 ) } ) }
+													onChange={ ( value ) => setAttributes( { md: toNumber( value, 1, 6 ) } ) }
 													min="1"
 													max="6"
 												/>
@@ -83,7 +83,7 @@ registerBlockType( 'snow-monkey-blocks/items', {
 												<RangeControl
 													label={ __( 'Columns per row (Small window)', 'snow-monkey-blocks' ) }
 													value={ sm }
-													onChange={ ( value ) => setAttributes( { sm: toNumber( value, 1, 4 ) } ) }
+													onChange={ ( value ) => setAttributes( { sm: toNumber( value, 1, 6 ) } ) }
 													min="1"
 													max="6"
 												/>
