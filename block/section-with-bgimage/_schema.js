@@ -1,6 +1,10 @@
 'use strict';
 
 export const schema = {
+	titleTagName: {
+		type: 'string',
+		default: 'h2',
+	},
 	title: {
 		source: 'html',
 		selector: '.smb-section__title',

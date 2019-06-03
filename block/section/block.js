@@ -8,9 +8,10 @@ import { blockConfig } from '../../src/js/config/block.js';
 import { schema } from './_schema.js';
 import { deprecated } from './_deprecated.js';
 
+const { times } = lodash;
 const { registerBlockType } = wp.blocks;
 const { RichText, InnerBlocks, InspectorControls, PanelColorSettings, ColorPalette } = wp.editor;
-const { PanelBody, BaseControl, SelectControl, RangeControl } = wp.components;
+const { PanelBody, BaseControl, SelectControl, RangeControl, Button } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -29,7 +30,9 @@ registerBlockType( 'snow-monkey-blocks/section', {
 	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
-		const { title, backgroundColor, contentsWidth, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
+		const { titleTagName, title, backgroundColor, contentsWidth, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
+
+		const titleTagNames = [ 'h2', 'h3', 'none' ];
 
 		const classes = classnames( 'smb-section', className );
 
@@ -65,6 +68,22 @@ registerBlockType( 'snow-monkey-blocks/section', {
 			<Fragment>
 				<InspectorControls>
 					<PanelBody title={ __( 'Section Settings', 'snow-monkey-blocks' ) }>
+						<BaseControl label={ __( 'Title Tag', 'snow-monkey-blocks' ) }>
+							<div className="smb-list-icon-selector">
+								{ times( titleTagNames.length, ( index ) => {
+									return (
+										<Button
+											isDefault
+											isPrimary={ titleTagName === titleTagNames[ index ] }
+											onClick={ () => setAttributes( { titleTagName: titleTagNames[ index ] } ) }
+										>
+											{ titleTagNames[ index ] }
+										</Button>
+									);
+								} ) }
+							</div>
+						</BaseControl>
+
 						<SelectControl
 							label={ __( 'Contents Width', 'snow-monkey-blocks' ) }
 							value={ contentsWidth }
@@ -195,10 +214,10 @@ registerBlockType( 'snow-monkey-blocks/section', {
 
 					<div className="smb-section__inner" style={ innerStyles }>
 						<div className={ containerClasses }>
-							{ ( ! RichText.isEmpty( title ) || isSelected ) &&
+							{ ( ! RichText.isEmpty( title ) || isSelected ) && 'none' !== titleTagName &&
 								<RichText
 									className="smb-section__title"
-									tagName="h2"
+									tagName={ titleTagName }
 									value={ title }
 									onChange={ ( value ) => setAttributes( { title: value } ) }
 									formattingControls={ [] }
@@ -217,7 +236,7 @@ registerBlockType( 'snow-monkey-blocks/section', {
 	},
 
 	save( { attributes, className } ) {
-		const { title, backgroundColor, contentsWidth, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
+		const { titleTagName, title, backgroundColor, contentsWidth, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
 
 		const classes = classnames( 'smb-section', className );
 
@@ -265,10 +284,12 @@ registerBlockType( 'snow-monkey-blocks/section', {
 
 				<div className="smb-section__inner" style={ innerStyles }>
 					<div className={ containerClasses }>
-						{ ! RichText.isEmpty( title ) &&
-							<h2 className="smb-section__title">
-								<RichText.Content value={ title } />
-							</h2>
+						{ ! RichText.isEmpty( title ) && 'none' !== titleTagName &&
+							<RichText.Content
+								tagName={ titleTagName }
+								className="smb-section__title"
+								value={ title }
+							/>
 						}
 
 						<div className="smb-section__body">

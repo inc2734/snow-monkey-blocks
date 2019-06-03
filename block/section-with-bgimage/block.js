@@ -7,9 +7,10 @@ import { blockConfig } from '../../src/js/config/block.js';
 import { schema } from './_schema.js';
 import { deprecated } from './_deprecated.js';
 
+const { times } = lodash;
 const { registerBlockType } = wp.blocks;
 const { RichText, InnerBlocks, InspectorControls, PanelColorSettings, MediaPlaceholder } = wp.editor;
-const { PanelBody, SelectControl, RangeControl, ToggleControl } = wp.components;
+const { PanelBody, SelectControl, RangeControl, ToggleControl, BaseControl, Button } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -28,7 +29,9 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
-		const { title, imageID, imageURL, imageAlt, height, contentsAlignment, maskColor, maskOpacity, textColor, parallax } = attributes;
+		const { titleTagName, title, imageID, imageURL, imageAlt, height, contentsAlignment, maskColor, maskOpacity, textColor, parallax } = attributes;
+
+		const titleTagNames = [ 'h2', 'h3', 'none' ];
 
 		const classes = classnames(
 			{
@@ -64,6 +67,22 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 			<Fragment>
 				<InspectorControls>
 					<PanelBody title={ __( 'Section Settings', 'snow-monkey-blocks' ) }>
+						<BaseControl label={ __( 'Title Tag', 'snow-monkey-blocks' ) }>
+							<div className="smb-list-icon-selector">
+								{ times( titleTagNames.length, ( index ) => {
+									return (
+										<Button
+											isDefault
+											isPrimary={ titleTagName === titleTagNames[ index ] }
+											onClick={ () => setAttributes( { titleTagName: titleTagNames[ index ] } ) }
+										>
+											{ titleTagNames[ index ] }
+										</Button>
+									);
+								} ) }
+							</div>
+						</BaseControl>
+
 						<SelectControl
 							label={ __( 'Height', 'snow-monkey-blocks' ) }
 							value={ height }
@@ -163,10 +182,10 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 						}
 					</div>
 					<div className="c-container">
-						{ ( ! RichText.isEmpty( title ) || isSelected ) &&
+						{ ( ! RichText.isEmpty( title ) || isSelected ) && 'none' !== titleTagName &&
 							<RichText
 								className="smb-section__title"
-								tagName="h2"
+								tagName={ titleTagName }
 								value={ title }
 								onChange={ ( value ) => setAttributes( { title: value } ) }
 								formattingControls={ [] }
@@ -184,7 +203,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 	},
 
 	save( { attributes, className } ) {
-		const { title, imageID, imageURL, imageAlt, height, contentsAlignment, maskColor, maskOpacity, textColor, parallax } = attributes;
+		const { titleTagName, title, imageID, imageURL, imageAlt, height, contentsAlignment, maskColor, maskOpacity, textColor, parallax } = attributes;
 
 		const classes = classnames(
 			{
@@ -223,10 +242,12 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 					<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
 				</div>
 				<div className="c-container">
-					{ ! RichText.isEmpty( title ) &&
-						<h2 className="smb-section__title">
-							<RichText.Content value={ title } />
-						</h2>
+					{ ! RichText.isEmpty( title ) && 'none' !== titleTagName &&
+						<RichText.Content
+							tagName={ titleTagName }
+							className="smb-section__title"
+							value={ title }
+						/>
 					}
 					<div className="smb-section__body">
 						<InnerBlocks.Content />
