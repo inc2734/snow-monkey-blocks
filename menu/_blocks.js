@@ -71,7 +71,7 @@ class MenuBlocks extends Component {
 								if ( parsedBlocks.length ) {
 									insertBlocks( parsedBlocks );
 								}
-								this.setDetailState( null )
+								this.setDetailState( null );
 							} }
 						>
 							{ __( 'Insert Block', 'snow-monkey-blocks' ) }
