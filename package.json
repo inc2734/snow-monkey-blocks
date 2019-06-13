@@ -75,6 +75,7 @@
     "po2json": "npm-run-all -p po2json:*"
   },
   "dependencies": {
-    "@wordpress/i18n": "^3.4.0"
+    "@wordpress/i18n": "^3.4.0",
+    "react-image": "2.1.3"
   }
 }
