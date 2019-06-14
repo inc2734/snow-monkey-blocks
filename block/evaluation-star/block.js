@@ -25,6 +25,9 @@ registerBlockType( 'snow-monkey-blocks/evaluation-star', {
 	},
 	category: blockConfig.blockCategories.common,
 	attributes: schema,
+	snowMonkey: {
+		screenshot: 'https://snow-monkey.2inc.org/wp-content/uploads/2019/04/screenshot-18.png',
+	},
 
 	edit( { attributes, setAttributes, className } ) {
 		const { evaluationValue, iconColor, isDisplayNumeric, numericAlign, numericColor } = attributes;

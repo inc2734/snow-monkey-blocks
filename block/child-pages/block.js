@@ -14,6 +14,9 @@ registerBlockType( 'snow-monkey-blocks/child-pages', {
 		src: 'screenoptions',
 	},
 	category: blockConfig.blockCategories.common,
+	snowMonkey: {
+		screenshot: null,
+	},
 
 	edit() {
 		return (

@@ -17,6 +17,9 @@ registerBlockType( 'snow-monkey-blocks/testimonial', {
 		src: 'admin-comments',
 	},
 	category: blockConfig.blockCategories.common,
+	snowMonkey: {
+		screenshot: null,
+	},
 
 	edit( { className } ) {
 		const allowedBlocks = [ 'snow-monkey-blocks/testimonial--item' ];

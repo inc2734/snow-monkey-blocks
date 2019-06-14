@@ -28,6 +28,9 @@ registerBlockType( 'snow-monkey-blocks/section', {
 		align: [ 'wide', 'full' ],
 		anchor: true,
 	},
+	snowMonkey: {
+		screenshot: null,
+	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { titleTagName, title, backgroundColor, contentsWidth, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;

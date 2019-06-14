@@ -9,95 +9,23 @@ const { compose } = wp.compose;
 const { PanelBody, Modal, Button, Spinner } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
-const { parse } = wp.blocks;
+const { parse, getCategories, getBlockType, getBlockTypes } = wp.blocks;
 
-class MenuBlocks extends Component {
-	constructor() {
+class MenuBlocksList extends Component {
+	constructor( props ) {
 		super( ...arguments );
 
+		this.props = props;
 		this.state = {
 			loading: false,
-			data: [],
-			selectBlock: null,
-			selectScreenShot: 'https://snow-monkey.2inc.org/wp-content/uploads/2018/10/screenshot-1-1920x1440.png',
+			resultList: null,
 		};
-		// カテゴリーのロード
-		this.getBlocksFromCategory = this.getBlocksFromCategory.bind( this );
-	}
-
-	render() {
-		const {
-			insertBlocks,
-		} = wp.data.dispatch( 'core/editor' );
-
-		const categories = wp.blocks.getCategories();
-		const smbCategories = blockConfig.blockCategories;
-		const resultCategories = [];
-		categories.map( ( category ) => {
-			Object.keys( smbCategories ).map( ( name ) => {
-				if ( category.slug === smbCategories[ name ] ) {
-					const resultBlocks = this.getBlocksFromCategory( category.slug );
-					resultCategories.push(
-						<PanelBody
-							title={ category.title }
-						>
-							<ul>
-								{ resultBlocks }
-							</ul>
-						</PanelBody>
-					);
-				}
-			} );
-		} );
-
-		return (
-			<Fragment>
-				{ resultCategories }
-				{ this.state.selectBlock !== null && (
-					<Modal
-						title={ __( 'Block Image', 'snow-monkey-blocks' ) }
-						onRequestClose={ () => this.setDetailState( null ) }
-					>
-						<Img
-							src={ this.state.selectScreenShot }
-							loader={
-								<Spinner />
-							}
-						/>
-						<Button
-							isDefault
-							onClick={ () => {
-								const parsedBlocks = parse( '<!-- wp:snow-monkey-blocks/balloon {"balloonName":"Test"} --><div class="wp-block-snow-monkey-blocks-balloon smb-balloon"><div class="smb-balloon__person"><div class="smb-balloon__figure"><img src="https://0.gravatar.com/avatar/00000000000000000000000000000000?s=128&amp;d=mp&amp;r=g" alt="" class="wp-image-0"/></div><div class="smb-balloon__name">Test</div></div><div class="smb-balloon__body"></div></div><!-- /wp:snow-monkey-blocks/balloon -->' );
-								if ( parsedBlocks.length ) {
-									insertBlocks( parsedBlocks );
-								}
-								this.setDetailState( null );
-							} }
-						>
-							{ __( 'Insert Block', 'snow-monkey-blocks' ) }
-						</Button>
-					</Modal>
-				) }
-			</Fragment>
-		);
-	}
-
-	setDetailState( selectBlock ) {
-		this.setState( { selectBlock: selectBlock } );
-	}
-
-	setBlockScreenShot() {
-		if ( this.state.selectBlock !== null ) {
-			// 読み込んだデータの中にある場合、そのURLを返却
-			this.setState( { selectScreenShot: selectScreenShot } );
-			return;
-		}
-		this.setState( { selectScreenShot: null } );
+		this.setupResultList = this.setupResultList.bind( this );
 	}
 
 	getBlocksFromCategory( category ) {
 		const result = [];
-		const blocks = wp.blocks.getBlockTypes();
+		const blocks = getBlockTypes();
 		blocks.forEach( ( block ) => {
 			if (
 				block.category === category &&
@@ -111,20 +39,158 @@ class MenuBlocks extends Component {
 					icon = wp.element.createElement( wp.components.Dashicon, { icon: icon } );
 				}
 				result.push(
-					<li>
-						<Button
-							isDefault
-							onClick={ () => this.setDetailState( block.name ) }
-						>
-							<p>{ icon }{ block.title }</p>
-							<p>{ block.description }</p>
-						</Button>
-					</li>
+					{
+						block,
+						icon: icon,
+					}
 				);
 			}
 		} );
 		return result;
 	}
+
+	setupResultList() {
+		if ( this.state.resultList === null ) {
+			const resultList = [];
+			const categoryBlocks = this.getBlocksFromCategory( this.props.slug );
+			categoryBlocks.forEach( ( categoryBlock ) => {
+				resultList.push(
+					<li>
+						<Button
+							onClick={ () => {
+								this.props.rootMenu.test( categoryBlock.block.name );
+							} }
+						>
+							<p>{ categoryBlock.icon }{ categoryBlock.block.title }</p>
+							<p>{ categoryBlock.block.description }</p>
+						</Button>
+					</li>
+				);
+			} );
+			this.setState( { resultList: resultList } );
+		}
+	}
+
+	render() {
+		this.setupResultList();
+		if ( this.state.resultList !== null ) {
+			return (
+				<ul>
+					{ this.state.resultList }
+				</ul>
+			);
+		}
+		return (
+			<Spinner />
+		);
+	}
 }
 
-export { MenuBlocks };
+export { MenuBlocksList };
+
+class MenuBlocksCategories extends Component {
+	constructor( props ) {
+		super( ...arguments );
+
+		this.props = props;
+		this.state = {
+			smbCategories: null,
+			resultCategories: null,
+		};
+		this.setupSmbCategories = this.setupSmbCategories.bind( this );
+		this.setupResultCategories = this.setupResultCategories.bind( this );
+	}
+
+	setupSmbCategories() {
+		const allBlockCategories = getCategories();
+		const smbConfigCategories = blockConfig.blockCategories;
+		const categories = [];
+		allBlockCategories.map( ( category ) => {
+			Object.keys( smbConfigCategories ).map( ( name ) => {
+				if ( category.slug === smbConfigCategories[ name ] ) {
+					categories.push( category );
+				}
+			} );
+		} );
+		this.setState( { smbCategories: categories } );
+	}
+
+	setupResultCategories() {
+		if ( this.state.smbCategories === null ) {
+			this.setupSmbCategories();
+			return;
+		}
+		if ( this.state.resultCategories === null ) {
+			const resultCategories = [];
+			this.state.smbCategories.map( ( category ) => {
+				resultCategories.push(
+					<PanelBody
+						title={ category.title }
+					>
+						<MenuBlocksList
+							rootMenu={ this.props.rootMenu }
+							slug={ category.slug }
+						/>
+					</PanelBody>
+				);
+			} );
+			this.setState( { resultCategories: resultCategories } );
+		}
+	}
+
+	render() {
+		this.setupResultCategories();
+		if ( this.state.resultCategories !== null ) {
+			return (
+				<Fragment>
+					{ this.state.resultCategories }
+				</Fragment>
+			);
+		}
+		return (
+			<Spinner />
+		);
+	}
+}
+
+export { MenuBlocksCategories };
+
+export class MenuBlocks extends Component {
+	constructor() {
+		super( ...arguments );
+
+		this.state = {
+			resultDetail: null,
+		};
+		this.test = this.test.bind( this );
+	}
+
+	test( blockName ) {
+		const block = getBlockType( blockName );
+		const resultDetail = (
+			<Modal
+				title={ block.title }
+				onRequestClose={ () => this.setState( { resultDetail: null } ) }
+			>
+				<Img
+					src={ block.snowMonkey.screenshot }
+					loader={
+						<Spinner />
+					}
+				/>
+			</Modal>
+		);
+		this.setState( { resultDetail: resultDetail } );
+	}
+
+	render() {
+		return (
+			<Fragment>
+				<MenuBlocksCategories
+					rootMenu={ this }
+				/>
+				{ this.state.resultDetail }
+			</Fragment>
+		);
+	}
+}

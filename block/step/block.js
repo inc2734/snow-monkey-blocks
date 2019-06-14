@@ -17,6 +17,9 @@ registerBlockType( 'snow-monkey-blocks/step', {
 		src: 'editor-ol',
 	},
 	category: blockConfig.blockCategories.common,
+	snowMonkey: {
+		screenshot: 'https://snow-monkey.2inc.org/wp-content/uploads/2018/10/screenshot-10.png',
+	},
 
 	edit( { className } ) {
 		const allowedBlocks = [ 'snow-monkey-blocks/step--item' ];

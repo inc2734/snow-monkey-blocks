@@ -35,6 +35,9 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 		align: [ 'wide', 'full' ],
 		anchor: true,
 	},
+	snowMonkey: {
+		screenshot: null,
+	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { titleTagName, title, videoURL, videoWidth, videoHeight, height, contentsAlignment, maskColor, maskOpacity, textColor } = attributes;

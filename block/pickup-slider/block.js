@@ -16,6 +16,9 @@ registerBlockType( 'snow-monkey-blocks/pickup-slider', {
 		src: 'format-gallery',
 	},
 	category: blockConfig.blockCategories.common,
+	snowMonkey: {
+		screenshot: null,
+	},
 
 	edit( { attributes, setAttributes } ) {
 		const { random, linkType } = attributes;

@@ -27,6 +27,9 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 		align: [ 'wide', 'full' ],
 		anchor: true,
 	},
+	snowMonkey: {
+		screenshot: null,
+	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { titleTagName, title, imageID, imageURL, imageAlt, height, contentsAlignment, maskColor, maskOpacity, textColor, parallax } = attributes;

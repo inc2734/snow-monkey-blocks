@@ -17,6 +17,9 @@ registerBlockType( 'snow-monkey-blocks/accordion', {
 		src: 'editor-justify',
 	},
 	category: blockConfig.blockCategories.common,
+	snowMonkey: {
+		screenshot: 'https://snow-monkey.2inc.org/wp-content/uploads/2019/04/screenshot-19.png',
+	},
 
 	edit( { className } ) {
 		const allowedBlocks = [ 'snow-monkey-blocks/accordion--item' ];

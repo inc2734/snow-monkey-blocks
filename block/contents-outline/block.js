@@ -20,6 +20,9 @@ registerBlockType( 'snow-monkey-blocks/contents-outline', {
 	supports: {
 		customClassName: false,
 	},
+	snowMonkey: {
+		screenshot: null,
+	},
 
 	edit( { attributes, setAttributes } ) {
 		const { headings } = attributes;
