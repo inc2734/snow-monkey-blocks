@@ -8,7 +8,7 @@ import { MenuTemplates } from './_templates.js';
 const { Component } = wp.element;
 const { Fragment } = wp.element;
 const { PluginSidebar, PluginSidebarMoreMenuItem } = wp.editPost;
-const { PanelBody, TabPanel } = wp.components;
+const { TabPanel } = wp.components;
 const { registerPlugin } = wp.plugins;
 const { __ } = wp.i18n;
 const { applyFilters } = wp.hooks;
@@ -55,15 +55,14 @@ export class PluginMenu extends Component {
 					>
 						{
 							( tabData ) => {
-								const tabType = tabData.name;
-								switch ( tabType ) {
+								switch ( tabData.name ) {
 									case 'blocks':
 										return (
-											<MenuBlocks></MenuBlocks>
+											<MenuBlocks />
 										);
 									case 'templates':
 										return (
-											<MenuTemplates></MenuTemplates>
+											<MenuTemplates />
 										);
 								}
 								return null;
