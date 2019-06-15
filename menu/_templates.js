@@ -23,10 +23,9 @@ class MenuTemplatesParts extends Component {
 	}
 
 	getParts() {
-		// TODO: 外部JSONからパーツの情報を取得（内部にするか要検討）
-		console.log( this.props );
+		// パーツの情報を取得（内部API）
 		apiFetch( {
-			url: `http://not-wiz.local/wp-content/uploads/test/categories/${ this.props.slug }.json`,
+			path: `/snow-monkey-blocks/v3/template-parts/?slug=${ this.props.slug }`,
 			method: 'GET',
 			parse: true,
 		} ).then( ( result ) => {
@@ -108,9 +107,9 @@ class MenuTemplatesCategories extends Component {
 	}
 
 	getCategories() {
-		// TODO: 外部JSONからカテゴリの情報を取得（内部にするかは要検討）
+		// JSONからカテゴリの情報を取得
 		apiFetch( {
-			url: 'http://not-wiz.local/wp-content/uploads/test/categories.json',
+			path: '/snow-monkey-blocks/v3/template-categories/',
 			method: 'GET',
 			parse: true,
 		} ).then( ( result ) => {

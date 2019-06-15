@@ -61,8 +61,7 @@ class MenuBlocksList extends Component {
 								this.props.rootMenu.test( categoryBlock.block.name );
 							} }
 						>
-							<p>{ categoryBlock.icon }{ categoryBlock.block.title }</p>
-							<p>{ categoryBlock.block.description }</p>
+							{ categoryBlock.icon } { categoryBlock.block.title }
 						</Button>
 					</li>
 				);
@@ -172,6 +171,7 @@ export class MenuBlocks extends Component {
 				title={ block.title }
 				onRequestClose={ () => this.setState( { resultDetail: null } ) }
 			>
+				<p>{ block.description }</p>
 				<Img
 					src={ block.snowMonkey.screenshot }
 					loader={

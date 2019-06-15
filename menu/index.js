@@ -11,9 +11,10 @@ const { PluginSidebar, PluginSidebarMoreMenuItem } = wp.editPost;
 const { PanelBody, TabPanel } = wp.components;
 const { registerPlugin } = wp.plugins;
 const { __ } = wp.i18n;
+const { applyFilters } = wp.hooks;
 
 const onMenuSelect = ( tabName ) => {
-	console.log( tabName );
+	applyFilters( 'snow-monkey-blocks.select-menu', tabName );
 };
 
 export class PluginMenu extends Component {

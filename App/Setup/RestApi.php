@@ -14,10 +14,8 @@ class RestApi {
 		foreach ( glob( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/*/api.php' ) as $file ) {
 			include( $file );
 		}
-/*
-		foreach ( glob( SNOW_MONKEY_BLOCKS_DIR_PATH . '/api/*.php' ) as $file ) {
+		foreach ( glob( SNOW_MONKEY_BLOCKS_DIR_PATH . '/App/api/*.php' ) as $file ) {
 			include( $file );
 		}
-*/
 	}
 }
