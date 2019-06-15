@@ -1,15 +1,12 @@
 'use strict';
 
-import Img from 'react-image';
-
 import { blockConfig } from '../src/js/config/block.js';
+import { ScreenshotImg } from './component/screenshotImg.js';
 
 const { Component } = wp.element;
-const { compose } = wp.compose;
 const { PanelBody, Modal, Button, Spinner } = wp.components;
 const { Fragment } = wp.element;
-const { __ } = wp.i18n;
-const { parse, getCategories, getBlockType, getBlockTypes } = wp.blocks;
+const { getCategories, getBlockType, getBlockTypes } = wp.blocks;
 
 class MenuBlocksList extends Component {
 	constructor( props ) {
@@ -172,7 +169,7 @@ export class MenuBlocks extends Component {
 				onRequestClose={ () => this.setState( { resultDetail: null } ) }
 			>
 				<p>{ block.description }</p>
-				<Img
+				<ScreenshotImg
 					src={ block.snowMonkey.screenshot }
 					loader={
 						<Spinner />

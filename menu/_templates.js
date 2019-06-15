@@ -1,12 +1,10 @@
 'use strict';
 
-import Img from 'react-image';
+import { ScreenshotImg } from './component/screenshotImg.js';
 
 const { Component } = wp.element;
-const { compose } = wp.compose;
-const { PanelBody, Modal, Button, Spinner } = wp.components;
+const { PanelBody, Button, Spinner } = wp.components;
 const { Fragment } = wp.element;
-const { __ } = wp.i18n;
 const { parse } = wp.blocks;
 const { apiFetch } = wp;
 
@@ -61,7 +59,7 @@ class MenuTemplatesParts extends Component {
 								}
 							} }
 						>
-							<Img
+							<ScreenshotImg
 								src={ part.screenshot }
 								loader={
 									<Spinner />
@@ -161,10 +159,6 @@ class MenuTemplatesCategories extends Component {
 export { MenuTemplatesCategories };
 
 export class MenuTemplates extends Component {
-	constructor() {
-		super( ...arguments );
-	}
-
 	render() {
 		return (
 			<Fragment>
