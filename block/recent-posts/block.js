@@ -16,6 +16,7 @@ registerBlockType( 'snow-monkey-blocks/recent-posts', {
 	},
 	category: blockConfig.blockCategories.common,
 	snowMonkey: {
+		isPro: true,
 		screenshot: null,
 	},
 

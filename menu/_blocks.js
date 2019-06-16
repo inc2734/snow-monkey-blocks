@@ -7,6 +7,7 @@ const { Component } = wp.element;
 const { PanelBody, Modal, Button, Spinner } = wp.components;
 const { Fragment } = wp.element;
 const { getCategories, getBlockType, getBlockTypes } = wp.blocks;
+const { __ } = wp.i18n;
 
 class MenuBlocksList extends Component {
 	constructor( props ) {
@@ -55,7 +56,7 @@ class MenuBlocksList extends Component {
 					<li>
 						<Button
 							onClick={ () => {
-								this.props.rootMenu.test( categoryBlock.block.name );
+								this.props.rootMenu.setupResultDetail( categoryBlock.block.name );
 							} }
 						>
 							{ categoryBlock.icon } { categoryBlock.block.title }
@@ -158,16 +159,23 @@ export class MenuBlocks extends Component {
 		this.state = {
 			resultDetail: null,
 		};
-		this.test = this.test.bind( this );
+		this.setupResultDetail = this.setupResultDetail.bind( this );
 	}
 
-	test( blockName ) {
+	setupResultDetail( blockName ) {
 		const block = getBlockType( blockName );
+		let proMessage = '';
+		if ( ! smb.isPro && block.snowMonkey.isPro ) {
+			proMessage = (
+				<p>{ __( 'This Block is for pro use only', 'snow-monkey-blocks' ) }</p>
+			);
+		}
 		const resultDetail = (
 			<Modal
 				title={ block.title }
 				onRequestClose={ () => this.setState( { resultDetail: null } ) }
 			>
+				{ proMessage }
 				<p>{ block.description }</p>
 				<ScreenshotImg
 					src={ block.snowMonkey.screenshot }

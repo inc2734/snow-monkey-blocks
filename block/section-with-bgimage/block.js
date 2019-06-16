@@ -28,6 +28,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 		anchor: true,
 	},
 	snowMonkey: {
+		isPro: true,
 		screenshot: null,
 	},
 

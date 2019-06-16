@@ -36,6 +36,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 		anchor: true,
 	},
 	snowMonkey: {
+		isPro: true,
 		screenshot: null,
 	},
 

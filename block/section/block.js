@@ -29,6 +29,7 @@ registerBlockType( 'snow-monkey-blocks/section', {
 		anchor: true,
 	},
 	snowMonkey: {
+		isPro: true,
 		screenshot: null,
 	},
 

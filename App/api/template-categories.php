@@ -23,16 +23,19 @@ add_action(
 						[
 							'title' => 'Header',
 							'slug' => 'smb-template-header',
+							'isPro' => false,
 						],
 						[
 							'title' => 'Test',
 							'slug' => 'smb-template-test',
+							'isPro' => true,
 						],
 					];
 					foreach ( $categories as $category ) {
 						$result[] = [
 							'title' => $category['title'],
 							'slug'  => $category['slug'],
+							'isPro' => $category['isPro'],
 						];
 					}
 					// ダミーここまで

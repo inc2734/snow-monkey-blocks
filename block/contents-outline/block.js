@@ -21,6 +21,7 @@ registerBlockType( 'snow-monkey-blocks/contents-outline', {
 		customClassName: false,
 	},
 	snowMonkey: {
+		isPro: true,
 		screenshot: null,
 	},
 

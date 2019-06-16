@@ -17,6 +17,7 @@ registerBlockType( 'snow-monkey-blocks/pickup-slider', {
 	},
 	category: blockConfig.blockCategories.common,
 	snowMonkey: {
+		isPro: true,
 		screenshot: null,
 	},
 

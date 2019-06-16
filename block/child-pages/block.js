@@ -15,6 +15,7 @@ registerBlockType( 'snow-monkey-blocks/child-pages', {
 	},
 	category: blockConfig.blockCategories.common,
 	snowMonkey: {
+		isPro: true,
 		screenshot: null,
 	},
 

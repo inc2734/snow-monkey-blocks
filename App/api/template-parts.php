@@ -33,6 +33,7 @@ add_action(
 					$parts = [
 						[
 							'title' => 'Test1',
+							'isPro' => false,
 							'screenshot' => 'http://placehold.it/32x32',
 							'content' => '<!-- wp:snow-monkey-blocks/balloon {"balloonName":"Test"} -->
 							<div class="wp-block-snow-monkey-blocks-balloon smb-balloon">
@@ -48,6 +49,7 @@ add_action(
 						],
 						[
 							'title' => 'Test2',
+							'isPro' => true,
 							'screenshot' => 'http://placehold.it/32x32',
 							'content' => '<!-- wp:snow-monkey-blocks/balloon {"balloonName":"Test"} -->
 							<div class="wp-block-snow-monkey-blocks-balloon smb-balloon">
@@ -65,6 +67,7 @@ add_action(
 					foreach ( $parts as $part ) {
 						$result[] = [
 							'title' => $part['title'],
+							'isPro' => $part['isPro'],
 							'screenshot'  => $part['screenshot'],
 							'content' => $part['content'],
 						];

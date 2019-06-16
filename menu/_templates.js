@@ -47,6 +47,10 @@ class MenuTemplatesParts extends Component {
 		if ( this.state.parts !== null ) {
 			const resultParts = [];
 			this.state.parts.map( ( part ) => {
+				if ( ! smb.isPro && part.isPro ) {
+					// プロじゃ無い場合の対応
+					return;
+				}
 				resultParts.push(
 					// プレビュー付きのボタンを配置（押下時insert）
 					<li>
@@ -127,6 +131,10 @@ class MenuTemplatesCategories extends Component {
 		if ( this.state.categories !== null ) {
 			const resultCategories = [];
 			this.state.categories.map( ( category ) => {
+				if ( ! smb.isPro && category.isPro ) {
+					// プロじゃ無い場合の対応
+					return;
+				}
 				resultCategories.push(
 					<PanelBody
 						title={ category.title }
