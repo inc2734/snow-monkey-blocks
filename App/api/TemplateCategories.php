@@ -5,14 +5,23 @@
  * @license GPL-2.0+
  */
 
+namespace Snow_Monkey\Plugin\Blocks\App\Api;
+
 use Snow_Monkey\Plugin\Blocks\App\Setup\RestApi;
 
-add_action(
-	'rest_api_init',
-	function() {
+class TemplateCategories {
+
+	const NAMESPACE = 'snow-monkey-blocks/v3';
+	const ROUTE = '/template-categories/';
+
+	public function __construct() {
+		add_action( 'rest_api_init', [ $this, '_rest_api_init' ] );
+	}
+
+	public function _rest_api_init() {
 		register_rest_route(
-			'snow-monkey-blocks/v3',
-			'/template-categories/',
+			self::NAMESPACE,
+			self::ROUTE,
 			[
 				'methods' => 'GET',
 				'callback' => function() {
@@ -48,4 +57,4 @@ add_action(
 			]
 		);
 	}
-);
+}
