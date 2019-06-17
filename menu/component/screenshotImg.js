@@ -17,6 +17,7 @@ class ScreenshotImg extends Component {
 		}
 		return (
 			<Img
+				className={ this.props.className }
 				src={ src }
 				loader={ this.props.loader }
 			/>

@@ -55,11 +55,15 @@ class MenuBlocksList extends Component {
 				resultList.push(
 					<li>
 						<Button
+							className="smb-menu__template-block__button"
 							onClick={ () => {
 								this.props.rootMenu.setupResultDetail( categoryBlock.block.name );
 							} }
 						>
-							{ categoryBlock.icon } { categoryBlock.block.title }
+							{ categoryBlock.icon }
+							<span className="smb-menu__template-block__button__title">
+								{ categoryBlock.block.title }
+							</span>
 						</Button>
 					</li>
 				);
@@ -167,20 +171,24 @@ export class MenuBlocks extends Component {
 		let proMessage = '';
 		if ( ! smb.isPro && block.snowMonkey.isPro ) {
 			proMessage = (
-				<p>{ __( 'This Block is for pro use only', 'snow-monkey-blocks' ) }</p>
+				<p className="smb-menu__template-block__modal__pro-message">{ __( 'This Block is for pro use only', 'snow-monkey-blocks' ) }</p>
 			);
 		}
 		const resultDetail = (
 			<Modal
+				className="smb-menu__template-block__modal"
 				title={ block.title }
 				onRequestClose={ () => this.setState( { resultDetail: null } ) }
 			>
 				{ proMessage }
-				<p>{ block.description }</p>
+				<p className="smb-menu__template-block__modal__description">{ block.description }</p>
 				<ScreenshotImg
+					className="smb-menu__template-block__modal__screenshot"
 					src={ block.snowMonkey.screenshot }
 					loader={
-						<Spinner />
+						<div className="smb-menu__template-block__modal__loading">
+							<Spinner />
+						</div>
 					}
 				/>
 			</Modal>
