@@ -43,7 +43,7 @@ class TemplateParts {
 						[
 							'title' => 'Test1',
 							'isPro' => false,
-							'screenshot' => 'http://placehold.it/32x32',
+							'screenshot' => 'http://placehold.it/640x640',
 							'content' => '<!-- wp:snow-monkey-blocks/balloon {"balloonName":"Test"} -->
 							<div class="wp-block-snow-monkey-blocks-balloon smb-balloon">
 							<div class="smb-balloon__person">
@@ -59,7 +59,7 @@ class TemplateParts {
 						[
 							'title' => 'Test2',
 							'isPro' => true,
-							'screenshot' => 'http://placehold.it/32x32',
+							'screenshot' => 'http://placehold.it/640x640',
 							'content' => '<!-- wp:snow-monkey-blocks/balloon {"balloonName":"Test"} -->
 							<div class="wp-block-snow-monkey-blocks-balloon smb-balloon">
 							<div class="smb-balloon__person">

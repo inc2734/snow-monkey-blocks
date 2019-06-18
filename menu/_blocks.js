@@ -186,7 +186,7 @@ export class MenuBlocks extends Component {
 					className="smb-menu__template-block__modal__screenshot"
 					src={ block.snowMonkey.screenshot }
 					loader={
-						<div className="smb-menu__template-block__modal__loading">
+						<div className="smb-menu__template-block__modal__screenshot__loading">
 							<Spinner />
 						</div>
 					}

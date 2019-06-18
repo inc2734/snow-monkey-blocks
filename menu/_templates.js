@@ -55,7 +55,7 @@ class MenuTemplatesParts extends Component {
 					// プレビュー付きのボタンを配置（押下時insert）
 					<li>
 						<Button
-							isDefault
+							className="smb-menu__template-part__button"
 							onClick={ () => {
 								const parsedBlocks = parse( part.content );
 								if ( parsedBlocks.length ) {
@@ -64,12 +64,17 @@ class MenuTemplatesParts extends Component {
 							} }
 						>
 							<ScreenshotImg
+								className="smb-menu__template-part__button__screenshot"
 								src={ part.screenshot }
 								loader={
-									<Spinner />
+									<div className="smb-menu__template-part__button__screenshot__loading">
+										<Spinner />
+									</div>
 								}
 							/>
-							{ part.title }
+							<span className="smb-menu__template-part__button__title">
+								{ part.title }
+							</span>
 						</Button>
 					</li>
 				);
@@ -88,7 +93,9 @@ class MenuTemplatesParts extends Component {
 			);
 		}
 		return (
-			<Spinner />
+			<div className="smb-menu__template-part__loading">
+				<Spinner />
+			</div>
 		);
 	}
 }
@@ -159,7 +166,9 @@ class MenuTemplatesCategories extends Component {
 			);
 		}
 		return (
-			<Spinner />
+			<div className="smb-menu__template-part__loading">
+				<Spinner />
+			</div>
 		);
 	}
 }
