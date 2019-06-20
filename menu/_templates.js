@@ -21,7 +21,6 @@ class MenuTemplatesParts extends Component {
 	}
 
 	getParts() {
-		// パーツの情報を取得（内部API）
 		apiFetch( {
 			path: `/snow-monkey-blocks/v3/template-parts/?slug=${ this.props.slug }`,
 			method: 'GET',
@@ -48,11 +47,10 @@ class MenuTemplatesParts extends Component {
 			const resultParts = [];
 			this.state.parts.map( ( part ) => {
 				if ( ! smb.isPro && part.isPro ) {
-					// プロじゃ無い場合の対応
 					return;
 				}
+
 				resultParts.push(
-					// プレビュー付きのボタンを配置（押下時insert）
 					<li>
 						<Button
 							className="smb-menu__template-part__button"
@@ -116,7 +114,6 @@ class MenuTemplatesCategories extends Component {
 	}
 
 	getCategories() {
-		// JSONからカテゴリの情報を取得
 		apiFetch( {
 			path: '/snow-monkey-blocks/v3/template-categories/',
 			method: 'GET',
@@ -139,9 +136,9 @@ class MenuTemplatesCategories extends Component {
 			const resultCategories = [];
 			this.state.categories.map( ( category ) => {
 				if ( ! smb.isPro && category.isPro ) {
-					// プロじゃ無い場合の対応
 					return;
 				}
+
 				resultCategories.push(
 					<PanelBody
 						title={ category.title }

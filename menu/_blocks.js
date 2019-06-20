@@ -171,7 +171,7 @@ export class MenuBlocks extends Component {
 		let proMessage = '';
 		if ( ! smb.isPro && block.snowMonkeyBlocks.isPro ) {
 			proMessage = (
-				<p className="smb-menu__template-block__modal__pro-message">{ __( 'This Block is for pro use only', 'snow-monkey-blocks' ) }</p>
+				<p className="smb-menu__template-block__modal__pro-message">{ __( 'This block is for pro users only', 'snow-monkey-blocks' ) }</p>
 			);
 		}
 		const resultDetail = (
