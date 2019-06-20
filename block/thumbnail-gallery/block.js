@@ -34,6 +34,9 @@ registerBlockType( 'snow-monkey-blocks/thumbnail-gallery', {
 	supports: {
 		align: [ 'wide', 'full' ],
 	},
+	snowMonkey: {
+		screenshot: 'https://snow-monkey.2inc.org/wp-content/uploads/2018/12/screenshot-16.png',
+	},
 
 	edit( { attributes, setAttributes, className } ) {
 		const { arrows, speed, autoplaySpeed } = attributes;

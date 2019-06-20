@@ -26,6 +26,9 @@ registerBlockType( 'snow-monkey-blocks/limited-datetime', {
 		customClassName: false,
 		className: false,
 	},
+	snowMonkey: {
+		screenshot: 'https://snow-monkey.2inc.org/wp-content/uploads/2019/04/screenshot-20.png',
+	},
 
 	edit( { attributes, setAttributes, className } ) {
 		const { isUseStartDate, startDate, isUseEndDate, endDate } = attributes;

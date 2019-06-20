@@ -22,6 +22,9 @@ registerBlockType( 'snow-monkey-blocks/box', {
 	},
 	category: blockConfig.blockCategories.common,
 	attributes: schema,
+	snowMonkey: {
+		screenshot: 'https://snow-monkey.2inc.org/wp-content/uploads/2018/10/screenshot-3.png',
+	},
 
 	edit( { attributes, setAttributes, className } ) {
 		const { backgroundColor, borderColor, textColor, borderWidth } = attributes;

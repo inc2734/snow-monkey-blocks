@@ -17,6 +17,9 @@ registerBlockType( 'snow-monkey-blocks/faq', {
 		src: 'businessman',
 	},
 	category: blockConfig.blockCategories.common,
+	snowMonkey: {
+		screenshot: 'https://snow-monkey.2inc.org/wp-content/uploads/2018/10/screenshot-6.png',
+	},
 
 	edit( { className } ) {
 		const allowedBlocks = [ 'snow-monkey-blocks/faq--item' ];

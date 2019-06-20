@@ -22,6 +22,9 @@ registerBlockType( 'snow-monkey-blocks/panels', {
 	},
 	category: blockConfig.blockCategories.common,
 	attributes: schema,
+	snowMonkey: {
+		screenshot: 'https://snow-monkey.2inc.org/wp-content/uploads/2018/11/screenshot-14.png',
+	},
 
 	edit( { attributes, setAttributes, className } ) {
 		const { sm, md, lg, imagePadding } = attributes;

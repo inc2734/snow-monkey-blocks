@@ -15,6 +15,10 @@ registerBlockType( 'snow-monkey-blocks/recent-posts', {
 		src: 'editor-ul',
 	},
 	category: blockConfig.blockCategories.common,
+	snowMonkey: {
+		isPro: true,
+		screenshot: null,
+	},
 
 	edit: withSelect( ( select, props ) => {
 		const { getPostTypes, getEntityRecords } = select( 'core' );
