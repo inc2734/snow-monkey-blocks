@@ -84,7 +84,7 @@ class Assets {
 			'snow-monkey-blocks-editor',
 			'smb',
 			[
-				'pluginURL' => SNOW_MONKEY_BLOCKS_DIR_URL,
+				'pluginUrl' => SNOW_MONKEY_BLOCKS_DIR_URL,
 				'pluginDir' => SNOW_MONKEY_BLOCKS_DIR_PATH,
 				'isPro' => Blocks\is_pro(),
 			]

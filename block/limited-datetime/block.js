@@ -27,7 +27,7 @@ registerBlockType( 'snow-monkey-blocks/limited-datetime', {
 		className: false,
 	},
 	snowMonkeyBlocks: {
-		screenshot: 'https://snow-monkey.2inc.org/wp-content/uploads/2019/04/screenshot-20.png',
+		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/limited-datetime.png`,
 	},
 
 	edit( { attributes, setAttributes, className } ) {

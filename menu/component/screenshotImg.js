@@ -13,7 +13,7 @@ class ScreenshotImg extends Component {
 	render() {
 		let src = this.props.src;
 		if ( null === this.props.src ) {
-			src = `${ smb.pluginURL }/dist/img/screenshot-none.png`;
+			src = `${ smb.pluginUrl }/dist/img/screenshot/none.png`;
 		}
 		return (
 			<Img

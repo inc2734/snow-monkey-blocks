@@ -22,7 +22,7 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 	category: blockConfig.blockCategories.common,
 	attributes: schema,
 	snowMonkeyBlocks: {
-		screenshot: 'https://snow-monkey.2inc.org/wp-content/uploads/2018/10/screenshot-2.png',
+		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/balloon.png`,
 	},
 
 	edit( { attributes, setAttributes, className } ) {

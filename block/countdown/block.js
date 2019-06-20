@@ -36,7 +36,7 @@ registerBlockType( 'snow-monkey-blocks/countdown', {
 		__( 'Countdown', 'snow-monkey-blocks' ),
 	],
 	snowMonkeyBlocks: {
-		screenshot: 'https://snow-monkey.2inc.org/wp-content/uploads/2019/05/screenshot-21.png',
+		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/countdown.png`,
 	},
 
 	edit( { attributes, setAttributes, className } ) {

@@ -18,7 +18,7 @@ registerBlockType( 'snow-monkey-blocks/step', {
 	},
 	category: blockConfig.blockCategories.common,
 	snowMonkeyBlocks: {
-		screenshot: 'https://snow-monkey.2inc.org/wp-content/uploads/2018/10/screenshot-10.png',
+		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/step.png`,
 	},
 
 	edit( { className } ) {

@@ -22,7 +22,7 @@ registerBlockType( 'snow-monkey-blocks/directory-structure', {
 		__( 'Directory structure', 'snow-monkey-blocks' ),
 	],
 	snowMonkeyBlocks: {
-		screenshot: 'https://snow-monkey.2inc.org/wp-content/uploads/2019/05/screenshot-22.png',
+		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/directory-structure.png`,
 	},
 
 	edit( { className } ) {

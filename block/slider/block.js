@@ -40,7 +40,7 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 		align: [ 'wide', 'full' ],
 	},
 	snowMonkeyBlocks: {
-		screenshot: 'https://snow-monkey.2inc.org/wp-content/uploads/2018/11/screenshot-13.png',
+		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/slider.png`,
 	},
 
 	edit( { attributes, setAttributes, className } ) {

@@ -18,7 +18,7 @@ registerBlockType( 'snow-monkey-blocks/pricing-table', {
 	},
 	category: blockConfig.blockCategories.common,
 	snowMonkeyBlocks: {
-		screenshot: 'https://snow-monkey.2inc.org/wp-content/uploads/2018/10/screenshot-8.png',
+		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/pricing-table.png`,
 	},
 
 	edit( { className } ) {

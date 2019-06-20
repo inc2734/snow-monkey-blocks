@@ -29,7 +29,7 @@ registerBlockType( 'snow-monkey-blocks/btn', {
 		{ name: 'ghost', label: __( 'Ghost', 'snow-monkey-blocks' ) },
 	],
 	snowMonkeyBlocks: {
-		screenshot: 'https://snow-monkey.2inc.org/wp-content/uploads/2018/10/screenshot-4.png',
+		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/btn.png`,
 	},
 
 	edit( { attributes, setAttributes, className } ) {

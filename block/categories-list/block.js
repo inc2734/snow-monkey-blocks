@@ -65,7 +65,7 @@ registerBlockType( 'snow-monkey-blocks/categories-list', {
 	},
 	category: blockConfig.blockCategories.common,
 	snowMonkeyBlocks: {
-		screenshot: 'https://snow-monkey.2inc.org/wp-content/uploads/2019/04/screenshot-17.png',
+		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/categories-list.png`,
 	},
 
 	edit: withSelect( ( select ) => {

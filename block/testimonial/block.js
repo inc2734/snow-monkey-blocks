@@ -18,7 +18,7 @@ registerBlockType( 'snow-monkey-blocks/testimonial', {
 	},
 	category: blockConfig.blockCategories.common,
 	snowMonkeyBlocks: {
-		screenshot: null,
+		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/testimonial.png`,
 	},
 
 	edit( { className } ) {

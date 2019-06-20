@@ -23,7 +23,7 @@ registerBlockType( 'snow-monkey-blocks/box', {
 	category: blockConfig.blockCategories.common,
 	attributes: schema,
 	snowMonkeyBlocks: {
-		screenshot: 'https://snow-monkey.2inc.org/wp-content/uploads/2018/10/screenshot-3.png',
+		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/box.png`,
 	},
 
 	edit( { attributes, setAttributes, className } ) {

@@ -18,7 +18,7 @@ registerBlockType( 'snow-monkey-blocks/rating-box', {
 	},
 	category: blockConfig.blockCategories.common,
 	snowMonkeyBlocks: {
-		screenshot: 'https://snow-monkey.2inc.org/wp-content/uploads/2018/10/screenshot-9.png',
+		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/rating-box.png`,
 	},
 
 	edit( { className } ) {
