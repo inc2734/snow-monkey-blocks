@@ -35,7 +35,7 @@ registerBlockType( 'snow-monkey-blocks/countdown', {
 	keywords: [
 		__( 'Countdown', 'snow-monkey-blocks' ),
 	],
-	snowMonkey: {
+	snowMonkeyBlocks: {
 		screenshot: 'https://snow-monkey.2inc.org/wp-content/uploads/2019/05/screenshot-21.png',
 	},
 

@@ -15,7 +15,7 @@ registerBlockType( 'snow-monkey-blocks/taxonomy-posts', {
 		src: 'editor-ul',
 	},
 	category: blockConfig.blockCategories.common,
-	snowMonkey: {
+	snowMonkeyBlocks: {
 		screenshot: null,
 	},
 

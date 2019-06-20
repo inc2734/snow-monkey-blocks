@@ -20,7 +20,7 @@ registerBlockType( 'snow-monkey-blocks/contents-outline', {
 	supports: {
 		customClassName: false,
 	},
-	snowMonkey: {
+	snowMonkeyBlocks: {
 		isPro: true,
 		screenshot: null,
 	},

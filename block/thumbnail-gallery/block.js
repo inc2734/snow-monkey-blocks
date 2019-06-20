@@ -34,7 +34,7 @@ registerBlockType( 'snow-monkey-blocks/thumbnail-gallery', {
 	supports: {
 		align: [ 'wide', 'full' ],
 	},
-	snowMonkey: {
+	snowMonkeyBlocks: {
 		screenshot: 'https://snow-monkey.2inc.org/wp-content/uploads/2018/12/screenshot-16.png',
 	},
 

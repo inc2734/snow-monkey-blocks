@@ -39,7 +39,7 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 	supports: {
 		align: [ 'wide', 'full' ],
 	},
-	snowMonkey: {
+	snowMonkeyBlocks: {
 		screenshot: 'https://snow-monkey.2inc.org/wp-content/uploads/2018/11/screenshot-13.png',
 	},
 

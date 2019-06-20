@@ -169,7 +169,7 @@ export class MenuBlocks extends Component {
 	setupResultDetail( blockName ) {
 		const block = getBlockType( blockName );
 		let proMessage = '';
-		if ( ! smb.isPro && block.snowMonkey.isPro ) {
+		if ( ! smb.isPro && block.snowMonkeyBlocks.isPro ) {
 			proMessage = (
 				<p className="smb-menu__template-block__modal__pro-message">{ __( 'This Block is for pro use only', 'snow-monkey-blocks' ) }</p>
 			);
@@ -184,7 +184,7 @@ export class MenuBlocks extends Component {
 				<p className="smb-menu__template-block__modal__description">{ block.description }</p>
 				<ScreenshotImg
 					className="smb-menu__template-block__modal__screenshot"
-					src={ block.snowMonkey.screenshot }
+					src={ block.snowMonkeyBlocks.screenshot }
 					loader={
 						<div className="smb-menu__template-block__modal__screenshot__loading">
 							<Spinner />

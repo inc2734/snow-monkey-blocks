@@ -28,7 +28,7 @@ registerBlockType( 'snow-monkey-blocks/section', {
 		align: [ 'wide', 'full' ],
 		anchor: true,
 	},
-	snowMonkey: {
+	snowMonkeyBlocks: {
 		isPro: true,
 		screenshot: null,
 	},

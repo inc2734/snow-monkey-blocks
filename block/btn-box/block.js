@@ -28,7 +28,7 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 		{ name: 'default', label: __( 'Default', 'snow-monkey-blocks' ), isDefault: true },
 		{ name: 'ghost', label: __( 'Ghost', 'snow-monkey-blocks' ) },
 	],
-	snowMonkey: {
+	snowMonkeyBlocks: {
 		screenshot: 'https://snow-monkey.2inc.org/wp-content/uploads/2018/10/screenshot-5.png',
 	},
 

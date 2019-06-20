@@ -21,7 +21,7 @@ registerBlockType( 'snow-monkey-blocks/directory-structure', {
 	keywords: [
 		__( 'Directory structure', 'snow-monkey-blocks' ),
 	],
-	snowMonkey: {
+	snowMonkeyBlocks: {
 		screenshot: 'https://snow-monkey.2inc.org/wp-content/uploads/2019/05/screenshot-22.png',
 	},
 

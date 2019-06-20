@@ -27,7 +27,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 		align: [ 'wide', 'full' ],
 		anchor: true,
 	},
-	snowMonkey: {
+	snowMonkeyBlocks: {
 		isPro: true,
 		screenshot: null,
 	},

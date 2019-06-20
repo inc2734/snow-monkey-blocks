@@ -17,7 +17,7 @@ registerBlockType( 'snow-monkey-blocks/testimonial', {
 		src: 'admin-comments',
 	},
 	category: blockConfig.blockCategories.common,
-	snowMonkey: {
+	snowMonkeyBlocks: {
 		screenshot: null,
 	},
 

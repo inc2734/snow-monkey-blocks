@@ -25,7 +25,7 @@ registerBlockType( 'snow-monkey-blocks/evaluation-star', {
 	},
 	category: blockConfig.blockCategories.common,
 	attributes: schema,
-	snowMonkey: {
+	snowMonkeyBlocks: {
 		screenshot: 'https://snow-monkey.2inc.org/wp-content/uploads/2019/04/screenshot-18.png',
 	},
 
