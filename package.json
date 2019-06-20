@@ -37,7 +37,8 @@
     "clean:js": "rimraf dist/js",
     "clean:packages": "rimraf dist/packages",
     "clean:zip": "rimraf snow-monkey-blocks.zip",
-    "build": "npm-run-all -p css js packages po2json",
+    "clean:img": "rimraf dist/img",
+    "build": "npm-run-all -p css js packages po2json img",
     "prepublish": "npm run build",
     "lint": "./node_modules/.bin/eslint .",
     "css:front:sass": "node-sass --include-path=node_modules/node-normalize-scss src/css/blocks.scss -o dist/css",
@@ -75,7 +76,8 @@
     "zip:archive": "zip -9 -qmr snow-monkey-blocks.zip snow-monkey-blocks",
     "zip": "npm run clean:zip && npm run zip:pack && npm run zip:archive",
     "po2json:snow-monkey-blocks-editor": "po2json languages/snow-monkey-blocks-ja.po languages/snow-monkey-blocks-ja-snow-monkey-blocks-editor.json -f jed",
-    "po2json": "npm-run-all -p po2json:*"
+    "po2json": "npm-run-all -p po2json:*",
+    "img": "npm run clean:img && cpy '**' '../../dist/img' --cwd=src/img --parents"
   },
   "dependencies": {
     "@wordpress/i18n": "^3.5.0",
