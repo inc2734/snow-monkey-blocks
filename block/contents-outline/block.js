@@ -22,7 +22,7 @@ registerBlockType( 'snow-monkey-blocks/contents-outline', {
 	},
 	snowMonkeyBlocks: {
 		isPro: true,
-		screenshot: null,
+		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/contents-outline.png`,
 	},
 
 	edit( { attributes, setAttributes } ) {

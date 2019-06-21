@@ -18,7 +18,7 @@ registerBlockType( 'snow-monkey-blocks/pickup-slider', {
 	category: blockConfig.blockCategories.common,
 	snowMonkeyBlocks: {
 		isPro: true,
-		screenshot: null,
+		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/pickup-slider.png`,
 	},
 
 	edit( { attributes, setAttributes } ) {

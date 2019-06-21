@@ -30,7 +30,7 @@ registerBlockType( 'snow-monkey-blocks/section', {
 	},
 	snowMonkeyBlocks: {
 		isPro: true,
-		screenshot: null,
+		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/section.png`,
 	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {

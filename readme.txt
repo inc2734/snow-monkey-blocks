@@ -386,3 +386,10 @@ License: https://fontawesome.com/license/free
 
 WebSite: http://kenwheeler.github.io/slick/
 License: https://github.com/kenwheeler/slick/blob/master/LICENSE
+
+= Photos =
+- https://visualhunt.com/photo/1646/people-walking-towards-eiffel-tower-at-night/
+- https://visualhunt.com/photo/849/clouds-in-sky-over-fields/
+- https://visualhunt.com/photo/525/sunset-over-lake-1/
+- https://visualhunt.com/photo/1382/man-sitting-at-table-with-coffee-cup-using-digital-tablet/
+- https://visualhunt.com/photo/722/mountain-landscape-and-tree-at-sunset/

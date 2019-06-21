@@ -16,7 +16,7 @@ registerBlockType( 'snow-monkey-blocks/taxonomy-posts', {
 	},
 	category: blockConfig.blockCategories.common,
 	snowMonkeyBlocks: {
-		screenshot: null,
+		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/taxonomy-posts.png`,
 	},
 
 	edit: withSelect( ( select ) => {

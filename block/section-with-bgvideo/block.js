@@ -37,7 +37,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 	},
 	snowMonkeyBlocks: {
 		isPro: true,
-		screenshot: null,
+		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/section-with-bgvideo.png`,
 	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {

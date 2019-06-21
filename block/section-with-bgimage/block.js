@@ -29,7 +29,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 	},
 	snowMonkeyBlocks: {
 		isPro: true,
-		screenshot: null,
+		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/section-with-bgimage.png`,
 	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {

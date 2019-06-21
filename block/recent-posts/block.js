@@ -17,7 +17,7 @@ registerBlockType( 'snow-monkey-blocks/recent-posts', {
 	category: blockConfig.blockCategories.common,
 	snowMonkeyBlocks: {
 		isPro: true,
-		screenshot: null,
+		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/recent-posts.png`,
 	},
 
 	edit: withSelect( ( select, props ) => {
