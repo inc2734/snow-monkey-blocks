@@ -12,11 +12,6 @@
   &__item--horizontal {
     > .smb-panels__item__figure {
       display: flex;
-
-      > .components-button {
-        display: flex;
-        flex-direction: column;
-      }
     }
   }
 }
