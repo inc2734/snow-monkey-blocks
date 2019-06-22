@@ -1,10 +1,29 @@
 'use strict';
 
+import classnames from 'classnames';
+import { schema } from './_schema.js';
+
 const { get, times } = lodash;
 const { RichText, InnerBlocks } = wp.editor;
 const { createBlock } = wp.blocks;
 
 export const deprecated = [
+	{
+		attributes: schema,
+		save( { className } ) {
+			const classes = classnames( 'smb-testimonial', className );
+
+			return (
+				<div className={ classes }>
+					<div className="smb-testimonial__body">
+						<div className="c-row c-row--margin" data-columns="1" data-md-columns="2">
+							<InnerBlocks.Content />
+						</div>
+					</div>
+				</div>
+			);
+		},
+	},
 	{
 		save() {
 			return (

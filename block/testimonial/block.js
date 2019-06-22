@@ -1,12 +1,16 @@
 'use strict';
 
 import classnames from 'classnames';
+import toNumber from '../../src/js/helper/to-number';
 
 import { blockConfig } from '../../src/js/config/block.js';
+import { schema } from './_schema.js';
 import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
-const { InnerBlocks } = wp.editor;
+const { InspectorControls, InnerBlocks } = wp.editor;
+const { PanelBody, RangeControl, TabPanel, Dashicon } = wp.components;
+const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
 registerBlockType( 'snow-monkey-blocks/testimonial', {
@@ -17,38 +21,92 @@ registerBlockType( 'snow-monkey-blocks/testimonial', {
 		src: 'admin-comments',
 	},
 	category: blockConfig.blockCategories.common,
+	attributes: schema,
 	snowMonkeyBlocks: {
 		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/testimonial.png`,
 	},
 
-	edit( { className } ) {
+	edit( { attributes, setAttributes, className } ) {
+		const { md, lg } = attributes;
+
 		const allowedBlocks = [ 'snow-monkey-blocks/testimonial--item' ];
 		const template = [ [ 'snow-monkey-blocks/testimonial--item' ] ];
 
 		const classes = classnames( 'smb-testimonial', className );
 
 		return (
-			<div className={ classes }>
-				<div className="smb-testimonial__body">
-					<div className="c-row c-row--margin" data-columns="1" data-md-columns="2">
-						<InnerBlocks
-							allowedBlocks={ allowedBlocks }
-							template={ template }
-							templateLock={ false }
-						/>
+			<Fragment>
+				<InspectorControls>
+					<PanelBody title={ __( 'Items Settings', 'snow-monkey-blocks' ) }>
+						<TabPanel
+							className="smb-inspector-tabs"
+							tabs={ [
+								{
+									name: 'desktop',
+									title: <Dashicon icon="desktop" />,
+								},
+								{
+									name: 'tablet',
+									title: <Dashicon icon="tablet" />,
+								},
+							] }>
+							{
+								( tab ) => {
+									if ( tab.name ) {
+										if ( 'desktop' === tab.name ) {
+											return (
+												<RangeControl
+													label={ __( 'Columns per row (Large window)', 'snow-monkey-blocks' ) }
+													value={ lg }
+													onChange={ ( value ) => setAttributes( { lg: toNumber( value, 1, 4 ) } ) }
+													min="1"
+													max="4"
+												/>
+											);
+										}
+
+										if ( 'tablet' === tab.name ) {
+											return (
+												<RangeControl
+													label={ __( 'Columns per row (Medium window)', 'snow-monkey-blocks' ) }
+													value={ md }
+													onChange={ ( value ) => setAttributes( { md: toNumber( value, 1, 2 ) } ) }
+													min="1"
+													max="2"
+												/>
+											);
+										}
+									}
+								}
+							}
+						</TabPanel>
+					</PanelBody>
+				</InspectorControls>
+
+				<div className={ classes }>
+					<div className="smb-testimonial__body">
+						<div className="c-row c-row--margin" data-columns="1" data-md-columns={ md } data-lg-columns={ lg }>
+							<InnerBlocks
+								allowedBlocks={ allowedBlocks }
+								template={ template }
+								templateLock={ false }
+							/>
+						</div>
 					</div>
 				</div>
-			</div>
+			</Fragment>
 		);
 	},
 
-	save( { className } ) {
+	save( { attributes, className } ) {
+		const { md, lg } = attributes;
+
 		const classes = classnames( 'smb-testimonial', className );
 
 		return (
 			<div className={ classes }>
 				<div className="smb-testimonial__body">
-					<div className="c-row c-row--margin" data-columns="1" data-md-columns="2">
+					<div className="c-row c-row--margin" data-columns="1" data-md-columns={ md } data-lg-columns={ lg }>
 						<InnerBlocks.Content />
 					</div>
 				</div>
