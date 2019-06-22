@@ -5,29 +5,19 @@
  * @license GPL-2.0+
  */
 
-use Snow_Monkey\Plugin\Blocks\App\Setup\DynamicBlocks;
-use Snow_Monkey\Plugin\Blocks;
+use Snow_Monkey\Plugin\Blocks\App\DynamicBlocks;
 
-if ( ! Blocks\is_snow_monkey() ) {
-	return;
-}
-
-add_action(
-	'init',
-	function() {
-		register_block_type(
-			'snow-monkey-blocks/child-pages',
-			[
-				'attributes' => [
-					'className' => [
-						'type'    => 'string',
-						'default' => '',
-					],
-				],
-				'render_callback' => function( $attributes, $content ) {
-					return DynamicBlocks::render( 'child-pages', $attributes, $content );
-				},
-			]
-		);
-	}
+register_block_type(
+	'snow-monkey-blocks/child-pages',
+	[
+		'attributes' => [
+			'className' => [
+				'type'    => 'string',
+				'default' => '',
+			],
+		],
+		'render_callback' => function( $attributes, $content ) {
+			return DynamicBlocks::render( 'child-pages', $attributes, $content );
+		},
+	]
 );

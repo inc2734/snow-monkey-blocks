@@ -10,11 +10,6 @@ namespace Snow_Monkey\Plugin\Blocks\App\Setup;
 use Snow_Monkey\Plugin\Blocks;
 
 class DynamicBlocks {
-	public function __construct() {
-		foreach ( glob( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/*/block.php' ) as $file ) {
-			include( $file );
-		}
-	}
 
 	/**
 	 * Render template

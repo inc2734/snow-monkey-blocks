@@ -25,10 +25,11 @@ class Bootstrap {
 	public function _bootstrap() {
 		new App\Setup\TextDomain();
 		new App\Setup\Assets();
-		new App\Setup\DynamicBlocks();
 		new App\Setup\RestApi();
 
 		add_filter( 'block_categories', [ $this, '_block_categories' ] );
+		add_action( 'init', [ $this, '_register_nopro_dynamic_blocks' ] );
+		add_action( 'init', [ $this, '_register_pro_dynamic_blocks' ] );
 		add_action( 'add_meta_boxes', [ $this, '_add_pr_meta_box' ] );
 		add_action( 'the_content', [ $this, '_the_content_for_slider' ], 11 );
 	}
@@ -56,6 +57,29 @@ class Bootstrap {
 		return $categories;
 	}
 
+	public function _register_nopro_dynamic_blocks() {
+		$files = [
+			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/limited-datetime/block.php',
+			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/categories-list/block.php',
+		];
+		foreach ( $files as $file ) {
+			require_once( $file );
+		}
+	}
+
+	public function _register_pro_dynamic_blocks() {
+		$files = [
+			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/child-pages/block.php',
+			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/contents-outline/block.php',
+			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/pickup-slider/block.php',
+			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/recent-posts/block.php',
+			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/taxonomy-posts/block.php',
+		];
+		foreach ( $files as $file ) {
+			require_once( $file );
+		}
+	}
+
 	/**
 	 * Add meta box for the Snow Monkey PR when the Gutenberg page or not using the Snow Monkey
 	 *
@@ -63,7 +87,7 @@ class Bootstrap {
 	 * @return void
 	 */
 	public function _add_pr_meta_box( $post_type ) {
-		if ( ! is_block_editor() || is_snow_monkey() ) {
+		if ( ! is_block_editor() || is_pro() ) {
 			return;
 		}
 
@@ -137,21 +161,13 @@ define( 'SNOW_MONKEY_BLOCKS_DIR_URL', untrailingslashit( plugin_dir_url( __FILE_
 define( 'SNOW_MONKEY_BLOCKS_DIR_PATH', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 
 /**
- * Whether pro version
+ * Whether pro edition
  *
  * @return boolean
  */
 function is_pro() {
-	return apply_filters( 'snow_monkey_blocks_pro', false );
-}
-
-/**
- * Return true when Snow Monkey is enabled
- *
- * @return boolean
- */
-function is_snow_monkey() {
-	return 'snow-monkey' === get_template() || 'snow-monkey/resources' === get_template();
+	$is_pro = 'snow-monkey' === get_template() || 'snow-monkey/resources' === get_template();
+	return apply_filters( 'snow_monkey_blocks_pro', $is_pro );
 }
 
 /**
