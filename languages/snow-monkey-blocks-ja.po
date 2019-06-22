@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2019-06-22 21:56+0900\n"
-"PO-Revision-Date: 2019-06-22 21:56+0900\n"
+"POT-Creation-Date: 2019-06-22 22:50+0900\n"
+"PO-Revision-Date: 2019-06-22 22:50+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -493,7 +493,7 @@ msgstr "このページの子ページを表示できます。"
 msgid "In the actual screen, it is displayed when the page have child pages."
 msgstr "実際の画面では、このページが子ページを持っている場合に表示されます。"
 
-#: block/contents-outline/block.js:13 block/contents-outline/block.js:73
+#: block/contents-outline/block.js:13 block/contents-outline/block.js:81
 msgid "Contents outline"
 msgstr "目次"
 
@@ -509,15 +509,19 @@ msgstr "目次設定"
 msgid "Show h2"
 msgstr "h2 を表示"
 
-#: block/contents-outline/block.js:57
+#: block/contents-outline/block.js:58
 msgid "Show h3"
 msgstr "h3 を表示"
 
-#: block/contents-outline/block.js:64
+#: block/contents-outline/block.js:66
 msgid "Show h4"
 msgstr "h4 を表示"
 
-#: block/contents-outline/block.js:76
+#: block/contents-outline/block.js:72
+msgid "Move to before 1st heading"
+msgstr "最初の見出しの前に移動"
+
+#: block/contents-outline/block.js:84
 msgid "In the actual screen, it is displayed when headings exists on the page."
 msgstr "実際の画面では、見出しがページに存在する場合に表示されます。"
 

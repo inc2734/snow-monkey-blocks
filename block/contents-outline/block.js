@@ -5,7 +5,7 @@ import { blockConfig } from '../../src/js/config/block.js';
 const { remove, union, indexOf, compact } = lodash;
 const { registerBlockType } = wp.blocks;
 const { InspectorControls } = wp.editor;
-const { PanelBody, CheckboxControl } = wp.components;
+const { PanelBody, CheckboxControl, ToggleControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -26,7 +26,7 @@ registerBlockType( 'snow-monkey-blocks/contents-outline', {
 	},
 
 	edit( { attributes, setAttributes } ) {
-		const { headings } = attributes;
+		const { headings, moveToBefore1stHeading } = attributes;
 
 		const _generateNewHeadings = ( isChecked, heading ) => {
 			let newHeadings = headings.split( ',' );
@@ -51,6 +51,7 @@ registerBlockType( 'snow-monkey-blocks/contents-outline', {
 							checked={ -1 !== indexOf( headings.split( ',' ), 'h2' ) }
 							onChange={ ( isChecked ) => setAttributes( { headings: _generateNewHeadings( isChecked, 'h2' ) } ) }
 						/>
+
 						<CheckboxControl
 							name="headings[]"
 							value="h3"
@@ -58,12 +59,19 @@ registerBlockType( 'snow-monkey-blocks/contents-outline', {
 							checked={ -1 !== indexOf( headings.split( ',' ), 'h3' ) }
 							onChange={ ( isChecked ) => setAttributes( { headings: _generateNewHeadings( isChecked, 'h3' ) } ) }
 						/>
+
 						<CheckboxControl
 							name="headings[]"
 							value="h4"
 							label={ __( 'Show h4', 'snow-monkey-blocks' ) }
 							checked={ -1 !== indexOf( headings.split( ',' ), 'h4' ) }
 							onChange={ ( isChecked ) => setAttributes( { headings: _generateNewHeadings( isChecked, 'h4' ) } ) }
+						/>
+
+						<ToggleControl
+							label={ __( 'Move to before 1st heading', 'snow-monkey-blocks' ) }
+							checked={ moveToBefore1stHeading }
+							onChange={ ( value ) => setAttributes( { moveToBefore1stHeading: value } ) }
 						/>
 					</PanelBody>
 				</InspectorControls>

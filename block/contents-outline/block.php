@@ -15,6 +15,10 @@ register_block_type(
 				'type'    => 'string',
 				'default' => 'h2,h3,h4',
 			],
+			'moveToBefore1stHeading' => [
+				'type'    => 'boolean',
+				'default' => true,
+			],
 			'className' => [
 				'type' => 'string',
 			],
