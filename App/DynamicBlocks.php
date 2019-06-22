@@ -5,7 +5,7 @@
  * @license GPL-2.0+
  */
 
-namespace Snow_Monkey\Plugin\Blocks\App\Setup;
+namespace Snow_Monkey\Plugin\Blocks\App;
 
 use Snow_Monkey\Plugin\Blocks;
 

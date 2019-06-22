@@ -4,9 +4,10 @@ import classnames from 'classnames';
 
 import { blockConfig } from '../../../src/js/config/block.js';
 import { schema } from './_schema.js';
+import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
-const { MediaPlaceholder, MediaUpload } = wp.editor;
+const { MediaPlaceholder, MediaUpload, RichText } = wp.editor;
 const { Button } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
@@ -23,7 +24,7 @@ registerBlockType( 'snow-monkey-blocks/thumbnail-gallery--item', {
 	attributes: schema,
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
-		const { imageID, imageURL, imageAlt } = attributes;
+		const { imageID, imageURL, imageAlt, caption } = attributes;
 
 		const onSelectImage = ( media ) => {
 			const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
@@ -66,33 +67,42 @@ registerBlockType( 'snow-monkey-blocks/thumbnail-gallery--item', {
 		const classes = classnames( 'smb-thumbnail-gallery__item', className );
 
 		return (
-			<Fragment>
-				{ ( !! imageID || isSelected ) &&
-					<div className={ classes }>
-						<div className="smb-thumbnail-gallery__item__figure">
-							<ItemFigureImg />
-						</div>
-					</div>
+			<div className={ classes }>
+				<div className="smb-thumbnail-gallery__item__figure">
+					<ItemFigureImg />
+				</div>
+
+				{ ( ! RichText.isEmpty( caption ) || isSelected ) &&
+					<RichText
+						className="smb-thumbnail-gallery__item__caption"
+						placeholder={ __( 'Write caption...', 'snow-monkey-blocks' ) }
+						value={ caption }
+						onChange={ ( value ) => setAttributes( { caption: value } ) }
+					/>
 				}
-			</Fragment>
+			</div>
 		);
 	},
 
 	save( { attributes, className } ) {
-		const { imageID, imageURL, imageAlt } = attributes;
+		const { imageID, imageURL, imageAlt, caption } = attributes;
 
 		const classes = classnames( 'smb-thumbnail-gallery__item', className );
 
 		return (
-			<Fragment>
-				{ !! imageID &&
-					<div className={ classes }>
-						<div className="smb-thumbnail-gallery__item__figure">
-							<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
-						</div>
+			<div className={ classes }>
+				<div className="smb-thumbnail-gallery__item__figure">
+					<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
+				</div>
+
+				{ ! RichText.isEmpty( caption ) &&
+					<div className="smb-thumbnail-gallery__item__caption">
+						<RichText.Content value={ caption } />
 					</div>
 				}
-			</Fragment>
+			</div>
 		);
 	},
+
+	deprecated: deprecated,
 } );

@@ -19,4 +19,8 @@ export const schema = {
 		attribute: 'alt',
 		default: '',
 	},
+	caption: {
+		source: 'html',
+		selector: '.smb-thumbnail-gallery__item__caption',
+	},
 };
