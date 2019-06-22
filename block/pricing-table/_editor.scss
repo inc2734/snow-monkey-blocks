@@ -1,4 +1,9 @@
 .smb-pricing-table {
+  @include _media-min(md) {
+    overflow: visible;
+    white-space: normal;
+  }
+
   &__item__figure {
     position: relative;
 

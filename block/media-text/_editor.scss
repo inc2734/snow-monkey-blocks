@@ -1,4 +1,10 @@
 .smb-media-text {
+  &__title {
+    & + .smb-media-text__body {
+      margin-top: 0;
+    }
+  }
+
   &__figure {
     position: relative;
 
@@ -7,10 +13,6 @@
       top: 5px;
       right: 5px;
     }
-  }
-
-  .editor-rich-text + .smb-media-text__body {
-    @include _margin-top(1);
   }
 }
 

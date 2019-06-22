@@ -22,7 +22,7 @@ class MenuTemplatesParts extends Component {
 
 	getParts() {
 		apiFetch( {
-			path: `/snow-monkey-blocks/v3/template-parts/?slug=${ this.props.slug }`,
+			path: `/snow-monkey-blocks/v3/block-templates/?slug=${ this.props.slug }`,
 			method: 'GET',
 			parse: true,
 		} ).then( ( result ) => {

@@ -7,7 +7,7 @@
     }
 
     & + .smb-media-text__body {
-      @include _margin-top(1);
+      @include _margin-top(.75);
     }
   }
 
