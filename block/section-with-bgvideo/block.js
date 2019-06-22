@@ -10,7 +10,7 @@ import { deprecated } from './_deprecated.js';
 const { times } = lodash;
 const { registerBlockType } = wp.blocks;
 const { RichText, InnerBlocks, InspectorControls, PanelColorSettings, URLInput } = wp.editor;
-const { PanelBody, SelectControl, RangeControl, BaseControl, Button } = wp.components;
+const { PanelBody, SelectControl, RangeControl, BaseControl, Button, ToggleControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -41,7 +41,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
-		const { titleTagName, title, videoURL, videoWidth, videoHeight, height, contentsAlignment, maskColor, maskOpacity, textColor } = attributes;
+		const { titleTagName, title, videoURL, videoWidth, videoHeight, height, contentsAlignment, maskColor, maskOpacity, textColor, contentsWidth } = attributes;
 
 		const titleTagNames = [ 'h2', 'h3', 'none' ];
 
@@ -59,6 +59,13 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 		const bgvideoClasses = classnames(
 			{
 				'smb-section-with-bgimage__bgimage': true,
+			}
+		);
+
+		const containerClasses = classnames(
+			{
+				'c-container': true,
+				'u-slim-width': !! contentsWidth,
 			}
 		);
 
@@ -158,6 +165,12 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 							max={ 1 }
 							step={ 0.1 }
 						/>
+
+						<ToggleControl
+							label={ __( 'Make the content width slim', 'snow-monkey-blocks' ) }
+							checked={ contentsWidth }
+							onChange={ ( value ) => setAttributes( { contentsWidth: value } ) }
+						/>
 					</PanelBody>
 
 					<PanelColorSettings
@@ -186,7 +199,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 						}
 					</div>
 					<div className="smb-section-with-bgimage__mask" style={ maskStyles }></div>
-					<div className="c-container">
+					<div className={ containerClasses }>
 						{ ( ! RichText.isEmpty( title ) || isSelected ) && 'none' !== titleTagName &&
 							<RichText
 								className="smb-section__title"
@@ -208,7 +221,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 	},
 
 	save( { attributes, className } ) {
-		const { titleTagName, title, videoURL, videoWidth, videoHeight, height, contentsAlignment, maskColor, maskOpacity, textColor } = attributes;
+		const { titleTagName, title, videoURL, videoWidth, videoHeight, height, contentsAlignment, maskColor, maskOpacity, textColor, contentsWidth } = attributes;
 
 		const classes = classnames(
 			{
@@ -224,6 +237,13 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 		const bgvideoClasses = classnames(
 			{
 				'smb-section-with-bgimage__bgimage': true,
+			}
+		);
+
+		const containerClasses = classnames(
+			{
+				'c-container': true,
+				'u-slim-width': !! contentsWidth,
 			}
 		);
 
@@ -247,7 +267,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 					}
 				</div>
 				<div className="smb-section-with-bgimage__mask" style={ maskStyles }></div>
-				<div className="c-container">
+				<div className={ containerClasses }>
 					{ ! RichText.isEmpty( title ) && 'none' !== titleTagName &&
 						<RichText.Content
 							tagName={ titleTagName }

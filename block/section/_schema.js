@@ -13,7 +13,7 @@ export const schema = {
 		type: 'string',
 	},
 	contentsWidth: {
-		type: 'string',
+		type: 'string', // "boolean" is correct, but "string" for backwards compatibility
 		default: null,
 	},
 	topDividerType: {

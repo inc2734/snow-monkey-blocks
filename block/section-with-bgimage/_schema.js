@@ -50,4 +50,8 @@ export const schema = {
 		type: 'boolean',
 		default: false,
 	},
+	contentsWidth: {
+		type: 'boolean',
+		default: false,
+	},
 };

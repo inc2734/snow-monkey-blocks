@@ -11,7 +11,7 @@ import { deprecated } from './_deprecated.js';
 const { times } = lodash;
 const { registerBlockType } = wp.blocks;
 const { RichText, InnerBlocks, InspectorControls, PanelColorSettings, ColorPalette } = wp.editor;
-const { PanelBody, BaseControl, SelectControl, RangeControl, Button } = wp.components;
+const { PanelBody, BaseControl, SelectControl, RangeControl, Button, ToggleControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -55,7 +55,7 @@ registerBlockType( 'snow-monkey-blocks/section', {
 		const containerClasses = classnames(
 			{
 				'c-container': true,
-				'u-slim-width': 'slim' === contentsWidth,
+				'u-slim-width': !! contentsWidth,
 			}
 		);
 
@@ -88,20 +88,10 @@ registerBlockType( 'snow-monkey-blocks/section', {
 							</div>
 						</BaseControl>
 
-						<SelectControl
-							label={ __( 'Contents Width', 'snow-monkey-blocks' ) }
-							value={ contentsWidth }
+						<ToggleControl
+							label={ __( 'Make the content width slim', 'snow-monkey-blocks' ) }
+							checked={ !! contentsWidth }
 							onChange={ ( value ) => setAttributes( { contentsWidth: value } ) }
-							options={ [
-								{
-									value: '',
-									label: __( 'Normal', 'snow-monkey-blocks' ),
-								},
-								{
-									value: 'slim',
-									label: __( 'Slim', 'snow-monkey-blocks' ),
-								},
-							] }
 						/>
 					</PanelBody>
 
@@ -259,7 +249,7 @@ registerBlockType( 'snow-monkey-blocks/section', {
 		const containerClasses = classnames(
 			{
 				'c-container': true,
-				'u-slim-width': 'slim' === contentsWidth,
+				'u-slim-width': !! contentsWidth,
 			}
 		);
 

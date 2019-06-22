@@ -41,4 +41,8 @@ export const schema = {
 		type: 'string',
 		default: '#fff',
 	},
+	contentsWidth: {
+		type: 'boolean',
+		default: false,
+	},
 };

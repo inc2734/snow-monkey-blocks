@@ -33,7 +33,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
-		const { titleTagName, title, imageID, imageURL, imageAlt, height, contentsAlignment, maskColor, maskOpacity, textColor, parallax } = attributes;
+		const { titleTagName, title, imageID, imageURL, imageAlt, height, contentsAlignment, maskColor, maskOpacity, textColor, parallax, contentsWidth } = attributes;
 
 		const titleTagNames = [ 'h2', 'h3', 'none' ];
 
@@ -52,6 +52,13 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 			{
 				'smb-section-with-bgimage__bgimage': true,
 				'js-bg-parallax__bgimage': !! parallax,
+			}
+		);
+
+		const containerClasses = classnames(
+			{
+				'c-container': true,
+				'u-slim-width': !! contentsWidth,
 			}
 		);
 
@@ -137,6 +144,12 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 							checked={ parallax }
 							onChange={ ( value ) => setAttributes( { parallax: value } ) }
 						/>
+
+						<ToggleControl
+							label={ __( 'Make the content width slim', 'snow-monkey-blocks' ) }
+							checked={ contentsWidth }
+							onChange={ ( value ) => setAttributes( { contentsWidth: value } ) }
+						/>
 					</PanelBody>
 
 					<PanelColorSettings
@@ -185,7 +198,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 							<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
 						}
 					</div>
-					<div className="c-container">
+					<div className={ containerClasses }>
 						{ ( ! RichText.isEmpty( title ) || isSelected ) && 'none' !== titleTagName &&
 							<RichText
 								className="smb-section__title"
@@ -207,7 +220,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 	},
 
 	save( { attributes, className } ) {
-		const { titleTagName, title, imageID, imageURL, imageAlt, height, contentsAlignment, maskColor, maskOpacity, textColor, parallax } = attributes;
+		const { titleTagName, title, imageID, imageURL, imageAlt, height, contentsAlignment, maskColor, maskOpacity, textColor, parallax, contentsWidth } = attributes;
 
 		const classes = classnames(
 			{
@@ -224,6 +237,13 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 			{
 				'smb-section-with-bgimage__bgimage': true,
 				'js-bg-parallax__bgimage': !! parallax,
+			}
+		);
+
+		const containerClasses = classnames(
+			{
+				'c-container': true,
+				'u-slim-width': !! contentsWidth,
 			}
 		);
 
@@ -245,7 +265,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 				<div className={ bgimageClasses } style={ bgimageStyles }>
 					<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
 				</div>
-				<div className="c-container">
+				<div className={ containerClasses }>
 					{ ! RichText.isEmpty( title ) && 'none' !== titleTagName &&
 						<RichText.Content
 							tagName={ titleTagName }
