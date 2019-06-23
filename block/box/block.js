@@ -41,7 +41,7 @@ registerBlockType( 'snow-monkey-blocks/box', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Box Settings', 'snow-monkey-blocks' ) }>
+					<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
 						<RangeControl
 							label={ __( 'Border width', 'snow-monkey-blocks' ) }
 							value={ borderWidth }

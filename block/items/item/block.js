@@ -87,7 +87,7 @@ registerBlockType( 'snow-monkey-blocks/items--item', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Items Settings', 'snow-monkey-blocks' ) }>
+					<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
 						<BaseControl label={ __( 'Title Tag', 'snow-monkey-blocks' ) }>
 							<div className="smb-list-icon-selector">
 								{ times( titleTagNames.length, ( index ) => {

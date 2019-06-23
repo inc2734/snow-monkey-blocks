@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2019-06-23 18:42+0900\n"
-"PO-Revision-Date: 2019-06-23 18:42+0900\n"
+"POT-Creation-Date: 2019-06-23 18:50+0900\n"
+"PO-Revision-Date: 2019-06-23 18:50+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -72,8 +72,7 @@ msgid "articles"
 msgstr "記事"
 
 #: block/categories-list/view.php:54 block/categories-list/_edit.js:85
-#: block/recent-posts/_edit.js:34 block/recent-posts/_edit.js:126
-#: block/recent-posts/block.js:11
+#: block/recent-posts/_edit.js:34 block/recent-posts/block.js:11
 msgid "Recent posts"
 msgstr "最近の投稿"
 
@@ -133,11 +132,28 @@ msgstr "アコーディオンのように伸縮するコンテンツエリアを
 msgid "Item"
 msgstr "項目"
 
-#: block/accordion/item/block.js:33 block/panels/item/horizontal/block.js:85
-#: block/panels/item/vertical/block.js:77 block/rating-box/item/block.js:40
-#: block/step/item/block.js:86
-msgid "Item Settings"
-msgstr "項目の設定"
+#: block/accordion/item/block.js:33 block/alert/block.js:89
+#: block/balloon/block.js:54 block/box/block.js:44 block/btn/block.js:61
+#: block/categories-list/_edit.js:120 block/container/block.js:42
+#: block/contents-outline/block.js:46 block/countdown/block.js:72
+#: block/directory-structure/item/directory/block.js:80
+#: block/directory-structure/item/file/block.js:61 block/faq/item/block.js:42
+#: block/items/block.js:40 block/items/item/block-link/block.js:84
+#: block/items/item/block.js:90 block/items/item/standard/block.js:84
+#: block/limited-datetime/block.js:59 block/list/block.js:76
+#: block/media-text/block.js:118 block/panels/block.js:40
+#: block/panels/item/horizontal/block.js:85
+#: block/panels/item/vertical/block.js:77 block/pickup-slider/block.js:30
+#: block/rating-box/item/block.js:40 block/recent-posts/_edit.js:57
+#: block/section-with-bgimage/block.js:80
+#: block/section-with-bgvideo/block.js:84 block/section/block.js:74
+#: block/slider/block.js:57 block/step/item/block.js:86
+#: block/taxonomy-posts/_edit.js:70 block/testimonial/block.js:40
+#: block/thumbnail-gallery/block.js:52
+#, fuzzy
+#| msgid "Box Settings"
+msgid "Block Settings"
+msgstr "ブロック設定"
 
 #: block/accordion/item/block.js:35
 msgid "Display in open state"
@@ -183,10 +199,6 @@ msgstr "edit"
 msgid "lightbulb"
 msgstr "lightbulb"
 
-#: block/alert/block.js:89
-msgid "Alert Settings"
-msgstr "アラート設定"
-
 #: block/alert/block.js:91 block/balloon/block.js:56 block/section/block.js:113
 #: block/section/block.js:155
 msgid "Type"
@@ -229,10 +241,6 @@ msgstr "吹き出し"
 msgid "It is a block that can express a conversation."
 msgstr "会話を表現できるブロックです。"
 
-#: block/balloon/block.js:54
-msgid "Balloon Settings"
-msgstr "吹き出し設定"
-
 #: block/balloon/block.js:62
 msgid "Normal balloon"
 msgstr "吹き出し"
@@ -270,10 +278,6 @@ msgstr "ボックス"
 #: block/box/block.js:18
 msgid "It is a box."
 msgstr "箱です。"
-
-#: block/box/block.js:44
-msgid "Box Settings"
-msgstr "ボックス設定"
 
 #: block/box/block.js:46
 msgid "Border width"
@@ -318,9 +322,9 @@ msgstr "デフォルト"
 msgid "Ghost"
 msgstr "ゴースト"
 
-#: block/btn-box/block.js:62 block/btn/block.js:61
-#: block/items/item/block-link/block.js:102 block/items/item/block.js:115
-#: block/items/item/standard/block.js:102 block/pricing-table/item/block.js:82
+#: block/btn-box/block.js:62 block/items/item/block-link/block.js:102
+#: block/items/item/block.js:115 block/items/item/standard/block.js:102
+#: block/pricing-table/item/block.js:82
 msgid "Button Settings"
 msgstr "ボタン設定"
 
@@ -424,10 +428,6 @@ msgstr "投稿数が0のカテゴリは、除外されていない場合でも�
 msgid "Only the actual contribution screen is displayed"
 msgstr "通常の投稿画面のみ表示されます"
 
-#: block/categories-list/_edit.js:120
-msgid "Categories list Settings"
-msgstr "カテゴリー一覧設定"
-
 #: block/categories-list/_edit.js:122
 msgid "Categories List Articles"
 msgstr "カテゴリーリストの記事数"
@@ -501,10 +501,6 @@ msgstr "コンテナ"
 msgid "Container blocks keep content within a certain width."
 msgstr "コンテナブロックはコンテンツを一定の幅に収めます。"
 
-#: block/container/block.js:42
-msgid "Container Settings"
-msgstr "コンテナ設定"
-
 #: block/container/block.js:44 block/section-with-bgimage/block.js:149
 #: block/section-with-bgvideo/block.js:170 block/section/block.js:92
 msgid "Make the content width slim"
@@ -517,10 +513,6 @@ msgstr "目次"
 #: block/contents-outline/block.js:14
 msgid "Display the table of contents above the first heading."
 msgstr "最初の見出しの上に目次を表示します。"
-
-#: block/contents-outline/block.js:46
-msgid "Contents Outline Settings"
-msgstr "目次設定"
 
 #: block/contents-outline/block.js:50
 msgid "Show h2"
@@ -557,10 +549,6 @@ msgstr "インライン"
 #: block/countdown/block.js:36
 msgid "Countdown"
 msgstr "カウントダウン"
-
-#: block/countdown/block.js:72
-msgid "Datetime Settings"
-msgstr "日時の設定"
 
 #: block/countdown/block.js:87
 msgid "Numeric Color"
@@ -617,11 +605,6 @@ msgstr "開いているフォルダ - Regular"
 #: block/directory-structure/item/directory/block.js:70
 msgid "folder - Regular"
 msgstr "フォルダ - Regular"
-
-#: block/directory-structure/item/directory/block.js:80
-#: block/directory-structure/item/file/block.js:61
-msgid "Icon Settings"
-msgstr "アイコンの設定"
 
 #: block/directory-structure/item/directory/block.js:112
 #: block/directory-structure/item/file/block.js:93 block/list/block.js:103
@@ -712,10 +695,6 @@ msgstr "FAQを列挙できます。"
 msgid "It is a child block of the FAQ block."
 msgstr "FAQブロックの子ブロックです。"
 
-#: block/faq/item/block.js:42
-msgid "Label Settings"
-msgstr "ラベル設定"
-
 #: block/faq/item/block.js:43
 msgid "Question Label"
 msgstr "質問のラベル"
@@ -761,12 +740,6 @@ msgstr "項目"
 #: block/items/block.js:18
 msgid "Let's line up the contents."
 msgstr "コンテンツを並べましょう。"
-
-#: block/items/block.js:40 block/items/item/block-link/block.js:84
-#: block/items/item/block.js:90 block/items/item/standard/block.js:84
-#: block/testimonial/block.js:40
-msgid "Items Settings"
-msgstr "項目設定"
 
 #: block/items/block.js:63 block/panels/block.js:63
 #: block/testimonial/block.js:59
@@ -853,10 +826,6 @@ msgstr "設定されていません。"
 msgid "Not initialized properly."
 msgstr "正しく初期化されていません。"
 
-#: block/limited-datetime/block.js:59
-msgid "Datetime setting"
-msgstr "日時の設定"
-
 #: block/limited-datetime/block.js:60 block/limited-datetime/block.js:94
 msgid "Start datetime"
 msgstr "開始日時"
@@ -901,10 +870,6 @@ msgstr "arrow-right"
 msgid "chevron-circle-right"
 msgstr "chevron-circle-right"
 
-#: block/list/block.js:76
-msgid "List Settings"
-msgstr "リスト設定"
-
 #: block/media-text/block.js:39
 msgid "Media text"
 msgstr "メディアと文章"
@@ -912,10 +877,6 @@ msgstr "メディアと文章"
 #: block/media-text/block.js:40
 msgid "Set media and words side-by-side for a richer layout."
 msgstr "画像と文章を横並びのリッチなレイアウトにします。"
-
-#: block/media-text/block.js:118
-msgid "Media Text Settings"
-msgstr "メディアと文章の設定"
 
 #: block/media-text/block.js:120 block/panels/item/horizontal/block.js:103
 #: block/step/item/block.js:88
@@ -962,10 +923,6 @@ msgstr "パネル"
 msgid "Let's line up the contents like the panel."
 msgstr "パネルのようにコンテンツを並べましょう。"
 
-#: block/panels/block.js:40
-msgid "Panels Settings"
-msgstr "パネル設定"
-
 #: block/panels/block.js:101
 msgid "Set padding around images"
 msgstr "画像の周りに余白を設定"
@@ -996,10 +953,6 @@ msgstr "ピックアップスライダー"
 #: block/pickup-slider/block.js:13
 msgid "Display posts with pickup tags as a slider."
 msgstr "「pickup」タグが付与された記事をスライダーとして表示します。"
-
-#: block/pickup-slider/block.js:30
-msgid "Pickup Slider Settings"
-msgstr "ピックアップスライダー設定"
 
 #: block/pickup-slider/block.js:32
 msgid "Display in random order"
@@ -1057,56 +1010,43 @@ msgstr "レーティング"
 msgid "Bar Color"
 msgstr "バーの色"
 
-#: block/recent-posts/_edit.js:40 block/recent-posts/_edit.js:132
-#: block/taxonomy-posts/_edit.js:53
+#: block/recent-posts/_edit.js:40 block/taxonomy-posts/_edit.js:53
 msgid "No posts found."
 msgstr "投稿が見つかりません."
 
-#: block/recent-posts/_edit.js:57 block/recent-posts/_edit.js:149
-msgid "Recent Posts Settings"
-msgstr "最近の投稿設定"
-
-#: block/recent-posts/_edit.js:59 block/recent-posts/_edit.js:151
+#: block/recent-posts/_edit.js:59
 msgid "Post Type"
 msgstr "投稿タイプ"
 
-#: block/recent-posts/_edit.js:66 block/recent-posts/_edit.js:158
-#: block/taxonomy-posts/_edit.js:86
+#: block/recent-posts/_edit.js:66 block/taxonomy-posts/_edit.js:86
 msgid "Number of posts"
 msgstr "表示する投稿数"
 
-#: block/recent-posts/_edit.js:74 block/recent-posts/_edit.js:166
-#: block/taxonomy-posts/_edit.js:94
+#: block/recent-posts/_edit.js:74 block/taxonomy-posts/_edit.js:94
 msgid "Layout"
 msgstr "レイアウト"
 
-#: block/recent-posts/_edit.js:80 block/recent-posts/_edit.js:172
-#: block/taxonomy-posts/_edit.js:100
+#: block/recent-posts/_edit.js:80 block/taxonomy-posts/_edit.js:100
 msgid "Rich media"
 msgstr "リッチメディア"
 
-#: block/recent-posts/_edit.js:84 block/recent-posts/_edit.js:176
-#: block/taxonomy-posts/_edit.js:104
+#: block/recent-posts/_edit.js:84 block/taxonomy-posts/_edit.js:104
 msgid "Simple"
 msgstr "シンプル"
 
-#: block/recent-posts/_edit.js:88 block/recent-posts/_edit.js:180
-#: block/taxonomy-posts/_edit.js:108
+#: block/recent-posts/_edit.js:88 block/taxonomy-posts/_edit.js:108
 msgid "Text"
 msgstr "テキスト"
 
-#: block/recent-posts/_edit.js:94 block/recent-posts/_edit.js:186
-#: block/taxonomy-posts/_edit.js:114
+#: block/recent-posts/_edit.js:94 block/taxonomy-posts/_edit.js:114
 msgid "Ignore sticky posts"
 msgstr "先頭固定表示を除外する"
 
-#: block/recent-posts/_edit.js:102 block/recent-posts/_edit.js:194
-#: block/taxonomy-posts/_edit.js:122
+#: block/recent-posts/_edit.js:102 block/taxonomy-posts/_edit.js:122
 msgid "HTML Anchor"
 msgstr "HTML アンカー"
 
-#: block/recent-posts/_edit.js:103 block/recent-posts/_edit.js:195
-#: block/taxonomy-posts/_edit.js:123
+#: block/recent-posts/_edit.js:103 block/taxonomy-posts/_edit.js:123
 msgid "Anchors lets you link directly to a section on a page."
 msgstr ""
 "アンカーを使用すると、ページ上のセクションに直接リンクすることができます。"
@@ -1122,11 +1062,6 @@ msgstr "セクション（背景画像あり）"
 #: block/section-with-bgimage/block.js:19
 msgid "It is a section with a background image."
 msgstr "背景画像つきのセクションです。"
-
-#: block/section-with-bgimage/block.js:80
-#: block/section-with-bgvideo/block.js:84 block/section/block.js:74
-msgid "Section Settings"
-msgstr "セクション設定"
 
 #: block/section-with-bgimage/block.js:98
 #: block/section-with-bgvideo/block.js:125
@@ -1235,10 +1170,6 @@ msgstr "スライダー"
 msgid "Show attractive images as beautiful sliders."
 msgstr "魅力的な画像を美しいスライダーとして表示します。"
 
-#: block/slider/block.js:57
-msgid "Slider Settings"
-msgstr "スライダー設定"
-
 #: block/slider/block.js:59
 msgid "# of slides to show"
 msgstr "表示するスライド数"
@@ -1315,10 +1246,6 @@ msgstr "リンクテキスト"
 msgid "Taxonomy posts"
 msgstr "任意のタクソノミーの投稿"
 
-#: block/taxonomy-posts/_edit.js:70
-msgid "Taxonomy Posts Settings"
-msgstr "任意のタクソノミーの投稿設定"
-
 #: block/taxonomy-posts/block.js:12
 msgid "You can display recent posts linked to any taxonomy."
 msgstr "任意のタクソノミーに紐付いた最近の投稿を表示できます。"
@@ -1347,10 +1274,6 @@ msgstr "サムネイルギャラリー"
 msgid "You can display a slide show with thumbnails."
 msgstr "サムネイル付きのスライドショーを表示できます。"
 
-#: block/thumbnail-gallery/block.js:52
-msgid "Thumbnail Gallery Settings"
-msgstr "サムネイルギャラリー設定"
-
 #: block/thumbnail-gallery/item/block.js:17
 msgid "It is a child block of the thumbnail gallery block."
 msgstr "サムネイルギャラリーブロックの子ブロックです。"
@@ -1370,6 +1293,71 @@ msgstr "テンプレート"
 #: src/js/_highlighter.js:13 src/js/_highlighter.js:24
 msgid "Highlighter"
 msgstr "蛍光ペン"
+
+#, fuzzy
+#~| msgid "Box Settings"
+#~ msgid "Block setting"
+#~ msgstr "ボックス設定"
+
+#~ msgid "Item Settings"
+#~ msgstr "項目の設定"
+
+#~ msgid "Alert Settings"
+#~ msgstr "アラート設定"
+
+#~ msgid "Balloon Settings"
+#~ msgstr "吹き出し設定"
+
+#~ msgid "Categories list Settings"
+#~ msgstr "カテゴリー一覧設定"
+
+#~ msgid "Container Settings"
+#~ msgstr "コンテナ設定"
+
+#~ msgid "Contents Outline Settings"
+#~ msgstr "目次設定"
+
+#~ msgid "Datetime Settings"
+#~ msgstr "日時の設定"
+
+#~ msgid "Icon Settings"
+#~ msgstr "アイコンの設定"
+
+#~ msgid "Label Settings"
+#~ msgstr "ラベル設定"
+
+#~ msgid "Items Settings"
+#~ msgstr "項目設定"
+
+#~ msgid "Datetime setting"
+#~ msgstr "日時の設定"
+
+#~ msgid "List Settings"
+#~ msgstr "リスト設定"
+
+#~ msgid "Media Text Settings"
+#~ msgstr "メディアと文章の設定"
+
+#~ msgid "Panels Settings"
+#~ msgstr "パネル設定"
+
+#~ msgid "Pickup Slider Settings"
+#~ msgstr "ピックアップスライダー設定"
+
+#~ msgid "Recent Posts Settings"
+#~ msgstr "最近の投稿設定"
+
+#~ msgid "Section Settings"
+#~ msgstr "セクション設定"
+
+#~ msgid "Slider Settings"
+#~ msgstr "スライダー設定"
+
+#~ msgid "Taxonomy Posts Settings"
+#~ msgstr "任意のタクソノミーの投稿設定"
+
+#~ msgid "Thumbnail Gallery Settings"
+#~ msgstr "サムネイルギャラリー設定"
 
 #~ msgid "Contents Width"
 #~ msgstr "コンテンツの幅"

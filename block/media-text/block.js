@@ -115,7 +115,7 @@ registerBlockType( 'snow-monkey-blocks/media-text', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Media Text Settings', 'snow-monkey-blocks' ) }>
+					<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
 						<SelectControl
 							label={ __( 'Image Position', 'snow-monkey-blocks' ) }
 							value={ imagePosition }

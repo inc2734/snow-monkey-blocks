@@ -117,7 +117,7 @@ export const edit = ( props ) => {
 	return (
 		<Fragment>
 			<InspectorControls>
-				<PanelBody title={ __( 'Categories list Settings', 'snow-monkey-blocks' ) }>
+				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
 					<RangeControl
 						label={ __( 'Categories List Articles', 'snow-monkey-blocks' ) }
 						value={ articles }

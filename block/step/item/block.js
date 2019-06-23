@@ -83,7 +83,7 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Item Settings', 'snow-monkey-blocks' ) }>
+					<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
 						<SelectControl
 							label={ __( 'Image Position', 'snow-monkey-blocks' ) }
 							value={ imagePosition }

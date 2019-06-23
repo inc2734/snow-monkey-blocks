@@ -67,7 +67,7 @@ export class edit extends Component {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Taxonomy Posts Settings', 'snow-monkey-blocks' ) }>
+					<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
 						{ Object.keys( taxonomiesTerms ).map( ( taxnomySlug ) => {
 							const _taxonomy = find( taxonomies, [ 'slug', taxnomySlug ] );
 							return !! _taxonomy && (

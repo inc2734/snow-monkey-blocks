@@ -86,7 +86,7 @@ registerBlockType( 'snow-monkey-blocks/alert', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Alert Settings', 'snow-monkey-blocks' ) }>
+					<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
 						<SelectControl
 							label={ __( 'Type', 'snow-monkey-blocks' ) }
 							value={ modifier }

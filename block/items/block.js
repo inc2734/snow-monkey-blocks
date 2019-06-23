@@ -37,7 +37,7 @@ registerBlockType( 'snow-monkey-blocks/items', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Items Settings', 'snow-monkey-blocks' ) }>
+					<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
 						<TabPanel
 							className="smb-inspector-tabs"
 							tabs={ [

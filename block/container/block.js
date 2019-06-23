@@ -39,7 +39,7 @@ registerBlockType( 'snow-monkey-blocks/container', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Container Settings', 'snow-monkey-blocks' ) }>
+					<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
 						<ToggleControl
 							label={ __( 'Make the content width slim', 'snow-monkey-blocks' ) }
 							checked={ isSlim }

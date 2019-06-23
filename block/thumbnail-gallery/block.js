@@ -49,7 +49,7 @@ registerBlockType( 'snow-monkey-blocks/thumbnail-gallery', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Thumbnail Gallery Settings', 'snow-monkey-blocks' ) }>
+					<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
 						<ToggleControl
 							label={ __( 'Prev/Next Arrows', 'snow-monkey-blocks' ) }
 							checked={ arrows }

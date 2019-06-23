@@ -77,7 +77,7 @@ registerBlockType( 'snow-monkey-blocks/directory-structure--item--directory', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Icon Settings', 'snow-monkey-blocks' ) }>
+					<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
 						<BaseControl label={ __( 'Icon', 'snow-monkey-blocks' ) }>
 							<ButtonGroup>
 								{

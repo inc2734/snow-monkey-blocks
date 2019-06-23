@@ -43,7 +43,7 @@ registerBlockType( 'snow-monkey-blocks/contents-outline', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Contents Outline Settings', 'snow-monkey-blocks' ) }>
+					<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
 						<CheckboxControl
 							name="headings[]"
 							value="h2"

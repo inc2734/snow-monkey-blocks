@@ -39,7 +39,7 @@ registerBlockType( 'snow-monkey-blocks/faq--item', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Label Settings', 'snow-monkey-blocks' ) }>
+					<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
 						<BaseControl label={ __( 'Question Label', 'snow-monkey-blocks' ) }>
 							<TextControl
 								value={ questionLabel }

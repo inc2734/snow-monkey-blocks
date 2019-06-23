@@ -56,7 +56,7 @@ registerBlockType( 'snow-monkey-blocks/limited-datetime', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Datetime setting', 'snow-monkey-blocks' ) }>
+					<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
 						<BaseControl label={ __( 'Start datetime', 'snow-monkey-blocks' ) }>
 							<CheckboxControl
 								label={ __( 'Use start datetime', 'snow-monkey-blocks' ) }

@@ -54,7 +54,7 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Slider Settings', 'snow-monkey-blocks' ) }>
+					<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
 						<RangeControl
 							label={ __( '# of slides to show', 'snow-monkey-blocks' ) }
 							value={ slidesToShow }

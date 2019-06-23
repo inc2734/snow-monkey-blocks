@@ -37,7 +37,7 @@ registerBlockType( 'snow-monkey-blocks/rating-box--item', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Item Settings', 'snow-monkey-blocks' ) }>
+					<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
 						<RangeControl
 							label={ __( 'Rating', 'snow-monkey-blocks' ) }
 							value={ rating }

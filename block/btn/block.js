@@ -58,7 +58,7 @@ registerBlockType( 'snow-monkey-blocks/btn', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Button Settings', 'snow-monkey-blocks' ) }>
+					<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
 						<BaseControl label={ __( 'URL', 'snow-monkey-blocks' ) }>
 							<URLInput
 								value={ url }

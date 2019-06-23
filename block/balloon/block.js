@@ -51,7 +51,7 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Balloon Settings', 'snow-monkey-blocks' ) }>
+					<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
 						<SelectControl
 							label={ __( 'Type', 'snow-monkey-blocks' ) }
 							value={ modifier }

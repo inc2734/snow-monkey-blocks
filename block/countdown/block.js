@@ -69,7 +69,7 @@ registerBlockType( 'snow-monkey-blocks/countdown', {
 					/>
 				</BlockControls>
 				<InspectorControls>
-					<PanelBody title={ __( 'Datetime Settings', 'snow-monkey-blocks' ) }>
+					<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
 						<DateTimePicker
 							currentDate={ attributes.countdownTime }
 							onChange={ ( value ) => {

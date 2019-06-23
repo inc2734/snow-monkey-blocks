@@ -30,7 +30,7 @@ registerBlockType( 'snow-monkey-blocks/accordion--item', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Item Settings', 'snow-monkey-blocks' ) }>
+					<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
 						<CheckboxControl
 							label={ __( 'Display in open state', 'snow-monkey-blocks' ) }
 							checked={ initialState }

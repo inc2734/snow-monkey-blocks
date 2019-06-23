@@ -27,7 +27,7 @@ registerBlockType( 'snow-monkey-blocks/pickup-slider', {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'Pickup Slider Settings', 'snow-monkey-blocks' ) }>
+					<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
 						<ToggleControl
 							label={ __( 'Display in random order', 'snow-monkey-blocks' ) }
 							checked={ random }
