@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2019-06-22 22:50+0900\n"
-"PO-Revision-Date: 2019-06-22 22:50+0900\n"
+"POT-Creation-Date: 2019-06-23 18:42+0900\n"
+"PO-Revision-Date: 2019-06-23 18:42+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -493,6 +493,23 @@ msgstr "このページの子ページを表示できます。"
 msgid "In the actual screen, it is displayed when the page have child pages."
 msgstr "実際の画面では、このページが子ページを持っている場合に表示されます。"
 
+#: block/container/block.js:15
+msgid "Container"
+msgstr "コンテナ"
+
+#: block/container/block.js:16
+msgid "Container blocks keep content within a certain width."
+msgstr "コンテナブロックはコンテンツを一定の幅に収めます。"
+
+#: block/container/block.js:42
+msgid "Container Settings"
+msgstr "コンテナ設定"
+
+#: block/container/block.js:44 block/section-with-bgimage/block.js:149
+#: block/section-with-bgvideo/block.js:170 block/section/block.js:92
+msgid "Make the content width slim"
+msgstr "コンテンツの幅をスリム幅にする"
+
 #: block/contents-outline/block.js:13 block/contents-outline/block.js:81
 msgid "Contents outline"
 msgstr "目次"
@@ -747,14 +764,17 @@ msgstr "コンテンツを並べましょう。"
 
 #: block/items/block.js:40 block/items/item/block-link/block.js:84
 #: block/items/item/block.js:90 block/items/item/standard/block.js:84
+#: block/testimonial/block.js:40
 msgid "Items Settings"
 msgstr "項目設定"
 
 #: block/items/block.js:63 block/panels/block.js:63
+#: block/testimonial/block.js:59
 msgid "Columns per row (Large window)"
 msgstr "行あたりのカラム数（ラージウインドウ）"
 
 #: block/items/block.js:75 block/panels/block.js:75
+#: block/testimonial/block.js:71
 msgid "Columns per row (Medium window)"
 msgstr "行あたりのカラム数（ミディアムウインドウ）"
 
@@ -1142,11 +1162,6 @@ msgstr "背景マスクの透明度"
 msgid "Parallax"
 msgstr "パララックス"
 
-#: block/section-with-bgimage/block.js:149
-#: block/section-with-bgvideo/block.js:170 block/section/block.js:92
-msgid "Make the content width slim"
-msgstr "コンテンツの幅をスリム幅にする"
-
 #: block/section-with-bgimage/block.js:162
 #: block/section-with-bgvideo/block.js:183
 msgid "Mask Color"
@@ -1308,11 +1323,11 @@ msgstr "任意のタクソノミーの投稿設定"
 msgid "You can display recent posts linked to any taxonomy."
 msgstr "任意のタクソノミーに紐付いた最近の投稿を表示できます。"
 
-#: block/testimonial/block.js:13
+#: block/testimonial/block.js:17
 msgid "Testimonial"
 msgstr "お客様の声"
 
-#: block/testimonial/block.js:14
+#: block/testimonial/block.js:18
 msgid "Let's arrange the voice of the customer."
 msgstr "お客様の声を並べましょう。"
 

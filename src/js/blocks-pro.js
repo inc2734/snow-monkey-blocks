@@ -8,3 +8,4 @@ import '../../block/taxonomy-posts/block.js';
 import '../../block/pickup-slider/block.js';
 import '../../block/contents-outline/block.js';
 import '../../block/child-pages/block.js';
+import '../../block/container/block.js';
