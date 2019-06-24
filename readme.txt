@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.0
 Tested up to: 5.1
-Stable tag: 3.7.1
+Stable tag: 4.0.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -50,6 +50,7 @@ https://www.youtube.com/watch?v=uD6omb4TLdA&t=283s
 * Limited datetime
 * Countdown timer
 * Directory structure
+* Container (Can be used only with Snow Monkey)
 
 = Section blocks =
 
@@ -104,6 +105,17 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 22. Directory structure block (The number of items can be increased or decreased freely)
 
 == Changelog ==
+
+= 4.0.0 =
+* Add block template feature.
+* Add container block.
+* Merge `is_pro()` and `is_snow_monkey()`.
+* [Thumbnail gallery] Add caption setting.
+* [Section (with background image/background video)] Add content width setting.
+* [Contents outline] Add "move to before first heading" setting.
+* [Testimonial] Add columns setting
+* [Step] Abolish child block insertion restriction.
+* [Step] Add free input child block.
 
 = 3.7.0 =
 * [Pricing table] Add horizontal scroll on tablet/PC.
