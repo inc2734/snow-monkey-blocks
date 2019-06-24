@@ -2,7 +2,7 @@
 
 import classnames from 'classnames';
 
-import { blockConfig } from '../../../src/js/config/block.js';
+import { blockConfig } from '../../../../src/js/config/block.js';
 import { deprecated } from './_deprecated.js';
 import { schema } from './_schema.js';
 
@@ -171,10 +171,7 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 						}
 
 						<div className="smb-step__item__summary">
-							<InnerBlocks
-								allowedBlocks={ [ 'core/paragraph', 'core/list' ] }
-								templateLock={ false }
-							/>
+							<InnerBlocks />
 
 							{ ( ! RichText.isEmpty( linkLabel ) || isSelected ) &&
 								<span

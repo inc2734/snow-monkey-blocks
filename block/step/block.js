@@ -22,7 +22,7 @@ registerBlockType( 'snow-monkey-blocks/step', {
 	},
 
 	edit( { className } ) {
-		const allowedBlocks = [ 'snow-monkey-blocks/step--item' ];
+		const allowedBlocks = [ 'snow-monkey-blocks/step--item', 'snow-monkey-blocks/step--item--free' ];
 		const template = [ [ 'snow-monkey-blocks/step--item' ] ];
 
 		const classes = classnames( 'smb-step', className );
