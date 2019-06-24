@@ -3,7 +3,7 @@
 import logoIcon from '../src/svg/logo.svg';
 
 import { MenuBlocks } from './_blocks.js';
-import { MenuTemplates } from './_templates.js';
+import { MenuBlockTemplates } from './_block-templates.js';
 
 const { Component } = wp.element;
 const { Fragment } = wp.element;
@@ -23,13 +23,13 @@ export class PluginMenu extends Component {
 
 		this.tabMenus = [
 			{
-				name: 'blocks',
-				title: __( 'Blocks', 'snow-monkey-blocks' ),
+				name: 'block-templates',
+				title: __( 'Block templates', 'snow-monkey-blocks' ),
 				className: 'edit-post-sidebar__panel-tab',
 			},
 			{
-				name: 'templates',
-				title: __( 'Templates', 'snow-monkey-blocks' ),
+				name: 'blocks',
+				title: __( 'Blocks', 'snow-monkey-blocks' ),
 				className: 'edit-post-sidebar__panel-tab',
 			},
 		];
@@ -56,13 +56,13 @@ export class PluginMenu extends Component {
 						{
 							( tabData ) => {
 								switch ( tabData.name ) {
+									case 'block-templates':
+										return (
+											<MenuBlockTemplates />
+										);
 									case 'blocks':
 										return (
 											<MenuBlocks />
-										);
-									case 'templates':
-										return (
-											<MenuTemplates />
 										);
 								}
 								return null;

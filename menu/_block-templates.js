@@ -8,7 +8,7 @@ const { Fragment } = wp.element;
 const { parse } = wp.blocks;
 const { apiFetch } = wp;
 
-class MenuTemplatesParts extends Component {
+class PanelBlockTemplates extends Component {
 	constructor( props ) {
 		super( ...arguments );
 		this.props = props;
@@ -98,9 +98,7 @@ class MenuTemplatesParts extends Component {
 	}
 }
 
-export { MenuTemplatesParts };
-
-class MenuTemplatesCategories extends Component {
+class TemplateCategories extends Component {
 	constructor() {
 		super( ...arguments );
 
@@ -143,7 +141,7 @@ class MenuTemplatesCategories extends Component {
 					<PanelBody
 						title={ category.title }
 					>
-						<MenuTemplatesParts
+						<PanelBlockTemplates
 							slug={ category.slug }
 						/>
 					</PanelBody>
@@ -170,13 +168,11 @@ class MenuTemplatesCategories extends Component {
 	}
 }
 
-export { MenuTemplatesCategories };
-
-export class MenuTemplates extends Component {
+export class MenuBlockTemplates extends Component {
 	render() {
 		return (
 			<Fragment>
-				<MenuTemplatesCategories />
+				<TemplateCategories />
 			</Fragment>
 		);
 	}

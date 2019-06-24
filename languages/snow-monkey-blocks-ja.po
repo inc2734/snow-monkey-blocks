@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2019-06-24 11:38+0900\n"
-"PO-Revision-Date: 2019-06-24 11:39+0900\n"
+"POT-Creation-Date: 2019-06-24 11:59+0900\n"
+"PO-Revision-Date: 2019-06-24 11:59+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -1292,12 +1292,12 @@ msgid "This block is for pro users only"
 msgstr "このブロックはプロユーザー限定です。"
 
 #: menu/index.js:27
-msgid "Blocks"
-msgstr "ブロック"
+msgid "Block templates"
+msgstr "ブロックテンプレート"
 
 #: menu/index.js:32
-msgid "Templates"
-msgstr "テンプレート"
+msgid "Blocks"
+msgstr "ブロック"
 
 #: src/js/_highlighter.js:13 src/js/_highlighter.js:24
 msgid "Highlighter"
