@@ -34,7 +34,7 @@ class BlockTemplates {
 	}
 
 	public function _callback() {
-		$block_templates = Helper::load_config();
+		$block_templates = apply_filters( 'snow_monkey_blocks_block_templates', Helper::load_config() );
 
 		$result = [];
 

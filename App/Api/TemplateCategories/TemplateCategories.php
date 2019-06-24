@@ -56,6 +56,8 @@ class TemplateCategories {
 			],
 		];
 
+		$categories = apply_filters( 'snow_monkey_blocks_block_template_categories', $categories );
+
 		$result = [];
 
 		foreach ( $categories as $category ) {
