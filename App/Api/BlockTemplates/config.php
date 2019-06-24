@@ -30,6 +30,13 @@ return [
 		'content'    => Helper::render( SNOW_MONKEY_BLOCKS_DIR_PATH . '/template/heading-3/template.php' ),
 	],
 	[
+		'category'   => 'smb-template-headings',
+		'title'      => __( 'Heading 4', 'snow-monkey-blocks' ),
+		'isPro'      => true,
+		'screenshot' => SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/img/screenshot/template/heading-4.png',
+		'content'    => Helper::render( SNOW_MONKEY_BLOCKS_DIR_PATH . '/template/heading-4/template.php' ),
+	],
+	[
 		'category'   => 'smb-template-features',
 		'title'      => __( 'Feature 1', 'snow-monkey-blocks' ),
 		'isPro'      => true,

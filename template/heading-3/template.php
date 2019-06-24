@@ -14,17 +14,23 @@
 	</div>
 	<div class="c-container">
 		<div class="smb-section__body">
-			<!-- wp:paragraph {"align":"center","fontSize":"medium","className":"u-slim-width"} -->
-			<p style="text-align:center" class="has-medium-font-size u-slim-width">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit
-			</p>
-			<!-- /wp:paragraph -->
+			<!-- wp:snow-monkey-blocks/container {"isSlim":true} -->
+			<div class="wp-block-snow-monkey-blocks-container smb-container c-container">
+				<div class="smb-container__body u-slim-width">
+					<!-- wp:paragraph {"align":"center","fontSize":"medium"} -->
+					<p style="text-align:center" class="has-medium-font-size">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit
+					</p>
+					<!-- /wp:paragraph -->
 
-			<!-- wp:paragraph {"className":"u-slim-width"} -->
-			<p class="u-slim-width">
-				sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-			</p>
-			<!-- /wp:paragraph -->
+					<!-- wp:paragraph -->
+					<p>
+						sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					</p>
+					<!-- /wp:paragraph -->
+				</div>
+			</div>
+			<!-- /wp:snow-monkey-blocks/container -->
 
 			<!-- wp:button {"customTextColor":"#ffffff","align":"center","className":"is-style-outline"} -->
 			<div class="wp-block-button aligncenter is-style-outline">
