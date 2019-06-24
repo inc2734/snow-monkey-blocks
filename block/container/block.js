@@ -32,6 +32,12 @@ registerBlockType( 'snow-monkey-blocks/container', {
 			{
 				'smb-container': true,
 				'c-container': true,
+			}
+		);
+
+		const bodyClasses = classnames(
+			{
+				'smb-container__body': true,
 				'u-slim-width': !! isSlim,
 			}
 		);
@@ -49,7 +55,7 @@ registerBlockType( 'snow-monkey-blocks/container', {
 				</InspectorControls>
 
 				<div className={ classes }>
-					<div className="p-entry-content">
+					<div className={ bodyClasses }>
 						<InnerBlocks />
 					</div>
 				</div>
@@ -65,13 +71,19 @@ registerBlockType( 'snow-monkey-blocks/container', {
 			{
 				'smb-container': true,
 				'c-container': true,
+			}
+		);
+
+		const bodyClasses = classnames(
+			{
+				'smb-container__body': true,
 				'u-slim-width': !! isSlim,
 			}
 		);
 
 		return (
 			<div className={ classes }>
-				<div className="p-entry-content">
+				<div className={ bodyClasses }>
 					<InnerBlocks.Content />
 				</div>
 			</div>
