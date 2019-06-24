@@ -69,7 +69,7 @@
     "js:editor-pro": "webpack src/js/blocks-pro.js -o dist/js/blocks-pro-build.js --config webpack.config.js",
     "js:menu": "webpack src/js/menu.js -o dist/js/menu.min.js --config webpack.config.js",
     "js": "npm run clean:js && npm-run-all -p js:*",
-    "packages:fontawesome": "cpy 'fontawesome-free/js/**' 'fontawesome-free/LICENSE.txt' '../../dist/packages' --cwd=node_modules/@fortawesome --parents",
+    "packages:fontawesome": "cpy 'fontawesome-free/js/all.min.js' 'fontawesome-free/LICENSE.txt' '../../dist/packages' --cwd=node_modules/@fortawesome --parents",
     "packages:slick-carousel": "cpy 'slick/**' '../../dist/packages' --cwd=node_modules/slick-carousel --parents",
     "packages": "npm run clean:packages && npm-run-all packages:*",
     "zip:pack": "rsync -a --exclude='/vendor' --exclude='/node_modules' --exclude='.*' --exclude='*.ruleset.xml' --exclude='*.config.js' --exclude='*.xml.dist' --exclude='/bin' --exclude='/tests' --exclude='package*.json' --exclude='src/img' . snow-monkey-blocks && cd snow-monkey-blocks && composer install --no-dev",
