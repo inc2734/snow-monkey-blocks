@@ -34,7 +34,7 @@ registerBlockType( 'snow-monkey-blocks/section', {
 	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
-		const { titleTagName, title, backgroundColor, contentsWidth, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
+		const { titleTagName, title, backgroundColor, isSlim, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
 
 		const titleTagNames = [ 'h2', 'h3', 'none' ];
 
@@ -55,7 +55,7 @@ registerBlockType( 'snow-monkey-blocks/section', {
 		const containerClasses = classnames(
 			{
 				'c-container': true,
-				'u-slim-width': !! contentsWidth,
+				'u-slim-width': !! isSlim,
 			}
 		);
 
@@ -90,8 +90,8 @@ registerBlockType( 'snow-monkey-blocks/section', {
 
 						<ToggleControl
 							label={ __( 'Make the content width slim', 'snow-monkey-blocks' ) }
-							checked={ !! contentsWidth }
-							onChange={ ( value ) => setAttributes( { contentsWidth: value } ) }
+							checked={ isSlim }
+							onChange={ ( value ) => setAttributes( { isSlim: value } ) }
 						/>
 					</PanelBody>
 
@@ -230,7 +230,7 @@ registerBlockType( 'snow-monkey-blocks/section', {
 	},
 
 	save( { attributes, className } ) {
-		const { titleTagName, title, backgroundColor, contentsWidth, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
+		const { titleTagName, title, backgroundColor, isSlim, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
 
 		const classes = classnames( 'smb-section', className );
 
@@ -249,7 +249,7 @@ registerBlockType( 'snow-monkey-blocks/section', {
 		const containerClasses = classnames(
 			{
 				'c-container': true,
-				'u-slim-width': !! contentsWidth,
+				'u-slim-width': !! isSlim,
 			}
 		);
 

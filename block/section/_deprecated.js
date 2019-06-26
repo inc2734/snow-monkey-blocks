@@ -10,34 +10,71 @@ export const deprecated = [
 	{
 		attributes: schema,
 
+		migrate( attributes ) {
+			const isSlim = !! attributes.contentsWidth;
+			return { ...attributes, isSlim: isSlim };
+		},
+
 		supports: {
 			align: [ 'wide', 'full' ],
 			anchor: true,
 		},
 
-		save( { attributes } ) {
-			const { title, backgroundColor, contentsWidth, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
+		save( { attributes, className } ) {
+			const { titleTagName, title, backgroundColor, contentsWidth, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
+
+			const classes = classnames( 'smb-section', className );
+
+			const topDividerClasses = classnames(
+				'smb-section__divider',
+				'smb-section__divider--top',
+				`smb-section__divider--${ topDividerType }`
+			);
+
+			const bottomDividerClasses = classnames(
+				'smb-section__divider',
+				'smb-section__divider--bottom',
+				`smb-section__divider--${ bottomDividerType }`
+			);
+
+			const containerClasses = classnames(
+				{
+					'c-container': true,
+					'u-slim-width': !! contentsWidth,
+				}
+			);
+
+			const sectionStyles = {
+				backgroundColor: backgroundColor || undefined,
+			};
+
+			const innerStyles = {
+				paddingTop: topDividerLevel,
+				paddingBottom: bottomDividerLevel,
+			};
 
 			return (
-				<div className="smb-section" style={ { backgroundColor: backgroundColor } }>
+				<div className={ classes } style={ sectionStyles }>
 					{ !! topDividerLevel &&
-						<div className={ `smb-section__divider smb-section__divider--top smb-section__divider--${ topDividerType }` }>
+						<div className={ topDividerClasses }>
 							{ divider( topDividerType, topDividerLevel, topDividerColor ) }
 						</div>
 					}
 
 					{ !! bottomDividerLevel &&
-						<div className={ `smb-section__divider smb-section__divider--bottom smb-section__divider--${ topDividerType }` }>
+						<div className={ bottomDividerClasses }>
 							{ divider( bottomDividerType, bottomDividerLevel, bottomDividerColor ) }
 						</div>
 					}
 
-					<div className="smb-section__inner" style={ { paddingTop: topDividerLevel, paddingBottom: bottomDividerLevel } }>
-						<div className={ classnames( 'c-container', { 'u-slim-width': 'slim' === contentsWidth } ) }>
-							{ ! RichText.isEmpty( title ) &&
-								<h2 className="smb-section__title">
-									<RichText.Content value={ title } />
-								</h2>
+					<div className="smb-section__inner" style={ innerStyles }>
+						<div className={ containerClasses }>
+							{ ! RichText.isEmpty( title ) && 'none' !== titleTagName &&
+								<RichText.Content
+									tagName={ titleTagName }
+									className="smb-section__title"
+									value={ title }
+								/>
 							}
 
 							<div className="smb-section__body">
@@ -51,6 +88,7 @@ export const deprecated = [
 	},
 	{
 		attributes: schema,
+
 		supports: {
 			align: [ 'wide', 'full' ],
 			anchor: true,
@@ -153,6 +191,7 @@ export const deprecated = [
 	},
 	{
 		attributes: schema,
+
 		supports: {
 			align: [ 'wide', 'full' ],
 		},

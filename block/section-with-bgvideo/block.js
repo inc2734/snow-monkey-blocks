@@ -41,7 +41,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
-		const { titleTagName, title, videoURL, videoWidth, videoHeight, height, contentsAlignment, maskColor, maskOpacity, textColor, contentsWidth } = attributes;
+		const { titleTagName, title, videoURL, videoWidth, videoHeight, height, contentsAlignment, maskColor, maskOpacity, textColor, isSlim } = attributes;
 
 		const titleTagNames = [ 'h2', 'h3', 'none' ];
 
@@ -65,7 +65,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 		const containerClasses = classnames(
 			{
 				'c-container': true,
-				'u-slim-width': !! contentsWidth,
+				'u-slim-width': !! isSlim,
 			}
 		);
 
@@ -168,8 +168,8 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 
 						<ToggleControl
 							label={ __( 'Make the content width slim', 'snow-monkey-blocks' ) }
-							checked={ contentsWidth }
-							onChange={ ( value ) => setAttributes( { contentsWidth: value } ) }
+							checked={ isSlim }
+							onChange={ ( value ) => setAttributes( { isSlim: value } ) }
 						/>
 					</PanelBody>
 
@@ -221,7 +221,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 	},
 
 	save( { attributes, className } ) {
-		const { titleTagName, title, videoURL, videoWidth, videoHeight, height, contentsAlignment, maskColor, maskOpacity, textColor, contentsWidth } = attributes;
+		const { titleTagName, title, videoURL, videoWidth, videoHeight, height, contentsAlignment, maskColor, maskOpacity, textColor, isSlim } = attributes;
 
 		const classes = classnames(
 			{
@@ -243,7 +243,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 		const containerClasses = classnames(
 			{
 				'c-container': true,
-				'u-slim-width': !! contentsWidth,
+				'u-slim-width': !! isSlim,
 			}
 		);
 

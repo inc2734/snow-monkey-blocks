@@ -12,9 +12,13 @@ export const schema = {
 	backgroundColor: {
 		type: 'string',
 	},
-	contentsWidth: {
-		type: 'string', // "boolean" is correct, but "string" for backwards compatibility
+	contentsWidth: { // deprecated
+		type: 'string',
 		default: null,
+	},
+	isSlim: {
+		type: 'boolean',
+		default: false,
 	},
 	topDividerType: {
 		type: 'string',

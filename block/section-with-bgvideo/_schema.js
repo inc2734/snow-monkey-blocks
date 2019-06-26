@@ -41,7 +41,11 @@ export const schema = {
 		type: 'string',
 		default: '#fff',
 	},
-	contentsWidth: {
+	contentsWidth: { // deprecated
+		type: 'boolean',
+		default: false,
+	},
+	isSlim: {
 		type: 'boolean',
 		default: false,
 	},
