@@ -19,6 +19,9 @@ export const schema = {
 		type: 'number',
 		default: 0,
 	},
+	textColor: {
+		type: 'string',
+	},
 	contentsWidth: { // deprecated
 		type: 'string',
 		default: null,

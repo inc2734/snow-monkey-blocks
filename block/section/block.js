@@ -34,7 +34,7 @@ registerBlockType( 'snow-monkey-blocks/section', {
 	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
-		const { titleTagName, title, backgroundColor, backgroundColor2, backgroundColorAngle, isSlim, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
+		const { titleTagName, title, backgroundColor, backgroundColor2, backgroundColorAngle, textColor, isSlim, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
 
 		const titleTagNames = [ 'h2', 'h3', 'none' ];
 
@@ -60,6 +60,9 @@ registerBlockType( 'snow-monkey-blocks/section', {
 		);
 
 		const sectionStyles = {};
+		if ( textColor ) {
+			sectionStyles.color = textColor;
+		}
 		if ( backgroundColor ) {
 			sectionStyles.backgroundColor = backgroundColor;
 			if ( backgroundColor2 ) {
@@ -104,6 +107,11 @@ registerBlockType( 'snow-monkey-blocks/section', {
 						initialOpen={ false }
 						colorSettings={ [
 							{
+								value: textColor,
+								onChange: ( value ) => setAttributes( { textColor: value } ),
+								label: __( 'Text Color', 'snow-monkey-blocks' ),
+							},
+							{
 								value: backgroundColor,
 								onChange: ( value ) => setAttributes( { backgroundColor: value } ),
 								label: __( 'Background Color', 'snow-monkey-blocks' ),
@@ -113,7 +121,7 @@ registerBlockType( 'snow-monkey-blocks/section', {
 								onChange: ( value ) => setAttributes( { backgroundColor2: value } ),
 								label: __( 'Background Color 2', 'snow-monkey-blocks' ),
 							},
-						].filter( ( value, index ) => ! backgroundColor ? 1 !== index : true ) }
+						].filter( ( value, index ) => ! backgroundColor ? 2 !== index : true ) }
 					>
 					</PanelColorSettings>
 
@@ -251,7 +259,7 @@ registerBlockType( 'snow-monkey-blocks/section', {
 	},
 
 	save( { attributes, className } ) {
-		const { titleTagName, title, backgroundColor, backgroundColor2, backgroundColorAngle, isSlim, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
+		const { titleTagName, title, backgroundColor, backgroundColor2, backgroundColorAngle, textColor, isSlim, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
 
 		const classes = classnames( 'smb-section', className );
 
@@ -275,6 +283,9 @@ registerBlockType( 'snow-monkey-blocks/section', {
 		);
 
 		const sectionStyles = {};
+		if ( textColor ) {
+			sectionStyles.color = textColor;
+		}
 		if ( backgroundColor ) {
 			sectionStyles.backgroundColor = backgroundColor;
 			if ( backgroundColor2 ) {

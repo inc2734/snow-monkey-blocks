@@ -12,3 +12,11 @@
     }
   }
 }
+
+.smb-section {
+  .smb-section__title,
+  .smb-section__body .editor-rich-text__tinymce,
+  .smb-section__body .block-editor-rich-text__editable {
+    color: inherit;
+  }
+}

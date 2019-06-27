@@ -152,6 +152,11 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 						initialOpen={ false }
 						colorSettings={ [
 							{
+								value: textColor,
+								onChange: ( value ) => setAttributes( { textColor: value } ),
+								label: __( 'Text Color', 'snow-monkey-blocks' ),
+							},
+							{
 								value: maskColor,
 								onChange: ( value ) => setAttributes( { maskColor: value } ),
 								label: __( 'Mask Color', 'snow-monkey-blocks' ),
@@ -161,12 +166,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 								onChange: ( value ) => setAttributes( { maskColor2: value } ),
 								label: __( 'Mask Color 2', 'snow-monkey-blocks' ),
 							},
-							{
-								value: textColor,
-								onChange: ( value ) => setAttributes( { textColor: value } ),
-								label: __( 'Text Color', 'snow-monkey-blocks' ),
-							},
-						].filter( ( value, index ) => ! maskColor ? 1 !== index : true ) }
+						].filter( ( value, index ) => ! maskColor ? 2 !== index : true ) }
 					>
 					</PanelColorSettings>
 
