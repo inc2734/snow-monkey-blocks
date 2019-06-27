@@ -10,6 +10,71 @@ export const deprecated = [
 	{
 		attributes: schema,
 
+		save( { attributes, className } ) {
+			const { titleTagName, title, imageID, imageURL, imageAlt, height, contentsAlignment, maskColor, maskOpacity, textColor, parallax, isSlim } = attributes;
+
+			const classes = classnames(
+				{
+					'smb-section': true,
+					'smb-section-with-bgimage': true,
+					[ `smb-section-with-bgimage--${ contentsAlignment }` ]: true,
+					[ `smb-section-with-bgimage--${ height }` ]: true,
+					[ className ]: !! className,
+					'js-bg-parallax': !! parallax,
+				}
+			);
+
+			const bgimageClasses = classnames(
+				{
+					'smb-section-with-bgimage__bgimage': true,
+					'js-bg-parallax__bgimage': !! parallax,
+				}
+			);
+
+			const containerClasses = classnames(
+				{
+					'c-container': true,
+					'u-slim-width': !! isSlim,
+				}
+			);
+
+			const sectionStyles = {
+				color: textColor || undefined,
+			};
+
+			const maskStyles = {
+				backgroundColor: maskColor || undefined,
+			};
+
+			const bgimageStyles = {
+				opacity: maskOpacity,
+			};
+
+			return (
+				<div className={ classes } style={ sectionStyles }>
+					<div className="smb-section-with-bgimage__mask" style={ maskStyles }></div>
+					<div className={ bgimageClasses } style={ bgimageStyles }>
+						<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
+					</div>
+					<div className={ containerClasses }>
+						{ ! RichText.isEmpty( title ) && 'none' !== titleTagName &&
+							<RichText.Content
+								tagName={ titleTagName }
+								className="smb-section__title"
+								value={ title }
+							/>
+						}
+						<div className="smb-section__body">
+							<InnerBlocks.Content />
+						</div>
+					</div>
+				</div>
+			);
+		},
+	},
+	{
+		attributes: schema,
+
 		migrate( attributes ) {
 			const isSlim = !! attributes.contentsWidth;
 			return { ...attributes, isSlim: isSlim };

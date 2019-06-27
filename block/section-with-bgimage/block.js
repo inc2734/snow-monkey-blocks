@@ -193,11 +193,11 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 						>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
 					}
 					<div className="smb-section-with-bgimage__mask" style={ maskStyles }></div>
-					<div className={ bgimageClasses } style={ bgimageStyles }>
-						{ imageURL &&
+					{ imageURL &&
+						<div className={ bgimageClasses } style={ bgimageStyles }>
 							<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
-						}
-					</div>
+						</div>
+					}
 					<div className={ containerClasses }>
 						{ ( ! RichText.isEmpty( title ) || isSelected ) && 'none' !== titleTagName &&
 							<RichText
@@ -262,9 +262,11 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 		return (
 			<div className={ classes } style={ sectionStyles }>
 				<div className="smb-section-with-bgimage__mask" style={ maskStyles }></div>
-				<div className={ bgimageClasses } style={ bgimageStyles }>
-					<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
-				</div>
+				{ imageURL &&
+					<div className={ bgimageClasses } style={ bgimageStyles }>
+						<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
+					</div>
+				}
 				<div className={ containerClasses }>
 					{ ! RichText.isEmpty( title ) && 'none' !== titleTagName &&
 						<RichText.Content
