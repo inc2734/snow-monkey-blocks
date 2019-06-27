@@ -6,7 +6,7 @@
  */
 ?>
 
-<!-- wp:snow-monkey-blocks/section {"contentsWidth":"slim","align":"full"} -->
+<!-- wp:snow-monkey-blocks/section {"isSlim":true,"align":"full"} -->
 <div class="wp-block-snow-monkey-blocks-section alignfull smb-section">
 	<div class="smb-section__inner" style="padding-top:0;padding-bottom:0">
 		<div class="c-container u-slim-width">
