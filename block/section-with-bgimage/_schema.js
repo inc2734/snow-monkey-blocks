@@ -38,6 +38,13 @@ export const schema = {
 	maskColor: {
 		type: 'string',
 	},
+	maskColor2: {
+		type: 'string',
+	},
+	maskColorAngle: {
+		type: 'number',
+		default: 0,
+	},
 	maskOpacity: {
 		type: 'number',
 		default: 1,

@@ -41,7 +41,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
-		const { titleTagName, title, videoURL, videoWidth, videoHeight, height, contentsAlignment, maskColor, maskOpacity, textColor, isSlim } = attributes;
+		const { titleTagName, title, videoURL, videoWidth, videoHeight, height, contentsAlignment, maskColor, maskColor2, maskColorAngle, maskOpacity, textColor, isSlim } = attributes;
 
 		const titleTagNames = [ 'h2', 'h3', 'none' ];
 
@@ -73,9 +73,16 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 			color: textColor || undefined,
 		};
 
-		const maskStyles = {
-			backgroundColor: maskColor || undefined,
-			opacity: 1 - maskOpacity,
+		const maskStyles = {};
+		if ( maskColor ) {
+			maskStyles.backgroundColor = maskColor;
+			if ( maskColor2 ) {
+				maskStyles.backgroundImage = `linear-gradient(${ maskColorAngle }deg, ${ maskColor } 0%, ${ maskColor2 } 100%)`;
+			}
+		}
+
+		const bgvideoStyles = {
+			opacity: maskOpacity,
 		};
 
 		return (
@@ -157,15 +164,6 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 							onChange={ ( value ) => setAttributes( { contentsAlignment: value } ) }
 						/>
 
-						<RangeControl
-							label={ __( 'Mask Opacity', 'snow-monkey-blocks' ) }
-							value={ maskOpacity }
-							onChange={ ( value ) => setAttributes( { maskOpacity: toNumber( value, 0, 1 ) } ) }
-							min={ 0 }
-							max={ 1 }
-							step={ 0.1 }
-						/>
-
 						<ToggleControl
 							label={ __( 'Make the content width slim', 'snow-monkey-blocks' ) }
 							checked={ isSlim }
@@ -179,26 +177,52 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 						colorSettings={ [
 							{
 								value: maskColor,
-								onChange: ( value ) => setAttributes( { maskColor: value || 'transparent' } ),
+								onChange: ( value ) => setAttributes( { maskColor: value } ),
 								label: __( 'Mask Color', 'snow-monkey-blocks' ),
+							},
+							{
+								value: maskColor2,
+								onChange: ( value ) => setAttributes( { maskColor2: value } ),
+								label: __( 'Mask Color 2', 'snow-monkey-blocks' ),
 							},
 							{
 								value: textColor,
 								onChange: ( value ) => setAttributes( { textColor: value } ),
 								label: __( 'Text Color', 'snow-monkey-blocks' ),
 							},
-						] }
+						].filter( ( value, index ) => ! maskColor ? 1 !== index : true ) }
 					>
 					</PanelColorSettings>
+
+					<PanelBody title={ __( 'Mask Settings', 'snow-monkey-blocks' ) }>
+						<RangeControl
+							label={ __( 'Mask Opacity', 'snow-monkey-blocks' ) }
+							value={ maskOpacity }
+							onChange={ ( value ) => setAttributes( { maskOpacity: toNumber( value, 0, 1 ) } ) }
+							min={ 0 }
+							max={ 1 }
+							step={ 0.1 }
+						/>
+
+						{ maskColor && maskColor2 &&
+							<RangeControl
+								label={ __( 'Mask Gradation Angle', 'snow-monkey-blocks' ) }
+								value={ maskColorAngle }
+								onChange={ ( value ) => setAttributes( { maskColorAngle: toNumber( value, 0, 360 ) } ) }
+								min="0"
+								max="360"
+							/>
+						}
+					</PanelBody>
 				</InspectorControls>
 
 				<div className={ classes } style={ sectionStyles }>
-					<div className={ bgvideoClasses }>
+					<div className="smb-section-with-bgimage__mask" style={ maskStyles }></div>
+					<div className={ bgvideoClasses } style={ bgvideoStyles }>
 						{ videoURL &&
 							<img src={ `http://i.ytimg.com/vi/${ getVideoId( videoURL ) }/maxresdefault.jpg` } alt="" />
 						}
 					</div>
-					<div className="smb-section-with-bgimage__mask" style={ maskStyles }></div>
 					<div className={ containerClasses }>
 						{ ( ! RichText.isEmpty( title ) || isSelected ) && 'none' !== titleTagName &&
 							<RichText
@@ -221,7 +245,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 	},
 
 	save( { attributes, className } ) {
-		const { titleTagName, title, videoURL, videoWidth, videoHeight, height, contentsAlignment, maskColor, maskOpacity, textColor, isSlim } = attributes;
+		const { titleTagName, title, videoURL, videoWidth, videoHeight, height, contentsAlignment, maskColor, maskColor2, maskColorAngle, maskOpacity, textColor, isSlim } = attributes;
 
 		const classes = classnames(
 			{
@@ -251,14 +275,22 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 			color: textColor || undefined,
 		};
 
-		const maskStyles = {
-			backgroundColor: maskColor || undefined,
-			opacity: 1 - maskOpacity,
+		const maskStyles = {};
+		if ( maskColor ) {
+			maskStyles.backgroundColor = maskColor;
+			if ( maskColor2 ) {
+				maskStyles.backgroundImage = `linear-gradient(${ maskColorAngle }deg, ${ maskColor } 0%, ${ maskColor2 } 100%)`;
+			}
+		}
+
+		const bgvideoStyles = {
+			opacity: maskOpacity,
 		};
 
 		return (
 			<div className={ classes } style={ sectionStyles }>
-				<div className={ bgvideoClasses }>
+				<div className="smb-section-with-bgimage__mask" style={ maskStyles }></div>
+				<div className={ bgvideoClasses } style={ bgvideoStyles }>
 					{ videoURL &&
 						<Fragment>
 							<iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" src={ `https://www.youtube.com/embed/${ getVideoId( videoURL ) }?controls=0&autoplay=1&showinfo=0&rel=0&disablekb=1&iv_load_policy=3&loop=1&playlist=${ getVideoId( videoURL ) }&playsinline=1&modestbranding=1` } width={ videoWidth } height={ videoHeight } frameBorder="0" title={ videoURL } />
@@ -266,7 +298,6 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 						</Fragment>
 					}
 				</div>
-				<div className="smb-section-with-bgimage__mask" style={ maskStyles }></div>
 				<div className={ containerClasses }>
 					{ ! RichText.isEmpty( title ) && 'none' !== titleTagName &&
 						<RichText.Content

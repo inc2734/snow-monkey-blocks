@@ -12,6 +12,13 @@ export const schema = {
 	backgroundColor: {
 		type: 'string',
 	},
+	backgroundColor2: {
+		type: 'string',
+	},
+	backgroundColorAngle: {
+		type: 'number',
+		default: 0,
+	},
 	contentsWidth: { // deprecated
 		type: 'string',
 		default: null,

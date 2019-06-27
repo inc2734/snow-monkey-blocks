@@ -33,7 +33,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
-		const { titleTagName, title, imageID, imageURL, imageAlt, height, contentsAlignment, maskColor, maskOpacity, textColor, parallax, isSlim } = attributes;
+		const { titleTagName, title, imageID, imageURL, imageAlt, height, contentsAlignment, maskColor, maskColor2, maskColorAngle, maskOpacity, textColor, parallax, isSlim } = attributes;
 
 		const titleTagNames = [ 'h2', 'h3', 'none' ];
 
@@ -66,9 +66,13 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 			color: textColor || undefined,
 		};
 
-		const maskStyles = {
-			backgroundColor: maskColor || undefined,
-		};
+		const maskStyles = {};
+		if ( maskColor ) {
+			maskStyles.backgroundColor = maskColor;
+			if ( maskColor2 ) {
+				maskStyles.backgroundImage = `linear-gradient(${ maskColorAngle }deg, ${ maskColor } 0%, ${ maskColor2 } 100%)`;
+			}
+		}
 
 		const bgimageStyles = {
 			opacity: maskOpacity,
@@ -130,15 +134,6 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 							onChange={ ( value ) => setAttributes( { contentsAlignment: value } ) }
 						/>
 
-						<RangeControl
-							label={ __( 'Mask Opacity', 'snow-monkey-blocks' ) }
-							value={ maskOpacity }
-							onChange={ ( value ) => setAttributes( { maskOpacity: toNumber( value, 0, 1 ) } ) }
-							min={ 0 }
-							max={ 1 }
-							step={ 0.1 }
-						/>
-
 						<ToggleControl
 							label={ __( 'Parallax', 'snow-monkey-blocks' ) }
 							checked={ parallax }
@@ -158,17 +153,43 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 						colorSettings={ [
 							{
 								value: maskColor,
-								onChange: ( value ) => setAttributes( { maskColor: value || 'transparent' } ),
+								onChange: ( value ) => setAttributes( { maskColor: value } ),
 								label: __( 'Mask Color', 'snow-monkey-blocks' ),
+							},
+							{
+								value: maskColor2,
+								onChange: ( value ) => setAttributes( { maskColor2: value } ),
+								label: __( 'Mask Color 2', 'snow-monkey-blocks' ),
 							},
 							{
 								value: textColor,
 								onChange: ( value ) => setAttributes( { textColor: value } ),
 								label: __( 'Text Color', 'snow-monkey-blocks' ),
 							},
-						] }
+						].filter( ( value, index ) => ! maskColor ? 1 !== index : true ) }
 					>
 					</PanelColorSettings>
+
+					<PanelBody title={ __( 'Mask Settings', 'snow-monkey-blocks' ) }>
+						<RangeControl
+							label={ __( 'Mask Opacity', 'snow-monkey-blocks' ) }
+							value={ maskOpacity }
+							onChange={ ( value ) => setAttributes( { maskOpacity: toNumber( value, 0, 1 ) } ) }
+							min={ 0 }
+							max={ 1 }
+							step={ 0.1 }
+						/>
+
+						{ maskColor && maskColor2 &&
+							<RangeControl
+								label={ __( 'Mask Gradation Angle', 'snow-monkey-blocks' ) }
+								value={ maskColorAngle }
+								onChange={ ( value ) => setAttributes( { maskColorAngle: toNumber( value, 0, 360 ) } ) }
+								min="0"
+								max="360"
+							/>
+						}
+					</PanelBody>
 				</InspectorControls>
 
 				{ ! imageURL &&
@@ -220,7 +241,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 	},
 
 	save( { attributes, className } ) {
-		const { titleTagName, title, imageID, imageURL, imageAlt, height, contentsAlignment, maskColor, maskOpacity, textColor, parallax, isSlim } = attributes;
+		const { titleTagName, title, imageID, imageURL, imageAlt, height, contentsAlignment, maskColor, maskColor2, maskColorAngle, maskOpacity, textColor, parallax, isSlim } = attributes;
 
 		const classes = classnames(
 			{
@@ -251,9 +272,13 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 			color: textColor || undefined,
 		};
 
-		const maskStyles = {
-			backgroundColor: maskColor || undefined,
-		};
+		const maskStyles = {};
+		if ( maskColor ) {
+			maskStyles.backgroundColor = maskColor;
+			if ( maskColor2 ) {
+				maskStyles.backgroundImage = `linear-gradient(${ maskColorAngle }deg, ${ maskColor } 0%, ${ maskColor2 } 100%)`;
+			}
+		}
 
 		const bgimageStyles = {
 			opacity: maskOpacity,
