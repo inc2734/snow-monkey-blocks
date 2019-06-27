@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.0
 Tested up to: 5.1
-Stable tag: 4.0.1
+Stable tag: 4.1.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -105,6 +105,12 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 22. Directory structure block (The number of items can be increased or decreased freely)
 
 == Changelog ==
+
+= 4.1.0 =
+* [Section] Add background color gradation settings.
+* [Section with background image] Add background mask color gradation settings.
+* [Section with background image] Fix bug that output blank img tag when background image is not set.
+* [Section with background video] Add background mask color gradation settings.
 
 = 4.0.1 =
 * [Section] Fixed a bug that broke the block when setting the slim width.
