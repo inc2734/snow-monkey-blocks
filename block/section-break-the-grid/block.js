@@ -33,13 +33,8 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
-		const { scope, titleTagName, title, imageID, imageURL, imageAlt, textColor, imagePosition, imageColumnSize, imageSizeAdjustment, contentSizeAdjustment, contentHorizontalPositionAdjustment, shadowColor, shadowWidth, shadowHeight } = attributes;
+		const { titleTagName, title, imageID, imageURL, imageAlt, textColor, imagePosition, imageSizeAdjustment, contentSizeAdjustment, shadowColor, shadowWidth, shadowHeight } = attributes;
 
-		if ( ! scope ) {
-			setAttributes( { scope: `${ Date.now() }-${ Math.round( Math.random() * 10000 ) }` } );
-		}
-
-		const scopedClassName = `scope-${ scope }`;
 		const titleTagNames = [ 'h2', 'h3', 'none' ];
 
 		const classes = classnames(
@@ -47,27 +42,25 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 				'smb-section': true,
 				'smb-section-break-the-grid': true,
 				[ `smb-section-break-the-grid--${ imagePosition }` ]: true,
-				[ `smb-section-break-the-grid--${ scopedClassName }` ]: true,
 				[ className ]: !! className,
 			}
 		);
 
-		const rowClasses = classnames(
+		const rowClasses = classnames( 'c-row', 'c-row--lg-middle' );
+		const textColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', 'c-row__col--lg-1-2' );
+		const imageColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', 'c-row__col--lg-1-2' );
+
+		const figureClasses = classnames(
 			{
-				'c-row': true,
-				'c-row--lg-middle': true,
+				'smb-section-break-the-grid__figure': true,
+				[ `smb-section-break-the-grid__figure--lg-w-${ imageSizeAdjustment }` ]: !! imageSizeAdjustment,
 			}
 		);
-
-		const { textColumnWidth, imageColumnWidth } = getColumnSize( imageColumnSize );
-		const textColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', [ `c-row__col--lg-${ textColumnWidth }` ] );
-		const imageColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', [ `c-row__col--lg-${ imageColumnWidth }` ] );
 
 		const contentClasses = classnames(
 			{
 				'smb-section-break-the-grid__content': true,
 				[ `smb-section-break-the-grid__content--lg-w-${ contentSizeAdjustment }` ]: !! contentSizeAdjustment,
-				[ `smb-section-break-the-grid__content--lg-horizontal-${ contentHorizontalPositionAdjustment }` ]: !! contentHorizontalPositionAdjustment,
 			}
 		);
 
@@ -86,13 +79,6 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 		const shadowStyles = {
 			backgroundColor: shadowColor || undefined,
 		};
-
-		const figureClasses = classnames(
-			{
-				'smb-section-break-the-grid__figure': true,
-				[ `smb-section-break-the-grid__figure--lg-w-${ imageSizeAdjustment }` ]: !! imageSizeAdjustment,
-			}
-		);
 
 		const onSelectImage = ( media ) => {
 			const newImageURL = !! media.sizes && !! media.sizes.xlarge ? media.sizes.large.url : media.url;
@@ -176,44 +162,28 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 						/>
 
 						<SelectControl
-							label={ __( 'Image Column Size', 'snow-monkey-blocks' ) }
-							value={ imageColumnSize }
-							options={ [
-								{
-									value: 75,
-									label: __( '75%', 'snow-monkey-blocks' ),
-								},
-								{
-									value: 66,
-									label: __( '66%', 'snow-monkey-blocks' ),
-								},
-								{
-									value: 50,
-									label: __( '50%', 'snow-monkey-blocks' ),
-								},
-							] }
-							onChange={ ( value ) => setAttributes( { imageColumnSize: toNumber( value ) } ) }
-						/>
-
-						<SelectControl
 							label={ __( 'image Size Adjustment', 'snow-monkey-blocks' ) }
 							value={ imageSizeAdjustment }
 							options={ [
 								{
-									value: undefined,
-									label: __( '0', 'snow-monkey-blocks' ),
+									value: '',
+									label: __( '100%', 'snow-monkey-blocks' ),
 								},
 								{
-									value: '1-4',
-									label: __( '25%', 'snow-monkey-blocks' ),
+									value: '5-4',
+									label: __( '125%', 'snow-monkey-blocks' ),
 								},
 								{
-									value: '1-3',
-									label: __( '33%', 'snow-monkey-blocks' ),
+									value: '4-3',
+									label: __( '133%', 'snow-monkey-blocks' ),
 								},
 								{
-									value: '1-2',
-									label: __( '50%', 'snow-monkey-blocks' ),
+									value: '3-2',
+									label: __( '150%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: '7-4',
+									label: __( '175%', 'snow-monkey-blocks' ),
 								},
 							] }
 							onChange={ ( value ) => setAttributes( { imageSizeAdjustment: value } ) }
@@ -239,14 +209,6 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 							value={ contentSizeAdjustment }
 							options={ [
 								{
-									value: undefined,
-									label: __( '0', 'snow-monkey-blocks' ),
-								},
-								{
-									value: '1-3',
-									label: __( '33%', 'snow-monkey-blocks' ),
-								},
-								{
 									value: '1-2',
 									label: __( '50%', 'snow-monkey-blocks' ),
 								},
@@ -254,40 +216,28 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 									value: '3-4',
 									label: __( '75%', 'snow-monkey-blocks' ),
 								},
+								{
+									value: '',
+									label: __( '100%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: '5-4',
+									label: __( '125%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: '4-3',
+									label: __( '133%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: '3-2',
+									label: __( '150%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: '7-4',
+									label: __( '175%', 'snow-monkey-blocks' ),
+								},
 							] }
 							onChange={ ( value ) => setAttributes( { contentSizeAdjustment: value } ) }
-						/>
-
-						<SelectControl
-							label={ __( 'Content Position (Horizontal) Adjustment', 'snow-monkey-blocks' ) }
-							value={ contentHorizontalPositionAdjustment }
-							options={ [
-								{
-									value: undefined,
-									label: __( '0', 'snow-monkey-blocks' ),
-								},
-								{
-									value: '1-6',
-									label: __( '17%', 'snow-monkey-blocks' ),
-								},
-								{
-									value: '1-5',
-									label: __( '20%', 'snow-monkey-blocks' ),
-								},
-								{
-									value: '1-4',
-									label: __( '25%', 'snow-monkey-blocks' ),
-								},
-								{
-									value: '1-3',
-									label: __( '33%', 'snow-monkey-blocks' ),
-								},
-								{
-									value: '1-2',
-									label: __( '50%', 'snow-monkey-blocks' ),
-								},
-							] }
-							onChange={ ( value ) => setAttributes( { contentHorizontalPositionAdjustment: value } ) }
 						/>
 					</PanelBody>
 
@@ -409,35 +359,32 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 	},
 
 	save( { attributes, className } ) {
-		const { scope, titleTagName, title, imageID, imageURL, imageAlt, textColor, imagePosition, imageColumnSize, imageSizeAdjustment, contentSizeAdjustment, contentHorizontalPositionAdjustment, shadowColor, shadowWidth, shadowHeight } = attributes;
+		const { titleTagName, title, imageID, imageURL, imageAlt, textColor, imagePosition, imageSizeAdjustment, contentSizeAdjustment, shadowColor, shadowWidth, shadowHeight } = attributes;
 
-		const scopedClassName = `scope-${ scope }`;
 		const classes = classnames(
 			{
 				'smb-section': true,
 				'smb-section-break-the-grid': true,
 				[ `smb-section-break-the-grid--${ imagePosition }` ]: true,
-				[ `smb-section-break-the-grid--${ scopedClassName }` ]: true,
 				[ className ]: !! className,
 			}
 		);
 
-		const rowClasses = classnames(
+		const rowClasses = classnames( 'c-row', 'c-row--lg-middle' );
+		const textColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', 'c-row__col--lg-1-2' );
+		const imageColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', 'c-row__col--lg-1-2' );
+
+		const figureClasses = classnames(
 			{
-				'c-row': true,
-				'c-row--lg-middle': true,
+				'smb-section-break-the-grid__figure': true,
+				[ `smb-section-break-the-grid__figure--lg-w-${ imageSizeAdjustment }` ]: !! imageSizeAdjustment,
 			}
 		);
-
-		const { textColumnWidth, imageColumnWidth } = getColumnSize( imageColumnSize );
-		const textColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', [ `c-row__col--lg-${ textColumnWidth }` ] );
-		const imageColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', [ `c-row__col--lg-${ imageColumnWidth }` ] );
 
 		const contentClasses = classnames(
 			{
 				'smb-section-break-the-grid__content': true,
 				[ `smb-section-break-the-grid__content--lg-w-${ contentSizeAdjustment }` ]: !! contentSizeAdjustment,
-				[ `smb-section-break-the-grid__content--lg-horizontal-${ contentHorizontalPositionAdjustment }` ]: !! contentHorizontalPositionAdjustment,
 			}
 		);
 
@@ -456,13 +403,6 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 		const shadowStyles = {
 			backgroundColor: shadowColor || undefined,
 		};
-
-		const figureClasses = classnames(
-			{
-				'smb-section-break-the-grid__figure': true,
-				[ `smb-section-break-the-grid__figure--lg-w-${ imageSizeAdjustment }` ]: !! imageSizeAdjustment,
-			}
-		);
 
 		return (
 			<div className={ classes } style={ sectionStyles }>

@@ -1,9 +1,6 @@
 'use strict';
 
 export const schema = {
-	scope: {
-		type: 'string',
-	},
 	titleTagName: {
 		type: 'string',
 		default: 'h2',
@@ -37,19 +34,13 @@ export const schema = {
 		type: 'string',
 		default: 'right',
 	},
-	imageColumnSize: {
-		type: 'number',
-		default: 66,
-	},
 	imageSizeAdjustment: {
 		type: 'string',
+		default: '3-2',
 	},
 	contentSizeAdjustment: {
 		type: 'string',
-	},
-	contentHorizontalPositionAdjustment: {
-		type: 'string',
-		default: '1-6',
+		default: '1-2',
 	},
 	shadowColor: {
 		type: 'string',
