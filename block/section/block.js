@@ -170,7 +170,9 @@ registerBlockType( 'snow-monkey-blocks/section', {
 							max="100"
 						/>
 
-						<BaseControl label={ __( 'Color', 'snow-monkey-blocks' ) }>
+						<BaseControl
+							className="editor-color-palette-control"
+							label={ __( 'Color', 'snow-monkey-blocks' ) }>
 							<ColorPalette
 								className="editor-color-palette-control__color-palette"
 								value={ topDividerColor }
@@ -212,7 +214,9 @@ registerBlockType( 'snow-monkey-blocks/section', {
 							max="100"
 						/>
 
-						<BaseControl label={ __( 'Color', 'snow-monkey-blocks' ) }>
+						<BaseControl
+							className="editor-color-palette-control"
+							label={ __( 'Color', 'snow-monkey-blocks' ) }>
 							<ColorPalette
 								className="editor-color-palette-control__color-palette"
 								value={ bottomDividerColor }

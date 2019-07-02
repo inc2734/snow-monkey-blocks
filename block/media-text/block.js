@@ -1,6 +1,7 @@
 'use strict';
 
 import classnames from 'classnames';
+import getColumnSize from '../../src/js/helper/get-column-size';
 
 import { blockConfig } from '../../src/js/config/block.js';
 import { schema } from './_schema.js';
@@ -11,29 +12,6 @@ const { RichText, InnerBlocks, InspectorControls, MediaPlaceholder, MediaUpload 
 const { PanelBody, SelectControl, Button } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
-
-const _getColumnsSize = ( imageColumnSize ) => {
-	let textColumnWidth = '1-3';
-	let imageColumnWidth = '2-3';
-	if ( 66 === parseInt( imageColumnSize ) ) {
-		textColumnWidth = '1-3';
-		imageColumnWidth = '2-3';
-	} else if ( 50 === parseInt( imageColumnSize ) ) {
-		textColumnWidth = '1-2';
-		imageColumnWidth = '1-2';
-	} else if ( 33 === parseInt( imageColumnSize ) ) {
-		textColumnWidth = '2-3';
-		imageColumnWidth = '1-3';
-	} else if ( 25 === parseInt( imageColumnSize ) ) {
-		textColumnWidth = '3-4';
-		imageColumnWidth = '1-4';
-	}
-
-	return {
-		textColumnWidth: textColumnWidth,
-		imageColumnWidth: imageColumnWidth,
-	};
-};
 
 registerBlockType( 'snow-monkey-blocks/media-text', {
 	title: __( 'Media text', 'snow-monkey-blocks' ),
@@ -51,7 +29,7 @@ registerBlockType( 'snow-monkey-blocks/media-text', {
 	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { title, imageID, imageURL, imageAlt, imagePosition, imageColumnSize } = attributes;
 
-		const { textColumnWidth, imageColumnWidth } = _getColumnsSize( imageColumnSize );
+		const { textColumnWidth, imageColumnWidth } = getColumnSize( imageColumnSize );
 
 		const onSelectImage = ( media ) => {
 			const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
@@ -189,7 +167,7 @@ registerBlockType( 'snow-monkey-blocks/media-text', {
 	save( { attributes, className } ) {
 		const { title, imageID, imageURL, imageAlt, imagePosition, imageColumnSize } = attributes;
 
-		const { textColumnWidth, imageColumnWidth } = _getColumnsSize( imageColumnSize );
+		const { textColumnWidth, imageColumnWidth } = getColumnSize( imageColumnSize );
 
 		const classes = classnames( 'smb-media-text', className );
 

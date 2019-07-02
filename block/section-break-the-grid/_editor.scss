@@ -1,0 +1,18 @@
+.smb-section-break-the-grid__figure {
+  .smb-remove-button {
+    position: absolute;
+    top: 5px;
+  }
+
+  .smb-section-break-the-grid--right & {
+    .smb-remove-button {
+      right: 5px;
+    }
+  }
+
+  .smb-section-break-the-grid--left & {
+    .smb-remove-button {
+      left: 5px;
+    }
+  }
+}
