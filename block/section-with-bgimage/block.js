@@ -9,7 +9,7 @@ import { deprecated } from './_deprecated.js';
 
 const { times } = lodash;
 const { registerBlockType } = wp.blocks;
-const { RichText, InnerBlocks, InspectorControls, PanelColorSettings, MediaPlaceholder } = wp.editor;
+const { RichText, InnerBlocks, InspectorControls, PanelColorSettings, MediaPlaceholder, ColorPalette } = wp.editor;
 const { PanelBody, SelectControl, RangeControl, ToggleControl, BaseControl, Button } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
@@ -161,12 +161,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 								onChange: ( value ) => setAttributes( { maskColor: value } ),
 								label: __( 'Mask Color', 'snow-monkey-blocks' ),
 							},
-							{
-								value: maskColor2,
-								onChange: ( value ) => setAttributes( { maskColor2: value } ),
-								label: __( 'Mask Color 2', 'snow-monkey-blocks' ),
-							},
-						].filter( ( value, index ) => ! maskColor ? 2 !== index : true ) }
+						] }
 					>
 					</PanelColorSettings>
 
@@ -179,6 +174,18 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 							max={ 1 }
 							step={ 0.1 }
 						/>
+
+						{ maskColor &&
+							<BaseControl
+								className="editor-color-palette-control"
+								label={ __( 'Mask Color 2', 'snow-monkey-blocks' ) }>
+								<ColorPalette
+									className="editor-color-palette-control__color-palette"
+									value={ maskColor2 }
+									onChange={ ( value ) => setAttributes( { maskColor2: value } ) }
+								/>
+							</BaseControl>
+						}
 
 						{ maskColor && maskColor2 &&
 							<RangeControl

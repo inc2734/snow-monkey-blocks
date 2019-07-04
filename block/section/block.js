@@ -116,24 +116,31 @@ registerBlockType( 'snow-monkey-blocks/section', {
 								onChange: ( value ) => setAttributes( { backgroundColor: value } ),
 								label: __( 'Background Color', 'snow-monkey-blocks' ),
 							},
-							{
-								value: backgroundColor2,
-								onChange: ( value ) => setAttributes( { backgroundColor2: value } ),
-								label: __( 'Background Color 2', 'snow-monkey-blocks' ),
-							},
-						].filter( ( value, index ) => ! backgroundColor ? 2 !== index : true ) }
+						] }
 					>
 					</PanelColorSettings>
 
-					{ backgroundColor && backgroundColor2 &&
+					{ backgroundColor &&
 						<PanelBody title={ __( 'Background Gradation Settings', 'snow-monkey-blocks' ) }>
-							<RangeControl
-								label={ __( 'Background Gradation Angle', 'snow-monkey-blocks' ) }
-								value={ backgroundColorAngle }
-								onChange={ ( value ) => setAttributes( { backgroundColorAngle: toNumber( value, 0, 360 ) } ) }
-								min="0"
-								max="360"
-							/>
+							<BaseControl
+								className="editor-color-palette-control"
+								label={ __( 'Background Color 2', 'snow-monkey-blocks' ) }>
+								<ColorPalette
+									className="editor-color-palette-control__color-palette"
+									value={ backgroundColor2 }
+									onChange={ ( value ) => setAttributes( { backgroundColor2: value } ) }
+								/>
+							</BaseControl>
+
+							{ backgroundColor2 &&
+								<RangeControl
+									label={ __( 'Background Gradation Angle', 'snow-monkey-blocks' ) }
+									value={ backgroundColorAngle }
+									onChange={ ( value ) => setAttributes( { backgroundColorAngle: toNumber( value, 0, 360 ) } ) }
+									min="0"
+									max="360"
+								/>
+							}
 						</PanelBody>
 					}
 
