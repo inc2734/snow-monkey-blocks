@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2019-07-04 09:50+0900\n"
-"PO-Revision-Date: 2019-07-04 09:52+0900\n"
+"POT-Creation-Date: 2019-07-04 16:20+0900\n"
+"PO-Revision-Date: 2019-07-04 16:20+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -149,7 +149,7 @@ msgstr "項目"
 #: block/panels/item/horizontal/block.js:85
 #: block/panels/item/vertical/block.js:77 block/pickup-slider/block.js:30
 #: block/rating-box/item/block.js:40 block/recent-posts/_edit.js:57
-#: block/section-break-the-grid/block.js:144
+#: block/section-break-the-grid/block.js:146
 #: block/section-with-bgimage/block.js:84
 #: block/section-with-bgvideo/block.js:91 block/section/block.js:81
 #: block/slider/block.js:57 block/step/item/standard/block.js:86
@@ -230,7 +230,7 @@ msgstr "アイコン"
 #: block/media-text/block.js:149 block/panels/item/horizontal/block.js:163
 #: block/panels/item/vertical/block.js:138
 #: block/pricing-table/item/block.js:140 block/rating-box/item/block.js:67
-#: block/section-break-the-grid/block.js:396
+#: block/section-break-the-grid/block.js:406
 #: block/section-with-bgimage/block.js:230
 #: block/section-with-bgvideo/block.js:234 block/section/block.js:251
 #: block/step/item/free/block.js:58 block/step/item/standard/block.js:157
@@ -261,7 +261,7 @@ msgstr "逆の吹き出し"
 #: block/items/item/block-link/block.js:128 block/items/item/block.js:141
 #: block/items/item/standard/block.js:128 block/list/block.js:97
 #: block/pricing-table/item/block.js:108 block/rating-box/item/block.js:51
-#: block/section-break-the-grid/block.js:371
+#: block/section-break-the-grid/block.js:381
 #: block/section-with-bgimage/block.js:151
 #: block/section-with-bgvideo/block.js:175 block/section/block.js:106
 #: block/step/item/free/block.js:40 block/step/item/standard/block.js:134
@@ -290,7 +290,7 @@ msgstr "枠線の太さ"
 
 #: block/box/block.js:61 block/btn-box/block.js:111 block/btn/block.js:108
 #: block/pricing-table/item/block.js:114
-#: block/section-break-the-grid/block.js:305 block/section/block.js:117
+#: block/section-break-the-grid/block.js:307 block/section/block.js:117
 msgid "Background Color"
 msgstr "背景色"
 
@@ -300,7 +300,7 @@ msgstr "枠線の色"
 
 #: block/box/block.js:71 block/btn/block.js:113
 #: block/pricing-table/item/block.js:119
-#: block/section-break-the-grid/block.js:377
+#: block/section-break-the-grid/block.js:387
 #: block/section-with-bgimage/block.js:157
 #: block/section-with-bgvideo/block.js:181 block/section/block.js:112
 msgid "Text Color"
@@ -775,7 +775,7 @@ msgstr "項目ブロックの子ブロックです。"
 #: block/items/item/standard/block.js:50 block/media-text/block.js:44
 #: block/panels/item/horizontal/block.js:41
 #: block/panels/item/vertical/block.js:41 block/pricing-table/item/block.js:38
-#: block/section-break-the-grid/block.js:106
+#: block/section-break-the-grid/block.js:108
 #: block/section-with-bgimage/block.js:198 block/slider/item/block.js:37
 #: block/step/item/standard/block.js:38
 #: block/thumbnail-gallery/item/block.js:38
@@ -786,7 +786,7 @@ msgstr "画像"
 #: block/items/item/standard/block.js:75 block/media-text/block.js:72
 #: block/panels/item/horizontal/block.js:66
 #: block/panels/item/vertical/block.js:66 block/pricing-table/item/block.js:63
-#: block/section-break-the-grid/block.js:135
+#: block/section-break-the-grid/block.js:137
 #: block/section-with-bgimage/block.js:214 block/slider/item/block.js:62
 #: block/step/item/standard/block.js:63
 #: block/thumbnail-gallery/item/block.js:61
@@ -797,7 +797,7 @@ msgstr "削除"
 #: block/items/item/standard/block.js:85
 #: block/panels/item/horizontal/block.js:86
 #: block/panels/item/vertical/block.js:78
-#: block/section-break-the-grid/block.js:145
+#: block/section-break-the-grid/block.js:147
 #: block/section-with-bgimage/block.js:85
 #: block/section-with-bgvideo/block.js:92 block/section/block.js:82
 msgid "Title Tag"
@@ -896,7 +896,7 @@ msgid "Image Position"
 msgstr "画像の位置"
 
 #: block/media-text/block.js:103 block/panels/item/horizontal/block.js:108
-#: block/section-break-the-grid/block.js:171
+#: block/section-break-the-grid/block.js:173
 #: block/section-with-bgimage/block.js:131
 #: block/section-with-bgvideo/block.js:161
 #: block/step/item/standard/block.js:101
@@ -904,7 +904,7 @@ msgid "Right side"
 msgstr "右側"
 
 #: block/media-text/block.js:107 block/panels/item/horizontal/block.js:112
-#: block/section-break-the-grid/block.js:167
+#: block/section-break-the-grid/block.js:169
 #: block/section-with-bgimage/block.js:123
 #: block/section-with-bgvideo/block.js:153 block/step/item/standard/block.js:93
 msgid "Left side"
@@ -926,7 +926,7 @@ msgstr "50%"
 msgid "33%"
 msgstr "33%"
 
-#: block/media-text/block.js:131
+#: block/media-text/block.js:131 block/section-break-the-grid/block.js:255
 msgid "25%"
 msgstr "25%"
 
@@ -1070,152 +1070,152 @@ msgstr ""
 msgid "You can display recent posts with richer."
 msgstr "最近の投稿をよりリッチに表示できます。"
 
-#: block/section-break-the-grid/block.js:17
+#: block/section-break-the-grid/block.js:18
 msgid "Section (break the grid)"
 msgstr "セクション（ブロークングリッド）"
 
-#: block/section-break-the-grid/block.js:18
+#: block/section-break-the-grid/block.js:19
 msgid "It is a break the grid section."
 msgstr "ブロークングリッドセクションです。"
 
-#: block/section-break-the-grid/block.js:162
+#: block/section-break-the-grid/block.js:164
 msgid "Image position"
 msgstr "画像の位置"
 
-#: block/section-break-the-grid/block.js:178
+#: block/section-break-the-grid/block.js:180
 msgid "image Size Adjustment"
 msgstr "画像サイズ調整"
 
-#: block/section-break-the-grid/block.js:183
-#: block/section-break-the-grid/block.js:213
+#: block/section-break-the-grid/block.js:185
+#: block/section-break-the-grid/block.js:215
+#: block/section-break-the-grid/block.js:235
 msgid "+-0%"
 msgstr "+-0%"
 
-#: block/section-break-the-grid/block.js:187
-#: block/section-break-the-grid/block.js:221
+#: block/section-break-the-grid/block.js:189
+#: block/section-break-the-grid/block.js:223
 msgid "+40%"
 msgstr "+40%"
 
-#: block/section-break-the-grid/block.js:191
+#: block/section-break-the-grid/block.js:193
 msgid "+80%"
 msgstr "+80%"
 
-#: block/section-break-the-grid/block.js:198
+#: block/section-break-the-grid/block.js:200
 msgid "Contents Settings"
 msgstr "コンテンツの設定"
 
-#: block/section-break-the-grid/block.js:200
+#: block/section-break-the-grid/block.js:202
 msgid "Content Size Adjustment"
 msgstr "コンテンツサイズ調整"
 
-#: block/section-break-the-grid/block.js:205
+#: block/section-break-the-grid/block.js:207
 msgid "-40%"
 msgstr "-40%"
 
-#: block/section-break-the-grid/block.js:209
+#: block/section-break-the-grid/block.js:211
 msgid "-20%"
 msgstr "-20%"
 
-#: block/section-break-the-grid/block.js:217
+#: block/section-break-the-grid/block.js:219
 msgid "+20%"
 msgstr "+20%"
 
-#: block/section-break-the-grid/block.js:228
+#: block/section-break-the-grid/block.js:230
 msgid "Degree of overlap of content to image"
 msgstr "画像とコンテンツの重なり具合"
 
-#: block/section-break-the-grid/block.js:233
-#: block/section-break-the-grid/block.js:265
-#: block/section-break-the-grid/block.js:319
-msgid "None"
-msgstr "なし"
+#: block/section-break-the-grid/block.js:239
+msgid "5%"
+msgstr "5%"
 
-#: block/section-break-the-grid/block.js:237
+#: block/section-break-the-grid/block.js:243
+msgid "10%"
+msgstr "10%"
+
+#: block/section-break-the-grid/block.js:247
 msgid "15%"
 msgstr "15%"
 
-#: block/section-break-the-grid/block.js:241
-msgid "30%"
-msgstr "30%"
+#: block/section-break-the-grid/block.js:251
+msgid "20%"
+msgstr "20%"
 
-#: block/section-break-the-grid/block.js:245
-msgid "45%"
-msgstr "45%"
-
-#: block/section-break-the-grid/block.js:249
-msgid "60%"
-msgstr "60%"
-
-#: block/section-break-the-grid/block.js:253
-msgid "75%"
-msgstr "75%"
-
-#: block/section-break-the-grid/block.js:260
+#: block/section-break-the-grid/block.js:262
 msgid "Vertical Margin"
 msgstr "縦の余白"
 
-#: block/section-break-the-grid/block.js:269
+#: block/section-break-the-grid/block.js:267
+#: block/section-break-the-grid/block.js:321
+msgid "None"
+msgstr "なし"
+
+#: block/section-break-the-grid/block.js:271
 msgid "[Top] +60%"
 msgstr "[上] +60%"
 
-#: block/section-break-the-grid/block.js:273
+#: block/section-break-the-grid/block.js:275
 msgid "[Top] +45%"
 msgstr "[上] +45%"
 
-#: block/section-break-the-grid/block.js:277
+#: block/section-break-the-grid/block.js:279
 msgid "[Top] +30%"
 msgstr "[上] +30%"
 
-#: block/section-break-the-grid/block.js:281
+#: block/section-break-the-grid/block.js:283
 msgid "[Top] +15%"
 msgstr "[上] +15%"
 
-#: block/section-break-the-grid/block.js:285
+#: block/section-break-the-grid/block.js:287
 msgid "[Bottom] +15%"
 msgstr "[下] +15%"
 
-#: block/section-break-the-grid/block.js:289
+#: block/section-break-the-grid/block.js:291
 msgid "[Bottom] +30%"
 msgstr "[下] +30%"
 
-#: block/section-break-the-grid/block.js:293
+#: block/section-break-the-grid/block.js:295
 msgid "[Bottom] +45%"
 msgstr "[下] +45%"
 
-#: block/section-break-the-grid/block.js:297
+#: block/section-break-the-grid/block.js:299
 msgid "[Bottom] +60%"
 msgstr "[下] +60%"
 
-#: block/section-break-the-grid/block.js:314
+#: block/section-break-the-grid/block.js:316
 msgid "Content Padding"
 msgstr "コンテンツの余白"
 
-#: block/section-break-the-grid/block.js:323
+#: block/section-break-the-grid/block.js:325
 msgid "S"
 msgstr "S"
 
-#: block/section-break-the-grid/block.js:327
+#: block/section-break-the-grid/block.js:329
 msgid "M"
 msgstr "M"
 
-#: block/section-break-the-grid/block.js:331
+#: block/section-break-the-grid/block.js:333
 msgid "L"
 msgstr "L"
 
-#: block/section-break-the-grid/block.js:338
+#: block/section-break-the-grid/block.js:341
+msgid "Remove Outside Padding"
+msgstr "外側の余白を削除"
+
+#: block/section-break-the-grid/block.js:348
 msgid "Shadow Settings"
 msgstr "影の設定"
 
-#: block/section-break-the-grid/block.js:341 block/section/block.js:175
+#: block/section-break-the-grid/block.js:351 block/section/block.js:175
 #: block/section/block.js:219
 msgid "Color"
 msgstr "色"
 
-#: block/section-break-the-grid/block.js:351
+#: block/section-break-the-grid/block.js:361
 msgid "Horizontal Position"
 msgstr "水平位置"
 
-#: block/section-break-the-grid/block.js:361
+#: block/section-break-the-grid/block.js:371
 msgid "Vertical Position"
 msgstr "垂直位置"
 
@@ -1485,8 +1485,17 @@ msgstr "ブロック"
 msgid "Highlighter"
 msgstr "蛍光ペン"
 
-#~ msgid "100%"
-#~ msgstr "100%"
+#~ msgid "30%"
+#~ msgstr "30%"
+
+#~ msgid "45%"
+#~ msgstr "45%"
+
+#~ msgid "60%"
+#~ msgstr "60%"
+
+#~ msgid "75%"
+#~ msgstr "75%"
 
 #~ msgid "133%"
 #~ msgstr "133%"

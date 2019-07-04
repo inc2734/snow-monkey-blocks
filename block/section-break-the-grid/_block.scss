@@ -12,11 +12,11 @@
   );
 
   $contentHorizontalPositions: (
-    15: 'xs',
-    30: 's',
-    45: 'm',
-    60: 'l',
-    75: 'xl',
+    5: 'xs',
+    10: 's',
+    15: 'm',
+    20: 'l',
+    25: 'xl',
   );
 
   $contentTopVerticalPositions: (
@@ -50,7 +50,19 @@
       }
     }
 
+    @each $key, $value in $contentHorizontalPositions {
+      &--horizontal-#{$value} {
+        @include _margin-bottom(-2);
+      }
+    }
+
+    &--remove-outside-p {
+      padding-top: 0;
+    }
+
     @include _media-min(lg) {
+      margin-bottom: 0;
+
       @each $key, $value in $contentSizes {
         &--w-#{$value} {
           width: $key * 1%;
@@ -132,6 +144,10 @@
             left: 1% * $key;
           }
         }
+
+        &--remove-outside-p {
+          padding-left: 0;
+        }
       }
     }
 
@@ -177,6 +193,10 @@
           &--w-#{$value} {
             margin-left: 100 - $key * 1%;
           }
+        }
+
+        &--remove-outside-p {
+          padding-right: 0;
         }
       }
     }

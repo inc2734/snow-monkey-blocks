@@ -55,6 +55,10 @@ export const schema = {
 	contentPadding: {
 		type: 'string',
 	},
+	removeContentOutsidePadding: {
+		type: 'boolean',
+		default: false,
+	},
 	shadowColor: {
 		type: 'string',
 	},

@@ -1,6 +1,7 @@
 'use strict';
 
 import classnames from 'classnames';
+import hexToRgba from 'hex-to-rgba';
 import toNumber from '../../src/js/helper/to-number';
 
 import { blockConfig } from '../../src/js/config/block.js';
@@ -9,7 +10,7 @@ import { schema } from './_schema.js';
 const { times } = lodash;
 const { registerBlockType } = wp.blocks;
 const { RichText, InnerBlocks, InspectorControls, PanelColorSettings, MediaPlaceholder, MediaUpload, ColorPalette } = wp.editor;
-const { PanelBody, SelectControl, BaseControl, Button, RangeControl } = wp.components;
+const { PanelBody, SelectControl, BaseControl, Button, RangeControl, ToggleControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -32,7 +33,7 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
-		const { titleTagName, title, imageID, imageURL, imageAlt, textColor, imagePosition, imageSize, contentSize, contentHorizontalPosition, contentVerticalPosition, contentBackgroundColor, contentPadding, shadowColor, shadowHorizontalPosition, shadowVerticalPosition } = attributes;
+		const { titleTagName, title, imageID, imageURL, imageAlt, textColor, imagePosition, imageSize, contentSize, contentHorizontalPosition, contentVerticalPosition, contentBackgroundColor, contentPadding, removeContentOutsidePadding, shadowColor, shadowHorizontalPosition, shadowVerticalPosition } = attributes;
 
 		const titleTagNames = [ 'h2', 'h3', 'none' ];
 
@@ -70,6 +71,7 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 				'smb-section-break-the-grid__content': true,
 				[ `smb-section-break-the-grid__content--w-${ contentSize }` ]: !! contentSize,
 				[ `smb-section-break-the-grid__content--p-${ contentPadding }` ]: !! contentPadding,
+				'smb-section-break-the-grid__content--remove-outside-p': contentPadding && removeContentOutsidePadding,
 				[ `smb-section-break-the-grid__content--horizontal-${ contentHorizontalPosition }` ]: !! contentHorizontalPosition,
 				[ `smb-section-break-the-grid__content--vertical-${ contentVerticalPosition }` ]: !! contentVerticalPosition,
 			}
@@ -90,7 +92,7 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 		}
 
 		const contentStyles = {
-			backgroundColor: contentBackgroundColor || undefined,
+			backgroundColor: contentBackgroundColor && hexToRgba( contentBackgroundColor, 0.98 ),
 		};
 
 		const onSelectImage = ( media ) => {
@@ -229,28 +231,28 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 							value={ contentHorizontalPosition }
 							options={ [
 								{
-									value: undefined,
-									label: __( 'None', 'snow-monkey-blocks' ),
+									value: '',
+									label: __( '+-0%', 'snow-monkey-blocks' ),
 								},
 								{
 									value: 'xs',
-									label: __( '15%', 'snow-monkey-blocks' ),
+									label: __( '5%', 'snow-monkey-blocks' ),
 								},
 								{
 									value: 's',
-									label: __( '30%', 'snow-monkey-blocks' ),
+									label: __( '10%', 'snow-monkey-blocks' ),
 								},
 								{
 									value: 'm',
-									label: __( '45%', 'snow-monkey-blocks' ),
+									label: __( '15%', 'snow-monkey-blocks' ),
 								},
 								{
 									value: 'l',
-									label: __( '60%', 'snow-monkey-blocks' ),
+									label: __( '20%', 'snow-monkey-blocks' ),
 								},
 								{
 									value: 'xl',
-									label: __( '75%', 'snow-monkey-blocks' ),
+									label: __( '25%', 'snow-monkey-blocks' ),
 								},
 							] }
 							onChange={ ( value ) => setAttributes( { contentHorizontalPosition: value } ) }
@@ -261,7 +263,7 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 							value={ contentVerticalPosition }
 							options={ [
 								{
-									value: undefined,
+									value: '',
 									label: __( 'None', 'snow-monkey-blocks' ),
 								},
 								{
@@ -315,7 +317,7 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 							value={ contentPadding }
 							options={ [
 								{
-									value: undefined,
+									value: '',
 									label: __( 'None', 'snow-monkey-blocks' ),
 								},
 								{
@@ -333,6 +335,14 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 							] }
 							onChange={ ( value ) => setAttributes( { contentPadding: value } ) }
 						/>
+
+						{ contentPadding &&
+							<ToggleControl
+								label={ __( 'Remove Outside Padding', 'snow-monkey-blocks' ) }
+								checked={ removeContentOutsidePadding }
+								onChange={ ( value ) => setAttributes( { removeContentOutsidePadding: value } ) }
+							/>
+						}
 					</PanelBody>
 
 					<PanelBody title={ __( 'Shadow Settings', 'snow-monkey-blocks' ) } initialOpen={ false }>
@@ -350,9 +360,9 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 							<RangeControl
 								label={ __( 'Horizontal Position', 'snow-monkey-blocks' ) }
 								value={ shadowHorizontalPosition }
-								onChange={ ( value ) => setAttributes( { shadowHorizontalPosition: toNumber( value, -100, 100 ) } ) }
-								min="-100"
-								max="100"
+								onChange={ ( value ) => setAttributes( { shadowHorizontalPosition: toNumber( value, -120, 120 ) } ) }
+								min="-120"
+								max="120"
 							/>
 						}
 
@@ -360,9 +370,9 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 							<RangeControl
 								label={ __( 'Vertical Position', 'snow-monkey-blocks' ) }
 								value={ shadowVerticalPosition }
-								onChange={ ( value ) => setAttributes( { shadowVerticalPosition: toNumber( value, -100, 100 ) } ) }
-								min="-100"
-								max="100"
+								onChange={ ( value ) => setAttributes( { shadowVerticalPosition: toNumber( value, -120, 120 ) } ) }
+								min="-120"
+								max="120"
 							/>
 						}
 					</PanelBody>
@@ -418,7 +428,7 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 	},
 
 	save( { attributes, className } ) {
-		const { titleTagName, title, imageID, imageURL, imageAlt, textColor, imagePosition, imageSize, contentSize, contentHorizontalPosition, contentVerticalPosition, contentBackgroundColor, contentPadding, shadowColor, shadowHorizontalPosition, shadowVerticalPosition } = attributes;
+		const { titleTagName, title, imageID, imageURL, imageAlt, textColor, imagePosition, imageSize, contentSize, contentHorizontalPosition, contentVerticalPosition, contentBackgroundColor, contentPadding, removeContentOutsidePadding, shadowColor, shadowHorizontalPosition, shadowVerticalPosition } = attributes;
 
 		const classes = classnames(
 			{
@@ -454,6 +464,7 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 				'smb-section-break-the-grid__content': true,
 				[ `smb-section-break-the-grid__content--w-${ contentSize }` ]: !! contentSize,
 				[ `smb-section-break-the-grid__content--p-${ contentPadding }` ]: !! contentPadding,
+				'smb-section-break-the-grid__content--remove-outside-p': contentPadding && removeContentOutsidePadding,
 				[ `smb-section-break-the-grid__content--horizontal-${ contentHorizontalPosition }` ]: !! contentHorizontalPosition,
 				[ `smb-section-break-the-grid__content--vertical-${ contentVerticalPosition }` ]: !! contentVerticalPosition,
 			}
@@ -474,7 +485,7 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 		}
 
 		const contentStyles = {
-			backgroundColor: contentBackgroundColor || undefined,
+			backgroundColor: contentBackgroundColor && hexToRgba( contentBackgroundColor, 0.98 ),
 		};
 
 		return (
