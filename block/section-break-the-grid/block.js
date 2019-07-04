@@ -1,7 +1,6 @@
 'use strict';
 
 import classnames from 'classnames';
-import getColumnSize from '../../src/js/helper/get-column-size';
 import toNumber from '../../src/js/helper/to-number';
 
 import { blockConfig } from '../../src/js/config/block.js';
@@ -33,7 +32,7 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
-		const { titleTagName, title, imageID, imageURL, imageAlt, textColor, imagePosition, imageSizeAdjustment, contentSizeAdjustment, shadowColor, shadowWidth, shadowHeight } = attributes;
+		const { titleTagName, title, imageID, imageURL, imageAlt, textColor, imagePosition, imageSize, contentSize, contentHorizontalPosition, contentVerticalPosition, contentBackgroundColor, contentPadding, shadowColor, shadowHorizontalPosition, shadowVerticalPosition } = attributes;
 
 		const titleTagNames = [ 'h2', 'h3', 'none' ];
 
@@ -46,38 +45,52 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 			}
 		);
 
-		const rowClasses = classnames( 'c-row', 'c-row--lg-middle' );
+		const rowClasses = classnames(
+			{
+				'c-row': true,
+				'c-row--margin': true,
+				'c-row--lg-middle': ! contentVerticalPosition,
+				'c-row--lg-top': contentVerticalPosition && contentVerticalPosition.startsWith( 't' ),
+				'c-row--lg-bottom': contentVerticalPosition && contentVerticalPosition.startsWith( 'b' ),
+			}
+		);
+
 		const textColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', 'c-row__col--lg-1-2' );
 		const imageColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', 'c-row__col--lg-1-2' );
 
 		const figureClasses = classnames(
 			{
 				'smb-section-break-the-grid__figure': true,
-				[ `smb-section-break-the-grid__figure--lg-w-${ imageSizeAdjustment }` ]: !! imageSizeAdjustment,
+				[ `smb-section-break-the-grid__figure--w-${ imageSize }` ]: !! imageSize,
 			}
 		);
 
 		const contentClasses = classnames(
 			{
 				'smb-section-break-the-grid__content': true,
-				[ `smb-section-break-the-grid__content--lg-w-${ contentSizeAdjustment }` ]: !! contentSizeAdjustment,
+				[ `smb-section-break-the-grid__content--w-${ contentSize }` ]: !! contentSize,
+				[ `smb-section-break-the-grid__content--p-${ contentPadding }` ]: !! contentPadding,
+				[ `smb-section-break-the-grid__content--horizontal-${ contentHorizontalPosition }` ]: !! contentHorizontalPosition,
+				[ `smb-section-break-the-grid__content--vertical-${ contentVerticalPosition }` ]: !! contentVerticalPosition,
 			}
 		);
 
-		const shadowClasses = classnames(
-			{
-				'smb-section-break-the-grid__shadow': true,
-				[ `smb-section-break-the-grid__shadow--lg-w-${ shadowWidth }` ]: !! shadowWidth,
-				[ `smb-section-break-the-grid__shadow--h-${ shadowHeight }` ]: !! shadowHeight,
-			}
-		);
+		const shadowClasses = classnames( 'smb-section-break-the-grid__shadow' );
 
 		const sectionStyles = {
 			color: textColor || undefined,
 		};
 
-		const shadowStyles = {
-			backgroundColor: shadowColor || undefined,
+		const shadowStyles = {};
+		if ( shadowColor ) {
+			shadowStyles.backgroundColor = shadowColor;
+		}
+		if ( shadowHorizontalPosition || shadowVerticalPosition ) {
+			shadowStyles.transform = `translate(${ shadowHorizontalPosition || 0 }%, ${ shadowVerticalPosition || 0 }%)`;
+		}
+
+		const contentStyles = {
+			backgroundColor: contentBackgroundColor || undefined,
 		};
 
 		const onSelectImage = ( media ) => {
@@ -163,81 +176,162 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 
 						<SelectControl
 							label={ __( 'image Size Adjustment', 'snow-monkey-blocks' ) }
-							value={ imageSizeAdjustment }
+							value={ imageSize }
 							options={ [
 								{
-									value: '',
-									label: __( '100%', 'snow-monkey-blocks' ),
+									value: 'm',
+									label: __( '+-0%', 'snow-monkey-blocks' ),
 								},
 								{
-									value: '5-4',
-									label: __( '125%', 'snow-monkey-blocks' ),
+									value: 'l',
+									label: __( '+40%', 'snow-monkey-blocks' ),
 								},
 								{
-									value: '4-3',
-									label: __( '133%', 'snow-monkey-blocks' ),
-								},
-								{
-									value: '3-2',
-									label: __( '150%', 'snow-monkey-blocks' ),
-								},
-								{
-									value: '7-4',
-									label: __( '175%', 'snow-monkey-blocks' ),
+									value: 'xl',
+									label: __( '+80%', 'snow-monkey-blocks' ),
 								},
 							] }
-							onChange={ ( value ) => setAttributes( { imageSizeAdjustment: value } ) }
+							onChange={ ( value ) => setAttributes( { imageSize: value } ) }
 						/>
 					</PanelBody>
-
-					<PanelColorSettings
-						title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
-						initialOpen={ false }
-						colorSettings={ [
-							{
-								value: textColor,
-								onChange: ( value ) => setAttributes( { textColor: value } ),
-								label: __( 'Text Color', 'snow-monkey-blocks' ),
-							},
-						] }
-					>
-					</PanelColorSettings>
 
 					<PanelBody title={ __( 'Contents Settings', 'snow-monkey-blocks' ) } initialOpen={ false }>
 						<SelectControl
 							label={ __( 'Content Size Adjustment', 'snow-monkey-blocks' ) }
-							value={ contentSizeAdjustment }
+							value={ contentSize }
 							options={ [
 								{
-									value: '1-2',
-									label: __( '50%', 'snow-monkey-blocks' ),
+									value: 'xs',
+									label: __( '-40%', 'snow-monkey-blocks' ),
 								},
 								{
-									value: '3-4',
-									label: __( '75%', 'snow-monkey-blocks' ),
+									value: 's',
+									label: __( '-20%', 'snow-monkey-blocks' ),
 								},
 								{
-									value: '',
-									label: __( '100%', 'snow-monkey-blocks' ),
+									value: 'm',
+									label: __( '+-0%', 'snow-monkey-blocks' ),
 								},
 								{
-									value: '5-4',
-									label: __( '125%', 'snow-monkey-blocks' ),
+									value: 'l',
+									label: __( '+20%', 'snow-monkey-blocks' ),
 								},
 								{
-									value: '4-3',
-									label: __( '133%', 'snow-monkey-blocks' ),
-								},
-								{
-									value: '3-2',
-									label: __( '150%', 'snow-monkey-blocks' ),
-								},
-								{
-									value: '7-4',
-									label: __( '175%', 'snow-monkey-blocks' ),
+									value: 'xl',
+									label: __( '+40%', 'snow-monkey-blocks' ),
 								},
 							] }
-							onChange={ ( value ) => setAttributes( { contentSizeAdjustment: value } ) }
+							onChange={ ( value ) => setAttributes( { contentSize: value } ) }
+						/>
+
+						<SelectControl
+							label={ __( 'Degree of overlap of content to image', 'snow-monkey-blocks' ) }
+							value={ contentHorizontalPosition }
+							options={ [
+								{
+									value: undefined,
+									label: __( 'None', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'xs',
+									label: __( '15%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 's',
+									label: __( '30%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'm',
+									label: __( '45%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'l',
+									label: __( '60%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'xl',
+									label: __( '75%', 'snow-monkey-blocks' ),
+								},
+							] }
+							onChange={ ( value ) => setAttributes( { contentHorizontalPosition: value } ) }
+						/>
+
+						<SelectControl
+							label={ __( 'Vertical Margin', 'snow-monkey-blocks' ) }
+							value={ contentVerticalPosition }
+							options={ [
+								{
+									value: undefined,
+									label: __( 'None', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'txl',
+									label: __( '[Top] +60%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'tl',
+									label: __( '[Top] +45%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'tm',
+									label: __( '[Top] +30%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'ts',
+									label: __( '[Top] +15%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'bs',
+									label: __( '[Bottom] +15%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'bm',
+									label: __( '[Bottom] +30%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'bl',
+									label: __( '[Bottom] +45%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'bxl',
+									label: __( '[Bottom] +60%', 'snow-monkey-blocks' ),
+								},
+							] }
+							onChange={ ( value ) => setAttributes( { contentVerticalPosition: value } ) }
+						/>
+
+						<BaseControl
+							className="editor-color-palette-control"
+							label={ __( 'Background Color', 'snow-monkey-blocks' ) }>
+							<ColorPalette
+								className="editor-color-palette-control__color-palette"
+								onChange={ ( value ) => setAttributes( { contentBackgroundColor: value } ) }
+								value={ contentBackgroundColor }
+							/>
+						</BaseControl>
+
+						<SelectControl
+							label={ __( 'Content Padding', 'snow-monkey-blocks' ) }
+							value={ contentPadding }
+							options={ [
+								{
+									value: undefined,
+									label: __( 'None', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 's',
+									label: __( 'S', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'm',
+									label: __( 'M', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'l',
+									label: __( 'L', 'snow-monkey-blocks' ),
+								},
+							] }
+							onChange={ ( value ) => setAttributes( { contentPadding: value } ) }
 						/>
 					</PanelBody>
 
@@ -253,83 +347,45 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 						</BaseControl>
 
 						{ shadowColor &&
-							<SelectControl
-								label={ __( 'Width', 'snow-monkey-blocks' ) }
-								value={ shadowWidth }
-								options={ [
-									{
-										value: '1-4',
-										label: __( '25%', 'snow-monkey-blocks' ),
-									},
-									{
-										value: '1-3',
-										label: __( '33%', 'snow-monkey-blocks' ),
-									},
-									{
-										value: '1-2',
-										label: __( '50%', 'snow-monkey-blocks' ),
-									},
-									{
-										value: '2-3',
-										label: __( '66%', 'snow-monkey-blocks' ),
-									},
-									{
-										value: '3-4',
-										label: __( '75%', 'snow-monkey-blocks' ),
-									},
-									{
-										value: 'full',
-										label: __( '100%', 'snow-monkey-blocks' ),
-									},
-								] }
-								onChange={ ( value ) => setAttributes( { shadowWidth: value } ) }
+							<RangeControl
+								label={ __( 'Horizontal Position', 'snow-monkey-blocks' ) }
+								value={ shadowHorizontalPosition }
+								onChange={ ( value ) => setAttributes( { shadowHorizontalPosition: toNumber( value, -100, 100 ) } ) }
+								min="-100"
+								max="100"
 							/>
 						}
 
 						{ shadowColor &&
-							<SelectControl
-								label={ __( 'Height', 'snow-monkey-blocks' ) }
-								value={ shadowHeight }
-								options={ [
-									{
-										value: '1-4',
-										label: __( '25%', 'snow-monkey-blocks' ),
-									},
-									{
-										value: '1-3',
-										label: __( '33%', 'snow-monkey-blocks' ),
-									},
-									{
-										value: '1-2',
-										label: __( '50%', 'snow-monkey-blocks' ),
-									},
-									{
-										value: '2-3',
-										label: __( '66%', 'snow-monkey-blocks' ),
-									},
-									{
-										value: '3-4',
-										label: __( '75%', 'snow-monkey-blocks' ),
-									},
-									{
-										value: 'full',
-										label: __( '100%', 'snow-monkey-blocks' ),
-									},
-								] }
-								onChange={ ( value ) => setAttributes( { shadowHeight: value } ) }
+							<RangeControl
+								label={ __( 'Vertical Position', 'snow-monkey-blocks' ) }
+								value={ shadowVerticalPosition }
+								onChange={ ( value ) => setAttributes( { shadowVerticalPosition: toNumber( value, -100, 100 ) } ) }
+								min="-100"
+								max="100"
 							/>
 						}
 					</PanelBody>
+
+					<PanelColorSettings
+						title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
+						initialOpen={ false }
+						colorSettings={ [
+							{
+								value: textColor,
+								onChange: ( value ) => setAttributes( { textColor: value } ),
+								label: __( 'Text Color', 'snow-monkey-blocks' ),
+							},
+						] }
+					>
+					</PanelColorSettings>
 				</InspectorControls>
 
 				<div className={ classes } style={ sectionStyles }>
 					<div className="c-container">
-						{ shadowColor &&
-							<div className={ shadowClasses } style={ shadowStyles }></div>
-						}
 						<div className={ rowClasses }>
 							<div className={ textColumnClasses }>
-								<div className={ contentClasses }>
+								<div className={ contentClasses } style={ contentStyles }>
 									{ ( ! RichText.isEmpty( title ) || isSelected ) && 'none' !== titleTagName &&
 										<RichText
 											className="smb-section__title smb-section-break-the-grid__title"
@@ -348,6 +404,9 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 							</div>
 							<div className={ imageColumnClasses }>
 								<div className={ figureClasses }>
+									{ shadowColor &&
+										<div className={ shadowClasses } style={ shadowStyles }></div>
+									}
 									<Figure />
 								</div>
 							</div>
@@ -359,7 +418,7 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 	},
 
 	save( { attributes, className } ) {
-		const { titleTagName, title, imageID, imageURL, imageAlt, textColor, imagePosition, imageSizeAdjustment, contentSizeAdjustment, shadowColor, shadowWidth, shadowHeight } = attributes;
+		const { titleTagName, title, imageID, imageURL, imageAlt, textColor, imagePosition, imageSize, contentSize, contentHorizontalPosition, contentVerticalPosition, contentBackgroundColor, contentPadding, shadowColor, shadowHorizontalPosition, shadowVerticalPosition } = attributes;
 
 		const classes = classnames(
 			{
@@ -370,49 +429,60 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 			}
 		);
 
-		const rowClasses = classnames( 'c-row', 'c-row--lg-middle' );
+		const rowClasses = classnames(
+			{
+				'c-row': true,
+				'c-row--margin': true,
+				'c-row--lg-middle': ! contentVerticalPosition,
+				'c-row--lg-top': contentVerticalPosition && contentVerticalPosition.startsWith( 't' ),
+				'c-row--lg-bottom': contentVerticalPosition && contentVerticalPosition.startsWith( 'b' ),
+			}
+		);
+
 		const textColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', 'c-row__col--lg-1-2' );
 		const imageColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', 'c-row__col--lg-1-2' );
 
 		const figureClasses = classnames(
 			{
 				'smb-section-break-the-grid__figure': true,
-				[ `smb-section-break-the-grid__figure--lg-w-${ imageSizeAdjustment }` ]: !! imageSizeAdjustment,
+				[ `smb-section-break-the-grid__figure--w-${ imageSize }` ]: !! imageSize,
 			}
 		);
 
 		const contentClasses = classnames(
 			{
 				'smb-section-break-the-grid__content': true,
-				[ `smb-section-break-the-grid__content--lg-w-${ contentSizeAdjustment }` ]: !! contentSizeAdjustment,
+				[ `smb-section-break-the-grid__content--w-${ contentSize }` ]: !! contentSize,
+				[ `smb-section-break-the-grid__content--p-${ contentPadding }` ]: !! contentPadding,
+				[ `smb-section-break-the-grid__content--horizontal-${ contentHorizontalPosition }` ]: !! contentHorizontalPosition,
+				[ `smb-section-break-the-grid__content--vertical-${ contentVerticalPosition }` ]: !! contentVerticalPosition,
 			}
 		);
 
-		const shadowClasses = classnames(
-			{
-				'smb-section-break-the-grid__shadow': true,
-				[ `smb-section-break-the-grid__shadow--lg-w-${ shadowWidth }` ]: !! shadowWidth,
-				[ `smb-section-break-the-grid__shadow--h-${ shadowHeight }` ]: !! shadowHeight,
-			}
-		);
+		const shadowClasses = classnames( 'smb-section-break-the-grid__shadow' );
 
 		const sectionStyles = {
 			color: textColor || undefined,
 		};
 
-		const shadowStyles = {
-			backgroundColor: shadowColor || undefined,
+		const shadowStyles = {};
+		if ( shadowColor ) {
+			shadowStyles.backgroundColor = shadowColor;
+		}
+		if ( shadowHorizontalPosition || shadowVerticalPosition ) {
+			shadowStyles.transform = `translate(${ shadowHorizontalPosition || 0 }%, ${ shadowVerticalPosition || 0 }%)`;
+		}
+
+		const contentStyles = {
+			backgroundColor: contentBackgroundColor || undefined,
 		};
 
 		return (
 			<div className={ classes } style={ sectionStyles }>
 				<div className="c-container">
-					{ shadowColor &&
-						<div className={ shadowClasses } style={ shadowStyles }></div>
-					}
 					<div className={ rowClasses }>
 						<div className={ textColumnClasses }>
-							<div className={ contentClasses }>
+							<div className={ contentClasses } style={ contentStyles }>
 								{ ! RichText.isEmpty( title ) && 'none' !== titleTagName &&
 									<RichText.Content
 										tagName={ titleTagName }
@@ -427,6 +497,9 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 						</div>
 						<div className={ imageColumnClasses }>
 							<div className={ figureClasses }>
+								{ shadowColor &&
+									<div className={ shadowClasses } style={ shadowStyles }></div>
+								}
 								{ imageURL &&
 									<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
 								}

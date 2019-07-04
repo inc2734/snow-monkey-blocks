@@ -34,23 +34,36 @@ export const schema = {
 		type: 'string',
 		default: 'right',
 	},
-	imageSizeAdjustment: {
+	imageSize: {
 		type: 'string',
-		default: '3-2',
+		default: 'l',
 	},
-	contentSizeAdjustment: {
+	contentSize: {
 		type: 'string',
-		default: '1-2',
+		default: 's',
+	},
+	contentHorizontalPosition: {
+		type: 'string',
+		default: 's',
+	},
+	contentVerticalPosition: {
+		type: 'string',
+	},
+	contentBackgroundColor: {
+		type: 'string',
+	},
+	contentPadding: {
+		type: 'string',
 	},
 	shadowColor: {
 		type: 'string',
 	},
-	shadowWidth: {
-		type: 'string',
-		default: '1-2',
+	shadowHorizontalPosition: {
+		type: 'number',
+		default: 5,
 	},
-	shadowHeight: {
-		type: 'string',
-		default: '1-2',
+	shadowVerticalPosition: {
+		type: 'number',
+		default: 5,
 	},
 };

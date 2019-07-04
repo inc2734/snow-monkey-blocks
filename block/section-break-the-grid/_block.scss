@@ -1,48 +1,77 @@
 .smb-section-break-the-grid {
   $imageSizes: (
-    125: '5-4',
-    133: '4-3',
-    150: '3-2',
-    175: '7-4',
+    140: 'l',
+    180: 'xl',
   );
 
   $contentSizes: (
-    50: '1-2',
-    75: '3-4',
-    125: '5-4',
-    133: '4-3',
-    150: '3-2',
-    175: '7-4',
+    60: 'xs',
+    80: 's',
+    120: 'l',
+    140: 'xl',
   );
 
-  $shadowSizes: (
-    25: '1-4',
-    33: '1-3',
-    50: '1-2',
-    75: '3-4',
-    100: 'full',
+  $contentHorizontalPositions: (
+    15: 'xs',
+    30: 's',
+    45: 'm',
+    60: 'l',
+    75: 'xl',
   );
 
-  &__shadow {
-    position: absolute;
-    bottom: 0;
+  $contentTopVerticalPositions: (
+    60: 'txl',
+    45: 'tl',
+    30: 'tm',
+    15: 'ts',
+  );
 
-    @each $key, $value in $shadowSizes {
-      &--h-#{$value} {
-        top: 100 - $key * 1%;
-      }
-    }
-  }
+  $contentBottomVerticalPositions: (
+    15: 'bs',
+    30: 'bm',
+    45: 'bl',
+    60: 'bxl',
+  );
+
+  $contentPaddings: (
+    1: 's',
+    2: 'm',
+    3: 'l',
+  );
 
   &__content {
     position: relative;
     z-index: 1;
     border-radius: $_border-radius;
 
+    @each $key, $value in $contentPaddings {
+      &--p-#{$value} {
+        @include _padding($key / 2);
+      }
+    }
+
     @include _media-min(lg) {
       @each $key, $value in $contentSizes {
-        &--lg-w-#{$value} {
+        &--w-#{$value} {
           width: $key * 1%;
+        }
+      }
+
+      @each $key, $value in $contentPaddings {
+        &--p-#{$value} {
+          @include _padding($key);
+        }
+      }
+
+      @each $key, $value in $contentTopVerticalPositions {
+        &--vertical-#{$value} {
+          margin-top: 1% * $key;
+        }
+      }
+
+      @each $key, $value in $contentBottomVerticalPositions {
+        &--vertical-#{$value} {
+          margin-bottom: 1% * $key;
         }
       }
     }
@@ -50,33 +79,34 @@
 
   &__figure {
     position: relative;
-    @include _margin-top(1);
 
     @include _media-min(lg) {
-      margin-top: 0;
-
       @each $key, $value in $imageSizes {
-        &--lg-w-#{$value} {
+        &--w-#{$value} {
           width: $key * 1%;
         }
       }
     }
 
-    & > img {
+    img {
+      position: relative;
       width: 100%;
       height: 100%;
       object-fit: contain; // @todo
     }
   }
 
+  &__shadow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
   &.alignfull {
     > .c-container {
       max-width: none;
-
-      @include _media-min(lg) {
-        padding-right: 0;
-        padding-left: 0;
-      }
     }
   }
 
@@ -95,18 +125,11 @@
   }
 
   &--right {
-    .smb-section-break-the-grid__shadow {
-      left: 0;
-      right: _space(1);
-
-      @include _media-min(md) {
-        right: _space(2);
-      }
-
-      @each $key, $value in $shadowSizes {
-        @include _media-min(lg) {
-          &--lg-w-#{$value} {
-            right: 100 - $key * 1%;
+    .smb-section-break-the-grid__content {
+      @include _media-min(lg) {
+        @each $key, $value in $contentHorizontalPositions {
+          &--horizontal-#{$value} {
+            left: 1% * $key;
           }
         }
       }
@@ -123,16 +146,16 @@
         right: 0;
 
         @each $key, $value in $imageSizes {
-          &--lg-w-#{$value} {
-            right: -100% + $key;
+          &--w-#{$value} {
+            margin-left: -1 * $key + 100%;
           }
         }
       }
     }
 
-    .smb-section-break-the-grid__content {
+    &.alignfull .smb-section-break-the-grid__figure {
       @include _media-min(lg) {
-        left: 5vw;
+        right: _space(-1);
       }
     }
   }
@@ -142,18 +165,17 @@
       flex-direction: row-reverse;
     }
 
-    .smb-section-break-the-grid__shadow {
-      right: 0;
-      left: _space(1);
+    .smb-section-break-the-grid__content {
+      @include _media-min(lg) {
+        @each $key, $value in $contentHorizontalPositions {
+          &--horizontal-#{$value} {
+            right: 1% * $key;
+          }
+        }
 
-      @include _media-min(md) {
-        left: _space(2);
-      }
-
-      @each $key, $value in $shadowSizes {
-        @include _media-min(lg) {
-          &--lg-w-#{$value} {
-            left: 100 - $key * 1%;
+        @each $key, $value in $contentSizes {
+          &--w-#{$value} {
+            margin-left: 100 - $key * 1%;
           }
         }
       }
@@ -171,15 +193,9 @@
       }
     }
 
-    .smb-section-break-the-grid__content {
+    &.alignfull .smb-section-break-the-grid__figure {
       @include _media-min(lg) {
-        right: 5vw;
-
-        @each $key, $value in $contentSizes {
-          &--lg-w-#{$value} {
-            right: calc(#{-100% + $key} + 5vw);
-          }
-        }
+        left: _space(-1);
       }
     }
   }
