@@ -16,3 +16,9 @@
     }
   }
 }
+
+.smb-section-break-the-grid .c-row--lg-bottom .smb-section-break-the-grid__body {
+  @include _media-min(lg) {
+    margin-bottom: -32px;
+  }
+}

@@ -20,17 +20,17 @@
   );
 
   $contentTopVerticalPositions: (
-    60: 'txl',
-    45: 'tl',
-    30: 'tm',
-    15: 'ts',
+    100: 'txl',
+    80: 'tl',
+    60: 'tm',
+    40: 'ts',
   );
 
   $contentBottomVerticalPositions: (
-    15: 'bs',
-    30: 'bm',
-    45: 'bl',
-    60: 'bxl',
+    40: 'bs',
+    60: 'bm',
+    80: 'bl',
+    100: 'bxl',
   );
 
   $contentPaddings: (
@@ -39,10 +39,35 @@
     3: 'l',
   );
 
+  @include _media-min(lg) {
+    @each $key, $value in $contentTopVerticalPositions {
+      &--vertical-#{$value} {
+        .smb-section-break-the-grid__content {
+          margin-bottom: 1px * $key;
+        }
+
+        .smb-section-break-the-grid__figure {
+          margin-top: 1px * $key;
+        }
+      }
+    }
+
+    @each $key, $value in $contentBottomVerticalPositions {
+      &--vertical-#{$value} {
+        .smb-section-break-the-grid__content {
+          margin-top: 1px * $key;
+        }
+
+        .smb-section-break-the-grid__figure {
+          margin-bottom: 1px * $key;
+        }
+      }
+    }
+  }
+
   &__content {
     position: relative;
     z-index: 1;
-    border-radius: $_border-radius;
 
     @each $key, $value in $contentPaddings {
       &--p-#{$value} {
@@ -72,18 +97,6 @@
       @each $key, $value in $contentPaddings {
         &--p-#{$value} {
           @include _padding($key);
-        }
-      }
-
-      @each $key, $value in $contentTopVerticalPositions {
-        &--vertical-#{$value} {
-          margin-top: 1% * $key;
-        }
-      }
-
-      @each $key, $value in $contentBottomVerticalPositions {
-        &--vertical-#{$value} {
-          margin-bottom: 1% * $key;
         }
       }
     }

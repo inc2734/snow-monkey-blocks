@@ -12,7 +12,7 @@ const { registerBlockType } = wp.blocks;
 const { RichText, InnerBlocks, InspectorControls, PanelColorSettings, MediaPlaceholder, MediaUpload, ColorPalette } = wp.editor;
 const { PanelBody, SelectControl, BaseControl, Button, RangeControl, ToggleControl } = wp.components;
 const { Fragment } = wp.element;
-const { __ } = wp.i18n;
+const { __, sprintf } = wp.i18n;
 
 registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 	title: __( 'Section (break the grid)', 'snow-monkey-blocks' ),
@@ -33,7 +33,7 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
-		const { titleTagName, title, imageID, imageURL, imageAlt, textColor, imagePosition, imageSize, contentSize, contentHorizontalPosition, contentVerticalPosition, contentBackgroundColor, contentPadding, removeContentOutsidePadding, shadowColor, shadowHorizontalPosition, shadowVerticalPosition } = attributes;
+		const { titleTagName, title, imageID, imageURL, imageAlt, textColor, imagePosition, imageSize, verticalAlignment, contentSize, contentHorizontalPosition, contentVerticalPosition, contentBackgroundColor, contentPadding, removeContentOutsidePadding, shadowColor, shadowHorizontalPosition, shadowVerticalPosition } = attributes;
 
 		const titleTagNames = [ 'h2', 'h3', 'none' ];
 
@@ -42,6 +42,7 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 				'smb-section': true,
 				'smb-section-break-the-grid': true,
 				[ `smb-section-break-the-grid--${ imagePosition }` ]: true,
+				[ `smb-section-break-the-grid--vertical-${ contentVerticalPosition }` ]: contentVerticalPosition && verticalAlignment && 'middle' !== verticalAlignment,
 				[ className ]: !! className,
 			}
 		);
@@ -50,9 +51,7 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 			{
 				'c-row': true,
 				'c-row--margin': true,
-				'c-row--lg-middle': ! contentVerticalPosition,
-				'c-row--lg-top': contentVerticalPosition && contentVerticalPosition.startsWith( 't' ),
-				'c-row--lg-bottom': contentVerticalPosition && contentVerticalPosition.startsWith( 'b' ),
+				[ `c-row--lg-${ verticalAlignment }` ]: true,
 			}
 		);
 
@@ -71,9 +70,8 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 				'smb-section-break-the-grid__content': true,
 				[ `smb-section-break-the-grid__content--w-${ contentSize }` ]: !! contentSize,
 				[ `smb-section-break-the-grid__content--p-${ contentPadding }` ]: !! contentPadding,
-				'smb-section-break-the-grid__content--remove-outside-p': contentPadding && removeContentOutsidePadding,
 				[ `smb-section-break-the-grid__content--horizontal-${ contentHorizontalPosition }` ]: !! contentHorizontalPosition,
-				[ `smb-section-break-the-grid__content--vertical-${ contentVerticalPosition }` ]: !! contentVerticalPosition,
+				'smb-section-break-the-grid__content--remove-outside-p': contentPadding && removeContentOutsidePadding,
 			}
 		);
 
@@ -195,6 +193,27 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 							] }
 							onChange={ ( value ) => setAttributes( { imageSize: value } ) }
 						/>
+
+						<SelectControl
+							label={ __( 'Vertical Alignment', 'snow-monkey-blocks' ) }
+							value={ verticalAlignment }
+							options={ [
+								{
+									value: 'top',
+									label: __( 'Top', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'middle',
+									label: __( 'Middle', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'bottom',
+									label: __( 'Bottom', 'snow-monkey-blocks' ),
+								},
+							] }
+							onChange={ ( value ) => setAttributes( { verticalAlignment: value } ) }
+						/>
+
 					</PanelBody>
 
 					<PanelBody title={ __( 'Contents Settings', 'snow-monkey-blocks' ) } initialOpen={ false }>
@@ -258,49 +277,51 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 							onChange={ ( value ) => setAttributes( { contentHorizontalPosition: value } ) }
 						/>
 
-						<SelectControl
-							label={ __( 'Vertical Margin', 'snow-monkey-blocks' ) }
-							value={ contentVerticalPosition }
-							options={ [
-								{
-									value: '',
-									label: __( 'None', 'snow-monkey-blocks' ),
-								},
-								{
-									value: 'txl',
-									label: __( '[Top] +60%', 'snow-monkey-blocks' ),
-								},
-								{
-									value: 'tl',
-									label: __( '[Top] +45%', 'snow-monkey-blocks' ),
-								},
-								{
-									value: 'tm',
-									label: __( '[Top] +30%', 'snow-monkey-blocks' ),
-								},
-								{
-									value: 'ts',
-									label: __( '[Top] +15%', 'snow-monkey-blocks' ),
-								},
-								{
-									value: 'bs',
-									label: __( '[Bottom] +15%', 'snow-monkey-blocks' ),
-								},
-								{
-									value: 'bm',
-									label: __( '[Bottom] +30%', 'snow-monkey-blocks' ),
-								},
-								{
-									value: 'bl',
-									label: __( '[Bottom] +45%', 'snow-monkey-blocks' ),
-								},
-								{
-									value: 'bxl',
-									label: __( '[Bottom] +60%', 'snow-monkey-blocks' ),
-								},
-							] }
-							onChange={ ( value ) => setAttributes( { contentVerticalPosition: value } ) }
-						/>
+						{ verticalAlignment && 'middle' !== verticalAlignment &&
+							<SelectControl
+								label={ __( 'Vertical position of content', 'snow-monkey-blocks' ) }
+								value={ contentVerticalPosition }
+								options={ [
+									{
+										value: '',
+										label: __( '+-0%', 'snow-monkey-blocks' ),
+									},
+									{
+										value: 'txl',
+										label: sprintf( __( 'Move %1$s up', 'snow-monkey-blocks' ), '100px' ),
+									},
+									{
+										value: 'tl',
+										label: sprintf( __( 'Move %1$s up', 'snow-monkey-blocks' ), '80px' ),
+									},
+									{
+										value: 'tm',
+										label: sprintf( __( 'Move %1$s up', 'snow-monkey-blocks' ), '60px' ),
+									},
+									{
+										value: 'ts',
+										label: sprintf( __( 'Move %1$s up', 'snow-monkey-blocks' ), '40px' ),
+									},
+									{
+										value: 'bs',
+										label: sprintf( __( 'Move %1$s down', 'snow-monkey-blocks' ), '40px' ),
+									},
+									{
+										value: 'bm',
+										label: sprintf( __( 'Move %1$s down', 'snow-monkey-blocks' ), '60px' ),
+									},
+									{
+										value: 'bl',
+										label: sprintf( __( 'Move %1$s down', 'snow-monkey-blocks' ), '80px' ),
+									},
+									{
+										value: 'bxl',
+										label: sprintf( __( 'Move %1$s down', 'snow-monkey-blocks' ), '100px' ),
+									},
+								] }
+								onChange={ ( value ) => setAttributes( { contentVerticalPosition: value } ) }
+							/>
+						}
 
 						<BaseControl
 							className="editor-color-palette-control"
@@ -428,13 +449,14 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 	},
 
 	save( { attributes, className } ) {
-		const { titleTagName, title, imageID, imageURL, imageAlt, textColor, imagePosition, imageSize, contentSize, contentHorizontalPosition, contentVerticalPosition, contentBackgroundColor, contentPadding, removeContentOutsidePadding, shadowColor, shadowHorizontalPosition, shadowVerticalPosition } = attributes;
+		const { titleTagName, title, imageID, imageURL, imageAlt, textColor, imagePosition, imageSize, verticalAlignment, contentSize, contentHorizontalPosition, contentVerticalPosition, contentBackgroundColor, contentPadding, removeContentOutsidePadding, shadowColor, shadowHorizontalPosition, shadowVerticalPosition } = attributes;
 
 		const classes = classnames(
 			{
 				'smb-section': true,
 				'smb-section-break-the-grid': true,
 				[ `smb-section-break-the-grid--${ imagePosition }` ]: true,
+				[ `smb-section-break-the-grid--vertical-${ contentVerticalPosition }` ]: contentVerticalPosition && verticalAlignment && 'middle' !== verticalAlignment,
 				[ className ]: !! className,
 			}
 		);
@@ -443,9 +465,7 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 			{
 				'c-row': true,
 				'c-row--margin': true,
-				'c-row--lg-middle': ! contentVerticalPosition,
-				'c-row--lg-top': contentVerticalPosition && contentVerticalPosition.startsWith( 't' ),
-				'c-row--lg-bottom': contentVerticalPosition && contentVerticalPosition.startsWith( 'b' ),
+				[ `c-row--lg-${ verticalAlignment }` ]: true,
 			}
 		);
 
@@ -464,9 +484,8 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 				'smb-section-break-the-grid__content': true,
 				[ `smb-section-break-the-grid__content--w-${ contentSize }` ]: !! contentSize,
 				[ `smb-section-break-the-grid__content--p-${ contentPadding }` ]: !! contentPadding,
-				'smb-section-break-the-grid__content--remove-outside-p': contentPadding && removeContentOutsidePadding,
 				[ `smb-section-break-the-grid__content--horizontal-${ contentHorizontalPosition }` ]: !! contentHorizontalPosition,
-				[ `smb-section-break-the-grid__content--vertical-${ contentVerticalPosition }` ]: !! contentVerticalPosition,
+				'smb-section-break-the-grid__content--remove-outside-p': contentPadding && removeContentOutsidePadding,
 			}
 		);
 

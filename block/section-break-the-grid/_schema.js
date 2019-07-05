@@ -38,6 +38,10 @@ export const schema = {
 		type: 'string',
 		default: 'l',
 	},
+	verticalAlignment: {
+		type: 'string',
+		default: 'middle',
+	},
 	contentSize: {
 		type: 'string',
 		default: 's',
