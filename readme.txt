@@ -3,8 +3,8 @@ Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.0
-Tested up to: 5.1
-Stable tag: 4.2.0
+Tested up to: 5.2
+Stable tag: 4.3.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -59,6 +59,7 @@ By default these blocks are restricted. If you are using the theme that has 1 co
 * Section
 * Section with background image
 * Section with background video
+* Section (Break the grid)
 
 = Formatter =
 
@@ -105,6 +106,12 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 22. Directory structure block (The number of items can be increased or decreased freely)
 
 == Changelog ==
+
+= 4.3.0 =
+* Add Section (Break the grid) block.
+* [Section] Refactoring gradation panel.
+* [Section with background image] Refactoring gradation panel.
+* [Section with background video] Refactoring gradation panel.
 
 = 4.2.0 =
 * [Section] Add text color setting.
