@@ -424,3 +424,4 @@ License: https://github.com/kenwheeler/slick/blob/master/LICENSE
 - https://visualhunt.com/photo/525/sunset-over-lake-1/
 - https://visualhunt.com/photo/1382/man-sitting-at-table-with-coffee-cup-using-digital-tablet/
 - https://visualhunt.com/photo/722/mountain-landscape-and-tree-at-sunset/
+- https://visualhunt.com/photo/3306/wave-ocean/

@@ -29,7 +29,7 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 	},
 	snowMonkeyBlocks: {
 		isPro: true,
-		screenshot: null,
+		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/section-break-the-grid.png`,
 	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
