@@ -15,8 +15,16 @@
   }
 
   .#{$_prefix}c-row {
+    .#{$_prefix}c-row__col {
+      flex: 1 1 auto;
+      width: auto;
+    }
+
     > .editor-inner-blocks {
       > .editor-block-list__layout {
+        display: flex;
+        flex-wrap: wrap;
+
         > [data-type="snow-monkey-blocks/pricing-table--item"] {
           @include _row__col(1, 1);
           padding-right: 0;
@@ -27,6 +35,7 @@
           }
 
           > .editor-block-list__block-edit {
+            margin-top: 0;
             margin-right: 0 !important;
             margin-left: 0 !important;
 
@@ -37,6 +46,10 @@
               left: 0;
             }
           }
+        }
+
+        > .block-list-appender {
+          flex: 1 1 100%;
         }
       }
     }

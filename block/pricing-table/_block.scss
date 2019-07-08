@@ -17,10 +17,30 @@
     &::-webkit-scrollbar-thumb {
       background: #bcbcbc;
     }
+
+    $columnSize: (
+      25: '1-4',
+      33: '1-3',
+      50: '1-2',
+      100: '1-1',
+    );
+
+    @each $key, $value in $columnSize {
+      &--col-size-#{$value} {
+        white-space: normal;
+
+        .#{$_prefix}c-row .#{$_prefix}c-row__col {
+          flex: 1 0 auto;
+          width: 1% * $key;
+        }
+      }
+    }
   }
 
   .#{$_prefix}c-row {
     &__col {
+      flex: 1 1 100%;
+
       &:not(:first-child) {
         border-top: 1px solid _lighter($_color-gray);
 
@@ -33,10 +53,18 @@
   }
 
   &__item {
-    @include _padding(1);
+    @include _padding(.5);
+
+    @include _media-min(lg) {
+      @include _padding(1);
+    }
 
     &__figure {
-      @include _margin-bottom(1);
+      @include _margin-bottom(.5);
+
+      @include _media-min(lg) {
+        @include _margin-bottom(1);
+      }
     }
 
     &__title {
@@ -45,9 +73,13 @@
     }
 
     &__price {
-      @include _font-size-line-height($_base-font-size-px * 1.5);
+      @include _font-size-line-height($_base-font-size-px * 1.25);
       font-weight: bold;
       text-align: center;
+
+      @include _media-min(lg) {
+        @include _font-size-line-height($_base-font-size-px * 1.5);
+      }
     }
 
     &__lede {
@@ -58,9 +90,13 @@
 
     ul {
       @include _list-unstyled();
-      @include _margin-top(1);
+      @include _margin-top(.5);
       border-top: 1px solid _lighter($_color-gray);
       text-align: center;
+
+      @include _media-min(lg) {
+        @include _margin-top(1);
+      }
 
       > li {
         border-bottom: 1px solid _lighter($_color-gray);
@@ -69,8 +105,12 @@
     }
 
     &__action {
-      @include _margin-top(1);
+      @include _margin-top(.5);
       text-align: center;
+
+      @include _media-min(lg) {
+        @include _margin-top(1);
+      }
     }
   }
 }
