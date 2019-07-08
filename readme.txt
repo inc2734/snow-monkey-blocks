@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.0
 Tested up to: 5.2
-Stable tag: 4.3.0
+Stable tag: 4.3.1
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -106,6 +106,10 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 22. Directory structure block (The number of items can be increased or decreased freely)
 
 == Changelog ==
+
+= 4.3.1 =
+* [Pricing table] Fix layout broken on the smartphone.
+* [Pricing table] Added column size settings for PC and tablet.
 
 = 4.3.0 =
 * Add Section (Break the grid) block.
