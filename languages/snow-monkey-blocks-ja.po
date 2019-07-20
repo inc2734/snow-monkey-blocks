@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2019-07-09 00:00+0900\n"
-"PO-Revision-Date: 2019-07-09 00:01+0900\n"
+"POT-Creation-Date: 2019-07-20 16:07+0900\n"
+"PO-Revision-Date: 2019-07-20 16:07+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -150,6 +150,7 @@ msgstr "項目"
 #: block/panels/item/vertical/block.js:77 block/pickup-slider/block.js:30
 #: block/pricing-table/block.js:45 block/rating-box/item/block.js:40
 #: block/recent-posts/_edit.js:57 block/section-break-the-grid/block.js:144
+#: block/section-side-heading/block.js:104
 #: block/section-with-bgimage/block.js:84
 #: block/section-with-bgvideo/block.js:91 block/section/block.js:81
 #: block/slider/block.js:57 block/step/item/standard/block.js:86
@@ -202,7 +203,9 @@ msgstr "edit"
 msgid "lightbulb"
 msgstr "lightbulb"
 
-#: block/alert/block.js:91 block/balloon/block.js:56 block/section/block.js:149
+#: block/alert/block.js:91 block/balloon/block.js:56
+#: block/section-side-heading/block.js:192
+#: block/section-side-heading/block.js:236 block/section/block.js:149
 #: block/section/block.js:193
 msgid "Type"
 msgstr "タイプ"
@@ -231,6 +234,7 @@ msgstr "アイコン"
 #: block/panels/item/vertical/block.js:138
 #: block/pricing-table/item/block.js:140 block/rating-box/item/block.js:67
 #: block/section-break-the-grid/block.js:427
+#: block/section-side-heading/block.js:303
 #: block/section-with-bgimage/block.js:237
 #: block/section-with-bgvideo/block.js:241 block/section/block.js:258
 #: block/step/item/free/block.js:58 block/step/item/standard/block.js:157
@@ -262,6 +266,7 @@ msgstr "逆の吹き出し"
 #: block/items/item/standard/block.js:128 block/list/block.js:97
 #: block/pricing-table/item/block.js:108 block/rating-box/item/block.js:51
 #: block/section-break-the-grid/block.js:402
+#: block/section-side-heading/block.js:149
 #: block/section-with-bgimage/block.js:151
 #: block/section-with-bgvideo/block.js:175 block/section/block.js:106
 #: block/step/item/free/block.js:40 block/step/item/standard/block.js:134
@@ -290,7 +295,8 @@ msgstr "枠線の太さ"
 
 #: block/box/block.js:61 block/btn-box/block.js:111 block/btn/block.js:108
 #: block/pricing-table/item/block.js:114
-#: block/section-break-the-grid/block.js:328 block/section/block.js:117
+#: block/section-break-the-grid/block.js:328
+#: block/section-side-heading/block.js:160 block/section/block.js:117
 msgid "Background Color"
 msgstr "背景色"
 
@@ -301,6 +307,7 @@ msgstr "枠線の色"
 #: block/box/block.js:71 block/btn/block.js:113
 #: block/pricing-table/item/block.js:119
 #: block/section-break-the-grid/block.js:408
+#: block/section-side-heading/block.js:155
 #: block/section-with-bgimage/block.js:157
 #: block/section-with-bgvideo/block.js:181 block/section/block.js:112
 msgid "Text Color"
@@ -508,7 +515,8 @@ msgstr "コンテナ"
 msgid "Container blocks keep content within a certain width."
 msgstr "コンテナブロックはコンテンツを一定の幅に収めます。"
 
-#: block/container/block.js:50 block/section-with-bgimage/block.js:144
+#: block/container/block.js:50 block/section-side-heading/block.js:142
+#: block/section-with-bgimage/block.js:144
 #: block/section-with-bgvideo/block.js:168 block/section/block.js:99
 msgid "Make the content width slim"
 msgstr "コンテンツの幅をスリム幅にする"
@@ -798,6 +806,7 @@ msgstr "削除"
 #: block/panels/item/horizontal/block.js:86
 #: block/panels/item/vertical/block.js:78
 #: block/section-break-the-grid/block.js:145
+#: block/section-side-heading/block.js:105
 #: block/section-with-bgimage/block.js:85
 #: block/section-with-bgvideo/block.js:92 block/section/block.js:82
 msgid "Title Tag"
@@ -918,16 +927,19 @@ msgstr "画像カラムのサイズ"
 msgid "66%"
 msgstr "66%"
 
-#: block/media-text/block.js:123 block/pricing-table/block.js:65
+#: block/media-text/block.js:123 block/pricing-table/block.js:66
+#: block/section-side-heading/block.js:128
 msgid "50%"
 msgstr "50%"
 
-#: block/media-text/block.js:127 block/pricing-table/block.js:61
+#: block/media-text/block.js:127 block/pricing-table/block.js:62
+#: block/section-side-heading/block.js:132
 msgid "33%"
 msgstr "33%"
 
-#: block/media-text/block.js:131 block/pricing-table/block.js:57
+#: block/media-text/block.js:131 block/pricing-table/block.js:58
 #: block/section-break-the-grid/block.js:274
+#: block/section-side-heading/block.js:136
 msgid "25%"
 msgstr "25%"
 
@@ -1008,11 +1020,11 @@ msgid ""
 "\"Auto\"."
 msgstr "各項目のテキストが長い場合は「自動」以外を選択することをお勧めします。"
 
-#: block/pricing-table/block.js:53
+#: block/pricing-table/block.js:54
 msgid "Auto"
 msgstr "自動"
 
-#: block/pricing-table/block.js:69
+#: block/pricing-table/block.js:70
 msgid "100%"
 msgstr "100%"
 
@@ -1090,7 +1102,7 @@ msgid "You can display recent posts with richer."
 msgstr "最近の投稿をよりリッチに表示できます。"
 
 #: block/section-break-the-grid/block.js:18
-msgid "Section (break the grid)"
+msgid "Section (Break the grid)"
 msgstr "セクション（ブロークングリッド）"
 
 #: block/section-break-the-grid/block.js:19
@@ -1223,7 +1235,9 @@ msgstr "外側の余白を削除"
 msgid "Shadow Settings"
 msgstr "影の設定"
 
-#: block/section-break-the-grid/block.js:372 block/section/block.js:182
+#: block/section-break-the-grid/block.js:372
+#: block/section-side-heading/block.js:225
+#: block/section-side-heading/block.js:269 block/section/block.js:182
 #: block/section/block.js:226
 msgid "Color"
 msgstr "色"
@@ -1235,6 +1249,68 @@ msgstr "水平位置"
 #: block/section-break-the-grid/block.js:392
 msgid "Vertical Position"
 msgstr "垂直位置"
+
+#: block/section-side-heading/block.js:19
+msgid "Section (Side heading)"
+msgstr "セクション（サイド見出し）"
+
+#: block/section-side-heading/block.js:20 block/section/block.js:20
+msgid "Contents can be separated by appropriate margins."
+msgstr "コンテンツを適切な余白で区切ることができます。"
+
+#: block/section-side-heading/block.js:122
+msgid "Heading column size"
+msgstr "見出しカラムのサイズ"
+
+#: block/section-side-heading/block.js:167 block/section/block.js:124
+msgid "Background Gradation Settings"
+msgstr "背景グラデーションの設定"
+
+#: block/section-side-heading/block.js:170 block/section/block.js:127
+msgid "Background Color 2"
+msgstr "背景色2"
+
+#: block/section-side-heading/block.js:180 block/section/block.js:137
+msgid "Background Gradation Angle"
+msgstr "背景グラデーションの角度"
+
+#: block/section-side-heading/block.js:190 block/section/block.js:147
+msgid "Top divider Settings"
+msgstr "上の仕切りの設定"
+
+#: block/section-side-heading/block.js:198
+#: block/section-side-heading/block.js:242 block/section/block.js:155
+#: block/section/block.js:199
+msgid "Tilt"
+msgstr "傾斜"
+
+#: block/section-side-heading/block.js:202
+#: block/section-side-heading/block.js:246 block/section/block.js:159
+#: block/section/block.js:203
+msgid "Curve"
+msgstr "カーブ"
+
+#: block/section-side-heading/block.js:206
+#: block/section-side-heading/block.js:250 block/section/block.js:163
+#: block/section/block.js:207
+msgid "Wave"
+msgstr "波"
+
+#: block/section-side-heading/block.js:210
+#: block/section-side-heading/block.js:254 block/section/block.js:167
+#: block/section/block.js:211
+msgid "Triangle"
+msgstr "三角"
+
+#: block/section-side-heading/block.js:216
+#: block/section-side-heading/block.js:260 block/section/block.js:173
+#: block/section/block.js:217
+msgid "Level"
+msgstr "レベル"
+
+#: block/section-side-heading/block.js:234 block/section/block.js:191
+msgid "Bottom divider Settings"
+msgstr "下の仕切りの設定"
 
 #: block/section-with-bgimage/block.js:18
 msgid "Section (with background image)"
@@ -1321,50 +1397,6 @@ msgstr "ビデオの高さ"
 #: block/section/block.js:19
 msgid "Section"
 msgstr "セクション"
-
-#: block/section/block.js:20
-msgid "Contents can be separated by appropriate margins."
-msgstr "コンテンツを適切な余白で区切ることができます。"
-
-#: block/section/block.js:124
-msgid "Background Gradation Settings"
-msgstr "背景グラデーションの設定"
-
-#: block/section/block.js:127
-msgid "Background Color 2"
-msgstr "背景色2"
-
-#: block/section/block.js:137
-msgid "Background Gradation Angle"
-msgstr "背景グラデーションの角度"
-
-#: block/section/block.js:147
-msgid "Top divider Settings"
-msgstr "上の仕切りの設定"
-
-#: block/section/block.js:155 block/section/block.js:199
-msgid "Tilt"
-msgstr "傾斜"
-
-#: block/section/block.js:159 block/section/block.js:203
-msgid "Curve"
-msgstr "カーブ"
-
-#: block/section/block.js:163 block/section/block.js:207
-msgid "Wave"
-msgstr "波"
-
-#: block/section/block.js:167 block/section/block.js:211
-msgid "Triangle"
-msgstr "三角"
-
-#: block/section/block.js:173 block/section/block.js:217
-msgid "Level"
-msgstr "レベル"
-
-#: block/section/block.js:191
-msgid "Bottom divider Settings"
-msgstr "下の仕切りの設定"
 
 #: block/slider/block.js:31
 msgid "Slider"

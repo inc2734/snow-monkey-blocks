@@ -60,6 +60,7 @@ By default these blocks are restricted. If you are using the theme that has 1 co
 * Section with background image
 * Section with background video
 * Section (Break the grid)
+* Section (Side heading)
 
 = Formatter =
 

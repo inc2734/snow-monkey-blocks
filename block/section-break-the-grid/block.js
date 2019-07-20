@@ -15,7 +15,7 @@ const { Fragment } = wp.element;
 const { __, sprintf } = wp.i18n;
 
 registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
-	title: __( 'Section (break the grid)', 'snow-monkey-blocks' ),
+	title: __( 'Section (Break the grid)', 'snow-monkey-blocks' ),
 	description: __( 'It is a break the grid section.', 'snow-monkey-blocks' ),
 	icon: {
 		foreground: blockConfig.blockIconColor,
@@ -29,7 +29,7 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 	},
 	snowMonkeyBlocks: {
 		isPro: true,
-		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/section-break-the-grid.png`,
+		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/section-side-heading.png`,
 	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
