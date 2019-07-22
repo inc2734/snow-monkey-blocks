@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2019-07-20 16:07+0900\n"
-"PO-Revision-Date: 2019-07-20 16:07+0900\n"
+"POT-Creation-Date: 2019-07-21 17:46+0900\n"
+"PO-Revision-Date: 2019-07-21 17:46+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -130,9 +130,9 @@ msgid ""
 msgstr "アコーディオンのように伸縮するコンテンツエリアを設定できます。"
 
 #: block/accordion/item/block.js:16 block/faq/item/block.js:16
-#: block/panels/item/vertical/block.js:17 block/pricing-table/item/block.js:16
-#: block/rating-box/item/block.js:17 block/step/item/standard/block.js:16
-#: block/testimonial/item/block.js:15
+#: block/panels/item/vertical/block.js:17 block/price-menu/item/block.js:13
+#: block/pricing-table/item/block.js:16 block/rating-box/item/block.js:17
+#: block/step/item/standard/block.js:16 block/testimonial/item/block.js:15
 msgid "Item"
 msgstr "項目"
 
@@ -150,7 +150,7 @@ msgstr "項目"
 #: block/panels/item/vertical/block.js:77 block/pickup-slider/block.js:30
 #: block/pricing-table/block.js:45 block/rating-box/item/block.js:40
 #: block/recent-posts/_edit.js:57 block/section-break-the-grid/block.js:144
-#: block/section-side-heading/block.js:104
+#: block/section-side-heading/block.js:105
 #: block/section-with-bgimage/block.js:84
 #: block/section-with-bgvideo/block.js:91 block/section/block.js:81
 #: block/slider/block.js:57 block/step/item/standard/block.js:86
@@ -204,8 +204,8 @@ msgid "lightbulb"
 msgstr "lightbulb"
 
 #: block/alert/block.js:91 block/balloon/block.js:56
-#: block/section-side-heading/block.js:192
-#: block/section-side-heading/block.js:236 block/section/block.js:149
+#: block/section-side-heading/block.js:193
+#: block/section-side-heading/block.js:237 block/section/block.js:149
 #: block/section/block.js:193
 msgid "Type"
 msgstr "タイプ"
@@ -231,10 +231,10 @@ msgstr "アイコン"
 #: block/alert/block.js:140 block/items/item/block-link/block.js:162
 #: block/items/item/block.js:175 block/items/item/standard/block.js:162
 #: block/media-text/block.js:149 block/panels/item/horizontal/block.js:163
-#: block/panels/item/vertical/block.js:138
+#: block/panels/item/vertical/block.js:138 block/price-menu/item/block.js:32
 #: block/pricing-table/item/block.js:140 block/rating-box/item/block.js:67
 #: block/section-break-the-grid/block.js:427
-#: block/section-side-heading/block.js:303
+#: block/section-side-heading/block.js:304
 #: block/section-with-bgimage/block.js:237
 #: block/section-with-bgvideo/block.js:241 block/section/block.js:258
 #: block/step/item/free/block.js:58 block/step/item/standard/block.js:157
@@ -266,7 +266,7 @@ msgstr "逆の吹き出し"
 #: block/items/item/standard/block.js:128 block/list/block.js:97
 #: block/pricing-table/item/block.js:108 block/rating-box/item/block.js:51
 #: block/section-break-the-grid/block.js:402
-#: block/section-side-heading/block.js:149
+#: block/section-side-heading/block.js:150
 #: block/section-with-bgimage/block.js:151
 #: block/section-with-bgvideo/block.js:175 block/section/block.js:106
 #: block/step/item/free/block.js:40 block/step/item/standard/block.js:134
@@ -296,7 +296,7 @@ msgstr "枠線の太さ"
 #: block/box/block.js:61 block/btn-box/block.js:111 block/btn/block.js:108
 #: block/pricing-table/item/block.js:114
 #: block/section-break-the-grid/block.js:328
-#: block/section-side-heading/block.js:160 block/section/block.js:117
+#: block/section-side-heading/block.js:161 block/section/block.js:117
 msgid "Background Color"
 msgstr "背景色"
 
@@ -307,7 +307,7 @@ msgstr "枠線の色"
 #: block/box/block.js:71 block/btn/block.js:113
 #: block/pricing-table/item/block.js:119
 #: block/section-break-the-grid/block.js:408
-#: block/section-side-heading/block.js:155
+#: block/section-side-heading/block.js:156
 #: block/section-with-bgimage/block.js:157
 #: block/section-with-bgvideo/block.js:181 block/section/block.js:112
 msgid "Text Color"
@@ -515,7 +515,7 @@ msgstr "コンテナ"
 msgid "Container blocks keep content within a certain width."
 msgstr "コンテナブロックはコンテンツを一定の幅に収めます。"
 
-#: block/container/block.js:50 block/section-side-heading/block.js:142
+#: block/container/block.js:50 block/section-side-heading/block.js:143
 #: block/section-with-bgimage/block.js:144
 #: block/section-with-bgvideo/block.js:168 block/section/block.js:99
 msgid "Make the content width slim"
@@ -806,7 +806,7 @@ msgstr "削除"
 #: block/panels/item/horizontal/block.js:86
 #: block/panels/item/vertical/block.js:78
 #: block/section-break-the-grid/block.js:145
-#: block/section-side-heading/block.js:105
+#: block/section-side-heading/block.js:106
 #: block/section-with-bgimage/block.js:85
 #: block/section-with-bgvideo/block.js:92 block/section/block.js:82
 msgid "Title Tag"
@@ -928,18 +928,18 @@ msgid "66%"
 msgstr "66%"
 
 #: block/media-text/block.js:123 block/pricing-table/block.js:66
-#: block/section-side-heading/block.js:128
+#: block/section-side-heading/block.js:129
 msgid "50%"
 msgstr "50%"
 
 #: block/media-text/block.js:127 block/pricing-table/block.js:62
-#: block/section-side-heading/block.js:132
+#: block/section-side-heading/block.js:133
 msgid "33%"
 msgstr "33%"
 
 #: block/media-text/block.js:131 block/pricing-table/block.js:58
 #: block/section-break-the-grid/block.js:274
-#: block/section-side-heading/block.js:136
+#: block/section-side-heading/block.js:137
 msgid "25%"
 msgstr "25%"
 
@@ -1002,6 +1002,22 @@ msgstr "全体リンク"
 msgid "Posts with \"pickup\" tag are displayed as sliders."
 msgstr "「pickup」タグが付与された記事をスライダーとして表示します。"
 
+#: block/price-menu/block.js:12
+msgid "Price menu"
+msgstr "価格メニュー"
+
+#: block/price-menu/block.js:13
+msgid "Display the menu name and the price."
+msgstr "メニュー名と価格を表示します。"
+
+#: block/price-menu/item/block.js:14
+msgid "It is a child block of the price menu block."
+msgstr "価格メニューブロックの子ブロックです。"
+
+#: block/price-menu/item/block.js:41 block/pricing-table/item/block.js:149
+msgid "Write price..."
+msgstr "価格を書く…"
+
 #: block/pricing-table/block.js:16
 msgid "Pricing table"
 msgstr "価格表"
@@ -1031,10 +1047,6 @@ msgstr "100%"
 #: block/pricing-table/item/block.js:17
 msgid "It is a child block of the pricing table block."
 msgstr "価格表ブロックの子ブロックです。"
-
-#: block/pricing-table/item/block.js:149
-msgid "Write price..."
-msgstr "価格を書く…"
 
 #: block/rating-box/block.js:13
 msgid "Rating box"
@@ -1236,8 +1248,8 @@ msgid "Shadow Settings"
 msgstr "影の設定"
 
 #: block/section-break-the-grid/block.js:372
-#: block/section-side-heading/block.js:225
-#: block/section-side-heading/block.js:269 block/section/block.js:182
+#: block/section-side-heading/block.js:226
+#: block/section-side-heading/block.js:270 block/section/block.js:182
 #: block/section/block.js:226
 msgid "Color"
 msgstr "色"
@@ -1258,57 +1270,57 @@ msgstr "セクション（サイド見出し）"
 msgid "Contents can be separated by appropriate margins."
 msgstr "コンテンツを適切な余白で区切ることができます。"
 
-#: block/section-side-heading/block.js:122
+#: block/section-side-heading/block.js:123
 msgid "Heading column size"
 msgstr "見出しカラムのサイズ"
 
-#: block/section-side-heading/block.js:167 block/section/block.js:124
+#: block/section-side-heading/block.js:168 block/section/block.js:124
 msgid "Background Gradation Settings"
 msgstr "背景グラデーションの設定"
 
-#: block/section-side-heading/block.js:170 block/section/block.js:127
+#: block/section-side-heading/block.js:171 block/section/block.js:127
 msgid "Background Color 2"
 msgstr "背景色2"
 
-#: block/section-side-heading/block.js:180 block/section/block.js:137
+#: block/section-side-heading/block.js:181 block/section/block.js:137
 msgid "Background Gradation Angle"
 msgstr "背景グラデーションの角度"
 
-#: block/section-side-heading/block.js:190 block/section/block.js:147
+#: block/section-side-heading/block.js:191 block/section/block.js:147
 msgid "Top divider Settings"
 msgstr "上の仕切りの設定"
 
-#: block/section-side-heading/block.js:198
-#: block/section-side-heading/block.js:242 block/section/block.js:155
+#: block/section-side-heading/block.js:199
+#: block/section-side-heading/block.js:243 block/section/block.js:155
 #: block/section/block.js:199
 msgid "Tilt"
 msgstr "傾斜"
 
-#: block/section-side-heading/block.js:202
-#: block/section-side-heading/block.js:246 block/section/block.js:159
+#: block/section-side-heading/block.js:203
+#: block/section-side-heading/block.js:247 block/section/block.js:159
 #: block/section/block.js:203
 msgid "Curve"
 msgstr "カーブ"
 
-#: block/section-side-heading/block.js:206
-#: block/section-side-heading/block.js:250 block/section/block.js:163
+#: block/section-side-heading/block.js:207
+#: block/section-side-heading/block.js:251 block/section/block.js:163
 #: block/section/block.js:207
 msgid "Wave"
 msgstr "波"
 
-#: block/section-side-heading/block.js:210
-#: block/section-side-heading/block.js:254 block/section/block.js:167
+#: block/section-side-heading/block.js:211
+#: block/section-side-heading/block.js:255 block/section/block.js:167
 #: block/section/block.js:211
 msgid "Triangle"
 msgstr "三角"
 
-#: block/section-side-heading/block.js:216
-#: block/section-side-heading/block.js:260 block/section/block.js:173
+#: block/section-side-heading/block.js:217
+#: block/section-side-heading/block.js:261 block/section/block.js:173
 #: block/section/block.js:217
 msgid "Level"
 msgstr "レベル"
 
-#: block/section-side-heading/block.js:234 block/section/block.js:191
+#: block/section-side-heading/block.js:235 block/section/block.js:191
 msgid "Bottom divider Settings"
 msgstr "下の仕切りの設定"
 

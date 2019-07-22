@@ -51,6 +51,7 @@ https://www.youtube.com/watch?v=uD6omb4TLdA&t=283s
 * Countdown timer
 * Directory structure
 * Container (Can be used only with Snow Monkey)
+* Price menu
 
 = Section blocks =
 
@@ -105,6 +106,7 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 20. Limited datetime block (The number of items can be increased or decreased freely)
 21. Countdown timer block
 22. Directory structure block (The number of items can be increased or decreased freely)
+23. Price menu block (The number of items can be increased or decreased freely)
 
 == Changelog ==
 

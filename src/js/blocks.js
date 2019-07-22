@@ -38,5 +38,7 @@ import '../../block/countdown/block.js';
 import '../../block/directory-structure/block.js';
 import '../../block/directory-structure/item/directory/block.js';
 import '../../block/directory-structure/item/file/block.js';
+import '../../block/price-menu/block.js';
+import '../../block/price-menu/item/block.js';
 
 import './_highlighter.js';

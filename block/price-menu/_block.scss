@@ -1,0 +1,20 @@
+.smb-price-menu {
+  border-top: 1px solid _lighter($_color-gray);
+
+  &__item {
+    border-bottom: 1px solid _lighter($_color-gray);
+    @include _padding(.5, 0);
+
+    @include _media-min(md) {
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      > * {
+        flex: 0 0 auto;
+      }
+    }
+  }
+}

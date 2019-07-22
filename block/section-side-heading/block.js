@@ -44,6 +44,7 @@ registerBlockType( 'snow-monkey-blocks/section-side-heading', {
 			{
 				'smb-section': true,
 				'smb-section-side-heading': true,
+				[ className ]: !! className,
 			}
 		);
 
@@ -326,6 +327,7 @@ registerBlockType( 'snow-monkey-blocks/section-side-heading', {
 			{
 				'smb-section': true,
 				'smb-section-side-heading': true,
+				[ className ]: !! className,
 			}
 		);
 
