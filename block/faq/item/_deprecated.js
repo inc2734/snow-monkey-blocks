@@ -26,12 +26,9 @@ export const deprecated = [
 				} else {
 					answer = answer.split();
 				}
-				console.log(answer);
 
 				return times( answer.length, ( index ) => {
-					console.log(answer[ index ]);
 					const content = answer[ index ].replace( '<p>', '' ).replace( '</p>', '' );
-					console.log(content);
 
 					return createBlock( 'core/paragraph', {
 						content: content,
