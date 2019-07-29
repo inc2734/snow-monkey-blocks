@@ -11,9 +11,14 @@
 [data-type="snow-monkey-blocks/thumbnail-gallery"] {
   .smb-thumbnail-gallery {
     &__canvas {
+      > .block-editor-inner-blocks {
+        padding-top: 0;
+      }
+
       > .editor-inner-blocks > .editor-block-list__layout {
         @include _row();
         @include _row--margin(.5);
+        margin-bottom: 0;
 
         > [data-type="snow-monkey-blocks/thumbnail-gallery--item"] {
           position: relative;
