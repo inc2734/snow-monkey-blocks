@@ -112,7 +112,7 @@ export const deprecated = [
 		migrate( attributes ) {
 			const migratedInnerBlocks = () => {
 				let summary = attributes.summary;
-				if ( summary.match( '</p></p>' ) ) {
+				if ( summary.match( '</p><p>' ) ) {
 					summary = attributes.summary.split( '</p><p>' );
 				} else {
 					summary = attributes.summary.split();

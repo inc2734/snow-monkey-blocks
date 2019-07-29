@@ -7,7 +7,7 @@ import { schema } from './_schema.js';
 import { deprecated } from './_deprecated.js';
 
 const { registerBlockType } = wp.blocks;
-const { RichText, InspectorControls, PanelColorSettings } = wp.editor;
+const { RichText, InspectorControls, PanelColorSettings, InnerBlocks } = wp.editor;
 const { PanelBody, BaseControl, TextControl } = wp.components;
 const { Fragment } = wp.element;
 const { __, sprintf } = wp.i18n;
@@ -24,7 +24,7 @@ registerBlockType( 'snow-monkey-blocks/faq--item', {
 	attributes: schema,
 
 	edit( { attributes, setAttributes, className } ) {
-		const { question, answer, questionColor, answerColor, questionLabel, answerLabel } = attributes;
+		const { question, questionColor, answerColor, questionLabel, answerLabel } = attributes;
 
 		const classes = classnames( 'smb-faq__item', className );
 
@@ -94,13 +94,10 @@ registerBlockType( 'snow-monkey-blocks/faq--item', {
 						<div className="smb-faq__item__answer__label" style={ faqItemAnswerLabelStyles }>
 							{ answerLabel }
 						</div>
-						<RichText
-							className="smb-faq__item__answer__body"
-							placeholder={ __( 'Write answer...', 'snow-monkey-blocks' ) }
-							value={ answer }
-							multiline="p"
-							onChange={ ( value ) => setAttributes( { answer: value } ) }
-						/>
+
+						<div className="smb-faq__item__answer__body">
+							<InnerBlocks />
+						</div>
 					</div>
 				</div>
 			</Fragment>
@@ -108,7 +105,7 @@ registerBlockType( 'snow-monkey-blocks/faq--item', {
 	},
 
 	save( { attributes, className } ) {
-		const { question, answer, questionColor, answerColor, questionLabel, answerLabel } = attributes;
+		const { question, questionColor, answerColor, questionLabel, answerLabel } = attributes;
 
 		const classes = classnames( 'smb-faq__item', className );
 
@@ -136,7 +133,7 @@ registerBlockType( 'snow-monkey-blocks/faq--item', {
 						{ answerLabel }
 					</div>
 					<div className="smb-faq__item__answer__body">
-						<RichText.Content value={ answer } />
+						<InnerBlocks.Content />
 					</div>
 				</div>
 			</div>

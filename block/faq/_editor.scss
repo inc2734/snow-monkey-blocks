@@ -1,9 +1,10 @@
 .smb-faq {
   &__item {
-    &__question,
     &__answer {
-      .editor-rich-text {
-        overflow: hidden;
+      &__body {
+        > .block-editor-inner-blocks {
+          padding-top: 0 !important;
+        }
       }
     }
   }
