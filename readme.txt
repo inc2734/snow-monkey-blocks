@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.0
 Tested up to: 5.2
-Stable tag: 4.4.0
+Stable tag: 4.5.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -109,6 +109,17 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 23. Price menu block (The number of items can be increased or decreased freely)
 
 == Changelog ==
+
+= 4.5.0 =
+* [FAQ] The answer changed to free entry.
+* [Slider] Add link url/target setting.
+* Fix bug that there is no bottom margin of thumbnail gallery/slider block on editor.
+
+= 4.4.0 =
+* Add the Price menu block.
+* Add the Section side heading block.
+* Fix bug that container width shifts when making the section block wide/full width in editor.
+* Fix bug that margin may be created on the right side of the image of the horizontal panel block on E11.
 
 = 4.3.1 =
 * [Pricing table] Fix layout broken on the smartphone.
