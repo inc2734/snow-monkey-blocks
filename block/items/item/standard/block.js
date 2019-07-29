@@ -162,6 +162,7 @@ registerBlockType( 'snow-monkey-blocks/items--item--standard', {
 								placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
 								value={ title }
 								onChange={ ( value ) => setAttributes( { title: value } ) }
+								keepPlaceholderOnFocus={ true }
 							/>
 						}
 
@@ -171,6 +172,7 @@ registerBlockType( 'snow-monkey-blocks/items--item--standard', {
 								placeholder={ __( 'Write lede...', 'snow-monkey-blocks' ) }
 								value={ lede }
 								onChange={ ( value ) => setAttributes( { lede: value } ) }
+								keepPlaceholderOnFocus={ true }
 							/>
 						}
 
@@ -180,6 +182,7 @@ registerBlockType( 'snow-monkey-blocks/items--item--standard', {
 								placeholder={ __( 'Write content...', 'snow-monkey-blocks' ) }
 								value={ summary }
 								onChange={ ( value ) => setAttributes( { summary: value } ) }
+								keepPlaceholderOnFocus={ true }
 							/>
 						}
 
@@ -198,6 +201,7 @@ registerBlockType( 'snow-monkey-blocks/items--item--standard', {
 										placeholder={ __( 'Button', 'snow-monkey-blocks' ) }
 										formattingControls={ [] }
 										onChange={ ( value ) => setAttributes( { btnLabel: value } ) }
+										keepPlaceholderOnFocus={ true }
 									/>
 								</span>
 							</div>

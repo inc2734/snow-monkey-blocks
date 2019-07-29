@@ -163,6 +163,7 @@ registerBlockType( 'snow-monkey-blocks/panels--item--horizontal', {
 									placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
 									value={ title }
 									onChange={ ( value ) => setAttributes( { title: value } ) }
+									keepPlaceholderOnFocus={ true }
 								/>
 							}
 
@@ -172,6 +173,7 @@ registerBlockType( 'snow-monkey-blocks/panels--item--horizontal', {
 									placeholder={ __( 'Write content...', 'snow-monkey-blocks' ) }
 									value={ summary }
 									onChange={ ( value ) => setAttributes( { summary: value } ) }
+									keepPlaceholderOnFocus={ true }
 								/>
 							}
 
@@ -183,6 +185,7 @@ registerBlockType( 'snow-monkey-blocks/panels--item--horizontal', {
 										placeholder={ __( 'Link', 'snow-monkey-blocks' ) }
 										formattingControls={ [] }
 										onChange={ ( value ) => setAttributes( { linkLabel: value } ) }
+										keepPlaceholderOnFocus={ true }
 									/>
 								</div>
 							}
