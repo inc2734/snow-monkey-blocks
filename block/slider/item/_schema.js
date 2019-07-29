@@ -23,4 +23,12 @@ export const schema = {
 		source: 'html',
 		selector: '.smb-slider__item__caption',
 	},
+	url: {
+		type: 'string',
+		default: '',
+	},
+	target: {
+		type: 'string',
+		default: '_self',
+	},
 };
