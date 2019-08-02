@@ -115,15 +115,15 @@ registerBlockType( 'snow-monkey-blocks/slider--item', {
 					</PanelBody>
 				</InspectorControls>
 
-				{ ! url ? (
-					<a
+				{ !! url ? (
+					<span
 						className={ classes }
 						href={ url }
 						target={ '_self' === target ? undefined : target }
 						rel={ '_self' === target ? undefined : 'noopener noreferrer' }
 					>
 						<Item />
-					</a>
+					</span>
 				) : (
 					<div className={ classes }>
 						<Item />
