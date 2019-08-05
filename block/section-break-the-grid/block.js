@@ -33,9 +33,12 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
-		const { titleTagName, title, imageID, imageURL, imageAlt, textColor, imagePosition, imageSize, verticalAlignment, contentSize, contentHorizontalPosition, contentVerticalPosition, contentBackgroundColor, contentPadding, removeContentOutsidePadding, shadowColor, shadowHorizontalPosition, shadowVerticalPosition } = attributes;
+		const { wrapperTagName, titleTagName, title, imageID, imageURL, imageAlt, textColor, imagePosition, imageSize, verticalAlignment, contentSize, contentHorizontalPosition, contentVerticalPosition, contentBackgroundColor, contentPadding, removeContentOutsidePadding, shadowColor, shadowHorizontalPosition, shadowVerticalPosition } = attributes;
 
+		const wrapperTagNames = [ 'div', 'section', 'aside' ];
 		const titleTagNames = [ 'h2', 'h3', 'none' ];
+
+		const Wrapper = wrapperTagName;
 
 		const classes = classnames(
 			{
@@ -142,6 +145,22 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 			<Fragment>
 				<InspectorControls>
 					<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
+						<BaseControl label={ __( 'Wrapper Tag', 'snow-monkey-blocks' ) }>
+							<div className="smb-list-icon-selector">
+								{ times( wrapperTagNames.length, ( index ) => {
+									return (
+										<Button
+											isDefault
+											isPrimary={ wrapperTagName === wrapperTagNames[ index ] }
+											onClick={ () => setAttributes( { wrapperTagName: wrapperTagNames[ index ] } ) }
+										>
+											{ wrapperTagNames[ index ] }
+										</Button>
+									);
+								} ) }
+							</div>
+						</BaseControl>
+
 						<BaseControl label={ __( 'Title Tag', 'snow-monkey-blocks' ) }>
 							<div className="smb-list-icon-selector">
 								{ times( titleTagNames.length, ( index ) => {
@@ -412,7 +431,7 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 					</PanelColorSettings>
 				</InspectorControls>
 
-				<div className={ classes } style={ sectionStyles }>
+				<Wrapper className={ classes } style={ sectionStyles }>
 					<div className="c-container">
 						<div className={ rowClasses }>
 							<div className={ textColumnClasses }>
@@ -443,13 +462,15 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 							</div>
 						</div>
 					</div>
-				</div>
+				</Wrapper>
 			</Fragment>
 		);
 	},
 
 	save( { attributes, className } ) {
-		const { titleTagName, title, imageID, imageURL, imageAlt, textColor, imagePosition, imageSize, verticalAlignment, contentSize, contentHorizontalPosition, contentVerticalPosition, contentBackgroundColor, contentPadding, removeContentOutsidePadding, shadowColor, shadowHorizontalPosition, shadowVerticalPosition } = attributes;
+		const { wrapperTagName, titleTagName, title, imageID, imageURL, imageAlt, textColor, imagePosition, imageSize, verticalAlignment, contentSize, contentHorizontalPosition, contentVerticalPosition, contentBackgroundColor, contentPadding, removeContentOutsidePadding, shadowColor, shadowHorizontalPosition, shadowVerticalPosition } = attributes;
+
+		const Wrapper = wrapperTagName;
 
 		const classes = classnames(
 			{
@@ -508,7 +529,7 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 		};
 
 		return (
-			<div className={ classes } style={ sectionStyles }>
+			<Wrapper className={ classes } style={ sectionStyles }>
 				<div className="c-container">
 					<div className={ rowClasses }>
 						<div className={ textColumnClasses }>
@@ -537,7 +558,7 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 						</div>
 					</div>
 				</div>
-			</div>
+			</Wrapper>
 		);
 	},
 } );

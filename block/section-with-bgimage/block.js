@@ -33,9 +33,12 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
-		const { titleTagName, title, imageID, imageURL, imageAlt, height, contentsAlignment, maskColor, maskColor2, maskColorAngle, maskOpacity, textColor, parallax, isSlim } = attributes;
+		const { wrapperTagName, titleTagName, title, imageID, imageURL, imageAlt, height, contentsAlignment, maskColor, maskColor2, maskColorAngle, maskOpacity, textColor, parallax, isSlim } = attributes;
 
+		const wrapperTagNames = [ 'div', 'section', 'aside' ];
 		const titleTagNames = [ 'h2', 'h3', 'none' ];
+
+		const Wrapper = wrapperTagName;
 
 		const classes = classnames(
 			{
@@ -82,6 +85,22 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 			<Fragment>
 				<InspectorControls>
 					<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
+						<BaseControl label={ __( 'Title Tag', 'snow-monkey-blocks' ) }>
+							<div className="smb-list-icon-selector">
+								{ times( wrapperTagNames.length, ( index ) => {
+									return (
+										<Button
+											isDefault
+											isPrimary={ wrapperTagName === wrapperTagNames[ index ] }
+											onClick={ () => setAttributes( { wrapperTagName: wrapperTagNames[ index ] } ) }
+										>
+											{ wrapperTagNames[ index ] }
+										</Button>
+									);
+								} ) }
+							</div>
+						</BaseControl>
+
 						<BaseControl label={ __( 'Title Tag', 'snow-monkey-blocks' ) }>
 							<div className="smb-list-icon-selector">
 								{ times( titleTagNames.length, ( index ) => {
@@ -211,7 +230,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 						allowedTypes={ [ 'image' ] }
 					/>
 				}
-				<div className={ classes } style={ sectionStyles }>
+				<Wrapper className={ classes } style={ sectionStyles }>
 					{ !! imageURL && isSelected &&
 						<button
 							className="smb-remove-button"
@@ -242,13 +261,15 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 							<InnerBlocks />
 						</div>
 					</div>
-				</div>
+				</Wrapper>
 			</Fragment>
 		);
 	},
 
 	save( { attributes, className } ) {
-		const { titleTagName, title, imageID, imageURL, imageAlt, height, contentsAlignment, maskColor, maskColor2, maskColorAngle, maskOpacity, textColor, parallax, isSlim } = attributes;
+		const { wrapperTagName, titleTagName, title, imageID, imageURL, imageAlt, height, contentsAlignment, maskColor, maskColor2, maskColorAngle, maskOpacity, textColor, parallax, isSlim } = attributes;
+
+		const Wrapper = wrapperTagName;
 
 		const classes = classnames(
 			{
@@ -292,7 +313,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 		};
 
 		return (
-			<div className={ classes } style={ sectionStyles }>
+			<Wrapper className={ classes } style={ sectionStyles }>
 				<div className="smb-section-with-bgimage__mask" style={ maskStyles }></div>
 				{ imageURL &&
 					<div className={ bgimageClasses } style={ bgimageStyles }>
@@ -311,7 +332,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 						<InnerBlocks.Content />
 					</div>
 				</div>
-			</div>
+			</Wrapper>
 		);
 	},
 

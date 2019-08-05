@@ -34,11 +34,14 @@ registerBlockType( 'snow-monkey-blocks/section-side-heading', {
 	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
-		const { titleTagName, title, backgroundColor, backgroundColor2, backgroundColorAngle, textColor, headingColumnSize, isSlim, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
+		const { wrapperTagName, titleTagName, title, backgroundColor, backgroundColor2, backgroundColorAngle, textColor, headingColumnSize, isSlim, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
 
 		const { textColumnWidth, imageColumnWidth } = getColumnSize( headingColumnSize );
 
+		const wrapperTagNames = [ 'div', 'section', 'aside' ];
 		const titleTagNames = [ 'h2', 'h3' ];
+
+		const Wrapper = wrapperTagName;
 
 		const classes = classnames(
 			{
@@ -103,6 +106,22 @@ registerBlockType( 'snow-monkey-blocks/section-side-heading', {
 			<Fragment>
 				<InspectorControls>
 					<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
+						<BaseControl label={ __( 'Wrapper Tag', 'snow-monkey-blocks' ) }>
+							<div className="smb-list-icon-selector">
+								{ times( wrapperTagNames.length, ( index ) => {
+									return (
+										<Button
+											isDefault
+											isPrimary={ wrapperTagName === wrapperTagNames[ index ] }
+											onClick={ () => setAttributes( { wrapperTagName: wrapperTagNames[ index ] } ) }
+										>
+											{ wrapperTagNames[ index ] }
+										</Button>
+									);
+								} ) }
+							</div>
+						</BaseControl>
+
 						<BaseControl label={ __( 'Title Tag', 'snow-monkey-blocks' ) }>
 							<div className="smb-list-icon-selector">
 								{ times( titleTagNames.length, ( index ) => {
@@ -277,7 +296,7 @@ registerBlockType( 'snow-monkey-blocks/section-side-heading', {
 					</PanelBody>
 				</InspectorControls>
 
-				<div className={ classes } style={ sectionStyles }>
+				<Wrapper className={ classes } style={ sectionStyles }>
 					{ !! topDividerLevel &&
 						<div className={ topDividerClasses }>
 							{ divider( topDividerType, topDividerLevel, topDividerColor ) }
@@ -313,15 +332,17 @@ registerBlockType( 'snow-monkey-blocks/section-side-heading', {
 							</div>
 						</div>
 					</div>
-				</div>
+				</Wrapper>
 			</Fragment>
 		);
 	},
 
 	save( { attributes, className } ) {
-		const { titleTagName, title, backgroundColor, backgroundColor2, backgroundColorAngle, textColor, headingColumnSize, isSlim, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
+		const { wrapperTagName, titleTagName, title, backgroundColor, backgroundColor2, backgroundColorAngle, textColor, headingColumnSize, isSlim, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
 
 		const { textColumnWidth, imageColumnWidth } = getColumnSize( headingColumnSize );
+
+		const Wrapper = wrapperTagName;
 
 		const classes = classnames(
 			{
@@ -383,7 +404,7 @@ registerBlockType( 'snow-monkey-blocks/section-side-heading', {
 		};
 
 		return (
-			<div className={ classes } style={ sectionStyles }>
+			<Wrapper className={ classes } style={ sectionStyles }>
 				{ !! topDividerLevel &&
 					<div className={ topDividerClasses }>
 						{ divider( topDividerType, topDividerLevel, topDividerColor ) }
@@ -416,7 +437,7 @@ registerBlockType( 'snow-monkey-blocks/section-side-heading', {
 						</div>
 					</div>
 				</div>
-			</div>
+			</Wrapper>
 		);
 	},
 } );

@@ -1,6 +1,10 @@
 'use strict';
 
 export const schema = {
+	wrapperTagName: {
+		type: 'string',
+		default: 'div',
+	},
 	titleTagName: {
 		type: 'string',
 		default: 'h2',
