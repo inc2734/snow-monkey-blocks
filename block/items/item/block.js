@@ -234,35 +234,7 @@ registerBlockType( 'snow-monkey-blocks/items--item', {
 			backgroundColor: btnBackgroundColor || undefined,
 		};
 
-		const ItemsItemBtnContent = () => {
-			return (
-				<span className="smb-btn__label" style={ itemBtnLabelStyles }>
-					<RichText.Content value={ btnLabel } />
-				</span>
-			);
-		};
-
-		const ItemsItemBtn = () => {
-			return !! isBlockLink ? (
-				<span className="smb-items__item__btn smb-btn"
-					href={ btnURL }
-					style={ itemBtnStyles }
-					target={ '_self' === btnTarget ? undefined : btnTarget }
-					rel={ '_self' === btnTarget ? undefined : 'noopener noreferrer' }
-				>
-					<ItemsItemBtnContent />
-				</span>
-			) : (
-				<a className="smb-items__item__btn smb-btn"
-					href={ btnURL }
-					style={ itemBtnStyles }
-					target={ '_self' === btnTarget ? undefined : btnTarget }
-					rel={ '_self' === btnTarget ? undefined : 'noopener noreferrer' }
-				>
-					<ItemsItemBtnContent />
-				</a>
-			);
-		};
+		const Btn = !! isBlockLink ? 'span' : 'a';
 
 		const ItemsItemContent = () => {
 			return (
@@ -295,7 +267,16 @@ registerBlockType( 'snow-monkey-blocks/items--item', {
 
 					{ ( ! RichText.isEmpty( btnLabel ) && !! btnURL ) &&
 						<div className="smb-items__item__action">
-							<ItemsItemBtn />
+							<Btn className="smb-items__item__btn smb-btn"
+								href={ btnURL }
+								style={ itemBtnStyles }
+								target={ '_self' === btnTarget ? undefined : btnTarget }
+								rel={ '_self' === btnTarget ? undefined : 'noopener noreferrer' }
+							>
+								<span className="smb-btn__label" style={ itemBtnLabelStyles }>
+									<RichText.Content value={ btnLabel } />
+								</span>
+							</Btn>
 						</div>
 					}
 				</Fragment>

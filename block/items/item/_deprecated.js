@@ -21,39 +21,17 @@ export const deprecated = [
 		save( { attributes } ) {
 			const { titleTagName, title, lede, summary, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, imageID, imageURL, isBlockLink } = attributes;
 
-			const ItemsItemBtnContent = () => {
-				return (
-					<span className="smb-btn__label" style={ { color: btnTextColor } }>
-						<RichText.Content value={ btnLabel } />
-					</span>
-				);
-			};
+			const Item = !! isBlockLink ? 'a' : 'div';
+			const Btn = !! isBlockLink ? 'span' : 'a';
 
-			const ItemsItemBtn = () => {
-				return !! isBlockLink ? (
-					<span className="smb-items__item__btn smb-btn"
+			return (
+				<div className="c-row__col">
+					<Item
+						className="smb-items__item"
 						href={ btnURL }
-						style={ { backgroundColor: btnBackgroundColor } }
 						target={ '_self' === btnTarget ? undefined : btnTarget }
 						rel={ '_self' === btnTarget ? undefined : 'noopener noreferrer' }
 					>
-						<ItemsItemBtnContent />
-					</span>
-				) : (
-					<a className="smb-items__item__btn smb-btn"
-						href={ btnURL }
-						style={ { backgroundColor: btnBackgroundColor } }
-						target={ '_self' === btnTarget ? undefined : btnTarget }
-						rel={ '_self' === btnTarget ? undefined : 'noopener noreferrer' }
-					>
-						<ItemsItemBtnContent />
-					</a>
-				);
-			};
-
-			const ItemsItemContent = () => {
-				return (
-					<Fragment>
 						{ !! imageID &&
 							<div className="smb-items__item__figure">
 								<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
@@ -80,38 +58,19 @@ export const deprecated = [
 
 						{ ( ! RichText.isEmpty( btnLabel ) && !! btnURL ) &&
 							<div className="smb-items__item__action">
-								<ItemsItemBtn />
+								<Btn className="smb-items__item__btn smb-btn"
+									href={ btnURL }
+									style={ { backgroundColor: btnBackgroundColor } }
+									target={ '_self' === btnTarget ? undefined : btnTarget }
+									rel={ '_self' === btnTarget ? undefined : 'noopener noreferrer' }
+								>
+									<span className="smb-btn__label" style={ { color: btnTextColor } }>
+										<RichText.Content value={ btnLabel } />
+									</span>
+								</Btn>
 							</div>
 						}
-					</Fragment>
-				);
-			};
-
-			const ItemsItem = () => {
-				return !! isBlockLink ? (
-					<a
-						className="smb-items__item"
-						href={ btnURL }
-						target={ '_self' === btnTarget ? undefined : btnTarget }
-						rel={ '_self' === btnTarget ? undefined : 'noopener noreferrer' }
-					>
-						<ItemsItemContent />
-					</a>
-				) : (
-					<div
-						className="smb-items__item"
-						href={ btnURL }
-						target={ '_self' === btnTarget ? undefined : btnTarget }
-						rel={ '_self' === btnTarget ? undefined : 'noopener noreferrer' }
-					>
-						<ItemsItemContent />
-					</div>
-				);
-			};
-
-			return (
-				<div className="c-row__col">
-					<ItemsItem />
+					</Item>
 				</div>
 			);
 		},
