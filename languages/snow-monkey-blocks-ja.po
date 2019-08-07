@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2019-08-05 12:55+0900\n"
-"PO-Revision-Date: 2019-08-05 12:55+0900\n"
+"POT-Creation-Date: 2019-08-07 22:07+0900\n"
+"PO-Revision-Date: 2019-08-07 22:09+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -153,7 +153,7 @@ msgstr "項目"
 #: block/section-side-heading/block.js:108
 #: block/section-with-bgimage/block.js:87
 #: block/section-with-bgvideo/block.js:91 block/section/block.js:84
-#: block/slider/block.js:57 block/slider/item/block.js:92
+#: block/slider/block.js:61 block/slider/item/block.js:92
 #: block/step/item/standard/block.js:86 block/taxonomy-posts/_edit.js:70
 #: block/testimonial/block.js:40 block/thumbnail-gallery/block.js:52
 msgid "Block Settings"
@@ -1415,45 +1415,61 @@ msgstr "ビデオの高さ"
 msgid "Section"
 msgstr "セクション"
 
-#: block/slider/block.js:31
+#: block/slider/block.js:35
 msgid "Slider"
 msgstr "スライダー"
 
-#: block/slider/block.js:32
+#: block/slider/block.js:36
 msgid "Show attractive images as beautiful sliders."
 msgstr "魅力的な画像を美しいスライダーとして表示します。"
 
-#: block/slider/block.js:59
-msgid "# of slides to show"
-msgstr "表示するスライド数"
-
-#: block/slider/block.js:66
-msgid "# of slides to scroll"
-msgstr "スクロールするスライド数"
-
-#: block/slider/block.js:73
+#: block/slider/block.js:63
 msgid "Show dot indicators"
 msgstr "ドットインジケータを表示する"
 
-#: block/slider/block.js:78 block/thumbnail-gallery/block.js:54
+#: block/slider/block.js:68 block/thumbnail-gallery/block.js:54
 msgid "Prev/Next Arrows"
 msgstr "前/次の矢印"
 
-#: block/slider/block.js:83 block/thumbnail-gallery/block.js:59
+#: block/slider/block.js:73 block/thumbnail-gallery/block.js:59
 msgid "Slide animation speed in milliseconds"
 msgstr "スライドアニメーション速度（ミリ秒）"
 
-#: block/slider/block.js:91 block/thumbnail-gallery/block.js:67
+#: block/slider/block.js:81 block/thumbnail-gallery/block.js:67
 msgid "Autoplay Speed in seconds"
 msgstr "自動再生の間隔（秒）"
 
-#: block/slider/block.js:105
+#: block/slider/block.js:95
 msgid "Enable fade"
 msgstr "フェードを有効にする"
 
-#: block/slider/block.js:110
+#: block/slider/block.js:100
 msgid "Change the slider's direction to become right-to-left"
 msgstr "スライダーの方向を右から左に変更"
+
+#: block/slider/block.js:128
+msgid "# of slides to show (Large window)"
+msgstr "表示するスライド数（ラージウインドウ）"
+
+#: block/slider/block.js:135
+msgid "# of slides to scroll (Large window)"
+msgstr "スクロールするスライド数（ラージウインドウ）"
+
+#: block/slider/block.js:149
+msgid "# of slides to show (Medium window)"
+msgstr "表示するスライド数（ミディアムウインドウ）"
+
+#: block/slider/block.js:156
+msgid "# of slides to scroll (Medium window)"
+msgstr "スクロールするスライド数（ミディアムウインドウ）"
+
+#: block/slider/block.js:170
+msgid "# of slides to show (Small window)"
+msgstr "表示するスライド数（スモールウインドウ）"
+
+#: block/slider/block.js:177
+msgid "# of slides to scroll (Small window)"
+msgstr "スクロールするスライド数（スモールウインドウ）"
 
 #: block/slider/item/block.js:16
 msgid "It is a child block of the slider block."

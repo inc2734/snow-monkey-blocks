@@ -9,6 +9,22 @@ export const schema = {
 		type: 'number',
 		default: 1,
 	},
+	mdSlidesToShow: {
+		type: 'number',
+		default: 1,
+	},
+	mdSlidesToScroll: {
+		type: 'number',
+		default: 1,
+	},
+	smSlidesToShow: {
+		type: 'number',
+		default: 1,
+	},
+	smSlidesToScroll: {
+		type: 'number',
+		default: 1,
+	},
 	dots: {
 		type: 'boolean',
 		default: false,

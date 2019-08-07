@@ -10,8 +10,37 @@ export default class Slider {
 			( slider ) => {
 				const _config = slider.getAttribute( 'data-smb-slider' );
 				const config = !! _config ? JSON.parse( _config ) : {};
+				config.responsive = [];
+
+				if ( !! config.mdSlidesToShow && !! config.mdSlidesToScroll ) {
+					config.responsive.push(
+						{
+							breakpoint: 1023,
+							settings: {
+								slidesToShow: config.mdSlidesToShow,
+								slidesToScroll: config.mdSlidesToScroll,
+							},
+						}
+					);
+				}
+
+				if ( !! config.smSlidesToShow && !! config.smSlidesToScroll ) {
+					config.responsive.push(
+						{
+							breakpoint: 639,
+							settings: {
+								slidesToShow: config.smSlidesToShow,
+								slidesToScroll: config.smSlidesToScroll,
+							},
+						}
+					);
+				}
 
 				config.adaptiveHeight = true;
+				delete config.mdSlidesToShow;
+				delete config.mdSlidesToScroll;
+				delete config.smSlidesToShow;
+				delete config.smSlidesToScroll;
 
 				$( slider ).on(
 					'init',
