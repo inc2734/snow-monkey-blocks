@@ -37,7 +37,7 @@ registerBlockType( 'snow-monkey-blocks/section', {
 		const { wrapperTagName, titleTagName, title, backgroundColor, backgroundColor2, backgroundColorAngle, textColor, isSlim, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
 
 		const wrapperTagNames = [ 'div', 'section', 'aside' ];
-		const titleTagNames = [ 'h2', 'h3', 'none' ];
+		const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
 
 		const Wrapper = wrapperTagName;
 

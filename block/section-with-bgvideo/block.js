@@ -43,7 +43,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { titleTagName, title, videoURL, videoWidth, videoHeight, height, contentsAlignment, maskColor, maskColor2, maskColorAngle, maskOpacity, textColor, isSlim } = attributes;
 
-		const titleTagNames = [ 'h2', 'h3', 'none' ];
+		const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
 
 		const classes = classnames(
 			{

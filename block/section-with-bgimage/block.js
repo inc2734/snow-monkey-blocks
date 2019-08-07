@@ -36,7 +36,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 		const { wrapperTagName, titleTagName, title, imageID, imageURL, imageAlt, height, contentsAlignment, maskColor, maskColor2, maskColorAngle, maskOpacity, textColor, parallax, isSlim } = attributes;
 
 		const wrapperTagNames = [ 'div', 'section', 'aside' ];
-		const titleTagNames = [ 'h2', 'h3', 'none' ];
+		const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
 
 		const Wrapper = wrapperTagName;
 

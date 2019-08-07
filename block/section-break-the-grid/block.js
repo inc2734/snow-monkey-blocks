@@ -36,7 +36,7 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 		const { wrapperTagName, titleTagName, title, imageID, imageURL, imageAlt, textColor, imagePosition, imageSize, verticalAlignment, contentSize, contentHorizontalPosition, contentVerticalPosition, contentBackgroundColor, contentPadding, removeContentOutsidePadding, shadowColor, shadowHorizontalPosition, shadowVerticalPosition } = attributes;
 
 		const wrapperTagNames = [ 'div', 'section', 'aside' ];
-		const titleTagNames = [ 'h2', 'h3', 'none' ];
+		const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
 
 		const Wrapper = wrapperTagName;
 

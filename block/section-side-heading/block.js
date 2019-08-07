@@ -39,7 +39,7 @@ registerBlockType( 'snow-monkey-blocks/section-side-heading', {
 		const { textColumnWidth, imageColumnWidth } = getColumnSize( headingColumnSize );
 
 		const wrapperTagNames = [ 'div', 'section', 'aside' ];
-		const titleTagNames = [ 'h2', 'h3' ];
+		const titleTagNames = [ 'h1', 'h2', 'h3' ];
 
 		const Wrapper = wrapperTagName;
 
