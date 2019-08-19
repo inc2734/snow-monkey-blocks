@@ -26,12 +26,12 @@ registerBlockType( 'snow-monkey-blocks/taxonomy-posts', {
 		const taxonomies = AllTaxonomies.filter( ( taxonomy ) => taxonomy.visibility.show_ui );
 
 		const taxonomiesTerms = {};
-		for ( const taxonomy of taxonomies ) {
+		taxonomies.forEach( ( taxonomy ) => {
 			const terms = getEntityRecords( 'taxonomy', taxonomy.slug, { per_page: -1 } ) || [];
 			if ( 0 < terms.length ) {
 				taxonomiesTerms[ taxonomy.slug ] = terms;
 			}
-		}
+		} );
 
 		return {
 			withSelect: {

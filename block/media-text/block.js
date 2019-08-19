@@ -7,9 +7,10 @@ import { blockConfig } from '../../src/js/config/block.js';
 import { schema } from './_schema.js';
 import { deprecated } from './_deprecated.js';
 
+const { times } = lodash;
 const { registerBlockType } = wp.blocks;
 const { RichText, InnerBlocks, InspectorControls, MediaPlaceholder, MediaUpload } = wp.editor;
-const { PanelBody, SelectControl, Button } = wp.components;
+const { PanelBody, SelectControl, Button, BaseControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -27,8 +28,9 @@ registerBlockType( 'snow-monkey-blocks/media-text', {
 	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
-		const { title, imageID, imageURL, imageAlt, imagePosition, imageColumnSize } = attributes;
+		const { titleTagName, title, imageID, imageURL, imageAlt, imagePosition, imageColumnSize } = attributes;
 
+		const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
 		const { textColumnWidth, imageColumnWidth } = getColumnSize( imageColumnSize );
 
 		const onSelectImage = ( media ) => {
@@ -133,16 +135,32 @@ registerBlockType( 'snow-monkey-blocks/media-text', {
 							] }
 							onChange={ ( value ) => setAttributes( { imageColumnSize: value } ) }
 						/>
+
+						<BaseControl label={ __( 'Title Tag', 'snow-monkey-blocks' ) }>
+							<div className="smb-list-icon-selector">
+								{ times( titleTagNames.length, ( index ) => {
+									return (
+										<Button
+											isDefault
+											isPrimary={ titleTagName === titleTagNames[ index ] }
+											onClick={ () => setAttributes( { titleTagName: titleTagNames[ index ] } ) }
+										>
+											{ titleTagNames[ index ] }
+										</Button>
+									);
+								} ) }
+							</div>
+						</BaseControl>
 					</PanelBody>
 				</InspectorControls>
 
 				<div className={ classes }>
 					<div className={ rowClasses }>
 						<div className={ textColumnClasses }>
-							{ ( ! RichText.isEmpty( title ) || isSelected ) &&
+							{ ( ! RichText.isEmpty( title ) || isSelected ) && 'none' !== titleTagName &&
 								<RichText
 									className="smb-media-text__title"
-									tagName="h2"
+									tagName={ titleTagName }
 									value={ title }
 									onChange={ ( value ) => setAttributes( { title: value } ) }
 									formattingControls={ [] }
@@ -165,7 +183,7 @@ registerBlockType( 'snow-monkey-blocks/media-text', {
 	},
 
 	save( { attributes, className } ) {
-		const { title, imageID, imageURL, imageAlt, imagePosition, imageColumnSize } = attributes;
+		const { titleTagName, title, imageID, imageURL, imageAlt, imagePosition, imageColumnSize } = attributes;
 
 		const { textColumnWidth, imageColumnWidth } = getColumnSize( imageColumnSize );
 
@@ -188,10 +206,12 @@ registerBlockType( 'snow-monkey-blocks/media-text', {
 			<div className={ classes }>
 				<div className={ rowClasses }>
 					<div className={ textColumnClasses }>
-						{ ! RichText.isEmpty( title ) &&
-							<h2 className="smb-media-text__title">
-								<RichText.Content value={ title } />
-							</h2>
+						{ ! RichText.isEmpty( title ) && 'none' !== titleTagName &&
+							<RichText.Content
+								className="smb-media-text__title"
+								tagName={ titleTagName }
+								value={ title }
+							/>
 						}
 						<div className="smb-media-text__body">
 							<InnerBlocks.Content />
