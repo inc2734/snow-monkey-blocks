@@ -9,7 +9,17 @@ export default class List {
 			( list ) => {
 				const icon = list.getAttribute( 'data-icon' );
 				const iconColor = list.getAttribute( 'data-icon-color' );
-				const iconHtml = `<span class="smb-list__icon" style="color: ${ iconColor }"><i class="fas fa-${ icon }"></i></span>`;
+				const iconWrapperHtml = document.createElement( 'span' );
+				const iconHtml = document.createElement( 'i' );
+
+				iconWrapperHtml.classList.add( 'smb-list__icon' );
+				iconHtml.classList.add( 'fas' );
+				iconHtml.classList.add( `fa-${ icon }` );
+
+				if ( !! iconColor ) {
+					iconWrapperHtml.style.color = iconColor;
+				}
+				iconWrapperHtml.appendChild( iconHtml );
 
 				forEachHtmlNodes(
 					list.querySelectorAll( 'li' ),
@@ -18,7 +28,7 @@ export default class List {
 						if ( !! iconWrapper ) {
 							item.removeChild( iconWrapper );
 						}
-						item.innerHTML = iconHtml + item.innerHTML;
+						item.insertAdjacentHTML( 'afterbegin', iconWrapperHtml.outerHTML );
 					}
 				);
 			}
