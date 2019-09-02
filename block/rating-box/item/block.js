@@ -2,10 +2,10 @@
 
 import classnames from 'classnames';
 
-import { blockConfig } from '../../../src/js/config/block.js';
+import { blockConfig } from '../../../src/js/config/block';
 import toNumber from '../../../src/js/helper/to-number';
-import { schema } from './_schema.js';
-import { deprecated } from './_deprecated.js';
+import { schema } from './_schema';
+import { deprecated } from './_deprecated';
 
 const { registerBlockType } = wp.blocks;
 const { RichText, InspectorControls, PanelColorSettings } = wp.editor;

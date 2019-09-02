@@ -2,12 +2,14 @@
 
 import classnames from 'classnames';
 
-import { blockConfig } from '../../../src/js/config/block.js';
-import { schema } from './_schema.js';
+import { blockConfig } from '../../../src/js/config/block';
+import { schema } from './_schema';
+
+import { Figure } from '../../../src/js/component/figure';
 
 const { registerBlockType } = wp.blocks;
-const { RichText, MediaPlaceholder, MediaUpload, InspectorControls, URLInput } = wp.editor;
-const { Button, PanelBody, BaseControl, SelectControl } = wp.components;
+const { RichText, InspectorControls, URLInput } = wp.editor;
+const { PanelBody, BaseControl, SelectControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -25,53 +27,23 @@ registerBlockType( 'snow-monkey-blocks/slider--item', {
 	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { imageID, imageURL, imageAlt, caption, url, target } = attributes;
 
-		const onSelectImage = ( media ) => {
-			const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
-			setAttributes( { imageURL: newImageURL, imageID: media.id, imageAlt: media.alt } );
-		};
-
-		const SliderItemFigureImg = () => {
-			return ! imageURL ? (
-				<MediaPlaceholder
-					icon="format-image"
-					labels={ { title: __( 'Image' ) } }
-					onSelect={ onSelectImage }
-					accept="image/*"
-					allowedTypes={ [ 'image' ] }
-				/>
-			) : (
-				<Fragment>
-					<MediaUpload
-						onSelect={ onSelectImage }
-						type="image"
-						value={ imageID }
-						render={ ( obj ) => {
-							return (
-								<Button className="image-button" onClick={ obj.open } style={ { padding: 0 } }>
-									<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
-								</Button>
-							);
-						} }
-					/>
-					{ isSelected &&
-						<button
-							className="smb-remove-button"
-							onClick={ () => {
-								setAttributes( { imageURL: '', imageAlt: '', imageID: 0 } );
-							} }
-						>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
-					}
-				</Fragment>
-			);
-		};
-
 		const classes = classnames( 'smb-slider__item', className );
 
 		const Item = () => {
 			return (
 				<Fragment>
 					<div className="smb-slider__item__figure">
-						<SliderItemFigureImg />
+						<Figure
+							url={ imageURL }
+							id={ imageID }
+							alt={ imageAlt }
+							selectHandler={ ( media ) => {
+								const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
+								setAttributes( { imageURL: newImageURL, imageID: media.id, imageAlt: media.alt } );
+							} }
+							removeHandler={ () => setAttributes( { imageURL: '', imageAlt: '', imageID: 0 } ) }
+							isSelected={ isSelected }
+						/>
 					</div>
 
 					{ ( ! RichText.isEmpty( caption ) || isSelected ) &&

@@ -1,13 +1,13 @@
 'use strict';
 
-import '../../block/section/block.js';
-import '../../block/section-with-bgimage/block.js';
-import '../../block/section-with-bgvideo/block.js';
-import '../../block/section-break-the-grid/block.js';
-import '../../block/section-side-heading/block.js';
-import '../../block/recent-posts/block.js';
-import '../../block/taxonomy-posts/block.js';
-import '../../block/pickup-slider/block.js';
-import '../../block/contents-outline/block.js';
-import '../../block/child-pages/block.js';
-import '../../block/container/block.js';
+import '../../block/section/block';
+import '../../block/section-with-bgimage/block';
+import '../../block/section-with-bgvideo/block';
+import '../../block/section-break-the-grid/block';
+import '../../block/section-side-heading/block';
+import '../../block/recent-posts/block';
+import '../../block/taxonomy-posts/block';
+import '../../block/pickup-slider/block';
+import '../../block/contents-outline/block';
+import '../../block/child-pages/block';
+import '../../block/container/block';

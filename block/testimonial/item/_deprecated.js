@@ -1,7 +1,7 @@
 'use strict';
 
 const { RichText } = wp.editor;
-import { schema } from './_schema.js';
+import { schema } from './_schema';
 
 export const deprecated = [
 	{

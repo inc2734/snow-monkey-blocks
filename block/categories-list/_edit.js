@@ -2,7 +2,7 @@
 
 import classnames from 'classnames';
 import toNumber from '../../src/js/helper/to-number';
-import CategoriesList from './_categories-list.js';
+import CategoriesList from './_categories-list';
 
 const { remove, union, indexOf, compact } = lodash;
 const { InspectorControls } = wp.editor;

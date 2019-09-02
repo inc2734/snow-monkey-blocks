@@ -3,10 +3,10 @@
 import classnames from 'classnames';
 import blockIcon from './block-icon.svg';
 
-import { blockConfig } from '../../../../src/js/config/block.js';
+import { blockConfig } from '../../../../src/js/config/block';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { schema } from './_schema.js';
-import { transforms } from './_transforms.js';
+import { schema } from './_schema';
+import { transforms } from './_transforms';
 
 const { registerBlockType } = wp.blocks;
 const { PanelBody, BaseControl, Button, ButtonGroup } = wp.components;

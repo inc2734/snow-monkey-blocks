@@ -1,3 +1,3 @@
 'use strict';
 
-import '../../menu/index.js';
+import '../../menu/index';

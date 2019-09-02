@@ -3,9 +3,9 @@
 import toNumber from '../../src/js/helper/to-number';
 import classnames from 'classnames';
 
-import { blockConfig } from '../../src/js/config/block.js';
-import { schema } from './_schema.js';
-import { deprecated } from './_deprecated.js';
+import { blockConfig } from '../../src/js/config/block';
+import { schema } from './_schema';
+import { deprecated } from './_deprecated';
 
 const { times } = lodash;
 const { registerBlockType } = wp.blocks;

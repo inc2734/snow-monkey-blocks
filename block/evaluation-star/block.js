@@ -3,10 +3,10 @@
 import classnames from 'classnames';
 import toNumber from '../../src/js/helper/to-number';
 
-import { blockConfig } from '../../src/js/config/block.js';
+import { blockConfig } from '../../src/js/config/block';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { schema } from './_schema.js';
-import { deprecated } from './_deprecated.js';
+import { schema } from './_schema';
+import { deprecated } from './_deprecated';
 
 const { registerBlockType } = wp.blocks;
 const { InspectorControls, PanelColorSettings } = wp.editor;

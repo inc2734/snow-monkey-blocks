@@ -3,8 +3,8 @@
 import classnames from 'classnames';
 import moment from 'moment';
 
-import { blockConfig } from '../../src/js/config/block.js';
-import { schema } from './_schema.js';
+import { blockConfig } from '../../src/js/config/block';
+import { schema } from './_schema';
 
 const { registerBlockType } = wp.blocks;
 const { InspectorControls, InnerBlocks } = wp.editor;

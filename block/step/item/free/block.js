@@ -2,8 +2,8 @@
 
 import classnames from 'classnames';
 
-import { blockConfig } from '../../../../src/js/config/block.js';
-import { schema } from './_schema.js';
+import { blockConfig } from '../../../../src/js/config/block';
+import { schema } from './_schema';
 
 const { registerBlockType } = wp.blocks;
 const { RichText, InspectorControls, PanelColorSettings, InnerBlocks } = wp.editor;

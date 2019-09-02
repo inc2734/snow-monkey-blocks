@@ -2,12 +2,12 @@
 
 import forEachHtmlNodes from '@inc2734/for-each-html-nodes';
 
-import List from '../../block/list/_list.js';
-import Slider from '../../block/slider/_slider.js';
-import ThumbnailGallery from '../../block/thumbnail-gallery/_thumbnail-gallery.js';
-import CategoriesList from '../../block/categories-list/_categories-list.js';
-import BgVideo from '../../block/section-with-bgvideo/_bgvideo.js';
-import Countdown from '../../block/countdown/_countdown.js';
+import List from '../../block/list/_list';
+import Slider from '../../block/slider/_slider';
+import ThumbnailGallery from '../../block/thumbnail-gallery/_thumbnail-gallery';
+import CategoriesList from '../../block/categories-list/_categories-list';
+import BgVideo from '../../block/section-with-bgvideo/_bgvideo';
+import Countdown from '../../block/countdown/_countdown';
 
 document.addEventListener(
 	'DOMContentLoaded',

@@ -5,8 +5,8 @@ import classnames from 'classnames';
 import divider from '../../src/js/helper/divider';
 import getColumnSize from '../../src/js/helper/get-column-size';
 
-import { blockConfig } from '../../src/js/config/block.js';
-import { schema } from './_schema.js';
+import { blockConfig } from '../../src/js/config/block';
+import { schema } from './_schema';
 
 const { times } = lodash;
 const { registerBlockType } = wp.blocks;

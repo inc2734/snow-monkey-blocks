@@ -2,7 +2,7 @@
 
 import classnames from 'classnames';
 import divider from '../../src/js/helper/divider';
-import { schema } from './_schema.js';
+import { schema } from './_schema';
 
 const { RichText, InnerBlocks } = wp.editor;
 

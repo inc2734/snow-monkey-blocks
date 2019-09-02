@@ -3,7 +3,7 @@
 const { times, merge } = lodash;
 const { RichText, InnerBlocks } = wp.editor;
 const { createBlock } = wp.blocks;
-import { schema } from './_schema.js';
+import { schema } from './_schema';
 
 export const deprecated = [
 	{

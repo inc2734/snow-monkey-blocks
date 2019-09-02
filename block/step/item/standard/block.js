@@ -2,13 +2,15 @@
 
 import classnames from 'classnames';
 
-import { blockConfig } from '../../../../src/js/config/block.js';
-import { deprecated } from './_deprecated.js';
-import { schema } from './_schema.js';
+import { blockConfig } from '../../../../src/js/config/block';
+import { deprecated } from './_deprecated';
+import { schema } from './_schema';
+
+import { Figure } from '../../../../src/js/component/figure';
 
 const { registerBlockType } = wp.blocks;
-const { RichText, InspectorControls, PanelColorSettings, MediaPlaceholder, MediaUpload, InnerBlocks, URLInput } = wp.editor;
-const { PanelBody, BaseControl, SelectControl, Button } = wp.components;
+const { RichText, InspectorControls, PanelColorSettings, InnerBlocks, URLInput } = wp.editor;
+const { PanelBody, BaseControl, SelectControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -25,46 +27,6 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { title, numberColor, imagePosition, imageID, imageURL, imageAlt, linkLabel, linkURL, linkTarget, linkColor } = attributes;
-
-		const onSelectImage = ( media ) => {
-			const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
-			setAttributes( { imageURL: newImageURL, imageID: media.id, imageAlt: media.alt } );
-		};
-
-		const StepItemFigureImg = () => {
-			return ! imageURL ? (
-				<MediaPlaceholder
-					icon="format-image"
-					labels={ { title: __( 'Image' ) } }
-					onSelect={ onSelectImage }
-					accept="image/*"
-					allowedTypes={ [ 'image' ] }
-				/>
-			) : (
-				<Fragment>
-					<MediaUpload
-						onSelect={ onSelectImage }
-						type="image"
-						value={ imageID }
-						render={ ( obj ) => {
-							return (
-								<Button className="image-button" onClick={ obj.open } style={ { padding: 0 } }>
-									<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
-								</Button>
-							);
-						} }
-					/>
-					{ isSelected &&
-						<button
-							className="smb-remove-button"
-							onClick={ () => {
-								setAttributes( { imageURL: '', imageAlt: '', imageID: 0 } );
-							} }
-						>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
-					}
-				</Fragment>
-			);
-		};
 
 		const classes = classnames(
 			'smb-step__item',
@@ -166,7 +128,17 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 					<div className="smb-step__item__body">
 						{ ( !! imageID || isSelected ) &&
 							<div className="smb-step__item__figure">
-								<StepItemFigureImg />
+								<Figure
+									url={ imageURL }
+									id={ imageID }
+									alt={ imageAlt }
+									selectHandler={ ( media ) => {
+										const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
+										setAttributes( { imageURL: newImageURL, imageID: media.id, imageAlt: media.alt } );
+									} }
+									removeHandler={ () => setAttributes( { imageURL: '', imageAlt: '', imageID: 0 } ) }
+									isSelected={ isSelected }
+								/>
 							</div>
 						}
 

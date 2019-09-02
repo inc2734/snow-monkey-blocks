@@ -1,7 +1,7 @@
 'use strict';
 
 import toNumber from '../../src/js/helper/to-number';
-import { schema } from './_schema.js';
+import { schema } from './_schema';
 
 const { Fragment } = wp.element;
 const { sprintf } = wp.i18n;

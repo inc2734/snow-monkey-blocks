@@ -1,6 +1,6 @@
 'use strict';
 
-import { ScreenshotImg } from './component/screenshotImg.js';
+import { ScreenshotImg } from './component/screenshotImg';
 
 const { Component } = wp.element;
 const { PanelBody, Button, Spinner } = wp.components;

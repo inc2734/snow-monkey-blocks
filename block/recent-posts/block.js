@@ -1,7 +1,7 @@
 'use strict';
 
-import { blockConfig } from '../../src/js/config/block.js';
-import { edit } from './_edit.js';
+import { blockConfig } from '../../src/js/config/block';
+import { edit } from './_edit';
 
 const { registerBlockType } = wp.blocks;
 const { __ } = wp.i18n;

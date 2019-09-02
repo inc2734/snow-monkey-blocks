@@ -1,6 +1,6 @@
 'use strict';
 
-import { blockConfig } from '../../src/js/config/block.js';
+import { blockConfig } from '../../src/js/config/block';
 
 const { registerBlockType } = wp.blocks;
 const { Dashicon } = wp.components;

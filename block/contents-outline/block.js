@@ -1,6 +1,6 @@
 'use strict';
 
-import { blockConfig } from '../../src/js/config/block.js';
+import { blockConfig } from '../../src/js/config/block';
 
 const { remove, union, indexOf, compact } = lodash;
 const { registerBlockType } = wp.blocks;

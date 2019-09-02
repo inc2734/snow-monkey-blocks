@@ -1,6 +1,6 @@
 'use strict';
 
-import { schema } from './_schema.js';
+import { schema } from './_schema';
 
 const { times, get, merge } = lodash;
 const { RichText, InnerBlocks } = wp.editor;

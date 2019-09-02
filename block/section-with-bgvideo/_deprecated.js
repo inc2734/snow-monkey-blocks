@@ -1,7 +1,7 @@
 'use strict';
 
 import classnames from 'classnames';
-import { schema } from './_schema.js';
+import { schema } from './_schema';
 
 const { RichText, InnerBlocks } = wp.editor;
 const { Fragment } = wp.element;

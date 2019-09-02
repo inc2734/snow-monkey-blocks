@@ -2,13 +2,15 @@
 
 import classnames from 'classnames';
 
-import { blockConfig } from '../../../../src/js/config/block.js';
-import { schema } from './_schema.js';
-import { deprecated } from './_deprecated.js';
+import { blockConfig } from '../../../../src/js/config/block';
+import { schema } from './_schema';
+import { deprecated } from './_deprecated';
+
+import { Figure } from '../../../../src/js/component/figure';
 
 const { times } = lodash;
 const { registerBlockType, createBlock } = wp.blocks;
-const { InspectorControls, RichText, MediaPlaceholder, MediaUpload, URLInput } = wp.editor;
+const { InspectorControls, RichText, URLInput } = wp.editor;
 const { PanelBody, SelectControl, BaseControl, Button } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
@@ -28,46 +30,6 @@ registerBlockType( 'snow-monkey-blocks/panels--item--horizontal', {
 		const { titleTagName, title, summary, linkLabel, linkURL, linkTarget, imagePosition, imageID, imageURL, imageAlt } = attributes;
 
 		const titleTagNames = [ 'div', 'h2', 'h3', 'none' ];
-
-		const onSelectImage = ( media ) => {
-			const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
-			setAttributes( { imageURL: newImageURL, imageID: media.id, imageAlt: media.alt } );
-		};
-
-		const PanelsItemFigureImg = () => {
-			return ! imageURL ? (
-				<MediaPlaceholder
-					icon="format-image"
-					labels={ { title: __( 'Image' ) } }
-					onSelect={ onSelectImage }
-					accept="image/*"
-					allowedTypes={ [ 'image' ] }
-				/>
-			) : (
-				<Fragment>
-					<MediaUpload
-						onSelect={ onSelectImage }
-						type="image"
-						value={ imageID }
-						render={ ( obj ) => {
-							return (
-								<Button className="image-button" onClick={ obj.open } style={ { padding: 0 } }>
-									<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
-								</Button>
-							);
-						} }
-					/>
-					{ isSelected &&
-						<button
-							className="smb-remove-button"
-							onClick={ () => {
-								setAttributes( { imageURL: '', imageAlt: '', imageID: 0 } );
-							} }
-						>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
-					}
-				</Fragment>
-			);
-		};
 
 		const classes = classnames( 'c-row__col', className );
 
@@ -151,7 +113,17 @@ registerBlockType( 'snow-monkey-blocks/panels--item--horizontal', {
 					>
 						{ ( !! imageID || isSelected ) &&
 							<div className="smb-panels__item__figure">
-								<PanelsItemFigureImg />
+								<Figure
+									url={ imageURL }
+									id={ imageID }
+									alt={ imageAlt }
+									selectHandler={ ( media ) => {
+										const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
+										setAttributes( { imageURL: newImageURL, imageID: media.id, imageAlt: media.alt } );
+									} }
+									removeHandler={ () => setAttributes( { imageURL: '', imageAlt: '', imageID: 0 } ) }
+									isSelected={ isSelected }
+								/>
 							</div>
 						}
 

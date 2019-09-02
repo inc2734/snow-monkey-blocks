@@ -4,8 +4,8 @@ import classnames from 'classnames';
 import hexToRgba from 'hex-to-rgba';
 import toNumber from '../../src/js/helper/to-number';
 
-import { blockConfig } from '../../src/js/config/block.js';
-import { schema } from './_schema.js';
+import { blockConfig } from '../../src/js/config/block';
+import { schema } from './_schema';
 
 const { times } = lodash;
 const { registerBlockType } = wp.blocks;

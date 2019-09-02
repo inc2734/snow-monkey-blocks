@@ -2,9 +2,9 @@
 
 import classnames from 'classnames';
 
-import { blockConfig } from '../../src/js/config/block.js';
-import { deprecated } from './_deprecated.js';
-import { schema } from './_schema.js';
+import { blockConfig } from '../../src/js/config/block';
+import { deprecated } from './_deprecated';
+import { schema } from './_schema';
 
 const { registerBlockType } = wp.blocks;
 const { PlainText, RichText, MediaUpload, InspectorControls, PanelColorSettings } = wp.editor;

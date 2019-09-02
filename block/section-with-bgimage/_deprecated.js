@@ -1,7 +1,7 @@
 'use strict';
 
 import classnames from 'classnames';
-import { schema } from './_schema.js';
+import { schema } from './_schema';
 
 const { omit } = lodash;
 const { RichText, InnerBlocks } = wp.editor;

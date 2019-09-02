@@ -2,8 +2,8 @@
 
 import classnames from 'classnames';
 
-import { blockConfig } from '../../src/js/config/block.js';
-import { deprecated } from './_deprecated.js';
+import { blockConfig } from '../../src/js/config/block';
+import { deprecated } from './_deprecated';
 
 const { registerBlockType } = wp.blocks;
 const { InnerBlocks } = wp.editor;

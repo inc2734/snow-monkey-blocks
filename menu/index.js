@@ -2,8 +2,8 @@
 
 import logoIcon from '../src/svg/logo.svg';
 
-import { MenuBlocks } from './_blocks.js';
-import { MenuBlockTemplates } from './_block-templates.js';
+import { MenuBlocks } from './_blocks';
+import { MenuBlockTemplates } from './_block-templates';
 
 const { Component } = wp.element;
 const { Fragment } = wp.element;

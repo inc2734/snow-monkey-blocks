@@ -1,7 +1,7 @@
 'use strict';
 
-import { blockConfig } from '../src/js/config/block.js';
-import { ScreenshotImg } from './component/screenshotImg.js';
+import { blockConfig } from '../src/js/config/block';
+import { ScreenshotImg } from './component/screenshotImg';
 
 const { Component } = wp.element;
 const { PanelBody, Modal, Button, Spinner } = wp.components;
