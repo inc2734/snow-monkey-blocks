@@ -7,9 +7,11 @@ import { blockConfig } from '../../src/js/config/block';
 import { schema } from './_schema';
 import { deprecated } from './_deprecated';
 
+import { ResponsiveTabPanel } from '../../src/js/component/responsive-tab-panel';
+
 const { registerBlockType } = wp.blocks;
 const { InspectorControls, InnerBlocks } = wp.editor;
-const { PanelBody, RangeControl, ToggleControl, TabPanel, Dashicon } = wp.components;
+const { PanelBody, RangeControl, ToggleControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -102,91 +104,68 @@ registerBlockType( 'snow-monkey-blocks/slider', {
 							onChange={ ( value ) => setAttributes( { rtl: value } ) }
 						/>
 
-						<TabPanel
-							className="smb-inspector-tabs"
-							tabs={ [
-								{
-									name: 'desktop',
-									title: <Dashicon icon="desktop" />,
-								},
-								{
-									name: 'tablet',
-									title: <Dashicon icon="tablet" />,
-								},
-								{
-									name: 'mobile',
-									title: <Dashicon icon="smartphone" />,
-								},
-							] }>
-							{
-								( tab ) => {
-									if ( tab.name ) {
-										if ( 'desktop' === tab.name ) {
-											return (
-												<Fragment>
-													<RangeControl
-														label={ __( '# of slides to show (Large window)', 'snow-monkey-blocks' ) }
-														value={ slidesToShow }
-														onChange={ ( value ) => setAttributes( { slidesToShow: toNumber( value, 1, 6 ) } ) }
-														min="1"
-														max="6"
-													/>
-													<RangeControl
-														label={ __( '# of slides to scroll (Large window)', 'snow-monkey-blocks' ) }
-														value={ slidesToScroll }
-														onChange={ ( value ) => setAttributes( { slidesToScroll: toNumber( value, 1, 6 ) } ) }
-														min="1"
-														max="6"
-													/>
-												</Fragment>
-											);
-										}
-
-										if ( 'tablet' === tab.name ) {
-											return (
-												<Fragment>
-													<RangeControl
-														label={ __( '# of slides to show (Medium window)', 'snow-monkey-blocks' ) }
-														value={ mdSlidesToShow }
-														onChange={ ( value ) => setAttributes( { mdSlidesToShow: toNumber( value, 1, 6 ) } ) }
-														min="1"
-														max="6"
-													/>
-													<RangeControl
-														label={ __( '# of slides to scroll (Medium window)', 'snow-monkey-blocks' ) }
-														value={ mdSlidesToScroll }
-														onChange={ ( value ) => setAttributes( { mdSlidesToScroll: toNumber( value, 1, 6 ) } ) }
-														min="1"
-														max="6"
-													/>
-												</Fragment>
-											);
-										}
-
-										if ( 'mobile' === tab.name ) {
-											return (
-												<Fragment>
-													<RangeControl
-														label={ __( '# of slides to show (Small window)', 'snow-monkey-blocks' ) }
-														value={ smSlidesToShow }
-														onChange={ ( value ) => setAttributes( { smSlidesToShow: toNumber( value, 1, 6 ) } ) }
-														min="1"
-														max="6"
-													/>
-													<RangeControl
-														label={ __( '# of slides to scroll (Small window)', 'snow-monkey-blocks' ) }
-														value={ smSlidesToScroll }
-														onChange={ ( value ) => setAttributes( { smSlidesToScroll: toNumber( value, 1, 6 ) } ) }
-														min="1"
-														max="6"
-													/>
-												</Fragment>
-											);
-										}
-									}
-								}
-							}
-						</TabPanel>
+						<ResponsiveTabPanel
+							desktop={ () => {
+								return (
+									<Fragment>
+										<RangeControl
+											label={ __( '# of slides to show (Large window)', 'snow-monkey-blocks' ) }
+											value={ slidesToShow }
+											onChange={ ( value ) => setAttributes( { slidesToShow: toNumber( value, 1, 6 ) } ) }
+											min="1"
+											max="6"
+										/>
+										<RangeControl
+											label={ __( '# of slides to scroll (Large window)', 'snow-monkey-blocks' ) }
+											value={ slidesToScroll }
+											onChange={ ( value ) => setAttributes( { slidesToScroll: toNumber( value, 1, 6 ) } ) }
+											min="1"
+											max="6"
+										/>
+									</Fragment>
+								);
+							} }
+							tablet={ () => {
+								return (
+									<Fragment>
+										<RangeControl
+											label={ __( '# of slides to show (Medium window)', 'snow-monkey-blocks' ) }
+											value={ mdSlidesToShow }
+											onChange={ ( value ) => setAttributes( { mdSlidesToShow: toNumber( value, 1, 6 ) } ) }
+											min="1"
+											max="6"
+										/>
+										<RangeControl
+											label={ __( '# of slides to scroll (Medium window)', 'snow-monkey-blocks' ) }
+											value={ mdSlidesToScroll }
+											onChange={ ( value ) => setAttributes( { mdSlidesToScroll: toNumber( value, 1, 6 ) } ) }
+											min="1"
+											max="6"
+										/>
+									</Fragment>
+								);
+							} }
+							mobile={ () => {
+								return (
+									<Fragment>
+										<RangeControl
+											label={ __( '# of slides to show (Small window)', 'snow-monkey-blocks' ) }
+											value={ smSlidesToShow }
+											onChange={ ( value ) => setAttributes( { smSlidesToShow: toNumber( value, 1, 6 ) } ) }
+											min="1"
+											max="6"
+										/>
+										<RangeControl
+											label={ __( '# of slides to scroll (Small window)', 'snow-monkey-blocks' ) }
+											value={ smSlidesToScroll }
+											onChange={ ( value ) => setAttributes( { smSlidesToScroll: toNumber( value, 1, 6 ) } ) }
+											min="1"
+											max="6"
+										/>
+									</Fragment>
+								);
+							} }
+						/>
 					</PanelBody>
 				</InspectorControls>
 

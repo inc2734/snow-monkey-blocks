@@ -7,9 +7,11 @@ import { blockConfig } from '../../src/js/config/block';
 import { schema } from './_schema';
 import { deprecated } from './_deprecated';
 
+import { ResponsiveTabPanel } from '../../src/js/component/responsive-tab-panel';
+
 const { registerBlockType } = wp.blocks;
 const { InspectorControls, InnerBlocks } = wp.editor;
-const { PanelBody, RangeControl, TabPanel, Dashicon } = wp.components;
+const { PanelBody, RangeControl } = wp.components;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
@@ -38,64 +40,41 @@ registerBlockType( 'snow-monkey-blocks/items', {
 			<Fragment>
 				<InspectorControls>
 					<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
-						<TabPanel
-							className="smb-inspector-tabs"
-							tabs={ [
-								{
-									name: 'desktop',
-									title: <Dashicon icon="desktop" />,
-								},
-								{
-									name: 'tablet',
-									title: <Dashicon icon="tablet" />,
-								},
-								{
-									name: 'mobile',
-									title: <Dashicon icon="smartphone" />,
-								},
-							] }>
-							{
-								( tab ) => {
-									if ( tab.name ) {
-										if ( 'desktop' === tab.name ) {
-											return (
-												<RangeControl
-													label={ __( 'Columns per row (Large window)', 'snow-monkey-blocks' ) }
-													value={ lg }
-													onChange={ ( value ) => setAttributes( { lg: toNumber( value, 1, 6 ) } ) }
-													min="1"
-													max="6"
-												/>
-											);
-										}
-
-										if ( 'tablet' === tab.name ) {
-											return (
-												<RangeControl
-													label={ __( 'Columns per row (Medium window)', 'snow-monkey-blocks' ) }
-													value={ md }
-													onChange={ ( value ) => setAttributes( { md: toNumber( value, 1, 6 ) } ) }
-													min="1"
-													max="6"
-												/>
-											);
-										}
-
-										if ( 'mobile' === tab.name ) {
-											return (
-												<RangeControl
-													label={ __( 'Columns per row (Small window)', 'snow-monkey-blocks' ) }
-													value={ sm }
-													onChange={ ( value ) => setAttributes( { sm: toNumber( value, 1, 6 ) } ) }
-													min="1"
-													max="6"
-												/>
-											);
-										}
-									}
-								}
-							}
-						</TabPanel>
+						<ResponsiveTabPanel
+							desktop={ () => {
+								return (
+									<RangeControl
+										label={ __( 'Columns per row (Large window)', 'snow-monkey-blocks' ) }
+										value={ lg }
+										onChange={ ( value ) => setAttributes( { lg: toNumber( value, 1, 6 ) } ) }
+										min="1"
+										max="6"
+									/>
+								);
+							} }
+							tablet={ () => {
+								return (
+									<RangeControl
+										label={ __( 'Columns per row (Medium window)', 'snow-monkey-blocks' ) }
+										value={ md }
+										onChange={ ( value ) => setAttributes( { md: toNumber( value, 1, 6 ) } ) }
+										min="1"
+										max="6"
+									/>
+								);
+							} }
+							mobile={ () => {
+								return (
+									<RangeControl
+										label={ __( 'Columns per row (Small window)', 'snow-monkey-blocks' ) }
+										value={ sm }
+										onChange={ ( value ) => setAttributes( { sm: toNumber( value, 1, 6 ) } ) }
+										min="1"
+										max="6"
+									/>
+								);
+							} }
+						/>
 					</PanelBody>
 				</InspectorControls>
 
