@@ -47,6 +47,13 @@
     display: block;
     text-decoration: none;
     overflow: hidden;
+    background-color: #fff;
+
+    @include _hover(lg) {
+      .smb-items__banner__figure {
+        filter: brightness(80%);
+      }
+    }
 
     &--blur {
       .smb-items__banner__figure > img {
@@ -56,6 +63,7 @@
         max-height: none;
         max-width: none;
         margin: -3px;
+        transform: translateZ(0);
       }
     }
 
@@ -98,6 +106,8 @@
     }
 
     &__figure {
+      @include _transition(filter);
+
       > img {
         position: relative;
         height: 100%;
