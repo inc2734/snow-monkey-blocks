@@ -40,15 +40,11 @@ registerBlockType( 'snow-monkey-blocks/countdown', {
 	},
 
 	edit( { attributes, setAttributes, className } ) {
-		const blockClasses = classnames(
-			{
-				'smb-countdown': true,
-				[ className ]: !! className,
-			}
-		);
+		const blockClasses = classnames( 'smb-countdown', className );
+
 		const listClasses = classnames(
+			'smb-countdown__list',
 			{
-				'smb-countdown__list': true,
 				[ `align-${ attributes.alignment }` ]: !! attributes.alignment,
 			}
 		);
@@ -56,6 +52,7 @@ registerBlockType( 'snow-monkey-blocks/countdown', {
 		const numericStyles = {
 			color: attributes.numericColor || undefined,
 		};
+
 		const clockStyles = {
 			color: attributes.clockColor || undefined,
 		};
@@ -117,24 +114,23 @@ registerBlockType( 'snow-monkey-blocks/countdown', {
 	},
 
 	save( { attributes, className } ) {
-		const blockClasses = classnames(
-			{
-				'smb-countdown': true,
-				[ className ]: !! className,
-			}
-		);
+		const blockClasses = classnames( 'smb-countdown', className );
+
 		const listClasses = classnames(
+			'smb-countdown__list',
 			{
-				'smb-countdown__list': true,
 				[ `align-${ attributes.alignment }` ]: !! attributes.alignment,
 			}
 		);
+
 		const numericStyles = {
 			color: attributes.numericColor || undefined,
 		};
+
 		const clockStyles = {
 			color: attributes.clockColor || undefined,
 		};
+
 		return (
 			<div className={ blockClasses }>
 				<ul className={ listClasses } data-time={ attributes.countdownTime }>

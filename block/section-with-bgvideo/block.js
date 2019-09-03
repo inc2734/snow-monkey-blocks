@@ -46,25 +46,19 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 		const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
 
 		const classes = classnames(
-			{
-				'smb-section': true,
-				'smb-section-with-bgimage': true,
-				'smb-section-with-bgvideo': true,
-				[ `smb-section-with-bgimage--${ contentsAlignment }` ]: true,
-				[ `smb-section-with-bgimage--${ height }` ]: true,
-				[ className ]: !! className,
-			}
+			'smb-section',
+			'smb-section-with-bgimage',
+			'smb-section-with-bgvideo',
+			`smb-section-with-bgimage--${ contentsAlignment }`,
+			`smb-section-with-bgimage--${ height }`,
+			className,
 		);
 
-		const bgvideoClasses = classnames(
-			{
-				'smb-section-with-bgimage__bgimage': true,
-			}
-		);
+		const bgvideoClasses = classnames( 'smb-section-with-bgimage__bgimage' );
 
 		const containerClasses = classnames(
+			'c-container',
 			{
-				'c-container': true,
 				'u-slim-width': !! isSlim,
 			}
 		);
@@ -224,7 +218,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 				</InspectorControls>
 
 				<div className={ classes } style={ sectionStyles }>
-					<div className="smb-section-with-bgimage__mask" style={ maskStyles }></div>
+					<div className="smb-section-with-bgimage__mask" style={ maskStyles } />
 					<div className={ bgvideoClasses } style={ bgvideoStyles }>
 						{ videoURL &&
 							<img src={ `http://i.ytimg.com/vi/${ getVideoId( videoURL ) }/maxresdefault.jpg` } alt="" />
@@ -255,25 +249,19 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 		const { titleTagName, title, videoURL, videoWidth, videoHeight, height, contentsAlignment, maskColor, maskColor2, maskColorAngle, maskOpacity, textColor, isSlim } = attributes;
 
 		const classes = classnames(
-			{
-				'smb-section': true,
-				'smb-section-with-bgvideo': true,
-				'smb-section-with-bgimage': true,
-				[ `smb-section-with-bgimage--${ contentsAlignment }` ]: true,
-				[ `smb-section-with-bgimage--${ height }` ]: true,
-				[ className ]: !! className,
-			}
+			'smb-section',
+			'smb-section-with-bgimage',
+			'smb-section-with-bgvideo',
+			`smb-section-with-bgimage--${ contentsAlignment }`,
+			`smb-section-with-bgimage--${ height }`,
+			className,
 		);
 
-		const bgvideoClasses = classnames(
-			{
-				'smb-section-with-bgimage__bgimage': true,
-			}
-		);
+		const bgvideoClasses = classnames( 'smb-section-with-bgimage__bgimage' );
 
 		const containerClasses = classnames(
+			'c-container',
 			{
-				'c-container': true,
 				'u-slim-width': !! isSlim,
 			}
 		);
@@ -296,7 +284,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgvideo', {
 
 		return (
 			<div className={ classes } style={ sectionStyles }>
-				<div className="smb-section-with-bgimage__mask" style={ maskStyles }></div>
+				<div className="smb-section-with-bgimage__mask" style={ maskStyles } />
 				<div className={ bgvideoClasses } style={ bgvideoStyles }>
 					{ videoURL &&
 						<Fragment>

@@ -38,8 +38,8 @@ registerBlockType( 'snow-monkey-blocks/btn', {
 		const wrapperClasses = classnames( 'u-clearfix', 'smb-btn-wrapper', className );
 
 		const classes = classnames(
+			'smb-btn',
 			{
-				'smb-btn': true,
 				[ `smb-btn--${ modifier }` ]: !! modifier,
 			}
 		);
@@ -149,8 +149,8 @@ registerBlockType( 'snow-monkey-blocks/btn', {
 		const wrapperClasses = classnames( 'u-clearfix', 'smb-btn-wrapper', className );
 
 		const classes = classnames(
+			'smb-btn',
 			{
-				'smb-btn': true,
 				[ `smb-btn--${ modifier }` ]: !! modifier,
 			}
 		);

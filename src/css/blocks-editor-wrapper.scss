@@ -1,3 +1,8 @@
+$_font-path: false;
+@import 'core/variable/variable';
+@import '../../node_modules/sass-basis/src/css/basis-core';
+@import 'core/mixin/mixin';
+
 .smb-list-icon-selector {
   .components-button {
     margin: 1px;
@@ -40,4 +45,32 @@
 .smb-menu__template-block__modal__screenshot {
   max-width: 100%;
   height: auto;
+}
+
+.smb-remove-button-wrapper {
+  position: relative;
+}
+.smb-remove-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 1;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 12px !important;
+  line-height: 1 !important;
+  border: 0;
+  padding: 6px 8px;
+  color: #fff;
+  background-color: #cd3034;
+  border-radius: 4px;
+  transition: all .3s;
+
+  @include _media-min(lg) {
+    opacity: .6;
+  }
+
+  @include _hover(lg) {
+    opacity: 1;
+  }
 }

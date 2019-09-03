@@ -30,12 +30,8 @@ registerBlockType( 'snow-monkey-blocks/directory-structure', {
 			'snow-monkey-blocks/directory-structure--item--directory',
 			'snow-monkey-blocks/directory-structure--item--file',
 		];
-		const blockClasses = classnames(
-			{
-				'smb-directory-structure': true,
-				[ className ]: !! className,
-			}
-		);
+
+		const blockClasses = classnames( 'smb-directory-structure', className );
 
 		return (
 			<Fragment>
@@ -50,12 +46,7 @@ registerBlockType( 'snow-monkey-blocks/directory-structure', {
 	},
 
 	save( { className } ) {
-		const blockClasses = classnames(
-			{
-				'smb-directory-structure': true,
-				[ className ]: !! className,
-			}
-		);
+		const blockClasses = classnames( 'smb-directory-structure', className );
 
 		return (
 			<div className={ blockClasses }>

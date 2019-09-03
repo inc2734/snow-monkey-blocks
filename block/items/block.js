@@ -31,7 +31,11 @@ registerBlockType( 'snow-monkey-blocks/items', {
 	edit( { attributes, setAttributes, className } ) {
 		const { sm, md, lg } = attributes;
 
-		const allowedBlocks = [ 'snow-monkey-blocks/items--item--standard', 'snow-monkey-blocks/items--item--block-link' ];
+		const allowedBlocks = [
+			'snow-monkey-blocks/items--item--standard',
+			'snow-monkey-blocks/items--item--block-link',
+			'snow-monkey-blocks/items--banner',
+		];
 		const template = [ [ 'snow-monkey-blocks/items--item--standard' ] ];
 
 		const classes = classnames( 'smb-items', className );

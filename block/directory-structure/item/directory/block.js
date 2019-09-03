@@ -31,13 +31,7 @@ registerBlockType( 'snow-monkey-blocks/directory-structure--item--directory', {
 			'snow-monkey-blocks/directory-structure--item--file',
 		];
 
-		const blockClasses = classnames(
-			{
-				'smb-directory-structure__item': true,
-				'smb-directory-structure__item--directory': true,
-				[ className ]: !! className,
-			}
-		);
+		const blockClasses = classnames( 'smb-directory-structure__item', 'smb-directory-structure__item--directory', className );
 
 		const itemNameClasses = 'smb-directory-structure__item__name';
 
@@ -139,13 +133,7 @@ registerBlockType( 'snow-monkey-blocks/directory-structure--item--directory', {
 	},
 
 	save( { attributes, className } ) {
-		const blockClasses = classnames(
-			{
-				'smb-directory-structure__item': true,
-				'smb-directory-structure__item--directory': true,
-				[ className ]: !! className,
-			}
-		);
+		const blockClasses = classnames( 'smb-directory-structure__item', 'smb-directory-structure__item--directory', className );
 
 		const itemNameClasses = 'smb-directory-structure__item__name';
 

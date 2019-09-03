@@ -93,7 +93,7 @@ export const deprecated = [
 											<div className="smb-rating-box__item__evaluation__numeric">
 												{ rating }
 											</div>
-											<div className="smb-rating-box__item__evaluation__rating" style={ { width: `${ rating * 10 }%`, backgroundColor: color } }></div>
+											<div className="smb-rating-box__item__evaluation__rating" style={ { width: `${ rating * 10 }%`, backgroundColor: color } } />
 										</div>
 									</div>
 								</div>

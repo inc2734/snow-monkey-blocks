@@ -1,14 +1,4 @@
 .smb-panels {
-  &__item__figure {
-    position: relative;
-
-    .smb-remove-button {
-      position: absolute;
-      top: 5px;
-      right: 5px;
-    }
-  }
-
   &__item--horizontal {
     > .smb-panels__item__figure {
       display: flex;

@@ -27,17 +27,11 @@ registerBlockType( 'snow-monkey-blocks/container', {
 	edit( { attributes, setAttributes, className } ) {
 		const { isSlim } = attributes;
 
-		const classes = classnames(
-			className,
-			{
-				'smb-container': true,
-				'c-container': true,
-			}
-		);
+		const classes = classnames( 'smb-container', 'c-container', className );
 
 		const bodyClasses = classnames(
+			'smb-container__body',
 			{
-				'smb-container__body': true,
 				'u-slim-width': !! isSlim,
 			}
 		);
@@ -66,17 +60,11 @@ registerBlockType( 'snow-monkey-blocks/container', {
 	save( { attributes, className } ) {
 		const { isSlim } = attributes;
 
-		const classes = classnames(
-			className,
-			{
-				'smb-container': true,
-				'c-container': true,
-			}
-		);
+		const classes = classnames( 'smb-container', 'c-container', className );
 
 		const bodyClasses = classnames(
+			'smb-container__body',
 			{
-				'smb-container__body': true,
 				'u-slim-width': !! isSlim,
 			}
 		);

@@ -29,8 +29,8 @@ registerBlockType( 'snow-monkey-blocks/pricing-table', {
 		const { columnSize } = attributes;
 
 		const classes = classnames(
+			'smb-pricing-table',
 			{
-				'smb-pricing-table': true,
 				[ `smb-pricing-table--col-size-${ columnSize }` ]: !! columnSize,
 				[ className ]: true,
 			}
@@ -93,8 +93,8 @@ registerBlockType( 'snow-monkey-blocks/pricing-table', {
 		const { columnSize } = attributes;
 
 		const classes = classnames(
+			'smb-pricing-table',
 			{
-				'smb-pricing-table': true,
 				[ `smb-pricing-table--col-size-${ columnSize }` ]: !! columnSize,
 				[ className ]: true,
 			}

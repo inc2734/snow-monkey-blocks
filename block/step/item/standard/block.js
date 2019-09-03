@@ -113,7 +113,7 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 
 				<div className={ classes }>
 					<div className="smb-step__item__title">
-						<div className="smb-step__item__number" style={ itemNumberStyles }></div>
+						<div className="smb-step__item__number" style={ itemNumberStyles } />
 						<span>
 							<RichText
 								placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
@@ -191,7 +191,7 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 		return (
 			<div className={ classes }>
 				<div className="smb-step__item__title">
-					<div className="smb-step__item__number" style={ itemNumberStyles }></div>
+					<div className="smb-step__item__number" style={ itemNumberStyles } />
 					<span>
 						<RichText.Content value={ title } />
 					</span>

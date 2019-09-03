@@ -41,26 +41,26 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 		const Wrapper = wrapperTagName;
 
 		const classes = classnames(
+			'smb-section',
+			'smb-section-with-bgimage',
+			`smb-section-with-bgimage--${ contentsAlignment }`,
+			`smb-section-with-bgimage--${ height }`,
+			className,
 			{
-				'smb-section': true,
-				'smb-section-with-bgimage': true,
-				[ `smb-section-with-bgimage--${ contentsAlignment }` ]: true,
-				[ `smb-section-with-bgimage--${ height }` ]: true,
-				[ className ]: !! className,
 				'js-bg-parallax': !! parallax,
 			}
 		);
 
 		const bgimageClasses = classnames(
+			'smb-section-with-bgimage__bgimage',
 			{
-				'smb-section-with-bgimage__bgimage': true,
 				'js-bg-parallax__bgimage': !! parallax,
 			}
 		);
 
 		const containerClasses = classnames(
+			'c-container',
 			{
-				'c-container': true,
 				'u-slim-width': !! isSlim,
 			}
 		);
@@ -239,7 +239,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 							} }
 						>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
 					}
-					<div className="smb-section-with-bgimage__mask" style={ maskStyles }></div>
+					<div className="smb-section-with-bgimage__mask" style={ maskStyles } />
 					{ imageURL &&
 						<div className={ bgimageClasses } style={ bgimageStyles }>
 							<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
@@ -272,26 +272,26 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 		const Wrapper = wrapperTagName;
 
 		const classes = classnames(
+			'smb-section',
+			'smb-section-with-bgimage',
+			`smb-section-with-bgimage--${ contentsAlignment }`,
+			`smb-section-with-bgimage--${ height }`,
+			className,
 			{
-				'smb-section': true,
-				'smb-section-with-bgimage': true,
-				[ `smb-section-with-bgimage--${ contentsAlignment }` ]: true,
-				[ `smb-section-with-bgimage--${ height }` ]: true,
-				[ className ]: !! className,
 				'js-bg-parallax': !! parallax,
 			}
 		);
 
 		const bgimageClasses = classnames(
+			'smb-section-with-bgimage__bgimage',
 			{
-				'smb-section-with-bgimage__bgimage': true,
 				'js-bg-parallax__bgimage': !! parallax,
 			}
 		);
 
 		const containerClasses = classnames(
+			'c-container',
 			{
-				'c-container': true,
 				'u-slim-width': !! isSlim,
 			}
 		);
@@ -314,7 +314,7 @@ registerBlockType( 'snow-monkey-blocks/section-with-bgimage', {
 
 		return (
 			<Wrapper className={ classes } style={ sectionStyles }>
-				<div className="smb-section-with-bgimage__mask" style={ maskStyles }></div>
+				<div className="smb-section-with-bgimage__mask" style={ maskStyles } />
 				{ imageURL &&
 					<div className={ bgimageClasses } style={ bgimageStyles }>
 						<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />

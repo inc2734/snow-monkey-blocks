@@ -21,6 +21,7 @@ import '../../block/items/block';
 import '../../block/items/item/block';
 import '../../block/items/item/standard/block';
 import '../../block/items/item/block-link/block';
+import '../../block/items/item/banner/block';
 import '../../block/slider/block';
 import '../../block/slider/item/block';
 import '../../block/panels/block';

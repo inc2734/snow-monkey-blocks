@@ -76,8 +76,8 @@ registerBlockType( 'snow-monkey-blocks/alert', {
 		};
 
 		const classes = classnames(
+			'smb-alert',
 			{
-				'smb-alert': true,
 				[ className ]: !! className,
 				[ `smb-alert--${ modifier }` ]: !! modifier,
 			}
@@ -159,8 +159,8 @@ registerBlockType( 'snow-monkey-blocks/alert', {
 		const { title, content, modifier, icon } = attributes;
 
 		const classes = classnames(
+			'smb-alert',
 			{
-				'smb-alert': true,
 				[ className ]: !! className,
 				[ `smb-alert--${ modifier }` ]: !! modifier,
 			}

@@ -1,14 +1,4 @@
 .smb-step {
-  &__item__figure {
-    position: relative;
-
-    .smb-remove-button {
-      position: absolute;
-      top: 5px;
-      right: 5px;
-    }
-  }
-
   &__item__summary {
     > .editor-inner-blocks {
       padding-top: 0 !important;

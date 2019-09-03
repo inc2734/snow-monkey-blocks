@@ -15,7 +15,7 @@ export const deprecated = [
 			return (
 				<div className={ `smb-step__item smb-step__item--image-${ imagePosition }` }>
 					<div className="smb-step__item__title">
-						<div className="smb-step__item__number" style={ { backgroundColor: numberColor } }></div>
+						<div className="smb-step__item__number" style={ { backgroundColor: numberColor } } />
 						<span>
 							<RichText.Content value={ title } />
 						</span>
@@ -71,7 +71,7 @@ export const deprecated = [
 			return (
 				<div className={ `smb-step__item smb-step__item--image-${ imagePosition }` }>
 					<div className="smb-step__item__title">
-						<div className="smb-step__item__number" style={ { backgroundColor: numberColor } }></div>
+						<div className="smb-step__item__number" style={ { backgroundColor: numberColor } } />
 						<span>
 							<RichText.Content value={ title } />
 						</span>
@@ -139,7 +139,7 @@ export const deprecated = [
 			return (
 				<div className={ `smb-step__item smb-step__item--image-${ imagePosition }` }>
 					<div className="smb-step__item__title">
-						<div className="smb-step__item__number" style={ { backgroundColor: numberColor } }></div>
+						<div className="smb-step__item__number" style={ { backgroundColor: numberColor } } />
 						<span>
 							<RichText.Content value={ title } />
 						</span>

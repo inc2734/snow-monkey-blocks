@@ -41,8 +41,8 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 		};
 
 		const classes = classnames(
+			'smb-balloon',
 			{
-				'smb-balloon': true,
 				[ className ]: !! className,
 				[ `smb-balloon--${ modifier }` ]: !! modifier,
 			}
@@ -128,8 +128,8 @@ registerBlockType( 'snow-monkey-blocks/balloon', {
 		};
 
 		const classes = classnames(
+			'smb-balloon',
 			{
-				'smb-balloon': true,
 				[ className ]: !! className,
 				[ `smb-balloon--${ modifier }` ]: !! modifier,
 			}

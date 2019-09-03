@@ -2,7 +2,6 @@
 
 const { MediaPlaceholder, MediaUpload } = wp.editor;
 const { Button } = wp.components;
-const { Fragment } = wp.element;
 const { __ } = wp.i18n;
 
 export const Figure = ( props ) => {
@@ -21,7 +20,7 @@ export const Figure = ( props ) => {
 	}
 
 	return (
-		<Fragment>
+		<div className="smb-remove-button-wrapper">
 			<MediaUpload
 				onSelect={ selectHandler }
 				type="image"
@@ -40,6 +39,6 @@ export const Figure = ( props ) => {
 					onClick={ removeHandler }
 				>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
 			}
-		</Fragment>
+		</div>
 	);
 };

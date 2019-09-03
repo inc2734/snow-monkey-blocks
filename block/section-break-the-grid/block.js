@@ -41,19 +41,19 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 		const Wrapper = wrapperTagName;
 
 		const classes = classnames(
+			'smb-section',
+			'smb-section-break-the-grid',
+			`smb-section-break-the-grid--${ imagePosition }`,
 			{
-				'smb-section': true,
-				'smb-section-break-the-grid': true,
-				[ `smb-section-break-the-grid--${ imagePosition }` ]: true,
 				[ `smb-section-break-the-grid--vertical-${ contentVerticalPosition }` ]: contentVerticalPosition && verticalAlignment && 'middle' !== verticalAlignment,
 				[ className ]: !! className,
 			}
 		);
 
 		const rowClasses = classnames(
+			'c-row',
+			'c-row--margin',
 			{
-				'c-row': true,
-				'c-row--margin': true,
 				[ `c-row--lg-${ verticalAlignment }` ]: true,
 			}
 		);
@@ -62,15 +62,15 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 		const imageColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', 'c-row__col--lg-1-2' );
 
 		const figureClasses = classnames(
+			'smb-section-break-the-grid__figure',
 			{
-				'smb-section-break-the-grid__figure': true,
 				[ `smb-section-break-the-grid__figure--w-${ imageSize }` ]: !! imageSize,
 			}
 		);
 
 		const contentClasses = classnames(
+			'smb-section-break-the-grid__content',
 			{
-				'smb-section-break-the-grid__content': true,
 				[ `smb-section-break-the-grid__content--w-${ contentSize }` ]: !! contentSize,
 				[ `smb-section-break-the-grid__content--p-${ contentPadding }` ]: !! contentPadding,
 				[ `smb-section-break-the-grid__content--horizontal-${ contentHorizontalPosition }` ]: !! contentHorizontalPosition,
@@ -115,7 +115,7 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 			}
 
 			return (
-				<Fragment>
+				<div className="smb-remove-button-wrapper">
 					<MediaUpload
 						onSelect={ onSelectImage }
 						type="image"
@@ -137,7 +137,7 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 							} }
 						>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
 					}
-				</Fragment>
+				</div>
 			);
 		};
 
@@ -455,7 +455,7 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 							<div className={ imageColumnClasses }>
 								<div className={ figureClasses }>
 									{ shadowColor &&
-										<div className={ shadowClasses } style={ shadowStyles }></div>
+										<div className={ shadowClasses } style={ shadowStyles } />
 									}
 									<Figure />
 								</div>
@@ -473,19 +473,19 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 		const Wrapper = wrapperTagName;
 
 		const classes = classnames(
+			'smb-section',
+			'smb-section-break-the-grid',
+			`smb-section-break-the-grid--${ imagePosition }`,
 			{
-				'smb-section': true,
-				'smb-section-break-the-grid': true,
-				[ `smb-section-break-the-grid--${ imagePosition }` ]: true,
 				[ `smb-section-break-the-grid--vertical-${ contentVerticalPosition }` ]: contentVerticalPosition && verticalAlignment && 'middle' !== verticalAlignment,
 				[ className ]: !! className,
 			}
 		);
 
 		const rowClasses = classnames(
+			'c-row',
+			'c-row--margin',
 			{
-				'c-row': true,
-				'c-row--margin': true,
 				[ `c-row--lg-${ verticalAlignment }` ]: true,
 			}
 		);
@@ -494,15 +494,15 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 		const imageColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', 'c-row__col--lg-1-2' );
 
 		const figureClasses = classnames(
+			'smb-section-break-the-grid__figure',
 			{
-				'smb-section-break-the-grid__figure': true,
 				[ `smb-section-break-the-grid__figure--w-${ imageSize }` ]: !! imageSize,
 			}
 		);
 
 		const contentClasses = classnames(
+			'smb-section-break-the-grid__content',
 			{
-				'smb-section-break-the-grid__content': true,
 				[ `smb-section-break-the-grid__content--w-${ contentSize }` ]: !! contentSize,
 				[ `smb-section-break-the-grid__content--p-${ contentPadding }` ]: !! contentPadding,
 				[ `smb-section-break-the-grid__content--horizontal-${ contentHorizontalPosition }` ]: !! contentHorizontalPosition,
@@ -549,7 +549,7 @@ registerBlockType( 'snow-monkey-blocks/section-break-the-grid', {
 						<div className={ imageColumnClasses }>
 							<div className={ figureClasses }>
 								{ shadowColor &&
-									<div className={ shadowClasses } style={ shadowStyles }></div>
+									<div className={ shadowClasses } style={ shadowStyles } />
 								}
 								{ imageURL &&
 									<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />

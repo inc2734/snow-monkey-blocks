@@ -14,26 +14,26 @@ export const deprecated = [
 			const { titleTagName, title, imageID, imageURL, imageAlt, height, contentsAlignment, maskColor, maskOpacity, textColor, parallax, isSlim } = attributes;
 
 			const classes = classnames(
+				'smb-section',
+				'smb-section-with-bgimage',
+				`smb-section-with-bgimage--${ contentsAlignment }`,
+				`smb-section-with-bgimage--${ height }`,
+				className,
 				{
-					'smb-section': true,
-					'smb-section-with-bgimage': true,
-					[ `smb-section-with-bgimage--${ contentsAlignment }` ]: true,
-					[ `smb-section-with-bgimage--${ height }` ]: true,
-					[ className ]: !! className,
 					'js-bg-parallax': !! parallax,
 				}
 			);
 
 			const bgimageClasses = classnames(
+				'smb-section-with-bgimage__bgimage',
 				{
-					'smb-section-with-bgimage__bgimage': true,
 					'js-bg-parallax__bgimage': !! parallax,
 				}
 			);
 
 			const containerClasses = classnames(
+				'c-container',
 				{
-					'c-container': true,
 					'u-slim-width': !! isSlim,
 				}
 			);
@@ -52,7 +52,7 @@ export const deprecated = [
 
 			return (
 				<div className={ classes } style={ sectionStyles }>
-					<div className="smb-section-with-bgimage__mask" style={ maskStyles }></div>
+					<div className="smb-section-with-bgimage__mask" style={ maskStyles } />
 					<div className={ bgimageClasses } style={ bgimageStyles }>
 						<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
 					</div>
@@ -84,26 +84,26 @@ export const deprecated = [
 			const { titleTagName, title, imageID, imageURL, imageAlt, height, contentsAlignment, maskColor, maskOpacity, textColor, parallax, contentsWidth } = attributes;
 
 			const classes = classnames(
+				'smb-section',
+				'smb-section-with-bgimage',
+				`smb-section-with-bgimage--${ contentsAlignment }`,
+				`smb-section-with-bgimage--${ height }`,
+				className,
 				{
-					'smb-section': true,
-					'smb-section-with-bgimage': true,
-					[ `smb-section-with-bgimage--${ contentsAlignment }` ]: true,
-					[ `smb-section-with-bgimage--${ height }` ]: true,
-					[ className ]: !! className,
 					'js-bg-parallax': !! parallax,
 				}
 			);
 
 			const bgimageClasses = classnames(
+				'smb-section-with-bgimage__bgimage',
 				{
-					'smb-section-with-bgimage__bgimage': true,
 					'js-bg-parallax__bgimage': !! parallax,
 				}
 			);
 
 			const containerClasses = classnames(
+				'c-container',
 				{
-					'c-container': true,
 					'u-slim-width': !! contentsWidth,
 				}
 			);
@@ -122,7 +122,7 @@ export const deprecated = [
 
 			return (
 				<div className={ classes } style={ sectionStyles }>
-					<div className="smb-section-with-bgimage__mask" style={ maskStyles }></div>
+					<div className="smb-section-with-bgimage__mask" style={ maskStyles } />
 					<div className={ bgimageClasses } style={ bgimageStyles }>
 						<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
 					</div>
@@ -154,7 +154,7 @@ export const deprecated = [
 
 			return (
 				<div className={ classnames( `smb-section smb-section-with-bgimage smb-section-with-bgimage--${ contentsAlignment } smb-section-with-bgimage--${ height }`, { 'js-bg-parallax': !! parallax } ) } style={ { color: textColor } }>
-					<div className="smb-section-with-bgimage__mask" style={ { backgroundColor: maskColor } }></div>
+					<div className="smb-section-with-bgimage__mask" style={ { backgroundColor: maskColor } } />
 					<div className={ classnames( 'smb-section-with-bgimage__bgimage', { 'js-bg-parallax__bgimage': !! parallax } ) } style={ { opacity: maskOpacity } }>
 						<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
 					</div>
@@ -185,7 +185,7 @@ export const deprecated = [
 
 			return (
 				<div className={ `smb-section smb-section-with-bgimage smb-section-with-bgimage--${ contentsAlignment } smb-section-with-bgimage--${ height }` }>
-					<div className="smb-section-with-bgimage__mask" style={ { backgroundColor: maskColor } }></div>
+					<div className="smb-section-with-bgimage__mask" style={ { backgroundColor: maskColor } } />
 					<div className="smb-section-with-bgimage__bgimage" style={ { opacity: maskOpacity } }>
 						<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } />
 					</div>
@@ -216,7 +216,7 @@ export const deprecated = [
 
 			return (
 				<div className={ `smb-section smb-section-with-bgimage smb-section-with-bgimage--${ contentsAlignment } smb-section-with-bgimage--${ height }` }>
-					<div className="smb-section-with-bgimage__mask" style={ { backgroundColor: maskColor } }></div>
+					<div className="smb-section-with-bgimage__mask" style={ { backgroundColor: maskColor } } />
 					<div className="smb-section-with-bgimage__bgimage" style={ { opacity: maskOpacity } }>
 						<img src={ imageURL } alt="" />
 					</div>

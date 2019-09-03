@@ -15,7 +15,6 @@
 @import '../../block/section-break-the-grid/editor';
 @import '../../block/section-side-heading/editor';
 @import '../../block/step/editor';
-@import '../../block/items/editor';
 @import '../../block/pricing-table/editor';
 @import '../../block/slider/editor';
 @import '../../block/rating-box/editor';
@@ -80,27 +79,6 @@
         }
       }
     }
-  }
-}
-
-.smb-remove-button {
-  display: inline-block;
-  cursor: pointer;
-  font-size: 12px !important;
-  line-height: 1 !important;
-  border: 0;
-  padding: 6px 8px;
-  color: #fff;
-  background-color: #cd3034;
-  border-radius: 4px;
-  transition: all .3s;
-
-  @include _media-min(lg) {
-    opacity: .6;
-  }
-
-  @include _hover(lg) {
-    opacity: 1;
   }
 }
 

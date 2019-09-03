@@ -56,8 +56,8 @@ registerBlockType( 'snow-monkey-blocks/section', {
 		);
 
 		const containerClasses = classnames(
+			'c-container',
 			{
-				'c-container': true,
 				'u-slim-width': !! isSlim,
 			}
 		);
@@ -308,8 +308,8 @@ registerBlockType( 'snow-monkey-blocks/section', {
 		);
 
 		const containerClasses = classnames(
+			'c-container',
 			{
-				'c-container': true,
 				'u-slim-width': !! isSlim,
 			}
 		);

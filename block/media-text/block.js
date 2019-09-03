@@ -38,10 +38,10 @@ registerBlockType( 'snow-monkey-blocks/media-text', {
 		const classes = classnames( 'smb-media-text', className );
 
 		const rowClasses = classnames(
+			'c-row',
+			'c-row--margin',
+			'c-row--middle',
 			{
-				'c-row': true,
-				'c-row--margin': true,
-				'c-row--middle': true,
 				'c-row--reverse': 'left' === imagePosition,
 			}
 		);
@@ -158,10 +158,10 @@ registerBlockType( 'snow-monkey-blocks/media-text', {
 		const classes = classnames( 'smb-media-text', className );
 
 		const rowClasses = classnames(
+			'c-row',
+			'c-row--margin',
+			'c-row--middle',
 			{
-				'c-row': true,
-				'c-row--margin': true,
-				'c-row--middle': true,
 				'c-row--reverse': 'left' === imagePosition,
 			}
 		);

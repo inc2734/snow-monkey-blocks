@@ -38,8 +38,8 @@ export const deprecated = [
 			);
 
 			const containerClasses = classnames(
+				'c-container',
 				{
-					'c-container': true,
 					'u-slim-width': !! contentsWidth,
 				}
 			);

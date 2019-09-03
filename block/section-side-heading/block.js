@@ -43,13 +43,7 @@ registerBlockType( 'snow-monkey-blocks/section-side-heading', {
 
 		const Wrapper = wrapperTagName;
 
-		const classes = classnames(
-			{
-				'smb-section': true,
-				'smb-section-side-heading': true,
-				[ className ]: !! className,
-			}
-		);
+		const classes = classnames( 'smb-section', 'smb-section-side-heading', className );
 
 		const topDividerClasses = classnames(
 			'smb-section__divider',
@@ -64,27 +58,15 @@ registerBlockType( 'snow-monkey-blocks/section-side-heading', {
 		);
 
 		const containerClasses = classnames(
+			'c-container',
 			{
-				'c-container': true,
 				'u-slim-width': !! isSlim,
 			}
 		);
 
-		const headingColClasses = classnames(
-			{
-				'c-row__col': true,
-				'c-row__col--1-1': true,
-				[ `c-row__col--md-${ imageColumnWidth }` ]: true,
-			}
-		);
+		const headingColClasses = classnames( 'c-row__col', 'c-row__col--1-1', `c-row__col--md-${ imageColumnWidth }` );
 
-		const contentColClasses = classnames(
-			{
-				'c-row__col': true,
-				'c-row__col--1-1': true,
-				[ `c-row__col--md-${ textColumnWidth }` ]: true,
-			}
-		);
+		const contentColClasses = classnames( 'c-row__col', 'c-row__col--1-1', `c-row__col--md-${ textColumnWidth }` );
 
 		const sectionStyles = {};
 		if ( textColor ) {
@@ -344,13 +326,7 @@ registerBlockType( 'snow-monkey-blocks/section-side-heading', {
 
 		const Wrapper = wrapperTagName;
 
-		const classes = classnames(
-			{
-				'smb-section': true,
-				'smb-section-side-heading': true,
-				[ className ]: !! className,
-			}
-		);
+		const classes = classnames( 'smb-section', 'smb-section-side-heading', className );
 
 		const topDividerClasses = classnames(
 			'smb-section__divider',
@@ -365,27 +341,15 @@ registerBlockType( 'snow-monkey-blocks/section-side-heading', {
 		);
 
 		const containerClasses = classnames(
+			'c-container',
 			{
-				'c-container': true,
 				'u-slim-width': !! isSlim,
 			}
 		);
 
-		const headingColClasses = classnames(
-			{
-				'c-row__col': true,
-				'c-row__col--1-1': true,
-				[ `c-row__col--md-${ imageColumnWidth }` ]: true,
-			}
-		);
+		const headingColClasses = classnames( 'c-row__col', 'c-row__col--1-1', `c-row__col--md-${ imageColumnWidth }` );
 
-		const contentColClasses = classnames(
-			{
-				'c-row__col': true,
-				'c-row__col--1-1': true,
-				[ `c-row__col--md-${ textColumnWidth }` ]: true,
-			}
-		);
+		const contentColClasses = classnames( 'c-row__col', 'c-row__col--1-1', `c-row__col--md-${ textColumnWidth }` );
 
 		const sectionStyles = {};
 		if ( textColor ) {

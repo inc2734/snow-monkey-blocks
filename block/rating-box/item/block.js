@@ -76,7 +76,7 @@ registerBlockType( 'snow-monkey-blocks/rating-box--item', {
 							<div className="smb-rating-box__item__evaluation__numeric">
 								{ rating }
 							</div>
-							<div className="smb-rating-box__item__evaluation__rating" style={ itemEvaluationRatingStyles }></div>
+							<div className="smb-rating-box__item__evaluation__rating" style={ itemEvaluationRatingStyles } />
 						</div>
 					</div>
 				</div>
@@ -105,7 +105,7 @@ registerBlockType( 'snow-monkey-blocks/rating-box--item', {
 						<div className="smb-rating-box__item__evaluation__numeric">
 							{ rating }
 						</div>
-						<div className="smb-rating-box__item__evaluation__rating" style={ itemEvaluationRatingStyles }></div>
+						<div className="smb-rating-box__item__evaluation__rating" style={ itemEvaluationRatingStyles } />
 					</div>
 				</div>
 			</div>

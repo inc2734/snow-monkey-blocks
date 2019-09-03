@@ -38,8 +38,8 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 		const classes = classnames( 'smb-btn-box', className );
 
 		const btnClasses = classnames(
+			'smb-btn',
 			{
-				'smb-btn': true,
 				[ `smb-btn--${ btnSize }` ]: !! btnSize,
 			}
 		);
@@ -181,8 +181,8 @@ registerBlockType( 'snow-monkey-blocks/btn-box', {
 		const classes = classnames( 'smb-btn-box', className );
 
 		const btnClasses = classnames(
+			'smb-btn',
 			{
-				'smb-btn': true,
 				[ `smb-btn--${ btnSize }` ]: !! btnSize,
 			}
 		);

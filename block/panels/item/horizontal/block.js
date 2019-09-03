@@ -34,9 +34,9 @@ registerBlockType( 'snow-monkey-blocks/panels--item--horizontal', {
 		const classes = classnames( 'c-row__col', className );
 
 		const itemClasses = classnames(
+			'smb-panels__item',
+			'smb-panels__item--horizontal',
 			{
-				'smb-panels__item': true,
-				'smb-panels__item--horizontal': true,
 				'smb-panels__item--reverse': 'right' === imagePosition,
 			}
 		);
@@ -210,9 +210,9 @@ registerBlockType( 'snow-monkey-blocks/panels--item--horizontal', {
 		const classes = classnames( 'c-row__col', className );
 
 		const itemClasses = classnames(
+			'smb-panels__item',
+			'smb-panels__item--horizontal',
 			{
-				'smb-panels__item': true,
-				'smb-panels__item--horizontal': true,
 				'smb-panels__item--reverse': 'right' === imagePosition,
 			}
 		);
