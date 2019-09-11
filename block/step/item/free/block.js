@@ -20,6 +20,9 @@ registerBlockType( 'snow-monkey-blocks/step--item--free', {
 	category: blockConfig.blockCategories.common,
 	parent: [ 'snow-monkey-blocks/step' ],
 	attributes: schema,
+	supports: {
+		anchor: true,
+	},
 
 	edit( { attributes, setAttributes, className } ) {
 		const { title, numberColor } = attributes;

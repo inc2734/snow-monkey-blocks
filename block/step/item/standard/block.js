@@ -24,6 +24,9 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 	category: blockConfig.blockCategories.common,
 	parent: [ 'snow-monkey-blocks/step' ],
 	attributes: schema,
+	supports: {
+		anchor: true,
+	},
 
 	edit( { attributes, setAttributes, isSelected, className } ) {
 		const { title, numberColor, imagePosition, imageID, imageURL, imageAlt, linkLabel, linkURL, linkTarget, linkColor } = attributes;
