@@ -25,6 +25,9 @@ registerBlockType( 'snow-monkey-blocks/media-text', {
 	},
 	category: blockConfig.blockCategories.common,
 	attributes: schema,
+	supports: {
+		anchor: true,
+	},
 	snowMonkeyBlocks: {
 		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/media-text.png`,
 	},
