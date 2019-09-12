@@ -42,4 +42,5 @@ import '../../block/directory-structure/item/file/block';
 import '../../block/price-menu/block';
 import '../../block/price-menu/item/block';
 
-import './_highlighter';
+import '../../format/highlighter/format';
+import '../../format/badge/format';

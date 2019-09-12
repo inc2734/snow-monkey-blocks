@@ -1,0 +1,16 @@
+.smb-badge {
+  display: inline-block;
+  color: #fff;
+  padding: .25em .5em calc(.25em + 2px);
+  vertical-align: middle;
+  font-size: calc(1em - 2px);
+  line-height: 1;
+  border-radius: $_border-radius !important;
+  font-weight: bold;
+  transform: translateY(-2px);
+
+  &,
+  &[data-rich-text-format-boundary] {
+    background-color: $_color-text;
+  }
+}

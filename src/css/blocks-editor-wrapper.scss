@@ -74,3 +74,13 @@ $_font-path: false;
     opacity: 1;
   }
 }
+
+.smb-badge-popover {
+  &__inner {
+    padding: 14px;
+  }
+
+  &.components-popover:not(.is-mobile) .components-popover__content {
+    min-width: 270px;
+  }
+}

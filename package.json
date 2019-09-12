@@ -2,9 +2,9 @@
   "author": "inc2734",
   "license": "GPL-2.0+",
   "devDependencies": {
-    "@babel/core": "^7.5.5",
+    "@babel/core": "^7.6.0",
     "@babel/plugin-transform-react-jsx": "^7.3.0",
-    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-env": "^7.6.0",
     "@fortawesome/fontawesome-free": "^5.10.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.22",
     "@fortawesome/react-fontawesome": "^0.1.4",
@@ -31,7 +31,7 @@
     "sass-basis": "^9.5.3",
     "slick-carousel": "^1.8.1",
     "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.7"
+    "webpack-cli": "^3.3.8"
   },
   "scripts": {
     "clean:css": "rimraf dist/css",
