@@ -7,7 +7,7 @@ export const schema = {
 	},
 	lede: {
 		source: 'html',
-		selector: '.smb-items__banner_lede',
+		selector: '.smb-items__banner__lede',
 	},
 	url: {
 		type: 'string',
