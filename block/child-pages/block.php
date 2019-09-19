@@ -11,6 +11,10 @@ register_block_type(
 	'snow-monkey-blocks/child-pages',
 	[
 		'attributes' => [
+			'title' => [
+				'type'    => 'string',
+				'default' => __( 'Child pages', 'snow-monkey-blocks' ),
+			],
 			'className' => [
 				'type'    => 'string',
 				'default' => '',

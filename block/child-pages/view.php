@@ -17,6 +17,14 @@ if ( ! $pages_query->have_posts() ) {
 	return;
 }
 
+if ( isset( $attributes['title'] ) ) {
+	$title = $attributes['title'];
+	$child_page_title_callback = function( $child_pages_title ) use ( $title ) {
+		return $title;
+	};
+	add_filter( 'snow_monkey_child_pages_title', $child_page_title_callback, 9 );
+}
+
 $classnames[] = 'smb-child-pages';
 $classnames[] = $attributes['className'];
 ?>
@@ -29,3 +37,8 @@ $classnames[] = $attributes['className'];
 	}
 	?>
 </div>
+
+<?php
+if ( isset( $child_page_title_callback ) ) {
+	remove_filter( 'snow_monkey_child_pages_title', $child_page_title_callback, 9 );
+}

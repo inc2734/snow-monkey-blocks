@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2019-09-12 14:19+0900\n"
-"PO-Revision-Date: 2019-09-12 14:19+0900\n"
+"POT-Creation-Date: 2019-09-19 15:08+0900\n"
+"PO-Revision-Date: 2019-09-19 15:08+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -84,6 +84,11 @@ msgstr "最近の投稿"
 msgid "(no title)"
 msgstr "(タイトルなし)"
 
+#: block/child-pages/block.php:16 block/child-pages/block.js:12
+#: block/child-pages/block.js:42
+msgid "Child pages"
+msgstr "このページの子ページ"
+
 #: snow-monkey-blocks.php:46 snow-monkey-blocks.php:52 menu/index.js:44
 #: menu/index.js:48
 msgid "Snow Monkey Blocks"
@@ -138,8 +143,9 @@ msgstr "項目"
 
 #: block/accordion/item/block.js:33 block/alert/block.js:89
 #: block/balloon/block.js:54 block/box/block.js:44 block/btn/block.js:61
-#: block/categories-list/_edit.js:120 block/container/block.js:42
-#: block/contents-outline/block.js:46 block/countdown/block.js:69
+#: block/categories-list/_edit.js:120 block/child-pages/block.js:30
+#: block/container/block.js:42 block/contents-outline/block.js:46
+#: block/countdown/block.js:69
 #: block/directory-structure/item/directory/block.js:74
 #: block/directory-structure/item/file/block.js:55 block/faq/item/block.js:42
 #: block/items/block.js:46 block/items/item/banner/block.js:53
@@ -500,15 +506,15 @@ msgstr "降順"
 msgid "This is a block that displays a list of categories"
 msgstr "このブロックはカテゴリーの一覧を表示します"
 
-#: block/child-pages/block.js:10 block/child-pages/block.js:27
-msgid "Child pages"
-msgstr "このページの子ページ"
-
-#: block/child-pages/block.js:11
+#: block/child-pages/block.js:13
 msgid "You can display child pages of this page."
 msgstr "このページの子ページを表示できます。"
 
-#: block/child-pages/block.js:30
+#: block/child-pages/block.js:32
+msgid "Title"
+msgstr "タイトル"
+
+#: block/child-pages/block.js:45
 msgid "In the actual screen, it is displayed when the page have child pages."
 msgstr "実際の画面では、このページが子ページを持っている場合に表示されます。"
 
