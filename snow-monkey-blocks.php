@@ -41,18 +41,25 @@ class Bootstrap {
 	 * @return array
 	 */
 	public function _block_categories( $categories ) {
-		$categories[] = [
-			'slug'  => 'smb',
-			'title' => __( 'Snow Monkey Blocks', 'snow-monkey-blocks' )
-								. ' '
-								. __( '[Common blocks]', 'snow-monkey-blocks' ),
-		];
-		$categories[] = [
-			'slug'  => 'smb-section',
-			'title' => __( 'Snow Monkey Blocks', 'snow-monkey-blocks' )
-								. ' '
-								. __( '[Sections]', 'snow-monkey-blocks' ),
-		];
+		$slugs = array_column( $categories, 'slug' );
+
+		if ( ! in_array( 'smb', $slugs, true ) ) {
+			$categories[] = [
+				'slug'  => 'smb',
+				'title' => __( 'Snow Monkey Blocks', 'snow-monkey-blocks' )
+									. ' '
+									. __( '[Common blocks]', 'snow-monkey-blocks' ),
+			];
+		}
+
+		if ( ! in_array( 'smb-section', $slugs, true ) ) {
+			$categories[] = [
+				'slug'  => 'smb-section',
+				'title' => __( 'Snow Monkey Blocks', 'snow-monkey-blocks' )
+									. ' '
+									. __( '[Sections]', 'snow-monkey-blocks' ),
+			];
+		}
 
 		return $categories;
 	}
