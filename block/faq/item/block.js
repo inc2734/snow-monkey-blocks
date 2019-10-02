@@ -22,6 +22,9 @@ registerBlockType( 'snow-monkey-blocks/faq--item', {
 	category: blockConfig.blockCategories.common,
 	parent: [ 'snow-monkey-blocks/faq' ],
 	attributes: schema,
+	supports: {
+		anchor: true,
+	},
 
 	edit( { attributes, setAttributes, className } ) {
 		const { question, questionColor, answerColor, questionLabel, answerLabel } = attributes;
