@@ -2,24 +2,24 @@
   "author": "inc2734",
   "license": "GPL-2.0+",
   "devDependencies": {
-    "@babel/core": "^7.6.0",
+    "@babel/core": "^7.6.2",
     "@babel/plugin-transform-react-jsx": "^7.3.0",
-    "@babel/preset-env": "^7.6.0",
-    "@fortawesome/fontawesome-free": "^5.11.1",
-    "@fortawesome/fontawesome-svg-core": "^1.2.24",
-    "@fortawesome/react-fontawesome": "^0.1.4",
+    "@babel/preset-env": "^7.6.2",
+    "@fortawesome/fontawesome-free": "^5.11.2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/react-fontawesome": "^0.1.5",
     "@inc2734/for-each-html-nodes": "^0.2.0",
-    "@svgr/webpack": "^4.3.2",
+    "@svgr/webpack": "^4.3.3",
     "autoprefixer": "^9.6.1",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "classnames": "^2.2.6",
     "cpy-cli": "^2.0.0",
     "cssnano": "^4.1.10",
-    "eslint": "^6.4.0",
+    "eslint": "^6.5.1",
     "eslint-config-wordpress": "^2.0.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react": "^7.15.1",
     "eslint-plugin-wordpress": "git://github.com/WordPress-Coding-Standards/eslint-plugin-wordpress.git#1774343f6226052a46b081e01db3fca8793cc9f1",
     "hex-to-rgba": "^2.0.1",
     "masonry-layout": "^4.2.2",
@@ -30,7 +30,7 @@
     "rimraf": "^3.0.0",
     "sass-basis": "^9.5.4",
     "slick-carousel": "^1.8.1",
-    "webpack": "^4.40.2",
+    "webpack": "^4.41.0",
     "webpack-cli": "^3.3.9"
   },
   "scripts": {
@@ -81,7 +81,7 @@
     "img": "npm run clean:img && cpy '**' '../../dist/img' --cwd=src/img --parents"
   },
   "dependencies": {
-    "@wordpress/i18n": "^3.6.0",
+    "@wordpress/i18n": "^3.6.1",
     "react-image": "2.2.0"
   }
 }
