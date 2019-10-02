@@ -8,7 +8,7 @@ import { schema } from './_schema';
 
 import { Figure } from '../../../../src/js/component/figure';
 
-const { registerBlockType } = wp.blocks;
+const { registerBlockType, createBlock } = wp.blocks;
 const { RichText, InspectorControls, PanelColorSettings, InnerBlocks, URLInput } = wp.editor;
 const { PanelBody, BaseControl, SelectControl } = wp.components;
 const { Fragment } = wp.element;
@@ -228,6 +228,16 @@ registerBlockType( 'snow-monkey-blocks/step--item', {
 				</div>
 			</div>
 		);
+	},
+
+	transforms: {
+		to: [
+			{
+				type: 'block',
+				blocks: [ 'snow-monkey-blocks/step--item--free' ],
+				transform: ( attributes ) => createBlock( 'snow-monkey-blocks/step--item--free', attributes ),
+			},
+		],
 	},
 
 	deprecated: deprecated,

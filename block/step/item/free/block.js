@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import { blockConfig } from '../../../../src/js/config/block';
 import { schema } from './_schema';
 
-const { registerBlockType } = wp.blocks;
+const { registerBlockType, createBlock } = wp.blocks;
 const { RichText, InspectorControls, PanelColorSettings, InnerBlocks } = wp.editor;
 const { Fragment } = wp.element;
 const { __ } = wp.i18n;
@@ -105,5 +105,15 @@ registerBlockType( 'snow-monkey-blocks/step--item--free', {
 				</div>
 			</div>
 		);
+	},
+
+	transforms: {
+		to: [
+			{
+				type: 'block',
+				blocks: [ 'snow-monkey-blocks/step--item' ],
+				transform: ( attributes ) => createBlock( 'snow-monkey-blocks/step--item', attributes ),
+			},
+		],
 	},
 } );
