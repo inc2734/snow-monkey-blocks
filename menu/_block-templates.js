@@ -21,14 +21,6 @@ class PanelBlockTemplates extends Component {
 		this.getResultParts = this.getResultParts.bind( this );
 	}
 
-	getInsertIndex() {
-		const { clientId, rootClientId, getBlockIndex } = this.props;
-		if ( undefined !== clientId ) {
-			const index = getBlockIndex( clientId, rootClientId );
-			return index + 1;
-		}
-	}
-
 	getParts() {
 		apiFetch( {
 			path: `/snow-monkey-blocks/v3/block-templates/?slug=${ this.props.slug }`,
