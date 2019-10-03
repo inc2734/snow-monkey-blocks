@@ -2,6 +2,7 @@
 
 import { ScreenshotImg } from './component/screenshotImg';
 
+const { first, last } = lodash;
 const { Component } = wp.element;
 const { PanelBody, Button, Spinner } = wp.components;
 const { Fragment } = wp.element;
@@ -20,6 +21,14 @@ class PanelBlockTemplates extends Component {
 		this.getResultParts = this.getResultParts.bind( this );
 	}
 
+	getInsertIndex() {
+		const { clientId, rootClientId, getBlockIndex } = this.props;
+		if ( clientId !== undefined ) {
+			const index = getBlockIndex( clientId, rootClientId );
+			return index + 1;
+		}
+	}
+
 	getParts() {
 		apiFetch( {
 			path: `/snow-monkey-blocks/v3/block-templates/?slug=${ this.props.slug }`,
@@ -33,7 +42,18 @@ class PanelBlockTemplates extends Component {
 	getResultParts() {
 		const {
 			insertBlocks,
+			multiSelect,
 		} = wp.data.dispatch( 'core/editor' );
+
+		const {
+			getSelectedBlock,
+//			getSelectedBlockClientId,
+			getBlockIndex,
+			getBlockRootClientId,
+			getBlockInsertionPoint,
+//			isMultiSelecting,
+//			isSelectionEnabled,
+		} = wp.data.select( 'core/block-editor' );
 
 		if ( this.state.resultParts !== null ) {
 			return;
@@ -57,7 +77,20 @@ class PanelBlockTemplates extends Component {
 							onClick={ () => {
 								const parsedBlocks = parse( part.content );
 								if ( parsedBlocks.length ) {
-									insertBlocks( parsedBlocks );
+									const selectedBlock = getSelectedBlock();
+									if ( null === selectedBlock ) {
+										// ブロック未選択時は最後に挿入
+										insertBlocks( parsedBlocks );
+									} else {
+										// 選択されているブロックの次に挿入
+										const rootClientId = getBlockRootClientId( selectedBlock.clientId );
+										const insertionPoint = getBlockInsertionPoint();
+										insertBlocks( parsedBlocks, insertionPoint.index, insertionPoint.rootClientId );
+									}
+									multiSelect(
+										first( parsedBlocks ).clientId,
+										last( parsedBlocks ).clientId
+									);
 								}
 							} }
 						>
