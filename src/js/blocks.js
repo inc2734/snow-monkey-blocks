@@ -44,3 +44,4 @@ import '../../block/price-menu/item/block';
 
 import '../../format/highlighter/format';
 import '../../format/badge/format';
+import '../../format/remove-fomatting/format';
