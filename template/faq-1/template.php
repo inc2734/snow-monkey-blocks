@@ -36,9 +36,11 @@
 									A
 								</div>
 								<div class="smb-faq__item__answer__body">
+									<!-- wp:paragraph -->
 									<p>
 										Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 									</p>
+									<!-- /wp:paragraph -->
 								</div>
 							</div>
 						</div>
@@ -59,9 +61,11 @@
 									A
 								</div>
 								<div class="smb-faq__item__answer__body">
+									<!-- wp:paragraph -->
 									<p>
 										Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 									</p>
+									<!-- /wp:paragraph -->
 								</div>
 							</div>
 						</div>
