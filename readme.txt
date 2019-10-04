@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.0
 Tested up to: 5.2
-Stable tag: 4.11.1
+Stable tag: 4.12.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -67,6 +67,7 @@ By default these blocks are restricted. If you are using the theme that has 1 co
 
 * Text highlighter
 * Text badge
+* Format clear button
 
 == Installation ==
 
@@ -110,6 +111,12 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 23. Price menu block (The number of items can be increased or decreased freely)
 
 == Changelog ==
+
+= 4.12.0 =
+* Add format clear button.
+* Fix FAQ 1 block template bug.
+* Fix Pricing table 1 block template bug.
+* Refactoring block template inserter.
 
 = 4.11.1 =
 * [FAQ] Add anchor setting.
