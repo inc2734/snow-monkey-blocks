@@ -18,7 +18,7 @@
 				</p>
 				<!-- /wp:paragraph -->
 
-				<!-- wp:snow-monkey-blocks/pricing-table -->
+				<!-- wp:snow-monkey-blocks/pricing-table {"columnSize":""} -->
 				<div class="wp-block-snow-monkey-blocks-pricing-table smb-pricing-table">
 					<div class="c-row c-row--md-nowrap">
 						<!-- wp:snow-monkey-blocks/pricing-table--item -->

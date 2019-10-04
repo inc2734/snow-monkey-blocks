@@ -32,7 +32,7 @@ registerBlockType( 'snow-monkey-blocks/pricing-table', {
 			'smb-pricing-table',
 			{
 				[ `smb-pricing-table--col-size-${ columnSize }` ]: !! columnSize,
-				[ className ]: true,
+				[ className ]: !! className,
 			}
 		);
 
@@ -96,7 +96,7 @@ registerBlockType( 'snow-monkey-blocks/pricing-table', {
 			'smb-pricing-table',
 			{
 				[ `smb-pricing-table--col-size-${ columnSize }` ]: !! columnSize,
-				[ className ]: true,
+				[ className ]: !! className,
 			}
 		);
 
