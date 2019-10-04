@@ -34,10 +34,13 @@ class PanelBlockTemplates extends Component {
 	getResultParts() {
 		const {
 			insertBlocks,
+			replaceBlocks,
 			multiSelect,
 		} = wp.data.dispatch( 'core/editor' );
 
 		const {
+			getBlocks,
+			getBlockCount,
 			getSelectedBlock,
 			getBlockInsertionPoint,
 		} = wp.data.select( 'core/block-editor' );
@@ -65,13 +68,28 @@ class PanelBlockTemplates extends Component {
 								const parsedBlocks = parse( part.content );
 								if ( parsedBlocks.length ) {
 									const selectedBlock = getSelectedBlock();
-									if ( null === selectedBlock ) {
-										// Insert at the end when no block is selected
-										insertBlocks( parsedBlocks );
-									} else {
-										// Insert after selected block
-										const insertionPoint = getBlockInsertionPoint();
-										insertBlocks( parsedBlocks, insertionPoint.index, insertionPoint.rootClientId );
+									if ( null === selectedBlock ) {	// when not selected block
+										// get last root block
+										const lastRootBlock = last( getBlocks() );
+										const isEmpty = undefined !== lastRootBlock && ( null === lastRootBlock.rootClientId && ( ! getBlockCount( lastRootBlock.clientId ) || ( 'core/paragraph' === lastRootBlock.name && '' === lastRootBlock.attributes.content ) ) );
+										if ( isEmpty ) {
+											// Replace when last block is empty
+											replaceBlocks( lastRootBlock.clientId, parsedBlocks );
+										} else {
+											// Insert at the end when block is not empty
+											insertBlocks( parsedBlocks );
+										}
+									} else {	// when selected block
+										// isEmpty is true when blocktype is paragraph and content is empty
+										const isEmpty = 'core/paragraph' === selectedBlock.name && '' === selectedBlock.attributes.content;
+										if ( ! isEmpty ) {
+											// Insert after block
+											const insertionPoint = getBlockInsertionPoint();
+											insertBlocks( parsedBlocks, insertionPoint.index, insertionPoint.rootClientId );
+										} else {
+											// Replace at the block when block is empty
+											replaceBlocks( selectedBlock.clientId, parsedBlocks );
+										}
 									}
 									multiSelect(
 										first( parsedBlocks ).clientId,
