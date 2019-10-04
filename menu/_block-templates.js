@@ -2,6 +2,7 @@
 
 import { ScreenshotImg } from './component/screenshotImg';
 
+const { first, last } = lodash;
 const { Component } = wp.element;
 const { PanelBody, Button, Spinner } = wp.components;
 const { Fragment } = wp.element;
@@ -33,17 +34,23 @@ class PanelBlockTemplates extends Component {
 	getResultParts() {
 		const {
 			insertBlocks,
+			multiSelect,
 		} = wp.data.dispatch( 'core/editor' );
 
-		if ( this.state.resultParts !== null ) {
+		const {
+			getSelectedBlock,
+			getBlockInsertionPoint,
+		} = wp.data.select( 'core/block-editor' );
+
+		if ( null !== this.state.resultParts ) {
 			return;
 		}
-		if ( this.state.loading === false ) {
+		if ( false === this.state.loading ) {
 			this.setState( { loading: true } );
 			this.getParts();
 			return;
 		}
-		if ( this.state.parts !== null ) {
+		if ( null !== this.state.parts ) {
 			const resultParts = [];
 			this.state.parts.map( ( part ) => {
 				if ( ! smb.isPro && part.isPro ) {
@@ -57,7 +64,19 @@ class PanelBlockTemplates extends Component {
 							onClick={ () => {
 								const parsedBlocks = parse( part.content );
 								if ( parsedBlocks.length ) {
-									insertBlocks( parsedBlocks );
+									const selectedBlock = getSelectedBlock();
+									if ( null === selectedBlock ) {
+										// ブロック未選択時は最後に挿入
+										insertBlocks( parsedBlocks );
+									} else {
+										// 選択されているブロックの次に挿入
+										const insertionPoint = getBlockInsertionPoint();
+										insertBlocks( parsedBlocks, insertionPoint.index, insertionPoint.rootClientId );
+									}
+									multiSelect(
+										first( parsedBlocks ).clientId,
+										last( parsedBlocks ).clientId
+									);
 								}
 							} }
 						>
@@ -83,7 +102,7 @@ class PanelBlockTemplates extends Component {
 
 	render() {
 		this.getResultParts();
-		if ( this.state.resultParts !== null ) {
+		if ( null !== this.state.resultParts ) {
 			return (
 				<ul>
 					{ this.state.resultParts }
@@ -122,7 +141,7 @@ class TemplateCategories extends Component {
 	}
 
 	getResultCategories() {
-		if ( this.state.resultCategories !== null ) {
+		if ( null !== this.state.resultCategories ) {
 			return;
 		}
 		if ( this.state.loading === false ) {
@@ -130,7 +149,7 @@ class TemplateCategories extends Component {
 			this.getCategories();
 			return;
 		}
-		if ( this.state.categories !== null ) {
+		if ( null !== this.state.categories ) {
 			const resultCategories = [];
 			this.state.categories.map( ( category ) => {
 				if ( ! smb.isPro && category.isPro ) {
@@ -153,7 +172,7 @@ class TemplateCategories extends Component {
 
 	render() {
 		this.getResultCategories();
-		if ( this.state.resultCategories !== null ) {
+		if ( null !== this.state.resultCategories ) {
 			return (
 				<Fragment>
 					{ this.state.resultCategories }
