@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2019-09-19 15:08+0900\n"
-"PO-Revision-Date: 2019-09-19 15:08+0900\n"
+"POT-Creation-Date: 2019-10-04 10:06+0900\n"
+"PO-Revision-Date: 2019-10-04 10:06+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -89,24 +89,24 @@ msgstr "(タイトルなし)"
 msgid "Child pages"
 msgstr "このページの子ページ"
 
-#: snow-monkey-blocks.php:46 snow-monkey-blocks.php:52 menu/index.js:44
+#: snow-monkey-blocks.php:49 snow-monkey-blocks.php:58 menu/index.js:44
 #: menu/index.js:48
 msgid "Snow Monkey Blocks"
 msgstr "Snow Monkey Blocks"
 
-#: snow-monkey-blocks.php:48
+#: snow-monkey-blocks.php:51
 msgid "[Common blocks]"
 msgstr "[共通ブロック]"
 
-#: snow-monkey-blocks.php:54
+#: snow-monkey-blocks.php:60
 msgid "[Sections]"
 msgstr "[セクション]"
 
-#: snow-monkey-blocks.php:96
+#: snow-monkey-blocks.php:103
 msgid "[ PR ] Premium WordPress Theme Snow Monkey"
 msgstr "【PR】プレミアム WordPress テーマ Snow Monkey"
 
-#: snow-monkey-blocks.php:113
+#: snow-monkey-blocks.php:120
 #, php-format
 msgid ""
 "Snow Monkey Blocks is optimized for the %1$sSnow Monkey%2$s theme, but it "
@@ -115,7 +115,7 @@ msgstr ""
 "Snow Monkey Blocksは %1$sSnow Monkey%2$s テーマに最適化されていますが、他の"
 "テーマでも使用できます。"
 
-#: snow-monkey-blocks.php:118
+#: snow-monkey-blocks.php:125
 #, php-format
 msgid ""
 "When used together with the %1$sSnow Monkey%2$s theme, it can be displayed "
@@ -147,7 +147,7 @@ msgstr "項目"
 #: block/container/block.js:42 block/contents-outline/block.js:46
 #: block/countdown/block.js:69
 #: block/directory-structure/item/directory/block.js:74
-#: block/directory-structure/item/file/block.js:55 block/faq/item/block.js:42
+#: block/directory-structure/item/file/block.js:55 block/faq/item/block.js:45
 #: block/items/block.js:46 block/items/item/banner/block.js:53
 #: block/items/item/block-link/block.js:46 block/items/item/block.js:52
 #: block/items/item/standard/block.js:46 block/limited-datetime/block.js:59
@@ -268,7 +268,7 @@ msgstr "逆の吹き出し"
 #: block/btn/block.js:102 block/countdown/block.js:78
 #: block/directory-structure/item/directory/block.js:100
 #: block/directory-structure/item/file/block.js:81
-#: block/evaluation-star/block.js:131 block/faq/item/block.js:61
+#: block/evaluation-star/block.js:131 block/faq/item/block.js:64
 #: block/items/item/banner/block.js:128 block/items/item/block-link/block.js:90
 #: block/items/item/block.js:103 block/items/item/standard/block.js:90
 #: block/list/block.js:97 block/pricing-table/item/block.js:70
@@ -721,36 +721,36 @@ msgstr "FAQを列挙できます。"
 msgid "It is a child block of the FAQ block."
 msgstr "FAQブロックの子ブロックです。"
 
-#: block/faq/item/block.js:43
+#: block/faq/item/block.js:46
 msgid "Question Label"
 msgstr "質問のラベル"
 
-#: block/faq/item/block.js:46
+#: block/faq/item/block.js:49
 msgid "Q"
 msgstr "Q"
 
-#: block/faq/item/block.js:48 block/faq/item/block.js:56
+#: block/faq/item/block.js:51 block/faq/item/block.js:59
 #, python-format
 msgid "Recommend length up to %d"
 msgstr "文字長は%dまでを推奨します"
 
-#: block/faq/item/block.js:51
+#: block/faq/item/block.js:54
 msgid "Answer Label"
 msgstr "回答のラベル"
 
-#: block/faq/item/block.js:54
+#: block/faq/item/block.js:57
 msgid "A"
 msgstr "A"
 
-#: block/faq/item/block.js:66
+#: block/faq/item/block.js:69
 msgid "Question Color"
 msgstr "質問の色"
 
-#: block/faq/item/block.js:71
+#: block/faq/item/block.js:74
 msgid "Answer Color"
 msgstr "回答の色"
 
-#: block/faq/item/block.js:85
+#: block/faq/item/block.js:88
 msgid "Write question..."
 msgstr "質問を書く…"
 
@@ -1574,6 +1574,10 @@ msgstr "バッジ"
 #: format/highlighter/format.js:11 format/highlighter/format.js:22
 msgid "Highlighter"
 msgstr "蛍光ペン"
+
+#: format/remove-fomatting/format.js:35 format/remove-fomatting/format.js:46
+msgid "Remove formatting"
+msgstr "書式設定をクリア"
 
 #: menu/_blocks.js:174
 msgid "This block is for pro users only"

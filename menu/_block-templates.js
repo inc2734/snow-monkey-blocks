@@ -66,10 +66,10 @@ class PanelBlockTemplates extends Component {
 								if ( parsedBlocks.length ) {
 									const selectedBlock = getSelectedBlock();
 									if ( null === selectedBlock ) {
-										// ブロック未選択時は最後に挿入
+										// Insert at the end when no block is selected
 										insertBlocks( parsedBlocks );
 									} else {
-										// 選択されているブロックの次に挿入
+										// Insert after selected block
 										const insertionPoint = getBlockInsertionPoint();
 										insertBlocks( parsedBlocks, insertionPoint.index, insertionPoint.rootClientId );
 									}
