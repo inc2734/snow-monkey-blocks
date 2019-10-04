@@ -34,10 +34,13 @@ class PanelBlockTemplates extends Component {
 	getResultParts() {
 		const {
 			insertBlocks,
+			replaceBlocks,
 			multiSelect,
 		} = wp.data.dispatch( 'core/editor' );
 
 		const {
+			getBlocks,
+			getBlockCount,
 			getSelectedBlock,
 			getBlockInsertionPoint,
 		} = wp.data.select( 'core/block-editor' );
@@ -65,13 +68,28 @@ class PanelBlockTemplates extends Component {
 								const parsedBlocks = parse( part.content );
 								if ( parsedBlocks.length ) {
 									const selectedBlock = getSelectedBlock();
-									if ( null === selectedBlock ) {
-										// ブロック未選択時は最後に挿入
-										insertBlocks( parsedBlocks );
-									} else {
-										// 選択されているブロックの次に挿入
-										const insertionPoint = getBlockInsertionPoint();
-										insertBlocks( parsedBlocks, insertionPoint.index, insertionPoint.rootClientId );
+									if ( null === selectedBlock ) {	// ブロック未選択時
+										// 最後の親要素を取得
+										const lastRootBlock = last( getBlocks() );
+										const isEmpty = undefined !== lastRootBlock && ( null === lastRootBlock.rootClientId && ( ! getBlockCount( lastRootBlock.clientId ) || ( 'core/paragraph' === lastRootBlock.name && '' === lastRootBlock.attributes.content ) ) );
+										if ( isEmpty ) {
+											// 最後の親要素が空要素であれば、最後の空要素を置き換える
+											replaceBlocks( lastRootBlock.clientId, parsedBlocks );
+										} else {
+											// 最後の親要素がブロックであれば、最下に挿入
+											insertBlocks( parsedBlocks );
+										}
+									} else {	// ブロック選択時
+										// 段落ブロック、かつcontentが空の場合、空要素と見なす
+										const isEmpty = 'core/paragraph' === selectedBlock.name && '' === selectedBlock.attributes.content;
+										if ( ! isEmpty ) {
+											// 選択されているブロックの次に挿入
+											const insertionPoint = getBlockInsertionPoint();
+											insertBlocks( parsedBlocks, insertionPoint.index, insertionPoint.rootClientId );
+										} else {
+											// 空要素の場合、空要素と書き換える
+											replaceBlocks( selectedBlock.clientId, parsedBlocks );
+										}
 									}
 									multiSelect(
 										first( parsedBlocks ).clientId,
