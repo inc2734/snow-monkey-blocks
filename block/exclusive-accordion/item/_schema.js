@@ -7,6 +7,9 @@ export const schema = {
 	},
 	rootId: {
 		type: 'string',
+		source: 'attribute',
+		selector: '.smb-exclusive-accordion__item__control',
+		attribute: 'name',
 		default: '',
 	},
 };
