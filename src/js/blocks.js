@@ -34,6 +34,8 @@ import '../../block/categories-list/block';
 import '../../block/evaluation-star/block';
 import '../../block/accordion/block';
 import '../../block/accordion/item/block';
+import '../../block/exclusive-accordion/block';
+import '../../block/exclusive-accordion/item/block';
 import '../../block/limited-datetime/block';
 import '../../block/countdown/block';
 import '../../block/directory-structure/block';

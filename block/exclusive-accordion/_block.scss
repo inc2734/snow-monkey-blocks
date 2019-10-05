@@ -1,0 +1,59 @@
+.smb-exclusive-accordion {
+  &__item {
+    position: relative;
+
+    &:not(:first-child) {
+      @include _margin-top(.5);
+    }
+
+    &:not(:last-child) {
+      .smb-exclusive-accordion__item__body {
+        @include _padding-bottom(1);
+      }
+    }
+
+    &__title {
+      display: flex;
+      align-items: center;
+      background-color: _lighter( $_color-gray );
+      @include _padding(.25, .5);
+
+      &__label {
+        flex: 1 1 auto;
+      }
+
+      &__icon {
+        @include _transition(transform);
+        flex: 0 0 auto;
+      }
+    }
+
+    &__control {
+      @include _position(absolute, 0, 0, 0, 0, 1);
+      appearance: none;
+      display: block;
+      cursor: pointer;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      outline: none;
+    }
+
+    &__body {
+      position: relative;
+      z-index: 2;
+      display: none;
+      @include _padding(1, .5, 0);
+      @include _content();
+    }
+  }
+
+  .smb-exclusive-accordion__item__control:checked + .smb-exclusive-accordion__item__body,
+  .smb-exclusive-accordion__item__control:checked + .smb-exclusive-accordion__item__title + .smb-exclusive-accordion__item__body {
+    display: block;
+  }
+
+  .smb-exclusive-accordion__item__control:checked + .smb-exclusive-accordion__item__title > .smb-exclusive-accordion__item__title__icon {
+    transform: rotate(180deg);
+  }
+}
