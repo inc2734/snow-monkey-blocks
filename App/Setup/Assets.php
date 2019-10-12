@@ -49,14 +49,6 @@ class Assets {
 			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/blocks-editor-wrapper.min.css' )
 		);
 
-		wp_enqueue_script(
-			'snow-monkey-blocks-menu',
-			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/menu.min.js',
-			[ 'wp-blocks', 'wp-element', 'wp-i18n' ],
-			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/menu.min.js' ),
-			true
-		);
-
 		wp_enqueue_style(
 			'snow-monkey-blocks-menu',
 			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/css/menu.min.css',

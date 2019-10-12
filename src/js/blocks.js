@@ -1,47 +1,102 @@
 'use strict';
 
-import '../../block/alert/block';
-import '../../block/balloon/block';
-import '../../block/btn/block';
-import '../../block/box/block';
-import '../../block/pricing-table/block';
-import '../../block/pricing-table/item/block';
-import '../../block/btn-box/block';
-import '../../block/rating-box/block';
-import '../../block/rating-box/item/block';
-import '../../block/faq/block';
-import '../../block/faq/item/block';
-import '../../block/step/block';
-import '../../block/step/item/standard/block';
-import '../../block/step/item/free/block';
-import '../../block/testimonial/block';
-import '../../block/testimonial/item/block';
-import '../../block/list/block';
-import '../../block/items/block';
-import '../../block/items/item/block';
-import '../../block/items/item/standard/block';
-import '../../block/items/item/block-link/block';
-import '../../block/items/item/banner/block';
-import '../../block/slider/block';
-import '../../block/slider/item/block';
-import '../../block/panels/block';
-import '../../block/panels/item/vertical/block';
-import '../../block/panels/item/horizontal/block';
-import '../../block/media-text/block';
-import '../../block/thumbnail-gallery/block';
-import '../../block/thumbnail-gallery/item/block';
-import '../../block/categories-list/block';
-import '../../block/evaluation-star/block';
-import '../../block/accordion/block';
-import '../../block/accordion/item/block';
-import '../../block/limited-datetime/block';
-import '../../block/countdown/block';
-import '../../block/directory-structure/block';
-import '../../block/directory-structure/item/directory/block';
-import '../../block/directory-structure/item/file/block';
-import '../../block/price-menu/block';
-import '../../block/price-menu/item/block';
+import {
+	registerBlock,
+	registerFormat,
+} from './helper/helper';
 
-import '../../format/highlighter/format';
-import '../../format/badge/format';
-import '../../format/remove-fomatting/format';
+import * as accordion from '../../block/accordion';
+import * as accordionItem from '../../block/accordion/item';
+import * as alert from '../../block/alert';
+import * as balloon from '../../block/balloon';
+import * as box from '../../block/box';
+import * as btn from '../../block/btn';
+import * as btnBox from '../../block/btn-box';
+import * as categoriesList from '../../block/categories-list';
+import * as countdown from '../../block/countdown';
+import * as directoryStructure from '../../block/directory-structure';
+import * as directoryStructureItemDirectory from '../../block/directory-structure/item/directory';
+import * as directoryStructureItemFile from '../../block/directory-structure/item/file';
+import * as evaluationStar from '../../block/evaluation-star';
+import * as faq from '../../block/faq';
+import * as faqItem from '../../block/faq/item';
+import * as items from '../../block/items';
+import * as itemsItem from '../../block/items/item';
+import * as itemsItemStandard from '../../block/items/item/standard';
+import * as itemsItemBlockLink from '../../block/items/item/block-link';
+import * as itemsItemBanner from '../../block/items/item/banner';
+import * as limitedDatetime from '../../block/limited-datetime';
+import * as list from '../../block/list';
+import * as mediaText from '../../block/media-text';
+import * as panels from '../../block/panels';
+import * as panelsItemVertical from '../../block/panels/item/vertical';
+import * as panelsItemHorizontal from '../../block/panels/item/horizontal';
+import * as priceMenu from '../../block/price-menu';
+import * as priceMenuItem from '../../block/price-menu/item';
+import * as pricingTable from '../../block/pricing-table';
+import * as pricingTableItem from '../../block/pricing-table/item';
+import * as ratingBox from '../../block/rating-box';
+import * as ratingBoxItem from '../../block/rating-box/item';
+import * as slider from '../../block/slider';
+import * as sliderItem from '../../block/slider/item';
+import * as step from '../../block/step';
+import * as stepItemStandard from '../../block/step/item/standard';
+import * as stepItemFree from '../../block/step/item/free';
+import * as testimonial from '../../block/testimonial';
+import * as testimonialItem from '../../block/testimonial/item';
+import * as thumbnailGallery from '../../block/thumbnail-gallery';
+import * as thumbnailGalleryItem from '../../block/thumbnail-gallery/item';
+
+[
+	accordion,
+	accordionItem,
+	alert,
+	balloon,
+	box,
+	btn,
+	btnBox,
+	categoriesList,
+	countdown,
+	directoryStructure,
+	directoryStructureItemDirectory,
+	directoryStructureItemFile,
+	evaluationStar,
+	faq,
+	faqItem,
+	items,
+	itemsItem,
+	itemsItemStandard,
+	itemsItemBlockLink,
+	itemsItemBanner,
+	limitedDatetime,
+	list,
+	mediaText,
+	panels,
+	panelsItemVertical,
+	panelsItemHorizontal,
+	priceMenu,
+	priceMenuItem,
+	pricingTable,
+	pricingTableItem,
+	ratingBox,
+	ratingBoxItem,
+	slider,
+	sliderItem,
+	step,
+	stepItemStandard,
+	stepItemFree,
+	testimonial,
+	testimonialItem,
+	thumbnailGallery,
+	thumbnailGalleryItem,
+].forEach( registerBlock );
+
+import * as badge from '../../format/badge';
+import * as highlighter from '../../format/highlighter';
+import * as removeFormatting from '../../format/remove-fomatting';
+
+[
+	badge,
+	highlighter,
+	removeFormatting,
+].forEach( registerFormat );

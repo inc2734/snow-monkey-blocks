@@ -1,9 +1,15 @@
 'use strict';
 
-const { withState } = wp.compose;
-const { ColorPalette, URLPopover } = wp.editor;
+import {
+	withState,
+} from '@wordpress/compose';
 
-export const BadgePopover = withState( {
+import {
+	ColorPalette,
+	URLPopover,
+} from '@wordpress/editor';
+
+export default withState( {
 	color: undefined,
 } )( ( { onChangeColor, color, setState } ) => {
 	let currentColor;

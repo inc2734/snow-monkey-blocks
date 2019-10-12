@@ -2,7 +2,7 @@
 
 const { TabPanel, Dashicon } = wp.components;
 
-export const ResponsiveTabPanel = ( props ) => {
+export default function( props ) {
 	const { desktop, tablet, mobile } = props;
 
 	const icons = [];
@@ -48,4 +48,4 @@ export const ResponsiveTabPanel = ( props ) => {
 			}
 		</TabPanel>
 	);
-};
+}

@@ -4,7 +4,7 @@ const { MediaPlaceholder, MediaUpload } = wp.editor;
 const { Button } = wp.components;
 const { __ } = wp.i18n;
 
-export const Figure = ( props ) => {
+export default function( props ) {
 	const { url, id, alt, selectHandler, removeHandler, isSelected } = props;
 
 	if ( ! url ) {
@@ -41,4 +41,4 @@ export const Figure = ( props ) => {
 			}
 		</div>
 	);
-};
+}

@@ -15,7 +15,5 @@ jQuery( ( $ ) => {
 		'.smb-child-pages',
 	];
 
-	$.each( removeClasses, ( index, value ) => {
-		$( value ).remove();
-	} );
+	$.each( removeClasses, ( index, value ) => $( value ).remove() );
 } );

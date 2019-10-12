@@ -1,6 +1,6 @@
 'use strict';
 
-export const blockConfig = {
+export default {
 	blockCategories: {
 		common: 'smb',
 		section: 'smb-section',

@@ -2,12 +2,12 @@
 
 import forEachHtmlNodes from '@inc2734/for-each-html-nodes';
 
-import List from '../../block/list/_list';
-import Slider from '../../block/slider/_slider';
-import ThumbnailGallery from '../../block/thumbnail-gallery/_thumbnail-gallery';
-import CategoriesList from '../../block/categories-list/_categories-list';
+import List from '../../block/list/list';
+import Slider from '../../block/slider/slider';
+import ThumbnailGallery from '../../block/thumbnail-gallery/thumbnail-gallery';
+import CategoriesList from '../../block/categories-list/categories-list';
 import BgVideo from '../../block/section-with-bgvideo/_bgvideo';
-import Countdown from '../../block/countdown/_countdown';
+import Countdown from '../../block/countdown/countdown';
 
 document.addEventListener(
 	'DOMContentLoaded',
