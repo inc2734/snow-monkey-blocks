@@ -1,7 +1,7 @@
 <?php
 /**
  * @package snow-monkey-blocks
- * @author kmix-39
+ * @author inc2734
  * @license GPL-2.0+
  */
 

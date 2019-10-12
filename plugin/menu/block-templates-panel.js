@@ -34,9 +34,9 @@ export default class BlockTemplatesPanel extends Component {
 		this.getResultParts = this.getResultParts.bind( this );
 	}
 
-	getParts() {
+	getPanel() {
 		apiFetch( {
-			path: `/snow-monkey-blocks/v3/block-templates/?slug=${ this.props.slug }`,
+			path: `/snow-monkey-blocks/v5/block-templates-panel/?slug=${ this.props.slug }`,
 			method: 'GET',
 			parse: true,
 		} ).then( ( result ) => {
@@ -63,7 +63,7 @@ export default class BlockTemplatesPanel extends Component {
 		}
 		if ( false === this.state.loading ) {
 			this.setState( { loading: true } );
-			this.getParts();
+			this.getPanel();
 			return;
 		}
 		if ( null !== this.state.parts ) {

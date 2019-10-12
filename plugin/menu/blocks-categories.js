@@ -45,11 +45,11 @@ export default class BlocksCategories extends Component {
 	}
 
 	setupResultCategories() {
-		if ( this.state.smbCategories === null ) {
+		if ( null === this.state.smbCategories ) {
 			this.setupSmbCategories();
 			return;
 		}
-		if ( this.state.resultCategories === null ) {
+		if ( null === this.state.resultCategories ) {
 			const resultCategories = [];
 			this.state.smbCategories.map( ( category ) => {
 				resultCategories.push(
@@ -69,7 +69,7 @@ export default class BlocksCategories extends Component {
 
 	render() {
 		this.setupResultCategories();
-		if ( this.state.resultCategories !== null ) {
+		if ( null !== this.state.resultCategories ) {
 			return (
 				<Fragment>
 					{ this.state.resultCategories }

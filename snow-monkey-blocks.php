@@ -25,7 +25,7 @@ class Bootstrap {
 	public function _bootstrap() {
 		new App\Setup\TextDomain();
 		new App\Setup\Assets();
-		new App\Setup\RestApi();
+		new App\Setup\RestAPI();
 
 		add_filter( 'block_categories', [ $this, '_block_categories' ] );
 		add_action( 'init', [ $this, '_register_nopro_dynamic_blocks' ] );

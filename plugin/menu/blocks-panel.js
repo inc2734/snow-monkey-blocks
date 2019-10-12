@@ -32,12 +32,12 @@ export default class BlocksPanel extends Component {
 			if (
 				block.category === category &&
 				! ( block.parent && block.parent.length ) &&
-				! ( block.supports && typeof block.supports.inserter !== 'undefined' && ! block.supports.inserter )
+				! ( block.supports && 'undefined' !== typeof block.supports.inserter && ! block.supports.inserter )
 			) {
 				let icon = block.icon.src ? block.icon.src : block.icon;
-				if ( typeof icon === 'function' ) {
+				if ( 'function' === typeof icon ) {
 					icon = icon();
-				} else if ( typeof icon === 'string' ) {
+				} else if ( 'string' === typeof icon ) {
 					icon = wp.element.createElement( wp.components.Dashicon, { icon: icon } );
 				}
 				result.push(
@@ -52,7 +52,7 @@ export default class BlocksPanel extends Component {
 	}
 
 	setupResultList() {
-		if ( this.state.resultList === null ) {
+		if ( null === this.state.resultList ) {
 			const resultList = [];
 			const categoryBlocks = this.getBlocksFromCategory( this.props.slug );
 			categoryBlocks.forEach( ( categoryBlock ) => {
@@ -78,7 +78,7 @@ export default class BlocksPanel extends Component {
 
 	render() {
 		this.setupResultList();
-		if ( this.state.resultList !== null ) {
+		if ( null !== this.state.resultList ) {
 			return (
 				<ul>
 					{ this.state.resultList }
