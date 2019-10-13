@@ -29,7 +29,7 @@ export default class BlockTemplatesCategories extends Component {
 
 	getCategories() {
 		apiFetch( {
-			path: '/snow-monkey-blocks/v3/template-categories/',
+			path: '/snow-monkey-blocks/v5/block-templates-categories/',
 			method: 'GET',
 			parse: true,
 		} ).then( ( result ) => {

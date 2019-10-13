@@ -5,7 +5,7 @@
  * @license GPL-2.0+
  */
 
-namespace Snow_Monkey\Plugin\Blocks\App\Api\BlockTemplates;
+namespace Snow_Monkey\Plugin\Blocks\App\RestAPI;
 
 class Helper {
 
@@ -30,7 +30,10 @@ class Helper {
 	 *
 	 * @return array
 	 */
-	public static function load_config() {
-		return include( __DIR__ . '/config.php' );
+	public static function load_config( $path ) {
+		if ( ! file_exists( $path . '/config.php' ) ) {
+			return [];
+		}
+		return include( $path . '/config.php' );
 	}
 }

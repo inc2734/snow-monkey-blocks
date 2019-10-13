@@ -5,7 +5,7 @@
  * @license GPL-2.0+
  */
 
-use Snow_Monkey\Plugin\Blocks\App\Api\BlockTemplates\Helper;
+use Snow_Monkey\Plugin\Blocks\App\RestAPI\Helper;
 
 return [
 	[
