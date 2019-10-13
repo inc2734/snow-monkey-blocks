@@ -1,8 +1,17 @@
 'use strict';
 
-const { MediaPlaceholder, MediaUpload } = wp.editor;
-const { Button } = wp.components;
-const { __ } = wp.i18n;
+import {
+	MediaPlaceholder,
+	MediaUpload,
+} from '@wordpress/editor';
+
+import {
+	Button,
+} from '@wordpress/components';
+
+import {
+	__,
+} from '@wordpress/i18n';
 
 export default function( props ) {
 	const { url, id, alt, selectHandler, removeHandler, isSelected } = props;

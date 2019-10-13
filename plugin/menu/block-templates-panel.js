@@ -22,6 +22,11 @@ import {
 	Component,
 } from '@wordpress/element';
 
+import {
+	dispatch,
+	select,
+} from '@wordpress/data';
+
 export default class BlockTemplatesPanel extends Component {
 	constructor( props ) {
 		super( ...arguments );
@@ -49,14 +54,14 @@ export default class BlockTemplatesPanel extends Component {
 			insertBlocks,
 			replaceBlocks,
 			multiSelect,
-		} = wp.data.dispatch( 'core/editor' );
+		} = dispatch( 'core/editor' );
 
 		const {
 			getBlocks,
 			getBlockCount,
 			getSelectedBlock,
 			getBlockInsertionPoint,
-		} = wp.data.select( 'core/block-editor' );
+		} = select( 'core/block-editor' );
 
 		if ( null !== this.state.resultParts ) {
 			return;

@@ -1,6 +1,9 @@
 'use strict';
 
-const { TabPanel, Dashicon } = wp.components;
+import {
+	TabPanel,
+	Dashicon,
+} from '@wordpress/components';
 
 export default function( props ) {
 	const { desktop, tablet, mobile } = props;

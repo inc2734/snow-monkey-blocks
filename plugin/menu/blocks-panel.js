@@ -7,10 +7,12 @@ import {
 import {
 	Button,
 	Spinner,
+	Dashicon,
 } from '@wordpress/components';
 
 import {
 	Component,
+	createElement,
 } from '@wordpress/element';
 
 export default class BlocksPanel extends Component {
@@ -38,7 +40,7 @@ export default class BlocksPanel extends Component {
 				if ( typeof icon === 'function' ) {
 					icon = icon();
 				} else if ( typeof icon === 'string' ) {
-					icon = wp.element.createElement( wp.components.Dashicon, { icon: icon } );
+					icon = createElement( Dashicon, { icon: icon } );
 				}
 				result.push(
 					{
