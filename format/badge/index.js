@@ -33,14 +33,14 @@ export const settings = {
 		const { value, isActive, onChange } = props;
 
 		const onToggle = () => {
-			onChange( toggleFormat( value, { name } ) );
+			onChange( toggleFormat( value, { type: name } ) );
 		};
 
 		const onChangeColor = ( color ) => {
 			const attributes = {};
 			if ( color ) {
 				attributes.style = `background-color: ${ color }`;
-				onChange( applyFormat( value, { name, attributes } ) );
+				onChange( applyFormat( value, { type: name, attributes } ) );
 			} else {
 				onChange( removeFormat( value, name ) );
 			}
