@@ -24,7 +24,10 @@ export const settings = {
 	className: 'smb-highlighter',
 	edit( props ) {
 		const { value, isActive, onChange } = props;
-		const onToggle = () => onChange( toggleFormat( value, { name } ) );
+		const onToggle = () => onChange( toggleFormat( value, { type: name } ) );
+		console.log( value );
+		console.log( name );
+		console.log( onToggle );
 
 		return (
 			<Fragment>
