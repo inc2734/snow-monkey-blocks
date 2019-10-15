@@ -1,7 +1,7 @@
 'use strict';
 
 import ScreenshotImg from './screenshot-img';
-import BlocksCategories from './blocks-categories';
+import BlockCategories from './block-categories';
 
 import {
 	Component,
@@ -64,7 +64,7 @@ export default class Blocks extends Component {
 	render() {
 		return (
 			<Fragment>
-				<BlocksCategories
+				<BlockCategories
 					rootMenu={ this }
 				/>
 				{ this.state.resultDetail }

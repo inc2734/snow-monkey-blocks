@@ -6,14 +6,14 @@
  * @license GPL-2.0+
  */
 
-namespace Snow_Monkey\Plugin\Blocks\App\RestAPI\BlockTemplatesCategories;
+namespace Snow_Monkey\Plugin\Blocks\App\RestAPI\BlockTemplateCategories;
 
 use Snow_Monkey\Plugin\Blocks\App\RestAPI\Helper;
 
 class EntryPoint {
 
 	const REST_API_NAMESPACE = 'snow-monkey-blocks/v5';
-	const REST_API_ROUTE = '/block-templates-categories/';
+	const REST_API_ROUTE = '/block-template-categories/';
 
 	public function __construct() {
 		add_action( 'rest_api_init', [ $this, '_rest_api_init' ] );

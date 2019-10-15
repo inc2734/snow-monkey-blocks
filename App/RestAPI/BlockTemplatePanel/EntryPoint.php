@@ -6,14 +6,14 @@
  * @license GPL-2.0+
  */
 
-namespace Snow_Monkey\Plugin\Blocks\App\RestAPI\BlockTemplatesPanel;
+namespace Snow_Monkey\Plugin\Blocks\App\RestAPI\BlockTemplatePanel;
 
 use Snow_Monkey\Plugin\Blocks\App\RestAPI\Helper;
 
 class EntryPoint {
 
 	const REST_API_NAMESPACE = 'snow-monkey-blocks/v5';
-	const REST_API_ROUTE = '/block-templates-panel/';
+	const REST_API_ROUTE = '/block-template-panel/';
 
 	public function __construct() {
 		add_action( 'rest_api_init', [ $this, '_rest_api_init' ] );

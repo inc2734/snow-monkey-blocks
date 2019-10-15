@@ -15,7 +15,7 @@ import {
 	createElement,
 } from '@wordpress/element';
 
-export default class BlocksPanel extends Component {
+export default class BlockPanel extends Component {
 	constructor( props ) {
 		super( ...arguments );
 

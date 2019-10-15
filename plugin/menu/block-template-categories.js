@@ -2,7 +2,7 @@
 
 const { apiFetch } = wp;
 
-import BlockTemplatesPanel from './block-templates-panel';
+import BlockTemplatePanel from './block-template-panel';
 
 import {
 	PanelBody,
@@ -14,7 +14,7 @@ import {
 	Fragment,
 } from '@wordpress/element';
 
-export default class BlockTemplatesCategories extends Component {
+export default class BlockTemplateCategories extends Component {
 	constructor() {
 		super( ...arguments );
 
@@ -29,7 +29,7 @@ export default class BlockTemplatesCategories extends Component {
 
 	getCategories() {
 		apiFetch( {
-			path: '/snow-monkey-blocks/v5/block-templates-categories/',
+			path: '/snow-monkey-blocks/v5/block-template-categories/',
 			method: 'GET',
 			parse: true,
 		} ).then( ( result ) => {
@@ -57,7 +57,7 @@ export default class BlockTemplatesCategories extends Component {
 					<PanelBody
 						title={ category.title }
 					>
-						<BlockTemplatesPanel
+						<BlockTemplatePanel
 							slug={ category.slug }
 						/>
 					</PanelBody>

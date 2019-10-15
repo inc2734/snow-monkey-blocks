@@ -1,6 +1,6 @@
 'use strict';
 
-import BlockTemplatesCategories from './block-templates-categories';
+import BlockTemplateCategories from './block-template-categories';
 
 import {
 	Component,
@@ -9,7 +9,7 @@ import {
 export default class BlockTemplates extends Component {
 	render() {
 		return (
-			<BlockTemplatesCategories />
+			<BlockTemplateCategories />
 		);
 	}
 }

@@ -1,7 +1,7 @@
 'use strict';
 
 import blockConfig from '../../src/js/config/block';
-import BlocksPanel from './blocks-panel';
+import BlockPanel from './block-panel';
 
 import {
 	getCategories,
@@ -17,7 +17,7 @@ import {
 	Fragment,
 } from '@wordpress/element';
 
-export default class BlocksCategories extends Component {
+export default class BlockCategories extends Component {
 	constructor( props ) {
 		super( ...arguments );
 
@@ -56,7 +56,7 @@ export default class BlocksCategories extends Component {
 					<PanelBody
 						title={ category.title }
 					>
-						<BlocksPanel
+						<BlockPanel
 							rootMenu={ this.props.rootMenu }
 							slug={ category.slug }
 						/>

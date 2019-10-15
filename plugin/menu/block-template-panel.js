@@ -27,7 +27,7 @@ import {
 	select,
 } from '@wordpress/data';
 
-export default class BlockTemplatesPanel extends Component {
+export default class BlockTemplatePanel extends Component {
 	constructor( props ) {
 		super( ...arguments );
 		this.props = props;
@@ -41,7 +41,7 @@ export default class BlockTemplatesPanel extends Component {
 
 	getPanel() {
 		apiFetch( {
-			path: `/snow-monkey-blocks/v5/block-templates-panel/?slug=${ this.props.slug }`,
+			path: `/snow-monkey-blocks/v5/block-template-panel/?slug=${ this.props.slug }`,
 			method: 'GET',
 			parse: true,
 		} ).then( ( result ) => {
