@@ -2,10 +2,6 @@
   &__canvas {
     visibility: visible !important;
   }
-
-  .smb-add-item-button-wrapper {
-    text-align: center;
-  }
 }
 
 [data-type="snow-monkey-blocks/thumbnail-gallery"] {
@@ -27,7 +23,13 @@
           @include _row__col(1, 2);
           @include _row__col--margin(.5);
 
+          // under WP 5.2
           > .editor-block-list__block-edit {
+            margin: 0 !important;
+          }
+
+          // over WP 5.3
+          > .editor-block-list__block-edit > [data-block] {
             margin: 0 !important;
           }
         }

@@ -1,12 +1,12 @@
 .smb-media-text {
   &__title {
+    // under WP 5.2
     & + .smb-media-text__body {
       margin-top: 0;
     }
   }
 }
 
-[data-type="snow-monkey-blocks/media-text"]::before,
-[data-type^="snow-monkey-blocks"] [data-type="snow-monkey-blocks/media-text"] > .editor-block-list__block-edit::before {
-  bottom: calc(#{_space(1)} - 14px);
+[data-type="snow-monkey-blocks/media-text"] > .editor-block-list__block-edit > [data-block] {
+  overflow: hidden;
 }

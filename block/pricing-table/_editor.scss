@@ -25,7 +25,7 @@
           }
 
           > .editor-block-list__block-edit {
-            margin-top: 0;
+            margin-top: 0; // under WP 5.2
             margin-right: 0 !important;
             margin-left: 0 !important;
 
@@ -34,6 +34,10 @@
               right: 0;
               bottom: 0;
               left: 0;
+            }
+
+            > [data-block] {
+              margin-top: 0; // over WP 5.3
             }
           }
         }

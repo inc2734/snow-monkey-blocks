@@ -5,7 +5,10 @@
     @include _media-min(lg) {
       @include _font-size-line-height($_base-font-size * $_h2-font-size-scale);
     }
+  }
 
+  &__title,
+  .block-editor-rich-text {
     & + .smb-media-text__body {
       @include _margin-top(.75);
     }

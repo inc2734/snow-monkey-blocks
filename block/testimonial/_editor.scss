@@ -1,16 +1,9 @@
 .smb-testimonial {
   .c-row__col {
     position: relative;
-
-    .smb-add-item-button-wrapper {
-      position: absolute;
-      top: 0;
-      right: -10px;
-    }
   }
 }
 
-[data-type="snow-monkey-blocks/testimonial"]::before,
-[data-type^="snow-monkey-blocks"] [data-type="snow-monkey-blocks/testimonial"] > .editor-block-list__block-edit::before {
-  bottom: calc(#{_space(1)} - 14px);
+[data-type="snow-monkey-blocks/testimonial"] > .editor-block-list__block-edit > [data-block] {
+  overflow: hidden;
 }

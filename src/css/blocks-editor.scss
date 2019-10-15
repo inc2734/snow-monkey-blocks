@@ -17,7 +17,6 @@
 @import '../../block/step/editor';
 @import '../../block/pricing-table/editor';
 @import '../../block/slider/editor';
-@import '../../block/rating-box/editor';
 @import '../../block/testimonial/editor';
 @import '../../block/panels/editor';
 @import '../../block/media-text/editor';
@@ -47,7 +46,13 @@
           display: none !important;
         }
 
+        // under WP 5.2
         > .editor-block-list__block-edit {
+          margin-top: 0 !important;
+        }
+
+        // over WP 5.3
+        > .editor-block-list__block-edit > [data-block] {
           margin-top: 0 !important;
         }
       }
@@ -82,40 +87,17 @@
   }
 }
 
-.smb-add-item-button,
-.smb-remove-item-button {
-  margin: 5px !important;
-  box-shadow: 0 0 0 5px #fff;
-  border: none;
-  border-radius: 100%;
-  line-height: 1 !important;
-  padding: 0;
-  cursor: pointer;
-  outline: none;
-  transition: all .3s;
-}
-
-.smb-add-item-button {
-  color: #21a1d0;
-
-  @include _hover(lg) {
-    box-shadow: 0 0 0 5px rgba(#21a1d0, .2);
-  }
-}
-
-.smb-remove-item-button {
-  color: #cd3034;
-
-  @include _hover(lg) {
-    box-shadow: 0 0 0 5px rgba(#cd3034, .2);
-  }
-}
-
 [data-type^="snow-monkey-blocks"] {
   .editor-block-list__layout {
     .editor-block-list__block {
       &:first-child {
+        // under WP 5.2
         > .editor-block-list__block-edit {
+          margin-top: 0;
+        }
+
+        // over WP 5.3
+        > .editor-block-list__block-edit > [data-block] {
           margin-top: 0;
         }
       }
@@ -148,6 +130,8 @@
     }
   }
 
+  // @deprecated over WP 5.3 it is not necessary
+  /*
   .editor-rich-text__tinymce[data-is-placeholder-visible="true"] + .editor-rich-text__tinymce.wp-block-paragraph,
   .block-editor-rich-text__editable[data-is-placeholder-visible="true"] + .block-editor-rich-text__editable.wp-block-paragraph {
     margin-top: 0;
@@ -157,8 +141,11 @@
     position: relative;
     top: 14px;
   }
+  */
 
   // Touchable parent block
+  // @deprecated over WP 5.3 it is not necessary
+  /*
   .editor-inner-blocks {
     position: relative;
     padding-top: 24px;
@@ -173,4 +160,5 @@
       display: block;
     }
   }
+  */
 }
