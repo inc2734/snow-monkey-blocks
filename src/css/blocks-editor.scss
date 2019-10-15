@@ -144,12 +144,12 @@
   */
 
   // Touchable parent block
-  // @deprecated over WP 5.3 it is not necessary
-  /*
   .editor-inner-blocks {
     position: relative;
     padding-top: 24px;
 
+    // @deprecated over WP 5.3 it is not necessary
+    /*
     &::before {
       content: '';
       position: absolute;
@@ -159,6 +159,6 @@
       left: -24px;
       display: block;
     }
+    */
   }
-  */
 }
