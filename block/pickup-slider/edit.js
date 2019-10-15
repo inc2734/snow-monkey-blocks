@@ -2,12 +2,14 @@
 
 import {
 	InspectorControls,
+	InspectorAdvancedControls,
 } from '@wordpress/editor';
 
 import {
 	PanelBody,
 	SelectControl,
 	ToggleControl,
+	TextControl,
 	Dashicon,
 } from '@wordpress/components';
 
@@ -20,7 +22,7 @@ import {
 } from '@wordpress/i18n';
 
 export default function( { attributes, setAttributes } ) {
-	const { random, linkType } = attributes;
+	const { random, linkType, myAnchor } = attributes;
 
 	return (
 		<Fragment>
@@ -49,6 +51,15 @@ export default function( { attributes, setAttributes } ) {
 					/>
 				</PanelBody>
 			</InspectorControls>
+
+			<InspectorAdvancedControls>
+				<TextControl
+					label={ __( 'HTML Anchor', 'snow-monkey-blocks' ) }
+					help={ __( 'Anchors lets you link directly to a section on a page.', 'snow-monkey-blocks' ) }
+					value={ myAnchor || '' }
+					onChange={ ( value ) => setAttributes( { myAnchor: value.replace( /[\s#]/g, '-' ) } ) }
+				/>
+			</InspectorAdvancedControls>
 
 			<div className="components-placeholder">
 				<div className="components-placeholder__label">

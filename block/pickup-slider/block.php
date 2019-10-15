@@ -23,9 +23,16 @@ register_block_type(
 				'type'    => 'string',
 				'default' => '',
 			],
+			'myAnchor' => [
+				'type'    => 'string',
+				'default' => '',
+			],
 		],
 		'render_callback' => function( $attributes ) {
 			return DynamicBlocks::render( 'pickup-slider', $attributes );
 		},
+		'supports' => [
+			'anchor' => false,
+		],
 	]
 );
