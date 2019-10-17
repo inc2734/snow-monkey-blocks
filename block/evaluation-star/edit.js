@@ -1,8 +1,8 @@
 'use strict';
 
 import classnames from 'classnames';
+import FontAwesome from '../../src/js/component/font-awesome';
 import { toNumber } from '../../src/js/helper/helper';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import {
 	PanelBody,
@@ -25,43 +25,29 @@ import {
 	sprintf,
 } from '@wordpress/i18n';
 
-let isUpdated = false;
-
 export default function( { attributes, setAttributes, className } ) {
 	const { evaluationValue, iconColor, isDisplayNumeric, numericAlign, numericColor } = attributes;
 
 	const EditEvaluationIcon = () => {
-		const defaultOutputIcons = [];
-		const updatedOutputIcons = [];
+		const icons = [];
 		const evaluationNumber = toNumber( evaluationValue, 0, 5 );
 		const fillIconCount = Math.floor( evaluationNumber );
 		const emptyIconCount = 5 - Math.ceil( evaluationNumber );
 		const halfIconCount = ( fillIconCount + emptyIconCount ) === 5 ? 0 : 1;
 
 		for ( let i = 0; i < fillIconCount; i++ ) {
-			defaultOutputIcons.push( <FontAwesomeIcon icon={ [ 'fas', 'star' ] } /> );
-			updatedOutputIcons.push( <i className="fas fa-star" /> );
+			icons.push( <FontAwesome icon="star" /> );
 		}
 
 		if ( halfIconCount !== 0 ) {
-			defaultOutputIcons.push( <FontAwesomeIcon icon={ [ 'fas', 'star-half-alt' ] } /> );
-			updatedOutputIcons.push( <i className="fas fa-star-half-alt" /> );
+			icons.push( <FontAwesome icon="star-half-alt" /> );
 		}
 
 		for ( let j = 0; j < emptyIconCount; j++ ) {
-			defaultOutputIcons.push( <FontAwesomeIcon icon={ [ 'far', 'star' ] } /> );
-			updatedOutputIcons.push( <i className="far fa-star"></i> );
+			icons.push( <FontAwesome icon={ [ 'far', 'star' ] } /> );
 		}
 
-		return (
-			<Fragment>
-				{ ! isUpdated ? (
-					<span>{ updatedOutputIcons }</span>
-				) : (
-					<span>{ defaultOutputIcons }</span>
-				) }
-			</Fragment>
-		);
+		return <span>{ icons }</span>;
 	};
 
 	const classes = classnames(
@@ -91,10 +77,7 @@ export default function( { attributes, setAttributes, className } ) {
 						label={ __( 'Evaluation', 'snow-monkey-blocks' ) }
 						help={ __( 'Five-grade evaluation', 'snow-monkey-blocks' ) }
 						value={ evaluationValue }
-						onChange={ ( value ) => {
-							isUpdated = true;
-							setAttributes( { evaluationValue: toNumber( value, 0, 5 ) } );
-						} }
+						onChange={ ( value ) => setAttributes( { evaluationValue: toNumber( value, 0, 5 ) } ) }
 						min={ 0 }
 						max={ 5 }
 						step={ 0.1 }
@@ -114,10 +97,7 @@ export default function( { attributes, setAttributes, className } ) {
 					<SelectControl
 						label={ __( 'Numeric position', 'snow-monkey-blocks' ) }
 						value={ numericAlign }
-						onChange={ ( value ) => {
-							isUpdated = true;
-							setAttributes( { numericAlign: value } );
-						} }
+						onChange={ ( value ) => setAttributes( { numericAlign: value } ) }
 						options={ [
 							{
 								value: 'left',
@@ -137,18 +117,12 @@ export default function( { attributes, setAttributes, className } ) {
 					colorSettings={ [
 						{
 							value: numericColor,
-							onChange: ( value ) => {
-								isUpdated = true;
-								setAttributes( { numericColor: value } );
-							},
+							onChange: ( value ) => setAttributes( { numericColor: value } ),
 							label: __( 'Numeric color', 'snow-monkey-blocks' ),
 						},
 						{
 							value: iconColor,
-							onChange: ( value ) => {
-								isUpdated = true;
-								setAttributes( { iconColor: value } );
-							},
+							onChange: ( value ) => setAttributes( { iconColor: value } ),
 							label: __( 'Icon color', 'snow-monkey-blocks' ),
 						},
 					] }

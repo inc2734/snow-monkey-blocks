@@ -1,7 +1,7 @@
 'use strict';
 
 import classnames from 'classnames';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import FontAwesome from '../../../../src/js/component/font-awesome';
 
 import {
 	PanelBody, BaseControl, Button, ButtonGroup,
@@ -92,7 +92,7 @@ export default function( { attributes, setAttributes, className } ) {
 			<div className={ blockClasses }>
 				<p>
 					<span className="fa-fw" style={ iconStyles }>
-						<FontAwesomeIcon icon={ [ attributes.iconVendor, attributes.iconClass ] } />
+						<FontAwesome icon={ [ attributes.iconVendor, attributes.iconClass ] } />
 					</span>
 					<span className={ itemNameClasses }>
 						<RichText

@@ -1,7 +1,7 @@
 'use strict';
 
 import classnames from 'classnames';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import FontAwesome from '../../src/js/component/font-awesome';
 
 import {
 	times,
@@ -26,8 +26,6 @@ import {
 import {
 	__,
 } from '@wordpress/i18n';
-
-let isIconUpdated = false;
 
 export default function( { attributes, setAttributes, isSelected, className } ) {
 	const { title, content, modifier, icon } = attributes;
@@ -62,18 +60,6 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 			label: __( 'lightbulb', 'snow-monkey-blocks' ),
 		},
 	];
-
-	const TitleIcon = () => {
-		return (
-			<Fragment>
-				{ ! isIconUpdated ? (
-					<span><i className={ `fas fa-${ icon }` } /></span>
-				) : (
-					<FontAwesomeIcon icon={ icon } />
-				) }
-			</Fragment>
-		);
-	};
 
 	const classes = classnames(
 		'smb-alert',
@@ -114,10 +100,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 									<Button
 										isDefault
 										isPrimary={ icon === iconList[ index ].value }
-										onClick={ () => {
-											isIconUpdated = true;
-											setAttributes( { icon: iconList[ index ].value } );
-										} }
+										onClick={ () => setAttributes( { icon: iconList[ index ].value } ) }
 									>
 										<i className={ `fas fa-${ iconList[ index ].value }` } title={ iconList[ index ].label } />
 									</Button>
@@ -131,7 +114,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 			<div className={ classes }>
 				{ ( ! RichText.isEmpty( title ) || isSelected ) &&
 					<div className="smb-alert__title">
-						<TitleIcon icon={ icon } />
+						<FontAwesome icon={ icon } />
 
 						<strong>
 							<RichText
