@@ -28,7 +28,7 @@ export default withState( {
 
 	const getPopoverAnchorRect = () => {
 		const selection = window.getSelection();
-		if ( 1 > selection.rangeCount || 'Range' !== selection.type ) {
+		if ( 1 > selection.rangeCount || ( 'Range' !== selection.type && 'Caret' !== selection.type ) ) {
 			return {};
 		}
 
