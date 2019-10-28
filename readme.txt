@@ -3,8 +3,8 @@ Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.2
-Tested up to: 5.2
-Stable tag: 5.1.0
+Tested up to: 5.3
+Stable tag: 5.2.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -111,6 +111,12 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 23. Price menu block (The number of items can be increased or decreased freely)
 
 == Changelog ==
+
+= 5.2.0 =
+* [Media text] Add image link setting.
+* [Directory structure] Fix bug that icon is not displayed on editor.
+* [Badge] Fixed a bug that pop-up does not open even when the cursor is hovered.
+* WordPress 5.3 compatibility.
 
 = 5.1.0 =
 * [Pickup Slider] Add HTML anchor setting.
