@@ -33,7 +33,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 			<Fragment>
 				<div className="smb-slider__item__figure">
 					<Figure
-						url={ imageURL }
+						src={ imageURL }
 						id={ imageID }
 						alt={ imageAlt }
 						selectHandler={ ( media ) => {

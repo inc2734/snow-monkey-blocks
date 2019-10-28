@@ -129,7 +129,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 					{ ( !! imageID || isSelected ) &&
 						<div className="smb-step__item__figure">
 							<Figure
-								url={ imageURL }
+								src={ imageURL }
 								id={ imageID }
 								alt={ imageAlt }
 								selectHandler={ ( media ) => {

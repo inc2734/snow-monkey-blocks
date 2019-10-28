@@ -2,6 +2,7 @@
 
 import classnames from 'classnames';
 import hexToRgba from 'hex-to-rgba';
+import Figure from '../../src/js/component/figure';
 import { toNumber } from '../../src/js/helper/helper';
 
 import {
@@ -13,8 +14,6 @@ import {
 	InnerBlocks,
 	InspectorControls,
 	PanelColorSettings,
-	MediaPlaceholder,
-	MediaUpload,
 	ColorPalette,
 } from '@wordpress/editor';
 
@@ -98,51 +97,6 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 
 	const contentStyles = {
 		backgroundColor: contentBackgroundColor && hexToRgba( contentBackgroundColor, 0.98 ),
-	};
-
-	const onSelectImage = ( media ) => {
-		const newImageURL = !! media.sizes && !! media.sizes.xlarge ? media.sizes.large.url : media.url;
-		setAttributes( { imageURL: newImageURL, imageID: media.id } );
-	};
-
-	const Figure = () => {
-		if ( ! imageURL ) {
-			return (
-				<MediaPlaceholder
-					icon="format-image"
-					labels={ { title: __( 'Image' ) } }
-					onSelect={ onSelectImage }
-					accept="image/*"
-					allowedTypes={ [ 'image' ] }
-				/>
-			);
-		}
-
-		return (
-			<div className="smb-remove-button-wrapper">
-				<MediaUpload
-					onSelect={ onSelectImage }
-					type="image"
-					value={ imageID }
-					render={ ( obj ) => {
-						return (
-							<Button className="image-button" onClick={ obj.open } style={ { padding: 0 } }>
-								<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
-							</Button>
-						);
-					} }
-				/>
-
-				{ isSelected &&
-					<button
-						className="smb-remove-button"
-						onClick={ () => {
-							setAttributes( { imageURL: '', imageAlt: '', imageID: 0 } );
-						} }
-					>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
-				}
-			</div>
-		);
 	};
 
 	return (
@@ -461,7 +415,17 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 								{ shadowColor &&
 									<div className={ shadowClasses } style={ shadowStyles } />
 								}
-								<Figure />
+								<Figure
+									src={ imageURL }
+									id={ imageID }
+									alt={ imageAlt }
+									selectHandler={ ( media ) => {
+										const newImageURL = !! media.sizes && !! media.sizes.xlarge ? media.sizes.large.url : media.url;
+										setAttributes( { imageURL: newImageURL, imageID: media.id, imageAlt: media.alt } );
+									} }
+									removeHandler={ () => setAttributes( { imageURL: '', imageAlt: '', imageID: 0 } ) }
+									isSelected={ isSelected }
+								/>
 							</div>
 						</div>
 					</div>

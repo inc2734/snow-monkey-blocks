@@ -19,6 +19,7 @@ import {
 	RichText,
 	InnerBlocks,
 	InspectorControls,
+	URLInput,
 } from '@wordpress/editor';
 
 import {
@@ -30,7 +31,7 @@ import {
 } from '@wordpress/i18n';
 
 export default function( { attributes, setAttributes, isSelected, className } ) {
-	const { titleTagName, title, imageID, imageURL, imageAlt, imagePosition, imageColumnSize } = attributes;
+	const { titleTagName, title, imageID, imageURL, imageAlt, imagePosition, imageColumnSize, url, target } = attributes;
 
 	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
 	const { textColumnWidth, imageColumnWidth } = getColumnSize( imageColumnSize );
@@ -109,6 +110,29 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 							} ) }
 						</div>
 					</BaseControl>
+
+					<BaseControl label={ __( 'URL', 'snow-monkey-blocks' ) }>
+						<URLInput
+							value={ url }
+							onChange={ ( value ) => setAttributes( { url: value } ) }
+						/>
+					</BaseControl>
+
+					<SelectControl
+						label={ __( 'Target', 'snow-monkey-blocks' ) }
+						value={ target }
+						onChange={ ( value ) => setAttributes( { target: value } ) }
+						options={ [
+							{
+								value: '_self',
+								label: __( '_self', 'snow-monkey-blocks' ),
+							},
+							{
+								value: '_blank',
+								label: __( '_blank', 'snow-monkey-blocks' ),
+							},
+						] }
+					/>
 				</PanelBody>
 			</InspectorControls>
 
@@ -132,9 +156,11 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 					<div className={ imageColumnClasses }>
 						<div className="smb-media-text__figure">
 							<Figure
-								url={ imageURL }
+								src={ imageURL }
 								id={ imageID }
 								alt={ imageAlt }
+								url={ url }
+								target={ target }
 								selectHandler={ ( media ) => {
 									const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
 									setAttributes( { imageURL: newImageURL, imageID: media.id, imageAlt: media.alt } );

@@ -9,7 +9,7 @@ import {
 } from '@wordpress/editor';
 
 export default function( { attributes, className } ) {
-	const { titleTagName, title, imageID, imageURL, imageAlt, imagePosition, imageColumnSize } = attributes;
+	const { titleTagName, title, imageID, imageURL, imageAlt, imagePosition, imageColumnSize, url, target } = attributes;
 
 	const { textColumnWidth, imageColumnWidth } = getColumnSize( imageColumnSize );
 
@@ -27,6 +27,28 @@ export default function( { attributes, className } ) {
 	const textColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', [ `c-row__col--lg-${ textColumnWidth }` ] );
 
 	const imageColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', [ `c-row__col--lg-${ imageColumnWidth }` ] );
+
+	const Figure = () => {
+		const Img = () => {
+			return (
+				<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
+			);
+		};
+
+		if ( url ) {
+			return (
+				<a
+					href={ url }
+					target={ '_self' === target ? undefined : target }
+					rel={ '_self' === target ? undefined : 'noopener noreferrer' }
+				>
+					<Img />
+				</a>
+			);
+		}
+
+		return <Img />;
+	};
 
 	return (
 		<div className={ classes }>
@@ -46,7 +68,7 @@ export default function( { attributes, className } ) {
 				<div className={ imageColumnClasses }>
 					<div className="smb-media-text__figure">
 						{ imageURL &&
-							<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
+							<Figure />
 						}
 					</div>
 				</div>

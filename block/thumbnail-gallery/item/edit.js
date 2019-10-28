@@ -20,7 +20,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 		<div className={ classes }>
 			<div className="smb-thumbnail-gallery__item__figure">
 				<Figure
-					url={ imageURL }
+					src={ imageURL }
 					id={ imageID }
 					alt={ imageAlt }
 					selectHandler={ ( media ) => {

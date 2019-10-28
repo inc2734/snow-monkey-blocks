@@ -55,7 +55,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
 					<BaseControl label={ __( 'Image', 'snow-monkey-blocks' ) }>
 						<Figure
-							url={ imageURL }
+							src={ imageURL }
 							id={ imageID }
 							alt={ imageAlt }
 							selectHandler={ ( media ) => {
