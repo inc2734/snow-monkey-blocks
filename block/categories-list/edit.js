@@ -12,7 +12,7 @@ import {
 } from 'lodash';
 
 import {
-	withSelect,
+	useSelect,
 } from '@wordpress/data';
 
 import {
@@ -36,8 +36,14 @@ import {
 	__,
 } from '@wordpress/i18n';
 
-const edit = ( props ) => {
-	const { attributes: { articles, exclusionCategories, orderby, order }, articleCategories, className, setAttributes } = props;
+export default function( { attributes, setAttributes, className } ) {
+	const { articles, exclusionCategories, orderby, order } = attributes;
+
+	const articleCategories = useSelect(
+		( select ) => {
+			return select( 'snow-monkey-blocks/categories-list' ).receiveArticleCategories()
+		}
+	);
 
 	const classes = classnames( 'smb-categories-list', className );
 
@@ -169,9 +175,3 @@ const edit = ( props ) => {
 		</Fragment>
 	);
 };
-
-export default withSelect( ( select ) => {
-	return {
-		articleCategories: select( 'snow-monkey-blocks/categories-list' ).receiveArticleCategories(),
-	};
-} )( edit );
