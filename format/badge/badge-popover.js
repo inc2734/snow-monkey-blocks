@@ -1,17 +1,17 @@
 'use strict';
 
 import {
-	withState,
-} from '@wordpress/compose';
+	useState,
+} from '@wordpress/element';
 
 import {
 	ColorPalette,
 	URLPopover,
 } from '@wordpress/editor';
 
-export default withState( {
-	color: undefined,
-} )( ( { onChangeColor, color, setState } ) => {
+export default function( { onChangeColor } ) {
+	const [ color, setColor ] = useState( undefined );
+
 	let currentColor;
 
 	//@see https://jsfiddle.net/Mottie/xcqpF/1/light/
@@ -63,11 +63,11 @@ export default withState( {
 				<ColorPalette
 					value={ color ? color : currentColor }
 					onChange={ ( newColor ) => {
-						setState( { color: newColor } );
+						setColor( newColor );
 						onChangeColor( newColor );
 					} }
 				/>
 			</div>
 		</URLPopover>
 	);
-} );
+}

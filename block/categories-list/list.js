@@ -8,7 +8,9 @@ export default function( { articleCategoriesList } ) {
 	const ulRef = useRef();
 
 	useEffect(
-		() => setTimeout( () => new CategoriesList( ulRef.current ), 0 ),
+		() => {
+			setTimeout( () => new CategoriesList( ulRef.current ), 0 );
+		},
 		[ ulRef ]
 	);
 

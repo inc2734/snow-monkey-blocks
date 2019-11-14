@@ -39,12 +39,7 @@ import {
 export default function( { attributes, setAttributes, className } ) {
 	const { articles, exclusionCategories, orderby, order } = attributes;
 
-	const articleCategories = useSelect(
-		( select ) => {
-			return select( 'snow-monkey-blocks/categories-list' ).receiveArticleCategories()
-		}
-	);
-
+	const articleCategories = useSelect( ( select ) => select( 'snow-monkey-blocks/categories-list' ).receiveArticleCategories() );
 	const classes = classnames( 'smb-categories-list', className );
 
 	if ( ! articleCategories || ! articleCategories.length ) {
@@ -174,4 +169,4 @@ export default function( { attributes, setAttributes, className } ) {
 			<View />
 		</Fragment>
 	);
-};
+}
