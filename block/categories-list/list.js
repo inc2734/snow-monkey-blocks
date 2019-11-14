@@ -1,21 +1,20 @@
 'use strict';
 
+import { useEffect, useRef } from '@wordpress/element';
+
 import CategoriesList from './categories-list';
 
-import {
-	Component,
-} from '@wordpress/element';
+export default function( { articleCategoriesList } ) {
+	const ulRef = useRef();
 
-export default class extends Component {
-	componentDidMount() {
-		setTimeout( () => new CategoriesList( this.ulRef ), 0 );
-	}
+	useEffect(
+		() => setTimeout( () => new CategoriesList( ulRef.current ), 0 ),
+		[ ulRef ]
+	);
 
-	render() {
-		return (
-			<ul className="smb-categories-list__list" ref={ ( ref ) => this.ulRef = ref }>
-				{ this.props.articleCategoriesList }
-			</ul>
-		);
-	}
+	return (
+		<ul className="smb-categories-list__list" ref={ ulRef }>
+			{ articleCategoriesList }
+		</ul>
+	);
 }
