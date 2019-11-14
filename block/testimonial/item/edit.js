@@ -9,7 +9,7 @@ import {
 import {
 	RichText,
 	MediaUpload,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 import {
 	__,

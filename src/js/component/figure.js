@@ -3,7 +3,7 @@
 import {
 	MediaPlaceholder,
 	MediaUpload,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 import {
 	Button,

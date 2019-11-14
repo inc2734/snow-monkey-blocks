@@ -13,7 +13,7 @@ import {
 import {
 	InspectorControls,
 	InnerBlocks,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 import {
 	Fragment,

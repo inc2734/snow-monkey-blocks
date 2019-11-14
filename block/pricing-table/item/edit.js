@@ -15,7 +15,7 @@ import {
 	PanelColorSettings,
 	ContrastChecker,
 	URLInput,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 import {
 	Fragment,
@@ -111,7 +111,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 						className="smb-pricing-table__item__title"
 						placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
 						value={ title }
-						formattingControls={ [] }
+						allowedFormats={ [] }
 						onChange={ ( value ) => setAttributes( { title: value } ) }
 					/>
 
@@ -120,7 +120,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 							className="smb-pricing-table__item__price"
 							placeholder={ __( 'Write price...', 'snow-monkey-blocks' ) }
 							value={ price }
-							formattingControls={ [] }
+							allowedFormats={ [] }
 							onChange={ ( value ) => setAttributes( { price: value } ) }
 						/>
 					}
@@ -130,7 +130,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 							className="smb-pricing-table__item__lede"
 							placeholder={ __( 'Write lede...', 'snow-monkey-blocks' ) }
 							value={ lede }
-							formattingControls={ [] }
+							allowedFormats={ [] }
 							onChange={ ( value ) => setAttributes( { lede: value } ) }
 						/>
 					}
@@ -155,7 +155,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 									style={ btnLabelStyles }
 									value={ btnLabel }
 									placeholder={ __( 'Button', 'snow-monkey-blocks' ) }
-									formattingControls={ [] }
+									allowedFormats={ [] }
 									onChange={ ( value ) => setAttributes( { btnLabel: value } ) }
 								/>
 							</span>

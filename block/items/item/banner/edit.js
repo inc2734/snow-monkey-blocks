@@ -17,7 +17,7 @@ import {
 	RichText,
 	PanelColorSettings,
 	URLInput,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 import {
 	Fragment,

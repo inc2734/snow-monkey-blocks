@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import {
 	RichText,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 import {
 	Fragment,

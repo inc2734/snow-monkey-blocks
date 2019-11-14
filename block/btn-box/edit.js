@@ -14,7 +14,7 @@ import {
 	PanelColorSettings,
 	ContrastChecker,
 	URLInput,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 import {
 	Fragment,
@@ -128,7 +128,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 							className="smb-btn-box__lede"
 							value={ lede }
 							onChange={ ( value ) => setAttributes( { lede: value } ) }
-							formattingControls={ [] }
+							allowedFormats={ [] }
 							placeholder={ __( 'Write lede...', 'snow-monkey-blocks' ) }
 						/>
 					}
@@ -147,7 +147,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 								placeholder={ __( 'Button', 'snow-monkey-blocks' ) }
 								onChange={ ( value ) => setAttributes( { btnLabel: value } ) }
 								style={ { color: btnTextColor } }
-								formattingControls={ [] }
+								allowedFormats={ [] }
 							/>
 						</span>
 					</div>
@@ -157,7 +157,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 							className="smb-btn-box__note"
 							value={ note }
 							onChange={ ( value ) => setAttributes( { note: value } ) }
-							formattingControls={ [] }
+							allowedFormats={ [] }
 							placeholder={ __( 'Write note...', 'snow-monkey-blocks' ) }
 						/>
 					}

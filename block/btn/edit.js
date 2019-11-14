@@ -14,7 +14,7 @@ import {
 	PanelColorSettings,
 	ContrastChecker,
 	URLInput,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 import {
 	Fragment,
@@ -127,7 +127,7 @@ export default function( { attributes, setAttributes, className } ) {
 						placeholder={ __( 'Button', 'snow-monkey-blocks' ) }
 						onChange={ ( value ) => setAttributes( { content: value } ) }
 						style={ btnLabelStyles }
-						formattingControls={ [] }
+						allowedFormats={ [] }
 					/>
 				</span>
 			</div>

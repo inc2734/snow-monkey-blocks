@@ -13,7 +13,7 @@ import {
 	InspectorControls,
 	PanelColorSettings,
 	InnerBlocks,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 import {
 	Fragment,
@@ -88,7 +88,7 @@ export default function( { attributes, setAttributes, className } ) {
 						className="smb-faq__item__question__body"
 						placeholder={ __( 'Write question...', 'snow-monkey-blocks' ) }
 						value={ question }
-						formattingControls={ [] }
+						allowedFormats={ [] }
 						multiline={ false }
 						onChange={ ( value ) => setAttributes( { question: value } ) }
 					/>

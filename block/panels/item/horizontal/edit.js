@@ -18,7 +18,7 @@ import {
 	InspectorControls,
 	RichText,
 	URLInput,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 import {
 	Fragment,
@@ -157,7 +157,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 									className="smb-panels__item__link"
 									value={ linkLabel }
 									placeholder={ __( 'Link', 'snow-monkey-blocks' ) }
-									formattingControls={ [] }
+									allowedFormats={ [] }
 									onChange={ ( value ) => setAttributes( { linkLabel: value } ) }
 									keepPlaceholderOnFocus={ true }
 								/>

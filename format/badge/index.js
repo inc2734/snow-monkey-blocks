@@ -4,7 +4,7 @@ import BadgePopover from './badge-popover';
 
 import {
 	RichTextToolbarButton,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 import {
 	Fragment,

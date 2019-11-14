@@ -24,7 +24,7 @@ import {
 	PanelColorSettings,
 	URLInput,
 	ColorPalette,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 import {
 	__,
@@ -223,7 +223,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 							tagName={ titleTagName }
 							value={ title }
 							onChange={ ( value ) => setAttributes( { title: value } ) }
-							formattingControls={ [] }
+							allowedFormats={ [] }
 							placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
 						/>
 					}

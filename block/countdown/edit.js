@@ -12,7 +12,7 @@ import {
 	AlignmentToolbar,
 	InspectorControls,
 	PanelColorSettings,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 import {
 	Fragment,

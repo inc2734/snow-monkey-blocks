@@ -5,7 +5,7 @@ import Figure from '../../../src/js/component/figure';
 
 import {
 	RichText,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 import {
 	__,

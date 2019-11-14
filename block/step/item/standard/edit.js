@@ -15,7 +15,7 @@ import {
 	PanelColorSettings,
 	InnerBlocks,
 	URLInput,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 import {
 	Fragment,
@@ -118,7 +118,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 						<RichText
 							placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
 							value={ title }
-							formattingControls={ [] }
+							allowedFormats={ [] }
 							multiline={ false }
 							onChange={ ( value ) => setAttributes( { title: value } ) }
 						/>
@@ -158,7 +158,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 									className="smb-step__item__link__label"
 									placeholder={ __( 'Link text', 'snow-monkey-blocks' ) }
 									value={ linkLabel }
-									formattingControls={ [] }
+									allowedFormats={ [] }
 									multiline={ false }
 									onChange={ ( value ) => setAttributes( { linkLabel: value } ) }
 								/>

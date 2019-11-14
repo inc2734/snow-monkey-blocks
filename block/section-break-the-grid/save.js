@@ -6,7 +6,7 @@ import hexToRgba from 'hex-to-rgba';
 import {
 	RichText,
 	InnerBlocks,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 export default function( { attributes, className } ) {
 	const { wrapperTagName, titleTagName, title, imageID, imageURL, imageAlt, textColor, imagePosition, imageSize, verticalAlignment, contentSize, contentHorizontalPosition, contentVerticalPosition, contentBackgroundColor, contentPadding, removeContentOutsidePadding, shadowColor, shadowHorizontalPosition, shadowVerticalPosition } = attributes;

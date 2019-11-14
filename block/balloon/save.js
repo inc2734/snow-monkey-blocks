@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import {
 	RichText,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 export default function( { attributes, className } ) {
 	const { avatarID, avatarAlt, avatarURL, avatarBorderColor, balloonName, balloonBody, modifier } = attributes;

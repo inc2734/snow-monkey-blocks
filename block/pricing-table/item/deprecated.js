@@ -8,7 +8,7 @@ import {
 
 import {
 	RichText,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 export default [
 	{

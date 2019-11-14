@@ -50,7 +50,9 @@ module.exports = {
     '@wordpress/blockEditor': 'wp.blockEditor',
     '@wordpress/plugins': 'wp.plugins',
     '@wordpress/editPost': 'wp.editPost',
-    '@wordpress/hooks': 'wp.hooks'
+    '@wordpress/hooks': 'wp.hooks',
+		'@wordpress/block-editor': 'wp.blockEditor',
+		'@wordpress/server-side-render': 'wp.serverSideRender',
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json']

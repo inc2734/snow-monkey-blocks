@@ -3,7 +3,7 @@
 import {
 	InspectorControls,
 	InspectorAdvancedControls,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 import {
 	PanelBody,

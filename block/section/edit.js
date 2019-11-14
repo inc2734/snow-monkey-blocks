@@ -22,7 +22,7 @@ import {
 	InspectorControls,
 	PanelColorSettings,
 	ColorPalette,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 import {
 	Fragment,
@@ -272,7 +272,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 								tagName={ titleTagName }
 								value={ title }
 								onChange={ ( value ) => setAttributes( { title: value } ) }
-								formattingControls={ [] }
+								allowedFormats={ [] }
 								placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
 							/>
 						}

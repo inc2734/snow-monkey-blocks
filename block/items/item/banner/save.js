@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import {
 	RichText,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 export default function( { attributes, className } ) {
 	const { title, lede, url, target, blur, textColor, maskColor, maskOpacity, imageSize, imageID, imageURL, imageAlt } = attributes;

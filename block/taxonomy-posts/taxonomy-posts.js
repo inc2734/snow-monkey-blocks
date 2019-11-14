@@ -10,19 +10,20 @@ import {
 import {
 	InspectorControls,
 	InspectorAdvancedControls,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 import {
 	PanelBody,
 	SelectControl,
 	RangeControl,
-	ServerSideRender,
 	ToggleControl,
 	TextControl,
 	TreeSelect,
 	Placeholder,
 	Spinner,
 } from '@wordpress/components';
+
+import ServerSideRender from '@wordpress/server-side-render';
 
 import {
 	Fragment,

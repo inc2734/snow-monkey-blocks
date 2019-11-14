@@ -6,10 +6,11 @@ import {
 	PanelBody,
 	SelectControl,
 	RangeControl,
-	ServerSideRender,
 	ToggleControl,
 	TextControl,
 } from '@wordpress/components';
+
+import ServerSideRender from '@wordpress/server-side-render';
 
 import {
 	useSelect,
@@ -18,7 +19,7 @@ import {
 import {
 	InspectorControls,
 	InspectorAdvancedControls,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 import {
 	Fragment,

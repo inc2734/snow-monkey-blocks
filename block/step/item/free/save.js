@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import {
 	RichText,
 	InnerBlocks,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 export default function( { attributes, className } ) {
 	const { title, numberColor } = attributes;

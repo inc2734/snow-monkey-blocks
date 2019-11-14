@@ -7,7 +7,7 @@ import {
 import {
 	ColorPalette,
 	URLPopover,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 export default function( { onChangeColor } ) {
 	const [ color, setColor ] = useState( undefined );

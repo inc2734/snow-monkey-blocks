@@ -7,7 +7,7 @@ import blockAttributes from './attributes';
 import {
 	RichText,
 	InnerBlocks,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 export default [
 	{

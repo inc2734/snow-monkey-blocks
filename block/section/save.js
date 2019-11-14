@@ -6,7 +6,7 @@ import { divider } from '../../src/js/helper/helper';
 import {
 	RichText,
 	InnerBlocks,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 export default function( { attributes, className } ) {
 	const { wrapperTagName, titleTagName, title, backgroundColor, backgroundColor2, backgroundColorAngle, textColor, isSlim, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;

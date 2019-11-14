@@ -7,7 +7,7 @@ import {
 	InspectorControls,
 	PanelColorSettings,
 	InnerBlocks,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 import {
 	Fragment,
@@ -53,7 +53,7 @@ export default function( { attributes, setAttributes, className } ) {
 						<RichText
 							placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
 							value={ title }
-							formattingControls={ [] }
+							allowedFormats={ [] }
 							multiline={ false }
 							onChange={ ( value ) => setAttributes( { title: value } ) }
 						/>

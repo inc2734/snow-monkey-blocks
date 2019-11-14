@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import {
 	InnerBlocks,
 	InspectorControls,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 import {
 	PanelBody,

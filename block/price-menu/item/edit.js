@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import {
 	RichText,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 import {
 	__,
@@ -21,7 +21,7 @@ export default function( { attributes, setAttributes, className } ) {
 				className="smb-price-menu__item__title"
 				placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
 				value={ title }
-				formattingControls={ [] }
+				allowedFormats={ [] }
 				onChange={ ( value ) => setAttributes( { title: value } ) }
 				keepPlaceholderOnFocus={ true }
 			/>
@@ -30,7 +30,7 @@ export default function( { attributes, setAttributes, className } ) {
 				className="smb-price-menu__item__price"
 				placeholder={ __( 'Write price...', 'snow-monkey-blocks' ) }
 				value={ price }
-				formattingControls={ [] }
+				allowedFormats={ [] }
 				onChange={ ( value ) => setAttributes( { price: value } ) }
 				keepPlaceholderOnFocus={ true }
 			/>

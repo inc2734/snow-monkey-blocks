@@ -3,7 +3,7 @@
 import {
 	RichText,
 	InnerBlocks,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 import classnames from 'classnames';
 

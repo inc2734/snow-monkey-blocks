@@ -2,7 +2,7 @@
 
 import {
 	RichTextToolbarButton,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 import {
 	Fragment,

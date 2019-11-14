@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import {
 	InnerBlocks,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 export default function( { className } ) {
 	const allowedBlocks = [ 'snow-monkey-blocks/rating-box--item' ];

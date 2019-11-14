@@ -12,7 +12,7 @@ import {
 	RichText,
 	InspectorControls,
 	PanelColorSettings,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 import {
 	Fragment,
@@ -64,7 +64,7 @@ export default function( { attributes, setAttributes, className } ) {
 					className="smb-rating-box__item__title"
 					placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
 					value={ title }
-					formattingControls={ [] }
+					allowedFormats={ [] }
 					multiline={ false }
 					onChange={ ( value ) => setAttributes( { title: value } ) }
 				/>

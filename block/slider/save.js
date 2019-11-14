@@ -5,7 +5,7 @@ import { generateConfig } from './utils';
 
 import {
 	InnerBlocks,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 export default function( { attributes, className } ) {
 	const { slidesToShow, slidesToScroll, mdSlidesToShow, mdSlidesToScroll, smSlidesToShow, smSlidesToScroll, dots, arrows, speed, autoplay, autoplaySpeed, fade, rtl } = attributes;

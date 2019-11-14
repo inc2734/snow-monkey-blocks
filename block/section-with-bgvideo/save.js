@@ -9,7 +9,7 @@ import {
 import {
 	RichText,
 	InnerBlocks,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 import {
 	getVideoId,

@@ -4,7 +4,7 @@ import blockAttributes from './attributes';
 
 import {
 	InnerBlocks,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 export default [
 	{

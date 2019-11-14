@@ -7,7 +7,7 @@ import { getColumnSize } from '../../src/js/helper/helper';
 import {
 	RichText,
 	InnerBlocks,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 export default [
 	{

@@ -5,7 +5,7 @@ import { generateConfig } from './utils';
 
 import {
 	InnerBlocks,
-} from '@wordpress/editor';
+} from '@wordpress/block-editor';
 
 export default function( { attributes, className } ) {
 	const { arrows, speed, autoplay, autoplaySpeed } = attributes;
