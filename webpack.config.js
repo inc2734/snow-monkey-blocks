@@ -53,6 +53,7 @@ module.exports = {
     '@wordpress/hooks': 'wp.hooks',
 		'@wordpress/block-editor': 'wp.blockEditor',
 		'@wordpress/server-side-render': 'wp.serverSideRender',
+		'@wordpress/api-fetch': 'wp.apiFetch',
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json']

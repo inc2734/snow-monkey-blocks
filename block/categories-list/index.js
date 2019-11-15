@@ -12,7 +12,7 @@ import {
 	__,
 } from '@wordpress/i18n';
 
-const { apiFetch } = wp;
+import apiFetch from '@wordpress/api-fetch';
 
 const actions = {
 	setArticleCategories( articleCategories ) {

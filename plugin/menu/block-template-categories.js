@@ -1,8 +1,8 @@
 'use strict';
 
-const { apiFetch } = wp;
-
 import BlockTemplatePanel from './block-template-panel';
+
+import apiFetch from '@wordpress/api-fetch';
 
 import {
 	PanelBody,
@@ -10,76 +10,71 @@ import {
 } from '@wordpress/components';
 
 import {
-	Component,
 	Fragment,
+	useState,
 } from '@wordpress/element';
 
-export default class BlockTemplateCategories extends Component {
-	constructor() {
-		super( ...arguments );
+export default function() {
+	const [ categories, setCategories ] = useState( null );
+	const [ resultCategories, setResultCategories ] = useState( null );
 
-		this.state = {
-			loading: false,
-			categories: null,
-			resultCategories: null,
-		};
+	const setupCategories = () => {
+		if ( categories ) {
+			return;
+		}
 
-		this.getResultCategories = this.getResultCategories.bind( this );
-	}
-
-	getCategories() {
 		apiFetch( {
 			path: '/snow-monkey-blocks/v5/block-template-categories/',
 			method: 'GET',
 			parse: true,
 		} ).then( ( result ) => {
-			this.setState( { categories: result } );
+			setCategories( result );
 		} );
-	}
+	};
 
-	getResultCategories() {
-		if ( null !== this.state.resultCategories ) {
+	const setupResultCategories = () => {
+		if ( resultCategories ) {
+			return resultCategories;
+		}
+
+		setupCategories();
+		if ( ! categories ) {
 			return;
 		}
-		if ( this.state.loading === false ) {
-			this.setState( { loading: true } );
-			this.getCategories();
-			return;
-		}
-		if ( null !== this.state.categories ) {
-			const resultCategories = [];
-			this.state.categories.map( ( category ) => {
-				if ( ! smb.isPro && category.isPro ) {
-					return;
-				}
 
-				resultCategories.push(
-					<PanelBody
-						title={ category.title }
-					>
-						<BlockTemplatePanel
-							slug={ category.slug }
-						/>
-					</PanelBody>
-				);
-			} );
-			this.setState( { resultCategories: resultCategories } );
-		}
-	}
+		const newResultCategories = [];
+		categories.map( ( category ) => {
+			if ( ! smb.isPro && category.isPro ) {
+				return;
+			}
 
-	render() {
-		this.getResultCategories();
-		if ( null !== this.state.resultCategories ) {
-			return (
-				<Fragment>
-					{ this.state.resultCategories }
-				</Fragment>
+			newResultCategories.push(
+				<PanelBody
+					title={ category.title }
+				>
+					<BlockTemplatePanel
+						slug={ category.slug }
+					/>
+				</PanelBody>
 			);
-		}
+		} );
+
+		setResultCategories( newResultCategories );
+	};
+
+	setupResultCategories();
+
+	if ( resultCategories ) {
 		return (
-			<div className="smb-menu__template-part__loading">
-				<Spinner />
-			</div>
+			<Fragment>
+				{ resultCategories }
+			</Fragment>
 		);
 	}
+
+	return (
+		<div className="smb-menu__template-part__loading">
+			<Spinner />
+		</div>
+	);
 }

@@ -4,8 +4,8 @@ import ScreenshotImg from './screenshot-img';
 import BlockCategories from './block-categories';
 
 import {
-	Component,
 	Fragment,
+	useState,
 } from '@wordpress/element';
 
 import {
@@ -21,29 +21,22 @@ import {
 	__,
 } from '@wordpress/i18n';
 
-export default class Blocks extends Component {
-	constructor() {
-		super( ...arguments );
+export default function() {
+	const [ resultDetail, setResultDetail ] = useState( null );
 
-		this.state = {
-			resultDetail: null,
-		};
-		this.setupResultDetail = this.setupResultDetail.bind( this );
-	}
-
-	setupResultDetail( blockName ) {
+	const setupResultDetail = ( blockName ) => {
 		const block = getBlockType( blockName );
-		let proMessage = '';
-		if ( ! smb.isPro && block.snowMonkeyBlocks.isPro ) {
-			proMessage = (
-				<p className="smb-menu__template-block__modal__pro-message">{ __( 'This block is for pro users only', 'snow-monkey-blocks' ) }</p>
-			);
-		}
-		const resultDetail = (
+		const proMessage = ! smb.isPro && block.snowMonkeyBlocks.isPro ? (
+			<p className="smb-menu__template-block__modal__pro-message">
+				{ __( 'This block is for pro users only', 'snow-monkey-blocks' ) }
+			</p>
+		) : '';
+
+		setResultDetail(
 			<Modal
 				className="smb-menu__template-block__modal"
 				title={ block.title }
-				onRequestClose={ () => this.setState( { resultDetail: null } ) }
+				onRequestClose={ () => setResultDetail( null ) }
 			>
 				{ proMessage }
 				<p className="smb-menu__template-block__modal__description">{ block.description }</p>
@@ -58,17 +51,14 @@ export default class Blocks extends Component {
 				/>
 			</Modal>
 		);
-		this.setState( { resultDetail: resultDetail } );
-	}
+	};
 
-	render() {
-		return (
-			<Fragment>
-				<BlockCategories
-					rootMenu={ this }
-				/>
-				{ this.state.resultDetail }
-			</Fragment>
-		);
-	}
+	return (
+		<Fragment>
+			<BlockCategories
+				setupResultDetail={ setupResultDetail }
+			/>
+			{ resultDetail }
+		</Fragment>
+	);
 }

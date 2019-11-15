@@ -5,7 +5,6 @@ import {
 } from '@wordpress/components';
 
 import {
-	Component,
 	Fragment,
 } from '@wordpress/element';
 
@@ -25,60 +24,54 @@ import {
 import Blocks from './blocks';
 import BlockTemplates from './block-templates';
 
-export default class Sidebar extends Component {
-	constructor() {
-		super( ...arguments );
+export default function() {
+	const tabMenus = [
+		{
+			name: 'block-templates',
+			title: __( 'Block templates', 'snow-monkey-blocks' ),
+			className: 'edit-post-sidebar__panel-tab',
+		},
+		{
+			name: 'blocks',
+			title: __( 'Blocks', 'snow-monkey-blocks' ),
+			className: 'edit-post-sidebar__panel-tab',
+		},
+	];
 
-		this.tabMenus = [
-			{
-				name: 'block-templates',
-				title: __( 'Block templates', 'snow-monkey-blocks' ),
-				className: 'edit-post-sidebar__panel-tab',
-			},
-			{
-				name: 'blocks',
-				title: __( 'Blocks', 'snow-monkey-blocks' ),
-				className: 'edit-post-sidebar__panel-tab',
-			},
-		];
-	}
-
-	render() {
-		return (
-			<Fragment>
-				<PluginSidebarMoreMenuItem
-					target="smbSidebar"
+	return (
+		<Fragment>
+			<PluginSidebarMoreMenuItem
+				target="smbSidebar"
+			>
+				{ __( 'Snow Monkey Blocks', 'snow-monkey-blocks' ) }
+			</PluginSidebarMoreMenuItem>
+			<PluginSidebar
+				name="smbSidebar"
+				title={ __( 'Snow Monkey Blocks', 'snow-monkey-blocks' ) }
+			>
+				<TabPanel
+					className="edit-post-sidebar__panel-tabs"
+					activeClass="is-active"
+					onSelect={ ( tabName ) => applyFilters( 'snow-monkey-blocks.select-menu', tabName ) }
+					tabs={ tabMenus }
 				>
-					{ __( 'Snow Monkey Blocks', 'snow-monkey-blocks' ) }
-				</PluginSidebarMoreMenuItem>
-				<PluginSidebar
-					name="smbSidebar"
-					title={ __( 'Snow Monkey Blocks', 'snow-monkey-blocks' ) }
-				>
-					<TabPanel
-						className="edit-post-sidebar__panel-tabs"
-						activeClass="is-active"
-						onSelect={ ( tabName ) => applyFilters( 'snow-monkey-blocks.select-menu', tabName ) }
-						tabs={ this.tabMenus }
-					>
-						{
-							( tabData ) => {
-								switch ( tabData.name ) {
-									case 'block-templates':
-										return (
-											<BlockTemplates />
-										);
-									case 'blocks':
-										return (
-											<Blocks />
-										);
-								}
-								return null;
+					{
+						( tabData ) => {
+							switch ( tabData.name ) {
+								case 'block-templates':
+									return (
+										<BlockTemplates />
+									);
+								case 'blocks':
+									return (
+										<Blocks />
+									);
 							}
+							return null;
 						}
-					</TabPanel>
-				</PluginSidebar>
-			</Fragment>
-		);
-	}
+					}
+				</TabPanel>
+			</PluginSidebar>
+		</Fragment>
+	);
 }
