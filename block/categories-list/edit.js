@@ -68,10 +68,10 @@ export default function( { attributes, setAttributes, className } ) {
 	};
 
 	const viewCategoriesPanel = () => {
-		const articleCategoriesList = [];
-		articleCategories.map( ( category ) => {
-			articleCategoriesList.push(
+		const articleCategoriesList = articleCategories.map( ( category ) => {
+			return (
 				<CheckboxControl
+					key={ category.id }
 					label={ category.name }
 					value={ String( category.id ) }
 					checked={ -1 !== indexOf( exclusionCategories.split( ',' ), String( category.id ) ) }
@@ -81,6 +81,7 @@ export default function( { attributes, setAttributes, className } ) {
 				/>
 			);
 		} );
+
 		return (
 			<PanelBody title={ __( 'Exclusion Categories Settings', 'snow-monkey-blocks' ) }>
 				<p>{ __( 'Categories with a post count of 0 are not displayed even if they are not excluded', 'snow-monkey-blocks' ) }</p>
@@ -90,10 +91,9 @@ export default function( { attributes, setAttributes, className } ) {
 	};
 
 	const View = () => {
-		const articleCategoriesList = [];
-		articleCategories.map( ( category ) => {
+		const articleCategoriesList = articleCategories.map( ( category ) => {
 			if ( category.count > 0 && ( -1 === indexOf( exclusionCategories.split( ',' ), String( category.id ) ) ) ) {
-				articleCategoriesList.push(
+				return (
 					<li className="smb-categories-list__item">
 						<div className="smb-categories-list__item__count">
 							{ category.count }
@@ -122,7 +122,7 @@ export default function( { attributes, setAttributes, className } ) {
 
 		return (
 			<div className={ classes }>
-				<List articleCategoriesList={ articleCategoriesList } />
+				<List articleCategoriesList={ articleCategoriesList.filter( ( articleCategory ) => articleCategory ) } />
 			</div>
 		);
 	};

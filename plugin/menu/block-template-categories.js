@@ -42,24 +42,21 @@ export default function() {
 			return;
 		}
 
-		const newResultCategories = [];
-		categories.map( ( category ) => {
-			if ( ! smb.isPro && category.isPro ) {
-				return;
+		const newResultCategories = categories.map( ( category ) => {
+			if ( smb.isPro || ! category.isPro ) {
+				return (
+					<PanelBody
+						title={ category.title }
+					>
+						<BlockTemplatePanel
+							slug={ category.slug }
+						/>
+					</PanelBody>
+				);
 			}
-
-			newResultCategories.push(
-				<PanelBody
-					title={ category.title }
-				>
-					<BlockTemplatePanel
-						slug={ category.slug }
-					/>
-				</PanelBody>
-			);
 		} );
 
-		setResultCategories( newResultCategories );
+		setResultCategories( newResultCategories.filter( ( resultCategory ) => resultCategory ) );
 	};
 
 	setupResultCategories();

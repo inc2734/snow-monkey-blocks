@@ -20,19 +20,16 @@ export default function( { setupResultDetail } ) {
 	const allBlockCategories = getCategories();
 	const smbConfigCategories = blockConfig.blockCategories;
 
-	const categories = [];
-	allBlockCategories.map( ( category ) => {
-		Object.keys( smbConfigCategories ).map( ( name ) => {
-			if ( category.slug === smbConfigCategories[ name ] ) {
-				categories.push( category );
-			}
-		} );
+	const categories = allBlockCategories.map( ( category ) => {
+		if ( Object.values( smbConfigCategories ).some( ( slug ) => slug === category.slug ) ) {
+			return category;
+		}
 	} );
 
-	const resultCategories = [];
-	categories.map( ( category ) => {
-		resultCategories.push(
+	const resultCategories = categories.filter( ( category ) => category ).map( ( category ) => {
+		return (
 			<PanelBody
+				key={ category.slug }
 				title={ category.title }
 			>
 				<BlockPanel
@@ -43,7 +40,7 @@ export default function( { setupResultDetail } ) {
 		);
 	} );
 
-	if ( null !== resultCategories ) {
+	if ( resultCategories ) {
 		return (
 			<Fragment>
 				{ resultCategories }
