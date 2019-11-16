@@ -12,6 +12,7 @@ import {
 } from '@wordpress/block-editor';
 
 import {
+	BaseControl,
 	PanelBody,
 	SelectControl,
 	RangeControl,
@@ -39,29 +40,26 @@ import ServerSideRender from '@wordpress/server-side-render';
 export default function( { attributes, setAttributes } ) {
 	const { taxonomy, termId, postsPerPage, layout, ignoreStickyPosts, myAnchor } = attributes;
 
-	const { taxonomiesTerms, taxonomies } = useSelect(
-		( select ) => {
-			const { getTaxonomies, getEntityRecords } = select( 'core' );
-			const allTaxonomies = getTaxonomies( { per_page: -1 } ) || [];
-			const shownTaxonomies = allTaxonomies.filter( ( _taxonomy ) => _taxonomy.visibility.show_ui );
+	const { taxonomiesTerms, taxonomies } = useSelect( ( select ) => {
+		const { getTaxonomies, getEntityRecords } = select( 'core' );
+		const allTaxonomies = getTaxonomies( { per_page: -1 } ) || [];
+		const shownTaxonomies = allTaxonomies.filter( ( _taxonomy ) => _taxonomy.visibility.show_ui );
 
-			const _taxonomiesTerms = shownTaxonomies.map( ( _taxonomy ) => {
-				const terms = getEntityRecords( 'taxonomy', _taxonomy.slug, { per_page: -1 } ) || [];
-				if ( 0 < terms.length ) {
-					return {
-						taxonomy: _taxonomy.slug,
-						terms: terms,
-					};
-				}
-			} ).filter( ( taxonomyTerms ) => taxonomyTerms );
+		const _taxonomiesTerms = shownTaxonomies.map( ( _taxonomy ) => {
+			const terms = getEntityRecords( 'taxonomy', _taxonomy.slug, { per_page: -1 } ) || [];
+			if ( 0 < terms.length ) {
+				return {
+					taxonomy: _taxonomy.slug,
+					terms: terms,
+				};
+			}
+		} ).filter( ( taxonomyTerms ) => taxonomyTerms );
 
-			return {
-				taxonomiesTerms: _taxonomiesTerms,
-				taxonomies: shownTaxonomies,
-			};
-		},
-		[ attributes ]
-	);
+		return {
+			taxonomiesTerms: _taxonomiesTerms,
+			taxonomies: shownTaxonomies,
+		};
+	}, [] );
 
 	const terms = find( taxonomiesTerms, { taxonomy } );
 	const selectedTerm = !! terms ? find( terms.terms, [ 'id', toNumber( termId ) ] ) : [];
@@ -81,6 +79,11 @@ export default function( { attributes, setAttributes } ) {
 		<Fragment>
 			<InspectorControls>
 				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
+					{ ! taxonomiesTerms.length && (
+						<BaseControl label={ __( 'Loading taxonomies...', 'snow-monkey-blocks' ) }>
+							<Spinner />
+						</BaseControl>
+					) }
 					{ taxonomiesTerms.map( ( taxonomyTerms ) => {
 						const _taxonomy = find( taxonomies, [ 'slug', taxonomyTerms.taxonomy ] );
 						return !! _taxonomy && (

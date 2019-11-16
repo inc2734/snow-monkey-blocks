@@ -4,10 +4,12 @@ import { toNumber } from '../../src/js/helper/helper';
 
 import {
 	PanelBody,
+	Placeholder,
 	SelectControl,
 	RangeControl,
 	ToggleControl,
 	TextControl,
+	Spinner,
 } from '@wordpress/components';
 
 import ServerSideRender from '@wordpress/server-side-render';
@@ -32,14 +34,27 @@ import {
 
 export default function( { attributes, setAttributes } ) {
 	const { postType, postsPerPage, layout, ignoreStickyPosts, myAnchor } = attributes;
-	const { getPostTypes } = useSelect( ( select ) => select( 'core' ) );
 
-	const allPostTypes = getPostTypes( { per_page: -1 } ) || [];
+	const allPostTypes = useSelect( ( select ) => {
+		const { getPostTypes } = select( 'core' );
+		return getPostTypes( { per_page: -1 } ) || [];
+	}, [] );
 
 	const postTypes = useMemo(
 		() => allPostTypes.filter( ( type ) => type.viewable && ! type.hierarchical && 'media' !== type.rest_base ),
 		[ allPostTypes ]
 	);
+
+	const Loading = () => {
+		return (
+			<Placeholder
+				icon="editor-ul"
+				label={ __( 'Recent posts', 'snow-monkey-blocks' ) }
+			>
+				<Spinner />
+			</Placeholder>
+		);
+	};
 
 	return (
 		<Fragment>
@@ -96,10 +111,14 @@ export default function( { attributes, setAttributes } ) {
 				/>
 			</InspectorAdvancedControls>
 
-			<ServerSideRender
-				block="snow-monkey-blocks/recent-posts"
-				attributes={ attributes }
-			/>
+			{ ! allPostTypes ? (
+				<Loading />
+			) : (
+				<ServerSideRender
+					block="snow-monkey-blocks/recent-posts"
+					attributes={ attributes }
+				/>
+			) }
 		</Fragment>
 	);
 }
