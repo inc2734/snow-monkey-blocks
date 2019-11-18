@@ -1,5 +1,11 @@
 .smb-faq {
   &__item {
+    &__question {
+      &__label + .editor-rich-text {
+        flex: 1 1 auto;
+      }
+    }
+
     &__answer {
       &__body {
         > .block-editor-inner-blocks {
