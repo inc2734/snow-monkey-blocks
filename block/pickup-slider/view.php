@@ -17,10 +17,13 @@ $instance = [
 	'link-type' => $attributes['linkType'],
 ];
 
+$widget_id  = 'snow_monkey_blocks_pickup_slider-';
+$widget_id .= ! empty( $attributes['myAnchor'] ) ? $attributes['myAnchor'] : rand();
+
 $args     = [
 	'before_widget' => '',
 	'after_widget'  => '',
-	'widget_id'     => ! empty( $attributes['myAnchor'] ) ? $attributes['myAnchor'] : 'snow_monkey_blocks_pickup_slider-' . rand(),
+	'widget_id'     => $widget_id,
 ];
 
 ob_start();
