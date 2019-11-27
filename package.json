@@ -105,10 +105,15 @@
     "faq:css": "node-sass block/faq -o dist/block/faq && postcss dist/block/faq/*.css -r",
     "faq": "npm run faq:clean && npm-run-all faq:*",
 
+    "items:clean": "rimraf dist/block/items",
+    "items:js": "wp-scripts build block/items/editor --output-path=dist/block/items",
+    "items:css": "node-sass block/items -o dist/block/items && postcss dist/block/items/*.css -r",
+    "items": "npm run items:clean && npm-run-all items:*",
+
     "lint:js": "wp-scripts lint-js block",
     "lint": "npm-run-all -p lint:*",
 
-    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box btn btn-box categories-list child-pages container contents-outline countdown directory-structure evaluation-star faq",
+    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box btn btn-box categories-list child-pages container contents-outline countdown directory-structure evaluation-star faq items",
 
     "clean:css": "rimraf dist/css",
     "clean:js": "rimraf dist/js",

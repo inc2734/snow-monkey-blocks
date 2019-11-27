@@ -20,11 +20,11 @@ import {
 //import * as evaluationStar from '../../block/evaluation-star';
 //import * as faq from '../../block/faq';
 //import * as faqItem from '../../block/faq/item';
-import * as items from '../../block/items';
-import * as itemsItem from '../../block/items/item';
-import * as itemsItemStandard from '../../block/items/item/standard';
-import * as itemsItemBlockLink from '../../block/items/item/block-link';
-import * as itemsItemBanner from '../../block/items/item/banner';
+//import * as items from '../../block/items';
+//import * as itemsItem from '../../block/items/item';
+//import * as itemsItemStandard from '../../block/items/item/standard';
+//import * as itemsItemBlockLink from '../../block/items/item/block-link';
+//import * as itemsItemBanner from '../../block/items/item/banner';
 import * as limitedDatetime from '../../block/limited-datetime';
 import * as list from '../../block/list';
 import * as mediaText from '../../block/media-text';
@@ -63,11 +63,11 @@ import * as thumbnailGalleryItem from '../../block/thumbnail-gallery/item';
 	//evaluationStar,
 	//faq,
 	//faqItem,
-	items,
-	itemsItem,
-	itemsItemStandard,
-	itemsItemBlockLink,
-	itemsItemBanner,
+	//items,
+	//itemsItem,
+	//itemsItemStandard,
+	//itemsItemBlockLink,
+	//itemsItemBanner,
 	limitedDatetime,
 	list,
 	mediaText,
