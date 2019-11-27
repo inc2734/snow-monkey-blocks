@@ -14,7 +14,7 @@ import {
 
 import {
 	removeFormat,
-} from '@wordpress/richText';
+} from '@wordpress/rich-text';
 
 import {
 	__,

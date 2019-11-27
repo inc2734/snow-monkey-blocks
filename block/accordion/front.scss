@@ -1,3 +1,10 @@
+@charset 'utf-8';
+
+$_font-path: false;
+@import '../../src/css/core/variable/variable';
+@import '../../node_modules/sass-basis/src/css/basis-core';
+@import '../../src/css/core/mixin/mixin';
+
 .smb-accordion {
   &__item {
     position: relative;

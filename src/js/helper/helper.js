@@ -10,7 +10,7 @@ import {
 
 import {
 	registerFormatType,
-} from '@wordpress/richText';
+} from '@wordpress/rich-text';
 
 import {
 	registerPlugin,

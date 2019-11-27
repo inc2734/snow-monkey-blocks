@@ -46,7 +46,7 @@ module.exports = {
     '@wordpress/element': 'wp.element',
     '@wordpress/data': 'wp.data',
     '@wordpress/i18n': 'wp.i18n',
-    '@wordpress/richText': 'wp.richText',
+    '@wordpress/rich-text': 'wp.richText',
     '@wordpress/blockEditor': 'wp.blockEditor',
     '@wordpress/plugins': 'wp.plugins',
     '@wordpress/editPost': 'wp.editPost',

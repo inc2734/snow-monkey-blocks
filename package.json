@@ -10,6 +10,7 @@
     "@fortawesome/react-fontawesome": "^0.1.7",
     "@inc2734/for-each-html-nodes": "^0.2.0",
     "@svgr/webpack": "^4.3.3",
+    "@wordpress/scripts": "6.0.0",
     "autoprefixer": "^9.7.2",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
@@ -33,7 +34,19 @@
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"
   },
+  "config": {
+    "accordion": "block/accordion"
+  },
   "scripts": {
+    "accordion:clean": "rimraf dist/$npm_package_config_accordion",
+    "accordion:js": "wp-scripts build $npm_package_config_accordion/editor --output-path=dist/$npm_package_config_accordion",
+    "accordion:css": "node-sass $npm_package_config_accordion -o dist/$npm_package_config_accordion && postcss dist/$npm_package_config_accordion/*.css -r",
+    "accordion": "npm run accordion:clean && npm-run-all accordion:*",
+
+    "lint:js:accordion": "wp-scripts lint-js $npm_package_config_accordion",
+    "lint:js": "npm-run-all -p lint:js:*",
+    "lint": "npm-run-all -p lint:*",
+
     "clean:css": "rimraf dist/css",
     "clean:js": "rimraf dist/js",
     "clean:packages": "rimraf dist/packages",
@@ -41,7 +54,6 @@
     "clean:img": "rimraf dist/img",
     "build": "npm-run-all -p css js packages po2json img",
     "prepublish": "npm run build",
-    "lint": "./node_modules/.bin/eslint .",
     "css:front:sass": "node-sass --include-path=node_modules/node-normalize-scss src/css/blocks.scss -o dist/css",
     "css:front:postcss": "postcss dist/css/blocks.css -o dist/css/blocks.min.css -c=postcss.config.js",
     "css:front-nopro:sass": "node-sass --include-path=node_modules/node-normalize-scss src/css/blocks-nopro.scss -o dist/css",
@@ -64,10 +76,10 @@
     "css:fallback": "npm-run-all -s css:fallback:*",
     "css:menu": "npm-run-all -s css:menu:*",
     "css": "npm run clean:css && npm-run-all -p css:*",
-    "js:front": "webpack src/js/app.js -o dist/js/app.min.js --config webpack.config.js",
-    "js:front-nopro": "webpack src/js/app-nopro.js -o dist/js/app-nopro.min.js --config webpack.config.js",
-    "js:editor": "webpack src/js/blocks.js -o dist/js/blocks-build.js --config webpack.config.js",
-    "js:editor-pro": "webpack src/js/blocks-pro.js -o dist/js/blocks-pro-build.js --config webpack.config.js",
+    "js:front": "webpack src/js/app.js -o dist/js/app.min.js --config _webpack.config.js",
+    "js:front-nopro": "webpack src/js/app-nopro.js -o dist/js/app-nopro.min.js --config _webpack.config.js",
+    "js:editor": "webpack src/js/blocks.js -o dist/js/blocks-build.js --config _webpack.config.js",
+    "js:editor-pro": "webpack src/js/blocks-pro.js -o dist/js/blocks-pro-build.js --config _webpack.config.js",
     "js": "npm run clean:js && npm-run-all -p js:*",
     "packages:fontawesome": "cpy 'fontawesome-free/js/all.min.js' 'fontawesome-free/LICENSE.txt' '../../dist/packages' --cwd=node_modules/@fortawesome --parents",
     "packages:slick-carousel": "cpy 'slick/**' '../../dist/packages' --cwd=node_modules/slick-carousel --parents",
