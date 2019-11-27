@@ -11,7 +11,7 @@ import {
 //import * as balloon from '../../block/balloon';
 //import * as box from '../../block/box';
 //import * as btn from '../../block/btn';
-import * as btnBox from '../../block/btn-box';
+//import * as btnBox from '../../block/btn-box';
 import * as categoriesList from '../../block/categories-list';
 import * as countdown from '../../block/countdown';
 import * as directoryStructure from '../../block/directory-structure';
@@ -54,7 +54,7 @@ import * as thumbnailGalleryItem from '../../block/thumbnail-gallery/item';
 	//balloon,
 	//box,
 	//btn,
-	btnBox,
+	//btnBox,
 	categoriesList,
 	countdown,
 	directoryStructure,

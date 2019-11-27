@@ -71,6 +71,7 @@ class Bootstrap {
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/balloon/index.php',
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/box/index.php',
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/btn/index.php',
+			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/btn-box/index.php',
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/limited-datetime/block.php',
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/categories-list/block.php',
 		];
