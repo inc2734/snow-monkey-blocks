@@ -75,6 +75,11 @@
     "child-pages:css": "node-sass block/child-pages -o dist/block/child-pages && postcss dist/block/child-pages/*.css -r",
     "child-pages": "npm run child-pages:clean && npm-run-all child-pages:*",
 
+    "container:clean": "rimraf dist/block/container",
+    "container:js": "wp-scripts build block/container/editor --output-path=dist/block/container",
+    "container:css": "node-sass block/container -o dist/block/container && postcss dist/block/container/*.css -r",
+    "container": "npm run container:clean && npm-run-all container:*",
+
     "lint:js": "wp-scripts lint-js block",
     "lint": "npm-run-all -p lint:*",
 

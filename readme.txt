@@ -50,7 +50,7 @@ https://www.youtube.com/watch?v=uD6omb4TLdA&t=283s
 * Limited datetime
 * Countdown timer
 * Directory structure
-* Container (Can be used only with Snow Monkey)
+* Container
 * Price menu
 
 = Section blocks =
