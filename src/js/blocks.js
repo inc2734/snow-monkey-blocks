@@ -18,8 +18,8 @@ import {
 //import * as directoryStructureItemDirectory from '../../block/directory-structure/item/directory';
 //import * as directoryStructureItemFile from '../../block/directory-structure/item/file';
 //import * as evaluationStar from '../../block/evaluation-star';
-import * as faq from '../../block/faq';
-import * as faqItem from '../../block/faq/item';
+//import * as faq from '../../block/faq';
+//import * as faqItem from '../../block/faq/item';
 import * as items from '../../block/items';
 import * as itemsItem from '../../block/items/item';
 import * as itemsItemStandard from '../../block/items/item/standard';
@@ -61,8 +61,8 @@ import * as thumbnailGalleryItem from '../../block/thumbnail-gallery/item';
 	//directoryStructureItemDirectory,
 	//directoryStructureItemFile,
 	//evaluationStar,
-	faq,
-	faqItem,
+	//faq,
+	//faqItem,
 	items,
 	itemsItem,
 	itemsItemStandard,

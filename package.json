@@ -100,10 +100,15 @@
     "evaluation-star:css": "node-sass block/evaluation-star -o dist/block/evaluation-star && postcss dist/block/evaluation-star/*.css -r",
     "evaluation-star": "npm run evaluation-star:clean && npm-run-all evaluation-star:*",
 
+    "faq:clean": "rimraf dist/block/faq",
+    "faq:js": "wp-scripts build block/faq/editor --output-path=dist/block/faq",
+    "faq:css": "node-sass block/faq -o dist/block/faq && postcss dist/block/faq/*.css -r",
+    "faq": "npm run faq:clean && npm-run-all faq:*",
+
     "lint:js": "wp-scripts lint-js block",
     "lint": "npm-run-all -p lint:*",
 
-    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box btn btn-box categories-list child-pages container contents-outline countdown directory-structure evaluation-star",
+    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box btn btn-box categories-list child-pages container contents-outline countdown directory-structure evaluation-star faq",
 
     "clean:css": "rimraf dist/css",
     "clean:js": "rimraf dist/js",
