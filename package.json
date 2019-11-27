@@ -38,7 +38,8 @@
     "accordion": "block/accordion",
     "alert": "block/alert",
     "balloon": "block/balloon",
-    "box": "block/box"
+    "box": "block/box",
+    "btn": "block/btn"
   },
   "scripts": {
     "accordion:clean": "rimraf dist/$npm_package_config_accordion",
@@ -61,10 +62,15 @@
     "box:css": "node-sass $npm_package_config_box -o dist/$npm_package_config_box && postcss dist/$npm_package_config_box/*.css -r",
     "box": "npm run box:clean && npm-run-all box:*",
 
+    "btn:clean": "rimraf dist/$npm_package_config_btn",
+    "btn:js": "wp-scripts build $npm_package_config_btn/editor --output-path=dist/$npm_package_config_btn",
+    "btn:css": "node-sass $npm_package_config_btn -o dist/$npm_package_config_btn && postcss dist/$npm_package_config_btn/*.css -r",
+    "btn": "npm run btn:clean && npm-run-all btn:*",
+
     "lint:js": "wp-scripts lint-js block",
     "lint": "npm-run-all -p lint:*",
 
-    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box",
+    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box btn",
 
     "clean:css": "rimraf dist/css",
     "clean:js": "rimraf dist/js",
