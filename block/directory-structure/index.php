@@ -25,7 +25,7 @@ wp_register_style(
 wp_register_style(
 	'snow-monkey-blocks/directory-structure/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/directory-structure/editor.css',
-	[ 'snow-monkey-blocks/directory-structure' ],
+	[ 'snow-monkey-blocks/directory-structure', 'snow-monkey-blocks-editor' ],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/directory-structure/editor.css' )
 );
 

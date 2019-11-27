@@ -25,7 +25,7 @@ wp_register_style(
 wp_register_style(
 	'snow-monkey-blocks/alert/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/alert/editor.css',
-	[ 'snow-monkey-blocks/alert' ],
+	[ 'snow-monkey-blocks/alert', 'snow-monkey-blocks-editor' ],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/alert/editor.css' )
 );
 

@@ -25,7 +25,7 @@ wp_register_style(
 wp_register_style(
 	'snow-monkey-blocks/balloon/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/balloon/editor.css',
-	[ 'snow-monkey-blocks/balloon' ],
+	[ 'snow-monkey-blocks/balloon', 'snow-monkey-blocks-editor' ],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/balloon/editor.css' )
 );
 

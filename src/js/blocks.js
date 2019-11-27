@@ -25,7 +25,7 @@ import {
 //import * as itemsItemStandard from '../../block/items/item/standard';
 //import * as itemsItemBlockLink from '../../block/items/item/block-link';
 //import * as itemsItemBanner from '../../block/items/item/banner';
-import * as limitedDatetime from '../../block/limited-datetime';
+//import * as limitedDatetime from '../../block/limited-datetime';
 import * as list from '../../block/list';
 import * as mediaText from '../../block/media-text';
 import * as panels from '../../block/panels';
@@ -68,7 +68,7 @@ import * as thumbnailGalleryItem from '../../block/thumbnail-gallery/item';
 	//itemsItemStandard,
 	//itemsItemBlockLink,
 	//itemsItemBanner,
-	limitedDatetime,
+	//limitedDatetime,
 	list,
 	mediaText,
 	panels,

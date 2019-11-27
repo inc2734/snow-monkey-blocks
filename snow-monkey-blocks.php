@@ -29,7 +29,6 @@ class Bootstrap {
 
 		add_filter( 'block_categories', [ $this, '_block_categories' ] );
 		add_action( 'init', [ $this, '_register_blocks' ] );
-		add_action( 'init', [ $this, '_register_nopro_dynamic_blocks' ] );
 		add_action( 'init', [ $this, '_register_pro_dynamic_blocks' ] );
 		add_action( 'add_meta_boxes', [ $this, '_add_pr_meta_box' ] );
 		add_action( 'the_content', [ $this, '_the_content_for_slider' ], 11 );
@@ -82,15 +81,7 @@ class Bootstrap {
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/evaluation-star/index.php',
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/faq/index.php',
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/items/index.php',
-		];
-		foreach ( $files as $file ) {
-			require_once( $file );
-		}
-	}
-
-	public function _register_nopro_dynamic_blocks() {
-		$files = [
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/limited-datetime/block.php',
+			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/limited-datetime/index.php',
 		];
 		foreach ( $files as $file ) {
 			require_once( $file );

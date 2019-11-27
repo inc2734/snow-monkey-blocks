@@ -110,10 +110,15 @@
     "items:css": "node-sass block/items -o dist/block/items && postcss dist/block/items/*.css -r",
     "items": "npm run items:clean && npm-run-all items:*",
 
+    "limited-datetime:clean": "rimraf dist/block/limited-datetime",
+    "limited-datetime:js": "wp-scripts build block/limited-datetime/editor --output-path=dist/block/limited-datetime",
+    "limited-datetime:css": "node-sass block/limited-datetime -o dist/block/limited-datetime && postcss dist/block/limited-datetime/*.css -r",
+    "limited-datetime": "npm run limited-datetime:clean && npm-run-all limited-datetime:*",
+
     "lint:js": "wp-scripts lint-js block",
     "lint": "npm-run-all -p lint:*",
 
-    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box btn btn-box categories-list child-pages container contents-outline countdown directory-structure evaluation-star faq items",
+    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box btn btn-box categories-list child-pages container contents-outline countdown directory-structure evaluation-star faq items limited-datetime",
 
     "clean:css": "rimraf dist/css",
     "clean:js": "rimraf dist/js",

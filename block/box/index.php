@@ -25,7 +25,7 @@ wp_register_style(
 wp_register_style(
 	'snow-monkey-blocks/box/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/box/editor.css',
-	[ 'snow-monkey-blocks/box' ],
+	[ 'snow-monkey-blocks/box', 'snow-monkey-blocks-editor' ],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/box/editor.css' )
 );
 

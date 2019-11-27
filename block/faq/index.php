@@ -25,7 +25,7 @@ wp_register_style(
 wp_register_style(
 	'snow-monkey-blocks/faq/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/faq/editor.css',
-	[ 'snow-monkey-blocks/faq' ],
+	[ 'snow-monkey-blocks/faq', 'snow-monkey-blocks-editor' ],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/faq/editor.css' )
 );
 
