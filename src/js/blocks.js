@@ -17,7 +17,7 @@ import {
 //import * as directoryStructure from '../../block/directory-structure';
 //import * as directoryStructureItemDirectory from '../../block/directory-structure/item/directory';
 //import * as directoryStructureItemFile from '../../block/directory-structure/item/file';
-import * as evaluationStar from '../../block/evaluation-star';
+//import * as evaluationStar from '../../block/evaluation-star';
 import * as faq from '../../block/faq';
 import * as faqItem from '../../block/faq/item';
 import * as items from '../../block/items';
@@ -60,7 +60,7 @@ import * as thumbnailGalleryItem from '../../block/thumbnail-gallery/item';
 	//directoryStructure,
 	//directoryStructureItemDirectory,
 	//directoryStructureItemFile,
-	evaluationStar,
+	//evaluationStar,
 	faq,
 	faqItem,
 	items,

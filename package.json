@@ -95,10 +95,15 @@
     "directory-structure:css": "node-sass block/directory-structure -o dist/block/directory-structure && postcss dist/block/directory-structure/*.css -r",
     "directory-structure": "npm run directory-structure:clean && npm-run-all directory-structure:*",
 
+    "evaluation-star:clean": "rimraf dist/block/evaluation-star",
+    "evaluation-star:js": "wp-scripts build block/evaluation-star/editor --output-path=dist/block/evaluation-star",
+    "evaluation-star:css": "node-sass block/evaluation-star -o dist/block/evaluation-star && postcss dist/block/evaluation-star/*.css -r",
+    "evaluation-star": "npm run evaluation-star:clean && npm-run-all evaluation-star:*",
+
     "lint:js": "wp-scripts lint-js block",
     "lint": "npm-run-all -p lint:*",
 
-    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box btn btn-box categories-list child-pages container contents-outline countdown directory-structure",
+    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box btn btn-box categories-list child-pages container contents-outline countdown directory-structure evaluation-star",
 
     "clean:css": "rimraf dist/css",
     "clean:js": "rimraf dist/js",
