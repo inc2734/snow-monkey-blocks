@@ -19,6 +19,14 @@ wp_register_script(
 	true
 );
 
+wp_register_script(
+	'snow-monkey-blocks/child-pages/nopro',
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/child-pages/nopro.js',
+	[],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/child-pages/nopro.js' ),
+	true
+);
+
 wp_register_style(
 	'snow-monkey-blocks/child-pages/nopro',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/child-pages/nopro.css',
@@ -29,6 +37,7 @@ wp_register_style(
 register_block_type(
 	'snow-monkey-blocks/child-pages',
 	[
+		'script'          => ! Blocks\is_pro() && ! is_admin() ? 'snow-monkey-blocks/child-pages/nopro' : null,
 		'style'           => ! Blocks\is_pro() ? 'snow-monkey-blocks/child-pages/nopro' : null,
 		'editor_script'   => 'snow-monkey-blocks/child-pages/editor',
 		'attributes'      => $attributes,
@@ -36,21 +45,4 @@ register_block_type(
 			return DynamicBlocks::render( 'child-pages', $attributes, $content );
 		},
 	]
-);
-
-add_action(
-	'wp_enqueue_scripts',
-	function() {
-		if ( Blocks\is_pro() ) {
-			return;
-		}
-
-		wp_register_script(
-			'snow-monkey-blocks/child-pages/nopro',
-			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/child-pages/nopro.js',
-			[],
-			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/child-pages/nopro.js' ),
-			true
-		);
-	}
 );
