@@ -9,8 +9,12 @@
 
 if ( class_exists( '\Framework\Helper' ) ) {
 	$pages_query = \Framework\Helper::get_child_pages_query( get_the_ID() );
-} else {
+} elseif ( class_exists( '\Inc2734\Mimizuku_Core\Helper' ) ) {
 	$pages_query = \Inc2734\Mimizuku_Core\Helper\get_child_pages_query( get_the_ID() );
+}
+
+if ( empty( $pages_query ) ) {
+	return;
 }
 
 if ( ! $pages_query->have_posts() ) {

@@ -28,6 +28,7 @@ class Bootstrap {
 		new App\Setup\RestAPI();
 
 		add_filter( 'block_categories', [ $this, '_block_categories' ] );
+		add_action( 'init', [ $this, '_register_blocks' ] );
 		add_action( 'init', [ $this, '_register_nopro_dynamic_blocks' ] );
 		add_action( 'init', [ $this, '_register_pro_dynamic_blocks' ] );
 		add_action( 'add_meta_boxes', [ $this, '_add_pr_meta_box' ] );
@@ -64,7 +65,7 @@ class Bootstrap {
 		return $categories;
 	}
 
-	public function _register_nopro_dynamic_blocks() {
+	public function _register_blocks() {
 		$files = [
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/accordion/index.php',
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/alert/index.php',
@@ -73,6 +74,15 @@ class Bootstrap {
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/btn/index.php',
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/btn-box/index.php',
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/categories-list/index.php',
+			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/child-pages/index.php',
+		];
+		foreach ( $files as $file ) {
+			require_once( $file );
+		}
+	}
+
+	public function _register_nopro_dynamic_blocks() {
+		$files = [
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/limited-datetime/block.php',
 		];
 		foreach ( $files as $file ) {
@@ -82,7 +92,6 @@ class Bootstrap {
 
 	public function _register_pro_dynamic_blocks() {
 		$files = [
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/child-pages/block.php',
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/contents-outline/block.php',
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/pickup-slider/block.php',
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/recent-posts/block.php',

@@ -70,10 +70,15 @@
     "categories-list:css": "node-sass block/categories-list -o dist/block/categories-list && postcss dist/block/categories-list/*.css -r",
     "categories-list": "npm run categories-list:clean && npm-run-all categories-list:*",
 
+    "child-pages:clean": "rimraf dist/block/child-pages",
+    "child-pages:js": "wp-scripts build block/child-pages/nopro block/child-pages/editor --output-path=dist/block/child-pages",
+    "child-pages:css": "node-sass block/child-pages -o dist/block/child-pages && postcss dist/block/child-pages/*.css -r",
+    "child-pages": "npm run child-pages:clean && npm-run-all child-pages:*",
+
     "lint:js": "wp-scripts lint-js block",
     "lint": "npm-run-all -p lint:*",
 
-    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box btn btn-box categories-list",
+    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box btn btn-box categories-list child-pages",
 
     "clean:css": "rimraf dist/css",
     "clean:js": "rimraf dist/js",

@@ -14,7 +14,7 @@ import * as recentPosts from '../../block/recent-posts';
 import * as taxonomyPosts from '../../block/taxonomy-posts';
 import * as pickupSlider from '../../block/pickup-slider';
 import * as contentsOutline from '../../block/contents-outline';
-import * as childPages from '../../block/child-pages';
+//import * as childPages from '../../block/child-pages';
 import * as container from '../../block/container';
 
 [
@@ -27,7 +27,7 @@ import * as container from '../../block/container';
 	taxonomyPosts,
 	pickupSlider,
 	contentsOutline,
-	childPages,
+//	childPages,
 	container,
 ].forEach( registerBlock );
 
