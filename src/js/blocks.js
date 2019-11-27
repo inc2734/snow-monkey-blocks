@@ -14,9 +14,9 @@ import {
 //import * as btnBox from '../../block/btn-box';
 //import * as categoriesList from '../../block/categories-list';
 //import * as countdown from '../../block/countdown';
-import * as directoryStructure from '../../block/directory-structure';
-import * as directoryStructureItemDirectory from '../../block/directory-structure/item/directory';
-import * as directoryStructureItemFile from '../../block/directory-structure/item/file';
+//import * as directoryStructure from '../../block/directory-structure';
+//import * as directoryStructureItemDirectory from '../../block/directory-structure/item/directory';
+//import * as directoryStructureItemFile from '../../block/directory-structure/item/file';
 import * as evaluationStar from '../../block/evaluation-star';
 import * as faq from '../../block/faq';
 import * as faqItem from '../../block/faq/item';
@@ -57,9 +57,9 @@ import * as thumbnailGalleryItem from '../../block/thumbnail-gallery/item';
 	//btnBox,
 	//categoriesList,
 	//countdown,
-	directoryStructure,
-	directoryStructureItemDirectory,
-	directoryStructureItemFile,
+	//directoryStructure,
+	//directoryStructureItemDirectory,
+	//directoryStructureItemFile,
 	evaluationStar,
 	faq,
 	faqItem,

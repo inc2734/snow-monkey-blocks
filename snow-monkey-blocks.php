@@ -78,6 +78,7 @@ class Bootstrap {
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/container/index.php',
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/contents-outline/index.php',
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/countdown/index.php',
+			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/directory-structure/index.php',
 		];
 		foreach ( $files as $file ) {
 			require_once( $file );

@@ -1,3 +1,7 @@
+@charset 'utf-8';
+
+@import '../../src/css/core/block';
+
 .smb-directory-structure {
   background-color: _lightest($_color-gray);
   @include _padding(.5);
