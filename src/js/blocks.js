@@ -7,7 +7,7 @@ import {
 
 //import * as accordion from '../../block/accordion';
 //import * as accordionItem from '../../block/accordion/item';
-import * as alert from '../../block/alert';
+//import * as alert from '../../block/alert';
 import * as balloon from '../../block/balloon';
 import * as box from '../../block/box';
 import * as btn from '../../block/btn';
@@ -50,7 +50,7 @@ import * as thumbnailGalleryItem from '../../block/thumbnail-gallery/item';
 [
 	//accordion,
 	//accordionItem,
-	alert,
+	//alert,
 	balloon,
 	box,
 	btn,

@@ -18,7 +18,7 @@ wp_register_script(
 wp_register_style(
 	'snow-monkey-blocks/accordion',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/accordion/front.css',
-	[],
+	[ 'snow-monkey-blocks' ],
 	$asset['version']
 );
 

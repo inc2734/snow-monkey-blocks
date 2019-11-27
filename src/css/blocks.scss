@@ -1,20 +1,8 @@
 @charset 'UTF-8';
 
-$_font-path: false;
-@import 'core/variable/variable';
-@import '../../node_modules/sass-basis/src/css/basis-core';
-@import 'core/mixin/mixin';
+@import 'core/block';
 
-@mixin content($coefficient: 1) {
-  > * {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  @include _content($coefficient);
-}
-
-@import '../../block/alert/block';
+//@import '../../block/alert/block';
 @import '../../block/balloon/block';
 @import '../../block/btn/block';
 @import '../../block/box/block';

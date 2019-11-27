@@ -1,7 +1,4 @@
-$_font-path: false;
-@import 'core/variable/variable';
-@import '../../node_modules/sass-basis/src/css/basis-core';
-@import 'core/mixin/mixin';
+@import 'core/block';
 
 .smb-list-icon-selector {
   .components-button {

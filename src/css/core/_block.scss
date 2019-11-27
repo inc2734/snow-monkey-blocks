@@ -1,0 +1,13 @@
+$_font-path: false;
+@import 'variable/variable';
+@import '../../../node_modules/sass-basis/src/css/basis-core';
+@import 'mixin/mixin';
+
+@mixin content($coefficient: 1) {
+  > * {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  @include _content($coefficient);
+}

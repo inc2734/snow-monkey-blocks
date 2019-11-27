@@ -35,7 +35,8 @@
     "webpack-cli": "^3.3.10"
   },
   "config": {
-    "accordion": "block/accordion"
+    "accordion": "block/accordion",
+    "alert": "block/alert"
   },
   "scripts": {
     "accordion:clean": "rimraf dist/$npm_package_config_accordion",
@@ -43,7 +44,13 @@
     "accordion:css": "node-sass $npm_package_config_accordion -o dist/$npm_package_config_accordion && postcss dist/$npm_package_config_accordion/*.css -r",
     "accordion": "npm run accordion:clean && npm-run-all accordion:*",
 
+    "alert:clean": "rimraf dist/$npm_package_config_alert",
+    "alert:js": "wp-scripts build $npm_package_config_alert/editor --output-path=dist/$npm_package_config_alert",
+    "alert:css": "node-sass $npm_package_config_alert -o dist/$npm_package_config_alert && postcss dist/$npm_package_config_alert/*.css -r",
+    "alert": "npm run alert:clean && npm-run-all alert:*",
+
     "lint:js:accordion": "wp-scripts lint-js $npm_package_config_accordion",
+    "lint:js:alert": "wp-scripts lint-js $npm_package_config_alert",
     "lint:js": "npm-run-all -p lint:js:*",
     "lint": "npm-run-all -p lint:*",
 
@@ -52,7 +59,7 @@
     "clean:packages": "rimraf dist/packages",
     "clean:zip": "rimraf snow-monkey-blocks.zip",
     "clean:img": "rimraf dist/img",
-    "build": "npm-run-all -p css js packages po2json img",
+    "build": "npm-run-all -p css js packages po2json img accordion alert",
     "prepublish": "npm run build",
     "css:front:sass": "node-sass --include-path=node_modules/node-normalize-scss src/css/blocks.scss -o dist/css",
     "css:front:postcss": "postcss dist/css/blocks.css -o dist/css/blocks.min.css -c=postcss.config.js",
