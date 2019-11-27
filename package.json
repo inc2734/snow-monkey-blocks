@@ -85,10 +85,15 @@
     "contents-outline:css": "node-sass block/contents-outline -o dist/block/contents-outline && postcss dist/block/contents-outline/*.css -r",
     "contents-outline": "npm run contents-outline:clean && npm-run-all contents-outline:*",
 
+    "countdown:clean": "rimraf dist/block/countdown",
+    "countdown:js": "wp-scripts build block/countdown/app block/countdown/editor --output-path=dist/block/countdown",
+    "countdown:css": "node-sass block/countdown -o dist/block/countdown && postcss dist/block/countdown/*.css -r",
+    "countdown": "npm run countdown:clean && npm-run-all countdown:*",
+
     "lint:js": "wp-scripts lint-js block",
     "lint": "npm-run-all -p lint:*",
 
-    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box btn btn-box categories-list child-pages container contents-outline",
+    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box btn btn-box categories-list child-pages container contents-outline countdown",
 
     "clean:css": "rimraf dist/css",
     "clean:js": "rimraf dist/js",

@@ -6,7 +6,6 @@ import List from '../../block/list/list';
 import Slider from '../../block/slider/slider';
 import ThumbnailGallery from '../../block/thumbnail-gallery/thumbnail-gallery';
 import BgVideo from '../../block/section-with-bgvideo/_bgvideo';
-import Countdown from '../../block/countdown/countdown';
 
 document.addEventListener(
 	'DOMContentLoaded',
@@ -14,7 +13,6 @@ document.addEventListener(
 		new List();
 		new Slider();
 		new ThumbnailGallery();
-		new Countdown();
 
 		forEachHtmlNodes(
 			document.querySelectorAll( '.smb-section-with-bgimage > .smb-section-with-bgimage__bgimage > iframe' ),
