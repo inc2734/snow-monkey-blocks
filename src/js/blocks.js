@@ -9,7 +9,7 @@ import {
 //import * as accordionItem from '../../block/accordion/item';
 //import * as alert from '../../block/alert';
 //import * as balloon from '../../block/balloon';
-import * as box from '../../block/box';
+//import * as box from '../../block/box';
 import * as btn from '../../block/btn';
 import * as btnBox from '../../block/btn-box';
 import * as categoriesList from '../../block/categories-list';
@@ -52,7 +52,7 @@ import * as thumbnailGalleryItem from '../../block/thumbnail-gallery/item';
 	//accordionItem,
 	//alert,
 	//balloon,
-	box,
+	//box,
 	btn,
 	btnBox,
 	categoriesList,
