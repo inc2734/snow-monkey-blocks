@@ -36,7 +36,8 @@
   },
   "config": {
     "accordion": "block/accordion",
-    "alert": "block/alert"
+    "alert": "block/alert",
+    "balloon": "block/balloon"
   },
   "scripts": {
     "accordion:clean": "rimraf dist/$npm_package_config_accordion",
@@ -49,17 +50,21 @@
     "alert:css": "node-sass $npm_package_config_alert -o dist/$npm_package_config_alert && postcss dist/$npm_package_config_alert/*.css -r",
     "alert": "npm run alert:clean && npm-run-all alert:*",
 
-    "lint:js:accordion": "wp-scripts lint-js $npm_package_config_accordion",
-    "lint:js:alert": "wp-scripts lint-js $npm_package_config_alert",
-    "lint:js": "npm-run-all -p lint:js:*",
+    "balloon:clean": "rimraf dist/$npm_package_config_balloon",
+    "balloon:js": "wp-scripts build $npm_package_config_balloon/editor --output-path=dist/$npm_package_config_balloon",
+    "balloon:css": "node-sass $npm_package_config_balloon -o dist/$npm_package_config_balloon && postcss dist/$npm_package_config_balloon/*.css -r",
+    "balloon": "npm run balloon:clean && npm-run-all balloon:*",
+
+    "lint:js": "wp-scripts lint-js block",
     "lint": "npm-run-all -p lint:*",
+
+    "build": "npm-run-all -p css js packages po2json img accordion alert balloon",
 
     "clean:css": "rimraf dist/css",
     "clean:js": "rimraf dist/js",
     "clean:packages": "rimraf dist/packages",
     "clean:zip": "rimraf snow-monkey-blocks.zip",
     "clean:img": "rimraf dist/img",
-    "build": "npm-run-all -p css js packages po2json img accordion alert",
     "prepublish": "npm run build",
     "css:front:sass": "node-sass --include-path=node_modules/node-normalize-scss src/css/blocks.scss -o dist/css",
     "css:front:postcss": "postcss dist/css/blocks.css -o dist/css/blocks.min.css -c=postcss.config.js",

@@ -68,6 +68,7 @@ class Bootstrap {
 		$files = [
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/accordion/index.php',
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/alert/index.php',
+			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/balloon/index.php',
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/limited-datetime/block.php',
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/categories-list/block.php',
 		];
