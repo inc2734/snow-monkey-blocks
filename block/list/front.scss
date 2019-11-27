@@ -1,6 +1,10 @@
+@charset 'utf-8';
+
+@import '../../src/css/core/block';
+
 .smb-list {
   ul {
-    list-style: none;
+    list-style: none !important;
 
     > li {
       position: relative;
