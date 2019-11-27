@@ -40,7 +40,8 @@
     "balloon": "block/balloon",
     "box": "block/box",
     "btn": "block/btn",
-    "btn-box": "block/btn-box"
+    "btn-box": "block/btn-box",
+    "categories-list": "block/categories-list"
   },
   "scripts": {
     "accordion:clean": "rimraf dist/$npm_package_config_accordion",
@@ -73,10 +74,15 @@
     "btn-box:css": "node-sass $npm_package_config_btn-box -o dist/$npm_package_config_btn-box && postcss dist/$npm_package_config_btn-box/*.css -r",
     "btn-box": "npm run btn-box:clean && npm-run-all btn-box:*",
 
+    "categories-list:clean": "rimraf dist/block/categories-list",
+    "categories-list:js": "wp-scripts build block/categories-list/app block/categories-list/editor --output-path=dist/block/categories-list",
+    "categories-list:css": "node-sass block/categories-list -o dist/block/categories-list && postcss dist/block/categories-list/*.css -r",
+    "categories-list": "npm run categories-list:clean && npm-run-all categories-list:*",
+
     "lint:js": "wp-scripts lint-js block",
     "lint": "npm-run-all -p lint:*",
 
-    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box btn btn-box",
+    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box btn btn-box categories-list",
 
     "clean:css": "rimraf dist/css",
     "clean:js": "rimraf dist/js",
