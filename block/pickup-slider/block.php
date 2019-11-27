@@ -19,6 +19,10 @@ register_block_type(
 				'type'    => 'string',
 				'default' => 'button',
 			],
+			'postsPerPage' => [
+				'type'    => 'numeric',
+				'default' => 0,
+			],
 			'className' => [
 				'type'    => 'string',
 				'default' => '',

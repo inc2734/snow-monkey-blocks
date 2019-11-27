@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2019-11-16 15:18+0900\n"
-"PO-Revision-Date: 2019-11-16 15:18+0900\n"
+"POT-Creation-Date: 2019-11-27 09:07+0900\n"
+"PO-Revision-Date: 2019-11-27 09:07+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -146,7 +146,7 @@ msgstr "アコーディオンのように伸縮するコンテンツエリアを
 #: block/items/item/standard/edit.js:51 block/limited-datetime/edit.js:53
 #: block/list/edit.js:76 block/media-text/edit.js:57 block/panels/edit.js:37
 #: block/panels/item/horizontal/edit.js:49
-#: block/panels/item/vertical/edit.js:41 block/pickup-slider/edit.js:30
+#: block/panels/item/vertical/edit.js:41 block/pickup-slider/edit.js:33
 #: block/pricing-table/edit.js:41 block/rating-box/item/edit.js:38
 #: block/recent-posts/edit.js:62 block/section-break-the-grid/edit.js:105
 #: block/section-side-heading/edit.js:89 block/section-with-bgimage/edit.js:88
@@ -988,38 +988,46 @@ msgstr "項目（水平方向）"
 msgid "It is a child block of the panels block."
 msgstr "パネルブロックの子ブロックです。"
 
-#: block/pickup-slider/edit.js:32
+#: block/pickup-slider/edit.js:35
 msgid "Display in random order"
 msgstr "ランダムな順序で表示"
 
-#: block/pickup-slider/edit.js:38
+#: block/pickup-slider/edit.js:41
 msgid "Link type"
 msgstr "リンクの種類"
 
-#: block/pickup-slider/edit.js:44
+#: block/pickup-slider/edit.js:47
 msgid "Button link"
 msgstr "ボタンリンク"
 
-#: block/pickup-slider/edit.js:48
+#: block/pickup-slider/edit.js:51
 msgid "Overall link"
 msgstr "全体リンク"
 
-#: block/pickup-slider/edit.js:57 block/recent-posts/edit.js:107
+#: block/pickup-slider/edit.js:57
+msgid "Maximum number of displays"
+msgstr "最大表示数"
+
+#: block/pickup-slider/edit.js:58
+msgid "If \"0\", all items are displayed."
+msgstr "「0」の場合、すべての項目が表示されます。"
+
+#: block/pickup-slider/edit.js:69 block/recent-posts/edit.js:107
 #: block/taxonomy-posts/edit.js:138
 msgid "HTML Anchor"
 msgstr "HTML アンカー"
 
-#: block/pickup-slider/edit.js:58 block/recent-posts/edit.js:108
+#: block/pickup-slider/edit.js:70 block/recent-posts/edit.js:108
 #: block/taxonomy-posts/edit.js:139
 msgid "Anchors lets you link directly to a section on a page."
 msgstr ""
 "アンカーを使用すると、ページ上のセクションに直接リンクすることができます。"
 
-#: block/pickup-slider/edit.js:67 block/pickup-slider/index.js:14
+#: block/pickup-slider/edit.js:79 block/pickup-slider/index.js:14
 msgid "Pickup slider"
 msgstr "ピックアップスライダー"
 
-#: block/pickup-slider/edit.js:70
+#: block/pickup-slider/edit.js:82
 msgid "Posts with \"pickup\" tag are displayed as sliders."
 msgstr "「pickup」タグが付与された記事をスライダーとして表示します。"
 

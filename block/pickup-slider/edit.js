@@ -1,16 +1,19 @@
 'use strict';
 
+import { toNumber } from '../../src/js/helper/helper';
+
 import {
 	InspectorControls,
 	InspectorAdvancedControls,
 } from '@wordpress/block-editor';
 
 import {
-	PanelBody,
-	SelectControl,
-	ToggleControl,
-	TextControl,
 	Dashicon,
+	PanelBody,
+	RangeControl,
+	SelectControl,
+	TextControl,
+	ToggleControl,
 } from '@wordpress/components';
 
 import {
@@ -22,7 +25,7 @@ import {
 } from '@wordpress/i18n';
 
 export default function( { attributes, setAttributes } ) {
-	const { random, linkType, myAnchor } = attributes;
+	const { random, linkType, postsPerPage, myAnchor } = attributes;
 
 	return (
 		<Fragment>
@@ -48,6 +51,15 @@ export default function( { attributes, setAttributes } ) {
 								label: __( 'Overall link', 'snow-monkey-blocks' ),
 							},
 						] }
+					/>
+
+					<RangeControl
+						label={ __( 'Maximum number of displays', 'snow-monkey-blocks' ) }
+						help={ __( 'If "0", all items are displayed.', 'snow-monkey-blocks' ) }
+						value={ postsPerPage }
+						onChange={ ( value ) => setAttributes( { postsPerPage: toNumber( value, 0, 10 ) } ) }
+						min="0"
+						max="10"
 					/>
 				</PanelBody>
 			</InspectorControls>

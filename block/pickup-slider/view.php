@@ -13,8 +13,9 @@ $custom_template  = $widget_templates . '/pickup-slider.php';
 $default_template = get_template_directory() . '/vendor/inc2734/wp-awesome-widgets/src/widget/pickup-slider/_widget.php';
 
 $instance = [
-	'random'    => $attributes['random'],
-	'link-type' => $attributes['linkType'],
+	'random'         => $attributes['random'],
+	'link-type'      => $attributes['linkType'],
+	'posts_per_page' => $attributes['postsPerPage'],
 ];
 
 $widget_id  = 'snow_monkey_blocks_pickup_slider-';
