@@ -5,8 +5,8 @@
  * @license GPL-2.0+
  */
 
-use Snow_Monkey\Plugin\Blocks\App\DynamicBlocks;
 use Snow_Monkey\Plugin\Blocks;
+use Snow_Monkey\Plugin\Blocks\App\DynamicBlocks;
 
 $asset      = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/child-pages/editor.asset.php' );
 $attributes = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/child-pages/attributes.php' );
@@ -15,7 +15,7 @@ wp_register_script(
 	'snow-monkey-blocks/child-pages/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/child-pages/editor.js',
 	array_merge( $asset['dependencies'], [ 'snow-monkey-blocks-editor' ] ),
-	$asset['version'],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/child-pages/editor.js' ),
 	true
 );
 
@@ -31,7 +31,7 @@ wp_register_style(
 	'snow-monkey-blocks/child-pages/nopro',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/child-pages/nopro.css',
 	[],
-	$asset['version']
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/child-pages/nopro.css' )
 );
 
 register_block_type(

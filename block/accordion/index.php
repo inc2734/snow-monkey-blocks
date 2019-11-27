@@ -11,7 +11,7 @@ wp_register_script(
 	'snow-monkey-blocks/accordion/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/accordion/editor.js',
 	array_merge( $asset['dependencies'], [ 'snow-monkey-blocks-editor' ] ),
-	$asset['version'],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/accordion/editor.js' ),
 	true
 );
 
@@ -19,14 +19,14 @@ wp_register_style(
 	'snow-monkey-blocks/accordion',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/accordion/front.css',
 	[ 'snow-monkey-blocks' ],
-	$asset['version']
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/accordion/front.css' )
 );
 
 wp_register_style(
 	'snow-monkey-blocks/accordion/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/accordion/editor.css',
 	[ 'snow-monkey-blocks/accordion' ],
-	$asset['version']
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/accordion/editor.css' )
 );
 
 register_block_type(

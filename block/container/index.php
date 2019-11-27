@@ -13,7 +13,7 @@ wp_register_script(
 	'snow-monkey-blocks/container/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/container/editor.js',
 	array_merge( $asset['dependencies'], [ 'snow-monkey-blocks-editor' ] ),
-	$asset['version'],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/container/editor.js' ),
 	true
 );
 

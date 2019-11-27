@@ -1,3 +1,7 @@
+@charset 'utf-8';
+
+@import 'core/block';
+
 .editor-block-types-list__item {
   &.editor-block-list-item-snow-monkey-blocks-section,
   &.editor-block-list-item-snow-monkey-blocks-section-with-image,
@@ -7,22 +11,11 @@
   &.editor-block-list-item-snow-monkey-blocks-section-break-the-grid,
   &.editor-block-list-item-snow-monkey-blocks-section-with-items,
   &.editor-block-list-item-snow-monkey-blocks-recent-posts,
-  &.editor-block-list-item-snow-monkey-blocks-pickup-slider,
-  &.editor-block-list-item-snow-monkey-blocks-contents-outline {
+  &.editor-block-list-item-snow-monkey-blocks-pickup-slider {
     position: relative;
 
     &::after {
-      position: absolute;
-      top: 0;
-      right: 0;
-      content: 'Pro';
-      display: inline-block;
-      font-size: 10px;
-      line-height: 1;
-      color: #fff;
-      background-color: #cd3034;
-      border-radius: 2px;
-      padding: 3px 4px;
+      @include pro-badge();
     }
   }
 }

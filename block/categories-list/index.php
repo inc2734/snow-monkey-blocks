@@ -15,7 +15,7 @@ wp_register_script(
 	'snow-monkey-blocks/categories-list/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/categories-list/editor.js',
 	array_merge( $asset['dependencies'], [ 'snow-monkey-blocks-editor' ] ),
-	$asset['version'],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/categories-list/editor.js' ),
 	true
 );
 
@@ -31,7 +31,7 @@ wp_register_style(
 	'snow-monkey-blocks/categories-list',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/categories-list/front.css',
 	[ 'snow-monkey-blocks' ],
-	$asset['version']
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/categories-list/front.css' )
 );
 
 register_block_type(

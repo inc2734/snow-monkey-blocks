@@ -11,7 +11,6 @@ jQuery( ( $ ) => {
 		'.smb-section-side-heading',
 		'.smb-recent-posts',
 		'.smb-pickup-slider',
-		'.smb-contents-outline',
 	];
 
 	$.each( removeClasses, ( index, value ) => $( value ).remove() );

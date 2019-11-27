@@ -11,7 +11,7 @@ wp_register_script(
 	'snow-monkey-blocks/balloon/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/balloon/editor.js',
 	array_merge( $asset['dependencies'], [ 'snow-monkey-blocks-editor' ] ),
-	$asset['version'],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/balloon/editor.js' ),
 	true
 );
 
@@ -19,14 +19,14 @@ wp_register_style(
 	'snow-monkey-blocks/balloon',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/balloon/front.css',
 	[ 'snow-monkey-blocks' ],
-	$asset['version']
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/balloon/front.css' )
 );
 
 wp_register_style(
 	'snow-monkey-blocks/balloon/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/balloon/editor.css',
 	[ 'snow-monkey-blocks/balloon' ],
-	$asset['version']
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/balloon/editor.css' )
 );
 
 register_block_type(

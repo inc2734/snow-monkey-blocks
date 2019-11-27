@@ -11,7 +11,7 @@ wp_register_script(
 	'snow-monkey-blocks/btn-box/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/btn-box/editor.js',
 	array_merge( $asset['dependencies'], [ 'snow-monkey-blocks-editor' ] ),
-	$asset['version'],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/btn-box/editor.js' ),
 	true
 );
 
@@ -19,14 +19,14 @@ wp_register_style(
 	'snow-monkey-blocks/btn-box',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/btn-box/front.css',
 	[ 'snow-monkey-blocks' ],
-	$asset['version']
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/btn-box/front.css' )
 );
 
 wp_register_style(
 	'snow-monkey-blocks/btn-box/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/btn-box/editor.css',
 	[ 'snow-monkey-blocks/btn-box' ],
-	$asset['version']
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/btn-box/editor.css' )
 );
 
 register_block_type(

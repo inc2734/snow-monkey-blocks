@@ -13,7 +13,7 @@ import * as sectionSideHeading from '../../block/section-side-heading';
 import * as recentPosts from '../../block/recent-posts';
 import * as taxonomyPosts from '../../block/taxonomy-posts';
 import * as pickupSlider from '../../block/pickup-slider';
-import * as contentsOutline from '../../block/contents-outline';
+//import * as contentsOutline from '../../block/contents-outline';
 //import * as childPages from '../../block/child-pages';
 //import * as container from '../../block/container';
 
@@ -26,7 +26,7 @@ import * as contentsOutline from '../../block/contents-outline';
 	recentPosts,
 	taxonomyPosts,
 	pickupSlider,
-	contentsOutline,
+	//contentsOutline,
 	//childPages,
 	//container,
 ].forEach( registerBlock );
