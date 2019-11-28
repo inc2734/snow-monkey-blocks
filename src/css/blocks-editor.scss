@@ -18,7 +18,7 @@
 @import '../../block/pricing-table/editor';
 @import '../../block/slider/editor';
 @import '../../block/testimonial/editor';
-@import '../../block/panels/editor';
+//@import '../../block/panels/editor';
 //@import '../../block/media-text/editor';
 @import '../../block/thumbnail-gallery/editor';
 //@import '../../block/accordion/editor';
@@ -46,12 +46,6 @@
           display: none !important;
         }
 
-        // under WP 5.2
-        > .editor-block-list__block-edit {
-          margin-top: 0 !important;
-        }
-
-        // over WP 5.3
         > .editor-block-list__block-edit > [data-block] {
           margin-top: 0 !important;
         }
@@ -91,12 +85,6 @@
   .editor-block-list__layout {
     .editor-block-list__block {
       &:first-child {
-        // under WP 5.2
-        > .editor-block-list__block-edit {
-          margin-top: 0;
-        }
-
-        // over WP 5.3
         > .editor-block-list__block-edit > [data-block] {
           margin-top: 0;
         }
@@ -130,35 +118,9 @@
     }
   }
 
-  // @deprecated over WP 5.3 it is not necessary
-  /*
-  .editor-rich-text__tinymce[data-is-placeholder-visible="true"] + .editor-rich-text__tinymce.wp-block-paragraph,
-  .block-editor-rich-text__editable[data-is-placeholder-visible="true"] + .block-editor-rich-text__editable.wp-block-paragraph {
-    margin-top: 0;
-  }
-
-  .block-list-appender {
-    position: relative;
-    top: 14px;
-  }
-  */
-
   // Touchable parent block
   .editor-inner-blocks {
     position: relative;
     padding-top: 24px;
-
-    // @deprecated over WP 5.3 it is not necessary
-    /*
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: -24px;
-      bottom: 0;
-      left: -24px;
-      display: block;
-    }
-    */
   }
 }

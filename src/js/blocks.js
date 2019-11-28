@@ -28,7 +28,7 @@ import {
 //import * as limitedDatetime from '../../block/limited-datetime';
 //import * as list from '../../block/list';
 //import * as mediaText from '../../block/media-text';
-import * as panels from '../../block/panels';
+//import * as panels from '../../block/panels';
 import * as panelsItemVertical from '../../block/panels/item/vertical';
 import * as panelsItemHorizontal from '../../block/panels/item/horizontal';
 import * as priceMenu from '../../block/price-menu';
@@ -71,9 +71,9 @@ import * as thumbnailGalleryItem from '../../block/thumbnail-gallery/item';
 	//limitedDatetime,
 	//list,
 	//mediaText,
-	panels,
-	panelsItemVertical,
-	panelsItemHorizontal,
+	//panels,
+	//panelsItemVertical,
+	//panelsItemHorizontal,
 	priceMenu,
 	priceMenuItem,
 	pricingTable,

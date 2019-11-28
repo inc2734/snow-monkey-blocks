@@ -125,10 +125,15 @@
     "media-text:css": "node-sass block/media-text -o dist/block/media-text && postcss dist/block/media-text/*.css -r",
     "media-text": "npm run media-text:clean && npm-run-all media-text:*",
 
+    "panels:clean": "rimraf dist/block/panels",
+    "panels:js": "wp-scripts build block/panels/editor --output-path=dist/block/panels",
+    "panels:css": "node-sass block/panels -o dist/block/panels && postcss dist/block/panels/*.css -r",
+    "panels": "npm run panels:clean && npm-run-all panels:*",
+
     "lint:js": "wp-scripts lint-js block",
     "lint": "npm-run-all -p lint:*",
 
-    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box btn btn-box categories-list child-pages container contents-outline countdown directory-structure evaluation-star faq items limited-datetime list media-text",
+    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box btn btn-box categories-list child-pages container contents-outline countdown directory-structure evaluation-star faq items limited-datetime list media-text panels",
 
     "clean:css": "rimraf dist/css",
     "clean:js": "rimraf dist/js",
