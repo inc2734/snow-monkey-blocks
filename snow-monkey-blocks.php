@@ -89,6 +89,7 @@ class Bootstrap {
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/price-menu/index.php',
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/pricing-table/index.php',
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/rating-box/index.php',
+			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/recent-posts/index.php',
 		];
 		foreach ( $files as $file ) {
 			require_once( $file );
@@ -97,7 +98,6 @@ class Bootstrap {
 
 	public function _register_pro_dynamic_blocks() {
 		$files = [
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/recent-posts/block.php',
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/taxonomy-posts/block.php',
 		];
 		foreach ( $files as $file ) {

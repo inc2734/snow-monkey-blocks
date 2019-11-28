@@ -10,7 +10,7 @@ import * as sectionWithBgvideo from '../../block/section-with-bgvideo';
 import * as sectionWithBgimage from '../../block/section-with-bgimage';
 import * as sectionBreakTheGrid from '../../block/section-break-the-grid';
 import * as sectionSideHeading from '../../block/section-side-heading';
-import * as recentPosts from '../../block/recent-posts';
+//import * as recentPosts from '../../block/recent-posts';
 import * as taxonomyPosts from '../../block/taxonomy-posts';
 //import * as pickupSlider from '../../block/pickup-slider';
 //import * as contentsOutline from '../../block/contents-outline';
@@ -23,7 +23,7 @@ import * as taxonomyPosts from '../../block/taxonomy-posts';
 	sectionWithBgimage,
 	sectionBreakTheGrid,
 	sectionSideHeading,
-	recentPosts,
+	//recentPosts,
 	taxonomyPosts,
 	//pickupSlider,
 	//contentsOutline,
