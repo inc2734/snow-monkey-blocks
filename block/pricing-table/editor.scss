@@ -1,3 +1,7 @@
+@charset 'utf-8';
+
+@import '../../src/css/core/block';
+
 .smb-pricing-table {
   @include _media-min(md) {
     overflow: visible;
@@ -37,6 +41,14 @@
     }
   }
 
+  &__item {
+    // @todo
+    > .editor-rich-text > ul {
+      @include _list-unstyled();
+      @include _margin-top(.5);
+    }
+  }
+
   .#{$_prefix}c-row {
     .#{$_prefix}c-row__col {
       flex: 1 1 auto;
@@ -60,7 +72,6 @@
           }
 
           > .editor-block-list__block-edit {
-            margin-top: 0; // under WP 5.2
             margin-right: 0 !important;
             margin-left: 0 !important;
 
@@ -72,7 +83,7 @@
             }
 
             > [data-block] {
-              margin-top: 0; // over WP 5.3
+              margin-top: 0;
             }
           }
         }

@@ -2,4 +2,16 @@
 
 .smb-accordion__item__body {
   display: block;
+
+  > .editor-inner-blocks {
+    > .editor-block-list__layout {
+      > .wp-block:first-child {
+        > .editor-block-list__block-edit {
+          > [data-block] {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
 }

@@ -10,8 +10,8 @@
 
     &__answer {
       &__body {
-        > .block-editor-inner-blocks {
-          padding-top: 0 !important;
+        [data-block] {
+          margin-top: 0;
         }
       }
     }

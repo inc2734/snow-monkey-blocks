@@ -113,6 +113,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 						value={ title }
 						allowedFormats={ [] }
 						onChange={ ( value ) => setAttributes( { title: value } ) }
+						keepPlaceholderOnFocus={ true }
 					/>
 
 					{ ( ! RichText.isEmpty( price ) || isSelected ) &&
@@ -122,6 +123,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 							value={ price }
 							allowedFormats={ [] }
 							onChange={ ( value ) => setAttributes( { price: value } ) }
+							keepPlaceholderOnFocus={ true }
 						/>
 					}
 
@@ -132,6 +134,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 							value={ lede }
 							allowedFormats={ [] }
 							onChange={ ( value ) => setAttributes( { lede: value } ) }
+							keepPlaceholderOnFocus={ true }
 						/>
 					}
 

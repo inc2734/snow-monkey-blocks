@@ -33,8 +33,8 @@ import {
 //import * as panelsItemHorizontal from '../../block/panels/item/horizontal';
 //import * as priceMenu from '../../block/price-menu';
 //import * as priceMenuItem from '../../block/price-menu/item';
-import * as pricingTable from '../../block/pricing-table';
-import * as pricingTableItem from '../../block/pricing-table/item';
+//import * as pricingTable from '../../block/pricing-table';
+//import * as pricingTableItem from '../../block/pricing-table/item';
 import * as ratingBox from '../../block/rating-box';
 import * as ratingBoxItem from '../../block/rating-box/item';
 import * as slider from '../../block/slider';
@@ -76,8 +76,8 @@ import * as thumbnailGalleryItem from '../../block/thumbnail-gallery/item';
 	//panelsItemHorizontal,
 	//priceMenu,
 	//priceMenuItem,
-	pricingTable,
-	pricingTableItem,
+	//pricingTable,
+	//pricingTableItem,
 	ratingBox,
 	ratingBoxItem,
 	slider,

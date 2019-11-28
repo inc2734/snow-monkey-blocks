@@ -14,8 +14,8 @@
 @import '../../block/section-with-bgvideo/editor';
 @import '../../block/section-break-the-grid/editor';
 @import '../../block/section-side-heading/editor';
-@import '../../block/step/editor';
-@import '../../block/pricing-table/editor';
+//@import '../../block/step/editor';
+//@import '../../block/pricing-table/editor';
 @import '../../block/slider/editor';
 @import '../../block/testimonial/editor';
 //@import '../../block/panels/editor';
@@ -86,7 +86,7 @@
     .editor-block-list__block {
       &:first-child {
         > .editor-block-list__block-edit > [data-block] {
-          margin-top: 0;
+          //margin-top: 0;
         }
       }
     }
@@ -121,6 +121,6 @@
   // Touchable parent block
   .editor-inner-blocks {
     position: relative;
-    padding-top: 24px;
+    // padding-top: 24px;
   }
 }

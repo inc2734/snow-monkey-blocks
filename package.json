@@ -77,7 +77,6 @@
 
     "container:clean": "rimraf dist/block/container",
     "container:js": "wp-scripts build block/container/editor --output-path=dist/block/container",
-    "container:css": "node-sass block/container -o dist/block/container && postcss dist/block/container/*.css -r",
     "container": "npm run container:clean && npm-run-all container:*",
 
     "contents-outline:clean": "rimraf dist/block/contents-outline",
@@ -140,10 +139,15 @@
     "price-menu:css": "node-sass block/price-menu -o dist/block/price-menu && postcss dist/block/price-menu/*.css -r",
     "price-menu": "npm run price-menu:clean && npm-run-all price-menu:*",
 
+    "pricing-table:clean": "rimraf dist/block/pricing-table",
+    "pricing-table:js": "wp-scripts build block/pricing-table/editor --output-path=dist/block/pricing-table",
+    "pricing-table:css": "node-sass block/pricing-table -o dist/block/pricing-table && postcss dist/block/pricing-table/*.css -r",
+    "pricing-table": "npm run pricing-table:clean && npm-run-all pricing-table:*",
+
     "lint:js": "wp-scripts lint-js block",
     "lint": "npm-run-all -p lint:*",
 
-    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box btn btn-box categories-list child-pages container contents-outline countdown directory-structure evaluation-star faq items limited-datetime list media-text panels pickup-slider price-menu",
+    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box btn btn-box categories-list child-pages container contents-outline countdown directory-structure evaluation-star faq items limited-datetime list media-text panels pickup-slider price-menu pricing-table",
 
     "clean:css": "rimraf dist/css",
     "clean:js": "rimraf dist/js",

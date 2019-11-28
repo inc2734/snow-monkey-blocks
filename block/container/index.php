@@ -17,17 +17,9 @@ wp_register_script(
 	true
 );
 
-wp_register_style(
-	'snow-monkey-blocks/container/editor',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/container/editor.css',
-	[ 'snow-monkey-blocks-editor' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/container/editor.css' )
-);
-
 register_block_type(
 	'snow-monkey-blocks/container',
 	[
 		'editor_script' => 'snow-monkey-blocks/container/editor',
-		'editor_style'  => 'snow-monkey-blocks/container/editor',
 	]
 );
