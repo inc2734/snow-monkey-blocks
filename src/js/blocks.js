@@ -27,7 +27,7 @@ import {
 //import * as itemsItemBanner from '../../block/items/item/banner';
 //import * as limitedDatetime from '../../block/limited-datetime';
 //import * as list from '../../block/list';
-import * as mediaText from '../../block/media-text';
+//import * as mediaText from '../../block/media-text';
 import * as panels from '../../block/panels';
 import * as panelsItemVertical from '../../block/panels/item/vertical';
 import * as panelsItemHorizontal from '../../block/panels/item/horizontal';
@@ -70,7 +70,7 @@ import * as thumbnailGalleryItem from '../../block/thumbnail-gallery/item';
 	//itemsItemBanner,
 	//limitedDatetime,
 	//list,
-	mediaText,
+	//mediaText,
 	panels,
 	panelsItemVertical,
 	panelsItemHorizontal,

@@ -1,3 +1,7 @@
+@charset 'utf-8';
+
+@import '../../src/css/core/block';
+
 .smb-media-text {
   &__title {
     @include _font-size-line-height($_base-font-size * $_h2-font-size-scale / 1.25);

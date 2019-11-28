@@ -1,11 +1,4 @@
-.smb-media-text {
-  &__title {
-    // under WP 5.2
-    & + .smb-media-text__body {
-      margin-top: 0;
-    }
-  }
-}
+@charset 'utf-8';
 
 [data-type="snow-monkey-blocks/media-text"] > .editor-block-list__block-edit > [data-block] {
   overflow: hidden;
