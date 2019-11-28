@@ -5,7 +5,7 @@ import {
 	registerSidebar,
 } from './helper/helper';
 
-import * as section from '../../block/section';
+//import * as section from '../../block/section';
 import * as sectionWithBgvideo from '../../block/section-with-bgvideo';
 import * as sectionWithBgimage from '../../block/section-with-bgimage';
 import * as sectionBreakTheGrid from '../../block/section-break-the-grid';
@@ -18,7 +18,7 @@ import * as taxonomyPosts from '../../block/taxonomy-posts';
 //import * as container from '../../block/container';
 
 [
-	section,
+	//section,
 	sectionWithBgvideo,
 	sectionWithBgimage,
 	sectionBreakTheGrid,

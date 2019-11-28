@@ -10,6 +10,7 @@ use Snow_Monkey\Plugin\Blocks\App\DynamicBlocks;
 
 $asset      = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/recent-posts/editor.asset.php' );
 $attributes = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/recent-posts/attributes.php' );
+$supports   = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/recent-posts/supports.php' );
 
 wp_register_script(
 	'snow-monkey-blocks/recent-posts/editor',
@@ -41,11 +42,9 @@ register_block_type(
 		'style'           => ! Blocks\is_pro() ? 'snow-monkey-blocks/recent-posts/nopro' : null,
 		'editor_script'   => 'snow-monkey-blocks/recent-posts/editor',
 		'attributes'      => $attributes,
+		'supports'        => $supports,
 		'render_callback' => function( $attributes ) {
 			return DynamicBlocks::render( 'recent-posts', $attributes );
 		},
-		'supports' => [
-			'anchor' => false,
-		],
 	]
 );
