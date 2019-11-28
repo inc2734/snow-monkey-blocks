@@ -130,10 +130,15 @@
     "panels:css": "node-sass block/panels -o dist/block/panels && postcss dist/block/panels/*.css -r",
     "panels": "npm run panels:clean && npm-run-all panels:*",
 
+    "pickup-slider:clean": "rimraf dist/block/pickup-slider",
+    "pickup-slider:js": "wp-scripts build block/pickup-slider/nopro block/pickup-slider/editor --output-path=dist/block/pickup-slider",
+    "pickup-slider:css": "node-sass block/pickup-slider -o dist/block/pickup-slider && postcss dist/block/pickup-slider/*.css -r",
+    "pickup-slider": "npm run pickup-slider:clean && npm-run-all pickup-slider:*",
+
     "lint:js": "wp-scripts lint-js block",
     "lint": "npm-run-all -p lint:*",
 
-    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box btn btn-box categories-list child-pages container contents-outline countdown directory-structure evaluation-star faq items limited-datetime list media-text panels",
+    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box btn btn-box categories-list child-pages container contents-outline countdown directory-structure evaluation-star faq items limited-datetime list media-text panels pickup-slider",
 
     "clean:css": "rimraf dist/css",
     "clean:js": "rimraf dist/js",
