@@ -135,10 +135,15 @@
     "pickup-slider:css": "node-sass block/pickup-slider -o dist/block/pickup-slider && postcss dist/block/pickup-slider/*.css -r",
     "pickup-slider": "npm run pickup-slider:clean && npm-run-all pickup-slider:*",
 
+    "price-menu:clean": "rimraf dist/block/price-menu",
+    "price-menu:js": "wp-scripts build block/price-menu/editor --output-path=dist/block/price-menu",
+    "price-menu:css": "node-sass block/price-menu -o dist/block/price-menu && postcss dist/block/price-menu/*.css -r",
+    "price-menu": "npm run price-menu:clean && npm-run-all price-menu:*",
+
     "lint:js": "wp-scripts lint-js block",
     "lint": "npm-run-all -p lint:*",
 
-    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box btn btn-box categories-list child-pages container contents-outline countdown directory-structure evaluation-star faq items limited-datetime list media-text panels pickup-slider",
+    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box btn btn-box categories-list child-pages container contents-outline countdown directory-structure evaluation-star faq items limited-datetime list media-text panels pickup-slider price-menu",
 
     "clean:css": "rimraf dist/css",
     "clean:js": "rimraf dist/js",
