@@ -27,19 +27,21 @@ class Assets {
 	 * @return void
 	 */
 	public function _enqueue_block_editor_assets() {
+		$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/blocks.asset.php' );
 		wp_enqueue_script(
 			'snow-monkey-blocks-editor',
-			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/blocks-build.js',
-			[ 'wp-blocks', 'wp-element', 'wp-i18n' ],
-			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/blocks-build.js' ),
+			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/blocks.js',
+			$asset['dependencies'],
+			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/blocks.js' ),
 			true
 		);
 
+		$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/blocks-pro.asset.php' );
 		wp_enqueue_script(
 			'snow-monkey-blocks-editor-pro',
-			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/blocks-pro-build.js',
-			[ 'wp-blocks', 'wp-element', 'wp-i18n' ],
-			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/blocks-pro-build.js' ),
+			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/blocks-pro.js',
+			$asset['dependencies'],
+			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/blocks-pro.js' ),
 			true
 		);
 
@@ -113,11 +115,12 @@ class Assets {
 	public function _wp_enqueue_scripts() {
 		wp_enqueue_script( 'moment' );
 
+		$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/app.asset.php' );
 		wp_enqueue_script(
 			'snow-monkey-blocks',
-			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/app.min.js',
-			[ 'jquery' ],
-			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/app.min.js' ),
+			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/app.js',
+			$asset['dependencies'],
+			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/app.js' ),
 			true
 		);
 	}
@@ -172,11 +175,12 @@ class Assets {
 
 		wp_enqueue_script( 'moment' );
 
+		$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/app-nopro.asset.php' );
 		wp_enqueue_script(
 			'snow-monkey-blocks-nopro',
-			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/app-nopro.min.js',
-			[ 'jquery' ],
-			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/app-nopro.min.js' )
+			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/app-nopro.js',
+			$asset['dependencies'],
+			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/app-nopro.js' )
 		);
 	}
 
