@@ -88,6 +88,7 @@ class Bootstrap {
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/pickup-slider/index.php',
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/price-menu/index.php',
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/pricing-table/index.php',
+			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/rating-box/index.php',
 		];
 		foreach ( $files as $file ) {
 			require_once( $file );

@@ -19,7 +19,7 @@
     "postcss-cli": "^6.1.3",
     "rimraf": "^3.0.0",
     "sass-basis": "^9.5.5",
-    "slick-carousel": "^1.8.1",
+    "slick-carousel": "^1.8.1"
   },
   "scripts": {
     "accordion:clean": "rimraf dist/block/accordion",
@@ -131,10 +131,15 @@
     "pricing-table:css": "node-sass block/pricing-table -o dist/block/pricing-table && postcss dist/block/pricing-table/*.css -r",
     "pricing-table": "npm run pricing-table:clean && npm-run-all pricing-table:*",
 
+    "rating-box:clean": "rimraf dist/block/rating-box",
+    "rating-box:js": "wp-scripts build block/rating-box/editor --output-path=dist/block/rating-box",
+    "rating-box:css": "node-sass block/rating-box -o dist/block/rating-box && postcss dist/block/rating-box/*.css -r",
+    "rating-box": "npm run rating-box:clean && npm-run-all rating-box:*",
+
     "lint:js": "wp-scripts lint-js block",
     "lint": "npm-run-all -p lint:*",
 
-    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box btn btn-box categories-list child-pages container contents-outline countdown directory-structure evaluation-star faq items limited-datetime list media-text panels pickup-slider price-menu pricing-table",
+    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box btn btn-box categories-list child-pages container contents-outline countdown directory-structure evaluation-star faq items limited-datetime list media-text panels pickup-slider price-menu pricing-table rating-box",
 
     "clean:css": "rimraf dist/css",
     "clean:js": "rimraf dist/js",

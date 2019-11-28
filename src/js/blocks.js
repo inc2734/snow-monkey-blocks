@@ -35,8 +35,8 @@ import {
 //import * as priceMenuItem from '../../block/price-menu/item';
 //import * as pricingTable from '../../block/pricing-table';
 //import * as pricingTableItem from '../../block/pricing-table/item';
-import * as ratingBox from '../../block/rating-box';
-import * as ratingBoxItem from '../../block/rating-box/item';
+//import * as ratingBox from '../../block/rating-box';
+//import * as ratingBoxItem from '../../block/rating-box/item';
 import * as slider from '../../block/slider';
 import * as sliderItem from '../../block/slider/item';
 import * as step from '../../block/step';
@@ -78,8 +78,8 @@ import * as thumbnailGalleryItem from '../../block/thumbnail-gallery/item';
 	//priceMenuItem,
 	//pricingTable,
 	//pricingTableItem,
-	ratingBox,
-	ratingBoxItem,
+	//ratingBox,
+	//ratingBoxItem,
 	slider,
 	sliderItem,
 	step,
