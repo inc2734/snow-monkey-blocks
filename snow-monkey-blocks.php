@@ -91,6 +91,7 @@ class Bootstrap {
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/rating-box/index.php',
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/recent-posts/index.php',
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/section/index.php',
+			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/section-break-the-grid/index.php',
 		];
 		foreach ( $files as $file ) {
 			require_once( $file );

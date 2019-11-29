@@ -146,10 +146,15 @@
     "section:css": "node-sass block/section -o dist/block/section && postcss dist/block/section/*.css -r",
     "section": "npm run section:clean && npm-run-all -p section:*",
 
+    "section-break-the-grid:clean": "rimraf dist/block/section-break-the-grid",
+    "section-break-the-grid:js": "wp-scripts build block/section-break-the-grid/editor --output-path=dist/block/section-break-the-grid",
+    "section-break-the-grid:css": "node-sass block/section-break-the-grid -o dist/block/section-break-the-grid && postcss dist/block/section-break-the-grid/*.css -r",
+    "section-break-the-grid": "npm run section-break-the-grid:clean && npm-run-all -p section-break-the-grid:*",
+
     "lint:js": "wp-scripts lint-js block",
     "lint": "npm-run-all -p lint:*",
 
-    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box btn btn-box categories-list child-pages container contents-outline countdown directory-structure evaluation-star faq items limited-datetime list media-text panels pickup-slider price-menu pricing-table rating-box recent-posts section",
+    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box btn btn-box categories-list child-pages container contents-outline countdown directory-structure evaluation-star faq items limited-datetime list media-text panels pickup-slider price-menu pricing-table rating-box recent-posts section section-break-the-grid",
 
     "clean:css": "rimraf dist/css",
     "clean:js": "rimraf dist/js",

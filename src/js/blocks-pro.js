@@ -8,7 +8,7 @@ import {
 //import * as section from '../../block/section';
 import * as sectionWithBgvideo from '../../block/section-with-bgvideo';
 import * as sectionWithBgimage from '../../block/section-with-bgimage';
-import * as sectionBreakTheGrid from '../../block/section-break-the-grid';
+//import * as sectionBreakTheGrid from '../../block/section-break-the-grid';
 import * as sectionSideHeading from '../../block/section-side-heading';
 //import * as recentPosts from '../../block/recent-posts';
 import * as taxonomyPosts from '../../block/taxonomy-posts';
@@ -21,7 +21,7 @@ import * as taxonomyPosts from '../../block/taxonomy-posts';
 	//section,
 	sectionWithBgvideo,
 	sectionWithBgimage,
-	sectionBreakTheGrid,
+	//sectionBreakTheGrid,
 	sectionSideHeading,
 	//recentPosts,
 	taxonomyPosts,
