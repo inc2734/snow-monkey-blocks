@@ -9,10 +9,6 @@
     &__canvas {
       padding-bottom: 0;
 
-      > .block-editor-inner-blocks {
-        padding-top: 0;
-      }
-
       > .editor-inner-blocks > .editor-block-list__layout {
         @include _row();
         @include _row--margin(.5);

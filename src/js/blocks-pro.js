@@ -9,7 +9,7 @@ import {
 import * as sectionWithBgvideo from '../../block/section-with-bgvideo';
 import * as sectionWithBgimage from '../../block/section-with-bgimage';
 //import * as sectionBreakTheGrid from '../../block/section-break-the-grid';
-import * as sectionSideHeading from '../../block/section-side-heading';
+//import * as sectionSideHeading from '../../block/section-side-heading';
 //import * as recentPosts from '../../block/recent-posts';
 import * as taxonomyPosts from '../../block/taxonomy-posts';
 //import * as pickupSlider from '../../block/pickup-slider';
@@ -22,7 +22,7 @@ import * as taxonomyPosts from '../../block/taxonomy-posts';
 	sectionWithBgvideo,
 	sectionWithBgimage,
 	//sectionBreakTheGrid,
-	sectionSideHeading,
+	//sectionSideHeading,
 	//recentPosts,
 	taxonomyPosts,
 	//pickupSlider,

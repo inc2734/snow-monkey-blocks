@@ -17,6 +17,13 @@ wp_register_style(
 );
 
 wp_register_style(
+	'snow-monkey-blocks/section-break-the-grid/editor',
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-break-the-grid/editor.css',
+	[ 'snow-monkey-blocks/section-break-the-grid', 'snow-monkey-blocks-editor' ],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-break-the-grid/editor.css' )
+);
+
+wp_register_style(
 	'snow-monkey-blocks/section-break-the-grid/nopro',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-break-the-grid/nopro.css',
 	[],
@@ -36,5 +43,6 @@ register_block_type(
 	[
 		'style'         => ! Blocks\is_pro() ? 'snow-monkey-blocks/section-break-the-grid/nopro' : 'snow-monkey-blocks/section-break-the-grid',
 		'editor_script' => 'snow-monkey-blocks/section-break-the-grid/editor',
+		'editor_style'  => 'snow-monkey-blocks/section-break-the-grid/editor',
 	]
 );
