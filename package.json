@@ -161,10 +161,15 @@
     "section-with-bgimage:css": "node-sass block/section-with-bgimage -o dist/block/section-with-bgimage && postcss dist/block/section-with-bgimage/*.css -r",
     "section-with-bgimage": "npm run section-with-bgimage:clean && npm-run-all -p section-with-bgimage:*",
 
+    "section-with-bgvideo:clean": "rimraf dist/block/section-with-bgvideo",
+    "section-with-bgvideo:js": "wp-scripts build block/section-with-bgvideo/app block/section-with-bgvideo/editor --output-path=dist/block/section-with-bgvideo",
+    "section-with-bgvideo:css": "node-sass block/section-with-bgvideo -o dist/block/section-with-bgvideo && postcss dist/block/section-with-bgvideo/*.css -r",
+    "section-with-bgvideo": "npm run section-with-bgvideo:clean && npm-run-all -p section-with-bgvideo:*",
+
     "lint:js": "wp-scripts lint-js block",
     "lint": "npm-run-all -p lint:*",
 
-    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box btn btn-box categories-list child-pages container contents-outline countdown directory-structure evaluation-star faq items limited-datetime list media-text panels pickup-slider price-menu pricing-table rating-box recent-posts section section-break-the-grid section-side-heading section-with-bgimage",
+    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box btn btn-box categories-list child-pages container contents-outline countdown directory-structure evaluation-star faq items limited-datetime list media-text panels pickup-slider price-menu pricing-table rating-box recent-posts section section-break-the-grid section-side-heading section-with-bgimage section-with-bgvideo",
 
     "clean:css": "rimraf dist/css",
     "clean:js": "rimraf dist/js",
