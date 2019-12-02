@@ -26,7 +26,7 @@ wp_register_style(
 wp_register_script(
 	'snow-monkey-blocks/slider',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/slider/app.js',
-	[],
+	[ 'slick-carousel' ],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/slider/app.js' ),
 	true
 );

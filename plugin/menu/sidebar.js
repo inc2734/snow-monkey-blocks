@@ -11,7 +11,7 @@ import {
 import {
 	PluginSidebar,
 	PluginSidebarMoreMenuItem,
-} from '@wordpress/editPost';
+} from '@wordpress/edit-post';
 
 import {
 	applyFilters,

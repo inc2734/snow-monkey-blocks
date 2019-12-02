@@ -9,25 +9,30 @@
       border: 1px solid #e2e4e7;
       border-radius: 4px;
       text-align: left;
+
       &:hover {
         background: #f3f4f5;
       }
+
       svg {
         color: #cd162c;
         fill: currentcolor;
       }
+
       &__title {
         margin-left: 8px;
       }
     }
+
     &__modal {
       &__pro-message {
         color: #cd162c;
         font-weight: 600;
       }
-      &__description {
 
+      &__description {
       }
+
       &__screenshot {
         &__loading {
           display: flex;
@@ -40,6 +45,7 @@
       }
     }
   }
+
   &__template-part {
     &__button {
       display: block;
@@ -50,13 +56,16 @@
       border-radius: 4px;
       padding: 0;
       margin: 0;
+
       &:hover {
         background: #f3f4f5;
       }
+
       &__screenshot {
         display: block;
         width: 100%;
         height: auto;
+
         &__loading {
           display: flex;
           justify-content: center;
@@ -66,11 +75,13 @@
           padding: 0.93478rem;
         }
       }
+
       &__title {
         display: block;
         padding: 0.93478rem;
       }
     }
+
     &__loading {
       display: flex;
       justify-content: center;

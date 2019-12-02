@@ -12,7 +12,6 @@ use Snow_Monkey\Plugin\Blocks;
 class Assets {
 	public function __construct() {
 		add_action( 'enqueue_block_editor_assets', [ $this, '_enqueue_block_editor_assets' ] );
-		//add_filter( 'block_editor_settings', [ $this, '_block_editor_settings' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, '_wp_enqueue_scripts' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, '_wp_enqueue_pro_scripts' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, '_wp_enqueue_nopro_scripts' ] );
@@ -36,27 +35,11 @@ class Assets {
 			true
 		);
 
-		$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/blocks-pro.asset.php' );
-		wp_enqueue_script(
-			'snow-monkey-blocks-editor-pro',
-			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/blocks-pro.js',
-			$asset['dependencies'],
-			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/blocks-pro.js' ),
-			true
-		);
-
 		wp_enqueue_style(
 			'snow-monkey-blocks-editor-wrapper',
 			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/css/blocks-editor-wrapper.min.css',
 			[],
 			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/blocks-editor-wrapper.min.css' )
-		);
-
-		wp_enqueue_style(
-			'snow-monkey-blocks-menu',
-			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/css/menu.min.css',
-			[],
-			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/menu.min.css' )
 		);
 
 		wp_enqueue_style(
@@ -82,30 +65,6 @@ class Assets {
 			]
 		);
 	}
-
-	/**
-	 * Enqueue block style for editor
-	 *
-	 * @return string||array
-	 * @return array
-	 */
-	/*
-	public function _block_editor_settings( $editor_settings ) {
-		if ( ! Blocks\is_block_editor() ) {
-			return $editor_settings;
-		}
-
-		if ( ! isset( $editor_settings['styles'] ) ) {
-			return $editor_settings;
-		}
-
-		$editor_settings['styles'][] = [
-			'css' => file_get_contents( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/blocks-editor.min.css' ),
-		];
-
-		return $editor_settings;
-	}
-	*/
 
 	/**
 	 * Enqueue assets for front

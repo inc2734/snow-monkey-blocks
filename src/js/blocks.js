@@ -3,6 +3,7 @@
 import {
 	registerBlock,
 	registerFormat,
+	registerSidebar,
 } from './helper/helper';
 
 //import * as accordion from '../../block/accordion';
@@ -100,3 +101,9 @@ import * as removeFormatting from '../../format/remove-fomatting';
 	highlighter,
 	removeFormatting,
 ].forEach( registerFormat );
+
+import * as menu from '../../plugin/menu';
+
+[
+	menu,
+].forEach( registerSidebar );
