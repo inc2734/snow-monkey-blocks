@@ -166,10 +166,15 @@
     "section-with-bgvideo:css": "node-sass block/section-with-bgvideo -o dist/block/section-with-bgvideo && postcss dist/block/section-with-bgvideo/*.css -r",
     "section-with-bgvideo": "npm run section-with-bgvideo:clean && npm-run-all -p section-with-bgvideo:*",
 
+    "slider:clean": "rimraf dist/block/slider",
+    "slider:js": "wp-scripts build block/slider/app block/slider/editor --output-path=dist/block/slider",
+    "slider:css": "node-sass block/slider -o dist/block/slider && postcss dist/block/slider/*.css -r",
+    "slider": "npm run slider:clean && npm-run-all -p slider:*",
+
     "lint:js": "wp-scripts lint-js block",
     "lint": "npm-run-all -p lint:*",
 
-    "build": "npm-run-all -p css js packages po2json img accordion alert balloon box btn btn-box categories-list child-pages container contents-outline countdown directory-structure evaluation-star faq items limited-datetime list media-text panels pickup-slider price-menu pricing-table rating-box recent-posts section section-break-the-grid section-side-heading section-with-bgimage section-with-bgvideo",
+    "build": "npm-run-all -s css js packages po2json img accordion alert balloon box btn btn-box categories-list child-pages container contents-outline countdown directory-structure evaluation-star faq items limited-datetime list media-text panels pickup-slider price-menu pricing-table rating-box recent-posts section section-break-the-grid section-side-heading section-with-bgimage section-with-bgvideo slider",
 
     "clean:css": "rimraf dist/css",
     "clean:js": "rimraf dist/js",
