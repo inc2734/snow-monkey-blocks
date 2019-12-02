@@ -53,7 +53,6 @@ export default function( { attributes, setAttributes, className } ) {
 						<RichText
 							placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
 							value={ title }
-							allowedFormats={ [] }
 							multiline={ false }
 							onChange={ ( value ) => setAttributes( { title: value } ) }
 						/>

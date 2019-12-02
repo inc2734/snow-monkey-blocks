@@ -171,10 +171,15 @@
     "slider:css": "node-sass block/slider -o dist/block/slider && postcss dist/block/slider/*.css -r",
     "slider": "npm run slider:clean && npm-run-all -p slider:*",
 
+    "step:clean": "rimraf dist/block/step",
+    "step:js": "wp-scripts build block/step/editor --output-path=dist/block/step",
+    "step:css": "node-sass block/step -o dist/block/step && postcss dist/block/step/*.css -r",
+    "step": "npm run step:clean && npm-run-all -p step:*",
+
     "lint:js": "wp-scripts lint-js block",
     "lint": "npm-run-all -p lint:*",
 
-    "build": "npm-run-all -s css js packages po2json img accordion alert balloon box btn btn-box categories-list child-pages container contents-outline countdown directory-structure evaluation-star faq items limited-datetime list media-text panels pickup-slider price-menu pricing-table rating-box recent-posts section section-break-the-grid section-side-heading section-with-bgimage section-with-bgvideo slider",
+    "build": "npm-run-all -p css js packages po2json img && npm-run-all -s accordion alert balloon box btn btn-box categories-list child-pages container contents-outline countdown directory-structure evaluation-star faq items limited-datetime list media-text panels pickup-slider price-menu pricing-table rating-box recent-posts section section-break-the-grid section-side-heading section-with-bgimage section-with-bgvideo slider step",
 
     "clean:css": "rimraf dist/css",
     "clean:js": "rimraf dist/js",

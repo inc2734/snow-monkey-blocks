@@ -39,9 +39,9 @@ import {
 //import * as ratingBoxItem from '../../block/rating-box/item';
 //import * as slider from '../../block/slider';
 //import * as sliderItem from '../../block/slider/item';
-import * as step from '../../block/step';
-import * as stepItemStandard from '../../block/step/item/standard';
-import * as stepItemFree from '../../block/step/item/free';
+//import * as step from '../../block/step';
+//import * as stepItemStandard from '../../block/step/item/standard';
+//import * as stepItemFree from '../../block/step/item/free';
 import * as testimonial from '../../block/testimonial';
 import * as testimonialItem from '../../block/testimonial/item';
 import * as thumbnailGallery from '../../block/thumbnail-gallery';
@@ -82,9 +82,9 @@ import * as thumbnailGalleryItem from '../../block/thumbnail-gallery/item';
 	//ratingBoxItem,
 	//slider,
 	//sliderItem,
-	step,
-	stepItemStandard,
-	stepItemFree,
+	//step,
+	//stepItemStandard,
+	//stepItemFree,
 	testimonial,
 	testimonialItem,
 	thumbnailGallery,

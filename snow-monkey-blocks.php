@@ -96,6 +96,7 @@ class Bootstrap {
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/section-with-bgimage/index.php',
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/section-with-bgvideo/index.php',
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/slider/index.php',
+			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/step/index.php',
 		];
 		foreach ( $files as $file ) {
 			require_once( $file );
