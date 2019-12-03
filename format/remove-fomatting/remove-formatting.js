@@ -10,7 +10,7 @@ import {
 
 import {
 	RichTextToolbarButton,
-} from '@wordpress/blockEditor';
+} from '@wordpress/block-editor';
 
 import {
 	removeFormat,

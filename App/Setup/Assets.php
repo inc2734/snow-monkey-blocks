@@ -73,15 +73,6 @@ class Assets {
 	 */
 	public function _wp_enqueue_scripts() {
 		wp_enqueue_script( 'moment' );
-
-		$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/app.asset.php' );
-		wp_enqueue_script(
-			'snow-monkey-blocks',
-			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/app.js',
-			$asset['dependencies'],
-			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/app.js' ),
-			true
-		);
 	}
 
 	/**

@@ -2,30 +2,6 @@
 
 @import 'core/block';
 
-//@import '../../block/alert/editor';
-//@import '../../block/balloon/editor';
-//@import '../../block/box/editor';
-//@import '../../block/section/editor';
-//@import '../../block/btn/editor';
-//@import '../../block/btn-box/editor';
-//@import '../../block/faq/editor';
-//@import '../../block/list/editor';
-//@import '../../block/section-with-bgimage/editor';
-//@import '../../block/section-with-bgvideo/editor';
-//@import '../../block/section-break-the-grid/editor';
-//@import '../../block/section-side-heading/editor';
-//@import '../../block/step/editor';
-//@import '../../block/pricing-table/editor';
-//@import '../../block/slider/editor';
-//@import '../../block/testimonial/editor';
-//@import '../../block/panels/editor';
-//@import '../../block/media-text/editor';
-@import '../../block/thumbnail-gallery/editor';
-//@import '../../block/accordion/editor';
-//@import '../../block/limited-datetime/editor';
-//@import '../../block/countdown/editor';
-//@import '../../block/directory-structure/editor';
-
 .#{$_prefix}c-row[data-columns] {
   margin: 0;
 
@@ -82,16 +58,6 @@
 }
 
 [data-type^="snow-monkey-blocks"] {
-  .editor-block-list__layout {
-    .editor-block-list__block {
-      &:first-child {
-        > .editor-block-list__block-edit > [data-block] {
-          //margin-top: 0;
-        }
-      }
-    }
-  }
-
   .editor-default-block-appender {
     > .editor-default-block-appender__content {
       margin-bottom: 0;
@@ -121,6 +87,5 @@
   // Touchable parent block
   .editor-inner-blocks {
     position: relative;
-    // padding-top: 24px;
   }
 }

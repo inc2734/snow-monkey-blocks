@@ -186,6 +186,11 @@
     "block:testimonial:build:css": "node-sass block/testimonial -o dist/block/testimonial && postcss dist/block/testimonial/*.css -r",
     "block:testimonial": "npm run block:testimonial:clean && npm-run-all -p block:testimonial:build:*",
 
+    "block:thumbnail-gallery:clean": "rimraf dist/block/thumbnail-gallery",
+    "block:thumbnail-gallery:build:js": "wp-scripts build block/thumbnail-gallery/app block/thumbnail-gallery/editor --output-path=dist/block/thumbnail-gallery",
+    "block:thumbnail-gallery:build:css": "node-sass block/thumbnail-gallery -o dist/block/thumbnail-gallery && postcss dist/block/thumbnail-gallery/*.css -r",
+    "block:thumbnail-gallery": "npm run block:thumbnail-gallery:clean && npm-run-all -p block:thumbnail-gallery:build:*",
+
     "lint:js": "wp-scripts lint-js block",
     "lint": "npm-run-all -p lint:*",
 
@@ -216,7 +221,6 @@
     "css:editor-wrapper": "npm-run-all -s css:editor-wrapper:*",
     "css:fallback": "npm-run-all -s css:fallback:*",
     "css": "npm run clean:css && npm-run-all -p css:*",
-    "js:front": "wp-scripts build src/js/app.js --output-path dist/js",
     "js:front-nopro": "wp-scripts build src/js/app-nopro.js --output-path dist/js",
     "js:editor": "wp-scripts build src/js/blocks.js --output-path dist/js",
     "js": "npm run clean:js && npm-run-all -p js:*",
