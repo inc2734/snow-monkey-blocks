@@ -11,9 +11,9 @@ export default function( { attributes, className } ) {
 	const { arrows, speed, autoplay, autoplaySpeed } = attributes;
 
 	const config = generateConfig( {
-		arrows: arrows,
-		speed: speed,
-		autoplay: autoplay,
+		arrows,
+		speed,
+		autoplay,
 		autoplaySpeed: autoplaySpeed * 1000,
 	} );
 

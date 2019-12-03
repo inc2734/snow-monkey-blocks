@@ -67,9 +67,9 @@ export default [
 					const color = get( attributes.ratings, [ index, 'color' ], '' );
 
 					return createBlock( 'snow-monkey-blocks/rating-box--item', {
-						title: title,
+						title,
 						rating: Number( rating ),
-						color: color,
+						color,
 					} );
 				} );
 			};

@@ -73,10 +73,10 @@ export default [
 					const answerColor = get( attributes.content, [ index, 'answerColor' ], '' );
 
 					return createBlock( 'snow-monkey-blocks/faq--item', {
-						question: question,
-						answer: answer,
-						questionColor: questionColor,
-						answerColor: answerColor,
+						question,
+						answer,
+						questionColor,
+						answerColor,
 					} );
 				} );
 			};

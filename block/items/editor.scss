@@ -2,13 +2,7 @@
 
 @import '../../src/css/core/block';
 
-.smb-panels {
-  &__item--horizontal {
-    > .smb-panels__item__figure {
-      display: flex;
-    }
-  }
-
+.smb-items {
   > .#{$_prefix}c-row--margin {
     > .editor-inner-blocks > .editor-block-list__layout {
       margin-right: 0;

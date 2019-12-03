@@ -15,7 +15,7 @@ export default [
 
 		migrate( attributes ) {
 			const isSlim = !! attributes.contentsWidth;
-			return { ...attributes, isSlim: isSlim };
+			return { ...attributes, isSlim };
 		},
 
 		supports: {
@@ -164,7 +164,7 @@ export default [
 			};
 
 			return (
-				<div className="smb-section" style={ { backgroundColor: backgroundColor } }>
+				<div className="smb-section" style={ { backgroundColor } }>
 					{ !! topDividerLevel &&
 						<div className={ `smb-section__divider smb-section__divider--top smb-section__divider--${ topDividerType }` }>
 							{ _divider( topDividerType, topDividerLevel, topDividerColor ) }
@@ -266,7 +266,7 @@ export default [
 			};
 
 			return (
-				<div className="smb-section" style={ { backgroundColor: backgroundColor } }>
+				<div className="smb-section" style={ { backgroundColor } }>
 					{ !! topDividerLevel &&
 						<div className="smb-section__divider smb-section__divider--top">
 							{ _divider( topDividerType, topDividerLevel, topDividerColor ) }

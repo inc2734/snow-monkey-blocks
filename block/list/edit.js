@@ -74,7 +74,7 @@ export default function( { attributes, setAttributes, className } ) {
 		<Fragment>
 			<InspectorControls>
 				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
-					<BaseControl label={ __( 'Icon', 'snow-monkey-blocks' ) }>
+					<BaseControl label={ __( 'Icon', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/list/icon">
 						<div className="smb-list-icon-selector">
 							{ times( iconList.length, ( index ) => {
 								const value = iconList[ index ].value;

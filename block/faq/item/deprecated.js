@@ -42,7 +42,7 @@ export default [
 					const content = answer[ index ].replace( '<p>', '' ).replace( '</p>', '' );
 
 					return createBlock( 'core/paragraph', {
-						content: content,
+						content,
 					} );
 				} );
 			};

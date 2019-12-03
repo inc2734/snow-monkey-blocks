@@ -51,7 +51,7 @@ export default function( { attributes, setAttributes, className } ) {
 		<Fragment>
 			<InspectorControls>
 				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
-					<BaseControl label={ __( 'URL', 'snow-monkey-blocks' ) }>
+					<BaseControl label={ __( 'URL', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/btn/url">
 						<URLInput
 							value={ url }
 							onChange={ ( value ) => setAttributes( { url: value } ) }

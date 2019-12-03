@@ -37,15 +37,15 @@ export default [
 			const config = omit(
 				generateConfig(
 					{
-						slidesToShow: slidesToShow,
-						slidesToScroll: slidesToScroll,
-						dots: dots,
-						arrows: arrows,
-						speed: speed,
-						autoplay: autoplay,
+						slidesToShow,
+						slidesToScroll,
+						dots,
+						arrows,
+						speed,
+						autoplay,
 						autoplaySpeed: autoplaySpeed * 1000,
-						fade: fade,
-						rtl: rtl,
+						fade,
+						rtl,
 					}
 				),
 				[ 'mdSlidesToShow', 'mdSlidesToScroll', 'smSlidesToShow', 'smSlidesToScroll' ]
@@ -75,14 +75,14 @@ export default [
 			const config = omit(
 				generateConfig(
 					{
-						slidesToShow: slidesToShow,
-						slidesToScroll: slidesToScroll,
-						dots: dots,
-						arrows: arrows,
-						speed: speed,
-						autoplay: autoplay,
+						slidesToShow,
+						slidesToScroll,
+						dots,
+						arrows,
+						speed,
+						autoplay,
 						autoplaySpeed: autoplaySpeed * 1000,
-						rtl: rtl,
+						rtl,
 					}
 				),
 				[ 'mdSlidesToShow', 'mdSlidesToScroll', 'smSlidesToShow', 'smSlidesToScroll', 'fade' ]
@@ -152,8 +152,8 @@ export default [
 
 					return createBlock( 'snow-monkey-blocks/slider--item', {
 						imageID: Number( imageID ),
-						imageURL: imageURL,
-						caption: caption,
+						imageURL,
+						caption,
 					} );
 				} );
 			};
@@ -180,14 +180,14 @@ export default [
 			const config = omit(
 				generateConfig(
 					{
-						slidesToShow: slidesToShow,
-						slidesToScroll: slidesToScroll,
-						dots: dots,
-						arrows: arrows,
-						speed: speed,
-						autoplay: autoplay,
+						slidesToShow,
+						slidesToScroll,
+						dots,
+						arrows,
+						speed,
+						autoplay,
 						autoplaySpeed: autoplaySpeed * 1000,
-						rtl: rtl,
+						rtl,
 					}
 				),
 				[ 'mdSlidesToShow', 'mdSlidesToScroll', 'smSlidesToShow', 'smSlidesToScroll', 'fade' ]
@@ -270,14 +270,14 @@ export default [
 			const config = omit(
 				generateConfig(
 					{
-						slidesToShow: slidesToShow,
-						slidesToScroll: slidesToScroll,
-						dots: dots,
-						arrows: arrows,
-						speed: speed,
-						autoplay: autoplay,
+						slidesToShow,
+						slidesToScroll,
+						dots,
+						arrows,
+						speed,
+						autoplay,
 						autoplaySpeed: autoplaySpeed * 1000,
-						rtl: rtl,
+						rtl,
 					}
 				),
 				[ 'mdSlidesToShow', 'mdSlidesToScroll', 'smSlidesToShow', 'smSlidesToScroll', 'fade' ]
@@ -361,14 +361,14 @@ export default [
 			const config = omit(
 				generateConfig(
 					{
-						slidesToShow: slidesToShow,
-						slidesToScroll: slidesToScroll,
-						dots: dots,
-						arrows: arrows,
-						speed: speed,
-						autoplay: autoplay,
+						slidesToShow,
+						slidesToScroll,
+						dots,
+						arrows,
+						speed,
+						autoplay,
 						autoplaySpeed: autoplaySpeed * 1000,
-						rtl: rtl,
+						rtl,
 					}
 				),
 				[ 'mdSlidesToShow', 'mdSlidesToScroll', 'smSlidesToShow', 'smSlidesToScroll', 'fade' ]

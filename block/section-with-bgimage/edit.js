@@ -86,7 +86,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 		<Fragment>
 			<InspectorControls>
 				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
-					<BaseControl label={ __( 'Title Tag', 'snow-monkey-blocks' ) }>
+					<BaseControl label={ __( 'Title Tag', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/section-with-bgimage/wrapper-tag-name">
 						<div className="smb-list-icon-selector">
 							{ times( wrapperTagNames.length, ( index ) => {
 								return (
@@ -102,7 +102,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 						</div>
 					</BaseControl>
 
-					<BaseControl label={ __( 'Title Tag', 'snow-monkey-blocks' ) }>
+					<BaseControl label={ __( 'Title Tag', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/section-with-bgimage/title-tag-names">
 						<div className="smb-list-icon-selector">
 							{ times( titleTagNames.length, ( index ) => {
 								return (
@@ -198,7 +198,8 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 					{ maskColor &&
 						<BaseControl
 							className="editor-color-palette-control"
-							label={ __( 'Mask Color 2', 'snow-monkey-blocks' ) }>
+							label={ __( 'Mask Color 2', 'snow-monkey-blocks' ) }
+							id="snow-monkey-blocks/section-with-bgimage/mask-color2">
 							<ColorPalette
 								className="editor-color-palette-control__color-palette"
 								value={ maskColor2 }

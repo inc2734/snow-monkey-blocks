@@ -68,7 +68,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 				</PanelBody>
 
 				<PanelBody title={ __( 'Link Settings', 'snow-monkey-blocks' ) }>
-					<BaseControl label={ __( 'Link URL', 'snow-monkey-blocks' ) }>
+					<BaseControl label={ __( 'Link URL', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/step--item/link-url">
 						<URLInput
 							value={ linkURL }
 							onChange={ ( value ) => setAttributes( { linkURL: value } ) }

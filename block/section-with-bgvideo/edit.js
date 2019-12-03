@@ -1,8 +1,11 @@
 'use strict';
 
-const { times } = lodash;
 import classnames from 'classnames';
 import { toNumber } from '../../src/js/helper/helper';
+
+import {
+	times,
+} from 'lodash';
 
 import {
 	Fragment,
@@ -75,7 +78,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 		<Fragment>
 			<InspectorControls>
 				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
-					<BaseControl label={ __( 'Title Tag', 'snow-monkey-blocks' ) }>
+					<BaseControl label={ __( 'Title Tag', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/section-with-bgvideo/title-tag-name">
 						<div className="smb-list-icon-selector">
 							{ times( titleTagNames.length, ( index ) => {
 								return (
@@ -91,7 +94,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 						</div>
 					</BaseControl>
 
-					<BaseControl label={ __( 'YouTube URL', 'snow-monkey-blocks' ) }>
+					<BaseControl label={ __( 'YouTube URL', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/section-with-bgvideo/video-url">
 						<URLInput
 							value={ videoURL }
 							onChange={ ( value ) => setAttributes( { videoURL: value } ) }
@@ -188,7 +191,8 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 					{ maskColor &&
 						<BaseControl
 							className="editor-color-palette-control"
-							label={ __( 'Mask Color 2', 'snow-monkey-blocks' ) }>
+							label={ __( 'Mask Color 2', 'snow-monkey-blocks' ) }
+							id="snow-monkey-blocks/section-with-bgvideo/mask-color2">
 							<ColorPalette
 								className="editor-color-palette-control__color-palette"
 								value={ maskColor2 }

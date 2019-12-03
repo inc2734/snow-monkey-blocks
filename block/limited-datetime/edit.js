@@ -51,7 +51,7 @@ export default function( { attributes, setAttributes, className } ) {
 		<Fragment>
 			<InspectorControls>
 				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
-					<BaseControl label={ __( 'Start datetime', 'snow-monkey-blocks' ) }>
+					<BaseControl label={ __( 'Start datetime', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/limited-datetime/is-use-start-date">
 						<CheckboxControl
 							label={ __( 'Use start datetime', 'snow-monkey-blocks' ) }
 							checked={ isUseStartDate }
@@ -62,7 +62,7 @@ export default function( { attributes, setAttributes, className } ) {
 							onChange={ ( value ) => setAttributes( { startDate: value } ) }
 						/>
 					</BaseControl>
-					<BaseControl label={ __( 'End datetime', 'snow-monkey-blocks' ) }>
+					<BaseControl label={ __( 'End datetime', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/limited-datetime/is-use-end-date">
 						<CheckboxControl
 							label={ __( 'Use end datetime', 'snow-monkey-blocks' ) }
 							checked={ isUseEndDate }

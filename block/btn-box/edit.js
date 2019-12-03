@@ -53,7 +53,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 				<PanelBody
 					title={ __( 'Button Settings', 'snow-monkey-blocks' ) }
 				>
-					<BaseControl label={ __( 'URL', 'snow-monkey-blocks' ) }>
+					<BaseControl label={ __( 'URL', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/btn-box/btn-url">
 						<URLInput
 							value={ btnURL }
 							onChange={ ( value ) => setAttributes( { btnURL: value } ) }

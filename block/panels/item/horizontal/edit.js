@@ -47,7 +47,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 		<Fragment>
 			<InspectorControls>
 				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
-					<BaseControl label={ __( 'Title Tag', 'snow-monkey-blocks' ) }>
+					<BaseControl label={ __( 'Title Tag', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/panels--item--horizontal/title-tag-name">
 						<div className="smb-list-icon-selector">
 							{ times( titleTagNames.length, ( index ) => {
 								return (
@@ -81,7 +81,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 				</PanelBody>
 
 				<PanelBody title={ __( 'Link Settings', 'snow-monkey-blocks' ) }>
-					<BaseControl label={ __( 'URL', 'snow-monkey-blocks' ) }>
+					<BaseControl label={ __( 'URL', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/panels--item--horizontal/link-url">
 						<URLInput
 							value={ linkURL }
 							onChange={ ( value ) => setAttributes( { linkURL: value } ) }

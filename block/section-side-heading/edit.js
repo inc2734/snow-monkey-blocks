@@ -87,7 +87,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 		<Fragment>
 			<InspectorControls>
 				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
-					<BaseControl label={ __( 'Wrapper Tag', 'snow-monkey-blocks' ) }>
+					<BaseControl label={ __( 'Wrapper Tag', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/section-side-heading/wrapper-tag-name">
 						<div className="smb-list-icon-selector">
 							{ times( wrapperTagNames.length, ( index ) => {
 								return (
@@ -103,7 +103,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 						</div>
 					</BaseControl>
 
-					<BaseControl label={ __( 'Title Tag', 'snow-monkey-blocks' ) }>
+					<BaseControl label={ __( 'Title Tag', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/section-side-heading/title-tag">
 						<div className="smb-list-icon-selector">
 							{ times( titleTagNames.length, ( index ) => {
 								return (
@@ -168,7 +168,8 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 					<PanelBody title={ __( 'Background Gradation Settings', 'snow-monkey-blocks' ) }>
 						<BaseControl
 							className="editor-color-palette-control"
-							label={ __( 'Background Color 2', 'snow-monkey-blocks' ) }>
+							label={ __( 'Background Color 2', 'snow-monkey-blocks' ) }
+							id="snow-monkey-blocks/section-side-heading/background-color2">
 							<ColorPalette
 								className="editor-color-palette-control__color-palette"
 								value={ backgroundColor2 }
@@ -223,7 +224,8 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 
 					<BaseControl
 						className="editor-color-palette-control"
-						label={ __( 'Color', 'snow-monkey-blocks' ) }>
+						label={ __( 'Color', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/section-side-heading/top-divider-color">
 						<ColorPalette
 							className="editor-color-palette-control__color-palette"
 							value={ topDividerColor }
@@ -267,7 +269,8 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 
 					<BaseControl
 						className="editor-color-palette-control"
-						label={ __( 'Color', 'snow-monkey-blocks' ) }>
+						label={ __( 'Color', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/section-side-heading/bottom-divider-color">
 						<ColorPalette
 							className="editor-color-palette-control__color-palette"
 							value={ bottomDividerColor }

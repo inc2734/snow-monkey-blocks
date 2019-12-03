@@ -133,7 +133,7 @@ export default [
 					const content = summary[ index ].replace( '<p>', '' ).replace( '</p>', '' );
 
 					return createBlock( 'core/paragraph', {
-						content: content,
+						content,
 					} );
 				} );
 			};

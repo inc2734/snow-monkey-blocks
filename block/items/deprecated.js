@@ -138,16 +138,16 @@ export default [
 
 					return createBlock( 'snow-monkey-blocks/items--item', {
 						titleTagName: attributes.itemTitleTagName,
-						title: title,
-						lede: lede,
-						summary: summary,
-						btnLabel: btnLabel,
-						btnURL: btnURL,
-						btnTarget: btnTarget,
-						btnBackgroundColor: btnBackgroundColor,
-						btnTextColor: btnTextColor,
+						title,
+						lede,
+						summary,
+						btnLabel,
+						btnURL,
+						btnTarget,
+						btnBackgroundColor,
+						btnTextColor,
 						imageID: Number( imageID ),
-						imageURL: imageURL,
+						imageURL,
 					} );
 				} );
 			};

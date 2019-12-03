@@ -118,7 +118,8 @@ export default function( { attributes, setAttributes, className } ) {
 					</li>
 				);
 			}
-		} );
+			return null;
+		} ).filter( ( category ) => category );
 
 		return (
 			<div className={ classes }>

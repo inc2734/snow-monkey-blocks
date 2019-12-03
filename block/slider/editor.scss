@@ -5,35 +5,28 @@
 .smb-slider {
   &__canvas {
     visibility: visible !important;
-  }
-}
+    padding-bottom: 0;
 
-[data-type="snow-monkey-blocks/slider"] {
-  .smb-slider {
-    &__canvas {
-      padding-bottom: 0;
+    > .editor-inner-blocks > .editor-block-list__layout {
+      @include _row();
+      @include _row--margin(.5);
+      margin-bottom: 0;
 
-      > .editor-inner-blocks > .editor-block-list__layout {
-        @include _row();
-        @include _row--margin(.5);
-        margin-bottom: 0;
+      > [data-type="snow-monkey-blocks/slider--item"] {
+        position: relative;
+        margin-right: 0;
+        margin-left: 0;
+        @include _row__col(1, 2);
+        @include _row__col--margin(.5);
 
-        > [data-type="snow-monkey-blocks/slider--item"] {
-          position: relative;
-          margin-right: 0;
-          margin-left: 0;
-          @include _row__col(1, 2);
-          @include _row__col--margin(.5);
-
-          > .editor-block-list__block-edit,
-          > .editor-block-list__block-edit > [data-block] {
-            margin: 0 !important;
-          }
+        > .editor-block-list__block-edit,
+        > .editor-block-list__block-edit > [data-block] {
+          margin: 0 !important;
         }
+      }
 
-        > .block-list-appender {
-          flex: 1 1 100%;
-        }
+      > .block-list-appender {
+        flex: 1 1 100%;
       }
     }
   }

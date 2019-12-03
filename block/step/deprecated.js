@@ -117,16 +117,16 @@ export default [
 					const linkColor = get( attributes.content, [ index, 'linkColor' ], '' );
 
 					return createBlock( 'snow-monkey-blocks/step--item', {
-						title: title,
-						summary: summary,
-						numberColor: numberColor,
-						imagePosition: imagePosition,
+						title,
+						summary,
+						numberColor,
+						imagePosition,
 						imageID: Number( imageID ),
-						imageURL: imageURL,
-						linkURL: linkURL,
-						linkTarget: linkTarget,
-						linkLabel: linkLabel,
-						linkColor: linkColor,
+						imageURL,
+						linkURL,
+						linkTarget,
+						linkLabel,
+						linkColor,
 					} );
 				} );
 			};

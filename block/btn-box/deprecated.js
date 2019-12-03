@@ -19,7 +19,7 @@ export default [
 			const { lede, note, backgroundColor, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, btnSize } = attributes;
 
 			return (
-				<div className="smb-btn-box" style={ { backgroundColor: backgroundColor } }>
+				<div className="smb-btn-box" style={ { backgroundColor } }>
 					<div className="c-container">
 						{ ! RichText.isEmpty( lede ) &&
 							<div className="smb-btn-box__lede">
@@ -109,7 +109,7 @@ export default [
 			const { lede, note, backgroundColor, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, btnSize } = attributes;
 
 			return (
-				<div className="smb-btn-box" style={ { backgroundColor: backgroundColor } }>
+				<div className="smb-btn-box" style={ { backgroundColor } }>
 					<div className="c-container">
 						{ ! RichText.isEmpty( lede ) &&
 							<div className="smb-btn-box__lede">

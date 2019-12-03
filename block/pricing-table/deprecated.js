@@ -120,17 +120,17 @@ export default [
 					const imageURL = get( attributes.content, [ index, 'imageURL' ], '' );
 
 					return createBlock( 'snow-monkey-blocks/pricing-table--item', {
-						title: title,
-						price: price,
-						lede: lede,
-						list: list,
-						btnLabel: btnLabel,
-						btnURL: btnURL,
-						btnTarget: btnTarget,
-						btnBackgroundColor: btnBackgroundColor,
-						btnTextColor: btnTextColor,
+						title,
+						price,
+						lede,
+						list,
+						btnLabel,
+						btnURL,
+						btnTarget,
+						btnBackgroundColor,
+						btnTextColor,
 						imageID: Number( imageID ),
-						imageURL: imageURL,
+						imageURL,
 					} );
 				} );
 			};

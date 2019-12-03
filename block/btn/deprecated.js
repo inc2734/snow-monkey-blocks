@@ -23,7 +23,7 @@ export default [
 					<a
 						className={ classnames( 'smb-btn', { [ `smb-btn--${ modifier }` ]: !! modifier } ) }
 						href={ url }
-						style={ { backgroundColor: backgroundColor } }
+						style={ { backgroundColor } }
 						target={ '_self' === target ? undefined : target }
 						rel={ '_self' === target ? undefined : 'noopener noreferrer' }
 					>
@@ -51,7 +51,7 @@ export default [
 						className={ classnames( 'smb-btn', { [ `smb-btn--${ modifier }` ]: !! modifier } ) }
 						href={ url }
 						target={ target }
-						style={ { backgroundColor: backgroundColor } }
+						style={ { backgroundColor } }
 					>
 						<span className="smb-btn__label" style={ { color: textColor } }>
 							<RichText.Content value={ content } />

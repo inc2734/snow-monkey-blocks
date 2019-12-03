@@ -50,9 +50,10 @@ export default function( { attributes, setAttributes } ) {
 			if ( 0 < terms.length ) {
 				return {
 					taxonomy: _taxonomy.slug,
-					terms: terms,
+					terms,
 				};
 			}
+			return {};
 		} ).filter( ( taxonomyTerms ) => taxonomyTerms );
 
 		return {
@@ -80,7 +81,7 @@ export default function( { attributes, setAttributes } ) {
 			<InspectorControls>
 				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
 					{ ! taxonomiesTerms.length && (
-						<BaseControl label={ __( 'Loading taxonomies...', 'snow-monkey-blocks' ) }>
+						<BaseControl label={ __( 'Loading taxonomies...', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/taxonomy-posts/taxonomies">
 							<Spinner />
 						</BaseControl>
 					) }

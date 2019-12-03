@@ -14,10 +14,8 @@ class Assets {
 		add_action( 'enqueue_block_editor_assets', [ $this, '_enqueue_block_editor_assets' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, '_wp_enqueue_scripts' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, '_wp_enqueue_pro_scripts' ] );
-		add_action( 'wp_enqueue_scripts', [ $this, '_wp_enqueue_nopro_scripts' ] );
 		add_action( 'enqueue_block_assets', [ $this, '_enqueue_block_assets' ] );
 		add_action( 'enqueue_block_assets', [ $this, '_enqueue_block_nopro_assets' ] );
-		add_action( 'enqueue_block_editor_assets', [ $this, '_enqueue_block_editor_nopro_assets' ] );
 	}
 
 	/**
@@ -37,16 +35,16 @@ class Assets {
 
 		wp_enqueue_style(
 			'snow-monkey-blocks-editor-wrapper',
-			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/css/blocks-editor-wrapper.min.css',
+			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/css/blocks-editor-wrapper.css',
 			[],
-			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/blocks-editor-wrapper.min.css' )
+			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/blocks-editor-wrapper.css' )
 		);
 
 		wp_enqueue_style(
 			'snow-monkey-blocks-editor',
-			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/css/blocks-editor.min.css',
+			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/css/blocks-editor.css',
 			[ 'snow-monkey-blocks' ],
-			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/blocks-editor.min.css' )
+			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/blocks-editor.css' )
 		);
 
 		wp_set_script_translations(
@@ -116,30 +114,15 @@ class Assets {
 			return;
 		}
 
-		wp_enqueue_style(
-			'snow-monkey-blocks-nopro',
-			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/css/blocks-nopro.min.css',
-			[],
-			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/blocks-nopro.min.css' )
-		);
-
 		wp_enqueue_script( 'moment' );
-
-		$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/app-nopro.asset.php' );
-		wp_enqueue_script(
-			'snow-monkey-blocks-nopro',
-			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/app-nopro.js',
-			$asset['dependencies'],
-			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/app-nopro.js' )
-		);
 	}
 
 	public function _enqueue_block_assets() {
 		wp_enqueue_style(
 			'snow-monkey-blocks',
-			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/css/blocks.min.css',
+			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/css/blocks.css',
 			[],
-			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/blocks.min.css' )
+			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/blocks.css' )
 		);
 	}
 
@@ -190,28 +173,10 @@ class Assets {
 		if ( apply_filters( 'snow_monkey_blocks_enqueue_fallback_style', true ) ) {
 			wp_enqueue_style(
 				'snow-monkey-blocks-fallback',
-				SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/css/fallback.min.css',
+				SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/css/fallback.css',
 				[],
-				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/fallback.min.css' )
+				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/fallback.css' )
 			);
 		}
-	}
-
-	/**
-	 * Enqueue nopro assets for block
-	 *
-	 * @return void
-	 */
-	public function _enqueue_block_editor_nopro_assets() {
-		if ( Blocks\is_pro() ) {
-			return;
-		}
-
-		wp_enqueue_style(
-			'snow-monkey-blocks-editor-nopro',
-			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/css/blocks-editor-nopro.min.css',
-			[],
-			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/blocks-editor-nopro.min.css' )
-		);
 	}
 }

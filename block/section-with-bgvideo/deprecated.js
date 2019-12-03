@@ -87,7 +87,7 @@ export default [
 
 		migrate( attributes ) {
 			const isSlim = !! attributes.contentsWidth;
-			return { ...attributes, isSlim: isSlim };
+			return { ...attributes, isSlim };
 		},
 
 		save( { attributes, className } ) {

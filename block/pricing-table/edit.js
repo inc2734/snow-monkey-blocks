@@ -41,7 +41,8 @@ export default function( { attributes, setAttributes, className } ) {
 				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
 					<BaseControl
 						label={ __( 'Column Size', 'snow-monkey-blocks' ) }
-						help={ __( 'If the text of each item is long, it is recommended to select other than "Auto".', 'snow-monkey-blocks' ) }>
+						help={ __( 'If the text of each item is long, it is recommended to select other than "Auto".', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/pricing-table/column-size">
 						<SelectControl
 							value={ columnSize }
 							options={ [

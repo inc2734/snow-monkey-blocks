@@ -103,7 +103,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 		<Fragment>
 			<InspectorControls>
 				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
-					<BaseControl label={ __( 'Wrapper Tag', 'snow-monkey-blocks' ) }>
+					<BaseControl label={ __( 'Wrapper Tag', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/section-break-the-grid/wrapper-tag-name">
 						<div className="smb-list-icon-selector">
 							{ times( wrapperTagNames.length, ( index ) => {
 								return (
@@ -119,7 +119,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 						</div>
 					</BaseControl>
 
-					<BaseControl label={ __( 'Title Tag', 'snow-monkey-blocks' ) }>
+					<BaseControl label={ __( 'Title Tag', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/section-break-the-grid/title-tag-name">
 						<div className="smb-list-icon-selector">
 							{ times( titleTagNames.length, ( index ) => {
 								return (
@@ -302,7 +302,8 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 
 					<BaseControl
 						className="editor-color-palette-control"
-						label={ __( 'Background Color', 'snow-monkey-blocks' ) }>
+						label={ __( 'Background Color', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/section-break-the-grid/content-background-color">
 						<ColorPalette
 							className="editor-color-palette-control__color-palette"
 							onChange={ ( value ) => setAttributes( { contentBackgroundColor: value } ) }
@@ -346,7 +347,8 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 				<PanelBody title={ __( 'Shadow Settings', 'snow-monkey-blocks' ) } initialOpen={ false }>
 					<BaseControl
 						className="editor-color-palette-control"
-						label={ __( 'Color', 'snow-monkey-blocks' ) }>
+						label={ __( 'Color', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/section-break-the-grid/shadow-color">
 						<ColorPalette
 							className="editor-color-palette-control__color-palette"
 							onChange={ ( value ) => setAttributes( { shadowColor: value } ) }

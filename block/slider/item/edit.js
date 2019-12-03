@@ -61,7 +61,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 		<Fragment>
 			<InspectorControls>
 				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
-					<BaseControl label={ __( 'URL', 'snow-monkey-blocks' ) }>
+					<BaseControl label={ __( 'URL', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/slider/item/url">
 						<URLInput
 							value={ url }
 							onChange={ ( value ) => setAttributes( { url: value } ) }

@@ -102,10 +102,10 @@ export default [
 
 					return createBlock( 'snow-monkey-blocks/testimonial--item', {
 						avatarID: Number( avatarID ),
-						avatarURL: avatarURL,
-						name: name,
-						lede: lede,
-						content: content,
+						avatarURL,
+						name,
+						lede,
+						content,
 					} );
 				} );
 			};

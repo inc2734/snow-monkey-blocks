@@ -109,13 +109,13 @@ export default [
 
 					return createBlock( 'snow-monkey-blocks/panels--item', {
 						titleTagName: attributes.itemTitleTagName,
-						title: title,
-						summary: summary,
-						linkLabel: linkLabel,
-						linkURL: linkURL,
-						linkTarget: linkTarget,
+						title,
+						summary,
+						linkLabel,
+						linkURL,
+						linkTarget,
 						imageID: Number( imageID ),
-						imageURL: imageURL,
+						imageURL,
 					} );
 				} );
 			};

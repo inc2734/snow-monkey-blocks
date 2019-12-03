@@ -11,19 +11,19 @@ export default function( { attributes, className } ) {
 	const { slidesToShow, slidesToScroll, mdSlidesToShow, mdSlidesToScroll, smSlidesToShow, smSlidesToScroll, dots, arrows, speed, autoplay, autoplaySpeed, fade, rtl } = attributes;
 
 	const config = generateConfig( {
-		slidesToShow: slidesToShow,
-		slidesToScroll: slidesToScroll,
-		mdSlidesToShow: mdSlidesToShow,
-		mdSlidesToScroll: mdSlidesToScroll,
-		smSlidesToShow: smSlidesToShow,
-		smSlidesToScroll: smSlidesToScroll,
-		dots: dots,
-		arrows: arrows,
-		speed: speed,
-		autoplay: autoplay,
+		slidesToShow,
+		slidesToScroll,
+		mdSlidesToShow,
+		mdSlidesToScroll,
+		smSlidesToShow,
+		smSlidesToScroll,
+		dots,
+		arrows,
+		speed,
+		autoplay,
 		autoplaySpeed: autoplaySpeed * 1000,
-		fade: fade,
-		rtl: rtl,
+		fade,
+		rtl,
 	} );
 
 	const classes = classnames( 'smb-slider', className );

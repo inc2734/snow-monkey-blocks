@@ -93,7 +93,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 						] }
 					/>
 
-					<BaseControl label={ __( 'Icon', 'snow-monkey-blocks' ) }>
+					<BaseControl label={ __( 'Icon', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/alert/icon">
 						<div className="smb-list-icon-selector">
 							{ times( iconList.length, ( index ) => {
 								return (

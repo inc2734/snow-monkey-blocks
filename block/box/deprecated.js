@@ -16,7 +16,7 @@ export default [
 			return (
 				<div
 					className="smb-box"
-					style={ { backgroundColor: backgroundColor, borderColor: borderColor, color: textColor, borderWidth: borderWidth } }
+					style={ { backgroundColor, borderColor, color: textColor, borderWidth } }
 				>
 					<div className="smb-box__body">
 						<InnerBlocks.Content />

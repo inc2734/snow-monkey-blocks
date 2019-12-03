@@ -95,7 +95,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 						onChange={ ( value ) => setAttributes( { imageColumnSize: value } ) }
 					/>
 
-					<BaseControl label={ __( 'Title Tag', 'snow-monkey-blocks' ) }>
+					<BaseControl label={ __( 'Title Tag', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/media-text/title-tag-name">
 						<div className="smb-list-icon-selector">
 							{ times( titleTagNames.length, ( index ) => {
 								return (
@@ -111,7 +111,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 						</div>
 					</BaseControl>
 
-					<BaseControl label={ __( 'URL', 'snow-monkey-blocks' ) }>
+					<BaseControl label={ __( 'URL', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/media-text/url">
 						<URLInput
 							value={ url }
 							onChange={ ( value ) => setAttributes( { url: value } ) }
