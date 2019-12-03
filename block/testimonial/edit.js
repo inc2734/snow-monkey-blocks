@@ -63,7 +63,7 @@ export default function( { attributes, setAttributes, className } ) {
 
 			<div className={ classes }>
 				<div className="smb-testimonial__body">
-					<div className="c-row c-row--margin" data-columns="1" data-md-columns={ md } data-lg-columns={ lg }>
+					<div className="c-row" data-columns="1" data-md-columns={ md } data-lg-columns={ lg }>
 						<InnerBlocks
 							allowedBlocks={ allowedBlocks }
 							template={ template }

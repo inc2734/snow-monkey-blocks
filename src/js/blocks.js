@@ -43,8 +43,8 @@ import {
 //import * as step from '../../block/step';
 //import * as stepItemStandard from '../../block/step/item/standard';
 //import * as stepItemFree from '../../block/step/item/free';
-import * as testimonial from '../../block/testimonial';
-import * as testimonialItem from '../../block/testimonial/item';
+//import * as testimonial from '../../block/testimonial';
+//import * as testimonialItem from '../../block/testimonial/item';
 import * as thumbnailGallery from '../../block/thumbnail-gallery';
 import * as thumbnailGalleryItem from '../../block/thumbnail-gallery/item';
 
@@ -86,8 +86,8 @@ import * as thumbnailGalleryItem from '../../block/thumbnail-gallery/item';
 	//step,
 	//stepItemStandard,
 	//stepItemFree,
-	testimonial,
-	testimonialItem,
+	//testimonial,
+	//testimonialItem,
 	thumbnailGallery,
 	thumbnailGalleryItem,
 ].forEach( registerBlock );

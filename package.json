@@ -181,6 +181,11 @@
     "block:taxonomy-posts:build:css": "node-sass block/taxonomy-posts -o dist/block/taxonomy-posts && postcss dist/block/taxonomy-posts/*.css -r",
     "block:taxonomy-posts": "npm run block:taxonomy-posts:clean && npm-run-all -p block:taxonomy-posts:build:*",
 
+    "block:testimonial:clean": "rimraf dist/block/testimonial",
+    "block:testimonial:build:js": "wp-scripts build block/testimonial/editor --output-path=dist/block/testimonial",
+    "block:testimonial:build:css": "node-sass block/testimonial -o dist/block/testimonial && postcss dist/block/testimonial/*.css -r",
+    "block:testimonial": "npm run block:testimonial:clean && npm-run-all -p block:testimonial:build:*",
+
     "lint:js": "wp-scripts lint-js block",
     "lint": "npm-run-all -p lint:*",
 
