@@ -9,14 +9,10 @@ import * as badge from '../../format/badge';
 import * as highlighter from '../../format/highlighter';
 import * as removeFormatting from '../../format/remove-fomatting';
 
-[
-	badge,
-	highlighter,
-	removeFormatting,
-].forEach( registerFormat );
+registerFormat( badge );
+registerFormat( highlighter );
+registerFormat( removeFormatting );
 
 import * as menu from '../../plugin/menu';
 
-[
-	menu,
-].forEach( registerSidebar );
+registerSidebar( menu );
