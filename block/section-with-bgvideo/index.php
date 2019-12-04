@@ -7,15 +7,42 @@
 
 use Snow_Monkey\Plugin\Blocks;
 
-$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-with-bgvideo/editor.asset.php' );
-
-wp_register_style(
+/**
+ * script
+ */
+wp_register_script(
 	'snow-monkey-blocks/section-with-bgvideo',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-with-bgvideo/front.css',
-	[ 'snow-monkey-blocks' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-with-bgvideo/front.css' )
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-with-bgvideo/script.js',
+	[],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-with-bgvideo/script.js' ),
+	true
 );
 
+/**
+ * style
+ */
+wp_register_style(
+	'snow-monkey-blocks/section-with-bgvideo',
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-with-bgvideo/style.css',
+	[ 'snow-monkey-blocks' ],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-with-bgvideo/style.css' )
+);
+
+/**
+ * editor_script
+ */
+$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-with-bgvideo/editor.asset.php' );
+wp_register_script(
+	'snow-monkey-blocks/section-with-bgvideo/editor',
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-with-bgvideo/editor.js',
+	array_merge( $asset['dependencies'], [ 'snow-monkey-blocks-editor' ] ),
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-with-bgvideo/editor.js' ),
+	true
+);
+
+/**
+ * editor_style
+ */
 wp_register_style(
 	'snow-monkey-blocks/section-with-bgvideo/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-with-bgvideo/editor.css',
@@ -23,27 +50,14 @@ wp_register_style(
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-with-bgvideo/editor.css' )
 );
 
+/**
+ * nopro
+ */
 wp_register_style(
 	'snow-monkey-blocks/section-with-bgvideo/nopro',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-with-bgvideo/nopro.css',
 	[],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-with-bgvideo/nopro.css' )
-);
-
-wp_register_script(
-	'snow-monkey-blocks/section-with-bgvideo',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-with-bgvideo/app.js',
-	[],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-with-bgvideo/app.js' ),
-	true
-);
-
-wp_register_script(
-	'snow-monkey-blocks/section-with-bgvideo/editor',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-with-bgvideo/editor.js',
-	array_merge( $asset['dependencies'], [ 'snow-monkey-blocks-editor' ] ),
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-with-bgvideo/editor.js' ),
-	true
 );
 
 register_block_type(

@@ -2,10 +2,8 @@ import {
 	registerBlock,
 } from '../../src/js/helper/helper';
 
-import * as testimonial from './';
-import * as testimonialItem from './item';
+import * as testimonial from './block';
+import * as testimonialItem from './block/item';
 
-[
-	testimonial,
-	testimonialItem,
-].forEach( registerBlock );
+registerBlock( testimonial );
+registerBlock( testimonialItem );

@@ -1,7 +1,6 @@
 'use strict';
 
 import {
-	registerBlock,
 	registerFormat,
 	registerSidebar,
 } from './helper/helper';

@@ -2,8 +2,6 @@ import {
 	registerBlock,
 } from '../../src/js/helper/helper';
 
-import * as pickupSlider from './';
+import * as pickupSlider from './block';
 
-[
-	pickupSlider,
-].forEach( registerBlock );
+registerBlock( pickupSlider );

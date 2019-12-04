@@ -2,10 +2,8 @@ import {
 	registerBlock,
 } from '../../src/js/helper/helper';
 
-import * as accordion from './';
-import * as accordionItem from './item';
+import * as accordion from './block/';
+import * as accordionItem from './block/item';
 
-[
-	accordion,
-	accordionItem,
-].forEach( registerBlock );
+registerBlock( accordion );
+registerBlock( accordionItem );

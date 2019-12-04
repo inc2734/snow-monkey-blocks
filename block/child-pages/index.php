@@ -8,9 +8,10 @@
 use Snow_Monkey\Plugin\Blocks;
 use Snow_Monkey\Plugin\Blocks\App\DynamicBlocks;
 
-$asset      = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/child-pages/editor.asset.php' );
-$attributes = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/child-pages/attributes.php' );
-
+/**
+ * editor_script
+ */
+$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/child-pages/editor.asset.php' );
 wp_register_script(
 	'snow-monkey-blocks/child-pages/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/child-pages/editor.js',
@@ -19,6 +20,9 @@ wp_register_script(
 	true
 );
 
+/**
+ * nopro
+ */
 wp_register_script(
 	'snow-monkey-blocks/child-pages/nopro',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/child-pages/nopro.js',
@@ -27,12 +31,17 @@ wp_register_script(
 	true
 );
 
+/**
+ * nopro
+ */
 wp_register_style(
 	'snow-monkey-blocks/child-pages/nopro',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/child-pages/nopro.css',
 	[],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/child-pages/nopro.css' )
 );
+
+$attributes = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/child-pages/attributes.php' );
 
 register_block_type(
 	'snow-monkey-blocks/child-pages',

@@ -2,8 +2,6 @@ import {
 	registerBlock,
 } from '../../src/js/helper/helper';
 
-import * as recentPosts from './';
+import * as recentPosts from './block';
 
-[
-	recentPosts,
-].forEach( registerBlock );
+registerBlock( recentPosts );

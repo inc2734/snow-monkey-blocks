@@ -2,10 +2,8 @@ import {
 	registerBlock,
 } from '../../src/js/helper/helper';
 
-import * as faq from './';
-import * as faqItem from './item';
+import * as faq from './block';
+import * as faqItem from './block/item';
 
-[
-	faq,
-	faqItem,
-].forEach( registerBlock );
+registerBlock( faq );
+registerBlock( faqItem );

@@ -2,10 +2,8 @@ import {
 	registerBlock,
 } from '../../src/js/helper/helper';
 
-import * as slider from './';
-import * as sliderItem from './item';
+import * as slider from './block';
+import * as sliderItem from './block/item';
 
-[
-	slider,
-	sliderItem,
-].forEach( registerBlock );
+registerBlock( slider );
+registerBlock( sliderItem );

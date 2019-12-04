@@ -64,43 +64,7 @@ class Bootstrap {
 	}
 
 	public function _register_blocks() {
-		$files = [
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/accordion/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/alert/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/balloon/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/box/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/btn/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/btn-box/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/categories-list/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/child-pages/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/container/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/contents-outline/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/countdown/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/directory-structure/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/evaluation-star/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/faq/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/items/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/limited-datetime/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/list/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/media-text/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/panels/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/pickup-slider/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/price-menu/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/pricing-table/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/rating-box/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/recent-posts/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/section/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/section-break-the-grid/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/section-side-heading/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/section-with-bgimage/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/section-with-bgvideo/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/slider/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/step/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/taxonomy-posts/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/testimonial/index.php',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/thumbnail-gallery/index.php',
-		];
-		foreach ( $files as $file ) {
+		foreach ( glob( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/*/index.php' ) as $file ) {
 			require_once( $file );
 		}
 	}

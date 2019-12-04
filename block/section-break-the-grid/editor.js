@@ -2,8 +2,6 @@ import {
 	registerBlock,
 } from '../../src/js/helper/helper';
 
-import * as sectionBreakTheGrid from './';
+import * as sectionBreakTheGrid from './block';
 
-[
-	sectionBreakTheGrid,
-].forEach( registerBlock );
+registerBlock( sectionBreakTheGrid );

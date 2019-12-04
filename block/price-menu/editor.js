@@ -2,10 +2,8 @@ import {
 	registerBlock,
 } from '../../src/js/helper/helper';
 
-import * as priceMenu from './';
-import * as priceMenuItem from './item';
+import * as priceMenu from './block';
+import * as priceMenuItem from './block/item';
 
-[
-	priceMenu,
-	priceMenuItem,
-].forEach( registerBlock );
+registerBlock( priceMenu );
+registerBlock( priceMenuItem );

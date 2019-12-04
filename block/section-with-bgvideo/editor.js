@@ -2,8 +2,6 @@ import {
 	registerBlock,
 } from '../../src/js/helper/helper';
 
-import * as sectionWithBgvideo from './';
+import * as sectionWithBgvideo from './block';
 
-[
-	sectionWithBgvideo,
-].forEach( registerBlock );
+registerBlock( sectionWithBgvideo );

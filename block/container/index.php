@@ -7,8 +7,10 @@
 
 use Snow_Monkey\Plugin\Blocks;
 
+/**
+ * editor_script
+ */
 $asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/container/editor.asset.php' );
-
 wp_register_script(
 	'snow-monkey-blocks/container/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/container/editor.js',

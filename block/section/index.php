@@ -7,8 +7,20 @@
 
 use Snow_Monkey\Plugin\Blocks;
 
-$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section/editor.asset.php' );
+/**
+ * style
+ */
+wp_register_style(
+	'snow-monkey-blocks/section',
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section/style.css',
+	[ 'snow-monkey-blocks' ],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section/style.css' )
+);
 
+/**
+ * editor_script
+ */
+$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section/editor.asset.php' );
 wp_register_script(
 	'snow-monkey-blocks/section/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section/editor.js',
@@ -17,6 +29,9 @@ wp_register_script(
 	true
 );
 
+/**
+ * nopro
+ */
 wp_register_script(
 	'snow-monkey-blocks/section/nopro',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section/nopro.js',
@@ -25,13 +40,9 @@ wp_register_script(
 	true
 );
 
-wp_register_style(
-	'snow-monkey-blocks/section',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section/front.css',
-	[ 'snow-monkey-blocks' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section/front.css' )
-);
-
+/**
+ * nopro
+ */
 wp_register_style(
 	'snow-monkey-blocks/section/nopro',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section/nopro.css',

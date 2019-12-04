@@ -2,16 +2,14 @@ import {
 	registerBlock,
 } from '../../src/js/helper/helper';
 
-import * as items from './';
-import * as itemsItem from './item';
-import * as itemsItemStandard from './item/standard';
-import * as itemsItemBlockLink from './item/block-link';
-import * as itemsItemBanner from './item/banner';
+import * as items from './block/';
+import * as itemsItem from './block/item';
+import * as itemsItemStandard from './block/item/standard';
+import * as itemsItemBlockLink from './block/item/block-link';
+import * as itemsItemBanner from './block/item/banner';
 
-[
-	items,
-	itemsItem,
-	itemsItemStandard,
-	itemsItemBlockLink,
-	itemsItemBanner,
-].forEach( registerBlock );
+registerBlock( items );
+registerBlock( itemsItem );
+registerBlock( itemsItemStandard );
+registerBlock( itemsItemBlockLink );
+registerBlock( itemsItemBanner );

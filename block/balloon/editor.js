@@ -2,8 +2,6 @@ import {
 	registerBlock,
 } from '../../src/js/helper/helper';
 
-import * as balloon from './';
+import * as balloon from './block';
 
-[
-	balloon,
-].forEach( registerBlock );
+registerBlock( balloon );

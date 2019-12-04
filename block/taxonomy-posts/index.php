@@ -8,10 +8,10 @@
 use Snow_Monkey\Plugin\Blocks;
 use Snow_Monkey\Plugin\Blocks\App\DynamicBlocks;
 
-$asset      = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/taxonomy-posts/editor.asset.php' );
-$attributes = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/taxonomy-posts/attributes.php' );
-$supports   = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/taxonomy-posts/supports.php' );
-
+/**
+ * editor_script
+ */
+$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/taxonomy-posts/editor.asset.php' );
 wp_register_script(
 	'snow-monkey-blocks/taxonomy-posts/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/taxonomy-posts/editor.js',
@@ -20,6 +20,9 @@ wp_register_script(
 	true
 );
 
+/**
+ * nopro
+ */
 wp_register_script(
 	'snow-monkey-blocks/taxonomy-posts/nopro',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/taxonomy-posts/nopro.js',
@@ -28,12 +31,18 @@ wp_register_script(
 	true
 );
 
+/**
+ * nopro
+ */
 wp_register_style(
 	'snow-monkey-blocks/taxonomy-posts/nopro',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/taxonomy-posts/nopro.css',
 	[],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/taxonomy-posts/nopro.css' )
 );
+
+$attributes = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/taxonomy-posts/attributes.php' );
+$supports   = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/taxonomy-posts/supports.php' );
 
 register_block_type(
 	'snow-monkey-blocks/taxonomy-posts',

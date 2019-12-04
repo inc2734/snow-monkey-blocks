@@ -2,8 +2,6 @@ import {
 	registerBlock,
 } from '../../src/js/helper/helper';
 
-import * as section from './';
+import * as section from './block';
 
-[
-	section,
-].forEach( registerBlock );
+registerBlock( section );

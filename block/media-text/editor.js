@@ -2,8 +2,6 @@ import {
 	registerBlock,
 } from '../../src/js/helper/helper';
 
-import * as mediaText from './';
+import * as mediaText from './block';
 
-[
-	mediaText,
-].forEach( registerBlock );
+registerBlock( mediaText );

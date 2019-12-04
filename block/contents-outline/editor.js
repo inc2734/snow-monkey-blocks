@@ -2,8 +2,6 @@ import {
 	registerBlock,
 } from '../../src/js/helper/helper';
 
-import * as contentsOutline from './';
+import * as contentsOutline from './block';
 
-[
-	contentsOutline,
-].forEach( registerBlock );
+registerBlock( contentsOutline );

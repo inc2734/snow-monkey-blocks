@@ -2,8 +2,6 @@ import {
 	registerBlock,
 } from '../../src/js/helper/helper';
 
-import * as sectionSideHeading from './';
+import * as sectionSideHeading from './block';
 
-[
-	sectionSideHeading,
-].forEach( registerBlock );
+registerBlock( sectionSideHeading );

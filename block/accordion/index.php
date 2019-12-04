@@ -5,8 +5,20 @@
  * @license GPL-2.0+
  */
 
-$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/accordion/editor.asset.php' );
+/**
+ * style
+ */
+wp_register_style(
+	'snow-monkey-blocks/accordion',
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/accordion/style.css',
+	[ 'snow-monkey-blocks' ],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/accordion/style.css' )
+);
 
+/**
+ * editor_script
+ */
+$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/accordion/editor.asset.php' );
 wp_register_script(
 	'snow-monkey-blocks/accordion/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/accordion/editor.js',
@@ -15,13 +27,9 @@ wp_register_script(
 	true
 );
 
-wp_register_style(
-	'snow-monkey-blocks/accordion',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/accordion/front.css',
-	[ 'snow-monkey-blocks' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/accordion/front.css' )
-);
-
+/**
+ * editor_style
+ */
 wp_register_style(
 	'snow-monkey-blocks/accordion/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/accordion/editor.css',

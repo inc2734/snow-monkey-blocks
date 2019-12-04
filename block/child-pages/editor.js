@@ -2,8 +2,6 @@ import {
 	registerBlock,
 } from '../../src/js/helper/helper';
 
-import * as childPages from './';
+import * as childPages from './block';
 
-[
-	childPages,
-].forEach( registerBlock );
+registerBlock( childPages );

@@ -5,16 +5,31 @@
  * @license GPL-2.0+
  */
 
-$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/countdown/editor.asset.php' );
-
+/**
+ * script
+ */
 wp_register_script(
 	'snow-monkey-blocks/countdown',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/countdown/app.js',
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/countdown/script.js',
 	[ 'moment' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/countdown/app.js' ),
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/countdown/script.js' ),
 	true
 );
 
+/**
+ * style
+ */
+wp_register_style(
+	'snow-monkey-blocks/countdown',
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/countdown/style.css',
+	[ 'snow-monkey-blocks' ],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/countdown/style.css' )
+);
+
+/**
+ * editor_script
+ */
+$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/countdown/editor.asset.php' );
 wp_register_script(
 	'snow-monkey-blocks/countdown/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/countdown/editor.js',
@@ -23,13 +38,9 @@ wp_register_script(
 	true
 );
 
-wp_register_style(
-	'snow-monkey-blocks/countdown',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/countdown/front.css',
-	[ 'snow-monkey-blocks' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/countdown/front.css' )
-);
-
+/**
+ * editor_style
+ */
 wp_register_style(
 	'snow-monkey-blocks/countdown/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/countdown/editor.css',

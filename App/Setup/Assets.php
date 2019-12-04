@@ -104,19 +104,6 @@ class Assets {
 		}
 	}
 
-	/**
-	 * Enqueue nopro assets
-	 *
-	 * @return void
-	 */
-	public function _wp_enqueue_nopro_scripts() {
-		if ( Blocks\is_pro() ) {
-			return;
-		}
-
-		wp_enqueue_script( 'moment' );
-	}
-
 	public function _enqueue_block_assets() {
 		wp_enqueue_style(
 			'snow-monkey-blocks',

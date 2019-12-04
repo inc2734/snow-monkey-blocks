@@ -2,8 +2,6 @@ import {
 	registerBlock,
 } from '../../src/js/helper/helper';
 
-import * as taxonomyPosts from './';
+import * as taxonomyPosts from './block';
 
-[
-	taxonomyPosts,
-].forEach( registerBlock );
+registerBlock( taxonomyPosts );

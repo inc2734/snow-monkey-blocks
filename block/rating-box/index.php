@@ -8,21 +8,26 @@
 use Snow_Monkey\Plugin\Blocks;
 use Snow_Monkey\Plugin\Blocks\App\DynamicBlocks;
 
-$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/rating-box/editor.asset.php' );
+/**
+ * style
+ */
+wp_register_style(
+	'snow-monkey-blocks/rating-box',
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/rating-box/style.css',
+	[ 'snow-monkey-blocks' ],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/rating-box/style.css' )
+);
 
+/**
+ * editor_script
+ */
+$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/rating-box/editor.asset.php' );
 wp_register_script(
 	'snow-monkey-blocks/rating-box/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/rating-box/editor.js',
 	array_merge( $asset['dependencies'], [ 'snow-monkey-blocks-editor' ] ),
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/rating-box/editor.js' ),
 	true
-);
-
-wp_register_style(
-	'snow-monkey-blocks/rating-box',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/rating-box/front.css',
-	[ 'snow-monkey-blocks' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/rating-box/front.css' )
 );
 
 register_block_type(

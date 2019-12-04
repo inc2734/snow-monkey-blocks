@@ -2,8 +2,6 @@ import {
 	registerBlock,
 } from '../../src/js/helper/helper';
 
-import * as countdown from './';
+import * as countdown from './block';
 
-[
-	countdown,
-].forEach( registerBlock );
+registerBlock( countdown );

@@ -8,10 +8,10 @@
 use Snow_Monkey\Plugin\Blocks;
 use Snow_Monkey\Plugin\Blocks\App\DynamicBlocks;
 
-$asset      = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/pickup-slider/editor.asset.php' );
-$attributes = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/pickup-slider/attributes.php' );
-$supports   = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/pickup-slider/supports.php' );
-
+/**
+ * editor_script
+ */
+$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/pickup-slider/editor.asset.php' );
 wp_register_script(
 	'snow-monkey-blocks/pickup-slider/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/pickup-slider/editor.js',
@@ -20,6 +20,9 @@ wp_register_script(
 	true
 );
 
+/**
+ * nopro
+ */
 wp_register_script(
 	'snow-monkey-blocks/pickup-slider/nopro',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/pickup-slider/nopro.js',
@@ -28,12 +31,18 @@ wp_register_script(
 	true
 );
 
+/**
+ * nopro
+ */
 wp_register_style(
 	'snow-monkey-blocks/pickup-slider/nopro',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/pickup-slider/nopro.css',
 	[],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/pickup-slider/nopro.css' )
 );
+
+$attributes = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/pickup-slider/attributes.php' );
+$supports   = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/pickup-slider/supports.php' );
 
 register_block_type(
 	'snow-monkey-blocks/pickup-slider',

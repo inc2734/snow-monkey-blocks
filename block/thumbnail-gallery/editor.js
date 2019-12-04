@@ -2,10 +2,8 @@ import {
 	registerBlock,
 } from '../../src/js/helper/helper';
 
-import * as thumbnailGallery from './';
-import * as thumbnailGalleryItem from './item';
+import * as thumbnailGallery from './block';
+import * as thumbnailGalleryItem from './block/item';
 
-[
-	thumbnailGallery,
-	thumbnailGalleryItem,
-].forEach( registerBlock );
+registerBlock( thumbnailGallery );
+registerBlock( thumbnailGalleryItem );

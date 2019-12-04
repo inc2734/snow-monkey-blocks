@@ -2,8 +2,6 @@ import {
 	registerBlock,
 } from '../../src/js/helper/helper';
 
-import * as btnBox from './';
+import * as btnBox from './block';
 
-[
-	btnBox,
-].forEach( registerBlock );
+registerBlock( btnBox );

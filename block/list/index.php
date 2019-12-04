@@ -5,16 +5,31 @@
  * @license GPL-2.0+
  */
 
-$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/list/editor.asset.php' );
-
+/**
+ * script
+ */
 wp_register_script(
 	'snow-monkey-blocks/list',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/list/app.js',
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/list/script.js',
 	[],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/list/app.js' ),
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/list/script.js' ),
 	true
 );
 
+/**
+ * style
+ */
+wp_register_style(
+	'snow-monkey-blocks/list',
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/list/style.css',
+	[ 'snow-monkey-blocks' ],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/list/style.css' )
+);
+
+/**
+ * editor_script
+ */
+$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/list/editor.asset.php' );
 wp_register_script(
 	'snow-monkey-blocks/list/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/list/editor.js',
@@ -23,13 +38,9 @@ wp_register_script(
 	true
 );
 
-wp_register_style(
-	'snow-monkey-blocks/list',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/list/front.css',
-	[ 'snow-monkey-blocks' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/list/front.css' )
-);
-
+/**
+ * editor_style
+ */
 wp_register_style(
 	'snow-monkey-blocks/list/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/list/editor.css',

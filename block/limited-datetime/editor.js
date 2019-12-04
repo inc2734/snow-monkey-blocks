@@ -2,8 +2,6 @@ import {
 	registerBlock,
 } from '../../src/js/helper/helper';
 
-import * as limitedDatetime from './';
+import * as limitedDatetime from './block';
 
-[
-	limitedDatetime,
-].forEach( registerBlock );
+registerBlock( limitedDatetime );

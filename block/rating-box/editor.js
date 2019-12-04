@@ -2,10 +2,8 @@ import {
 	registerBlock,
 } from '../../src/js/helper/helper';
 
-import * as ratingBox from './';
-import * as ratingBoxItem from './item';
+import * as ratingBox from './block';
+import * as ratingBoxItem from './block/item';
 
-[
-	ratingBox,
-	ratingBoxItem,
-].forEach( registerBlock );
+registerBlock( ratingBox );
+registerBlock( ratingBoxItem );

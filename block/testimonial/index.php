@@ -7,15 +7,20 @@
 
 use Snow_Monkey\Plugin\Blocks;
 
-$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/testimonial/editor.asset.php' );
-
+/**
+ * style
+ */
 wp_register_style(
 	'snow-monkey-blocks/testimonial',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/testimonial/front.css',
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/testimonial/style.css',
 	[ 'snow-monkey-blocks' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/testimonial/front.css' )
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/testimonial/style.css' )
 );
 
+/**
+ * editor_script
+ */
+$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/testimonial/editor.asset.php' );
 wp_register_script(
 	'snow-monkey-blocks/testimonial/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/testimonial/editor.js',

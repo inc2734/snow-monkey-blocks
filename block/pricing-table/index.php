@@ -8,8 +8,20 @@
 use Snow_Monkey\Plugin\Blocks;
 use Snow_Monkey\Plugin\Blocks\App\DynamicBlocks;
 
-$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/pricing-table/editor.asset.php' );
+/**
+ * style
+ */
+wp_register_style(
+	'snow-monkey-blocks/pricing-table',
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/pricing-table/style.css',
+	[ 'snow-monkey-blocks' ],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/pricing-table/style.css' )
+);
 
+/**
+ * editor_script
+ */
+$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/pricing-table/editor.asset.php' );
 wp_register_script(
 	'snow-monkey-blocks/pricing-table/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/pricing-table/editor.js',
@@ -18,18 +30,14 @@ wp_register_script(
 	true
 );
 
-wp_register_style(
-	'snow-monkey-blocks/pricing-table',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/pricing-table/front.css',
-	[ 'snow-monkey-blocks' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/pricing-table/front.css' )
-);
-
+/**
+ * editor_style
+ */
 wp_register_style(
 	'snow-monkey-blocks/pricing-table/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/pricing-table/editor.css',
 	[ 'snow-monkey-blocks/pricing-table', 'snow-monkey-blocks-editor' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/pricing-table/front.css' )
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/pricing-table/editor.css' )
 );
 
 register_block_type(

@@ -5,8 +5,20 @@
  * @license GPL-2.0+
  */
 
-$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/alert/editor.asset.php' );
+/**
+ * style
+ */
+wp_register_style(
+	'snow-monkey-blocks/alert',
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/alert/style.css',
+	[ 'snow-monkey-blocks' ],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/alert/style.css' )
+);
 
+/**
+ * editor_script
+ */
+$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/alert/editor.asset.php' );
 wp_register_script(
 	'snow-monkey-blocks/alert/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/alert/editor.js',
@@ -15,13 +27,9 @@ wp_register_script(
 	true
 );
 
-wp_register_style(
-	'snow-monkey-blocks/alert',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/alert/front.css',
-	[ 'snow-monkey-blocks' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/alert/front.css' )
-);
-
+/**
+ * editor_style
+ */
 wp_register_style(
 	'snow-monkey-blocks/alert/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/alert/editor.css',
