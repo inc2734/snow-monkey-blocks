@@ -160,7 +160,7 @@
     "block": "npm-run-all -p block:*",
     "lint:js": "wp-scripts lint-js block",
     "lint": "npm-run-all -p lint:*",
-    "build": "npm-run-all -p css js packages po2json img && npm run block",
+    "build": "npm-run-all -s css js packages po2json img block",
     "clean:css": "rimraf dist/css",
     "clean:js": "rimraf dist/js",
     "clean:packages": "rimraf dist/packages",
