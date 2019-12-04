@@ -42,17 +42,17 @@ wp_register_style(
 /**
  * nopro
  */
-wp_register_style(
-	'snow-monkey-blocks/section-break-the-grid/nopro',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-break-the-grid/nopro.css',
+wp_enqueue_style(
+	'snow-monkey-blocks/section-break-the-grid/nopro/editor',
+	! Blocks\is_pro() && is_admin() ? SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-break-the-grid/nopro-editor.css' : null,
 	[],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-break-the-grid/nopro.css' )
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-break-the-grid/nopro-editor.css' )
 );
 
 register_block_type(
 	'snow-monkey-blocks/section-break-the-grid',
 	[
-		'style'         => ! Blocks\is_pro() ? 'snow-monkey-blocks/section-break-the-grid/nopro' : 'snow-monkey-blocks/section-break-the-grid',
+		'style'         => 'snow-monkey-blocks/section-break-the-grid',
 		'editor_script' => 'snow-monkey-blocks/section-break-the-grid/editor',
 		'editor_style'  => 'snow-monkey-blocks/section-break-the-grid/editor',
 	]

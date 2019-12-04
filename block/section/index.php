@@ -32,9 +32,9 @@ wp_register_script(
 /**
  * nopro
  */
-wp_register_script(
+wp_enqueue_script(
 	'snow-monkey-blocks/section/nopro',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section/nopro.js',
+	! Blocks\is_pro() && ! is_admin() ? SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section/nopro.js' : null,
 	[],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section/nopro.js' ),
 	true
@@ -43,18 +43,27 @@ wp_register_script(
 /**
  * nopro
  */
-wp_register_style(
+wp_enqueue_style(
 	'snow-monkey-blocks/section/nopro',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section/nopro.css',
+	! Blocks\is_pro() && ! is_admin() ? SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section/nopro.css' : null,
 	[],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section/nopro.css' )
+);
+
+/**
+ * nopro
+ */
+wp_enqueue_style(
+	'snow-monkey-blocks/section/nopro/editor',
+	! Blocks\is_pro() && is_admin() ? SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section/nopro-editor.css' : null,
+	[],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section/nopro-editor.css' )
 );
 
 register_block_type(
 	'snow-monkey-blocks/section',
 	[
-		'script'        => ! Blocks\is_pro() && ! is_admin() ? 'snow-monkey-blocks/section/nopro' : null,
-		'style'         => ! Blocks\is_pro() ? 'snow-monkey-blocks/section/nopro' : 'snow-monkey-blocks/section',
+		'style'         => 'snow-monkey-blocks/section',
 		'editor_script' => 'snow-monkey-blocks/section/editor',
 	]
 );

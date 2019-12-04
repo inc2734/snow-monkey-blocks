@@ -53,18 +53,18 @@ wp_register_style(
 /**
  * nopro
  */
-wp_register_style(
-	'snow-monkey-blocks/section-with-bgvideo/nopro',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-with-bgvideo/nopro.css',
+wp_enqueue_style(
+	'snow-monkey-blocks/section-with-bgvideo/nopro/editor',
+	! Blocks\is_pro() && is_admin() ? SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-with-bgvideo/nopro-editor.css' : null,
 	[],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-with-bgvideo/nopro.css' )
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-with-bgvideo/nopro-editor.css' )
 );
 
 register_block_type(
 	'snow-monkey-blocks/section-with-bgvideo',
 	[
-		'style'         => ! Blocks\is_pro() ? 'snow-monkey-blocks/section-with-bgvideo/nopro' : 'snow-monkey-blocks/section-with-bgvideo',
-		'script'        => ! is_admin() ?  'snow-monkey-blocks/section-with-bgvideo' : null,
+		'style'         => 'snow-monkey-blocks/section-with-bgvideo',
+		'script'        => ! is_admin() ? 'snow-monkey-blocks/section-with-bgvideo' : null,
 		'editor_script' => 'snow-monkey-blocks/section-with-bgvideo/editor',
 		'editor_style'  => 'snow-monkey-blocks/section-with-bgvideo/editor',
 	]

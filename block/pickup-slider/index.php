@@ -23,9 +23,9 @@ wp_register_script(
 /**
  * nopro
  */
-wp_register_script(
+wp_enqueue_script(
 	'snow-monkey-blocks/pickup-slider/nopro',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/pickup-slider/nopro.js',
+	! Blocks\is_pro() && ! is_admin() ? SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/pickup-slider/nopro.js' : null,
 	[],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/pickup-slider/nopro.js' ),
 	true
@@ -34,11 +34,21 @@ wp_register_script(
 /**
  * nopro
  */
-wp_register_style(
+wp_enqueue_style(
 	'snow-monkey-blocks/pickup-slider/nopro',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/pickup-slider/nopro.css',
+	! Blocks\is_pro() && ! is_admin() ? SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/pickup-slider/nopro.css' : null,
 	[],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/pickup-slider/nopro.css' )
+);
+
+/**
+ * nopro
+ */
+wp_enqueue_style(
+	'snow-monkey-blocks/pickup-slider/nopro/editor',
+	! Blocks\is_pro() && is_admin() ? SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/pickup-slider/nopro-editor.css' : null,
+	[],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/pickup-slider/nopro-editor.css' )
 );
 
 $attributes = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/pickup-slider/attributes.php' );
@@ -47,8 +57,6 @@ $supports   = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/pickup-slider/suppo
 register_block_type(
 	'snow-monkey-blocks/pickup-slider',
 	[
-		'script'          => ! Blocks\is_pro() && ! is_admin() ? 'snow-monkey-blocks/pickup-slider/nopro' : null,
-		'style'           => ! Blocks\is_pro() ? 'snow-monkey-blocks/pickup-slider/nopro' : null,
 		'editor_script'   => 'snow-monkey-blocks/pickup-slider/editor',
 		'attributes'      => $attributes,
 		'supports'        => $supports,

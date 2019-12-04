@@ -23,9 +23,9 @@ wp_register_script(
 /**
  * nopro
  */
-wp_register_script(
+wp_enqueue_script(
 	'snow-monkey-blocks/taxonomy-posts/nopro',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/taxonomy-posts/nopro.js',
+	! Blocks\is_pro() && ! is_admin() ? SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/taxonomy-posts/nopro.js' : null,
 	[],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/taxonomy-posts/nopro.js' ),
 	true
@@ -34,11 +34,21 @@ wp_register_script(
 /**
  * nopro
  */
-wp_register_style(
+wp_enqueue_style(
 	'snow-monkey-blocks/taxonomy-posts/nopro',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/taxonomy-posts/nopro.css',
+	! Blocks\is_pro() && ! is_admin() ? SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/taxonomy-posts/nopro.css' : null,
 	[],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/taxonomy-posts/nopro.css' )
+);
+
+/**
+ * nopro
+ */
+wp_enqueue_style(
+	'snow-monkey-blocks/taxonomy-posts/nopro/editor',
+	! Blocks\is_pro() && is_admin() ? SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/taxonomy-posts/nopro-editor.css' : null,
+	[],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/taxonomy-posts/nopro-editor.css' )
 );
 
 $attributes = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/taxonomy-posts/attributes.php' );
@@ -47,8 +57,6 @@ $supports   = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/taxonomy-posts/supp
 register_block_type(
 	'snow-monkey-blocks/taxonomy-posts',
 	[
-		'script'          => ! Blocks\is_pro() && ! is_admin() ? 'snow-monkey-blocks/taxonomy-posts/nopro' : null,
-		'style'           => ! Blocks\is_pro() ? 'snow-monkey-blocks/taxonomy-posts/nopro' : null,
 		'editor_script'   => 'snow-monkey-blocks/taxonomy-posts/editor',
 		'attributes'      => $attributes,
 		'supports'        => $supports,
