@@ -9,7 +9,7 @@ module.exports = {
 		'plugin:@wordpress/eslint-plugin/test-e2e',
 		'plugin:@wordpress/eslint-plugin/test-unit',
 	],
-  globals: {
+	globals: {
 		smb: true,
-  },
+	},
 };
