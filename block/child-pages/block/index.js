@@ -20,7 +20,6 @@ export const settings = {
 	category: blockConfig.blockCategories.common,
 	snowMonkeyBlocks: {
 		isPro: true,
-		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/child-pages.png`,
 	},
 	edit,
 	save,
