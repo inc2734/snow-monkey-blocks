@@ -49,6 +49,10 @@ export default function( { slug, setupResultDetail } ) {
 	const categoryBlocks = getBlocksFromCategory( slug );
 
 	categoryBlocks.forEach( ( categoryBlock ) => {
+		if ( 'undefined' === typeof categoryBlock.block.snowMonkeyBlocks ) {
+			return;
+		}
+
 		resultList.push(
 			<li>
 				<Button

@@ -8,6 +8,7 @@ import blockConfig from '../../../src/js/config/block';
 import edit from './edit';
 import save from './save';
 import deprecated from './deprecated';
+import example from './example';
 
 export const name = 'snow-monkey-blocks/accordion';
 
@@ -19,10 +20,8 @@ export const settings = {
 		src: 'editor-justify',
 	},
 	category: blockConfig.blockCategories.common,
-	snowMonkeyBlocks: {
-		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/accordion.png`,
-	},
 	edit,
 	save,
 	deprecated,
+	example,
 };

@@ -26,6 +26,10 @@ export default function() {
 
 	const setupResultDetail = ( blockName ) => {
 		const block = getBlockType( blockName );
+		if ( 'undefined' === typeof block.snowMonkeyBlocks ) {
+			return;
+		}
+
 		const proMessage = ! smb.isPro && block.snowMonkeyBlocks.isPro ? (
 			<p className="smb-menu__template-block__modal__pro-message">
 				{ __( 'This block is for pro users only', 'snow-monkey-blocks' ) }
