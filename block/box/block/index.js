@@ -5,6 +5,7 @@ import attributes from './attributes';
 import edit from './edit';
 import save from './save';
 import deprecated from './deprecated';
+import example from './example';
 
 import {
 	__,
@@ -17,14 +18,12 @@ export const settings = {
 	description: __( 'It is a box.', 'snow-monkey-blocks' ),
 	icon: {
 		foreground: blockConfig.blockIconColor,
-		src: 'admin-comments',
+		src: 'list-view',
 	},
 	category: blockConfig.blockCategories.common,
-	snowMonkeyBlocks: {
-		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/box.png`,
-	},
 	attributes,
 	edit,
 	save,
 	deprecated,
+	example,
 };
