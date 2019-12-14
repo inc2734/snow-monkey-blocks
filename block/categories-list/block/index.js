@@ -3,6 +3,7 @@
 import blockConfig from '../../../src/js/config/block';
 import edit from './edit';
 import save from './save';
+import example from './example';
 
 import {
 	registerStore,
@@ -75,9 +76,7 @@ export const settings = {
 		src: 'excerpt-view',
 	},
 	category: blockConfig.blockCategories.common,
-	snowMonkeyBlocks: {
-		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/categories-list.png`,
-	},
 	edit,
 	save,
+	example,
 };
