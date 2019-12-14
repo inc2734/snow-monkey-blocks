@@ -30,6 +30,10 @@ export default function() {
 			return;
 		}
 
+		if ( 'undefined' === typeof block.snowMonkeyBlocks.screenshot ) {
+			return;
+		}
+
 		const proMessage = ! smb.isPro && block.snowMonkeyBlocks.isPro ? (
 			<p className="smb-menu__template-block__modal__pro-message">
 				{ __( 'This block is for pro users only', 'snow-monkey-blocks' ) }

@@ -23,7 +23,6 @@ export const settings = {
 	},
 	snowMonkeyBlocks: {
 		isPro: true,
-		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/contents-outline.png`,
 	},
 	edit,
 	save,

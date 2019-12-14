@@ -53,6 +53,10 @@ export default function( { slug, setupResultDetail } ) {
 			return;
 		}
 
+		if ( 'undefined' === typeof categoryBlock.block.snowMonkeyBlocks.screenshot ) {
+			return;
+		}
+
 		resultList.push(
 			<li>
 				<Button
