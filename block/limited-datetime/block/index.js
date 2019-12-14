@@ -4,6 +4,7 @@ import blockConfig from '../../../src/js/config/block';
 import attributes from './attributes';
 import edit from './edit';
 import save from './save';
+import example from './example';
 
 import {
 	__,
@@ -24,10 +25,8 @@ export const settings = {
 		customClassName: false,
 		className: false,
 	},
-	snowMonkeyBlocks: {
-		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/limited-datetime.png`,
-	},
 	attributes,
 	edit,
 	save,
+	example,
 };
