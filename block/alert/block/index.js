@@ -6,6 +6,7 @@ import edit from './edit';
 import save from './save';
 import deprecated from './deprecated';
 import transforms from './transforms';
+import example from './example';
 
 import {
 	__,
@@ -21,12 +22,10 @@ export const settings = {
 		src: 'warning',
 	},
 	category: blockConfig.blockCategories.common,
-	snowMonkeyBlocks: {
-		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/alert.png`,
-	},
 	attributes,
 	edit,
 	save,
 	deprecated,
 	transforms,
+	example,
 };
