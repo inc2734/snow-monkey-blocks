@@ -4,6 +4,7 @@ import blockConfig from '../../../src/js/config/block';
 import attributes from './attributes';
 import edit from './edit';
 import save from './save';
+import example from './example';
 
 import {
 	__,
@@ -39,10 +40,8 @@ export const settings = {
 	keywords: [
 		__( 'Countdown', 'snow-monkey-blocks' ),
 	],
-	snowMonkeyBlocks: {
-		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/countdown.png`,
-	},
 	attributes,
 	edit,
 	save,
+	example,
 };
