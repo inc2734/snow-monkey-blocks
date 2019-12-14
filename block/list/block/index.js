@@ -5,6 +5,7 @@ import attributes from './attributes';
 import edit from './edit';
 import save from './save';
 import deprecated from './deprecated';
+import example from './example';
 
 import {
 	__,
@@ -20,11 +21,9 @@ export const settings = {
 		src: 'editor-ul',
 	},
 	category: blockConfig.blockCategories.common,
-	snowMonkeyBlocks: {
-		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/list.png`,
-	},
 	attributes,
 	edit,
 	save,
 	deprecated,
+	example,
 };
