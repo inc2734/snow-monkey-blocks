@@ -5,6 +5,7 @@ import attributes from './attributes';
 import edit from './edit';
 import save from './save';
 import deprecated from './deprecated';
+import example from './example';
 
 import {
 	__,
@@ -27,11 +28,9 @@ export const settings = {
 		{ name: 'default', label: __( 'Default', 'snow-monkey-blocks' ), isDefault: true },
 		{ name: 'ghost', label: __( 'Ghost', 'snow-monkey-blocks' ) },
 	],
-	snowMonkeyBlocks: {
-		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/btn-box.png`,
-	},
 	attributes,
 	edit,
 	save,
 	deprecated,
+	example,
 };
