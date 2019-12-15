@@ -5,6 +5,7 @@ import attributes from './attributes';
 import edit from './edit';
 import save from './save';
 import deprecated from './deprecated';
+import example from './example';
 
 import {
 	__,
@@ -23,11 +24,9 @@ export const settings = {
 	supports: {
 		anchor: true,
 	},
-	snowMonkeyBlocks: {
-		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/media-text.png`,
-	},
 	attributes,
 	edit,
 	save,
 	deprecated,
+	example,
 };
