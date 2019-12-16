@@ -21,9 +21,6 @@ export const settings = {
 	supports: {
 		customClassName: false,
 	},
-	snowMonkeyBlocks: {
-		isPro: true,
-	},
 	edit,
 	save,
 };

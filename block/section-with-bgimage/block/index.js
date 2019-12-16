@@ -25,10 +25,6 @@ export const settings = {
 		align: [ 'wide', 'full' ],
 		anchor: true,
 	},
-	snowMonkeyBlocks: {
-		isPro: true,
-	},
-
 	attributes,
 	edit,
 	save,

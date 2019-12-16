@@ -21,7 +21,6 @@ import {
 	__,
 } from '@wordpress/i18n';
 
-import Blocks from './blocks';
 import BlockTemplates from './block-templates';
 
 export default function() {
@@ -29,11 +28,6 @@ export default function() {
 		{
 			name: 'block-templates',
 			title: __( 'Block templates', 'snow-monkey-blocks' ),
-			className: 'edit-post-sidebar__panel-tab',
-		},
-		{
-			name: 'blocks',
-			title: __( 'Blocks', 'snow-monkey-blocks' ),
 			className: 'edit-post-sidebar__panel-tab',
 		},
 	];
@@ -45,6 +39,7 @@ export default function() {
 			>
 				{ __( 'Snow Monkey Blocks', 'snow-monkey-blocks' ) }
 			</PluginSidebarMoreMenuItem>
+
 			<PluginSidebar
 				name="smbSidebar"
 				title={ __( 'Snow Monkey Blocks', 'snow-monkey-blocks' ) }
@@ -61,10 +56,6 @@ export default function() {
 								case 'block-templates':
 									return (
 										<BlockTemplates />
-									);
-								case 'blocks':
-									return (
-										<Blocks />
 									);
 							}
 							return null;

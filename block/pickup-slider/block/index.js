@@ -18,9 +18,6 @@ export const settings = {
 		src: 'format-gallery',
 	},
 	category: blockConfig.blockCategories.common,
-	snowMonkeyBlocks: {
-		isPro: true,
-	},
 	edit,
 	save,
 };

@@ -19,9 +19,6 @@ export const settings = {
 		src: 'editor-ul',
 	},
 	category: blockConfig.blockCategories.common,
-	snowMonkeyBlocks: {
-		isPro: true,
-	},
 	edit,
 	save,
 	example,

@@ -18,9 +18,6 @@ export const settings = {
 		src: 'screenoptions',
 	},
 	category: blockConfig.blockCategories.common,
-	snowMonkeyBlocks: {
-		isPro: true,
-	},
 	edit,
 	save,
 };
