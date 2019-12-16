@@ -2,6 +2,8 @@
 
 import classnames from 'classnames';
 import { toNumber } from '../../../src/js/helper/helper';
+import ResponsiveTabPanel from '../../../src/js/component/responsive-tab-panel';
+import Figure from '../../../src/js/component/figure';
 
 import {
 	times,
@@ -12,7 +14,6 @@ import {
 	InnerBlocks,
 	InspectorControls,
 	PanelColorSettings,
-	MediaPlaceholder,
 	ColorPalette,
 } from '@wordpress/block-editor';
 
@@ -34,7 +35,7 @@ import {
 } from '@wordpress/i18n';
 
 export default function( { attributes, setAttributes, isSelected, className } ) {
-	const { wrapperTagName, titleTagName, title, imageID, imageURL, imageAlt, height, contentsAlignment, maskColor, maskColor2, maskColorAngle, maskOpacity, textColor, parallax, isSlim } = attributes;
+	const { wrapperTagName, titleTagName, title, lgImageID, lgImageURL, lgImageAlt, mdImageID, mdImageURL, mdImageAlt, smImageID, smImageURL, smImageAlt, height, contentsAlignment, maskColor, maskColor2, maskColorAngle, maskOpacity, textColor, parallax, isSlim } = attributes;
 
 	const wrapperTagNames = [ 'div', 'section', 'aside' ];
 	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
@@ -165,6 +166,54 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 						checked={ isSlim }
 						onChange={ ( value ) => setAttributes( { isSlim: value } ) }
 					/>
+
+					<ResponsiveTabPanel
+						desktop={ () => {
+							return (
+								<Figure
+									src={ lgImageURL }
+									id={ lgImageID }
+									alt={ lgImageAlt }
+									selectHandler={ ( media ) => {
+										const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
+										setAttributes( { lgImageURL: newImageURL, lgImageID: media.id, lgImageAlt: media.alt } );
+									} }
+									removeHandler={ () => setAttributes( { lgImageURL: '', lgImageAlt: '', lgImageID: 0 } ) }
+									isSelected={ isSelected }
+								/>
+							);
+						} }
+						tablet={ () => {
+							return (
+								<Figure
+									src={ mdImageURL }
+									id={ mdImageID }
+									alt={ mdImageAlt }
+									selectHandler={ ( media ) => {
+										const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
+										setAttributes( { mdImageURL: newImageURL, mdImageID: media.id, mdImageAlt: media.alt } );
+									} }
+									removeHandler={ () => setAttributes( { mdImageURL: '', mdImageAlt: '', mdImageID: 0 } ) }
+									isSelected={ isSelected }
+								/>
+							);
+						} }
+						mobile={ () => {
+							return (
+								<Figure
+									src={ smImageURL }
+									id={ smImageID }
+									alt={ smImageAlt }
+									selectHandler={ ( media ) => {
+										const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
+										setAttributes( { smImageURL: newImageURL, smImageID: media.id, smImageAlt: media.alt } );
+									} }
+									removeHandler={ () => setAttributes( { smImageURL: '', smImageAlt: '', smImageID: 0 } ) }
+									isSelected={ isSelected }
+								/>
+							);
+						} }
+					/>
 				</PanelBody>
 
 				<PanelColorSettings
@@ -220,31 +269,21 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 				</PanelBody>
 			</InspectorControls>
 
-			{ ! imageURL &&
-				<MediaPlaceholder
-					icon="format-image"
-					labels={ { title: __( 'Image' ) } }
-					onSelect={ ( media ) => {
-						const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
-						setAttributes( { imageURL: newImageURL, imageID: media.id, imageAlt: media.alt } );
-					} }
-					accept="image/*"
-					allowedTypes={ [ 'image' ] }
-				/>
-			}
 			<Wrapper className={ classes } style={ sectionStyles }>
-				{ !! imageURL && isSelected &&
-					<button
-						className="smb-remove-button"
-						onClick={ () => {
-							setAttributes( { imageURL: '', imageAlt: '', imageID: 0 } );
-						} }
-					>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
-				}
 				<div className="smb-section-with-bgimage__mask" style={ maskStyles } />
-				{ imageURL &&
-					<div className={ bgimageClasses } style={ bgimageStyles }>
-						<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
+				{ lgImageURL &&
+					<div className={ classnames( bgimageClasses, 'smb-section-with-bgimage__bgimage--lg' ) } style={ bgimageStyles }>
+						<img src={ lgImageURL } alt={ lgImageAlt } className={ `wp-image-${ lgImageID }` } />
+					</div>
+				}
+				{ mdImageURL &&
+					<div className={ classnames( bgimageClasses, 'smb-section-with-bgimage__bgimage--md' ) } style={ bgimageStyles }>
+						<img src={ mdImageURL } alt={ mdImageAlt } className={ `wp-image-${ mdImageID }` } />
+					</div>
+				}
+				{ smImageURL &&
+					<div className={ classnames( bgimageClasses, 'smb-section-with-bgimage__bgimage--sm' ) } style={ bgimageStyles }>
+						<img src={ smImageURL } alt={ smImageAlt } className={ `wp-image-${ smImageID }` } />
 					</div>
 				}
 				<div className={ containerClasses }>

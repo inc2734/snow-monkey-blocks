@@ -5,5 +5,5 @@ export default {
 		postsPerPage: 3,
 		taxonomy: 'category',
 		termId: 0,
-	}
+	},
 };

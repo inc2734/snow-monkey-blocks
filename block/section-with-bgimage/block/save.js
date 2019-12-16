@@ -8,7 +8,7 @@ import {
 } from '@wordpress/block-editor';
 
 export default function( { attributes, className } ) {
-	const { wrapperTagName, titleTagName, title, imageID, imageURL, imageAlt, height, contentsAlignment, maskColor, maskColor2, maskColorAngle, maskOpacity, textColor, parallax, isSlim } = attributes;
+	const { wrapperTagName, titleTagName, title, lgImageID, lgImageURL, lgImageAlt, mdImageID, mdImageURL, mdImageAlt, smImageID, smImageURL, smImageAlt, height, contentsAlignment, maskColor, maskColor2, maskColorAngle, maskOpacity, textColor, parallax, isSlim } = attributes;
 
 	const Wrapper = wrapperTagName;
 
@@ -56,9 +56,19 @@ export default function( { attributes, className } ) {
 	return (
 		<Wrapper className={ classes } style={ sectionStyles }>
 			<div className="smb-section-with-bgimage__mask" style={ maskStyles } />
-			{ imageURL &&
-				<div className={ bgimageClasses } style={ bgimageStyles }>
-					<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
+			{ lgImageURL &&
+				<div className={ classnames( bgimageClasses, 'smb-section-with-bgimage__bgimage--lg' ) } style={ bgimageStyles }>
+					<img src={ lgImageURL } alt={ lgImageAlt } className={ `wp-image-${ lgImageID }` } />
+				</div>
+			}
+			{ mdImageURL &&
+				<div className={ classnames( bgimageClasses, 'smb-section-with-bgimage__bgimage--md' ) } style={ bgimageStyles }>
+					<img src={ mdImageURL } alt={ mdImageAlt } className={ `wp-image-${ mdImageID }` } />
+				</div>
+			}
+			{ smImageURL &&
+				<div className={ classnames( bgimageClasses, 'smb-section-with-bgimage__bgimage--sm' ) } style={ bgimageStyles }>
+					<img src={ smImageURL } alt={ smImageAlt } className={ `wp-image-${ smImageID }` } />
 				</div>
 			}
 			<div className={ containerClasses }>

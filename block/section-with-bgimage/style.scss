@@ -17,6 +17,18 @@
     bottom: 0;
     left: 0;
 
+    &--sm {
+      @include _media-min(md) {
+        display: none;
+      }
+    }
+
+    &--md {
+      @include _media-min(lg) {
+        display: none;
+      }
+    }
+
     img, iframe {
       position: absolute;
       top: 50%;
