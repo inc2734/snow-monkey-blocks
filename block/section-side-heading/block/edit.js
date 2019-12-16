@@ -38,7 +38,7 @@ import {
 } from '@wordpress/i18n';
 
 export default function( { attributes, setAttributes, isSelected, className } ) {
-	const { wrapperTagName, titleTagName, title, backgroundColor, backgroundColor2, backgroundColorAngle, textColor, headingColumnSize, isSlim, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
+	const { wrapperTagName, titleTagName, title, backgroundColor, backgroundColor2, backgroundColorAngle, textColor, headingPosition, headingColumnSize, isSlim, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
 
 	const { textColumnWidth, imageColumnWidth } = getColumnSize( headingColumnSize );
 
@@ -65,6 +65,14 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 		'c-container',
 		{
 			'u-slim-width': !! isSlim,
+		}
+	);
+
+	const rowClasses = classnames(
+		'c-row',
+		'c-row--md-margin',
+		{
+			'c-row--reverse': 'right' === headingPosition,
 		}
 	);
 
@@ -123,6 +131,22 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 							} ) }
 						</div>
 					</BaseControl>
+
+					<SelectControl
+						label={ __( 'Heading Position', 'snow-monkey-blocks' ) }
+						value={ headingPosition }
+						options={ [
+							{
+								value: 'right',
+								label: __( 'Right side', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'left',
+								label: __( 'Left side', 'snow-monkey-blocks' ),
+							},
+						] }
+						onChange={ ( value ) => setAttributes( { headingPosition: value } ) }
+					/>
 
 					<SelectControl
 						label={ __( 'Heading column size', 'snow-monkey-blocks' ) }
@@ -300,7 +324,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 
 				<div className="smb-section__inner" style={ innerStyles }>
 					<div className={ containerClasses }>
-						<div className="c-row c-row--md-margin">
+						<div className={ rowClasses }>
 							<div className={ headingColClasses }>
 								{ ( ! RichText.isEmpty( title ) || isSelected ) &&
 									<RichText

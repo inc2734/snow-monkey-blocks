@@ -30,6 +30,10 @@ export default {
 		type: 'boolean',
 		default: false,
 	},
+	headingPosition: {
+		type: 'string',
+		default: 'left',
+	},
 	headingColumnSize: {
 		type: 'string',
 		default: 33,

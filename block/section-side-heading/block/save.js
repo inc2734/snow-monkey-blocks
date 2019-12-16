@@ -13,7 +13,7 @@ import {
 } from '@wordpress/block-editor';
 
 export default function( { attributes, className } ) {
-	const { wrapperTagName, titleTagName, title, backgroundColor, backgroundColor2, backgroundColorAngle, textColor, headingColumnSize, isSlim, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
+	const { wrapperTagName, titleTagName, title, backgroundColor, backgroundColor2, backgroundColorAngle, textColor, headingPosition, headingColumnSize, isSlim, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
 
 	const { textColumnWidth, imageColumnWidth } = getColumnSize( headingColumnSize );
 
@@ -37,6 +37,14 @@ export default function( { attributes, className } ) {
 		'c-container',
 		{
 			'u-slim-width': !! isSlim,
+		}
+	);
+
+	const rowClasses = classnames(
+		'c-row',
+		'c-row--md-margin',
+		{
+			'c-row--reverse': 'right' === headingPosition,
 		}
 	);
 
@@ -76,7 +84,7 @@ export default function( { attributes, className } ) {
 
 			<div className="smb-section__inner" style={ innerStyles }>
 				<div className={ containerClasses }>
-					<div className="c-row c-row--md-margin">
+					<div className={ rowClasses }>
 						<div className={ headingColClasses }>
 							{ ! RichText.isEmpty( title ) &&
 								<RichText.Content
