@@ -4,6 +4,7 @@ import blockConfig from '../../../src/js/config/block';
 import attributes from './attributes';
 import edit from './edit';
 import save from './save';
+import example from './example';
 
 import {
 	__,
@@ -25,9 +26,9 @@ export const settings = {
 	},
 	snowMonkeyBlocks: {
 		isPro: true,
-		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/section-side-heading.png`,
 	},
 	attributes,
 	edit,
 	save,
+	example,
 };
