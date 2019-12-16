@@ -4,6 +4,7 @@ import blockConfig from '../../../src/js/config/block';
 import edit from './edit';
 import save from './save';
 import deprecated from './deprecated';
+import example from './example';
 
 import {
 	__,
@@ -19,10 +20,8 @@ export const settings = {
 		src: 'editor-ol',
 	},
 	category: blockConfig.blockCategories.common,
-	snowMonkeyBlocks: {
-		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/step.png`,
-	},
 	edit,
 	save,
 	deprecated,
+	example,
 };
