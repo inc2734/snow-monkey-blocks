@@ -20,7 +20,7 @@ export default {
 						name: 'Lorem ipsum dolor sit amet',
 					},
 				},
-			]
+			],
 		},
 		{
 			name: 'snow-monkey-blocks/directory-structure--item--directory',
@@ -40,7 +40,7 @@ export default {
 						name: 'Lorem ipsum dolor sit amet',
 					},
 				},
-			]
+			],
 		},
 	],
 };

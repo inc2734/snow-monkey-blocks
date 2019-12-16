@@ -25,5 +25,5 @@ export const settings = {
 	edit,
 	save,
 	deprecated,
-	example
+	example,
 };

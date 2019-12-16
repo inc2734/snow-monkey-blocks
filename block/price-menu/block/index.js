@@ -3,6 +3,7 @@
 import blockConfig from '../../../src/js/config/block';
 import edit from './edit';
 import save from './save';
+import example from './example';
 
 import {
 	__,
@@ -18,9 +19,7 @@ export const settings = {
 		src: 'warning',
 	},
 	category: blockConfig.blockCategories.common,
-	snowMonkeyBlocks: {
-		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/price-menu.png`,
-	},
 	edit,
 	save,
+	example,
 };
