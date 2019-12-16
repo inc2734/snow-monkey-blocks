@@ -23,11 +23,7 @@ export const settings = {
 	supports: {
 		align: [ 'wide', 'full' ],
 	},
-	snowMonkeyBlocks: {
-		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/slider.png`,
-	},
 	attributes,
 	edit,
 	save,
-	deprecated,
 };
