@@ -23,9 +23,6 @@ export const settings = {
 	supports: {
 		align: [ 'wide', 'full' ],
 	},
-	snowMonkeyBlocks: {
-		screenshot: `${ smb.pluginUrl }/dist/img/screenshot/block/thumbnail-gallery.png`,
-	},
 	attributes,
 	edit,
 	save,
