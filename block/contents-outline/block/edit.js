@@ -9,11 +9,13 @@ import {
 
 import {
 	InspectorControls,
+	InspectorAdvancedControls,
 } from '@wordpress/block-editor';
 
 import {
 	PanelBody,
 	CheckboxControl,
+	TextControl,
 	ToggleControl,
 } from '@wordpress/components';
 
@@ -26,7 +28,7 @@ import {
 } from '@wordpress/i18n';
 
 export default function( { attributes, setAttributes } ) {
-	const { headings, moveToBefore1stHeading } = attributes;
+	const { headings, moveToBefore1stHeading, myAnchor } = attributes;
 
 	const _generateNewHeadings = ( isChecked, heading ) => {
 		let newHeadings = headings.split( ',' );
@@ -75,6 +77,15 @@ export default function( { attributes, setAttributes } ) {
 					/>
 				</PanelBody>
 			</InspectorControls>
+
+			<InspectorAdvancedControls>
+				<TextControl
+					label={ __( 'HTML Anchor', 'snow-monkey-blocks' ) }
+					help={ __( 'Anchors lets you link directly to a section on a page.', 'snow-monkey-blocks' ) }
+					value={ myAnchor || '' }
+					onChange={ ( value ) => setAttributes( { myAnchor: value.replace( /[\s#]/g, '-' ) } ) }
+				/>
+			</InspectorAdvancedControls>
 
 			<div className="wpco-wrapper" aria-hidden="false">
 				<div className="wpco">

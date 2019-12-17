@@ -14,7 +14,8 @@ return [
 		'type'    => 'boolean',
 		'default' => true,
 	],
-	'className' => [
-		'type' => 'string',
+	'myAnchor' => [
+		'type'    => 'string',
+		'default' => '',
 	],
 ];

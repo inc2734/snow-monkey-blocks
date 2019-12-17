@@ -20,7 +20,6 @@ export const settings = {
 	category: blockConfig.blockCategories.common,
 	supports: {
 		customClassName: false,
-		anchor: true,
 	},
 	edit,
 	save,
