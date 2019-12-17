@@ -23,11 +23,9 @@ export default {
 	},
 	textColor: {
 		type: 'string',
-		default: '#fff',
 	},
 	maskColor: {
 		type: 'string',
-		default: '#000',
 	},
 	maskOpacity: {
 		type: 'number',

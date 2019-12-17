@@ -52,6 +52,7 @@
     text-decoration: none;
     overflow: hidden;
     background-color: #fff;
+    color: #fff;
 
     @include _hover(lg) {
       .smb-items__banner__figure {
@@ -122,7 +123,7 @@
 
       &__dummy {
         position: relative;
-        background-color: $_color-text;
+        background-color: $_color-gray;
 
         &::before {
           content: '';
@@ -133,6 +134,7 @@
 
       &__mask {
         @include _position(absolute, 0, 0, 0, 0);
+        background-color: #000;
       }
     }
 
