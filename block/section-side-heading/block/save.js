@@ -64,8 +64,8 @@ export default function( { attributes, className } ) {
 	}
 
 	const innerStyles = {
-		paddingTop: topDividerLevel,
-		paddingBottom: bottomDividerLevel,
+		paddingTop: Math.abs( topDividerLevel ),
+		paddingBottom: Math.abs( bottomDividerLevel ),
 	};
 
 	return (

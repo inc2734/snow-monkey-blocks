@@ -73,8 +73,8 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 	}
 
 	const innerStyles = {
-		paddingTop: topDividerLevel,
-		paddingBottom: bottomDividerLevel,
+		paddingTop: Math.abs( topDividerLevel ),
+		paddingBottom: Math.abs( bottomDividerLevel ),
 	};
 
 	return (
@@ -191,8 +191,8 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 					<RangeControl
 						label={ __( 'Level', 'snow-monkey-blocks' ) }
 						value={ topDividerLevel }
-						onChange={ ( value ) => setAttributes( { topDividerLevel: toNumber( value, 0, 100 ) } ) }
-						min="0"
+						onChange={ ( value ) => setAttributes( { topDividerLevel: toNumber( value, -100, 100 ) } ) }
+						min="-100"
 						max="100"
 					/>
 
@@ -236,8 +236,8 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 					<RangeControl
 						label={ __( 'Level', 'snow-monkey-blocks' ) }
 						value={ bottomDividerLevel }
-						onChange={ ( value ) => setAttributes( { bottomDividerLevel: toNumber( value, 0, 100 ) } ) }
-						min="0"
+						onChange={ ( value ) => setAttributes( { bottomDividerLevel: toNumber( value, -100, 100 ) } ) }
+						min="-100"
 						max="100"
 					/>
 
