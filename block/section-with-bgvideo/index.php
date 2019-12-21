@@ -46,7 +46,7 @@ wp_register_script(
 wp_register_style(
 	'snow-monkey-blocks/section-with-bgvideo/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-with-bgvideo/editor.css',
-	[ 'snow-monkey-blocks/section-with-bgvideo', 'snow-monkey-blocks-editor' ],
+	[ 'snow-monkey-blocks-editor' ],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-with-bgvideo/editor.css' )
 );
 
@@ -63,7 +63,7 @@ wp_enqueue_style(
 register_block_type(
 	'snow-monkey-blocks/section-with-bgvideo',
 	[
-		'style'         => 'snow-monkey-blocks/section-with-bgvideo',
+		'style'         => ! is_admin() ? 'snow-monkey-blocks/section-with-bgvideo' : null,
 		'script'        => ! is_admin() ? 'snow-monkey-blocks/section-with-bgvideo' : null,
 		'editor_script' => 'snow-monkey-blocks/section-with-bgvideo/editor',
 		'editor_style'  => 'snow-monkey-blocks/section-with-bgvideo/editor',

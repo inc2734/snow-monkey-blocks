@@ -27,10 +27,21 @@ wp_register_script(
 	true
 );
 
+/**
+ * editor_style
+ */
+wp_register_style(
+	'snow-monkey-blocks/evaluation-star/editor',
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/evaluation-star/editor.css',
+	[ 'snow-monkey-blocks-editor' ],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/evaluation-star/editor.css' )
+);
+
 register_block_type(
 	'snow-monkey-blocks/evaluation-star',
 	[
-		'style'         => 'snow-monkey-blocks/evaluation-star',
+		'style'         => ! is_admin() ? 'snow-monkey-blocks/evaluation-star' : null,
 		'editor_script' => 'snow-monkey-blocks/evaluation-star/editor',
+		'editor_style'  => 'snow-monkey-blocks/evaluation-star/editor',
 	]
 );

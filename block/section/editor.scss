@@ -2,12 +2,8 @@
 
 @import '../../src/css/core/block';
 
-.smb-section {
-  .smb-section__title,
-  .smb-section__body .editor-rich-text__tinymce,
-  .smb-section__body .block-editor-rich-text__editable {
-    color: inherit;
-  }
+.editor-styles-wrapper {
+  @import 'style';
 }
 
 $section-container-side-padding: calc(46px + 14px); // = block-editor-block-list__layout + block-editor-block-drop-zone

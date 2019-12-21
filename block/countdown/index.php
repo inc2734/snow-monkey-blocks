@@ -44,7 +44,7 @@ wp_register_script(
 wp_register_style(
 	'snow-monkey-blocks/countdown/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/countdown/editor.css',
-	[ 'snow-monkey-blocks/countdown', 'snow-monkey-blocks-editor' ],
+	[ 'snow-monkey-blocks-editor' ],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/countdown/editor.css' )
 );
 
@@ -52,7 +52,7 @@ register_block_type(
 	'snow-monkey-blocks/countdown',
 	[
 		'script'        => ! is_admin() ? 'snow-monkey-blocks/countdown' : null,
-		'style'         => 'snow-monkey-blocks/countdown',
+		'style'         => ! is_admin() ? 'snow-monkey-blocks/countdown' : null,
 		'editor_script' => 'snow-monkey-blocks/countdown/editor',
 		'editor_style'  => 'snow-monkey-blocks/countdown/editor',
 	]

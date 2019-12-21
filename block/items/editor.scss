@@ -2,6 +2,10 @@
 
 @import '../../src/css/core/block';
 
+.editor-styles-wrapper {
+  @import 'style';
+}
+
 .smb-items {
   > .#{$_prefix}c-row--margin {
     > .editor-inner-blocks > .editor-block-list__layout {

@@ -41,14 +41,25 @@ wp_register_script(
 	true
 );
 
+/**
+ * editor_style
+ */
+wp_register_style(
+	'snow-monkey-blocks/categories-list/editor',
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/categories-list/editor.css',
+	[ 'snow-monkey-blocks-editor' ],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/categories-list/editor.css' )
+);
+
 $attributes = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/categories-list/attributes.php' );
 
 register_block_type(
 	'snow-monkey-blocks/categories-list',
 	[
 		'script'          => ! is_admin() ? 'snow-monkey-blocks/categories-list' : null,
-		'style'           => 'snow-monkey-blocks/categories-list',
+		'style'           => ! is_admin() ? 'snow-monkey-blocks/categories-list' : null,
 		'editor_script'   => 'snow-monkey-blocks/categories-list/editor',
+		'editor_style'    => 'snow-monkey-blocks/categories-list/editor',
 		'attributes'      => $attributes,
 		'render_callback' => function( $attributes ) {
 			return DynamicBlocks::render( 'categories-list', $attributes );

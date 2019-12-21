@@ -1,5 +1,9 @@
 @charset 'utf-8';
 
+.editor-styles-wrapper {
+  @import 'style';
+}
+
 [data-type="snow-monkey-blocks/media-text"] > .editor-block-list__block-edit > [data-block] {
   overflow: hidden;
 }

@@ -2,11 +2,6 @@
 
 @import '../../src/css/core/block';
 
-.smb-box {
-  &__body {
-    > .editor-rich-text .editor-rich-text__tinymce,
-    > .editor-rich-text .block-editor-rich-text__editable {
-      @include content(.75); // = wpac-box__body
-    }
-  }
+.editor-styles-wrapper {
+  @import 'style';
 }

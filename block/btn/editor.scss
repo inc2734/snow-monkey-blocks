@@ -2,6 +2,10 @@
 
 @import '../../src/css/core/block';
 
+.editor-styles-wrapper {
+  @import 'style';
+}
+
 [data-type="snow-monkey-blocks/btn"] {
   &[data-align="left"],
   &[data-align="right"] {

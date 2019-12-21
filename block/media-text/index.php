@@ -33,14 +33,14 @@ wp_register_script(
 wp_register_style(
 	'snow-monkey-blocks/media-text/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/media-text/editor.css',
-	[ 'snow-monkey-blocks/media-text', 'snow-monkey-blocks-editor' ],
+	[ 'snow-monkey-blocks-editor' ],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/media-text/editor.css' )
 );
 
 register_block_type(
 	'snow-monkey-blocks/media-text',
 	[
-		'style'         => 'snow-monkey-blocks/media-text',
+		'style'         => ! is_admin() ? 'snow-monkey-blocks/media-text' : null,
 		'editor_script' => 'snow-monkey-blocks/media-text/editor',
 		'editor_style'  => 'snow-monkey-blocks/media-text/editor',
 	]

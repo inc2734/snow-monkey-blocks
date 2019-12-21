@@ -33,14 +33,14 @@ wp_register_script(
 wp_register_style(
 	'snow-monkey-blocks/alert/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/alert/editor.css',
-	[ 'snow-monkey-blocks/alert', 'snow-monkey-blocks-editor' ],
+	[ 'snow-monkey-blocks-editor' ],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/alert/editor.css' )
 );
 
 register_block_type(
 	'snow-monkey-blocks/alert',
 	[
-		'style'         => 'snow-monkey-blocks/alert',
+		'style'         => ! is_admin() ? 'snow-monkey-blocks/alert' : null,
 		'editor_script' => 'snow-monkey-blocks/alert/editor',
 		'editor_style'  => 'snow-monkey-blocks/alert/editor',
 	]

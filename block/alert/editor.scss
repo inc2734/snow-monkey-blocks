@@ -2,26 +2,6 @@
 
 @import 'settings';
 
-.smb-alert {
-  .smb-alert__body {
-    > * {
-      color: darken(desaturate($alert-color, 60%), 60%); // = .smb-alert
-    }
-  }
-
-  &--warning {
-    .smb-alert__body {
-      > * {
-        color: adjust-hue(darken(desaturate($alert-color, 60%), 60%), -30deg); // = .smb-alert--warning
-      }
-    }
-  }
-
-  &--success {
-    .smb-alert__body {
-      > * {
-        color: adjust-hue(darken(desaturate($alert-color, 70%), 70%), 40deg); // = .smb-alert--success
-      }
-    }
-  }
+.editor-styles-wrapper {
+  @import 'style';
 }

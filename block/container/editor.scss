@@ -1,0 +1,10 @@
+@charset 'utf-8';
+
+.editor-styles-wrapper {
+  [data-type="snow-monkey-blocks/container"] {
+    .smb-container {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+}

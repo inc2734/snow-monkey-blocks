@@ -35,7 +35,7 @@ wp_register_script(
 wp_register_style(
 	'snow-monkey-blocks/section-side-heading/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-side-heading/editor.css',
-	[ 'snow-monkey-blocks/section-side-heading', 'snow-monkey-blocks-editor' ],
+	[ 'snow-monkey-blocks-editor' ],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-side-heading/editor.css' )
 );
 
@@ -52,7 +52,7 @@ wp_enqueue_style(
 register_block_type(
 	'snow-monkey-blocks/section-side-heading',
 	[
-		'style'         => 'snow-monkey-blocks/section-side-heading',
+		'style'         => ! is_admin() ? 'snow-monkey-blocks/section-side-heading' : null,
 		'editor_script' => 'snow-monkey-blocks/section-side-heading/editor',
 		'editor_style'  => 'snow-monkey-blocks/section-side-heading/editor',
 	]

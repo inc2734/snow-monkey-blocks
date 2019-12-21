@@ -40,7 +40,7 @@ wp_register_style(
 register_block_type(
 	'snow-monkey-blocks/items',
 	[
-		'style'         => 'snow-monkey-blocks/items',
+		'style'         => ! is_admin() ? 'snow-monkey-blocks/items' : null,
 		'editor_script' => 'snow-monkey-blocks/items/editor',
 		'editor_style'  => 'snow-monkey-blocks/items/editor',
 	]

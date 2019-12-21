@@ -33,14 +33,14 @@ wp_register_script(
 wp_register_style(
 	'snow-monkey-blocks/directory-structure/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/directory-structure/editor.css',
-	[ 'snow-monkey-blocks/directory-structure', 'snow-monkey-blocks-editor' ],
+	[ 'snow-monkey-blocks-editor' ],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/directory-structure/editor.css' )
 );
 
 register_block_type(
 	'snow-monkey-blocks/directory-structure',
 	[
-		'style'         => 'snow-monkey-blocks/directory-structure',
+		'style'         => ! is_admin() ? 'snow-monkey-blocks/directory-structure' : null,
 		'editor_script' => 'snow-monkey-blocks/directory-structure/editor',
 		'editor_style'  => 'snow-monkey-blocks/directory-structure/editor',
 	]

@@ -33,14 +33,14 @@ wp_register_script(
 wp_register_style(
 	'snow-monkey-blocks/accordion/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/accordion/editor.css',
-	[ 'snow-monkey-blocks/accordion', 'snow-monkey-blocks-editor' ],
+	[ 'snow-monkey-blocks-editor' ],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/accordion/editor.css' )
 );
 
 register_block_type(
 	'snow-monkey-blocks/accordion',
 	[
-		'style'         => 'snow-monkey-blocks/accordion',
+		'style'         => ! is_admin() ? 'snow-monkey-blocks/accordion' : null,
 		'editor_script' => 'snow-monkey-blocks/accordion/editor',
 		'editor_style'  => 'snow-monkey-blocks/accordion/editor',
 	]

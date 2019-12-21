@@ -56,6 +56,7 @@
     "block:child-pages": "npm run block:child-pages:clean && npm-run-all -s block:child-pages:build:*",
     "block:container:clean": "rimraf dist/block/container",
     "block:container:build:js": "wp-scripts build block/container/editor --output-path=dist/block/container",
+    "block:container:build:css": "node-sass block/container -o dist/block/container && postcss dist/block/container/*.css -r",
     "block:container": "npm run block:container:clean && npm-run-all -s block:container:build:*",
     "block:contents-outline:clean": "rimraf dist/block/contents-outline",
     "block:contents-outline:build:js": "wp-scripts build block/contents-outline/nopro block/contents-outline/editor --output-path=dist/block/contents-outline",

@@ -36,14 +36,14 @@ wp_register_script(
 wp_register_style(
 	'snow-monkey-blocks/pricing-table/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/pricing-table/editor.css',
-	[ 'snow-monkey-blocks/pricing-table', 'snow-monkey-blocks-editor' ],
+	[ 'snow-monkey-blocks-editor' ],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/pricing-table/editor.css' )
 );
 
 register_block_type(
 	'snow-monkey-blocks/pricing-table',
 	[
-		'style'         => 'snow-monkey-blocks/pricing-table',
+		'style'         => ! is_admin() ? 'snow-monkey-blocks/pricing-table' : null,
 		'editor_script' => 'snow-monkey-blocks/pricing-table/editor',
 		'editor_style'  => 'snow-monkey-blocks/pricing-table/editor',
 	]
