@@ -4,46 +4,4 @@
 
 .editor-styles-wrapper {
   @import 'style';
-
-  [data-type="snow-monkey-blocks/btn"] {
-    &[data-align="left"],
-    &[data-align="right"] {
-      height: auto; // = Gutenberg default
-
-      > .editor-block-list__block-edit {
-        float: none;
-        margin-right: 0; // = Gutenberg default
-        margin-left: 0; // = Gutenberg default
-
-        @include _media-min(600px) {
-          margin-left: -28px; // = Gutenberg default
-          margin-right: -28px; // = Gutenberg default
-        }
-
-        &::before {
-          content: ''; // = Gutenberg default
-        }
-      }
-    }
-
-    &[data-align="left"] {
-      > .editor-block-list__block-edit {
-        .smb-btn-wrapper {
-          > .smb-btn {
-            float: left;
-          }
-        }
-      }
-    }
-
-    &[data-align="right"] {
-      > .editor-block-list__block-edit {
-        .smb-btn-wrapper {
-          > .smb-btn {
-            float: right;
-          }
-        }
-      }
-    }
-  }
 }
