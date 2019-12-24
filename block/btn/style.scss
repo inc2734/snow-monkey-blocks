@@ -9,11 +9,13 @@
     width: 100%;
     display: block;
   }
+}
 
-  .is-style-ghost & {
+.smb-btn-wrapper.is-style-ghost {
+  .smb-btn {
     background-color: transparent !important;
-    border-width: 1px;
-    border-style: solid;
+    border: 1px solid $color-accent;
+    color: $color-accent;
   }
 }
 

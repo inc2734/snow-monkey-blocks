@@ -4,28 +4,28 @@
 
 .editor-styles-wrapper {
   @import 'style';
-}
 
-.smb-section-break-the-grid__figure {
-  .smb-remove-button {
-    right: auto;
-  }
-
-  .smb-section-break-the-grid--right & {
+  .smb-section-break-the-grid__figure {
     .smb-remove-button {
-      right: 5px;
+      right: auto;
+    }
+
+    .smb-section-break-the-grid--right & {
+      .smb-remove-button {
+        right: 5px;
+      }
+    }
+
+    .smb-section-break-the-grid--left & {
+      .smb-remove-button {
+        left: 5px;
+      }
     }
   }
 
-  .smb-section-break-the-grid--left & {
-    .smb-remove-button {
-      left: 5px;
+  .smb-section-break-the-grid .c-row--lg-bottom .smb-section-break-the-grid__body {
+    @include _media-min(lg) {
+      margin-bottom: -32px;
     }
-  }
-}
-
-.smb-section-break-the-grid .c-row--lg-bottom .smb-section-break-the-grid__body {
-  @include _media-min(lg) {
-    margin-bottom: -32px;
   }
 }

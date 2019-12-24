@@ -2,22 +2,22 @@
 
 @import '../../src/css/core/block';
 
-.editor-styles-wrapper {
-  @import 'style';
-}
-
 $section-container-side-padding: calc(46px + 14px); // = block-editor-block-list__layout + block-editor-block-drop-zone
 
-.smb-section,
-.smb-section__inner {
-  > .c-container {
-    padding-right: 0;
-    padding-left: 0;
+.editor-styles-wrapper {
+  @import 'style';
 
-    &.u-slim-width {
-      @include _media-min(600px) {
-        padding-left: $section-container-side-padding;
-        padding-right: $section-container-side-padding;
+  .smb-section,
+  .smb-section__inner {
+    > .c-container {
+      padding-right: 0;
+      padding-left: 0;
+
+      &.u-slim-width {
+        @include _media-min(600px) {
+          padding-left: $section-container-side-padding;
+          padding-right: $section-container-side-padding;
+        }
       }
     }
   }

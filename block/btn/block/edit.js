@@ -40,7 +40,7 @@ export default function( { attributes, setAttributes, className } ) {
 		backgroundColor: backgroundColor || undefined,
 	};
 	if ( 'is-style-ghost' === attributes.className ) {
-		btnStyles.borderColor = backgroundColor || '#fff';
+		btnStyles.borderColor = backgroundColor || undefined;
 	}
 
 	const btnLabelStyles = {

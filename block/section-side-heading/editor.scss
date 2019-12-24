@@ -2,15 +2,15 @@
 
 .editor-styles-wrapper {
   @import 'style';
-}
 
-.smb-section-side-heading {
-  .editor-inner-blocks {
-    > .editor-block-list__layout {
-      > .wp-block:first-child {
-        > .editor-block-list__block-edit {
-          > [data-block] {
-            margin-top: 0;
+  .smb-section-side-heading {
+    .editor-inner-blocks {
+      > .editor-block-list__layout {
+        > .wp-block:first-child {
+          > .editor-block-list__block-edit {
+            > [data-block] {
+              margin-top: 0;
+            }
           }
         }
       }

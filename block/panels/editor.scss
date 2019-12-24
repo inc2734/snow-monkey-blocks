@@ -4,19 +4,19 @@
 
 .editor-styles-wrapper {
   @import 'style';
-}
 
-.smb-panels {
-  &__item--horizontal {
-    > .smb-panels__item__figure {
-      display: flex;
+  .smb-panels {
+    &__item--horizontal {
+      > .smb-panels__item__figure {
+        display: flex;
+      }
     }
-  }
 
-  > .#{$_prefix}c-row--margin {
-    > .editor-inner-blocks > .editor-block-list__layout {
-      margin-right: 0;
-      margin-left: 0;
+    > .#{$_prefix}c-row--margin {
+      > .editor-inner-blocks > .editor-block-list__layout {
+        margin-right: 0;
+        margin-left: 0;
+      }
     }
   }
 }

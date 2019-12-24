@@ -2,20 +2,20 @@
 
 .editor-styles-wrapper {
   @import 'style';
-}
 
-.smb-faq {
-  &__item {
-    &__question {
-      &__label + .editor-rich-text {
-        flex: 1 1 auto;
+  .smb-faq {
+    &__item {
+      &__question {
+        &__label + .editor-rich-text {
+          flex: 1 1 auto;
+        }
       }
-    }
 
-    &__answer {
-      &__body {
-        [data-block] {
-          margin-top: 0;
+      &__answer {
+        &__body {
+          [data-block] {
+            margin-top: 0;
+          }
         }
       }
     }

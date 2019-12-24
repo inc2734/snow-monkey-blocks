@@ -2,23 +2,25 @@
 
 @import '../../src/css/core/block';
 
-.smb-limited-datetime {
-  &__placeholder {
-    min-height: auto;
+.editor-styles-wrapper {
+  .smb-limited-datetime {
+    &__placeholder {
+      min-height: auto;
 
-    > .components-placeholder__fieldset {
-      max-width: none;
+      > .components-placeholder__fieldset {
+        max-width: none;
 
-      > * {
-        flex: 1 1 auto;
+        > * {
+          flex: 1 1 auto;
+        }
       }
-    }
 
-    dl {
-      display: flex;
+      dl {
+        display: flex;
 
-      > dt {
-        @include _margin-right(.25);
+        > dt {
+          @include _margin-right(.25);
+        }
       }
     }
   }

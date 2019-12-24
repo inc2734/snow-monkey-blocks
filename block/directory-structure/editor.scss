@@ -2,20 +2,20 @@
 
 .editor-styles-wrapper {
   @import 'style';
-}
 
-.smb-directory-structure {
-  &__item__name {
-		padding: 0;
+  .smb-directory-structure {
+    &__item__name {
+  		padding: 0;
 
-		div {
-			display: inline;
-		}
+  		div {
+  			display: inline;
+  		}
 
-		.editor-rich-text__editable,
-		.block-editor-rich-text__editable {
-			display: inline-block;
-			padding: 0 .46739rem;
-		}
-	}
+  		.editor-rich-text__editable,
+  		.block-editor-rich-text__editable {
+  			display: inline-block;
+  			padding: 0 .46739rem;
+  		}
+  	}
+  }
 }

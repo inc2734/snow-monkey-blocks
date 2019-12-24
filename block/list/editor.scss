@@ -4,23 +4,24 @@
 
 .editor-styles-wrapper {
   @import 'style';
-}
 
-.smb-list {
-  ul {
-    > li {
-      &::before {
-        content: '';
-        position: absolute;
-        top: 8px;
-        left: -1.3em;
-        @include _circle(10px);
-        border: 2px solid $_color-text;
-      }
+  .smb-list {
+    ul {
+      > li {
+        &::before {
+          content: '';
+          position: absolute;
+          top: 8px;
+          left: -1.3em;
+          @include _circle(10px);
+          border: 2px solid $_color-text;
+        }
 
-      > .smb-list__icon {
-        display: none;
+        > .smb-list__icon {
+          display: none;
+        }
       }
     }
   }
+
 }
