@@ -26,7 +26,7 @@ export default function( { attributes, className } ) {
 		backgroundColor: btnBackgroundColor || undefined,
 	};
 	if ( 'is-style-ghost' === attributes.className ) {
-		btnBoxBtnStyles.borderColor = btnBackgroundColor || '#fff';
+		btnBoxBtnStyles.borderColor = btnBackgroundColor || undefined;
 	}
 
 	return (

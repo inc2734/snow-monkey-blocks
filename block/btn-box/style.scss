@@ -5,12 +5,6 @@
 .smb-btn-box {
   @include _padding(1.5, 0);
 
-  .is-style-ghost .smb-btn {
-    background-color: transparent !important;
-    border-width: 1px;
-    border-style: solid;
-  }
-
   &__lede {
     @include _margin-bottom(.5);
     font-weight: bold;
@@ -25,5 +19,13 @@
     @include _margin-top(.5);
     color: $_color-gray;
     text-align: center;
+  }
+}
+
+.smb-btn-box.is-style-ghost {
+  .smb-btn {
+    background-color: transparent !important;
+    border: 1px solid $color-accent;
+    color: $color-accent;
   }
 }
