@@ -116,14 +116,14 @@ export default function( { attributes, setAttributes, className } ) {
 					initialOpen={ false }
 					colorSettings={ [
 						{
-							value: numericColor,
-							onChange: ( value ) => setAttributes( { numericColor: value } ),
-							label: __( 'Numeric color', 'snow-monkey-blocks' ),
-						},
-						{
 							value: iconColor,
 							onChange: ( value ) => setAttributes( { iconColor: value } ),
 							label: __( 'Icon color', 'snow-monkey-blocks' ),
+						},
+						{
+							value: numericColor,
+							onChange: ( value ) => setAttributes( { numericColor: value } ),
+							label: __( 'Numeric color', 'snow-monkey-blocks' ),
 						},
 					] }
 				>

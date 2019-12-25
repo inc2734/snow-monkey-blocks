@@ -125,14 +125,14 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 					initialOpen={ false }
 					colorSettings={ [
 						{
-							value: textColor,
-							onChange: ( value ) => setAttributes( { textColor: value } ),
-							label: __( 'Text Color', 'snow-monkey-blocks' ),
-						},
-						{
 							value: backgroundColor,
 							onChange: ( value ) => setAttributes( { backgroundColor: value } ),
 							label: __( 'Background Color', 'snow-monkey-blocks' ),
+						},
+						{
+							value: textColor,
+							onChange: ( value ) => setAttributes( { textColor: value } ),
+							label: __( 'Text Color', 'snow-monkey-blocks' ),
 						},
 					] }
 				>
