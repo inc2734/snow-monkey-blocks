@@ -13,7 +13,8 @@
   white-space: nowrap;
 
   &,
-  &[data-rich-text-format-boundary] {
+  &[data-rich-text-format-boundary],
+  .rich-text:focus &[data-rich-text-format-boundary] {
     background-color: $_color-text;
   }
 }
