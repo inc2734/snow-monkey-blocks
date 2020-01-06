@@ -9,6 +9,16 @@
     &__item--horizontal {
       > .smb-panels__item__figure {
         display: flex;
+
+        > .smb-remove-button-wrapper {
+          display: flex;
+          flex-direction: column;
+
+          > .components-button {
+            flex-direction: column;
+            flex: 1 1 auto;
+          }
+        }
       }
     }
 
