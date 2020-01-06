@@ -27,6 +27,10 @@ export default {
 		attribute: 'alt',
 		default: '',
 	},
+	caption: {
+		source: 'html',
+		selector: '.smb-media-text__caption',
+	},
 	imagePosition: {
 		type: 'string',
 		default: 'right',

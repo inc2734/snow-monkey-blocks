@@ -9,7 +9,7 @@ import {
 } from '@wordpress/block-editor';
 
 export default function( { attributes, className } ) {
-	const { titleTagName, title, imageID, imageURL, imageAlt, imagePosition, imageColumnSize, url, target } = attributes;
+	const { titleTagName, title, imageID, imageURL, imageAlt, caption, imagePosition, imageColumnSize, url, target } = attributes;
 
 	const { textColumnWidth, imageColumnWidth } = getColumnSize( imageColumnSize );
 
@@ -71,6 +71,12 @@ export default function( { attributes, className } ) {
 							<Figure />
 						}
 					</div>
+
+					{ ! RichText.isEmpty( caption ) &&
+						<div className="smb-media-text__caption">
+							<RichText.Content value={ caption } />
+						</div>
+					}
 				</div>
 			</div>
 		</div>

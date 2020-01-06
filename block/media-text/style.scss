@@ -18,6 +18,12 @@
     }
   }
 
+  &__caption {
+    @include _margin-top(.25);
+    color: $_color-gray;
+    @include _font-size-line-height($_base-font-size-px - 2);
+  }
+
   > .c-row--reverse {
     @include _media-max(md) {
       > .c-row__col:first-child {

@@ -31,7 +31,7 @@ import {
 } from '@wordpress/i18n';
 
 export default function( { attributes, setAttributes, isSelected, className } ) {
-	const { titleTagName, title, imageID, imageURL, imageAlt, imagePosition, imageColumnSize, url, target } = attributes;
+	const { titleTagName, title, imageID, imageURL, imageAlt, caption, imagePosition, imageColumnSize, url, target } = attributes;
 
 	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
 	const { textColumnWidth, imageColumnWidth } = getColumnSize( imageColumnSize );
@@ -169,6 +169,15 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 								isSelected={ isSelected }
 							/>
 						</div>
+
+						{ ( ! RichText.isEmpty( caption ) || isSelected ) &&
+							<RichText
+								className="smb-media-text__caption"
+								placeholder={ __( 'Write caption...', 'snow-monkey-blocks' ) }
+								value={ caption }
+								onChange={ ( value ) => setAttributes( { caption: value } ) }
+							/>
+						}
 					</div>
 				</div>
 			</div>
