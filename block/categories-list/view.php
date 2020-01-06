@@ -26,10 +26,10 @@ $classnames[] = $attributes['className'];
 	<ul class="smb-categories-list__list">
 		<?php foreach ( $categories as $category ) : ?>
 			<?php
-				$category_detail = get_category( $category );
-				if ( in_array( $category_detail->term_id, $exclusion_id ) ) {
-					continue;
-				}
+			$category_detail = get_category( $category );
+			if ( in_array( $category_detail->term_id, $exclusion_id ) ) {
+				continue;
+			}
 			?>
 			<li class="smb-categories-list__item smb-categories-list__item__slug-<?php echo esc_html( $category_detail->term_id ); ?>">
 				<div class="smb-categories-list__item__count">

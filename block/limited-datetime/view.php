@@ -23,12 +23,12 @@ if ( $is_use_end_date && ! empty( $attributes['endDate'] ) ) {
 }
 
 try {
-	if ( $start_date === null ) {
-		if ( $end_date !== null && $now_date <= $end_date ) {
+	if ( null === $start_date ) {
+		if ( null !== $end_date && $now_date <= $end_date ) {
 			$is_render = true;
 		}
 	} elseif ( $now_date >= $start_date ) {
-		if ( ( $end_date === null ) || $now_date <= $end_date ) {
+		if ( null === $end_date || $now_date <= $end_date ) {
 			$is_render = true;
 		}
 	}
@@ -37,5 +37,5 @@ try {
 }
 
 if ( $is_render ) {
-	echo $content;
+	echo $content; // XSS ok.
 }

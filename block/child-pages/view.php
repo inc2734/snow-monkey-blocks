@@ -22,9 +22,9 @@ if ( ! $pages_query->have_posts() ) {
 }
 
 if ( isset( $attributes['title'] ) ) {
-	$title = $attributes['title'];
-	$child_page_title_callback = function( $child_pages_title ) use ( $title ) {
-		return $title;
+	$block_title = $attributes['title'];
+	$child_page_title_callback = function( $child_pages_title ) use ( $block_title ) {
+		return $block_title;
 	};
 	add_filter( 'snow_monkey_child_pages_title', $child_page_title_callback, 9 );
 }

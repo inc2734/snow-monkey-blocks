@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin name: Snow Monkey Blocks
- * Version: 7.2.4
+ * Version: 7.2.5
  * Description: Gutenberg blocks collection made by MonkeyWrench.
  * Author: inc2734
  * Author URI: https://2inc.org
@@ -99,11 +99,13 @@ class Bootstrap {
 		<p>
 			<?php
 			echo sprintf(
+				// translators: %1$s: Start a tag, %2$s: End a tag
 				esc_html__( 'Snow Monkey Blocks is optimized for the %1$sSnow Monkey%2$s theme, but it can also be used with other themes.', 'snow-monkey-blocks' ),
 				'<a href="https://snow-monkey.2inc.org/" target="_blank">',
 				'</a>'
 			);
 			echo sprintf(
+				// translators: %1$s: Start a tag, %2$s: End a tag
 				esc_html__( 'When used together with the %1$sSnow Monkey%2$s theme, it can be displayed with the most beautiful balance, and it is displayed on the edit screen with the same design as the front screen.', 'snow-monkey-blocks' ),
 				'<a href="https://snow-monkey.2inc.org/" target="_blank">',
 				'</a>'
