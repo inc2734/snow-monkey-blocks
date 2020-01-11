@@ -27,7 +27,7 @@
     "test": [
       "vendor/bin/phpcs --config-set installed_paths vendor/phpcompatibility/php-compatibility,vendor/phpcompatibility/phpcompatibility-paragonie,vendor/phpcompatibility/phpcompatibility-wp,vendor/wp-coding-standards/wpcs",
       "vendor/bin/phpcs -p -s -v -n . --standard=./.phpcs.xml.dist --extensions=php",
-      "vendor/bin/phpmd ./ text phpmd.ruleset.xml --suffixes php --exclude /vendor/,/tests/,/languages/",
+      "vendor/bin/phpmd ./ text .phpmd.ruleset.xml --suffixes php --exclude /vendor/,/tests/,/languages/",
       "bash bin/phpunit.sh"
     ],
     "phpcbf": "vendor/bin/phpcbf -p -s -v -n . --standard=./.phpcs.xml.dist --extensions=php",
