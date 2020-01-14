@@ -20,11 +20,7 @@
     }
 
     &__body {
-      @include _padding(.5);
-
-      @include _media-min(lg) {
-        @include _padding(1);
-      }
+      @include _padding(1);
     }
 
     &__title {
@@ -104,8 +100,8 @@
     .smb-panels__item__figure {
       @include _padding(.5, .5, 0);
 
-      @include _media-min(lg) {
-        @include _padding(1, 1, 0);
+      @include _media-min(md) {
+        @include _padding(.5, .5, 0);
       }
     }
 
@@ -114,20 +110,14 @@
         @include _media-min(md) {
           @include _padding(.5, 0, .5, .5);
         }
-
-        @include _media-min(lg) {
-          @include _padding(1, 0, 1, 1);
-        }
       }
 
       &.smb-panels__item--reverse {
         > .smb-panels__item__figure {
+          @include _padding(0, .5, .5, .5);
+
           @include _media-min(md) {
             @include _padding(.5, .5, .5, 0);
-          }
-
-          @include _media-min(lg) {
-            @include _padding(1, 1, 1, 0);
           }
         }
       }
