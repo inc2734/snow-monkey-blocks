@@ -8,34 +8,48 @@
   background-color: $alert-color;
   border: 1px solid darken(desaturate($alert-color, 10%), 10%);
   border-radius: $_border-radius;
-  color: darken(desaturate($alert-color, 60%), 60%);
-  @include _padding(.5);
+  color: darken(desaturate($alert-color, 60%), 70%);
+  @include _padding(1);
+
+  .svg-inline--fa {
+    color: darken($alert-color, 40%);
+  }
 
   &--warning {
     background-color: adjust-hue($alert-color, -30deg);
     border-color: adjust-hue(darken(desaturate($alert-color, 10%), 10%), -30deg);
-    color: adjust-hue(darken(desaturate($alert-color, 60%), 60%), -30deg);
+    color: adjust-hue(darken(desaturate($alert-color, 60%), 80%), -30deg);
+
+    .svg-inline--fa {
+      color: adjust-hue(darken($alert-color, 40%), -30deg);
+    }
   }
 
   &--success {
     background-color: adjust-hue($alert-color, 40deg);
     border-color: adjust-hue(darken(desaturate($alert-color, 15%), 15%), 40deg);
-    color: adjust-hue(darken(desaturate($alert-color, 70%), 70%), 40deg);
+    color: adjust-hue(darken(desaturate($alert-color, 70%), 80%), 40deg);
+
+    .svg-inline--fa {
+      color: adjust-hue(darken($alert-color, 50%), 40deg);
+    }
   }
 
   &__body {
-    @include content(.75);
   }
 
   &__title {
     position: relative;
+    display: flex;
+    align-items: center;
     @include _margin-bottom(.25);
-    @include _padding-left(.75);
 
     .svg-inline--fa {
-      position: absolute;
-      left: 0;
-      top: $_between-lines - .1rem;
+      flex: 0 0 0%;
+      position: relative;
+      top: -1px;
+      @include _margin-right(.25);
+      @include _font-size-line-height($_base-font-size-px * 1.5);
     }
   }
 }
