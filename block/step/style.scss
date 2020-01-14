@@ -7,7 +7,7 @@
 
   &__item {
     position: relative;
-    @include _padding-left(1.25);
+    @include _padding-left(1.75);
 
     &::before {
       content: '';
@@ -20,7 +20,7 @@
     }
 
     &:not(:first-child) {
-      @include _padding-top(1.5);
+      @include _padding-top(1);
     }
 
     &__title {
@@ -28,8 +28,8 @@
       flex-direction: row;
       flex-wrap: nowrap;
       align-items: center;
-      @include _margin-left(-1.25);
-      @include _margin-bottom(1);
+      @include _margin-left(-1.75);
+      @include _margin-bottom(.5);
       font-weight: bold;
 
       > .smb-step__item__number {
@@ -112,17 +112,17 @@
 
     &--image-left {
       .smb-step__item__figure {
-        @include _margin-bottom(.5);
+        @include _margin(0, 0, 1);
 
         @include _media-min(md) {
-          @include _margin-right(1);
+          @include _margin(0, 1, 0, 0);
         }
       }
     }
 
     &--image-center {
       .smb-step__item__figure {
-        @include _margin-bottom(.5);
+        @include _margin(0, 0, 1);
       }
     }
 
@@ -134,10 +134,10 @@
       }
 
       .smb-step__item__figure {
-        @include _margin-bottom(.5);
+        @include _margin(0, 0, 1);
 
         @include _media-min(md) {
-          @include _margin-left(1);
+          @include _margin(0, 0, 0, 1);
         }
       }
     }
