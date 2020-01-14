@@ -57,18 +57,10 @@
   }
 
   &__item {
-    @include _padding(.5);
-
-    @include _media-min(lg) {
-      @include _padding(1);
-    }
+    @include _padding(1);
 
     &__figure {
       @include _margin-bottom(.5);
-
-      @include _media-min(lg) {
-        @include _margin-bottom(1);
-      }
     }
 
     &__title {
@@ -98,10 +90,6 @@
       border-top: 1px solid _lighter($_color-gray);
       text-align: center;
 
-      @include _media-min(lg) {
-        @include _margin-top(1);
-      }
-
       > li {
         border-bottom: 1px solid _lighter($_color-gray);
         @include _padding(.5, 0);
@@ -109,12 +97,8 @@
     }
 
     &__action {
-      @include _margin-top(.5);
+      @include _margin-top(1);
       text-align: center;
-
-      @include _media-min(lg) {
-        @include _margin-top(1);
-      }
     }
   }
 }
