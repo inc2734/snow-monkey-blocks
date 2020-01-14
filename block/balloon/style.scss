@@ -29,7 +29,7 @@
     flex: 0 0 60px;
     @include _circle(60px);
     max-width: 60px;
-    border: 2px solid _lighter($_color-gray);
+    border: 3px solid _lighter($_color-gray);
 
     > img {
       max-width: 100%;
@@ -46,11 +46,10 @@
   }
 
   &__body {
-    @include content(.75);
     flex: 1 1 auto;
     border-radius: $_border-radius;
     overflow-wrap: break-word;
-    @include _padding(.5);
+    @include _padding(1);
     max-width: 100%;
     width: 100%;
 
@@ -70,12 +69,6 @@
     @include _media-min(md) {
       max-width: calc(100% - 80px);
       @include _balloon-triangle(left, 10px, _lightest($_color-gray));
-    }
-
-    // Gutenberg
-    > .editor-rich-text .editor-rich-text__tinymce
-    > .editor-rich-text .block-editor-rich-text__editable {
-      @include content(.75); // = wpac-baloon__body
     }
   }
 
