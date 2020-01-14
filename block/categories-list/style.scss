@@ -55,9 +55,16 @@
       align-items: center;
       justify-content: center;
       background-color: _lighter($_color-gray);
-      min-width: 96px;
-      @include _padding(.25);
+      @include _padding(.5);
       text-align: center;
+
+      > span {
+        white-space: nowrap;
+      }
+
+      @include _media-min(lg) {
+        @include _padding(1);
+      }
 
       &::after {
         position: absolute;
@@ -126,11 +133,12 @@
 
     &__detail {
       flex-grow: 1;
-      @include _padding(.5, .5, .5, .75);
+      @include _padding(1, 1, 1, 1.25);
 
       @include _media-min(md) {
         .smb-categories-list__item:nth-child(2n - 1) & {
-          @include _padding(.5, .75, .5, .5);
+          @include _padding-left(1);
+          @include _padding-right(1.25);
         }
       }
 
