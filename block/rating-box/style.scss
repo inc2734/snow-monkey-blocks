@@ -11,14 +11,14 @@
     }
 
     &__title {
-      font-weight: bold;
+      @include _margin-bottom(.125);
     }
 
     &__evaluation {
       &__bar,
       &__rating {
-        height: 10px;
-        border-radius: 3px;
+        height: $_base-font-size-px;
+        border-radius: $_border-radius;
       }
 
       &__bar {
