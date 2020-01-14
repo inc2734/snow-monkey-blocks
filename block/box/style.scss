@@ -6,9 +6,8 @@
   @include _alert();
   border: 1px solid _lighter($_color-gray);
   border-radius: $_border-radius;
-  @include _padding(.5);
+  @include _padding(1);
 
   &__body {
-    @include content(.75);
   }
 }
