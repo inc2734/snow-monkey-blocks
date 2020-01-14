@@ -13,12 +13,12 @@
 
     &--left {
       float: left;
-      margin-right: 16px;
+      @include _margin-right(.25);
     }
 
     &--right {
       float: right;
-      margin-left: 16px;
+      @include _margin-left(.25);
     }
   }
 
