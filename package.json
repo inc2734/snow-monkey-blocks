@@ -6,7 +6,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/react-fontawesome": "^0.1.8",
     "@inc2734/for-each-html-nodes": "^0.4.0",
-    "@wordpress/scripts": "6.1.1",
+    "@wordpress/scripts": "6.2.0",
     "autoprefixer": "^9.7.3",
     "classnames": "^2.2.6",
     "cpy-cli": "^3.0.0",
@@ -182,7 +182,7 @@
     "img": "npm run clean:img && cpy '**' '../../dist/img' --cwd=src/img --parents"
   },
   "dependencies": {
-    "@wordpress/i18n": "^3.7.0",
+    "@wordpress/i18n": "^3.8.0",
     "react-image": "2.2.2"
   }
 }
