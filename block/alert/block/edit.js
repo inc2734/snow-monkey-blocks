@@ -90,6 +90,10 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 								value: 'success',
 								label: __( 'Success alert', 'snow-monkey-blocks' ),
 							},
+							{
+								value: 'remark',
+								label: __( 'Remark alert', 'snow-monkey-blocks' ),
+							},
 						] }
 					/>
 
