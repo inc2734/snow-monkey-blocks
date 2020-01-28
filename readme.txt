@@ -112,6 +112,9 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 
 == Changelog ==
 
+= 7.3.0 =
+* [Like me box] Add Like me box block.
+
 = 7.2.8 =
 * [Contents outline] Fixed a bug that the order was not correct when multiple selectors were specified.
 

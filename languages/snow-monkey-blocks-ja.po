@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2019-12-16 15:38+0900\n"
-"PO-Revision-Date: 2019-12-16 15:38+0900\n"
+"POT-Creation-Date: 2020-01-28 12:22+0900\n"
+"PO-Revision-Date: 2020-01-28 12:23+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -106,7 +106,7 @@ msgstr "[セクション]"
 msgid "[ PR ] Premium WordPress Theme Snow Monkey"
 msgstr "【PR】プレミアム WordPress テーマ Snow Monkey"
 
-#: snow-monkey-blocks.php:102
+#: snow-monkey-blocks.php:103
 #, php-format
 msgid ""
 "Snow Monkey Blocks is optimized for the %1$sSnow Monkey%2$s theme, but it "
@@ -115,7 +115,7 @@ msgstr ""
 "Snow Monkey Blocksは %1$sSnow Monkey%2$s テーマに最適化されていますが、他の"
 "テーマでも使用できます。"
 
-#: snow-monkey-blocks.php:107
+#: snow-monkey-blocks.php:109
 #, php-format
 msgid ""
 "When used together with the %1$sSnow Monkey%2$s theme, it can be displayed "
@@ -138,16 +138,16 @@ msgstr "アコーディオンのように伸縮するコンテンツエリアを
 #: block/balloon/block/edit.js:53 block/box/block/edit.js:41
 #: block/btn/block/edit.js:53 block/categories-list/block/edit.js:134
 #: block/child-pages/block/edit.js:27 block/container/block/edit.js:38
-#: block/contents-outline/block/edit.js:46 block/countdown/block/edit.js:52
+#: block/contents-outline/block/edit.js:48 block/countdown/block/edit.js:52
 #: block/directory-structure/block/item/directory/edit.js:78
 #: block/directory-structure/block/item/file/edit.js:55
 #: block/faq/block/item/edit.js:46 block/items/block/edit.js:40
 #: block/items/block/item/banner/edit.js:55
 #: block/items/block/item/block-link/edit.js:51
 #: block/items/block/item/edit.js:52 block/items/block/item/standard/edit.js:51
-#: block/limited-datetime/block/edit.js:53 block/list/block/edit.js:76
-#: block/media-text/block/edit.js:57 block/panels/block/edit.js:37
-#: block/panels/block/item/horizontal/edit.js:49
+#: block/like-me-box/block/edit.js:25 block/limited-datetime/block/edit.js:53
+#: block/list/block/edit.js:76 block/media-text/block/edit.js:57
+#: block/panels/block/edit.js:37 block/panels/block/item/horizontal/edit.js:49
 #: block/panels/block/item/vertical/edit.js:41
 #: block/pickup-slider/block/edit.js:33 block/pricing-table/block/edit.js:41
 #: block/rating-box/block/item/edit.js:38 block/recent-posts/block/edit.js:62
@@ -227,14 +227,18 @@ msgstr "ワーニングアラート"
 msgid "Success alert"
 msgstr "サクセスアラート"
 
-#: block/alert/block/edit.js:96
+#: block/alert/block/edit.js:95
+msgid "Remark alert"
+msgstr "リマークアラート"
+
+#: block/alert/block/edit.js:100
 #: block/directory-structure/block/item/directory/edit.js:79
 #: block/directory-structure/block/item/file/edit.js:56
 #: block/list/block/edit.js:77
 msgid "Icon"
 msgstr "アイコン"
 
-#: block/alert/block/edit.js:123 block/items/block/item/banner/edit.js:166
+#: block/alert/block/edit.js:127 block/items/block/item/banner/edit.js:166
 #: block/items/block/item/block-link/edit.js:139
 #: block/items/block/item/edit.js:147
 #: block/items/block/item/standard/edit.js:139
@@ -313,7 +317,7 @@ msgstr "枠線の太さ"
 #: block/box/block/edit.js:58 block/btn-box/block/edit.js:103
 #: block/btn/block/edit.js:100 block/pricing-table/block/item/edit.js:76
 #: block/section-break-the-grid/block/edit.js:305
-#: block/section-side-heading/block/edit.js:190 block/section/block/edit.js:135
+#: block/section-side-heading/block/edit.js:185 block/section/block/edit.js:130
 msgid "Background Color"
 msgstr "背景色"
 
@@ -322,12 +326,12 @@ msgid "Border Color"
 msgstr "枠線の色"
 
 #: block/box/block/edit.js:68 block/btn/block/edit.js:105
-#: block/items/block/item/banner/edit.js:136
+#: block/items/block/item/banner/edit.js:141
 #: block/pricing-table/block/item/edit.js:81
 #: block/section-break-the-grid/block/edit.js:387
-#: block/section-side-heading/block/edit.js:185
-#: block/section-with-bgimage/block/edit.js:226
-#: block/section-with-bgvideo/block/edit.js:170 block/section/block/edit.js:130
+#: block/section-side-heading/block/edit.js:190
+#: block/section-with-bgimage/block/edit.js:231
+#: block/section-with-bgvideo/block/edit.js:175 block/section/block/edit.js:135
 msgid "Text Color"
 msgstr "文字色"
 
@@ -571,28 +575,39 @@ msgstr "コンテナ"
 msgid "Container blocks keep content within a certain width."
 msgstr "コンテナブロックはコンテンツを一定の幅に収めます。"
 
-#: block/contents-outline/block/edit.js:50
+#: block/contents-outline/block/edit.js:52
 msgid "Show h2"
 msgstr "h2 を表示"
 
-#: block/contents-outline/block/edit.js:58
+#: block/contents-outline/block/edit.js:60
 msgid "Show h3"
 msgstr "h3 を表示"
 
-#: block/contents-outline/block/edit.js:66
+#: block/contents-outline/block/edit.js:68
 msgid "Show h4"
 msgstr "h4 を表示"
 
-#: block/contents-outline/block/edit.js:72
+#: block/contents-outline/block/edit.js:74
 msgid "Move to before 1st heading"
 msgstr "最初の見出しの前に移動"
 
-#: block/contents-outline/block/edit.js:81
+#: block/contents-outline/block/edit.js:83 block/pickup-slider/block/edit.js:69
+#: block/recent-posts/block/edit.js:107 block/taxonomy-posts/block/edit.js:142
+msgid "HTML Anchor"
+msgstr "HTML アンカー"
+
+#: block/contents-outline/block/edit.js:84 block/pickup-slider/block/edit.js:70
+#: block/recent-posts/block/edit.js:108 block/taxonomy-posts/block/edit.js:143
+msgid "Anchors lets you link directly to a section on a page."
+msgstr ""
+"アンカーを使用すると、ページ上のセクションに直接リンクすることができます。"
+
+#: block/contents-outline/block/edit.js:92
 #: block/contents-outline/block/index.js:14
 msgid "Contents outline"
 msgstr "目次"
 
-#: block/contents-outline/block/edit.js:84
+#: block/contents-outline/block/edit.js:95
 msgid "In the actual screen, it is displayed when headings exists on the page."
 msgstr "実際の画面では、見出しがページに存在する場合に表示されます。"
 
@@ -736,12 +751,12 @@ msgid "Position right"
 msgstr "右側"
 
 #: block/evaluation-star/block/edit.js:121
-msgid "Numeric color"
-msgstr "数値の色"
-
-#: block/evaluation-star/block/edit.js:126
 msgid "Icon color"
 msgstr "アイコンの色"
+
+#: block/evaluation-star/block/edit.js:126
+msgid "Numeric color"
+msgstr "数値の色"
 
 #: block/evaluation-star/block/index.js:17
 msgid "Evaluation star"
@@ -846,9 +861,9 @@ msgstr "ぼかす"
 msgid "Mask Opacity"
 msgstr "背景マスクの透明度"
 
-#: block/items/block/item/banner/edit.js:141
-#: block/section-with-bgimage/block/edit.js:231
-#: block/section-with-bgvideo/block/edit.js:175
+#: block/items/block/item/banner/edit.js:136
+#: block/section-with-bgimage/block/edit.js:226
+#: block/section-with-bgvideo/block/edit.js:170
 msgid "Mask Color"
 msgstr "背景マスクの色"
 
@@ -899,6 +914,22 @@ msgstr "ボタンだけでなくブロック全体にリンクを張ります。
 #: block/items/block/item/standard/index.js:16
 msgid "Items (Standard)"
 msgstr "項目（スタンダード）"
+
+#: block/like-me-box/block/edit.js:27
+msgid "Facebook page name"
+msgstr "Facebook ページ名"
+
+#: block/like-me-box/block/edit.js:37 block/like-me-box/block/index.js:15
+msgid "Like me box"
+msgstr "いいね！ボックス"
+
+#: block/like-me-box/block/edit.js:39
+msgid "Please input \"Facebook page name\""
+msgstr "「Facebook ページ名」を入力してください"
+
+#: block/like-me-box/block/index.js:16
+msgid "You can display like me box."
+msgstr "いいね！ボックスを表示できます。"
 
 #: block/limited-datetime/block/edit.js:32
 #: block/limited-datetime/block/edit.js:41
@@ -1015,6 +1046,11 @@ msgstr "33%"
 msgid "25%"
 msgstr "25%"
 
+#: block/media-text/block/edit.js:176 block/slider/block/item/edit.js:51
+#: block/thumbnail-gallery/block/item/edit.js:38
+msgid "Write caption..."
+msgstr "キャプションを書く…"
+
 #: block/media-text/block/index.js:17
 msgid "Media text"
 msgstr "メディアと文章"
@@ -1078,17 +1114,6 @@ msgstr "最大表示数"
 #: block/pickup-slider/block/edit.js:58
 msgid "If \"0\", all items are displayed."
 msgstr "「0」の場合、すべての項目が表示されます。"
-
-#: block/pickup-slider/block/edit.js:69 block/recent-posts/block/edit.js:107
-#: block/taxonomy-posts/block/edit.js:142
-msgid "HTML Anchor"
-msgstr "HTML アンカー"
-
-#: block/pickup-slider/block/edit.js:70 block/recent-posts/block/edit.js:108
-#: block/taxonomy-posts/block/edit.js:143
-msgid "Anchors lets you link directly to a section on a page."
-msgstr ""
-"アンカーを使用すると、ページ上のセクションに直接リンクすることができます。"
 
 #: block/pickup-slider/block/edit.js:79 block/pickup-slider/block/index.js:14
 msgid "Pickup slider"
@@ -1553,11 +1578,6 @@ msgstr "スライダー"
 #: block/slider/block/index.js:17
 msgid "Show attractive images as beautiful sliders."
 msgstr "魅力的な画像を美しいスライダーとして表示します。"
-
-#: block/slider/block/item/edit.js:51
-#: block/thumbnail-gallery/block/item/edit.js:38
-msgid "Write caption..."
-msgstr "キャプションを書く…"
 
 #: block/slider/block/item/index.js:16
 msgid "It is a child block of the slider block."
