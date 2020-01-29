@@ -57,3 +57,18 @@ register_block_type(
 		'editor_style'  => 'snow-monkey-blocks/section-side-heading/editor',
 	]
 );
+
+/**
+ * excerpt_allowed_blocks
+ */
+add_filter(
+	'excerpt_allowed_blocks',
+	function( $allowed_blocks ) {
+		return array_merge(
+			$allowed_blocks,
+			[
+				'snow-monkey-blocks/section-side-heading',
+			]
+		);
+	}
+);
