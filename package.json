@@ -19,7 +19,7 @@
     "po2json": "^1.0.0-alpha",
     "postcss-cli": "^7.1.0",
     "rimraf": "^3.0.1",
-    "sass-basis": "^9.5.9",
+    "sass-basis": "^9.5.10",
     "slick-carousel": "^1.8.1"
   },
   "scripts": {

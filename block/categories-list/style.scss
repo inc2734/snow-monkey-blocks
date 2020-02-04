@@ -86,10 +86,6 @@
     &__category-description {
       @include _margin-bottom(.25);
       @include _font-size-line-height($_base-font-size-px - 2);
-
-      @include _media-min(md) {
-        @include _line-height($_base-font-size-px + 4);
-      }
     }
 
     &__recent-label {
@@ -125,10 +121,6 @@
       @include _font-size-line-height($_base-font-size-px - 2);
       @include _content(.25);
       word-break: break-word;
-
-      @include _media-min(md) {
-        @include _line-height($_base-font-size-px + 4);
-      }
     }
 
     &__detail {
