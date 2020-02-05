@@ -7,7 +7,7 @@
     "@fortawesome/react-fontawesome": "^0.1.8",
     "@inc2734/for-each-html-nodes": "^0.4.0",
     "@wordpress/browserslist-config": "^2.6.0",
-    "@wordpress/scripts": "6.2.0",
+    "@wordpress/scripts": "7.0.1",
     "autoprefixer": "^9.7.4",
     "classnames": "^2.2.6",
     "cpy-cli": "^3.0.0",
@@ -19,7 +19,7 @@
     "po2json": "^1.0.0-alpha",
     "postcss-cli": "^7.1.0",
     "rimraf": "^3.0.1",
-    "sass-basis": "^9.5.10",
+    "sass-basis": "^9.6.0",
     "slick-carousel": "^1.8.1"
   },
   "scripts": {
@@ -187,7 +187,7 @@
     "img": "npm run clean:img && cpy '**' '../../dist/img' --cwd=src/img --parents"
   },
   "dependencies": {
-    "@wordpress/i18n": "^3.8.0",
+    "@wordpress/i18n": "^3.9.0",
     "react-image": "2.2.2"
   }
 }
