@@ -51,8 +51,9 @@ export default function( { attributes, setAttributes, className } ) {
 						label={ __( 'Autoplay Speed in seconds', 'snow-monkey-blocks' ) }
 						value={ autoplaySpeed }
 						onChange={ ( value ) => {
-							setAttributes( { autoplaySpeed: toNumber( value, 0, 10 ) } );
-							if ( 0 < autoplaySpeed ) {
+							const newValue = toNumber( value, 0, 10 );
+							setAttributes( { autoplaySpeed: newValue } );
+							if ( 0 < newValue ) {
 								setAttributes( { autoplay: true } );
 							} else {
 								setAttributes( { autoplay: false } );

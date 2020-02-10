@@ -112,6 +112,10 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 
 == Changelog ==
 
+= 7.3.4 =
+* [Slider] Fix autoplay bug.
+* [Thumbnail slider] Fix autoplay bug.
+
 = 7.3.3 =
 * Update categories list block styles.
 

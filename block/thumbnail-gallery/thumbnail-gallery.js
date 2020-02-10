@@ -19,6 +19,8 @@ export default class ThumbnailGallery {
 				config.arrows = config.arrows || false;
 				config.adaptiveHeight = true;
 
+				config.autoplay = 0 < config.autoplaySpeed ? true : false;
+
 				$( slider ).on(
 					'init',
 					() => {

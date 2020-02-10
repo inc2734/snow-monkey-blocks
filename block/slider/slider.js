@@ -36,6 +36,8 @@ export default class Slider {
 					);
 				}
 
+				config.autoplay = 0 < config.autoplaySpeed ? true : false;
+
 				config.adaptiveHeight = true;
 				delete config.mdSlidesToShow;
 				delete config.mdSlidesToScroll;
