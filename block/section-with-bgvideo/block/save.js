@@ -2,7 +2,6 @@
 
 import classnames from 'classnames';
 
-import { Fragment } from '@wordpress/element';
 import { RichText, InnerBlocks } from '@wordpress/block-editor';
 
 import { getVideoId } from './utils';
@@ -63,7 +62,7 @@ export default function( { attributes, className } ) {
 			/>
 			<div className={ bgvideoClasses } style={ bgvideoStyles }>
 				{ videoURL && (
-					<Fragment>
+					<>
 						<iframe
 							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 							src={ `https://www.youtube.com/embed/${ getVideoId(
@@ -82,7 +81,7 @@ export default function( { attributes, className } ) {
 							) }/maxresdefault.jpg` }
 							alt=""
 						/>
-					</Fragment>
+					</>
 				) }
 			</div>
 			<div className={ containerClasses }>

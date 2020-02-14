@@ -1,6 +1,5 @@
 'use strict';
 
-import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 import {
@@ -23,7 +22,7 @@ export default function( { attributes, setAttributes } ) {
 	const { random, linkType, postsPerPage, myAnchor } = attributes;
 
 	return (
-		<Fragment>
+		<>
 			<InspectorControls>
 				<PanelBody
 					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
@@ -112,6 +111,6 @@ export default function( { attributes, setAttributes } ) {
 					) }
 				</div>
 			</div>
-		</Fragment>
+		</>
 	);
 }

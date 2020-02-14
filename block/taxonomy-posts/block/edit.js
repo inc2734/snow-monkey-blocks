@@ -3,7 +3,6 @@
 import { find } from 'lodash';
 
 import { useSelect } from '@wordpress/data';
-import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import ServerSideRender from '@wordpress/server-side-render';
 
@@ -82,7 +81,7 @@ export default function( { attributes, setAttributes } ) {
 	};
 
 	return (
-		<Fragment>
+		<>
 			<InspectorControls>
 				<PanelBody
 					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
@@ -198,6 +197,6 @@ export default function( { attributes, setAttributes } ) {
 					attributes={ attributes }
 				/>
 			) }
-		</Fragment>
+		</>
 	);
 }

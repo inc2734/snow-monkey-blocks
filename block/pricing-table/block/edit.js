@@ -4,7 +4,6 @@ import classnames from 'classnames';
 
 import { PanelBody, BaseControl, SelectControl } from '@wordpress/components';
 import { InnerBlocks, InspectorControls } from '@wordpress/block-editor';
-import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 export default function( { attributes, setAttributes, className } ) {
@@ -19,7 +18,7 @@ export default function( { attributes, setAttributes, className } ) {
 	const template = [ [ 'snow-monkey-blocks/pricing-table--item' ] ];
 
 	return (
-		<Fragment>
+		<>
 			<InspectorControls>
 				<PanelBody
 					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
@@ -73,6 +72,6 @@ export default function( { attributes, setAttributes, className } ) {
 					/>
 				</div>
 			</div>
-		</Fragment>
+		</>
 	);
 }

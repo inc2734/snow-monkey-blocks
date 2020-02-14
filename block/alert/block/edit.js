@@ -4,7 +4,6 @@ import classnames from 'classnames';
 import { times } from 'lodash';
 
 import { RichText, InspectorControls } from '@wordpress/block-editor';
-import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 import {
@@ -61,7 +60,7 @@ export default function( {
 	} );
 
 	return (
-		<Fragment>
+		<>
 			<InspectorControls>
 				<PanelBody
 					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
@@ -164,6 +163,6 @@ export default function( {
 					}
 				/>
 			</div>
-		</Fragment>
+		</>
 	);
 }

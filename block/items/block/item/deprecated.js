@@ -3,7 +3,6 @@
 import { merge } from 'lodash';
 
 import { RichText } from '@wordpress/block-editor';
-import { Fragment } from '@wordpress/element';
 
 import blockAttributes from './attributes';
 
@@ -180,7 +179,7 @@ export default [
 			return (
 				<div className="c-row__col">
 					{ renderItem(
-						<Fragment>
+						<>
 							{ !! imageID && (
 								<div className="smb-items__item__figure">
 									<img
@@ -223,7 +222,7 @@ export default [
 									) }
 								</div>
 							) }
-						</Fragment>
+						</>
 					) }
 				</div>
 			);
@@ -301,7 +300,7 @@ export default [
 			return (
 				<div className="c-row__col">
 					{ renderItem(
-						<Fragment>
+						<>
 							{ !! imageID && (
 								<div className="smb-items__item__figure">
 									<img
@@ -344,7 +343,7 @@ export default [
 									) }
 								</div>
 							) }
-						</Fragment>
+						</>
 					) }
 				</div>
 			);

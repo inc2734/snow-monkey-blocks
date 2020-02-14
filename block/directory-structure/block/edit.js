@@ -3,7 +3,6 @@
 import classnames from 'classnames';
 
 import { InnerBlocks } from '@wordpress/block-editor';
-import { Fragment } from '@wordpress/element';
 
 export default function( { className } ) {
 	const allowedBlocks = [
@@ -14,13 +13,13 @@ export default function( { className } ) {
 	const blockClasses = classnames( 'smb-directory-structure', className );
 
 	return (
-		<Fragment>
+		<>
 			<div className={ blockClasses }>
 				<InnerBlocks
 					allowedBlocks={ allowedBlocks }
 					templateLock={ false }
 				/>
 			</div>
-		</Fragment>
+		</>
 	);
 }

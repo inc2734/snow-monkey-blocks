@@ -1,24 +1,11 @@
 'use strict';
 
-import {
-	map,
-} from 'lodash';
+import { map } from 'lodash';
 
-import {
-	select,
-} from '@wordpress/data';
-
-import {
-	RichTextToolbarButton,
-} from '@wordpress/block-editor';
-
-import {
-	removeFormat,
-} from '@wordpress/rich-text';
-
-import {
-	__,
-} from '@wordpress/i18n';
+import { select } from '@wordpress/data';
+import { RichTextToolbarButton } from '@wordpress/block-editor';
+import { removeFormat } from '@wordpress/rich-text';
+import { __ } from '@wordpress/i18n';
 
 export default function( { value, isActive, onChange } ) {
 	const onToggle = () => {

@@ -4,7 +4,6 @@ import classnames from 'classnames';
 
 import { PanelBody, BaseControl, SelectControl } from '@wordpress/components';
 import { RichText, InspectorControls, URLInput } from '@wordpress/block-editor';
-import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 import Figure from '../../../../src/js/component/figure';
@@ -21,7 +20,7 @@ export default function( {
 
 	const Item = () => {
 		return (
-			<Fragment>
+			<>
 				<div className="smb-slider__item__figure">
 					<Figure
 						src={ imageURL }
@@ -62,12 +61,12 @@ export default function( {
 						}
 					/>
 				) }
-			</Fragment>
+			</>
 		);
 	};
 
 	return (
-		<Fragment>
+		<>
 			<InspectorControls>
 				<PanelBody
 					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
@@ -120,6 +119,6 @@ export default function( {
 					<Item />
 				</div>
 			) }
-		</Fragment>
+		</>
 	);
 }

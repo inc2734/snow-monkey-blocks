@@ -1,25 +1,9 @@
 'use strict';
 
-import {
-	TabPanel,
-} from '@wordpress/components';
-
-import {
-	Fragment,
-} from '@wordpress/element';
-
-import {
-	PluginSidebar,
-	PluginSidebarMoreMenuItem,
-} from '@wordpress/edit-post';
-
-import {
-	applyFilters,
-} from '@wordpress/hooks';
-
-import {
-	__,
-} from '@wordpress/i18n';
+import { TabPanel } from '@wordpress/components';
+import { PluginSidebar, PluginSidebarMoreMenuItem } from '@wordpress/edit-post';
+import { applyFilters } from '@wordpress/hooks';
+import { __ } from '@wordpress/i18n';
 
 import BlockTemplates from './block-templates';
 
@@ -33,10 +17,8 @@ export default function() {
 	];
 
 	return (
-		<Fragment>
-			<PluginSidebarMoreMenuItem
-				target="smbSidebar"
-			>
+		<>
+			<PluginSidebarMoreMenuItem target="smbSidebar">
 				{ __( 'Snow Monkey Blocks', 'snow-monkey-blocks' ) }
 			</PluginSidebarMoreMenuItem>
 
@@ -47,22 +29,23 @@ export default function() {
 				<TabPanel
 					className="edit-post-sidebar__panel-tabs"
 					activeClass="is-active"
-					onSelect={ ( tabName ) => applyFilters( 'snow-monkey-blocks.select-menu', tabName ) }
+					onSelect={ ( tabName ) =>
+						applyFilters(
+							'snow-monkey-blocks.select-menu',
+							tabName
+						)
+					}
 					tabs={ tabMenus }
 				>
-					{
-						( tabData ) => {
-							switch ( tabData.name ) {
-								case 'block-templates':
-									return (
-										<BlockTemplates />
-									);
-							}
-							return null;
+					{ ( tabData ) => {
+						switch ( tabData.name ) {
+							case 'block-templates':
+								return <BlockTemplates />;
 						}
-					}
+						return null;
+					} }
 				</TabPanel>
 			</PluginSidebar>
-		</Fragment>
+		</>
 	);
 }

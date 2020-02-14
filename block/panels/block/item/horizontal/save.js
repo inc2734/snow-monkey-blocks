@@ -3,7 +3,6 @@
 import classnames from 'classnames';
 
 import { RichText } from '@wordpress/block-editor';
-import { Fragment } from '@wordpress/element';
 
 export default function( { attributes, className } ) {
 	const {
@@ -21,7 +20,7 @@ export default function( { attributes, className } ) {
 
 	const PanelsItemContent = () => {
 		return (
-			<Fragment>
+			<>
 				{ !! imageID && (
 					<div className="smb-panels__item__figure">
 						<img
@@ -56,7 +55,7 @@ export default function( { attributes, className } ) {
 						</div>
 					) }
 				</div>
-			</Fragment>
+			</>
 		);
 	};
 

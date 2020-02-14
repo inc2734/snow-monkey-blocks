@@ -2,8 +2,6 @@
 
 import classnames from 'classnames';
 
-import { Fragment } from '@wordpress/element';
-
 import blockAttributes from './attributes';
 
 export default [
@@ -22,7 +20,7 @@ export default [
 			);
 
 			return (
-				<Fragment>
+				<>
 					{ !! imageID && (
 						<div className={ classes }>
 							<div className="smb-thumbnail-gallery__item__figure">
@@ -34,7 +32,7 @@ export default [
 							</div>
 						</div>
 					) }
-				</Fragment>
+				</>
 			);
 		},
 	},

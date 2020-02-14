@@ -3,7 +3,6 @@
 import classnames from 'classnames';
 
 import { RichText } from '@wordpress/block-editor';
-import { Fragment } from '@wordpress/element';
 
 export default function( { attributes, className } ) {
 	const {
@@ -36,7 +35,7 @@ export default function( { attributes, className } ) {
 
 	const ItemsItemContent = () => {
 		return (
-			<Fragment>
+			<>
 				{ !! imageID && (
 					<div className="smb-items__item__figure">
 						<img
@@ -91,7 +90,7 @@ export default function( { attributes, className } ) {
 						</Btn>
 					</div>
 				) }
-			</Fragment>
+			</>
 		);
 	};
 

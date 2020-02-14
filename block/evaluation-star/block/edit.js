@@ -3,7 +3,6 @@
 import classnames from 'classnames';
 
 import { InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
-import { Fragment } from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
 
 import {
@@ -63,7 +62,7 @@ export default function( { attributes, setAttributes, className } ) {
 	};
 
 	return (
-		<Fragment>
+		<>
 			<InspectorControls>
 				<PanelBody
 					title={ __( 'Evaluation Settings', 'snow-monkey-blocks' ) }
@@ -159,6 +158,6 @@ export default function( { attributes, setAttributes, className } ) {
 					</div>
 				</div>
 			</div>
-		</Fragment>
+		</>
 	);
 }

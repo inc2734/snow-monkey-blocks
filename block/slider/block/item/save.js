@@ -3,7 +3,6 @@
 import classnames from 'classnames';
 
 import { RichText } from '@wordpress/block-editor';
-import { Fragment } from '@wordpress/element';
 
 export default function( { attributes, className } ) {
 	const { imageID, imageURL, imageAlt, caption, url, target } = attributes;
@@ -12,7 +11,7 @@ export default function( { attributes, className } ) {
 
 	const Item = () => {
 		return (
-			<Fragment>
+			<>
 				<div className="smb-slider__item__figure">
 					<img
 						src={ imageURL }
@@ -26,7 +25,7 @@ export default function( { attributes, className } ) {
 						<RichText.Content value={ caption } />
 					</div>
 				) }
-			</Fragment>
+			</>
 		);
 	};
 

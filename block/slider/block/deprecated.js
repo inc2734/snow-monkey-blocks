@@ -4,7 +4,6 @@ import classnames from 'classnames';
 import { get, times, merge, omit } from 'lodash';
 
 import { RichText, InnerBlocks } from '@wordpress/block-editor';
-import { Fragment } from '@wordpress/element';
 import { createBlock } from '@wordpress/blocks';
 
 import blockAttributes from './attributes';
@@ -267,7 +266,7 @@ export default [
 							);
 
 							return (
-								<Fragment>
+								<>
 									{ !! imageID && (
 										<div className="smb-slider__item">
 											<div className="smb-slider__item__figure">
@@ -288,7 +287,7 @@ export default [
 											) }
 										</div>
 									) }
-								</Fragment>
+								</>
 							);
 						} ) }
 					</div>
@@ -389,7 +388,7 @@ export default [
 							);
 
 							return (
-								<Fragment>
+								<>
 									{ !! imageID && (
 										<div className="smb-slider__item">
 											<div className="smb-slider__item__figure">
@@ -410,7 +409,7 @@ export default [
 											) }
 										</div>
 									) }
-								</Fragment>
+								</>
 							);
 						} ) }
 					</div>
@@ -515,7 +514,7 @@ export default [
 							);
 
 							return (
-								<Fragment>
+								<>
 									{ !! imageID && (
 										<div className="smb-slider__item">
 											<div className="smb-slider__item__figure">
@@ -535,7 +534,7 @@ export default [
 											) }
 										</div>
 									) }
-								</Fragment>
+								</>
 							);
 						} ) }
 					</div>

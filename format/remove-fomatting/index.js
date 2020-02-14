@@ -1,12 +1,9 @@
 'use strict';
 
-import RemoveFormatting from './remove-formatting';
-
-import {
-	__,
-} from '@wordpress/i18n';
-
+import { __ } from '@wordpress/i18n';
 export const name = 'snow-monkey-blocks/remove-fomatting';
+
+import RemoveFormatting from './remove-formatting';
 
 export const settings = {
 	title: __( 'Remove formatting', 'snow-monkey-blocks' ),

@@ -2,14 +2,13 @@
 
 import { Dashicon, PanelBody, TextControl } from '@wordpress/components';
 import { InspectorControls } from '@wordpress/block-editor';
-import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 export default function( { attributes, setAttributes } ) {
 	const { title } = attributes;
 
 	return (
-		<Fragment>
+		<>
 			<InspectorControls>
 				<PanelBody
 					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
@@ -36,6 +35,6 @@ export default function( { attributes, setAttributes } ) {
 					) }
 				</div>
 			</div>
-		</Fragment>
+		</>
 	);
 }

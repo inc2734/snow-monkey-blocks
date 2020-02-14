@@ -3,7 +3,6 @@
 import { times, get, merge } from 'lodash';
 
 import { RichText, InnerBlocks } from '@wordpress/block-editor';
-import { Fragment } from '@wordpress/element';
 import { createBlock } from '@wordpress/blocks';
 
 import blockAttributes from './attributes';
@@ -251,7 +250,7 @@ export default [
 									) }
 								>
 									{ renderItem(
-										<Fragment>
+										<>
 											{ !! imageID && (
 												<div className="smb-panels__item__figure">
 													<img
@@ -302,7 +301,7 @@ export default [
 													</div>
 												) }
 											</div>
-										</Fragment>
+										</>
 									) }
 								</div>
 							);
@@ -473,7 +472,7 @@ export default [
 									) }
 								>
 									{ renderItem(
-										<Fragment>
+										<>
 											{ !! imageID && (
 												<div className="smb-panels__item__figure">
 													<img
@@ -521,7 +520,7 @@ export default [
 													</div>
 												) }
 											</div>
-										</Fragment>
+										</>
 									) }
 								</div>
 							);

@@ -1,24 +1,10 @@
 'use strict';
 
+import { RichTextToolbarButton } from '@wordpress/block-editor';
+import { toggleFormat, applyFormat, removeFormat } from '@wordpress/rich-text';
+import { __ } from '@wordpress/i18n';
+
 import BadgePopover from './badge-popover';
-
-import {
-	RichTextToolbarButton,
-} from '@wordpress/block-editor';
-
-import {
-	Fragment,
-} from '@wordpress/element';
-
-import {
-	toggleFormat,
-	applyFormat,
-	removeFormat,
-} from '@wordpress/rich-text';
-
-import {
-	__,
-} from '@wordpress/i18n';
 
 export const name = 'snow-monkey-blocks/badge';
 
@@ -47,19 +33,15 @@ export const settings = {
 		};
 
 		return (
-			<Fragment>
+			<>
 				<RichTextToolbarButton
 					icon="tag"
 					title={ __( 'Badge', 'snow-monkey-blocks' ) }
 					onClick={ onToggle }
 					isActive={ isActive }
 				/>
-				{ isActive &&
-					<BadgePopover
-						onChangeColor={ onChangeColor }
-					/>
-				}
-			</Fragment>
+				{ isActive && <BadgePopover onChangeColor={ onChangeColor } /> }
+			</>
 		);
 	},
 };

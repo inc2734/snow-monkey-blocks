@@ -2,7 +2,6 @@
 
 import classnames from 'classnames';
 
-import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 import {
@@ -22,7 +21,7 @@ export default function( { attributes, setAttributes, className } ) {
 	};
 
 	return (
-		<Fragment>
+		<>
 			<InspectorControls>
 				<PanelColorSettings
 					title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
@@ -65,6 +64,6 @@ export default function( { attributes, setAttributes, className } ) {
 					</div>
 				</div>
 			</div>
-		</Fragment>
+		</>
 	);
 }

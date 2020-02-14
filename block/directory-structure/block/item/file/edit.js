@@ -2,7 +2,6 @@
 
 import classnames from 'classnames';
 
-import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 import {
@@ -49,7 +48,7 @@ export default function( { attributes, setAttributes, className } ) {
 	];
 
 	return (
-		<Fragment>
+		<>
 			<InspectorControls>
 				<PanelBody
 					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
@@ -125,6 +124,6 @@ export default function( { attributes, setAttributes, className } ) {
 					</span>
 				</p>
 			</div>
-		</Fragment>
+		</>
 	);
 }

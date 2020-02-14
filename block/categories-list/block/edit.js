@@ -5,7 +5,6 @@ import classnames from 'classnames';
 import { remove, union, indexOf, compact } from 'lodash';
 import { useSelect } from '@wordpress/data';
 import { InspectorControls } from '@wordpress/block-editor';
-import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 import {
@@ -167,7 +166,7 @@ export default function( { attributes, setAttributes, className } ) {
 	};
 
 	return (
-		<Fragment>
+		<>
 			<InspectorControls>
 				<PanelBody
 					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
@@ -262,6 +261,6 @@ export default function( { attributes, setAttributes, className } ) {
 			</InspectorControls>
 
 			<View />
-		</Fragment>
+		</>
 	);
 }

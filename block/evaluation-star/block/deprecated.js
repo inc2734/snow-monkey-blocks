@@ -1,6 +1,5 @@
 'use strict';
 
-import { Fragment } from '@wordpress/element';
 import { sprintf } from '@wordpress/i18n';
 
 import { toNumber } from '../../../src/js/helper/helper';
@@ -41,7 +40,7 @@ export default [
 					outputEvaluationIcons.push( <i className="far fa-star" /> );
 				}
 
-				return <Fragment>{ outputEvaluationIcons }</Fragment>;
+				return <>{ outputEvaluationIcons }</>;
 			};
 
 			return (

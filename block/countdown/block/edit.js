@@ -3,7 +3,6 @@
 import classnames from 'classnames';
 
 import { PanelBody, DateTimePicker } from '@wordpress/components';
-import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 import {
@@ -29,7 +28,7 @@ export default function( { attributes, setAttributes, className } ) {
 	};
 
 	return (
-		<Fragment>
+		<>
 			<BlockControls>
 				<AlignmentToolbar
 					value={ attributes.alignment }
@@ -131,6 +130,6 @@ export default function( { attributes, setAttributes, className } ) {
 					</li>
 				</ul>
 			</div>
-		</Fragment>
+		</>
 	);
 }

@@ -2,7 +2,7 @@
 
 import ServerSideRender from '@wordpress/server-side-render';
 import { useSelect } from '@wordpress/data';
-import { Fragment, useMemo } from '@wordpress/element';
+import { useMemo } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 import {
@@ -59,7 +59,7 @@ export default function( { attributes, setAttributes } ) {
 	};
 
 	return (
-		<Fragment>
+		<>
 			<InspectorControls>
 				<PanelBody
 					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
@@ -150,6 +150,6 @@ export default function( { attributes, setAttributes } ) {
 					attributes={ attributes }
 				/>
 			) }
-		</Fragment>
+		</>
 	);
 }

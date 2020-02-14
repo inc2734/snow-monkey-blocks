@@ -4,7 +4,6 @@ import classnames from 'classnames';
 
 import { PanelBody, RangeControl, ToggleControl } from '@wordpress/components';
 import { InspectorControls, InnerBlocks } from '@wordpress/block-editor';
-import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 import { toNumber } from '../../../src/js/helper/helper';
@@ -32,7 +31,7 @@ export default function( { attributes, setAttributes, className } ) {
 	const classes = classnames( 'smb-slider', className );
 
 	return (
-		<Fragment>
+		<>
 			<InspectorControls>
 				<PanelBody
 					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
@@ -108,7 +107,7 @@ export default function( { attributes, setAttributes, className } ) {
 					<ResponsiveTabPanel
 						desktop={ () => {
 							return (
-								<Fragment>
+								<>
 									<RangeControl
 										label={ __(
 											'# of slides to show (Large window)',
@@ -145,12 +144,12 @@ export default function( { attributes, setAttributes, className } ) {
 										min="1"
 										max="6"
 									/>
-								</Fragment>
+								</>
 							);
 						} }
 						tablet={ () => {
 							return (
-								<Fragment>
+								<>
 									<RangeControl
 										label={ __(
 											'# of slides to show (Medium window)',
@@ -187,12 +186,12 @@ export default function( { attributes, setAttributes, className } ) {
 										min="1"
 										max="6"
 									/>
-								</Fragment>
+								</>
 							);
 						} }
 						mobile={ () => {
 							return (
-								<Fragment>
+								<>
 									<RangeControl
 										label={ __(
 											'# of slides to show (Small window)',
@@ -229,7 +228,7 @@ export default function( { attributes, setAttributes, className } ) {
 										min="1"
 										max="6"
 									/>
-								</Fragment>
+								</>
 							);
 						} }
 					/>
@@ -245,6 +244,6 @@ export default function( { attributes, setAttributes, className } ) {
 					/>
 				</div>
 			</div>
-		</Fragment>
+		</>
 	);
 }

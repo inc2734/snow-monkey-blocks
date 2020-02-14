@@ -1,18 +1,10 @@
 'use strict';
 
-import BlockTemplatePanel from './block-template-panel';
-
 import apiFetch from '@wordpress/api-fetch';
+import { PanelBody, Spinner } from '@wordpress/components';
+import { useState } from '@wordpress/element';
 
-import {
-	PanelBody,
-	Spinner,
-} from '@wordpress/components';
-
-import {
-	Fragment,
-	useState,
-} from '@wordpress/element';
+import BlockTemplatePanel from './block-template-panel';
 
 export default function() {
 	const [ categories, setCategories ] = useState( null );
@@ -42,31 +34,28 @@ export default function() {
 			return;
 		}
 
-		const newResultCategories = categories.map( ( category ) => {
-			if ( smb.isPro || ! category.isPro ) {
-				return (
-					<PanelBody
-						title={ category.title }
-					>
-						<BlockTemplatePanel
-							slug={ category.slug }
-						/>
-					</PanelBody>
-				);
-			}
-		} );
+		const newResultCategories = categories
+			.map( ( category ) => {
+				if ( smb.isPro || ! category.isPro ) {
+					return (
+						<PanelBody title={ category.title }>
+							<BlockTemplatePanel slug={ category.slug } />
+						</PanelBody>
+					);
+				}
+				return null;
+			} )
+			.filter( ( category ) => category );
 
-		setResultCategories( newResultCategories.filter( ( resultCategory ) => resultCategory ) );
+		setResultCategories(
+			newResultCategories.filter( ( resultCategory ) => resultCategory )
+		);
 	};
 
 	setupResultCategories();
 
 	if ( resultCategories ) {
-		return (
-			<Fragment>
-				{ resultCategories }
-			</Fragment>
-		);
+		return <>{ resultCategories }</>;
 	}
 
 	return (

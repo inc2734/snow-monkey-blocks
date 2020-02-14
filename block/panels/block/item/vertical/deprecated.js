@@ -3,7 +3,6 @@
 import { merge } from 'lodash';
 
 import { RichText } from '@wordpress/block-editor';
-import { Fragment } from '@wordpress/element';
 
 import blockAttributes from './attributes';
 
@@ -25,7 +24,7 @@ export default [
 
 			const PanelsItemContent = () => {
 				return (
-					<Fragment>
+					<>
 						{ !! imageID && (
 							<div className="smb-panels__item__figure">
 								<img
@@ -59,7 +58,7 @@ export default [
 								</div>
 							) }
 						</div>
-					</Fragment>
+					</>
 				);
 			};
 
@@ -152,7 +151,7 @@ export default [
 			return (
 				<div className="c-row__col">
 					{ renderItem(
-						<Fragment>
+						<>
 							{ !! imageID && (
 								<div className="smb-panels__item__figure">
 									<img
@@ -188,7 +187,7 @@ export default [
 									</div>
 								) }
 							</div>
-						</Fragment>
+						</>
 					) }
 				</div>
 			);

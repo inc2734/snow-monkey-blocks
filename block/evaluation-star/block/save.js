@@ -2,7 +2,6 @@
 
 import classnames from 'classnames';
 
-import { Fragment } from '@wordpress/element';
 import { sprintf } from '@wordpress/i18n';
 
 import { toNumber } from '../../../src/js/helper/helper';
@@ -37,7 +36,7 @@ export default function( { attributes, className } ) {
 			outputEvaluationIcons.push( <i className="far fa-star" /> );
 		}
 
-		return <Fragment>{ outputEvaluationIcons }</Fragment>;
+		return <>{ outputEvaluationIcons }</>;
 	};
 
 	const classes = classnames( 'smb-evaluation-star', className );

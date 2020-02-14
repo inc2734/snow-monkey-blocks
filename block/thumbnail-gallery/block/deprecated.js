@@ -3,7 +3,6 @@
 import classnames from 'classnames';
 import { get, times } from 'lodash';
 
-import { Fragment } from '@wordpress/element';
 import { createBlock } from '@wordpress/blocks';
 import { InnerBlocks } from '@wordpress/block-editor';
 
@@ -126,7 +125,7 @@ export default [
 							);
 
 							return (
-								<Fragment>
+								<>
 									{ !! imageID && (
 										<div className="smb-thumbnail-gallery__item">
 											<div className="smb-thumbnail-gallery__item__figure">
@@ -139,7 +138,7 @@ export default [
 											</div>
 										</div>
 									) }
-								</Fragment>
+								</>
 							);
 						} ) }
 					</div>
@@ -158,7 +157,7 @@ export default [
 							);
 
 							return (
-								<Fragment>
+								<>
 									{ !! imageID && (
 										<div className="smb-thumbnail-gallery__nav__item">
 											<div className="smb-thumbnail-gallery__nav__item__figure">
@@ -171,7 +170,7 @@ export default [
 											</div>
 										</div>
 									) }
-								</Fragment>
+								</>
 							);
 						} ) }
 					</div>
@@ -232,7 +231,7 @@ export default [
 							);
 
 							return (
-								<Fragment>
+								<>
 									{ !! imageID && (
 										<div className="smb-thumbnail-gallery__item">
 											<div className="smb-thumbnail-gallery__item__figure">
@@ -245,7 +244,7 @@ export default [
 											</div>
 										</div>
 									) }
-								</Fragment>
+								</>
 							);
 						} ) }
 					</div>
@@ -264,7 +263,7 @@ export default [
 							);
 
 							return (
-								<Fragment>
+								<>
 									{ !! imageID && (
 										<div className="smb-thumbnail-gallery__nav__item">
 											<div className="smb-thumbnail-gallery__nav__item__figure">
@@ -277,7 +276,7 @@ export default [
 											</div>
 										</div>
 									) }
-								</Fragment>
+								</>
 							);
 						} ) }
 					</div>

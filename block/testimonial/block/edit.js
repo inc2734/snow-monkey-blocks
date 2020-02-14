@@ -4,7 +4,6 @@ import classnames from 'classnames';
 
 import { PanelBody, RangeControl } from '@wordpress/components';
 import { InspectorControls, InnerBlocks } from '@wordpress/block-editor';
-import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 import { toNumber } from '../../../src/js/helper/helper';
@@ -19,7 +18,7 @@ export default function( { attributes, setAttributes, className } ) {
 	const classes = classnames( 'smb-testimonial', className );
 
 	return (
-		<Fragment>
+		<>
 			<InspectorControls>
 				<PanelBody
 					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
@@ -81,6 +80,6 @@ export default function( { attributes, setAttributes, className } ) {
 					</div>
 				</div>
 			</div>
-		</Fragment>
+		</>
 	);
 }

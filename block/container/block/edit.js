@@ -4,7 +4,6 @@ import classnames from 'classnames';
 
 import { InnerBlocks, InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, ToggleControl } from '@wordpress/components';
-import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 export default function( { attributes, setAttributes, className } ) {
@@ -17,7 +16,7 @@ export default function( { attributes, setAttributes, className } ) {
 	} );
 
 	return (
-		<Fragment>
+		<>
 			<InspectorControls>
 				<PanelBody
 					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
@@ -40,6 +39,6 @@ export default function( { attributes, setAttributes, className } ) {
 					<InnerBlocks />
 				</div>
 			</div>
-		</Fragment>
+		</>
 	);
 }

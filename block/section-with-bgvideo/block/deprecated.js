@@ -3,7 +3,6 @@
 import classnames from 'classnames';
 
 import { RichText, InnerBlocks } from '@wordpress/block-editor';
-import { Fragment } from '@wordpress/element';
 
 import blockAttributes from './attributes';
 import { getVideoId } from './utils';
@@ -61,7 +60,7 @@ export default [
 				<div className={ classes } style={ sectionStyles }>
 					<div className={ bgvideoClasses }>
 						{ videoURL && (
-							<Fragment>
+							<>
 								<iframe
 									allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 									src={ `https://www.youtube.com/embed/${ getVideoId(
@@ -80,7 +79,7 @@ export default [
 									) }/maxresdefault.jpg` }
 									alt=""
 								/>
-							</Fragment>
+							</>
 						) }
 					</div>
 					<div
@@ -161,7 +160,7 @@ export default [
 				<div className={ classes } style={ sectionStyles }>
 					<div className={ bgvideoClasses }>
 						{ videoURL && (
-							<Fragment>
+							<>
 								<iframe
 									allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 									src={ `https://www.youtube.com/embed/${ getVideoId(
@@ -180,7 +179,7 @@ export default [
 									) }/maxresdefault.jpg` }
 									alt=""
 								/>
-							</Fragment>
+							</>
 						) }
 					</div>
 					<div

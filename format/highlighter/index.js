@@ -1,20 +1,8 @@
 'use strict';
 
-import {
-	RichTextToolbarButton,
-} from '@wordpress/block-editor';
-
-import {
-	Fragment,
-} from '@wordpress/element';
-
-import {
-	toggleFormat,
-} from '@wordpress/rich-text';
-
-import {
-	__,
-} from '@wordpress/i18n';
+import { RichTextToolbarButton } from '@wordpress/block-editor';
+import { toggleFormat } from '@wordpress/rich-text';
+import { __ } from '@wordpress/i18n';
 
 export const name = 'snow-monkey-blocks/highlighter';
 
@@ -24,17 +12,18 @@ export const settings = {
 	className: 'smb-highlighter',
 	edit( props ) {
 		const { value, isActive, onChange } = props;
-		const onToggle = () => onChange( toggleFormat( value, { type: name } ) );
+		const onToggle = () =>
+			onChange( toggleFormat( value, { type: name } ) );
 
 		return (
-			<Fragment>
+			<>
 				<RichTextToolbarButton
 					icon="admin-customizer"
 					title={ __( 'Highlighter', 'snow-monkey-blocks' ) }
 					onClick={ onToggle }
 					isActive={ isActive }
 				/>
-			</Fragment>
+			</>
 		);
 	},
 };
