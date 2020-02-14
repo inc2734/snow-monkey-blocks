@@ -142,6 +142,7 @@ export default function( { attributes, setAttributes, className } ) {
 					<RichText
 						className="smb-btn__label"
 						value={ content }
+						keepPlaceholderOnFocus={ true }
 						placeholder={ __( 'Button', 'snow-monkey-blocks' ) }
 						onChange={ ( value ) =>
 							setAttributes( { content: value } )

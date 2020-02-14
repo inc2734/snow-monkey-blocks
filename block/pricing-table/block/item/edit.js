@@ -218,6 +218,7 @@ export default function( {
 									className="smb-btn__label"
 									style={ btnLabelStyles }
 									value={ btnLabel }
+									keepPlaceholderOnFocus={ true }
 									placeholder={ __(
 										'Button',
 										'snow-monkey-blocks'

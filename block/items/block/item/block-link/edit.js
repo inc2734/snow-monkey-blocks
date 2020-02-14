@@ -241,6 +241,7 @@ export default function( {
 									className="smb-btn__label"
 									style={ itemBtnLabelStyles }
 									value={ btnLabel }
+									keepPlaceholderOnFocus={ true }
 									placeholder={ __(
 										'Button',
 										'snow-monkey-blocks'
@@ -249,7 +250,6 @@ export default function( {
 									onChange={ ( value ) =>
 										setAttributes( { btnLabel: value } )
 									}
-									keepPlaceholderOnFocus={ true }
 								/>
 							</span>
 						</div>
