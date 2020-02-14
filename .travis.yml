@@ -30,13 +30,13 @@ install:
 - npm install
 - npm rebuild node-sass
 - composer install
+- npm run build
 before_script:
 - bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
 script:
 - composer test
 - npm run lint
 before_deploy:
-- npm run build
 - npm run zip
 - ls -la snow-monkey-blocks.zip
 - export RELEASE_FILE=$(ls snow-monkey-blocks.zip)
