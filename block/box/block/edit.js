@@ -1,12 +1,10 @@
 'use strict';
 
 import classnames from 'classnames';
-import { toNumber } from '../../../src/js/helper/helper';
 
-import {
-	PanelBody,
-	RangeControl,
-} from '@wordpress/components';
+import { PanelBody, RangeControl } from '@wordpress/components';
+import { Fragment } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 import {
 	InnerBlocks,
@@ -15,13 +13,7 @@ import {
 	ContrastChecker,
 } from '@wordpress/block-editor';
 
-import {
-	Fragment,
-} from '@wordpress/element';
-
-import {
-	__,
-} from '@wordpress/i18n';
+import { toNumber } from '../../../src/js/helper/helper';
 
 export default function( { attributes, setAttributes, className } ) {
 	const { backgroundColor, borderColor, textColor, borderWidth } = attributes;
@@ -38,11 +30,17 @@ export default function( { attributes, setAttributes, className } ) {
 	return (
 		<Fragment>
 			<InspectorControls>
-				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
+				<PanelBody
+					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+				>
 					<RangeControl
 						label={ __( 'Border width', 'snow-monkey-blocks' ) }
 						value={ borderWidth }
-						onChange={ ( value ) => setAttributes( { borderWidth: toNumber( value, 1, 5 ) } ) }
+						onChange={ ( value ) =>
+							setAttributes( {
+								borderWidth: toNumber( value, 1, 5 ),
+							} )
+						}
 						min="1"
 						max="5"
 					/>
@@ -54,17 +52,23 @@ export default function( { attributes, setAttributes, className } ) {
 					colorSettings={ [
 						{
 							value: backgroundColor,
-							onChange: ( value ) => setAttributes( { backgroundColor: value } ),
-							label: __( 'Background Color', 'snow-monkey-blocks' ),
+							onChange: ( value ) =>
+								setAttributes( { backgroundColor: value } ),
+							label: __(
+								'Background Color',
+								'snow-monkey-blocks'
+							),
 						},
 						{
 							value: borderColor,
-							onChange: ( value ) => setAttributes( { borderColor: value } ),
+							onChange: ( value ) =>
+								setAttributes( { borderColor: value } ),
 							label: __( 'Border Color', 'snow-monkey-blocks' ),
 						},
 						{
 							value: textColor,
-							onChange: ( value ) => setAttributes( { textColor: value } ),
+							onChange: ( value ) =>
+								setAttributes( { textColor: value } ),
 							label: __( 'Text Color', 'snow-monkey-blocks' ),
 						},
 					] }

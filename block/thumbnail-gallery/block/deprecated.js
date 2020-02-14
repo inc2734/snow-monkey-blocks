@@ -1,24 +1,13 @@
 'use strict';
 
 import classnames from 'classnames';
+import { get, times } from 'lodash';
+
+import { Fragment } from '@wordpress/element';
+import { createBlock } from '@wordpress/blocks';
+import { InnerBlocks } from '@wordpress/block-editor';
+
 import blockAttributes from './attributes';
-
-import {
-	get,
-	times,
-} from 'lodash';
-
-import {
-	Fragment,
-} from '@wordpress/element';
-
-import {
-	createBlock,
-} from '@wordpress/blocks';
-
-import {
-	InnerBlocks,
-} from '@wordpress/block-editor';
 
 export default [
 	{
@@ -85,47 +74,71 @@ export default [
 
 		migrate( attributes ) {
 			const migratedInnerBlocks = () => {
-				const length = ( 'undefined' === typeof attributes.content ) ? 0 : attributes.content.length;
+				const length =
+					'undefined' === typeof attributes.content
+						? 0
+						: attributes.content.length;
 
 				return times( length, ( index ) => {
-					const imageID = get( attributes.content, [ index, 'imageID' ], 0 );
-					const imageURL = get( attributes.content, [ index, 'imageURL' ], '' );
+					const imageID = get(
+						attributes.content,
+						[ index, 'imageID' ],
+						0
+					);
+					const imageURL = get(
+						attributes.content,
+						[ index, 'imageURL' ],
+						''
+					);
 
-					return createBlock( 'snow-monkey-blocks/thumbnail-gallery--item', {
-						imageID: Number( imageID ),
-						imageURL,
-					} );
+					return createBlock(
+						'snow-monkey-blocks/thumbnail-gallery--item',
+						{
+							imageID: Number( imageID ),
+							imageURL,
+						}
+					);
 				} );
 			};
 
-			return [
-				{},
-				migratedInnerBlocks(),
-			];
+			return [ {}, migratedInnerBlocks() ];
 		},
 
 		save( { attributes, className } ) {
 			const { content } = attributes;
 
 			const classes = classnames( 'smb-thumbnail-gallery', className );
-			const length = ( 'undefined' === typeof content ) ? 0 : content.length;
+			const length = 'undefined' === typeof content ? 0 : content.length;
 
 			return (
 				<div className={ classes }>
 					<div className="smb-thumbnail-gallery__canvas">
 						{ times( length, ( index ) => {
-							const imageID = get( content, [ index, 'imageID' ], 0 );
-							const imageURL = get( content, [ index, 'imageURL' ], '' );
+							const imageID = get(
+								content,
+								[ index, 'imageID' ],
+								0
+							);
+							const imageURL = get(
+								content,
+								[ index, 'imageURL' ],
+								''
+							);
 
 							return (
 								<Fragment>
-									{ !! imageID &&
+									{ !! imageID && (
 										<div className="smb-thumbnail-gallery__item">
 											<div className="smb-thumbnail-gallery__item__figure">
-												<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } data-image-id={ imageID } />
+												<img
+													src={ imageURL }
+													alt=""
+													className={ `wp-image-${ imageID }` }
+													data-image-id={ imageID }
+												/>
 											</div>
 										</div>
-									}
+									) }
 								</Fragment>
 							);
 						} ) }
@@ -133,18 +146,31 @@ export default [
 
 					<div className="smb-thumbnail-gallery__nav">
 						{ times( length, ( index ) => {
-							const imageID = get( content, [ index, 'imageID' ], 0 );
-							const imageURL = get( content, [ index, 'imageURL' ], '' );
+							const imageID = get(
+								content,
+								[ index, 'imageID' ],
+								0
+							);
+							const imageURL = get(
+								content,
+								[ index, 'imageURL' ],
+								''
+							);
 
 							return (
 								<Fragment>
-									{ !! imageID &&
+									{ !! imageID && (
 										<div className="smb-thumbnail-gallery__nav__item">
 											<div className="smb-thumbnail-gallery__nav__item__figure">
-												<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } data-image-id={ imageID } />
+												<img
+													src={ imageURL }
+													alt=""
+													className={ `wp-image-${ imageID }` }
+													data-image-id={ imageID }
+												/>
 											</div>
 										</div>
-									}
+									) }
 								</Fragment>
 							);
 						} ) }
@@ -194,18 +220,31 @@ export default [
 				<div className="smb-thumbnail-gallery">
 					<div className="smb-thumbnail-gallery__canvas">
 						{ times( items, ( index ) => {
-							const imageID = get( content, [ index, 'imageID' ], 0 );
-							const imageURL = get( content, [ index, 'imageURL' ], '' );
+							const imageID = get(
+								content,
+								[ index, 'imageID' ],
+								0
+							);
+							const imageURL = get(
+								content,
+								[ index, 'imageURL' ],
+								''
+							);
 
 							return (
 								<Fragment>
-									{ !! imageID &&
+									{ !! imageID && (
 										<div className="smb-thumbnail-gallery__item">
 											<div className="smb-thumbnail-gallery__item__figure">
-												<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } data-image-id={ imageID } />
+												<img
+													src={ imageURL }
+													alt=""
+													className={ `wp-image-${ imageID }` }
+													data-image-id={ imageID }
+												/>
 											</div>
 										</div>
-									}
+									) }
 								</Fragment>
 							);
 						} ) }
@@ -213,18 +252,31 @@ export default [
 
 					<div className="smb-thumbnail-gallery__nav">
 						{ times( items, ( index ) => {
-							const imageID = get( content, [ index, 'imageID' ], 0 );
-							const imageURL = get( content, [ index, 'imageURL' ], '' );
+							const imageID = get(
+								content,
+								[ index, 'imageID' ],
+								0
+							);
+							const imageURL = get(
+								content,
+								[ index, 'imageURL' ],
+								''
+							);
 
 							return (
 								<Fragment>
-									{ !! imageID &&
+									{ !! imageID && (
 										<div className="smb-thumbnail-gallery__nav__item">
 											<div className="smb-thumbnail-gallery__nav__item__figure">
-												<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } data-image-id={ imageID } />
+												<img
+													src={ imageURL }
+													alt=""
+													className={ `wp-image-${ imageID }` }
+													data-image-id={ imageID }
+												/>
 											</div>
 										</div>
-									}
+									) }
 								</Fragment>
 							);
 						} ) }

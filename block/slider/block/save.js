@@ -1,14 +1,27 @@
 'use strict';
 
 import classnames from 'classnames';
+
+import { InnerBlocks } from '@wordpress/block-editor';
+
 import { generateConfig } from './utils';
 
-import {
-	InnerBlocks,
-} from '@wordpress/block-editor';
-
 export default function( { attributes, className } ) {
-	const { slidesToShow, slidesToScroll, mdSlidesToShow, mdSlidesToScroll, smSlidesToShow, smSlidesToScroll, dots, arrows, speed, autoplay, autoplaySpeed, fade, rtl } = attributes;
+	const {
+		slidesToShow,
+		slidesToScroll,
+		mdSlidesToShow,
+		mdSlidesToScroll,
+		smSlidesToShow,
+		smSlidesToScroll,
+		dots,
+		arrows,
+		speed,
+		autoplay,
+		autoplaySpeed,
+		fade,
+		rtl,
+	} = attributes;
 
 	const config = generateConfig( {
 		slidesToShow,
@@ -31,7 +44,11 @@ export default function( { attributes, className } ) {
 
 	return (
 		<div className={ classes }>
-			<div className="smb-slider__canvas" dir={ dir } data-smb-slider={ JSON.stringify( config ) }>
+			<div
+				className="smb-slider__canvas"
+				dir={ dir }
+				data-smb-slider={ JSON.stringify( config ) }
+			>
 				<InnerBlocks.Content />
 			</div>
 		</div>

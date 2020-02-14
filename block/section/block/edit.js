@@ -1,11 +1,10 @@
 'use strict';
 
 import classnames from 'classnames';
-import { toNumber, divider } from '../../../src/js/helper/helper';
+import { times } from 'lodash';
 
-import {
-	times,
-} from 'lodash';
+import { Fragment } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 import {
 	PanelBody,
@@ -24,16 +23,30 @@ import {
 	ColorPalette,
 } from '@wordpress/block-editor';
 
-import {
-	Fragment,
-} from '@wordpress/element';
+import { toNumber, divider } from '../../../src/js/helper/helper';
 
-import {
-	__,
-} from '@wordpress/i18n';
-
-export default function( { attributes, setAttributes, isSelected, className } ) {
-	const { wrapperTagName, titleTagName, title, backgroundColor, backgroundColor2, backgroundColorAngle, textColor, isSlim, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
+export default function( {
+	attributes,
+	setAttributes,
+	isSelected,
+	className,
+} ) {
+	const {
+		wrapperTagName,
+		titleTagName,
+		title,
+		backgroundColor,
+		backgroundColor2,
+		backgroundColorAngle,
+		textColor,
+		isSlim,
+		topDividerType,
+		topDividerLevel,
+		topDividerColor,
+		bottomDividerType,
+		bottomDividerLevel,
+		bottomDividerColor,
+	} = attributes;
 
 	const wrapperTagNames = [ 'div', 'section', 'aside' ];
 	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
@@ -54,12 +67,9 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 		`smb-section__divider--${ bottomDividerType }`
 	);
 
-	const containerClasses = classnames(
-		'c-container',
-		{
-			'u-slim-width': !! isSlim,
-		}
-	);
+	const containerClasses = classnames( 'c-container', {
+		'u-slim-width': !! isSlim,
+	} );
 
 	const sectionStyles = {};
 	if ( textColor ) {
@@ -80,15 +90,28 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 	return (
 		<Fragment>
 			<InspectorControls>
-				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
-					<BaseControl label={ __( 'Wrapper Tag', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/section/wrapper-tag-name">
+				<PanelBody
+					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+				>
+					<BaseControl
+						label={ __( 'Wrapper Tag', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/section/wrapper-tag-name"
+					>
 						<div className="smb-list-icon-selector">
 							{ times( wrapperTagNames.length, ( index ) => {
 								return (
 									<Button
 										isDefault
-										isPrimary={ wrapperTagName === wrapperTagNames[ index ] }
-										onClick={ () => setAttributes( { wrapperTagName: wrapperTagNames[ index ] } ) }
+										isPrimary={
+											wrapperTagName ===
+											wrapperTagNames[ index ]
+										}
+										onClick={ () =>
+											setAttributes( {
+												wrapperTagName:
+													wrapperTagNames[ index ],
+											} )
+										}
 									>
 										{ wrapperTagNames[ index ] }
 									</Button>
@@ -97,14 +120,25 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 						</div>
 					</BaseControl>
 
-					<BaseControl label={ __( 'Title Tag', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/section/title-tag-name">
+					<BaseControl
+						label={ __( 'Title Tag', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/section/title-tag-name"
+					>
 						<div className="smb-list-icon-selector">
 							{ times( titleTagNames.length, ( index ) => {
 								return (
 									<Button
 										isDefault
-										isPrimary={ titleTagName === titleTagNames[ index ] }
-										onClick={ () => setAttributes( { titleTagName: titleTagNames[ index ] } ) }
+										isPrimary={
+											titleTagName ===
+											titleTagNames[ index ]
+										}
+										onClick={ () =>
+											setAttributes( {
+												titleTagName:
+													titleTagNames[ index ],
+											} )
+										}
 									>
 										{ titleTagNames[ index ] }
 									</Button>
@@ -114,9 +148,14 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 					</BaseControl>
 
 					<ToggleControl
-						label={ __( 'Make the content width slim', 'snow-monkey-blocks' ) }
+						label={ __(
+							'Make the content width slim',
+							'snow-monkey-blocks'
+						) }
 						checked={ isSlim }
-						onChange={ ( value ) => setAttributes( { isSlim: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { isSlim: value } )
+						}
 					/>
 				</PanelBody>
 
@@ -126,48 +165,79 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 					colorSettings={ [
 						{
 							value: backgroundColor,
-							onChange: ( value ) => setAttributes( { backgroundColor: value } ),
-							label: __( 'Background Color', 'snow-monkey-blocks' ),
+							onChange: ( value ) =>
+								setAttributes( { backgroundColor: value } ),
+							label: __(
+								'Background Color',
+								'snow-monkey-blocks'
+							),
 						},
 						{
 							value: textColor,
-							onChange: ( value ) => setAttributes( { textColor: value } ),
+							onChange: ( value ) =>
+								setAttributes( { textColor: value } ),
 							label: __( 'Text Color', 'snow-monkey-blocks' ),
 						},
 					] }
-				>
-				</PanelColorSettings>
+				></PanelColorSettings>
 
-				{ backgroundColor &&
-					<PanelBody title={ __( 'Background Gradation Settings', 'snow-monkey-blocks' ) }>
+				{ backgroundColor && (
+					<PanelBody
+						title={ __(
+							'Background Gradation Settings',
+							'snow-monkey-blocks'
+						) }
+					>
 						<BaseControl
 							className="editor-color-palette-control"
-							label={ __( 'Background Color 2', 'snow-monkey-blocks' ) }
-							id="snow-monkey-blocks/section/background-color2">
+							label={ __(
+								'Background Color 2',
+								'snow-monkey-blocks'
+							) }
+							id="snow-monkey-blocks/section/background-color2"
+						>
 							<ColorPalette
 								className="editor-color-palette-control__color-palette"
 								value={ backgroundColor2 }
-								onChange={ ( value ) => setAttributes( { backgroundColor2: value } ) }
+								onChange={ ( value ) =>
+									setAttributes( { backgroundColor2: value } )
+								}
 							/>
 						</BaseControl>
 
-						{ backgroundColor2 &&
+						{ backgroundColor2 && (
 							<RangeControl
-								label={ __( 'Background Gradation Angle', 'snow-monkey-blocks' ) }
+								label={ __(
+									'Background Gradation Angle',
+									'snow-monkey-blocks'
+								) }
 								value={ backgroundColorAngle }
-								onChange={ ( value ) => setAttributes( { backgroundColorAngle: toNumber( value, 0, 360 ) } ) }
+								onChange={ ( value ) =>
+									setAttributes( {
+										backgroundColorAngle: toNumber(
+											value,
+											0,
+											360
+										),
+									} )
+								}
 								min="0"
 								max="360"
 							/>
-						}
+						) }
 					</PanelBody>
-				}
+				) }
 
-				<PanelBody title={ __( 'Top divider Settings', 'snow-monkey-blocks' ) } initialOpen={ false }>
+				<PanelBody
+					title={ __( 'Top divider Settings', 'snow-monkey-blocks' ) }
+					initialOpen={ false }
+				>
 					<SelectControl
 						label={ __( 'Type', 'snow-monkey-blocks' ) }
 						value={ topDividerType }
-						onChange={ ( value ) => setAttributes( { topDividerType: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { topDividerType: value } )
+						}
 						options={ [
 							{
 								value: 'tilt',
@@ -191,7 +261,11 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 					<RangeControl
 						label={ __( 'Level', 'snow-monkey-blocks' ) }
 						value={ topDividerLevel }
-						onChange={ ( value ) => setAttributes( { topDividerLevel: toNumber( value, -100, 100 ) } ) }
+						onChange={ ( value ) =>
+							setAttributes( {
+								topDividerLevel: toNumber( value, -100, 100 ),
+							} )
+						}
 						min="-100"
 						max="100"
 					/>
@@ -199,20 +273,31 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 					<BaseControl
 						className="editor-color-palette-control"
 						label={ __( 'Color', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/section/top-divider-color">
+						id="snow-monkey-blocks/section/top-divider-color"
+					>
 						<ColorPalette
 							className="editor-color-palette-control__color-palette"
 							value={ topDividerColor }
-							onChange={ ( value ) => setAttributes( { topDividerColor: value } ) }
+							onChange={ ( value ) =>
+								setAttributes( { topDividerColor: value } )
+							}
 						/>
 					</BaseControl>
 				</PanelBody>
 
-				<PanelBody title={ __( 'Bottom divider Settings', 'snow-monkey-blocks' ) } initialOpen={ false }>
+				<PanelBody
+					title={ __(
+						'Bottom divider Settings',
+						'snow-monkey-blocks'
+					) }
+					initialOpen={ false }
+				>
 					<SelectControl
 						label={ __( 'Type', 'snow-monkey-blocks' ) }
 						value={ bottomDividerType }
-						onChange={ ( value ) => setAttributes( { bottomDividerType: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { bottomDividerType: value } )
+						}
 						options={ [
 							{
 								value: 'tilt',
@@ -236,7 +321,15 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 					<RangeControl
 						label={ __( 'Level', 'snow-monkey-blocks' ) }
 						value={ bottomDividerLevel }
-						onChange={ ( value ) => setAttributes( { bottomDividerLevel: toNumber( value, -100, 100 ) } ) }
+						onChange={ ( value ) =>
+							setAttributes( {
+								bottomDividerLevel: toNumber(
+									value,
+									-100,
+									100
+								),
+							} )
+						}
 						min="-100"
 						max="100"
 					/>
@@ -244,41 +337,58 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 					<BaseControl
 						className="editor-color-palette-control"
 						label={ __( 'Color', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/section/bottom-divider-color">
+						id="snow-monkey-blocks/section/bottom-divider-color"
+					>
 						<ColorPalette
 							className="editor-color-palette-control__color-palette"
 							value={ bottomDividerColor }
-							onChange={ ( value ) => setAttributes( { bottomDividerColor: value } ) }
+							onChange={ ( value ) =>
+								setAttributes( { bottomDividerColor: value } )
+							}
 						/>
 					</BaseControl>
 				</PanelBody>
 			</InspectorControls>
 
 			<Wrapper className={ classes } style={ sectionStyles }>
-				{ !! topDividerLevel &&
+				{ !! topDividerLevel && (
 					<div className={ topDividerClasses }>
-						{ divider( topDividerType, topDividerLevel, topDividerColor ) }
+						{ divider(
+							topDividerType,
+							topDividerLevel,
+							topDividerColor
+						) }
 					</div>
-				}
+				) }
 
-				{ !! bottomDividerLevel &&
+				{ !! bottomDividerLevel && (
 					<div className={ bottomDividerClasses }>
-						{ divider( bottomDividerType, bottomDividerLevel, bottomDividerColor ) }
+						{ divider(
+							bottomDividerType,
+							bottomDividerLevel,
+							bottomDividerColor
+						) }
 					</div>
-				}
+				) }
 
 				<div className="smb-section__inner" style={ innerStyles }>
 					<div className={ containerClasses }>
-						{ ( ! RichText.isEmpty( title ) || isSelected ) && 'none' !== titleTagName &&
-							<RichText
-								className="smb-section__title"
-								tagName={ titleTagName }
-								value={ title }
-								onChange={ ( value ) => setAttributes( { title: value } ) }
-								allowedFormats={ [] }
-								placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
-							/>
-						}
+						{ ( ! RichText.isEmpty( title ) || isSelected ) &&
+							'none' !== titleTagName && (
+								<RichText
+									className="smb-section__title"
+									tagName={ titleTagName }
+									value={ title }
+									onChange={ ( value ) =>
+										setAttributes( { title: value } )
+									}
+									allowedFormats={ [] }
+									placeholder={ __(
+										'Write title...',
+										'snow-monkey-blocks'
+									) }
+								/>
+							) }
 
 						<div className="smb-section__body">
 							<InnerBlocks />

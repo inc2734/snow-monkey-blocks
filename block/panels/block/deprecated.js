@@ -1,25 +1,12 @@
 'use strict';
 
+import { times, get, merge } from 'lodash';
+
+import { RichText, InnerBlocks } from '@wordpress/block-editor';
+import { Fragment } from '@wordpress/element';
+import { createBlock } from '@wordpress/blocks';
+
 import blockAttributes from './attributes';
-
-import {
-	times,
-	get,
-	merge,
-} from 'lodash';
-
-import {
-	RichText,
-	InnerBlocks,
-} from '@wordpress/block-editor';
-
-import {
-	Fragment,
-} from '@wordpress/element';
-
-import {
-	createBlock,
-} from '@wordpress/blocks';
 
 export default [
 	{
@@ -30,7 +17,12 @@ export default [
 
 			return (
 				<div className="smb-panels" data-image-padding={ imagePadding }>
-					<div className="c-row c-row--margin c-row--fill" data-columns={ sm } data-md-columns={ md } data-lg-columns={ lg }>
+					<div
+						className="c-row c-row--margin c-row--fill"
+						data-columns={ sm }
+						data-md-columns={ md }
+						data-lg-columns={ lg }
+					>
 						<InnerBlocks.Content />
 					</div>
 				</div>
@@ -38,74 +30,102 @@ export default [
 		},
 	},
 	{
-		attributes: merge(
-			blockAttributes,
-			{
-				columns: {
-					type: 'number',
-					default: 2,
-				},
-				items: {
-					type: 'array',
-					source: 'query',
-					default: [],
-					selector: '.smb-panels__item',
-					query: {
-						title: {
-							source: 'html',
-							selector: '.smb-panels__item__title',
-						},
-						summary: {
-							source: 'html',
-							selector: '.smb-panels__item__content',
-						},
-						linkLabel: {
-							source: 'html',
-							selector: '.smb-panels__item__link',
-						},
-						linkURL: {
-							type: 'string',
-							source: 'attribute',
-							attribute: 'href',
-							default: '',
-						},
-						linkTarget: {
-							type: 'string',
-							source: 'attribute',
-							attribute: 'target',
-							default: '_self',
-						},
-						imageID: {
-							type: 'number',
-							source: 'attribute',
-							selector: '.smb-panels__item__figure > img',
-							attribute: 'data-image-id',
-							default: 0,
-						},
-						imageURL: {
-							type: 'string',
-							source: 'attribute',
-							selector: '.smb-panels__item__figure > img',
-							attribute: 'src',
-							default: '',
-						},
+		attributes: merge( blockAttributes, {
+			columns: {
+				type: 'number',
+				default: 2,
+			},
+			items: {
+				type: 'array',
+				source: 'query',
+				default: [],
+				selector: '.smb-panels__item',
+				query: {
+					title: {
+						source: 'html',
+						selector: '.smb-panels__item__title',
+					},
+					summary: {
+						source: 'html',
+						selector: '.smb-panels__item__content',
+					},
+					linkLabel: {
+						source: 'html',
+						selector: '.smb-panels__item__link',
+					},
+					linkURL: {
+						type: 'string',
+						source: 'attribute',
+						attribute: 'href',
+						default: '',
+					},
+					linkTarget: {
+						type: 'string',
+						source: 'attribute',
+						attribute: 'target',
+						default: '_self',
+					},
+					imageID: {
+						type: 'number',
+						source: 'attribute',
+						selector: '.smb-panels__item__figure > img',
+						attribute: 'data-image-id',
+						default: 0,
+					},
+					imageURL: {
+						type: 'string',
+						source: 'attribute',
+						selector: '.smb-panels__item__figure > img',
+						attribute: 'src',
+						default: '',
 					},
 				},
-			}
-		),
+			},
+		} ),
 
 		migrate( attributes ) {
 			const migratedInnerBlocks = () => {
-				const length = ( 'undefined' === typeof attributes.items ) ? 0 : attributes.items.length;
+				const length =
+					'undefined' === typeof attributes.items
+						? 0
+						: attributes.items.length;
 
 				return times( length, ( index ) => {
-					const title = get( attributes.items, [ index, 'title' ], '' );
-					const summary = get( attributes.items, [ index, 'summary' ], '' );
-					const linkLabel = get( attributes.items, [ index, 'linkLabel' ], '' );
-					const linkURL = get( attributes.items, [ index, 'linkURL' ], '' );
-					const linkTarget = get( attributes.items, [ index, 'linkTarget' ], '_self' );
-					const imageID = get( attributes.items, [ index, 'imageID' ], 0 );
-					const imageURL = get( attributes.items, [ index, 'imageURL' ], '' );
+					const title = get(
+						attributes.items,
+						[ index, 'title' ],
+						''
+					);
+					const summary = get(
+						attributes.items,
+						[ index, 'summary' ],
+						''
+					);
+					const linkLabel = get(
+						attributes.items,
+						[ index, 'linkLabel' ],
+						''
+					);
+					const linkURL = get(
+						attributes.items,
+						[ index, 'linkURL' ],
+						''
+					);
+					const linkTarget = get(
+						attributes.items,
+						[ index, 'linkTarget' ],
+						'_self'
+					);
+					const imageID = get(
+						attributes.items,
+						[ index, 'imageID' ],
+						0
+					);
+					const imageURL = get(
+						attributes.items,
+						[ index, 'imageURL' ],
+						''
+					);
 
 					return createBlock( 'snow-monkey-blocks/panels--item', {
 						titleTagName: attributes.itemTitleTagName,
@@ -132,8 +152,18 @@ export default [
 		},
 
 		save( { attributes } ) {
-			const { sm, md, lg, imagePadding, itemTitleTagName, items } = attributes;
-			const length = ( 'undefined' === typeof attributes.items ) ? 0 : attributes.items.length;
+			const {
+				sm,
+				md,
+				lg,
+				imagePadding,
+				itemTitleTagName,
+				items,
+			} = attributes;
+			const length =
+				'undefined' === typeof attributes.items
+					? 0
+					: attributes.items.length;
 
 			const generateColClasses = () => {
 				let colClasses = [];
@@ -146,16 +176,47 @@ export default [
 			};
 
 			return (
-				<div className={ `smb-panels smb-panels--sm-${ sm } smb-panels--md-${ md } smb-panels--lg-${ lg }` } data-image-padding={ imagePadding }>
+				<div
+					className={ `smb-panels smb-panels--sm-${ sm } smb-panels--md-${ md } smb-panels--lg-${ lg }` }
+					data-image-padding={ imagePadding }
+				>
 					<div className="c-row c-row--margin c-row--fill">
 						{ times( length, ( index ) => {
-							const itemTitle = get( items, [ index, 'title' ], '' );
-							const summary = get( items, [ index, 'summary' ], '' );
-							const linkLabel = get( items, [ index, 'linkLabel' ], '' );
-							const linkURL = get( items, [ index, 'linkURL' ], '' );
-							const linkTarget = get( items, [ index, 'linkTarget' ], '_self' );
-							const imageID = get( items, [ index, 'imageID' ], 0 );
-							const imageURL = get( items, [ index, 'imageURL' ], '' );
+							const itemTitle = get(
+								items,
+								[ index, 'title' ],
+								''
+							);
+							const summary = get(
+								items,
+								[ index, 'summary' ],
+								''
+							);
+							const linkLabel = get(
+								items,
+								[ index, 'linkLabel' ],
+								''
+							);
+							const linkURL = get(
+								items,
+								[ index, 'linkURL' ],
+								''
+							);
+							const linkTarget = get(
+								items,
+								[ index, 'linkTarget' ],
+								'_self'
+							);
+							const imageID = get(
+								items,
+								[ index, 'imageID' ],
+								0
+							);
+							const imageURL = get(
+								items,
+								[ index, 'imageURL' ],
+								''
+							);
 
 							const renderItem = ( itemContent ) => {
 								if ( !! linkURL ) {
@@ -182,42 +243,67 @@ export default [
 							};
 
 							return (
-								<div className={ generateColClasses( sm, md, lg ) }>
-									{
-										renderItem(
-											<Fragment>
-												{ !! imageID &&
-													<div className="smb-panels__item__figure">
-														<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } data-image-id={ imageID } />
-													</div>
-												}
-
-												<div className="smb-panels__item__body">
-													{ ! RichText.isEmpty( itemTitle ) &&
-														<RichText.Content
-															tagName={ itemTitleTagName }
-															className="smb-panels__item__title"
-															value={ itemTitle }
-														/>
-													}
-
-													{ ! RichText.isEmpty( summary ) &&
-														<div className="smb-panels__item__content">
-															<RichText.Content value={ summary } />
-														</div>
-													}
-
-													{ ! RichText.isEmpty( linkLabel ) &&
-														<div className="smb-panels__item__action">
-															<div className="smb-panels__item__link">
-																<RichText.Content value={ linkLabel } />
-															</div>
-														</div>
-													}
+								<div
+									className={ generateColClasses(
+										sm,
+										md,
+										lg
+									) }
+								>
+									{ renderItem(
+										<Fragment>
+											{ !! imageID && (
+												<div className="smb-panels__item__figure">
+													<img
+														src={ imageURL }
+														alt=""
+														className={ `wp-image-${ imageID }` }
+														data-image-id={
+															imageID
+														}
+													/>
 												</div>
-											</Fragment>
-										)
-									}
+											) }
+
+											<div className="smb-panels__item__body">
+												{ ! RichText.isEmpty(
+													itemTitle
+												) && (
+													<RichText.Content
+														tagName={
+															itemTitleTagName
+														}
+														className="smb-panels__item__title"
+														value={ itemTitle }
+													/>
+												) }
+
+												{ ! RichText.isEmpty(
+													summary
+												) && (
+													<div className="smb-panels__item__content">
+														<RichText.Content
+															value={ summary }
+														/>
+													</div>
+												) }
+
+												{ ! RichText.isEmpty(
+													linkLabel
+												) && (
+													<div className="smb-panels__item__action">
+														<div className="smb-panels__item__link">
+															<RichText.Content
+																value={
+																	linkLabel
+																}
+															/>
+														</div>
+													</div>
+												) }
+											</div>
+										</Fragment>
+									) }
 								</div>
 							);
 						} ) }
@@ -300,16 +386,47 @@ export default [
 			const { columns, sm, md, lg, imagePadding, items } = attributes;
 
 			return (
-				<div className={ `smb-panels smb-panels--sm-${ sm } smb-panels--md-${ md } smb-panels--lg-${ lg }` } data-image-padding={ imagePadding }>
+				<div
+					className={ `smb-panels smb-panels--sm-${ sm } smb-panels--md-${ md } smb-panels--lg-${ lg }` }
+					data-image-padding={ imagePadding }
+				>
 					<div className="c-row c-row--margin c-row--fill">
 						{ times( columns, ( index ) => {
-							const itemTitle = get( items, [ index, 'title' ], '' );
-							const summary = get( items, [ index, 'summary' ], '' );
-							const linkLabel = get( items, [ index, 'linkLabel' ], '' );
-							const linkURL = get( items, [ index, 'linkURL' ], '' );
-							const linkTarget = get( items, [ index, 'linkTarget' ], '_self' );
-							const imageID = get( items, [ index, 'imageID' ], 0 );
-							const imageURL = get( items, [ index, 'imageURL' ], '' );
+							const itemTitle = get(
+								items,
+								[ index, 'title' ],
+								''
+							);
+							const summary = get(
+								items,
+								[ index, 'summary' ],
+								''
+							);
+							const linkLabel = get(
+								items,
+								[ index, 'linkLabel' ],
+								''
+							);
+							const linkURL = get(
+								items,
+								[ index, 'linkURL' ],
+								''
+							);
+							const linkTarget = get(
+								items,
+								[ index, 'linkTarget' ],
+								'_self'
+							);
+							const imageID = get(
+								items,
+								[ index, 'imageID' ],
+								0
+							);
+							const imageURL = get(
+								items,
+								[ index, 'imageURL' ],
+								''
+							);
 
 							const renderItem = ( itemContent ) => {
 								if ( !! linkURL ) {
@@ -348,40 +465,64 @@ export default [
 							};
 
 							return (
-								<div className={ _generateColClasses( sm, md, lg ) }>
-									{
-										renderItem(
-											<Fragment>
-												{ !! imageID &&
-													<div className="smb-panels__item__figure">
-														<img src={ imageURL } alt="" data-image-id={ imageID } />
-													</div>
-												}
-
-												<div className="smb-panels__item__body">
-													{ ! RichText.isEmpty( itemTitle ) &&
-														<div className="smb-panels__item__title">
-															<RichText.Content value={ itemTitle } />
-														</div>
-													}
-
-													{ ! RichText.isEmpty( summary ) &&
-														<div className="smb-panels__item__content">
-															<RichText.Content value={ summary } />
-														</div>
-													}
-
-													{ ! RichText.isEmpty( linkLabel ) &&
-														<div className="smb-panels__item__action">
-															<div className="smb-panels__item__link">
-																<RichText.Content value={ linkLabel } />
-															</div>
-														</div>
-													}
+								<div
+									className={ _generateColClasses(
+										sm,
+										md,
+										lg
+									) }
+								>
+									{ renderItem(
+										<Fragment>
+											{ !! imageID && (
+												<div className="smb-panels__item__figure">
+													<img
+														src={ imageURL }
+														alt=""
+														data-image-id={
+															imageID
+														}
+													/>
 												</div>
-											</Fragment>
-										)
-									}
+											) }
+
+											<div className="smb-panels__item__body">
+												{ ! RichText.isEmpty(
+													itemTitle
+												) && (
+													<div className="smb-panels__item__title">
+														<RichText.Content
+															value={ itemTitle }
+														/>
+													</div>
+												) }
+
+												{ ! RichText.isEmpty(
+													summary
+												) && (
+													<div className="smb-panels__item__content">
+														<RichText.Content
+															value={ summary }
+														/>
+													</div>
+												) }
+
+												{ ! RichText.isEmpty(
+													linkLabel
+												) && (
+													<div className="smb-panels__item__action">
+														<div className="smb-panels__item__link">
+															<RichText.Content
+																value={
+																	linkLabel
+																}
+															/>
+														</div>
+													</div>
+												) }
+											</div>
+										</Fragment>
+									) }
 								</div>
 							);
 						} ) }

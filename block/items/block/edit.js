@@ -1,26 +1,14 @@
 'use strict';
 
 import classnames from 'classnames';
+
+import { PanelBody, RangeControl } from '@wordpress/components';
+import { InspectorControls, InnerBlocks } from '@wordpress/block-editor';
+import { Fragment } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
+
 import { toNumber } from '../../../src/js/helper/helper';
 import ResponsiveTabPanel from '../../../src/js/component/responsive-tab-panel';
-
-import {
-	PanelBody,
-	RangeControl,
-} from '@wordpress/components';
-
-import {
-	InspectorControls,
-	InnerBlocks,
-} from '@wordpress/block-editor';
-
-import {
-	Fragment,
-} from '@wordpress/element';
-
-import {
-	__,
-} from '@wordpress/i18n';
 
 export default function( { attributes, setAttributes, className } ) {
 	const { sm, md, lg } = attributes;
@@ -37,14 +25,23 @@ export default function( { attributes, setAttributes, className } ) {
 	return (
 		<Fragment>
 			<InspectorControls>
-				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
+				<PanelBody
+					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+				>
 					<ResponsiveTabPanel
 						desktop={ () => {
 							return (
 								<RangeControl
-									label={ __( 'Columns per row (Large window)', 'snow-monkey-blocks' ) }
+									label={ __(
+										'Columns per row (Large window)',
+										'snow-monkey-blocks'
+									) }
 									value={ lg }
-									onChange={ ( value ) => setAttributes( { lg: toNumber( value, 1, 6 ) } ) }
+									onChange={ ( value ) =>
+										setAttributes( {
+											lg: toNumber( value, 1, 6 ),
+										} )
+									}
 									min="1"
 									max="6"
 								/>
@@ -53,9 +50,16 @@ export default function( { attributes, setAttributes, className } ) {
 						tablet={ () => {
 							return (
 								<RangeControl
-									label={ __( 'Columns per row (Medium window)', 'snow-monkey-blocks' ) }
+									label={ __(
+										'Columns per row (Medium window)',
+										'snow-monkey-blocks'
+									) }
 									value={ md }
-									onChange={ ( value ) => setAttributes( { md: toNumber( value, 1, 6 ) } ) }
+									onChange={ ( value ) =>
+										setAttributes( {
+											md: toNumber( value, 1, 6 ),
+										} )
+									}
 									min="1"
 									max="6"
 								/>
@@ -64,9 +68,16 @@ export default function( { attributes, setAttributes, className } ) {
 						mobile={ () => {
 							return (
 								<RangeControl
-									label={ __( 'Columns per row (Small window)', 'snow-monkey-blocks' ) }
+									label={ __(
+										'Columns per row (Small window)',
+										'snow-monkey-blocks'
+									) }
 									value={ sm }
-									onChange={ ( value ) => setAttributes( { sm: toNumber( value, 1, 6 ) } ) }
+									onChange={ ( value ) =>
+										setAttributes( {
+											sm: toNumber( value, 1, 6 ),
+										} )
+									}
 									min="1"
 									max="6"
 								/>
@@ -77,7 +88,12 @@ export default function( { attributes, setAttributes, className } ) {
 			</InspectorControls>
 
 			<div className={ classes }>
-				<div className="c-row c-row--margin" data-columns={ sm } data-md-columns={ md } data-lg-columns={ lg }>
+				<div
+					className="c-row c-row--margin"
+					data-columns={ sm }
+					data-md-columns={ md }
+					data-lg-columns={ lg }
+				>
 					<InnerBlocks
 						allowedBlocks={ allowedBlocks }
 						template={ template }

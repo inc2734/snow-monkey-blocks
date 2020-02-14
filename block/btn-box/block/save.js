@@ -2,21 +2,26 @@
 
 import classnames from 'classnames';
 
-import {
-	RichText,
-} from '@wordpress/block-editor';
+import { RichText } from '@wordpress/block-editor';
 
 export default function( { attributes, className } ) {
-	const { lede, note, backgroundColor, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, btnSize } = attributes;
+	const {
+		lede,
+		note,
+		backgroundColor,
+		btnLabel,
+		btnURL,
+		btnTarget,
+		btnBackgroundColor,
+		btnTextColor,
+		btnSize,
+	} = attributes;
 
 	const classes = classnames( 'smb-btn-box', className );
 
-	const btnClasses = classnames(
-		'smb-btn',
-		{
-			[ `smb-btn--${ btnSize }` ]: !! btnSize,
-		}
-	);
+	const btnClasses = classnames( 'smb-btn', {
+		[ `smb-btn--${ btnSize }` ]: !! btnSize,
+	} );
 
 	const btnBoxStyle = {
 		backgroundColor: backgroundColor || undefined,
@@ -32,11 +37,11 @@ export default function( { attributes, className } ) {
 	return (
 		<div className={ classes } style={ btnBoxStyle }>
 			<div className="c-container">
-				{ ! RichText.isEmpty( lede ) &&
+				{ ! RichText.isEmpty( lede ) && (
 					<div className="smb-btn-box__lede">
 						<RichText.Content value={ lede } />
 					</div>
-				}
+				) }
 
 				<div className="smb-btn-box__btn-wrapper">
 					<a
@@ -44,19 +49,26 @@ export default function( { attributes, className } ) {
 						href={ btnURL }
 						style={ btnBoxBtnStyles }
 						target={ '_self' === btnTarget ? undefined : btnTarget }
-						rel={ '_self' === btnTarget ? undefined : 'noopener noreferrer' }
+						rel={
+							'_self' === btnTarget
+								? undefined
+								: 'noopener noreferrer'
+						}
 					>
-						<span className="smb-btn__label" style={ { color: btnTextColor } }>
+						<span
+							className="smb-btn__label"
+							style={ { color: btnTextColor } }
+						>
 							<RichText.Content value={ btnLabel } />
 						</span>
 					</a>
 				</div>
 
-				{ ! RichText.isEmpty( note ) &&
+				{ ! RichText.isEmpty( note ) && (
 					<div className="smb-btn-box__note">
 						<RichText.Content value={ note } />
 					</div>
-				}
+				) }
 			</div>
 		</div>
 	);

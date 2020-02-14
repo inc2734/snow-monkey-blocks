@@ -1,11 +1,11 @@
 'use strict';
 
 import classnames from 'classnames';
-import FontAwesome from '../../../src/js/component/font-awesome';
+import { times } from 'lodash';
 
-import {
-	times,
-} from 'lodash';
+import { RichText, InspectorControls } from '@wordpress/block-editor';
+import { Fragment } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 import {
 	PanelBody,
@@ -14,20 +14,14 @@ import {
 	Button,
 } from '@wordpress/components';
 
-import {
-	RichText,
-	InspectorControls,
-} from '@wordpress/block-editor';
+import FontAwesome from '../../../src/js/component/font-awesome';
 
-import {
-	Fragment,
-} from '@wordpress/element';
-
-import {
-	__,
-} from '@wordpress/i18n';
-
-export default function( { attributes, setAttributes, isSelected, className } ) {
+export default function( {
+	attributes,
+	setAttributes,
+	isSelected,
+	className,
+} ) {
 	const { title, content, modifier, icon } = attributes;
 
 	const iconList = [
@@ -61,52 +55,77 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 		},
 	];
 
-	const classes = classnames(
-		'smb-alert',
-		{
-			[ className ]: !! className,
-			[ `smb-alert--${ modifier }` ]: !! modifier,
-		}
-	);
+	const classes = classnames( 'smb-alert', {
+		[ className ]: !! className,
+		[ `smb-alert--${ modifier }` ]: !! modifier,
+	} );
 
 	return (
 		<Fragment>
 			<InspectorControls>
-				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
+				<PanelBody
+					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+				>
 					<SelectControl
 						label={ __( 'Type', 'snow-monkey-blocks' ) }
 						value={ modifier }
-						onChange={ ( value ) => setAttributes( { modifier: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { modifier: value } )
+						}
 						options={ [
 							{
 								value: '',
-								label: __( 'Normal alert', 'snow-monkey-blocks' ),
+								label: __(
+									'Normal alert',
+									'snow-monkey-blocks'
+								),
 							},
 							{
 								value: 'warning',
-								label: __( 'Warning alert', 'snow-monkey-blocks' ),
+								label: __(
+									'Warning alert',
+									'snow-monkey-blocks'
+								),
 							},
 							{
 								value: 'success',
-								label: __( 'Success alert', 'snow-monkey-blocks' ),
+								label: __(
+									'Success alert',
+									'snow-monkey-blocks'
+								),
 							},
 							{
 								value: 'remark',
-								label: __( 'Remark alert', 'snow-monkey-blocks' ),
+								label: __(
+									'Remark alert',
+									'snow-monkey-blocks'
+								),
 							},
 						] }
 					/>
 
-					<BaseControl label={ __( 'Icon', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/alert/icon">
+					<BaseControl
+						label={ __( 'Icon', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/alert/icon"
+					>
 						<div className="smb-list-icon-selector">
 							{ times( iconList.length, ( index ) => {
 								return (
 									<Button
 										isDefault
-										isPrimary={ icon === iconList[ index ].value }
-										onClick={ () => setAttributes( { icon: iconList[ index ].value } ) }
+										isPrimary={
+											icon === iconList[ index ].value
+										}
+										onClick={ () =>
+											setAttributes( {
+												icon: iconList[ index ].value,
+											} )
+										}
 									>
-										<i className={ `fas fa-${ iconList[ index ].value }` } title={ iconList[ index ].label } />
+										<i
+											className={ `fas fa-${ iconList[ index ].value }` }
+											title={ iconList[ index ].label }
+										/>
 									</Button>
 								);
 							} ) }
@@ -116,7 +135,7 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 			</InspectorControls>
 
 			<div className={ classes }>
-				{ ( ! RichText.isEmpty( title ) || isSelected ) &&
+				{ ( ! RichText.isEmpty( title ) || isSelected ) && (
 					<div className="smb-alert__title">
 						<FontAwesome icon={ icon } />
 
@@ -124,18 +143,25 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 							<RichText
 								multiline={ false }
 								value={ title }
-								placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
-								onChange={ ( value ) => setAttributes( { title: value } ) }
+								placeholder={ __(
+									'Write title...',
+									'snow-monkey-blocks'
+								) }
+								onChange={ ( value ) =>
+									setAttributes( { title: value } )
+								}
 							/>
 						</strong>
 					</div>
-				}
+				) }
 
 				<RichText
 					className="smb-alert__body"
 					multiline="p"
 					value={ content }
-					onChange={ ( value ) => setAttributes( { content: value } ) }
+					onChange={ ( value ) =>
+						setAttributes( { content: value } )
+					}
 				/>
 			</div>
 		</Fragment>

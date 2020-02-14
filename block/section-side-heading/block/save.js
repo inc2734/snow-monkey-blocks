@@ -2,24 +2,41 @@
 
 import classnames from 'classnames';
 
-import {
-	getColumnSize,
-	divider,
-} from '../../../src/js/helper/helper';
+import { RichText, InnerBlocks } from '@wordpress/block-editor';
 
-import {
-	RichText,
-	InnerBlocks,
-} from '@wordpress/block-editor';
+import { getColumnSize, divider } from '../../../src/js/helper/helper';
 
 export default function( { attributes, className } ) {
-	const { wrapperTagName, titleTagName, title, backgroundColor, backgroundColor2, backgroundColorAngle, textColor, headingPosition, headingColumnSize, isSlim, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
+	const {
+		wrapperTagName,
+		titleTagName,
+		title,
+		backgroundColor,
+		backgroundColor2,
+		backgroundColorAngle,
+		textColor,
+		headingPosition,
+		headingColumnSize,
+		isSlim,
+		topDividerType,
+		topDividerLevel,
+		topDividerColor,
+		bottomDividerType,
+		bottomDividerLevel,
+		bottomDividerColor,
+	} = attributes;
 
-	const { textColumnWidth, imageColumnWidth } = getColumnSize( headingColumnSize );
+	const { textColumnWidth, imageColumnWidth } = getColumnSize(
+		headingColumnSize
+	);
 
 	const Wrapper = wrapperTagName;
 
-	const classes = classnames( 'smb-section', 'smb-section-side-heading', className );
+	const classes = classnames(
+		'smb-section',
+		'smb-section-side-heading',
+		className
+	);
 
 	const topDividerClasses = classnames(
 		'smb-section__divider',
@@ -33,24 +50,25 @@ export default function( { attributes, className } ) {
 		`smb-section__divider--${ bottomDividerType }`
 	);
 
-	const containerClasses = classnames(
-		'c-container',
-		{
-			'u-slim-width': !! isSlim,
-		}
+	const containerClasses = classnames( 'c-container', {
+		'u-slim-width': !! isSlim,
+	} );
+
+	const rowClasses = classnames( 'c-row', 'c-row--md-margin', {
+		'c-row--reverse': 'right' === headingPosition,
+	} );
+
+	const headingColClasses = classnames(
+		'c-row__col',
+		'c-row__col--1-1',
+		`c-row__col--md-${ imageColumnWidth }`
 	);
 
-	const rowClasses = classnames(
-		'c-row',
-		'c-row--md-margin',
-		{
-			'c-row--reverse': 'right' === headingPosition,
-		}
+	const contentColClasses = classnames(
+		'c-row__col',
+		'c-row__col--1-1',
+		`c-row__col--md-${ textColumnWidth }`
 	);
-
-	const headingColClasses = classnames( 'c-row__col', 'c-row__col--1-1', `c-row__col--md-${ imageColumnWidth }` );
-
-	const contentColClasses = classnames( 'c-row__col', 'c-row__col--1-1', `c-row__col--md-${ textColumnWidth }` );
 
 	const sectionStyles = {};
 	if ( textColor ) {
@@ -70,29 +88,37 @@ export default function( { attributes, className } ) {
 
 	return (
 		<Wrapper className={ classes } style={ sectionStyles }>
-			{ !! topDividerLevel &&
+			{ !! topDividerLevel && (
 				<div className={ topDividerClasses }>
-					{ divider( topDividerType, topDividerLevel, topDividerColor ) }
+					{ divider(
+						topDividerType,
+						topDividerLevel,
+						topDividerColor
+					) }
 				</div>
-			}
+			) }
 
-			{ !! bottomDividerLevel &&
+			{ !! bottomDividerLevel && (
 				<div className={ bottomDividerClasses }>
-					{ divider( bottomDividerType, bottomDividerLevel, bottomDividerColor ) }
+					{ divider(
+						bottomDividerType,
+						bottomDividerLevel,
+						bottomDividerColor
+					) }
 				</div>
-			}
+			) }
 
 			<div className="smb-section__inner" style={ innerStyles }>
 				<div className={ containerClasses }>
 					<div className={ rowClasses }>
 						<div className={ headingColClasses }>
-							{ ! RichText.isEmpty( title ) &&
+							{ ! RichText.isEmpty( title ) && (
 								<RichText.Content
 									tagName={ titleTagName }
 									className="smb-section__title"
 									value={ title }
 								/>
-							}
+							) }
 						</div>
 						<div className={ contentColClasses }>
 							<div className="smb-section__body">

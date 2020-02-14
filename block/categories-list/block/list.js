@@ -7,12 +7,9 @@ import CategoriesList from '../categories-list';
 export default function( { articleCategoriesList } ) {
 	const ulRef = useRef();
 
-	useEffect(
-		() => {
-			setTimeout( () => new CategoriesList( ulRef.current ), 0 );
-		},
-		[ ulRef ]
-	);
+	useEffect( () => {
+		setTimeout( () => new CategoriesList( ulRef.current ), 0 );
+	}, [ ulRef ] );
 
 	return (
 		<ul className="smb-categories-list__list" ref={ ulRef }>

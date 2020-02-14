@@ -1,11 +1,10 @@
 'use strict';
 
 import classnames from 'classnames';
-import { generateConfig } from './utils';
 
-import {
-	InnerBlocks,
-} from '@wordpress/block-editor';
+import { InnerBlocks } from '@wordpress/block-editor';
+
+import { generateConfig } from './utils';
 
 export default function( { attributes, className } ) {
 	const { arrows, speed, autoplay, autoplaySpeed } = attributes;
@@ -21,7 +20,10 @@ export default function( { attributes, className } ) {
 
 	return (
 		<div className={ classes }>
-			<div className="smb-thumbnail-gallery__canvas" data-smb-thumbnail-gallery={ JSON.stringify( config ) }>
+			<div
+				className="smb-thumbnail-gallery__canvas"
+				data-smb-thumbnail-gallery={ JSON.stringify( config ) }
+			>
 				<InnerBlocks.Content />
 			</div>
 		</div>

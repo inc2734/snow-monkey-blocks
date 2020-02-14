@@ -2,6 +2,9 @@
 
 import classnames from 'classnames';
 
+import { Fragment } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
+
 import {
 	RichText,
 	InspectorControls,
@@ -9,21 +12,10 @@ import {
 	InnerBlocks,
 } from '@wordpress/block-editor';
 
-import {
-	Fragment,
-} from '@wordpress/element';
-
-import {
-	__,
-} from '@wordpress/i18n';
-
 export default function( { attributes, setAttributes, className } ) {
 	const { title, numberColor } = attributes;
 
-	const classes = classnames(
-		'smb-step__item',
-		className
-	);
+	const classes = classnames( 'smb-step__item', className );
 
 	const itemNumberStyles = {
 		backgroundColor: numberColor || undefined,
@@ -38,23 +30,31 @@ export default function( { attributes, setAttributes, className } ) {
 					colorSettings={ [
 						{
 							value: numberColor,
-							onChange: ( value ) => setAttributes( { numberColor: value } ),
+							onChange: ( value ) =>
+								setAttributes( { numberColor: value } ),
 							label: __( 'Number Color', 'snow-monkey-blocks' ),
 						},
 					] }
-				>
-				</PanelColorSettings>
+				></PanelColorSettings>
 			</InspectorControls>
 
 			<div className={ classes }>
 				<div className="smb-step__item__title">
-					<div className="smb-step__item__number" style={ itemNumberStyles } />
+					<div
+						className="smb-step__item__number"
+						style={ itemNumberStyles }
+					/>
 					<span>
 						<RichText
-							placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
+							placeholder={ __(
+								'Write title...',
+								'snow-monkey-blocks'
+							) }
 							value={ title }
 							multiline={ false }
-							onChange={ ( value ) => setAttributes( { title: value } ) }
+							onChange={ ( value ) =>
+								setAttributes( { title: value } )
+							}
 						/>
 					</span>
 				</div>

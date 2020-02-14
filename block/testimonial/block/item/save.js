@@ -2,9 +2,7 @@
 
 import classnames from 'classnames';
 
-import {
-	RichText,
-} from '@wordpress/block-editor';
+import { RichText } from '@wordpress/block-editor';
 
 export default function( { attributes, className } ) {
 	const { avatarID, avatarURL, avatarAlt, name, lede, content } = attributes;
@@ -15,7 +13,11 @@ export default function( { attributes, className } ) {
 		<div className={ colClasses }>
 			<div className="smb-testimonial__item">
 				<div className="smb-testimonial__item__figure">
-					<img src={ avatarURL } alt={ avatarAlt } className={ `wp-image-${ avatarID }` } />
+					<img
+						src={ avatarURL }
+						alt={ avatarAlt }
+						className={ `wp-image-${ avatarID }` }
+					/>
 				</div>
 				<div className="smb-testimonial__item__body">
 					<div className="smb-testimonial__item__content">
@@ -26,11 +28,11 @@ export default function( { attributes, className } ) {
 						<RichText.Content value={ name } />
 					</div>
 
-					{ ! RichText.isEmpty( lede ) &&
+					{ ! RichText.isEmpty( lede ) && (
 						<div className="smb-testimonial__item__lede">
 							<RichText.Content value={ lede } />
 						</div>
-					}
+					) }
 				</div>
 			</div>
 		</div>

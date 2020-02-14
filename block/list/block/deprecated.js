@@ -1,10 +1,8 @@
 'use strict';
 
-import blockAttributes from './attributes';
+import { RichText } from '@wordpress/block-editor';
 
-import {
-	RichText,
-} from '@wordpress/block-editor';
+import blockAttributes from './attributes';
 
 export default [
 	{
@@ -14,7 +12,11 @@ export default [
 			const { content, icon, iconColor } = attributes;
 
 			return (
-				<div className="smb-list" data-icon={ icon } data-icon-color={ iconColor }>
+				<div
+					className="smb-list"
+					data-icon={ icon }
+					data-icon-color={ iconColor }
+				>
 					<ul>
 						<RichText.Content value={ content } />
 					</ul>

@@ -10,20 +10,8 @@ const applyCategoriesList = () => {
 	);
 };
 
-document.addEventListener(
-	'DOMContentLoaded',
-	applyCategoriesList,
-	false
-);
+document.addEventListener( 'DOMContentLoaded', applyCategoriesList, false );
 
-window.addEventListener(
-	'load',
-	applyCategoriesList,
-	false
-);
+window.addEventListener( 'load', applyCategoriesList, false );
 
-window.addEventListener(
-	'resize',
-	applyCategoriesList,
-	false
-);
+window.addEventListener( 'resize', applyCategoriesList, false );

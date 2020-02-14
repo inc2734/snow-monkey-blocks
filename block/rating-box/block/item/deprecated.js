@@ -1,10 +1,8 @@
 'use strict';
 
-import blockAttributes from './attributes';
+import { RichText } from '@wordpress/block-editor';
 
-import {
-	RichText,
-} from '@wordpress/block-editor';
+import blockAttributes from './attributes';
 
 export default [
 	{
@@ -15,7 +13,7 @@ export default [
 
 			return (
 				<div className="smb-rating-box__item">
-					<div className="smb-rating-box__item__title" >
+					<div className="smb-rating-box__item__title">
 						<RichText.Content value={ title } />
 					</div>
 
@@ -24,7 +22,13 @@ export default [
 							<div className="smb-rating-box__item__evaluation__numeric">
 								{ rating }
 							</div>
-							<div className="smb-rating-box__item__evaluation__rating" style={ { width: `${ rating * 10 }%`, backgroundColor: color } } />
+							<div
+								className="smb-rating-box__item__evaluation__rating"
+								style={ {
+									width: `${ rating * 10 }%`,
+									backgroundColor: color,
+								} }
+							/>
 						</div>
 					</div>
 				</div>

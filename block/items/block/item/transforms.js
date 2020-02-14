@@ -1,8 +1,6 @@
 'use strict';
 
-import {
-	createBlock,
-} from '@wordpress/blocks';
+import { createBlock } from '@wordpress/blocks';
 
 export default {
 	to: [

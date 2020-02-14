@@ -1,12 +1,10 @@
 'use strict';
 
 import classnames from 'classnames';
-import { toNumber } from '../../../../src/js/helper/helper';
 
-import {
-	PanelBody,
-	RangeControl,
-} from '@wordpress/components';
+import { PanelBody, RangeControl } from '@wordpress/components';
+import { Fragment } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 import {
 	RichText,
@@ -14,13 +12,7 @@ import {
 	PanelColorSettings,
 } from '@wordpress/block-editor';
 
-import {
-	Fragment,
-} from '@wordpress/element';
-
-import {
-	__,
-} from '@wordpress/i18n';
+import { toNumber } from '../../../../src/js/helper/helper';
 
 export default function( { attributes, setAttributes, className } ) {
 	const { title, rating, color } = attributes;
@@ -35,11 +27,17 @@ export default function( { attributes, setAttributes, className } ) {
 	return (
 		<Fragment>
 			<InspectorControls>
-				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
+				<PanelBody
+					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+				>
 					<RangeControl
 						label={ __( 'Rating', 'snow-monkey-blocks' ) }
 						value={ rating }
-						onChange={ ( value ) => setAttributes( { rating: toNumber( value, 1, 10 ) } ) }
+						onChange={ ( value ) =>
+							setAttributes( {
+								rating: toNumber( value, 1, 10 ),
+							} )
+						}
 						min="1"
 						max="10"
 					/>
@@ -51,12 +49,12 @@ export default function( { attributes, setAttributes, className } ) {
 					colorSettings={ [
 						{
 							value: color,
-							onChange: ( value ) => setAttributes( { color: value } ),
+							onChange: ( value ) =>
+								setAttributes( { color: value } ),
 							label: __( 'Bar Color', 'snow-monkey-blocks' ),
 						},
 					] }
-				>
-				</PanelColorSettings>
+				></PanelColorSettings>
 			</InspectorControls>
 
 			<div className={ classes }>
@@ -74,7 +72,10 @@ export default function( { attributes, setAttributes, className } ) {
 						<div className="smb-rating-box__item__evaluation__numeric">
 							{ rating }
 						</div>
-						<div className="smb-rating-box__item__evaluation__rating" style={ itemEvaluationRatingStyles } />
+						<div
+							className="smb-rating-box__item__evaluation__rating"
+							style={ itemEvaluationRatingStyles }
+						/>
 					</div>
 				</div>
 			</div>

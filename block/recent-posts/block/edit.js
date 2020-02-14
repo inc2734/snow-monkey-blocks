@@ -1,6 +1,9 @@
 'use strict';
 
-import { toNumber } from '../../../src/js/helper/helper';
+import ServerSideRender from '@wordpress/server-side-render';
+import { useSelect } from '@wordpress/data';
+import { Fragment, useMemo } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 import {
 	PanelBody,
@@ -12,28 +15,21 @@ import {
 	Spinner,
 } from '@wordpress/components';
 
-import ServerSideRender from '@wordpress/server-side-render';
-
-import {
-	useSelect,
-} from '@wordpress/data';
-
 import {
 	InspectorControls,
 	InspectorAdvancedControls,
 } from '@wordpress/block-editor';
 
-import {
-	Fragment,
-	useMemo,
-} from '@wordpress/element';
-
-import {
-	__,
-} from '@wordpress/i18n';
+import { toNumber } from '../../../src/js/helper/helper';
 
 export default function( { attributes, setAttributes } ) {
-	const { postType, postsPerPage, layout, ignoreStickyPosts, myAnchor } = attributes;
+	const {
+		postType,
+		postsPerPage,
+		layout,
+		ignoreStickyPosts,
+		myAnchor,
+	} = attributes;
 
 	const allPostTypes = useSelect( ( select ) => {
 		const { getPostTypes } = select( 'core' );
@@ -41,7 +37,13 @@ export default function( { attributes, setAttributes } ) {
 	}, [] );
 
 	const postTypes = useMemo(
-		() => allPostTypes.filter( ( type ) => type.viewable && ! type.hierarchical && 'media' !== type.rest_base ),
+		() =>
+			allPostTypes.filter(
+				( type ) =>
+					type.viewable &&
+					! type.hierarchical &&
+					'media' !== type.rest_base
+			),
 		[ allPostTypes ]
 	);
 
@@ -59,18 +61,29 @@ export default function( { attributes, setAttributes } ) {
 	return (
 		<Fragment>
 			<InspectorControls>
-				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
+				<PanelBody
+					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+				>
 					<SelectControl
 						label={ __( 'Post Type', 'snow-monkey-blocks' ) }
 						value={ postType }
-						onChange={ ( value ) => setAttributes( { postType: value } ) }
-						options={ postTypes.map( ( _postType ) => ( { label: _postType.name, value: _postType.slug } ) ) }
+						onChange={ ( value ) =>
+							setAttributes( { postType: value } )
+						}
+						options={ postTypes.map( ( _postType ) => ( {
+							label: _postType.name,
+							value: _postType.slug,
+						} ) ) }
 					/>
 
 					<RangeControl
 						label={ __( 'Number of posts', 'snow-monkey-blocks' ) }
 						value={ postsPerPage }
-						onChange={ ( value ) => setAttributes( { postsPerPage: toNumber( value, 1, 12 ) } ) }
+						onChange={ ( value ) =>
+							setAttributes( {
+								postsPerPage: toNumber( value, 1, 12 ),
+							} )
+						}
 						min="1"
 						max="12"
 					/>
@@ -78,7 +91,9 @@ export default function( { attributes, setAttributes } ) {
 					<SelectControl
 						label={ __( 'Layout', 'snow-monkey-blocks' ) }
 						value={ layout }
-						onChange={ ( value ) => setAttributes( { layout: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { layout: value } )
+						}
 						options={ [
 							{
 								value: 'rich-media',
@@ -100,18 +115,30 @@ export default function( { attributes, setAttributes } ) {
 					/>
 
 					<ToggleControl
-						label={ __( 'Ignore sticky posts', 'snow-monkey-blocks' ) }
+						label={ __(
+							'Ignore sticky posts',
+							'snow-monkey-blocks'
+						) }
 						checked={ ignoreStickyPosts }
-						onChange={ ( value ) => setAttributes( { ignoreStickyPosts: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { ignoreStickyPosts: value } )
+						}
 					/>
 				</PanelBody>
 			</InspectorControls>
 			<InspectorAdvancedControls>
 				<TextControl
 					label={ __( 'HTML Anchor', 'snow-monkey-blocks' ) }
-					help={ __( 'Anchors lets you link directly to a section on a page.', 'snow-monkey-blocks' ) }
+					help={ __(
+						'Anchors lets you link directly to a section on a page.',
+						'snow-monkey-blocks'
+					) }
 					value={ myAnchor || '' }
-					onChange={ ( value ) => setAttributes( { myAnchor: value.replace( /[\s#]/g, '-' ) } ) }
+					onChange={ ( value ) =>
+						setAttributes( {
+							myAnchor: value.replace( /[\s#]/g, '-' ),
+						} )
+					}
 				/>
 			</InspectorAdvancedControls>
 

@@ -2,18 +2,18 @@
 
 import classnames from 'classnames';
 
-import {
-	RichText,
-	InnerBlocks,
-} from '@wordpress/block-editor';
+import { RichText, InnerBlocks } from '@wordpress/block-editor';
 
 export default function( { attributes, className } ) {
-	const { question, questionColor, answerColor, questionLabel, answerLabel } = attributes;
+	const {
+		question,
+		questionColor,
+		answerColor,
+		questionLabel,
+		answerLabel,
+	} = attributes;
 
-	const classes = classnames(
-		'smb-faq__item',
-		className
-	);
+	const classes = classnames( 'smb-faq__item', className );
 
 	const faqItemQestionLabelStyles = {
 		color: questionColor || undefined,
@@ -26,7 +26,10 @@ export default function( { attributes, className } ) {
 	return (
 		<div className={ classes }>
 			<div className="smb-faq__item__question">
-				<div className="smb-faq__item__question__label" style={ faqItemQestionLabelStyles }>
+				<div
+					className="smb-faq__item__question__label"
+					style={ faqItemQestionLabelStyles }
+				>
 					{ questionLabel }
 				</div>
 				<div className="smb-faq__item__question__body">
@@ -35,7 +38,10 @@ export default function( { attributes, className } ) {
 			</div>
 
 			<div className="smb-faq__item__answer">
-				<div className="smb-faq__item__answer__label" style={ faqItemAnswerLabelStyles }>
+				<div
+					className="smb-faq__item__answer__label"
+					style={ faqItemAnswerLabelStyles }
+				>
 					{ answerLabel }
 				</div>
 				<div className="smb-faq__item__answer__body">

@@ -2,16 +2,25 @@
 
 import classnames from 'classnames';
 
-import {
-	RichText,
-} from '@wordpress/block-editor';
-
-import {
-	Fragment,
-} from '@wordpress/element';
+import { RichText } from '@wordpress/block-editor';
+import { Fragment } from '@wordpress/element';
 
 export default function( { attributes, className } ) {
-	const { titleTagName, title, lede, summary, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, imageID, imageURL, imageAlt, isBlockLink } = attributes;
+	const {
+		titleTagName,
+		title,
+		lede,
+		summary,
+		btnLabel,
+		btnURL,
+		btnTarget,
+		btnBackgroundColor,
+		btnTextColor,
+		imageID,
+		imageURL,
+		imageAlt,
+		isBlockLink,
+	} = attributes;
 
 	const classes = classnames( 'c-row__col', className );
 
@@ -28,46 +37,60 @@ export default function( { attributes, className } ) {
 	const ItemsItemContent = () => {
 		return (
 			<Fragment>
-				{ !! imageID &&
+				{ !! imageID && (
 					<div className="smb-items__item__figure">
-						<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
+						<img
+							src={ imageURL }
+							alt={ imageAlt }
+							className={ `wp-image-${ imageID }` }
+						/>
 					</div>
-				}
+				) }
 
-				{ 'none' !== titleTagName &&
+				{ 'none' !== titleTagName && (
 					<RichText.Content
 						tagName={ titleTagName }
 						className="smb-items__item__title"
 						value={ title }
 					/>
-				}
+				) }
 
-				{ ! RichText.isEmpty( lede ) &&
+				{ ! RichText.isEmpty( lede ) && (
 					<div className="smb-items__item__lede">
 						<RichText.Content value={ lede } />
 					</div>
-				}
+				) }
 
-				{ ! RichText.isEmpty( summary ) &&
+				{ ! RichText.isEmpty( summary ) && (
 					<div className="smb-items__item__content">
 						<RichText.Content value={ summary } />
 					</div>
-				}
+				) }
 
-				{ ( ! RichText.isEmpty( btnLabel ) && !! btnURL ) &&
+				{ ! RichText.isEmpty( btnLabel ) && !! btnURL && (
 					<div className="smb-items__item__action">
-						<Btn className="smb-items__item__btn smb-btn"
+						<Btn
+							className="smb-items__item__btn smb-btn"
 							href={ btnURL }
 							style={ itemBtnStyles }
-							target={ '_self' === btnTarget ? undefined : btnTarget }
-							rel={ '_self' === btnTarget ? undefined : 'noopener noreferrer' }
+							target={
+								'_self' === btnTarget ? undefined : btnTarget
+							}
+							rel={
+								'_self' === btnTarget
+									? undefined
+									: 'noopener noreferrer'
+							}
 						>
-							<span className="smb-btn__label" style={ itemBtnLabelStyles }>
+							<span
+								className="smb-btn__label"
+								style={ itemBtnLabelStyles }
+							>
 								<RichText.Content value={ btnLabel } />
 							</span>
 						</Btn>
 					</div>
-				}
+				) }
 			</Fragment>
 		);
 	};
@@ -78,7 +101,9 @@ export default function( { attributes, className } ) {
 				className="smb-items__item"
 				href={ btnURL }
 				target={ '_self' === btnTarget ? undefined : btnTarget }
-				rel={ '_self' === btnTarget ? undefined : 'noopener noreferrer' }
+				rel={
+					'_self' === btnTarget ? undefined : 'noopener noreferrer'
+				}
 			>
 				<ItemsItemContent />
 			</a>

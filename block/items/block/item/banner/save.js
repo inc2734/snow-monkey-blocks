@@ -2,18 +2,29 @@
 
 import classnames from 'classnames';
 
-import {
-	RichText,
-} from '@wordpress/block-editor';
+import { RichText } from '@wordpress/block-editor';
 
 export default function( { attributes, className } ) {
-	const { title, lede, url, target, blur, textColor, maskColor, maskOpacity, imageSize, imageID, imageURL, imageAlt } = attributes;
+	const {
+		title,
+		lede,
+		url,
+		target,
+		blur,
+		textColor,
+		maskColor,
+		maskOpacity,
+		imageSize,
+		imageID,
+		imageURL,
+		imageAlt,
+	} = attributes;
 
 	const classes = classnames( 'c-row__col', className );
 	const bannerClasses = classnames(
 		'smb-items__banner',
 		`smb-items__banner--${ imageSize }`,
-		{ 'smb-items__banner--blur': blur },
+		{ 'smb-items__banner--blur': blur }
 	);
 
 	const styles = {
@@ -38,31 +49,43 @@ export default function( { attributes, className } ) {
 				style={ styles }
 			>
 				<div className="smb-items__banner__figure">
-					{ 1 > maskOpacity &&
-						<div className="smb-items__banner__figure__mask" style={ maskStyles } />
-					}
+					{ 1 > maskOpacity && (
+						<div
+							className="smb-items__banner__figure__mask"
+							style={ maskStyles }
+						/>
+					) }
 					{ !! imageID ? (
-						<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } style={ imgStyles } />
+						<img
+							src={ imageURL }
+							alt={ imageAlt }
+							className={ `wp-image-${ imageID }` }
+							style={ imgStyles }
+						/>
 					) : (
-						<div className="smb-items__banner__figure__dummy" style={ imgStyles } />
+						<div
+							className="smb-items__banner__figure__dummy"
+							style={ imgStyles }
+						/>
 					) }
 				</div>
 
-				{ ( ! RichText.isEmpty( title ) || ! RichText.isEmpty( lede ) ) &&
+				{ ( ! RichText.isEmpty( title ) ||
+					! RichText.isEmpty( lede ) ) && (
 					<div className="smb-items__banner__body">
-						{ ! RichText.isEmpty( title ) &&
+						{ ! RichText.isEmpty( title ) && (
 							<div className="smb-items__banner__title">
 								<RichText.Content value={ title } />
 							</div>
-						}
+						) }
 
-						{ ! RichText.isEmpty( lede ) &&
+						{ ! RichText.isEmpty( lede ) && (
 							<div className="smb-items__banner__lede">
 								<RichText.Content value={ lede } />
 							</div>
-						}
+						) }
 					</div>
-				}
+				) }
 			</a>
 		</div>
 	);

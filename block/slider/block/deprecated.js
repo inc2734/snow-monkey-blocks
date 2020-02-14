@@ -1,28 +1,14 @@
 'use strict';
 
 import classnames from 'classnames';
+import { get, times, merge, omit } from 'lodash';
+
+import { RichText, InnerBlocks } from '@wordpress/block-editor';
+import { Fragment } from '@wordpress/element';
+import { createBlock } from '@wordpress/blocks';
+
 import blockAttributes from './attributes';
 import { generateConfig } from './utils';
-
-import {
-	get,
-	times,
-	merge,
-	omit,
-} from 'lodash';
-
-import {
-	RichText,
-	InnerBlocks,
-} from '@wordpress/block-editor';
-
-import {
-	Fragment,
-} from '@wordpress/element';
-
-import {
-	createBlock,
-} from '@wordpress/blocks';
 
 export default [
 	{
@@ -32,23 +18,36 @@ export default [
 		},
 
 		save( { attributes, className } ) {
-			const { slidesToShow, slidesToScroll, dots, arrows, speed, autoplay, autoplaySpeed, fade, rtl } = attributes;
+			const {
+				slidesToShow,
+				slidesToScroll,
+				dots,
+				arrows,
+				speed,
+				autoplay,
+				autoplaySpeed,
+				fade,
+				rtl,
+			} = attributes;
 
 			const config = omit(
-				generateConfig(
-					{
-						slidesToShow,
-						slidesToScroll,
-						dots,
-						arrows,
-						speed,
-						autoplay,
-						autoplaySpeed: autoplaySpeed * 1000,
-						fade,
-						rtl,
-					}
-				),
-				[ 'mdSlidesToShow', 'mdSlidesToScroll', 'smSlidesToShow', 'smSlidesToScroll' ]
+				generateConfig( {
+					slidesToShow,
+					slidesToScroll,
+					dots,
+					arrows,
+					speed,
+					autoplay,
+					autoplaySpeed: autoplaySpeed * 1000,
+					fade,
+					rtl,
+				} ),
+				[
+					'mdSlidesToShow',
+					'mdSlidesToScroll',
+					'smSlidesToShow',
+					'smSlidesToScroll',
+				]
 			);
 
 			const classes = classnames( 'smb-slider', className );
@@ -56,7 +55,11 @@ export default [
 
 			return (
 				<div className={ classes }>
-					<div className="smb-slider__canvas" dir={ dir } data-smb-slider={ JSON.stringify( config ) }>
+					<div
+						className="smb-slider__canvas"
+						dir={ dir }
+						data-smb-slider={ JSON.stringify( config ) }
+					>
 						<InnerBlocks.Content />
 					</div>
 				</div>
@@ -70,22 +73,35 @@ export default [
 		},
 
 		save( { attributes, className } ) {
-			const { slidesToShow, slidesToScroll, dots, arrows, speed, autoplay, autoplaySpeed, rtl } = attributes;
+			const {
+				slidesToShow,
+				slidesToScroll,
+				dots,
+				arrows,
+				speed,
+				autoplay,
+				autoplaySpeed,
+				rtl,
+			} = attributes;
 
 			const config = omit(
-				generateConfig(
-					{
-						slidesToShow,
-						slidesToScroll,
-						dots,
-						arrows,
-						speed,
-						autoplay,
-						autoplaySpeed: autoplaySpeed * 1000,
-						rtl,
-					}
-				),
-				[ 'mdSlidesToShow', 'mdSlidesToScroll', 'smSlidesToShow', 'smSlidesToScroll', 'fade' ]
+				generateConfig( {
+					slidesToShow,
+					slidesToScroll,
+					dots,
+					arrows,
+					speed,
+					autoplay,
+					autoplaySpeed: autoplaySpeed * 1000,
+					rtl,
+				} ),
+				[
+					'mdSlidesToShow',
+					'mdSlidesToScroll',
+					'smSlidesToShow',
+					'smSlidesToScroll',
+					'fade',
+				]
 			);
 
 			const classes = classnames( 'smb-slider', className );
@@ -93,7 +109,11 @@ export default [
 
 			return (
 				<div className={ classes }>
-					<div className="smb-slider__canvas" dir={ dir } data-smb-slider={ JSON.stringify( config ) }>
+					<div
+						className="smb-slider__canvas"
+						dir={ dir }
+						data-smb-slider={ JSON.stringify( config ) }
+					>
 						<InnerBlocks.Content />
 					</div>
 				</div>
@@ -101,41 +121,38 @@ export default [
 		},
 	},
 	{
-		attributes: merge(
-			blockAttributes,
-			{
-				content: {
-					type: 'array',
-					source: 'query',
-					selector: '.smb-slider__item',
-					default: [],
-					query: {
-						imageID: {
-							type: 'number',
-							source: 'attribute',
-							selector: '.smb-slider__item__figure > img',
-							attribute: 'data-image-id',
-							default: 0,
-						},
-						imageURL: {
-							type: 'string',
-							source: 'attribute',
-							selector: '.smb-slider__item__figure > img',
-							attribute: 'src',
-							default: '',
-						},
-						caption: {
-							source: 'html',
-							selector: '.smb-slider__item__caption',
-						},
+		attributes: merge( blockAttributes, {
+			content: {
+				type: 'array',
+				source: 'query',
+				selector: '.smb-slider__item',
+				default: [],
+				query: {
+					imageID: {
+						type: 'number',
+						source: 'attribute',
+						selector: '.smb-slider__item__figure > img',
+						attribute: 'data-image-id',
+						default: 0,
+					},
+					imageURL: {
+						type: 'string',
+						source: 'attribute',
+						selector: '.smb-slider__item__figure > img',
+						attribute: 'src',
+						default: '',
+					},
+					caption: {
+						source: 'html',
+						selector: '.smb-slider__item__caption',
 					},
 				},
-				items: {
-					type: 'number',
-					default: 2,
-				},
-			}
-		),
+			},
+			items: {
+				type: 'number',
+				default: 2,
+			},
+		} ),
 
 		supports: {
 			align: [ 'wide', 'full' ],
@@ -143,12 +160,27 @@ export default [
 
 		migrate( attributes ) {
 			const migratedInnerBlocks = () => {
-				const length = ( 'undefined' === typeof attributes.content ) ? 0 : attributes.content.length;
+				const length =
+					'undefined' === typeof attributes.content
+						? 0
+						: attributes.content.length;
 
 				return times( length, ( index ) => {
-					const imageID = get( attributes.content, [ index, 'imageID' ], 0 );
-					const imageURL = get( attributes.content, [ index, 'imageURL' ], '' );
-					const caption = get( attributes.content, [ index, 'caption' ], '' );
+					const imageID = get(
+						attributes.content,
+						[ index, 'imageID' ],
+						0
+					);
+					const imageURL = get(
+						attributes.content,
+						[ index, 'imageURL' ],
+						''
+					);
+					const caption = get(
+						attributes.content,
+						[ index, 'caption' ],
+						''
+					);
 
 					return createBlock( 'snow-monkey-blocks/slider--item', {
 						imageID: Number( imageID ),
@@ -174,23 +206,37 @@ export default [
 		},
 
 		save( { attributes, className } ) {
-			const { slidesToShow, slidesToScroll, dots, arrows, content, speed, autoplay, autoplaySpeed, rtl } = attributes;
-			const length = ( 'undefined' === typeof content ) ? 0 : content.length;
+			const {
+				slidesToShow,
+				slidesToScroll,
+				dots,
+				arrows,
+				content,
+				speed,
+				autoplay,
+				autoplaySpeed,
+				rtl,
+			} = attributes;
+			const length = 'undefined' === typeof content ? 0 : content.length;
 
 			const config = omit(
-				generateConfig(
-					{
-						slidesToShow,
-						slidesToScroll,
-						dots,
-						arrows,
-						speed,
-						autoplay,
-						autoplaySpeed: autoplaySpeed * 1000,
-						rtl,
-					}
-				),
-				[ 'mdSlidesToShow', 'mdSlidesToScroll', 'smSlidesToShow', 'smSlidesToScroll', 'fade' ]
+				generateConfig( {
+					slidesToShow,
+					slidesToScroll,
+					dots,
+					arrows,
+					speed,
+					autoplay,
+					autoplaySpeed: autoplaySpeed * 1000,
+					rtl,
+				} ),
+				[
+					'mdSlidesToShow',
+					'mdSlidesToScroll',
+					'smSlidesToShow',
+					'smSlidesToScroll',
+					'fade',
+				]
 			);
 
 			const classes = classnames( 'smb-slider', className );
@@ -198,27 +244,50 @@ export default [
 
 			return (
 				<div className={ classes }>
-					<div className="smb-slider__canvas" dir={ dir } data-smb-slider={ JSON.stringify( config ) }>
+					<div
+						className="smb-slider__canvas"
+						dir={ dir }
+						data-smb-slider={ JSON.stringify( config ) }
+					>
 						{ times( length, ( index ) => {
-							const imageID = get( content, [ index, 'imageID' ], 0 );
-							const imageURL = get( content, [ index, 'imageURL' ], '' );
-							const caption = get( content, [ index, 'caption' ], '' );
+							const imageID = get(
+								content,
+								[ index, 'imageID' ],
+								0
+							);
+							const imageURL = get(
+								content,
+								[ index, 'imageURL' ],
+								''
+							);
+							const caption = get(
+								content,
+								[ index, 'caption' ],
+								''
+							);
 
 							return (
 								<Fragment>
-									{ !! imageID &&
+									{ !! imageID && (
 										<div className="smb-slider__item">
 											<div className="smb-slider__item__figure">
-												<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } data-image-id={ imageID } />
+												<img
+													src={ imageURL }
+													alt=""
+													className={ `wp-image-${ imageID }` }
+													data-image-id={ imageID }
+												/>
 											</div>
 
-											{ ! RichText.isEmpty( caption ) &&
+											{ ! RichText.isEmpty( caption ) && (
 												<div className="smb-slider__item__caption">
-													<RichText.Content value={ caption } />
+													<RichText.Content
+														value={ caption }
+													/>
 												</div>
-											}
+											) }
 										</div>
-									}
+									) }
 								</Fragment>
 							);
 						} ) }
@@ -228,84 +297,119 @@ export default [
 		},
 	},
 	{
-		attributes: merge(
-			blockAttributes,
-			{
-				content: {
-					type: 'array',
-					source: 'query',
-					selector: '.smb-slider__item',
-					default: [],
-					query: {
-						imageID: {
-							type: 'number',
-							source: 'attribute',
-							selector: '.smb-slider__item__figure > img',
-							attribute: 'data-image-id',
-							default: 0,
-						},
-						imageURL: {
-							type: 'string',
-							source: 'attribute',
-							selector: '.smb-slider__item__figure > img',
-							attribute: 'src',
-							default: '',
-						},
-						caption: {
-							source: 'html',
-							selector: '.smb-slider__item__caption',
-						},
+		attributes: merge( blockAttributes, {
+			content: {
+				type: 'array',
+				source: 'query',
+				selector: '.smb-slider__item',
+				default: [],
+				query: {
+					imageID: {
+						type: 'number',
+						source: 'attribute',
+						selector: '.smb-slider__item__figure > img',
+						attribute: 'data-image-id',
+						default: 0,
+					},
+					imageURL: {
+						type: 'string',
+						source: 'attribute',
+						selector: '.smb-slider__item__figure > img',
+						attribute: 'src',
+						default: '',
+					},
+					caption: {
+						source: 'html',
+						selector: '.smb-slider__item__caption',
 					},
 				},
-				items: {
-					type: 'number',
-					default: 2,
-				},
-			}
-		),
+			},
+			items: {
+				type: 'number',
+				default: 2,
+			},
+		} ),
 
 		save( { attributes } ) {
-			const { slidesToShow, slidesToScroll, dots, arrows, items, content, speed, autoplay, autoplaySpeed, rtl } = attributes;
+			const {
+				slidesToShow,
+				slidesToScroll,
+				dots,
+				arrows,
+				items,
+				content,
+				speed,
+				autoplay,
+				autoplaySpeed,
+				rtl,
+			} = attributes;
 
 			const config = omit(
-				generateConfig(
-					{
-						slidesToShow,
-						slidesToScroll,
-						dots,
-						arrows,
-						speed,
-						autoplay,
-						autoplaySpeed: autoplaySpeed * 1000,
-						rtl,
-					}
-				),
-				[ 'mdSlidesToShow', 'mdSlidesToScroll', 'smSlidesToShow', 'smSlidesToScroll', 'fade' ]
+				generateConfig( {
+					slidesToShow,
+					slidesToScroll,
+					dots,
+					arrows,
+					speed,
+					autoplay,
+					autoplaySpeed: autoplaySpeed * 1000,
+					rtl,
+				} ),
+				[
+					'mdSlidesToShow',
+					'mdSlidesToScroll',
+					'smSlidesToShow',
+					'smSlidesToScroll',
+					'fade',
+				]
 			);
 
 			return (
 				<div className="smb-slider">
-					<div className="smb-slider__canvas" dir={ true === config.rtl ? 'rtl' : 'ltr' } data-smb-slider={ JSON.stringify( config ) }>
+					<div
+						className="smb-slider__canvas"
+						dir={ true === config.rtl ? 'rtl' : 'ltr' }
+						data-smb-slider={ JSON.stringify( config ) }
+					>
 						{ times( items, ( index ) => {
-							const imageID = get( content, [ index, 'imageID' ], 0 );
-							const imageURL = get( content, [ index, 'imageURL' ], '' );
-							const caption = get( content, [ index, 'caption' ], '' );
+							const imageID = get(
+								content,
+								[ index, 'imageID' ],
+								0
+							);
+							const imageURL = get(
+								content,
+								[ index, 'imageURL' ],
+								''
+							);
+							const caption = get(
+								content,
+								[ index, 'caption' ],
+								''
+							);
 
 							return (
 								<Fragment>
-									{ !! imageID &&
+									{ !! imageID && (
 										<div className="smb-slider__item">
 											<div className="smb-slider__item__figure">
-												<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } data-image-id={ imageID } />
+												<img
+													src={ imageURL }
+													alt=""
+													className={ `wp-image-${ imageID }` }
+													data-image-id={ imageID }
+												/>
 											</div>
 
-											{ ! RichText.isEmpty( caption ) &&
+											{ ! RichText.isEmpty( caption ) && (
 												<div className="smb-slider__item__caption">
-													<RichText.Content value={ caption } />
+													<RichText.Content
+														value={ caption }
+													/>
 												</div>
-											}
+											) }
 										</div>
-									}
+									) }
 								</Fragment>
 							);
 						} ) }
@@ -315,88 +419,122 @@ export default [
 		},
 	},
 	{
-		attributes: merge(
-			blockAttributes,
-			{
-				content: {
-					type: 'array',
-					source: 'query',
-					selector: '.smb-slider__item',
-					default: [],
-					query: {
-						imageID: {
-							type: 'number',
-							source: 'attribute',
-							selector: '.smb-slider__item__figure > img',
-							attribute: 'data-image-id',
-							default: 0,
-						},
-						imageURL: {
-							type: 'string',
-							source: 'attribute',
-							selector: '.smb-slider__item__figure > img',
-							attribute: 'src',
-							default: '',
-						},
-						caption: {
-							source: 'html',
-							selector: '.smb-slider__item__caption',
-						},
+		attributes: merge( blockAttributes, {
+			content: {
+				type: 'array',
+				source: 'query',
+				selector: '.smb-slider__item',
+				default: [],
+				query: {
+					imageID: {
+						type: 'number',
+						source: 'attribute',
+						selector: '.smb-slider__item__figure > img',
+						attribute: 'data-image-id',
+						default: 0,
+					},
+					imageURL: {
+						type: 'string',
+						source: 'attribute',
+						selector: '.smb-slider__item__figure > img',
+						attribute: 'src',
+						default: '',
+					},
+					caption: {
+						source: 'html',
+						selector: '.smb-slider__item__caption',
 					},
 				},
-				items: {
-					type: 'number',
-					default: 2,
-				},
-			}
-		),
+			},
+			items: {
+				type: 'number',
+				default: 2,
+			},
+		} ),
 
 		supports: {
 			align: [ 'wide', 'full' ],
 		},
 
 		save( { attributes } ) {
-			const { slidesToShow, slidesToScroll, dots, arrows, items, content, speed, autoplay, autoplaySpeed, rtl } = attributes;
+			const {
+				slidesToShow,
+				slidesToScroll,
+				dots,
+				arrows,
+				items,
+				content,
+				speed,
+				autoplay,
+				autoplaySpeed,
+				rtl,
+			} = attributes;
 
 			const config = omit(
-				generateConfig(
-					{
-						slidesToShow,
-						slidesToScroll,
-						dots,
-						arrows,
-						speed,
-						autoplay,
-						autoplaySpeed: autoplaySpeed * 1000,
-						rtl,
-					}
-				),
-				[ 'mdSlidesToShow', 'mdSlidesToScroll', 'smSlidesToShow', 'smSlidesToScroll', 'fade' ]
+				generateConfig( {
+					slidesToShow,
+					slidesToScroll,
+					dots,
+					arrows,
+					speed,
+					autoplay,
+					autoplaySpeed: autoplaySpeed * 1000,
+					rtl,
+				} ),
+				[
+					'mdSlidesToShow',
+					'mdSlidesToScroll',
+					'smSlidesToShow',
+					'smSlidesToScroll',
+					'fade',
+				]
 			);
 
 			return (
 				<div className="smb-slider">
-					<div className="smb-slider__canvas" dir={ true === config.rtl ? 'rtl' : 'ltr' } data-smb-slider={ JSON.stringify( config ) }>
+					<div
+						className="smb-slider__canvas"
+						dir={ true === config.rtl ? 'rtl' : 'ltr' }
+						data-smb-slider={ JSON.stringify( config ) }
+					>
 						{ times( items, ( index ) => {
-							const imageID = get( content, [ index, 'imageID' ], 0 );
-							const imageURL = get( content, [ index, 'imageURL' ], '' );
-							const caption = get( content, [ index, 'caption' ], '' );
+							const imageID = get(
+								content,
+								[ index, 'imageID' ],
+								0
+							);
+							const imageURL = get(
+								content,
+								[ index, 'imageURL' ],
+								''
+							);
+							const caption = get(
+								content,
+								[ index, 'caption' ],
+								''
+							);
 
 							return (
 								<Fragment>
-									{ !! imageID &&
+									{ !! imageID && (
 										<div className="smb-slider__item">
 											<div className="smb-slider__item__figure">
-												<img src={ imageURL } alt="" data-image-id={ imageID } />
+												<img
+													src={ imageURL }
+													alt=""
+													data-image-id={ imageID }
+												/>
 											</div>
 
-											{ ! RichText.isEmpty( caption ) &&
+											{ ! RichText.isEmpty( caption ) && (
 												<div className="smb-slider__item__caption">
-													<RichText.Content value={ caption } />
+													<RichText.Content
+														value={ caption }
+													/>
 												</div>
-											}
+											) }
 										</div>
-									}
+									) }
 								</Fragment>
 							);
 						} ) }

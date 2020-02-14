@@ -1,33 +1,21 @@
 'use strict';
 
 import classnames from 'classnames';
+import { merge, omit, times } from 'lodash';
+
+import { RichText } from '@wordpress/block-editor';
+import { createBlock } from '@wordpress/blocks';
+
 import blockAttributes from './attributes';
-
-import {
-	merge,
-	omit,
-	times,
-} from 'lodash';
-
-import {
-	RichText,
-} from '@wordpress/block-editor';
-
-import {
-	createBlock,
-} from '@wordpress/blocks';
 
 export default [
 	{
-		attributes: merge(
-			blockAttributes,
-			{
-				answer: {
-					source: 'html',
-					selector: '.smb-faq__item__answer__body',
-				},
+		attributes: merge( blockAttributes, {
+			answer: {
+				source: 'html',
+				selector: '.smb-faq__item__answer__body',
 			},
-		),
+		} ),
 
 		migrate( attributes ) {
 			const migratedInnerBlocks = () => {
@@ -39,7 +27,9 @@ export default [
 				}
 
 				return times( answer.length, ( index ) => {
-					const content = answer[ index ].replace( '<p>', '' ).replace( '</p>', '' );
+					const content = answer[ index ]
+						.replace( '<p>', '' )
+						.replace( '</p>', '' );
 
 					return createBlock( 'core/paragraph', {
 						content,
@@ -47,14 +37,18 @@ export default [
 				} );
 			};
 
-			return [
-				omit( attributes, 'answer' ),
-				migratedInnerBlocks(),
-			];
+			return [ omit( attributes, 'answer' ), migratedInnerBlocks() ];
 		},
 
 		save( { attributes, className } ) {
-			const { question, answer, questionColor, answerColor, questionLabel, answerLabel } = attributes;
+			const {
+				question,
+				answer,
+				questionColor,
+				answerColor,
+				questionLabel,
+				answerLabel,
+			} = attributes;
 
 			const classes = classnames( 'smb-faq__item', className );
 
@@ -69,7 +63,10 @@ export default [
 			return (
 				<div className={ classes }>
 					<div className="smb-faq__item__question">
-						<div className="smb-faq__item__question__label" style={ faqItemQestionLabelStyles }>
+						<div
+							className="smb-faq__item__question__label"
+							style={ faqItemQestionLabelStyles }
+						>
 							{ questionLabel }
 						</div>
 						<div className="smb-faq__item__question__body">
@@ -78,7 +75,10 @@ export default [
 					</div>
 
 					<div className="smb-faq__item__answer">
-						<div className="smb-faq__item__answer__label" style={ faqItemAnswerLabelStyles }>
+						<div
+							className="smb-faq__item__answer__label"
+							style={ faqItemAnswerLabelStyles }
+						>
 							{ answerLabel }
 						</div>
 						<div className="smb-faq__item__answer__body">
@@ -90,15 +90,12 @@ export default [
 		},
 	},
 	{
-		attributes: merge(
-			blockAttributes,
-			{
-				answer: {
-					source: 'html',
-					selector: '.smb-faq__item__answer__body',
-				},
+		attributes: merge( blockAttributes, {
+			answer: {
+				source: 'html',
+				selector: '.smb-faq__item__answer__body',
 			},
-		),
+		} ),
 
 		save( { attributes } ) {
 			const { question, answer, questionColor, answerColor } = attributes;
@@ -106,7 +103,10 @@ export default [
 			return (
 				<div className="smb-faq__item">
 					<div className="smb-faq__item__question">
-						<div className="smb-faq__item__question__label" style={ { color: questionColor } }>
+						<div
+							className="smb-faq__item__question__label"
+							style={ { color: questionColor } }
+						>
 							Q
 						</div>
 						<div className="smb-faq__item__question__body">
@@ -115,7 +115,10 @@ export default [
 					</div>
 
 					<div className="smb-faq__item__answer">
-						<div className="smb-faq__item__answer__label" style={ { color: answerColor } }>
+						<div
+							className="smb-faq__item__answer__label"
+							style={ { color: answerColor } }
+						>
 							A
 						</div>
 						<div className="smb-faq__item__answer__body">

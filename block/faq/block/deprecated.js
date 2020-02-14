@@ -1,18 +1,9 @@
 'use strict';
 
-import {
-	get,
-	times,
-} from 'lodash';
+import { get, times } from 'lodash';
 
-import {
-	RichText,
-	InnerBlocks,
-} from '@wordpress/block-editor';
-
-import {
-	createBlock,
-} from '@wordpress/blocks';
+import { RichText, InnerBlocks } from '@wordpress/block-editor';
+import { createBlock } from '@wordpress/blocks';
 
 export default [
 	{
@@ -64,13 +55,32 @@ export default [
 
 		migrate( attributes ) {
 			const migratedInnerBlocks = () => {
-				const length = ( 'undefined' === typeof attributes.content ) ? 0 : attributes.content.length;
+				const length =
+					'undefined' === typeof attributes.content
+						? 0
+						: attributes.content.length;
 
 				return times( length, ( index ) => {
-					const question = get( attributes.content, [ index, 'question' ], '' );
-					const answer = get( attributes.content, [ index, 'answer' ], '' );
-					const questionColor = get( attributes.content, [ index, 'questionColor' ], '' );
-					const answerColor = get( attributes.content, [ index, 'answerColor' ], '' );
+					const question = get(
+						attributes.content,
+						[ index, 'question' ],
+						''
+					);
+					const answer = get(
+						attributes.content,
+						[ index, 'answer' ],
+						''
+					);
+					const questionColor = get(
+						attributes.content,
+						[ index, 'questionColor' ],
+						''
+					);
+					const answerColor = get(
+						attributes.content,
+						[ index, 'answerColor' ],
+						''
+					);
 
 					return createBlock( 'snow-monkey-blocks/faq--item', {
 						question,
@@ -81,42 +91,70 @@ export default [
 				} );
 			};
 
-			return [
-				{},
-				migratedInnerBlocks(),
-			];
+			return [ {}, migratedInnerBlocks() ];
 		},
 
 		save( { attributes } ) {
 			const { content } = attributes;
-			const length = ( 'undefined' === typeof attributes.content ) ? 0 : attributes.content.length;
+			const length =
+				'undefined' === typeof attributes.content
+					? 0
+					: attributes.content.length;
 
 			return (
 				<div className="smb-faq">
 					<div className="smb-faq__body">
 						{ times( length, ( index ) => {
-							const question = get( content, [ index, 'question' ], '' );
-							const answer = get( content, [ index, 'answer' ], '' );
-							const questionColor = get( content, [ index, 'questionColor' ], '' );
-							const answerColor = get( content, [ index, 'answerColor' ], '' );
+							const question = get(
+								content,
+								[ index, 'question' ],
+								''
+							);
+							const answer = get(
+								content,
+								[ index, 'answer' ],
+								''
+							);
+							const questionColor = get(
+								content,
+								[ index, 'questionColor' ],
+								''
+							);
+							const answerColor = get(
+								content,
+								[ index, 'answerColor' ],
+								''
+							);
 
 							return (
 								<div className="smb-faq__item">
 									<div className="smb-faq__item__question">
-										<div className="smb-faq__item__question__label" style={ { color: questionColor } } data-color={ questionColor }>
+										<div
+											className="smb-faq__item__question__label"
+											style={ { color: questionColor } }
+											data-color={ questionColor }
+										>
 											Q
 										</div>
 										<div className="smb-faq__item__question__body">
-											<RichText.Content value={ question } />
+											<RichText.Content
+												value={ question }
+											/>
 										</div>
 									</div>
 
 									<div className="smb-faq__item__answer">
-										<div className="smb-faq__item__answer__label" style={ { color: answerColor } } data-color={ answerColor }>
+										<div
+											className="smb-faq__item__answer__label"
+											style={ { color: answerColor } }
+											data-color={ answerColor }
+										>
 											A
 										</div>
 										<div className="smb-faq__item__answer__body">
-											<RichText.Content value={ answer } />
+											<RichText.Content
+												value={ answer }
+											/>
 										</div>
 									</div>
 								</div>

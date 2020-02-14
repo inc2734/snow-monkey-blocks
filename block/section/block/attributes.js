@@ -26,7 +26,8 @@ export default {
 	textColor: {
 		type: 'string',
 	},
-	contentsWidth: { // deprecated
+	contentsWidth: {
+		// deprecated
 		type: 'string',
 		default: null,
 	},

@@ -2,13 +2,21 @@
 
 import classnames from 'classnames';
 
-import {
-	RichText,
-	InnerBlocks,
-} from '@wordpress/block-editor';
+import { RichText, InnerBlocks } from '@wordpress/block-editor';
 
 export default function( { attributes, className } ) {
-	const { title, numberColor, imagePosition, imageID, imageURL, imageAlt, linkLabel, linkURL, linkTarget, linkColor } = attributes;
+	const {
+		title,
+		numberColor,
+		imagePosition,
+		imageID,
+		imageURL,
+		imageAlt,
+		linkLabel,
+		linkURL,
+		linkTarget,
+		linkColor,
+	} = attributes;
 
 	const classes = classnames(
 		'smb-step__item',
@@ -27,36 +35,49 @@ export default function( { attributes, className } ) {
 	return (
 		<div className={ classes }>
 			<div className="smb-step__item__title">
-				<div className="smb-step__item__number" style={ itemNumberStyles } />
+				<div
+					className="smb-step__item__number"
+					style={ itemNumberStyles }
+				/>
 				<span>
 					<RichText.Content value={ title } />
 				</span>
 			</div>
 
 			<div className="smb-step__item__body">
-				{ !! imageID &&
+				{ !! imageID && (
 					<div className="smb-step__item__figure">
-						<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
+						<img
+							src={ imageURL }
+							alt={ imageAlt }
+							className={ `wp-image-${ imageID }` }
+						/>
 					</div>
-				}
+				) }
 
 				<div className="smb-step__item__summary">
 					<InnerBlocks.Content />
 
-					{ ! RichText.isEmpty( linkLabel ) &&
+					{ ! RichText.isEmpty( linkLabel ) && (
 						<a
 							className="smb-step__item__link"
 							href={ linkURL }
 							style={ itemLinkStyles }
-							target={ '_self' === linkTarget ? undefined : linkTarget }
-							rel={ '_self' === linkTarget ? undefined : 'noopener noreferrer' }
+							target={
+								'_self' === linkTarget ? undefined : linkTarget
+							}
+							rel={
+								'_self' === linkTarget
+									? undefined
+									: 'noopener noreferrer'
+							}
 						>
 							<i className="fas fa-arrow-circle-right" />
 							<span className="smb-step__item__link__label">
 								<RichText.Content value={ linkLabel } />
 							</span>
 						</a>
-					}
+					) }
 				</div>
 			</div>
 		</div>

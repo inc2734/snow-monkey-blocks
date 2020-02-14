@@ -13,18 +13,21 @@ export default {
 		source: 'html',
 		selector: '.smb-section__title',
 	},
-	imageID: { // deprecated
+	imageID: {
+		// deprecated
 		type: 'number',
 		default: 0,
 	},
-	imageURL: { // deprecated
+	imageURL: {
+		// deprecated
 		type: 'string',
 		source: 'attribute',
 		selector: '.smb-section-with-bgimage__bgimage > img',
 		attribute: 'src',
 		default: '',
 	},
-	imageAlt: { // deprecated
+	imageAlt: {
+		// deprecated
 		type: 'string',
 		source: 'attribute',
 		selector: '.smb-section-with-bgimage__bgimage > img',
@@ -115,7 +118,8 @@ export default {
 		type: 'boolean',
 		default: false,
 	},
-	contentsWidth: { // deprecated
+	contentsWidth: {
+		// deprecated
 		type: 'boolean',
 		default: false,
 	},

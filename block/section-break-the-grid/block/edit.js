@@ -2,12 +2,10 @@
 
 import classnames from 'classnames';
 import hexToRgba from 'hex-to-rgba';
-import Figure from '../../../src/js/component/figure';
-import { toNumber } from '../../../src/js/helper/helper';
+import { times } from 'lodash';
 
-import {
-	times,
-} from 'lodash';
+import { Fragment } from '@wordpress/element';
+import { __, sprintf } from '@wordpress/i18n';
 
 import {
 	RichText,
@@ -26,17 +24,36 @@ import {
 	ToggleControl,
 } from '@wordpress/components';
 
-import {
-	Fragment,
-} from '@wordpress/element';
+import Figure from '../../../src/js/component/figure';
+import { toNumber } from '../../../src/js/helper/helper';
 
-import {
-	__,
-	sprintf,
-} from '@wordpress/i18n';
-
-export default function( { attributes, setAttributes, isSelected, className } ) {
-	const { wrapperTagName, titleTagName, title, imageID, imageURL, imageAlt, textColor, imagePosition, imageSize, verticalAlignment, contentSize, contentHorizontalPosition, contentVerticalPosition, contentBackgroundColor, contentPadding, removeContentOutsidePadding, shadowColor, shadowHorizontalPosition, shadowVerticalPosition } = attributes;
+export default function( {
+	attributes,
+	setAttributes,
+	isSelected,
+	className,
+} ) {
+	const {
+		wrapperTagName,
+		titleTagName,
+		title,
+		imageID,
+		imageURL,
+		imageAlt,
+		textColor,
+		imagePosition,
+		imageSize,
+		verticalAlignment,
+		contentSize,
+		contentHorizontalPosition,
+		contentVerticalPosition,
+		contentBackgroundColor,
+		contentPadding,
+		removeContentOutsidePadding,
+		shadowColor,
+		shadowHorizontalPosition,
+		shadowVerticalPosition,
+	} = attributes;
 
 	const wrapperTagNames = [ 'div', 'section', 'aside' ];
 	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
@@ -48,38 +65,40 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 		'smb-section-break-the-grid',
 		`smb-section-break-the-grid--${ imagePosition }`,
 		{
-			[ `smb-section-break-the-grid--vertical-${ contentVerticalPosition }` ]: contentVerticalPosition && verticalAlignment && 'middle' !== verticalAlignment,
+			[ `smb-section-break-the-grid--vertical-${ contentVerticalPosition }` ]:
+				contentVerticalPosition &&
+				verticalAlignment &&
+				'middle' !== verticalAlignment,
 			[ className ]: !! className,
 		}
 	);
 
-	const rowClasses = classnames(
-		'c-row',
-		'c-row--margin',
-		{
-			[ `c-row--lg-${ verticalAlignment }` ]: true,
-		}
+	const rowClasses = classnames( 'c-row', 'c-row--margin', {
+		[ `c-row--lg-${ verticalAlignment }` ]: true,
+	} );
+
+	const textColumnClasses = classnames(
+		'c-row__col',
+		'c-row__col--1-1',
+		'c-row__col--lg-1-2'
+	);
+	const imageColumnClasses = classnames(
+		'c-row__col',
+		'c-row__col--1-1',
+		'c-row__col--lg-1-2'
 	);
 
-	const textColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', 'c-row__col--lg-1-2' );
-	const imageColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', 'c-row__col--lg-1-2' );
+	const figureClasses = classnames( 'smb-section-break-the-grid__figure', {
+		[ `smb-section-break-the-grid__figure--w-${ imageSize }` ]: !! imageSize,
+	} );
 
-	const figureClasses = classnames(
-		'smb-section-break-the-grid__figure',
-		{
-			[ `smb-section-break-the-grid__figure--w-${ imageSize }` ]: !! imageSize,
-		}
-	);
-
-	const contentClasses = classnames(
-		'smb-section-break-the-grid__content',
-		{
-			[ `smb-section-break-the-grid__content--w-${ contentSize }` ]: !! contentSize,
-			[ `smb-section-break-the-grid__content--p-${ contentPadding }` ]: !! contentPadding,
-			[ `smb-section-break-the-grid__content--horizontal-${ contentHorizontalPosition }` ]: !! contentHorizontalPosition,
-			'smb-section-break-the-grid__content--remove-outside-p': contentPadding && removeContentOutsidePadding,
-		}
-	);
+	const contentClasses = classnames( 'smb-section-break-the-grid__content', {
+		[ `smb-section-break-the-grid__content--w-${ contentSize }` ]: !! contentSize,
+		[ `smb-section-break-the-grid__content--p-${ contentPadding }` ]: !! contentPadding,
+		[ `smb-section-break-the-grid__content--horizontal-${ contentHorizontalPosition }` ]: !! contentHorizontalPosition,
+		'smb-section-break-the-grid__content--remove-outside-p':
+			contentPadding && removeContentOutsidePadding,
+	} );
 
 	const shadowClasses = classnames( 'smb-section-break-the-grid__shadow' );
 
@@ -92,25 +111,40 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 		shadowStyles.backgroundColor = shadowColor;
 	}
 	if ( shadowHorizontalPosition || shadowVerticalPosition ) {
-		shadowStyles.transform = `translate(${ shadowHorizontalPosition || 0 }%, ${ shadowVerticalPosition || 0 }%)`;
+		shadowStyles.transform = `translate(${ shadowHorizontalPosition ||
+			0 }%, ${ shadowVerticalPosition || 0 }%)`;
 	}
 
 	const contentStyles = {
-		backgroundColor: contentBackgroundColor && hexToRgba( contentBackgroundColor, 0.98 ),
+		backgroundColor:
+			contentBackgroundColor && hexToRgba( contentBackgroundColor, 0.98 ),
 	};
 
 	return (
 		<Fragment>
 			<InspectorControls>
-				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
-					<BaseControl label={ __( 'Wrapper Tag', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/section-break-the-grid/wrapper-tag-name">
+				<PanelBody
+					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+				>
+					<BaseControl
+						label={ __( 'Wrapper Tag', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/section-break-the-grid/wrapper-tag-name"
+					>
 						<div className="smb-list-icon-selector">
 							{ times( wrapperTagNames.length, ( index ) => {
 								return (
 									<Button
 										isDefault
-										isPrimary={ wrapperTagName === wrapperTagNames[ index ] }
-										onClick={ () => setAttributes( { wrapperTagName: wrapperTagNames[ index ] } ) }
+										isPrimary={
+											wrapperTagName ===
+											wrapperTagNames[ index ]
+										}
+										onClick={ () =>
+											setAttributes( {
+												wrapperTagName:
+													wrapperTagNames[ index ],
+											} )
+										}
 									>
 										{ wrapperTagNames[ index ] }
 									</Button>
@@ -119,14 +153,25 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 						</div>
 					</BaseControl>
 
-					<BaseControl label={ __( 'Title Tag', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/section-break-the-grid/title-tag-name">
+					<BaseControl
+						label={ __( 'Title Tag', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/section-break-the-grid/title-tag-name"
+					>
 						<div className="smb-list-icon-selector">
 							{ times( titleTagNames.length, ( index ) => {
 								return (
 									<Button
 										isDefault
-										isPrimary={ titleTagName === titleTagNames[ index ] }
-										onClick={ () => setAttributes( { titleTagName: titleTagNames[ index ] } ) }
+										isPrimary={
+											titleTagName ===
+											titleTagNames[ index ]
+										}
+										onClick={ () =>
+											setAttributes( {
+												titleTagName:
+													titleTagNames[ index ],
+											} )
+										}
 									>
 										{ titleTagNames[ index ] }
 									</Button>
@@ -148,11 +193,16 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 								label: __( 'Right side', 'snow-monkey-blocks' ),
 							},
 						] }
-						onChange={ ( value ) => setAttributes( { imagePosition: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { imagePosition: value } )
+						}
 					/>
 
 					<SelectControl
-						label={ __( 'image Size Adjustment', 'snow-monkey-blocks' ) }
+						label={ __(
+							'image Size Adjustment',
+							'snow-monkey-blocks'
+						) }
 						value={ imageSize }
 						options={ [
 							{
@@ -168,11 +218,16 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 								label: __( '+80%', 'snow-monkey-blocks' ),
 							},
 						] }
-						onChange={ ( value ) => setAttributes( { imageSize: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { imageSize: value } )
+						}
 					/>
 
 					<SelectControl
-						label={ __( 'Vertical Alignment', 'snow-monkey-blocks' ) }
+						label={ __(
+							'Vertical Alignment',
+							'snow-monkey-blocks'
+						) }
 						value={ verticalAlignment }
 						options={ [
 							{
@@ -188,14 +243,21 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 								label: __( 'Bottom', 'snow-monkey-blocks' ),
 							},
 						] }
-						onChange={ ( value ) => setAttributes( { verticalAlignment: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { verticalAlignment: value } )
+						}
 					/>
-
 				</PanelBody>
 
-				<PanelBody title={ __( 'Contents Settings', 'snow-monkey-blocks' ) } initialOpen={ false }>
+				<PanelBody
+					title={ __( 'Contents Settings', 'snow-monkey-blocks' ) }
+					initialOpen={ false }
+				>
 					<SelectControl
-						label={ __( 'Content Size Adjustment', 'snow-monkey-blocks' ) }
+						label={ __(
+							'Content Size Adjustment',
+							'snow-monkey-blocks'
+						) }
 						value={ contentSize }
 						options={ [
 							{
@@ -219,11 +281,16 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 								label: __( '+40%', 'snow-monkey-blocks' ),
 							},
 						] }
-						onChange={ ( value ) => setAttributes( { contentSize: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { contentSize: value } )
+						}
 					/>
 
 					<SelectControl
-						label={ __( 'Degree of overlap of content to image', 'snow-monkey-blocks' ) }
+						label={ __(
+							'Degree of overlap of content to image',
+							'snow-monkey-blocks'
+						) }
 						value={ contentHorizontalPosition }
 						options={ [
 							{
@@ -251,12 +318,19 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 								label: __( '25%', 'snow-monkey-blocks' ),
 							},
 						] }
-						onChange={ ( value ) => setAttributes( { contentHorizontalPosition: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( {
+								contentHorizontalPosition: value,
+							} )
+						}
 					/>
 
-					{ verticalAlignment && 'middle' !== verticalAlignment &&
+					{ verticalAlignment && 'middle' !== verticalAlignment && (
 						<SelectControl
-							label={ __( 'Vertical position of content', 'snow-monkey-blocks' ) }
+							label={ __(
+								'Vertical position of content',
+								'snow-monkey-blocks'
+							) }
 							value={ contentVerticalPosition }
 							options={ [
 								{
@@ -265,48 +339,105 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 								},
 								{
 									value: 'txl',
-									label: sprintf( __( 'Move %1$s up', 'snow-monkey-blocks' ), '100px' ),
+									label: sprintf(
+										__(
+											'Move %1$s up',
+											'snow-monkey-blocks'
+										),
+										'100px'
+									),
 								},
 								{
 									value: 'tl',
-									label: sprintf( __( 'Move %1$s up', 'snow-monkey-blocks' ), '80px' ),
+									label: sprintf(
+										__(
+											'Move %1$s up',
+											'snow-monkey-blocks'
+										),
+										'80px'
+									),
 								},
 								{
 									value: 'tm',
-									label: sprintf( __( 'Move %1$s up', 'snow-monkey-blocks' ), '60px' ),
+									label: sprintf(
+										__(
+											'Move %1$s up',
+											'snow-monkey-blocks'
+										),
+										'60px'
+									),
 								},
 								{
 									value: 'ts',
-									label: sprintf( __( 'Move %1$s up', 'snow-monkey-blocks' ), '40px' ),
+									label: sprintf(
+										__(
+											'Move %1$s up',
+											'snow-monkey-blocks'
+										),
+										'40px'
+									),
 								},
 								{
 									value: 'bs',
-									label: sprintf( __( 'Move %1$s down', 'snow-monkey-blocks' ), '40px' ),
+									label: sprintf(
+										__(
+											'Move %1$s down',
+											'snow-monkey-blocks'
+										),
+										'40px'
+									),
 								},
 								{
 									value: 'bm',
-									label: sprintf( __( 'Move %1$s down', 'snow-monkey-blocks' ), '60px' ),
+									label: sprintf(
+										__(
+											'Move %1$s down',
+											'snow-monkey-blocks'
+										),
+										'60px'
+									),
 								},
 								{
 									value: 'bl',
-									label: sprintf( __( 'Move %1$s down', 'snow-monkey-blocks' ), '80px' ),
+									label: sprintf(
+										__(
+											'Move %1$s down',
+											'snow-monkey-blocks'
+										),
+										'80px'
+									),
 								},
 								{
 									value: 'bxl',
-									label: sprintf( __( 'Move %1$s down', 'snow-monkey-blocks' ), '100px' ),
+									label: sprintf(
+										__(
+											'Move %1$s down',
+											'snow-monkey-blocks'
+										),
+										'100px'
+									),
 								},
 							] }
-							onChange={ ( value ) => setAttributes( { contentVerticalPosition: value } ) }
+							onChange={ ( value ) =>
+								setAttributes( {
+									contentVerticalPosition: value,
+								} )
+							}
 						/>
-					}
+					) }
 
 					<BaseControl
 						className="editor-color-palette-control"
 						label={ __( 'Background Color', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/section-break-the-grid/content-background-color">
+						id="snow-monkey-blocks/section-break-the-grid/content-background-color"
+					>
 						<ColorPalette
 							className="editor-color-palette-control__color-palette"
-							onChange={ ( value ) => setAttributes( { contentBackgroundColor: value } ) }
+							onChange={ ( value ) =>
+								setAttributes( {
+									contentBackgroundColor: value,
+								} )
+							}
 							value={ contentBackgroundColor }
 						/>
 					</BaseControl>
@@ -332,49 +463,86 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 								label: __( 'L', 'snow-monkey-blocks' ),
 							},
 						] }
-						onChange={ ( value ) => setAttributes( { contentPadding: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { contentPadding: value } )
+						}
 					/>
 
-					{ contentPadding &&
+					{ contentPadding && (
 						<ToggleControl
-							label={ __( 'Remove Outside Padding', 'snow-monkey-blocks' ) }
+							label={ __(
+								'Remove Outside Padding',
+								'snow-monkey-blocks'
+							) }
 							checked={ removeContentOutsidePadding }
-							onChange={ ( value ) => setAttributes( { removeContentOutsidePadding: value } ) }
+							onChange={ ( value ) =>
+								setAttributes( {
+									removeContentOutsidePadding: value,
+								} )
+							}
 						/>
-					}
+					) }
 				</PanelBody>
 
-				<PanelBody title={ __( 'Shadow Settings', 'snow-monkey-blocks' ) } initialOpen={ false }>
+				<PanelBody
+					title={ __( 'Shadow Settings', 'snow-monkey-blocks' ) }
+					initialOpen={ false }
+				>
 					<BaseControl
 						className="editor-color-palette-control"
 						label={ __( 'Color', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/section-break-the-grid/shadow-color">
+						id="snow-monkey-blocks/section-break-the-grid/shadow-color"
+					>
 						<ColorPalette
 							className="editor-color-palette-control__color-palette"
-							onChange={ ( value ) => setAttributes( { shadowColor: value } ) }
+							onChange={ ( value ) =>
+								setAttributes( { shadowColor: value } )
+							}
 							value={ shadowColor }
 						/>
 					</BaseControl>
 
-					{ shadowColor &&
+					{ shadowColor && (
 						<RangeControl
-							label={ __( 'Horizontal Position', 'snow-monkey-blocks' ) }
+							label={ __(
+								'Horizontal Position',
+								'snow-monkey-blocks'
+							) }
 							value={ shadowHorizontalPosition }
-							onChange={ ( value ) => setAttributes( { shadowHorizontalPosition: toNumber( value, -120, 120 ) } ) }
+							onChange={ ( value ) =>
+								setAttributes( {
+									shadowHorizontalPosition: toNumber(
+										value,
+										-120,
+										120
+									),
+								} )
+							}
 							min="-120"
 							max="120"
 						/>
-					}
+					) }
 
-					{ shadowColor &&
+					{ shadowColor && (
 						<RangeControl
-							label={ __( 'Vertical Position', 'snow-monkey-blocks' ) }
+							label={ __(
+								'Vertical Position',
+								'snow-monkey-blocks'
+							) }
 							value={ shadowVerticalPosition }
-							onChange={ ( value ) => setAttributes( { shadowVerticalPosition: toNumber( value, -120, 120 ) } ) }
+							onChange={ ( value ) =>
+								setAttributes( {
+									shadowVerticalPosition: toNumber(
+										value,
+										-120,
+										120
+									),
+								} )
+							}
 							min="-120"
 							max="120"
 						/>
-					}
+					) }
 				</PanelBody>
 
 				<PanelColorSettings
@@ -383,29 +551,41 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 					colorSettings={ [
 						{
 							value: textColor,
-							onChange: ( value ) => setAttributes( { textColor: value } ),
+							onChange: ( value ) =>
+								setAttributes( { textColor: value } ),
 							label: __( 'Text Color', 'snow-monkey-blocks' ),
 						},
 					] }
-				>
-				</PanelColorSettings>
+				></PanelColorSettings>
 			</InspectorControls>
 
 			<Wrapper className={ classes } style={ sectionStyles }>
 				<div className="c-container">
 					<div className={ rowClasses }>
 						<div className={ textColumnClasses }>
-							<div className={ contentClasses } style={ contentStyles }>
-								{ ( ! RichText.isEmpty( title ) || isSelected ) && 'none' !== titleTagName &&
-									<RichText
-										className="smb-section__title smb-section-break-the-grid__title"
-										tagName={ titleTagName }
-										value={ title }
-										onChange={ ( value ) => setAttributes( { title: value } ) }
-										allowedFormats={ [] }
-										placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
-									/>
-								}
+							<div
+								className={ contentClasses }
+								style={ contentStyles }
+							>
+								{ ( ! RichText.isEmpty( title ) ||
+									isSelected ) &&
+									'none' !== titleTagName && (
+										<RichText
+											className="smb-section__title smb-section-break-the-grid__title"
+											tagName={ titleTagName }
+											value={ title }
+											onChange={ ( value ) =>
+												setAttributes( {
+													title: value,
+												} )
+											}
+											allowedFormats={ [] }
+											placeholder={ __(
+												'Write title...',
+												'snow-monkey-blocks'
+											) }
+										/>
+									) }
 
 								<div className="smb-section__body smb-section-break-the-grid__body">
 									<InnerBlocks />
@@ -414,18 +594,35 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 						</div>
 						<div className={ imageColumnClasses }>
 							<div className={ figureClasses }>
-								{ shadowColor &&
-									<div className={ shadowClasses } style={ shadowStyles } />
-								}
+								{ shadowColor && (
+									<div
+										className={ shadowClasses }
+										style={ shadowStyles }
+									/>
+								) }
 								<Figure
 									src={ imageURL }
 									id={ imageID }
 									alt={ imageAlt }
 									selectHandler={ ( media ) => {
-										const newImageURL = !! media.sizes && !! media.sizes.xlarge ? media.sizes.large.url : media.url;
-										setAttributes( { imageURL: newImageURL, imageID: media.id, imageAlt: media.alt } );
+										const newImageURL =
+											!! media.sizes &&
+											!! media.sizes.xlarge
+												? media.sizes.large.url
+												: media.url;
+										setAttributes( {
+											imageURL: newImageURL,
+											imageID: media.id,
+											imageAlt: media.alt,
+										} );
 									} }
-									removeHandler={ () => setAttributes( { imageURL: '', imageAlt: '', imageID: 0 } ) }
+									removeHandler={ () =>
+										setAttributes( {
+											imageURL: '',
+											imageAlt: '',
+											imageID: 0,
+										} )
+									}
 									isSelected={ isSelected }
 								/>
 							</div>

@@ -1,11 +1,10 @@
 'use strict';
 
 import classnames from 'classnames';
-import Figure from '../../../../src/js/component/figure';
+import { times } from 'lodash';
 
-import {
-	times,
-} from 'lodash';
+import { Fragment } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 import {
 	PanelBody,
@@ -23,16 +22,29 @@ import {
 	URLInput,
 } from '@wordpress/block-editor';
 
-import {
-	Fragment,
-} from '@wordpress/element';
+import Figure from '../../../../src/js/component/figure';
 
-import {
-	__,
-} from '@wordpress/i18n';
-
-export default function( { attributes, setAttributes, isSelected, className } ) {
-	const { titleTagName, title, lede, summary, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, imageID, imageURL, imageAlt, isBlockLink } = attributes;
+export default function( {
+	attributes,
+	setAttributes,
+	isSelected,
+	className,
+} ) {
+	const {
+		titleTagName,
+		title,
+		lede,
+		summary,
+		btnLabel,
+		btnURL,
+		btnTarget,
+		btnBackgroundColor,
+		btnTextColor,
+		imageID,
+		imageURL,
+		imageAlt,
+		isBlockLink,
+	} = attributes;
 
 	const titleTagNames = [ 'div', 'h2', 'h3', 'none' ];
 
@@ -49,15 +61,28 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 	return (
 		<Fragment>
 			<InspectorControls>
-				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
-					<BaseControl label={ __( 'Title Tag', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/items--item/title-tag-name">
+				<PanelBody
+					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+				>
+					<BaseControl
+						label={ __( 'Title Tag', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/items--item/title-tag-name"
+					>
 						<div className="smb-list-icon-selector">
 							{ times( titleTagNames.length, ( index ) => {
 								return (
 									<Button
 										isDefault
-										isPrimary={ titleTagName === titleTagNames[ index ] }
-										onClick={ () => setAttributes( { titleTagName: titleTagNames[ index ] } ) }
+										isPrimary={
+											titleTagName ===
+											titleTagNames[ index ]
+										}
+										onClick={ () =>
+											setAttributes( {
+												titleTagName:
+													titleTagNames[ index ],
+											} )
+										}
 									>
 										{ titleTagNames[ index ] }
 									</Button>
@@ -68,17 +93,29 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 
 					<ToggleControl
 						label={ __( 'Block link', 'snow-monkey-blocks' ) }
-						description={ __( 'Link is made not only to the button but to the whole block.', 'snow-monkey-blocks' ) }
+						description={ __(
+							'Link is made not only to the button but to the whole block.',
+							'snow-monkey-blocks'
+						) }
 						checked={ isBlockLink }
-						onChange={ ( value ) => setAttributes( { isBlockLink: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { isBlockLink: value } )
+						}
 					/>
 				</PanelBody>
 
-				<PanelBody title={ __( 'Button Settings', 'snow-monkey-blocks' ) }>
-					<BaseControl label={ __( 'URL', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/items--item/btn-url">
+				<PanelBody
+					title={ __( 'Button Settings', 'snow-monkey-blocks' ) }
+				>
+					<BaseControl
+						label={ __( 'URL', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/items--item/btn-url"
+					>
 						<URLInput
 							value={ btnURL }
-							onChange={ ( value ) => setAttributes( { btnURL: value } ) }
+							onChange={ ( value ) =>
+								setAttributes( { btnURL: value } )
+							}
 						/>
 					</BaseControl>
 
@@ -95,7 +132,9 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 								label: __( '_blank', 'snow-monkey-blocks' ),
 							},
 						] }
-						onChange={ ( value ) => setAttributes( { btnTarget: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { btnTarget: value } )
+						}
 					/>
 				</PanelBody>
 
@@ -105,13 +144,21 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 					colorSettings={ [
 						{
 							value: btnBackgroundColor,
-							onChange: ( value ) => setAttributes( { btnBackgroundColor: value } ),
-							label: __( 'Background Color of Button', 'snow-monkey-blocks' ),
+							onChange: ( value ) =>
+								setAttributes( { btnBackgroundColor: value } ),
+							label: __(
+								'Background Color of Button',
+								'snow-monkey-blocks'
+							),
 						},
 						{
 							value: btnTextColor,
-							onChange: ( value ) => setAttributes( { btnTextColor: value } ),
-							label: __( 'Text Color of Button', 'snow-monkey-blocks' ),
+							onChange: ( value ) =>
+								setAttributes( { btnTextColor: value } ),
+							label: __(
+								'Text Color of Button',
+								'snow-monkey-blocks'
+							),
 						},
 					] }
 				>
@@ -124,69 +171,111 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 
 			<div className={ classes }>
 				<div className="smb-items__item">
-					{ ( !! imageID || isSelected ) &&
+					{ ( !! imageID || isSelected ) && (
 						<div className="smb-items__item__figure">
 							<Figure
 								src={ imageURL }
 								id={ imageID }
 								alt={ imageAlt }
 								selectHandler={ ( media ) => {
-									const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
-									setAttributes( { imageURL: newImageURL, imageID: media.id, imageAlt: media.alt } );
+									const newImageURL =
+										!! media.sizes && !! media.sizes.large
+											? media.sizes.large.url
+											: media.url;
+									setAttributes( {
+										imageURL: newImageURL,
+										imageID: media.id,
+										imageAlt: media.alt,
+									} );
 								} }
-								removeHandler={ () => setAttributes( { imageURL: '', imageAlt: '', imageID: 0 } ) }
+								removeHandler={ () =>
+									setAttributes( {
+										imageURL: '',
+										imageAlt: '',
+										imageID: 0,
+									} )
+								}
 								isSelected={ isSelected }
 							/>
 						</div>
-					}
+					) }
 
-					{ 'none' !== titleTagName &&
+					{ 'none' !== titleTagName && (
 						<RichText
 							tagName={ titleTagName }
 							className="smb-items__item__title"
-							placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
+							placeholder={ __(
+								'Write title...',
+								'snow-monkey-blocks'
+							) }
 							value={ title }
-							onChange={ ( value ) => setAttributes( { title: value } ) }
+							onChange={ ( value ) =>
+								setAttributes( { title: value } )
+							}
 						/>
-					}
+					) }
 
-					{ ( ! RichText.isEmpty( lede ) || isSelected ) &&
+					{ ( ! RichText.isEmpty( lede ) || isSelected ) && (
 						<RichText
 							className="smb-items__item__lede"
-							placeholder={ __( 'Write lede...', 'snow-monkey-blocks' ) }
+							placeholder={ __(
+								'Write lede...',
+								'snow-monkey-blocks'
+							) }
 							value={ lede }
-							onChange={ ( value ) => setAttributes( { lede: value } ) }
+							onChange={ ( value ) =>
+								setAttributes( { lede: value } )
+							}
 						/>
-					}
+					) }
 
-					{ ( ! RichText.isEmpty( summary ) || isSelected ) &&
+					{ ( ! RichText.isEmpty( summary ) || isSelected ) && (
 						<RichText
 							className="smb-items__item__content"
-							placeholder={ __( 'Write content...', 'snow-monkey-blocks' ) }
+							placeholder={ __(
+								'Write content...',
+								'snow-monkey-blocks'
+							) }
 							value={ summary }
-							onChange={ ( value ) => setAttributes( { summary: value } ) }
+							onChange={ ( value ) =>
+								setAttributes( { summary: value } )
+							}
 						/>
-					}
+					) }
 
-					{ ( ! RichText.isEmpty( btnLabel ) || isSelected ) &&
+					{ ( ! RichText.isEmpty( btnLabel ) || isSelected ) && (
 						<div className="smb-items__item__action">
-							<span className="smb-items__item__btn smb-btn"
+							<span
+								className="smb-items__item__btn smb-btn"
 								href={ btnURL }
 								style={ itemBtnStyles }
-								target={ '_self' === btnTarget ? undefined : btnTarget }
-								rel={ '_self' === btnTarget ? undefined : 'noopener noreferrer' }
+								target={
+									'_self' === btnTarget
+										? undefined
+										: btnTarget
+								}
+								rel={
+									'_self' === btnTarget
+										? undefined
+										: 'noopener noreferrer'
+								}
 							>
 								<RichText
 									className="smb-btn__label"
 									style={ itemBtnLabelStyles }
 									value={ btnLabel }
-									placeholder={ __( 'Button', 'snow-monkey-blocks' ) }
+									placeholder={ __(
+										'Button',
+										'snow-monkey-blocks'
+									) }
 									allowedFormats={ [] }
-									onChange={ ( value ) => setAttributes( { btnLabel: value } ) }
+									onChange={ ( value ) =>
+										setAttributes( { btnLabel: value } )
+									}
 								/>
 							</span>
 						</div>
-					}
+					) }
 				</div>
 			</div>
 		</Fragment>

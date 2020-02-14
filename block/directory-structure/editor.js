@@ -1,6 +1,4 @@
-import {
-	registerBlock,
-} from '../../src/js/helper/helper';
+import { registerBlock } from '../../src/js/helper/helper';
 
 import * as directoryStructure from './block';
 import * as directoryStructureItemDirectory from './block/item/directory';

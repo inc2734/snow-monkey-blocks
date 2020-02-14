@@ -2,10 +2,7 @@
 
 import classnames from 'classnames';
 
-import {
-	InnerBlocks,
-	RichText,
-} from '@wordpress/block-editor';
+import { InnerBlocks, RichText } from '@wordpress/block-editor';
 
 export default function( { attributes, className } ) {
 	const blockClasses = classnames(
@@ -26,9 +23,13 @@ export default function( { attributes, className } ) {
 		<div className={ blockClasses }>
 			<p>
 				<span className="fa-fw" style={ iconStyles }>
-					<i className={ `${ attributes.iconVendor } fa-${ attributes.iconClass }` } />
+					<i
+						className={ `${ attributes.iconVendor } fa-${ attributes.iconClass }` }
+					/>
 				</span>
-				<span className={ itemNameClasses }><RichText.Content value={ attributes.name } /></span>
+				<span className={ itemNameClasses }>
+					<RichText.Content value={ attributes.name } />
+				</span>
 			</p>
 			<div className={ itemListClasses }>
 				<InnerBlocks.Content />

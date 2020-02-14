@@ -10,7 +10,8 @@ export default {
 		source: 'attribute',
 		selector: 'img',
 		attribute: 'src',
-		default: 'https://0.gravatar.com/avatar/00000000000000000000000000000000?s=128&d=mp&r=g',
+		default:
+			'https://0.gravatar.com/avatar/00000000000000000000000000000000?s=128&d=mp&r=g',
 	},
 	avatarAlt: {
 		type: 'string',

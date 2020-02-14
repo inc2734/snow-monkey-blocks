@@ -1,15 +1,13 @@
 'use strict';
 
+import { __ } from '@wordpress/i18n';
+
 import blockConfig from '../../../../src/js/config/block';
 import attributes from './attributes';
 import edit from './edit';
 import save from './save';
 import deprecated from './deprecated';
 import transforms from './transforms';
-
-import {
-	__,
-} from '@wordpress/i18n';
 
 /**
  * THIS BLOCK IS DEPRECATED.

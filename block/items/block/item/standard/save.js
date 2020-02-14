@@ -2,12 +2,23 @@
 
 import classnames from 'classnames';
 
-import {
-	RichText,
-} from '@wordpress/block-editor';
+import { RichText } from '@wordpress/block-editor';
 
 export default function( { attributes, className } ) {
-	const { titleTagName, title, lede, summary, btnLabel, url, target, btnBackgroundColor, btnTextColor, imageID, imageURL, imageAlt } = attributes;
+	const {
+		titleTagName,
+		title,
+		lede,
+		summary,
+		btnLabel,
+		url,
+		target,
+		btnBackgroundColor,
+		btnTextColor,
+		imageID,
+		imageURL,
+		imageAlt,
+	} = attributes;
 
 	const classes = classnames( 'c-row__col', className );
 
@@ -22,46 +33,58 @@ export default function( { attributes, className } ) {
 	return (
 		<div className={ classes }>
 			<div className="smb-items__item">
-				{ !! imageID &&
+				{ !! imageID && (
 					<div className="smb-items__item__figure">
-						<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } />
+						<img
+							src={ imageURL }
+							alt={ imageAlt }
+							className={ `wp-image-${ imageID }` }
+						/>
 					</div>
-				}
+				) }
 
-				{ 'none' !== titleTagName &&
+				{ 'none' !== titleTagName && (
 					<RichText.Content
 						tagName={ titleTagName }
 						className="smb-items__item__title"
 						value={ title }
 					/>
-				}
+				) }
 
-				{ ! RichText.isEmpty( lede ) &&
+				{ ! RichText.isEmpty( lede ) && (
 					<div className="smb-items__item__lede">
 						<RichText.Content value={ lede } />
 					</div>
-				}
+				) }
 
-				{ ! RichText.isEmpty( summary ) &&
+				{ ! RichText.isEmpty( summary ) && (
 					<div className="smb-items__item__content">
 						<RichText.Content value={ summary } />
 					</div>
-				}
+				) }
 
-				{ ( ! RichText.isEmpty( btnLabel ) && !! url ) &&
+				{ ! RichText.isEmpty( btnLabel ) && !! url && (
 					<div className="smb-items__item__action">
-						<a className="smb-items__item__btn smb-btn"
+						<a
+							className="smb-items__item__btn smb-btn"
 							href={ url }
 							style={ itemBtnStyles }
 							target={ '_self' === target ? undefined : target }
-							rel={ '_self' === target ? undefined : 'noopener noreferrer' }
+							rel={
+								'_self' === target
+									? undefined
+									: 'noopener noreferrer'
+							}
 						>
-							<span className="smb-btn__label" style={ itemBtnLabelStyles }>
+							<span
+								className="smb-btn__label"
+								style={ itemBtnLabelStyles }
+							>
 								<RichText.Content value={ btnLabel } />
 							</span>
 						</a>
 					</div>
-				}
+				) }
 			</div>
 		</div>
 	);

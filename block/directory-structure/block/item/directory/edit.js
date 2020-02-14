@@ -1,7 +1,9 @@
 'use strict';
 
 import classnames from 'classnames';
-import FontAwesome from '../../../../../src/js/component/font-awesome';
+
+import { Fragment } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 import {
 	PanelBody,
@@ -17,13 +19,7 @@ import {
 	PanelColorSettings,
 } from '@wordpress/block-editor';
 
-import {
-	Fragment,
-} from '@wordpress/element';
-
-import {
-	__,
-} from '@wordpress/i18n';
+import FontAwesome from '../../../../../src/js/component/font-awesome';
 
 export default function( { attributes, setAttributes, className } ) {
 	const allowedBlocks = [
@@ -75,28 +71,40 @@ export default function( { attributes, setAttributes, className } ) {
 	return (
 		<Fragment>
 			<InspectorControls>
-				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
-					<BaseControl label={ __( 'Icon', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/directory-structure--item--directory/icon">
+				<PanelBody
+					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+				>
+					<BaseControl
+						label={ __( 'Icon', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/directory-structure--item--directory/icon"
+					>
 						<ButtonGroup>
-							{
-								iconList.map( ( iconData ) => {
-									const selected = attributes.iconVendor === iconData.vendor && attributes.iconClass === iconData.value;
-									return (
-										<Button
-											isLarge
-											isPrimary={ selected }
-											aria-pressed={ selected }
-											onClick={ () => {
-												setAttributes( { iconVendor: iconData.vendor } );
-												setAttributes( { iconClass: iconData.value } );
-											} }
-											key={ `icon_${ iconData.key }` }
-										>
-											<i className={ `fa-fw ${ iconData.vendor } fa-${ iconData.value }` } title={ iconData.label } />
-										</Button>
-									);
-								} )
-							}
+							{ iconList.map( ( iconData ) => {
+								const selected =
+									attributes.iconVendor === iconData.vendor &&
+									attributes.iconClass === iconData.value;
+								return (
+									<Button
+										isLarge
+										isPrimary={ selected }
+										aria-pressed={ selected }
+										onClick={ () => {
+											setAttributes( {
+												iconVendor: iconData.vendor,
+											} );
+											setAttributes( {
+												iconClass: iconData.value,
+											} );
+										} }
+										key={ `icon_${ iconData.key }` }
+									>
+										<i
+											className={ `fa-fw ${ iconData.vendor } fa-${ iconData.value }` }
+											title={ iconData.label }
+										/>
+									</Button>
+								);
+							} ) }
 						</ButtonGroup>
 					</BaseControl>
 				</PanelBody>
@@ -106,7 +114,8 @@ export default function( { attributes, setAttributes, className } ) {
 					colorSettings={ [
 						{
 							value: attributes.iconColor,
-							onChange: ( value ) => setAttributes( { iconColor: value } ),
+							onChange: ( value ) =>
+								setAttributes( { iconColor: value } ),
 							label: __( 'Icon Color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -115,13 +124,23 @@ export default function( { attributes, setAttributes, className } ) {
 			<div className={ blockClasses }>
 				<p>
 					<span className="fa-fw" style={ iconStyles }>
-						<FontAwesome icon={ [ attributes.iconVendor, attributes.iconClass ] } />
+						<FontAwesome
+							icon={ [
+								attributes.iconVendor,
+								attributes.iconClass,
+							] }
+						/>
 					</span>
 					<span className={ itemNameClasses }>
 						<RichText
-							placeholder={ __( 'Write directory name...', 'snow-monkey-blocks' ) }
+							placeholder={ __(
+								'Write directory name...',
+								'snow-monkey-blocks'
+							) }
 							value={ attributes.name }
-							onChange={ ( value ) => setAttributes( { name: value } ) }
+							onChange={ ( value ) =>
+								setAttributes( { name: value } )
+							}
 						/>
 					</span>
 				</p>

@@ -2,8 +2,4 @@
 
 import Countdown from './countdown';
 
-document.addEventListener(
-	'DOMContentLoaded',
-	() => new Countdown(),
-	false
-);
+document.addEventListener( 'DOMContentLoaded', () => new Countdown(), false );

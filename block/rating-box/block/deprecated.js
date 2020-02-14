@@ -1,18 +1,9 @@
 'use strict';
 
-import {
-	get,
-	times,
-} from 'lodash';
+import { get, times } from 'lodash';
 
-import {
-	RichText,
-	InnerBlocks,
-} from '@wordpress/block-editor';
-
-import {
-	createBlock,
-} from '@wordpress/blocks';
+import { RichText, InnerBlocks } from '@wordpress/block-editor';
+import { createBlock } from '@wordpress/blocks';
 
 export default [
 	{
@@ -59,12 +50,27 @@ export default [
 
 		migrate( attributes ) {
 			const migratedInnerBlocks = () => {
-				const length = ( 'undefined' === typeof attributes.ratings ) ? 0 : attributes.ratings.length;
+				const length =
+					'undefined' === typeof attributes.ratings
+						? 0
+						: attributes.ratings.length;
 
 				return times( length, ( index ) => {
-					const title = get( attributes.ratings, [ index, 'title' ], '' );
-					const rating = get( attributes.ratings, [ index, 'rating' ], 0 );
-					const color = get( attributes.ratings, [ index, 'color' ], '' );
+					const title = get(
+						attributes.ratings,
+						[ index, 'title' ],
+						''
+					);
+					const rating = get(
+						attributes.ratings,
+						[ index, 'rating' ],
+						0
+					);
+					const color = get(
+						attributes.ratings,
+						[ index, 'color' ],
+						''
+					);
 
 					return createBlock( 'snow-monkey-blocks/rating-box--item', {
 						title,
@@ -74,27 +80,43 @@ export default [
 				} );
 			};
 
-			return [
-				{},
-				migratedInnerBlocks(),
-			];
+			return [ {}, migratedInnerBlocks() ];
 		},
 
 		save( { attributes } ) {
 			const { ratings } = attributes;
-			const length = ( 'undefined' === typeof attributes.ratings ) ? 0 : attributes.ratings.length;
+			const length =
+				'undefined' === typeof attributes.ratings
+					? 0
+					: attributes.ratings.length;
 
 			return (
 				<div className="smb-rating-box">
 					<div className="smb-rating-box__body">
 						{ times( length, ( index ) => {
-							const title = get( ratings, [ index, 'title' ], '' );
-							const rating = get( ratings, [ index, 'rating' ], 0 );
-							const color = get( ratings, [ index, 'color' ], '' );
+							const title = get(
+								ratings,
+								[ index, 'title' ],
+								''
+							);
+							const rating = get(
+								ratings,
+								[ index, 'rating' ],
+								0
+							);
+							const color = get(
+								ratings,
+								[ index, 'color' ],
+								''
+							);
 
 							return (
-								<div className="smb-rating-box__item" data-rating={ rating } data-color={ color }>
-									<div className="smb-rating-box__item__title" >
+								<div
+									className="smb-rating-box__item"
+									data-rating={ rating }
+									data-color={ color }
+								>
+									<div className="smb-rating-box__item__title">
 										<RichText.Content value={ title } />
 									</div>
 
@@ -103,7 +125,13 @@ export default [
 											<div className="smb-rating-box__item__evaluation__numeric">
 												{ rating }
 											</div>
-											<div className="smb-rating-box__item__evaluation__rating" style={ { width: `${ rating * 10 }%`, backgroundColor: color } } />
+											<div
+												className="smb-rating-box__item__evaluation__rating"
+												style={ {
+													width: `${ rating * 10 }%`,
+													backgroundColor: color,
+												} }
+											/>
 										</div>
 									</div>
 								</div>

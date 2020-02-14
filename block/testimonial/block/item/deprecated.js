@@ -1,10 +1,8 @@
 'use strict';
 
-import blockAttributes from './attributes';
+import { RichText } from '@wordpress/block-editor';
 
-import {
-	RichText,
-} from '@wordpress/block-editor';
+import blockAttributes from './attributes';
 
 export default [
 	{
@@ -17,7 +15,11 @@ export default [
 				<div className="c-row__col">
 					<div className="smb-testimonial__item">
 						<div className="smb-testimonial__item__figure">
-							<img src={ avatarURL } alt="" className={ `wp-image-${ avatarID }` } />
+							<img
+								src={ avatarURL }
+								alt=""
+								className={ `wp-image-${ avatarID }` }
+							/>
 						</div>
 						<div className="smb-testimonial__item__body">
 							<div className="smb-testimonial__item__content">
@@ -28,11 +30,11 @@ export default [
 								<RichText.Content value={ name } />
 							</div>
 
-							{ ! RichText.isEmpty( lede ) &&
+							{ ! RichText.isEmpty( lede ) && (
 								<div className="smb-testimonial__item__lede">
 									<RichText.Content value={ lede } />
 								</div>
-							}
+							) }
 						</div>
 					</div>
 				</div>

@@ -1,11 +1,10 @@
 'use strict';
 
 import classnames from 'classnames';
-import blockAttributes from './attributes';
 
-import {
-	RichText,
-} from '@wordpress/block-editor';
+import { RichText } from '@wordpress/block-editor';
+
+import blockAttributes from './attributes';
 
 export default [
 	{
@@ -16,36 +15,61 @@ export default [
 		},
 
 		save( { attributes } ) {
-			const { lede, note, backgroundColor, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, btnSize } = attributes;
+			const {
+				lede,
+				note,
+				backgroundColor,
+				btnLabel,
+				btnURL,
+				btnTarget,
+				btnBackgroundColor,
+				btnTextColor,
+				btnSize,
+			} = attributes;
 
 			return (
 				<div className="smb-btn-box" style={ { backgroundColor } }>
 					<div className="c-container">
-						{ ! RichText.isEmpty( lede ) &&
+						{ ! RichText.isEmpty( lede ) && (
 							<div className="smb-btn-box__lede">
 								<RichText.Content value={ lede } />
 							</div>
-						}
+						) }
 
 						<div className="smb-btn-box__btn-wrapper">
 							<a
-								className={ classnames( 'smb-btn', { [ `smb-btn--${ btnSize }` ]: !! btnSize } ) }
+								className={ classnames( 'smb-btn', {
+									[ `smb-btn--${ btnSize }` ]: !! btnSize,
+								} ) }
 								href={ btnURL }
-								style={ { backgroundColor: btnBackgroundColor } }
-								target={ '_self' === btnTarget ? undefined : btnTarget }
-								rel={ '_self' === btnTarget ? undefined : 'noopener noreferrer' }
+								style={ {
+									backgroundColor: btnBackgroundColor,
+								} }
+								target={
+									'_self' === btnTarget
+										? undefined
+										: btnTarget
+								}
+								rel={
+									'_self' === btnTarget
+										? undefined
+										: 'noopener noreferrer'
+								}
 							>
-								<span className="smb-btn__label" style={ { color: btnTextColor } }>
+								<span
+									className="smb-btn__label"
+									style={ { color: btnTextColor } }
+								>
 									<RichText.Content value={ btnLabel } />
 								</span>
 							</a>
 						</div>
 
-						{ ! RichText.isEmpty( note ) &&
+						{ ! RichText.isEmpty( note ) && (
 							<div className="smb-btn-box__note">
 								<RichText.Content value={ note } />
 							</div>
-						}
+						) }
 					</div>
 				</div>
 			);
@@ -55,7 +79,16 @@ export default [
 		attributes: blockAttributes,
 
 		save( { attributes } ) {
-			const { lede, note, backgroundColor, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor } = attributes;
+			const {
+				lede,
+				note,
+				backgroundColor,
+				btnLabel,
+				btnURL,
+				btnTarget,
+				btnBackgroundColor,
+				btnTextColor,
+			} = attributes;
 
 			const btnBoxStyle = {};
 			if ( !! backgroundColor && 'null' !== backgroundColor ) {
@@ -75,24 +108,31 @@ export default [
 			return (
 				<div className="smb-btn-box" style={ btnBoxStyle }>
 					<div className="c-container">
-						{ ! RichText.isEmpty( lede ) &&
+						{ ! RichText.isEmpty( lede ) && (
 							<div className="smb-btn-box__lede">
 								<RichText.Content value={ lede } />
 							</div>
-						}
+						) }
 
 						<a
-							className="smb-btn smb-btn--full" href={ btnURL } target={ btnTarget } style={ btnStyle }>
-							<span className="smb-btn__label" style={ btnLabelStyle }>
+							className="smb-btn smb-btn--full"
+							href={ btnURL }
+							target={ btnTarget }
+							style={ btnStyle }
+						>
+							<span
+								className="smb-btn__label"
+								style={ btnLabelStyle }
+							>
 								<RichText.Content value={ btnLabel } />
 							</span>
 						</a>
 
-						{ ! RichText.isEmpty( note ) &&
+						{ ! RichText.isEmpty( note ) && (
 							<div className="smb-btn-box__note">
 								<RichText.Content value={ note } />
 							</div>
-						}
+						) }
 					</div>
 				</div>
 			);
@@ -106,35 +146,52 @@ export default [
 		},
 
 		save( { attributes } ) {
-			const { lede, note, backgroundColor, btnLabel, btnURL, btnTarget, btnBackgroundColor, btnTextColor, btnSize } = attributes;
+			const {
+				lede,
+				note,
+				backgroundColor,
+				btnLabel,
+				btnURL,
+				btnTarget,
+				btnBackgroundColor,
+				btnTextColor,
+				btnSize,
+			} = attributes;
 
 			return (
 				<div className="smb-btn-box" style={ { backgroundColor } }>
 					<div className="c-container">
-						{ ! RichText.isEmpty( lede ) &&
+						{ ! RichText.isEmpty( lede ) && (
 							<div className="smb-btn-box__lede">
 								<RichText.Content value={ lede } />
 							</div>
-						}
+						) }
 
 						<div className="smb-btn-box__btn-wrapper">
 							<a
-								className={ classnames( 'smb-btn', { [ `smb-btn--${ btnSize }` ]: !! btnSize } ) }
+								className={ classnames( 'smb-btn', {
+									[ `smb-btn--${ btnSize }` ]: !! btnSize,
+								} ) }
 								href={ btnURL }
 								target={ btnTarget }
-								style={ { backgroundColor: btnBackgroundColor } }
+								style={ {
+									backgroundColor: btnBackgroundColor,
+								} }
 							>
-								<span className="smb-btn__label" style={ { color: btnTextColor } }>
+								<span
+									className="smb-btn__label"
+									style={ { color: btnTextColor } }
+								>
 									<RichText.Content value={ btnLabel } />
 								</span>
 							</a>
 						</div>
 
-						{ ! RichText.isEmpty( note ) &&
+						{ ! RichText.isEmpty( note ) && (
 							<div className="smb-btn-box__note">
 								<RichText.Content value={ note } />
 							</div>
-						}
+						) }
 					</div>
 				</div>
 			);

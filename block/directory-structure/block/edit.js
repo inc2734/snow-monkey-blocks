@@ -2,13 +2,8 @@
 
 import classnames from 'classnames';
 
-import {
-	InnerBlocks,
-} from '@wordpress/block-editor';
-
-import {
-	Fragment,
-} from '@wordpress/element';
+import { InnerBlocks } from '@wordpress/block-editor';
+import { Fragment } from '@wordpress/element';
 
 export default function( { className } ) {
 	const allowedBlocks = [

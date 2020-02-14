@@ -1,8 +1,6 @@
 'use strict';
 
-import {
-	createBlock,
-} from '@wordpress/blocks';
+import { createBlock } from '@wordpress/blocks';
 
 export default {
 	from: [
@@ -10,12 +8,9 @@ export default {
 			type: 'block',
 			blocks: [ 'core/paragraph' ],
 			transform: ( attributes ) => {
-				return createBlock(
-					'snow-monkey-blocks/alert',
-					{
-						content: `<p>${ attributes.content }</p>`,
-					}
-				);
+				return createBlock( 'snow-monkey-blocks/alert', {
+					content: `<p>${ attributes.content }</p>`,
+				} );
 			},
 		},
 	],

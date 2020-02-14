@@ -2,10 +2,7 @@
 
 import classnames from 'classnames';
 
-import {
-	RichText,
-	InnerBlocks,
-} from '@wordpress/block-editor';
+import { RichText, InnerBlocks } from '@wordpress/block-editor';
 
 export default [
 	{
@@ -25,7 +22,10 @@ export default [
 					<div className="smb-accordion__item__title">
 						<RichText.Content value={ title } />
 					</div>
-					<input type="checkbox" className="smb-accordion__item__control" />
+					<input
+						type="checkbox"
+						className="smb-accordion__item__control"
+					/>
 					<div className="smb-accordion__item__body">
 						<InnerBlocks.Content />
 					</div>
@@ -49,7 +49,10 @@ export default [
 					<div className="smb-accordion__item__title">
 						<RichText.Content value={ title } />
 					</div>
-					<input type="checkbox" className="smb-accordion__item__control" />
+					<input
+						type="checkbox"
+						className="smb-accordion__item__control"
+					/>
 					<div className="smb-accordion__item__body">
 						<InnerBlocks.Content />
 					</div>

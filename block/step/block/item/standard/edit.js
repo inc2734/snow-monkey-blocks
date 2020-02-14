@@ -1,13 +1,10 @@
 'use strict';
 
 import classnames from 'classnames';
-import Figure from '../../../../../src/js/component/figure';
 
-import {
-	PanelBody,
-	BaseControl,
-	SelectControl,
-} from '@wordpress/components';
+import { PanelBody, BaseControl, SelectControl } from '@wordpress/components';
+import { Fragment } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 import {
 	RichText,
@@ -17,16 +14,26 @@ import {
 	URLInput,
 } from '@wordpress/block-editor';
 
-import {
-	Fragment,
-} from '@wordpress/element';
+import Figure from '../../../../../src/js/component/figure';
 
-import {
-	__,
-} from '@wordpress/i18n';
-
-export default function( { attributes, setAttributes, isSelected, className } ) {
-	const { title, numberColor, imagePosition, imageID, imageURL, imageAlt, linkLabel, linkURL, linkTarget, linkColor } = attributes;
+export default function( {
+	attributes,
+	setAttributes,
+	isSelected,
+	className,
+} ) {
+	const {
+		title,
+		numberColor,
+		imagePosition,
+		imageID,
+		imageURL,
+		imageAlt,
+		linkLabel,
+		linkURL,
+		linkTarget,
+		linkColor,
+	} = attributes;
 
 	const classes = classnames(
 		'smb-step__item',
@@ -45,7 +52,9 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 	return (
 		<Fragment>
 			<InspectorControls>
-				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
+				<PanelBody
+					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+				>
 					<SelectControl
 						label={ __( 'Image Position', 'snow-monkey-blocks' ) }
 						value={ imagePosition }
@@ -63,15 +72,24 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 								label: __( 'Right side', 'snow-monkey-blocks' ),
 							},
 						] }
-						onChange={ ( value ) => setAttributes( { imagePosition: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { imagePosition: value } )
+						}
 					/>
 				</PanelBody>
 
-				<PanelBody title={ __( 'Link Settings', 'snow-monkey-blocks' ) }>
-					<BaseControl label={ __( 'Link URL', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/step--item/link-url">
+				<PanelBody
+					title={ __( 'Link Settings', 'snow-monkey-blocks' ) }
+				>
+					<BaseControl
+						label={ __( 'Link URL', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/step--item/link-url"
+					>
 						<URLInput
 							value={ linkURL }
-							onChange={ ( value ) => setAttributes( { linkURL: value } ) }
+							onChange={ ( value ) =>
+								setAttributes( { linkURL: value } )
+							}
 						/>
 					</BaseControl>
 
@@ -88,7 +106,9 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 								label: __( '_blank', 'snow-monkey-blocks' ),
 							},
 						] }
-						onChange={ ( value ) => setAttributes( { linkTarget: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { linkTarget: value } )
+						}
 					/>
 				</PanelBody>
 
@@ -98,71 +118,106 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 					colorSettings={ [
 						{
 							value: numberColor,
-							onChange: ( value ) => setAttributes( { numberColor: value } ),
+							onChange: ( value ) =>
+								setAttributes( { numberColor: value } ),
 							label: __( 'Number Color', 'snow-monkey-blocks' ),
 						},
 						{
 							value: linkColor,
-							onChange: ( value ) => setAttributes( { linkColor: value } ),
+							onChange: ( value ) =>
+								setAttributes( { linkColor: value } ),
 							label: __( 'Link Color', 'snow-monkey-blocks' ),
 						},
 					] }
-				>
-				</PanelColorSettings>
+				></PanelColorSettings>
 			</InspectorControls>
 
 			<div className={ classes }>
 				<div className="smb-step__item__title">
-					<div className="smb-step__item__number" style={ itemNumberStyles } />
+					<div
+						className="smb-step__item__number"
+						style={ itemNumberStyles }
+					/>
 					<span>
 						<RichText
-							placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
+							placeholder={ __(
+								'Write title...',
+								'snow-monkey-blocks'
+							) }
 							value={ title }
 							multiline={ false }
-							onChange={ ( value ) => setAttributes( { title: value } ) }
+							onChange={ ( value ) =>
+								setAttributes( { title: value } )
+							}
 						/>
 					</span>
 				</div>
 
 				<div className="smb-step__item__body">
-					{ ( !! imageID || isSelected ) &&
+					{ ( !! imageID || isSelected ) && (
 						<div className="smb-step__item__figure">
 							<Figure
 								src={ imageURL }
 								id={ imageID }
 								alt={ imageAlt }
 								selectHandler={ ( media ) => {
-									const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
-									setAttributes( { imageURL: newImageURL, imageID: media.id, imageAlt: media.alt } );
+									const newImageURL =
+										!! media.sizes && !! media.sizes.large
+											? media.sizes.large.url
+											: media.url;
+									setAttributes( {
+										imageURL: newImageURL,
+										imageID: media.id,
+										imageAlt: media.alt,
+									} );
 								} }
-								removeHandler={ () => setAttributes( { imageURL: '', imageAlt: '', imageID: 0 } ) }
+								removeHandler={ () =>
+									setAttributes( {
+										imageURL: '',
+										imageAlt: '',
+										imageID: 0,
+									} )
+								}
 								isSelected={ isSelected }
 							/>
 						</div>
-					}
+					) }
 
 					<div className="smb-step__item__summary">
 						<InnerBlocks />
 
-						{ ( ! RichText.isEmpty( linkLabel ) || isSelected ) &&
+						{ ( ! RichText.isEmpty( linkLabel ) || isSelected ) && (
 							<span
 								className="smb-step__item__link"
 								href={ linkURL }
 								style={ itemLinkStyles }
-								target={ '_self' === linkTarget ? undefined : linkTarget }
-								rel={ '_self' === linkTarget ? undefined : 'noopener noreferrer' }
+								target={
+									'_self' === linkTarget
+										? undefined
+										: linkTarget
+								}
+								rel={
+									'_self' === linkTarget
+										? undefined
+										: 'noopener noreferrer'
+								}
 							>
 								<i className="fas fa-arrow-circle-right" />
 								<RichText
 									className="smb-step__item__link__label"
-									placeholder={ __( 'Link text', 'snow-monkey-blocks' ) }
+									placeholder={ __(
+										'Link text',
+										'snow-monkey-blocks'
+									) }
 									value={ linkLabel }
 									allowedFormats={ [] }
 									multiline={ false }
-									onChange={ ( value ) => setAttributes( { linkLabel: value } ) }
+									onChange={ ( value ) =>
+										setAttributes( { linkLabel: value } )
+									}
 								/>
 							</span>
-						}
+						) }
 					</div>
 				</div>
 			</div>

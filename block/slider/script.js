@@ -2,8 +2,4 @@
 
 import Slider from './slider';
 
-document.addEventListener(
-	'DOMContentLoaded',
-	() => new Slider(),
-	false
-);
+document.addEventListener( 'DOMContentLoaded', () => new Slider(), false );

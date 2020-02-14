@@ -2,11 +2,9 @@
 
 import classnames from 'classnames';
 
-import {
-	PanelBody,
-	BaseControl,
-	SelectControl,
-} from '@wordpress/components';
+import { PanelBody, BaseControl, SelectControl } from '@wordpress/components';
+import { Fragment } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 import {
 	RichText,
@@ -16,25 +14,25 @@ import {
 	URLInput,
 } from '@wordpress/block-editor';
 
-import {
-	Fragment,
-} from '@wordpress/element';
-
-import {
-	__,
-} from '@wordpress/i18n';
-
 export default function( { attributes, setAttributes, className } ) {
-	const { content, url, target, modifier, backgroundColor, textColor } = attributes;
+	const {
+		content,
+		url,
+		target,
+		modifier,
+		backgroundColor,
+		textColor,
+	} = attributes;
 
-	const wrapperClasses = classnames( 'u-clearfix', 'smb-btn-wrapper', className );
-
-	const classes = classnames(
-		'smb-btn',
-		{
-			[ `smb-btn--${ modifier }` ]: !! modifier,
-		}
+	const wrapperClasses = classnames(
+		'u-clearfix',
+		'smb-btn-wrapper',
+		className
 	);
+
+	const classes = classnames( 'smb-btn', {
+		[ `smb-btn--${ modifier }` ]: !! modifier,
+	} );
 
 	const btnStyles = {
 		backgroundColor: backgroundColor || undefined,
@@ -50,17 +48,26 @@ export default function( { attributes, setAttributes, className } ) {
 	return (
 		<Fragment>
 			<InspectorControls>
-				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
-					<BaseControl label={ __( 'URL', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/btn/url">
+				<PanelBody
+					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+				>
+					<BaseControl
+						label={ __( 'URL', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/btn/url"
+					>
 						<URLInput
 							value={ url }
-							onChange={ ( value ) => setAttributes( { url: value } ) }
+							onChange={ ( value ) =>
+								setAttributes( { url: value } )
+							}
 						/>
 					</BaseControl>
 					<SelectControl
 						label={ __( 'Target', 'snow-monkey-blocks' ) }
 						value={ target }
-						onChange={ ( value ) => setAttributes( { target: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { target: value } )
+						}
 						options={ [
 							{
 								value: '_self',
@@ -76,11 +83,16 @@ export default function( { attributes, setAttributes, className } ) {
 					<SelectControl
 						label={ __( 'Button size', 'snow-monkey-blocks' ) }
 						value={ modifier }
-						onChange={ ( value ) => setAttributes( { modifier: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { modifier: value } )
+						}
 						options={ [
 							{
 								value: '',
-								label: __( 'Normal size', 'snow-monkey-blocks' ),
+								label: __(
+									'Normal size',
+									'snow-monkey-blocks'
+								),
 							},
 							{
 								value: 'full',
@@ -96,12 +108,17 @@ export default function( { attributes, setAttributes, className } ) {
 					colorSettings={ [
 						{
 							value: backgroundColor,
-							onChange: ( value ) => setAttributes( { backgroundColor: value } ),
-							label: __( 'Background Color', 'snow-monkey-blocks' ),
+							onChange: ( value ) =>
+								setAttributes( { backgroundColor: value } ),
+							label: __(
+								'Background Color',
+								'snow-monkey-blocks'
+							),
 						},
 						{
 							value: textColor,
-							onChange: ( value ) => setAttributes( { textColor: value } ),
+							onChange: ( value ) =>
+								setAttributes( { textColor: value } ),
 							label: __( 'Text Color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -119,13 +136,17 @@ export default function( { attributes, setAttributes, className } ) {
 					href={ url }
 					style={ btnStyles }
 					target={ '_self' === target ? undefined : target }
-					rel={ '_self' === target ? undefined : 'noopener noreferrer' }
+					rel={
+						'_self' === target ? undefined : 'noopener noreferrer'
+					}
 				>
 					<RichText
 						className="smb-btn__label"
 						value={ content }
 						placeholder={ __( 'Button', 'snow-monkey-blocks' ) }
-						onChange={ ( value ) => setAttributes( { content: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { content: value } )
+						}
 						style={ btnLabelStyles }
 						allowedFormats={ [] }
 					/>

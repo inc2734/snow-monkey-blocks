@@ -1,13 +1,11 @@
 'use strict';
 
 import classnames from 'classnames';
+
+import { RichText, InnerBlocks } from '@wordpress/block-editor';
+
 import { divider } from '../../../src/js/helper/helper';
 import blockAttributes from './attributes';
-
-import {
-	RichText,
-	InnerBlocks,
-} from '@wordpress/block-editor';
 
 export default [
 	{
@@ -24,7 +22,18 @@ export default [
 		},
 
 		save( { attributes, className } ) {
-			const { titleTagName, title, backgroundColor, contentsWidth, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
+			const {
+				titleTagName,
+				title,
+				backgroundColor,
+				contentsWidth,
+				topDividerType,
+				topDividerLevel,
+				topDividerColor,
+				bottomDividerType,
+				bottomDividerLevel,
+				bottomDividerColor,
+			} = attributes;
 
 			const classes = classnames( 'smb-section', className );
 
@@ -40,12 +49,9 @@ export default [
 				`smb-section__divider--${ bottomDividerType }`
 			);
 
-			const containerClasses = classnames(
-				'c-container',
-				{
-					'u-slim-width': !! contentsWidth,
-				}
-			);
+			const containerClasses = classnames( 'c-container', {
+				'u-slim-width': !! contentsWidth,
+			} );
 
 			const sectionStyles = {
 				backgroundColor: backgroundColor || undefined,
@@ -58,27 +64,36 @@ export default [
 
 			return (
 				<div className={ classes } style={ sectionStyles }>
-					{ !! topDividerLevel &&
+					{ !! topDividerLevel && (
 						<div className={ topDividerClasses }>
-							{ divider( topDividerType, topDividerLevel, topDividerColor ) }
+							{ divider(
+								topDividerType,
+								topDividerLevel,
+								topDividerColor
+							) }
 						</div>
-					}
+					) }
 
-					{ !! bottomDividerLevel &&
+					{ !! bottomDividerLevel && (
 						<div className={ bottomDividerClasses }>
-							{ divider( bottomDividerType, bottomDividerLevel, bottomDividerColor ) }
+							{ divider(
+								bottomDividerType,
+								bottomDividerLevel,
+								bottomDividerColor
+							) }
 						</div>
-					}
+					) }
 
 					<div className="smb-section__inner" style={ innerStyles }>
 						<div className={ containerClasses }>
-							{ ! RichText.isEmpty( title ) && 'none' !== titleTagName &&
-								<RichText.Content
-									tagName={ titleTagName }
-									className="smb-section__title"
-									value={ title }
-								/>
-							}
+							{ ! RichText.isEmpty( title ) &&
+								'none' !== titleTagName && (
+									<RichText.Content
+										tagName={ titleTagName }
+										className="smb-section__title"
+										value={ title }
+									/>
+								) }
 
 							<div className="smb-section__body">
 								<InnerBlocks.Content />
@@ -98,7 +113,17 @@ export default [
 		},
 
 		save( { attributes } ) {
-			const { title, backgroundColor, contentsWidth, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
+			const {
+				title,
+				backgroundColor,
+				contentsWidth,
+				topDividerType,
+				topDividerLevel,
+				topDividerColor,
+				bottomDividerType,
+				bottomDividerLevel,
+				bottomDividerColor,
+			} = attributes;
 
 			const _divider = ( type, level, color ) => {
 				color = color ? color : '#fff';
@@ -116,7 +141,8 @@ export default [
 				const renderCurveDivider = () => {
 					return (
 						<path
-							d={ `m0,${ 100 - level } q50,${ level },100,0 V100 L0,100 z` }
+							d={ `m0,${ 100 -
+								level } q50,${ level },100,0 V100 L0,100 z` }
 							strokeWidth="0"
 							fill={ color }
 						/>
@@ -126,7 +152,8 @@ export default [
 				const renderWaveDivider = () => {
 					return (
 						<path
-							d={ `m0,${ 100 - ( level / 2 ) } q20,${ level / 2 },40,0 t40,0 t40,0 V100 L0,100 z` }
+							d={ `m0,${ 100 - level / 2 } q20,${ level /
+								2 },40,0 t40,0 t40,0 V100 L0,100 z` }
 							strokeWidth="0"
 							fill={ color }
 						/>
@@ -136,7 +163,9 @@ export default [
 				const renderTriangleDivider = () => {
 					return (
 						<path
-							d={ `m${ ( 100 - level ) / 2 },100 l${ level },0 l${ -1 * level / 2 },${ -1 * level / 2 } z` }
+							d={ `m${ ( 100 - level ) /
+								2 },100 l${ level },0 l${ ( -1 * level ) /
+								2 },${ ( -1 * level ) / 2 } z` }
 							strokeWidth="0"
 							fill={ color }
 						/>
@@ -157,7 +186,11 @@ export default [
 				};
 
 				return (
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 100 100"
+						preserveAspectRatio="none"
+					>
 						{ renderPath( type, level, color ) }
 					</svg>
 				);
@@ -165,24 +198,40 @@ export default [
 
 			return (
 				<div className="smb-section" style={ { backgroundColor } }>
-					{ !! topDividerLevel &&
-						<div className={ `smb-section__divider smb-section__divider--top smb-section__divider--${ topDividerType }` }>
-							{ _divider( topDividerType, topDividerLevel, topDividerColor ) }
+					{ !! topDividerLevel && (
+						<div
+							className={ `smb-section__divider smb-section__divider--top smb-section__divider--${ topDividerType }` }
+						>
+							{ _divider(
+								topDividerType,
+								topDividerLevel,
+								topDividerColor
+							) }
 						</div>
-					}
+					) }
 
-					{ !! bottomDividerLevel &&
-						<div className={ `smb-section__divider smb-section__divider--bottom smb-section__divider--${ topDividerType }` }>
-							{ _divider( bottomDividerType, bottomDividerLevel, bottomDividerColor ) }
+					{ !! bottomDividerLevel && (
+						<div
+							className={ `smb-section__divider smb-section__divider--bottom smb-section__divider--${ topDividerType }` }
+						>
+							{ _divider(
+								bottomDividerType,
+								bottomDividerLevel,
+								bottomDividerColor
+							) }
 						</div>
-					}
+					) }
 
-					<div className={ classnames( 'c-container', { 'u-slim-width': 'slim' === contentsWidth } ) }>
-						{ ! RichText.isEmpty( title ) &&
+					<div
+						className={ classnames( 'c-container', {
+							'u-slim-width': 'slim' === contentsWidth,
+						} ) }
+					>
+						{ ! RichText.isEmpty( title ) && (
 							<h2 className="smb-section__title">
 								<RichText.Content value={ title } />
 							</h2>
-						}
+						) }
 
 						<div className="smb-section__body">
 							<InnerBlocks.Content />
@@ -200,7 +249,17 @@ export default [
 		},
 
 		save( { attributes } ) {
-			const { title, backgroundColor, contentsWidth, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
+			const {
+				title,
+				backgroundColor,
+				contentsWidth,
+				topDividerType,
+				topDividerLevel,
+				topDividerColor,
+				bottomDividerType,
+				bottomDividerLevel,
+				bottomDividerColor,
+			} = attributes;
 
 			const _divider = ( type, level, color ) => {
 				color = color ? color : '#fff';
@@ -218,7 +277,8 @@ export default [
 				const renderCurveDivider = () => {
 					return (
 						<path
-							d={ `m0,${ 100 - level } q50,${ level },100,0 V100 L0,100 z` }
+							d={ `m0,${ 100 -
+								level } q50,${ level },100,0 V100 L0,100 z` }
 							strokeWidth="0"
 							fill={ color }
 						/>
@@ -228,7 +288,8 @@ export default [
 				const renderWaveDivider = () => {
 					return (
 						<path
-							d={ `m0,${ 100 - ( level / 2 ) } q20,${ level / 2 },40,0 t40,0 t40,0 V100 L0,100 z` }
+							d={ `m0,${ 100 - level / 2 } q20,${ level /
+								2 },40,0 t40,0 t40,0 V100 L0,100 z` }
 							strokeWidth="0"
 							fill={ color }
 						/>
@@ -238,7 +299,9 @@ export default [
 				const renderTriangleDivider = () => {
 					return (
 						<path
-							d={ `m${ ( 100 - level ) / 2 },100 l${ level },0 l${ -1 * level / 2 },${ -1 * level / 2 } z` }
+							d={ `m${ ( 100 - level ) /
+								2 },100 l${ level },0 l${ ( -1 * level ) /
+								2 },${ ( -1 * level ) / 2 } z` }
 							strokeWidth="0"
 							fill={ color }
 						/>
@@ -259,7 +322,11 @@ export default [
 				};
 
 				return (
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 100 100"
+						preserveAspectRatio="none"
+					>
 						{ renderPath( type, level, color ) }
 					</svg>
 				);
@@ -267,24 +334,36 @@ export default [
 
 			return (
 				<div className="smb-section" style={ { backgroundColor } }>
-					{ !! topDividerLevel &&
+					{ !! topDividerLevel && (
 						<div className="smb-section__divider smb-section__divider--top">
-							{ _divider( topDividerType, topDividerLevel, topDividerColor ) }
+							{ _divider(
+								topDividerType,
+								topDividerLevel,
+								topDividerColor
+							) }
 						</div>
-					}
+					) }
 
-					{ !! bottomDividerLevel &&
+					{ !! bottomDividerLevel && (
 						<div className="smb-section__divider smb-section__divider--bottom">
-							{ _divider( bottomDividerType, bottomDividerLevel, bottomDividerColor ) }
+							{ _divider(
+								bottomDividerType,
+								bottomDividerLevel,
+								bottomDividerColor
+							) }
 						</div>
-					}
+					) }
 
-					<div className={ classnames( 'c-container', { 'u-slim-width': 'slim' === contentsWidth } ) }>
-						{ ! RichText.isEmpty( title ) &&
+					<div
+						className={ classnames( 'c-container', {
+							'u-slim-width': 'slim' === contentsWidth,
+						} ) }
+					>
+						{ ! RichText.isEmpty( title ) && (
 							<h2 className="smb-section__title">
 								<RichText.Content value={ title } />
 							</h2>
-						}
+						) }
 
 						<div className="smb-section__body">
 							<InnerBlocks.Content />

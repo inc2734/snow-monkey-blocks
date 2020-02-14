@@ -1,18 +1,9 @@
 'use strict';
 
-import {
-	get,
-	times,
-} from 'lodash';
+import { get, times } from 'lodash';
 
-import {
-	RichText,
-	InnerBlocks,
-} from '@wordpress/block-editor';
-
-import {
-	createBlock,
-} from '@wordpress/blocks';
+import { RichText, InnerBlocks } from '@wordpress/block-editor';
+import { createBlock } from '@wordpress/blocks';
 
 export default [
 	{
@@ -52,7 +43,8 @@ export default [
 					},
 					btnLabel: {
 						source: 'html',
-						selector: '.smb-pricing-table__item__btn > .smb-btn__label',
+						selector:
+							'.smb-pricing-table__item__btn > .smb-btn__label',
 					},
 					btnURL: {
 						type: 'string',
@@ -104,107 +96,215 @@ export default [
 
 		migrate( attributes ) {
 			const migratedInnerBlocks = () => {
-				const length = ( 'undefined' === typeof attributes.content ) ? 0 : attributes.content.length;
+				const length =
+					'undefined' === typeof attributes.content
+						? 0
+						: attributes.content.length;
 
 				return times( length, ( index ) => {
-					const title = get( attributes.content, [ index, 'title' ], '' );
-					const price = get( attributes.content, [ index, 'price' ], '' );
-					const lede = get( attributes.content, [ index, 'lede' ], '' );
-					const list = get( attributes.content, [ index, 'list' ], '' );
-					const btnLabel = get( attributes.content, [ index, 'btnLabel' ], '' );
-					const btnURL = get( attributes.content, [ index, 'btnURL' ], '' );
-					const btnTarget = get( attributes.content, [ index, 'btnTarget' ], '_self' );
-					const btnBackgroundColor = get( attributes.content, [ index, 'btnBackgroundColor' ], '' );
-					const btnTextColor = get( attributes.content, [ index, 'btnTextColor' ], '' );
-					const imageID = get( attributes.content, [ index, 'imageID' ], 0 );
-					const imageURL = get( attributes.content, [ index, 'imageURL' ], '' );
+					const title = get(
+						attributes.content,
+						[ index, 'title' ],
+						''
+					);
+					const price = get(
+						attributes.content,
+						[ index, 'price' ],
+						''
+					);
+					const lede = get(
+						attributes.content,
+						[ index, 'lede' ],
+						''
+					);
+					const list = get(
+						attributes.content,
+						[ index, 'list' ],
+						''
+					);
+					const btnLabel = get(
+						attributes.content,
+						[ index, 'btnLabel' ],
+						''
+					);
+					const btnURL = get(
+						attributes.content,
+						[ index, 'btnURL' ],
+						''
+					);
+					const btnTarget = get(
+						attributes.content,
+						[ index, 'btnTarget' ],
+						'_self'
+					);
+					const btnBackgroundColor = get(
+						attributes.content,
+						[ index, 'btnBackgroundColor' ],
+						''
+					);
+					const btnTextColor = get(
+						attributes.content,
+						[ index, 'btnTextColor' ],
+						''
+					);
+					const imageID = get(
+						attributes.content,
+						[ index, 'imageID' ],
+						0
+					);
+					const imageURL = get(
+						attributes.content,
+						[ index, 'imageURL' ],
+						''
+					);
 
-					return createBlock( 'snow-monkey-blocks/pricing-table--item', {
-						title,
-						price,
-						lede,
-						list,
-						btnLabel,
-						btnURL,
-						btnTarget,
-						btnBackgroundColor,
-						btnTextColor,
-						imageID: Number( imageID ),
-						imageURL,
-					} );
+					return createBlock(
+						'snow-monkey-blocks/pricing-table--item',
+						{
+							title,
+							price,
+							lede,
+							list,
+							btnLabel,
+							btnURL,
+							btnTarget,
+							btnBackgroundColor,
+							btnTextColor,
+							imageID: Number( imageID ),
+							imageURL,
+						}
+					);
 				} );
 			};
 
-			return [
-				{},
-				migratedInnerBlocks(),
-			];
+			return [ {}, migratedInnerBlocks() ];
 		},
 
 		save( { attributes } ) {
 			const { content } = attributes;
-			const length = ( 'undefined' === typeof attributes.content ) ? 0 : attributes.content.length;
+			const length =
+				'undefined' === typeof attributes.content
+					? 0
+					: attributes.content.length;
 
 			return (
 				<div className={ `smb-pricing-table` }>
 					<div className="smb-pricing-table__row">
 						{ times( length, ( index ) => {
-							const title = get( content, [ index, 'title' ], '' );
-							const price = get( content, [ index, 'price' ], '' );
+							const title = get(
+								content,
+								[ index, 'title' ],
+								''
+							);
+							const price = get(
+								content,
+								[ index, 'price' ],
+								''
+							);
 							const lede = get( content, [ index, 'lede' ], '' );
 							const list = get( content, [ index, 'list' ], '' );
-							const btnLabel = get( content, [ index, 'btnLabel' ], '' );
-							const btnURL = get( content, [ index, 'btnURL' ], '' );
-							const btnTarget = get( content, [ index, 'btnTarget' ], '_self' );
-							const btnBackgroundColor = get( content, [ index, 'btnBackgroundColor' ], '' );
-							const btnTextColor = get( content, [ index, 'btnTextColor' ], '' );
-							const imageID = get( content, [ index, 'imageID' ], 0 );
-							const imageURL = get( content, [ index, 'imageURL' ], '' );
+							const btnLabel = get(
+								content,
+								[ index, 'btnLabel' ],
+								''
+							);
+							const btnURL = get(
+								content,
+								[ index, 'btnURL' ],
+								''
+							);
+							const btnTarget = get(
+								content,
+								[ index, 'btnTarget' ],
+								'_self'
+							);
+							const btnBackgroundColor = get(
+								content,
+								[ index, 'btnBackgroundColor' ],
+								''
+							);
+							const btnTextColor = get(
+								content,
+								[ index, 'btnTextColor' ],
+								''
+							);
+							const imageID = get(
+								content,
+								[ index, 'imageID' ],
+								0
+							);
+							const imageURL = get(
+								content,
+								[ index, 'imageURL' ],
+								''
+							);
 
 							return (
 								<div className="smb-pricing-table__col">
 									<div className="smb-pricing-table__item">
-										{ !! imageID &&
+										{ !! imageID && (
 											<div className="smb-pricing-table__item__figure">
-												<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } data-image-id={ imageID } />
+												<img
+													src={ imageURL }
+													alt=""
+													className={ `wp-image-${ imageID }` }
+													data-image-id={ imageID }
+												/>
 											</div>
-										}
+										) }
 
 										<div className="smb-pricing-table__item__title">
 											<RichText.Content value={ title } />
 										</div>
 
-										{ ! RichText.isEmpty( price ) &&
+										{ ! RichText.isEmpty( price ) && (
 											<div className="smb-pricing-table__item__price">
-												<RichText.Content value={ price } />
+												<RichText.Content
+													value={ price }
+												/>
 											</div>
-										}
+										) }
 
-										{ ! RichText.isEmpty( lede ) &&
+										{ ! RichText.isEmpty( lede ) && (
 											<div className="smb-pricing-table__item__lede">
-												<RichText.Content value={ lede } />
+												<RichText.Content
+													value={ lede }
+												/>
 											</div>
-										}
+										) }
 
 										<ul>
 											<RichText.Content value={ list } />
 										</ul>
 
-										{ ( ! RichText.isEmpty( btnLabel ) || !! btnURL ) &&
+										{ ( ! RichText.isEmpty( btnLabel ) ||
+											!! btnURL ) && (
 											<div className="smb-pricing-table__item__action">
-												<a className="smb-pricing-table__item__btn smb-btn"
+												<a
+													className="smb-pricing-table__item__btn smb-btn"
 													href={ btnURL }
 													target={ btnTarget }
-													style={ { backgroundColor: btnBackgroundColor } }
-													data-background-color={ btnBackgroundColor }
+													style={ {
+														backgroundColor: btnBackgroundColor,
+													} }
+													data-background-color={
+														btnBackgroundColor
+													}
 													data-color={ btnTextColor }
 												>
-													<span className="smb-btn__label" style={ { color: btnTextColor } }>
-														<RichText.Content value={ btnLabel } />
+													<span
+														className="smb-btn__label"
+														style={ {
+															color: btnTextColor,
+														} }
+													>
+														<RichText.Content
+															value={ btnLabel }
+														/>
 													</span>
 												</a>
 											</div>
-										}
+										) }
 									</div>
 								</div>
 							);
@@ -240,7 +340,8 @@ export default [
 					},
 					btnLabel: {
 						source: 'html',
-						selector: '.smb-pricing-table__item__btn > .smb-btn__label',
+						selector:
+							'.smb-pricing-table__item__btn > .smb-btn__label',
 					},
 					btnURL: {
 						type: 'string',
@@ -294,65 +395,124 @@ export default [
 			const { content, columns } = attributes;
 
 			return (
-				<div className={ `smb-pricing-table smb-pricing-table--${ columns }` }>
+				<div
+					className={ `smb-pricing-table smb-pricing-table--${ columns }` }
+				>
 					<div className="smb-pricing-table__row">
 						{ times( columns, ( index ) => {
-							const title = get( content, [ index, 'title' ], '' );
-							const price = get( content, [ index, 'price' ], '' );
+							const title = get(
+								content,
+								[ index, 'title' ],
+								''
+							);
+							const price = get(
+								content,
+								[ index, 'price' ],
+								''
+							);
 							const lede = get( content, [ index, 'lede' ], '' );
 							const list = get( content, [ index, 'list' ], '' );
-							const btnLabel = get( content, [ index, 'btnLabel' ], '' );
-							const btnURL = get( content, [ index, 'btnURL' ], '' );
-							const btnTarget = get( content, [ index, 'btnTarget' ], '_self' );
-							const btnBackgroundColor = get( content, [ index, 'btnBackgroundColor' ], '' );
-							const btnTextColor = get( content, [ index, 'btnTextColor' ], '' );
-							const imageID = get( content, [ index, 'imageID' ], 0 );
-							const imageURL = get( content, [ index, 'imageURL' ], '' );
+							const btnLabel = get(
+								content,
+								[ index, 'btnLabel' ],
+								''
+							);
+							const btnURL = get(
+								content,
+								[ index, 'btnURL' ],
+								''
+							);
+							const btnTarget = get(
+								content,
+								[ index, 'btnTarget' ],
+								'_self'
+							);
+							const btnBackgroundColor = get(
+								content,
+								[ index, 'btnBackgroundColor' ],
+								''
+							);
+							const btnTextColor = get(
+								content,
+								[ index, 'btnTextColor' ],
+								''
+							);
+							const imageID = get(
+								content,
+								[ index, 'imageID' ],
+								0
+							);
+							const imageURL = get(
+								content,
+								[ index, 'imageURL' ],
+								''
+							);
 
 							return (
 								<div className="smb-pricing-table__col">
 									<div className="smb-pricing-table__item">
-										{ !! imageID &&
+										{ !! imageID && (
 											<div className="smb-pricing-table__item__figure">
-												<img src={ imageURL } alt="" data-image-id={ imageID } />
+												<img
+													src={ imageURL }
+													alt=""
+													data-image-id={ imageID }
+												/>
 											</div>
-										}
+										) }
 
 										<div className="smb-pricing-table__item__title">
 											<RichText.Content value={ title } />
 										</div>
 
-										{ ! RichText.isEmpty( price ) &&
+										{ ! RichText.isEmpty( price ) && (
 											<div className="smb-pricing-table__item__price">
-												<RichText.Content value={ price } />
+												<RichText.Content
+													value={ price }
+												/>
 											</div>
-										}
+										) }
 
-										{ ! RichText.isEmpty( lede ) &&
+										{ ! RichText.isEmpty( lede ) && (
 											<div className="smb-pricing-table__item__lede">
-												<RichText.Content value={ lede } />
+												<RichText.Content
+													value={ lede }
+												/>
 											</div>
-										}
+										) }
 
 										<ul>
 											<RichText.Content value={ list } />
 										</ul>
 
-										{ ( ! RichText.isEmpty( btnLabel ) || !! btnURL ) &&
+										{ ( ! RichText.isEmpty( btnLabel ) ||
+											!! btnURL ) && (
 											<div className="smb-pricing-table__item__action">
-												<a className="smb-pricing-table__item__btn smb-btn"
+												<a
+													className="smb-pricing-table__item__btn smb-btn"
 													href={ btnURL }
 													target={ btnTarget }
-													style={ { backgroundColor: btnBackgroundColor } }
-													data-background-color={ btnBackgroundColor }
+													style={ {
+														backgroundColor: btnBackgroundColor,
+													} }
+													data-background-color={
+														btnBackgroundColor
+													}
 													data-color={ btnTextColor }
 												>
-													<span className="smb-btn__label" style={ { color: btnTextColor } }>
-														<RichText.Content value={ btnLabel } />
+													<span
+														className="smb-btn__label"
+														style={ {
+															color: btnTextColor,
+														} }
+													>
+														<RichText.Content
+															value={ btnLabel }
+														/>
 													</span>
 												</a>
 											</div>
-										}
+										) }
 									</div>
 								</div>
 							);

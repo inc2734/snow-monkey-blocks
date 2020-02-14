@@ -1,29 +1,20 @@
 'use strict';
 
 import classnames from 'classnames';
+
+import { PanelBody, BaseControl, SelectControl } from '@wordpress/components';
+import { RichText, InspectorControls, URLInput } from '@wordpress/block-editor';
+import { Fragment } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
+
 import Figure from '../../../../src/js/component/figure';
 
-import {
-	PanelBody,
-	BaseControl,
-	SelectControl,
-} from '@wordpress/components';
-
-import {
-	RichText,
-	InspectorControls,
-	URLInput,
-} from '@wordpress/block-editor';
-
-import {
-	Fragment,
-} from '@wordpress/element';
-
-import {
-	__,
-} from '@wordpress/i18n';
-
-export default function( { attributes, setAttributes, isSelected, className } ) {
+export default function( {
+	attributes,
+	setAttributes,
+	isSelected,
+	className,
+} ) {
 	const { imageID, imageURL, imageAlt, caption, url, target } = attributes;
 
 	const classes = classnames( 'smb-slider__item', className );
@@ -37,22 +28,40 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 						id={ imageID }
 						alt={ imageAlt }
 						selectHandler={ ( media ) => {
-							const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
-							setAttributes( { imageURL: newImageURL, imageID: media.id, imageAlt: media.alt } );
+							const newImageURL =
+								!! media.sizes && !! media.sizes.large
+									? media.sizes.large.url
+									: media.url;
+							setAttributes( {
+								imageURL: newImageURL,
+								imageID: media.id,
+								imageAlt: media.alt,
+							} );
 						} }
-						removeHandler={ () => setAttributes( { imageURL: '', imageAlt: '', imageID: 0 } ) }
+						removeHandler={ () =>
+							setAttributes( {
+								imageURL: '',
+								imageAlt: '',
+								imageID: 0,
+							} )
+						}
 						isSelected={ isSelected }
 					/>
 				</div>
 
-				{ ( ! RichText.isEmpty( caption ) || isSelected ) &&
+				{ ( ! RichText.isEmpty( caption ) || isSelected ) && (
 					<RichText
 						className="smb-slider__item__caption"
-						placeholder={ __( 'Write caption...', 'snow-monkey-blocks' ) }
+						placeholder={ __(
+							'Write caption...',
+							'snow-monkey-blocks'
+						) }
 						value={ caption }
-						onChange={ ( value ) => setAttributes( { caption: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { caption: value } )
+						}
 					/>
-				}
+				) }
 			</Fragment>
 		);
 	};
@@ -60,11 +69,18 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 	return (
 		<Fragment>
 			<InspectorControls>
-				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
-					<BaseControl label={ __( 'URL', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/slider/item/url">
+				<PanelBody
+					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+				>
+					<BaseControl
+						label={ __( 'URL', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/slider/item/url"
+					>
 						<URLInput
 							value={ url }
-							onChange={ ( value ) => setAttributes( { url: value } ) }
+							onChange={ ( value ) =>
+								setAttributes( { url: value } )
+							}
 						/>
 					</BaseControl>
 
@@ -81,7 +97,9 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 								label: __( '_blank', 'snow-monkey-blocks' ),
 							},
 						] }
-						onChange={ ( value ) => setAttributes( { target: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { target: value } )
+						}
 					/>
 				</PanelBody>
 			</InspectorControls>
@@ -91,7 +109,9 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 					className={ classes }
 					href={ url }
 					target={ '_self' === target ? undefined : target }
-					rel={ '_self' === target ? undefined : 'noopener noreferrer' }
+					rel={
+						'_self' === target ? undefined : 'noopener noreferrer'
+					}
 				>
 					<Item />
 				</span>

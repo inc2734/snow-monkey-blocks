@@ -1,15 +1,28 @@
 'use strict';
 
 import classnames from 'classnames';
+
+import { RichText, InnerBlocks } from '@wordpress/block-editor';
+
 import { divider } from '../../../src/js/helper/helper';
 
-import {
-	RichText,
-	InnerBlocks,
-} from '@wordpress/block-editor';
-
 export default function( { attributes, className } ) {
-	const { wrapperTagName, titleTagName, title, backgroundColor, backgroundColor2, backgroundColorAngle, textColor, isSlim, topDividerType, topDividerLevel, topDividerColor, bottomDividerType, bottomDividerLevel, bottomDividerColor } = attributes;
+	const {
+		wrapperTagName,
+		titleTagName,
+		title,
+		backgroundColor,
+		backgroundColor2,
+		backgroundColorAngle,
+		textColor,
+		isSlim,
+		topDividerType,
+		topDividerLevel,
+		topDividerColor,
+		bottomDividerType,
+		bottomDividerLevel,
+		bottomDividerColor,
+	} = attributes;
 
 	const Wrapper = wrapperTagName;
 
@@ -27,12 +40,9 @@ export default function( { attributes, className } ) {
 		`smb-section__divider--${ bottomDividerType }`
 	);
 
-	const containerClasses = classnames(
-		'c-container',
-		{
-			'u-slim-width': !! isSlim,
-		}
-	);
+	const containerClasses = classnames( 'c-container', {
+		'u-slim-width': !! isSlim,
+	} );
 
 	const sectionStyles = {};
 	if ( textColor ) {
@@ -52,27 +62,36 @@ export default function( { attributes, className } ) {
 
 	return (
 		<Wrapper className={ classes } style={ sectionStyles }>
-			{ !! topDividerLevel &&
+			{ !! topDividerLevel && (
 				<div className={ topDividerClasses }>
-					{ divider( topDividerType, topDividerLevel, topDividerColor ) }
+					{ divider(
+						topDividerType,
+						topDividerLevel,
+						topDividerColor
+					) }
 				</div>
-			}
+			) }
 
-			{ !! bottomDividerLevel &&
+			{ !! bottomDividerLevel && (
 				<div className={ bottomDividerClasses }>
-					{ divider( bottomDividerType, bottomDividerLevel, bottomDividerColor ) }
+					{ divider(
+						bottomDividerType,
+						bottomDividerLevel,
+						bottomDividerColor
+					) }
 				</div>
-			}
+			) }
 
 			<div className="smb-section__inner" style={ innerStyles }>
 				<div className={ containerClasses }>
-					{ ! RichText.isEmpty( title ) && 'none' !== titleTagName &&
-						<RichText.Content
-							tagName={ titleTagName }
-							className="smb-section__title"
-							value={ title }
-						/>
-					}
+					{ ! RichText.isEmpty( title ) &&
+						'none' !== titleTagName && (
+							<RichText.Content
+								tagName={ titleTagName }
+								className="smb-section__title"
+								value={ title }
+							/>
+						) }
 
 					<div className="smb-section__body">
 						<InnerBlocks.Content />

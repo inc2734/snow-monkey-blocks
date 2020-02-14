@@ -2,21 +2,27 @@
 
 import classnames from 'classnames';
 
-import {
-	RichText,
-} from '@wordpress/block-editor';
+import { RichText } from '@wordpress/block-editor';
 
 export default function( { attributes, className } ) {
-	const { content, url, target, modifier, backgroundColor, textColor } = attributes;
+	const {
+		content,
+		url,
+		target,
+		modifier,
+		backgroundColor,
+		textColor,
+	} = attributes;
 
-	const wrapperClasses = classnames( 'u-clearfix', 'smb-btn-wrapper', className );
-
-	const classes = classnames(
-		'smb-btn',
-		{
-			[ `smb-btn--${ modifier }` ]: !! modifier,
-		}
+	const wrapperClasses = classnames(
+		'u-clearfix',
+		'smb-btn-wrapper',
+		className
 	);
+
+	const classes = classnames( 'smb-btn', {
+		[ `smb-btn--${ modifier }` ]: !! modifier,
+	} );
 
 	const btnStyles = {
 		backgroundColor: backgroundColor || undefined,

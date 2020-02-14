@@ -2,21 +2,16 @@
 
 import classnames from 'classnames';
 
-import {
-	InnerBlocks,
-} from '@wordpress/block-editor';
+import { InnerBlocks } from '@wordpress/block-editor';
 
 export default function( { attributes, className } ) {
 	const { isSlim } = attributes;
 
 	const classes = classnames( 'smb-container', 'c-container', className );
 
-	const bodyClasses = classnames(
-		'smb-container__body',
-		{
-			'u-slim-width': !! isSlim,
-		}
-	);
+	const bodyClasses = classnames( 'smb-container__body', {
+		'u-slim-width': !! isSlim,
+	} );
 
 	return (
 		<div className={ classes }>

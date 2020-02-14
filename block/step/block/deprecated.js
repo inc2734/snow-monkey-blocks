@@ -1,18 +1,10 @@
 'use strict';
 
-import {
-	get,
-	times,
-} from 'lodash';
+import { get, times } from 'lodash';
 
-import {
-	RichText,
-	InnerBlocks,
-} from '@wordpress/block-editor';
+import { RichText, InnerBlocks } from '@wordpress/block-editor';
 
-import {
-	createBlock,
-} from '@wordpress/blocks';
+import { createBlock } from '@wordpress/blocks';
 
 export default [
 	{
@@ -102,19 +94,62 @@ export default [
 
 		migrate( attributes ) {
 			const migratedInnerBlocks = () => {
-				const length = ( 'undefined' === typeof attributes.content ) ? 0 : attributes.content.length;
+				const length =
+					'undefined' === typeof attributes.content
+						? 0
+						: attributes.content.length;
 
 				return times( length, ( index ) => {
-					const title = get( attributes.content, [ index, 'title' ], '' );
-					const summary = get( attributes.content, [ index, 'summary' ], '' );
-					const numberColor = get( attributes.content, [ index, 'numberColor' ], null );
-					const imagePosition = get( attributes.content, [ index, 'imagePosition' ], 'left' );
-					const imageID = get( attributes.content, [ index, 'imageID' ], 0 );
-					const imageURL = get( attributes.content, [ index, 'imageURL' ], '' );
-					const linkURL = get( attributes.content, [ index, 'linkURL' ], '' );
-					const linkTarget = get( attributes.content, [ index, 'linkTarget' ], '_self' );
-					const linkLabel = get( attributes.content, [ index, 'linkLabel' ], '' );
-					const linkColor = get( attributes.content, [ index, 'linkColor' ], '' );
+					const title = get(
+						attributes.content,
+						[ index, 'title' ],
+						''
+					);
+					const summary = get(
+						attributes.content,
+						[ index, 'summary' ],
+						''
+					);
+					const numberColor = get(
+						attributes.content,
+						[ index, 'numberColor' ],
+						null
+					);
+					const imagePosition = get(
+						attributes.content,
+						[ index, 'imagePosition' ],
+						'left'
+					);
+					const imageID = get(
+						attributes.content,
+						[ index, 'imageID' ],
+						0
+					);
+					const imageURL = get(
+						attributes.content,
+						[ index, 'imageURL' ],
+						''
+					);
+					const linkURL = get(
+						attributes.content,
+						[ index, 'linkURL' ],
+						''
+					);
+					const linkTarget = get(
+						attributes.content,
+						[ index, 'linkTarget' ],
+						'_self'
+					);
+					const linkLabel = get(
+						attributes.content,
+						[ index, 'linkLabel' ],
+						''
+					);
+					const linkColor = get(
+						attributes.content,
+						[ index, 'linkColor' ],
+						''
+					);
 
 					return createBlock( 'snow-monkey-blocks/step--item', {
 						title,
@@ -131,35 +166,84 @@ export default [
 				} );
 			};
 
-			return [
-				{},
-				migratedInnerBlocks(),
-			];
+			return [ {}, migratedInnerBlocks() ];
 		},
 
 		save( { attributes } ) {
 			const { content } = attributes;
-			const length = ( 'undefined' === typeof attributes.content ) ? 0 : attributes.content.length;
+			const length =
+				'undefined' === typeof attributes.content
+					? 0
+					: attributes.content.length;
 
 			return (
 				<div className="smb-step">
 					<div className="smb-step__body">
 						{ times( length, ( index ) => {
-							const title = get( content, [ index, 'title' ], '' );
-							const summary = get( content, [ index, 'summary' ], '' );
-							const numberColor = get( content, [ index, 'numberColor' ], null );
-							const imagePosition = get( content, [ index, 'imagePosition' ], 'left' );
-							const imageID = get( content, [ index, 'imageID' ], 0 );
-							const imageURL = get( content, [ index, 'imageURL' ], '' );
-							const linkURL = get( content, [ index, 'linkURL' ], '' );
-							const linkTarget = get( content, [ index, 'linkTarget' ], '_self' );
-							const linkLabel = get( content, [ index, 'linkLabel' ], '' );
-							const linkColor = get( content, [ index, 'linkColor' ], '' );
+							const title = get(
+								content,
+								[ index, 'title' ],
+								''
+							);
+							const summary = get(
+								content,
+								[ index, 'summary' ],
+								''
+							);
+							const numberColor = get(
+								content,
+								[ index, 'numberColor' ],
+								null
+							);
+							const imagePosition = get(
+								content,
+								[ index, 'imagePosition' ],
+								'left'
+							);
+							const imageID = get(
+								content,
+								[ index, 'imageID' ],
+								0
+							);
+							const imageURL = get(
+								content,
+								[ index, 'imageURL' ],
+								''
+							);
+							const linkURL = get(
+								content,
+								[ index, 'linkURL' ],
+								''
+							);
+							const linkTarget = get(
+								content,
+								[ index, 'linkTarget' ],
+								'_self'
+							);
+							const linkLabel = get(
+								content,
+								[ index, 'linkLabel' ],
+								''
+							);
+							const linkColor = get(
+								content,
+								[ index, 'linkColor' ],
+								''
+							);
 
 							return (
-								<div className={ `smb-step__item smb-step__item--image-${ imagePosition }` } data-image-position={ imagePosition }>
+								<div
+									className={ `smb-step__item smb-step__item--image-${ imagePosition }` }
+									data-image-position={ imagePosition }
+								>
 									<div className="smb-step__item__title">
-										<div className="smb-step__item__number" data-number-color={ numberColor } style={ { backgroundColor: numberColor } }>
+										<div
+											className="smb-step__item__number"
+											data-number-color={ numberColor }
+											style={ {
+												backgroundColor: numberColor,
+											} }
+										>
 											{ index + 1 }
 										</div>
 										<span>
@@ -167,18 +251,25 @@ export default [
 										</span>
 									</div>
 
-									{ !! imageID &&
+									{ !! imageID && (
 										<div className="smb-step__item__figure">
-											<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } data-image-id={ imageID } />
+											<img
+												src={ imageURL }
+												alt=""
+												className={ `wp-image-${ imageID }` }
+												data-image-id={ imageID }
+											/>
 										</div>
-									}
+									) }
 
 									<div className="smb-step__item__body">
 										<div className="smb-step__item__summary">
-											<RichText.Content value={ summary } />
+											<RichText.Content
+												value={ summary }
+											/>
 										</div>
 
-										{ ! RichText.isEmpty( linkLabel ) &&
+										{ ! RichText.isEmpty( linkLabel ) && (
 											<a
 												className="smb-step__item__link"
 												href={ linkURL }
@@ -188,10 +279,12 @@ export default [
 											>
 												<i className="fas fa-arrow-circle-right" />
 												<span className="smb-step__item__link__label">
-													<RichText.Content value={ linkLabel } />
+													<RichText.Content
+														value={ linkLabel }
+													/>
 												</span>
 											</a>
-										}
+										) }
 									</div>
 								</div>
 							);
@@ -276,20 +369,65 @@ export default [
 				<div className="smb-step">
 					<div className="smb-step__body">
 						{ times( rows, ( index ) => {
-							const title = get( content, [ index, 'title' ], '' );
-							const summary = get( content, [ index, 'summary' ], '' );
-							const numberColor = get( content, [ index, 'numberColor' ], null );
-							const imagePosition = get( content, [ index, 'imagePosition' ], 'left' );
-							const imageID = get( content, [ index, 'imageID' ], 0 );
-							const imageURL = get( content, [ index, 'imageURL' ], '' );
-							const linkURL = get( content, [ index, 'linkURL' ], '' );
-							const linkTarget = get( content, [ index, 'linkTarget' ], '_self' );
-							const linkLabel = get( content, [ index, 'linkLabel' ], '' );
+							const title = get(
+								content,
+								[ index, 'title' ],
+								''
+							);
+							const summary = get(
+								content,
+								[ index, 'summary' ],
+								''
+							);
+							const numberColor = get(
+								content,
+								[ index, 'numberColor' ],
+								null
+							);
+							const imagePosition = get(
+								content,
+								[ index, 'imagePosition' ],
+								'left'
+							);
+							const imageID = get(
+								content,
+								[ index, 'imageID' ],
+								0
+							);
+							const imageURL = get(
+								content,
+								[ index, 'imageURL' ],
+								''
+							);
+							const linkURL = get(
+								content,
+								[ index, 'linkURL' ],
+								''
+							);
+							const linkTarget = get(
+								content,
+								[ index, 'linkTarget' ],
+								'_self'
+							);
+							const linkLabel = get(
+								content,
+								[ index, 'linkLabel' ],
+								''
+							);
 
 							return (
-								<div className={ `smb-step__item smb-step__item--image-${ imagePosition }` } data-image-position={ imagePosition }>
+								<div
+									className={ `smb-step__item smb-step__item--image-${ imagePosition }` }
+									data-image-position={ imagePosition }
+								>
 									<div className="smb-step__item__title">
-										<div className="smb-step__item__number" data-number-color={ numberColor } style={ { backgroundColor: numberColor } }>
+										<div
+											className="smb-step__item__number"
+											data-number-color={ numberColor }
+											style={ {
+												backgroundColor: numberColor,
+											} }
+										>
 											{ index + 1 }
 										</div>
 										<span>
@@ -297,25 +435,39 @@ export default [
 										</span>
 									</div>
 
-									{ !! imageID &&
+									{ !! imageID && (
 										<div className="smb-step__item__figure">
-											<img src={ imageURL } alt="" className={ `wp-image-${ imageID }` } data-image-id={ imageID } />
+											<img
+												src={ imageURL }
+												alt=""
+												className={ `wp-image-${ imageID }` }
+												data-image-id={ imageID }
+											/>
 										</div>
-									}
+									) }
 
 									<div className="smb-step__item__body">
 										<div className="smb-step__item__summary">
-											<RichText.Content value={ summary } />
+											<RichText.Content
+												value={ summary }
+											/>
 										</div>
 
-										{ ! RichText.isEmpty( linkLabel ) && !! linkURL &&
-											<a className="smb-step__item__link" href={ linkURL } target={ linkTarget }>
-												<i className="fas fa-arrow-circle-right" />
-												<span className="smb-step__item__link__label">
-													<RichText.Content value={ linkLabel } />
-												</span>
-											</a>
-										}
+										{ ! RichText.isEmpty( linkLabel ) &&
+											!! linkURL && (
+												<a
+													className="smb-step__item__link"
+													href={ linkURL }
+													target={ linkTarget }
+												>
+													<i className="fas fa-arrow-circle-right" />
+													<span className="smb-step__item__link__label">
+														<RichText.Content
+															value={ linkLabel }
+														/>
+													</span>
+												</a>
+											) }
 									</div>
 								</div>
 							);
@@ -400,20 +552,65 @@ export default [
 				<div className="smb-step">
 					<div className="smb-step__body">
 						{ times( rows, ( index ) => {
-							const title = get( content, [ index, 'title' ], '' );
-							const summary = get( content, [ index, 'summary' ], '' );
-							const numberColor = get( content, [ index, 'numberColor' ], null );
-							const imagePosition = get( content, [ index, 'imagePosition' ], 'left' );
-							const imageID = get( content, [ index, 'imageID' ], 0 );
-							const imageURL = get( content, [ index, 'imageURL' ], '' );
-							const linkURL = get( content, [ index, 'linkURL' ], '' );
-							const linkTarget = get( content, [ index, 'linkTarget' ], '_self' );
-							const linkLabel = get( content, [ index, 'linkLabel' ], '' );
+							const title = get(
+								content,
+								[ index, 'title' ],
+								''
+							);
+							const summary = get(
+								content,
+								[ index, 'summary' ],
+								''
+							);
+							const numberColor = get(
+								content,
+								[ index, 'numberColor' ],
+								null
+							);
+							const imagePosition = get(
+								content,
+								[ index, 'imagePosition' ],
+								'left'
+							);
+							const imageID = get(
+								content,
+								[ index, 'imageID' ],
+								0
+							);
+							const imageURL = get(
+								content,
+								[ index, 'imageURL' ],
+								''
+							);
+							const linkURL = get(
+								content,
+								[ index, 'linkURL' ],
+								''
+							);
+							const linkTarget = get(
+								content,
+								[ index, 'linkTarget' ],
+								'_self'
+							);
+							const linkLabel = get(
+								content,
+								[ index, 'linkLabel' ],
+								''
+							);
 
 							return (
-								<div className={ `smb-step__item smb-step__item--image-${ imagePosition }` } data-image-position={ imagePosition }>
+								<div
+									className={ `smb-step__item smb-step__item--image-${ imagePosition }` }
+									data-image-position={ imagePosition }
+								>
 									<div className="smb-step__item__title">
-										<div className="smb-step__item__number" data-number-color={ numberColor } style={ { backgroundColor: numberColor } }>
+										<div
+											className="smb-step__item__number"
+											data-number-color={ numberColor }
+											style={ {
+												backgroundColor: numberColor,
+											} }
+										>
 											{ index + 1 }
 										</div>
 										<span>
@@ -421,25 +618,38 @@ export default [
 										</span>
 									</div>
 
-									{ !! imageID &&
+									{ !! imageID && (
 										<div className="smb-step__item__figure">
-											<img src={ imageURL } alt="" data-image-id={ imageID } />
+											<img
+												src={ imageURL }
+												alt=""
+												data-image-id={ imageID }
+											/>
 										</div>
-									}
+									) }
 
 									<div className="smb-step__item__body">
 										<div className="smb-step__item__summary">
-											<RichText.Content value={ summary } />
+											<RichText.Content
+												value={ summary }
+											/>
 										</div>
 
-										{ ! RichText.isEmpty( linkLabel ) && !! linkURL &&
-											<a className="smb-step__item__link" href={ linkURL } target={ linkTarget }>
-												<i className="fas fa-arrow-circle-right" />
-												<span className="smb-step__item__link__label">
-													<RichText.Content value={ linkLabel } />
-												</span>
-											</a>
-										}
+										{ ! RichText.isEmpty( linkLabel ) &&
+											!! linkURL && (
+												<a
+													className="smb-step__item__link"
+													href={ linkURL }
+													target={ linkTarget }
+												>
+													<i className="fas fa-arrow-circle-right" />
+													<span className="smb-step__item__link__label">
+														<RichText.Content
+															value={ linkLabel }
+														/>
+													</span>
+												</a>
+											) }
 									</div>
 								</div>
 							);

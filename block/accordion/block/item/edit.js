@@ -1,25 +1,16 @@
 'use strict';
 
-import {
-	PanelBody,
-	CheckboxControl,
-} from '@wordpress/components';
+import classnames from 'classnames';
+
+import { PanelBody, CheckboxControl } from '@wordpress/components';
+import { Fragment } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 import {
 	InspectorControls,
 	RichText,
 	InnerBlocks,
 } from '@wordpress/block-editor';
-
-import {
-	Fragment,
-} from '@wordpress/element';
-
-import {
-	__,
-} from '@wordpress/i18n';
-
-import classnames from 'classnames';
 
 export default function( { attributes, setAttributes, className } ) {
 	const { title, initialState } = attributes;
@@ -29,11 +20,18 @@ export default function( { attributes, setAttributes, className } ) {
 	return (
 		<Fragment>
 			<InspectorControls>
-				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
+				<PanelBody
+					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+				>
 					<CheckboxControl
-						label={ __( 'Display in open state', 'snow-monkey-blocks' ) }
+						label={ __(
+							'Display in open state',
+							'snow-monkey-blocks'
+						) }
 						checked={ initialState }
-						onChange={ ( value ) => setAttributes( { initialState: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { initialState: value } )
+						}
 					/>
 				</PanelBody>
 			</InspectorControls>
@@ -43,8 +41,13 @@ export default function( { attributes, setAttributes, className } ) {
 					<div className="smb-accordion__item__title__label">
 						<RichText
 							value={ title }
-							onChange={ ( value ) => setAttributes( { title: value } ) }
-							placeholder={ __( 'Enter title here', 'snow-monkey-blocks' ) }
+							onChange={ ( value ) =>
+								setAttributes( { title: value } )
+							}
+							placeholder={ __(
+								'Enter title here',
+								'snow-monkey-blocks'
+							) }
 						/>
 					</div>
 					<div className="smb-accordion__item__title__icon">

@@ -48,7 +48,8 @@ export default {
 		type: 'string',
 		default: '#fff',
 	},
-	contentsWidth: { // deprecated
+	contentsWidth: {
+		// deprecated
 		type: 'boolean',
 		default: false,
 	},

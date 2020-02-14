@@ -1,8 +1,6 @@
 'use strict';
 
-import {
-	InnerBlocks,
-} from '@wordpress/block-editor';
+import { InnerBlocks } from '@wordpress/block-editor';
 
 export default [
 	{

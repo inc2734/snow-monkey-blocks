@@ -1,5 +1,7 @@
 'use strict';
 
+import { __ } from '@wordpress/i18n';
+
 import blockConfig from '../../../src/js/config/block';
 import attributes from './attributes';
 import edit from './edit';
@@ -8,15 +10,14 @@ import deprecated from './deprecated';
 import transforms from './transforms';
 import example from './example';
 
-import {
-	__,
-} from '@wordpress/i18n';
-
 export const name = 'snow-monkey-blocks/alert';
 
 export const settings = {
 	title: __( 'Alert', 'snow-monkey-blocks' ),
-	description: __( 'It is a block that warns visitors.', 'snow-monkey-blocks' ),
+	description: __(
+		'It is a block that warns visitors.',
+		'snow-monkey-blocks'
+	),
 	icon: {
 		foreground: blockConfig.blockIconColor,
 		src: 'warning',

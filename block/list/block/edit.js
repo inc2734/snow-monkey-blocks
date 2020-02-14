@@ -1,30 +1,17 @@
 'use strict';
 
 import classnames from 'classnames';
+import { times } from 'lodash';
 
-import {
-	times,
-} from 'lodash';
-
-import {
-	PanelBody,
-	BaseControl,
-	Button,
-} from '@wordpress/components';
+import { PanelBody, BaseControl, Button } from '@wordpress/components';
+import { Fragment } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 import {
 	RichText,
 	InspectorControls,
 	PanelColorSettings,
 } from '@wordpress/block-editor';
-
-import {
-	Fragment,
-} from '@wordpress/element';
-
-import {
-	__,
-} from '@wordpress/i18n';
 
 export default function( { attributes, setAttributes, className } ) {
 	const { content, icon, iconColor } = attributes;
@@ -73,8 +60,13 @@ export default function( { attributes, setAttributes, className } ) {
 	return (
 		<Fragment>
 			<InspectorControls>
-				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
-					<BaseControl label={ __( 'Icon', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/list/icon">
+				<PanelBody
+					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+				>
+					<BaseControl
+						label={ __( 'Icon', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/list/icon"
+					>
 						<div className="smb-list-icon-selector">
 							{ times( iconList.length, ( index ) => {
 								const value = iconList[ index ].value;
@@ -83,9 +75,14 @@ export default function( { attributes, setAttributes, className } ) {
 									<Button
 										isDefault
 										isPrimary={ icon === value }
-										onClick={ () => setAttributes( { icon: value } ) }
+										onClick={ () =>
+											setAttributes( { icon: value } )
+										}
 									>
-										<i className={ `fas fa-${ iconList[ index ].value }` } title={ iconList[ index ].label } />
+										<i
+											className={ `fas fa-${ iconList[ index ].value }` }
+											title={ iconList[ index ].label }
+										/>
 									</Button>
 								);
 							} ) }
@@ -99,20 +96,26 @@ export default function( { attributes, setAttributes, className } ) {
 					colorSettings={ [
 						{
 							value: iconColor,
-							onChange: ( value ) => setAttributes( { iconColor: value } ),
+							onChange: ( value ) =>
+								setAttributes( { iconColor: value } ),
 							label: __( 'Icon Color', 'snow-monkey-blocks' ),
 						},
 					] }
-				>
-				</PanelColorSettings>
+				></PanelColorSettings>
 			</InspectorControls>
 
-			<div className={ classes } data-icon={ icon } data-icon-color={ iconColor }>
+			<div
+				className={ classes }
+				data-icon={ icon }
+				data-icon-color={ iconColor }
+			>
 				<RichText
 					tagName="ul"
 					multiline="li"
 					value={ content }
-					onChange={ ( value ) => setAttributes( { content: value } ) }
+					onChange={ ( value ) =>
+						setAttributes( { content: value } )
+					}
 				/>
 			</div>
 		</Fragment>

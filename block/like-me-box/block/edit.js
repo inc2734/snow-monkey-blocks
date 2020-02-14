@@ -1,20 +1,9 @@
 'use strict';
 
-import {
-	PanelBody,
-	Placeholder,
-	TextControl,
-} from '@wordpress/components';
-
+import { PanelBody, Placeholder, TextControl } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
-
-import {
-	InspectorControls,
-} from '@wordpress/block-editor';
-
-import {
-	__,
-} from '@wordpress/i18n';
+import { InspectorControls } from '@wordpress/block-editor';
+import { __ } from '@wordpress/i18n';
 
 export default function( { attributes, setAttributes } ) {
 	const { pageName } = attributes;
@@ -22,11 +11,18 @@ export default function( { attributes, setAttributes } ) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
+				<PanelBody
+					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+				>
 					<TextControl
-						label={ __( 'Facebook page name', 'snow-monkey-blocks' ) }
+						label={ __(
+							'Facebook page name',
+							'snow-monkey-blocks'
+						) }
 						value={ pageName }
-						onChange={ ( value ) => setAttributes( { pageName: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { pageName: value } )
+						}
 					/>
 				</PanelBody>
 			</InspectorControls>
@@ -36,7 +32,10 @@ export default function( { attributes, setAttributes } ) {
 					icon="thumbs-up"
 					label={ __( 'Like me box', 'snow-monkey-blocks' ) }
 				>
-					{ __( 'Please input "Facebook page name"', 'snow-monkey-blocks' ) }
+					{ __(
+						'Please input "Facebook page name"',
+						'snow-monkey-blocks'
+					) }
 				</Placeholder>
 			) : (
 				<ServerSideRender

@@ -1,8 +1,9 @@
 'use strict';
 
 import classnames from 'classnames';
-import { toNumber } from '../../../../../src/js/helper/helper';
-import Figure from '../../../../../src/js/component/figure';
+
+import { Fragment } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 import {
 	PanelBody,
@@ -19,22 +20,35 @@ import {
 	URLInput,
 } from '@wordpress/block-editor';
 
-import {
-	Fragment,
-} from '@wordpress/element';
+import { toNumber } from '../../../../../src/js/helper/helper';
+import Figure from '../../../../../src/js/component/figure';
 
-import {
-	__,
-} from '@wordpress/i18n';
-
-export default function( { attributes, setAttributes, isSelected, className } ) {
-	const { title, lede, url, target, blur, textColor, maskColor, maskOpacity, imageSize, imageID, imageURL, imageAlt } = attributes;
+export default function( {
+	attributes,
+	setAttributes,
+	isSelected,
+	className,
+} ) {
+	const {
+		title,
+		lede,
+		url,
+		target,
+		blur,
+		textColor,
+		maskColor,
+		maskOpacity,
+		imageSize,
+		imageID,
+		imageURL,
+		imageAlt,
+	} = attributes;
 
 	const classes = classnames( 'c-row__col', className );
 	const bannerClasses = classnames(
 		'smb-items__banner',
 		`smb-items__banner--${ imageSize }`,
-		{ 'smb-items__banner--blur': blur },
+		{ 'smb-items__banner--blur': blur }
 	);
 
 	const styles = {
@@ -52,17 +66,35 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 	return (
 		<Fragment>
 			<InspectorControls>
-				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
-					<BaseControl label={ __( 'Image', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/items--banner/image">
+				<PanelBody
+					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+				>
+					<BaseControl
+						label={ __( 'Image', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/items--banner/image"
+					>
 						<Figure
 							src={ imageURL }
 							id={ imageID }
 							alt={ imageAlt }
 							selectHandler={ ( media ) => {
-								const newImageURL = !! media.sizes && !! media.sizes.large ? media.sizes.large.url : media.url;
-								setAttributes( { imageURL: newImageURL, imageID: media.id, imageAlt: media.alt } );
+								const newImageURL =
+									!! media.sizes && !! media.sizes.large
+										? media.sizes.large.url
+										: media.url;
+								setAttributes( {
+									imageURL: newImageURL,
+									imageID: media.id,
+									imageAlt: media.alt,
+								} );
 							} }
-							removeHandler={ () => setAttributes( { imageURL: '', imageAlt: '', imageID: 0 } ) }
+							removeHandler={ () =>
+								setAttributes( {
+									imageURL: '',
+									imageAlt: '',
+									imageID: 0,
+								} )
+							}
 							isSelected={ isSelected }
 						/>
 					</BaseControl>
@@ -84,28 +116,41 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 								label: __( '16:9', 'snow-monkey-blocks' ),
 							},
 						] }
-						onChange={ ( value ) => setAttributes( { imageSize: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { imageSize: value } )
+						}
 					/>
 
 					<ToggleControl
 						label={ __( 'Blur', 'snow-monkey-blocks' ) }
 						checked={ blur }
-						onChange={ ( value ) => setAttributes( { blur: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { blur: value } )
+						}
 					/>
 
 					<RangeControl
 						label={ __( 'Mask Opacity', 'snow-monkey-blocks' ) }
 						value={ maskOpacity }
-						onChange={ ( value ) => setAttributes( { maskOpacity: toNumber( value, 0, 1 ) } ) }
+						onChange={ ( value ) =>
+							setAttributes( {
+								maskOpacity: toNumber( value, 0, 1 ),
+							} )
+						}
 						min={ 0 }
 						max={ 1 }
 						step={ 0.1 }
 					/>
 
-					<BaseControl label={ __( 'URL', 'snow-monkey-blocks' ) } id="snow-monkey-blocks/items--banner/url">
+					<BaseControl
+						label={ __( 'URL', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/items--banner/url"
+					>
 						<URLInput
 							value={ url }
-							onChange={ ( value ) => setAttributes( { url: value } ) }
+							onChange={ ( value ) =>
+								setAttributes( { url: value } )
+							}
 						/>
 					</BaseControl>
 
@@ -122,7 +167,9 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 								label: __( '_blank', 'snow-monkey-blocks' ),
 							},
 						] }
-						onChange={ ( value ) => setAttributes( { target: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { target: value } )
+						}
 					/>
 				</PanelBody>
 
@@ -132,55 +179,79 @@ export default function( { attributes, setAttributes, isSelected, className } ) 
 					colorSettings={ [
 						{
 							value: maskColor,
-							onChange: ( value ) => setAttributes( { maskColor: value } ),
+							onChange: ( value ) =>
+								setAttributes( { maskColor: value } ),
 							label: __( 'Mask Color', 'snow-monkey-blocks' ),
 						},
 						{
 							value: textColor,
-							onChange: ( value ) => setAttributes( { textColor: value } ),
+							onChange: ( value ) =>
+								setAttributes( { textColor: value } ),
 							label: __( 'Text Color', 'snow-monkey-blocks' ),
 						},
 					] }
-				>
-				</PanelColorSettings>
+				></PanelColorSettings>
 			</InspectorControls>
 
 			<div className={ classes }>
 				<div className={ bannerClasses } style={ styles }>
 					<div className="smb-items__banner__figure">
-						{ 1 > maskOpacity &&
-							<div className="smb-items__banner__figure__mask" style={ maskStyles } />
-						}
+						{ 1 > maskOpacity && (
+							<div
+								className="smb-items__banner__figure__mask"
+								style={ maskStyles }
+							/>
+						) }
 						{ !! imageID ? (
-							<img src={ imageURL } alt={ imageAlt } className={ `wp-image-${ imageID }` } style={ imgStyles } />
+							<img
+								src={ imageURL }
+								alt={ imageAlt }
+								className={ `wp-image-${ imageID }` }
+								style={ imgStyles }
+							/>
 						) : (
-							<div className="smb-items__banner__figure__dummy" style={ imgStyles } />
+							<div
+								className="smb-items__banner__figure__dummy"
+								style={ imgStyles }
+							/>
 						) }
 					</div>
 
-					{ ( ! RichText.isEmpty( title ) || ! RichText.isEmpty( lede ) || isSelected ) &&
+					{ ( ! RichText.isEmpty( title ) ||
+						! RichText.isEmpty( lede ) ||
+						isSelected ) && (
 						<div className="smb-items__banner__body">
-							{ ( ! RichText.isEmpty( title ) || isSelected ) &&
+							{ ( ! RichText.isEmpty( title ) || isSelected ) && (
 								<RichText
 									className="smb-items__banner__title"
-									placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
+									placeholder={ __(
+										'Write title...',
+										'snow-monkey-blocks'
+									) }
 									value={ title }
-									onChange={ ( value ) => setAttributes( { title: value } ) }
+									onChange={ ( value ) =>
+										setAttributes( { title: value } )
+									}
 									keepPlaceholderOnFocus={ true }
 								/>
-							}
+							) }
 
-							{ ( ! RichText.isEmpty( lede ) || isSelected ) &&
+							{ ( ! RichText.isEmpty( lede ) || isSelected ) && (
 								<RichText
 									className="smb-items__banner__lede"
-									placeholder={ __( 'Write lede...', 'snow-monkey-blocks' ) }
+									placeholder={ __(
+										'Write lede...',
+										'snow-monkey-blocks'
+									) }
 									value={ lede }
-									onChange={ ( value ) => setAttributes( { lede: value } ) }
+									onChange={ ( value ) =>
+										setAttributes( { lede: value } )
+									}
 									keepPlaceholderOnFocus={ true }
 								/>
-							}
+							) }
 						</div>
-					}
+					) }
 				</div>
 			</div>
 		</Fragment>

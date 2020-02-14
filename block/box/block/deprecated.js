@@ -1,22 +1,30 @@
 'use strict';
 
-import blockAttributes from './attributes';
+import { InnerBlocks } from '@wordpress/block-editor';
 
-import {
-	InnerBlocks,
-} from '@wordpress/block-editor';
+import blockAttributes from './attributes';
 
 export default [
 	{
 		attributes: blockAttributes,
 
 		save( { attributes } ) {
-			const { backgroundColor, borderColor, textColor, borderWidth } = attributes;
+			const {
+				backgroundColor,
+				borderColor,
+				textColor,
+				borderWidth,
+			} = attributes;
 
 			return (
 				<div
 					className="smb-box"
-					style={ { backgroundColor, borderColor, color: textColor, borderWidth } }
+					style={ {
+						backgroundColor,
+						borderColor,
+						color: textColor,
+						borderWidth,
+					} }
 				>
 					<div className="smb-box__body">
 						<InnerBlocks.Content />

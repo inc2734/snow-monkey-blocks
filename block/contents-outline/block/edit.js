@@ -1,11 +1,9 @@
 'use strict';
 
-import {
-	remove,
-	union,
-	indexOf,
-	compact,
-} from 'lodash';
+import { remove, union, indexOf, compact } from 'lodash';
+
+import { Fragment } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 import {
 	InspectorControls,
@@ -18,14 +16,6 @@ import {
 	TextControl,
 	ToggleControl,
 } from '@wordpress/components';
-
-import {
-	Fragment,
-} from '@wordpress/element';
-
-import {
-	__,
-} from '@wordpress/i18n';
 
 export default function( { attributes, setAttributes } ) {
 	const { headings, moveToBefore1stHeading, myAnchor } = attributes;
@@ -45,35 +35,69 @@ export default function( { attributes, setAttributes } ) {
 	return (
 		<Fragment>
 			<InspectorControls>
-				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
+				<PanelBody
+					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+				>
 					<CheckboxControl
 						name="headings[]"
 						value="h2"
 						label={ __( 'Show h2', 'snow-monkey-blocks' ) }
-						checked={ -1 !== indexOf( headings.split( ',' ), 'h2' ) }
-						onChange={ ( isChecked ) => setAttributes( { headings: _generateNewHeadings( isChecked, 'h2' ) } ) }
+						checked={
+							-1 !== indexOf( headings.split( ',' ), 'h2' )
+						}
+						onChange={ ( isChecked ) =>
+							setAttributes( {
+								headings: _generateNewHeadings(
+									isChecked,
+									'h2'
+								),
+							} )
+						}
 					/>
 
 					<CheckboxControl
 						name="headings[]"
 						value="h3"
 						label={ __( 'Show h3', 'snow-monkey-blocks' ) }
-						checked={ -1 !== indexOf( headings.split( ',' ), 'h3' ) }
-						onChange={ ( isChecked ) => setAttributes( { headings: _generateNewHeadings( isChecked, 'h3' ) } ) }
+						checked={
+							-1 !== indexOf( headings.split( ',' ), 'h3' )
+						}
+						onChange={ ( isChecked ) =>
+							setAttributes( {
+								headings: _generateNewHeadings(
+									isChecked,
+									'h3'
+								),
+							} )
+						}
 					/>
 
 					<CheckboxControl
 						name="headings[]"
 						value="h4"
 						label={ __( 'Show h4', 'snow-monkey-blocks' ) }
-						checked={ -1 !== indexOf( headings.split( ',' ), 'h4' ) }
-						onChange={ ( isChecked ) => setAttributes( { headings: _generateNewHeadings( isChecked, 'h4' ) } ) }
+						checked={
+							-1 !== indexOf( headings.split( ',' ), 'h4' )
+						}
+						onChange={ ( isChecked ) =>
+							setAttributes( {
+								headings: _generateNewHeadings(
+									isChecked,
+									'h4'
+								),
+							} )
+						}
 					/>
 
 					<ToggleControl
-						label={ __( 'Move to before 1st heading', 'snow-monkey-blocks' ) }
+						label={ __(
+							'Move to before 1st heading',
+							'snow-monkey-blocks'
+						) }
 						checked={ moveToBefore1stHeading }
-						onChange={ ( value ) => setAttributes( { moveToBefore1stHeading: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { moveToBefore1stHeading: value } )
+						}
 					/>
 				</PanelBody>
 			</InspectorControls>
@@ -81,18 +105,32 @@ export default function( { attributes, setAttributes } ) {
 			<InspectorAdvancedControls>
 				<TextControl
 					label={ __( 'HTML Anchor', 'snow-monkey-blocks' ) }
-					help={ __( 'Anchors lets you link directly to a section on a page.', 'snow-monkey-blocks' ) }
+					help={ __(
+						'Anchors lets you link directly to a section on a page.',
+						'snow-monkey-blocks'
+					) }
 					value={ myAnchor || '' }
-					onChange={ ( value ) => setAttributes( { myAnchor: value.replace( /[\s#]/g, '-' ) } ) }
+					onChange={ ( value ) =>
+						setAttributes( {
+							myAnchor: value.replace( /[\s#]/g, '-' ),
+						} )
+					}
 				/>
 			</InspectorAdvancedControls>
 
 			<div className="wpco-wrapper" aria-hidden="false">
 				<div className="wpco">
-					<h2 className="wpco__title">{ __( 'Contents outline', 'snow-monkey-blocks' ) }</h2>
+					<h2 className="wpco__title">
+						{ __( 'Contents outline', 'snow-monkey-blocks' ) }
+					</h2>
 					<div className="contents-outline">
 						<ol>
-							<li>{ __( 'In the actual screen, it is displayed when headings exists on the page.', 'snow-monkey-blocks' ) }</li>
+							<li>
+								{ __(
+									'In the actual screen, it is displayed when headings exists on the page.',
+									'snow-monkey-blocks'
+								) }
+							</li>
 						</ol>
 					</div>
 				</div>

@@ -13,27 +13,23 @@ export default class Slider {
 				config.responsive = [];
 
 				if ( !! config.mdSlidesToShow && !! config.mdSlidesToScroll ) {
-					config.responsive.push(
-						{
-							breakpoint: 1023,
-							settings: {
-								slidesToShow: config.mdSlidesToShow,
-								slidesToScroll: config.mdSlidesToScroll,
-							},
-						}
-					);
+					config.responsive.push( {
+						breakpoint: 1023,
+						settings: {
+							slidesToShow: config.mdSlidesToShow,
+							slidesToScroll: config.mdSlidesToScroll,
+						},
+					} );
 				}
 
 				if ( !! config.smSlidesToShow && !! config.smSlidesToScroll ) {
-					config.responsive.push(
-						{
-							breakpoint: 639,
-							settings: {
-								slidesToShow: config.smSlidesToShow,
-								slidesToScroll: config.smSlidesToScroll,
-							},
-						}
-					);
+					config.responsive.push( {
+						breakpoint: 639,
+						settings: {
+							slidesToShow: config.smSlidesToShow,
+							slidesToScroll: config.smSlidesToScroll,
+						},
+					} );
 				}
 
 				config.autoplay = 0 < config.autoplaySpeed ? true : false;
@@ -44,14 +40,11 @@ export default class Slider {
 				delete config.smSlidesToShow;
 				delete config.smSlidesToScroll;
 
-				$( slider ).on(
-					'init',
-					() => {
-						const slickList = $( slider ).find( '.slick-list' );
-						slickList.prepend( $( slider ).find( '.slick-prev' ) );
-						slickList.append( $( slider ).find( '.slick-next' ) );
-					}
-				);
+				$( slider ).on( 'init', () => {
+					const slickList = $( slider ).find( '.slick-list' );
+					slickList.prepend( $( slider ).find( '.slick-prev' ) );
+					slickList.append( $( slider ).find( '.slick-next' ) );
+				} );
 
 				$( slider ).slick( config );
 			}

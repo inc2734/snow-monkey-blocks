@@ -2,18 +2,12 @@
 
 import classnames from 'classnames';
 
-import {
-	RichText,
-	InnerBlocks,
-} from '@wordpress/block-editor';
+import { RichText, InnerBlocks } from '@wordpress/block-editor';
 
 export default function( { attributes, className } ) {
 	const { title, numberColor } = attributes;
 
-	const classes = classnames(
-		'smb-step__item',
-		className
-	);
+	const classes = classnames( 'smb-step__item', className );
 
 	const itemNumberStyles = {
 		backgroundColor: numberColor || undefined,
@@ -22,7 +16,10 @@ export default function( { attributes, className } ) {
 	return (
 		<div className={ classes }>
 			<div className="smb-step__item__title">
-				<div className="smb-step__item__number" style={ itemNumberStyles } />
+				<div
+					className="smb-step__item__number"
+					style={ itemNumberStyles }
+				/>
 				<span>
 					<RichText.Content value={ title } />
 				</span>

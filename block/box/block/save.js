@@ -2,9 +2,7 @@
 
 import classnames from 'classnames';
 
-import {
-	InnerBlocks,
-} from '@wordpress/block-editor';
+import { InnerBlocks } from '@wordpress/block-editor';
 
 export default function( { attributes, className } ) {
 	const { backgroundColor, borderColor, textColor, borderWidth } = attributes;

@@ -18,15 +18,12 @@ export default class List {
 		}
 		iconWrapperHtml.appendChild( iconHtml );
 
-		forEachHtmlNodes(
-			list.querySelectorAll( 'li' ),
-			( item ) => {
-				const iconWrapper = item.querySelector( '.smb-list__icon' );
-				if ( !! iconWrapper ) {
-					item.removeChild( iconWrapper );
-				}
-				item.insertAdjacentHTML( 'afterbegin', iconWrapperHtml.outerHTML );
+		forEachHtmlNodes( list.querySelectorAll( 'li' ), ( item ) => {
+			const iconWrapper = item.querySelector( '.smb-list__icon' );
+			if ( !! iconWrapper ) {
+				item.removeChild( iconWrapper );
 			}
-		);
+			item.insertAdjacentHTML( 'afterbegin', iconWrapperHtml.outerHTML );
+		} );
 	}
 }

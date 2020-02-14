@@ -2,12 +2,13 @@
 
 import classnames from 'classnames';
 
-import {
-	InnerBlocks,
-} from '@wordpress/block-editor';
+import { InnerBlocks } from '@wordpress/block-editor';
 
 export default function( { className } ) {
-	const allowedBlocks = [ 'snow-monkey-blocks/step--item', 'snow-monkey-blocks/step--item--free' ];
+	const allowedBlocks = [
+		'snow-monkey-blocks/step--item',
+		'snow-monkey-blocks/step--item--free',
+	];
 	const template = [ [ 'snow-monkey-blocks/step--item--free' ] ];
 
 	const classes = classnames( 'smb-step', className );

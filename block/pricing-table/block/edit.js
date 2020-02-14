@@ -2,35 +2,18 @@
 
 import classnames from 'classnames';
 
-import {
-	PanelBody,
-	BaseControl,
-	SelectControl,
-} from '@wordpress/components';
-
-import {
-	InnerBlocks,
-	InspectorControls,
-} from '@wordpress/block-editor';
-
-import {
-	Fragment,
-} from '@wordpress/element';
-
-import {
-	__,
-} from '@wordpress/i18n';
+import { PanelBody, BaseControl, SelectControl } from '@wordpress/components';
+import { InnerBlocks, InspectorControls } from '@wordpress/block-editor';
+import { Fragment } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 export default function( { attributes, setAttributes, className } ) {
 	const { columnSize } = attributes;
 
-	const classes = classnames(
-		'smb-pricing-table',
-		{
-			[ `smb-pricing-table--col-size-${ columnSize }` ]: !! columnSize,
-			[ className ]: !! className,
-		}
-	);
+	const classes = classnames( 'smb-pricing-table', {
+		[ `smb-pricing-table--col-size-${ columnSize }` ]: !! columnSize,
+		[ className ]: !! className,
+	} );
 
 	const allowedBlocks = [ 'snow-monkey-blocks/pricing-table--item' ];
 	const template = [ [ 'snow-monkey-blocks/pricing-table--item' ] ];
@@ -38,11 +21,17 @@ export default function( { attributes, setAttributes, className } ) {
 	return (
 		<Fragment>
 			<InspectorControls>
-				<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
+				<PanelBody
+					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+				>
 					<BaseControl
 						label={ __( 'Column Size', 'snow-monkey-blocks' ) }
-						help={ __( 'If the text of each item is long, it is recommended to select other than "Auto".', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/pricing-table/column-size">
+						help={ __(
+							'If the text of each item is long, it is recommended to select other than "Auto".',
+							'snow-monkey-blocks'
+						) }
+						id="snow-monkey-blocks/pricing-table/column-size"
+					>
 						<SelectControl
 							value={ columnSize }
 							options={ [
@@ -67,7 +56,9 @@ export default function( { attributes, setAttributes, className } ) {
 									label: __( '100%', 'snow-monkey-blocks' ),
 								},
 							] }
-							onChange={ ( value ) => setAttributes( { columnSize: value } ) }
+							onChange={ ( value ) =>
+								setAttributes( { columnSize: value } )
+							}
 						/>
 					</BaseControl>
 				</PanelBody>

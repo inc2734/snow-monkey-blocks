@@ -17,7 +17,8 @@ export default {
 		type: 'boolean',
 		default: false,
 	},
-	itemTitleTagName: { // backward compatibility
+	itemTitleTagName: {
+		// backward compatibility
 		type: 'string',
 		default: 'div',
 	},
