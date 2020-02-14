@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2020-01-28 12:22+0900\n"
-"PO-Revision-Date: 2020-01-28 12:23+0900\n"
+"POT-Creation-Date: 2020-02-14 10:49+0900\n"
+"PO-Revision-Date: 2020-02-14 10:49+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -592,12 +592,12 @@ msgid "Move to before 1st heading"
 msgstr "最初の見出しの前に移動"
 
 #: block/contents-outline/block/edit.js:83 block/pickup-slider/block/edit.js:69
-#: block/recent-posts/block/edit.js:107 block/taxonomy-posts/block/edit.js:142
+#: block/recent-posts/block/edit.js:111 block/taxonomy-posts/block/edit.js:146
 msgid "HTML Anchor"
 msgstr "HTML アンカー"
 
 #: block/contents-outline/block/edit.js:84 block/pickup-slider/block/edit.js:70
-#: block/recent-posts/block/edit.js:108 block/taxonomy-posts/block/edit.js:143
+#: block/recent-posts/block/edit.js:112 block/taxonomy-posts/block/edit.js:147
 msgid "Anchors lets you link directly to a section on a page."
 msgstr ""
 "アンカーを使用すると、ページ上のセクションに直接リンクすることができます。"
@@ -1063,7 +1063,8 @@ msgstr "画像と文章を横並びのリッチなレイアウトにします。
 msgid "Set padding around images"
 msgstr "画像の周りに余白を設定"
 
-#: block/panels/block/index.js:17
+#: block/panels/block/index.js:17 block/recent-posts/block/edit.js:97
+#: block/taxonomy-posts/block/edit.js:132
 msgid "Panels"
 msgstr "パネル"
 
@@ -1218,7 +1219,7 @@ msgstr "シンプル"
 msgid "Text"
 msgstr "テキスト"
 
-#: block/recent-posts/block/edit.js:99 block/taxonomy-posts/block/edit.js:134
+#: block/recent-posts/block/edit.js:103 block/taxonomy-posts/block/edit.js:138
 msgid "Ignore sticky posts"
 msgstr "先頭固定表示を除外する"
 
@@ -1539,35 +1540,35 @@ msgstr "スライドアニメーション速度（ミリ秒）"
 msgid "Autoplay Speed in seconds"
 msgstr "自動再生の間隔（秒）"
 
-#: block/slider/block/edit.js:71
+#: block/slider/block/edit.js:72
 msgid "Enable fade"
 msgstr "フェードを有効にする"
 
-#: block/slider/block/edit.js:76
+#: block/slider/block/edit.js:77
 msgid "Change the slider's direction to become right-to-left"
 msgstr "スライダーの方向を右から左に変更"
 
-#: block/slider/block/edit.js:86
+#: block/slider/block/edit.js:87
 msgid "# of slides to show (Large window)"
 msgstr "表示するスライド数（ラージウインドウ）"
 
-#: block/slider/block/edit.js:93
+#: block/slider/block/edit.js:94
 msgid "# of slides to scroll (Large window)"
 msgstr "スクロールするスライド数（ラージウインドウ）"
 
-#: block/slider/block/edit.js:106
+#: block/slider/block/edit.js:107
 msgid "# of slides to show (Medium window)"
 msgstr "表示するスライド数（ミディアムウインドウ）"
 
-#: block/slider/block/edit.js:113
+#: block/slider/block/edit.js:114
 msgid "# of slides to scroll (Medium window)"
 msgstr "スクロールするスライド数（ミディアムウインドウ）"
 
-#: block/slider/block/edit.js:126
+#: block/slider/block/edit.js:127
 msgid "# of slides to show (Small window)"
 msgstr "表示するスライド数（スモールウインドウ）"
 
-#: block/slider/block/edit.js:133
+#: block/slider/block/edit.js:134
 msgid "# of slides to scroll (Small window)"
 msgstr "スクロールするスライド数（スモールウインドウ）"
 
