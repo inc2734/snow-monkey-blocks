@@ -7,7 +7,7 @@
     "@fortawesome/react-fontawesome": "^0.1.8",
     "@inc2734/for-each-html-nodes": "^0.4.0",
     "@wordpress/browserslist-config": "^2.6.0",
-    "@wordpress/scripts": "7.1.0",
+    "@wordpress/scripts": "7.1.2",
     "prettier": "npm:wp-prettier@1.19.1",
     "autoprefixer": "^9.7.4",
     "classnames": "^2.2.6",

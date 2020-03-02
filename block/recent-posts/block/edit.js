@@ -129,7 +129,7 @@ export default function( { attributes, setAttributes } ) {
 
 					<TextareaControl
 						label={ __(
-							'Text for no posts matched',
+							'Text if no posts matched',
 							'snow-monkey-blocks'
 						) }
 						help={ __( 'Allow HTML', 'snow-monkey-blocks' ) }
