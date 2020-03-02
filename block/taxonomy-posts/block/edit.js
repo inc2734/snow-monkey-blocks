@@ -18,6 +18,7 @@ import {
 	RangeControl,
 	ToggleControl,
 	TextControl,
+	TextareaControl,
 	TreeSelect,
 	Placeholder,
 	Spinner,
@@ -32,6 +33,7 @@ export default function( { attributes, setAttributes } ) {
 		postsPerPage,
 		layout,
 		ignoreStickyPosts,
+		noPostsText,
 		myAnchor,
 	} = attributes;
 
@@ -171,8 +173,21 @@ export default function( { attributes, setAttributes } ) {
 							setAttributes( { ignoreStickyPosts: value } )
 						}
 					/>
+
+					<TextareaControl
+						label={ __(
+							'Text for no posts matched',
+							'snow-monkey-blocks'
+						) }
+						help={ __( 'Allow HTML', 'snow-monkey-blocks' ) }
+						value={ noPostsText || '' }
+						onChange={ ( value ) =>
+							setAttributes( { noPostsText: value } )
+						}
+					/>
 				</PanelBody>
 			</InspectorControls>
+
 			<InspectorAdvancedControls>
 				<TextControl
 					label={ __( 'HTML Anchor', 'snow-monkey-blocks' ) }

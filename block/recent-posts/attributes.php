@@ -22,6 +22,10 @@ return [
 		'type'    => 'boolean',
 		'default' => true,
 	],
+	'noPostsText' => [
+		'type'    => 'string',
+		'default' => '',
+	],
 	'className' => [
 		'type'    => 'string',
 		'default' => '',
