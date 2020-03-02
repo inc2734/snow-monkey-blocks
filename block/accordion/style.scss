@@ -33,14 +33,19 @@
     }
 
     &__control {
-      @include _position(absolute, 0, 0, 0, 0, 1);
-      appearance: none;
-      display: block;
-      cursor: pointer;
-      height: 100%;
-      width: 100%;
-      opacity: 0;
-      outline: none;
+      position: absolute !important;
+      top: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      z-index: 1 !important;
+      appearance: none !important;
+      display: block !important;
+      cursor: pointer !important;
+      height: 100% !important;
+      width: 100% !important;
+      opacity: 0 !important;
+      outline: none !important;
     }
 
     &__body {
