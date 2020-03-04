@@ -6,15 +6,19 @@
   .smb-faq {
     &__item {
       &__question {
-        &__label + .editor-rich-text {
+        &__label + .block-editor-rich-text {
           flex: 1 1 auto;
         }
       }
 
       &__answer {
         &__body {
-          [data-block] {
-            margin-top: 0;
+          > .block-editor-inner-blocks {
+            > .block-editor-block-list__layout {
+              > .wp-block:first-child {
+                margin-top: 0;
+              }
+            }
           }
         }
       }

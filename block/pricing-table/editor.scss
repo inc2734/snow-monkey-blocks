@@ -21,7 +21,7 @@
         &.smb-pricing-table--col-size-#{$value} {
           white-space: normal;
 
-          > .#{$_prefix}c-row > .editor-inner-blocks  > .editor-block-list__layout > [data-type="snow-monkey-blocks/pricing-table--item"] {
+          > .#{$_prefix}c-row > .block-editor-inner-blocks  > .block-editor-block-list__layout > [data-type="snow-monkey-blocks/pricing-table--item"] {
             margin-right: 0;
             margin-left: 0;
             flex: 1 0 auto;
@@ -34,7 +34,7 @@
 
     &__item {
       // @todo
-      > .editor-rich-text > ul {
+      > .block-editor-rich-text > ul {
         @include _list-unstyled();
         @include _margin-top(.5);
       }
@@ -46,36 +46,18 @@
         width: auto;
       }
 
-      > .editor-inner-blocks {
+      > .block-editor-inner-blocks {
         flex: 1 1 auto;
 
-        > .editor-block-list__layout {
+        > .block-editor-block-list__layout {
           display: flex;
           flex-wrap: wrap;
 
           > [data-type="snow-monkey-blocks/pricing-table--item"] {
             @include _row__col(1, 1);
-            padding-right: 0;
-            padding-left: 0;
 
             @include _media-min(md) {
               @include _row__col--width(1);
-            }
-
-            > .editor-block-list__block-edit {
-              margin-right: 0 !important;
-              margin-left: 0 !important;
-
-              &::before {
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-              }
-
-              > [data-block] {
-                margin-top: 0;
-              }
             }
           }
 

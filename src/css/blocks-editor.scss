@@ -2,33 +2,44 @@
 
 @import 'core/block';
 
+
+.#{$_prefix}c-row {
+  > .block-editor-inner-blocks {
+    > .block-editor-block-list__layout {
+      > [data-type^="snow-monkey-blocks"] {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
 .#{$_prefix}c-row[data-columns] {
   margin: 0;
 
-  > .editor-inner-blocks {
+  > .block-editor-inner-blocks {
     flex: 1 1 0%;
 
-    > .editor-block-list__layout {
+    > .block-editor-block-list__layout {
       display: flex;
       flex-wrap: wrap;
 
       > [data-type^="snow-monkey-blocks"] {
         margin-right: 0;
         margin-left: 0;
-
-        > .editor-block-list__insertion-point,
-        > .components-drop-zone,
-        > .editor-block-mover {
-          display: none !important;
-        }
-
-        > .editor-block-list__block-edit > [data-block] {
-          margin-top: 0 !important;
-        }
       }
 
       > .block-list-appender {
         @include _row__col--width(100%);
+      }
+    }
+  }
+}
+
+&.#{$_prefix}c-row--margin {
+  > .block-editor-inner-blocks {
+    > .block-editor-block-list__layout {
+      > [data-type^="snow-monkey-blocks"] {
+        @include _row__col--margin(1);
       }
     }
   }
@@ -44,8 +55,8 @@
 
       @for $i from 1 through 6 {
         &[data#{$prefix}-columns="#{$i}"] {
-          > .editor-inner-blocks {
-            > .editor-block-list__layout {
+          > .block-editor-inner-blocks {
+            > .block-editor-block-list__layout {
               > [data-type^="snow-monkey-blocks"] {
                 @include _row__col--width(1 / $i * 100%);
               }
@@ -58,24 +69,14 @@
 }
 
 [data-type^="snow-monkey-blocks"] {
-  .editor-default-block-appender {
-    > .editor-default-block-appender__content {
+  .block-editor-default-block-appender {
+    > .block-editor-default-block-appender__content {
       margin-bottom: 0;
     }
   }
 
-  .editor-inner-blocks > .editor-block-list__layout {
-    div:first-child {
-      > .editor-default-block-appender {
-        > .editor-default-block-appender__content {
-          margin-top: 0;
-        }
-      }
-    }
-  }
-
   &.is-selected {
-    .editor-default-block-appender {
+    .block-editor-default-block-appender {
       outline: 1px dashed rgba(145, 151, 162, .25);
 
       @include _hover(lg) {
@@ -85,7 +86,7 @@
   }
 
   // Touchable parent block
-  .editor-inner-blocks {
+  .block-editor-inner-blocks {
     position: relative;
   }
 }
