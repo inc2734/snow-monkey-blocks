@@ -26,16 +26,18 @@ const actions = {
 
 export const name = 'snow-monkey-blocks/categories-list';
 
+const DEFAULT_STATE = {
+	articleCategories: {},
+};
+
 registerStore( name, {
-	reducer( state = { articleCategories: {} }, action ) {
+	reducer( state = DEFAULT_STATE, action ) {
 		switch ( action.type ) {
 			case 'SET_ARTICLE_CATEGORIES':
 				return {
 					...state,
 					articleCategories: action.articleCategories,
 				};
-			case 'RECEIVE_ARTICLE_CATEGORIES':
-				return action.articleCategories;
 		}
 		return state;
 	},
