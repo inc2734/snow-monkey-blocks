@@ -13,7 +13,7 @@ use Snow_Monkey\Plugin\Blocks;
 wp_register_script(
 	'snow-monkey-blocks/thumbnail-gallery',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/thumbnail-gallery/script.js',
-	[],
+	[ 'slick-carousel' ],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/thumbnail-gallery/script.js' ),
 	true
 );
