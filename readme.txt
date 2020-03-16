@@ -2,9 +2,15 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
+<<<<<<< HEAD
 Requires at least: 5.3
 Tested up to: 5.3
 Stable tag: 7.4.0
+=======
+Requires at least: 5.4
+Tested up to: 5.4
+Stable tag: 7.4.1
+>>>>>>> 8f712be... 7.4.1
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -111,6 +117,9 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 23. Price menu block (The number of items can be increased or decreased freely)
 
 == Changelog ==
+
+= 7.4.1 =
+* Minor refactoring of code.
 
 = 7.4.0 =
 * [Accordion] Fixed a bug that TwentyTwenty could not open / close.
