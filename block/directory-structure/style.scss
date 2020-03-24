@@ -4,6 +4,7 @@
 
 .smb-directory-structure {
   background-color: _lightest($_color-gray);
+  color: $_color-text;
   @include _padding(.75, 1);
 
   > *:not(:first-child) {

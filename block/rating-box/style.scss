@@ -18,7 +18,8 @@
       &__bar,
       &__rating {
         height: $_base-font-size-px;
-        border-radius: $_border-radius;
+        border-radius: $_border-radius; //for IE11
+        border-radius: _var-border-radius();
       }
 
       &__bar {

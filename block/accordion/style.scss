@@ -20,6 +20,7 @@
       display: flex;
       align-items: center;
       background-color: _lighter( $_color-gray );
+      color: $_color-text;
       @include _padding(.25, .5);
 
       &__label {

@@ -1,15 +1,13 @@
 'use strict';
 
 import forEachHtmlNodes from '@inc2734/for-each-html-nodes';
-import List from './list';
+import { apply } from './list';
 
 document.addEventListener(
 	'DOMContentLoaded',
 	() => {
-		forEachHtmlNodes(
-			document.querySelectorAll( '.smb-list' ),
-			( list ) => new List( list )
-		);
+		const lists = document.querySelectorAll( '.smb-list' );
+		forEachHtmlNodes( lists, ( list ) => apply( list ) );
 	},
 	false
 );

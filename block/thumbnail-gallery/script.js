@@ -1,9 +1,15 @@
 'use strict';
 
-import ThumbnailGallery from './thumbnail-gallery';
+import forEachHtmlNodes from '@inc2734/for-each-html-nodes';
+import { apply } from './thumbnail-gallery';
 
 document.addEventListener(
 	'DOMContentLoaded',
-	() => new ThumbnailGallery(),
+	() => {
+		const slider = document.querySelectorAll(
+			'.smb-thumbnail-gallery__canvas'
+		);
+		forEachHtmlNodes( slider, apply );
+	},
 	false
 );

@@ -2,13 +2,13 @@
 
 import { useEffect, useRef } from '@wordpress/element';
 
-import CategoriesList from '../categories-list';
+import { apply } from '../categories-list';
 
 export default function( { articleCategoriesList } ) {
 	const ulRef = useRef();
 
 	useEffect( () => {
-		setTimeout( () => new CategoriesList( ulRef.current ), 0 );
+		setTimeout( () => apply( ulRef.current ), 0 );
 	}, [ ulRef ] );
 
 	return (

@@ -1,68 +1,76 @@
 'use strict';
 
 import moment from 'moment';
-import forEachHtmlNodes from '@inc2734/for-each-html-nodes';
 
-export default class Countdown {
-	constructor() {
-		let daysDiff = 0;
-		let hoursDiff = 0;
-		let minutesDiff = 0;
-		let secondsDiff = 0;
-
-		const renderCountdownTimes = ( countdownNode ) => {
-			countdownNode.querySelector(
-				'.smb-countdown__list-item__days .smb-countdown__list-item__numeric'
-			).innerText = daysDiff;
-			countdownNode.querySelector(
-				'.smb-countdown__list-item__hours .smb-countdown__list-item__numeric'
-			).innerText = ( '00' + hoursDiff ).slice( -2 );
-			countdownNode.querySelector(
-				'.smb-countdown__list-item__minutes .smb-countdown__list-item__numeric'
-			).innerText = ( '00' + minutesDiff ).slice( -2 );
-			countdownNode.querySelector(
-				'.smb-countdown__list-item__seconds .smb-countdown__list-item__numeric'
-			).innerText = ( '00' + secondsDiff ).slice( -2 );
-		};
-
-		const countdownNodes = document.querySelectorAll(
-			'.smb-countdown__list'
-		);
-		forEachHtmlNodes( countdownNodes, ( countdownNode ) => {
-			const dataTime = countdownNode.getAttribute( 'data-time' );
-			if ( dataTime === undefined ) {
-				renderCountdownTimes( countdownNode );
-			}
-			const countDownTime = moment( dataTime );
-			if ( countDownTime === undefined ) {
-				renderCountdownTimes( countdownNode );
-			}
-			setInterval( function() {
-				const nowTime = moment();
-				daysDiff = Math.floor( countDownTime.diff( nowTime, 'days' ) );
-				if ( isNaN( daysDiff ) || daysDiff < 0 ) {
-					daysDiff = 0;
-				}
-				hoursDiff = Math.floor(
-					countDownTime.diff( nowTime, 'hours' ) % 24
-				);
-				if ( isNaN( hoursDiff ) || hoursDiff < 0 ) {
-					hoursDiff = 0;
-				}
-				minutesDiff = Math.floor(
-					countDownTime.diff( nowTime, 'minutes' ) % 60
-				);
-				if ( isNaN( minutesDiff ) || minutesDiff < 0 ) {
-					minutesDiff = 0;
-				}
-				secondsDiff = Math.floor(
-					countDownTime.diff( nowTime, 'seconds' ) % 60
-				);
-				if ( isNaN( secondsDiff ) || secondsDiff < 0 ) {
-					secondsDiff = 0;
-				}
-				renderCountdownTimes( countdownNode );
-			}, 1000 );
-		} );
+export function apply( countdownNode ) {
+	const dataTime = countdownNode.getAttribute( 'data-time' );
+	if ( undefined === dataTime ) {
+		return;
 	}
+
+	const limitedTime = moment( dataTime );
+	if ( undefined === limitedTime ) {
+		return;
+	}
+
+	const day = countdownNode.querySelector(
+		'.smb-countdown__list-item__days .smb-countdown__list-item__numeric'
+	);
+
+	const hour = countdownNode.querySelector(
+		'.smb-countdown__list-item__hours .smb-countdown__list-item__numeric'
+	);
+
+	const minute = countdownNode.querySelector(
+		'.smb-countdown__list-item__minutes .smb-countdown__list-item__numeric'
+	);
+
+	const second = countdownNode.querySelector(
+		'.smb-countdown__list-item__seconds .smb-countdown__list-item__numeric'
+	);
+
+	const sanitizeDiff = ( diff ) => {
+		return isNaN( diff ) || 0 > diff ? 0 : diff;
+	};
+
+	const setDaysDiff = ( currentTime ) => {
+		const diff = Math.floor( limitedTime.diff( currentTime, 'days' ) );
+		return sanitizeDiff( diff );
+	};
+
+	const setHoursDiff = ( currentTime ) => {
+		const diff = Math.floor(
+			limitedTime.diff( currentTime, 'hours' ) % 24
+		);
+		return sanitizeDiff( diff );
+	};
+
+	const setMinutesDiff = ( currentTime ) => {
+		const diff = Math.floor(
+			limitedTime.diff( currentTime, 'minutes' ) % 60
+		);
+		return sanitizeDiff( diff );
+	};
+
+	const setSecondsDiff = ( currentTime ) => {
+		const diff = Math.floor(
+			limitedTime.diff( currentTime, 'seconds' ) % 60
+		);
+		return sanitizeDiff( diff );
+	};
+
+	const countdown = () => {
+		const currentTime = moment();
+		const daysDiff = setDaysDiff( currentTime );
+		const hoursDiff = setHoursDiff( currentTime );
+		const minutesDiff = setMinutesDiff( currentTime );
+		const secondsDiff = setSecondsDiff( currentTime );
+
+		day.innerText = daysDiff;
+		hour.innerText = ( '00' + hoursDiff ).slice( -2 );
+		minute.innerText = ( '00' + minutesDiff ).slice( -2 );
+		second.innerText = ( '00' + secondsDiff ).slice( -2 );
+	};
+
+	setInterval( countdown, 1000 );
 }

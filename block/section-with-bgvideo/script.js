@@ -1,44 +1,16 @@
 'use strict';
 
 import forEachHtmlNodes from '@inc2734/for-each-html-nodes';
+import { apply } from './bgvideo';
 
-import BgVideo from './bgvideo';
-
-document.addEventListener(
-	'DOMContentLoaded',
-	() => {
-		forEachHtmlNodes(
-			document.querySelectorAll(
-				'.smb-section-with-bgimage > .smb-section-with-bgimage__bgimage > iframe'
-			),
-			( video ) => new BgVideo( video )
-		);
-	},
-	false
+const videos = document.querySelectorAll(
+	'.smb-section-with-bgimage > .smb-section-with-bgimage__bgimage > iframe'
 );
 
-window.addEventListener(
-	'load',
-	() => {
-		forEachHtmlNodes(
-			document.querySelectorAll(
-				'.smb-section-with-bgimage > .smb-section-with-bgimage__bgimage > iframe'
-			),
-			( video ) => new BgVideo( video )
-		);
-	},
-	false
-);
+const init = () => {
+	forEachHtmlNodes( videos, ( video ) => apply( video ) );
+};
 
-window.addEventListener(
-	'resize',
-	() => {
-		forEachHtmlNodes(
-			document.querySelectorAll(
-				'.smb-section-with-bgimage > .smb-section-with-bgimage__bgimage > iframe'
-			),
-			( video ) => new BgVideo( video )
-		);
-	},
-	false
-);
+document.addEventListener( 'DOMContentLoaded', init, false );
+document.addEventListener( 'load', init, false );
+document.addEventListener( 'resize', init, false );

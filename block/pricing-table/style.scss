@@ -3,7 +3,8 @@
 @import '../../src/css/core/block';
 
 .smb-pricing-table {
-  background-color: #fff;
+  background-color: #fff; // for IE11
+  background-color: _var-background-color();
   border: 1px solid _lighter($_color-gray);
 
   @include _media-min(md) {
