@@ -21,7 +21,7 @@
     "postcss-cli": "^7.1.0",
     "prettier": "npm:wp-prettier@1.19.1",
     "rimraf": "^3.0.2",
-    "sass-basis": "^10.0.1",
+    "sass-basis": "^10.1.0",
     "slick-carousel": "^1.8.1"
   },
   "scripts": {
