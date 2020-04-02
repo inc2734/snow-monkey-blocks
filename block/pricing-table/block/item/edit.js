@@ -9,12 +9,12 @@ import {
 	InspectorControls,
 	PanelColorSettings,
 	ContrastChecker,
-	__experimentalLinkControl as LinkControl,
 } from '@wordpress/block-editor';
 
 import { __ } from '@wordpress/i18n';
 
 import Figure from '../../../../src/js/component/figure';
+import LinkControl from '../../../../src/js/component/link-control';
 
 export default function( {
 	attributes,
@@ -45,16 +45,6 @@ export default function( {
 
 	const btnLabelStyles = {
 		color: btnTextColor || undefined,
-	};
-
-	const linkControlTarget = () => {
-		if ( '_self' === btnTarget ) {
-			return false;
-		}
-
-		if ( '_blank' === btnTarget ) {
-			return true;
-		}
 	};
 
 	return (
@@ -210,17 +200,14 @@ export default function( {
 							{ isSelected && (
 								<Popover position="bottom center">
 									<LinkControl
-										className="wp-block-navigation-link__inline-link-input"
-										value={ {
-											url: btnURL,
-											opensInNewTab: linkControlTarget(),
-										} }
+										url={ btnURL }
+										target={ btnTarget }
 										onChange={ ( {
-											url: newUrl,
+											url,
 											opensInNewTab,
 										} ) => {
 											setAttributes( {
-												btnURL: newUrl,
+												btnURL: url,
 												btnTarget: ! opensInNewTab
 													? '_self'
 													: '_blank',

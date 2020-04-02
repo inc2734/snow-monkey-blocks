@@ -3,15 +3,17 @@
 import classnames from 'classnames';
 
 import { PanelBody, SelectControl, Popover } from '@wordpress/components';
-import { __ } from '@wordpress/i18n';
 
 import {
 	RichText,
 	InspectorControls,
 	PanelColorSettings,
 	ContrastChecker,
-	__experimentalLinkControl as LinkControl,
 } from '@wordpress/block-editor';
+
+import { __ } from '@wordpress/i18n';
+
+import LinkControl from '../../../src/js/component/link-control';
 
 export default function( {
 	attributes,
@@ -47,16 +49,6 @@ export default function( {
 	if ( 'is-style-ghost' === attributes.className ) {
 		btnBoxBtnStyles.borderColor = btnBackgroundColor || undefined;
 	}
-
-	const linkControlTarget = () => {
-		if ( '_self' === btnTarget ) {
-			return false;
-		}
-
-		if ( '_blank' === btnTarget ) {
-			return true;
-		}
-	};
 
 	return (
 		<>
@@ -196,14 +188,11 @@ export default function( {
 				{ isSelected && (
 					<Popover position="bottom center">
 						<LinkControl
-							className="wp-block-navigation-link__inline-link-input"
-							value={ {
-								url: btnURL,
-								opensInNewTab: linkControlTarget(),
-							} }
-							onChange={ ( { url: newUrl, opensInNewTab } ) => {
+							url={ btnURL }
+							target={ btnTarget }
+							onChange={ ( { url, opensInNewTab } ) => {
 								setAttributes( {
-									btnURL: newUrl,
+									btnURL: url,
 									btnTarget: ! opensInNewTab
 										? '_self'
 										: '_blank',

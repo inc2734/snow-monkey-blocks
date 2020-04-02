@@ -3,17 +3,14 @@
 import classnames from 'classnames';
 import { times } from 'lodash';
 
-import {
-	InspectorControls,
-	RichText,
-	__experimentalLinkControl as LinkControl,
-} from '@wordpress/block-editor';
+import { InspectorControls, RichText } from '@wordpress/block-editor';
 
 import { __ } from '@wordpress/i18n';
 
 import { PanelBody, BaseControl, Button, Popover } from '@wordpress/components';
 
 import Figure from '../../../../../src/js/component/figure';
+import LinkControl from '../../../../../src/js/component/link-control';
 
 export default function( {
 	attributes,
@@ -36,16 +33,6 @@ export default function( {
 	const titleTagNames = [ 'div', 'h2', 'h3', 'none' ];
 
 	const classes = classnames( 'c-row__col', className );
-
-	const linkControlTarget = () => {
-		if ( '_self' === linkTarget ) {
-			return false;
-		}
-
-		if ( '_blank' === linkTarget ) {
-			return true;
-		}
-	};
 
 	return (
 		<>
@@ -174,14 +161,11 @@ export default function( {
 			{ isSelected && (
 				<Popover position="bottom center">
 					<LinkControl
-						className="wp-block-navigation-link__inline-link-input"
-						value={ {
-							url: linkURL,
-							opensInNewTab: linkControlTarget(),
-						} }
-						onChange={ ( { url: newUrl, opensInNewTab } ) => {
+						url={ linkURL }
+						target={ linkTarget }
+						onChange={ ( { url, opensInNewTab } ) => {
 							setAttributes( {
-								linkURL: newUrl,
+								linkURL: url,
 								linkTarget: ! opensInNewTab
 									? '_self'
 									: '_blank',

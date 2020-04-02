@@ -9,12 +9,12 @@ import {
 	InspectorControls,
 	PanelColorSettings,
 	InnerBlocks,
-	__experimentalLinkControl as LinkControl,
 } from '@wordpress/block-editor';
 
 import { __ } from '@wordpress/i18n';
 
 import Figure from '../../../../../src/js/component/figure';
+import LinkControl from '../../../../../src/js/component/link-control';
 
 export default function( {
 	attributes,
@@ -47,16 +47,6 @@ export default function( {
 
 	const itemLinkStyles = {
 		color: linkColor || undefined,
-	};
-
-	const linkControlTarget = () => {
-		if ( '_self' === linkTarget ) {
-			return false;
-		}
-
-		if ( '_blank' === linkTarget ) {
-			return true;
-		}
 	};
 
 	return (
@@ -198,17 +188,11 @@ export default function( {
 						{ ! RichText.isEmpty( linkLabel ) && isSelected && (
 							<Popover position="bottom center">
 								<LinkControl
-									className="wp-block-navigation-link__inline-link-input"
-									value={ {
-										url: linkURL,
-										opensInNewTab: linkControlTarget(),
-									} }
-									onChange={ ( {
-										url: newUrl,
-										opensInNewTab,
-									} ) => {
+									url={ linkURL }
+									target={ linkTarget }
+									onChange={ ( { url, opensInNewTab } ) => {
 										setAttributes( {
-											linkURL: newUrl,
+											linkURL: url,
 											linkTarget: ! opensInNewTab
 												? '_self'
 												: '_blank',
