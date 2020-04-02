@@ -10,13 +10,14 @@ import {
 	SelectControl,
 	Button,
 	BaseControl,
+	Popover,
 } from '@wordpress/components';
 
 import {
 	RichText,
 	InnerBlocks,
 	InspectorControls,
-	URLInput,
+	__experimentalLinkControl as LinkControl,
 } from '@wordpress/block-editor';
 
 import { getColumnSize } from '../../../src/js/helper/helper';
@@ -59,6 +60,16 @@ export default function( {
 	const imageColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', [
 		`c-row__col--lg-${ imageColumnWidth }`,
 	] );
+
+	const linkControlTarget = () => {
+		if ( '_self' === target ) {
+			return false;
+		}
+
+		if ( '_blank' === target ) {
+			return true;
+		}
+	};
 
 	return (
 		<>
@@ -139,36 +150,6 @@ export default function( {
 							} ) }
 						</div>
 					</BaseControl>
-
-					<BaseControl
-						label={ __( 'URL', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/media-text/url"
-					>
-						<URLInput
-							value={ url }
-							onChange={ ( value ) =>
-								setAttributes( { url: value } )
-							}
-						/>
-					</BaseControl>
-
-					<SelectControl
-						label={ __( 'Target', 'snow-monkey-blocks' ) }
-						value={ target }
-						onChange={ ( value ) =>
-							setAttributes( { target: value } )
-						}
-						options={ [
-							{
-								value: '_self',
-								label: __( '_self', 'snow-monkey-blocks' ),
-							},
-							{
-								value: '_blank',
-								label: __( '_blank', 'snow-monkey-blocks' ),
-							},
-						] }
-					/>
 				</PanelBody>
 			</InspectorControls>
 
@@ -223,6 +204,29 @@ export default function( {
 								}
 								isSelected={ isSelected }
 							/>
+
+							{ imageURL && isSelected && (
+								<Popover position="bottom center">
+									<LinkControl
+										className="wp-block-navigation-link__inline-link-input"
+										value={ {
+											url,
+											opensInNewTab: linkControlTarget(),
+										} }
+										onChange={ ( {
+											url: newUrl,
+											opensInNewTab,
+										} ) => {
+											setAttributes( {
+												url: newUrl,
+												target: ! opensInNewTab
+													? '_self'
+													: '_blank',
+											} );
+										} }
+									/>
+								</Popover>
+							) }
 						</div>
 
 						{ ( ! RichText.isEmpty( caption ) || isSelected ) && (
