@@ -4,7 +4,6 @@ import classnames from 'classnames';
 
 import {
 	PanelBody,
-	BaseControl,
 	SelectControl,
 	Popover,
 } from '@wordpress/components';
