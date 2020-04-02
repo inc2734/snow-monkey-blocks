@@ -179,10 +179,7 @@ export default function( {
 							url: linkURL,
 							opensInNewTab: linkControlTarget(),
 						} }
-						onChange={ ( {
-							url: newUrl,
-							opensInNewTab,
-						} ) => {
+						onChange={ ( { url: newUrl, opensInNewTab } ) => {
 							setAttributes( {
 								linkURL: newUrl,
 								linkTarget: ! opensInNewTab
