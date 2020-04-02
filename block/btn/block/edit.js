@@ -2,7 +2,12 @@
 
 import classnames from 'classnames';
 
-import { PanelBody, BaseControl, SelectControl } from '@wordpress/components';
+import {
+	PanelBody,
+	BaseControl,
+	SelectControl,
+	Popover,
+} from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 import {
@@ -10,10 +15,15 @@ import {
 	InspectorControls,
 	PanelColorSettings,
 	ContrastChecker,
-	URLInput,
+	__experimentalLinkControl as LinkControl,
 } from '@wordpress/block-editor';
 
-export default function( { attributes, setAttributes, className } ) {
+export default function( {
+	attributes,
+	setAttributes,
+	className,
+	isSelected,
+} ) {
 	const {
 		content,
 		url,
@@ -21,6 +31,7 @@ export default function( { attributes, setAttributes, className } ) {
 		modifier,
 		backgroundColor,
 		textColor,
+		align,
 	} = attributes;
 
 	const wrapperClasses = classnames(
@@ -44,41 +55,22 @@ export default function( { attributes, setAttributes, className } ) {
 		color: textColor || undefined,
 	};
 
+	const linkControlTarget = () => {
+		if ( '_self' === target ) {
+			return false;
+		}
+
+		if ( '_blank' === target ) {
+			return true;
+		}
+	};
+
 	return (
 		<>
 			<InspectorControls>
 				<PanelBody
 					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
 				>
-					<BaseControl
-						label={ __( 'URL', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/btn/url"
-					>
-						<URLInput
-							value={ url }
-							onChange={ ( value ) =>
-								setAttributes( { url: value } )
-							}
-						/>
-					</BaseControl>
-					<SelectControl
-						label={ __( 'Target', 'snow-monkey-blocks' ) }
-						value={ target }
-						onChange={ ( value ) =>
-							setAttributes( { target: value } )
-						}
-						options={ [
-							{
-								value: '_self',
-								label: __( '_self', 'snow-monkey-blocks' ),
-							},
-							{
-								value: '_blank',
-								label: __( '_blank', 'snow-monkey-blocks' ),
-							},
-						] }
-					/>
-
 					<SelectControl
 						label={ __( 'Button size', 'snow-monkey-blocks' ) }
 						value={ modifier }
@@ -152,6 +144,21 @@ export default function( { attributes, setAttributes, className } ) {
 					/>
 				</span>
 			</div>
+
+			{ isSelected && (
+				<Popover position={ ! align ? 'bottom left' : 'bottom center' }>
+					<LinkControl
+						className="wp-block-navigation-link__inline-link-input"
+						value={ { url, opensInNewTab: linkControlTarget() } }
+						onChange={ ( { url: newUrl, opensInNewTab } ) => {
+							setAttributes( {
+								url: newUrl,
+								target: ! opensInNewTab ? '_self' : '_blank',
+							} );
+						} }
+					/>
+				</Popover>
+			) }
 		</>
 	);
 }
