@@ -12,6 +12,7 @@ import {
 	BaseControl,
 	Button,
 	ToggleControl,
+	TextControl,
 } from '@wordpress/components';
 
 import {
@@ -19,7 +20,6 @@ import {
 	InnerBlocks,
 	InspectorControls,
 	PanelColorSettings,
-	URLInput,
 	ColorPalette,
 } from '@wordpress/block-editor';
 
@@ -118,7 +118,7 @@ export default function( {
 						label={ __( 'YouTube URL', 'snow-monkey-blocks' ) }
 						id="snow-monkey-blocks/section-with-bgvideo/video-url"
 					>
-						<URLInput
+						<TextControl
 							value={ videoURL }
 							onChange={ ( value ) =>
 								setAttributes( { videoURL: value } )
