@@ -48,6 +48,10 @@
 
 .smb-remove-button-wrapper {
   position: relative;
+
+  .image-button {
+    height: auto;
+  }
 }
 .smb-remove-button {
   position: absolute;

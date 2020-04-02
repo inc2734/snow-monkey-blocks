@@ -10,13 +10,14 @@ import {
 	BaseControl,
 	RangeControl,
 	ToggleControl,
+	Popover,
 } from '@wordpress/components';
 
 import {
 	InspectorControls,
 	RichText,
 	PanelColorSettings,
-	URLInput,
+	__experimentalLinkControl as LinkControl,
 } from '@wordpress/block-editor';
 
 import { toNumber } from '../../../../../src/js/helper/helper';
@@ -60,6 +61,16 @@ export default function( {
 
 	const maskStyles = {
 		backgroundColor: maskColor || undefined,
+	};
+
+	const linkControlTarget = () => {
+		if ( '_self' === target ) {
+			return false;
+		}
+
+		if ( '_blank' === target ) {
+			return true;
+		}
 	};
 
 	return (
@@ -139,36 +150,6 @@ export default function( {
 						min={ 0 }
 						max={ 1 }
 						step={ 0.1 }
-					/>
-
-					<BaseControl
-						label={ __( 'URL', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/items--banner/url"
-					>
-						<URLInput
-							value={ url }
-							onChange={ ( value ) =>
-								setAttributes( { url: value } )
-							}
-						/>
-					</BaseControl>
-
-					<SelectControl
-						label={ __( 'Target', 'snow-monkey-blocks' ) }
-						value={ target }
-						options={ [
-							{
-								value: '_self',
-								label: __( '_self', 'snow-monkey-blocks' ),
-							},
-							{
-								value: '_blank',
-								label: __( '_blank', 'snow-monkey-blocks' ),
-							},
-						] }
-						onChange={ ( value ) =>
-							setAttributes( { target: value } )
-						}
 					/>
 				</PanelBody>
 
@@ -250,6 +231,29 @@ export default function( {
 								/>
 							) }
 						</div>
+					) }
+
+					{ isSelected && (
+						<Popover position="bottom center">
+							<LinkControl
+								className="wp-block-navigation-link__inline-link-input"
+								value={ {
+									url,
+									opensInNewTab: linkControlTarget(),
+								} }
+								onChange={ ( {
+									url: newUrl,
+									opensInNewTab,
+								} ) => {
+									setAttributes( {
+										url: newUrl,
+										target: ! opensInNewTab
+											? '_self'
+											: '_blank',
+									} );
+								} }
+							/>
+						</Popover>
 					) }
 				</div>
 			</div>
