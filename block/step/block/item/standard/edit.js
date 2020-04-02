@@ -2,16 +2,17 @@
 
 import classnames from 'classnames';
 
-import { PanelBody, BaseControl, SelectControl } from '@wordpress/components';
-import { __ } from '@wordpress/i18n';
+import { PanelBody, SelectControl, Popover } from '@wordpress/components';
 
 import {
 	RichText,
 	InspectorControls,
 	PanelColorSettings,
 	InnerBlocks,
-	URLInput,
+	__experimentalLinkControl as LinkControl,
 } from '@wordpress/block-editor';
+
+import { __ } from '@wordpress/i18n';
 
 import Figure from '../../../../../src/js/component/figure';
 
@@ -48,6 +49,16 @@ export default function( {
 		color: linkColor || undefined,
 	};
 
+	const linkControlTarget = () => {
+		if ( '_self' === linkTarget ) {
+			return false;
+		}
+
+		if ( '_blank' === linkTarget ) {
+			return true;
+		}
+	};
+
 	return (
 		<>
 			<InspectorControls>
@@ -73,40 +84,6 @@ export default function( {
 						] }
 						onChange={ ( value ) =>
 							setAttributes( { imagePosition: value } )
-						}
-					/>
-				</PanelBody>
-
-				<PanelBody
-					title={ __( 'Link Settings', 'snow-monkey-blocks' ) }
-				>
-					<BaseControl
-						label={ __( 'Link URL', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/step--item/link-url"
-					>
-						<URLInput
-							value={ linkURL }
-							onChange={ ( value ) =>
-								setAttributes( { linkURL: value } )
-							}
-						/>
-					</BaseControl>
-
-					<SelectControl
-						label={ __( 'Link Target', 'snow-monkey-blocks' ) }
-						value={ linkTarget }
-						options={ [
-							{
-								value: '_self',
-								label: __( '_self', 'snow-monkey-blocks' ),
-							},
-							{
-								value: '_blank',
-								label: __( '_blank', 'snow-monkey-blocks' ),
-							},
-						] }
-						onChange={ ( value ) =>
-							setAttributes( { linkTarget: value } )
 						}
 					/>
 				</PanelBody>
@@ -216,6 +193,29 @@ export default function( {
 									}
 								/>
 							</span>
+						) }
+
+						{ ! RichText.isEmpty( linkLabel ) && isSelected && (
+							<Popover position="bottom center">
+								<LinkControl
+									className="wp-block-navigation-link__inline-link-input"
+									value={ {
+										url: linkURL,
+										opensInNewTab: linkControlTarget(),
+									} }
+									onChange={ ( {
+										url: newUrl,
+										opensInNewTab,
+									} ) => {
+										setAttributes( {
+											linkURL: newUrl,
+											linkTarget: ! opensInNewTab
+												? '_self'
+												: '_blank',
+										} );
+									} }
+								/>
+							</Popover>
 						) }
 					</div>
 				</div>
