@@ -5,12 +5,7 @@ import { times } from 'lodash';
 
 import { __ } from '@wordpress/i18n';
 
-import {
-	PanelBody,
-	BaseControl,
-	Button,
-	Popover,
-} from '@wordpress/components';
+import { PanelBody, BaseControl, Button, Popover } from '@wordpress/components';
 
 import {
 	InspectorControls,

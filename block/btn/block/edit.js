@@ -2,11 +2,7 @@
 
 import classnames from 'classnames';
 
-import {
-	PanelBody,
-	SelectControl,
-	Popover,
-} from '@wordpress/components';
+import { PanelBody, SelectControl, Popover } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 import {
