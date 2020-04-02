@@ -7,10 +7,10 @@ import { __ } from '@wordpress/i18n';
 
 import {
 	PanelBody,
-	SelectControl,
 	BaseControl,
 	Button,
 	ToggleControl,
+	Popover,
 } from '@wordpress/components';
 
 import {
@@ -18,7 +18,7 @@ import {
 	RichText,
 	PanelColorSettings,
 	ContrastChecker,
-	URLInput,
+	__experimentalLinkControl as LinkControl,
 } from '@wordpress/block-editor';
 
 import Figure from '../../../../src/js/component/figure';
@@ -55,6 +55,16 @@ export default function( {
 
 	const itemBtnStyles = {
 		backgroundColor: btnBackgroundColor || undefined,
+	};
+
+	const linkControlTarget = () => {
+		if ( '_self' === btnTarget ) {
+			return false;
+		}
+
+		if ( '_blank' === btnTarget ) {
+			return true;
+		}
 	};
 
 	return (
@@ -99,40 +109,6 @@ export default function( {
 						checked={ isBlockLink }
 						onChange={ ( value ) =>
 							setAttributes( { isBlockLink: value } )
-						}
-					/>
-				</PanelBody>
-
-				<PanelBody
-					title={ __( 'Button Settings', 'snow-monkey-blocks' ) }
-				>
-					<BaseControl
-						label={ __( 'URL', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/items--item/btn-url"
-					>
-						<URLInput
-							value={ btnURL }
-							onChange={ ( value ) =>
-								setAttributes( { btnURL: value } )
-							}
-						/>
-					</BaseControl>
-
-					<SelectControl
-						label={ __( 'Target', 'snow-monkey-blocks' ) }
-						value={ btnTarget }
-						options={ [
-							{
-								value: '_self',
-								label: __( '_self', 'snow-monkey-blocks' ),
-							},
-							{
-								value: '_blank',
-								label: __( '_blank', 'snow-monkey-blocks' ),
-							},
-						] }
-						onChange={ ( value ) =>
-							setAttributes( { btnTarget: value } )
 						}
 					/>
 				</PanelBody>
@@ -274,6 +250,29 @@ export default function( {
 									}
 								/>
 							</span>
+
+							{ isSelected && (
+								<Popover position="bottom center">
+									<LinkControl
+										className="wp-block-navigation-link__inline-link-input"
+										value={ {
+											btnURL,
+											opensInNewTab: linkControlTarget(),
+										} }
+										onChange={ ( {
+											url: newUrl,
+											opensInNewTab,
+										} ) => {
+											setAttributes( {
+												btnURL: newUrl,
+												btnTarget: ! opensInNewTab
+													? '_self'
+													: '_blank',
+											} );
+										} }
+									/>
+								</Popover>
+							) }
 						</div>
 					) }
 				</div>
