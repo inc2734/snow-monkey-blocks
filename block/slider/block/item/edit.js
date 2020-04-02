@@ -2,8 +2,13 @@
 
 import classnames from 'classnames';
 
-import { PanelBody, BaseControl, SelectControl } from '@wordpress/components';
-import { RichText, InspectorControls, URLInput } from '@wordpress/block-editor';
+import { Popover } from '@wordpress/components';
+
+import {
+	RichText,
+	__experimentalLinkControl as LinkControl,
+} from '@wordpress/block-editor';
+
 import { __ } from '@wordpress/i18n';
 
 import Figure from '../../../../src/js/component/figure';
@@ -65,44 +70,18 @@ export default function( {
 		);
 	};
 
+	const linkControlTarget = () => {
+		if ( '_self' === target ) {
+			return false;
+		}
+
+		if ( '_blank' === target ) {
+			return true;
+		}
+	};
+
 	return (
 		<>
-			<InspectorControls>
-				<PanelBody
-					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
-				>
-					<BaseControl
-						label={ __( 'URL', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/slider/item/url"
-					>
-						<URLInput
-							value={ url }
-							onChange={ ( value ) =>
-								setAttributes( { url: value } )
-							}
-						/>
-					</BaseControl>
-
-					<SelectControl
-						label={ __( 'Target', 'snow-monkey-blocks' ) }
-						value={ target }
-						options={ [
-							{
-								value: '_self',
-								label: __( '_self', 'snow-monkey-blocks' ),
-							},
-							{
-								value: '_blank',
-								label: __( '_blank', 'snow-monkey-blocks' ),
-							},
-						] }
-						onChange={ ( value ) =>
-							setAttributes( { target: value } )
-						}
-					/>
-				</PanelBody>
-			</InspectorControls>
-
 			{ !! url ? (
 				<span
 					className={ classes }
@@ -118,6 +97,21 @@ export default function( {
 				<div className={ classes }>
 					<Item />
 				</div>
+			) }
+
+			{ isSelected && (
+				<Popover position="bottom center">
+					<LinkControl
+						className="wp-block-navigation-link__inline-link-input"
+						value={ { url, opensInNewTab: linkControlTarget() } }
+						onChange={ ( { url: newUrl, opensInNewTab } ) => {
+							setAttributes( {
+								url: newUrl,
+								target: ! opensInNewTab ? '_self' : '_blank',
+							} );
+						} }
+					/>
+				</Popover>
 			) }
 		</>
 	);
