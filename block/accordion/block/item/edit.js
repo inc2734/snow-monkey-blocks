@@ -16,6 +16,16 @@ export default function( { attributes, setAttributes, className } ) {
 
 	const classes = classnames( 'smb-accordion__item', className );
 
+	const onChangeInitialState = ( value ) =>
+		setAttributes( {
+			initialState: value,
+		} );
+
+	const onChangeTitle = ( value ) =>
+		setAttributes( {
+			title: value,
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -28,27 +38,22 @@ export default function( { attributes, setAttributes, className } ) {
 							'snow-monkey-blocks'
 						) }
 						checked={ initialState }
-						onChange={ ( value ) =>
-							setAttributes( { initialState: value } )
-						}
+						onChange={ onChangeInitialState }
 					/>
 				</PanelBody>
 			</InspectorControls>
 
 			<div className={ classes }>
 				<div className="smb-accordion__item__title">
-					<div className="smb-accordion__item__title__label">
-						<RichText
-							value={ title }
-							onChange={ ( value ) =>
-								setAttributes( { title: value } )
-							}
-							placeholder={ __(
-								'Enter title here',
-								'snow-monkey-blocks'
-							) }
-						/>
-					</div>
+					<RichText
+						className="smb-accordion__item__title__label"
+						value={ title }
+						onChange={ onChangeTitle }
+						placeholder={ __(
+							'Enter title here',
+							'snow-monkey-blocks'
+						) }
+					/>
 					<div className="smb-accordion__item__title__icon">
 						<i className="fas fa-angle-down"></i>
 					</div>

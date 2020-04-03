@@ -34,6 +34,53 @@ export default function( {
 
 	const classes = classnames( 'c-row__col', className );
 
+	const onClickTitleTagName = ( value ) =>
+		setAttributes( {
+			titleTagName: value,
+		} );
+
+	const onSelectImage = ( media ) => {
+		const newImageURL =
+			!! media.sizes && !! media.sizes.large
+				? media.sizes.large.url
+				: media.url;
+
+		setAttributes( {
+			imageURL: newImageURL,
+			imageID: media.id,
+			imageAlt: media.alt,
+		} );
+	};
+
+	const onRemoveImage = () =>
+		setAttributes( {
+			imageURL: '',
+			imageAlt: '',
+			imageID: 0,
+		} );
+
+	const onChangeTitle = ( value ) =>
+		setAttributes( {
+			title: value,
+		} );
+
+	const onChangeSummary = ( value ) =>
+		setAttributes( {
+			summary: value,
+		} );
+
+	const onChangeLinkLabel = ( value ) =>
+		setAttributes( {
+			linkLabel: value,
+		} );
+
+	const onChangeLinkUrl = ( { url: newUrl, opensInNewTab } ) => {
+		setAttributes( {
+			linkURL: newUrl,
+			linkTarget: ! opensInNewTab ? '_self' : '_blank',
+		} );
+	};
+
 	return (
 		<>
 			<InspectorControls>
@@ -54,10 +101,9 @@ export default function( {
 											titleTagNames[ index ]
 										}
 										onClick={ () =>
-											setAttributes( {
-												titleTagName:
-													titleTagNames[ index ],
-											} )
+											onClickTitleTagName(
+												titleTagNames[ index ]
+											)
 										}
 									>
 										{ titleTagNames[ index ] }
@@ -81,24 +127,8 @@ export default function( {
 								src={ imageURL }
 								id={ imageID }
 								alt={ imageAlt }
-								selectHandler={ ( media ) => {
-									const newImageURL =
-										!! media.sizes && !! media.sizes.large
-											? media.sizes.large.url
-											: media.url;
-									setAttributes( {
-										imageURL: newImageURL,
-										imageID: media.id,
-										imageAlt: media.alt,
-									} );
-								} }
-								removeHandler={ () =>
-									setAttributes( {
-										imageURL: '',
-										imageAlt: '',
-										imageID: 0,
-									} )
-								}
+								onSelect={ onSelectImage }
+								onRemove={ onRemoveImage }
 								isSelected={ isSelected }
 							/>
 						</div>
@@ -115,9 +145,7 @@ export default function( {
 										'snow-monkey-blocks'
 									) }
 									value={ title }
-									onChange={ ( value ) =>
-										setAttributes( { title: value } )
-									}
+									onChange={ onChangeTitle }
 									keepPlaceholderOnFocus={ true }
 								/>
 							) }
@@ -130,9 +158,7 @@ export default function( {
 									'snow-monkey-blocks'
 								) }
 								value={ summary }
-								onChange={ ( value ) =>
-									setAttributes( { summary: value } )
-								}
+								onChange={ onChangeSummary }
 								keepPlaceholderOnFocus={ true }
 							/>
 						) }
@@ -147,9 +173,7 @@ export default function( {
 										'snow-monkey-blocks'
 									) }
 									allowedFormats={ [] }
-									onChange={ ( value ) =>
-										setAttributes( { linkLabel: value } )
-									}
+									onChange={ onChangeLinkLabel }
 									keepPlaceholderOnFocus={ true }
 								/>
 							</div>
@@ -163,14 +187,7 @@ export default function( {
 					<LinkControl
 						url={ linkURL }
 						target={ linkTarget }
-						onChange={ ( { url, opensInNewTab } ) => {
-							setAttributes( {
-								linkURL: url,
-								linkTarget: ! opensInNewTab
-									? '_self'
-									: '_blank',
-							} );
-						} }
+						onChange={ onChangeLinkUrl }
 					/>
 				</Popover>
 			) }

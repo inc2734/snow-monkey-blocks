@@ -17,6 +17,11 @@ export default function( { attributes, setAttributes, className } ) {
 	const allowedBlocks = [ 'snow-monkey-blocks/pricing-table--item' ];
 	const template = [ [ 'snow-monkey-blocks/pricing-table--item' ] ];
 
+	const onChangeColumnSize = ( value ) =>
+		setAttributes( {
+			columnSize: value,
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -55,9 +60,7 @@ export default function( { attributes, setAttributes, className } ) {
 									label: __( '100%', 'snow-monkey-blocks' ),
 								},
 							] }
-							onChange={ ( value ) =>
-								setAttributes( { columnSize: value } )
-							}
+							onChange={ onChangeColumnSize }
 						/>
 					</BaseControl>
 				</PanelBody>

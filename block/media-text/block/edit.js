@@ -61,6 +61,58 @@ export default function( {
 		`c-row__col--lg-${ imageColumnWidth }`,
 	] );
 
+	const onChangeImagePosition = ( value ) =>
+		setAttributes( {
+			imagePosition: value,
+		} );
+
+	const onChangeImageColumnSize = ( value ) =>
+		setAttributes( {
+			imageColumnSize: value,
+		} );
+
+	const onClickTitleTagName = ( value ) =>
+		setAttributes( {
+			titleTagName: value,
+		} );
+
+	const onChangeTitle = ( value ) =>
+		setAttributes( {
+			title: value,
+		} );
+
+	const onSelectImage = ( media ) => {
+		const newImageURL =
+			!! media.sizes && !! media.sizes.large
+				? media.sizes.large.url
+				: media.url;
+
+		setAttributes( {
+			imageURL: newImageURL,
+			imageID: media.id,
+			imageAlt: media.alt,
+		} );
+	};
+
+	const onRemoveImage = () =>
+		setAttributes( {
+			imageURL: '',
+			imageAlt: '',
+			imageID: 0,
+		} );
+
+	const onChangeUrl = ( { url: newUrl, opensInNewTab } ) => {
+		setAttributes( {
+			url: newUrl,
+			target: ! opensInNewTab ? '_self' : '_blank',
+		} );
+	};
+
+	const onChangeCaption = ( value ) =>
+		setAttributes( {
+			caption: value,
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -80,9 +132,7 @@ export default function( {
 								label: __( 'Left side', 'snow-monkey-blocks' ),
 							},
 						] }
-						onChange={ ( value ) =>
-							setAttributes( { imagePosition: value } )
-						}
+						onChange={ onChangeImagePosition }
 					/>
 
 					<SelectControl
@@ -109,9 +159,7 @@ export default function( {
 								label: __( '25%', 'snow-monkey-blocks' ),
 							},
 						] }
-						onChange={ ( value ) =>
-							setAttributes( { imageColumnSize: value } )
-						}
+						onChange={ onChangeImageColumnSize }
 					/>
 
 					<BaseControl
@@ -127,12 +175,9 @@ export default function( {
 											titleTagName ===
 											titleTagNames[ index ]
 										}
-										onClick={ () =>
-											setAttributes( {
-												titleTagName:
-													titleTagNames[ index ],
-											} )
-										}
+										onClick={ onClickTitleTagName(
+											titleTagNames[ index ]
+										) }
 									>
 										{ titleTagNames[ index ] }
 									</Button>
@@ -152,9 +197,7 @@ export default function( {
 									className="smb-media-text__title"
 									tagName={ titleTagName }
 									value={ title }
-									onChange={ ( value ) =>
-										setAttributes( { title: value } )
-									}
+									onChange={ onChangeTitle }
 									allowedFormats={ [] }
 									placeholder={ __(
 										'Write title...',
@@ -174,24 +217,8 @@ export default function( {
 								alt={ imageAlt }
 								url={ url }
 								target={ target }
-								selectHandler={ ( media ) => {
-									const newImageURL =
-										!! media.sizes && !! media.sizes.large
-											? media.sizes.large.url
-											: media.url;
-									setAttributes( {
-										imageURL: newImageURL,
-										imageID: media.id,
-										imageAlt: media.alt,
-									} );
-								} }
-								removeHandler={ () =>
-									setAttributes( {
-										imageURL: '',
-										imageAlt: '',
-										imageID: 0,
-									} )
-								}
+								onSelect={ onSelectImage }
+								onRemove={ onRemoveImage }
 								isSelected={ isSelected }
 							/>
 
@@ -200,17 +227,7 @@ export default function( {
 									<LinkControl
 										url={ url }
 										target={ target }
-										onChange={ ( {
-											url,
-											opensInNewTab,
-										} ) => {
-											setAttributes( {
-												url,
-												target: ! opensInNewTab
-													? '_self'
-													: '_blank',
-											} );
-										} }
+										onChange={ onChangeUrl }
 									/>
 								</Popover>
 							) }
@@ -224,9 +241,7 @@ export default function( {
 									'snow-monkey-blocks'
 								) }
 								value={ caption }
-								onChange={ ( value ) =>
-									setAttributes( { caption: value } )
-								}
+								onChange={ onChangeCaption }
 							/>
 						) }
 					</div>

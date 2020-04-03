@@ -15,6 +15,11 @@ export default function( { attributes, setAttributes, className } ) {
 		'u-slim-width': !! isSlim,
 	} );
 
+	const onChangeIsSlim = ( value ) =>
+		setAttributes( {
+			isSlim: value,
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -27,9 +32,7 @@ export default function( { attributes, setAttributes, className } ) {
 							'snow-monkey-blocks'
 						) }
 						checked={ isSlim }
-						onChange={ ( value ) =>
-							setAttributes( { isSlim: value } )
-						}
+						onChange={ onChangeIsSlim }
 					/>
 				</PanelBody>
 			</InspectorControls>

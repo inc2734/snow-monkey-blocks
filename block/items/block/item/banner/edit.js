@@ -63,6 +63,68 @@ export default function( {
 		backgroundColor: maskColor || undefined,
 	};
 
+	const onSelectImage = ( media ) => {
+		const newImageURL =
+			!! media.sizes && !! media.sizes.large
+				? media.sizes.large.url
+				: media.url;
+
+		setAttributes( {
+			imageURL: newImageURL,
+			imageID: media.id,
+			imageAlt: media.alt,
+		} );
+	};
+
+	const onRemoveImage = () =>
+		setAttributes( {
+			imageURL: '',
+			imageAlt: '',
+			imageID: 0,
+		} );
+
+	const onChangeImageSize = ( value ) =>
+		setAttributes( {
+			imageSize: value,
+		} );
+
+	const onChangeBlur = ( value ) =>
+		setAttributes( {
+			blur: value,
+		} );
+
+	const onChangeMaskOpacity = ( value ) =>
+		setAttributes( {
+			maskOpacity: toNumber( value, 0, 1 ),
+		} );
+
+	const onChangeMaskColor = ( value ) =>
+		setAttributes( {
+			maskColor: value,
+		} );
+
+	const onChangeTextColor = ( value ) =>
+		setAttributes( {
+			textColor: value,
+		} );
+
+	const onChangeTitle = ( value ) =>
+		setAttributes( {
+			title: value,
+		} );
+
+	const onChangeLede = ( value ) =>
+		setAttributes( {
+			lede: value,
+		} );
+
+	const onChangeUrl = ( { url: newUrl, opensInNewTab } ) => {
+		setAttributes( {
+			url: newUrl,
+			target: ! opensInNewTab ? '_self' : '_blank',
+		} );
+	};
+
 	return (
 		<>
 			<InspectorControls>
@@ -77,24 +139,8 @@ export default function( {
 							src={ imageURL }
 							id={ imageID }
 							alt={ imageAlt }
-							selectHandler={ ( media ) => {
-								const newImageURL =
-									!! media.sizes && !! media.sizes.large
-										? media.sizes.large.url
-										: media.url;
-								setAttributes( {
-									imageURL: newImageURL,
-									imageID: media.id,
-									imageAlt: media.alt,
-								} );
-							} }
-							removeHandler={ () =>
-								setAttributes( {
-									imageURL: '',
-									imageAlt: '',
-									imageID: 0,
-								} )
-							}
+							onSelect={ onSelectImage }
+							onRemove={ onRemoveImage }
 							isSelected={ isSelected }
 						/>
 					</BaseControl>
@@ -116,27 +162,19 @@ export default function( {
 								label: __( '16:9', 'snow-monkey-blocks' ),
 							},
 						] }
-						onChange={ ( value ) =>
-							setAttributes( { imageSize: value } )
-						}
+						onChange={ onChangeImageSize }
 					/>
 
 					<ToggleControl
 						label={ __( 'Blur', 'snow-monkey-blocks' ) }
 						checked={ blur }
-						onChange={ ( value ) =>
-							setAttributes( { blur: value } )
-						}
+						onChange={ onChangeBlur }
 					/>
 
 					<RangeControl
 						label={ __( 'Mask Opacity', 'snow-monkey-blocks' ) }
 						value={ maskOpacity }
-						onChange={ ( value ) =>
-							setAttributes( {
-								maskOpacity: toNumber( value, 0, 1 ),
-							} )
-						}
+						onChange={ onChangeMaskOpacity }
 						min={ 0 }
 						max={ 1 }
 						step={ 0.1 }
@@ -149,14 +187,12 @@ export default function( {
 					colorSettings={ [
 						{
 							value: maskColor,
-							onChange: ( value ) =>
-								setAttributes( { maskColor: value } ),
+							onChange: onChangeMaskColor,
 							label: __( 'Mask Color', 'snow-monkey-blocks' ),
 						},
 						{
 							value: textColor,
-							onChange: ( value ) =>
-								setAttributes( { textColor: value } ),
+							onChange: onChangeTextColor,
 							label: __( 'Text Color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -199,9 +235,7 @@ export default function( {
 										'snow-monkey-blocks'
 									) }
 									value={ title }
-									onChange={ ( value ) =>
-										setAttributes( { title: value } )
-									}
+									onChange={ onChangeTitle }
 									keepPlaceholderOnFocus={ true }
 								/>
 							) }
@@ -214,9 +248,7 @@ export default function( {
 										'snow-monkey-blocks'
 									) }
 									value={ lede }
-									onChange={ ( value ) =>
-										setAttributes( { lede: value } )
-									}
+									onChange={ onChangeLede }
 									keepPlaceholderOnFocus={ true }
 								/>
 							) }
@@ -228,14 +260,7 @@ export default function( {
 							<LinkControl
 								url={ url }
 								target={ target }
-								onChange={ ( { url, opensInNewTab } ) => {
-									setAttributes( {
-										url,
-										target: ! opensInNewTab
-											? '_self'
-											: '_blank',
-									} );
-								} }
+								onChange={ onChangeUrl }
 							/>
 						</Popover>
 					) }

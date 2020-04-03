@@ -49,6 +49,58 @@ export default function( {
 		color: linkColor || undefined,
 	};
 
+	const onChangeImagePosition = ( value ) =>
+		setAttributes( {
+			imagePosition: value,
+		} );
+
+	const onChangeNumberColor = ( value ) =>
+		setAttributes( {
+			numberColor: value,
+		} );
+
+	const onChangeLinkColor = ( value ) =>
+		setAttributes( {
+			linkColor: value,
+		} );
+
+	const onChangeTitle = ( value ) =>
+		setAttributes( {
+			title: value,
+		} );
+
+	const onSelectImage = ( media ) => {
+		const newImageURL =
+			!! media.sizes && !! media.sizes.large
+				? media.sizes.large.url
+				: media.url;
+
+		setAttributes( {
+			imageURL: newImageURL,
+			imageID: media.id,
+			imageAlt: media.alt,
+		} );
+	};
+
+	const onRemoveImage = () =>
+		setAttributes( {
+			imageURL: '',
+			imageAlt: '',
+			imageID: 0,
+		} );
+
+	const onChangeLinkLabel = ( value ) =>
+		setAttributes( {
+			linkLabel: value,
+		} );
+
+	const onChangeLinkUrl = ( { url: newUrl, opensInNewTab } ) => {
+		setAttributes( {
+			linkURL: newUrl,
+			linkTarget: ! opensInNewTab ? '_self' : '_blank',
+		} );
+	};
+
 	return (
 		<>
 			<InspectorControls>
@@ -58,6 +110,7 @@ export default function( {
 					<SelectControl
 						label={ __( 'Image Position', 'snow-monkey-blocks' ) }
 						value={ imagePosition }
+						onChange={ onChangeImagePosition }
 						options={ [
 							{
 								value: 'left',
@@ -72,9 +125,6 @@ export default function( {
 								label: __( 'Right side', 'snow-monkey-blocks' ),
 							},
 						] }
-						onChange={ ( value ) =>
-							setAttributes( { imagePosition: value } )
-						}
 					/>
 				</PanelBody>
 
@@ -84,14 +134,12 @@ export default function( {
 					colorSettings={ [
 						{
 							value: numberColor,
-							onChange: ( value ) =>
-								setAttributes( { numberColor: value } ),
+							onChange: onChangeNumberColor,
 							label: __( 'Number Color', 'snow-monkey-blocks' ),
 						},
 						{
 							value: linkColor,
-							onChange: ( value ) =>
-								setAttributes( { linkColor: value } ),
+							onChange: onChangeLinkColor,
 							label: __( 'Link Color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -104,19 +152,17 @@ export default function( {
 						className="smb-step__item__number"
 						style={ itemNumberStyles }
 					/>
-					<span>
-						<RichText
-							placeholder={ __(
-								'Write title...',
-								'snow-monkey-blocks'
-							) }
-							value={ title }
-							multiline={ false }
-							onChange={ ( value ) =>
-								setAttributes( { title: value } )
-							}
-						/>
-					</span>
+
+					<RichText
+						tagName="span"
+						placeholder={ __(
+							'Write title...',
+							'snow-monkey-blocks'
+						) }
+						value={ title }
+						multiline={ false }
+						onChange={ onChangeTitle }
+					/>
 				</div>
 
 				<div className="smb-step__item__body">
@@ -126,24 +172,8 @@ export default function( {
 								src={ imageURL }
 								id={ imageID }
 								alt={ imageAlt }
-								selectHandler={ ( media ) => {
-									const newImageURL =
-										!! media.sizes && !! media.sizes.large
-											? media.sizes.large.url
-											: media.url;
-									setAttributes( {
-										imageURL: newImageURL,
-										imageID: media.id,
-										imageAlt: media.alt,
-									} );
-								} }
-								removeHandler={ () =>
-									setAttributes( {
-										imageURL: '',
-										imageAlt: '',
-										imageID: 0,
-									} )
-								}
+								onSelect={ onSelectImage }
+								onRemove={ onRemoveImage }
 								isSelected={ isSelected }
 							/>
 						</div>
@@ -178,9 +208,7 @@ export default function( {
 									value={ linkLabel }
 									allowedFormats={ [] }
 									multiline={ false }
-									onChange={ ( value ) =>
-										setAttributes( { linkLabel: value } )
-									}
+									onChange={ onChangeLinkLabel }
 								/>
 							</span>
 						) }
@@ -190,14 +218,7 @@ export default function( {
 								<LinkControl
 									url={ linkURL }
 									target={ linkTarget }
-									onChange={ ( { url, opensInNewTab } ) => {
-										setAttributes( {
-											linkURL: url,
-											linkTarget: ! opensInNewTab
-												? '_self'
-												: '_blank',
-										} );
-									} }
+									onChange={ onChangeLinkUrl }
 								/>
 							</Popover>
 						) }

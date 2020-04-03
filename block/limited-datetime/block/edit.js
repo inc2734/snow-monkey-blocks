@@ -47,6 +47,26 @@ export default function( { attributes, setAttributes, className } ) {
 		}
 	}
 
+	const onChangeIsUseStartDate = ( value ) =>
+		setAttributes( {
+			isUseStartDate: value,
+		} );
+
+	const onChangeStartDate = ( value ) =>
+		setAttributes( {
+			startDate: value,
+		} );
+
+	const onChangeIsUseEndDate = ( value ) =>
+		setAttributes( {
+			isUseEndDate: value,
+		} );
+
+	const onChangeEndDate = ( value ) =>
+		setAttributes( {
+			endDate: value,
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -63,15 +83,11 @@ export default function( { attributes, setAttributes, className } ) {
 								'snow-monkey-blocks'
 							) }
 							checked={ isUseStartDate }
-							onChange={ ( value ) =>
-								setAttributes( { isUseStartDate: value } )
-							}
+							onChange={ onChangeIsUseStartDate }
 						/>
 						<DateTimePicker
 							currentDate={ startDate }
-							onChange={ ( value ) =>
-								setAttributes( { startDate: value } )
-							}
+							onChange={ onChangeStartDate }
 						/>
 					</BaseControl>
 					<BaseControl
@@ -84,15 +100,11 @@ export default function( { attributes, setAttributes, className } ) {
 								'snow-monkey-blocks'
 							) }
 							checked={ isUseEndDate }
-							onChange={ ( value ) =>
-								setAttributes( { isUseEndDate: value } )
-							}
+							onChange={ onChangeIsUseEndDate }
 						/>
 						<DateTimePicker
 							currentDate={ endDate }
-							onChange={ ( value ) =>
-								setAttributes( { endDate: value } )
-							}
+							onChange={ onChangeEndDate }
 						/>
 					</BaseControl>
 				</PanelBody>

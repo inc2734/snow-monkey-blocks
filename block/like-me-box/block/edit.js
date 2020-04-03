@@ -8,6 +8,11 @@ import { __ } from '@wordpress/i18n';
 export default function( { attributes, setAttributes } ) {
 	const { pageName } = attributes;
 
+	const onChangePageName = ( value ) =>
+		setAttributes( {
+			pageName: value,
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -20,9 +25,7 @@ export default function( { attributes, setAttributes } ) {
 							'snow-monkey-blocks'
 						) }
 						value={ pageName }
-						onChange={ ( value ) =>
-							setAttributes( { pageName: value } )
-						}
+						onChange={ onChangePageName }
 					/>
 				</PanelBody>
 			</InspectorControls>

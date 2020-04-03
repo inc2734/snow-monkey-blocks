@@ -50,6 +50,48 @@ export default function( {
 		btnBoxBtnStyles.borderColor = btnBackgroundColor || undefined;
 	}
 
+	const onChangeBtnSize = ( value ) =>
+		setAttributes( {
+			btnSize: value,
+		} );
+
+	const onChangeBackgroundColor = ( value ) =>
+		setAttributes( {
+			backgroundColor: value,
+		} );
+
+	const onChangeBtnBackgroundColor = ( value ) =>
+		setAttributes( {
+			btnBackgroundColor: value,
+		} );
+
+	const onChangeBtnTextcolor = ( value ) =>
+		setAttributes( {
+			btnTextColor: value,
+		} );
+
+	const onChangeLede = ( value ) =>
+		setAttributes( {
+			lede: value,
+		} );
+
+	const onChangeBtnLabel = ( value ) =>
+		setAttributes( {
+			btnLabel: value,
+		} );
+
+	const onChangeNote = ( value ) =>
+		setAttributes( {
+			note: value,
+		} );
+
+	const onChangeBtnUrl = ( { url: newUrl, opensInNewTab } ) => {
+		setAttributes( {
+			btnURL: newUrl,
+			btnTarget: ! opensInNewTab ? '_self' : '_blank',
+		} );
+	};
+
 	return (
 		<>
 			<InspectorControls>
@@ -59,9 +101,7 @@ export default function( {
 					<SelectControl
 						label={ __( 'Button size', 'snow-monkey-blocks' ) }
 						value={ btnSize }
-						onChange={ ( value ) =>
-							setAttributes( { btnSize: value } )
-						}
+						onChange={ onChangeBtnSize }
 						options={ [
 							{
 								value: '',
@@ -87,8 +127,7 @@ export default function( {
 					colorSettings={ [
 						{
 							value: backgroundColor,
-							onChange: ( value ) =>
-								setAttributes( { backgroundColor: value } ),
+							onChange: onChangeBackgroundColor,
 							label: __(
 								'Background Color',
 								'snow-monkey-blocks'
@@ -96,8 +135,7 @@ export default function( {
 						},
 						{
 							value: btnBackgroundColor,
-							onChange: ( value ) =>
-								setAttributes( { btnBackgroundColor: value } ),
+							onChange: onChangeBtnBackgroundColor,
 							label: __(
 								'Background Color of Button',
 								'snow-monkey-blocks'
@@ -105,8 +143,7 @@ export default function( {
 						},
 						{
 							value: btnTextColor,
-							onChange: ( value ) =>
-								setAttributes( { btnTextColor: value } ),
+							onChange: onChangeBtnTextcolor,
 							label: __(
 								'Text Color of Button',
 								'snow-monkey-blocks'
@@ -127,9 +164,7 @@ export default function( {
 						<RichText
 							className="smb-btn-box__lede"
 							value={ lede }
-							onChange={ ( value ) =>
-								setAttributes( { lede: value } )
-							}
+							onChange={ onChangeLede }
 							allowedFormats={ [] }
 							placeholder={ __(
 								'Write lede...',
@@ -160,9 +195,7 @@ export default function( {
 									'Button',
 									'snow-monkey-blocks'
 								) }
-								onChange={ ( value ) =>
-									setAttributes( { btnLabel: value } )
-								}
+								onChange={ onChangeBtnLabel }
 								style={ { color: btnTextColor } }
 								allowedFormats={ [] }
 							/>
@@ -173,9 +206,7 @@ export default function( {
 						<RichText
 							className="smb-btn-box__note"
 							value={ note }
-							onChange={ ( value ) =>
-								setAttributes( { note: value } )
-							}
+							onChange={ onChangeNote }
 							allowedFormats={ [] }
 							placeholder={ __(
 								'Write note...',
@@ -190,14 +221,7 @@ export default function( {
 						<LinkControl
 							url={ btnURL }
 							target={ btnTarget }
-							onChange={ ( { url, opensInNewTab } ) => {
-								setAttributes( {
-									btnURL: url,
-									btnTarget: ! opensInNewTab
-										? '_self'
-										: '_blank',
-								} );
-							} }
+							onChange={ onChangeBtnUrl }
 						/>
 					</Popover>
 				) }

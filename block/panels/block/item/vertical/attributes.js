@@ -6,16 +6,22 @@ export default {
 		default: 'div',
 	},
 	title: {
+		type: 'string',
 		source: 'html',
 		selector: '.smb-panels__item__title',
+		default: '',
 	},
 	summary: {
+		type: 'string',
 		source: 'html',
 		selector: '.smb-panels__item__content',
+		default: '',
 	},
 	linkLabel: {
+		type: 'string',
 		source: 'html',
 		selector: '.smb-panels__item__link',
+		default: '',
 	},
 	linkURL: {
 		type: 'string',

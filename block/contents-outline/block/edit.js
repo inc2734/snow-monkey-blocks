@@ -31,6 +31,31 @@ export default function( { attributes, setAttributes } ) {
 		return compact( union( newHeadings ) ).join( ',' );
 	};
 
+	const onChangeHeadings2 = ( isChecked ) =>
+		setAttributes( {
+			headings: _generateNewHeadings( isChecked, 'h2' ),
+		} );
+
+	const onChangeHeadings3 = ( isChecked ) =>
+		setAttributes( {
+			headings: _generateNewHeadings( isChecked, 'h3' ),
+		} );
+
+	const onChangeHeadings4 = ( isChecked ) =>
+		setAttributes( {
+			headings: _generateNewHeadings( isChecked, 'h4' ),
+		} );
+
+	const onChangeMoveToBefore1stHeading = ( value ) =>
+		setAttributes( {
+			moveToBefore1stHeading: value,
+		} );
+
+	const onChangeMyAnchor = ( value ) =>
+		setAttributes( {
+			myAnchor: value.replace( /[\s#]/g, '-' ),
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -44,14 +69,7 @@ export default function( { attributes, setAttributes } ) {
 						checked={
 							-1 !== indexOf( headings.split( ',' ), 'h2' )
 						}
-						onChange={ ( isChecked ) =>
-							setAttributes( {
-								headings: _generateNewHeadings(
-									isChecked,
-									'h2'
-								),
-							} )
-						}
+						onChange={ onChangeHeadings2 }
 					/>
 
 					<CheckboxControl
@@ -61,14 +79,7 @@ export default function( { attributes, setAttributes } ) {
 						checked={
 							-1 !== indexOf( headings.split( ',' ), 'h3' )
 						}
-						onChange={ ( isChecked ) =>
-							setAttributes( {
-								headings: _generateNewHeadings(
-									isChecked,
-									'h3'
-								),
-							} )
-						}
+						onChange={ onChangeHeadings3 }
 					/>
 
 					<CheckboxControl
@@ -78,14 +89,7 @@ export default function( { attributes, setAttributes } ) {
 						checked={
 							-1 !== indexOf( headings.split( ',' ), 'h4' )
 						}
-						onChange={ ( isChecked ) =>
-							setAttributes( {
-								headings: _generateNewHeadings(
-									isChecked,
-									'h4'
-								),
-							} )
-						}
+						onChange={ onChangeHeadings4 }
 					/>
 
 					<ToggleControl
@@ -94,9 +98,7 @@ export default function( { attributes, setAttributes } ) {
 							'snow-monkey-blocks'
 						) }
 						checked={ moveToBefore1stHeading }
-						onChange={ ( value ) =>
-							setAttributes( { moveToBefore1stHeading: value } )
-						}
+						onChange={ onChangeMoveToBefore1stHeading }
 					/>
 				</PanelBody>
 			</InspectorControls>
@@ -109,11 +111,7 @@ export default function( { attributes, setAttributes } ) {
 						'snow-monkey-blocks'
 					) }
 					value={ myAnchor || '' }
-					onChange={ ( value ) =>
-						setAttributes( {
-							myAnchor: value.replace( /[\s#]/g, '-' ),
-						} )
-					}
+					onChange={ onChangeMyAnchor }
 				/>
 			</InspectorAdvancedControls>
 

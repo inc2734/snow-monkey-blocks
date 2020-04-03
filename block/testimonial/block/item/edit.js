@@ -32,22 +32,40 @@ export default function( {
 
 	const colClasses = classnames( 'c-row__col', className );
 
+	const onSelectAvatar = ( media ) => {
+		const newAvatarURL = !! media.sizes.thumbnail
+			? media.sizes.thumbnail.url
+			: media.url;
+
+		setAttributes( {
+			avatarURL: newAvatarURL,
+			avatarID: media.id,
+			avatarAlt: media.alt,
+		} );
+	};
+
+	const onChangeContent = ( value ) =>
+		setAttributes( {
+			content: value,
+		} );
+
+	const onChangeName = ( value ) =>
+		setAttributes( {
+			name: value,
+		} );
+
+	const onChangeLede = ( value ) =>
+		setAttributes( {
+			lede: value,
+		} );
+
 	return (
 		<div className={ colClasses }>
 			<div className="smb-testimonial__item">
 				{ ( !! avatarID || isSelected ) && (
 					<div className="smb-testimonial__item__figure">
 						<MediaUpload
-							onSelect={ ( media ) => {
-								const newAvatarURL = !! media.sizes.thumbnail
-									? media.sizes.thumbnail.url
-									: media.url;
-								setAttributes( {
-									avatarURL: newAvatarURL,
-									avatarID: media.id,
-									avatarAlt: media.alt,
-								} );
-							} }
+							onSelect={ onSelectAvatar }
 							type="image"
 							value={ avatarID }
 							render={ renderAvatar }
@@ -63,9 +81,7 @@ export default function( {
 								'snow-monkey-blocks'
 							) }
 							value={ content }
-							onChange={ ( value ) =>
-								setAttributes( { content: value } )
-							}
+							onChange={ onChangeContent }
 						/>
 					</div>
 
@@ -76,9 +92,7 @@ export default function( {
 							'snow-monkey-blocks'
 						) }
 						value={ name }
-						onChange={ ( value ) =>
-							setAttributes( { name: value } )
-						}
+						onChange={ onChangeName }
 					/>
 
 					{ ( ! RichText.isEmpty( lede ) || isSelected ) && (
@@ -89,9 +103,7 @@ export default function( {
 								'snow-monkey-blocks'
 							) }
 							value={ lede }
-							onChange={ ( value ) =>
-								setAttributes( { lede: value } )
-							}
+							onChange={ onChangeLede }
 						/>
 					) }
 				</div>

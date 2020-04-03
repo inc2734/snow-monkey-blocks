@@ -21,15 +21,21 @@ export default {
 		default: '',
 	},
 	name: {
+		type: 'string',
 		source: 'html',
 		selector: '.smb-testimonial__item__name',
+		default: '',
 	},
 	lede: {
+		type: 'string',
 		source: 'html',
 		selector: '.smb-testimonial__item__lede',
+		default: '',
 	},
 	content: {
+		type: 'string',
 		source: 'html',
 		selector: '.smb-testimonial__item__content',
+		default: '',
 	},
 };

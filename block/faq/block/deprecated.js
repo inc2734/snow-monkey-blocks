@@ -26,12 +26,17 @@ export default [
 				default: [],
 				query: {
 					question: {
+						type: 'string',
 						source: 'html',
 						selector: '.smb-faq__item__question__body',
+						default: '',
 					},
 					answer: {
+						type: 'string',
 						source: 'html',
 						selector: '.smb-faq__item__answer__body',
+						multiline: 'p',
+						default: '',
 					},
 					questionColor: {
 						type: 'string',

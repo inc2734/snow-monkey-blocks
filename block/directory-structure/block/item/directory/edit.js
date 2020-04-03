@@ -21,6 +21,8 @@ import {
 import FontAwesome from '../../../../../src/js/component/font-awesome';
 
 export default function( { attributes, setAttributes, className } ) {
+	const { iconColor, iconVendor, iconClass, name } = attributes;
+
 	const allowedBlocks = [
 		'snow-monkey-blocks/directory-structure--item--directory',
 		'snow-monkey-blocks/directory-structure--item--file',
@@ -37,7 +39,7 @@ export default function( { attributes, setAttributes, className } ) {
 	const itemListClasses = 'smb-directory-structure__item__list';
 
 	const iconStyles = {
-		color: attributes.iconColor || undefined,
+		color: iconColor || undefined,
 	};
 
 	const iconList = [
@@ -67,6 +69,25 @@ export default function( { attributes, setAttributes, className } ) {
 		},
 	];
 
+	const onClickIcon = ( iconData ) => {
+		setAttributes( {
+			iconVendor: iconData.vendor,
+		} );
+		setAttributes( {
+			iconClass: iconData.value,
+		} );
+	};
+
+	const onChangeIconColor = ( value ) =>
+		setAttributes( {
+			iconColor: value,
+		} );
+
+	const onChangeName = ( value ) =>
+		setAttributes( {
+			name: value,
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -80,21 +101,16 @@ export default function( { attributes, setAttributes, className } ) {
 						<ButtonGroup>
 							{ iconList.map( ( iconData ) => {
 								const selected =
-									attributes.iconVendor === iconData.vendor &&
-									attributes.iconClass === iconData.value;
+									iconVendor === iconData.vendor &&
+									iconClass === iconData.value;
 								return (
 									<Button
 										isLarge
 										isPrimary={ selected }
 										aria-pressed={ selected }
-										onClick={ () => {
-											setAttributes( {
-												iconVendor: iconData.vendor,
-											} );
-											setAttributes( {
-												iconClass: iconData.value,
-											} );
-										} }
+										onClick={ () =>
+											onClickIcon( iconData )
+										}
 										key={ `icon_${ iconData.key }` }
 									>
 										<i
@@ -112,9 +128,8 @@ export default function( { attributes, setAttributes, className } ) {
 					initialOpen={ false }
 					colorSettings={ [
 						{
-							value: attributes.iconColor,
-							onChange: ( value ) =>
-								setAttributes( { iconColor: value } ),
+							value: iconColor,
+							onChange: onChangeIconColor,
 							label: __( 'Icon Color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -123,25 +138,19 @@ export default function( { attributes, setAttributes, className } ) {
 			<div className={ blockClasses }>
 				<p>
 					<span className="fa-fw" style={ iconStyles }>
-						<FontAwesome
-							icon={ [
-								attributes.iconVendor,
-								attributes.iconClass,
-							] }
-						/>
+						<FontAwesome icon={ [ iconVendor, iconClass ] } />
 					</span>
-					<span className={ itemNameClasses }>
-						<RichText
-							placeholder={ __(
-								'Write directory name...',
-								'snow-monkey-blocks'
-							) }
-							value={ attributes.name }
-							onChange={ ( value ) =>
-								setAttributes( { name: value } )
-							}
-						/>
-					</span>
+
+					<RichText
+						className={ itemNameClasses }
+						tagName="span"
+						placeholder={ __(
+							'Write directory name...',
+							'snow-monkey-blocks'
+						) }
+						value={ name }
+						onChange={ onChangeName }
+					/>
 				</p>
 				<div className={ itemListClasses }>
 					<InnerBlocks

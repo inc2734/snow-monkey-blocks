@@ -20,7 +20,9 @@ export default {
 		default: '',
 	},
 	caption: {
+		type: 'string',
 		source: 'html',
 		selector: '.smb-thumbnail-gallery__item__caption',
+		default: '',
 	},
 };

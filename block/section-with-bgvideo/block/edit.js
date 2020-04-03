@@ -81,6 +81,71 @@ export default function( {
 		opacity: maskOpacity,
 	};
 
+	const onClickTitleTagName = ( value ) =>
+		setAttributes( {
+			titleTagName: value,
+		} );
+
+	const onChangeVideoUrl = ( value ) =>
+		setAttributes( {
+			videoURL: value,
+		} );
+
+	const onChangeVideoWidth = ( value ) =>
+		setAttributes( {
+			videoWidth: toNumber( value, 1, 960 ),
+		} );
+
+	const onChangeVideoHeight = ( value ) =>
+		setAttributes( {
+			videoHeight: toNumber( value, 1, 960 ),
+		} );
+
+	const onChangeHeight = ( value ) =>
+		setAttributes( {
+			height: value,
+		} );
+
+	const onChangeContentsAlignment = ( value ) =>
+		setAttributes( {
+			contentsAlignment: value,
+		} );
+
+	const onChangeIsSlim = ( value ) =>
+		setAttributes( {
+			isSlim: value,
+		} );
+
+	const onChangeMaskColor = ( value ) =>
+		setAttributes( {
+			maskColor: value,
+		} );
+
+	const onChangeTextColor = ( value ) =>
+		setAttributes( {
+			textColor: value,
+		} );
+
+	const onChangeMaskOpacity = ( value ) =>
+		setAttributes( {
+			maskOpacity: toNumber( value, 0, 1 ),
+		} );
+
+	const onChangeMaskColor2 = ( value ) =>
+		setAttributes( {
+			maskColor2: value,
+		} );
+
+	const onChangeMaskColorAngle = ( value ) =>
+		setAttributes( {
+			maskColorAngle: toNumber( value, 0, 360 ),
+		} );
+
+	const onChangeTitle = ( value ) =>
+		setAttributes( {
+			title: value,
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -101,10 +166,9 @@ export default function( {
 											titleTagNames[ index ]
 										}
 										onClick={ () =>
-											setAttributes( {
-												titleTagName:
-													titleTagNames[ index ],
-											} )
+											onClickTitleTagName(
+												titleTagNames[ index ]
+											)
 										}
 									>
 										{ titleTagNames[ index ] }
@@ -120,20 +184,14 @@ export default function( {
 					>
 						<TextControl
 							value={ videoURL }
-							onChange={ ( value ) =>
-								setAttributes( { videoURL: value } )
-							}
+							onChange={ onChangeVideoUrl }
 						/>
 					</BaseControl>
 
 					<RangeControl
 						label={ __( 'Video width', 'snow-monkey-blocks' ) }
 						value={ videoWidth }
-						onChange={ ( value ) =>
-							setAttributes( {
-								videoWidth: toNumber( value, 1, 960 ),
-							} )
-						}
+						onChange={ onChangeVideoWidth }
 						min="1"
 						max="960"
 					/>
@@ -141,11 +199,7 @@ export default function( {
 					<RangeControl
 						label={ __( 'Video height', 'snow-monkey-blocks' ) }
 						value={ videoHeight }
-						onChange={ ( value ) =>
-							setAttributes( {
-								videoHeight: toNumber( value, 1, 960 ),
-							} )
-						}
+						onChange={ onChangeVideoHeight }
 						min="1"
 						max="960"
 					/>
@@ -163,9 +217,7 @@ export default function( {
 								label: __( 'Wide', 'snow-monkey-blocks' ),
 							},
 						] }
-						onChange={ ( value ) =>
-							setAttributes( { height: value } )
-						}
+						onChange={ onChangeHeight }
 					/>
 
 					<SelectControl
@@ -188,9 +240,7 @@ export default function( {
 								label: __( 'Right side', 'snow-monkey-blocks' ),
 							},
 						] }
-						onChange={ ( value ) =>
-							setAttributes( { contentsAlignment: value } )
-						}
+						onChange={ onChangeContentsAlignment }
 					/>
 
 					<ToggleControl
@@ -199,9 +249,7 @@ export default function( {
 							'snow-monkey-blocks'
 						) }
 						checked={ isSlim }
-						onChange={ ( value ) =>
-							setAttributes( { isSlim: value } )
-						}
+						onChange={ onChangeIsSlim }
 					/>
 				</PanelBody>
 
@@ -211,14 +259,12 @@ export default function( {
 					colorSettings={ [
 						{
 							value: maskColor,
-							onChange: ( value ) =>
-								setAttributes( { maskColor: value } ),
+							onChange: onChangeMaskColor,
 							label: __( 'Mask Color', 'snow-monkey-blocks' ),
 						},
 						{
 							value: textColor,
-							onChange: ( value ) =>
-								setAttributes( { textColor: value } ),
+							onChange: onChangeTextColor,
 							label: __( 'Text Color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -230,11 +276,7 @@ export default function( {
 					<RangeControl
 						label={ __( 'Mask Opacity', 'snow-monkey-blocks' ) }
 						value={ maskOpacity }
-						onChange={ ( value ) =>
-							setAttributes( {
-								maskOpacity: toNumber( value, 0, 1 ),
-							} )
-						}
+						onChange={ onChangeMaskOpacity }
 						min={ 0 }
 						max={ 1 }
 						step={ 0.1 }
@@ -249,9 +291,7 @@ export default function( {
 							<ColorPalette
 								className="editor-color-palette-control__color-palette"
 								value={ maskColor2 }
-								onChange={ ( value ) =>
-									setAttributes( { maskColor2: value } )
-								}
+								onChange={ onChangeMaskColor2 }
 							/>
 						</BaseControl>
 					) }
@@ -263,11 +303,7 @@ export default function( {
 								'snow-monkey-blocks'
 							) }
 							value={ maskColorAngle }
-							onChange={ ( value ) =>
-								setAttributes( {
-									maskColorAngle: toNumber( value, 0, 360 ),
-								} )
-							}
+							onChange={ onChangeMaskColorAngle }
 							min="0"
 							max="360"
 						/>
@@ -297,9 +333,7 @@ export default function( {
 								className="smb-section__title"
 								tagName={ titleTagName }
 								value={ title }
-								onChange={ ( value ) =>
-									setAttributes( { title: value } )
-								}
+								onChange={ onChangeTitle }
 								allowedFormats={ [] }
 								placeholder={ __(
 									'Write title...',

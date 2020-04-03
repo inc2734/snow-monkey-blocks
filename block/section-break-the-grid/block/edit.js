@@ -119,6 +119,106 @@ export default function( {
 			contentBackgroundColor && hexToRgba( contentBackgroundColor, 0.98 ),
 	};
 
+	const onClickWrapperTagName = ( value ) =>
+		setAttributes( {
+			wrapperTagName: value,
+		} );
+
+	const onClickTitleTagName = ( value ) =>
+		setAttributes( {
+			titleTagName: value,
+		} );
+
+	const onChangeImagePosition = ( value ) =>
+		setAttributes( {
+			imagePosition: value,
+		} );
+
+	const onChangeImageSize = ( value ) =>
+		setAttributes( {
+			imageSize: value,
+		} );
+
+	const onChangeVerticalAlignment = ( value ) =>
+		setAttributes( {
+			verticalAlignment: value,
+		} );
+
+	const onChangeContentSize = ( value ) =>
+		setAttributes( {
+			contentSize: value,
+		} );
+
+	const onChangeContentHorizontalPosition = ( value ) =>
+		setAttributes( {
+			contentHorizontalPosition: value,
+		} );
+
+	const onChangeContentVerticalPosition = ( value ) =>
+		setAttributes( {
+			contentVerticalPosition: value,
+		} );
+
+	const onChangeContentBackgroundColor = ( value ) =>
+		setAttributes( {
+			contentBackgroundColor: value,
+		} );
+
+	const onChangeContentPadding = ( value ) =>
+		setAttributes( {
+			contentPadding: value,
+		} );
+
+	const onChangeRemoveContentOutsidePadding = ( value ) =>
+		setAttributes( {
+			removeContentOutsidePadding: value,
+		} );
+
+	const onChangeShadowColor = ( value ) =>
+		setAttributes( {
+			shadowColor: value,
+		} );
+
+	const onChangeShadowHorizontalPosition = ( value ) =>
+		setAttributes( {
+			shadowHorizontalPosition: toNumber( value, -120, 120 ),
+		} );
+
+	const onChangeShadowVerticalPosition = ( value ) =>
+		setAttributes( {
+			shadowVerticalPosition: toNumber( value, -120, 120 ),
+		} );
+
+	const onChangeTextColor = ( value ) =>
+		setAttributes( {
+			textColor: value,
+		} );
+
+	const onChangeTitle = ( value ) =>
+		setAttributes( {
+			title: value,
+		} );
+
+	const onSelectImage = ( media ) => {
+		const newImageURL =
+			!! media.sizes && !! media.sizes.xlarge
+				? media.sizes.large.url
+				: media.url;
+
+		setAttributes( {
+			imageURL: newImageURL,
+			imageID: media.id,
+			imageAlt: media.alt,
+		} );
+	};
+
+	const onRemoveImage = () =>
+		setAttributes( {
+			imageURL: '',
+			imageAlt: '',
+			imageID: 0,
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -139,10 +239,9 @@ export default function( {
 											wrapperTagNames[ index ]
 										}
 										onClick={ () =>
-											setAttributes( {
-												wrapperTagName:
-													wrapperTagNames[ index ],
-											} )
+											onClickWrapperTagName(
+												wrapperTagNames[ index ]
+											)
 										}
 									>
 										{ wrapperTagNames[ index ] }
@@ -166,10 +265,9 @@ export default function( {
 											titleTagNames[ index ]
 										}
 										onClick={ () =>
-											setAttributes( {
-												titleTagName:
-													titleTagNames[ index ],
-											} )
+											onClickTitleTagName(
+												titleTagNames[ index ]
+											)
 										}
 									>
 										{ titleTagNames[ index ] }
@@ -192,9 +290,7 @@ export default function( {
 								label: __( 'Right side', 'snow-monkey-blocks' ),
 							},
 						] }
-						onChange={ ( value ) =>
-							setAttributes( { imagePosition: value } )
-						}
+						onChange={ onChangeImagePosition }
 					/>
 
 					<SelectControl
@@ -217,9 +313,7 @@ export default function( {
 								label: __( '+80%', 'snow-monkey-blocks' ),
 							},
 						] }
-						onChange={ ( value ) =>
-							setAttributes( { imageSize: value } )
-						}
+						onChange={ onChangeImageSize }
 					/>
 
 					<SelectControl
@@ -242,9 +336,7 @@ export default function( {
 								label: __( 'Bottom', 'snow-monkey-blocks' ),
 							},
 						] }
-						onChange={ ( value ) =>
-							setAttributes( { verticalAlignment: value } )
-						}
+						onChange={ onChangeVerticalAlignment }
 					/>
 				</PanelBody>
 
@@ -280,9 +372,7 @@ export default function( {
 								label: __( '+40%', 'snow-monkey-blocks' ),
 							},
 						] }
-						onChange={ ( value ) =>
-							setAttributes( { contentSize: value } )
-						}
+						onChange={ onChangeContentSize }
 					/>
 
 					<SelectControl
@@ -317,11 +407,7 @@ export default function( {
 								label: __( '25%', 'snow-monkey-blocks' ),
 							},
 						] }
-						onChange={ ( value ) =>
-							setAttributes( {
-								contentHorizontalPosition: value,
-							} )
-						}
+						onChange={ onChangeContentHorizontalPosition }
 					/>
 
 					{ verticalAlignment && 'middle' !== verticalAlignment && (
@@ -417,11 +503,7 @@ export default function( {
 									),
 								},
 							] }
-							onChange={ ( value ) =>
-								setAttributes( {
-									contentVerticalPosition: value,
-								} )
-							}
+							onChange={ onChangeContentVerticalPosition }
 						/>
 					) }
 
@@ -432,12 +514,8 @@ export default function( {
 					>
 						<ColorPalette
 							className="editor-color-palette-control__color-palette"
-							onChange={ ( value ) =>
-								setAttributes( {
-									contentBackgroundColor: value,
-								} )
-							}
 							value={ contentBackgroundColor }
+							onChange={ onChangeContentBackgroundColor }
 						/>
 					</BaseControl>
 
@@ -462,9 +540,7 @@ export default function( {
 								label: __( 'L', 'snow-monkey-blocks' ),
 							},
 						] }
-						onChange={ ( value ) =>
-							setAttributes( { contentPadding: value } )
-						}
+						onChange={ onChangeContentPadding }
 					/>
 
 					{ contentPadding && (
@@ -474,11 +550,7 @@ export default function( {
 								'snow-monkey-blocks'
 							) }
 							checked={ removeContentOutsidePadding }
-							onChange={ ( value ) =>
-								setAttributes( {
-									removeContentOutsidePadding: value,
-								} )
-							}
+							onChange={ onChangeRemoveContentOutsidePadding }
 						/>
 					) }
 				</PanelBody>
@@ -494,10 +566,8 @@ export default function( {
 					>
 						<ColorPalette
 							className="editor-color-palette-control__color-palette"
-							onChange={ ( value ) =>
-								setAttributes( { shadowColor: value } )
-							}
 							value={ shadowColor }
+							onChange={ onChangeShadowColor }
 						/>
 					</BaseControl>
 
@@ -508,15 +578,7 @@ export default function( {
 								'snow-monkey-blocks'
 							) }
 							value={ shadowHorizontalPosition }
-							onChange={ ( value ) =>
-								setAttributes( {
-									shadowHorizontalPosition: toNumber(
-										value,
-										-120,
-										120
-									),
-								} )
-							}
+							onChange={ onChangeShadowHorizontalPosition }
 							min="-120"
 							max="120"
 						/>
@@ -529,15 +591,7 @@ export default function( {
 								'snow-monkey-blocks'
 							) }
 							value={ shadowVerticalPosition }
-							onChange={ ( value ) =>
-								setAttributes( {
-									shadowVerticalPosition: toNumber(
-										value,
-										-120,
-										120
-									),
-								} )
-							}
+							onChange={ onChangeShadowVerticalPosition }
 							min="-120"
 							max="120"
 						/>
@@ -550,8 +604,7 @@ export default function( {
 					colorSettings={ [
 						{
 							value: textColor,
-							onChange: ( value ) =>
-								setAttributes( { textColor: value } ),
+							onChange: onChangeTextColor,
 							label: __( 'Text Color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -573,11 +626,7 @@ export default function( {
 											className="smb-section__title smb-section-break-the-grid__title"
 											tagName={ titleTagName }
 											value={ title }
-											onChange={ ( value ) =>
-												setAttributes( {
-													title: value,
-												} )
-											}
+											onChange={ onChangeTitle }
 											allowedFormats={ [] }
 											placeholder={ __(
 												'Write title...',
@@ -603,25 +652,8 @@ export default function( {
 									src={ imageURL }
 									id={ imageID }
 									alt={ imageAlt }
-									selectHandler={ ( media ) => {
-										const newImageURL =
-											!! media.sizes &&
-											!! media.sizes.xlarge
-												? media.sizes.large.url
-												: media.url;
-										setAttributes( {
-											imageURL: newImageURL,
-											imageID: media.id,
-											imageAlt: media.alt,
-										} );
-									} }
-									removeHandler={ () =>
-										setAttributes( {
-											imageURL: '',
-											imageAlt: '',
-											imageID: 0,
-										} )
-									}
+									onSelect={ onSelectImage }
+									onRemove={ onRemoveImage }
 									isSelected={ isSelected }
 								/>
 							</div>

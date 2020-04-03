@@ -50,6 +50,69 @@ export default function( {
 		backgroundColor: btnBackgroundColor || undefined,
 	};
 
+	const onClickTitleTagName = ( value ) => {
+		setAttributes( {
+			titleTagName: value,
+		} );
+	};
+
+	const onChangeBtnBackgroundColor = ( value ) =>
+		setAttributes( {
+			btnBackgroundColor: value,
+		} );
+
+	const onChangeBtnTextColor = ( value ) =>
+		setAttributes( {
+			btnTextColor: value,
+		} );
+
+	const onSelectImage = ( media ) => {
+		const newImageURL =
+			!! media.sizes && !! media.sizes.large
+				? media.sizes.large.url
+				: media.url;
+
+		setAttributes( {
+			imageURL: newImageURL,
+			imageID: media.id,
+			imageAlt: media.alt,
+		} );
+	};
+
+	const onRemoveImage = () =>
+		setAttributes( {
+			imageURL: '',
+			imageAlt: '',
+			imageID: 0,
+		} );
+
+	const onChangeTitle = ( value ) =>
+		setAttributes( {
+			title: value,
+		} );
+
+	const onChangeLede = ( value ) =>
+		setAttributes( {
+			lede: value,
+		} );
+
+	const onChangeSummary = ( value ) =>
+		setAttributes( {
+			summary: value,
+		} );
+
+	const onChangeBtnLabel = ( value ) =>
+		setAttributes( {
+			btnLabel: value,
+		} );
+
+	const onChangeUrl = ( { url: newUrl, opensInNewTab } ) => {
+		setAttributes( {
+			url: newUrl,
+			target: ! opensInNewTab ? '_self' : '_blank',
+		} );
+	};
+
 	return (
 		<>
 			<InspectorControls>
@@ -70,10 +133,9 @@ export default function( {
 											titleTagNames[ index ]
 										}
 										onClick={ () =>
-											setAttributes( {
-												titleTagName:
-													titleTagNames[ index ],
-											} )
+											onClickTitleTagName(
+												titleTagNames[ index ]
+											)
 										}
 									>
 										{ titleTagNames[ index ] }
@@ -90,8 +152,7 @@ export default function( {
 					colorSettings={ [
 						{
 							value: btnBackgroundColor,
-							onChange: ( value ) =>
-								setAttributes( { btnBackgroundColor: value } ),
+							onChange: onChangeBtnBackgroundColor,
 							label: __(
 								'Background Color of Button',
 								'snow-monkey-blocks'
@@ -99,8 +160,7 @@ export default function( {
 						},
 						{
 							value: btnTextColor,
-							onChange: ( value ) =>
-								setAttributes( { btnTextColor: value } ),
+							onChange: onChangeBtnTextColor,
 							label: __(
 								'Text Color of Button',
 								'snow-monkey-blocks'
@@ -123,24 +183,8 @@ export default function( {
 								src={ imageURL }
 								id={ imageID }
 								alt={ imageAlt }
-								selectHandler={ ( media ) => {
-									const newImageURL =
-										!! media.sizes && !! media.sizes.large
-											? media.sizes.large.url
-											: media.url;
-									setAttributes( {
-										imageURL: newImageURL,
-										imageID: media.id,
-										imageAlt: media.alt,
-									} );
-								} }
-								removeHandler={ () =>
-									setAttributes( {
-										imageURL: '',
-										imageAlt: '',
-										imageID: 0,
-									} )
-								}
+								onSelect={ onSelectImage }
+								onRemove={ onRemoveImage }
 								isSelected={ isSelected }
 							/>
 						</div>
@@ -155,9 +199,7 @@ export default function( {
 								'snow-monkey-blocks'
 							) }
 							value={ title }
-							onChange={ ( value ) =>
-								setAttributes( { title: value } )
-							}
+							onChange={ onChangeTitle }
 							keepPlaceholderOnFocus={ true }
 						/>
 					) }
@@ -170,9 +212,7 @@ export default function( {
 								'snow-monkey-blocks'
 							) }
 							value={ lede }
-							onChange={ ( value ) =>
-								setAttributes( { lede: value } )
-							}
+							onChange={ onChangeLede }
 							keepPlaceholderOnFocus={ true }
 						/>
 					) }
@@ -185,9 +225,7 @@ export default function( {
 								'snow-monkey-blocks'
 							) }
 							value={ summary }
-							onChange={ ( value ) =>
-								setAttributes( { summary: value } )
-							}
+							onChange={ onChangeSummary }
 							keepPlaceholderOnFocus={ true }
 						/>
 					) }
@@ -208,9 +246,7 @@ export default function( {
 										'snow-monkey-blocks'
 									) }
 									allowedFormats={ [] }
-									onChange={ ( value ) =>
-										setAttributes( { btnLabel: value } )
-									}
+									onChange={ onChangeBtnLabel }
 								/>
 							</span>
 
@@ -219,17 +255,7 @@ export default function( {
 									<LinkControl
 										url={ url }
 										target={ target }
-										onChange={ ( {
-											url,
-											opensInNewTab,
-										} ) => {
-											setAttributes( {
-												url,
-												target: ! opensInNewTab
-													? '_self'
-													: '_blank',
-											} );
-										} }
+										onChange={ onChangeUrl }
 									/>
 								</Popover>
 							) }

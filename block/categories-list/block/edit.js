@@ -60,8 +60,17 @@ export default function( { attributes, setAttributes, className } ) {
 		return compact( union( newExclusionCategories ) ).join( ',' );
 	};
 
-	const viewCategoriesPanel = () => {
+	const CategoriesPanel = () => {
 		const articleCategoriesList = articleCategories.map( ( category ) => {
+			const onChangeExclusionCategories = ( isChecked ) => {
+				setAttributes( {
+					exclusionCategories: _generateNewExclusionCategories(
+						isChecked,
+						String( category.id )
+					),
+				} );
+			};
+
 			return (
 				<CheckboxControl
 					key={ category.id }
@@ -74,14 +83,7 @@ export default function( { attributes, setAttributes, className } ) {
 							String( category.id )
 						)
 					}
-					onChange={ ( isChecked ) => {
-						setAttributes( {
-							exclusionCategories: _generateNewExclusionCategories(
-								isChecked,
-								String( category.id )
-							),
-						} );
-					} }
+					onChange={ onChangeExclusionCategories }
 				/>
 			);
 		} );
@@ -165,6 +167,21 @@ export default function( { attributes, setAttributes, className } ) {
 		);
 	};
 
+	const onChangeArticles = ( value ) =>
+		setAttributes( {
+			articles: toNumber( value, 1, 5 ),
+		} );
+
+	const onChangeOrderby = ( value ) =>
+		setAttributes( {
+			orderby: value,
+		} );
+
+	const onChangeOrder = ( value ) =>
+		setAttributes( {
+			order: value,
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -177,16 +194,14 @@ export default function( { attributes, setAttributes, className } ) {
 							'snow-monkey-blocks'
 						) }
 						value={ articles }
-						onChange={ ( value ) =>
-							setAttributes( {
-								articles: toNumber( value, 1, 5 ),
-							} )
-						}
+						onChange={ onChangeArticles }
 						min="1"
 						max="5"
 					/>
 				</PanelBody>
-				{ viewCategoriesPanel() }
+
+				<CategoriesPanel />
+
 				<PanelBody
 					title={ __(
 						'Display order settings',
@@ -236,9 +251,7 @@ export default function( { attributes, setAttributes, className } ) {
 								value: 'term_group',
 							},
 						] }
-						onChange={ ( value ) =>
-							setAttributes( { orderby: value } )
-						}
+						onChange={ onChangeOrderby }
 					/>
 					<SelectControl
 						label={ __( 'order', 'snow-monkey-blocks' ) }
@@ -253,9 +266,7 @@ export default function( { attributes, setAttributes, className } ) {
 								value: 'desc',
 							},
 						] }
-						onChange={ ( value ) =>
-							setAttributes( { order: value } )
-						}
+						onChange={ onChangeOrder }
 					/>
 				</PanelBody>
 			</InspectorControls>

@@ -86,6 +86,76 @@ export default function( {
 		paddingBottom: Math.abs( bottomDividerLevel ),
 	};
 
+	const onClickWrapperTagName = ( value ) =>
+		setAttributes( {
+			wrapperTagName: value,
+		} );
+
+	const onClickTitleTagName = ( value ) =>
+		setAttributes( {
+			titleTagName: value,
+		} );
+
+	const onChangeIsSlim = ( value ) =>
+		setAttributes( {
+			isSlim: value,
+		} );
+
+	const onChangeBackgroundColor = ( value ) =>
+		setAttributes( {
+			backgroundColor: value,
+		} );
+
+	const onChangeTextColor = ( value ) =>
+		setAttributes( {
+			textColor: value,
+		} );
+
+	const onChangeBackgroundColor2 = ( value ) =>
+		setAttributes( {
+			backgroundColor2: value,
+		} );
+
+	const onChangeBackgroundColorAngle = ( value ) =>
+		setAttributes( {
+			backgroundColorAngle: toNumber( value, 0, 360 ),
+		} );
+
+	const onChangeTopDividerType = ( value ) =>
+		setAttributes( {
+			topDividerType: value,
+		} );
+
+	const onChangeTopDividerLevel = ( value ) =>
+		setAttributes( {
+			topDividerLevel: toNumber( value, -100, 100 ),
+		} );
+
+	const onChangeTopDividerColor = ( value ) =>
+		setAttributes( {
+			topDividerColor: value,
+		} );
+
+	const onChangeBottomDividerType = ( value ) =>
+		setAttributes( {
+			bottomDividerType: value,
+		} );
+
+	const onChangeBottomDividerLevel = ( value ) =>
+		setAttributes( {
+			bottomDividerLevel: toNumber( value, -100, 100 ),
+		} );
+
+	const onChangeBottomDividerColor = ( value ) =>
+		setAttributes( {
+			bottomDividerColor: value,
+		} );
+
+	const onChangeTitle = ( value ) =>
+		setAttributes( {
+			title: value,
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -106,10 +176,9 @@ export default function( {
 											wrapperTagNames[ index ]
 										}
 										onClick={ () =>
-											setAttributes( {
-												wrapperTagName:
-													wrapperTagNames[ index ],
-											} )
+											onClickWrapperTagName(
+												wrapperTagNames[ index ]
+											)
 										}
 									>
 										{ wrapperTagNames[ index ] }
@@ -133,10 +202,9 @@ export default function( {
 											titleTagNames[ index ]
 										}
 										onClick={ () =>
-											setAttributes( {
-												titleTagName:
-													titleTagNames[ index ],
-											} )
+											onClickTitleTagName(
+												titleTagNames[ index ]
+											)
 										}
 									>
 										{ titleTagNames[ index ] }
@@ -152,9 +220,7 @@ export default function( {
 							'snow-monkey-blocks'
 						) }
 						checked={ isSlim }
-						onChange={ ( value ) =>
-							setAttributes( { isSlim: value } )
-						}
+						onChange={ onChangeIsSlim }
 					/>
 				</PanelBody>
 
@@ -164,8 +230,7 @@ export default function( {
 					colorSettings={ [
 						{
 							value: backgroundColor,
-							onChange: ( value ) =>
-								setAttributes( { backgroundColor: value } ),
+							onChange: onChangeBackgroundColor,
 							label: __(
 								'Background Color',
 								'snow-monkey-blocks'
@@ -173,8 +238,7 @@ export default function( {
 						},
 						{
 							value: textColor,
-							onChange: ( value ) =>
-								setAttributes( { textColor: value } ),
+							onChange: onChangeTextColor,
 							label: __( 'Text Color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -198,9 +262,7 @@ export default function( {
 							<ColorPalette
 								className="editor-color-palette-control__color-palette"
 								value={ backgroundColor2 }
-								onChange={ ( value ) =>
-									setAttributes( { backgroundColor2: value } )
-								}
+								onChange={ onChangeBackgroundColor2 }
 							/>
 						</BaseControl>
 
@@ -211,15 +273,7 @@ export default function( {
 									'snow-monkey-blocks'
 								) }
 								value={ backgroundColorAngle }
-								onChange={ ( value ) =>
-									setAttributes( {
-										backgroundColorAngle: toNumber(
-											value,
-											0,
-											360
-										),
-									} )
-								}
+								onChange={ onChangeBackgroundColorAngle }
 								min="0"
 								max="360"
 							/>
@@ -234,9 +288,7 @@ export default function( {
 					<SelectControl
 						label={ __( 'Type', 'snow-monkey-blocks' ) }
 						value={ topDividerType }
-						onChange={ ( value ) =>
-							setAttributes( { topDividerType: value } )
-						}
+						onChange={ onChangeTopDividerType }
 						options={ [
 							{
 								value: 'tilt',
@@ -260,11 +312,7 @@ export default function( {
 					<RangeControl
 						label={ __( 'Level', 'snow-monkey-blocks' ) }
 						value={ topDividerLevel }
-						onChange={ ( value ) =>
-							setAttributes( {
-								topDividerLevel: toNumber( value, -100, 100 ),
-							} )
-						}
+						onChange={ onChangeTopDividerLevel }
 						min="-100"
 						max="100"
 					/>
@@ -277,9 +325,7 @@ export default function( {
 						<ColorPalette
 							className="editor-color-palette-control__color-palette"
 							value={ topDividerColor }
-							onChange={ ( value ) =>
-								setAttributes( { topDividerColor: value } )
-							}
+							onChange={ onChangeTopDividerColor }
 						/>
 					</BaseControl>
 				</PanelBody>
@@ -294,9 +340,7 @@ export default function( {
 					<SelectControl
 						label={ __( 'Type', 'snow-monkey-blocks' ) }
 						value={ bottomDividerType }
-						onChange={ ( value ) =>
-							setAttributes( { bottomDividerType: value } )
-						}
+						onChange={ onChangeBottomDividerType }
 						options={ [
 							{
 								value: 'tilt',
@@ -320,15 +364,7 @@ export default function( {
 					<RangeControl
 						label={ __( 'Level', 'snow-monkey-blocks' ) }
 						value={ bottomDividerLevel }
-						onChange={ ( value ) =>
-							setAttributes( {
-								bottomDividerLevel: toNumber(
-									value,
-									-100,
-									100
-								),
-							} )
-						}
+						onChange={ onChangeBottomDividerLevel }
 						min="-100"
 						max="100"
 					/>
@@ -341,9 +377,7 @@ export default function( {
 						<ColorPalette
 							className="editor-color-palette-control__color-palette"
 							value={ bottomDividerColor }
-							onChange={ ( value ) =>
-								setAttributes( { bottomDividerColor: value } )
-							}
+							onChange={ onChangeBottomDividerColor }
 						/>
 					</BaseControl>
 				</PanelBody>
@@ -378,9 +412,7 @@ export default function( {
 									className="smb-section__title"
 									tagName={ titleTagName }
 									value={ title }
-									onChange={ ( value ) =>
-										setAttributes( { title: value } )
-									}
+									onChange={ onChangeTitle }
 									allowedFormats={ [] }
 									placeholder={ __(
 										'Write title...',

@@ -8,8 +8,10 @@ export default [
 	{
 		attributes: {
 			title: {
+				type: 'string',
 				source: 'html',
 				selector: '.smb-accordion__item__title',
+				default: '',
 			},
 		},
 
@@ -36,8 +38,10 @@ export default [
 	{
 		attributes: {
 			title: {
+				type: 'string',
 				source: 'html',
 				selector: '.smb-accordion__item__title',
+				default: '',
 			},
 		},
 

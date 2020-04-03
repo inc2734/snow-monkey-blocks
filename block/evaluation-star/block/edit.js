@@ -61,6 +61,31 @@ export default function( { attributes, setAttributes, className } ) {
 		color: iconColor || undefined,
 	};
 
+	const onChangeEvaluationValue = ( value ) =>
+		setAttributes( {
+			evaluationValue: toNumber( value, 0, 5 ),
+		} );
+
+	const onChangeIsDisplayNumeric = ( value ) =>
+		setAttributes( {
+			isDisplayNumeric: value,
+		} );
+
+	const onChangeNumericAlign = ( value ) =>
+		setAttributes( {
+			numericAlign: value,
+		} );
+
+	const onChangeIconColor = ( value ) =>
+		setAttributes( {
+			iconColor: value,
+		} );
+
+	const onChangeNumericColor = ( value ) =>
+		setAttributes( {
+			numericColor: value,
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -74,11 +99,7 @@ export default function( { attributes, setAttributes, className } ) {
 							'snow-monkey-blocks'
 						) }
 						value={ evaluationValue }
-						onChange={ ( value ) =>
-							setAttributes( {
-								evaluationValue: toNumber( value, 0, 5 ),
-							} )
-						}
+						onChange={ onChangeEvaluationValue }
 						min={ 0 }
 						max={ 5 }
 						step={ 0.1 }
@@ -92,17 +113,13 @@ export default function( { attributes, setAttributes, className } ) {
 					<ToggleControl
 						label={ __( 'Show numeric', 'snow-monkey-blocks' ) }
 						checked={ isDisplayNumeric }
-						onChange={ ( value ) =>
-							setAttributes( { isDisplayNumeric: value } )
-						}
+						onChange={ onChangeIsDisplayNumeric }
 					/>
 
 					<SelectControl
 						label={ __( 'Numeric position', 'snow-monkey-blocks' ) }
 						value={ numericAlign }
-						onChange={ ( value ) =>
-							setAttributes( { numericAlign: value } )
-						}
+						onChange={ onChangeNumericAlign }
 						options={ [
 							{
 								value: 'left',
@@ -128,14 +145,12 @@ export default function( { attributes, setAttributes, className } ) {
 					colorSettings={ [
 						{
 							value: iconColor,
-							onChange: ( value ) =>
-								setAttributes( { iconColor: value } ),
+							onChange: onChangeIconColor,
 							label: __( 'Icon color', 'snow-monkey-blocks' ),
 						},
 						{
 							value: numericColor,
-							onChange: ( value ) =>
-								setAttributes( { numericColor: value } ),
+							onChange: onChangeNumericColor,
 							label: __( 'Numeric color', 'snow-monkey-blocks' ),
 						},
 					] }

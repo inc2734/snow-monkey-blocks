@@ -21,6 +21,31 @@ export default function( {
 
 	const classes = classnames( 'smb-slider__item', className );
 
+	const onSelectImage = ( media ) => {
+		const newImageURL =
+			!! media.sizes && !! media.sizes.large
+				? media.sizes.large.url
+				: media.url;
+
+		setAttributes( {
+			imageURL: newImageURL,
+			imageID: media.id,
+			imageAlt: media.alt,
+		} );
+	};
+
+	const onRemoveImage = () =>
+		setAttributes( {
+			imageURL: '',
+			imageAlt: '',
+			imageID: 0,
+		} );
+
+	const onChangeCaption = ( value ) =>
+		setAttributes( {
+			caption: value,
+		} );
+
 	const Item = () => {
 		return (
 			<>
@@ -29,24 +54,8 @@ export default function( {
 						src={ imageURL }
 						id={ imageID }
 						alt={ imageAlt }
-						selectHandler={ ( media ) => {
-							const newImageURL =
-								!! media.sizes && !! media.sizes.large
-									? media.sizes.large.url
-									: media.url;
-							setAttributes( {
-								imageURL: newImageURL,
-								imageID: media.id,
-								imageAlt: media.alt,
-							} );
-						} }
-						removeHandler={ () =>
-							setAttributes( {
-								imageURL: '',
-								imageAlt: '',
-								imageID: 0,
-							} )
-						}
+						onSelect={ onSelectImage }
+						onRemove={ onRemoveImage }
 						isSelected={ isSelected }
 					/>
 				</div>
@@ -59,9 +68,7 @@ export default function( {
 							'snow-monkey-blocks'
 						) }
 						value={ caption }
-						onChange={ ( value ) =>
-							setAttributes( { caption: value } )
-						}
+						onChange={ onChangeCaption }
 					/>
 				) }
 			</>
@@ -92,9 +99,9 @@ export default function( {
 					<LinkControl
 						url={ url }
 						target={ target }
-						onChange={ ( { url, opensInNewTab } ) => {
+						onChange={ ( { url: newUrl, opensInNewTab } ) => {
 							setAttributes( {
-								url,
+								url: newUrl,
 								target: ! opensInNewTab ? '_self' : '_blank',
 							} );
 						} }

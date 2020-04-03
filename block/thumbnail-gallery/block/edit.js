@@ -16,6 +16,26 @@ export default function( { attributes, setAttributes, className } ) {
 
 	const classes = classnames( 'smb-thumbnail-gallery', className );
 
+	const onChangeArrows = ( value ) =>
+		setAttributes( {
+			arrows: value,
+		} );
+
+	const onChangeSpeed = ( value ) =>
+		setAttributes( {
+			speed: toNumber( value, 100, 1000 ),
+		} );
+
+	const onChangeAutoplaySpeed = ( value ) => {
+		const newValue = toNumber( value, 0, 10 );
+		setAttributes( { autoplaySpeed: newValue } );
+		if ( 0 < newValue ) {
+			setAttributes( { autoplay: true } );
+		} else {
+			setAttributes( { autoplay: false } );
+		}
+	};
+
 	return (
 		<>
 			<InspectorControls>
@@ -25,9 +45,7 @@ export default function( { attributes, setAttributes, className } ) {
 					<ToggleControl
 						label={ __( 'Prev/Next Arrows', 'snow-monkey-blocks' ) }
 						checked={ arrows }
-						onChange={ ( value ) =>
-							setAttributes( { arrows: value } )
-						}
+						onChange={ onChangeArrows }
 					/>
 					<RangeControl
 						label={ __(
@@ -35,11 +53,7 @@ export default function( { attributes, setAttributes, className } ) {
 							'snow-monkey-blocks'
 						) }
 						value={ speed }
-						onChange={ ( value ) =>
-							setAttributes( {
-								speed: toNumber( value, 100, 1000 ),
-							} )
-						}
+						onChange={ onChangeSpeed }
 						min="100"
 						max="1000"
 						step="100"
@@ -50,15 +64,7 @@ export default function( { attributes, setAttributes, className } ) {
 							'snow-monkey-blocks'
 						) }
 						value={ autoplaySpeed }
-						onChange={ ( value ) => {
-							const newValue = toNumber( value, 0, 10 );
-							setAttributes( { autoplaySpeed: newValue } );
-							if ( 0 < newValue ) {
-								setAttributes( { autoplay: true } );
-							} else {
-								setAttributes( { autoplay: false } );
-							}
-						} }
+						onChange={ onChangeAutoplaySpeed }
 						min="0"
 						max="10"
 					/>

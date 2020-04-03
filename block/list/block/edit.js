@@ -56,6 +56,21 @@ export default function( { attributes, setAttributes, className } ) {
 
 	const classes = classnames( 'smb-list', className );
 
+	const onClickIcon = ( value ) =>
+		setAttributes( {
+			icon: value,
+		} );
+
+	const onChangeIconColor = ( value ) =>
+		setAttributes( {
+			iconColor: value,
+		} );
+
+	const onChangeContent = ( value ) =>
+		setAttributes( {
+			content: value,
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -74,9 +89,7 @@ export default function( { attributes, setAttributes, className } ) {
 									<Button
 										isDefault
 										isPrimary={ icon === value }
-										onClick={ () =>
-											setAttributes( { icon: value } )
-										}
+										onClick={ () => onClickIcon( value ) }
 									>
 										<i
 											className={ `fas fa-${ iconList[ index ].value }` }
@@ -95,8 +108,7 @@ export default function( { attributes, setAttributes, className } ) {
 					colorSettings={ [
 						{
 							value: iconColor,
-							onChange: ( value ) =>
-								setAttributes( { iconColor: value } ),
+							onChange: onChangeIconColor,
 							label: __( 'Icon Color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -112,9 +124,7 @@ export default function( { attributes, setAttributes, className } ) {
 					tagName="ul"
 					multiline="li"
 					value={ content }
-					onChange={ ( value ) =>
-						setAttributes( { content: value } )
-					}
+					onChange={ onChangeContent }
 				/>
 			</div>
 		</>

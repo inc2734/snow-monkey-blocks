@@ -12,8 +12,11 @@ export default [
 	{
 		attributes: merge( blockAttributes, {
 			answer: {
+				type: 'string',
 				source: 'html',
 				selector: '.smb-faq__item__answer__body',
+				multiline: 'p',
+				default: '',
 			},
 		} ),
 
@@ -92,8 +95,11 @@ export default [
 	{
 		attributes: merge( blockAttributes, {
 			answer: {
+				type: 'string',
 				source: 'html',
 				selector: '.smb-faq__item__answer__body',
+				multiline: 'p',
+				default: '',
 			},
 		} ),
 

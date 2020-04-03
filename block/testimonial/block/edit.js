@@ -17,6 +17,16 @@ export default function( { attributes, setAttributes, className } ) {
 
 	const classes = classnames( 'smb-testimonial', className );
 
+	const onChangeLg = ( value ) =>
+		setAttributes( {
+			lg: toNumber( value, 1, 4 ),
+		} );
+
+	const onChangeMd = ( value ) =>
+		setAttributes( {
+			md: toNumber( value, 1, 2 ),
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -32,11 +42,7 @@ export default function( { attributes, setAttributes, className } ) {
 										'snow-monkey-blocks'
 									) }
 									value={ lg }
-									onChange={ ( value ) =>
-										setAttributes( {
-											lg: toNumber( value, 1, 4 ),
-										} )
-									}
+									onChange={ onChangeLg }
 									min="1"
 									max="4"
 								/>
@@ -50,11 +56,7 @@ export default function( { attributes, setAttributes, className } ) {
 										'snow-monkey-blocks'
 									) }
 									value={ md }
-									onChange={ ( value ) =>
-										setAttributes( {
-											md: toNumber( value, 1, 2 ),
-										} )
-									}
+									onChange={ onChangeMd }
 									min="1"
 									max="2"
 								/>

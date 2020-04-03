@@ -31,6 +31,31 @@ export default function( { attributes, setAttributes, className } ) {
 		color: answerColor || undefined,
 	};
 
+	const onChangeQuestionLabel = ( value ) =>
+		setAttributes( {
+			questionLabel: value,
+		} );
+
+	const onChangeAnswerLabel = ( value ) =>
+		setAttributes( {
+			answerLabel: value,
+		} );
+
+	const onChangeQuestionColor = ( value ) =>
+		setAttributes( {
+			questionColor: value,
+		} );
+
+	const onChangeAnswerColor = ( value ) =>
+		setAttributes( {
+			answerColor: value,
+		} );
+
+	const onChangeQuestion = ( value ) =>
+		setAttributes( {
+			question: value,
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -44,9 +69,7 @@ export default function( { attributes, setAttributes, className } ) {
 						<TextControl
 							value={ questionLabel }
 							placeholder={ __( 'Q', 'snow-monkey-blocks' ) }
-							onChange={ ( value ) =>
-								setAttributes( { questionLabel: value } )
-							}
+							onChange={ onChangeQuestionLabel }
 							help={ sprintf(
 								__(
 									'Recommend length up to %d',
@@ -63,9 +86,7 @@ export default function( { attributes, setAttributes, className } ) {
 						<TextControl
 							value={ answerLabel }
 							placeholder={ __( 'A', 'snow-monkey-blocks' ) }
-							onChange={ ( value ) =>
-								setAttributes( { answerLabel: value } )
-							}
+							onChange={ onChangeAnswerLabel }
 							help={ sprintf(
 								__(
 									'Recommend length up to %d',
@@ -81,14 +102,12 @@ export default function( { attributes, setAttributes, className } ) {
 					colorSettings={ [
 						{
 							value: questionColor,
-							onChange: ( value ) =>
-								setAttributes( { questionColor: value } ),
+							onChange: onChangeQuestionColor,
 							label: __( 'Question Color', 'snow-monkey-blocks' ),
 						},
 						{
 							value: answerColor,
-							onChange: ( value ) =>
-								setAttributes( { answerColor: value } ),
+							onChange: onChangeAnswerColor,
 							label: __( 'Answer Color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -112,9 +131,7 @@ export default function( { attributes, setAttributes, className } ) {
 						value={ question }
 						allowedFormats={ [] }
 						multiline={ false }
-						onChange={ ( value ) =>
-							setAttributes( { question: value } )
-						}
+						onChange={ onChangeQuestion }
 					/>
 				</div>
 

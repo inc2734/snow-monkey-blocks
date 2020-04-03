@@ -10,8 +10,10 @@ export default {
 		default: 'h2',
 	},
 	title: {
+		type: 'string',
 		source: 'html',
 		selector: '.smb-section__title',
+		default: '',
 	},
 	backgroundColor: {
 		type: 'string',

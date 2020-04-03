@@ -2,24 +2,35 @@
 
 export default {
 	title: {
+		type: 'string',
 		source: 'html',
 		selector: '.smb-pricing-table__item__title',
+		default: '',
 	},
 	price: {
+		type: 'string',
 		source: 'html',
 		selector: '.smb-pricing-table__item__price',
+		default: '',
 	},
 	lede: {
+		type: 'string',
 		source: 'html',
 		selector: '.smb-pricing-table__item__lede',
+		default: '',
 	},
 	list: {
+		type: 'string',
 		source: 'html',
 		selector: 'ul',
+		multiline: 'li',
+		default: '',
 	},
 	btnLabel: {
+		type: 'string',
 		source: 'html',
 		selector: '.smb-pricing-table__item__btn > .smb-btn__label',
+		default: '',
 	},
 	btnURL: {
 		type: 'string',

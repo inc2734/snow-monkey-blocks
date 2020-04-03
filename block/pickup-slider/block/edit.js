@@ -21,6 +21,21 @@ import { toNumber } from '../../../src/js/helper/helper';
 export default function( { attributes, setAttributes } ) {
 	const { random, linkType, postsPerPage, myAnchor } = attributes;
 
+	const onChangeLinkType = ( value ) =>
+		setAttributes( {
+			linkType: value,
+		} );
+
+	const onChangePostsPerPage = ( value ) =>
+		setAttributes( {
+			postsPerPage: toNumber( value, 0, 10 ),
+		} );
+
+	const onChangeMyAnchor = ( value ) =>
+		setAttributes( {
+			myAnchor: value.replace( /[\s#]/g, '-' ),
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -41,9 +56,7 @@ export default function( { attributes, setAttributes } ) {
 					<SelectControl
 						label={ __( 'Link type', 'snow-monkey-blocks' ) }
 						value={ linkType }
-						onChange={ ( value ) =>
-							setAttributes( { linkType: value } )
-						}
+						onChange={ onChangeLinkType }
 						options={ [
 							{
 								value: 'button',
@@ -72,11 +85,7 @@ export default function( { attributes, setAttributes } ) {
 							'snow-monkey-blocks'
 						) }
 						value={ postsPerPage }
-						onChange={ ( value ) =>
-							setAttributes( {
-								postsPerPage: toNumber( value, 0, 10 ),
-							} )
-						}
+						onChange={ onChangePostsPerPage }
 						min="0"
 						max="10"
 					/>
@@ -91,11 +100,7 @@ export default function( { attributes, setAttributes } ) {
 						'snow-monkey-blocks'
 					) }
 					value={ myAnchor || '' }
-					onChange={ ( value ) =>
-						setAttributes( {
-							myAnchor: value.replace( /[\s#]/g, '-' ),
-						} )
-					}
+					onChange={ onChangeMyAnchor }
 				/>
 			</InspectorAdvancedControls>
 

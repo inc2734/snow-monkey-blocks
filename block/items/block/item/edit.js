@@ -142,7 +142,7 @@ export default function( {
 								src={ imageURL }
 								id={ imageID }
 								alt={ imageAlt }
-								selectHandler={ ( media ) => {
+								onSelect={ ( media ) => {
 									const newImageURL =
 										!! media.sizes && !! media.sizes.large
 											? media.sizes.large.url
@@ -153,7 +153,7 @@ export default function( {
 										imageAlt: media.alt,
 									} );
 								} }
-								removeHandler={ () =>
+								onRemove={ () =>
 									setAttributes( {
 										imageURL: '',
 										imageAlt: '',
@@ -247,11 +247,11 @@ export default function( {
 										url={ btnURL }
 										target={ btnTarget }
 										onChange={ ( {
-											url,
+											url: newUrl,
 											opensInNewTab,
 										} ) => {
 											setAttributes( {
-												btnURL: url,
+												btnURL: newUrl,
 												btnTarget: ! opensInNewTab
 													? '_self'
 													: '_blank',

@@ -6,20 +6,28 @@ export default {
 		default: 'div',
 	},
 	title: {
+		type: 'string',
 		source: 'html',
 		selector: '.smb-items__item__title',
+		default: '',
 	},
 	lede: {
+		type: 'string',
 		source: 'html',
 		selector: '.smb-items__item__lede',
+		default: '',
 	},
 	summary: {
+		type: 'string',
 		source: 'html',
 		selector: '.smb-items__item__content',
+		default: '',
 	},
 	btnLabel: {
+		type: 'string',
 		source: 'html',
 		selector: '.smb-items__item__btn > .smb-btn__label',
+		default: '',
 	},
 	url: {
 		type: 'string',

@@ -60,6 +60,36 @@ export default function( { attributes, setAttributes } ) {
 		);
 	};
 
+	const onChangePostType = ( value ) =>
+		setAttributes( {
+			postType: value,
+		} );
+
+	const onChangePostsPerPage = ( value ) =>
+		setAttributes( {
+			postsPerPage: toNumber( value, 1, 12 ),
+		} );
+
+	const onChangeLayout = ( value ) =>
+		setAttributes( {
+			layout: value,
+		} );
+
+	const onChangeIgnoreStickyPosts = ( value ) =>
+		setAttributes( {
+			ignoreStickyPosts: value,
+		} );
+
+	const onChangeNoPostsText = ( value ) =>
+		setAttributes( {
+			noPostsText: value,
+		} );
+
+	const onChangeMyAnchor = ( value ) =>
+		setAttributes( {
+			myAnchor: value.replace( /[\s#]/g, '-' ),
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -69,9 +99,7 @@ export default function( { attributes, setAttributes } ) {
 					<SelectControl
 						label={ __( 'Post Type', 'snow-monkey-blocks' ) }
 						value={ postType }
-						onChange={ ( value ) =>
-							setAttributes( { postType: value } )
-						}
+						onChange={ onChangePostType }
 						options={ postTypes.map( ( _postType ) => ( {
 							label: _postType.name,
 							value: _postType.slug,
@@ -81,11 +109,7 @@ export default function( { attributes, setAttributes } ) {
 					<RangeControl
 						label={ __( 'Number of posts', 'snow-monkey-blocks' ) }
 						value={ postsPerPage }
-						onChange={ ( value ) =>
-							setAttributes( {
-								postsPerPage: toNumber( value, 1, 12 ),
-							} )
-						}
+						onChange={ onChangePostsPerPage }
 						min="1"
 						max="12"
 					/>
@@ -93,9 +117,7 @@ export default function( { attributes, setAttributes } ) {
 					<SelectControl
 						label={ __( 'Layout', 'snow-monkey-blocks' ) }
 						value={ layout }
-						onChange={ ( value ) =>
-							setAttributes( { layout: value } )
-						}
+						onChange={ onChangeLayout }
 						options={ [
 							{
 								value: 'rich-media',
@@ -122,9 +144,7 @@ export default function( { attributes, setAttributes } ) {
 							'snow-monkey-blocks'
 						) }
 						checked={ ignoreStickyPosts }
-						onChange={ ( value ) =>
-							setAttributes( { ignoreStickyPosts: value } )
-						}
+						onChange={ onChangeIgnoreStickyPosts }
 					/>
 
 					<TextareaControl
@@ -134,9 +154,7 @@ export default function( { attributes, setAttributes } ) {
 						) }
 						help={ __( 'Allow HTML', 'snow-monkey-blocks' ) }
 						value={ noPostsText || '' }
-						onChange={ ( value ) =>
-							setAttributes( { noPostsText: value } )
-						}
+						onChange={ onChangeNoPostsText }
 					/>
 				</PanelBody>
 			</InspectorControls>
@@ -149,11 +167,7 @@ export default function( { attributes, setAttributes } ) {
 						'snow-monkey-blocks'
 					) }
 					value={ myAnchor || '' }
-					onChange={ ( value ) =>
-						setAttributes( {
-							myAnchor: value.replace( /[\s#]/g, '-' ),
-						} )
-					}
+					onChange={ onChangeMyAnchor }
 				/>
 			</InspectorAdvancedControls>
 

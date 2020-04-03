@@ -10,6 +10,16 @@ export default function( { attributes, setAttributes, className } ) {
 
 	const classes = classnames( 'smb-price-menu__item', className );
 
+	const onChangeTitle = ( value ) =>
+		setAttributes( {
+			title: value,
+		} );
+
+	const onChangePrice = ( value ) =>
+		setAttributes( {
+			price: value,
+		} );
+
 	return (
 		<div className={ classes }>
 			<RichText
@@ -17,7 +27,7 @@ export default function( { attributes, setAttributes, className } ) {
 				placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
 				value={ title }
 				allowedFormats={ [] }
-				onChange={ ( value ) => setAttributes( { title: value } ) }
+				onChange={ onChangeTitle }
 				keepPlaceholderOnFocus={ true }
 			/>
 
@@ -26,7 +36,7 @@ export default function( { attributes, setAttributes, className } ) {
 				placeholder={ __( 'Write price...', 'snow-monkey-blocks' ) }
 				value={ price }
 				allowedFormats={ [] }
-				onChange={ ( value ) => setAttributes( { price: value } ) }
+				onChange={ onChangePrice }
 				keepPlaceholderOnFocus={ true }
 			/>
 		</div>

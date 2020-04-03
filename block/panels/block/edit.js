@@ -20,6 +20,26 @@ export default function( { attributes, setAttributes, className } ) {
 
 	const classes = classnames( 'smb-panels', className );
 
+	const onChangeLg = ( value ) =>
+		setAttributes( {
+			lg: toNumber( value, 1, 4 ),
+		} );
+
+	const onChangeMd = ( value ) =>
+		setAttributes( {
+			md: toNumber( value, 1, 4 ),
+		} );
+
+	const onChangeSm = ( value ) =>
+		setAttributes( {
+			sm: toNumber( value, 1, 4 ),
+		} );
+
+	const onChangeImagePadding = ( value ) =>
+		setAttributes( {
+			imagePadding: value,
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -35,11 +55,7 @@ export default function( { attributes, setAttributes, className } ) {
 										'snow-monkey-blocks'
 									) }
 									value={ lg }
-									onChange={ ( value ) =>
-										setAttributes( {
-											lg: toNumber( value, 1, 4 ),
-										} )
-									}
+									onChange={ onChangeLg }
 									min="1"
 									max="4"
 								/>
@@ -53,11 +69,7 @@ export default function( { attributes, setAttributes, className } ) {
 										'snow-monkey-blocks'
 									) }
 									value={ md }
-									onChange={ ( value ) =>
-										setAttributes( {
-											md: toNumber( value, 1, 4 ),
-										} )
-									}
+									onChange={ onChangeMd }
 									min="1"
 									max="4"
 								/>
@@ -71,11 +83,7 @@ export default function( { attributes, setAttributes, className } ) {
 										'snow-monkey-blocks'
 									) }
 									value={ sm }
-									onChange={ ( value ) =>
-										setAttributes( {
-											sm: toNumber( value, 1, 4 ),
-										} )
-									}
+									onChange={ onChangeSm }
 									min="1"
 									max="4"
 								/>
@@ -89,9 +97,7 @@ export default function( { attributes, setAttributes, className } ) {
 							'snow-monkey-blocks'
 						) }
 						checked={ imagePadding }
-						onChange={ ( value ) =>
-							setAttributes( { imagePadding: value } )
-						}
+						onChange={ onChangeImagePadding }
 					/>
 				</PanelBody>
 			</InspectorControls>

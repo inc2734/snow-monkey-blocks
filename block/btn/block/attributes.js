@@ -4,6 +4,7 @@ import { __ } from '@wordpress/i18n';
 
 export default {
 	content: {
+		type: 'string',
 		source: 'html',
 		selector: '.smb-btn__label',
 		default: __( 'Button', 'snow-monkey-blocks' ),

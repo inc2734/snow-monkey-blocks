@@ -2,8 +2,10 @@
 
 export default {
 	title: {
+		type: 'string',
 		source: 'html',
 		selector: '.smb-step__item__title > span',
+		default: '',
 	},
 	numberColor: {
 		type: 'string',
@@ -31,8 +33,10 @@ export default {
 		default: '',
 	},
 	linkLabel: {
+		type: 'string',
 		source: 'html',
 		selector: '.smb-step__item__link__label',
+		default: '',
 	},
 	linkURL: {
 		type: 'string',

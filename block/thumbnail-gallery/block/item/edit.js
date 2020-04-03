@@ -17,6 +17,31 @@ export default function( {
 
 	const classes = classnames( 'smb-thumbnail-gallery__item', className );
 
+	const onSelectImage = ( media ) => {
+		const newImageURL =
+			!! media.sizes && !! media.sizes.large
+				? media.sizes.large.url
+				: media.url;
+
+		setAttributes( {
+			imageURL: newImageURL,
+			imageID: media.id,
+			imageAlt: media.alt,
+		} );
+	};
+
+	const onRemoveImage = () =>
+		setAttributes( {
+			imageURL: '',
+			imageAlt: '',
+			imageID: 0,
+		} );
+
+	const onChangeCaption = ( value ) =>
+		setAttributes( {
+			caption: value,
+		} );
+
 	return (
 		<div className={ classes }>
 			<div className="smb-thumbnail-gallery__item__figure">
@@ -24,24 +49,8 @@ export default function( {
 					src={ imageURL }
 					id={ imageID }
 					alt={ imageAlt }
-					selectHandler={ ( media ) => {
-						const newImageURL =
-							!! media.sizes && !! media.sizes.large
-								? media.sizes.large.url
-								: media.url;
-						setAttributes( {
-							imageURL: newImageURL,
-							imageID: media.id,
-							imageAlt: media.alt,
-						} );
-					} }
-					removeHandler={ () =>
-						setAttributes( {
-							imageURL: '',
-							imageAlt: '',
-							imageID: 0,
-						} )
-					}
+					onSelect={ onSelectImage }
+					onRemove={ onRemoveImage }
 					isSelected={ isSelected }
 				/>
 			</div>
@@ -54,9 +63,7 @@ export default function( {
 						'snow-monkey-blocks'
 					) }
 					value={ caption }
-					onChange={ ( value ) =>
-						setAttributes( { caption: value } )
-					}
+					onChange={ onChangeCaption }
 				/>
 			) }
 		</div>

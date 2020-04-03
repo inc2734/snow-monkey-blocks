@@ -47,6 +47,68 @@ export default function( {
 		color: btnTextColor || undefined,
 	};
 
+	const onChangeBtnBackgroundColor = ( value ) =>
+		setAttributes( {
+			btnBackgroundColor: value,
+		} );
+
+	const onChangeBtnTextColor = ( value ) =>
+		setAttributes( {
+			btnTextColor: value,
+		} );
+
+	const onSelectImage = ( media ) => {
+		const newImageURL =
+			!! media.sizes && !! media.sizes.large
+				? media.sizes.large.url
+				: media.url;
+
+		setAttributes( {
+			imageURL: newImageURL,
+			imageID: media.id,
+			imageAlt: media.alt,
+		} );
+	};
+
+	const onRemoveImage = () =>
+		setAttributes( {
+			imageURL: '',
+			imageAlt: '',
+			imageID: 0,
+		} );
+
+	const onChangeTitle = ( value ) =>
+		setAttributes( {
+			title: value,
+		} );
+
+	const onChangePrice = ( value ) =>
+		setAttributes( {
+			price: value,
+		} );
+
+	const onChangeLede = ( value ) =>
+		setAttributes( {
+			lede: value,
+		} );
+
+	const onChangeList = ( value ) =>
+		setAttributes( {
+			list: value,
+		} );
+
+	const onChangeBtnLabel = ( value ) =>
+		setAttributes( {
+			btnLabel: value,
+		} );
+
+	const onChangeBtnUrl = ( { url: newUrl, opensInNewTab } ) => {
+		setAttributes( {
+			btnURL: newUrl,
+			btnTarget: ! opensInNewTab ? '_self' : '_blank',
+		} );
+	};
+
 	return (
 		<>
 			<InspectorControls>
@@ -56,8 +118,7 @@ export default function( {
 					colorSettings={ [
 						{
 							value: btnBackgroundColor,
-							onChange: ( value ) =>
-								setAttributes( { btnBackgroundColor: value } ),
+							onChange: onChangeBtnBackgroundColor,
 							label: __(
 								'Background Color',
 								'snow-monkey-blocks'
@@ -65,8 +126,7 @@ export default function( {
 						},
 						{
 							value: btnTextColor,
-							onChange: ( value ) =>
-								setAttributes( { btnTextColor: value } ),
+							onChange: onChangeBtnTextColor,
 							label: __( 'Text Color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -86,24 +146,8 @@ export default function( {
 								src={ imageURL }
 								id={ imageID }
 								alt={ imageAlt }
-								selectHandler={ ( media ) => {
-									const newImageURL =
-										!! media.sizes && !! media.sizes.large
-											? media.sizes.large.url
-											: media.url;
-									setAttributes( {
-										imageURL: newImageURL,
-										imageID: media.id,
-										imageAlt: media.alt,
-									} );
-								} }
-								removeHandler={ () =>
-									setAttributes( {
-										imageURL: '',
-										imageAlt: '',
-										imageID: 0,
-									} )
-								}
+								onSelect={ onSelectImage }
+								onRemove={ onRemoveImage }
 								isSelected={ isSelected }
 							/>
 						</div>
@@ -117,9 +161,7 @@ export default function( {
 						) }
 						value={ title }
 						allowedFormats={ [] }
-						onChange={ ( value ) =>
-							setAttributes( { title: value } )
-						}
+						onChange={ onChangeTitle }
 						keepPlaceholderOnFocus={ true }
 					/>
 
@@ -132,9 +174,7 @@ export default function( {
 							) }
 							value={ price }
 							allowedFormats={ [] }
-							onChange={ ( value ) =>
-								setAttributes( { price: value } )
-							}
+							onChange={ onChangePrice }
 							keepPlaceholderOnFocus={ true }
 						/>
 					) }
@@ -148,9 +188,7 @@ export default function( {
 							) }
 							value={ lede }
 							allowedFormats={ [] }
-							onChange={ ( value ) =>
-								setAttributes( { lede: value } )
-							}
+							onChange={ onChangeLede }
 							keepPlaceholderOnFocus={ true }
 						/>
 					) }
@@ -159,9 +197,7 @@ export default function( {
 						tagName="ul"
 						multiline="li"
 						value={ list }
-						onChange={ ( value ) =>
-							setAttributes( { list: value } )
-						}
+						onChange={ onChangeList }
 					/>
 
 					{ ( ! RichText.isEmpty( btnLabel ) || isSelected ) && (
@@ -191,9 +227,7 @@ export default function( {
 										'snow-monkey-blocks'
 									) }
 									allowedFormats={ [] }
-									onChange={ ( value ) =>
-										setAttributes( { btnLabel: value } )
-									}
+									onChange={ onChangeBtnLabel }
 								/>
 							</span>
 
@@ -202,17 +236,7 @@ export default function( {
 									<LinkControl
 										url={ btnURL }
 										target={ btnTarget }
-										onChange={ ( {
-											url,
-											opensInNewTab,
-										} ) => {
-											setAttributes( {
-												btnURL: url,
-												btnTarget: ! opensInNewTab
-													? '_self'
-													: '_blank',
-											} );
-										} }
+										onChange={ onChangeBtnUrl }
 									/>
 								</Popover>
 							) }

@@ -30,6 +30,71 @@ export default function( { attributes, setAttributes, className } ) {
 
 	const classes = classnames( 'smb-slider', className );
 
+	const onChangeDots = ( value ) =>
+		setAttributes( {
+			dots: value,
+		} );
+
+	const onChangeArrows = ( value ) =>
+		setAttributes( {
+			arrows: value,
+		} );
+
+	const onChangeSpeed = ( value ) =>
+		setAttributes( {
+			speed: toNumber( value, 100, 1000 ),
+		} );
+
+	const onChangeAutoplaySpeed = ( value ) => {
+		const newValue = toNumber( value, 0, 10 );
+		setAttributes( { autoplaySpeed: newValue } );
+		if ( 0 < newValue ) {
+			setAttributes( { autoplay: true } );
+		} else {
+			setAttributes( { autoplay: false } );
+		}
+	};
+
+	const onChangeFade = ( value ) =>
+		setAttributes( {
+			fade: value,
+		} );
+
+	const onChangeRtl = ( value ) =>
+		setAttributes( {
+			rtl: value,
+		} );
+
+	const onChangeSlidesToShow = ( value ) =>
+		setAttributes( {
+			slidesToShow: toNumber( value, 1, 6 ),
+		} );
+
+	const onChangeSlidestoScroll = ( value ) =>
+		setAttributes( {
+			slidesToScroll: toNumber( value, 1, 6 ),
+		} );
+
+	const onChangeMdSlidesToShow = ( value ) =>
+		setAttributes( {
+			mdSlidesToShow: toNumber( value, 1, 6 ),
+		} );
+
+	const onChangeMdSlidesToScroll = ( value ) =>
+		setAttributes( {
+			mdSlidesToScroll: toNumber( value, 1, 6 ),
+		} );
+
+	const onChangeSmSlidesToShow = ( value ) =>
+		setAttributes( {
+			smSlidesToShow: toNumber( value, 1, 6 ),
+		} );
+
+	const onChangeSmSlidesToScroll = ( value ) =>
+		setAttributes( {
+			smSlidesToScroll: toNumber( value, 1, 6 ),
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -42,16 +107,12 @@ export default function( { attributes, setAttributes, className } ) {
 							'snow-monkey-blocks'
 						) }
 						checked={ dots }
-						onChange={ ( value ) =>
-							setAttributes( { dots: value } )
-						}
+						onChange={ onChangeDots }
 					/>
 					<ToggleControl
 						label={ __( 'Prev/Next Arrows', 'snow-monkey-blocks' ) }
 						checked={ arrows }
-						onChange={ ( value ) =>
-							setAttributes( { arrows: value } )
-						}
+						onChange={ onChangeArrows }
 					/>
 					<RangeControl
 						label={ __(
@@ -59,11 +120,7 @@ export default function( { attributes, setAttributes, className } ) {
 							'snow-monkey-blocks'
 						) }
 						value={ speed }
-						onChange={ ( value ) =>
-							setAttributes( {
-								speed: toNumber( value, 100, 1000 ),
-							} )
-						}
+						onChange={ onChangeSpeed }
 						min="100"
 						max="1000"
 						step="100"
@@ -74,24 +131,14 @@ export default function( { attributes, setAttributes, className } ) {
 							'snow-monkey-blocks'
 						) }
 						value={ autoplaySpeed }
-						onChange={ ( value ) => {
-							const newValue = toNumber( value, 0, 10 );
-							setAttributes( { autoplaySpeed: newValue } );
-							if ( 0 < newValue ) {
-								setAttributes( { autoplay: true } );
-							} else {
-								setAttributes( { autoplay: false } );
-							}
-						} }
+						onChange={ onChangeAutoplaySpeed }
 						min="0"
 						max="10"
 					/>
 					<ToggleControl
 						label={ __( 'Enable fade', 'snow-monkey-blocks' ) }
 						checked={ fade }
-						onChange={ ( value ) =>
-							setAttributes( { fade: value } )
-						}
+						onChange={ onChangeFade }
 					/>
 					<ToggleControl
 						label={ __(
@@ -99,138 +146,82 @@ export default function( { attributes, setAttributes, className } ) {
 							'snow-monkey-blocks'
 						) }
 						checked={ rtl }
-						onChange={ ( value ) =>
-							setAttributes( { rtl: value } )
-						}
+						onChange={ onChangeRtl }
 					/>
 
 					<ResponsiveTabPanel
-						desktop={ () => {
-							return (
-								<>
-									<RangeControl
-										label={ __(
-											'# of slides to show (Large window)',
-											'snow-monkey-blocks'
-										) }
-										value={ slidesToShow }
-										onChange={ ( value ) =>
-											setAttributes( {
-												slidesToShow: toNumber(
-													value,
-													1,
-													6
-												),
-											} )
-										}
-										min="1"
-										max="6"
-									/>
-									<RangeControl
-										label={ __(
-											'# of slides to scroll (Large window)',
-											'snow-monkey-blocks'
-										) }
-										value={ slidesToScroll }
-										onChange={ ( value ) =>
-											setAttributes( {
-												slidesToScroll: toNumber(
-													value,
-													1,
-													6
-												),
-											} )
-										}
-										min="1"
-										max="6"
-									/>
-								</>
-							);
-						} }
-						tablet={ () => {
-							return (
-								<>
-									<RangeControl
-										label={ __(
-											'# of slides to show (Medium window)',
-											'snow-monkey-blocks'
-										) }
-										value={ mdSlidesToShow }
-										onChange={ ( value ) =>
-											setAttributes( {
-												mdSlidesToShow: toNumber(
-													value,
-													1,
-													6
-												),
-											} )
-										}
-										min="1"
-										max="6"
-									/>
-									<RangeControl
-										label={ __(
-											'# of slides to scroll (Medium window)',
-											'snow-monkey-blocks'
-										) }
-										value={ mdSlidesToScroll }
-										onChange={ ( value ) =>
-											setAttributes( {
-												mdSlidesToScroll: toNumber(
-													value,
-													1,
-													6
-												),
-											} )
-										}
-										min="1"
-										max="6"
-									/>
-								</>
-							);
-						} }
-						mobile={ () => {
-							return (
-								<>
-									<RangeControl
-										label={ __(
-											'# of slides to show (Small window)',
-											'snow-monkey-blocks'
-										) }
-										value={ smSlidesToShow }
-										onChange={ ( value ) =>
-											setAttributes( {
-												smSlidesToShow: toNumber(
-													value,
-													1,
-													6
-												),
-											} )
-										}
-										min="1"
-										max="6"
-									/>
-									<RangeControl
-										label={ __(
-											'# of slides to scroll (Small window)',
-											'snow-monkey-blocks'
-										) }
-										value={ smSlidesToScroll }
-										onChange={ ( value ) =>
-											setAttributes( {
-												smSlidesToScroll: toNumber(
-													value,
-													1,
-													6
-												),
-											} )
-										}
-										min="1"
-										max="6"
-									/>
-								</>
-							);
-						} }
+						desktop={ () => (
+							<>
+								<RangeControl
+									label={ __(
+										'# of slides to show (Large window)',
+										'snow-monkey-blocks'
+									) }
+									value={ slidesToShow }
+									onChange={ onChangeSlidesToShow }
+									min="1"
+									max="6"
+								/>
+								<RangeControl
+									label={ __(
+										'# of slides to scroll (Large window)',
+										'snow-monkey-blocks'
+									) }
+									value={ slidesToScroll }
+									onChange={ onChangeSlidestoScroll }
+									min="1"
+									max="6"
+								/>
+							</>
+						) }
+						tablet={ () => (
+							<>
+								<RangeControl
+									label={ __(
+										'# of slides to show (Medium window)',
+										'snow-monkey-blocks'
+									) }
+									value={ mdSlidesToShow }
+									onChange={ onChangeMdSlidesToShow }
+									min="1"
+									max="6"
+								/>
+								<RangeControl
+									label={ __(
+										'# of slides to scroll (Medium window)',
+										'snow-monkey-blocks'
+									) }
+									value={ mdSlidesToScroll }
+									onChange={ onChangeMdSlidesToScroll }
+									min="1"
+									max="6"
+								/>
+							</>
+						) }
+						mobile={ () => (
+							<>
+								<RangeControl
+									label={ __(
+										'# of slides to show (Small window)',
+										'snow-monkey-blocks'
+									) }
+									value={ smSlidesToShow }
+									onChange={ onChangeSmSlidesToShow }
+									min="1"
+									max="6"
+								/>
+								<RangeControl
+									label={ __(
+										'# of slides to scroll (Small window)',
+										'snow-monkey-blocks'
+									) }
+									value={ smSlidesToScroll }
+									onChange={ onChangeSmSlidesToScroll }
+									min="1"
+									max="6"
+								/>
+							</>
+						) }
 					/>
 				</PanelBody>
 			</InspectorControls>

@@ -13,28 +13,48 @@ import {
 } from '@wordpress/block-editor';
 
 export default function( { attributes, setAttributes, className } ) {
+	const { alignment, numericColor, clockColor, countdownTime } = attributes;
+
 	const blockClasses = classnames( 'smb-countdown', className );
 
 	const listClasses = classnames( 'smb-countdown__list', {
-		[ `align-${ attributes.alignment }` ]: !! attributes.alignment,
+		[ `align-${ alignment }` ]: !! alignment,
 	} );
 
 	const numericStyles = {
-		color: attributes.numericColor || undefined,
+		color: numericColor || undefined,
 	};
 
 	const clockStyles = {
-		color: attributes.clockColor || undefined,
+		color: clockColor || undefined,
 	};
+
+	const onChangeAlignment = ( value ) =>
+		setAttributes( {
+			alignment: value,
+		} );
+
+	const onChangeCountdownTime = ( value ) =>
+		setAttributes( {
+			countdownTime: value,
+		} );
+
+	const onChangeNumericColor = ( value ) =>
+		setAttributes( {
+			numericColor: value,
+		} );
+
+	const onChangeClockColor = ( value ) =>
+		setAttributes( {
+			clockColor: value,
+		} );
 
 	return (
 		<>
 			<BlockControls>
 				<AlignmentToolbar
-					value={ attributes.alignment }
-					onChange={ ( value ) =>
-						setAttributes( { alignment: value } )
-					}
+					value={ alignment }
+					onChange={ onChangeAlignment }
 				/>
 			</BlockControls>
 			<InspectorControls>
@@ -42,10 +62,8 @@ export default function( { attributes, setAttributes, className } ) {
 					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
 				>
 					<DateTimePicker
-						currentDate={ attributes.countdownTime }
-						onChange={ ( value ) => {
-							setAttributes( { countdownTime: value } );
-						} }
+						currentDate={ countdownTime }
+						onChange={ onChangeCountdownTime }
 					/>
 				</PanelBody>
 				<PanelColorSettings
@@ -53,25 +71,20 @@ export default function( { attributes, setAttributes, className } ) {
 					initialOpen={ false }
 					colorSettings={ [
 						{
-							value: attributes.numericColor,
-							onChange: ( value ) =>
-								setAttributes( { numericColor: value } ),
+							value: numericColor,
+							onChange: onChangeNumericColor,
 							label: __( 'Numeric Color', 'snow-monkey-blocks' ),
 						},
 						{
-							value: attributes.clockColor,
-							onChange: ( value ) =>
-								setAttributes( { clockColor: value } ),
+							value: clockColor,
+							onChange: onChangeClockColor,
 							label: __( 'Clock Color', 'snow-monkey-blocks' ),
 						},
 					] }
 				></PanelColorSettings>
 			</InspectorControls>
 			<div className={ blockClasses }>
-				<ul
-					className={ listClasses }
-					data-time={ attributes.countdownTime }
-				>
+				<ul className={ listClasses } data-time={ countdownTime }>
 					<li className="smb-countdown__list-item smb-countdown__list-item__days">
 						<span
 							className="smb-countdown__list-item__numeric"

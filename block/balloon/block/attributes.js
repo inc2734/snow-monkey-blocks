@@ -28,8 +28,11 @@ export default {
 		default: '',
 	},
 	balloonBody: {
+		type: 'string',
 		source: 'html',
 		selector: '.smb-balloon__body',
+		multiline: 'p',
+		default: '',
 	},
 	modifier: {
 		type: 'string',

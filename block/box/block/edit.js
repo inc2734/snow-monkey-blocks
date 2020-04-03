@@ -26,6 +26,26 @@ export default function( { attributes, setAttributes, className } ) {
 
 	const classes = classnames( 'smb-box', className );
 
+	const onChangeBorderWidth = ( value ) =>
+		setAttributes( {
+			borderWidth: toNumber( value, 1, 5 ),
+		} );
+
+	const onChangeBackgroundColor = ( value ) =>
+		setAttributes( {
+			backgroundColor: value,
+		} );
+
+	const onChangeBorderColor = ( value ) =>
+		setAttributes( {
+			borderColor: value,
+		} );
+
+	const onChangeTextColor = ( value ) =>
+		setAttributes( {
+			textColor: value,
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -35,11 +55,7 @@ export default function( { attributes, setAttributes, className } ) {
 					<RangeControl
 						label={ __( 'Border width', 'snow-monkey-blocks' ) }
 						value={ borderWidth }
-						onChange={ ( value ) =>
-							setAttributes( {
-								borderWidth: toNumber( value, 1, 5 ),
-							} )
-						}
+						onChange={ onChangeBorderWidth }
 						min="1"
 						max="5"
 					/>
@@ -51,8 +67,7 @@ export default function( { attributes, setAttributes, className } ) {
 					colorSettings={ [
 						{
 							value: backgroundColor,
-							onChange: ( value ) =>
-								setAttributes( { backgroundColor: value } ),
+							onChange: onChangeBackgroundColor,
 							label: __(
 								'Background Color',
 								'snow-monkey-blocks'
@@ -60,14 +75,12 @@ export default function( { attributes, setAttributes, className } ) {
 						},
 						{
 							value: borderColor,
-							onChange: ( value ) =>
-								setAttributes( { borderColor: value } ),
+							onChange: onChangeBorderColor,
 							label: __( 'Border Color', 'snow-monkey-blocks' ),
 						},
 						{
 							value: textColor,
-							onChange: ( value ) =>
-								setAttributes( { textColor: value } ),
+							onChange: onChangeTextColor,
 							label: __( 'Text Color', 'snow-monkey-blocks' ),
 						},
 					] }

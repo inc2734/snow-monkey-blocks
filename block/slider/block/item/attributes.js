@@ -20,8 +20,10 @@ export default {
 		default: '',
 	},
 	caption: {
+		type: 'string',
 		source: 'html',
 		selector: '.smb-slider__item__caption',
+		default: '',
 	},
 	url: {
 		type: 'string',

@@ -14,14 +14,14 @@ import {
 } from '@wordpress/i18n';
 
 export default function( props ) {
-	const { src, id, alt, selectHandler, removeHandler, isSelected, url, target } = props;
+	const { src, id, alt, onSelect, onRemove, isSelected, url, target } = props;
 
 	if ( ! src ) {
 		return (
 			<MediaPlaceholder
 				icon="format-image"
 				labels={ { title: __( 'Image' ) } }
-				onSelect={ selectHandler }
+				onSelect={ onSelect }
 				accept="image/*"
 				allowedTypes={ [ 'image' ] }
 			/>
@@ -32,7 +32,7 @@ export default function( props ) {
 		return (
 			<div className="smb-remove-button-wrapper">
 				<MediaUpload
-					onSelect={ selectHandler }
+					onSelect={ onSelect }
 					type="image"
 					value={ id }
 					render={ ( obj ) => {
@@ -46,7 +46,7 @@ export default function( props ) {
 				{ isSelected &&
 					<button
 						className="smb-remove-button"
-						onClick={ removeHandler }
+						onClick={ onRemove }
 					>{ __( 'Remove', 'snow-monkey-blocks' ) }</button>
 				}
 			</div>

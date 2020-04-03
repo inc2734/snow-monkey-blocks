@@ -23,6 +23,21 @@ export default function( { attributes, setAttributes, className } ) {
 		backgroundColor: color || undefined,
 	};
 
+	const onChangeRating = ( value ) =>
+		setAttributes( {
+			rating: toNumber( value, 1, 10 ),
+		} );
+
+	const onChangeColor = ( value ) =>
+		setAttributes( {
+			color: value,
+		} );
+
+	const onChangeTitle = ( value ) =>
+		setAttributes( {
+			title: value,
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -32,11 +47,7 @@ export default function( { attributes, setAttributes, className } ) {
 					<RangeControl
 						label={ __( 'Rating', 'snow-monkey-blocks' ) }
 						value={ rating }
-						onChange={ ( value ) =>
-							setAttributes( {
-								rating: toNumber( value, 1, 10 ),
-							} )
-						}
+						onChange={ onChangeRating }
 						min="1"
 						max="10"
 					/>
@@ -48,8 +59,7 @@ export default function( { attributes, setAttributes, className } ) {
 					colorSettings={ [
 						{
 							value: color,
-							onChange: ( value ) =>
-								setAttributes( { color: value } ),
+							onChange: onChangeColor,
 							label: __( 'Bar Color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -63,7 +73,7 @@ export default function( { attributes, setAttributes, className } ) {
 					value={ title }
 					allowedFormats={ [] }
 					multiline={ false }
-					onChange={ ( value ) => setAttributes( { title: value } ) }
+					onChange={ onChangeTitle }
 				/>
 
 				<div className="smb-rating-box__item__evaluation">

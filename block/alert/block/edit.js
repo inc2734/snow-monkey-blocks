@@ -59,6 +59,26 @@ export default function( {
 		[ `smb-alert--${ modifier }` ]: !! modifier,
 	} );
 
+	const onChangeModifier = ( value ) =>
+		setAttributes( {
+			modifier: value,
+		} );
+
+	const onClickIcon = ( value ) =>
+		setAttributes( {
+			icon: value,
+		} );
+
+	const onChangeTitle = ( value ) =>
+		setAttributes( {
+			title: value,
+		} );
+
+	const onChangeContent = ( value ) =>
+		setAttributes( {
+			content: value,
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -68,9 +88,7 @@ export default function( {
 					<SelectControl
 						label={ __( 'Type', 'snow-monkey-blocks' ) }
 						value={ modifier }
-						onChange={ ( value ) =>
-							setAttributes( { modifier: value } )
-						}
+						onChange={ onChangeModifier }
 						options={ [
 							{
 								value: '',
@@ -116,9 +134,9 @@ export default function( {
 											icon === iconList[ index ].value
 										}
 										onClick={ () =>
-											setAttributes( {
-												icon: iconList[ index ].value,
-											} )
+											onClickIcon(
+												iconList[ index ].value
+											)
 										}
 									>
 										<i
@@ -138,19 +156,16 @@ export default function( {
 					<div className="smb-alert__title">
 						<FontAwesome icon={ icon } />
 
-						<strong>
-							<RichText
-								multiline={ false }
-								value={ title }
-								placeholder={ __(
-									'Write title...',
-									'snow-monkey-blocks'
-								) }
-								onChange={ ( value ) =>
-									setAttributes( { title: value } )
-								}
-							/>
-						</strong>
+						<RichText
+							tagName="strong"
+							multiline={ false }
+							value={ title }
+							placeholder={ __(
+								'Write title...',
+								'snow-monkey-blocks'
+							) }
+							onChange={ onChangeTitle }
+						/>
 					</div>
 				) }
 
@@ -158,9 +173,7 @@ export default function( {
 					className="smb-alert__body"
 					multiline="p"
 					value={ content }
-					onChange={ ( value ) =>
-						setAttributes( { content: value } )
-					}
+					onChange={ onChangeContent }
 				/>
 			</div>
 		</>

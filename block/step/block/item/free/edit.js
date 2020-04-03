@@ -20,6 +20,16 @@ export default function( { attributes, setAttributes, className } ) {
 		backgroundColor: numberColor || undefined,
 	};
 
+	const onChangeNumberColor = ( value ) =>
+		setAttributes( {
+			numberColor: value,
+		} );
+
+	const onChangeTitle = ( value ) =>
+		setAttributes( {
+			title: value,
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -29,8 +39,7 @@ export default function( { attributes, setAttributes, className } ) {
 					colorSettings={ [
 						{
 							value: numberColor,
-							onChange: ( value ) =>
-								setAttributes( { numberColor: value } ),
+							onChange: onChangeNumberColor,
 							label: __( 'Number Color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -43,19 +52,17 @@ export default function( { attributes, setAttributes, className } ) {
 						className="smb-step__item__number"
 						style={ itemNumberStyles }
 					/>
-					<span>
-						<RichText
-							placeholder={ __(
-								'Write title...',
-								'snow-monkey-blocks'
-							) }
-							value={ title }
-							multiline={ false }
-							onChange={ ( value ) =>
-								setAttributes( { title: value } )
-							}
-						/>
-					</span>
+
+					<RichText
+						tagName="span"
+						placeholder={ __(
+							'Write title...',
+							'snow-monkey-blocks'
+						) }
+						value={ title }
+						multiline={ false }
+						onChange={ onChangeTitle }
+					/>
 				</div>
 
 				<div className="smb-step__item__body">

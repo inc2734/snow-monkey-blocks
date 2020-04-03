@@ -96,6 +96,126 @@ export default function( {
 		opacity: maskOpacity,
 	};
 
+	const onClickWrapperTagName = ( value ) =>
+		setAttributes( {
+			wrapperTagName: value,
+		} );
+
+	const onClickTitleTagName = ( value ) =>
+		setAttributes( {
+			titleTagName: value,
+		} );
+
+	const onChangeHeight = ( value ) =>
+		setAttributes( {
+			height: value,
+		} );
+
+	const onChangeContentAlignment = ( value ) =>
+		setAttributes( {
+			contentsAlignment: value,
+		} );
+
+	const onChangeParallax = ( value ) =>
+		setAttributes( {
+			parallax: value,
+		} );
+
+	const onChangeIsSlim = ( value ) =>
+		setAttributes( {
+			isSlim: value,
+		} );
+
+	const onSelectLgImage = ( media ) => {
+		const newImageURL =
+			!! media.sizes && !! media.sizes.large
+				? media.sizes.large.url
+				: media.url;
+
+		setAttributes( {
+			lgImageURL: newImageURL,
+			lgImageID: media.id,
+			lgImageAlt: media.alt,
+		} );
+	};
+
+	const onRemoveLgImage = () =>
+		setAttributes( {
+			lgImageURL: '',
+			lgImageAlt: '',
+			lgImageID: 0,
+		} );
+
+	const onSelectMdImage = ( media ) => {
+		const newImageURL =
+			!! media.sizes && !! media.sizes.large
+				? media.sizes.large.url
+				: media.url;
+
+		setAttributes( {
+			mdImageURL: newImageURL,
+			mdImageID: media.id,
+			mdImageAlt: media.alt,
+		} );
+	};
+
+	const onRemoveMdImage = () =>
+		setAttributes( {
+			mdImageURL: '',
+			mdImageAlt: '',
+			mdImageID: 0,
+		} );
+
+	const onSelectSmImage = ( media ) => {
+		const newImageURL =
+			!! media.sizes && !! media.sizes.large
+				? media.sizes.large.url
+				: media.url;
+
+		setAttributes( {
+			smImageURL: newImageURL,
+			smImageID: media.id,
+			smImageAlt: media.alt,
+		} );
+	};
+
+	const onRemoveSmImage = () =>
+		setAttributes( {
+			smImageURL: '',
+			smImageAlt: '',
+			smImageID: 0,
+		} );
+
+	const onChangeMaskColor = ( value ) =>
+		setAttributes( {
+			maskColor: value,
+		} );
+
+	const onChangeTextColor = ( value ) =>
+		setAttributes( {
+			textColor: value,
+		} );
+
+	const onChangeMaskOpacity = ( value ) =>
+		setAttributes( {
+			maskOpacity: toNumber( value, 0, 1 ),
+		} );
+
+	const onChangeMaskColor2 = ( value ) =>
+		setAttributes( {
+			maskColor2: value,
+		} );
+
+	const onChangeMaskColorAngle = ( value ) =>
+		setAttributes( {
+			maskColorAngle: toNumber( value, 0, 360 ),
+		} );
+
+	const onChangeTitle = ( value ) =>
+		setAttributes( {
+			title: value,
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -116,10 +236,9 @@ export default function( {
 											wrapperTagNames[ index ]
 										}
 										onClick={ () =>
-											setAttributes( {
-												wrapperTagName:
-													wrapperTagNames[ index ],
-											} )
+											onClickWrapperTagName(
+												wrapperTagNames[ index ]
+											)
 										}
 									>
 										{ wrapperTagNames[ index ] }
@@ -143,10 +262,9 @@ export default function( {
 											titleTagNames[ index ]
 										}
 										onClick={ () =>
-											setAttributes( {
-												titleTagName:
-													titleTagNames[ index ],
-											} )
+											onClickTitleTagName(
+												titleTagNames[ index ]
+											)
 										}
 									>
 										{ titleTagNames[ index ] }
@@ -169,9 +287,7 @@ export default function( {
 								label: __( 'Wide', 'snow-monkey-blocks' ),
 							},
 						] }
-						onChange={ ( value ) =>
-							setAttributes( { height: value } )
-						}
+						onChange={ onChangeHeight }
 					/>
 
 					<SelectControl
@@ -194,17 +310,13 @@ export default function( {
 								label: __( 'Right side', 'snow-monkey-blocks' ),
 							},
 						] }
-						onChange={ ( value ) =>
-							setAttributes( { contentsAlignment: value } )
-						}
+						onChange={ onChangeContentAlignment }
 					/>
 
 					<ToggleControl
 						label={ __( 'Parallax', 'snow-monkey-blocks' ) }
 						checked={ parallax }
-						onChange={ ( value ) =>
-							setAttributes( { parallax: value } )
-						}
+						onChange={ onChangeParallax }
 					/>
 
 					<ToggleControl
@@ -213,9 +325,7 @@ export default function( {
 							'snow-monkey-blocks'
 						) }
 						checked={ isSlim }
-						onChange={ ( value ) =>
-							setAttributes( { isSlim: value } )
-						}
+						onChange={ onChangeIsSlim }
 					/>
 
 					<ResponsiveTabPanel
@@ -225,25 +335,8 @@ export default function( {
 									src={ lgImageURL }
 									id={ lgImageID }
 									alt={ lgImageAlt }
-									selectHandler={ ( media ) => {
-										const newImageURL =
-											!! media.sizes &&
-											!! media.sizes.large
-												? media.sizes.large.url
-												: media.url;
-										setAttributes( {
-											lgImageURL: newImageURL,
-											lgImageID: media.id,
-											lgImageAlt: media.alt,
-										} );
-									} }
-									removeHandler={ () =>
-										setAttributes( {
-											lgImageURL: '',
-											lgImageAlt: '',
-											lgImageID: 0,
-										} )
-									}
+									onSelect={ onSelectLgImage }
+									onRemove={ onRemoveLgImage }
 									isSelected={ isSelected }
 								/>
 							);
@@ -254,25 +347,8 @@ export default function( {
 									src={ mdImageURL }
 									id={ mdImageID }
 									alt={ mdImageAlt }
-									selectHandler={ ( media ) => {
-										const newImageURL =
-											!! media.sizes &&
-											!! media.sizes.large
-												? media.sizes.large.url
-												: media.url;
-										setAttributes( {
-											mdImageURL: newImageURL,
-											mdImageID: media.id,
-											mdImageAlt: media.alt,
-										} );
-									} }
-									removeHandler={ () =>
-										setAttributes( {
-											mdImageURL: '',
-											mdImageAlt: '',
-											mdImageID: 0,
-										} )
-									}
+									onSelect={ onSelectMdImage }
+									onRemove={ onRemoveMdImage }
 									isSelected={ isSelected }
 								/>
 							);
@@ -283,25 +359,8 @@ export default function( {
 									src={ smImageURL }
 									id={ smImageID }
 									alt={ smImageAlt }
-									selectHandler={ ( media ) => {
-										const newImageURL =
-											!! media.sizes &&
-											!! media.sizes.large
-												? media.sizes.large.url
-												: media.url;
-										setAttributes( {
-											smImageURL: newImageURL,
-											smImageID: media.id,
-											smImageAlt: media.alt,
-										} );
-									} }
-									removeHandler={ () =>
-										setAttributes( {
-											smImageURL: '',
-											smImageAlt: '',
-											smImageID: 0,
-										} )
-									}
+									onSelect={ onSelectSmImage }
+									onRemove={ onRemoveSmImage }
 									isSelected={ isSelected }
 								/>
 							);
@@ -315,14 +374,12 @@ export default function( {
 					colorSettings={ [
 						{
 							value: maskColor,
-							onChange: ( value ) =>
-								setAttributes( { maskColor: value } ),
+							onChange: onChangeMaskColor,
 							label: __( 'Mask Color', 'snow-monkey-blocks' ),
 						},
 						{
 							value: textColor,
-							onChange: ( value ) =>
-								setAttributes( { textColor: value } ),
+							onChange: onChangeTextColor,
 							label: __( 'Text Color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -334,11 +391,7 @@ export default function( {
 					<RangeControl
 						label={ __( 'Mask Opacity', 'snow-monkey-blocks' ) }
 						value={ maskOpacity }
-						onChange={ ( value ) =>
-							setAttributes( {
-								maskOpacity: toNumber( value, 0, 1 ),
-							} )
-						}
+						onChange={ onChangeMaskOpacity }
 						min={ 0 }
 						max={ 1 }
 						step={ 0.1 }
@@ -353,9 +406,7 @@ export default function( {
 							<ColorPalette
 								className="editor-color-palette-control__color-palette"
 								value={ maskColor2 }
-								onChange={ ( value ) =>
-									setAttributes( { maskColor2: value } )
-								}
+								onChange={ onChangeMaskColor2 }
 							/>
 						</BaseControl>
 					) }
@@ -367,11 +418,7 @@ export default function( {
 								'snow-monkey-blocks'
 							) }
 							value={ maskColorAngle }
-							onChange={ ( value ) =>
-								setAttributes( {
-									maskColorAngle: toNumber( value, 0, 360 ),
-								} )
-							}
+							onChange={ onChangeMaskColorAngle }
 							min="0"
 							max="360"
 						/>
@@ -436,9 +483,7 @@ export default function( {
 								className="smb-section__title"
 								tagName={ titleTagName }
 								value={ title }
-								onChange={ ( value ) =>
-									setAttributes( { title: value } )
-								}
+								onChange={ onChangeTitle }
 								allowedFormats={ [] }
 								placeholder={ __(
 									'Write title...',

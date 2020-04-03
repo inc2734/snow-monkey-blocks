@@ -52,6 +52,33 @@ export default function( {
 		color: textColor || undefined,
 	};
 
+	const onChangeModifier = ( value ) =>
+		setAttributes( {
+			modifier: value,
+		} );
+
+	const onChangeBackgroundColor = ( value ) =>
+		setAttributes( {
+			backgroundColor: value,
+		} );
+
+	const onChangeTextColor = ( value ) =>
+		setAttributes( {
+			textColor: value,
+		} );
+
+	const onChangeContent = ( value ) =>
+		setAttributes( {
+			content: value,
+		} );
+
+	const onChangeUrl = ( { url: newUrl, opensInNewTab } ) => {
+		setAttributes( {
+			url: newUrl,
+			target: ! opensInNewTab ? '_self' : '_blank',
+		} );
+	};
+
 	return (
 		<>
 			<InspectorControls>
@@ -61,9 +88,7 @@ export default function( {
 					<SelectControl
 						label={ __( 'Button size', 'snow-monkey-blocks' ) }
 						value={ modifier }
-						onChange={ ( value ) =>
-							setAttributes( { modifier: value } )
-						}
+						onChange={ onChangeModifier }
 						options={ [
 							{
 								value: '',
@@ -86,8 +111,7 @@ export default function( {
 					colorSettings={ [
 						{
 							value: backgroundColor,
-							onChange: ( value ) =>
-								setAttributes( { backgroundColor: value } ),
+							onChange: onChangeBackgroundColor,
 							label: __(
 								'Background Color',
 								'snow-monkey-blocks'
@@ -95,8 +119,7 @@ export default function( {
 						},
 						{
 							value: textColor,
-							onChange: ( value ) =>
-								setAttributes( { textColor: value } ),
+							onChange: onChangeTextColor,
 							label: __( 'Text Color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -123,9 +146,7 @@ export default function( {
 						value={ content }
 						keepPlaceholderOnFocus={ true }
 						placeholder={ __( 'Button', 'snow-monkey-blocks' ) }
-						onChange={ ( value ) =>
-							setAttributes( { content: value } )
-						}
+						onChange={ onChangeContent }
 						style={ btnLabelStyles }
 						allowedFormats={ [] }
 					/>
@@ -137,12 +158,7 @@ export default function( {
 					<LinkControl
 						url={ url }
 						target={ target }
-						onChange={ ( { url, opensInNewTab } ) => {
-							setAttributes( {
-								url,
-								target: ! opensInNewTab ? '_self' : '_blank',
-							} );
-						} }
+						onChange={ onChangeUrl }
 					/>
 				</Popover>
 			) }

@@ -21,6 +21,21 @@ export default function( { attributes, setAttributes, className } ) {
 
 	const classes = classnames( 'smb-items', className );
 
+	const onChangeLg = ( value ) =>
+		setAttributes( {
+			lg: toNumber( value, 1, 6 ),
+		} );
+
+	const onChangeMd = ( value ) =>
+		setAttributes( {
+			md: toNumber( value, 1, 6 ),
+		} );
+
+	const onChangeSm = ( value ) =>
+		setAttributes( {
+			sm: toNumber( value, 1, 6 ),
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -28,60 +43,42 @@ export default function( { attributes, setAttributes, className } ) {
 					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
 				>
 					<ResponsiveTabPanel
-						desktop={ () => {
-							return (
-								<RangeControl
-									label={ __(
-										'Columns per row (Large window)',
-										'snow-monkey-blocks'
-									) }
-									value={ lg }
-									onChange={ ( value ) =>
-										setAttributes( {
-											lg: toNumber( value, 1, 6 ),
-										} )
-									}
-									min="1"
-									max="6"
-								/>
-							);
-						} }
-						tablet={ () => {
-							return (
-								<RangeControl
-									label={ __(
-										'Columns per row (Medium window)',
-										'snow-monkey-blocks'
-									) }
-									value={ md }
-									onChange={ ( value ) =>
-										setAttributes( {
-											md: toNumber( value, 1, 6 ),
-										} )
-									}
-									min="1"
-									max="6"
-								/>
-							);
-						} }
-						mobile={ () => {
-							return (
-								<RangeControl
-									label={ __(
-										'Columns per row (Small window)',
-										'snow-monkey-blocks'
-									) }
-									value={ sm }
-									onChange={ ( value ) =>
-										setAttributes( {
-											sm: toNumber( value, 1, 6 ),
-										} )
-									}
-									min="1"
-									max="6"
-								/>
-							);
-						} }
+						desktop={ () => (
+							<RangeControl
+								label={ __(
+									'Columns per row (Large window)',
+									'snow-monkey-blocks'
+								) }
+								value={ lg }
+								onChange={ onChangeLg }
+								min="1"
+								max="6"
+							/>
+						) }
+						tablet={ () => (
+							<RangeControl
+								label={ __(
+									'Columns per row (Medium window)',
+									'snow-monkey-blocks'
+								) }
+								value={ md }
+								onChange={ onChangeMd }
+								min="1"
+								max="6"
+							/>
+						) }
+						mobile={ () => (
+							<RangeControl
+								label={ __(
+									'Columns per row (Small window)',
+									'snow-monkey-blocks'
+								) }
+								value={ sm }
+								onChange={ onChangeSm }
+								min="1"
+								max="6"
+							/>
+						) }
 					/>
 				</PanelBody>
 			</InspectorControls>

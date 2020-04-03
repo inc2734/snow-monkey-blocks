@@ -49,6 +49,38 @@ export default function( { attributes, setAttributes, className } ) {
 		[ `smb-balloon--${ modifier }` ]: !! modifier,
 	} );
 
+	const onChangeModifier = ( value ) =>
+		setAttributes( {
+			modifier: value,
+		} );
+
+	const onChangeAvatarBorderColor = ( value ) =>
+		setAttributes( {
+			avatarBorderColor: value,
+		} );
+
+	const onSelectImage = ( media ) => {
+		const newAvatarURL = !! media.sizes.thumbnail
+			? media.sizes.thumbnail.url
+			: media.url;
+
+		setAttributes( {
+			avatarURL: newAvatarURL,
+			avatarID: media.id,
+			avatarAlt: media.alt,
+		} );
+	};
+
+	const onChangeBalloonName = ( value ) =>
+		setAttributes( {
+			balloonName: value,
+		} );
+
+	const onChangeBalloonBody = ( value ) =>
+		setAttributes( {
+			balloonBody: value,
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -58,9 +90,7 @@ export default function( { attributes, setAttributes, className } ) {
 					<SelectControl
 						label={ __( 'Type', 'snow-monkey-blocks' ) }
 						value={ modifier }
-						onChange={ ( value ) =>
-							setAttributes( { modifier: value } )
-						}
+						onChange={ onChangeModifier }
 						options={ [
 							{
 								value: '',
@@ -86,8 +116,7 @@ export default function( { attributes, setAttributes, className } ) {
 					colorSettings={ [
 						{
 							value: avatarBorderColor,
-							onChange: ( value ) =>
-								setAttributes( { avatarBorderColor: value } ),
+							onChange: onChangeAvatarBorderColor,
 							label: __(
 								'Avatar Border Color',
 								'snow-monkey-blocks'
@@ -104,16 +133,7 @@ export default function( { attributes, setAttributes, className } ) {
 						style={ balloonFigureStyles }
 					>
 						<MediaUpload
-							onSelect={ ( media ) => {
-								const newAvatarURL = !! media.sizes.thumbnail
-									? media.sizes.thumbnail.url
-									: media.url;
-								setAttributes( {
-									avatarURL: newAvatarURL,
-									avatarID: media.id,
-									avatarAlt: media.alt,
-								} );
-							} }
+							onSelect={ onSelectImage }
 							type="image"
 							value={ avatarID }
 							render={ renderAvatar }
@@ -122,23 +142,18 @@ export default function( { attributes, setAttributes, className } ) {
 					<div className="smb-balloon__name">
 						<PlainText
 							value={ balloonName }
+							onChange={ onChangeBalloonName }
 							placeholder={ __( 'Name', 'snow-monkey-blocks' ) }
-							onChange={ ( value ) =>
-								setAttributes( { balloonName: value } )
-							}
 						/>
 					</div>
 				</div>
-				<div className="smb-balloon__body">
-					<RichText
-						tagName="div"
-						multiline="p"
-						value={ balloonBody }
-						onChange={ ( value ) =>
-							setAttributes( { balloonBody: value } )
-						}
-					/>
-				</div>
+
+				<RichText
+					className="smb-balloon__body"
+					multiline="p"
+					value={ balloonBody }
+					onChange={ onChangeBalloonBody }
+				/>
 			</div>
 		</>
 	);

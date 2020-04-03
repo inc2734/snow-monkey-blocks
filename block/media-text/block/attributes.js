@@ -6,8 +6,10 @@ export default {
 		default: 'h2',
 	},
 	title: {
+		type: 'string',
 		source: 'html',
 		selector: '.smb-media-text__title',
+		default: '',
 	},
 	imageID: {
 		type: 'number',
@@ -28,8 +30,10 @@ export default {
 		default: '',
 	},
 	caption: {
+		type: 'string',
 		source: 'html',
 		selector: '.smb-media-text__caption',
+		default: '',
 	},
 	imagePosition: {
 		type: 'string',

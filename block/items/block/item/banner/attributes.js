@@ -2,12 +2,16 @@
 
 export default {
 	title: {
+		type: 'string',
 		source: 'html',
 		selector: '.smb-items__banner__title',
+		default: '',
 	},
 	lede: {
+		type: 'string',
 		source: 'html',
 		selector: '.smb-items__banner__lede',
+		default: '',
 	},
 	url: {
 		type: 'string',

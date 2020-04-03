@@ -7,6 +7,11 @@ import { __ } from '@wordpress/i18n';
 export default function( { attributes, setAttributes } ) {
 	const { title } = attributes;
 
+	const onChangeTitle = ( value ) =>
+		setAttributes( {
+			title: value,
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -16,9 +21,7 @@ export default function( { attributes, setAttributes } ) {
 					<TextControl
 						label={ __( 'Title', 'snow-monkey-blocks' ) }
 						value={ title }
-						onChange={ ( value ) =>
-							setAttributes( { title: value } )
-						}
+						onChange={ onChangeTitle }
 					/>
 				</PanelBody>
 			</InspectorControls>
