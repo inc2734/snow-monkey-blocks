@@ -4,12 +4,14 @@ import classnames from 'classnames';
 import { times } from 'lodash';
 
 import { __ } from '@wordpress/i18n';
+import { useState, useEffect } from '@wordpress/element';
 
 import {
 	PanelBody,
 	SelectControl,
 	Button,
 	BaseControl,
+	ToolbarGroup,
 	Popover,
 } from '@wordpress/components';
 
@@ -17,6 +19,7 @@ import {
 	RichText,
 	InnerBlocks,
 	InspectorControls,
+	BlockControls,
 } from '@wordpress/block-editor';
 
 import { getColumnSize } from '../../../src/js/helper/helper';
@@ -41,6 +44,13 @@ export default function( {
 		url,
 		target,
 	} = attributes;
+
+	const [ isLinkUIOpen, setIsLinkUIOpen ] = useState( false );
+	const toggleLinkUIOpen = () => setIsLinkUIOpen( ! isLinkUIOpen );
+	const closeLinkUIOpen = () => setIsLinkUIOpen( false );
+	useEffect( () => {
+		! isSelected && closeLinkUIOpen();
+	}, [ isSelected ] );
 
 	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
 	const { textColumnWidth, imageColumnWidth } = getColumnSize(
@@ -225,13 +235,28 @@ export default function( {
 							/>
 
 							{ imageURL && isSelected && (
-								<Popover position="bottom center">
-									<LinkControl
-										url={ url }
-										target={ target }
-										onChange={ onChangeUrl }
-									/>
-								</Popover>
+								<BlockControls>
+									<ToolbarGroup>
+										<Button
+											icon="admin-links"
+											className="components-toolbar__control"
+											aria-expanded={ isLinkUIOpen }
+											onClick={ toggleLinkUIOpen }
+										/>
+										{ isLinkUIOpen && (
+											<Popover
+												position="bottom center"
+												onClose={ closeLinkUIOpen }
+											>
+												<LinkControl
+													url={ url }
+													target={ target }
+													onChange={ onChangeUrl }
+												/>
+											</Popover>
+										) }
+									</ToolbarGroup>
+								</BlockControls>
 							) }
 						</div>
 
