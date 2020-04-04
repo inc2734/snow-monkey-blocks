@@ -233,31 +233,6 @@ export default function( {
 								onRemove={ onRemoveImage }
 								isSelected={ isSelected }
 							/>
-
-							{ imageURL && isSelected && (
-								<BlockControls>
-									<ToolbarGroup>
-										<Button
-											icon="admin-links"
-											className="components-toolbar__control"
-											aria-expanded={ isLinkUIOpen }
-											onClick={ toggleLinkUIOpen }
-										/>
-										{ isLinkUIOpen && (
-											<Popover
-												position="bottom center"
-												onClose={ closeLinkUIOpen }
-											>
-												<LinkControl
-													url={ url }
-													target={ target }
-													onChange={ onChangeUrl }
-												/>
-											</Popover>
-										) }
-									</ToolbarGroup>
-								</BlockControls>
-							) }
 						</div>
 
 						{ ( ! RichText.isEmpty( caption ) || isSelected ) && (
@@ -274,6 +249,31 @@ export default function( {
 					</div>
 				</div>
 			</div>
+
+			{ imageURL && isSelected && (
+				<BlockControls>
+					<ToolbarGroup>
+						<Button
+							icon="admin-links"
+							className="components-toolbar__control"
+							aria-expanded={ isLinkUIOpen }
+							onClick={ toggleLinkUIOpen }
+						/>
+						{ isLinkUIOpen && (
+							<Popover
+								position="bottom center"
+								onClose={ closeLinkUIOpen }
+							>
+								<LinkControl
+									url={ url }
+									target={ target }
+									onChange={ onChangeUrl }
+								/>
+							</Popover>
+						) }
+					</ToolbarGroup>
+				</BlockControls>
+			) }
 		</>
 	);
 }
