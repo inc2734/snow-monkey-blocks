@@ -49,7 +49,9 @@ export default function( {
 	const toggleLinkUIOpen = () => setIsLinkUIOpen( ! isLinkUIOpen );
 	const closeLinkUIOpen = () => setIsLinkUIOpen( false );
 	useEffect( () => {
-		! isSelected && closeLinkUIOpen();
+		if ( ! isSelected ) {
+			closeLinkUIOpen();
+		}
 	}, [ isSelected ] );
 
 	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];

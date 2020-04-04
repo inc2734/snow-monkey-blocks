@@ -3,6 +3,7 @@
 import classnames from 'classnames';
 
 import { __ } from '@wordpress/i18n';
+import { useState, useEffect } from '@wordpress/element';
 
 import {
 	PanelBody,
@@ -11,12 +12,15 @@ import {
 	RangeControl,
 	ToggleControl,
 	Popover,
+	ToolbarGroup,
+	Button,
 } from '@wordpress/components';
 
 import {
 	InspectorControls,
 	RichText,
 	PanelColorSettings,
+	BlockControls,
 } from '@wordpress/block-editor';
 
 import { toNumber } from '../../../../../src/js/helper/helper';
@@ -43,6 +47,15 @@ export default function( {
 		imageURL,
 		imageAlt,
 	} = attributes;
+
+	const [ isLinkUIOpen, setIsLinkUIOpen ] = useState( false );
+	const toggleLinkUIOpen = () => setIsLinkUIOpen( ! isLinkUIOpen );
+	const closeLinkUIOpen = () => setIsLinkUIOpen( false );
+	useEffect( () => {
+		if ( ! isSelected ) {
+			closeLinkUIOpen();
+		}
+	}, [ isSelected ] );
 
 	const classes = classnames( 'c-row__col', className );
 	const bannerClasses = classnames(
@@ -254,18 +267,33 @@ export default function( {
 							) }
 						</div>
 					) }
-
-					{ isSelected && (
-						<Popover position="bottom center">
-							<LinkControl
-								url={ url }
-								target={ target }
-								onChange={ onChangeUrl }
-							/>
-						</Popover>
-					) }
 				</div>
 			</div>
+
+			{ isSelected && (
+				<BlockControls>
+					<ToolbarGroup>
+						<Button
+							icon="admin-links"
+							className="components-toolbar__control"
+							aria-expanded={ isLinkUIOpen }
+							onClick={ toggleLinkUIOpen }
+						/>
+						{ isLinkUIOpen && (
+							<Popover
+								position="bottom center"
+								onClose={ closeLinkUIOpen }
+							>
+								<LinkControl
+									url={ url }
+									target={ target }
+									onChange={ onChangeUrl }
+								/>
+							</Popover>
+						) }
+					</ToolbarGroup>
+				</BlockControls>
+			) }
 		</>
 	);
 }
