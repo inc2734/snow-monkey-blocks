@@ -2,11 +2,12 @@
 
 import classnames from 'classnames';
 
-import { Popover } from '@wordpress/components';
-
-import { RichText } from '@wordpress/block-editor';
-
 import { __ } from '@wordpress/i18n';
+import { useState, useEffect } from '@wordpress/element';
+
+import { Button, Popover, ToolbarGroup } from '@wordpress/components';
+
+import { RichText, BlockControls } from '@wordpress/block-editor';
 
 import Figure from '../../../../src/js/component/figure';
 import LinkControl from '../../../../src/js/component/link-control';
@@ -18,6 +19,15 @@ export default function( {
 	className,
 } ) {
 	const { imageID, imageURL, imageAlt, caption, url, target } = attributes;
+
+	const [ isLinkUIOpen, setIsLinkUIOpen ] = useState( false );
+	const toggleLinkUIOpen = () => setIsLinkUIOpen( ! isLinkUIOpen );
+	const closeLinkUIOpen = () => setIsLinkUIOpen( false );
+	useEffect( () => {
+		if ( ! isSelected ) {
+			closeLinkUIOpen();
+		}
+	}, [ isSelected ] );
 
 	const classes = classnames( 'smb-slider__item', className );
 
@@ -45,6 +55,13 @@ export default function( {
 		setAttributes( {
 			caption: value,
 		} );
+
+	const onChangeUrl = ( { url: newUrl, opensInNewTab } ) => {
+		setAttributes( {
+			url: newUrl,
+			target: ! opensInNewTab ? '_self' : '_blank',
+		} );
+	};
 
 	const Item = () => {
 		return (
@@ -95,18 +112,28 @@ export default function( {
 			) }
 
 			{ isSelected && (
-				<Popover position="bottom center">
-					<LinkControl
-						url={ url }
-						target={ target }
-						onChange={ ( { url: newUrl, opensInNewTab } ) => {
-							setAttributes( {
-								url: newUrl,
-								target: ! opensInNewTab ? '_self' : '_blank',
-							} );
-						} }
-					/>
-				</Popover>
+				<BlockControls>
+					<ToolbarGroup>
+						<Button
+							icon="admin-links"
+							className="components-toolbar__control"
+							aria-expanded={ isLinkUIOpen }
+							onClick={ toggleLinkUIOpen }
+						/>
+						{ isLinkUIOpen && (
+							<Popover
+								position="bottom center"
+								onClose={ closeLinkUIOpen }
+							>
+								<LinkControl
+									url={ url }
+									target={ target }
+									onChange={ onChangeUrl }
+								/>
+							</Popover>
+						) }
+					</ToolbarGroup>
+				</BlockControls>
 			) }
 		</>
 	);
