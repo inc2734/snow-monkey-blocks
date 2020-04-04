@@ -2,16 +2,18 @@
 
 import classnames from 'classnames';
 
-import { Popover } from '@wordpress/components';
+import { __ } from '@wordpress/i18n';
+import { useState, useEffect } from '@wordpress/element';
+
+import { Button, Popover, ToolbarGroup } from '@wordpress/components';
 
 import {
 	RichText,
 	InspectorControls,
 	PanelColorSettings,
 	ContrastChecker,
+	BlockControls,
 } from '@wordpress/block-editor';
-
-import { __ } from '@wordpress/i18n';
 
 import Figure from '../../../../src/js/component/figure';
 import LinkControl from '../../../../src/js/component/link-control';
@@ -36,6 +38,15 @@ export default function( {
 		imageURL,
 		imageAlt,
 	} = attributes;
+
+	const [ isLinkUIOpen, setIsLinkUIOpen ] = useState( false );
+	const toggleLinkUIOpen = () => setIsLinkUIOpen( ! isLinkUIOpen );
+	const closeLinkUIOpen = () => setIsLinkUIOpen( false );
+	useEffect( () => {
+		if ( ! isSelected ) {
+			closeLinkUIOpen();
+		}
+	}, [ isSelected ] );
 
 	const classes = classnames( 'c-row__col', className );
 
@@ -230,20 +241,35 @@ export default function( {
 									onChange={ onChangeBtnLabel }
 								/>
 							</span>
-
-							{ isSelected && (
-								<Popover position="bottom center">
-									<LinkControl
-										url={ btnURL }
-										target={ btnTarget }
-										onChange={ onChangeBtnUrl }
-									/>
-								</Popover>
-							) }
 						</div>
 					) }
 				</div>
 			</div>
+
+			{ ( ! RichText.isEmpty( btnLabel ) && isSelected ) && (
+				<BlockControls>
+					<ToolbarGroup>
+						<Button
+							icon="admin-links"
+							className="components-toolbar__control"
+							aria-expanded={ isLinkUIOpen }
+							onClick={ toggleLinkUIOpen }
+						/>
+						{ isLinkUIOpen && (
+							<Popover
+								position="bottom center"
+								onClose={ closeLinkUIOpen }
+							>
+								<LinkControl
+									url={ btnURL }
+									target={ btnTarget }
+									onChange={ onChangeBtnUrl }
+								/>
+							</Popover>
+						) }
+					</ToolbarGroup>
+				</BlockControls>
+			) }
 		</>
 	);
 }

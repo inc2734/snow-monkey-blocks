@@ -279,7 +279,7 @@ export default function( {
 				</div>
 			</div>
 
-			{ ( ! RichText.isEmpty( btnLabel ) || isSelected ) && (
+			{ ( ! RichText.isEmpty( btnLabel ) && isSelected ) && (
 				<BlockControls>
 					<ToolbarGroup>
 						<Button
