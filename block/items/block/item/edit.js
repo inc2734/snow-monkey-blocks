@@ -257,39 +257,31 @@ export default function( {
 				</div>
 			</div>
 
-			{ isSelected && (
-				<BlockControls>
-					<ToolbarGroup>
-						<Button
-							icon="admin-links"
-							className="components-toolbar__control"
-							aria-expanded={ isLinkUIOpen }
-							onClick={ toggleLinkUIOpen }
-						/>
-						{ isLinkUIOpen && (
-							<Popover
-								position="bottom center"
-								onClose={ closeLinkUIOpen }
-							>
-								<LinkControl
-									url={ btnURL }
-									target={ btnTarget }
-									onChange={ ( {
-										url: newUrl,
-										opensInNewTab,
-									} ) => {
-										setAttributes( {
-											btnURL: newUrl,
-											btnTarget: ! opensInNewTab
-												? '_self'
-												: '_blank',
-										} );
-									} }
-								/>
-							</Popover>
-						) }
-					</ToolbarGroup>
-				</BlockControls>
+			<BlockControls>
+				<ToolbarGroup>
+					<Button
+						icon="admin-links"
+						className="components-toolbar__control"
+						label={ __( 'Link', 'snow-monkey-blocks' ) }
+						aria-expanded={ isLinkUIOpen }
+						onClick={ toggleLinkUIOpen }
+					/>
+				</ToolbarGroup>
+			</BlockControls>
+
+			{ isLinkUIOpen && (
+				<Popover position="bottom center" onClose={ closeLinkUIOpen }>
+					<LinkControl
+						url={ btnURL }
+						target={ btnTarget }
+						onChange={ ( { url: newUrl, opensInNewTab } ) => {
+							setAttributes( {
+								btnURL: newUrl,
+								btnTarget: ! opensInNewTab ? '_self' : '_blank',
+							} );
+						} }
+					/>
+				</Popover>
 			) }
 		</>
 	);

@@ -2,16 +2,24 @@
 
 import classnames from 'classnames';
 
-import { PanelBody, SelectControl, Popover } from '@wordpress/components';
+import { __ } from '@wordpress/i18n';
+import { useState, useEffect } from '@wordpress/element';
+
+import {
+	PanelBody,
+	SelectControl,
+	Button,
+	Popover,
+	ToolbarGroup,
+} from '@wordpress/components';
 
 import {
 	RichText,
 	InspectorControls,
 	PanelColorSettings,
 	InnerBlocks,
+	BlockControls,
 } from '@wordpress/block-editor';
-
-import { __ } from '@wordpress/i18n';
 
 import Figure from '../../../../../src/js/component/figure';
 import LinkControl from '../../../../../src/js/component/link-control';
@@ -34,6 +42,15 @@ export default function( {
 		linkTarget,
 		linkColor,
 	} = attributes;
+
+	const [ isLinkUIOpen, setIsLinkUIOpen ] = useState( false );
+	const toggleLinkUIOpen = () => setIsLinkUIOpen( ! isLinkUIOpen );
+	const closeLinkUIOpen = () => setIsLinkUIOpen( false );
+	useEffect( () => {
+		if ( ! isSelected ) {
+			closeLinkUIOpen();
+		}
+	}, [ isSelected ] );
 
 	const classes = classnames(
 		'smb-step__item',
@@ -210,21 +227,38 @@ export default function( {
 									multiline={ false }
 									onChange={ onChangeLinkLabel }
 								/>
-							</span>
-						) }
 
-						{ ! RichText.isEmpty( linkLabel ) && isSelected && (
-							<Popover position="bottom center">
-								<LinkControl
-									url={ linkURL }
-									target={ linkTarget }
-									onChange={ onChangeLinkUrl }
-								/>
-							</Popover>
+								{ isLinkUIOpen && (
+									<Popover
+										position="bottom center"
+										onClose={ closeLinkUIOpen }
+									>
+										<LinkControl
+											url={ linkURL }
+											target={ linkTarget }
+											onChange={ onChangeLinkUrl }
+										/>
+									</Popover>
+								) }
+							</span>
 						) }
 					</div>
 				</div>
 			</div>
+
+			{ ! RichText.isEmpty( linkLabel ) && (
+				<BlockControls>
+					<ToolbarGroup>
+						<Button
+							icon="admin-links"
+							className="components-toolbar__control"
+							label={ __( 'Link', 'snow-monkey-blocks' ) }
+							aria-expanded={ isLinkUIOpen }
+							onClick={ toggleLinkUIOpen }
+						/>
+					</ToolbarGroup>
+				</BlockControls>
+			) }
 		</>
 	);
 }

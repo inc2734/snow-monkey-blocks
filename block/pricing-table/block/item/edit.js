@@ -240,33 +240,35 @@ export default function( {
 									allowedFormats={ [] }
 									onChange={ onChangeBtnLabel }
 								/>
+
+								{ isLinkUIOpen && (
+									<Popover
+										position="bottom center"
+										onClose={ closeLinkUIOpen }
+									>
+										<LinkControl
+											url={ btnURL }
+											target={ btnTarget }
+											onChange={ onChangeBtnUrl }
+										/>
+									</Popover>
+								) }
 							</span>
 						</div>
 					) }
 				</div>
 			</div>
 
-			{ ! RichText.isEmpty( btnLabel ) && isSelected && (
+			{ ! RichText.isEmpty( btnLabel ) && (
 				<BlockControls>
 					<ToolbarGroup>
 						<Button
 							icon="admin-links"
 							className="components-toolbar__control"
+							label={ __( 'Link', 'snow-monkey-blocks' ) }
 							aria-expanded={ isLinkUIOpen }
 							onClick={ toggleLinkUIOpen }
 						/>
-						{ isLinkUIOpen && (
-							<Popover
-								position="bottom center"
-								onClose={ closeLinkUIOpen }
-							>
-								<LinkControl
-									url={ btnURL }
-									target={ btnTarget }
-									onChange={ onChangeBtnUrl }
-								/>
-							</Popover>
-						) }
 					</ToolbarGroup>
 				</BlockControls>
 			) }

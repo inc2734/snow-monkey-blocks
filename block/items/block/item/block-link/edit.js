@@ -265,36 +265,36 @@ export default function( {
 									allowedFormats={ [] }
 									onChange={ onChangeBtnLabel }
 								/>
+
+								{ isLinkUIOpen && (
+									<Popover
+										position="bottom center"
+										onClose={ closeLinkUIOpen }
+									>
+										<LinkControl
+											url={ url }
+											target={ target }
+											onChange={ onChangeUrl }
+										/>
+									</Popover>
+								) }
 							</span>
 						</div>
 					) }
 				</div>
 			</div>
 
-			{ isSelected && (
-				<BlockControls>
-					<ToolbarGroup>
-						<Button
-							icon="admin-links"
-							className="components-toolbar__control"
-							aria-expanded={ isLinkUIOpen }
-							onClick={ toggleLinkUIOpen }
-						/>
-						{ isLinkUIOpen && (
-							<Popover
-								position="bottom center"
-								onClose={ closeLinkUIOpen }
-							>
-								<LinkControl
-									url={ url }
-									target={ target }
-									onChange={ onChangeUrl }
-								/>
-							</Popover>
-						) }
-					</ToolbarGroup>
-				</BlockControls>
-			) }
+			<BlockControls>
+				<ToolbarGroup>
+					<Button
+						icon="admin-links"
+						className="components-toolbar__control"
+						label={ __( 'Link', 'snow-monkey-blocks' ) }
+						aria-expanded={ isLinkUIOpen }
+						onClick={ toggleLinkUIOpen }
+					/>
+				</ToolbarGroup>
+			</BlockControls>
 		</>
 	);
 }
