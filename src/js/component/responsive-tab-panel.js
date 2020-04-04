@@ -1,9 +1,6 @@
 'use strict';
 
-import {
-	TabPanel,
-	Dashicon,
-} from '@wordpress/components';
+import { TabPanel, Dashicon } from '@wordpress/components';
 
 export default function( props ) {
 	const { desktop, tablet, mobile } = props;
@@ -29,26 +26,22 @@ export default function( props ) {
 	}
 
 	return (
-		<TabPanel
-			className="smb-inspector-tabs"
-			tabs={ icons }>
-			{
-				( tab ) => {
-					if ( tab.name ) {
-						if ( 'desktop' === tab.name ) {
-							return desktop();
-						}
+		<TabPanel className="smb-inspector-tabs" tabs={ icons }>
+			{ ( tab ) => {
+				if ( tab.name ) {
+					if ( 'desktop' === tab.name ) {
+						return desktop();
+					}
 
-						if ( 'tablet' === tab.name ) {
-							return tablet();
-						}
+					if ( 'tablet' === tab.name ) {
+						return tablet();
+					}
 
-						if ( 'mobile' === tab.name ) {
-							return mobile();
-						}
+					if ( 'mobile' === tab.name ) {
+						return mobile();
 					}
 				}
-			}
+			} }
 		</TabPanel>
 	);
 }

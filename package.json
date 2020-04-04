@@ -168,7 +168,7 @@
     "block": "npm-run-all -s block:*",
     "lint:js": "wp-scripts lint-js block format plugin",
     "lint": "npm-run-all -p lint:*",
-    "format:js": "wp-scripts format-js block format plugin",
+    "format:js": "wp-scripts format-js block format plugin src/js",
     "format": "npm-run-all -p format:*",
     "build": "npm-run-all -s css js packages po2json img block",
     "clean:css": "rimraf dist/css",

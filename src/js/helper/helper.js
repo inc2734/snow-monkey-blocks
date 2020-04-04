@@ -1,20 +1,12 @@
 'use strict';
 
-import {
-	groupBy,
-} from 'lodash';
+import { groupBy } from 'lodash';
 
-import {
-	registerBlockType,
-} from '@wordpress/blocks';
+import { registerBlockType } from '@wordpress/blocks';
 
-import {
-	registerFormatType,
-} from '@wordpress/rich-text';
+import { registerFormatType } from '@wordpress/rich-text';
 
-import {
-	registerPlugin,
-} from '@wordpress/plugins';
+import { registerPlugin } from '@wordpress/plugins';
 
 export const registerBlock = ( block ) => {
 	if ( ! block ) {
@@ -112,7 +104,8 @@ export const divider = ( type, level, color ) => {
 			/>
 		) : (
 			<path
-				d={ `m0,${ 100 - level } q50,${ level * 2 },100,0 V100 L0,100 z` }
+				d={ `m0,${ 100 - level } q50,${ level *
+					2 },100,0 V100 L0,100 z` }
 				strokeWidth="0"
 				fill={ color }
 			/>
@@ -122,13 +115,15 @@ export const divider = ( type, level, color ) => {
 	const renderWaveDivider = () => {
 		return 0 > level ? (
 			<path
-				d={ `m0,${ 100 + ( level / 2 ) } q20,${ level },40,0 t40,0 t40,0 V100 L0,100 z` }
+				d={ `m0,${ 100 +
+					level / 2 } q20,${ level },40,0 t40,0 t40,0 V100 L0,100 z` }
 				strokeWidth="0"
 				fill={ color }
 			/>
 		) : (
 			<path
-				d={ `m0,${ 100 - ( level / 2 ) } q20,${ level },40,0 t40,0 t40,0 V100 L0,100 z` }
+				d={ `m0,${ 100 -
+					level / 2 } q20,${ level },40,0 t40,0 t40,0 V100 L0,100 z` }
 				strokeWidth="0"
 				fill={ color }
 			/>
@@ -139,7 +134,9 @@ export const divider = ( type, level, color ) => {
 		level = Math.abs( level );
 		return (
 			<path
-				d={ `m${ ( 100 - level ) / 2 },100 l${ level },0 l${ -1 * level / 2 },${ -1 * level } z` }
+				d={ `m${ ( 100 - level ) / 2 },100 l${ level },0 l${ ( -1 *
+					level ) /
+					2 },${ -1 * level } z` }
 				strokeWidth="0"
 				fill={ color }
 			/>
@@ -160,7 +157,11 @@ export const divider = ( type, level, color ) => {
 	};
 
 	return (
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 100 100"
+			preserveAspectRatio="none"
+		>
 			{ renderPath( type, level, color ) }
 		</svg>
 	);
@@ -194,9 +195,10 @@ export const buildTermsTree = ( flatTerms ) => {
 			const children = termsByParent[ term.id ];
 			return {
 				...term,
-				children: children && children.length ?
-					fillWithChildren( children ) :
-					[],
+				children:
+					children && children.length
+						? fillWithChildren( children )
+						: [],
 			};
 		} );
 	};

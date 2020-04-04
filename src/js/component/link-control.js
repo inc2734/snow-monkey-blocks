@@ -1,6 +1,4 @@
-import {
-	__experimentalLinkControl as LinkControl,
-} from '@wordpress/block-editor';
+import { __experimentalLinkControl as LinkControl } from '@wordpress/block-editor';
 
 const linkControlTarget = ( target ) => {
 	if ( '_self' === target ) {

@@ -1,9 +1,6 @@
 'use strict';
 
-import {
-	registerFormat,
-	registerSidebar,
-} from './helper/helper';
+import { registerFormat, registerSidebar } from './helper/helper';
 
 import * as badge from '../../format/badge';
 import * as highlighter from '../../format/highlighter';
