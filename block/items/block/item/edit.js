@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import { times } from 'lodash';
 
 import { __ } from '@wordpress/i18n';
+import { useState, useEffect } from '@wordpress/element';
 
 import {
 	PanelBody,
@@ -11,6 +12,7 @@ import {
 	Button,
 	ToggleControl,
 	Popover,
+	ToolbarGroup,
 } from '@wordpress/components';
 
 import {
@@ -18,6 +20,7 @@ import {
 	RichText,
 	PanelColorSettings,
 	ContrastChecker,
+	BlockControls,
 } from '@wordpress/block-editor';
 
 import Figure from '../../../../src/js/component/figure';
@@ -44,6 +47,15 @@ export default function( {
 		imageAlt,
 		isBlockLink,
 	} = attributes;
+
+	const [ isLinkUIOpen, setIsLinkUIOpen ] = useState( false );
+	const toggleLinkUIOpen = () => setIsLinkUIOpen( ! isLinkUIOpen );
+	const closeLinkUIOpen = () => setIsLinkUIOpen( false );
+	useEffect( () => {
+		if ( ! isSelected ) {
+			closeLinkUIOpen();
+		}
+	}, [ isSelected ] );
 
 	const titleTagNames = [ 'div', 'h2', 'h3', 'none' ];
 
@@ -240,30 +252,45 @@ export default function( {
 									}
 								/>
 							</span>
-
-							{ isSelected && (
-								<Popover position="bottom center">
-									<LinkControl
-										url={ btnURL }
-										target={ btnTarget }
-										onChange={ ( {
-											url: newUrl,
-											opensInNewTab,
-										} ) => {
-											setAttributes( {
-												btnURL: newUrl,
-												btnTarget: ! opensInNewTab
-													? '_self'
-													: '_blank',
-											} );
-										} }
-									/>
-								</Popover>
-							) }
 						</div>
 					) }
 				</div>
 			</div>
+
+			{ isSelected && (
+				<BlockControls>
+					<ToolbarGroup>
+						<Button
+							icon="admin-links"
+							className="components-toolbar__control"
+							aria-expanded={ isLinkUIOpen }
+							onClick={ toggleLinkUIOpen }
+						/>
+						{ isLinkUIOpen && (
+							<Popover
+								position="bottom center"
+								onClose={ closeLinkUIOpen }
+							>
+								<LinkControl
+									url={ btnURL }
+									target={ btnTarget }
+									onChange={ ( {
+										url: newUrl,
+										opensInNewTab,
+									} ) => {
+										setAttributes( {
+											btnURL: newUrl,
+											btnTarget: ! opensInNewTab
+												? '_self'
+												: '_blank',
+										} );
+									} }
+								/>
+							</Popover>
+						) }
+					</ToolbarGroup>
+				</BlockControls>
+			) }
 		</>
 	);
 }
