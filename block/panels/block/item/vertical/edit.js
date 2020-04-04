@@ -3,11 +3,22 @@
 import classnames from 'classnames';
 import { times } from 'lodash';
 
-import { InspectorControls, RichText } from '@wordpress/block-editor';
-
 import { __ } from '@wordpress/i18n';
+import { useState, useEffect } from '@wordpress/element';
 
-import { PanelBody, BaseControl, Button, Popover } from '@wordpress/components';
+import {
+	InspectorControls,
+	RichText,
+	BlockControls,
+} from '@wordpress/block-editor';
+
+import {
+	PanelBody,
+	BaseControl,
+	Button,
+	Popover,
+	ToolbarGroup,
+} from '@wordpress/components';
 
 import Figure from '../../../../../src/js/component/figure';
 import LinkControl from '../../../../../src/js/component/link-control';
@@ -29,6 +40,15 @@ export default function( {
 		imageURL,
 		imageAlt,
 	} = attributes;
+
+	const [ isLinkUIOpen, setIsLinkUIOpen ] = useState( false );
+	const toggleLinkUIOpen = () => setIsLinkUIOpen( ! isLinkUIOpen );
+	const closeLinkUIOpen = () => setIsLinkUIOpen( false );
+	useEffect( () => {
+		if ( ! isSelected ) {
+			closeLinkUIOpen();
+		}
+	}, [ isSelected ] );
 
 	const titleTagNames = [ 'div', 'h2', 'h3', 'none' ];
 
@@ -183,13 +203,28 @@ export default function( {
 			</div>
 
 			{ isSelected && (
-				<Popover position="bottom center">
-					<LinkControl
-						url={ linkURL }
-						target={ linkTarget }
-						onChange={ onChangeLinkUrl }
-					/>
-				</Popover>
+				<BlockControls>
+					<ToolbarGroup>
+						<Button
+							icon="admin-links"
+							className="components-toolbar__control"
+							aria-expanded={ isLinkUIOpen }
+							onClick={ toggleLinkUIOpen }
+						/>
+						{ isLinkUIOpen && (
+							<Popover
+								position="bottom center"
+								onClose={ closeLinkUIOpen }
+							>
+								<LinkControl
+									url={ linkURL }
+									target={ linkTarget }
+									onChange={ onChangeLinkUrl }
+								/>
+							</Popover>
+						) }
+					</ToolbarGroup>
+				</BlockControls>
 			) }
 		</>
 	);
