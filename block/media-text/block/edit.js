@@ -175,9 +175,11 @@ export default function( {
 											titleTagName ===
 											titleTagNames[ index ]
 										}
-										onClick={ onClickTitleTagName(
-											titleTagNames[ index ]
-										) }
+										onClick={ () =>
+											onClickTitleTagName(
+												titleTagNames[ index ]
+											)
+										}
 									>
 										{ titleTagNames[ index ] }
 									</Button>
