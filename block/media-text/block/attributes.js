@@ -29,6 +29,9 @@ export default {
 		attribute: 'alt',
 		default: '',
 	},
+	imageMediaType: {
+		type: 'string',
+	},
 	caption: {
 		type: 'string',
 		source: 'html',

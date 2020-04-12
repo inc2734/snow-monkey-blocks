@@ -1,13 +1,35 @@
 'use strict';
 
-import { MediaPlaceholder, MediaUpload } from '@wordpress/block-editor';
+import {
+	MediaPlaceholder,
+	MediaUpload,
+	BlockControls,
+	MediaReplaceFlow,
+} from '@wordpress/block-editor';
 
 import { Button } from '@wordpress/components';
+import { memo } from '@wordpress/element';
 
 import { __ } from '@wordpress/i18n';
 
 export default function( props ) {
-	const { src, id, alt, onSelect, onRemove, isSelected, url, target } = props;
+	const {
+		src,
+		id,
+		alt,
+		onSelect,
+		onRemove,
+		url,
+		target,
+		mediaType,
+		allowedTypes = [ 'image' ],
+	} = props;
+
+	const accept = allowedTypes
+		.map( ( type ) => {
+			return `${ type }/*`;
+		} )
+		.join( ',' );
 
 	if ( ! src ) {
 		return (
@@ -15,43 +37,48 @@ export default function( props ) {
 				icon="format-image"
 				labels={ { title: __( 'Image' ) } }
 				onSelect={ onSelect }
-				accept="image/*"
-				allowedTypes={ [ 'image' ] }
+				accept={ accept }
+				allowedTypes={ allowedTypes }
 			/>
 		);
 	}
 
-	const Figure = () => {
+	const ToolbarEditButton = memo( () => {
 		return (
-			<div className="smb-remove-button-wrapper">
-				<MediaUpload
+			<BlockControls>
+				<MediaReplaceFlow
+					mediaId={ id }
+					mediaURL={ src }
+					allowedTypes={ allowedTypes }
+					accept={ accept }
 					onSelect={ onSelect }
-					type="image"
-					value={ id }
-					render={ ( obj ) => {
-						return (
-							<Button
-								className="image-button"
-								onClick={ obj.open }
-								style={ { padding: 0 } }
-							>
-								<img
-									src={ src }
-									alt={ alt }
-									className={ `wp-image-${ id }` }
-								/>
-							</Button>
-						);
-					} }
 				/>
-				{ isSelected && (
-					<button className="smb-remove-button" onClick={ onRemove }>
-						{ __( 'Remove', 'snow-monkey-blocks' ) }
-					</button>
-				) }
-			</div>
+			</BlockControls>
 		);
-	};
+	} );
+
+	const Image = memo( () => {
+		return <img src={ src } alt={ alt } className={ `wp-image-${ id }` } />;
+	} );
+
+	const Video = memo( () => {
+		return <video controls src={ src } />;
+	} );
+
+	const Figure = memo( () => {
+		let media;
+		if ( 'image' === mediaType ) {
+			media = <Image />;
+		} else if ( 'video' === mediaType ) {
+			media = <Video />;
+		}
+		return (
+			<>
+				<ToolbarEditButton />
+				{ media }
+			</>
+		);
+	} );
 
 	return !! url ? (
 		<span

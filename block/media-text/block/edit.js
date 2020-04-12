@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { times } from 'lodash';
 
 import { __ } from '@wordpress/i18n';
-import { useState, useEffect } from '@wordpress/element';
+import { useState, useEffect, memo, useCallback, useMemo } from '@wordpress/element';
 
 import {
 	PanelBody,
@@ -26,6 +26,25 @@ import { getColumnSize } from '../../../src/js/helper/helper';
 import Figure from '../../../src/js/component/figure';
 import LinkControl from '../../../src/js/component/link-control';
 
+const Figure2 = memo(
+	( props ) => {
+		return <Figure { ...props } />;
+	},
+	( p, n ) => {
+		console.log( p );
+		console.log( n );
+
+		const keys = Object.keys( p );
+		for ( const key of keys ) {
+			if ( p[ key ] !== n[ key ] ) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+);
+
 export default function( {
 	attributes,
 	setAttributes,
@@ -43,6 +62,7 @@ export default function( {
 		imageColumnSize,
 		url,
 		target,
+		imageMediaType,
 	} = attributes;
 
 	const [ isLinkUIOpen, setIsLinkUIOpen ] = useState( false );
@@ -93,25 +113,42 @@ export default function( {
 			title: value,
 		} );
 
-	const onSelectImage = ( media ) => {
+	const onSelectImage = useCallback( ( media ) => {
 		const newImageURL =
 			!! media.sizes && !! media.sizes.large
 				? media.sizes.large.url
 				: media.url;
 
+		let newImageMediaType;
+		if ( media.media_type ) {
+			if ( media.media_type === 'image' ) {
+				newImageMediaType = 'image';
+			} else {
+				// only images and videos are accepted so if the media_type is not an image we can assume it is a video.
+				// video contain the media type of 'file' in the object returned from the rest api.
+				newImageMediaType = 'video';
+			}
+		} else {
+			// for media selections originated from existing files in the media library.
+			newImageMediaType = media.type;
+		}
+
 		setAttributes( {
 			imageURL: newImageURL,
 			imageID: media.id,
 			imageAlt: media.alt,
+			imageMediaType: newImageMediaType,
 		} );
-	};
+	}, [] );
 
-	const onRemoveImage = () =>
+	const onRemoveImage = useCallback( () => {
 		setAttributes( {
 			imageURL: '',
 			imageAlt: '',
 			imageID: 0,
+			imageMediaType: undefined,
 		} );
+	}, [] );
 
 	const onChangeUrl = ( { url: newUrl, opensInNewTab } ) => {
 		setAttributes( {
@@ -124,6 +161,11 @@ export default function( {
 		setAttributes( {
 			caption: value,
 		} );
+
+	const imageMediaTypeFallback =
+		! imageMediaType && imageURL ? 'image' : imageMediaType;
+
+	const imageAllowdTypes = useMemo( () => [ 'image', 'video' ], [] );
 
 	return (
 		<>
@@ -225,7 +267,7 @@ export default function( {
 					</div>
 					<div className={ imageColumnClasses }>
 						<div className="smb-media-text__figure">
-							<Figure
+							<Figure2
 								src={ imageURL }
 								id={ imageID }
 								alt={ imageAlt }
@@ -233,7 +275,8 @@ export default function( {
 								target={ target }
 								onSelect={ onSelectImage }
 								onRemove={ onRemoveImage }
-								isSelected={ isSelected }
+								mediaType={ imageMediaTypeFallback }
+								allowedTypes={ imageAllowdTypes }
 							/>
 
 							{ isLinkUIOpen && (
