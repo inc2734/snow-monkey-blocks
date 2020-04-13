@@ -22,7 +22,7 @@ import {
 	Button,
 } from '@wordpress/components';
 
-import { toNumber } from '../../../src/js/helper/helper';
+import { toNumber, getMediaType } from '../../../src/js/helper/helper';
 import ResponsiveTabPanel from '../../../src/js/component/responsive-tab-panel';
 import Figure from '../../../src/js/component/figure';
 
@@ -39,12 +39,15 @@ export default function( {
 		lgImageID,
 		lgImageURL,
 		lgImageAlt,
+		lgImageMediaType,
 		mdImageID,
 		mdImageURL,
 		mdImageAlt,
+		mdImageMediaType,
 		smImageID,
 		smImageURL,
 		smImageAlt,
+		smImageMediaType,
 		height,
 		contentsAlignment,
 		maskColor,
@@ -136,6 +139,7 @@ export default function( {
 			lgImageURL: newImageURL,
 			lgImageID: media.id,
 			lgImageAlt: media.alt,
+			lgImageMediaType: getMediaType( media ),
 		} );
 	};
 
@@ -144,6 +148,7 @@ export default function( {
 			lgImageURL: '',
 			lgImageAlt: '',
 			lgImageID: 0,
+			lgImageMediaType: undefined,
 		} );
 
 	const onSelectMdImage = ( media ) => {
@@ -156,6 +161,7 @@ export default function( {
 			mdImageURL: newImageURL,
 			mdImageID: media.id,
 			mdImageAlt: media.alt,
+			mdImageMediaType: getMediaType( media ),
 		} );
 	};
 
@@ -164,6 +170,7 @@ export default function( {
 			mdImageURL: '',
 			mdImageAlt: '',
 			mdImageID: 0,
+			mdImageMediaType: undefined,
 		} );
 
 	const onSelectSmImage = ( media ) => {
@@ -176,6 +183,7 @@ export default function( {
 			smImageURL: newImageURL,
 			smImageID: media.id,
 			smImageAlt: media.alt,
+			smImageMediaType: getMediaType( media ),
 		} );
 	};
 
@@ -184,6 +192,7 @@ export default function( {
 			smImageURL: '',
 			smImageAlt: '',
 			smImageID: 0,
+			smImageMediaType: undefined,
 		} );
 
 	const onChangeMaskColor = ( value ) =>
@@ -215,6 +224,8 @@ export default function( {
 		setAttributes( {
 			title: value,
 		} );
+
+	const imageAllowdTypes = [ 'image', 'video' ];
 
 	return (
 		<>
@@ -329,42 +340,39 @@ export default function( {
 					/>
 
 					<ResponsiveTabPanel
-						desktop={ () => {
-							return (
-								<Figure
-									src={ lgImageURL }
-									id={ lgImageID }
-									alt={ lgImageAlt }
-									onSelect={ onSelectLgImage }
-									onRemove={ onRemoveLgImage }
-									isSelected={ isSelected }
-								/>
-							);
-						} }
-						tablet={ () => {
-							return (
-								<Figure
-									src={ mdImageURL }
-									id={ mdImageID }
-									alt={ mdImageAlt }
-									onSelect={ onSelectMdImage }
-									onRemove={ onRemoveMdImage }
-									isSelected={ isSelected }
-								/>
-							);
-						} }
-						mobile={ () => {
-							return (
-								<Figure
-									src={ smImageURL }
-									id={ smImageID }
-									alt={ smImageAlt }
-									onSelect={ onSelectSmImage }
-									onRemove={ onRemoveSmImage }
-									isSelected={ isSelected }
-								/>
-							);
-						} }
+						desktop={ () => (
+							<Figure
+								src={ lgImageURL }
+								id={ lgImageID }
+								alt={ lgImageAlt }
+								onSelect={ onSelectLgImage }
+								onRemove={ onRemoveLgImage }
+								mediaType={ lgImageMediaType }
+								allowedTypes={ imageAllowdTypes }
+							/>
+						) }
+						tablet={ () => (
+							<Figure
+								src={ mdImageURL }
+								id={ mdImageID }
+								alt={ mdImageAlt }
+								onSelect={ onSelectMdImage }
+								onRemove={ onRemoveMdImage }
+								mediaType={ mdImageMediaType }
+								allowedTypes={ imageAllowdTypes }
+							/>
+						) }
+						mobile={ () => (
+							<Figure
+								src={ smImageURL }
+								id={ smImageID }
+								alt={ smImageAlt }
+								onSelect={ onSelectSmImage }
+								onRemove={ onRemoveSmImage }
+								mediaType={ smImageMediaType }
+								allowedTypes={ imageAllowdTypes }
+							/>
+						) }
 					/>
 				</PanelBody>
 
@@ -439,11 +447,23 @@ export default function( {
 						) }
 						style={ bgimageStyles }
 					>
-						<img
-							src={ lgImageURL }
-							alt={ lgImageAlt }
-							className={ `wp-image-${ lgImageID }` }
-						/>
+						{ ( 'image' === lgImageMediaType ||
+							undefined === lgImageMediaType ) && (
+							<img
+								src={ lgImageURL }
+								alt={ lgImageAlt }
+								className={ `wp-image-${ lgImageID }` }
+							/>
+						) }
+						{ 'video' === lgImageMediaType && (
+							<video
+								playsinline
+								loop
+								autoPlay
+								muted
+								src={ lgImageURL }
+							/>
+						) }
 					</div>
 				) }
 				{ mdImageURL && (
@@ -454,11 +474,23 @@ export default function( {
 						) }
 						style={ bgimageStyles }
 					>
-						<img
-							src={ mdImageURL }
-							alt={ mdImageAlt }
-							className={ `wp-image-${ mdImageID }` }
-						/>
+						{ ( 'image' === mdImageMediaType ||
+							undefined === mdImageMediaType ) && (
+							<img
+								src={ mdImageURL }
+								alt={ mdImageAlt }
+								className={ `wp-image-${ mdImageID }` }
+							/>
+						) }
+						{ 'video' === mdImageMediaType && (
+							<video
+								playsinline
+								loop
+								autoPlay
+								muted
+								src={ mdImageURL }
+							/>
+						) }
 					</div>
 				) }
 				{ smImageURL && (
@@ -469,11 +501,23 @@ export default function( {
 						) }
 						style={ bgimageStyles }
 					>
-						<img
-							src={ smImageURL }
-							alt={ smImageAlt }
-							className={ `wp-image-${ smImageID }` }
-						/>
+						{ ( 'image' === smImageMediaType ||
+							undefined === smImageMediaType ) && (
+							<img
+								src={ smImageURL }
+								alt={ smImageAlt }
+								className={ `wp-image-${ smImageID }` }
+							/>
+						) }
+						{ 'video' === smImageMediaType && (
+							<video
+								playsinline
+								loop
+								autoPlay
+								muted
+								src={ smImageURL }
+							/>
+						) }
 					</div>
 				) }
 				<div className={ containerClasses }>

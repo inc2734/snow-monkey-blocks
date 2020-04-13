@@ -205,3 +205,21 @@ export const buildTermsTree = ( flatTerms ) => {
 
 	return fillWithChildren( termsByParent[ '0' ] || [] );
 };
+
+/**
+ * @see https://github.com/WordPress/gutenberg/blob/ddd3fffdd327d2f9c5202481345fb7427d4a822b/packages/block-library/src/media-text/edit.native.js#L69-L83
+ *
+ * @param  {Object} media
+ * @return {string}
+ */
+export const getMediaType = ( media ) => {
+	if ( media.media_type ) {
+		if ( media.media_type === 'image' ) {
+			return 'image';
+		}
+
+		return 'video';
+	}
+
+	return media.type;
+};

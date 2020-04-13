@@ -18,7 +18,7 @@ export default {
 	imageURL: {
 		type: 'string',
 		source: 'attribute',
-		selector: '.smb-media-text__figure img',
+		selector: '.smb-media-text__figure img, .smb-media-text__figure video',
 		attribute: 'src',
 		default: '',
 	},

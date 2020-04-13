@@ -12,12 +12,15 @@ export default function( { attributes, className } ) {
 		lgImageID,
 		lgImageURL,
 		lgImageAlt,
+		lgImageMediaType,
 		mdImageID,
 		mdImageURL,
 		mdImageAlt,
+		mdImageMediaType,
 		smImageID,
 		smImageURL,
 		smImageAlt,
+		smImageMediaType,
 		height,
 		contentsAlignment,
 		maskColor,
@@ -80,11 +83,23 @@ export default function( { attributes, className } ) {
 					) }
 					style={ bgimageStyles }
 				>
-					<img
-						src={ lgImageURL }
-						alt={ lgImageAlt }
-						className={ `wp-image-${ lgImageID }` }
-					/>
+					{ ( 'image' === lgImageMediaType ||
+						undefined === lgImageMediaType ) && (
+						<img
+							src={ lgImageURL }
+							alt={ lgImageAlt }
+							className={ `wp-image-${ lgImageID }` }
+						/>
+					) }
+					{ 'video' === lgImageMediaType && (
+						<video
+							playsinline
+							loop
+							autoPlay
+							muted
+							src={ lgImageURL }
+						/>
+					) }
 				</div>
 			) }
 			{ mdImageURL && (
@@ -95,11 +110,23 @@ export default function( { attributes, className } ) {
 					) }
 					style={ bgimageStyles }
 				>
-					<img
-						src={ mdImageURL }
-						alt={ mdImageAlt }
-						className={ `wp-image-${ mdImageID }` }
-					/>
+					{ ( 'image' === mdImageMediaType ||
+						undefined === mdImageMediaType ) && (
+						<img
+							src={ mdImageURL }
+							alt={ mdImageAlt }
+							className={ `wp-image-${ mdImageID }` }
+						/>
+					) }
+					{ 'video' === lgImageMediaType && (
+						<video
+							playsinline
+							loop
+							autoPlay
+							muted
+							src={ mdImageURL }
+						/>
+					) }
 				</div>
 			) }
 			{ smImageURL && (
@@ -110,11 +137,23 @@ export default function( { attributes, className } ) {
 					) }
 					style={ bgimageStyles }
 				>
-					<img
-						src={ smImageURL }
-						alt={ smImageAlt }
-						className={ `wp-image-${ smImageID }` }
-					/>
+					{ ( 'image' === smImageMediaType ||
+						undefined === smImageMediaType ) && (
+						<img
+							src={ smImageURL }
+							alt={ smImageAlt }
+							className={ `wp-image-${ smImageID }` }
+						/>
+					) }
+					{ 'video' === lgImageMediaType && (
+						<video
+							playsinline
+							loop
+							autoPlay
+							muted
+							src={ smImageURL }
+						/>
+					) }
 				</div>
 			) }
 			<div className={ containerClasses }>

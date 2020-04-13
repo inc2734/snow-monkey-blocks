@@ -13,6 +13,7 @@ export default function( { attributes, className } ) {
 		imageID,
 		imageURL,
 		imageAlt,
+		imageMediaType,
 		caption,
 		imagePosition,
 		imageColumnSize,
@@ -38,33 +39,40 @@ export default function( { attributes, className } ) {
 		`c-row__col--lg-${ imageColumnWidth }`,
 	] );
 
-	const Figure = () => {
-		const Img = () => {
-			return (
-				<img
-					src={ imageURL }
-					alt={ imageAlt }
-					className={ `wp-image-${ imageID }` }
-				/>
-			);
-		};
+	const image = (
+		<img
+			src={ imageURL }
+			alt={ imageAlt }
+			className={ `wp-image-${ imageID }` }
+		/>
+	);
 
-		if ( url ) {
-			return (
-				<a
-					href={ url }
-					target={ '_self' === target ? undefined : target }
-					rel={
-						'_self' === target ? undefined : 'noopener noreferrer'
-					}
-				>
-					<Img />
-				</a>
-			);
+	const video = <video controls src={ imageURL } />;
+
+	let figure;
+	if ( !! imageURL ) {
+		if ( 'image' === imageMediaType || undefined === imageMediaType ) {
+			if ( !! url ) {
+				figure = (
+					<a
+						href={ url }
+						target={ '_self' === target ? undefined : target }
+						rel={
+							'_self' === target
+								? undefined
+								: 'noopener noreferrer'
+						}
+					>
+						{ image }
+					</a>
+				);
+			} else {
+				figure = image;
+			}
+		} else if ( 'video' === imageMediaType ) {
+			figure = video;
 		}
-
-		return <Img />;
-	};
+	}
 
 	return (
 		<div className={ classes }>
@@ -83,9 +91,7 @@ export default function( { attributes, className } ) {
 					</div>
 				</div>
 				<div className={ imageColumnClasses }>
-					<div className="smb-media-text__figure">
-						{ imageURL && <Figure /> }
-					</div>
+					<div className="smb-media-text__figure">{ figure }</div>
 
 					{ ! RichText.isEmpty( caption ) && (
 						<div className="smb-media-text__caption">

@@ -43,7 +43,8 @@ export default {
 	lgImageURL: {
 		type: 'string',
 		source: 'attribute',
-		selector: '.smb-section-with-bgimage__bgimage--lg > img',
+		selector:
+			'.smb-section-with-bgimage__bgimage--lg > img, .smb-section-with-bgimage__bgimage--lg > video',
 		attribute: 'src',
 		default: '',
 	},
@@ -54,6 +55,9 @@ export default {
 		attribute: 'alt',
 		default: '',
 	},
+	lgImageMediaType: {
+		type: 'string',
+	},
 	mdImageID: {
 		type: 'number',
 		default: 0,
@@ -61,7 +65,8 @@ export default {
 	mdImageURL: {
 		type: 'string',
 		source: 'attribute',
-		selector: '.smb-section-with-bgimage__bgimage--md > img',
+		selector:
+			'.smb-section-with-bgimage__bgimage--md > img, .smb-section-with-bgimage__bgimage--md > video',
 		attribute: 'src',
 		default: '',
 	},
@@ -72,6 +77,9 @@ export default {
 		attribute: 'alt',
 		default: '',
 	},
+	mdImageMediaType: {
+		type: 'string',
+	},
 	smImageID: {
 		type: 'number',
 		default: 0,
@@ -79,7 +87,8 @@ export default {
 	smImageURL: {
 		type: 'string',
 		source: 'attribute',
-		selector: '.smb-section-with-bgimage__bgimage--sm > img',
+		selector:
+			'.smb-section-with-bgimage__bgimage--sm > img, .smb-section-with-bgimage__bgimage--sm > video',
 		attribute: 'src',
 		default: '',
 	},
@@ -89,6 +98,9 @@ export default {
 		selector: '.smb-section-with-bgimage__bgimage--sm > img',
 		attribute: 'alt',
 		default: '',
+	},
+	smImageMediaType: {
+		type: 'string',
 	},
 	height: {
 		type: 'string',
