@@ -1,0 +1,14 @@
+{
+  "alignment": {
+    "type": "string"
+  },
+  "countdownTime": {
+    "type": "date"
+  },
+  "numericColor": {
+    "type": "string"
+  },
+  "clockColor": {
+    "type": "string"
+  }
+}

@@ -4,7 +4,7 @@ import { merge } from 'lodash';
 
 import { RichText } from '@wordpress/block-editor';
 
-import blockAttributes from './attributes';
+import blockAttributes from './attributes.json';
 
 export default [
 	{

@@ -1,0 +1,26 @@
+{
+  "content": {
+    "type": "string",
+    "source": "html",
+    "selector": ".smb-btn__label",
+    "default": ""
+  },
+  "url": {
+    "type": "string",
+    "default": ""
+  },
+  "target": {
+    "type": "string",
+    "default": "_self"
+  },
+  "modifier": {
+    "type": "string",
+    "default": ""
+  },
+  "backgroundColor": {
+    "type": "string"
+  },
+  "textColor": {
+    "type": "string"
+  }
+}

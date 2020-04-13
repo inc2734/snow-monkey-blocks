@@ -1,0 +1,14 @@
+{
+  "headings": {
+    "type": "string",
+    "default": "h2,h3,h4"
+  },
+  "moveToBefore1stHeading": {
+    "type": "boolean",
+    "default": true
+  },
+  "myAnchor": {
+    "type": "string",
+    "default": ""
+  }
+}

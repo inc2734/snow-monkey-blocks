@@ -6,10 +6,10 @@
  */
 ?>
 
-<!-- wp:snow-monkey-blocks/section-with-bgimage {"imageID":1,"height":"wide","contentsAlignment":"center","maskColor":"#000000","maskOpacity":0.6,"align":"full"} -->
+<!-- wp:snow-monkey-blocks/section-with-bgimage {"lgImageID":1,"height":"wide","contentsAlignment":"center","maskColor":"#000000","maskOpacity":0.6,"align":"full"} -->
 <div class="wp-block-snow-monkey-blocks-section-with-bgimage alignfull smb-section smb-section-with-bgimage smb-section-with-bgimage--center smb-section-with-bgimage--wide" style="color:#fff">
 	<div class="smb-section-with-bgimage__mask" style="background-color:#000000"></div>
-	<div class="smb-section-with-bgimage__bgimage" style="opacity:0.6">
+	<div class="smb-section-with-bgimage__bgimage smb-section-with-bgimage__bgimage--lg" style="opacity:0.6">
 		<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/people-walking-towards-eiffel-tower-at-night.jpg" alt="" class="wp-image-1"/>
 	</div>
 	<div class="c-container">
@@ -19,7 +19,7 @@
 			<div class="wp-block-snow-monkey-blocks-container smb-container c-container">
 				<div class="smb-container__body u-slim-width">
 					<!-- wp:paragraph {"align":"left"} -->
-					<p style="text-align:left">
+					<p class="has-text-align-left">
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 					</p>
 					<!-- /wp:paragraph -->

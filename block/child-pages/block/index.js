@@ -3,6 +3,7 @@
 import { __ } from '@wordpress/i18n';
 
 import blockConfig from '../../../src/js/config/block';
+import attributes from './attributes.json';
 import edit from './edit';
 import save from './save';
 
@@ -19,6 +20,7 @@ export const settings = {
 		src: 'screenoptions',
 	},
 	category: blockConfig.blockCategories.common,
+	attributes,
 	edit,
 	save,
 };

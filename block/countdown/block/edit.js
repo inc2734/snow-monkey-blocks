@@ -1,5 +1,6 @@
 'use strict';
 
+import moment from 'moment';
 import classnames from 'classnames';
 
 import { PanelBody, DateTimePicker } from '@wordpress/components';
@@ -14,6 +15,20 @@ import {
 
 export default function( { attributes, setAttributes, className } ) {
 	const { alignment, numericColor, clockColor, countdownTime } = attributes;
+
+	let newCountDownTime;
+	if ( ! countdownTime ) {
+		const now = moment();
+		newCountDownTime = moment( {
+			y: now.year(),
+			M: now.month(),
+			d: now.date(),
+			h: now.hours(),
+			m: now.minutes(),
+			s: 0,
+			ms: 0,
+		} );
+	}
 
 	const blockClasses = classnames( 'smb-countdown', className );
 
@@ -62,7 +77,7 @@ export default function( { attributes, setAttributes, className } ) {
 					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
 				>
 					<DateTimePicker
-						currentDate={ countdownTime }
+						currentDate={ newCountDownTime }
 						onChange={ onChangeCountdownTime }
 					/>
 				</PanelBody>
@@ -84,7 +99,7 @@ export default function( { attributes, setAttributes, className } ) {
 				></PanelColorSettings>
 			</InspectorControls>
 			<div className={ blockClasses }>
-				<ul className={ listClasses } data-time={ countdownTime }>
+				<ul className={ listClasses } data-time={ newCountDownTime }>
 					<li className="smb-countdown__list-item smb-countdown__list-item__days">
 						<span
 							className="smb-countdown__list-item__numeric"

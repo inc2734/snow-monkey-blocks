@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import { RichText, InnerBlocks } from '@wordpress/block-editor';
 
-import blockAttributes from './attributes';
+import blockAttributes from './attributes.json';
 import { getColumnSize } from '../../../src/js/helper/helper';
 
 export default [

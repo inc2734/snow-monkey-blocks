@@ -1,0 +1,22 @@
+{
+  "articles": {
+    "type": "number",
+    "default": 5
+  },
+  "exclusionCategories": {
+ 		"type": "string",
+ 		"default": ""
+  },
+  "orderby": {
+    "type": "string",
+    "default": ""
+  },
+  "order": {
+    "type": "string",
+    "default": ""
+  },
+  "className": {
+    "type": "string",
+    "default": ""
+  }
+}

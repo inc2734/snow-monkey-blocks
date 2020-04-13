@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import { RichText, InnerBlocks } from '@wordpress/block-editor';
 
 import { divider } from '../../../src/js/helper/helper';
-import blockAttributes from './attributes';
+import blockAttributes from './attributes.json';
 
 export default [
 	{

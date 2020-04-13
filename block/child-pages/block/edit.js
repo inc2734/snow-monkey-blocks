@@ -21,6 +21,10 @@ export default function( { attributes, setAttributes } ) {
 					<TextControl
 						label={ __( 'Title', 'snow-monkey-blocks' ) }
 						value={ title }
+						placeholder={ __(
+							'Child pages',
+							'snow-monkey-blocks'
+						) }
 						onChange={ onChangeTitle }
 					/>
 				</PanelBody>

@@ -2,13 +2,14 @@
 
 import classnames from 'classnames';
 
-import { PanelBody, SelectControl, Popover } from '@wordpress/components';
+import { PanelBody, SelectControl } from '@wordpress/components';
 
 import {
 	RichText,
 	InspectorControls,
 	PanelColorSettings,
 	ContrastChecker,
+	URLPopover,
 } from '@wordpress/block-editor';
 
 import { __ } from '@wordpress/i18n';
@@ -154,13 +155,17 @@ export default function( {
 			</div>
 
 			{ isSelected && (
-				<Popover position={ ! align ? 'bottom left' : 'bottom center' }>
+				<URLPopover
+					position={
+						undefined === align ? 'bottom left' : 'bottom center'
+					}
+				>
 					<LinkControl
 						url={ url }
 						target={ target }
 						onChange={ onChangeUrl }
 					/>
-				</Popover>
+				</URLPopover>
 			) }
 		</>
 	);

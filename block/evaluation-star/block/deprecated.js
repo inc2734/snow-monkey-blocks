@@ -3,7 +3,7 @@
 import { sprintf } from '@wordpress/i18n';
 
 import { toNumber } from '../../../src/js/helper/helper';
-import blockAttributes from './attributes';
+import blockAttributes from './attributes.json';
 
 export default [
 	{

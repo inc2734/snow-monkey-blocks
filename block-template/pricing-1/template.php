@@ -13,7 +13,7 @@
 			<h2 class="smb-section__title">Lorem ipsum dolor sit amet</h2>
 			<div class="smb-section__body">
 				<!-- wp:paragraph {"align":"center","className":"u-slim-width"} -->
-				<p style="text-align:center" class="u-slim-width">
+				<p class="has-text-align-center" class="u-slim-width">
 					consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 				</p>
 				<!-- /wp:paragraph -->

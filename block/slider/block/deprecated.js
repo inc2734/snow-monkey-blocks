@@ -6,7 +6,7 @@ import { get, times, merge, omit } from 'lodash';
 import { RichText, InnerBlocks } from '@wordpress/block-editor';
 import { createBlock } from '@wordpress/blocks';
 
-import blockAttributes from './attributes';
+import blockAttributes from './attributes.json';
 import { generateConfig } from './utils';
 
 export default [

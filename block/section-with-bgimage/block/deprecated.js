@@ -5,7 +5,7 @@ import { omit } from 'lodash';
 
 import { RichText, InnerBlocks } from '@wordpress/block-editor';
 
-import blockAttributes from './attributes';
+import blockAttributes from './attributes.json';
 
 export default [
 	{

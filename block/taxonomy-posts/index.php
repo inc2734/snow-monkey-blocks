@@ -51,8 +51,10 @@ wp_enqueue_style(
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/taxonomy-posts/nopro-editor.css' )
 );
 
-$attributes = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/taxonomy-posts/attributes.php' );
-$supports   = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/taxonomy-posts/supports.php' );
+$attributes = file_get_contents( __DIR__ . '/block/attributes.json' );
+$attributes = json_decode( $attributes, true );
+$supports = file_get_contents( __DIR__ . '/block/supports.json' );
+$supports = json_decode( $supports, true );
 
 register_block_type(
 	'snow-monkey-blocks/taxonomy-posts',

@@ -3,6 +3,8 @@
 import { __ } from '@wordpress/i18n';
 
 import blockConfig from '../../../src/js/config/block';
+import attributes from './attributes.json';
+import supports from './supports.json';
 import edit from './edit';
 import save from './save';
 
@@ -19,6 +21,8 @@ export const settings = {
 		src: 'format-gallery',
 	},
 	category: blockConfig.blockCategories.common,
+	attributes,
+	supports,
 	edit,
 	save,
 };

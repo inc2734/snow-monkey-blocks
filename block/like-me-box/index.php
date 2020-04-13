@@ -51,7 +51,8 @@ wp_enqueue_style(
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/like-me-box/nopro-editor.css' )
 );
 
-$attributes = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/like-me-box/attributes.php' );
+$attributes = file_get_contents( __DIR__ . '/block/attributes.json' );
+$attributes = json_decode( $attributes, true );
 
 register_block_type(
 	'snow-monkey-blocks/like-me-box',
