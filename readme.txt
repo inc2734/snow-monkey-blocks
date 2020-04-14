@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.4
 Tested up to: 5.4
-Stable tag: 8.0.2
+Stable tag: 8.1.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -111,6 +111,11 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 23. Price menu block (The number of items can be increased or decreased freely)
 
 == Changelog ==
+
+= 8.1.0 =
+* [Media text] You can now insert videos.
+* Add some block templates.
+* [Section with background video] Rename to "Section with background YouTube video"
 
 = 8.0.2 =
 * Change link and btn setting UI. Popover to toolbar.
@@ -599,7 +604,7 @@ WebSite: http://kenwheeler.github.io/slick/
 License: https://github.com/kenwheeler/slick/blob/master/LICENSE
 
 = Photos =
-**ヒロタケンジ / Photographer**
+**KENJI HIROTA / Photographer**
 - https://hirokenji.com
 - voido: https://voido.space
 - cooks: https://cooks.jp
