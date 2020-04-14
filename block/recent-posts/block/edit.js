@@ -49,17 +49,6 @@ export default function( { attributes, setAttributes } ) {
 		[ allPostTypes ]
 	);
 
-	const Loading = () => {
-		return (
-			<Placeholder
-				icon="editor-ul"
-				label={ __( 'Recent posts', 'snow-monkey-blocks' ) }
-			>
-				<Spinner />
-			</Placeholder>
-		);
-	};
-
 	const onChangePostType = ( value ) =>
 		setAttributes( {
 			postType: value,
@@ -172,7 +161,12 @@ export default function( { attributes, setAttributes } ) {
 			</InspectorAdvancedControls>
 
 			{ ! allPostTypes ? (
-				<Loading />
+				<Placeholder
+					icon="editor-ul"
+					label={ __( 'Recent posts', 'snow-monkey-blocks' ) }
+				>
+					<Spinner />
+				</Placeholder>
 			) : (
 				<ServerSideRender
 					block="snow-monkey-blocks/recent-posts"

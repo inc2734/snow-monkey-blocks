@@ -24,7 +24,7 @@ export default function( { attributes, setAttributes, className } ) {
 		numericColor,
 	} = attributes;
 
-	const EditEvaluationIcon = () => {
+	const generateIcons = () => {
 		const icons = [];
 		const evaluationNumber = toNumber( evaluationValue, 0, 5 );
 		const fillIconCount = Math.floor( evaluationNumber );
@@ -43,7 +43,7 @@ export default function( { attributes, setAttributes, className } ) {
 			icons.push( <FontAwesome icon={ [ 'far', 'star' ] } /> );
 		}
 
-		return <span>{ icons }</span>;
+		return icons;
 	};
 
 	const classes = classnames( 'smb-evaluation-star', className );
@@ -169,7 +169,7 @@ export default function( { attributes, setAttributes, className } ) {
 						className="smb-evaluation-star__icon"
 						style={ evaluationStarIconStyles }
 					>
-						<EditEvaluationIcon />
+						<span>{ generateIcons() }</span>
 					</div>
 				</div>
 			</div>

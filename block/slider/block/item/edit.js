@@ -63,47 +63,45 @@ export default function( {
 		} );
 	};
 
-	const Item = () => {
-		return (
-			<>
-				<div className="smb-slider__item__figure">
-					<Figure
-						src={ imageURL }
-						id={ imageID }
-						alt={ imageAlt }
-						onSelect={ onSelectImage }
-						onRemove={ onRemoveImage }
-						isSelected={ isSelected }
-					/>
+	const item = (
+		<>
+			<div className="smb-slider__item__figure">
+				<Figure
+					src={ imageURL }
+					id={ imageID }
+					alt={ imageAlt }
+					onSelect={ onSelectImage }
+					onRemove={ onRemoveImage }
+					isSelected={ isSelected }
+				/>
 
-					{ isLinkUIOpen && (
-						<Popover
-							position="bottom center"
-							onClose={ closeLinkUIOpen }
-						>
-							<LinkControl
-								url={ url }
-								target={ target }
-								onChange={ onChangeUrl }
-							/>
-						</Popover>
-					) }
-				</div>
-
-				{ ( ! RichText.isEmpty( caption ) || isSelected ) && (
-					<RichText
-						className="smb-slider__item__caption"
-						placeholder={ __(
-							'Write caption...',
-							'snow-monkey-blocks'
-						) }
-						value={ caption }
-						onChange={ onChangeCaption }
-					/>
+				{ isLinkUIOpen && (
+					<Popover
+						position="bottom center"
+						onClose={ closeLinkUIOpen }
+					>
+						<LinkControl
+							url={ url }
+							target={ target }
+							onChange={ onChangeUrl }
+						/>
+					</Popover>
 				) }
-			</>
-		);
-	};
+			</div>
+
+			{ ( ! RichText.isEmpty( caption ) || isSelected ) && (
+				<RichText
+					className="smb-slider__item__caption"
+					placeholder={ __(
+						'Write caption...',
+						'snow-monkey-blocks'
+					) }
+					value={ caption }
+					onChange={ onChangeCaption }
+				/>
+			) }
+		</>
+	);
 
 	return (
 		<>
@@ -116,12 +114,10 @@ export default function( {
 						'_self' === target ? undefined : 'noopener noreferrer'
 					}
 				>
-					<Item />
+					{ item }
 				</span>
 			) : (
-				<div className={ classes }>
-					<Item />
-				</div>
+				<div className={ classes }>{ item }</div>
 			) }
 
 			<BlockControls>

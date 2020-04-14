@@ -15,28 +15,26 @@ export default function( { attributes, className } ) {
 		numericColor,
 	} = attributes;
 
-	const SaveEvaluationIcon = () => {
-		const outputEvaluationIcons = [];
+	const generateIcons = () => {
+		const icons = [];
 		const evaluationNumber = toNumber( evaluationValue, 0, 5 );
 		const fillIconCount = Math.floor( evaluationNumber );
 		const emptyIconCount = 5 - Math.ceil( evaluationNumber );
 		const halfIconCount = fillIconCount + emptyIconCount === 5 ? 0 : 1;
 
 		for ( let i = 0; i < fillIconCount; i++ ) {
-			outputEvaluationIcons.push( <i className="fas fa-star" /> );
+			icons.push( <i className="fas fa-star" /> );
 		}
 
 		if ( halfIconCount !== 0 ) {
-			outputEvaluationIcons.push(
-				<i className="fas fa-star-half-alt" />
-			);
+			icons.push( <i className="fas fa-star-half-alt" /> );
 		}
 
 		for ( let j = 0; j < emptyIconCount; j++ ) {
-			outputEvaluationIcons.push( <i className="far fa-star" /> );
+			icons.push( <i className="far fa-star" /> );
 		}
 
-		return <>{ outputEvaluationIcons }</>;
+		return icons;
 	};
 
 	const classes = classnames( 'smb-evaluation-star', className );
@@ -68,7 +66,7 @@ export default function( { attributes, className } ) {
 					className="smb-evaluation-star__icon"
 					style={ evaluationStarIconStyles }
 				>
-					<SaveEvaluationIcon />
+					{ generateIcons() }
 				</div>
 			</div>
 		</div>

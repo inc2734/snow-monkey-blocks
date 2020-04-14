@@ -9,25 +9,23 @@ export default function( { attributes, className } ) {
 
 	const classes = classnames( 'smb-slider__item', className );
 
-	const Item = () => {
-		return (
-			<>
-				<div className="smb-slider__item__figure">
-					<img
-						src={ imageURL }
-						alt={ imageAlt }
-						className={ `wp-image-${ imageID }` }
-					/>
-				</div>
+	const item = (
+		<>
+			<div className="smb-slider__item__figure">
+				<img
+					src={ imageURL }
+					alt={ imageAlt }
+					className={ `wp-image-${ imageID }` }
+				/>
+			</div>
 
-				{ ! RichText.isEmpty( caption ) && (
-					<div className="smb-slider__item__caption">
-						<RichText.Content value={ caption } />
-					</div>
-				) }
-			</>
-		);
-	};
+			{ ! RichText.isEmpty( caption ) && (
+				<div className="smb-slider__item__caption">
+					<RichText.Content value={ caption } />
+				</div>
+			) }
+		</>
+	);
 
 	return !! url ? (
 		<a
@@ -36,11 +34,9 @@ export default function( { attributes, className } ) {
 			target={ '_self' === target ? undefined : target }
 			rel={ '_self' === target ? undefined : 'noopener noreferrer' }
 		>
-			<Item />
+			{ item }
 		</a>
 	) : (
-		<div className={ classes }>
-			<Item />
-		</div>
+		<div className={ classes }>{ item }</div>
 	);
 }

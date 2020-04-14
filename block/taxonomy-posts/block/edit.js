@@ -71,17 +71,6 @@ export default function( { attributes, setAttributes } ) {
 		? find( terms.terms, [ 'id', toNumber( termId ) ] )
 		: [];
 
-	const Loading = () => {
-		return (
-			<Placeholder
-				icon="editor-ul"
-				label={ __( 'Taxonomy posts', 'snow-monkey-blocks' ) }
-			>
-				<Spinner />
-			</Placeholder>
-		);
-	};
-
 	const onChangePostsPerPage = ( value ) =>
 		setAttributes( {
 			postsPerPage: toNumber( value, 1, 12 ),
@@ -219,7 +208,12 @@ export default function( { attributes, setAttributes } ) {
 			</InspectorAdvancedControls>
 
 			{ ! selectedTerm || ! terms ? (
-				<Loading />
+				<Placeholder
+					icon="editor-ul"
+					label={ __( 'Taxonomy posts', 'snow-monkey-blocks' ) }
+				>
+					<Spinner />
+				</Placeholder>
 			) : (
 				<ServerSideRender
 					block="snow-monkey-blocks/taxonomy-posts"
