@@ -64,11 +64,6 @@ export default function( {
 			modifier: value,
 		} );
 
-	const onClickIcon = ( value ) =>
-		setAttributes( {
-			icon: value,
-		} );
-
 	const onChangeTitle = ( value ) =>
 		setAttributes( {
 			title: value,
@@ -127,17 +122,18 @@ export default function( {
 					>
 						<div className="smb-list-icon-selector">
 							{ times( iconList.length, ( index ) => {
+								const onClickIcon = () =>
+									setAttributes( {
+										icon: iconList[ index ].value,
+									} );
+
 								return (
 									<Button
 										isDefault
 										isPrimary={
 											icon === iconList[ index ].value
 										}
-										onClick={ () =>
-											onClickIcon(
-												iconList[ index ].value
-											)
-										}
+										onClick={ onClickIcon }
 									>
 										<i
 											className={ `fas fa-${ iconList[ index ].value }` }

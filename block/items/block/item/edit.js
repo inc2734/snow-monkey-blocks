@@ -81,6 +81,12 @@ export default function( {
 					>
 						<div className="smb-list-icon-selector">
 							{ times( titleTagNames.length, ( index ) => {
+								const onClickTitleTagName = () => {
+									setAttributes( {
+										titleTagName: titleTagNames[ index ],
+									} );
+								};
+
 								return (
 									<Button
 										isDefault
@@ -88,12 +94,7 @@ export default function( {
 											titleTagName ===
 											titleTagNames[ index ]
 										}
-										onClick={ () =>
-											setAttributes( {
-												titleTagName:
-													titleTagNames[ index ],
-											} )
-										}
+										onClick={ onClickTitleTagName }
 									>
 										{ titleTagNames[ index ] }
 									</Button>

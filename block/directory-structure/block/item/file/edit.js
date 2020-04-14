@@ -49,15 +49,6 @@ export default function( { attributes, setAttributes, className } ) {
 		},
 	];
 
-	const onClickIcon = ( iconData ) => {
-		setAttributes( {
-			iconVendor: iconData.vendor,
-		} );
-		setAttributes( {
-			iconClass: iconData.value,
-		} );
-	};
-
 	const onChangeIconColor = ( value ) =>
 		setAttributes( {
 			iconColor: value,
@@ -83,14 +74,22 @@ export default function( { attributes, setAttributes, className } ) {
 								const selected =
 									iconVendor === iconData.vendor &&
 									iconClass === iconData.value;
+
+								const onClickIcon = () => {
+									setAttributes( {
+										iconVendor: iconData.vendor,
+									} );
+									setAttributes( {
+										iconClass: iconData.value,
+									} );
+								};
+
 								return (
 									<Button
 										isLarge
 										isPrimary={ selected }
 										aria-pressed={ selected }
-										onClick={ () =>
-											onClickIcon( iconData )
-										}
+										onClick={ onClickIcon }
 										key={ `icon_${ iconData.key }` }
 									>
 										<i

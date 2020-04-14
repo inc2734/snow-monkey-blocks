@@ -56,11 +56,6 @@ export default function( { attributes, setAttributes, className } ) {
 
 	const classes = classnames( 'smb-list', className );
 
-	const onClickIcon = ( value ) =>
-		setAttributes( {
-			icon: value,
-		} );
-
 	const onChangeIconColor = ( value ) =>
 		setAttributes( {
 			iconColor: value,
@@ -85,11 +80,16 @@ export default function( { attributes, setAttributes, className } ) {
 							{ times( iconList.length, ( index ) => {
 								const value = iconList[ index ].value;
 
+								const onClickIcon = () =>
+									setAttributes( {
+										icon: value,
+									} );
+
 								return (
 									<Button
 										isDefault
 										isPrimary={ icon === value }
-										onClick={ () => onClickIcon( value ) }
+										onClick={ onClickIcon }
 									>
 										<i
 											className={ `fas fa-${ iconList[ index ].value }` }

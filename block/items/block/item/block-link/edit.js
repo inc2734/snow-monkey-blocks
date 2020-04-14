@@ -67,12 +67,6 @@ export default function( {
 		backgroundColor: btnBackgroundColor || undefined,
 	};
 
-	const onClickTitleTagName = ( value ) => {
-		setAttributes( {
-			titleTagName: value,
-		} );
-	};
-
 	const onChangeBtnBackgroundColor = ( value ) =>
 		setAttributes( {
 			btnBackgroundColor: value,
@@ -142,6 +136,12 @@ export default function( {
 					>
 						<div className="smb-list-icon-selector">
 							{ times( titleTagNames.length, ( index ) => {
+								const onClickTitleTagName = () => {
+									setAttributes( {
+										titleTagName: titleTagNames[ index ],
+									} );
+								};
+
 								return (
 									<Button
 										isDefault
@@ -149,11 +149,7 @@ export default function( {
 											titleTagName ===
 											titleTagNames[ index ]
 										}
-										onClick={ () =>
-											onClickTitleTagName(
-												titleTagNames[ index ]
-											)
-										}
+										onClick={ onClickTitleTagName }
 									>
 										{ titleTagNames[ index ] }
 									</Button>

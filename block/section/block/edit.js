@@ -86,16 +86,6 @@ export default function( {
 		paddingBottom: Math.abs( bottomDividerLevel ),
 	};
 
-	const onClickWrapperTagName = ( value ) =>
-		setAttributes( {
-			wrapperTagName: value,
-		} );
-
-	const onClickTitleTagName = ( value ) =>
-		setAttributes( {
-			titleTagName: value,
-		} );
-
 	const onChangeIsSlim = ( value ) =>
 		setAttributes( {
 			isSlim: value,
@@ -168,6 +158,12 @@ export default function( {
 					>
 						<div className="smb-list-icon-selector">
 							{ times( wrapperTagNames.length, ( index ) => {
+								const onClickWrapperTagName = () =>
+									setAttributes( {
+										wrapperTagName:
+											wrapperTagNames[ index ],
+									} );
+
 								return (
 									<Button
 										isDefault
@@ -175,11 +171,7 @@ export default function( {
 											wrapperTagName ===
 											wrapperTagNames[ index ]
 										}
-										onClick={ () =>
-											onClickWrapperTagName(
-												wrapperTagNames[ index ]
-											)
-										}
+										onClick={ onClickWrapperTagName }
 									>
 										{ wrapperTagNames[ index ] }
 									</Button>
@@ -194,6 +186,11 @@ export default function( {
 					>
 						<div className="smb-list-icon-selector">
 							{ times( titleTagNames.length, ( index ) => {
+								const onClickTitleTagName = () =>
+									setAttributes( {
+										titleTagName: titleTagNames[ index ],
+									} );
+
 								return (
 									<Button
 										isDefault
@@ -201,11 +198,7 @@ export default function( {
 											titleTagName ===
 											titleTagNames[ index ]
 										}
-										onClick={ () =>
-											onClickTitleTagName(
-												titleTagNames[ index ]
-											)
-										}
+										onClick={ onClickTitleTagName }
 									>
 										{ titleTagNames[ index ] }
 									</Button>

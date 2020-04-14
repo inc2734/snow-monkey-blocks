@@ -54,11 +54,6 @@ export default function( {
 
 	const classes = classnames( 'c-row__col', className );
 
-	const onClickTitleTagName = ( value ) =>
-		setAttributes( {
-			titleTagName: value,
-		} );
-
 	const onSelectImage = ( media ) => {
 		const newImageURL =
 			!! media.sizes && !! media.sizes.large
@@ -113,6 +108,11 @@ export default function( {
 					>
 						<div className="smb-list-icon-selector">
 							{ times( titleTagNames.length, ( index ) => {
+								const onClickTitleTagName = () =>
+									setAttributes( {
+										titleTagName: titleTagNames[ index ],
+									} );
+
 								return (
 									<Button
 										isDefault
@@ -120,11 +120,7 @@ export default function( {
 											titleTagName ===
 											titleTagNames[ index ]
 										}
-										onClick={ () =>
-											onClickTitleTagName(
-												titleTagNames[ index ]
-											)
-										}
+										onClick={ onClickTitleTagName }
 									>
 										{ titleTagNames[ index ] }
 									</Button>
