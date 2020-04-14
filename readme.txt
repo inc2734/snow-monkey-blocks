@@ -599,6 +599,13 @@ WebSite: http://kenwheeler.github.io/slick/
 License: https://github.com/kenwheeler/slick/blob/master/LICENSE
 
 = Photos =
+**ヒロタケンジ / Photographer**
+- https://hirokenji.com
+- voido: https://voido.space
+- cooks: https://cooks.jp
+- License: CC BY 4.0 https://creativecommons.org/licenses/by/4.0/deed
+
+**visualhunt**
 - https://visualhunt.com/photo/1646/people-walking-towards-eiffel-tower-at-night/
 - https://visualhunt.com/photo/849/clouds-in-sky-over-fields/
 - https://visualhunt.com/photo/525/sunset-over-lake-1/

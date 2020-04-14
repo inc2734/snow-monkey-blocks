@@ -19,6 +19,11 @@ return [
 		'isPro' => false,
 	],
 	[
+		'title' => _x( 'Text with image', 'block-template-category', 'snow-monkey-blocks' ),
+		'slug'  => 'smb-block-template-media-text',
+		'isPro' => false,
+	],
+	[
 		'title' => _x( 'Pricing', 'block-template-category', 'snow-monkey-blocks' ),
 		'slug'  => 'smb-block-template-pricing',
 		'isPro' => false,

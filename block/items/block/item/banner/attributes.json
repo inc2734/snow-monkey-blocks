@@ -13,10 +13,16 @@
   },
   "url": {
     "type": "string",
+    "source": "attribute",
+    "selector": ".smb-items__banner",
+    "attribute": "href",
     "default": ""
   },
   "target": {
     "type": "string",
+    "source": "attribute",
+    "selector": ".smb-items__banner",
+    "attribute": "target",
     "default": "_self"
   },
   "blur": {
