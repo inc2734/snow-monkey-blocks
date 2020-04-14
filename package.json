@@ -8,7 +8,7 @@
     "@inc2734/for-each-html-nodes": "^0.4.0",
     "@wordpress/browserslist-config": "^2.6.0",
     "@wordpress/scripts": "7.2.0",
-    "autoprefixer": "^9.7.5",
+    "autoprefixer": "^9.7.6",
     "classnames": "^2.2.6",
     "cpy-cli": "^3.1.0",
     "css-mqpacker": "^7.0.0",
@@ -21,7 +21,7 @@
     "postcss-cli": "^7.1.0",
     "prettier": "npm:wp-prettier@1.19.1",
     "rimraf": "^3.0.2",
-    "sass-basis": "^10.1.0",
+    "sass-basis": "^10.1.1",
     "slick-carousel": "^1.8.1"
   },
   "scripts": {

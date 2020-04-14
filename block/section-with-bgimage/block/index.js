@@ -12,9 +12,9 @@ import example from './example';
 export const name = 'snow-monkey-blocks/section-with-bgimage';
 
 export const settings = {
-	title: __( 'Section (with background image)', 'snow-monkey-blocks' ),
+	title: __( 'Section (with background image/video)', 'snow-monkey-blocks' ),
 	description: __(
-		'It is a section with a background image.',
+		'It is a section with a background image/video.',
 		'snow-monkey-blocks'
 	),
 	icon: {
