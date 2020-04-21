@@ -167,7 +167,7 @@ export default function( {
 					<RichText
 						className="smb-pricing-table__item__title"
 						placeholder={ __(
-							'Write title...',
+							'Write title…',
 							'snow-monkey-blocks'
 						) }
 						value={ title }
@@ -180,7 +180,7 @@ export default function( {
 						<RichText
 							className="smb-pricing-table__item__price"
 							placeholder={ __(
-								'Write price...',
+								'Write price…',
 								'snow-monkey-blocks'
 							) }
 							value={ price }
@@ -194,7 +194,7 @@ export default function( {
 						<RichText
 							className="smb-pricing-table__item__lede"
 							placeholder={ __(
-								'Write lede...',
+								'Write lede…',
 								'snow-monkey-blocks'
 							) }
 							value={ lede }

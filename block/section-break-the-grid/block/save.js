@@ -13,6 +13,7 @@ export default function( { attributes, className } ) {
 		imageID,
 		imageURL,
 		imageAlt,
+		imageMediaType,
 		textColor,
 		imagePosition,
 		imageSize,
@@ -90,6 +91,25 @@ export default function( { attributes, className } ) {
 			contentBackgroundColor && hexToRgba( contentBackgroundColor, 0.98 ),
 	};
 
+	const image = (
+		<img
+			src={ imageURL }
+			alt={ imageAlt }
+			className={ `wp-image-${ imageID }` }
+		/>
+	);
+
+	const video = <video controls src={ imageURL } />;
+
+	let figure;
+	if ( !! imageURL ) {
+		if ( 'image' === imageMediaType || undefined === imageMediaType ) {
+			figure = image;
+		} else if ( 'video' === imageMediaType ) {
+			figure = video;
+		}
+	}
+
 	return (
 		<Wrapper className={ classes } style={ sectionStyles }>
 			<div className="c-container">
@@ -120,13 +140,7 @@ export default function( { attributes, className } ) {
 									style={ shadowStyles }
 								/>
 							) }
-							{ imageURL && (
-								<img
-									src={ imageURL }
-									alt={ imageAlt }
-									className={ `wp-image-${ imageID }` }
-								/>
-							) }
+							{ figure }
 						</div>
 					</div>
 				</div>

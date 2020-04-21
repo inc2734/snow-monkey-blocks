@@ -105,7 +105,7 @@ export default function( { attributes, setAttributes } ) {
 					{ ! taxonomiesTerms.length && (
 						<BaseControl
 							label={ __(
-								'Loading taxonomies...',
+								'Loading taxonomies…',
 								'snow-monkey-blocks'
 							) }
 							id="snow-monkey-blocks/taxonomy-posts/taxonomies"

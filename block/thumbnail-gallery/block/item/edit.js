@@ -58,10 +58,7 @@ export default function( {
 			{ ( ! RichText.isEmpty( caption ) || isSelected ) && (
 				<RichText
 					className="smb-thumbnail-gallery__item__caption"
-					placeholder={ __(
-						'Write caption...',
-						'snow-monkey-blocks'
-					) }
+					placeholder={ __( 'Write caption…', 'snow-monkey-blocks' ) }
 					value={ caption }
 					onChange={ onChangeCaption }
 				/>

@@ -77,7 +77,7 @@ export default function( {
 					<div className="smb-testimonial__item__content">
 						<RichText
 							placeholder={ __(
-								'Write content...',
+								'Write content…',
 								'snow-monkey-blocks'
 							) }
 							value={ content }
@@ -88,7 +88,7 @@ export default function( {
 					<RichText
 						className="smb-testimonial__item__name"
 						placeholder={ __(
-							'Write name...',
+							'Write name…',
 							'snow-monkey-blocks'
 						) }
 						value={ name }
@@ -99,7 +99,7 @@ export default function( {
 						<RichText
 							className="smb-testimonial__item__lede"
 							placeholder={ __(
-								'Write lede...',
+								'Write lede…',
 								'snow-monkey-blocks'
 							) }
 							value={ lede }

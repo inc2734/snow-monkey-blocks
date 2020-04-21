@@ -24,7 +24,7 @@ export default function( { attributes, setAttributes, className } ) {
 		<div className={ classes }>
 			<RichText
 				className="smb-price-menu__item__title"
-				placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
+				placeholder={ __( 'Write title…', 'snow-monkey-blocks' ) }
 				value={ title }
 				allowedFormats={ [] }
 				onChange={ onChangeTitle }
@@ -33,7 +33,7 @@ export default function( { attributes, setAttributes, className } ) {
 
 			<RichText
 				className="smb-price-menu__item__price"
-				placeholder={ __( 'Write price...', 'snow-monkey-blocks' ) }
+				placeholder={ __( 'Write price…', 'snow-monkey-blocks' ) }
 				value={ price }
 				allowedFormats={ [] }
 				onChange={ onChangePrice }

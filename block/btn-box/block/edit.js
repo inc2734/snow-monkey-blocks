@@ -167,7 +167,7 @@ export default function( {
 							onChange={ onChangeLede }
 							allowedFormats={ [] }
 							placeholder={ __(
-								'Write lede...',
+								'Write lede…',
 								'snow-monkey-blocks'
 							) }
 						/>
@@ -209,7 +209,7 @@ export default function( {
 							onChange={ onChangeNote }
 							allowedFormats={ [] }
 							placeholder={ __(
-								'Write note...',
+								'Write note…',
 								'snow-monkey-blocks'
 							) }
 						/>

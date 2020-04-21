@@ -56,7 +56,7 @@ export default function( { attributes, setAttributes, className } ) {
 					<RichText
 						tagName="span"
 						placeholder={ __(
-							'Write title...',
+							'Write title…',
 							'snow-monkey-blocks'
 						) }
 						value={ title }

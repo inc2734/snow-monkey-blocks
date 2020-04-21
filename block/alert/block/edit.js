@@ -157,7 +157,7 @@ export default function( {
 							multiline={ false }
 							value={ title }
 							placeholder={ __(
-								'Write title...',
+								'Write title…',
 								'snow-monkey-blocks'
 							) }
 							onChange={ onChangeTitle }

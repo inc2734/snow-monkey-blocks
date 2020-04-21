@@ -27,7 +27,6 @@ export default function( { attributes, setAttributes, className } ) {
 			'snow-monkey-blocks/categories-list'
 		).receiveArticleCategories()
 	);
-	const classes = classnames( 'smb-categories-list', className );
 
 	if ( ! articleCategories || ! articleCategories.length ) {
 		return (
@@ -105,6 +104,8 @@ export default function( { attributes, setAttributes, className } ) {
 			</PanelBody>
 		);
 	};
+
+	const classes = classnames( 'smb-categories-list', className );
 
 	const View = () => {
 		const articleCategoriesList = articleCategories

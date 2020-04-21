@@ -244,7 +244,7 @@ export default function( {
 								<RichText
 									className="smb-items__banner__title"
 									placeholder={ __(
-										'Write title...',
+										'Write title…',
 										'snow-monkey-blocks'
 									) }
 									value={ title }
@@ -257,7 +257,7 @@ export default function( {
 								<RichText
 									className="smb-items__banner__lede"
 									placeholder={ __(
-										'Write lede...',
+										'Write lede…',
 										'snow-monkey-blocks'
 									) }
 									value={ lede }

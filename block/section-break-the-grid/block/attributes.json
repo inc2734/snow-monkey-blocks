@@ -20,7 +20,7 @@
   "imageURL": {
     "type": "string",
     "source": "attribute",
-    "selector": ".smb-section-break-the-grid__figure > img",
+    "selector": ".smb-section-break-the-grid__figure > img, .smb-section-break-the-grid__figure > video",
     "attribute": "src",
     "default": ""
   },
@@ -30,6 +30,9 @@
     "selector": ".smb-section-break-the-grid__figure > img",
     "attribute": "alt",
     "default": ""
+  },
+  "imageMediaType": {
+    "type": "string"
   },
   "textColor": {
     "type": "string"

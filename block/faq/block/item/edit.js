@@ -71,6 +71,7 @@ export default function( { attributes, setAttributes, className } ) {
 							placeholder={ __( 'Q', 'snow-monkey-blocks' ) }
 							onChange={ onChangeQuestionLabel }
 							help={ sprintf(
+								// translators: %d: Length
 								__(
 									'Recommend length up to %d',
 									'snow-monkey-blocks'
@@ -88,6 +89,7 @@ export default function( { attributes, setAttributes, className } ) {
 							placeholder={ __( 'A', 'snow-monkey-blocks' ) }
 							onChange={ onChangeAnswerLabel }
 							help={ sprintf(
+								// translators: %d: Length
 								__(
 									'Recommend length up to %d',
 									'snow-monkey-blocks'
@@ -125,7 +127,7 @@ export default function( { attributes, setAttributes, className } ) {
 					<RichText
 						className="smb-faq__item__question__body"
 						placeholder={ __(
-							'Write question...',
+							'Write question…',
 							'snow-monkey-blocks'
 						) }
 						value={ question }

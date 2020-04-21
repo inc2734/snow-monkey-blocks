@@ -489,7 +489,7 @@ export default function( {
 										onChange={ onChangeTitle }
 										allowedFormats={ [] }
 										placeholder={ __(
-											'Write title...',
+											'Write title…',
 											'snow-monkey-blocks'
 										) }
 									/>

@@ -69,7 +69,7 @@ export default function( { attributes, setAttributes, className } ) {
 			<div className={ classes }>
 				<RichText
 					className="smb-rating-box__item__title"
-					placeholder={ __( 'Write title...', 'snow-monkey-blocks' ) }
+					placeholder={ __( 'Write title…', 'snow-monkey-blocks' ) }
 					value={ title }
 					allowedFormats={ [] }
 					multiline={ false }

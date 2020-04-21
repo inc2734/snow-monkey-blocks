@@ -207,7 +207,7 @@ export default function( {
 							tagName={ titleTagName }
 							className="smb-items__item__title"
 							placeholder={ __(
-								'Write title...',
+								'Write title…',
 								'snow-monkey-blocks'
 							) }
 							value={ title }
@@ -220,7 +220,7 @@ export default function( {
 						<RichText
 							className="smb-items__item__lede"
 							placeholder={ __(
-								'Write lede...',
+								'Write lede…',
 								'snow-monkey-blocks'
 							) }
 							value={ lede }
@@ -233,7 +233,7 @@ export default function( {
 						<RichText
 							className="smb-items__item__content"
 							placeholder={ __(
-								'Write content...',
+								'Write content…',
 								'snow-monkey-blocks'
 							) }
 							value={ summary }

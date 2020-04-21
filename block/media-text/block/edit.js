@@ -214,7 +214,7 @@ export default function( {
 									onChange={ onChangeTitle }
 									allowedFormats={ [] }
 									placeholder={ __(
-										'Write title...',
+										'Write title…',
 										'snow-monkey-blocks'
 									) }
 								/>
@@ -255,7 +255,7 @@ export default function( {
 							<RichText
 								className="smb-media-text__caption"
 								placeholder={ __(
-									'Write caption...',
+									'Write caption…',
 									'snow-monkey-blocks'
 								) }
 								value={ caption }

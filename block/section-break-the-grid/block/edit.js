@@ -24,7 +24,7 @@ import {
 } from '@wordpress/components';
 
 import Figure from '../../../src/js/component/figure';
-import { toNumber } from '../../../src/js/helper/helper';
+import { toNumber, getMediaType } from '../../../src/js/helper/helper';
 
 export default function( {
 	attributes,
@@ -39,6 +39,7 @@ export default function( {
 		imageID,
 		imageURL,
 		imageAlt,
+		imageMediaType,
 		textColor,
 		imagePosition,
 		imageSize,
@@ -199,6 +200,7 @@ export default function( {
 			imageURL: newImageURL,
 			imageID: media.id,
 			imageAlt: media.alt,
+			imageMediaType: getMediaType( media ),
 		} );
 	};
 
@@ -207,6 +209,7 @@ export default function( {
 			imageURL: '',
 			imageAlt: '',
 			imageID: 0,
+			imageMediaType: undefined,
 		} );
 
 	return (
@@ -418,6 +421,7 @@ export default function( {
 								{
 									value: 'txl',
 									label: sprintf(
+										// translators: %1$s: px
 										__(
 											'Move %1$s up',
 											'snow-monkey-blocks'
@@ -428,6 +432,7 @@ export default function( {
 								{
 									value: 'tl',
 									label: sprintf(
+										// translators: %1$s: px
 										__(
 											'Move %1$s up',
 											'snow-monkey-blocks'
@@ -438,6 +443,7 @@ export default function( {
 								{
 									value: 'tm',
 									label: sprintf(
+										// translators: %1$s: px
 										__(
 											'Move %1$s up',
 											'snow-monkey-blocks'
@@ -448,6 +454,7 @@ export default function( {
 								{
 									value: 'ts',
 									label: sprintf(
+										// translators: %1$s: px
 										__(
 											'Move %1$s up',
 											'snow-monkey-blocks'
@@ -458,6 +465,7 @@ export default function( {
 								{
 									value: 'bs',
 									label: sprintf(
+										// translators: %1$s: px
 										__(
 											'Move %1$s down',
 											'snow-monkey-blocks'
@@ -468,6 +476,7 @@ export default function( {
 								{
 									value: 'bm',
 									label: sprintf(
+										// translators: %1$s: px
 										__(
 											'Move %1$s down',
 											'snow-monkey-blocks'
@@ -478,6 +487,7 @@ export default function( {
 								{
 									value: 'bl',
 									label: sprintf(
+										// translators: %1$s: px
 										__(
 											'Move %1$s down',
 											'snow-monkey-blocks'
@@ -488,6 +498,7 @@ export default function( {
 								{
 									value: 'bxl',
 									label: sprintf(
+										// translators: %1$s: px
 										__(
 											'Move %1$s down',
 											'snow-monkey-blocks'
@@ -622,7 +633,7 @@ export default function( {
 											onChange={ onChangeTitle }
 											allowedFormats={ [] }
 											placeholder={ __(
-												'Write title...',
+												'Write title…',
 												'snow-monkey-blocks'
 											) }
 										/>
@@ -647,7 +658,8 @@ export default function( {
 									alt={ imageAlt }
 									onSelect={ onSelectImage }
 									onRemove={ onRemoveImage }
-									isSelected={ isSelected }
+									mediaType={ imageMediaType }
+									allowedTypes={ [ 'image', 'video' ] }
 								/>
 							</div>
 						</div>

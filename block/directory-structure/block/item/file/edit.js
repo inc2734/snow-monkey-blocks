@@ -124,7 +124,7 @@ export default function( { attributes, setAttributes, className } ) {
 						tagName="span"
 						className={ itemNameClasses }
 						placeholder={ __(
-							'Write file name...',
+							'Write file name…',
 							'snow-monkey-blocks'
 						) }
 						value={ name }
