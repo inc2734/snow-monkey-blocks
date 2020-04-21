@@ -25,6 +25,14 @@
     "selector": ".smb-section__lede",
     "default": ""
   },
+  "backgroundHorizontalPosition": {
+    "type": "number",
+    "default": 0
+  },
+  "backgroundVerticalPosition": {
+    "type": "number",
+    "default": 0
+  },
   "backgroundColor": {
     "type": "string"
   },

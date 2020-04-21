@@ -13,6 +13,8 @@ export default function( { attributes, className } ) {
 		title,
 		subtitle,
 		lede,
+		backgroundHorizontalPosition,
+		backgroundVerticalPosition,
 		backgroundColor,
 		backgroundColor2,
 		backgroundColorAngle,
@@ -50,10 +52,32 @@ export default function( { attributes, className } ) {
 	if ( textColor ) {
 		sectionStyles.color = textColor;
 	}
+
+	const backgroundStyles = {};
 	if ( backgroundColor ) {
-		sectionStyles.backgroundColor = backgroundColor;
+		backgroundStyles.backgroundColor = backgroundColor;
 		if ( backgroundColor2 ) {
-			sectionStyles.backgroundImage = `linear-gradient(${ backgroundColorAngle }deg, ${ backgroundColor } 0%, ${ backgroundColor2 } 100%)`;
+			backgroundStyles.backgroundImage = `linear-gradient(${ backgroundColorAngle }deg, ${ backgroundColor } 0%, ${ backgroundColor2 } 100%)`;
+		}
+
+		if ( 0 < backgroundHorizontalPosition ) {
+			backgroundStyles.left = `${ Math.abs(
+				backgroundHorizontalPosition
+			) }%`;
+		} else if ( 0 > backgroundHorizontalPosition ) {
+			backgroundStyles.right = `${ Math.abs(
+				backgroundHorizontalPosition
+			) }%`;
+		}
+
+		if ( 0 < backgroundVerticalPosition ) {
+			backgroundStyles.bottom = `${ Math.abs(
+				backgroundVerticalPosition
+			) }%`;
+		} else if ( 0 > backgroundVerticalPosition ) {
+			backgroundStyles.top = `${ Math.abs(
+				backgroundVerticalPosition
+			) }%`;
 		}
 	}
 
@@ -64,6 +88,13 @@ export default function( { attributes, className } ) {
 
 	return (
 		<Wrapper className={ classes } style={ sectionStyles }>
+			{ 0 < Object.keys( backgroundStyles ).length && (
+				<div
+					className="smb-section__background"
+					style={ backgroundStyles }
+				></div>
+			) }
+
 			{ !! topDividerLevel && (
 				<div className={ topDividerClasses }>
 					{ divider(

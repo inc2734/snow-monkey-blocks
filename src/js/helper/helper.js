@@ -79,6 +79,10 @@ export const getColumnSize = ( imageColumnSize ) => {
 export const divider = ( type, level, color ) => {
 	color = color ? color : '#fff';
 
+	if ( 0 === level ) {
+		return;
+	}
+
 	const renderTiltDivider = () => {
 		return 0 > level ? (
 			<path

@@ -36,6 +36,8 @@ export default function( {
 		title,
 		subtitle,
 		lede,
+		backgroundHorizontalPosition,
+		backgroundVerticalPosition,
 		backgroundColor,
 		backgroundColor2,
 		backgroundColorAngle,
@@ -76,10 +78,32 @@ export default function( {
 	if ( textColor ) {
 		sectionStyles.color = textColor;
 	}
+
+	const backgroundStyles = {};
 	if ( backgroundColor ) {
-		sectionStyles.backgroundColor = backgroundColor;
+		backgroundStyles.backgroundColor = backgroundColor;
 		if ( backgroundColor2 ) {
-			sectionStyles.backgroundImage = `linear-gradient(${ backgroundColorAngle }deg, ${ backgroundColor } 0%, ${ backgroundColor2 } 100%)`;
+			backgroundStyles.backgroundImage = `linear-gradient(${ backgroundColorAngle }deg, ${ backgroundColor } 0%, ${ backgroundColor2 } 100%)`;
+		}
+
+		if ( 0 < backgroundHorizontalPosition ) {
+			backgroundStyles.left = `${ Math.abs(
+				backgroundHorizontalPosition
+			) }%`;
+		} else if ( 0 > backgroundHorizontalPosition ) {
+			backgroundStyles.right = `${ Math.abs(
+				backgroundHorizontalPosition
+			) }%`;
+		}
+
+		if ( 0 < backgroundVerticalPosition ) {
+			backgroundStyles.bottom = `${ Math.abs(
+				backgroundVerticalPosition
+			) }%`;
+		} else if ( 0 > backgroundVerticalPosition ) {
+			backgroundStyles.top = `${ Math.abs(
+				backgroundVerticalPosition
+			) }%`;
 		}
 	}
 
@@ -91,6 +115,16 @@ export default function( {
 	const onChangeIsSlim = ( value ) =>
 		setAttributes( {
 			isSlim: value,
+		} );
+
+	const onChangeBackgroundHorizontalPosition = ( value ) =>
+		setAttributes( {
+			backgroundHorizontalPosition: toNumber( value, -90, 90 ),
+		} );
+
+	const onChangeBackgroundVerticalPosition = ( value ) =>
+		setAttributes( {
+			backgroundVerticalPosition: toNumber( value, -90, 90 ),
 		} );
 
 	const onChangeBackgroundColor = ( value ) =>
@@ -227,6 +261,34 @@ export default function( {
 						checked={ isSlim }
 						onChange={ onChangeIsSlim }
 					/>
+
+					{ backgroundColor && (
+						<>
+							<RangeControl
+								label={ __(
+									'Background Position (Left / Right)',
+									'snow-monkey-blocks'
+								) }
+								value={ backgroundHorizontalPosition }
+								onChange={
+									onChangeBackgroundHorizontalPosition
+								}
+								min="-90"
+								max="90"
+							/>
+
+							<RangeControl
+								label={ __(
+									'Background Position (Top / Bottom)',
+									'snow-monkey-blocks'
+								) }
+								value={ backgroundVerticalPosition }
+								onChange={ onChangeBackgroundVerticalPosition }
+								min="-90"
+								max="90"
+							/>
+						</>
+					) }
 				</PanelBody>
 
 				<PanelColorSettings
@@ -389,6 +451,13 @@ export default function( {
 			</InspectorControls>
 
 			<Wrapper className={ classes } style={ sectionStyles }>
+				{ 0 < Object.keys( backgroundStyles ).length && (
+					<div
+						className="smb-section__background"
+						style={ backgroundStyles }
+					></div>
+				) }
+
 				{ !! topDividerLevel && (
 					<div className={ topDividerClasses }>
 						{ divider(
