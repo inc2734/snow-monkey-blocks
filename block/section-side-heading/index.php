@@ -13,7 +13,7 @@ use Snow_Monkey\Plugin\Blocks;
 wp_register_style(
 	'snow-monkey-blocks/section-side-heading',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-side-heading/style.css',
-	[ 'snow-monkey-blocks' ],
+	[ 'snow-monkey-blocks', 'snow-monkey-blocks/section' ],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-side-heading/style.css' )
 );
 
@@ -24,7 +24,7 @@ $asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-side-headin
 wp_register_script(
 	'snow-monkey-blocks/section-side-heading/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-side-heading/editor.js',
-	array_merge( $asset['dependencies'], [ 'snow-monkey-blocks-editor' ] ),
+	array_merge( $asset['dependencies'], [ 'snow-monkey-blocks-editor', 'snow-monkey-blocks/section/editor' ] ),
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-side-heading/editor.js' ),
 	true
 );
@@ -35,7 +35,7 @@ wp_register_script(
 wp_register_style(
 	'snow-monkey-blocks/section-side-heading/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-side-heading/editor.css',
-	[ 'snow-monkey-blocks-editor' ],
+	[ 'snow-monkey-blocks-editor', 'snow-monkey-blocks/section/editor' ],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-side-heading/editor.css' )
 );
 
