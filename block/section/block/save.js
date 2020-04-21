@@ -52,6 +52,15 @@ export default function( { attributes, className } ) {
 	if ( textColor ) {
 		sectionStyles.color = textColor;
 	}
+	if ( 0 < backgroundVerticalPosition ) {
+		if ( !! topDividerLevel ) {
+			sectionStyles.backgroundColor = topDividerColor;
+		}
+	} else if ( 0 > backgroundVerticalPosition ) {
+		if ( !! bottomDividerLevel ) {
+			sectionStyles.backgroundColor = bottomDividerColor;
+		}
+	}
 
 	const backgroundStyles = {};
 	if ( backgroundColor ) {
@@ -71,11 +80,11 @@ export default function( { attributes, className } ) {
 		}
 
 		if ( 0 < backgroundVerticalPosition ) {
-			backgroundStyles.bottom = `${ Math.abs(
+			backgroundStyles.top = `${ Math.abs(
 				backgroundVerticalPosition
 			) }%`;
 		} else if ( 0 > backgroundVerticalPosition ) {
-			backgroundStyles.top = `${ Math.abs(
+			backgroundStyles.bottom = `${ Math.abs(
 				backgroundVerticalPosition
 			) }%`;
 		}
@@ -88,29 +97,31 @@ export default function( { attributes, className } ) {
 
 	return (
 		<Wrapper className={ classes } style={ sectionStyles }>
-			{ 0 < Object.keys( backgroundStyles ).length && (
+			{ ( 0 < Object.keys( backgroundStyles ).length ||
+				!! topDividerLevel ||
+				!! bottomDividerLevel ) && (
 				<div
 					className="smb-section__background"
 					style={ backgroundStyles }
-				></div>
-			) }
-
-			{ !! topDividerLevel && (
-				<div className={ topDividerClasses }>
-					{ divider(
-						topDividerType,
-						topDividerLevel,
-						topDividerColor
+				>
+					{ !! topDividerLevel && (
+						<div className={ topDividerClasses }>
+							{ divider(
+								topDividerType,
+								topDividerLevel,
+								topDividerColor
+							) }
+						</div>
 					) }
-				</div>
-			) }
 
-			{ !! bottomDividerLevel && (
-				<div className={ bottomDividerClasses }>
-					{ divider(
-						bottomDividerType,
-						bottomDividerLevel,
-						bottomDividerColor
+					{ !! bottomDividerLevel && (
+						<div className={ bottomDividerClasses }>
+							{ divider(
+								bottomDividerType,
+								bottomDividerLevel,
+								bottomDividerColor
+							) }
+						</div>
 					) }
 				</div>
 			) }
