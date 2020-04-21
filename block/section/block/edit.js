@@ -34,6 +34,8 @@ export default function( {
 		wrapperTagName,
 		titleTagName,
 		title,
+		subtitle,
+		lede,
 		backgroundColor,
 		backgroundColor2,
 		backgroundColorAngle,
@@ -141,9 +143,19 @@ export default function( {
 			bottomDividerColor: value,
 		} );
 
+	const onChangeSubtitle = ( value ) =>
+		setAttributes( {
+			subtitle: value,
+		} );
+
 	const onChangeTitle = ( value ) =>
 		setAttributes( {
 			title: value,
+		} );
+
+	const onChangeLede = ( value ) =>
+		setAttributes( {
+			lede: value,
 		} );
 
 	return (
@@ -399,6 +411,21 @@ export default function( {
 
 				<div className="smb-section__inner" style={ innerStyles }>
 					<div className={ containerClasses }>
+						{ ! RichText.isEmpty( title ) &&
+							( ! RichText.isEmpty( subtitle ) || isSelected ) &&
+							'none' !== titleTagName && (
+								<RichText
+									className="smb-section__subtitle"
+									value={ subtitle }
+									onChange={ onChangeSubtitle }
+									allowedFormats={ [] }
+									placeholder={ __(
+										'Write subtitle…',
+										'snow-monkey-blocks'
+									) }
+								/>
+							) }
+
 						{ ( ! RichText.isEmpty( title ) || isSelected ) &&
 							'none' !== titleTagName && (
 								<RichText
@@ -409,6 +436,21 @@ export default function( {
 									allowedFormats={ [] }
 									placeholder={ __(
 										'Write title…',
+										'snow-monkey-blocks'
+									) }
+								/>
+							) }
+
+						{ ! RichText.isEmpty( title ) &&
+							( ! RichText.isEmpty( lede ) || isSelected ) &&
+							'none' !== titleTagName && (
+								<RichText
+									className="smb-section__lede"
+									value={ lede }
+									onChange={ onChangeLede }
+									allowedFormats={ [] }
+									placeholder={ __(
+										'Write lede…',
 										'snow-monkey-blocks'
 									) }
 								/>

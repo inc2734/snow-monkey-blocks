@@ -11,6 +11,8 @@ export default function( { attributes, className } ) {
 		wrapperTagName,
 		titleTagName,
 		title,
+		subtitle,
+		lede,
 		backgroundColor,
 		backgroundColor2,
 		backgroundColorAngle,
@@ -85,11 +87,31 @@ export default function( { attributes, className } ) {
 			<div className="smb-section__inner" style={ innerStyles }>
 				<div className={ containerClasses }>
 					{ ! RichText.isEmpty( title ) &&
+						! RichText.isEmpty( subtitle ) &&
+						'none' !== titleTagName && (
+							<RichText.Content
+								tagName="div"
+								className="smb-section__subtitle"
+								value={ subtitle }
+							/>
+						) }
+
+					{ ! RichText.isEmpty( title ) &&
 						'none' !== titleTagName && (
 							<RichText.Content
 								tagName={ titleTagName }
 								className="smb-section__title"
 								value={ title }
+							/>
+						) }
+
+					{ ! RichText.isEmpty( title ) &&
+						! RichText.isEmpty( lede ) &&
+						'none' !== titleTagName && (
+							<RichText.Content
+								tagName="div"
+								className="smb-section__lede"
+								value={ lede }
 							/>
 						) }
 

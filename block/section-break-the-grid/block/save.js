@@ -10,6 +10,8 @@ export default function( { attributes, className } ) {
 		wrapperTagName,
 		titleTagName,
 		title,
+		subtitle,
+		lede,
 		imageID,
 		imageURL,
 		imageAlt,
@@ -120,6 +122,16 @@ export default function( { attributes, className } ) {
 							style={ contentStyles }
 						>
 							{ ! RichText.isEmpty( title ) &&
+								! RichText.isEmpty( subtitle ) &&
+								'none' !== titleTagName && (
+									<RichText.Content
+										tagName="div"
+										className="smb-section__subtitle smb-section-break-the-grid__subtitle"
+										value={ subtitle }
+									/>
+								) }
+
+							{ ! RichText.isEmpty( title ) &&
 								'none' !== titleTagName && (
 									<RichText.Content
 										tagName={ titleTagName }
@@ -127,6 +139,17 @@ export default function( { attributes, className } ) {
 										value={ title }
 									/>
 								) }
+
+							{ ! RichText.isEmpty( title ) &&
+								! RichText.isEmpty( lede ) &&
+								'none' !== titleTagName && (
+									<RichText.Content
+										tagName="div"
+										className="smb-section__lede smb-section-break-the-grid__lede"
+										value={ lede }
+									/>
+								) }
+
 							<div className="smb-section__body smb-section-break-the-grid__body">
 								<InnerBlocks.Content />
 							</div>

@@ -65,7 +65,9 @@
   }
 
   &--left {
+    .smb-section__subtitle,
     .smb-section__title,
+    .smb-section__lede,
     .smb-section__body {
       text-align: left;
     }
@@ -75,6 +77,10 @@
         margin-right: auto;
         margin-left: 0;
       }
+    }
+
+    .smb-section__lede {
+      display: block;
     }
   }
 
@@ -93,7 +99,9 @@
   }
 
   &--right {
+    .smb-section__subtitle,
     .smb-section__title,
+    .smb-section__lede,
     .smb-section__body {
       text-align: right;
     }
@@ -103,6 +111,10 @@
         margin-right: 0;
         margin-left: auto;
       }
+    }
+
+    .smb-section__lede {
+      display: block;
     }
   }
 

@@ -13,6 +13,18 @@
     "selector": ".smb-section__title",
     "default": ""
   },
+  "subtitle": {
+    "type": "string",
+    "source": "html",
+    "selector": ".smb-section__subtitle",
+    "default": ""
+  },
+  "lede": {
+    "type": "string",
+    "source": "html",
+    "selector": ".smb-section__lede",
+    "default": ""
+  },
   "backgroundColor": {
     "type": "string"
   },

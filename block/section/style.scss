@@ -46,6 +46,17 @@
     }
   }
 
+  &__subtitle {
+    @include _font-size-line-height($_base-font-size-px - 4);
+    text-align: center;
+  }
+
+  &__lede {
+    display: flex;
+    justify-content: center;
+    @include _font-size-line-height($_base-font-size-px - 2);
+  }
+
   .#{$_prefix}c-container {
     position: relative;
   }

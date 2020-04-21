@@ -36,6 +36,8 @@ export default function( {
 		wrapperTagName,
 		titleTagName,
 		title,
+		subtitle,
+		lede,
 		imageID,
 		imageURL,
 		imageAlt,
@@ -185,9 +187,19 @@ export default function( {
 			textColor: value,
 		} );
 
+	const onChangeSubtitle = ( value ) =>
+		setAttributes( {
+			subtitle: value,
+		} );
+
 	const onChangeTitle = ( value ) =>
 		setAttributes( {
 			title: value,
+		} );
+
+	const onChangeLede = ( value ) =>
+		setAttributes( {
+			lede: value,
 		} );
 
 	const onSelectImage = ( media ) => {
@@ -623,6 +635,22 @@ export default function( {
 								className={ contentClasses }
 								style={ contentStyles }
 							>
+								{ ! RichText.isEmpty( title ) &&
+									( ! RichText.isEmpty( subtitle ) ||
+										isSelected ) &&
+									'none' !== titleTagName && (
+										<RichText
+											className="smb-section__subtitle smb-section-break-the-grid__subtitle"
+											value={ subtitle }
+											onChange={ onChangeSubtitle }
+											allowedFormats={ [] }
+											placeholder={ __(
+												'Write subtitle…',
+												'snow-monkey-blocks'
+											) }
+										/>
+									) }
+
 								{ ( ! RichText.isEmpty( title ) ||
 									isSelected ) &&
 									'none' !== titleTagName && (
@@ -634,6 +662,22 @@ export default function( {
 											allowedFormats={ [] }
 											placeholder={ __(
 												'Write title…',
+												'snow-monkey-blocks'
+											) }
+										/>
+									) }
+
+								{ ! RichText.isEmpty( title ) &&
+									( ! RichText.isEmpty( lede ) ||
+										isSelected ) &&
+									'none' !== titleTagName && (
+										<RichText
+											className="smb-section__lede smb-section-break-the-grid__lede"
+											value={ lede }
+											onChange={ onChangeLede }
+											allowedFormats={ [] }
+											placeholder={ __(
+												'Write lede…',
 												'snow-monkey-blocks'
 											) }
 										/>

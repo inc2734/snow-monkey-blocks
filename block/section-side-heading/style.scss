@@ -1,14 +1,11 @@
 @charset 'utf-8';
 
 .smb-section-side-heading {
-  .smb-section__title {
+  &__subtitle {
     text-align: left;
   }
 
-  .smb-section__title {
-    &::after {
-      margin-right: auto;
-      margin-left: 0;
-    }
+  &__lede {
+    display: block;
   }
 }

@@ -122,6 +122,14 @@
     }
   }
 
+  &__subtitle {
+    text-align: left;
+  }
+
+  &__lede {
+    display: block;
+  }
+
   &__shadow {
     position: absolute;
     top: 0;

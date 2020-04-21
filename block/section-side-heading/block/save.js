@@ -11,6 +11,8 @@ export default function( { attributes, className } ) {
 		wrapperTagName,
 		titleTagName,
 		title,
+		subtitle,
+		lede,
 		backgroundColor,
 		backgroundColor2,
 		backgroundColorAngle,
@@ -112,16 +114,34 @@ export default function( { attributes, className } ) {
 				<div className={ containerClasses }>
 					<div className={ rowClasses }>
 						<div className={ headingColClasses }>
+							{ ! RichText.isEmpty( title ) &&
+								! RichText.isEmpty( subtitle ) && (
+									<RichText.Content
+										tagName="div"
+										className="smb-section__subtitle smb-section-side-heading__subtitle"
+										value={ subtitle }
+									/>
+								) }
+
 							{ ! RichText.isEmpty( title ) && (
 								<RichText.Content
 									tagName={ titleTagName }
-									className="smb-section__title"
+									className="smb-section__title smb-section-side-heading__title"
 									value={ title }
 								/>
 							) }
+
+							{ ! RichText.isEmpty( title ) &&
+								! RichText.isEmpty( lede ) && (
+									<RichText.Content
+										tagName="div"
+										className="smb-section__lede smb-section-side-heading__lede"
+										value={ lede }
+									/>
+								) }
 						</div>
 						<div className={ contentColClasses }>
-							<div className="smb-section__body">
+							<div className="smb-section__body smb-section-side-heading__body">
 								<InnerBlocks.Content />
 							</div>
 						</div>

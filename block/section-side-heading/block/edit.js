@@ -38,6 +38,8 @@ export default function( {
 		wrapperTagName,
 		titleTagName,
 		title,
+		subtitle,
+		lede,
 		backgroundColor,
 		backgroundColor2,
 		backgroundColorAngle,
@@ -181,9 +183,19 @@ export default function( {
 			bottomDividerColor: value,
 		} );
 
+	const onChangeSubtitle = ( value ) =>
+		setAttributes( {
+			subtitle: value,
+		} );
+
 	const onChangeTitle = ( value ) =>
 		setAttributes( {
 			title: value,
+		} );
+
+	const onChangeLede = ( value ) =>
+		setAttributes( {
+			lede: value,
 		} );
 
 	return (
@@ -480,10 +492,25 @@ export default function( {
 					<div className={ containerClasses }>
 						<div className={ rowClasses }>
 							<div className={ headingColClasses }>
+								{ ! RichText.isEmpty( title ) &&
+									( ! RichText.isEmpty( subtitle ) ||
+										isSelected ) && (
+										<RichText
+											className="smb-section__subtitle smb-section-side-heading__subtitle"
+											value={ subtitle }
+											onChange={ onChangeSubtitle }
+											allowedFormats={ [] }
+											placeholder={ __(
+												'Write subtitle…',
+												'snow-monkey-blocks'
+											) }
+										/>
+									) }
+
 								{ ( ! RichText.isEmpty( title ) ||
 									isSelected ) && (
 									<RichText
-										className="smb-section__title"
+										className="smb-section__title smb-section-side-heading__title"
 										tagName={ titleTagName }
 										value={ title }
 										onChange={ onChangeTitle }
@@ -494,9 +521,24 @@ export default function( {
 										) }
 									/>
 								) }
+
+								{ ! RichText.isEmpty( title ) &&
+									( ! RichText.isEmpty( lede ) ||
+										isSelected ) && (
+										<RichText
+											className="smb-section__lede smb-section-side-heading__lede"
+											value={ lede }
+											onChange={ onChangeLede }
+											allowedFormats={ [] }
+											placeholder={ __(
+												'Write lede…',
+												'snow-monkey-blocks'
+											) }
+										/>
+									) }
 							</div>
 							<div className={ contentColClasses }>
-								<div className="smb-section__body">
+								<div className="smb-section__body smb-section-side-heading__body">
 									<InnerBlocks />
 								</div>
 							</div>
