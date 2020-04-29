@@ -19,7 +19,7 @@ $is_use_end_date = ! empty( $attributes['isUseEndDate'] ) ? $attributes['isUseEn
 $end_date = null;
 if ( $is_use_end_date && ! empty( $attributes['endDate'] ) ) {
 	$correction_end_date = substr_replace( $attributes['endDate'], '00', -2, 3 );
-	$end_time = date_i18n( 'U', strtotime( $correction_end_date ) );
+	$end_date = date_i18n( 'U', strtotime( $correction_end_date ) );
 }
 
 try {
