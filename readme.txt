@@ -1,5 +1,5 @@
 === Snow Monkey Blocks ===
-Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym
+Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.4
@@ -111,6 +111,9 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 23. Price menu block (The number of items can be increased or decreased freely)
 
 == Changelog ==
+
+= 8.2.2 =
+* [Limited datetime] Fixed a bug that end date is not reflected.
 
 = 8.2.1 =
 * [Section] Reverse background position setting.
