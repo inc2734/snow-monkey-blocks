@@ -171,6 +171,7 @@ export default function( { attributes, setAttributes } ) {
 				<ServerSideRender
 					block="snow-monkey-blocks/recent-posts"
 					attributes={ attributes }
+					className="components-disabled"
 				/>
 			) }
 		</>

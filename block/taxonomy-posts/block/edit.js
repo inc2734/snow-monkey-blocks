@@ -218,6 +218,7 @@ export default function( { attributes, setAttributes } ) {
 				<ServerSideRender
 					block="snow-monkey-blocks/taxonomy-posts"
 					attributes={ attributes }
+					className="components-disabled"
 				/>
 			) }
 		</>
