@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.4
 Tested up to: 5.4
-Stable tag: 8.2.1
+Stable tag: 8.2.2
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -114,6 +114,8 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 
 = 8.2.2 =
 * [Limited datetime] Fixed a bug that end date is not reflected.
+* [Recent posts] Fixed so that false clicks do not occur in the editor.
+* [Taxonomy posts] Fixed so that false clicks do not occur in the editor.
 
 = 8.2.1 =
 * [Section] Reverse background position setting.
