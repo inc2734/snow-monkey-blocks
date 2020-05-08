@@ -16,6 +16,7 @@ export function apply( slider ) {
 			.clone()[ 0 ];
 	config.arrows = config.arrows || false;
 	config.adaptiveHeight = true;
+	config.rows = 0;
 
 	config.autoplay = 0 < config.autoplaySpeed ? true : false;
 

@@ -18,6 +18,12 @@
 
     &.slick-initialized {
       visibility: visible;
+
+      .slick-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
 
     &[dir="rtl"] {
