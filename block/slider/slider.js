@@ -30,6 +30,7 @@ export function apply( slider ) {
 	config.autoplay = 0 < config.autoplaySpeed ? true : false;
 
 	config.adaptiveHeight = true;
+	config.rows = 0;
 	delete config.mdSlidesToShow;
 	delete config.mdSlidesToScroll;
 	delete config.smSlidesToShow;
