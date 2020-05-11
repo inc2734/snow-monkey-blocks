@@ -3,8 +3,9 @@
 import classnames from 'classnames';
 import { times } from 'lodash';
 
-import { __ } from '@wordpress/i18n';
 import { useState, useEffect } from '@wordpress/element';
+import { useSelect } from '@wordpress/data';
+import { __ } from '@wordpress/i18n';
 
 import {
 	InspectorControls,
@@ -23,6 +24,8 @@ import {
 
 import Figure from '../../../../../src/js/component/figure';
 import LinkControl from '../../../../../src/js/component/link-control';
+import ImageSizeSelectControl from '../../../../../src/js/component/image-size-select-control';
+import { getResizedImages } from '../../../../../src/js/helper/helper';
 
 export default function( {
 	attributes,
@@ -41,6 +44,7 @@ export default function( {
 		imageID,
 		imageURL,
 		imageAlt,
+		imageSizeSlug,
 	} = attributes;
 
 	const [ isLinkUIOpen, setIsLinkUIOpen ] = useState( false );
@@ -51,6 +55,29 @@ export default function( {
 			closeLinkUIOpen();
 		}
 	}, [ isSelected ] );
+
+	const { resizedImages } = useSelect( ( select ) => {
+		if ( ! imageID ) {
+			return {
+				resizedImages: {},
+			};
+		}
+
+		const { getMedia } = select( 'core' );
+		const media = getMedia( imageID );
+		if ( ! media ) {
+			return {
+				resizedImages: {},
+			};
+		}
+
+		const { getSettings } = select( 'core/block-editor' );
+		const { imageSizes } = getSettings();
+
+		return {
+			resizedImages: getResizedImages( imageSizes, media ),
+		};
+	} );
 
 	const titleTagNames = [ 'div', 'h2', 'h3', 'none' ];
 
@@ -71,8 +98,8 @@ export default function( {
 
 	const onSelectImage = ( media ) => {
 		const newImageURL =
-			!! media.sizes && !! media.sizes.large
-				? media.sizes.large.url
+			!! media.sizes && !! media.sizes[ imageSizeSlug ]
+				? media.sizes[ imageSizeSlug ].url
 				: media.url;
 
 		setAttributes( {
@@ -108,6 +135,15 @@ export default function( {
 		setAttributes( {
 			linkURL: newUrl,
 			linkTarget: ! opensInNewTab ? '_self' : '_blank',
+		} );
+	};
+
+	const onChangeImageSizeSlug = ( value ) => {
+		const newImageURL = resizedImages[ value ] || imageURL;
+
+		setAttributes( {
+			imageURL: newImageURL,
+			imageSizeSlug: value,
 		} );
 	};
 
@@ -158,6 +194,13 @@ export default function( {
 							},
 						] }
 						onChange={ onChangeImagePosition }
+					/>
+
+					<ImageSizeSelectControl
+						label={ __( 'Images size', 'snow-monkey-blocks' ) }
+						id={ imageID }
+						slug={ imageSizeSlug }
+						onChange={ onChangeImageSizeSlug }
 					/>
 				</PanelBody>
 			</InspectorControls>

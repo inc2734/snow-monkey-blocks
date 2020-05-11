@@ -1,11 +1,8 @@
 'use strict';
 
-import { groupBy } from 'lodash';
-
+import { groupBy, reduce, get } from 'lodash';
 import { registerBlockType } from '@wordpress/blocks';
-
 import { registerFormatType } from '@wordpress/rich-text';
-
 import { registerPlugin } from '@wordpress/plugins';
 
 export const registerBlock = ( block ) => {
@@ -71,8 +68,8 @@ export const getColumnSize = ( imageColumnSize ) => {
 	}
 
 	return {
-		textColumnWidth: textColumnWidth,
-		imageColumnWidth: imageColumnWidth,
+		textColumnWidth,
+		imageColumnWidth,
 	};
 };
 
@@ -214,7 +211,7 @@ export const buildTermsTree = ( flatTerms ) => {
  * @see https://github.com/WordPress/gutenberg/blob/ddd3fffdd327d2f9c5202481345fb7427d4a822b/packages/block-library/src/media-text/edit.native.js#L69-L83
  *
  * @param  {Object} media
- * @return {string}
+ * @return {string} image or video
  */
 export const getMediaType = ( media ) => {
 	if ( media.media_type ) {
@@ -226,4 +223,37 @@ export const getMediaType = ( media ) => {
 	}
 
 	return media.type;
+};
+
+/**
+ * Return resized image list
+ *
+ * @param {Array} imageSizes
+ * @param {Object} media from getMedia()
+ * @return {Object} list of slug:url
+ */
+export const getResizedImages = ( imageSizes, media ) => {
+	if ( ! media ) {
+		return {};
+	}
+
+	return reduce(
+		imageSizes,
+		( currentSizes, size ) => {
+			const defaultUrl = get( media, [ 'sizes', size.slug, 'url' ] );
+
+			const mediaDetailsUrl = get( media, [
+				'media_details',
+				'sizes',
+				size.slug,
+				'source_url',
+			] );
+
+			return {
+				...currentSizes,
+				[ size.slug ]: defaultUrl || mediaDetailsUrl,
+			};
+		},
+		{}
+	);
 };

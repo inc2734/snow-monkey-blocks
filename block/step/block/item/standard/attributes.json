@@ -30,6 +30,10 @@
     "attribute": "alt",
     "default": ""
   },
+  "imageSizeSlug": {
+    "type": "string",
+    "default": "large"
+  },
   "linkLabel": {
     "type": "string",
     "source": "html",

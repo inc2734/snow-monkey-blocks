@@ -57,6 +57,10 @@
     "type": "string",
     "default": "l"
   },
+  "imageSizeSlug": {
+    "type": "string",
+    "default": "large"
+  },
   "verticalAlignment": {
     "type": "string",
     "default": "middle"

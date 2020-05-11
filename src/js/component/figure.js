@@ -2,13 +2,11 @@
 
 import {
 	MediaPlaceholder,
-	MediaUpload,
 	BlockControls,
 	MediaReplaceFlow,
 } from '@wordpress/block-editor';
 
-import { Button } from '@wordpress/components';
-import { memo, useMemo, useCallback } from '@wordpress/element';
+import { memo, useMemo } from '@wordpress/element';
 
 import { __ } from '@wordpress/i18n';
 
@@ -91,17 +89,7 @@ const Figure = memo(
 );
 
 export default function( props ) {
-	const {
-		src,
-		id,
-		alt,
-		onSelect,
-		onRemove,
-		url,
-		target,
-		mediaType,
-		allowedTypes = [ 'image' ],
-	} = props;
+	const { src, onSelect, mediaType, allowedTypes = [ 'image' ] } = props;
 
 	const mediaTypeFallback = ! mediaType && src ? 'image' : mediaType;
 

@@ -17,6 +17,10 @@
     "attribute": "alt",
     "default": ""
   },
+  "imageSizeSlug": {
+    "type": "string",
+    "default": "large"
+  },
   "caption": {
     "type": "string",
     "source": "html",

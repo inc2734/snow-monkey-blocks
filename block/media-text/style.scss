@@ -18,6 +18,13 @@
     }
   }
 
+  &__figure {
+    > img,
+    > video {
+      width: 100%;
+    }
+  }
+
   &__caption {
     @include _margin-top(.25);
     color: $_color-gray;

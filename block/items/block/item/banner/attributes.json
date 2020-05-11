@@ -59,5 +59,9 @@
     "selector": ".smb-items__banner__figure > img",
     "attribute": "alt",
     "default": ""
+  },
+  "imageSizeSlug": {
+    "type": "string",
+    "default": "large"
   }
 }

@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import hexToRgba from 'hex-to-rgba';
 import { times } from 'lodash';
 
+import { useSelect } from '@wordpress/data';
 import { __, sprintf } from '@wordpress/i18n';
 
 import {
@@ -23,8 +24,13 @@ import {
 	ToggleControl,
 } from '@wordpress/components';
 
+import {
+	toNumber,
+	getMediaType,
+	getResizedImages,
+} from '../../../src/js/helper/helper';
 import Figure from '../../../src/js/component/figure';
-import { toNumber, getMediaType } from '../../../src/js/helper/helper';
+import ImageSizeSelectControl from '../../../src/js/component/image-size-select-control';
 
 export default function( {
 	attributes,
@@ -41,6 +47,7 @@ export default function( {
 		imageID,
 		imageURL,
 		imageAlt,
+		imageSizeSlug,
 		imageMediaType,
 		textColor,
 		imagePosition,
@@ -56,6 +63,29 @@ export default function( {
 		shadowHorizontalPosition,
 		shadowVerticalPosition,
 	} = attributes;
+
+	const { resizedImages } = useSelect( ( select ) => {
+		if ( ! imageID ) {
+			return {
+				resizedImages: {},
+			};
+		}
+
+		const { getMedia } = select( 'core' );
+		const media = getMedia( imageID );
+		if ( ! media ) {
+			return {
+				resizedImages: {},
+			};
+		}
+
+		const { getSettings } = select( 'core/block-editor' );
+		const { imageSizes } = getSettings();
+
+		return {
+			resizedImages: getResizedImages( imageSizes, media ),
+		};
+	} );
 
 	const wrapperTagNames = [ 'div', 'section', 'aside' ];
 	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
@@ -204,8 +234,8 @@ export default function( {
 
 	const onSelectImage = ( media ) => {
 		const newImageURL =
-			!! media.sizes && !! media.sizes.xlarge
-				? media.sizes.large.url
+			!! media.sizes && !! media.sizes[ imageSizeSlug ]
+				? media.sizes[ imageSizeSlug ].url
 				: media.url;
 
 		setAttributes( {
@@ -223,6 +253,15 @@ export default function( {
 			imageID: 0,
 			imageMediaType: undefined,
 		} );
+
+	const onChangeImageSizeSlug = ( value ) => {
+		const newImageURL = resizedImages[ value ] || imageURL;
+
+		setAttributes( {
+			imageURL: newImageURL,
+			imageSizeSlug: value,
+		} );
+	};
 
 	return (
 		<>
@@ -299,6 +338,13 @@ export default function( {
 							},
 						] }
 						onChange={ onChangeImagePosition }
+					/>
+
+					<ImageSizeSelectControl
+						label={ __( 'Images size', 'snow-monkey-blocks' ) }
+						id={ imageID }
+						slug={ imageSizeSlug }
+						onChange={ onChangeImageSizeSlug }
 					/>
 
 					<SelectControl
