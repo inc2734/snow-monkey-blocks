@@ -21,11 +21,11 @@
 				<!-- wp:snow-monkey-blocks/panels {"lg":3} -->
 				<div class="wp-block-snow-monkey-blocks-panels smb-panels" data-image-padding="false">
 					<div class="c-row c-row--margin c-row--fill" data-columns="1" data-md-columns="1" data-lg-columns="3">
-						<!-- wp:snow-monkey-blocks/panels--item {"imageID":1} -->
+						<!-- wp:snow-monkey-blocks/panels--item {"imageID":0} -->
 						<div class="wp-block-snow-monkey-blocks-panels--item c-row__col">
 							<div class="smb-panels__item">
 								<div class="smb-panels__item__figure">
-									<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/sunset-over-lake-1.jpg" alt="" class="wp-image-1"/>
+									<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/sunset-over-lake-1.jpg" alt="" class="wp-image-0"/>
 								</div>
 								<div class="smb-panels__item__body">
 									<div class="smb-panels__item__title">
@@ -39,11 +39,11 @@
 						</div>
 						<!-- /wp:snow-monkey-blocks/panels--item -->
 
-						<!-- wp:snow-monkey-blocks/panels--item {"imageID":1} -->
+						<!-- wp:snow-monkey-blocks/panels--item {"imageID":0} -->
 						<div class="wp-block-snow-monkey-blocks-panels--item c-row__col">
 							<div class="smb-panels__item">
 								<div class="smb-panels__item__figure">
-									<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/people-walking-towards-eiffel-tower-at-night.jpg" alt="" class="wp-image-1"/>
+									<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/people-walking-towards-eiffel-tower-at-night.jpg" alt="" class="wp-image-0"/>
 								</div>
 								<div class="smb-panels__item__body">
 									<div class="smb-panels__item__title">
@@ -57,11 +57,11 @@
 						</div>
 						<!-- /wp:snow-monkey-blocks/panels--item -->
 
-						<!-- wp:snow-monkey-blocks/panels--item {"imageID":1} -->
+						<!-- wp:snow-monkey-blocks/panels--item {"imageID":0} -->
 						<div class="wp-block-snow-monkey-blocks-panels--item c-row__col">
 							<div class="smb-panels__item">
 								<div class="smb-panels__item__figure">
-									<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/mountain-landscape-and-tree-at-sunset.jpg" alt="" class="wp-image-1"/>
+									<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/mountain-landscape-and-tree-at-sunset.jpg" alt="" class="wp-image-0"/>
 								</div>
 								<div class="smb-panels__item__body">
 									<div class="smb-panels__item__title">

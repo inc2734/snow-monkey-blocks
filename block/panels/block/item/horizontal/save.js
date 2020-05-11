@@ -20,7 +20,7 @@ export default function( { attributes, className } ) {
 
 	const panelsItemContent = (
 		<>
-			{ !! imageID && (
+			{ !! imageURL && (
 				<div className="smb-panels__item__figure">
 					<img
 						src={ imageURL }

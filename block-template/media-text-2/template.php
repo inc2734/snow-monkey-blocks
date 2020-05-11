@@ -6,7 +6,7 @@
  */
 ?>
 
-<!-- wp:snow-monkey-blocks/section-break-the-grid {"imageID":1,"textColor":"#fff","imageSize":"xl","contentHorizontalPosition":"xs","contentBackgroundColor":"#000","contentPadding":"s","align":"full"} -->
+<!-- wp:snow-monkey-blocks/section-break-the-grid {"imageID":0,"textColor":"#fff","imageSize":"xl","contentHorizontalPosition":"xs","contentBackgroundColor":"#000","contentPadding":"s","align":"full"} -->
 <div class="wp-block-snow-monkey-blocks-section-break-the-grid alignfull smb-section smb-section-break-the-grid smb-section-break-the-grid--right" style="color:#fff">
 	<div class="c-container">
 		<div class="c-row c-row--margin c-row--lg-middle">
@@ -24,7 +24,7 @@
 			</div>
 			<div class="c-row__col c-row__col--1-1 c-row__col--lg-1-2">
 				<div class="smb-section-break-the-grid__figure smb-section-break-the-grid__figure--w-xl">
-					<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/0117_xlarge.jpg" alt="" class="wp-image-1"/>
+					<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/0117_xlarge.jpg" alt="" class="wp-image-0"/>
 				</div>
 			</div>
 		</div>

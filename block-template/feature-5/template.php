@@ -12,7 +12,7 @@
 		<div class="c-container">
 			<h2 class="smb-section__title">Lorem ipsum dolor sit amet</h2>
 			<div class="smb-section__body">
-				<!-- wp:snow-monkey-blocks/media-text {"imageID":1,"imagePosition":"left","imageColumnSize":"33"} -->
+				<!-- wp:snow-monkey-blocks/media-text {"imageID":0,"imagePosition":"left","imageColumnSize":"33"} -->
 				<div class="wp-block-snow-monkey-blocks-media-text smb-media-text">
 					<div class="c-row c-row--margin c-row--middle c-row--reverse">
 						<div class="c-row__col c-row__col--1-1 c-row__col--lg-2-3">
@@ -27,14 +27,14 @@
 						</div>
 						<div class="c-row__col c-row__col--1-1 c-row__col--lg-1-3">
 							<div class="smb-media-text__figure">
-								<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/sunset-over-lake-1.jpg" alt="" class="wp-image-1"/>
+								<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/sunset-over-lake-1.jpg" alt="" class="wp-image-0"/>
 							</div>
 						</div>
 					</div>
 				</div>
 				<!-- /wp:snow-monkey-blocks/media-text -->
 
-				<!-- wp:snow-monkey-blocks/media-text {"imageID":1,"imagePosition":"left","imageColumnSize":"33"} -->
+				<!-- wp:snow-monkey-blocks/media-text {"imageID":0,"imagePosition":"left","imageColumnSize":"33"} -->
 				<div class="wp-block-snow-monkey-blocks-media-text smb-media-text">
 					<div class="c-row c-row--margin c-row--middle c-row--reverse">
 						<div class="c-row__col c-row__col--1-1 c-row__col--lg-2-3">
@@ -49,7 +49,7 @@
 						</div>
 						<div class="c-row__col c-row__col--1-1 c-row__col--lg-1-3">
 							<div class="smb-media-text__figure">
-								<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/people-walking-towards-eiffel-tower-at-night.jpg" alt="" class="wp-image-1"/>
+								<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/people-walking-towards-eiffel-tower-at-night.jpg" alt="" class="wp-image-0"/>
 							</div>
 						</div>
 					</div>

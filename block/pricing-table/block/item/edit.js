@@ -203,7 +203,7 @@ export default function( {
 
 			<div className={ classes }>
 				<div className="smb-pricing-table__item">
-					{ ( !! imageID || isSelected ) && (
+					{ ( !! imageURL || isSelected ) && (
 						<div className="smb-pricing-table__item__figure">
 							<Figure
 								src={ imageURL }

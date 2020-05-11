@@ -45,7 +45,7 @@ export default function( { attributes, className } ) {
 			</div>
 
 			<div className="smb-step__item__body">
-				{ !! imageID && (
+				{ !! imageURL && (
 					<div className="smb-step__item__figure">
 						<img
 							src={ imageURL }

@@ -149,7 +149,7 @@ export default function( {
 
 			<div className={ classes }>
 				<div className="smb-items__item">
-					{ ( !! imageID || isSelected ) && (
+					{ ( !! imageURL || isSelected ) && (
 						<div className="smb-items__item__figure">
 							<Figure
 								src={ imageURL }

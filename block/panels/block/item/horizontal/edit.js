@@ -216,7 +216,7 @@ export default function( {
 							: 'noopener noreferrer'
 					}
 				>
-					{ ( !! imageID || isSelected ) && (
+					{ ( !! imageURL || isSelected ) && (
 						<div className="smb-panels__item__figure">
 							<Figure
 								src={ imageURL }

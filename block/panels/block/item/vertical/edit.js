@@ -180,7 +180,7 @@ export default function( {
 					href={ linkURL }
 					target={ linkTarget }
 				>
-					{ ( !! imageID || isSelected ) && (
+					{ ( !! imageURL || isSelected ) && (
 						<div className="smb-panels__item__figure">
 							<Figure
 								src={ imageURL }

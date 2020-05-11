@@ -11,7 +11,7 @@
 	<div class="smb-section__inner" style="padding-top:0;padding-bottom:0">
 		<div class="c-container">
 			<div class="smb-section__body">
-				<!-- wp:snow-monkey-blocks/media-text {"imageID":1,"imageMediaType":"image","imageColumnSize":"50"} -->
+				<!-- wp:snow-monkey-blocks/media-text {"imageID":0,"imageMediaType":"image","imageColumnSize":"50"} -->
 				<div class="wp-block-snow-monkey-blocks-media-text smb-media-text">
 					<div class="c-row c-row--margin c-row--middle">
 						<div class="c-row__col c-row__col--1-1 c-row__col--lg-1-2">
@@ -36,7 +36,7 @@
 						</div>
 						<div class="c-row__col c-row__col--1-1 c-row__col--lg-1-2">
 							<div class="smb-media-text__figure">
-								<img src="http://127.0.0.1:8080/wp-content/plugins/snow-monkey-blocks/dist/img/photos/fullsizeoutput_a92.jpg" alt="" class="wp-image-1"/>
+								<img src="http://127.0.0.1:8080/wp-content/plugins/snow-monkey-blocks/dist/img/photos/fullsizeoutput_a92.jpg" alt="" class="wp-image-0"/>
 							</div>
 						</div>
 					</div>

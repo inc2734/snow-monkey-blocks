@@ -55,7 +55,7 @@ export default function( { attributes, className } ) {
 							style={ maskStyles }
 						/>
 					) }
-					{ !! imageID ? (
+					{ !! imageURL ? (
 						<img
 							src={ imageURL }
 							alt={ imageAlt }

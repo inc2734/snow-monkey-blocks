@@ -33,7 +33,7 @@ export default function( { attributes, className } ) {
 	return (
 		<div className={ classes }>
 			<div className="smb-items__item">
-				{ !! imageID && (
+				{ !! imageURL && (
 					<div className="smb-items__item__figure">
 						<img
 							src={ imageURL }

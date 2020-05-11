@@ -269,7 +269,7 @@ export default function( {
 								style={ maskStyles }
 							/>
 						) }
-						{ !! imageID ? (
+						{ !! imageURL ? (
 							<img
 								src={ imageURL }
 								alt={ imageAlt }

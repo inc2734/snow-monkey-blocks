@@ -226,7 +226,7 @@ export default function( {
 				</div>
 
 				<div className="smb-step__item__body">
-					{ ( !! imageID || isSelected ) && (
+					{ ( !! imageURL || isSelected ) && (
 						<div className="smb-step__item__figure">
 							<Figure
 								src={ imageURL }

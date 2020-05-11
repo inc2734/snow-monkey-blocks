@@ -36,7 +36,7 @@ export default function( { attributes, className } ) {
 	const ItemsItemContent = () => {
 		return (
 			<>
-				{ !! imageID && (
+				{ !! imageURL && (
 					<div className="smb-items__item__figure">
 						<img
 							src={ imageURL }
