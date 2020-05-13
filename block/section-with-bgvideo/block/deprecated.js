@@ -9,7 +9,9 @@ import { getVideoId } from './utils';
 
 export default [
 	{
-		attributes: blockAttributes,
+		attributes: {
+			...blockAttributes,
+		},
 
 		supports: {
 			align: [ 'wide', 'full' ],
@@ -104,7 +106,9 @@ export default [
 		},
 	},
 	{
-		attributes: blockAttributes,
+		attributes: {
+			...blockAttributes,
+		},
 
 		supports: {
 			align: [ 'wide', 'full' ],
@@ -204,7 +208,9 @@ export default [
 		},
 	},
 	{
-		attributes: blockAttributes,
+		attributes: {
+			...blockAttributes,
+		},
 
 		supports: {
 			align: [ 'wide', 'full' ],

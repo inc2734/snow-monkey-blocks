@@ -1,7 +1,7 @@
 'use strict';
 
 import classnames from 'classnames';
-import { get, times, merge, omit } from 'lodash';
+import { get, times, omit } from 'lodash';
 
 import { RichText, InnerBlocks } from '@wordpress/block-editor';
 import { createBlock } from '@wordpress/blocks';
@@ -11,7 +11,10 @@ import { generateConfig } from './utils';
 
 export default [
 	{
-		attributes: blockAttributes,
+		attributes: {
+			...blockAttributes,
+		},
+
 		supports: {
 			align: [ 'wide', 'full' ],
 		},
@@ -66,7 +69,9 @@ export default [
 		},
 	},
 	{
-		attributes: blockAttributes,
+		attributes: {
+			...blockAttributes,
+		},
 		supports: {
 			align: [ 'wide', 'full' ],
 		},
@@ -120,7 +125,8 @@ export default [
 		},
 	},
 	{
-		attributes: merge( blockAttributes, {
+		attributes: {
+			...blockAttributes,
 			content: {
 				type: 'array',
 				source: 'query',
@@ -151,7 +157,7 @@ export default [
 				type: 'number',
 				default: 2,
 			},
-		} ),
+		},
 
 		supports: {
 			align: [ 'wide', 'full' ],
@@ -296,7 +302,8 @@ export default [
 		},
 	},
 	{
-		attributes: merge( blockAttributes, {
+		attributes: {
+			...blockAttributes,
 			content: {
 				type: 'array',
 				source: 'query',
@@ -327,7 +334,7 @@ export default [
 				type: 'number',
 				default: 2,
 			},
-		} ),
+		},
 
 		save( { attributes } ) {
 			const {
@@ -418,7 +425,8 @@ export default [
 		},
 	},
 	{
-		attributes: merge( blockAttributes, {
+		attributes: {
+			...blockAttributes,
 			content: {
 				type: 'array',
 				source: 'query',
@@ -449,7 +457,7 @@ export default [
 				type: 'number',
 				default: 2,
 			},
-		} ),
+		},
 
 		supports: {
 			align: [ 'wide', 'full' ],

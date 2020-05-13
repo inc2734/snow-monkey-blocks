@@ -1,6 +1,6 @@
 'use strict';
 
-import { times, get, merge } from 'lodash';
+import { times, get } from 'lodash';
 
 import { RichText, InnerBlocks } from '@wordpress/block-editor';
 import { createBlock } from '@wordpress/blocks';
@@ -9,7 +9,9 @@ import blockAttributes from './attributes.json';
 
 export default [
 	{
-		attributes: blockAttributes,
+		attributes: {
+			...blockAttributes,
+		},
 
 		save( { attributes } ) {
 			const { sm, md, lg, imagePadding } = attributes;
@@ -29,7 +31,8 @@ export default [
 		},
 	},
 	{
-		attributes: merge( blockAttributes, {
+		attributes: {
+			...blockAttributes,
 			columns: {
 				type: 'number',
 				default: 2,
@@ -80,7 +83,7 @@ export default [
 					},
 				},
 			},
-		} ),
+		},
 
 		migrate( attributes ) {
 			const migratedInnerBlocks = () => {

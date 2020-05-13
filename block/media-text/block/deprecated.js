@@ -9,7 +9,9 @@ import { getColumnSize } from '../../../src/js/helper/helper';
 
 export default [
 	{
-		attributes: blockAttributes,
+		attributes: {
+			...blockAttributes,
+		},
 
 		save( { attributes } ) {
 			const {
@@ -65,7 +67,9 @@ export default [
 		},
 	},
 	{
-		attributes: blockAttributes,
+		attributes: {
+			...blockAttributes,
+		},
 
 		save( { attributes } ) {
 			const {

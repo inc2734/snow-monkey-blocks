@@ -1,6 +1,6 @@
 'use strict';
 
-import { times, merge } from 'lodash';
+import { times } from 'lodash';
 
 import { RichText, InnerBlocks } from '@wordpress/block-editor';
 import { createBlock } from '@wordpress/blocks';
@@ -9,7 +9,9 @@ import blockAttributes from './attributes.json';
 
 export default [
 	{
-		attributes: blockAttributes,
+		attributes: {
+			...blockAttributes,
+		},
 
 		save( { attributes } ) {
 			const {
@@ -81,7 +83,8 @@ export default [
 		},
 	},
 	{
-		attributes: merge( blockAttributes, {
+		attributes: {
+			...blockAttributes,
 			linkTarget: {
 				type: 'string',
 				source: 'attribute',
@@ -89,7 +92,7 @@ export default [
 				attribute: 'target',
 				default: '_self',
 			},
-		} ),
+		},
 
 		save( { attributes } ) {
 			const {
@@ -152,7 +155,9 @@ export default [
 		},
 	},
 	{
-		attributes: blockAttributes,
+		attributes: {
+			...blockAttributes,
+		},
 
 		migrate( attributes ) {
 			const migratedInnerBlocks = () => {

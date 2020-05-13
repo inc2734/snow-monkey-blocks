@@ -6,7 +6,9 @@ import blockAttributes from './attributes.json';
 
 export default [
 	{
-		attributes: blockAttributes,
+		attributes: {
+			...blockAttributes,
+		},
 
 		save( { attributes } ) {
 			const { avatarID, avatarURL, name, lede, content } = attributes;

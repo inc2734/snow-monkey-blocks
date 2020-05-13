@@ -1,14 +1,14 @@
 'use strict';
 
-import { merge } from 'lodash';
-
 import { RichText } from '@wordpress/block-editor';
 
 import blockAttributes from './attributes.json';
 
 export default [
 	{
-		attributes: blockAttributes,
+		attributes: {
+			...blockAttributes,
+		},
 
 		save( { attributes } ) {
 			const {
@@ -92,7 +92,8 @@ export default [
 		},
 	},
 	{
-		attributes: merge( blockAttributes, {
+		attributes: {
+			...blockAttributes,
 			btnTarget: {
 				type: 'string',
 				source: 'attribute',
@@ -100,7 +101,7 @@ export default [
 				attribute: 'target',
 				default: '_self',
 			},
-		} ),
+		},
 
 		save( { attributes } ) {
 			const {

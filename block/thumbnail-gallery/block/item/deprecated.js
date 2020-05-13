@@ -6,7 +6,10 @@ import blockAttributes from './attributes.json';
 
 export default [
 	{
-		attributes: blockAttributes,
+		attributes: {
+			...blockAttributes,
+		},
+
 		supports: {
 			align: [ 'wide', 'full' ],
 		},

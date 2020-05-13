@@ -8,7 +8,9 @@ import blockAttributes from './attributes.json';
 
 export default [
 	{
-		attributes: blockAttributes,
+		attributes: {
+			...blockAttributes,
+		},
 
 		supports: {
 			align: [ 'left', 'center', 'right' ],
@@ -51,7 +53,9 @@ export default [
 		},
 	},
 	{
-		attributes: blockAttributes,
+		attributes: {
+			...blockAttributes,
+		},
 
 		supports: {
 			align: [ 'left', 'center', 'right' ],

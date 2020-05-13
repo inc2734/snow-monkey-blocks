@@ -1,7 +1,7 @@
 'use strict';
 
 import classnames from 'classnames';
-import { merge, omit, times } from 'lodash';
+import { omit, times } from 'lodash';
 
 import { RichText } from '@wordpress/block-editor';
 import { createBlock } from '@wordpress/blocks';
@@ -10,7 +10,8 @@ import blockAttributes from './attributes.json';
 
 export default [
 	{
-		attributes: merge( blockAttributes, {
+		attributes: {
+			...blockAttributes,
 			answer: {
 				type: 'string',
 				source: 'html',
@@ -18,7 +19,7 @@ export default [
 				multiline: 'p',
 				default: '',
 			},
-		} ),
+		},
 
 		migrate( attributes ) {
 			const migratedInnerBlocks = () => {
@@ -93,7 +94,8 @@ export default [
 		},
 	},
 	{
-		attributes: merge( blockAttributes, {
+		attributes: {
+			...blockAttributes,
 			answer: {
 				type: 'string',
 				source: 'html',
@@ -101,7 +103,7 @@ export default [
 				multiline: 'p',
 				default: '',
 			},
-		} ),
+		},
 
 		save( { attributes } ) {
 			const { question, answer, questionColor, answerColor } = attributes;

@@ -10,7 +10,10 @@ import blockAttributes from './attributes.json';
 
 export default [
 	{
-		attributes: blockAttributes,
+		attributes: {
+			...blockAttributes,
+		},
+
 		save( { className } ) {
 			const classes = classnames( 'smb-testimonial', className );
 

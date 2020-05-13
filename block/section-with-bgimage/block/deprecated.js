@@ -9,7 +9,9 @@ import blockAttributes from './attributes.json';
 
 export default [
 	{
-		attributes: blockAttributes,
+		attributes: {
+			...blockAttributes,
+		},
 
 		migrate( attributes ) {
 			const lgImageID = attributes.imageID;
@@ -113,7 +115,9 @@ export default [
 		},
 	},
 	{
-		attributes: blockAttributes,
+		attributes: {
+			...blockAttributes,
+		},
 
 		save( { attributes, className } ) {
 			const {
@@ -196,7 +200,9 @@ export default [
 		},
 	},
 	{
-		attributes: blockAttributes,
+		attributes: {
+			...blockAttributes,
+		},
 
 		migrate( attributes ) {
 			const isSlim = !! attributes.contentsWidth;
@@ -284,7 +290,9 @@ export default [
 		},
 	},
 	{
-		attributes: blockAttributes,
+		attributes: {
+			...blockAttributes,
+		},
 
 		supports: {
 			align: [ 'wide', 'full' ],
