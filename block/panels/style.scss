@@ -4,6 +4,7 @@
 
 .smb-panels {
   &__item {
+    position: relative;
     display: block;
     background-color: #fff;
     color: $_color-text;
@@ -30,15 +31,38 @@
       margin: 0;
       @include _font-size-line-height($_base-font-size-px);
       font-weight: bold;
+
+      a {
+        position: relative;
+        z-index: 1;
+      }
     }
 
     &__content {
       @include _margin-top(.25);
       @include _font-size-line-height($_base-font-size-px - 2);
+
+      a {
+        position: relative;
+        z-index: 1;
+      }
     }
 
     &__action {
       @include _margin-top(.5);
+
+      > a {
+        text-decoration: none;
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+        }
+      }
     }
 
     &__link {

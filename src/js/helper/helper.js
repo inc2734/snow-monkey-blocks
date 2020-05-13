@@ -257,3 +257,16 @@ export const getResizedImages = ( imageSizes, media ) => {
 		{}
 	);
 };
+
+/**
+ * Return innerText from HTMLstring
+ *
+ * @param {string} text
+ * @return {string} innerText
+ */
+export const stringToInnerText = ( text ) => {
+	const wrapper = document.createElement( 'div' );
+	wrapper.style.display = 'none';
+	wrapper.innerHTML = text;
+	return wrapper.innerText;
+};

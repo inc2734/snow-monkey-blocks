@@ -25,7 +25,10 @@ import {
 import Figure from '../../../../../src/js/component/figure';
 import LinkControl from '../../../../../src/js/component/link-control';
 import ImageSizeSelectControl from '../../../../../src/js/component/image-size-select-control';
-import { getResizedImages } from '../../../../../src/js/helper/helper';
+import {
+	getResizedImages,
+	stringToInnerText,
+} from '../../../../../src/js/helper/helper';
 
 export default function( {
 	attributes,
@@ -128,7 +131,7 @@ export default function( {
 
 	const onChangeLinkLabel = ( value ) =>
 		setAttributes( {
-			linkLabel: value,
+			linkLabel: stringToInnerText( value ),
 		} );
 
 	const onChangeLinkUrl = ( { url: newUrl, opensInNewTab } ) => {
@@ -206,16 +209,7 @@ export default function( {
 			</InspectorControls>
 
 			<div className={ classes }>
-				<div
-					className={ itemClasses }
-					href={ linkURL }
-					target={ '_self' === linkTarget ? undefined : linkTarget }
-					rel={
-						'_self' === linkTarget
-							? undefined
-							: 'noopener noreferrer'
-					}
-				>
+				<div className={ itemClasses }>
 					{ ( !! imageURL || isSelected ) && (
 						<div className="smb-panels__item__figure">
 							<Figure

@@ -17,14 +17,14 @@
   },
   "linkLabel": {
     "type": "string",
-    "source": "html",
+    "source": "text",
     "selector": ".smb-panels__item__link",
     "default": ""
   },
   "linkURL": {
     "type": "string",
     "source": "attribute",
-    "selector": ".smb-panels__item",
+    "selector": ".smb-panels__item__action > a",
     "attribute": "href",
     "default": ""
   },
