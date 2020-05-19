@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.4
 Tested up to: 5.4
-Stable tag: 8.3.1
+Stable tag: 8.4.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -112,6 +112,11 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 23. Price menu block (The number of items can be increased or decreased freely)
 
 == Changelog ==
+
+= 8.4.0 =
+* Add image delete button to toolbar with image.
+* Add new block "Taxonomy terms".
+* [Panels] Changed to save the link URL even if the link label is not entered.
 
 = 8.3.1 =
 * [Items] Layout is broken when text link is set in the text of "Contents" while "Link" is set.
