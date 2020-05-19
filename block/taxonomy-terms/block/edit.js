@@ -35,6 +35,10 @@ export default function( { attributes, setAttributes } ) {
 			label: _taxonomy.name,
 		};
 	} );
+	taxonomyOptions.unshift( {
+		value: null,
+		label: '-',
+	} );
 
 	const onChangeTaxonomy = ( value ) =>
 		setAttributes( {
