@@ -52,6 +52,7 @@ https://www.youtube.com/watch?v=uD6omb4TLdA&t=283s
 * Directory structure
 * Container
 * Price menu
+* Taxonomy terms (Can be used only with Snow Monkey)
 
 = Section blocks =
 

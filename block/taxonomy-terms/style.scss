@@ -1,0 +1,36 @@
+@charset 'utf-8';
+
+@import '../../src/css/core/block';
+
+.smb-taxonomy-terms {
+  &.is-style-tag {
+    .smb-taxonomy-terms__list {
+      @include _list-unstyled();
+    }
+
+    .smb-taxonomy-terms__item {
+      margin: 4px 4px 4px 0;
+      display: inline-block;
+    }
+  }
+
+  &.is-style-slash {
+    .smb-taxonomy-terms__list {
+      @include _list-unstyled();
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .smb-taxonomy-terms__item {
+      display: inline-block;
+
+      &:not(:last-child) {
+        &::after {
+          content: '/';
+          margin: 0 .5em;
+          display: inline-block;
+        }
+      }
+    }
+  }
+}

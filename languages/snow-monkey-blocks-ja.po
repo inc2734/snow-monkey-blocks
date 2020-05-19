@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2020-05-19 15:10+0900\n"
-"PO-Revision-Date: 2020-05-19 15:10+0900\n"
+"POT-Creation-Date: 2020-05-19 16:45+0900\n"
+"PO-Revision-Date: 2020-05-19 16:45+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -144,8 +144,8 @@ msgstr "アコーディオンのように伸縮するコンテンツエリアを
 #: block/section-with-bgvideo/block/edit.js:160 block/section/block/edit.js:208
 #: block/slider/block/edit.js:102 block/slider/block/item/edit.js:159
 #: block/step/block/item/standard/edit.js:161
-#: block/taxonomy-posts/block/edit.js:103 block/testimonial/block/edit.js:34
-#: block/thumbnail-gallery/block/edit.js:43
+#: block/taxonomy-posts/block/edit.js:103 block/taxonomy-terms/block/edit.js:58
+#: block/testimonial/block/edit.js:34 block/thumbnail-gallery/block/edit.js:43
 #: block/thumbnail-gallery/block/item/edit.js:85
 msgid "Block Settings"
 msgstr "ブロック設定"
@@ -396,6 +396,7 @@ msgstr "マイクロコピー付きのボタンです。"
 
 #: block/btn-box/block/index.js:28 block/btn/block/index.js:31
 #: block/countdown/block/index.js:41 block/items/block/item/banner/edit.js:208
+#: block/taxonomy-terms/editor.js:13
 msgid "Default"
 msgstr "デフォルト"
 
@@ -452,22 +453,27 @@ msgid ""
 msgstr "設定した表示順は実際の投稿画面でのみ有効です"
 
 #: block/categories-list/block/edit.js:219
+#: block/taxonomy-terms/block/edit.js:80
 msgid "orderby"
 msgstr "並べ替えの基準"
 
 #: block/categories-list/block/edit.js:224
+#: block/taxonomy-terms/block/edit.js:85
 msgid "category id"
 msgstr "カテゴリーID"
 
 #: block/categories-list/block/edit.js:231
+#: block/taxonomy-terms/block/edit.js:92
 msgid "category name"
 msgstr "カテゴリー名"
 
 #: block/categories-list/block/edit.js:238
+#: block/taxonomy-terms/block/edit.js:99
 msgid "category slug"
 msgstr "カテゴリースラッグ"
 
 #: block/categories-list/block/edit.js:245
+#: block/taxonomy-terms/block/edit.js:106
 msgid "category post count"
 msgstr "記事数"
 
@@ -476,14 +482,17 @@ msgid "term_group"
 msgstr "タームグループ"
 
 #: block/categories-list/block/edit.js:258
+#: block/taxonomy-terms/block/edit.js:116
 msgid "order"
 msgstr "並べ替えの種別"
 
 #: block/categories-list/block/edit.js:262
+#: block/taxonomy-terms/block/edit.js:120
 msgid "asc"
 msgstr "昇順"
 
 #: block/categories-list/block/edit.js:266
+#: block/taxonomy-terms/block/edit.js:124
 msgid "desc"
 msgstr "降順"
 
@@ -1606,7 +1615,7 @@ msgstr "リンク色"
 msgid "Link text"
 msgstr "リンクテキスト"
 
-#: block/taxonomy-posts/block/edit.js:108
+#: block/taxonomy-posts/block/edit.js:108 block/taxonomy-terms/block/edit.js:63
 msgid "Loading taxonomies…"
 msgstr "タクソノミーを読み込んでいます…"
 
@@ -1618,6 +1627,27 @@ msgstr "任意のタクソノミーの投稿"
 #: block/taxonomy-posts/block/index.js:17
 msgid "You can display recent posts linked to any taxonomy."
 msgstr "任意のタクソノミーに紐付いた最近の投稿を表示できます。"
+
+#: block/taxonomy-terms/block/edit.js:72
+msgid "Taxonomy"
+msgstr "タクソノミー"
+
+#: block/taxonomy-terms/block/edit.js:136
+#: block/taxonomy-terms/block/index.js:14
+msgid "Taxonomy terms"
+msgstr "任意のタクソノミーの一覧"
+
+#: block/taxonomy-terms/block/index.js:16
+msgid "You can display terms linked to any taxonomy."
+msgstr "任意のタクソノミーに紐付いたタームの一覧を表示できます。"
+
+#: block/taxonomy-terms/editor.js:18
+msgid "Tag"
+msgstr "タグ"
+
+#: block/taxonomy-terms/editor.js:22
+msgid "Slash"
+msgstr "スラッシュ"
 
 #: block/testimonial/block/index.js:15
 msgid "Testimonial"
@@ -1705,9 +1735,6 @@ msgstr "動画"
 
 #~ msgid "URL"
 #~ msgstr "URL"
-
-#~ msgid "Target"
-#~ msgstr "Target"
 
 #~ msgid "_self"
 #~ msgstr "_self"
