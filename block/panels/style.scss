@@ -51,6 +51,10 @@
     &__action {
       @include _margin-top(.5);
 
+      &--nolabel {
+        margin-top: 0;
+      }
+
       > a {
         text-decoration: none;
 

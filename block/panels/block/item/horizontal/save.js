@@ -28,6 +28,16 @@ export default function( { attributes, className } ) {
 		}
 	);
 
+	const actionClasses = classnames( 'smb-panels__item__action', {
+		'smb-panels__item__action--nolabel': ! linkLabel,
+	} );
+
+	const linkLabelHtml = ! RichText.isEmpty( linkLabel ) && (
+		<div className="smb-panels__item__link">
+			<RichText.Content value={ linkLabel } />
+		</div>
+	);
+
 	return (
 		<div className={ classes }>
 			<div className={ itemClasses }>
@@ -57,8 +67,8 @@ export default function( { attributes, className } ) {
 						</div>
 					) }
 
-					{ ! RichText.isEmpty( linkLabel ) && (
-						<div className="smb-panels__item__action">
+					{ ( ! RichText.isEmpty( linkLabel ) || !! linkURL ) && (
+						<div className={ actionClasses }>
 							{ !! linkURL ? (
 								<a
 									href={ linkURL }
@@ -73,14 +83,10 @@ export default function( { attributes, className } ) {
 											: 'noopener noreferrer'
 									}
 								>
-									<div className="smb-panels__item__link">
-										<RichText.Content value={ linkLabel } />
-									</div>
+									{ linkLabelHtml }
 								</a>
 							) : (
-								<div className="smb-panels__item__link">
-									<RichText.Content value={ linkLabel } />
-								</div>
+								<>{ linkLabelHtml }</>
 							) }
 						</div>
 					) }

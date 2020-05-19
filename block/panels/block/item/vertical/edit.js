@@ -84,6 +84,10 @@ export default function( {
 
 	const classes = classnames( 'c-row__col', className );
 
+	const actionClasses = classnames( 'smb-panels__item__action', {
+		'smb-panels__item__action--nolabel': ! linkLabel && ! isSelected,
+	} );
+
 	const onSelectImage = ( media ) => {
 		const newImageURL =
 			!! media.sizes && !! media.sizes[ imageSizeSlug ]
@@ -221,33 +225,38 @@ export default function( {
 							/>
 						) }
 
-						{ ( ! RichText.isEmpty( linkLabel ) || isSelected ) && (
-							<div className="smb-panels__item__action">
-								<RichText
-									className="smb-panels__item__link"
-									value={ linkLabel }
-									placeholder={ __(
-										'Link',
-										'snow-monkey-blocks'
-									) }
-									allowedFormats={ [] }
-									onChange={ onChangeLinkLabel }
-									keepPlaceholderOnFocus={ true }
-								/>
-
-								{ isLinkUIOpen && (
-									<Popover
-										position="bottom center"
-										onClose={ closeLinkUIOpen }
-									>
-										<LinkControl
-											url={ linkURL }
-											target={ linkTarget }
-											onChange={ onChangeLinkUrl }
-										/>
-									</Popover>
+						{ ( ! RichText.isEmpty( linkLabel ) ||
+							!! linkURL ||
+							isSelected ) && (
+							<div className={ actionClasses }>
+								{ ( ! RichText.isEmpty( linkLabel ) ||
+									isSelected ) && (
+									<RichText
+										className="smb-panels__item__link"
+										value={ linkLabel }
+										placeholder={ __(
+											'Link',
+											'snow-monkey-blocks'
+										) }
+										allowedFormats={ [] }
+										onChange={ onChangeLinkLabel }
+										keepPlaceholderOnFocus={ true }
+									/>
 								) }
 							</div>
+						) }
+
+						{ isLinkUIOpen && (
+							<Popover
+								position="bottom center"
+								onClose={ closeLinkUIOpen }
+							>
+								<LinkControl
+									url={ linkURL }
+									target={ linkTarget }
+									onChange={ onChangeLinkUrl }
+								/>
+							</Popover>
 						) }
 					</div>
 				</div>
