@@ -6,11 +6,20 @@ import {
 	MediaReplaceFlow,
 } from '@wordpress/block-editor';
 
+import { Toolbar, Button } from '@wordpress/components';
+
 import { memo, useMemo } from '@wordpress/element';
 
 import { __ } from '@wordpress/i18n';
 
-const ToolbarEditButton = ( { id, src, allowedTypes, accept, onSelect } ) => (
+const ToolbarEditButton = ( {
+	id,
+	src,
+	allowedTypes,
+	accept,
+	onSelect,
+	onRemove,
+} ) => (
 	<BlockControls>
 		<MediaReplaceFlow
 			mediaId={ id }
@@ -19,6 +28,14 @@ const ToolbarEditButton = ( { id, src, allowedTypes, accept, onSelect } ) => (
 			accept={ accept }
 			onSelect={ onSelect }
 		/>
+
+		{ !! src && !! onRemove && (
+			<Toolbar>
+				<Button onClick={ onRemove }>
+					{ __( 'Release', 'snow-monkey-blocks' ) }
+				</Button>
+			</Toolbar>
+		) }
 	</BlockControls>
 );
 
@@ -38,6 +55,7 @@ const Figure = memo(
 		allowedTypes,
 		accept,
 		onSelect,
+		onRemove,
 		mediaType,
 	} ) => {
 		let media;
@@ -71,6 +89,7 @@ const Figure = memo(
 					allowedTypes={ allowedTypes }
 					accept={ accept }
 					onSelect={ onSelect }
+					onRemove={ onRemove }
 				/>
 				{ media }
 			</>

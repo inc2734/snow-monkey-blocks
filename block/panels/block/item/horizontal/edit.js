@@ -19,7 +19,7 @@ import {
 	BaseControl,
 	Button,
 	Popover,
-	ToolbarGroup,
+	Toolbar,
 } from '@wordpress/components';
 
 import Figure from '../../../../../src/js/component/figure';
@@ -294,7 +294,7 @@ export default function( {
 			</div>
 
 			<BlockControls>
-				<ToolbarGroup>
+				<Toolbar>
 					<Button
 						icon="admin-links"
 						className="components-toolbar__control"
@@ -302,7 +302,7 @@ export default function( {
 						aria-expanded={ isLinkUIOpen }
 						onClick={ toggleLinkUIOpen }
 					/>
-				</ToolbarGroup>
+				</Toolbar>
 			</BlockControls>
 		</>
 	);
