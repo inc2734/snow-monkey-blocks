@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2020-05-19 16:45+0900\n"
-"PO-Revision-Date: 2020-05-19 16:45+0900\n"
+"POT-Creation-Date: 2020-05-25 11:07+0900\n"
+"PO-Revision-Date: 2020-05-25 11:07+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -127,26 +127,26 @@ msgstr "アコーディオンのように伸縮するコンテンツエリアを
 #: block/directory-structure/block/item/directory/edit.js:86
 #: block/directory-structure/block/item/file/edit.js:66
 #: block/faq/block/item/edit.js:63 block/items/block/edit.js:43
-#: block/items/block/item/banner/edit.js:183
-#: block/items/block/item/block-link/edit.js:167
+#: block/items/block/item/banner/edit.js:186
+#: block/items/block/item/block-link/edit.js:170
 #: block/items/block/item/edit.js:76
-#: block/items/block/item/standard/edit.js:167
+#: block/items/block/item/standard/edit.js:170
 #: block/like-me-box/block/edit.js:20 block/limited-datetime/block/edit.js:74
-#: block/list/block/edit.js:73 block/media-text/block/edit.js:170
-#: block/panels/block/edit.js:47 block/panels/block/item/horizontal/edit.js:161
-#: block/panels/block/item/vertical/edit.js:146
+#: block/list/block/edit.js:73 block/media-text/block/edit.js:173
+#: block/panels/block/edit.js:47 block/panels/block/item/horizontal/edit.js:164
+#: block/panels/block/item/vertical/edit.js:149
 #: block/pickup-slider/block/edit.js:43 block/pricing-table/block/edit.js:29
-#: block/pricing-table/block/item/edit.js:168
+#: block/pricing-table/block/item/edit.js:171
 #: block/rating-box/block/item/edit.js:45 block/recent-posts/block/edit.js:86
-#: block/section-break-the-grid/block/edit.js:270
+#: block/section-break-the-grid/block/edit.js:273
 #: block/section-side-heading/block/edit.js:205
 #: block/section-with-bgimage/block/edit.js:236
 #: block/section-with-bgvideo/block/edit.js:160 block/section/block/edit.js:208
-#: block/slider/block/edit.js:102 block/slider/block/item/edit.js:159
-#: block/step/block/item/standard/edit.js:161
-#: block/taxonomy-posts/block/edit.js:103 block/taxonomy-terms/block/edit.js:58
+#: block/slider/block/edit.js:102 block/slider/block/item/edit.js:190
+#: block/step/block/item/standard/edit.js:164
+#: block/taxonomy-posts/block/edit.js:103 block/taxonomy-terms/block/edit.js:62
 #: block/testimonial/block/edit.js:34 block/thumbnail-gallery/block/edit.js:43
-#: block/thumbnail-gallery/block/item/edit.js:85
+#: block/thumbnail-gallery/block/item/edit.js:88
 msgid "Block Settings"
 msgstr "ブロック設定"
 
@@ -226,22 +226,22 @@ msgstr "リマークアラート"
 msgid "Icon"
 msgstr "アイコン"
 
-#: block/alert/block/edit.js:160 block/items/block/item/banner/edit.js:295
-#: block/items/block/item/block-link/edit.js:254
+#: block/alert/block/edit.js:160 block/items/block/item/banner/edit.js:298
+#: block/items/block/item/block-link/edit.js:257
 #: block/items/block/item/edit.js:186
-#: block/items/block/item/standard/edit.js:253
-#: block/media-text/block/edit.js:263
-#: block/panels/block/item/horizontal/edit.js:237
-#: block/panels/block/item/vertical/edit.js:206
+#: block/items/block/item/standard/edit.js:256
+#: block/media-text/block/edit.js:266
+#: block/panels/block/item/horizontal/edit.js:240
+#: block/panels/block/item/vertical/edit.js:209
 #: block/price-menu/block/item/edit.js:27
-#: block/pricing-table/block/item/edit.js:222
+#: block/pricing-table/block/item/edit.js:225
 #: block/rating-box/block/item/edit.js:72
-#: block/section-break-the-grid/block/edit.js:710
+#: block/section-break-the-grid/block/edit.js:713
 #: block/section-side-heading/block/edit.js:519
 #: block/section-with-bgimage/block/edit.js:553
 #: block/section-with-bgvideo/block/edit.js:362 block/section/block/edit.js:518
 #: block/step/block/item/free/edit.js:59
-#: block/step/block/item/standard/edit.js:219
+#: block/step/block/item/standard/edit.js:222
 msgid "Write title…"
 msgstr "タイトルを書く…"
 
@@ -267,18 +267,18 @@ msgstr "逆の吹き出し"
 #: block/directory-structure/block/item/directory/edit.js:126
 #: block/directory-structure/block/item/file/edit.js:106
 #: block/evaluation-star/block/edit.js:143 block/faq/block/item/edit.js:103
-#: block/items/block/item/banner/edit.js:246
-#: block/items/block/item/block-link/edit.js:206
+#: block/items/block/item/banner/edit.js:249
+#: block/items/block/item/block-link/edit.js:209
 #: block/items/block/item/edit.js:120
-#: block/items/block/item/standard/edit.js:205 block/list/block/edit.js:106
-#: block/pricing-table/block/item/edit.js:179
+#: block/items/block/item/standard/edit.js:208 block/list/block/edit.js:106
+#: block/pricing-table/block/item/edit.js:182
 #: block/rating-box/block/item/edit.js:57
-#: block/section-break-the-grid/block/edit.js:664
+#: block/section-break-the-grid/block/edit.js:667
 #: block/section-side-heading/block/edit.js:312
 #: block/section-with-bgimage/block/edit.js:385
 #: block/section-with-bgvideo/block/edit.js:265 block/section/block/edit.js:304
 #: block/step/block/item/free/edit.js:37
-#: block/step/block/item/standard/edit.js:192
+#: block/step/block/item/standard/edit.js:195
 msgid "Color Settings"
 msgstr "色設定"
 
@@ -303,8 +303,8 @@ msgid "Border width"
 msgstr "枠線の太さ"
 
 #: block/box/block/edit.js:72 block/btn-box/block/edit.js:132
-#: block/btn/block/edit.js:117 block/pricing-table/block/item/edit.js:186
-#: block/section-break-the-grid/block/edit.js:574
+#: block/btn/block/edit.js:117 block/pricing-table/block/item/edit.js:189
+#: block/section-break-the-grid/block/edit.js:577
 #: block/section-side-heading/block/edit.js:319 block/section/block/edit.js:311
 msgid "Background Color"
 msgstr "背景色"
@@ -314,9 +314,9 @@ msgid "Border Color"
 msgstr "枠線の色"
 
 #: block/box/block/edit.js:84 block/btn/block/edit.js:124
-#: block/items/block/item/banner/edit.js:257
-#: block/pricing-table/block/item/edit.js:193
-#: block/section-break-the-grid/block/edit.js:670
+#: block/items/block/item/banner/edit.js:260
+#: block/pricing-table/block/item/edit.js:196
+#: block/section-break-the-grid/block/edit.js:673
 #: block/section-side-heading/block/edit.js:326
 #: block/section-with-bgimage/block/edit.js:396
 #: block/section-with-bgvideo/block/edit.js:276 block/section/block/edit.js:318
@@ -348,25 +348,25 @@ msgid "Full button"
 msgstr "フルサイズのボタン"
 
 #: block/btn-box/block/edit.js:140
-#: block/items/block/item/block-link/edit.js:213
+#: block/items/block/item/block-link/edit.js:216
 #: block/items/block/item/edit.js:128
-#: block/items/block/item/standard/edit.js:212
+#: block/items/block/item/standard/edit.js:215
 msgid "Background Color of Button"
 msgstr "ボタンの背景色"
 
 #: block/btn-box/block/edit.js:148
-#: block/items/block/item/block-link/edit.js:221
+#: block/items/block/item/block-link/edit.js:224
 #: block/items/block/item/edit.js:137
-#: block/items/block/item/standard/edit.js:220
+#: block/items/block/item/standard/edit.js:223
 msgid "Text Color of Button"
 msgstr "ボタンの文字色"
 
-#: block/btn-box/block/edit.js:170 block/items/block/item/banner/edit.js:308
-#: block/items/block/item/block-link/edit.js:267
+#: block/btn-box/block/edit.js:170 block/items/block/item/banner/edit.js:311
+#: block/items/block/item/block-link/edit.js:270
 #: block/items/block/item/edit.js:200
-#: block/items/block/item/standard/edit.js:266
-#: block/pricing-table/block/item/edit.js:249
-#: block/section-break-the-grid/block/edit.js:726
+#: block/items/block/item/standard/edit.js:269
+#: block/pricing-table/block/item/edit.js:252
+#: block/section-break-the-grid/block/edit.js:729
 #: block/section-side-heading/block/edit.js:534
 #: block/section-with-bgimage/block/edit.js:568
 #: block/section-with-bgvideo/block/edit.js:377 block/section/block/edit.js:533
@@ -375,10 +375,10 @@ msgid "Write lede…"
 msgstr "リード文を書く…"
 
 #: block/btn-box/block/edit.js:195 block/btn/block/edit.js:149
-#: block/btn/block/index.js:15 block/items/block/item/block-link/edit.js:301
+#: block/btn/block/index.js:15 block/items/block/item/block-link/edit.js:304
 #: block/items/block/item/edit.js:247
-#: block/items/block/item/standard/edit.js:309
-#: block/pricing-table/block/item/edit.js:289
+#: block/items/block/item/standard/edit.js:312
+#: block/pricing-table/block/item/edit.js:292
 msgid "Button"
 msgstr "ボタン"
 
@@ -395,7 +395,7 @@ msgid "It is a button with micro copy."
 msgstr "マイクロコピー付きのボタンです。"
 
 #: block/btn-box/block/index.js:28 block/btn/block/index.js:31
-#: block/countdown/block/index.js:41 block/items/block/item/banner/edit.js:208
+#: block/countdown/block/index.js:41 block/items/block/item/banner/edit.js:211
 #: block/taxonomy-terms/editor.js:13
 msgid "Default"
 msgstr "デフォルト"
@@ -453,27 +453,27 @@ msgid ""
 msgstr "設定した表示順は実際の投稿画面でのみ有効です"
 
 #: block/categories-list/block/edit.js:219
-#: block/taxonomy-terms/block/edit.js:80
+#: block/taxonomy-terms/block/edit.js:84
 msgid "orderby"
 msgstr "並べ替えの基準"
 
 #: block/categories-list/block/edit.js:224
-#: block/taxonomy-terms/block/edit.js:85
+#: block/taxonomy-terms/block/edit.js:89
 msgid "category id"
 msgstr "カテゴリーID"
 
 #: block/categories-list/block/edit.js:231
-#: block/taxonomy-terms/block/edit.js:92
+#: block/taxonomy-terms/block/edit.js:96
 msgid "category name"
 msgstr "カテゴリー名"
 
 #: block/categories-list/block/edit.js:238
-#: block/taxonomy-terms/block/edit.js:99
+#: block/taxonomy-terms/block/edit.js:103
 msgid "category slug"
 msgstr "カテゴリースラッグ"
 
 #: block/categories-list/block/edit.js:245
-#: block/taxonomy-terms/block/edit.js:106
+#: block/taxonomy-terms/block/edit.js:110
 msgid "category post count"
 msgstr "記事数"
 
@@ -482,17 +482,17 @@ msgid "term_group"
 msgstr "タームグループ"
 
 #: block/categories-list/block/edit.js:258
-#: block/taxonomy-terms/block/edit.js:116
+#: block/taxonomy-terms/block/edit.js:120
 msgid "order"
 msgstr "並べ替えの種別"
 
 #: block/categories-list/block/edit.js:262
-#: block/taxonomy-terms/block/edit.js:120
+#: block/taxonomy-terms/block/edit.js:124
 msgid "asc"
 msgstr "昇順"
 
 #: block/categories-list/block/edit.js:266
-#: block/taxonomy-terms/block/edit.js:124
+#: block/taxonomy-terms/block/edit.js:128
 msgid "desc"
 msgstr "降順"
 
@@ -794,64 +794,64 @@ msgstr "項目"
 msgid "Let's line up the contents."
 msgstr "コンテンツを並べましょう。"
 
-#: block/items/block/item/banner/edit.js:186 src/js/component/figure.js:118
+#: block/items/block/item/banner/edit.js:189 src/js/component/figure.js:118
 msgid "Image"
 msgstr "画像"
 
-#: block/items/block/item/banner/edit.js:201
+#: block/items/block/item/banner/edit.js:204
 msgid "Image aspect ratio"
 msgstr "画像のアスペクト比"
 
-#: block/items/block/item/banner/edit.js:212
+#: block/items/block/item/banner/edit.js:215
 msgid "4:3"
 msgstr "4:3"
 
-#: block/items/block/item/banner/edit.js:216
+#: block/items/block/item/banner/edit.js:219
 msgid "16:9"
 msgstr "16:9"
 
-#: block/items/block/item/banner/edit.js:223
-#: block/items/block/item/block-link/edit.js:198
-#: block/items/block/item/standard/edit.js:197
-#: block/media-text/block/edit.js:216
-#: block/panels/block/item/horizontal/edit.js:207
-#: block/panels/block/item/vertical/edit.js:176
-#: block/pricing-table/block/item/edit.js:171
-#: block/section-break-the-grid/block/edit.js:344
-#: block/slider/block/item/edit.js:162
-#: block/step/block/item/standard/edit.js:184
-#: block/thumbnail-gallery/block/item/edit.js:88
+#: block/items/block/item/banner/edit.js:226
+#: block/items/block/item/block-link/edit.js:201
+#: block/items/block/item/standard/edit.js:200
+#: block/media-text/block/edit.js:219
+#: block/panels/block/item/horizontal/edit.js:210
+#: block/panels/block/item/vertical/edit.js:179
+#: block/pricing-table/block/item/edit.js:174
+#: block/section-break-the-grid/block/edit.js:347
+#: block/slider/block/item/edit.js:193
+#: block/step/block/item/standard/edit.js:187
+#: block/thumbnail-gallery/block/item/edit.js:91
 msgid "Images size"
 msgstr "画像サイズ"
 
-#: block/items/block/item/banner/edit.js:230
+#: block/items/block/item/banner/edit.js:233
 msgid "Blur"
 msgstr "ぼかす"
 
-#: block/items/block/item/banner/edit.js:236
+#: block/items/block/item/banner/edit.js:239
 #: block/section-with-bgimage/block/edit.js:405
 #: block/section-with-bgvideo/block/edit.js:285
 msgid "Mask Opacity"
 msgstr "背景マスクの透明度"
 
-#: block/items/block/item/banner/edit.js:252
+#: block/items/block/item/banner/edit.js:255
 #: block/section-with-bgimage/block/edit.js:391
 #: block/section-with-bgvideo/block/edit.js:271
 msgid "Mask Color"
 msgstr "背景マスクの色"
 
-#: block/items/block/item/banner/edit.js:326
-#: block/items/block/item/block-link/edit.js:331
+#: block/items/block/item/banner/edit.js:329
+#: block/items/block/item/block-link/edit.js:334
 #: block/items/block/item/edit.js:266
-#: block/items/block/item/standard/edit.js:340
-#: block/media-text/block/edit.js:323
-#: block/panels/block/item/horizontal/edit.js:269
-#: block/panels/block/item/horizontal/edit.js:301
-#: block/panels/block/item/vertical/edit.js:238
-#: block/panels/block/item/vertical/edit.js:270
-#: block/pricing-table/block/item/edit.js:320
-#: block/slider/block/item/edit.js:190
-#: block/step/block/item/standard/edit.js:298
+#: block/items/block/item/standard/edit.js:343
+#: block/media-text/block/edit.js:326
+#: block/panels/block/item/horizontal/edit.js:272
+#: block/panels/block/item/horizontal/edit.js:304
+#: block/panels/block/item/vertical/edit.js:241
+#: block/panels/block/item/vertical/edit.js:273
+#: block/pricing-table/block/item/edit.js:323
+#: block/slider/block/item/edit.js:221
+#: block/step/block/item/standard/edit.js:301
 msgid "Link"
 msgstr "リンク"
 
@@ -865,13 +865,13 @@ msgstr "バナー"
 msgid "It is a child block of the items block."
 msgstr "項目ブロックの子ブロックです。"
 
-#: block/items/block/item/block-link/edit.js:170
+#: block/items/block/item/block-link/edit.js:173
 #: block/items/block/item/edit.js:79
-#: block/items/block/item/standard/edit.js:170
-#: block/media-text/block/edit.js:223
-#: block/panels/block/item/horizontal/edit.js:164
-#: block/panels/block/item/vertical/edit.js:149
-#: block/section-break-the-grid/block/edit.js:301
+#: block/items/block/item/standard/edit.js:173
+#: block/media-text/block/edit.js:226
+#: block/panels/block/item/horizontal/edit.js:167
+#: block/panels/block/item/vertical/edit.js:152
+#: block/section-break-the-grid/block/edit.js:304
 #: block/section-side-heading/block/edit.js:236
 #: block/section-with-bgimage/block/edit.js:239
 #: block/section-with-bgimage/block/edit.js:267
@@ -879,11 +879,11 @@ msgstr "項目ブロックの子ブロックです。"
 msgid "Title Tag"
 msgstr "タイトルタグ"
 
-#: block/items/block/item/block-link/edit.js:280
+#: block/items/block/item/block-link/edit.js:283
 #: block/items/block/item/edit.js:214
-#: block/items/block/item/standard/edit.js:279
-#: block/panels/block/item/horizontal/edit.js:250
-#: block/panels/block/item/vertical/edit.js:219
+#: block/items/block/item/standard/edit.js:282
+#: block/panels/block/item/horizontal/edit.js:253
+#: block/panels/block/item/vertical/edit.js:222
 #: block/testimonial/block/item/edit.js:80
 msgid "Write content…"
 msgstr "内容を書く…"
@@ -985,58 +985,58 @@ msgstr "アイコンリスト"
 msgid "Icons are displayed only on the actual screen."
 msgstr "アイコンは実際の画面でのみ表示されます。"
 
-#: block/media-text/block/edit.js:173
-#: block/panels/block/item/horizontal/edit.js:191
-#: block/step/block/item/standard/edit.js:164
+#: block/media-text/block/edit.js:176
+#: block/panels/block/item/horizontal/edit.js:194
+#: block/step/block/item/standard/edit.js:167
 msgid "Image Position"
 msgstr "画像の位置"
 
-#: block/media-text/block/edit.js:178
-#: block/panels/block/item/horizontal/edit.js:196
-#: block/section-break-the-grid/block/edit.js:337
+#: block/media-text/block/edit.js:181
+#: block/panels/block/item/horizontal/edit.js:199
+#: block/section-break-the-grid/block/edit.js:340
 #: block/section-side-heading/block/edit.js:268
 #: block/section-with-bgimage/block/edit.js:326
 #: block/section-with-bgvideo/block/edit.js:248
-#: block/step/block/item/standard/edit.js:178
+#: block/step/block/item/standard/edit.js:181
 msgid "Right side"
 msgstr "右側"
 
-#: block/media-text/block/edit.js:182
-#: block/panels/block/item/horizontal/edit.js:200
-#: block/section-break-the-grid/block/edit.js:333
+#: block/media-text/block/edit.js:185
+#: block/panels/block/item/horizontal/edit.js:203
+#: block/section-break-the-grid/block/edit.js:336
 #: block/section-side-heading/block/edit.js:272
 #: block/section-with-bgimage/block/edit.js:318
 #: block/section-with-bgvideo/block/edit.js:240
-#: block/step/block/item/standard/edit.js:170
+#: block/step/block/item/standard/edit.js:173
 msgid "Left side"
 msgstr "左側"
 
-#: block/media-text/block/edit.js:190
+#: block/media-text/block/edit.js:193
 msgid "Image Column Size"
 msgstr "画像カラムのサイズ"
 
-#: block/media-text/block/edit.js:197
+#: block/media-text/block/edit.js:200
 msgid "66%"
 msgstr "66%"
 
-#: block/media-text/block/edit.js:201 block/pricing-table/block/edit.js:56
+#: block/media-text/block/edit.js:204 block/pricing-table/block/edit.js:56
 #: block/section-side-heading/block/edit.js:288
 msgid "50%"
 msgstr "50%"
 
-#: block/media-text/block/edit.js:205 block/pricing-table/block/edit.js:52
+#: block/media-text/block/edit.js:208 block/pricing-table/block/edit.js:52
 #: block/section-side-heading/block/edit.js:292
 msgid "33%"
 msgstr "33%"
 
-#: block/media-text/block/edit.js:209 block/pricing-table/block/edit.js:48
-#: block/section-break-the-grid/block/edit.js:461
+#: block/media-text/block/edit.js:212 block/pricing-table/block/edit.js:48
+#: block/section-break-the-grid/block/edit.js:464
 #: block/section-side-heading/block/edit.js:296
 msgid "25%"
 msgstr "25%"
 
-#: block/media-text/block/edit.js:304 block/slider/block/item/edit.js:147
-#: block/thumbnail-gallery/block/item/edit.js:112
+#: block/media-text/block/edit.js:307 block/slider/block/item/edit.js:178
+#: block/thumbnail-gallery/block/item/edit.js:115
 msgid "Write caption…"
 msgstr "キャプションを書く…"
 
@@ -1115,7 +1115,7 @@ msgid "Display the menu name and the price."
 msgstr "メニュー名と価格を表示します。"
 
 #: block/price-menu/block/item/edit.js:36
-#: block/pricing-table/block/item/edit.js:235
+#: block/pricing-table/block/item/edit.js:238
 msgid "Write price…"
 msgstr "価格を書く…"
 
@@ -1213,153 +1213,153 @@ msgstr "HTML 許可"
 msgid "You can display recent posts with richer."
 msgstr "最近の投稿をよりリッチに表示できます。"
 
-#: block/section-break-the-grid/block/edit.js:273
+#: block/section-break-the-grid/block/edit.js:276
 #: block/section-side-heading/block/edit.js:208 block/section/block/edit.js:211
 msgid "Wrapper Tag"
 msgstr "大枠のタグ"
 
-#: block/section-break-the-grid/block/edit.js:328
+#: block/section-break-the-grid/block/edit.js:331
 msgid "Image position"
 msgstr "画像の位置"
 
-#: block/section-break-the-grid/block/edit.js:352
+#: block/section-break-the-grid/block/edit.js:355
 msgid "image Size Adjustment"
 msgstr "画像サイズ調整"
 
-#: block/section-break-the-grid/block/edit.js:359
-#: block/section-break-the-grid/block/edit.js:418
-#: block/section-break-the-grid/block/edit.js:441
-#: block/section-break-the-grid/block/edit.js:477
+#: block/section-break-the-grid/block/edit.js:362
+#: block/section-break-the-grid/block/edit.js:421
+#: block/section-break-the-grid/block/edit.js:444
+#: block/section-break-the-grid/block/edit.js:480
 msgid "+-0%"
 msgstr "+-0%"
 
-#: block/section-break-the-grid/block/edit.js:363
-#: block/section-break-the-grid/block/edit.js:426
+#: block/section-break-the-grid/block/edit.js:366
+#: block/section-break-the-grid/block/edit.js:429
 msgid "+40%"
 msgstr "+40%"
 
-#: block/section-break-the-grid/block/edit.js:367
+#: block/section-break-the-grid/block/edit.js:370
 msgid "+80%"
 msgstr "+80%"
 
-#: block/section-break-the-grid/block/edit.js:375
+#: block/section-break-the-grid/block/edit.js:378
 msgid "Vertical Alignment"
 msgstr "縦方向の位置揃え"
 
-#: block/section-break-the-grid/block/edit.js:382
+#: block/section-break-the-grid/block/edit.js:385
 msgid "Top"
 msgstr "上"
 
-#: block/section-break-the-grid/block/edit.js:386
+#: block/section-break-the-grid/block/edit.js:389
 msgid "Middle"
 msgstr "中央"
 
-#: block/section-break-the-grid/block/edit.js:390
+#: block/section-break-the-grid/block/edit.js:393
 msgid "Bottom"
 msgstr "下"
 
-#: block/section-break-the-grid/block/edit.js:398
+#: block/section-break-the-grid/block/edit.js:401
 msgid "Contents Settings"
 msgstr "コンテンツの設定"
 
-#: block/section-break-the-grid/block/edit.js:403
+#: block/section-break-the-grid/block/edit.js:406
 msgid "Content Size Adjustment"
 msgstr "コンテンツサイズ調整"
 
-#: block/section-break-the-grid/block/edit.js:410
+#: block/section-break-the-grid/block/edit.js:413
 msgid "-40%"
 msgstr "-40%"
 
-#: block/section-break-the-grid/block/edit.js:414
+#: block/section-break-the-grid/block/edit.js:417
 msgid "-20%"
 msgstr "-20%"
 
-#: block/section-break-the-grid/block/edit.js:422
+#: block/section-break-the-grid/block/edit.js:425
 msgid "+20%"
 msgstr "+20%"
 
-#: block/section-break-the-grid/block/edit.js:434
+#: block/section-break-the-grid/block/edit.js:437
 msgid "Degree of overlap of content to image"
 msgstr "画像とコンテンツの重なり具合"
 
-#: block/section-break-the-grid/block/edit.js:445
+#: block/section-break-the-grid/block/edit.js:448
 msgid "5%"
 msgstr "5%"
 
-#: block/section-break-the-grid/block/edit.js:449
+#: block/section-break-the-grid/block/edit.js:452
 msgid "10%"
 msgstr "10%"
 
-#: block/section-break-the-grid/block/edit.js:453
+#: block/section-break-the-grid/block/edit.js:456
 msgid "15%"
 msgstr "15%"
 
-#: block/section-break-the-grid/block/edit.js:457
+#: block/section-break-the-grid/block/edit.js:460
 msgid "20%"
 msgstr "20%"
 
-#: block/section-break-the-grid/block/edit.js:470
+#: block/section-break-the-grid/block/edit.js:473
 msgid "Vertical position of content"
 msgstr "コンテンツの縦位置"
 
-#: block/section-break-the-grid/block/edit.js:484
-#: block/section-break-the-grid/block/edit.js:495
-#: block/section-break-the-grid/block/edit.js:506
-#: block/section-break-the-grid/block/edit.js:517
+#: block/section-break-the-grid/block/edit.js:487
+#: block/section-break-the-grid/block/edit.js:498
+#: block/section-break-the-grid/block/edit.js:509
+#: block/section-break-the-grid/block/edit.js:520
 msgid "Move %1$s up"
 msgstr "上に %1$s 移動"
 
-#: block/section-break-the-grid/block/edit.js:528
-#: block/section-break-the-grid/block/edit.js:539
-#: block/section-break-the-grid/block/edit.js:550
-#: block/section-break-the-grid/block/edit.js:561
+#: block/section-break-the-grid/block/edit.js:531
+#: block/section-break-the-grid/block/edit.js:542
+#: block/section-break-the-grid/block/edit.js:553
+#: block/section-break-the-grid/block/edit.js:564
 msgid "Move %1$s down"
 msgstr "下に %1$s 移動"
 
-#: block/section-break-the-grid/block/edit.js:585
+#: block/section-break-the-grid/block/edit.js:588
 msgid "Content Padding"
 msgstr "コンテンツの余白"
 
-#: block/section-break-the-grid/block/edit.js:590
+#: block/section-break-the-grid/block/edit.js:593
 msgid "None"
 msgstr "なし"
 
-#: block/section-break-the-grid/block/edit.js:594
+#: block/section-break-the-grid/block/edit.js:597
 msgid "S"
 msgstr "S"
 
-#: block/section-break-the-grid/block/edit.js:598
+#: block/section-break-the-grid/block/edit.js:601
 msgid "M"
 msgstr "M"
 
-#: block/section-break-the-grid/block/edit.js:602
+#: block/section-break-the-grid/block/edit.js:605
 msgid "L"
 msgstr "L"
 
-#: block/section-break-the-grid/block/edit.js:611
+#: block/section-break-the-grid/block/edit.js:614
 msgid "Remove Outside Padding"
 msgstr "外側の余白を削除"
 
-#: block/section-break-the-grid/block/edit.js:621
+#: block/section-break-the-grid/block/edit.js:624
 msgid "Shadow Settings"
 msgstr "影の設定"
 
-#: block/section-break-the-grid/block/edit.js:626
+#: block/section-break-the-grid/block/edit.js:629
 #: block/section-side-heading/block/edit.js:406
 #: block/section-side-heading/block/edit.js:458 block/section/block/edit.js:398
 #: block/section/block/edit.js:450
 msgid "Color"
 msgstr "色"
 
-#: block/section-break-the-grid/block/edit.js:639
+#: block/section-break-the-grid/block/edit.js:642
 msgid "Horizontal Position"
 msgstr "水平位置"
 
-#: block/section-break-the-grid/block/edit.js:652
+#: block/section-break-the-grid/block/edit.js:655
 msgid "Vertical Position"
 msgstr "垂直位置"
 
-#: block/section-break-the-grid/block/edit.js:694
+#: block/section-break-the-grid/block/edit.js:697
 #: block/section-side-heading/block/edit.js:504
 #: block/section-with-bgimage/block/edit.js:538
 #: block/section-with-bgvideo/block/edit.js:347 block/section/block/edit.js:503
@@ -1462,7 +1462,7 @@ msgstr "コンテンツの水平位置"
 
 #: block/section-with-bgimage/block/edit.js:322
 #: block/section-with-bgvideo/block/edit.js:244
-#: block/step/block/item/standard/edit.js:174
+#: block/step/block/item/standard/edit.js:177
 msgid "Center"
 msgstr "中央"
 
@@ -1594,7 +1594,7 @@ msgid "Express the steps in an easy-to-understand manner."
 msgstr "ステップをわかりやすい手順で表現しましょう。"
 
 #: block/step/block/item/free/edit.js:43
-#: block/step/block/item/standard/edit.js:198
+#: block/step/block/item/standard/edit.js:201
 msgid "Number Color"
 msgstr "番号の色"
 
@@ -1607,15 +1607,15 @@ msgstr "項目（自由入力）"
 msgid "It is a child block of the step block."
 msgstr "ステップブロックの子ブロックです。"
 
-#: block/step/block/item/standard/edit.js:203
+#: block/step/block/item/standard/edit.js:206
 msgid "Link Color"
 msgstr "リンク色"
 
-#: block/step/block/item/standard/edit.js:265
+#: block/step/block/item/standard/edit.js:268
 msgid "Link text"
 msgstr "リンクテキスト"
 
-#: block/taxonomy-posts/block/edit.js:108 block/taxonomy-terms/block/edit.js:63
+#: block/taxonomy-posts/block/edit.js:108 block/taxonomy-terms/block/edit.js:67
 msgid "Loading taxonomies…"
 msgstr "タクソノミーを読み込んでいます…"
 
@@ -1628,14 +1628,10 @@ msgstr "任意のタクソノミーの投稿"
 msgid "You can display recent posts linked to any taxonomy."
 msgstr "任意のタクソノミーに紐付いた最近の投稿を表示できます。"
 
-#: block/taxonomy-terms/block/edit.js:72
+#: block/taxonomy-terms/block/edit.js:76 block/taxonomy-terms/block/edit.js:140
+#: block/taxonomy-terms/block/index.js:14
 msgid "Taxonomy"
 msgstr "タクソノミー"
-
-#: block/taxonomy-terms/block/edit.js:136
-#: block/taxonomy-terms/block/index.js:14
-msgid "Taxonomy terms"
-msgstr "任意のタクソノミーの一覧"
 
 #: block/taxonomy-terms/block/index.js:16
 msgid "You can display terms linked to any taxonomy."
@@ -1705,6 +1701,9 @@ msgstr "メディア"
 #: src/js/component/figure.js:120
 msgid "Video"
 msgstr "動画"
+
+#~ msgid "Taxonomy terms"
+#~ msgstr "任意のタクソノミーの一覧"
 
 #~ msgid "Heading 2"
 #~ msgstr "Heading 2"

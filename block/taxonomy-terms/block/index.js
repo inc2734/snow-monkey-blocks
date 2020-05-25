@@ -11,7 +11,7 @@ import example from './example';
 export const name = 'snow-monkey-blocks/taxonomy-terms';
 
 export const settings = {
-	title: __( 'Taxonomy terms', 'snow-monkey-blocks' ),
+	title: __( 'Taxonomy', 'snow-monkey-blocks' ),
 	description: __(
 		'You can display terms linked to any taxonomy.',
 		'snow-monkey-blocks'

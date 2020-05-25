@@ -136,8 +136,8 @@ export default function( { attributes, setAttributes } ) {
 
 			{ ! taxonomies.length ? (
 				<Placeholder
-					icon="editor-ul"
-					label={ __( 'Taxonomy terms', 'snow-monkey-blocks' ) }
+					icon="tag"
+					label={ __( 'Taxonomy', 'snow-monkey-blocks' ) }
 				>
 					<Spinner />
 				</Placeholder>
