@@ -230,7 +230,7 @@ export const getMediaType = ( media ) => {
  *
  * @param {Array} imageSizes
  * @param {Object} media from getMedia()
- * @return {Object} list of slug:url
+ * @return {Object} list of url, width, height
  */
 export const getResizedImages = ( imageSizes, media ) => {
 	if ( ! media ) {
@@ -241,7 +241,6 @@ export const getResizedImages = ( imageSizes, media ) => {
 		imageSizes,
 		( currentSizes, size ) => {
 			const defaultUrl = get( media, [ 'sizes', size.slug, 'url' ] );
-
 			const mediaDetailsUrl = get( media, [
 				'media_details',
 				'sizes',
@@ -249,9 +248,33 @@ export const getResizedImages = ( imageSizes, media ) => {
 				'source_url',
 			] );
 
+			const defaultWidth = get( media, [ 'sizes', size.slug, 'width' ] );
+			const mediaDetailsWidth = get( media, [
+				'media_details',
+				'sizes',
+				size.slug,
+				'width',
+			] );
+
+			const defaultHeight = get( media, [
+				'sizes',
+				size.slug,
+				'height',
+			] );
+			const mediaDetailsHeight = get( media, [
+				'media_details',
+				'sizes',
+				size.slug,
+				'height',
+			] );
+
 			return {
 				...currentSizes,
-				[ size.slug ]: defaultUrl || mediaDetailsUrl,
+				[ size.slug ]: {
+					url: defaultUrl || mediaDetailsUrl,
+					width: defaultWidth || mediaDetailsWidth,
+					height: defaultHeight || mediaDetailsHeight,
+				},
 			};
 		},
 		{}

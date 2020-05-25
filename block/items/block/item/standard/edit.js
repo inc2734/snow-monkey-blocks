@@ -152,7 +152,10 @@ export default function( {
 	};
 
 	const onChangeImageSizeSlug = ( value ) => {
-		const newImageURL = resizedImages[ value ] || imageURL;
+		let newImageURL = imageURL;
+		if ( !! resizedImages[ value ] && !! resizedImages[ value ].url ) {
+			newImageURL = resizedImages[ value ].url;
+		}
 
 		setAttributes( {
 			imageURL: newImageURL,

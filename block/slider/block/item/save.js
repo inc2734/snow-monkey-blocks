@@ -5,7 +5,16 @@ import classnames from 'classnames';
 import { RichText } from '@wordpress/block-editor';
 
 export default function( { attributes, className } ) {
-	const { imageID, imageURL, imageAlt, caption, url, target } = attributes;
+	const {
+		imageID,
+		imageURL,
+		imageAlt,
+		imageWidth,
+		imageHeight,
+		caption,
+		url,
+		target,
+	} = attributes;
 
 	const classes = classnames( 'smb-slider__item', className );
 
@@ -15,6 +24,8 @@ export default function( { attributes, className } ) {
 				<img
 					src={ imageURL }
 					alt={ imageAlt }
+					width={ !! imageWidth && imageWidth }
+					height={ !! imageHeight && imageHeight }
 					className={ `wp-image-${ imageID }` }
 				/>
 			</div>
