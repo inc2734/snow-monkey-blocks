@@ -34,7 +34,7 @@ export default function( { slug } ) {
 		}
 
 		const { insertBlocks, replaceBlocks, multiSelect } = dispatch(
-			'core/editor'
+			'core/block-editor'
 		);
 
 		const {

@@ -1,6 +1,6 @@
 'use strict';
 
-import Img from 'react-image';
+import { Img } from 'react-image';
 
 export default function( { src, className, loader } ) {
 	return (
