@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2020-05-25 11:07+0900\n"
-"PO-Revision-Date: 2020-05-25 11:07+0900\n"
+"POT-Creation-Date: 2020-05-26 10:52+0900\n"
+"PO-Revision-Date: 2020-05-26 10:54+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -138,7 +138,7 @@ msgstr "アコーディオンのように伸縮するコンテンツエリアを
 #: block/pickup-slider/block/edit.js:43 block/pricing-table/block/edit.js:29
 #: block/pricing-table/block/item/edit.js:171
 #: block/rating-box/block/item/edit.js:45 block/recent-posts/block/edit.js:86
-#: block/section-break-the-grid/block/edit.js:273
+#: block/rss/block/edit.js:99 block/section-break-the-grid/block/edit.js:273
 #: block/section-side-heading/block/edit.js:205
 #: block/section-with-bgimage/block/edit.js:236
 #: block/section-with-bgvideo/block/edit.js:160 block/section/block/edit.js:208
@@ -550,13 +550,13 @@ msgstr "最初の見出しの前に移動"
 
 #: block/contents-outline/block/edit.js:108
 #: block/pickup-slider/block/edit.js:97 block/recent-posts/block/edit.js:153
-#: block/taxonomy-posts/block/edit.js:200
+#: block/rss/block/edit.js:147 block/taxonomy-posts/block/edit.js:200
 msgid "HTML Anchor"
 msgstr "HTML アンカー"
 
 #: block/contents-outline/block/edit.js:110
 #: block/pickup-slider/block/edit.js:99 block/recent-posts/block/edit.js:155
-#: block/taxonomy-posts/block/edit.js:202
+#: block/rss/block/edit.js:149 block/taxonomy-posts/block/edit.js:202
 msgid "Anchors lets you link directly to a section on a page."
 msgstr ""
 "アンカーを使用すると、ページ上のセクションに直接リンクすることができます。"
@@ -1053,7 +1053,7 @@ msgid "Set padding around images"
 msgstr "画像の周りに余白を設定"
 
 #: block/panels/block/index.js:15 block/recent-posts/block/edit.js:125
-#: block/taxonomy-posts/block/edit.js:172
+#: block/rss/block/edit.js:128 block/taxonomy-posts/block/edit.js:172
 msgid "Panels"
 msgstr "パネル"
 
@@ -1177,23 +1177,28 @@ msgstr "レーティングボックスブロックの子ブロックです。"
 msgid "Post Type"
 msgstr "投稿タイプ"
 
-#: block/recent-posts/block/edit.js:99 block/taxonomy-posts/block/edit.js:146
+#: block/recent-posts/block/edit.js:99 block/rss/block/edit.js:102
+#: block/taxonomy-posts/block/edit.js:146
 msgid "Number of posts"
 msgstr "表示する投稿数"
 
-#: block/recent-posts/block/edit.js:107 block/taxonomy-posts/block/edit.js:154
+#: block/recent-posts/block/edit.js:107 block/rss/block/edit.js:110
+#: block/taxonomy-posts/block/edit.js:154
 msgid "Layout"
 msgstr "レイアウト"
 
-#: block/recent-posts/block/edit.js:113 block/taxonomy-posts/block/edit.js:160
+#: block/recent-posts/block/edit.js:113 block/rss/block/edit.js:116
+#: block/taxonomy-posts/block/edit.js:160
 msgid "Rich media"
 msgstr "リッチメディア"
 
-#: block/recent-posts/block/edit.js:117 block/taxonomy-posts/block/edit.js:164
+#: block/recent-posts/block/edit.js:117 block/rss/block/edit.js:120
+#: block/taxonomy-posts/block/edit.js:164
 msgid "Simple"
 msgstr "シンプル"
 
-#: block/recent-posts/block/edit.js:121 block/taxonomy-posts/block/edit.js:168
+#: block/recent-posts/block/edit.js:121 block/rss/block/edit.js:124
+#: block/taxonomy-posts/block/edit.js:168
 msgid "Text"
 msgstr "テキスト"
 
@@ -1201,17 +1206,39 @@ msgstr "テキスト"
 msgid "Ignore sticky posts"
 msgstr "先頭固定表示を除外する"
 
-#: block/recent-posts/block/edit.js:141 block/taxonomy-posts/block/edit.js:188
+#: block/recent-posts/block/edit.js:141 block/rss/block/edit.js:135
+#: block/taxonomy-posts/block/edit.js:188
 msgid "Text if no posts matched"
 msgstr "一致する投稿がない場合のテキスト"
 
-#: block/recent-posts/block/edit.js:144 block/taxonomy-posts/block/edit.js:191
+#: block/recent-posts/block/edit.js:144 block/rss/block/edit.js:138
+#: block/taxonomy-posts/block/edit.js:191
 msgid "Allow HTML"
 msgstr "HTML 許可"
 
 #: block/recent-posts/block/index.js:17
 msgid "You can display recent posts with richer."
 msgstr "最近の投稿をよりリッチに表示できます。"
+
+#: block/rss/block/edit.js:70
+msgid "Enter URL here…"
+msgstr "URL をここに入力…"
+
+#: block/rss/block/edit.js:76
+msgid "Use URL"
+msgstr "URL を使用"
+
+#: block/rss/block/edit.js:90
+msgid "Edit RSS URL"
+msgstr "RSS の URL を編集"
+
+#: block/rss/block/index.js:14
+msgid "RSS"
+msgstr "RSS"
+
+#: block/rss/block/index.js:16
+msgid "Display entries from any RSS or Atom feed."
+msgstr "RSS または Atom フィードからの投稿を表示します。"
 
 #: block/section-break-the-grid/block/edit.js:276
 #: block/section-side-heading/block/edit.js:208 block/section/block/edit.js:211

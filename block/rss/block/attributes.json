@@ -1,0 +1,26 @@
+{
+  "feedURL": {
+    "type": "string",
+    "default": ""
+  },
+  "postsPerPage": {
+     "type": "number",
+     "default": 6
+  },
+  "layout": {
+     "type": "string",
+     "default": "rich-media"
+  },
+  "noPostsText": {
+     "type": "string",
+     "default": ""
+  },
+  "className": {
+     "type": "string",
+     "default": ""
+  },
+  "myAnchor": {
+    "type": "string",
+    "default": ""
+  }
+}

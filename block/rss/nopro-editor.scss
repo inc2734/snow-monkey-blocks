@@ -1,0 +1,11 @@
+@charset 'utf-8';
+
+@import '../../src/css/core/block';
+
+.block-editor-block-types-list__item.editor-block-list-item-snow-monkey-blocks-rss {
+  position: relative;
+
+  &::after {
+    @include pro-badge();
+  }
+}
