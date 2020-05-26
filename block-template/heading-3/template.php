@@ -18,7 +18,7 @@
 			<div class="wp-block-snow-monkey-blocks-container smb-container c-container">
 				<div class="smb-container__body u-slim-width">
 					<!-- wp:paragraph {"align":"center","fontSize":"medium"} -->
-					<p class="has-text-align-center" class="has-medium-font-size">
+					<p class="has-text-align-center has-medium-font-size">
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit
 					</p>
 					<!-- /wp:paragraph -->
