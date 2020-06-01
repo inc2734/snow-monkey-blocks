@@ -53,6 +53,7 @@ https://www.youtube.com/watch?v=uD6omb4TLdA&t=283s
 * Container
 * Price menu
 * Taxonomy terms (Can be used only with Snow Monkey)
+* RSS (Can be used only with Snow Monkey)
 
 = Section blocks =
 
