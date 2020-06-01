@@ -1,5 +1,7 @@
 'use strict';
 
+import { times } from 'lodash';
+
 import ServerSideRender from '@wordpress/server-side-render';
 import { useSelect } from '@wordpress/data';
 import { useMemo } from '@wordpress/element';
@@ -14,6 +16,8 @@ import {
 	TextControl,
 	TextareaControl,
 	Spinner,
+	BaseControl,
+	Button,
 } from '@wordpress/components';
 
 import {
@@ -30,6 +34,7 @@ export default function( { attributes, setAttributes } ) {
 		layout,
 		ignoreStickyPosts,
 		noPostsText,
+		itemTitleTagName,
 		myAnchor,
 	} = attributes;
 
@@ -48,6 +53,8 @@ export default function( { attributes, setAttributes } ) {
 			),
 		[ allPostTypes ]
 	);
+
+	const itemTitleTagNames = [ 'h2', 'h3', 'h4' ];
 
 	const onChangePostType = ( value ) =>
 		setAttributes( {
@@ -126,6 +133,34 @@ export default function( { attributes, setAttributes } ) {
 							},
 						] }
 					/>
+
+					<BaseControl
+						label={ __( 'Title Tag', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/recent-posts/item-title-tag-name"
+					>
+						<div className="smb-list-icon-selector">
+							{ times( itemTitleTagNames.length, ( index ) => {
+								const onClickItemTitleTagName = () =>
+									setAttributes( {
+										itemTitleTagName:
+											itemTitleTagNames[ index ],
+									} );
+
+								return (
+									<Button
+										isDefault
+										isPrimary={
+											itemTitleTagName ===
+											itemTitleTagNames[ index ]
+										}
+										onClick={ onClickItemTitleTagName }
+									>
+										{ itemTitleTagNames[ index ] }
+									</Button>
+								);
+							} ) }
+						</div>
+					</BaseControl>
 
 					<ToggleControl
 						label={ __(

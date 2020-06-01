@@ -23,6 +23,10 @@
     "type": "string",
     "default": ""
   },
+  "itemTitleTagName": {
+    "type": "string",
+    "default": "h3"
+  },
   "className": {
     "type": "string",
     "default": ""

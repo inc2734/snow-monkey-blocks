@@ -1,5 +1,7 @@
 'use strict';
 
+import { times } from 'lodash';
+
 import ServerSideRender from '@wordpress/server-side-render';
 import { __ } from '@wordpress/i18n';
 
@@ -12,6 +14,7 @@ import {
 	TextareaControl,
 	Button,
 	ToolbarGroup,
+	BaseControl,
 } from '@wordpress/components';
 
 import {
@@ -27,7 +30,16 @@ import { toNumber } from '../../../src/js/helper/helper';
 export default function( { attributes, setAttributes } ) {
 	const [ isEditing, setIsEditing ] = useState( ! attributes.feedURL );
 
-	const { feedURL, postsPerPage, layout, noPostsText, myAnchor } = attributes;
+	const {
+		feedURL,
+		postsPerPage,
+		layout,
+		noPostsText,
+		itemTitleTagName,
+		myAnchor,
+	} = attributes;
+
+	const itemTitleTagNames = [ 'h2', 'h3', 'h4' ];
 
 	const onChangeFeedURL = ( value ) =>
 		setAttributes( {
@@ -132,6 +144,34 @@ export default function( { attributes, setAttributes } ) {
 							},
 						] }
 					/>
+
+					<BaseControl
+						label={ __( 'Title Tag', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/rss/item-title-tag-name"
+					>
+						<div className="smb-list-icon-selector">
+							{ times( itemTitleTagNames.length, ( index ) => {
+								const onClickItemTitleTagName = () =>
+									setAttributes( {
+										itemTitleTagName:
+											itemTitleTagNames[ index ],
+									} );
+
+								return (
+									<Button
+										isDefault
+										isPrimary={
+											itemTitleTagName ===
+											itemTitleTagNames[ index ]
+										}
+										onClick={ onClickItemTitleTagName }
+									>
+										{ itemTitleTagNames[ index ] }
+									</Button>
+								);
+							} ) }
+						</div>
+					</BaseControl>
 
 					<TextareaControl
 						label={ __(

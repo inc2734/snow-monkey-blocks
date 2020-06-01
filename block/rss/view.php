@@ -8,6 +8,7 @@ $instance = [
 	'title'          => null,
 	'posts-per-page' => $attributes['postsPerPage'],
 	'layout'         => $attributes['layout'],
+	'item-title-tag' => $attributes['itemTitleTagName'],
 	'link-text'      => null,
 	'link-url'       => null,
 ];

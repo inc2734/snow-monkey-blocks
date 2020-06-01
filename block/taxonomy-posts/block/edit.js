@@ -1,6 +1,6 @@
 'use strict';
 
-import { find } from 'lodash';
+import { find, times } from 'lodash';
 
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
@@ -22,6 +22,7 @@ import {
 	TreeSelect,
 	Placeholder,
 	Spinner,
+	Button,
 } from '@wordpress/components';
 
 import { toNumber, buildTermsTree } from '../../../src/js/helper/helper';
@@ -34,6 +35,7 @@ export default function( { attributes, setAttributes } ) {
 		layout,
 		ignoreStickyPosts,
 		noPostsText,
+		itemTitleTagName,
 		myAnchor,
 	} = attributes;
 
@@ -70,6 +72,8 @@ export default function( { attributes, setAttributes } ) {
 	const selectedTerm = !! terms
 		? find( terms.terms, [ 'id', toNumber( termId ) ] )
 		: [];
+
+	const itemTitleTagNames = [ 'h2', 'h3', 'h4' ];
 
 	const onChangePostsPerPage = ( value ) =>
 		setAttributes( {
@@ -173,6 +177,34 @@ export default function( { attributes, setAttributes } ) {
 							},
 						] }
 					/>
+
+					<BaseControl
+						label={ __( 'Title Tag', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/taxonomy-posts/item-title-tag-name"
+					>
+						<div className="smb-list-icon-selector">
+							{ times( itemTitleTagNames.length, ( index ) => {
+								const onClickItemTitleTagName = () =>
+									setAttributes( {
+										itemTitleTagName:
+											itemTitleTagNames[ index ],
+									} );
+
+								return (
+									<Button
+										isDefault
+										isPrimary={
+											itemTitleTagName ===
+											itemTitleTagNames[ index ]
+										}
+										onClick={ onClickItemTitleTagName }
+									>
+										{ itemTitleTagNames[ index ] }
+									</Button>
+								);
+							} ) }
+						</div>
+					</BaseControl>
 
 					<ToggleControl
 						label={ __(
