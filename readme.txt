@@ -114,6 +114,10 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 
 == Changelog ==
 
+= 8.6.1 =
+* [Recent posts] Change default item thumbnail size. medium to large.
+* [Taxonomy posts] Change default item thumbnail size. medium to large.
+
 = 8.6.0 =
 * Require Snow Monkey v10.7.0 or later.
 * [Slider] Fixed a bug that a margin may be added at the bottom when displaying multiple images.

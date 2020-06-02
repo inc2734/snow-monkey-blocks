@@ -29,7 +29,7 @@
   },
   "itemThumbnailSizeSlug": {
     "type": "string",
-    "default": "medium"
+    "default": "large"
   },
   "className": {
     "type": "string",
