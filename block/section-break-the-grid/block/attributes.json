@@ -43,6 +43,20 @@
     "attribute": "alt",
     "default": ""
   },
+  "imageWidth": {
+    "type": "string",
+    "source": "attribute",
+    "selector": ".smb-section-break-the-grid__figure > img, .smb-section-break-the-grid__figure > video",
+    "attribute": "width",
+    "default": ""
+  },
+  "imageHeight": {
+    "type": "string",
+    "source": "attribute",
+    "selector": ".smb-section-break-the-grid__figure > img, .smb-section-break-the-grid__figure > video",
+    "attribute": "height",
+    "default": ""
+  },
   "imageMediaType": {
     "type": "string"
   },

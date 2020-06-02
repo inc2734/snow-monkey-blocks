@@ -5,7 +5,14 @@ import classnames from 'classnames';
 import { RichText } from '@wordpress/block-editor';
 
 export default function( { attributes, className } ) {
-	const { imageID, imageURL, imageAlt, caption } = attributes;
+	const {
+		imageID,
+		imageURL,
+		imageAlt,
+		imageWidth,
+		imageHeight,
+		caption,
+	} = attributes;
 
 	const classes = classnames( 'smb-thumbnail-gallery__item', className );
 
@@ -15,6 +22,8 @@ export default function( { attributes, className } ) {
 				<img
 					src={ imageURL }
 					alt={ imageAlt }
+					width={ !! imageWidth && imageWidth }
+					height={ !! imageHeight && imageHeight }
 					className={ `wp-image-${ imageID }` }
 				/>
 			</div>

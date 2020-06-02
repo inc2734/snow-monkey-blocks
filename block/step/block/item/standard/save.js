@@ -12,6 +12,8 @@ export default function( { attributes, className } ) {
 		imageID,
 		imageURL,
 		imageAlt,
+		imageWidth,
+		imageHeight,
 		linkLabel,
 		linkURL,
 		linkTarget,
@@ -50,6 +52,8 @@ export default function( { attributes, className } ) {
 						<img
 							src={ imageURL }
 							alt={ imageAlt }
+							width={ !! imageWidth && imageWidth }
+							height={ !! imageHeight && imageHeight }
 							className={ `wp-image-${ imageID }` }
 						/>
 					</div>

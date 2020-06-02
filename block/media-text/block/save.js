@@ -13,6 +13,8 @@ export default function( { attributes, className } ) {
 		imageID,
 		imageURL,
 		imageAlt,
+		imageWidth,
+		imageHeight,
 		imageMediaType,
 		caption,
 		imagePosition,
@@ -43,11 +45,20 @@ export default function( { attributes, className } ) {
 		<img
 			src={ imageURL }
 			alt={ imageAlt }
+			width={ !! imageWidth && imageWidth }
+			height={ !! imageHeight && imageHeight }
 			className={ `wp-image-${ imageID }` }
 		/>
 	);
 
-	const video = <video controls src={ imageURL } />;
+	const video = (
+		<video
+			controls
+			src={ imageURL }
+			width={ !! imageWidth && imageWidth }
+			height={ !! imageHeight && imageHeight }
+		/>
+	);
 
 	let figure;
 	if ( !! imageURL ) {

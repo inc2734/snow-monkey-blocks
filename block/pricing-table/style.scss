@@ -36,7 +36,7 @@
 
         .#{$_prefix}c-row .#{$_prefix}c-row__col {
           flex: 1 0 auto;
-          width: 1% * $key;
+          max-width: 1% * $key;
         }
       }
     }

@@ -45,6 +45,8 @@ export default function( {
 		imageID,
 		imageURL,
 		imageAlt,
+		imageWidth,
+		imageHeight,
 		imageSizeSlug,
 	} = attributes;
 
@@ -94,10 +96,22 @@ export default function( {
 				? media.sizes[ imageSizeSlug ].url
 				: media.url;
 
+		const newImageWidth =
+			!! media.sizes && !! media.sizes[ imageSizeSlug ]
+				? media.sizes[ imageSizeSlug ].width
+				: media.width;
+
+		const newImageHeight =
+			!! media.sizes && !! media.sizes[ imageSizeSlug ]
+				? media.sizes[ imageSizeSlug ].height
+				: media.height;
+
 		setAttributes( {
 			imageURL: newImageURL,
 			imageID: media.id,
 			imageAlt: media.alt,
+			imageWidth: newImageWidth,
+			imageHeight: newImageHeight,
 		} );
 	};
 
@@ -105,6 +119,8 @@ export default function( {
 		setAttributes( {
 			imageURL: '',
 			imageAlt: '',
+			imageWidth: '',
+			imageHeight: '',
 			imageID: 0,
 		} );
 
@@ -136,8 +152,20 @@ export default function( {
 			newImageURL = resizedImages[ value ].url;
 		}
 
+		let newImageWidth = imageWidth;
+		if ( !! resizedImages[ value ] && !! resizedImages[ value ].width ) {
+			newImageWidth = resizedImages[ value ].width;
+		}
+
+		let newImageHeight = imageHeight;
+		if ( !! resizedImages[ value ] && !! resizedImages[ value ].height ) {
+			newImageHeight = resizedImages[ value ].height;
+		}
+
 		setAttributes( {
 			imageURL: newImageURL,
+			imageWidth: newImageWidth,
+			imageHeight: newImageHeight,
 			imageSizeSlug: value,
 		} );
 	};

@@ -21,6 +21,7 @@
   &__figure {
     > img,
     > video {
+      height: auto;
       width: 100%;
     }
   }
