@@ -7,7 +7,7 @@
     "@fortawesome/react-fontawesome": "^0.1.9",
     "@inc2734/for-each-html-nodes": "^0.4.0",
     "@wordpress/browserslist-config": "^2.6.0",
-    "@wordpress/scripts": "9.1.0",
+    "@wordpress/scripts": "10.0.0",
     "autoprefixer": "^9.8.0",
     "classnames": "^2.2.6",
     "cpy-cli": "^3.1.1",
@@ -23,7 +23,7 @@
     "rimraf": "^3.0.2",
     "sass-basis": "^11.0.0",
     "slick-carousel": "^1.8.1",
-    "react-image": "4.0.0"
+    "react-image": "4.0.1"
   },
   "scripts": {
     "block:accordion:clean": "rimraf dist/block/accordion",
