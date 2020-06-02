@@ -27,6 +27,8 @@ export default function( { attributes, className } ) {
 					width={ !! imageWidth && imageWidth }
 					height={ !! imageHeight && imageHeight }
 					className={ `wp-image-${ imageID }` }
+					decoding="auto"
+					loading="auto"
 				/>
 			</div>
 
