@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.4
 Tested up to: 5.4
-Stable tag: 8.6.0
+Stable tag: 8.6.1
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -117,6 +117,7 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 = 8.6.1 =
 * [Recent posts] Change default item thumbnail size. medium to large.
 * [Taxonomy posts] Change default item thumbnail size. medium to large.
+* [Section (with background image/video)] Fixed a problem that large size image can be seen through when setting mask with multiple size images set.
 
 = 8.6.0 =
 * Require Snow Monkey v10.7.0 or later.
