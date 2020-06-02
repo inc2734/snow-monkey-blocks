@@ -19,6 +19,7 @@ $instance = [
 	'layout'              => $attributes['layout'],
 	'ignore-sticky-posts' => $attributes['ignoreStickyPosts'],
 	'item-title-tag'      => $attributes['itemTitleTagName'],
+	'item-thumbnail-size' => $attributes['itemThumbnailSizeSlug'],
 	'link-text'           => null,
 	'link-url'            => null,
 ];

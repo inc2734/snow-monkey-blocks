@@ -35,12 +35,25 @@ export default function( { attributes, setAttributes } ) {
 		ignoreStickyPosts,
 		noPostsText,
 		itemTitleTagName,
+		itemThumbnailSizeSlug,
 		myAnchor,
 	} = attributes;
 
 	const allPostTypes = useSelect( ( select ) => {
 		const { getPostTypes } = select( 'core' );
 		return getPostTypes( { per_page: -1 } ) || [];
+	}, [] );
+
+	const itemThumbnailSizeSlugOption = useSelect( ( select ) => {
+		const { getSettings } = select( 'core/block-editor' );
+		const { imageSizes } = getSettings();
+
+		return imageSizes.map( ( imageSize ) => {
+			return {
+				value: imageSize.slug,
+				label: imageSize.name,
+			};
+		} );
 	}, [] );
 
 	const postTypes = useMemo(
@@ -74,6 +87,11 @@ export default function( { attributes, setAttributes } ) {
 	const onChangeIgnoreStickyPosts = ( value ) =>
 		setAttributes( {
 			ignoreStickyPosts: value,
+		} );
+
+	const onChangeItemThumbnailSizeSlug = ( value ) =>
+		setAttributes( {
+			itemThumbnailSizeSlug: value,
 		} );
 
 	const onChangeNoPostsText = ( value ) =>
@@ -161,6 +179,13 @@ export default function( { attributes, setAttributes } ) {
 							} ) }
 						</div>
 					</BaseControl>
+
+					<SelectControl
+						label={ __( 'Images size', 'snow-monkey-blocks' ) }
+						value={ itemThumbnailSizeSlug }
+						options={ itemThumbnailSizeSlugOption }
+						onChange={ onChangeItemThumbnailSizeSlug }
+					/>
 
 					<ToggleControl
 						label={ __(

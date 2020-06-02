@@ -23,6 +23,10 @@
     "type": "string",
     "default": "h3"
   },
+  "itemThumbnailSizeSlug": {
+    "type": "string",
+    "default": "medium"
+  },
   "className": {
      "type": "string",
      "default": ""
