@@ -73,24 +73,24 @@ export default function( { attributes, className } ) {
 
 	return (
 		<Wrapper className={ classes } style={ sectionStyles }>
-			<div
-				className="smb-section-with-bgimage__mask"
-				style={ maskStyles }
-			/>
 			{ lgImageURL && (
 				<div
 					className={ classnames(
 						bgimageClasses,
 						'smb-section-with-bgimage__bgimage--lg'
 					) }
-					style={ bgimageStyles }
 				>
+					<div
+						className="smb-section-with-bgimage__mask"
+						style={ maskStyles }
+					/>
 					{ ( 'image' === lgImageMediaType ||
 						undefined === lgImageMediaType ) && (
 						<img
 							src={ lgImageURL }
 							alt={ lgImageAlt }
 							className={ `wp-image-${ lgImageID }` }
+							style={ bgimageStyles }
 						/>
 					) }
 					{ 'video' === lgImageMediaType && (
@@ -100,6 +100,7 @@ export default function( { attributes, className } ) {
 							autoPlay
 							muted
 							src={ lgImageURL }
+							style={ bgimageStyles }
 						/>
 					) }
 				</div>
@@ -110,23 +111,28 @@ export default function( { attributes, className } ) {
 						bgimageClasses,
 						'smb-section-with-bgimage__bgimage--md'
 					) }
-					style={ bgimageStyles }
 				>
+					<div
+						className="smb-section-with-bgimage__mask"
+						style={ maskStyles }
+					/>
 					{ ( 'image' === mdImageMediaType ||
 						undefined === mdImageMediaType ) && (
 						<img
 							src={ mdImageURL }
 							alt={ mdImageAlt }
 							className={ `wp-image-${ mdImageID }` }
+							style={ bgimageStyles }
 						/>
 					) }
-					{ 'video' === lgImageMediaType && (
+					{ 'video' === mdImageMediaType && (
 						<video
 							playsinline
 							loop
 							autoPlay
 							muted
 							src={ mdImageURL }
+							style={ bgimageStyles }
 						/>
 					) }
 				</div>
@@ -137,23 +143,28 @@ export default function( { attributes, className } ) {
 						bgimageClasses,
 						'smb-section-with-bgimage__bgimage--sm'
 					) }
-					style={ bgimageStyles }
 				>
+					<div
+						className="smb-section-with-bgimage__mask"
+						style={ maskStyles }
+					/>
 					{ ( 'image' === smImageMediaType ||
 						undefined === smImageMediaType ) && (
 						<img
 							src={ smImageURL }
 							alt={ smImageAlt }
 							className={ `wp-image-${ smImageID }` }
+							style={ bgimageStyles }
 						/>
 					) }
-					{ 'video' === lgImageMediaType && (
+					{ 'video' === smImageMediaType && (
 						<video
 							playsinline
 							loop
 							autoPlay
 							muted
 							src={ smImageURL }
+							style={ bgimageStyles }
 						/>
 					) }
 				</div>
