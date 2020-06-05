@@ -11,7 +11,7 @@
 wp_register_script(
 	'snow-monkey-blocks/countdown',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/countdown/script.js',
-	[ 'moment' ],
+	[],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/countdown/script.js' ),
 	true
 );

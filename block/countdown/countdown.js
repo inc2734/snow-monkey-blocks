@@ -1,15 +1,8 @@
 'use strict';
 
-import moment from 'moment';
-
 export function apply( countdownNode ) {
 	const dataTime = countdownNode.getAttribute( 'data-time' );
 	if ( undefined === dataTime ) {
-		return;
-	}
-
-	const limitedTime = moment( dataTime );
-	if ( undefined === limitedTime ) {
 		return;
 	}
 
@@ -29,42 +22,44 @@ export function apply( countdownNode ) {
 		'.smb-countdown__list-item__seconds .smb-countdown__list-item__numeric'
 	);
 
+	const getTimeDiff = ( dist, src ) => {
+		return new Date( dist ).getTime() - new Date( src ).getTime();
+	};
+
 	const sanitizeDiff = ( diff ) => {
 		return isNaN( diff ) || 0 > diff ? 0 : diff;
 	};
 
-	const setDaysDiff = ( currentTime ) => {
-		const diff = Math.floor( limitedTime.diff( currentTime, 'days' ) );
+	const getDaysDiff = ( currentTime ) => {
+		const timeDiff = getTimeDiff( dataTime, currentTime );
+		const diff = Math.floor( timeDiff / ( 1000 * 60 * 60 * 24 ) );
 		return sanitizeDiff( diff );
 	};
 
-	const setHoursDiff = ( currentTime ) => {
-		const diff = Math.floor(
-			limitedTime.diff( currentTime, 'hours' ) % 24
-		);
+	const getHoursDiff = ( currentTime ) => {
+		const timeDiff = getTimeDiff( dataTime, currentTime );
+		const diff = Math.floor( ( timeDiff / ( 1000 * 60 * 60 ) ) % 24 );
 		return sanitizeDiff( diff );
 	};
 
-	const setMinutesDiff = ( currentTime ) => {
-		const diff = Math.floor(
-			limitedTime.diff( currentTime, 'minutes' ) % 60
-		);
+	const getMinutesDiff = ( currentTime ) => {
+		const timeDiff = getTimeDiff( dataTime, currentTime );
+		const diff = Math.floor( ( timeDiff / ( 1000 * 60 ) ) % 60 );
 		return sanitizeDiff( diff );
 	};
 
-	const setSecondsDiff = ( currentTime ) => {
-		const diff = Math.floor(
-			limitedTime.diff( currentTime, 'seconds' ) % 60
-		);
+	const getSecondsDiff = ( currentTime ) => {
+		const timeDiff = getTimeDiff( dataTime, currentTime );
+		const diff = Math.floor( ( timeDiff / 1000 ) % 60 );
 		return sanitizeDiff( diff );
 	};
 
 	const countdown = () => {
-		const currentTime = moment();
-		const daysDiff = setDaysDiff( currentTime );
-		const hoursDiff = setHoursDiff( currentTime );
-		const minutesDiff = setMinutesDiff( currentTime );
-		const secondsDiff = setSecondsDiff( currentTime );
+		const currentTime = Date.now();
+		const daysDiff = getDaysDiff( currentTime );
+		const hoursDiff = getHoursDiff( currentTime );
+		const minutesDiff = getMinutesDiff( currentTime );
+		const secondsDiff = getSecondsDiff( currentTime );
 
 		day.innerText = daysDiff;
 		hour.innerText = ( '00' + hoursDiff ).slice( -2 );

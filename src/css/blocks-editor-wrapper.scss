@@ -88,3 +88,26 @@
     min-width: 270px;
   }
 }
+
+.smb-date-time-picker {
+  &__action {
+    display: flex;
+    justify-content: space-between;
+
+    .components-button {
+      flex: 0 0 auto;
+    }
+  }
+
+  .components-datetime {
+    .components-datetime__date-help-button {
+      display: none;
+    }
+  }
+
+  [aria-label="Calendar"] {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

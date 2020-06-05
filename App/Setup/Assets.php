@@ -12,7 +12,6 @@ use Snow_Monkey\Plugin\Blocks;
 class Assets {
 	public function __construct() {
 		add_action( 'enqueue_block_editor_assets', [ $this, '_enqueue_block_editor_assets' ] );
-		add_action( 'wp_enqueue_scripts', [ $this, '_wp_enqueue_scripts' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, '_wp_enqueue_pro_scripts' ] );
 		add_action( 'enqueue_block_assets', [ $this, '_enqueue_block_assets' ] );
 		add_action( 'enqueue_block_assets', [ $this, '_enqueue_block_nopro_assets' ] );
@@ -62,15 +61,6 @@ class Assets {
 				'isPro'     => Blocks\is_pro(),
 			]
 		);
-	}
-
-	/**
-	 * Enqueue assets for front
-	 *
-	 * @return void
-	 */
-	public function _wp_enqueue_scripts() {
-		wp_enqueue_script( 'moment' );
 	}
 
 	/**

@@ -9,10 +9,11 @@ import { __ } from '@wordpress/i18n';
 import {
 	PanelBody,
 	BaseControl,
-	DateTimePicker,
 	CheckboxControl,
 	Placeholder,
 } from '@wordpress/components';
+
+import DateTimePicker from '../../../src/js/component/date-time-picker';
 
 export default function( { attributes, setAttributes, className } ) {
 	const { isUseStartDate, startDate, isUseEndDate, endDate } = attributes;
@@ -57,6 +58,8 @@ export default function( { attributes, setAttributes, className } ) {
 			startDate: value,
 		} );
 
+	const onResetStartDate = () => setAttributes( { startDate: null } );
+
 	const onChangeIsUseEndDate = ( value ) =>
 		setAttributes( {
 			isUseEndDate: value,
@@ -66,6 +69,8 @@ export default function( { attributes, setAttributes, className } ) {
 		setAttributes( {
 			endDate: value,
 		} );
+
+	const onResetEndDate = () => setAttributes( { startDate: null } );
 
 	return (
 		<>
@@ -88,6 +93,7 @@ export default function( { attributes, setAttributes, className } ) {
 						<DateTimePicker
 							currentDate={ startDate }
 							onChange={ onChangeStartDate }
+							onReset={ onResetStartDate }
 						/>
 					</BaseControl>
 					<BaseControl
@@ -105,6 +111,7 @@ export default function( { attributes, setAttributes, className } ) {
 						<DateTimePicker
 							currentDate={ endDate }
 							onChange={ onChangeEndDate }
+							onReset={ onResetEndDate }
 						/>
 					</BaseControl>
 				</PanelBody>
