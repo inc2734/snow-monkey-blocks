@@ -13,6 +13,8 @@
     @include _alert();
     @include _position(absolute, 0, 0, 0, 0);
     border: 1px solid _lighter($_color-gray);
+    border-radius: $_border-radius; //for IE11
+    border-radius: _var-border-radius();
   }
 
   &__body {
