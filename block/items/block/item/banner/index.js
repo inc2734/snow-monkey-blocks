@@ -6,6 +6,7 @@ import blockConfig from '../../../../../src/js/config/block';
 import attributes from './attributes.json';
 import edit from './edit';
 import save from './save';
+import deprecated from './deprecated';
 import transforms from './transforms';
 
 export const name = 'snow-monkey-blocks/items--banner';
@@ -25,5 +26,6 @@ export const settings = {
 	attributes,
 	edit,
 	save,
+	deprecated,
 	transforms,
 };

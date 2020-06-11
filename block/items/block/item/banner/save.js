@@ -4,6 +4,8 @@ import classnames from 'classnames';
 
 import { RichText } from '@wordpress/block-editor';
 
+import { stringToInnerText } from '../../../../../src/js/helper/helper';
+
 export default function( { attributes, className } ) {
 	const {
 		title,
@@ -43,13 +45,7 @@ export default function( { attributes, className } ) {
 
 	return (
 		<div className={ classes }>
-			<a
-				className={ bannerClasses }
-				href={ url }
-				target={ '_self' === target ? undefined : target }
-				rel={ '_self' === target ? undefined : 'noopener noreferrer' }
-				style={ styles }
-			>
+			<div className={ bannerClasses } style={ styles }>
 				<div className="smb-items__banner__figure">
 					{ 1 > maskOpacity && (
 						<div
@@ -90,7 +86,23 @@ export default function( { attributes, className } ) {
 						) }
 					</div>
 				) }
-			</a>
+
+				{ !! url && (
+					<div className="smb-items__banner__action">
+						<a
+							href={ url }
+							target={ '_self' === target ? undefined : target }
+							rel={
+								'_self' === target
+									? undefined
+									: 'noopener noreferrer'
+							}
+						>
+							{ stringToInnerText( title ) }
+						</a>
+					</div>
+				) }
+			</div>
 		</div>
 	);
 }

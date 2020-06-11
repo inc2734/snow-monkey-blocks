@@ -34,12 +34,7 @@ export default function( { attributes, className } ) {
 
 	return (
 		<div className={ classes }>
-			<a
-				className="smb-items__item"
-				href={ url }
-				target={ '_self' === target ? undefined : target }
-				rel={ '_self' === target ? undefined : 'noopener noreferrer' }
-			>
+			<div className="smb-items__item smb-items__item--block-link">
 				{ !! imageURL && (
 					<div className="smb-items__item__figure">
 						<img
@@ -74,9 +69,16 @@ export default function( { attributes, className } ) {
 
 				{ ! RichText.isEmpty( btnLabel ) && !! url && (
 					<div className="smb-items__item__action">
-						<span
+						<a
 							className="smb-items__item__btn smb-btn"
+							href={ url }
 							style={ itemBtnStyles }
+							target={ '_self' === target ? undefined : target }
+							rel={
+								'_self' === target
+									? undefined
+									: 'noopener noreferrer'
+							}
 						>
 							<span
 								className="smb-btn__label"
@@ -84,10 +86,10 @@ export default function( { attributes, className } ) {
 							>
 								<RichText.Content value={ btnLabel } />
 							</span>
-						</span>
+						</a>
 					</div>
 				) }
-			</a>
+			</div>
 		</div>
 	);
 }

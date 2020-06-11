@@ -16,6 +16,31 @@
 
   &__item {
     display: block;
+    position: relative;
+
+    &--block-link {
+      @include _transition(filter);
+
+      @include _hover(lg) {
+        filter: brightness(90%);
+      }
+
+      :not(.smb-items__item__action) a {
+        position: relative;
+        z-index: 1;
+      }
+
+      .smb-items__item__action {
+        a {
+          filter: none !important; // Patch to blink
+
+          &::after {
+            content: '';
+            @include _position(absolute, 0, 0, 0, 0);
+          }
+        }
+      }
+    }
 
     &__figure {
       @include _margin-bottom(.5);
@@ -49,8 +74,8 @@
 
   &__banner {
     position: relative;
-    display: block;
-    text-decoration: none;
+    //display: block;
+    //text-decoration: none;
     overflow: hidden;
     background-color: #fff;
     color: #fff;
@@ -146,6 +171,11 @@
       align-items: center;
       justify-content: center;
       @include _padding(1);
+
+      a {
+        position: relative;
+        z-index: 1;
+      }
     }
 
     &__title {
@@ -156,6 +186,15 @@
       @include _margin-top(.25);
       @include _font-size($_base-font-size-px - 4);
       line-height: 1.4;
+    }
+
+    &__action {
+      font-size: 0 !important;
+
+      > a::after {
+        content: '';
+        @include _position(absolute, 0, 0, 0, 0);
+      }
     }
   }
 }

@@ -160,12 +160,11 @@ export default function( {
 			btnLabel: value,
 		} );
 
-	const onChangeUrl = ( { url: newUrl, opensInNewTab } ) => {
+	const onChangeUrl = ( { url: newUrl, opensInNewTab } ) =>
 		setAttributes( {
 			url: newUrl,
 			target: ! opensInNewTab ? '_self' : '_blank',
 		} );
-	};
 
 	const onChangeImageSizeSlug = ( value ) => {
 		let newImageURL = imageURL;
@@ -372,6 +371,16 @@ export default function( {
 							aria-expanded={ isLinkUIOpen }
 							onClick={ toggleLinkUIOpen }
 						/>
+
+						{ !! url && (
+							<Button
+								isPressed
+								icon="editor-unlink"
+								className="components-toolbar__control"
+								label={ __( 'Unlink', 'snow-monkey-blocks' ) }
+								onClick={ () => onChangeUrl( '', false ) }
+							/>
+						) }
 					</ToolbarGroup>
 				</BlockControls>
 			) }
