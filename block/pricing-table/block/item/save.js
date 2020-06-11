@@ -67,7 +67,7 @@ export default function( { attributes, className } ) {
 					<RichText.Content value={ list } />
 				</ul>
 
-				{ ( ! RichText.isEmpty( btnLabel ) || !! btnURL ) && (
+				{ ( ! RichText.isEmpty( btnLabel ) && !! btnURL ) && (
 					<div className="smb-pricing-table__item__action">
 						<a
 							className="smb-pricing-table__item__btn smb-btn"
