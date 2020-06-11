@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
 "POT-Creation-Date: 2020-06-11 13:06+0900\n"
-"PO-Revision-Date: 2020-06-11 13:06+0900\n"
+"PO-Revision-Date: 2020-06-11 13:17+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -838,7 +838,7 @@ msgstr "ぼかす"
 #: block/section-with-bgimage/block/edit.js:405
 #: block/section-with-bgvideo/block/edit.js:285
 msgid "Mask Opacity"
-msgstr "背景マスクの透明度"
+msgstr "背景マスクの不透明度"
 
 #: block/items/block/item/banner/edit.js:282
 #: block/section-with-bgimage/block/edit.js:391

@@ -125,7 +125,7 @@ export default function( {
 
 	const onChangeMaskOpacity = ( value ) =>
 		setAttributes( {
-			maskOpacity: toNumber( value, 0, 1 ),
+			maskOpacity: toNumber( Math.abs( 1 - value ), 0, 1 ),
 		} );
 
 	const onChangeMaskColor2 = ( value ) =>
@@ -283,7 +283,7 @@ export default function( {
 				>
 					<RangeControl
 						label={ __( 'Mask Opacity', 'snow-monkey-blocks' ) }
-						value={ maskOpacity }
+						value={ Math.abs( 1 - maskOpacity ) }
 						onChange={ onChangeMaskOpacity }
 						min={ 0 }
 						max={ 1 }

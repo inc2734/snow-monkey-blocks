@@ -31,7 +31,7 @@ export default function( { attributes, setAttributes, className } ) {
 		backgroundColor: backgroundColor || undefined,
 		borderColor: borderColor || undefined,
 		borderWidth: borderWidth || undefined,
-		opacity: Math.abs( opacity ),
+		opacity,
 	};
 
 	const classes = classnames( 'smb-box', className );
