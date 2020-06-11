@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2020-06-11 12:20+0900\n"
-"PO-Revision-Date: 2020-06-11 12:20+0900\n"
+"POT-Creation-Date: 2020-06-11 13:06+0900\n"
+"PO-Revision-Date: 2020-06-11 13:06+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -120,7 +120,7 @@ msgid ""
 msgstr "アコーディオンのように伸縮するコンテンツエリアを設定できます。"
 
 #: block/accordion/block/item/edit.js:33 block/alert/block/edit.js:81
-#: block/balloon/block/edit.js:88 block/box/block/edit.js:53
+#: block/balloon/block/edit.js:88 block/box/block/edit.js:62
 #: block/btn/block/edit.js:87 block/categories-list/block/edit.js:190
 #: block/child-pages/block/edit.js:19 block/container/block/edit.js:27
 #: block/contents-outline/block/edit.js:63 block/countdown/block/edit.js:64
@@ -261,7 +261,7 @@ msgstr "吹き出し"
 msgid "Reverse Balloon"
 msgstr "逆の吹き出し"
 
-#: block/balloon/block/edit.js:114 block/box/block/edit.js:65
+#: block/balloon/block/edit.js:114 block/box/block/edit.js:83
 #: block/btn-box/block/edit.js:125 block/btn/block/edit.js:110
 #: block/countdown/block/edit.js:72
 #: block/directory-structure/block/item/directory/edit.js:126
@@ -298,22 +298,26 @@ msgstr "吹き出し"
 msgid "It is a block that can express a conversation."
 msgstr "会話を表現できるブロックです。"
 
-#: block/box/block/edit.js:56
+#: block/box/block/edit.js:65
 msgid "Border width"
 msgstr "枠線の太さ"
 
-#: block/box/block/edit.js:72 block/btn-box/block/edit.js:132
+#: block/box/block/edit.js:73
+msgid "Background Opacity"
+msgstr "背景の不透明度"
+
+#: block/box/block/edit.js:90 block/btn-box/block/edit.js:132
 #: block/btn/block/edit.js:117 block/pricing-table/block/item/edit.js:216
 #: block/section-break-the-grid/block/edit.js:605
 #: block/section-side-heading/block/edit.js:319 block/section/block/edit.js:311
 msgid "Background Color"
 msgstr "背景色"
 
-#: block/box/block/edit.js:79
+#: block/box/block/edit.js:97
 msgid "Border Color"
 msgstr "枠線の色"
 
-#: block/box/block/edit.js:84 block/btn/block/edit.js:124
+#: block/box/block/edit.js:102 block/btn/block/edit.js:124
 #: block/items/block/item/banner/edit.js:287
 #: block/pricing-table/block/item/edit.js:223
 #: block/section-break-the-grid/block/edit.js:701

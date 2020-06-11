@@ -15,13 +15,23 @@ import {
 import { toNumber } from '../../../src/js/helper/helper';
 
 export default function( { attributes, setAttributes, className } ) {
-	const { backgroundColor, borderColor, textColor, borderWidth } = attributes;
+	const {
+		backgroundColor,
+		borderColor,
+		textColor,
+		borderWidth,
+		opacity,
+	} = attributes;
 
 	const boxStyles = {
+		color: textColor || undefined,
+	};
+
+	const backgroundStyles = {
 		backgroundColor: backgroundColor || undefined,
 		borderColor: borderColor || undefined,
-		color: textColor || undefined,
 		borderWidth: borderWidth || undefined,
+		opacity: Math.abs( opacity ),
 	};
 
 	const classes = classnames( 'smb-box', className );
@@ -29,6 +39,11 @@ export default function( { attributes, setAttributes, className } ) {
 	const onChangeBorderWidth = ( value ) =>
 		setAttributes( {
 			borderWidth: toNumber( value, 1, 5 ),
+		} );
+
+	const onChangeOpacity = ( value ) =>
+		setAttributes( {
+			opacity: toNumber( value, 0, 1 ),
 		} );
 
 	const onChangeBackgroundColor = ( value ) =>
@@ -58,6 +73,18 @@ export default function( { attributes, setAttributes, className } ) {
 						onChange={ onChangeBorderWidth }
 						min="1"
 						max="5"
+					/>
+
+					<RangeControl
+						label={ __(
+							'Background Opacity',
+							'snow-monkey-blocks'
+						) }
+						value={ opacity }
+						onChange={ onChangeOpacity }
+						min={ 0 }
+						max={ 1 }
+						step={ 0.1 }
 					/>
 				</PanelBody>
 
@@ -93,6 +120,10 @@ export default function( { attributes, setAttributes, className } ) {
 			</InspectorControls>
 
 			<div className={ classes } style={ boxStyles }>
+				<div
+					className="smb-box__background"
+					style={ backgroundStyles }
+				/>
 				<div className="smb-box__body">
 					<InnerBlocks />
 				</div>

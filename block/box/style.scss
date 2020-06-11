@@ -3,12 +3,19 @@
 @import '../../src/css/core/block';
 
 .smb-box {
-  @include _alert();
-  border: 1px solid _lighter($_color-gray);
+  position: relative;
   border-radius: $_border-radius; //for IE11
   border-radius: _var-border-radius();
   @include _padding(1);
+  overflow: hidden;
+
+  &__background {
+    @include _alert();
+    @include _position(absolute, 0, 0, 0, 0);
+    border: 1px solid _lighter($_color-gray);
+  }
 
   &__body {
+    position: relative;
   }
 }
