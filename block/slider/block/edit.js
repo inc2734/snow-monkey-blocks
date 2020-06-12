@@ -9,7 +9,33 @@ import { __ } from '@wordpress/i18n';
 import { toNumber } from '../../../src/js/helper/helper';
 import ResponsiveTabPanel from '../../../src/js/component/responsive-tab-panel';
 
-export default function( { attributes, setAttributes, className } ) {
+
+
+import forEachHtmlNodes from '@inc2734/for-each-html-nodes';
+import { useSelect } from '@wordpress/data';
+import { useEffect } from '@wordpress/element';
+import { apply } from '../slider';
+import { generateConfig } from './utils';
+import $ from 'jquery';
+import 'slick-carousel';
+
+export default function( { attributes, setAttributes, className, isSelected, clientId } ) {
+	const { hasSelectedInnerBlock, getBlockOrder, getBlock } = useSelect( ( select ) => {
+		return select( 'core/block-editor' );
+	}, [ isSelected ] );
+
+	useEffect( () => {
+		const sliders = document.querySelectorAll( '[data-smb-slider]' );
+		forEachHtmlNodes( sliders, apply );
+		//const sliders = document.querySelectorAll( '.smb-slider__canvas' );
+		//forEachHtmlNodes( sliders, ( slider ) => {
+		//	$( slider ).slick();
+		//} );
+	}, [ isSelected ] );
+
+	const childBlocks = getBlockOrder( clientId ).map( ( innerBlockId ) => getBlock( innerBlockId ) );
+	const childBlocksDOMString = childBlocks.map( ( block ) => block.originalContent ).join( '' );
+
 	const {
 		slidesToShow,
 		slidesToScroll,
@@ -20,6 +46,7 @@ export default function( { attributes, setAttributes, className } ) {
 		dots,
 		arrows,
 		speed,
+		autoplay,
 		autoplaySpeed,
 		fade,
 		rtl,
@@ -94,6 +121,24 @@ export default function( { attributes, setAttributes, className } ) {
 		setAttributes( {
 			smSlidesToScroll: toNumber( value, 1, 6 ),
 		} );
+
+		const config = generateConfig( {
+			slidesToShow,
+			slidesToScroll,
+			mdSlidesToShow,
+			mdSlidesToScroll,
+			smSlidesToShow,
+			smSlidesToScroll,
+			dots,
+			arrows,
+			speed,
+			autoplay,
+			autoplaySpeed: autoplaySpeed * 1000,
+			fade,
+			rtl,
+		} );
+
+		const dir = true === config.rtl ? 'rtl' : 'ltr';
 
 	return (
 		<>
@@ -226,15 +271,26 @@ export default function( { attributes, setAttributes, className } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<div className={ classes }>
-				<div className="smb-slider__canvas">
-					<InnerBlocks
-						allowedBlocks={ allowedBlocks }
-						template={ template }
-						templateLock={ false }
+			{ ! isSelected && ! hasSelectedInnerBlock( clientId ) ? (
+				<div className={ classes }>
+					<div
+						className="smb-slider__canvas"
+						dir={ dir }
+						data-smb-slider={ JSON.stringify( config ) }
+						dangerouslySetInnerHTML={ { __html: childBlocksDOMString } }
 					/>
 				</div>
-			</div>
+			) : (
+				<div className={ classes }>
+					<div className="smb-slider__canvas">
+						<InnerBlocks
+							allowedBlocks={ allowedBlocks }
+							template={ template }
+							templateLock={ false }
+						/>
+					</div>
+				</div>
+			) }
 		</>
 	);
 }
