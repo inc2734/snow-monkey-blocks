@@ -21,6 +21,7 @@ export default function( { attributes, className } ) {
 		autoplaySpeed,
 		fade,
 		rtl,
+		aspectRatio,
 	} = attributes;
 
 	const config = generateConfig( {
@@ -39,7 +40,10 @@ export default function( { attributes, className } ) {
 		rtl,
 	} );
 
-	const classes = classnames( 'smb-slider', className );
+	const classes = classnames( 'smb-slider', className, {
+		[ `smb-slider--${ aspectRatio }` ]: !! aspectRatio,
+	} );
+
 	const dir = true === config.rtl ? 'rtl' : 'ltr';
 
 	return (

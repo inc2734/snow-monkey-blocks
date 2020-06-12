@@ -2,7 +2,12 @@
 
 import classnames from 'classnames';
 
-import { PanelBody, RangeControl, ToggleControl } from '@wordpress/components';
+import {
+	PanelBody,
+	RangeControl,
+	ToggleControl,
+	SelectControl,
+} from '@wordpress/components';
 import { InspectorControls, InnerBlocks } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 
@@ -23,12 +28,28 @@ export default function( { attributes, setAttributes, className } ) {
 		autoplaySpeed,
 		fade,
 		rtl,
+		aspectRatio,
 	} = attributes;
 
 	const allowedBlocks = [ 'snow-monkey-blocks/slider--item' ];
 	const template = [ [ 'snow-monkey-blocks/slider--item' ] ];
 
 	const classes = classnames( 'smb-slider', className );
+
+	const aspectRatioOptions = [
+		{
+			value: '',
+			label: __( 'Default', 'snow-monkey-blocks' ),
+		},
+		{
+			value: '16to9',
+			label: __( '16:9', 'snow-monkey-blocks' ),
+		},
+		{
+			value: '4to3',
+			label: __( '4:3', 'snow-monkey-blocks' ),
+		},
+	];
 
 	const onChangeDots = ( value ) =>
 		setAttributes( {
@@ -63,6 +84,11 @@ export default function( { attributes, setAttributes, className } ) {
 	const onChangeRtl = ( value ) =>
 		setAttributes( {
 			rtl: value,
+		} );
+
+	const onChangeAspectRatio = ( value ) =>
+		setAttributes( {
+			aspectRatio: value,
 		} );
 
 	const onChangeSlidesToShow = ( value ) =>
@@ -109,11 +135,13 @@ export default function( { attributes, setAttributes, className } ) {
 						checked={ dots }
 						onChange={ onChangeDots }
 					/>
+
 					<ToggleControl
 						label={ __( 'Prev/Next Arrows', 'snow-monkey-blocks' ) }
 						checked={ arrows }
 						onChange={ onChangeArrows }
 					/>
+
 					<RangeControl
 						label={ __(
 							'Slide animation speed in milliseconds',
@@ -125,6 +153,7 @@ export default function( { attributes, setAttributes, className } ) {
 						max="1000"
 						step="100"
 					/>
+
 					<RangeControl
 						label={ __(
 							'Autoplay Speed in seconds',
@@ -135,11 +164,13 @@ export default function( { attributes, setAttributes, className } ) {
 						min="0"
 						max="10"
 					/>
+
 					<ToggleControl
 						label={ __( 'Enable fade', 'snow-monkey-blocks' ) }
 						checked={ fade }
 						onChange={ onChangeFade }
 					/>
+
 					<ToggleControl
 						label={ __(
 							"Change the slider's direction to become right-to-left",
@@ -147,6 +178,13 @@ export default function( { attributes, setAttributes, className } ) {
 						) }
 						checked={ rtl }
 						onChange={ onChangeRtl }
+					/>
+
+					<SelectControl
+						label={ __( 'Aspect ratio', 'snow-monkey-blocks' ) }
+						value={ aspectRatio }
+						onChange={ onChangeAspectRatio }
+						options={ aspectRatioOptions }
 					/>
 
 					<ResponsiveTabPanel
