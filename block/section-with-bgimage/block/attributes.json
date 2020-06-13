@@ -129,8 +129,7 @@
     "default": 1
   },
   "textColor": {
-    "type": "string",
-    "default": "#fff"
+    "type": "string"
   },
   "parallax": {
     "type": "boolean",

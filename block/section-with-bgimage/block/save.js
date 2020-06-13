@@ -80,10 +80,12 @@ export default function( { attributes, className } ) {
 						'smb-section-with-bgimage__bgimage--lg'
 					) }
 				>
-					<div
-						className="smb-section-with-bgimage__mask"
-						style={ maskStyles }
-					/>
+					{ 0 < Math.abs( 1 - maskOpacity ) && (
+						<div
+							className="smb-section-with-bgimage__mask"
+							style={ maskStyles }
+						/>
+					) }
 					{ ( 'image' === lgImageMediaType ||
 						undefined === lgImageMediaType ) && (
 						<img
@@ -112,10 +114,12 @@ export default function( { attributes, className } ) {
 						'smb-section-with-bgimage__bgimage--md'
 					) }
 				>
-					<div
-						className="smb-section-with-bgimage__mask"
-						style={ maskStyles }
-					/>
+					{ 0 < Math.abs( 1 - maskOpacity ) && (
+						<div
+							className="smb-section-with-bgimage__mask"
+							style={ maskStyles }
+						/>
+					) }
 					{ ( 'image' === mdImageMediaType ||
 						undefined === mdImageMediaType ) && (
 						<img
@@ -144,10 +148,12 @@ export default function( { attributes, className } ) {
 						'smb-section-with-bgimage__bgimage--sm'
 					) }
 				>
-					<div
-						className="smb-section-with-bgimage__mask"
-						style={ maskStyles }
-					/>
+					{ 0 < Math.abs( 1 - maskOpacity ) && (
+						<div
+							className="smb-section-with-bgimage__mask"
+							style={ maskStyles }
+						/>
+					) }
 					{ ( 'image' === smImageMediaType ||
 						undefined === smImageMediaType ) && (
 						<img
