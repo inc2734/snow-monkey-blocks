@@ -87,7 +87,7 @@ class Assets {
 			'snow-monkey-blocks-background-parallax',
 			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/css/background-parallax.css',
 			[ 'snow-monkey-blocks' ],
-			filemtime(SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/background-parallax.css' )
+			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/background-parallax.css' )
 		);
 	}
 

@@ -1,6 +1,5 @@
 .js-bg-parallax {
   position: relative;
-  transition: opacity .1s ease-in;
   overflow: hidden;
 
   &[data-is-mobile="true"] {
@@ -8,6 +7,7 @@
 
   &[data-is-loaded="true"] {
     .js-bg-parallax__bgimage {
+      opacity: 1;
       position: absolute;
       top: 0;
       right: 0;
@@ -16,15 +16,21 @@
 
       > img {
         position: absolute;
-        top: 50%;
+        top: 0;
         left: 0;
         height: auto;
         width: 100%;
         min-height: 100%;
+        max-height: none;
         will-change: transform;
-        transform: translate3d(0, -50%, 0);
+        transform: translate3d(0, 0, 0);
       }
     }
+  }
+
+  &__bgimage {
+    opacity: 0;
+    transition: opacity .1s ease-in;
   }
 
   &__content {

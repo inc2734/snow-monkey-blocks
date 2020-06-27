@@ -22,11 +22,13 @@ const isPassiveSupported = () => {
 document.addEventListener(
 	'DOMContentLoaded',
 	() => {
+		const targets = document.querySelectorAll( '.js-bg-parallax' );
 		if ( 'undefined' === typeof IntersectionObserver ) {
+			forEachHtmlNodes( targets, ( target ) => {
+				target.setAttribute( 'data-is-loaded', 'true' );
+			} );
 			return;
 		}
-
-		const targets = document.querySelectorAll( '.js-bg-parallax' );
 
 		const isMobile = () => {
 			const ua = navigator.userAgent;
@@ -87,8 +89,12 @@ document.addEventListener(
 				const parallax = Math.round(
 					( scrollTop() - targetOffset ) / speed
 				);
+				const verticalMargin = bgimage.offsetHeight - target.offsetHeight;
+				if ( Math.abs( parallax ) >= Math.floor( verticalMargin ) ) {
+					return;
+				}
 
-				bgimage.style.transform = `translate3d(0, calc(-50% + ${ parallax }px), 0)`;
+				bgimage.style.transform = `translate3d(0, ${ parallax }px, 0)`;
 			};
 
 			const toggle = ( isIntersecting ) => {
