@@ -74,24 +74,21 @@ class Assets {
 			return;
 		}
 
-		if ( file_exists( get_theme_file_path( '/assets/js/background-parallax-scroll.min.js' ) ) ) {
-			wp_enqueue_script(
-				\Framework\Helper::get_main_script_handle() . '-background-parallax-scroll',
-				get_theme_file_uri( '/assets/js/background-parallax-scroll.min.js' ),
-				[ 'jquery' ],
-				filemtime( get_theme_file_path( '/assets/js/background-parallax-scroll.min.js' ) ),
-				true
-			);
-		}
+		$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/background-parallax.asset.php' );
+		wp_enqueue_script(
+			'snow-monkey-blocks-background-parallax',
+			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/background-parallax.js',
+			$asset['dependencies'],
+			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/background-parallax.js' ),
+			true
+		);
 
-		if ( file_exists( get_theme_file_path( '/assets/packages/jquery.background-parallax-scroll/dist/jquery.background-parallax-scroll.min.css' ) ) ) {
-			wp_enqueue_style(
-				'jquery.background-parallax-scroll',
-				get_theme_file_uri( '/assets/packages/jquery.background-parallax-scroll/dist/jquery.background-parallax-scroll.min.css' ),
-				[ \Framework\Helper::get_main_style_handle() ],
-				filemtime( get_theme_file_path( '/assets/packages/jquery.background-parallax-scroll/dist/jquery.background-parallax-scroll.min.css' ) )
-			);
-		}
+		wp_enqueue_style(
+			'snow-monkey-blocks-background-parallax',
+			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/css/background-parallax.css',
+			[ 'snow-monkey-blocks' ],
+			filemtime(SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/background-parallax.css' )
+		);
 	}
 
 	public function _enqueue_block_assets() {

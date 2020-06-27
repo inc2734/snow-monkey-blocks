@@ -187,6 +187,7 @@
     "clean:img": "rimraf dist/img",
     "css": "npm run clean:css && node-sass src/css -o dist/css && postcss dist/css/*.css -r",
     "js:editor": "wp-scripts build src/js/blocks.js --output-path dist/js",
+    "js:background-parallax": "wp-scripts build src/js/background-parallax.js --output-path dist/js",
     "js": "npm run clean:js && npm-run-all -p js:*",
     "packages:fontawesome": "cpy 'fontawesome-free/js/all.min.js' 'fontawesome-free/LICENSE.txt' '../../dist/packages' --cwd=node_modules/@fortawesome --parents",
     "packages:slick-carousel": "cpy 'slick/**' '../../dist/packages' --cwd=node_modules/slick-carousel --parents",
