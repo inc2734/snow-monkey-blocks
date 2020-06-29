@@ -6,6 +6,7 @@
   background-color: _lightest($_color-gray);
   color: $_color-text;
   @include _padding(.75, 1);
+  overflow: auto;
 
   > *:not(:first-child) {
     @include _margin-top(.25);
@@ -25,6 +26,8 @@
 
   &__item__name {
     margin-left: .5rem;
+    @include _padding-right(1);
+    white-space: nowrap;
   }
 
   &__item__list {
