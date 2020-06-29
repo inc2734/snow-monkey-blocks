@@ -6,11 +6,11 @@
  */
 ?>
 
-<!-- wp:snow-monkey-blocks/section-with-bgimage {"lgImageID":0,"height":"wide","contentsAlignment":"center","maskColor":"#000000","maskOpacity":0.6,"align":"full"} -->
+<!-- wp:snow-monkey-blocks/section-with-bgimage {"height":"wide","contentsAlignment":"center","maskColor":"#000000","maskOpacity":0.6,"textColor":"#fff","align":"full"} -->
 <div class="wp-block-snow-monkey-blocks-section-with-bgimage alignfull smb-section smb-section-with-bgimage smb-section-with-bgimage--center smb-section-with-bgimage--wide" style="color:#fff">
-	<div class="smb-section-with-bgimage__mask" style="background-color:#000000"></div>
-	<div class="smb-section-with-bgimage__bgimage smb-section-with-bgimage__bgimage--lg" style="opacity:0.6">
-		<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/people-walking-towards-eiffel-tower-at-night.jpg" alt="" class="wp-image-0"/>
+	<div class="smb-section-with-bgimage__bgimage smb-section-with-bgimage__bgimage--lg">
+		<div class="smb-section-with-bgimage__mask" style="background-color:#000000"></div>
+		<img src="http://snow-monkey.local/wp-content/plugins/snow-monkey-blocks/dist/img/photos/people-walking-towards-eiffel-tower-at-night.jpg" alt="" class="wp-image-0" style="opacity:0.6"/>
 	</div>
 	<div class="c-container">
 		<h2 class="smb-section__title">Lorem ipsum dolor sit amet</h2>

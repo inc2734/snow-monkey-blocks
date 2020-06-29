@@ -6,11 +6,11 @@
  */
 ?>
 
-<!-- wp:snow-monkey-blocks/section-with-bgimage {"titleTagName":"none","lgImageID":0,"height":"wide","maskColor":"#000000","maskOpacity":0.8,"align":"full"} -->
+<!-- wp:snow-monkey-blocks/section-with-bgimage {"titleTagName":"none","height":"wide","maskColor":"#000000","maskOpacity":0.8,"textColor":"#fff","align":"full"} -->
 <div class="wp-block-snow-monkey-blocks-section-with-bgimage alignfull smb-section smb-section-with-bgimage smb-section-with-bgimage--left smb-section-with-bgimage--wide" style="color:#fff">
-	<div class="smb-section-with-bgimage__mask" style="background-color:#000000"></div>
-	<div class="smb-section-with-bgimage__bgimage smb-section-with-bgimage__bgimage--lg" style="opacity:0.8">
-		<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/clouds-in-sky-over-fields.jpg" alt="" class="wp-image-0"/>
+	<div class="smb-section-with-bgimage__bgimage smb-section-with-bgimage__bgimage--lg">
+		<div class="smb-section-with-bgimage__mask" style="background-color:#000000"></div>
+		<img src="http://snow-monkey.local/wp-content/plugins/snow-monkey-blocks/dist/img/photos/clouds-in-sky-over-fields.jpg" alt="" class="wp-image-0" style="opacity:0.8"/>
 	</div>
 	<div class="c-container">
 		<div class="smb-section__body">
