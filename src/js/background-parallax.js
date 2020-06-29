@@ -75,21 +75,17 @@ document.addEventListener(
 
 			const offsetTop = ( element ) => {
 				const rect = element.getBoundingClientRect();
-				const scrollTop =
-					window.pageYOffset || document.documentElement.scrollTop;
-				return rect.top + scrollTop;
+				return rect.top + window.pageYOffset;
 			};
-
-			const scrollTop = () =>
-				document.documentElement.scrollTop || document.body.scrollTop;
 
 			const handleScroll = () => {
 				const targetOffset = offsetTop( target );
 				const speed = 5;
 				const parallax = Math.round(
-					( scrollTop() - targetOffset ) / speed
+					( window.pageYOffset - targetOffset ) / speed
 				);
-				const verticalMargin = bgimage.offsetHeight - target.offsetHeight;
+				const verticalMargin =
+					bgimage.offsetHeight - target.offsetHeight;
 				if ( Math.abs( parallax ) >= Math.floor( verticalMargin ) ) {
 					return;
 				}
