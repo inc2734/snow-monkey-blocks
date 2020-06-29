@@ -126,6 +126,7 @@ document.addEventListener(
 					return;
 				}
 
+				handleScroll();
 				observer.observe( target );
 			};
 
