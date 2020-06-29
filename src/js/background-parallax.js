@@ -31,7 +31,7 @@ document.addEventListener(
 		}
 
 		const isMobile = () => {
-			const ua = navigator.userAgent;
+			const ua = window.navigator.userAgent;
 
 			return 0 < ua.indexOf( 'iPad' ) ||
 				0 < ua.indexOf( 'iPhone' ) ||
@@ -73,22 +73,14 @@ document.addEventListener(
 				bgimage.style.transform = '';
 			};
 
-			const offsetTop = ( element ) => {
-				const rect = element.getBoundingClientRect();
-				return rect.top + window.pageYOffset;
-			};
-
 			const handleScroll = () => {
-				const targetOffset = offsetTop( target );
-				const speed = 5;
-				const parallax = Math.round(
-					( window.pageYOffset - targetOffset ) / speed
-				);
-				const verticalMargin =
-					bgimage.offsetHeight - target.offsetHeight;
-				if ( Math.abs( parallax ) >= Math.floor( verticalMargin ) ) {
-					return;
-				}
+				const windowHeight = document.documentElement.clientHeight;
+				const bgimageHeight = bgimage.offsetHeight;
+				const targetHeight = target.offsetHeight;
+				const targetTop = target.getBoundingClientRect().top;
+				const parallax =
+					( windowHeight - targetTop ) *
+					( ( bgimageHeight - targetHeight ) / windowHeight );
 
 				bgimage.style.transform = `translate3d(0, ${ parallax }px, 0)`;
 			};
@@ -100,6 +92,7 @@ document.addEventListener(
 						handleScroll,
 						isPassiveSupported() ? { passive: true } : false
 					);
+					resetImagePosition();
 					return;
 				}
 
@@ -110,19 +103,21 @@ document.addEventListener(
 				);
 			};
 
-			const callback = ( entries ) =>
-				entries.forEach( ( entry ) => toggle( entry.isIntersecting ) );
-			const observer = new IntersectionObserver( callback, {
-				root: null,
-				rootMargin: '0px',
-				threshold: 0,
-			} );
+			const observer = new IntersectionObserver( // eslint-disable-line no-undef
+				( entries ) =>
+					entries.forEach( ( entry ) =>
+						toggle( entry.isIntersecting )
+					),
+				{
+					root: null,
+					rootMargin: '0px',
+					threshold: 0,
+				}
+			);
 
 			const init = () => {
-				resetImagePosition();
-
 				if ( window.matchMedia( '(max-width: 1023px)' ).matches ) {
-					observer.unobserve( bgimage );
+					observer.unobserve( target );
 					window.removeEventListener(
 						'scroll',
 						handleScroll,
@@ -131,7 +126,7 @@ document.addEventListener(
 					return;
 				}
 
-				observer.observe( bgimage );
+				observer.observe( target );
 			};
 
 			init();
