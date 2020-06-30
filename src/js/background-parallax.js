@@ -70,16 +70,43 @@ document.addEventListener(
 			target.setAttribute( 'data-is-loaded', 'true' );
 
 			const init = () => {
+				const observer = new IntersectionObserver( // eslint-disable-line no-undef
+					( entries ) =>
+						entries.forEach( ( entry ) =>
+							toggle( entry.isIntersecting )
+						),
+					{
+						root: null,
+						rootMargin: '0px',
+						threshold: 0,
+					}
+				);
+
+				observer.observe( target );
+
 				const toggle = ( isIntersecting ) => {
-					let lastParallax  = 0;
+					let lastParallax = 0;
 					let lastTargetTop = target.getBoundingClientRect().top;
+
+					if ( window.matchMedia( '(max-width: 1023px)' ).matches ) {
+						observer.unobserve( target );
+						window.removeEventListener(
+							'scroll',
+							handleScroll,
+							isPassiveSupported() ? { passive: true } : false
+						);
+						return;
+					}
 
 					const handleScroll = () => {
 						const targetTop = target.getBoundingClientRect().top;
 						const diffTargetTop = lastTargetTop - targetTop;
-						let parallax = lastParallax + ( diffTargetTop / 6);
-						if ( 30 < Math.abs( diffTargetTop )
-							|| Math.abs( parallax ) >= ( bgimage.offsetHeight - target.offsetHeight ) / 2
+						let parallax = lastParallax + diffTargetTop / 5;
+						if (
+							30 < Math.abs( diffTargetTop ) ||
+							Math.abs( parallax ) >=
+								( bgimage.offsetHeight - target.offsetHeight ) /
+									2
 						) {
 							parallax = lastParallax;
 						}
@@ -106,30 +133,6 @@ document.addEventListener(
 						isPassiveSupported() ? { passive: true } : false
 					);
 				};
-
-				const observer = new IntersectionObserver( // eslint-disable-line no-undef
-					( entries ) =>
-						entries.forEach( ( entry ) =>
-							toggle( entry.isIntersecting )
-						),
-					{
-						root: null,
-						rootMargin: '0px',
-						threshold: 0,
-					}
-				);
-
-				if ( window.matchMedia( '(max-width: 1023px)' ).matches ) {
-					observer.unobserve( target );
-					window.removeEventListener(
-						'scroll',
-						handleScroll,
-						isPassiveSupported() ? { passive: true } : false
-					);
-					return;
-				}
-
-				observer.observe( target );
 			};
 
 			init();

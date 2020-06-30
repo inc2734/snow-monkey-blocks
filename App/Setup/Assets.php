@@ -12,22 +12,65 @@ use Snow_Monkey\Plugin\Blocks;
 class Assets {
 	public function __construct() {
 		add_action( 'enqueue_block_editor_assets', [ $this, '_enqueue_block_editor_assets' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, '_wp_enqueue_scripts' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, '_wp_enqueue_pro_scripts' ] );
 		add_action( 'enqueue_block_assets', [ $this, '_enqueue_block_assets' ] );
 		add_action( 'enqueue_block_assets', [ $this, '_enqueue_block_nopro_assets' ] );
-		add_action( 'render_block', [ $this, '_slider' ], 10, 2 );
+		add_action( 'render_block', [ $this, '_enqueue_block_scripts' ], 10, 2 );
 	}
 
-	public function _slider( $content, $block ) {
-		// Parallax assets for section with background image/video block
+	public function _enqueue_block_scripts( $content, $block ) {
+		// Parallax assets for the section with background image/video block
 		if ( 'snow-monkey-blocks/section-with-bgimage' === $block['blockName'] ) {
 			if ( isset( $block['attrs']['parallax'] ) && true === $block['attrs']['parallax'] ) {
-				$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/background-parallax.asset.php' );
+				if ( ! wp_script_is( 'snow-monkey-blocks/background-parallax' ) ) {
+					wp_enqueue_script(
+						'snow-monkey-blocks/background-parallax',
+						SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/background-parallax.js',
+						[],
+						filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/background-parallax.js' ),
+						true
+					);
+				}
+			}
+		}
+
+		// The slider block or the thumbnail gallery block
+		if ( 'snow-monkey-blocks/slider' === $block['blockName']
+			|| 'snow-monkey-blocks/thumbnail-gallery' === $block['blockName']
+		) {
+			if ( ! wp_script_is( 'slick-carousel' ) ) {
 				wp_enqueue_script(
-					'snow-monkey-blocks-background-parallax',
-					SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/background-parallax.js',
-					$asset['dependencies'],
-					filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/background-parallax.js' ),
+					'slick-carousel',
+					SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/packages/slick/slick.min.js',
+					[ 'jquery' ],
+					filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/slick/slick.min.js' ),
+					true
+				);
+			}
+		}
+
+		// The slider block
+		if ( 'snow-monkey-blocks/slider' === $block['blockName'] ) {
+			if ( ! wp_script_is( 'snow-monkey-blocks/slider' ) ) {
+				wp_enqueue_script(
+					'snow-monkey-blocks/slider',
+					SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/slider/script.js',
+					[ 'slick-carousel' ],
+					filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/slider/script.js' ),
+					true
+				);
+			}
+		}
+
+		// The thumbnail gallery block
+		if ( 'snow-monkey-blocks/thumbnail-gallery' === $block['blockName'] ) {
+			if ( ! wp_script_is( 'snow-monkey-blocks/thumbnail-gallery' ) ) {
+				wp_enqueue_script(
+					'snow-monkey-blocks/thumbnail-gallery',
+					SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/thumbnail-gallery/script.js',
+					[ 'slick-carousel' ],
+					filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/thumbnail-gallery/script.js' ),
 					true
 				);
 			}
@@ -82,6 +125,9 @@ class Assets {
 		);
 	}
 
+	public function _wp_enqueue_scripts() {
+	}
+
 	/**
 	 * Enqueue pro assets
 	 * The parallax effect for section with bgimage block
@@ -108,6 +154,24 @@ class Assets {
 			[],
 			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/blocks.css' )
 		);
+
+		if ( ! wp_style_is( 'slick-carousel', 'registered' ) ) {
+			wp_register_style(
+				'slick-carousel',
+				SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/packages/slick/slick.css',
+				[],
+				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/slick/slick.css' )
+			);
+		}
+
+		if ( ! wp_style_is( 'slick-carousel-theme', 'registered' ) ) {
+			wp_register_style(
+				'slick-carousel-theme',
+				SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/packages/slick/slick-theme.css',
+				[ 'slick-carousel' ],
+				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/slick/slick-theme.css' )
+			);
+		}
 	}
 
 	/**
@@ -127,30 +191,6 @@ class Assets {
 				[],
 				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/fontawesome-free/js/all.min.js' ),
 				true
-			);
-		}
-
-		if ( apply_filters( 'snow_monkey_blocks_enqueue_slick', true ) ) {
-			wp_enqueue_script(
-				'slick-carousel',
-				SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/packages/slick/slick.min.js',
-				[ 'jquery' ],
-				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/slick/slick.min.js' ),
-				true
-			);
-
-			wp_enqueue_style(
-				'slick-carousel',
-				SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/packages/slick/slick.css',
-				[],
-				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/slick/slick.css' )
-			);
-
-			wp_enqueue_style(
-				'slick-carousel-theme',
-				SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/packages/slick/slick-theme.css',
-				[],
-				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/slick/slick-theme.css' )
 			);
 		}
 

@@ -8,23 +8,12 @@
 use Snow_Monkey\Plugin\Blocks;
 
 /**
- * script
- */
-wp_register_script(
-	'snow-monkey-blocks/thumbnail-gallery',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/thumbnail-gallery/script.js',
-	[ 'slick-carousel' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/thumbnail-gallery/script.js' ),
-	true
-);
-
-/**
  * style
  */
 wp_register_style(
 	'snow-monkey-blocks/thumbnail-gallery',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/thumbnail-gallery/style.css',
-	[ 'snow-monkey-blocks' ],
+	[ 'snow-monkey-blocks', 'slick-carousel-theme' ],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/thumbnail-gallery/style.css' )
 );
 
@@ -53,7 +42,6 @@ wp_register_style(
 register_block_type(
 	'snow-monkey-blocks/thumbnail-gallery',
 	[
-		'script'        => ! is_admin() ? 'snow-monkey-blocks/thumbnail-gallery' : null,
 		'style'         => ! is_admin() ? 'snow-monkey-blocks/thumbnail-gallery' : null,
 		'editor_script' => 'snow-monkey-blocks/thumbnail-gallery/editor',
 		'editor_style'  => 'snow-monkey-blocks/thumbnail-gallery/editor',

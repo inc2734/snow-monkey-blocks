@@ -8,23 +8,12 @@
 use Snow_Monkey\Plugin\Blocks;
 
 /**
- * script
- */
-wp_register_script(
-	'snow-monkey-blocks/slider',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/slider/script.js',
-	[ 'slick-carousel' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/slider/script.js' ),
-	true
-);
-
-/**
  * style
  */
 wp_register_style(
 	'snow-monkey-blocks/slider',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/slider/style.css',
-	[ 'snow-monkey-blocks' ],
+	[ 'snow-monkey-blocks', 'slick-carousel-theme' ],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/slider/style.css' )
 );
 
@@ -54,7 +43,6 @@ register_block_type(
 	'snow-monkey-blocks/slider',
 	[
 		'style'         => ! is_admin() ? 'snow-monkey-blocks/slider' : null,
-		'script'        => ! is_admin() ? 'snow-monkey-blocks/slider' : null,
 		'editor_script' => 'snow-monkey-blocks/slider/editor',
 		'editor_style'  => 'snow-monkey-blocks/slider/editor',
 	]
