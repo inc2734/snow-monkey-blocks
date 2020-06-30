@@ -23,7 +23,7 @@ class Assets {
 		// Parallax assets for the section with background image/video block
 		if ( 'snow-monkey-blocks/section-with-bgimage' === $block['blockName'] ) {
 			if ( isset( $block['attrs']['parallax'] ) && true === $block['attrs']['parallax'] ) {
-				if ( ! wp_script_is( 'snow-monkey-blocks/background-parallax' ) ) {
+				if ( ! wp_script_is( 'snow-monkey-blocks/background-parallax', 'registered' ) ) {
 					wp_enqueue_script(
 						'snow-monkey-blocks/background-parallax',
 						SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/background-parallax.js',
@@ -39,7 +39,7 @@ class Assets {
 		if ( 'snow-monkey-blocks/slider' === $block['blockName']
 			|| 'snow-monkey-blocks/thumbnail-gallery' === $block['blockName']
 		) {
-			if ( ! wp_script_is( 'slick-carousel' ) ) {
+			if ( ! wp_script_is( 'slick-carousel', 'registered' ) ) {
 				wp_enqueue_script(
 					'slick-carousel',
 					SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/packages/slick/slick.min.js',
@@ -52,7 +52,7 @@ class Assets {
 
 		// The slider block
 		if ( 'snow-monkey-blocks/slider' === $block['blockName'] ) {
-			if ( ! wp_script_is( 'snow-monkey-blocks/slider' ) ) {
+			if ( ! wp_script_is( 'snow-monkey-blocks/slider', 'registered' ) ) {
 				wp_enqueue_script(
 					'snow-monkey-blocks/slider',
 					SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/slider/script.js',
@@ -65,7 +65,7 @@ class Assets {
 
 		// The thumbnail gallery block
 		if ( 'snow-monkey-blocks/thumbnail-gallery' === $block['blockName'] ) {
-			if ( ! wp_script_is( 'snow-monkey-blocks/thumbnail-gallery' ) ) {
+			if ( ! wp_script_is( 'snow-monkey-blocks/thumbnail-gallery', 'registered' ) ) {
 				wp_enqueue_script(
 					'snow-monkey-blocks/thumbnail-gallery',
 					SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/thumbnail-gallery/script.js',
