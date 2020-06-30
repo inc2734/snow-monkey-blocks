@@ -69,53 +69,56 @@ document.addEventListener(
 
 			target.setAttribute( 'data-is-loaded', 'true' );
 
-			const resetImagePosition = () => {
-				bgimage.style.transform = '';
-			};
+			const init = () => {
+				const toggle = ( isIntersecting ) => {
+					let lastParallax  = 0;
+					let lastTargetTop = target.getBoundingClientRect().top;
 
-			const handleScroll = () => {
-				const windowHeight = document.documentElement.clientHeight;
-				const bgimageHeight = bgimage.offsetHeight;
-				const targetHeight = target.offsetHeight;
-				const targetTop = target.getBoundingClientRect().top;
-				const parallax =
-					( windowHeight - targetTop ) *
-					( ( bgimageHeight - targetHeight ) / windowHeight );
+					const handleScroll = () => {
+						const targetTop = target.getBoundingClientRect().top;
+						const diffTargetTop = lastTargetTop - targetTop;
+						let parallax = lastParallax + ( diffTargetTop / 6);
+						if ( 30 < Math.abs( diffTargetTop )
+							|| Math.abs( parallax ) >= ( bgimage.offsetHeight - target.offsetHeight ) / 2
+						) {
+							parallax = lastParallax;
+						}
 
-				bgimage.style.transform = `translate3d(0, ${ parallax }px, 0)`;
-			};
+						lastParallax = parallax;
+						lastTargetTop = targetTop;
+						bgimage.style.transform = `translateY(calc(-50% + ${ parallax }px))`;
+					};
 
-			const toggle = ( isIntersecting ) => {
-				if ( ! isIntersecting ) {
-					window.removeEventListener(
+					if ( ! isIntersecting ) {
+						window.removeEventListener(
+							'scroll',
+							handleScroll,
+							isPassiveSupported() ? { passive: true } : false
+						);
+						return;
+					}
+
+					handleScroll();
+
+					window.addEventListener(
 						'scroll',
 						handleScroll,
 						isPassiveSupported() ? { passive: true } : false
 					);
-					resetImagePosition();
-					return;
-				}
+				};
 
-				window.addEventListener(
-					'scroll',
-					handleScroll,
-					isPassiveSupported() ? { passive: true } : false
+				const observer = new IntersectionObserver( // eslint-disable-line no-undef
+					( entries ) =>
+						entries.forEach( ( entry ) =>
+							toggle( entry.isIntersecting )
+						),
+					{
+						root: null,
+						rootMargin: '0px',
+						threshold: 0,
+					}
 				);
-			};
 
-			const observer = new IntersectionObserver( // eslint-disable-line no-undef
-				( entries ) =>
-					entries.forEach( ( entry ) =>
-						toggle( entry.isIntersecting )
-					),
-				{
-					root: null,
-					rootMargin: '0px',
-					threshold: 0,
-				}
-			);
-
-			const init = () => {
 				if ( window.matchMedia( '(max-width: 1023px)' ).matches ) {
 					observer.unobserve( target );
 					window.removeEventListener(
@@ -126,7 +129,6 @@ document.addEventListener(
 					return;
 				}
 
-				handleScroll();
 				observer.observe( target );
 			};
 

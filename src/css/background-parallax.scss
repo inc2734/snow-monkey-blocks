@@ -16,15 +16,14 @@
 
       > img {
         position: absolute;
-        top: auto;
-        bottom: 0;
+        top: 50%;
         left: 0;
         height: auto;
         width: 100%;
         min-height: 100%;
         max-height: none;
         will-change: transform;
-        transform: translate3d(0, 0, 0);
+        transform: translateY(-50%);
       }
     }
   }
