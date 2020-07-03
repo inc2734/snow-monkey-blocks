@@ -116,6 +116,7 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 
 = 8.8.3 =
 * Fixed a bug that the image of the headings block templates were not displayed.
+* Fixed a bug that caused the editor to load unnecessary JavaScript.
 
 = 8.8.2 =
 * Some fixes

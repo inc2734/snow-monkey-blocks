@@ -20,6 +20,10 @@ class Assets {
 	}
 
 	public function _enqueue_block_scripts( $content, $block ) {
+		if ( is_admin() ) {
+			return;
+		}
+
 		// Parallax assets for the section with background image/video block
 		if ( 'snow-monkey-blocks/section-with-bgimage' === $block['blockName'] ) {
 			if ( isset( $block['attrs']['parallax'] ) && true === $block['attrs']['parallax'] ) {
