@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2020-07-25 14:30+0900\n"
-"PO-Revision-Date: 2020-07-25 14:31+0900\n"
+"POT-Creation-Date: 2020-07-25 14:41+0900\n"
+"PO-Revision-Date: 2020-07-25 14:41+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -238,7 +238,7 @@ msgstr "アイコン"
 #: block/rating-box/block/item/edit.js:72
 #: block/section-break-the-grid/block/edit.js:737
 #: block/section-side-heading/block/edit.js:515
-#: block/section-with-bgimage/block/edit.js:566
+#: block/section-with-bgimage/block/edit.js:573
 #: block/section-with-bgvideo/block/edit.js:361 block/section/block/edit.js:514
 #: block/step/block/item/free/edit.js:59
 #: block/step/block/item/standard/edit.js:249
@@ -275,7 +275,7 @@ msgstr "逆の吹き出し"
 #: block/rating-box/block/item/edit.js:57
 #: block/section-break-the-grid/block/edit.js:691
 #: block/section-side-heading/block/edit.js:308
-#: block/section-with-bgimage/block/edit.js:381
+#: block/section-with-bgimage/block/edit.js:388
 #: block/section-with-bgvideo/block/edit.js:264 block/section/block/edit.js:300
 #: block/step/block/item/free/edit.js:37
 #: block/step/block/item/standard/edit.js:222
@@ -322,7 +322,7 @@ msgstr "枠線の色"
 #: block/pricing-table/block/item/edit.js:223
 #: block/section-break-the-grid/block/edit.js:697
 #: block/section-side-heading/block/edit.js:322
-#: block/section-with-bgimage/block/edit.js:392
+#: block/section-with-bgimage/block/edit.js:399
 #: block/section-with-bgvideo/block/edit.js:275 block/section/block/edit.js:314
 msgid "Text Color"
 msgstr "文字色"
@@ -372,7 +372,7 @@ msgstr "ボタンの文字色"
 #: block/pricing-table/block/item/edit.js:279
 #: block/section-break-the-grid/block/edit.js:753
 #: block/section-side-heading/block/edit.js:530
-#: block/section-with-bgimage/block/edit.js:581
+#: block/section-with-bgimage/block/edit.js:588
 #: block/section-with-bgvideo/block/edit.js:376 block/section/block/edit.js:529
 #: block/testimonial/block/item/edit.js:105
 msgid "Write lede…"
@@ -523,7 +523,7 @@ msgstr "このページの子ページを表示できます。"
 
 #: block/container/block/edit.js:44
 #: block/section-side-heading/block/edit.js:299
-#: block/section-with-bgimage/block/edit.js:336
+#: block/section-with-bgimage/block/edit.js:343
 #: block/section-with-bgvideo/block/edit.js:255 block/section/block/edit.js:263
 msgid "Make the content width slim"
 msgstr "コンテンツの幅をスリム幅にする"
@@ -835,13 +835,13 @@ msgid "Blur"
 msgstr "ぼかす"
 
 #: block/items/block/item/banner/edit.js:266
-#: block/section-with-bgimage/block/edit.js:401
+#: block/section-with-bgimage/block/edit.js:408
 #: block/section-with-bgvideo/block/edit.js:284
 msgid "Mask Opacity"
 msgstr "背景マスクの不透明度"
 
 #: block/items/block/item/banner/edit.js:282
-#: block/section-with-bgimage/block/edit.js:387
+#: block/section-with-bgimage/block/edit.js:394
 #: block/section-with-bgvideo/block/edit.js:270
 msgid "Mask Color"
 msgstr "背景マスクの色"
@@ -1421,7 +1421,7 @@ msgstr "垂直位置"
 
 #: block/section-break-the-grid/block/edit.js:721
 #: block/section-side-heading/block/edit.js:500
-#: block/section-with-bgimage/block/edit.js:551
+#: block/section-with-bgimage/block/edit.js:558
 #: block/section-with-bgvideo/block/edit.js:346 block/section/block/edit.js:499
 msgid "Write subtitle…"
 msgstr "サブタイトルを書く…"
@@ -1526,21 +1526,29 @@ msgstr "コンテンツの水平位置"
 msgid "Center"
 msgstr "中央"
 
-#: block/section-with-bgimage/block/edit.js:329
-msgid "Parallax"
-msgstr "パララックス"
+#: block/section-with-bgimage/block/edit.js:330
+msgid "Parallax (Deprecated)"
+msgstr "パララックス（非推奨）"
 
-#: block/section-with-bgimage/block/edit.js:398
+#: block/section-with-bgimage/block/edit.js:336
+msgid ""
+"This setting is being retained for backwards compatibility and is not "
+"recommended for use. Its use may slow down the page display."
+msgstr ""
+"この設定は下位互換性のために保持されており、使用することはお勧めできません。"
+"使用するとページの表示速度を遅くすることがあります。"
+
+#: block/section-with-bgimage/block/edit.js:405
 #: block/section-with-bgvideo/block/edit.js:281
 msgid "Mask Settings"
 msgstr "背景マスクの設定"
 
-#: block/section-with-bgimage/block/edit.js:412
+#: block/section-with-bgimage/block/edit.js:419
 #: block/section-with-bgvideo/block/edit.js:295
 msgid "Mask Color 2"
 msgstr "背景マスクの色2"
 
-#: block/section-with-bgimage/block/edit.js:426
+#: block/section-with-bgimage/block/edit.js:433
 #: block/section-with-bgvideo/block/edit.js:309
 msgid "Mask Gradation Angle"
 msgstr "背景マスクグラデーションの角度"
@@ -1769,6 +1777,9 @@ msgstr "メディア"
 #: src/js/component/figure.js:120
 msgid "Video"
 msgstr "動画"
+
+#~ msgid "Parallax"
+#~ msgstr "パララックス"
 
 #~ msgid "Slider"
 #~ msgstr "スライダー"

@@ -326,9 +326,16 @@ export default function( {
 					/>
 
 					<ToggleControl
-						label={ __( 'Parallax', 'snow-monkey-blocks' ) }
+						label={ __(
+							'Parallax (Deprecated)',
+							'snow-monkey-blocks'
+						) }
 						checked={ parallax }
 						onChange={ onChangeParallax }
+						help={ __(
+							'This setting is being retained for backwards compatibility and is not recommended for use. Its use may slow down the page display.',
+							'snow-monkey-blocks'
+						) }
 					/>
 
 					<ToggleControl
