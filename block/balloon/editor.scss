@@ -2,4 +2,13 @@
 
 .editor-styles-wrapper {
   @import 'style';
+
+  .smb-balloon {
+    &__figure {
+      > .components-button {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
 }
