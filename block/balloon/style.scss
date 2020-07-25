@@ -46,6 +46,7 @@
   }
 
   &__body {
+    position: relative;
     flex: 1 1 auto;
     border-radius: $_border-radius; //for IE11
     border-radius: _var-border-radius();
@@ -55,22 +56,35 @@
     max-width: 100%;
     width: 100%;
 
-    @include _top-balloon((
-      background-color: _lightest($_color-gray),
-      border-color: null,
-      border-size: null,
-      triangle-size: 10px,
-    ));
-
-    &::before,
-    &::after {
-      margin-left: 0;
-      left: 24px;
-    }
+    background-color: _lightest($_color-gray);
+    border-color: _lightest($_color-gray);
 
     @include _media-min(md) {
       max-width: calc(100% - 80px);
-      @include _balloon-triangle(left, 10px, _lightest($_color-gray));
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: -10px;
+      left: 24px;
+      margin-left: 0;
+      height: 0;
+      width: 0;
+      border-color: transparent;
+      border-bottom-color: inherit;
+      border-style: solid;
+      border-width: 0 5px 10px;
+
+      @include _media-min(md) {
+        top: 50%;
+        left: -10px;
+        margin-top: -5px;
+        border-color: transparent;
+        border-right-color: inherit;
+        border-width: 5px 10px 5px 0;
+      }
     }
   }
 
@@ -89,14 +103,16 @@
     }
 
     .smb-balloon__body {
-      &::before,
       &::after {
         left: auto;
         right: 24px;
-      }
 
-      @include _media-min(md) {
-        @include _balloon-triangle(right, 10px, _lightest($_color-gray));
+        @include _media-min(md) {
+          right: -10px;
+          border-color: transparent;
+          border-left-color: inherit;
+          border-width: 5px 0 5px 10px;
+        }
       }
     }
   }

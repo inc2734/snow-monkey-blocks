@@ -10,6 +10,7 @@ export default function( { attributes, className } ) {
 		avatarAlt,
 		avatarURL,
 		avatarBorderColor,
+		backgroundColor,
 		balloonName,
 		balloonBody,
 		modifier,
@@ -17,6 +18,11 @@ export default function( { attributes, className } ) {
 
 	const balloonFigureStyles = {
 		borderColor: avatarBorderColor || undefined,
+	};
+
+	const bodyStyles = {
+		backgroundColor: backgroundColor || undefined,
+		borderColor: backgroundColor || undefined,
 	};
 
 	const classes = classnames( 'smb-balloon', {
@@ -39,7 +45,7 @@ export default function( { attributes, className } ) {
 				</div>
 				<div className="smb-balloon__name">{ balloonName }</div>
 			</div>
-			<div className="smb-balloon__body">
+			<div className="smb-balloon__body" style={ bodyStyles }>
 				<RichText.Content value={ balloonBody } />
 			</div>
 		</div>

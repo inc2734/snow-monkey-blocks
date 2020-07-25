@@ -17,6 +17,7 @@ export default function( { attributes, setAttributes, className } ) {
 		avatarAlt,
 		avatarURL,
 		avatarBorderColor,
+		backgroundColor,
 		balloonName,
 		balloonBody,
 		modifier,
@@ -42,6 +43,11 @@ export default function( { attributes, setAttributes, className } ) {
 		borderColor: avatarBorderColor || undefined,
 	};
 
+	const bodyStyles = {
+		backgroundColor: backgroundColor || undefined,
+		borderColor: backgroundColor || undefined,
+	};
+
 	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-balloon', {
 		[ className ]: !! className,
@@ -56,6 +62,11 @@ export default function( { attributes, setAttributes, className } ) {
 	const onChangeAvatarBorderColor = ( value ) =>
 		setAttributes( {
 			avatarBorderColor: value,
+		} );
+
+	const onChangeBackgroundColor = ( value ) =>
+		setAttributes( {
+			backgroundColor: value,
 		} );
 
 	const onSelectImage = ( media ) => {
@@ -121,6 +132,14 @@ export default function( { attributes, setAttributes, className } ) {
 								'snow-monkey-blocks'
 							),
 						},
+						{
+							value: backgroundColor,
+							onChange: onChangeBackgroundColor,
+							label: __(
+								'Background Color',
+								'snow-monkey-blocks'
+							),
+						},
 					] }
 				></PanelColorSettings>
 			</InspectorControls>
@@ -152,6 +171,7 @@ export default function( { attributes, setAttributes, className } ) {
 					multiline="p"
 					value={ balloonBody }
 					onChange={ onChangeBalloonBody }
+					style={ bodyStyles }
 				/>
 			</BlockWrapper>
 		</>

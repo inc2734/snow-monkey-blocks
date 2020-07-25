@@ -20,6 +20,9 @@
   "avatarBorderColor": {
     "type": "string"
   },
+  "backgroundColor": {
+    "type": "string"
+  },
   "balloonName": {
     "type": "string",
     "default": ""
