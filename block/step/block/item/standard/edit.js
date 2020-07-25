@@ -1,5 +1,3 @@
-'use strict';
-
 import classnames from 'classnames';
 
 import { useState, useEffect } from '@wordpress/element';
@@ -20,6 +18,7 @@ import {
 	PanelColorSettings,
 	InnerBlocks,
 	BlockControls,
+	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
 import Figure from '../../../../../src/js/component/figure';
@@ -81,6 +80,7 @@ export default function( {
 		};
 	} );
 
+	const BlockWrapper = Block.div;
 	const classes = classnames(
 		'smb-step__item',
 		`smb-step__item--image-${ imagePosition }`,
@@ -236,7 +236,7 @@ export default function( {
 				></PanelColorSettings>
 			</InspectorControls>
 
-			<div className={ classes }>
+			<BlockWrapper className={ classes }>
 				<div className="smb-step__item__title">
 					<div
 						className="smb-step__item__number"
@@ -317,7 +317,7 @@ export default function( {
 						) }
 					</div>
 				</div>
-			</div>
+			</BlockWrapper>
 
 			{ ! RichText.isEmpty( linkLabel ) && (
 				<BlockControls>

@@ -1,8 +1,9 @@
-'use strict';
-
 import classnames from 'classnames';
 
-import { InnerBlocks } from '@wordpress/block-editor';
+import {
+	InnerBlocks,
+	__experimentalBlock as Block,
+} from '@wordpress/block-editor';
 
 export default function( { className } ) {
 	const allowedBlocks = [
@@ -11,10 +12,11 @@ export default function( { className } ) {
 	];
 	const template = [ [ 'snow-monkey-blocks/step--item--free' ] ];
 
+	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-step', className );
 
 	return (
-		<div className={ classes }>
+		<BlockWrapper className={ classes }>
 			<div className="smb-step__body">
 				<InnerBlocks
 					allowedBlocks={ allowedBlocks }
@@ -22,6 +24,6 @@ export default function( { className } ) {
 					templateLock={ false }
 				/>
 			</div>
-		</div>
+		</BlockWrapper>
 	);
 }

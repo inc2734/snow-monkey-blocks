@@ -1,9 +1,11 @@
-'use strict';
-
 import classnames from 'classnames';
 
 import { PanelBody, RangeControl } from '@wordpress/components';
-import { InspectorControls, InnerBlocks } from '@wordpress/block-editor';
+import {
+	InspectorControls,
+	InnerBlocks,
+	__experimentalBlock as Block,
+} from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 
 import { toNumber } from '../../../src/js/helper/helper';
@@ -15,6 +17,7 @@ export default function( { attributes, setAttributes, className } ) {
 	const allowedBlocks = [ 'snow-monkey-blocks/testimonial--item' ];
 	const template = [ [ 'snow-monkey-blocks/testimonial--item' ] ];
 
+	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-testimonial', className );
 
 	const onChangeLg = ( value ) =>
@@ -66,7 +69,7 @@ export default function( { attributes, setAttributes, className } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<div className={ classes }>
+			<BlockWrapper className={ classes }>
 				<div className="smb-testimonial__body">
 					<div
 						className="c-row"
@@ -78,10 +81,11 @@ export default function( { attributes, setAttributes, className } ) {
 							allowedBlocks={ allowedBlocks }
 							template={ template }
 							templateLock={ false }
+							orientation="horizontal"
 						/>
 					</div>
 				</div>
-			</div>
+			</BlockWrapper>
 		</>
 	);
 }

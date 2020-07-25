@@ -6,7 +6,8 @@
   background-color: _lightest($_color-gray);
   color: $_color-text;
   @include _padding(.75, 1);
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
 
   > *:not(:first-child) {
     @include _margin-top(.25);

@@ -1,14 +1,17 @@
-'use strict';
-
 import classnames from 'classnames';
 
 import { PanelBody, BaseControl, SelectControl } from '@wordpress/components';
-import { InnerBlocks, InspectorControls } from '@wordpress/block-editor';
+import {
+	InnerBlocks,
+	InspectorControls,
+	__experimentalBlock as Block,
+} from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 
 export default function( { attributes, setAttributes, className } ) {
 	const { columnSize } = attributes;
 
+	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-pricing-table', {
 		[ `smb-pricing-table--col-size-${ columnSize }` ]: !! columnSize,
 		[ className ]: !! className,
@@ -66,15 +69,16 @@ export default function( { attributes, setAttributes, className } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<div className={ classes }>
+			<BlockWrapper className={ classes }>
 				<div className="c-row c-row--md-nowrap">
 					<InnerBlocks
 						allowedBlocks={ allowedBlocks }
 						template={ template }
 						templateLock={ false }
+						orientation="horizontal"
 					/>
 				</div>
-			</div>
+			</BlockWrapper>
 		</>
 	);
 }

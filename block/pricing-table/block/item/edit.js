@@ -1,5 +1,3 @@
-'use strict';
-
 import classnames from 'classnames';
 
 import { useState, useEffect } from '@wordpress/element';
@@ -19,6 +17,7 @@ import {
 	PanelColorSettings,
 	ContrastChecker,
 	BlockControls,
+	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
 import Figure from '../../../../src/js/component/figure';
@@ -82,6 +81,7 @@ export default function( {
 		};
 	} );
 
+	const BlockWrapper = Block.div;
 	const classes = classnames( 'c-row__col', className );
 
 	const btnStyles = {
@@ -231,7 +231,7 @@ export default function( {
 				</PanelColorSettings>
 			</InspectorControls>
 
-			<div className={ classes }>
+			<BlockWrapper className={ classes }>
 				<div className="smb-pricing-table__item">
 					{ ( !! imageURL || isSelected ) && (
 						<div className="smb-pricing-table__item__figure">
@@ -339,7 +339,7 @@ export default function( {
 						</div>
 					) }
 				</div>
-			</div>
+			</BlockWrapper>
 
 			{ ! RichText.isEmpty( btnLabel ) && (
 				<BlockControls>

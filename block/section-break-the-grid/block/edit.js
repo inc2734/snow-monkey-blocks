@@ -1,5 +1,3 @@
-'use strict';
-
 import classnames from 'classnames';
 import hexToRgba from 'hex-to-rgba';
 import { times } from 'lodash';
@@ -13,6 +11,7 @@ import {
 	InspectorControls,
 	PanelColorSettings,
 	ColorPalette,
+	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
 import {
@@ -92,8 +91,7 @@ export default function( {
 	const wrapperTagNames = [ 'div', 'section', 'aside' ];
 	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
 
-	const Wrapper = wrapperTagName;
-
+	const BlockWrapper = Block[ wrapperTagName ];
 	const classes = classnames(
 		'smb-section',
 		'smb-section-break-the-grid',
@@ -312,13 +310,12 @@ export default function( {
 											wrapperTagNames[ index ],
 									} );
 
+								const isPrimary =
+									wrapperTagName === wrapperTagNames[ index ];
 								return (
 									<Button
-										isDefault
-										isPrimary={
-											wrapperTagName ===
-											wrapperTagNames[ index ]
-										}
+										isDefault={ ! isPrimary }
+										isPrimary={ isPrimary }
 										onClick={ onClickWrapperTagName }
 									>
 										{ wrapperTagNames[ index ] }
@@ -339,13 +336,12 @@ export default function( {
 										titleTagName: titleTagNames[ index ],
 									} );
 
+								const isPrimary =
+									titleTagName === titleTagNames[ index ];
 								return (
 									<Button
-										isDefault
-										isPrimary={
-											titleTagName ===
-											titleTagNames[ index ]
-										}
+										isDefault={ ! isPrimary }
+										isPrimary={ isPrimary }
 										onClick={ onClickTitleTagName }
 									>
 										{ titleTagNames[ index ] }
@@ -704,7 +700,7 @@ export default function( {
 				></PanelColorSettings>
 			</InspectorControls>
 
-			<Wrapper className={ classes } style={ sectionStyles }>
+			<BlockWrapper className={ classes } style={ sectionStyles }>
 				<div className="c-container">
 					<div className={ rowClasses }>
 						<div className={ textColumnClasses }>
@@ -786,7 +782,7 @@ export default function( {
 						</div>
 					</div>
 				</div>
-			</Wrapper>
+			</BlockWrapper>
 		</>
 	);
 }

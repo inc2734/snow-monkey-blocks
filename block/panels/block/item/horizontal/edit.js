@@ -1,5 +1,3 @@
-'use strict';
-
 import classnames from 'classnames';
 import { times } from 'lodash';
 
@@ -11,6 +9,7 @@ import {
 	InspectorControls,
 	RichText,
 	BlockControls,
+	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
 import {
@@ -86,6 +85,7 @@ export default function( {
 
 	const titleTagNames = [ 'div', 'h2', 'h3', 'none' ];
 
+	const BlockWrapper = Block.div;
 	const classes = classnames( 'c-row__col', className );
 
 	const itemClasses = classnames(
@@ -201,13 +201,12 @@ export default function( {
 										titleTagName: titleTagNames[ index ],
 									} );
 
+								const isPrimary =
+									titleTagName === titleTagNames[ index ];
 								return (
 									<Button
-										isDefault
-										isPrimary={
-											titleTagName ===
-											titleTagNames[ index ]
-										}
+										isDefault={ ! isPrimary }
+										isPrimary={ isPrimary }
 										onClick={ onClickTitleTagName }
 									>
 										{ titleTagNames[ index ] }
@@ -242,7 +241,7 @@ export default function( {
 				</PanelBody>
 			</InspectorControls>
 
-			<div className={ classes }>
+			<BlockWrapper className={ classes }>
 				<div className={ itemClasses }>
 					{ ( !! imageURL || isSelected ) && (
 						<div className="smb-panels__item__figure">
@@ -321,7 +320,7 @@ export default function( {
 						) }
 					</div>
 				</div>
-			</div>
+			</BlockWrapper>
 
 			<BlockControls>
 				<Toolbar>

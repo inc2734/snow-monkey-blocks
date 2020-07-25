@@ -1,16 +1,14 @@
-'use strict';
-
 import classnames from 'classnames';
 
 import { Button, PanelBody, SelectControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 import {
-	PlainText,
 	RichText,
 	MediaUpload,
 	InspectorControls,
 	PanelColorSettings,
+	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
 export default function( { attributes, setAttributes, className } ) {
@@ -44,6 +42,7 @@ export default function( { attributes, setAttributes, className } ) {
 		borderColor: avatarBorderColor || undefined,
 	};
 
+	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-balloon', {
 		[ className ]: !! className,
 		[ `smb-balloon--${ modifier }` ]: !! modifier,
@@ -126,7 +125,7 @@ export default function( { attributes, setAttributes, className } ) {
 				></PanelColorSettings>
 			</InspectorControls>
 
-			<div className={ classes }>
+			<BlockWrapper className={ classes }>
 				<div className="smb-balloon__person">
 					<div
 						className="smb-balloon__figure"
@@ -139,13 +138,13 @@ export default function( { attributes, setAttributes, className } ) {
 							render={ renderAvatar }
 						/>
 					</div>
-					<div className="smb-balloon__name">
-						<PlainText
-							value={ balloonName }
-							onChange={ onChangeBalloonName }
-							placeholder={ __( 'Name', 'snow-monkey-blocks' ) }
-						/>
-					</div>
+
+					<RichText
+						className="smb-balloon__name"
+						value={ balloonName }
+						onChange={ onChangeBalloonName }
+						placeholder={ __( 'Name', 'snow-monkey-blocks' ) }
+					/>
 				</div>
 
 				<RichText
@@ -154,7 +153,7 @@ export default function( { attributes, setAttributes, className } ) {
 					value={ balloonBody }
 					onChange={ onChangeBalloonBody }
 				/>
-			</div>
+			</BlockWrapper>
 		</>
 	);
 }

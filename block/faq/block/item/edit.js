@@ -1,5 +1,3 @@
-'use strict';
-
 import classnames from 'classnames';
 
 import { PanelBody, BaseControl, TextControl } from '@wordpress/components';
@@ -10,6 +8,7 @@ import {
 	InspectorControls,
 	PanelColorSettings,
 	InnerBlocks,
+	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
 export default function( { attributes, setAttributes, className } ) {
@@ -21,6 +20,7 @@ export default function( { attributes, setAttributes, className } ) {
 		answerLabel,
 	} = attributes;
 
+	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-faq__item', className );
 
 	const faqItemQestionLabelStyles = {
@@ -116,7 +116,7 @@ export default function( { attributes, setAttributes, className } ) {
 				></PanelColorSettings>
 			</InspectorControls>
 
-			<div className={ classes }>
+			<BlockWrapper className={ classes }>
 				<div className="smb-faq__item__question">
 					<div
 						className="smb-faq__item__question__label"
@@ -149,7 +149,7 @@ export default function( { attributes, setAttributes, className } ) {
 						<InnerBlocks />
 					</div>
 				</div>
-			</div>
+			</BlockWrapper>
 		</>
 	);
 }

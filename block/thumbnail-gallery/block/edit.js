@@ -1,5 +1,3 @@
-'use strict';
-
 import classnames from 'classnames';
 
 import { PanelBody, RangeControl, ToggleControl } from '@wordpress/components';
@@ -77,6 +75,7 @@ export default function( { attributes, setAttributes, className } ) {
 						allowedBlocks={ allowedBlocks }
 						template={ template }
 						templateLock={ false }
+						orientation="horizontal"
 					/>
 				</div>
 			</div>

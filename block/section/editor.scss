@@ -1,36 +1,5 @@
 @charset 'utf-8';
 
-@import '../../src/css/core/block';
-
-$section-container-side-padding: calc(46px + 14px); // = block-editor-block-list__layout + block-editor-block-drop-zone
-
 .editor-styles-wrapper {
   @import 'style';
-
-  .smb-section,
-  .smb-section__inner {
-    > .c-container {
-      padding-right: 0;
-      padding-left: 0;
-
-      &.u-slim-width {
-        @include _media-min(600px) {
-          padding-left: $section-container-side-padding;
-          padding-right: $section-container-side-padding;
-        }
-      }
-    }
-  }
-}
-
-[data-type^="snow-monkey-blocks/section"][data-align="full"] {
-  .smb-section,
-  .smb-section__inner {
-    > .c-container {
-      @include _media-min(600px) {
-        padding-left: $section-container-side-padding;
-        padding-right: $section-container-side-padding;
-      }
-    }
-  }
 }

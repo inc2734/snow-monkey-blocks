@@ -1,5 +1,3 @@
-'use strict';
-
 import { PanelBody, Placeholder, TextControl } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
 import { InspectorControls } from '@wordpress/block-editor';

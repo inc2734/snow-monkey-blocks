@@ -1,5 +1,3 @@
-'use strict';
-
 import { __ } from '@wordpress/i18n';
 
 import blockConfig from '../../../src/js/config/block';
@@ -51,4 +49,7 @@ export const settings = {
 	edit,
 	save,
 	example,
+	supports: {
+		lightBlockWrapper: true,
+	},
 };

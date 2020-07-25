@@ -1,5 +1,3 @@
-'use strict';
-
 import classnames from 'classnames';
 
 import { PanelBody, SelectControl, Popover } from '@wordpress/components';
@@ -9,6 +7,7 @@ import {
 	InspectorControls,
 	PanelColorSettings,
 	ContrastChecker,
+	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
 import { __ } from '@wordpress/i18n';
@@ -33,6 +32,7 @@ export default function( {
 		btnSize,
 	} = attributes;
 
+	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-btn-box', className );
 
 	const btnClasses = classnames( 'smb-btn', {
@@ -158,7 +158,7 @@ export default function( {
 				</PanelColorSettings>
 			</InspectorControls>
 
-			<div className={ classes } style={ btnBoxStyle }>
+			<BlockWrapper className={ classes } style={ btnBoxStyle }>
 				<div className="c-container">
 					{ ( ! RichText.isEmpty( lede ) || isSelected ) && (
 						<RichText
@@ -225,7 +225,7 @@ export default function( {
 						/>
 					</Popover>
 				) }
-			</div>
+			</BlockWrapper>
 		</>
 	);
 }

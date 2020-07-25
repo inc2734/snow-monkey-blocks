@@ -1,5 +1,3 @@
-'use strict';
-
 import { remove, union, indexOf, compact } from 'lodash';
 
 import { __ } from '@wordpress/i18n';
@@ -7,6 +5,7 @@ import { __ } from '@wordpress/i18n';
 import {
 	InspectorControls,
 	InspectorAdvancedControls,
+	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
 import {
@@ -18,6 +17,8 @@ import {
 
 export default function( { attributes, setAttributes } ) {
 	const { headings, moveToBefore1stHeading, myAnchor } = attributes;
+
+	const BlockWrapper = Block.div;
 
 	const _generateNewHeadings = ( isChecked, heading ) => {
 		let newHeadings = headings.split( ',' );
@@ -115,7 +116,7 @@ export default function( { attributes, setAttributes } ) {
 				/>
 			</InspectorAdvancedControls>
 
-			<div className="wpco-wrapper" aria-hidden="false">
+			<BlockWrapper className="wpco-wrapper" aria-hidden="false">
 				<div className="wpco">
 					<h2 className="wpco__title">
 						{ __( 'Contents outline', 'snow-monkey-blocks' ) }
@@ -131,7 +132,7 @@ export default function( { attributes, setAttributes } ) {
 						</ol>
 					</div>
 				</div>
-			</div>
+			</BlockWrapper>
 		</>
 	);
 }

@@ -1,5 +1,3 @@
-'use strict';
-
 import classnames from 'classnames';
 import { times } from 'lodash';
 
@@ -21,6 +19,7 @@ import {
 	InnerBlocks,
 	InspectorControls,
 	BlockControls,
+	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
 import {
@@ -92,6 +91,7 @@ export default function( {
 		imageColumnSize
 	);
 
+	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-media-text', className );
 
 	const rowClasses = classnames( 'c-row', 'c-row--margin', 'c-row--middle', {
@@ -260,13 +260,12 @@ export default function( {
 										titleTagName: titleTagNames[ index ],
 									} );
 
+								const isPrimary =
+									titleTagName === titleTagNames[ index ];
 								return (
 									<Button
-										isDefault
-										isPrimary={
-											titleTagName ===
-											titleTagNames[ index ]
-										}
+										isDefault={ ! isPrimary }
+										isPrimary={ isPrimary }
 										onClick={ onClickTitleTagName }
 									>
 										{ titleTagNames[ index ] }
@@ -278,7 +277,7 @@ export default function( {
 				</PanelBody>
 			</InspectorControls>
 
-			<div className={ classes }>
+			<BlockWrapper className={ classes }>
 				<div className={ rowClasses }>
 					<div className={ textColumnClasses }>
 						{ ( ! RichText.isEmpty( title ) || isSelected ) &&
@@ -340,7 +339,7 @@ export default function( {
 						) }
 					</div>
 				</div>
-			</div>
+			</BlockWrapper>
 
 			{ imageURL &&
 				( 'image' === imageMediaType ||

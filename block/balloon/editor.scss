@@ -2,12 +2,4 @@
 
 .editor-styles-wrapper {
   @import 'style';
-
-  .smb-balloon {
-    &__name {
-      .block-editor-plain-text {
-        text-align: center;
-      }
-    }
-  }
 }

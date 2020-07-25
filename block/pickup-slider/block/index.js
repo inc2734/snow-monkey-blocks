@@ -1,5 +1,3 @@
-'use strict';
-
 import { __ } from '@wordpress/i18n';
 
 import blockConfig from '../../../src/js/config/block';
@@ -11,11 +9,16 @@ import save from './save';
 export const name = 'snow-monkey-blocks/pickup-slider';
 
 export const settings = {
-	title: __( 'Pickup slider', 'snow-monkey-blocks' ),
-	description: __(
-		'Display posts with pickup tags as a slider.',
-		'snow-monkey-blocks'
-	),
+	title: __( 'Pickup slider (Deprecated)', 'snow-monkey-blocks' ),
+	description:
+		__(
+			'Display posts with pickup tags as a slider.',
+			'snow-monkey-blocks'
+		) +
+		__(
+			'This block is being retained for backwards compatibility and is not recommended for use. Its use may slow down the page display.',
+			'snow-monkey-blocks'
+		),
 	icon: {
 		foreground: blockConfig.blockIconColor,
 		src: 'format-gallery',

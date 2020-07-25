@@ -1,5 +1,3 @@
-'use strict';
-
 import classnames from 'classnames';
 import moment from 'moment';
 

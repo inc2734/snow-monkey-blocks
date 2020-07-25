@@ -1,5 +1,3 @@
-'use strict';
-
 import { registerStore } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 import apiFetch from '@wordpress/api-fetch';
@@ -79,4 +77,7 @@ export const settings = {
 	edit,
 	save,
 	example,
+	supports: {
+		lightBlockWrapper: true,
+	},
 };

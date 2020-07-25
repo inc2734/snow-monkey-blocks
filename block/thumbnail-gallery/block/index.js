@@ -1,5 +1,3 @@
-'use strict';
-
 import { __ } from '@wordpress/i18n';
 
 import blockConfig from '../../../src/js/config/block';
@@ -11,11 +9,16 @@ import deprecated from './deprecated';
 export const name = 'snow-monkey-blocks/thumbnail-gallery';
 
 export const settings = {
-	title: __( 'Thumbnail gallery', 'snow-monkey-blocks' ),
-	description: __(
-		'You can display a slide show with thumbnails.',
-		'snow-monkey-blocks'
-	),
+	title: __( 'Thumbnail gallery (Deprecated)', 'snow-monkey-blocks' ),
+	description:
+		__(
+			'You can display a slide show with thumbnails.',
+			'snow-monkey-blocks'
+		) +
+		__(
+			'This block is being retained for backwards compatibility and is not recommended for use. Its use may slow down the page display.',
+			'snow-monkey-blocks'
+		),
 	icon: {
 		foreground: blockConfig.blockIconColor,
 		src: 'format-gallery',

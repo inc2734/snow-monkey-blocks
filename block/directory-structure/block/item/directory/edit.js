@@ -1,5 +1,3 @@
-'use strict';
-
 import classnames from 'classnames';
 
 import { __ } from '@wordpress/i18n';
@@ -16,6 +14,7 @@ import {
 	InnerBlocks,
 	RichText,
 	PanelColorSettings,
+	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
 import FontAwesome from '../../../../../src/js/component/font-awesome';
@@ -28,7 +27,8 @@ export default function( { attributes, setAttributes, className } ) {
 		'snow-monkey-blocks/directory-structure--item--file',
 	];
 
-	const blockClasses = classnames(
+	const BlockWrapper = Block.div;
+	const classes = classnames(
 		'smb-directory-structure__item',
 		'smb-directory-structure__item--directory',
 		className
@@ -134,7 +134,8 @@ export default function( { attributes, setAttributes, className } ) {
 					] }
 				/>
 			</InspectorControls>
-			<div className={ blockClasses }>
+
+			<BlockWrapper className={ classes }>
 				<p>
 					<span className="fa-fw" style={ iconStyles }>
 						<FontAwesome icon={ [ iconVendor, iconClass ] } />
@@ -157,7 +158,7 @@ export default function( { attributes, setAttributes, className } ) {
 						templateLock={ false }
 					/>
 				</div>
-			</div>
+			</BlockWrapper>
 		</>
 	);
 }

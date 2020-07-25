@@ -1,5 +1,3 @@
-'use strict';
-
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 import ServerSideRender from '@wordpress/server-side-render';

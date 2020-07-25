@@ -1,8 +1,9 @@
-'use strict';
-
 import classnames from 'classnames';
 
-import { InnerBlocks } from '@wordpress/block-editor';
+import {
+	InnerBlocks,
+	__experimentalBlock as Block,
+} from '@wordpress/block-editor';
 
 export default function( { className } ) {
 	const allowedBlocks = [
@@ -10,16 +11,17 @@ export default function( { className } ) {
 		'snow-monkey-blocks/directory-structure--item--file',
 	];
 
-	const blockClasses = classnames( 'smb-directory-structure', className );
+	const BlockWrapper = Block.div;
+	const classes = classnames( 'smb-directory-structure', className );
 
 	return (
 		<>
-			<div className={ blockClasses }>
+			<BlockWrapper className={ classes }>
 				<InnerBlocks
 					allowedBlocks={ allowedBlocks }
 					templateLock={ false }
 				/>
-			</div>
+			</BlockWrapper>
 		</>
 	);
 }

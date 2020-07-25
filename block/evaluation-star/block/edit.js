@@ -1,8 +1,10 @@
-'use strict';
-
 import classnames from 'classnames';
 
-import { InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
+import {
+	InspectorControls,
+	PanelColorSettings,
+	__experimentalBlock as Block,
+} from '@wordpress/block-editor';
 import { __, sprintf } from '@wordpress/i18n';
 
 import {
@@ -46,6 +48,7 @@ export default function( { attributes, setAttributes, className } ) {
 		return icons;
 	};
 
+	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-evaluation-star', className );
 
 	const bodyClasses = classnames( 'smb-evaluation-star__numeric', [
@@ -157,7 +160,7 @@ export default function( { attributes, setAttributes, className } ) {
 				></PanelColorSettings>
 			</InspectorControls>
 
-			<div className={ classes }>
+			<BlockWrapper className={ classes }>
 				<div className="smb-evaluation-star__body">
 					<span
 						className={ bodyClasses }
@@ -172,7 +175,7 @@ export default function( { attributes, setAttributes, className } ) {
 						<span>{ generateIcons() }</span>
 					</div>
 				</div>
-			</div>
+			</BlockWrapper>
 		</>
 	);
 }

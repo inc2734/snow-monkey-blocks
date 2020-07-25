@@ -1,5 +1,3 @@
-'use strict';
-
 import { __ } from '@wordpress/i18n';
 
 import blockConfig from '../../../src/js/config/block';
@@ -22,9 +20,6 @@ export const settings = {
 		src: 'embed-generic',
 	},
 	category: blockConfig.blockCategories.common,
-	supports: {
-		align: [ 'left', 'center', 'right' ],
-	},
 	styles: [
 		{
 			name: 'default',
@@ -38,4 +33,8 @@ export const settings = {
 	save,
 	deprecated,
 	example,
+	supports: {
+		align: [ 'left', 'center', 'right' ],
+		lightBlockWrapper: true,
+	},
 };

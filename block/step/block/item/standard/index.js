@@ -1,5 +1,3 @@
-'use strict';
-
 import { __ } from '@wordpress/i18n';
 
 import blockConfig from '../../../../../src/js/config/block';
@@ -23,12 +21,13 @@ export const settings = {
 	},
 	category: blockConfig.blockCategories.common,
 	parent: [ 'snow-monkey-blocks/step' ],
-	supports: {
-		anchor: true,
-	},
 	attributes,
 	edit,
 	save,
 	transforms,
 	deprecated,
+	supports: {
+		anchor: true,
+		lightBlockWrapper: true,
+	},
 };

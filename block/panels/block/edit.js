@@ -1,9 +1,11 @@
-'use strict';
-
 import classnames from 'classnames';
 
 import { PanelBody, RangeControl, ToggleControl } from '@wordpress/components';
-import { InspectorControls, InnerBlocks } from '@wordpress/block-editor';
+import {
+	InspectorControls,
+	InnerBlocks,
+	__experimentalBlock as Block,
+} from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 
 import { toNumber } from '../../../src/js/helper/helper';
@@ -18,6 +20,7 @@ export default function( { attributes, setAttributes, className } ) {
 	];
 	const template = [ [ 'snow-monkey-blocks/panels--item' ] ];
 
+	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-panels', className );
 
 	const onChangeLg = ( value ) =>
@@ -102,7 +105,10 @@ export default function( { attributes, setAttributes, className } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<div className={ classes } data-image-padding={ imagePadding }>
+			<BlockWrapper
+				className={ classes }
+				data-image-padding={ imagePadding }
+			>
 				<div
 					className="c-row c-row--margin c-row--fill"
 					data-columns={ sm }
@@ -113,9 +119,10 @@ export default function( { attributes, setAttributes, className } ) {
 						allowedBlocks={ allowedBlocks }
 						template={ template }
 						templateLock={ false }
+						orientation="horizontal"
 					/>
 				</div>
-			</div>
+			</BlockWrapper>
 		</>
 	);
 }

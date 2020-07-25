@@ -1,5 +1,3 @@
-'use strict';
-
 import classnames from 'classnames';
 
 import { PanelBody, SelectControl } from '@wordpress/components';
@@ -10,6 +8,7 @@ import {
 	PanelColorSettings,
 	ContrastChecker,
 	URLPopover,
+	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
 import { __ } from '@wordpress/i18n';
@@ -32,6 +31,7 @@ export default function( {
 		align,
 	} = attributes;
 
+	const BlockWrapper = Block.div;
 	const wrapperClasses = classnames(
 		'u-clearfix',
 		'smb-btn-wrapper',
@@ -132,7 +132,7 @@ export default function( {
 				</PanelColorSettings>
 			</InspectorControls>
 
-			<div className={ wrapperClasses }>
+			<BlockWrapper className={ wrapperClasses }>
 				<span
 					className={ classes }
 					href={ url }
@@ -152,7 +152,7 @@ export default function( {
 						allowedFormats={ [] }
 					/>
 				</span>
-			</div>
+			</BlockWrapper>
 
 			{ isSelected && (
 				<URLPopover

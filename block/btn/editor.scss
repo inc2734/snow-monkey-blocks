@@ -4,4 +4,8 @@
 
 .editor-styles-wrapper {
   @import 'style';
+
+  [data-align="center"] .smb-btn-wrapper {
+    text-align: center;
+  }
 }

@@ -46,39 +46,6 @@
   height: auto;
 }
 
-.smb-remove-button-wrapper {
-  position: relative;
-
-  .image-button {
-    height: auto;
-  }
-}
-.smb-remove-button {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  z-index: 1;
-  white-space: nowrap;
-  display: inline-block;
-  cursor: pointer;
-  font-size: 12px !important;
-  line-height: 1 !important;
-  border: 0;
-  padding: 6px 8px;
-  color: #fff;
-  background-color: #cd3034;
-  border-radius: 4px;
-  transition: all .3s;
-
-  @include _media-min(lg) {
-    opacity: .6;
-  }
-
-  @include _hover(lg) {
-    opacity: 1;
-  }
-}
-
 .smb-badge-popover {
   &__inner {
     padding: 14px;

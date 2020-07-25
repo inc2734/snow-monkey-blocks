@@ -1,5 +1,3 @@
-'use strict';
-
 import { __ } from '@wordpress/i18n';
 
 import blockConfig from '../../../src/js/config/block';
@@ -22,13 +20,14 @@ export const settings = {
 		src: 'text',
 	},
 	category: blockConfig.blockCategories.section,
-	supports: {
-		align: [ 'wide', 'full' ],
-		anchor: true,
-	},
 	attributes,
 	edit,
 	save,
 	deprecated,
 	example,
+	supports: {
+		lightBlockWrapper: true,
+		align: [ 'wide', 'full' ],
+		anchor: true,
+	},
 };

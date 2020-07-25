@@ -1,5 +1,3 @@
-'use strict';
-
 import { times } from 'lodash';
 
 import ServerSideRender from '@wordpress/server-side-render';
@@ -164,13 +162,13 @@ export default function( { attributes, setAttributes } ) {
 											itemTitleTagNames[ index ],
 									} );
 
+								const isPrimary =
+									itemTitleTagName ===
+									itemTitleTagNames[ index ];
 								return (
 									<Button
-										isDefault
-										isPrimary={
-											itemTitleTagName ===
-											itemTitleTagNames[ index ]
-										}
+										isDefault={ ! isPrimary }
+										isPrimary={ isPrimary }
 										onClick={ onClickItemTitleTagName }
 									>
 										{ itemTitleTagNames[ index ] }

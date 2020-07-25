@@ -1,5 +1,3 @@
-'use strict';
-
 import blockConfig from '../../../src/js/config/block';
 import edit from './edit';
 import save from './save';
@@ -25,4 +23,7 @@ export const settings = {
 	save,
 	deprecated,
 	example,
+	supports: {
+		lightBlockWrapper: true,
+	},
 };

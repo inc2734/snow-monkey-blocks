@@ -1,10 +1,11 @@
-'use strict';
-
 import classnames from 'classnames';
 
 import { remove, union, indexOf, compact } from 'lodash';
 import { useSelect } from '@wordpress/data';
-import { InspectorControls } from '@wordpress/block-editor';
+import {
+	InspectorControls,
+	__experimentalBlock as Block,
+} from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 
 import {
@@ -105,6 +106,7 @@ export default function( { attributes, setAttributes, className } ) {
 		);
 	};
 
+	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-categories-list', className );
 
 	const View = () => {
@@ -158,13 +160,13 @@ export default function( { attributes, setAttributes, className } ) {
 			.filter( ( category ) => category );
 
 		return (
-			<div className={ classes }>
+			<BlockWrapper className={ classes }>
 				<List
 					articleCategoriesList={ articleCategoriesList.filter(
 						( articleCategory ) => articleCategory
 					) }
 				/>
-			</div>
+			</BlockWrapper>
 		);
 	};
 

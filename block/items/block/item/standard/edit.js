@@ -1,5 +1,3 @@
-'use strict';
-
 import classnames from 'classnames';
 import { times } from 'lodash';
 
@@ -21,6 +19,7 @@ import {
 	PanelColorSettings,
 	ContrastChecker,
 	BlockControls,
+	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
 import Figure from '../../../../../src/js/component/figure';
@@ -86,6 +85,7 @@ export default function( {
 
 	const titleTagNames = [ 'div', 'h2', 'h3', 'none' ];
 
+	const BlockWrapper = Block.div;
 	const classes = classnames( 'c-row__col', className );
 
 	const itemBtnLabelStyles = {
@@ -207,13 +207,12 @@ export default function( {
 										titleTagName: titleTagNames[ index ],
 									} );
 
+								const isPrimary =
+									titleTagName === titleTagNames[ index ];
 								return (
 									<Button
-										isDefault
-										isPrimary={
-											titleTagName ===
-											titleTagNames[ index ]
-										}
+										isDefault={ ! isPrimary }
+										isPrimary={ isPrimary }
 										onClick={ onClickTitleTagName }
 									>
 										{ titleTagNames[ index ] }
@@ -260,7 +259,7 @@ export default function( {
 				</PanelColorSettings>
 			</InspectorControls>
 
-			<div className={ classes }>
+			<BlockWrapper className={ classes }>
 				<div className="smb-items__item">
 					{ ( !! imageURL || isSelected ) && (
 						<div className="smb-items__item__figure">
@@ -359,7 +358,7 @@ export default function( {
 						</div>
 					) }
 				</div>
-			</div>
+			</BlockWrapper>
 
 			{ ! RichText.isEmpty( btnLabel ) && (
 				<BlockControls>

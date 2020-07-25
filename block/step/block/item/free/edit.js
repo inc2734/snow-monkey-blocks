@@ -1,5 +1,3 @@
-'use strict';
-
 import classnames from 'classnames';
 
 import { __ } from '@wordpress/i18n';
@@ -9,11 +7,13 @@ import {
 	InspectorControls,
 	PanelColorSettings,
 	InnerBlocks,
+	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
 export default function( { attributes, setAttributes, className } ) {
 	const { title, numberColor } = attributes;
 
+	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-step__item', className );
 
 	const itemNumberStyles = {
@@ -46,7 +46,7 @@ export default function( { attributes, setAttributes, className } ) {
 				></PanelColorSettings>
 			</InspectorControls>
 
-			<div className={ classes }>
+			<BlockWrapper className={ classes }>
 				<div className="smb-step__item__title">
 					<div
 						className="smb-step__item__number"
@@ -70,7 +70,7 @@ export default function( { attributes, setAttributes, className } ) {
 						<InnerBlocks />
 					</div>
 				</div>
-			</div>
+			</BlockWrapper>
 		</>
 	);
 }

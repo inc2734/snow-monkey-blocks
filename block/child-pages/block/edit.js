@@ -1,5 +1,3 @@
-'use strict';
-
 import { Dashicon, PanelBody, TextControl } from '@wordpress/components';
 import { InspectorControls } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';

@@ -1,5 +1,3 @@
-'use strict';
-
 import classnames from 'classnames';
 import { times } from 'lodash';
 
@@ -20,6 +18,7 @@ import {
 	InspectorControls,
 	PanelColorSettings,
 	ColorPalette,
+	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
 import { toNumber, divider } from '../../../src/js/helper/helper';
@@ -54,8 +53,7 @@ export default function( {
 	const wrapperTagNames = [ 'div', 'section', 'aside' ];
 	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
 
-	const Wrapper = wrapperTagName;
-
+	const BlockWrapper = Block[ wrapperTagName ];
 	const classes = classnames( 'smb-section', className );
 
 	const topDividerClasses = classnames(
@@ -219,13 +217,12 @@ export default function( {
 											wrapperTagNames[ index ],
 									} );
 
+								const isPrimary =
+									wrapperTagName === wrapperTagNames[ index ];
 								return (
 									<Button
-										isDefault
-										isPrimary={
-											wrapperTagName ===
-											wrapperTagNames[ index ]
-										}
+										isDefault={ ! isPrimary }
+										isPrimary={ isPrimary }
 										onClick={ onClickWrapperTagName }
 									>
 										{ wrapperTagNames[ index ] }
@@ -246,13 +243,12 @@ export default function( {
 										titleTagName: titleTagNames[ index ],
 									} );
 
+								const isPrimary =
+									titleTagName === titleTagNames[ index ];
 								return (
 									<Button
-										isDefault
-										isPrimary={
-											titleTagName ===
-											titleTagNames[ index ]
-										}
+										isDefault={ ! isPrimary }
+										isPrimary={ isPrimary }
 										onClick={ onClickTitleTagName }
 									>
 										{ titleTagNames[ index ] }
@@ -459,7 +455,7 @@ export default function( {
 				</PanelBody>
 			</InspectorControls>
 
-			<Wrapper className={ classes } style={ sectionStyles }>
+			<BlockWrapper className={ classes } style={ sectionStyles }>
 				{ ( 0 < Object.keys( backgroundStyles ).length ||
 					!! topDividerLevel ||
 					!! bottomDividerLevel ) && (
@@ -541,7 +537,7 @@ export default function( {
 						</div>
 					</div>
 				</div>
-			</Wrapper>
+			</BlockWrapper>
 		</>
 	);
 }

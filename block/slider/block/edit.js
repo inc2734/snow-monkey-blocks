@@ -270,6 +270,7 @@ export default function( { attributes, setAttributes, className } ) {
 						allowedBlocks={ allowedBlocks }
 						template={ template }
 						templateLock={ false }
+						orientation="horizontal"
 					/>
 				</div>
 			</div>

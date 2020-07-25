@@ -1,9 +1,11 @@
-'use strict';
-
 import classnames from 'classnames';
 import { times } from 'lodash';
 
-import { RichText, InspectorControls } from '@wordpress/block-editor';
+import {
+	RichText,
+	InspectorControls,
+	__experimentalBlock as Block,
+} from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 
 import {
@@ -54,6 +56,7 @@ export default function( {
 		},
 	];
 
+	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-alert', {
 		[ className ]: !! className,
 		[ `smb-alert--${ modifier }` ]: !! modifier,
@@ -127,12 +130,12 @@ export default function( {
 										icon: iconList[ index ].value,
 									} );
 
+								const isPrimary =
+									icon === iconList[ index ].value;
 								return (
 									<Button
-										isDefault
-										isPrimary={
-											icon === iconList[ index ].value
-										}
+										isDefault={ ! isPrimary }
+										isPrimary={ isPrimary }
 										onClick={ onClickIcon }
 									>
 										<i
@@ -147,7 +150,7 @@ export default function( {
 				</PanelBody>
 			</InspectorControls>
 
-			<div className={ classes }>
+			<BlockWrapper className={ classes }>
 				{ ( ! RichText.isEmpty( title ) || isSelected ) && (
 					<div className="smb-alert__title">
 						<FontAwesome icon={ icon } />
@@ -171,7 +174,7 @@ export default function( {
 					value={ content }
 					onChange={ onChangeContent }
 				/>
-			</div>
+			</BlockWrapper>
 		</>
 	);
 }

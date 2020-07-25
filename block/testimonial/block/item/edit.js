@@ -1,9 +1,11 @@
-'use strict';
-
 import classnames from 'classnames';
 
 import { Button } from '@wordpress/components';
-import { RichText, MediaUpload } from '@wordpress/block-editor';
+import {
+	RichText,
+	MediaUpload,
+	__experimentalBlock as Block,
+} from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 
 export default function( {
@@ -30,6 +32,7 @@ export default function( {
 		);
 	};
 
+	const BlockWrapper = Block.div;
 	const colClasses = classnames( 'c-row__col', className );
 
 	const onSelectAvatar = ( media ) => {
@@ -60,7 +63,7 @@ export default function( {
 		} );
 
 	return (
-		<div className={ colClasses }>
+		<BlockWrapper className={ colClasses }>
 			<div className="smb-testimonial__item">
 				{ ( !! avatarID || isSelected ) && (
 					<div className="smb-testimonial__item__figure">
@@ -108,6 +111,6 @@ export default function( {
 					) }
 				</div>
 			</div>
-		</div>
+		</BlockWrapper>
 	);
 }

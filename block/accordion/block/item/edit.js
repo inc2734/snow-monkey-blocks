@@ -1,5 +1,3 @@
-'use strict';
-
 import classnames from 'classnames';
 
 import { PanelBody, CheckboxControl } from '@wordpress/components';
@@ -9,11 +7,13 @@ import {
 	InspectorControls,
 	RichText,
 	InnerBlocks,
+	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
 export default function( { attributes, setAttributes, className } ) {
 	const { title, initialState } = attributes;
 
+	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-accordion__item', className );
 
 	const onChangeInitialState = ( value ) =>
@@ -43,7 +43,7 @@ export default function( { attributes, setAttributes, className } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<div className={ classes }>
+			<BlockWrapper className={ classes }>
 				<div className="smb-accordion__item__title">
 					<RichText
 						className="smb-accordion__item__title__label"
@@ -61,7 +61,7 @@ export default function( { attributes, setAttributes, className } ) {
 				<div className="smb-accordion__item__body">
 					<InnerBlocks />
 				</div>
-			</div>
+			</BlockWrapper>
 		</>
 	);
 }

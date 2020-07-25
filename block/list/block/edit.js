@@ -1,5 +1,3 @@
-'use strict';
-
 import classnames from 'classnames';
 import { times } from 'lodash';
 
@@ -10,9 +8,10 @@ import {
 	RichText,
 	InspectorControls,
 	PanelColorSettings,
+	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
-export default function( { attributes, setAttributes, className } ) {
+export default function( { attributes, setAttributes, className, clientId } ) {
 	const { content, icon, iconColor } = attributes;
 
 	const iconList = [
@@ -54,6 +53,7 @@ export default function( { attributes, setAttributes, className } ) {
 		},
 	];
 
+	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-list', className );
 
 	const onChangeIconColor = ( value ) =>
@@ -85,10 +85,11 @@ export default function( { attributes, setAttributes, className } ) {
 										icon: value,
 									} );
 
+								const isPrimary = icon === value;
 								return (
 									<Button
-										isDefault
-										isPrimary={ icon === value }
+										isDefault={ ! isPrimary }
+										isPrimary={ isPrimary }
 										onClick={ onClickIcon }
 									>
 										<i
@@ -115,18 +116,21 @@ export default function( { attributes, setAttributes, className } ) {
 				></PanelColorSettings>
 			</InspectorControls>
 
-			<div
+			<BlockWrapper
 				className={ classes }
 				data-icon={ icon }
 				data-icon-color={ iconColor }
 			>
+				<style>
+					{ `.editor-styles-wrapper [data-block="${ clientId }"] ul li::before { border-color: ${ iconColor } }` }
+				</style>
 				<RichText
 					tagName="ul"
 					multiline="li"
 					value={ content }
 					onChange={ onChangeContent }
 				/>
-			</div>
+			</BlockWrapper>
 		</>
 	);
 }

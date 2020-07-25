@@ -1,5 +1,3 @@
-'use strict';
-
 import classnames from 'classnames';
 import { times } from 'lodash';
 
@@ -21,6 +19,7 @@ import {
 	InspectorControls,
 	PanelColorSettings,
 	ColorPalette,
+	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
 import { toNumber } from '../../../src/js/helper/helper';
@@ -52,6 +51,7 @@ export default function( {
 
 	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
 
+	const BlockWrapper = Block.div;
 	const classes = classnames(
 		'smb-section',
 		'smb-section-with-bgimage',
@@ -170,13 +170,12 @@ export default function( {
 										titleTagName: titleTagNames[ index ],
 									} );
 
+								const isPrimary =
+									titleTagName === titleTagNames[ index ];
 								return (
 									<Button
-										isDefault
-										isPrimary={
-											titleTagName ===
-											titleTagNames[ index ]
-										}
+										isDefault={ ! isPrimary }
+										isPrimary={ isPrimary }
 										onClick={ onClickTitleTagName }
 									>
 										{ titleTagNames[ index ] }
@@ -319,7 +318,7 @@ export default function( {
 				</PanelBody>
 			</InspectorControls>
 
-			<div className={ classes } style={ sectionStyles }>
+			<BlockWrapper className={ classes } style={ sectionStyles }>
 				<div
 					className="smb-section-with-bgimage__mask"
 					style={ maskStyles }
@@ -384,7 +383,7 @@ export default function( {
 						<InnerBlocks />
 					</div>
 				</div>
-			</div>
+			</BlockWrapper>
 		</>
 	);
 }

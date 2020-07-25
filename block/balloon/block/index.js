@@ -27,4 +27,7 @@ export const settings = {
 	save,
 	deprecated,
 	example,
+	supports: {
+		lightBlockWrapper: true,
+	},
 };

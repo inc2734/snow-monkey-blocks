@@ -1,5 +1,3 @@
-'use strict';
-
 import classnames from 'classnames';
 
 import { PanelBody } from '@wordpress/components';
@@ -10,6 +8,7 @@ import {
 	AlignmentToolbar,
 	InspectorControls,
 	PanelColorSettings,
+	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
 import DateTimePicker from '../../../src/js/component/date-time-picker';
@@ -17,7 +16,8 @@ import DateTimePicker from '../../../src/js/component/date-time-picker';
 export default function( { attributes, setAttributes, className } ) {
 	const { alignment, numericColor, clockColor, countdownTime } = attributes;
 
-	const blockClasses = classnames( 'smb-countdown', className );
+	const BlockWrapper = Block.div;
+	const classes = classnames( 'smb-countdown', className );
 
 	const listClasses = classnames( 'smb-countdown__list', {
 		[ `align-${ alignment }` ]: !! alignment,
@@ -85,7 +85,8 @@ export default function( { attributes, setAttributes, className } ) {
 					] }
 				></PanelColorSettings>
 			</InspectorControls>
-			<div className={ blockClasses }>
+
+			<BlockWrapper className={ classes }>
 				<ul className={ listClasses } data-time={ countdownTime }>
 					<li className="smb-countdown__list-item smb-countdown__list-item__days">
 						<span
@@ -144,7 +145,7 @@ export default function( { attributes, setAttributes, className } ) {
 						</span>
 					</li>
 				</ul>
-			</div>
+			</BlockWrapper>
 		</>
 	);
 }

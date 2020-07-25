@@ -1,14 +1,27 @@
-'use strict';
-
 import classnames from 'classnames';
 
-import { InnerBlocks, InspectorControls } from '@wordpress/block-editor';
+import {
+	InnerBlocks,
+	InspectorControls,
+	__experimentalBlock as Block,
+} from '@wordpress/block-editor';
 import { PanelBody, ToggleControl } from '@wordpress/components';
+import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
-export default function( { attributes, setAttributes, className } ) {
+export default function( { attributes, setAttributes, className, clientId } ) {
 	const { isSlim } = attributes;
 
+	const hasInnerBlocks = useSelect(
+		( select ) => {
+			const { getBlock } = select( 'core/block-editor' );
+			const block = getBlock( clientId );
+			return !! ( block && block.innerBlocks.length );
+		},
+		[ clientId ]
+	);
+
+	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-container', 'c-container', className );
 
 	const bodyClasses = classnames( 'smb-container__body', {
@@ -37,11 +50,17 @@ export default function( { attributes, setAttributes, className } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<div className={ classes }>
+			<BlockWrapper className={ classes }>
 				<div className={ bodyClasses }>
-					<InnerBlocks />
+					<InnerBlocks
+						renderAppender={
+							hasInnerBlocks
+								? undefined
+								: () => <InnerBlocks.ButtonBlockAppender />
+						}
+					/>
 				</div>
-			</div>
+			</BlockWrapper>
 		</>
 	);
 }

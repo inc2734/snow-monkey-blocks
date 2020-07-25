@@ -1,5 +1,3 @@
-'use strict';
-
 import classnames from 'classnames';
 
 import { PanelBody, RangeControl } from '@wordpress/components';
@@ -10,6 +8,7 @@ import {
 	InspectorControls,
 	PanelColorSettings,
 	ContrastChecker,
+	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
 import { toNumber } from '../../../src/js/helper/helper';
@@ -34,6 +33,7 @@ export default function( { attributes, setAttributes, className } ) {
 		opacity,
 	};
 
+	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-box', className );
 
 	const onChangeBorderWidth = ( value ) =>
@@ -119,7 +119,7 @@ export default function( { attributes, setAttributes, className } ) {
 				</PanelColorSettings>
 			</InspectorControls>
 
-			<div className={ classes } style={ boxStyles }>
+			<BlockWrapper className={ classes } style={ boxStyles }>
 				<div
 					className="smb-box__background"
 					style={ backgroundStyles }
@@ -127,7 +127,7 @@ export default function( { attributes, setAttributes, className } ) {
 				<div className="smb-box__body">
 					<InnerBlocks />
 				</div>
-			</div>
+			</BlockWrapper>
 		</>
 	);
 }
