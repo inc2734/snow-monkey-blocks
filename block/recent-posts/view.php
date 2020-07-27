@@ -12,12 +12,21 @@ $widget_templates = apply_filters( 'inc2734_wp_awesome_widgets_widget_templates'
 $custom_template  = $widget_templates . '/recent-posts.php';
 $default_template = get_template_directory() . '/app/widget/snow-monkey-recent-posts/_widget.php';
 
+$force_sm_1col = null;
+$sm_cols = (int) $attributes['smCols'];
+if ( 1 === $sm_cols ) {
+	$force_sm_1col = 1;
+} elseif ( 2 === $sm_cols ) {
+	$force_sm_1col = 0;
+}
+
 $instance = [
 	'title'               => null,
 	'post-type'           => $attributes['postType'],
 	'posts-per-page'      => $attributes['postsPerPage'],
 	'layout'              => $attributes['layout'],
 	'ignore-sticky-posts' => $attributes['ignoreStickyPosts'],
+	'force-sm-1col'       => $force_sm_1col,
 	'item-title-tag'      => $attributes['itemTitleTagName'],
 	'item-thumbnail-size' => $attributes['itemThumbnailSizeSlug'],
 	'link-text'           => null,

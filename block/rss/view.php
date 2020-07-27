@@ -3,11 +3,20 @@ $widget_templates = apply_filters( 'inc2734_wp_awesome_widgets_widget_templates'
 $custom_template  = $widget_templates . '/rss.php';
 $default_template = get_template_directory() . '/app/widget/snow-monkey-rss/_widget.php';
 
+$force_sm_1col = null;
+$sm_cols = (int) $attributes['smCols'];
+if ( 1 === $sm_cols ) {
+	$force_sm_1col = 1;
+} elseif ( 2 === $sm_cols ) {
+	$force_sm_1col = 0;
+}
+
 $instance = [
 	'feed-url'       => $attributes['feedURL'],
 	'title'          => null,
 	'posts-per-page' => $attributes['postsPerPage'],
 	'layout'         => $attributes['layout'],
+	'force-sm-1col'  => $force_sm_1col,
 	'item-title-tag' => $attributes['itemTitleTagName'],
 	'link-text'      => null,
 	'link-url'       => null,

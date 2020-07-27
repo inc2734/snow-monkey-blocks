@@ -32,6 +32,7 @@ export default function( { attributes, setAttributes } ) {
 		feedURL,
 		postsPerPage,
 		layout,
+		smCols,
 		noPostsText,
 		itemTitleTagName,
 		myAnchor,
@@ -60,6 +61,11 @@ export default function( { attributes, setAttributes } ) {
 	const onChangeLayout = ( value ) =>
 		setAttributes( {
 			layout: value,
+		} );
+
+	const onChangeSmCols = ( value ) =>
+		setAttributes( {
+			smCols: value,
 		} );
 
 	const onChangeNoPostsText = ( value ) =>
@@ -170,6 +176,29 @@ export default function( { attributes, setAttributes } ) {
 							} ) }
 						</div>
 					</BaseControl>
+
+					<SelectControl
+						label={ __(
+							'Number of columns displayed on mobile device',
+							'snow-monkey-blocks'
+						) }
+						value={ smCols }
+						onChange={ onChangeSmCols }
+						options={ [
+							{
+								value: '',
+								label: __( 'Default', 'snow-monkey-blocks' ),
+							},
+							{
+								value: '1',
+								label: __( '1 column', 'snow-monkey-blocks' ),
+							},
+							{
+								value: '2',
+								label: __( '2 columns', 'snow-monkey-blocks' ),
+							},
+						] }
+					/>
 
 					<TextareaControl
 						label={ __(

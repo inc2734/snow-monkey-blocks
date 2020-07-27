@@ -11,6 +11,10 @@
      "type": "string",
      "default": "rich-media"
   },
+  "smCols": {
+    "type": "number",
+    "default": 0
+  },
   "noPostsText": {
      "type": "string",
      "default": ""

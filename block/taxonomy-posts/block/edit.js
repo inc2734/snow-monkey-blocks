@@ -32,6 +32,7 @@ export default function( { attributes, setAttributes } ) {
 		postsPerPage,
 		layout,
 		ignoreStickyPosts,
+		smCols,
 		noPostsText,
 		itemTitleTagName,
 		itemThumbnailSizeSlug,
@@ -99,6 +100,11 @@ export default function( { attributes, setAttributes } ) {
 	const onChangeIgnoreStickyPosts = ( value ) =>
 		setAttributes( {
 			ignoreStickyPosts: value,
+		} );
+
+	const onChangeSmCols = ( value ) =>
+		setAttributes( {
+			smCols: toNumber( value ),
 		} );
 
 	const onChangeItemThumbnailSizeSlug = ( value ) =>
@@ -227,6 +233,29 @@ export default function( { attributes, setAttributes } ) {
 						value={ itemThumbnailSizeSlug }
 						options={ itemThumbnailSizeSlugOption }
 						onChange={ onChangeItemThumbnailSizeSlug }
+					/>
+
+					<SelectControl
+						label={ __(
+							'Number of columns displayed on mobile device',
+							'snow-monkey-blocks'
+						) }
+						value={ smCols }
+						onChange={ onChangeSmCols }
+						options={ [
+							{
+								value: '',
+								label: __( 'Default', 'snow-monkey-blocks' ),
+							},
+							{
+								value: '1',
+								label: __( '1 column', 'snow-monkey-blocks' ),
+							},
+							{
+								value: '2',
+								label: __( '2 columns', 'snow-monkey-blocks' ),
+							},
+						] }
 					/>
 
 					<ToggleControl

@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2020-07-27 11:41+0900\n"
-"PO-Revision-Date: 2020-07-27 11:41+0900\n"
+"POT-Creation-Date: 2020-07-27 14:19+0900\n"
+"PO-Revision-Date: 2020-07-27 14:20+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -79,7 +79,7 @@ msgid "articles"
 msgstr "記事"
 
 #: block/categories-list/view.php:55 block/categories-list/block/edit.js:142
-#: block/recent-posts/block/edit.js:224 block/recent-posts/block/index.js:13
+#: block/recent-posts/block/edit.js:253 block/recent-posts/block/index.js:13
 msgid "Recent posts"
 msgstr "最近の投稿"
 
@@ -149,14 +149,14 @@ msgstr "アコーディオンのように伸縮するコンテンツエリアを
 #: block/panels/block/item/vertical/edit.js:176
 #: block/pickup-slider/block/edit.js:43 block/pricing-table/block/edit.js:32
 #: block/pricing-table/block/item/edit.js:198
-#: block/rating-box/block/item/edit.js:45 block/recent-posts/block/edit.js:109
-#: block/rss/block/edit.js:112 block/section-break-the-grid/block/edit.js:299
+#: block/rating-box/block/item/edit.js:45 block/recent-posts/block/edit.js:115
+#: block/rss/block/edit.js:118 block/section-break-the-grid/block/edit.js:299
 #: block/section-side-heading/block/edit.js:203
 #: block/section-with-bgimage/block/edit.js:234
 #: block/section-with-bgvideo/block/edit.js:160 block/section/block/edit.js:206
 #: block/slider/block/edit.js:128 block/slider/block/item/edit.js:189
 #: block/step/block/item/standard/edit.js:191
-#: block/taxonomy-posts/block/edit.js:123 block/taxonomy-terms/block/edit.js:60
+#: block/taxonomy-posts/block/edit.js:129 block/taxonomy-terms/block/edit.js:60
 #: block/testimonial/block/edit.js:37 block/thumbnail-gallery/block/edit.js:41
 #: block/thumbnail-gallery/block/item/edit.js:122
 msgid "Block Settings"
@@ -413,8 +413,9 @@ msgstr "マイクロコピー付きのボタンです。"
 
 #: block/btn-box/block/index.js:25 block/btn/block/index.js:26
 #: block/countdown/block/index.js:39 block/items/block/item/banner/edit.js:238
-#: block/media-text/block/edit.js:266 block/slider/block/edit.js:42
-#: block/taxonomy-terms/editor.js:13
+#: block/media-text/block/edit.js:266 block/recent-posts/block/edit.js:204
+#: block/rss/block/edit.js:190 block/slider/block/edit.js:42
+#: block/taxonomy-posts/block/edit.js:248 block/taxonomy-terms/editor.js:13
 msgid "Default"
 msgstr "デフォルト"
 
@@ -567,14 +568,14 @@ msgid "Move to before 1st heading"
 msgstr "最初の見出しの前に移動"
 
 #: block/contents-outline/block/edit.js:109
-#: block/pickup-slider/block/edit.js:97 block/recent-posts/block/edit.js:211
-#: block/rss/block/edit.js:188 block/taxonomy-posts/block/edit.js:255
+#: block/pickup-slider/block/edit.js:97 block/recent-posts/block/edit.js:240
+#: block/rss/block/edit.js:217 block/taxonomy-posts/block/edit.js:284
 msgid "HTML Anchor"
 msgstr "HTML アンカー"
 
 #: block/contents-outline/block/edit.js:111
-#: block/pickup-slider/block/edit.js:99 block/recent-posts/block/edit.js:213
-#: block/rss/block/edit.js:190 block/taxonomy-posts/block/edit.js:257
+#: block/pickup-slider/block/edit.js:99 block/recent-posts/block/edit.js:242
+#: block/rss/block/edit.js:219 block/taxonomy-posts/block/edit.js:286
 msgid "Anchors lets you link directly to a section on a page."
 msgstr ""
 "アンカーを使用すると、ページ上のセクションに直接リンクすることができます。"
@@ -831,11 +832,11 @@ msgstr "16:9"
 #: block/panels/block/item/horizontal/edit.js:236
 #: block/panels/block/item/vertical/edit.js:205
 #: block/pricing-table/block/item/edit.js:201
-#: block/recent-posts/block/edit.js:182
+#: block/recent-posts/block/edit.js:188
 #: block/section-break-the-grid/block/edit.js:371
 #: block/slider/block/item/edit.js:192
 #: block/step/block/item/standard/edit.js:214
-#: block/taxonomy-posts/block/edit.js:226
+#: block/taxonomy-posts/block/edit.js:232
 #: block/thumbnail-gallery/block/item/edit.js:125
 msgid "Images size"
 msgstr "画像サイズ"
@@ -899,13 +900,13 @@ msgstr "項目ブロックの子ブロックです。"
 #: block/media-text/block/edit.js:287
 #: block/panels/block/item/horizontal/edit.js:194
 #: block/panels/block/item/vertical/edit.js:179
-#: block/recent-posts/block/edit.js:154 block/rss/block/edit.js:147
+#: block/recent-posts/block/edit.js:160 block/rss/block/edit.js:153
 #: block/section-break-the-grid/block/edit.js:329
 #: block/section-side-heading/block/edit.js:233
 #: block/section-with-bgimage/block/edit.js:237
 #: block/section-with-bgimage/block/edit.js:264
 #: block/section-with-bgvideo/block/edit.js:163 block/section/block/edit.js:236
-#: block/taxonomy-posts/block/edit.js:198
+#: block/taxonomy-posts/block/edit.js:204
 msgid "Title Tag"
 msgstr "タイトルタグ"
 
@@ -1094,8 +1095,8 @@ msgstr "画像と文章を横並びのリッチなレイアウトにします。
 msgid "Set padding around images"
 msgstr "画像の周りに余白を設定"
 
-#: block/panels/block/index.js:13 block/recent-posts/block/edit.js:148
-#: block/rss/block/edit.js:141 block/taxonomy-posts/block/edit.js:192
+#: block/panels/block/index.js:13 block/recent-posts/block/edit.js:154
+#: block/rss/block/edit.js:147 block/taxonomy-posts/block/edit.js:198
 msgid "Panels"
 msgstr "パネル"
 
@@ -1228,46 +1229,61 @@ msgstr "バーの色"
 msgid "It is a child block of the rating box block."
 msgstr "レーティングボックスブロックの子ブロックです。"
 
-#: block/recent-posts/block/edit.js:112
+#: block/recent-posts/block/edit.js:118
 msgid "Post Type"
 msgstr "投稿タイプ"
 
-#: block/recent-posts/block/edit.js:122 block/rss/block/edit.js:115
-#: block/taxonomy-posts/block/edit.js:166
+#: block/recent-posts/block/edit.js:128 block/rss/block/edit.js:121
+#: block/taxonomy-posts/block/edit.js:172
 msgid "Number of posts"
 msgstr "表示する投稿数"
 
-#: block/recent-posts/block/edit.js:130 block/rss/block/edit.js:123
-#: block/taxonomy-posts/block/edit.js:174
+#: block/recent-posts/block/edit.js:136 block/rss/block/edit.js:129
+#: block/taxonomy-posts/block/edit.js:180
 msgid "Layout"
 msgstr "レイアウト"
 
-#: block/recent-posts/block/edit.js:136 block/rss/block/edit.js:129
-#: block/taxonomy-posts/block/edit.js:180
+#: block/recent-posts/block/edit.js:142 block/rss/block/edit.js:135
+#: block/taxonomy-posts/block/edit.js:186
 msgid "Rich media"
 msgstr "リッチメディア"
 
-#: block/recent-posts/block/edit.js:140 block/rss/block/edit.js:133
-#: block/taxonomy-posts/block/edit.js:184
+#: block/recent-posts/block/edit.js:146 block/rss/block/edit.js:139
+#: block/taxonomy-posts/block/edit.js:190
 msgid "Simple"
 msgstr "シンプル"
 
-#: block/recent-posts/block/edit.js:144 block/rss/block/edit.js:137
-#: block/taxonomy-posts/block/edit.js:188
+#: block/recent-posts/block/edit.js:150 block/rss/block/edit.js:143
+#: block/taxonomy-posts/block/edit.js:194
 msgid "Text"
 msgstr "テキスト"
 
-#: block/recent-posts/block/edit.js:190 block/taxonomy-posts/block/edit.js:234
+#: block/recent-posts/block/edit.js:196 block/rss/block/edit.js:182
+#: block/taxonomy-posts/block/edit.js:240
+msgid "Number of columns displayed on mobile device"
+msgstr "モバイル端末時の表示カラム数"
+
+#: block/recent-posts/block/edit.js:208 block/rss/block/edit.js:194
+#: block/taxonomy-posts/block/edit.js:252
+msgid "1 column"
+msgstr "1カラム"
+
+#: block/recent-posts/block/edit.js:212 block/rss/block/edit.js:198
+#: block/taxonomy-posts/block/edit.js:256
+msgid "2 columns"
+msgstr "2カラム"
+
+#: block/recent-posts/block/edit.js:219 block/taxonomy-posts/block/edit.js:263
 msgid "Ignore sticky posts"
 msgstr "先頭固定表示を除外する"
 
-#: block/recent-posts/block/edit.js:199 block/rss/block/edit.js:176
-#: block/taxonomy-posts/block/edit.js:243
+#: block/recent-posts/block/edit.js:228 block/rss/block/edit.js:205
+#: block/taxonomy-posts/block/edit.js:272
 msgid "Text if no posts matched"
 msgstr "一致する投稿がない場合のテキスト"
 
-#: block/recent-posts/block/edit.js:202 block/rss/block/edit.js:179
-#: block/taxonomy-posts/block/edit.js:246
+#: block/recent-posts/block/edit.js:231 block/rss/block/edit.js:208
+#: block/taxonomy-posts/block/edit.js:275
 msgid "Allow HTML"
 msgstr "HTML 許可"
 
@@ -1275,15 +1291,15 @@ msgstr "HTML 許可"
 msgid "You can display recent posts with richer."
 msgstr "最近の投稿をよりリッチに表示できます。"
 
-#: block/rss/block/edit.js:81
+#: block/rss/block/edit.js:87
 msgid "Enter URL here…"
 msgstr "URL をここに入力…"
 
-#: block/rss/block/edit.js:89
+#: block/rss/block/edit.js:95
 msgid "Use URL"
 msgstr "URL を使用"
 
-#: block/rss/block/edit.js:103
+#: block/rss/block/edit.js:109
 msgid "Edit RSS URL"
 msgstr "RSS の URL を編集"
 
@@ -1709,11 +1725,11 @@ msgstr "リンク色"
 msgid "Link text"
 msgstr "リンクテキスト"
 
-#: block/taxonomy-posts/block/edit.js:128 block/taxonomy-terms/block/edit.js:65
+#: block/taxonomy-posts/block/edit.js:134 block/taxonomy-terms/block/edit.js:65
 msgid "Loading taxonomies…"
 msgstr "タクソノミーを読み込んでいます…"
 
-#: block/taxonomy-posts/block/edit.js:268
+#: block/taxonomy-posts/block/edit.js:297
 #: block/taxonomy-posts/block/index.js:13
 msgid "Taxonomy posts"
 msgstr "任意のタクソノミーの投稿"
