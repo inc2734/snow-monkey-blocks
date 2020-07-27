@@ -62,6 +62,9 @@
     "type": "string",
     "default": 66
   },
+  "mobileOrder": {
+    "type": "string"
+  },
   "url": {
     "type": "string",
     "default": ""

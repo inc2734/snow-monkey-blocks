@@ -1,5 +1,3 @@
-'use strict';
-
 import classnames from 'classnames';
 
 import { RichText, InnerBlocks } from '@wordpress/block-editor';
@@ -19,6 +17,7 @@ export default function( { attributes, className } ) {
 		caption,
 		imagePosition,
 		imageColumnSize,
+		mobileOrder,
 		url,
 		target,
 	} = attributes;
@@ -27,7 +26,9 @@ export default function( { attributes, className } ) {
 		imageColumnSize
 	);
 
-	const classes = classnames( 'smb-media-text', className );
+	const classes = classnames( 'smb-media-text', className, {
+		[ `smb-media-text--mobile-${ mobileOrder }` ]: !! mobileOrder,
+	} );
 
 	const rowClasses = classnames( 'c-row', 'c-row--margin', 'c-row--middle', {
 		'c-row--reverse': 'left' === imagePosition,

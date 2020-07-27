@@ -49,6 +49,7 @@ export default function( {
 		caption,
 		imagePosition,
 		imageColumnSize,
+		mobileOrder,
 		url,
 		target,
 		imageMediaType,
@@ -92,7 +93,9 @@ export default function( {
 	);
 
 	const BlockWrapper = Block.div;
-	const classes = classnames( 'smb-media-text', className );
+	const classes = classnames( 'smb-media-text', className, {
+		[ `smb-media-text--mobile-${ mobileOrder }` ]: !! mobileOrder,
+	} );
 
 	const rowClasses = classnames( 'c-row', 'c-row--margin', 'c-row--middle', {
 		'c-row--reverse': 'left' === imagePosition,
@@ -188,6 +191,11 @@ export default function( {
 		} );
 	};
 
+	const onChangeMobileOrder = ( value ) =>
+		setAttributes( {
+			mobileOrder: value,
+		} );
+
 	const onChangeCaption = ( value ) =>
 		setAttributes( {
 			caption: value,
@@ -247,6 +255,32 @@ export default function( {
 						id={ imageID }
 						slug={ imageSizeSlug }
 						onChange={ onChangeImageSizeSlug }
+					/>
+
+					<SelectControl
+						label={ __( 'Sort by mobile', 'snow-monkey-blocks' ) }
+						value={ mobileOrder }
+						options={ [
+							{
+								value: undefined,
+								label: __( 'Default', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'text',
+								label: __(
+									'Text > Image',
+									'snow-monkey-blocks'
+								),
+							},
+							{
+								value: 'image',
+								label: __(
+									'Image > Text',
+									'snow-monkey-blocks'
+								),
+							},
+						] }
+						onChange={ onChangeMobileOrder }
 					/>
 
 					<BaseControl

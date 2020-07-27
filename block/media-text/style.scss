@@ -3,6 +3,22 @@
 @import '../../src/css/core/block';
 
 .smb-media-text {
+  &--mobile-text {
+    .c-row__col:first-child {
+      @include _media-max(md) {
+        order: 0 !important;
+      }
+    }
+  }
+
+  &--mobile-image {
+    .c-row__col:first-child {
+      @include _media-max(md) {
+        order: 1 !important;
+      }
+    }
+  }
+
   &__title {
     @include _font-size-line-height($_base-font-size * $_h2-font-size-scale / 1.25);
 
@@ -33,8 +49,8 @@
   }
 
   > .c-row--reverse {
-    @include _media-max(md) {
-      > .c-row__col:first-child {
+    > .c-row__col:first-child {
+      @include _media-max(md) {
         order: 1;
       }
     }
