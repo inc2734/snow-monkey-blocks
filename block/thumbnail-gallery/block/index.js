@@ -23,7 +23,7 @@ export const settings = {
 		foreground: blockConfig.blockIconColor,
 		src: 'format-gallery',
 	},
-	category: blockConfig.blockCategories.common,
+	category: blockConfig.blockCategories.deprecated,
 	supports: {
 		align: [ 'wide', 'full' ],
 	},

@@ -60,6 +60,15 @@ class Bootstrap {
 			];
 		}
 
+		if ( ! in_array( 'smb-deprecated', $slugs, true ) ) {
+			$categories[] = [
+				'slug'  => 'smb-deprecated',
+				'title' => __( 'Snow Monkey Blocks', 'snow-monkey-blocks' )
+									. ' '
+									. __( '[Deprecated]', 'snow-monkey-blocks' ),
+			];
+		}
+
 		return $categories;
 	}
 
