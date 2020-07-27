@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2020-07-25 14:41+0900\n"
-"PO-Revision-Date: 2020-07-25 14:41+0900\n"
+"POT-Creation-Date: 2020-07-27 11:13+0900\n"
+"PO-Revision-Date: 2020-07-27 11:13+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -24,39 +24,52 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-3: tests\n"
 "X-Poedit-SearchPathExcluded-4: languages\n"
 
-#: App/RestAPI/BlockTemplatePanel/config.php:14
-#: App/RestAPI/BlockTemplatePanel/config.php:22
-#: App/RestAPI/BlockTemplatePanel/config.php:30
-#: App/RestAPI/BlockTemplatePanel/config.php:38
-#: App/RestAPI/BlockTemplatePanel/config.php:46
+#: App/Setup/BlockPatterns.php:18
+msgid "Headings"
+msgstr "Headings"
+
+#: App/Setup/BlockPatterns.php:19
+msgid "Features"
+msgstr "Features"
+
+#: App/Setup/BlockPatterns.php:20
+msgid "Text with image"
+msgstr "Text with image"
+
+#: App/Setup/BlockPatterns.php:21
+msgid "Pricing"
+msgstr "Pricing"
+
+#: App/Setup/BlockPatterns.php:22 block/faq/block/index.js:12
+msgid "FAQ"
+msgstr "FAQ"
+
+#: App/Setup/BlockPatterns.php:28 App/Setup/BlockPatterns.php:38
+#: App/Setup/BlockPatterns.php:48 App/Setup/BlockPatterns.php:58
+#: App/Setup/BlockPatterns.php:68
 #, php-format
 msgid "Heading %1$s"
 msgstr "Heading %1$s"
 
-#: App/RestAPI/BlockTemplatePanel/config.php:54
-#: App/RestAPI/BlockTemplatePanel/config.php:62
-#: App/RestAPI/BlockTemplatePanel/config.php:70
-#: App/RestAPI/BlockTemplatePanel/config.php:78
-#: App/RestAPI/BlockTemplatePanel/config.php:86
-#: App/RestAPI/BlockTemplatePanel/config.php:94
+#: App/Setup/BlockPatterns.php:78 App/Setup/BlockPatterns.php:88
+#: App/Setup/BlockPatterns.php:98 App/Setup/BlockPatterns.php:108
+#: App/Setup/BlockPatterns.php:118 App/Setup/BlockPatterns.php:128
 #, php-format
 msgid "Feature %1$s"
 msgstr "Feature %1$s"
 
-#: App/RestAPI/BlockTemplatePanel/config.php:102
-#: App/RestAPI/BlockTemplatePanel/config.php:110
-#: App/RestAPI/BlockTemplatePanel/config.php:118
+#: App/Setup/BlockPatterns.php:138 App/Setup/BlockPatterns.php:148
+#: App/Setup/BlockPatterns.php:158
 #, php-format
 msgid "Text with image %1$s"
 msgstr "Text with image %1$s"
 
-#: App/RestAPI/BlockTemplatePanel/config.php:126
+#: App/Setup/BlockPatterns.php:168
 #, php-format
 msgid "Pricing %1$s"
 msgstr "Pricing %1$s"
 
-#: App/RestAPI/BlockTemplatePanel/config.php:134
-#: App/RestAPI/BlockTemplatePanel/config.php:142
+#: App/Setup/BlockPatterns.php:178 App/Setup/BlockPatterns.php:188
 #, php-format
 msgid "FAQ %1$s"
 msgstr "FAQ %1$s"
@@ -75,7 +88,6 @@ msgid "(no title)"
 msgstr "(タイトルなし)"
 
 #: snow-monkey-blocks.php:48 snow-monkey-blocks.php:57
-#: plugin/menu/sidebar.js:22 plugin/menu/sidebar.js:27
 msgid "Snow Monkey Blocks"
 msgstr "Snow Monkey Blocks"
 
@@ -120,7 +132,7 @@ msgid ""
 msgstr "アコーディオンのように伸縮するコンテンツエリアを設定できます。"
 
 #: block/accordion/block/item/edit.js:33 block/alert/block/edit.js:84
-#: block/balloon/block/edit.js:87 block/box/block/edit.js:68
+#: block/balloon/block/edit.js:98 block/box/block/edit.js:68
 #: block/btn/block/edit.js:87 block/categories-list/block/edit.js:192
 #: block/child-pages/block/edit.js:17 block/container/block/edit.js:40
 #: block/contents-outline/block/edit.js:64 block/countdown/block/edit.js:64
@@ -196,7 +208,7 @@ msgstr "edit"
 msgid "lightbulb"
 msgstr "lightbulb"
 
-#: block/alert/block/edit.js:87 block/balloon/block/edit.js:90
+#: block/alert/block/edit.js:87 block/balloon/block/edit.js:101
 #: block/section-side-heading/block/edit.js:369
 #: block/section-side-heading/block/edit.js:421 block/section/block/edit.js:361
 #: block/section/block/edit.js:413
@@ -253,15 +265,15 @@ msgstr "アラート"
 msgid "It is a block that warns visitors."
 msgstr "閲覧者に注意を促すブロックです。"
 
-#: block/balloon/block/edit.js:97
+#: block/balloon/block/edit.js:108
 msgid "Normal balloon"
 msgstr "吹き出し"
 
-#: block/balloon/block/edit.js:104
+#: block/balloon/block/edit.js:115
 msgid "Reverse Balloon"
 msgstr "逆の吹き出し"
 
-#: block/balloon/block/edit.js:113 block/box/block/edit.js:92
+#: block/balloon/block/edit.js:124 block/box/block/edit.js:92
 #: block/btn-box/block/edit.js:125 block/btn/block/edit.js:110
 #: block/countdown/block/edit.js:72
 #: block/directory-structure/block/item/directory/edit.js:126
@@ -282,11 +294,19 @@ msgstr "逆の吹き出し"
 msgid "Color Settings"
 msgstr "色設定"
 
-#: block/balloon/block/edit.js:120
+#: block/balloon/block/edit.js:131
 msgid "Avatar Border Color"
 msgstr "アバターの線の色"
 
-#: block/balloon/block/edit.js:146
+#: block/balloon/block/edit.js:139 block/box/block/edit.js:99
+#: block/btn-box/block/edit.js:132 block/btn/block/edit.js:117
+#: block/pricing-table/block/item/edit.js:216
+#: block/section-break-the-grid/block/edit.js:601
+#: block/section-side-heading/block/edit.js:315 block/section/block/edit.js:307
+msgid "Background Color"
+msgstr "背景色"
+
+#: block/balloon/block/edit.js:165
 msgid "Name"
 msgstr "名前"
 
@@ -305,13 +325,6 @@ msgstr "枠線の太さ"
 #: block/box/block/edit.js:80
 msgid "Background Opacity"
 msgstr "背景の不透明度"
-
-#: block/box/block/edit.js:99 block/btn-box/block/edit.js:132
-#: block/btn/block/edit.js:117 block/pricing-table/block/item/edit.js:216
-#: block/section-break-the-grid/block/edit.js:601
-#: block/section-side-heading/block/edit.js:315 block/section/block/edit.js:307
-msgid "Background Color"
-msgstr "背景色"
 
 #: block/box/block/edit.js:106
 msgid "Border Color"
@@ -728,10 +741,6 @@ msgstr "星評価"
 #: block/evaluation-star/block/index.js:14
 msgid "Evaluate with star icons"
 msgstr "星アイコンで評価します。"
-
-#: block/faq/block/index.js:12
-msgid "FAQ"
-msgstr "FAQ"
 
 #: block/faq/block/index.js:13
 msgid "You can list the FAQs."
@@ -1758,10 +1767,6 @@ msgstr "蛍光ペン"
 msgid "Remove formatting"
 msgstr "書式設定をクリア"
 
-#: plugin/menu/sidebar.js:14
-msgid "Block templates"
-msgstr "ブロックテンプレート"
-
 #: src/js/component/date-time-picker.js:30
 msgid "Clear"
 msgstr "クリア"
@@ -1778,14 +1783,8 @@ msgstr "メディア"
 msgid "Video"
 msgstr "動画"
 
-#~ msgid "Parallax"
-#~ msgstr "パララックス"
-
-#~ msgid "Slider"
-#~ msgstr "スライダー"
-
-#~ msgid "Taxonomy terms"
-#~ msgstr "任意のタクソノミーの一覧"
+#~ msgid "Heading 1"
+#~ msgstr "Heading 1"
 
 #~ msgid "Heading 2"
 #~ msgstr "Heading 2"
@@ -1795,6 +1794,12 @@ msgstr "動画"
 
 #~ msgid "Heading 4"
 #~ msgstr "Heading 4"
+
+#~ msgid "Heading 5"
+#~ msgstr "Heading 5"
+
+#~ msgid "Feature 1"
+#~ msgstr "Feature 1"
 
 #~ msgid "Feature 2"
 #~ msgstr "Feature 2"
@@ -1808,8 +1813,32 @@ msgstr "動画"
 #~ msgid "Feature 5"
 #~ msgstr "Feature 5"
 
+#~ msgid "Feature 6"
+#~ msgstr "Feature 6"
+
+#~ msgid "Text with image 2"
+#~ msgstr "Text with image 2"
+
+#~ msgid "Text with image 3"
+#~ msgstr "Text with image 3"
+
+#~ msgid "FAQ 1"
+#~ msgstr "FAQ 1"
+
 #~ msgid "FAQ 2"
 #~ msgstr "FAQ 2"
+
+#~ msgid "Block templates"
+#~ msgstr "ブロックテンプレート"
+
+#~ msgid "Parallax"
+#~ msgstr "パララックス"
+
+#~ msgid "Slider"
+#~ msgstr "スライダー"
+
+#~ msgid "Taxonomy terms"
+#~ msgstr "任意のタクソノミーの一覧"
 
 #~ msgid "Remove"
 #~ msgstr "削除"

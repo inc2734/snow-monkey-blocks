@@ -25,7 +25,7 @@ class Bootstrap {
 	public function _bootstrap() {
 		new App\Setup\TextDomain();
 		new App\Setup\Assets();
-		new App\Setup\RestAPI();
+		new App\Setup\BlockPatterns();
 
 		add_filter( 'block_categories', [ $this, '_block_categories' ] );
 		add_action( 'init', [ $this, '_register_blocks' ] );

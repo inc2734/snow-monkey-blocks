@@ -1,9 +1,6 @@
-'use strict';
-
 import { groupBy, reduce, get } from 'lodash';
 import { registerBlockType } from '@wordpress/blocks';
 import { registerFormatType } from '@wordpress/rich-text';
-import { registerPlugin } from '@wordpress/plugins';
 
 export const registerBlock = ( block ) => {
 	if ( ! block ) {
@@ -21,15 +18,6 @@ export const registerFormat = ( format ) => {
 
 	const { name, settings } = format;
 	registerFormatType( name, settings );
-};
-
-export const registerSidebar = ( plugin ) => {
-	if ( ! plugin ) {
-		return;
-	}
-
-	const { name, settings } = plugin;
-	registerPlugin( name, settings );
 };
 
 export const toNumber = ( value, min = 0, max = null ) => {
