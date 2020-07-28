@@ -1,0 +1,10 @@
+{
+  "random": {
+    "type": "boolean",
+    "default": false
+  },
+  "postsPerPage": {
+    "type": "numeric",
+    "default": 0
+  }
+}

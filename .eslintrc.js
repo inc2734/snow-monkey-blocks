@@ -5,5 +5,6 @@ module.exports = {
 	globals: {
 		...defaultConfig.globals,
 		smb: true,
+		Spider: true,
 	},
 };

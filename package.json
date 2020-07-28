@@ -106,10 +106,17 @@
     "block:panels:build:js": "wp-scripts build block/panels/editor --output-path=dist/block/panels",
     "block:panels:build:css": "node-sass block/panels -o dist/block/panels && postcss dist/block/panels/*.css -r",
     "block:panels": "npm run block:panels:clean && npm-run-all -s block:panels:build:*",
+
+    "block:spider-pickup-slider:clean": "rimraf dist/block/spider-pickup-slider",
+    "block:spider-pickup-slider:build:js": "wp-scripts build block/spider-pickup-slider/script block/spider-pickup-slider/editor --output-path=dist/block/spider-pickup-slider",
+    "block:spider-pickup-slider:build:css": "node-sass block/spider-pickup-slider -o dist/block/spider-pickup-slider && postcss dist/block/spider-pickup-slider/*.css -r",
+    "block:spider-pickup-slider": "npm run block:spider-pickup-slider:clean && npm-run-all -s block:spider-pickup-slider:build:*",
+
     "block:pickup-slider:clean": "rimraf dist/block/pickup-slider",
     "block:pickup-slider:build:js": "wp-scripts build block/pickup-slider/nopro block/pickup-slider/editor --output-path=dist/block/pickup-slider",
     "block:pickup-slider:build:css": "node-sass block/pickup-slider -o dist/block/pickup-slider && postcss dist/block/pickup-slider/*.css -r",
     "block:pickup-slider": "npm run block:pickup-slider:clean && npm-run-all -s block:pickup-slider:build:*",
+
     "block:price-menu:clean": "rimraf dist/block/price-menu",
     "block:price-menu:build:js": "wp-scripts build block/price-menu/editor --output-path=dist/block/price-menu",
     "block:price-menu:build:css": "node-sass block/price-menu -o dist/block/price-menu && postcss dist/block/price-menu/*.css -r",
@@ -189,6 +196,7 @@
     "js": "npm run clean:js && wp-scripts build src/js/blocks.js src/js/background-parallax.js --output-path dist/js",
     "packages:fontawesome": "cpy 'fontawesome-free/js/all.min.js' 'fontawesome-free/LICENSE.txt' '../../dist/packages' --cwd=node_modules/@fortawesome --parents",
     "packages:slick-carousel": "cpy 'slick/**' '../../dist/packages' --cwd=node_modules/slick-carousel --parents",
+    "packages:spider": "cpy 'spider/**' '../../dist/packages' --cwd=node_modules/@inc2734 --parents",
     "packages": "npm run clean:packages && npm-run-all packages:*",
     "zip:pack": "rsync -a --exclude='/vendor' --exclude='/node_modules' --exclude='.*' --exclude='*.ruleset.xml' --exclude='*.config.js' --exclude='*.xml.dist' --exclude='/bin' --exclude='/tests' --exclude='package*.json' --exclude='src/img' . snow-monkey-blocks && cd snow-monkey-blocks && composer install --no-dev",
     "zip:archive": "zip -9 -qmr snow-monkey-blocks.zip snow-monkey-blocks",

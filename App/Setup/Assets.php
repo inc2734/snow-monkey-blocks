@@ -176,6 +176,24 @@ class Assets {
 				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/slick/slick-theme.css' )
 			);
 		}
+
+		if ( ! wp_style_is( 'spider', 'registered' ) ) {
+			wp_enqueue_style(
+				'spider',
+				SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/packages/spider/dist/css/spider.css',
+				[],
+				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/spider/dist/css/spider.css' )
+			);
+		}
+
+		if ( ! wp_script_is( 'spider', 'registered' ) ) {
+			wp_enqueue_script(
+				'spider',
+				SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/packages/spider/dist/js/spider.js',
+				[],
+				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/spider/dist/js/spider.js' )
+			);
+		}
 	}
 
 	/**
