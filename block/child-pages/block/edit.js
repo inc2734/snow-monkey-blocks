@@ -1,4 +1,4 @@
-import { Dashicon, PanelBody, TextControl } from '@wordpress/components';
+import { PanelBody, TextControl, Placeholder } from '@wordpress/components';
 import { InspectorControls } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 
@@ -28,18 +28,15 @@ export default function( { attributes, setAttributes } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<div className="components-placeholder">
-				<div className="components-placeholder__label">
-					<Dashicon icon="screenoptions" />
-					{ __( 'Child pages', 'snow-monkey-blocks' ) }
-				</div>
-				<div className="components-placeholder__instructions">
-					{ __(
-						'In the actual screen, it is displayed when the page have child pages.',
-						'snow-monkey-blocks'
-					) }
-				</div>
-			</div>
+			<Placeholder
+				icon="screenoptions"
+				label={ __( 'Child pages', 'snow-monkey-blocks' ) }
+			>
+				{ __(
+					'In the actual screen, it is displayed when the page have child pages.',
+					'snow-monkey-blocks'
+				) }
+			</Placeholder>
 		</>
 	);
 }

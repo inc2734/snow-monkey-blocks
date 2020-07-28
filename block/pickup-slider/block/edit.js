@@ -1,5 +1,3 @@
-'use strict';
-
 import { __ } from '@wordpress/i18n';
 
 import {
@@ -8,12 +6,12 @@ import {
 } from '@wordpress/block-editor';
 
 import {
-	Dashicon,
 	PanelBody,
 	RangeControl,
 	SelectControl,
 	TextControl,
 	ToggleControl,
+	Placeholder,
 } from '@wordpress/components';
 
 import { toNumber } from '../../../src/js/helper/helper';
@@ -104,18 +102,15 @@ export default function( { attributes, setAttributes } ) {
 				/>
 			</InspectorAdvancedControls>
 
-			<div className="components-placeholder">
-				<div className="components-placeholder__label">
-					<Dashicon icon="format-gallery" />
-					{ __( 'Pickup slider', 'snow-monkey-blocks' ) }
-				</div>
-				<div className="components-placeholder__instructions">
-					{ __(
-						'Posts with "pickup" tag are displayed as sliders.',
-						'snow-monkey-blocks'
-					) }
-				</div>
-			</div>
+			<Placeholder
+				icon="format-gallery"
+				label={ __( 'Pickup slider', 'snow-monkey-blocks' ) }
+			>
+				{ __(
+					'Posts with "pickup" tag are displayed as sliders.',
+					'snow-monkey-blocks'
+				) }
+			</Placeholder>
 		</>
 	);
 }
