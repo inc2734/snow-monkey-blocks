@@ -38,7 +38,6 @@ https://www.youtube.com/watch?v=uD6omb4TLdA&t=283s
 * Slider
 * Panels
 * Media text
-* Thumbnail gallery
 * Recent posts (Can be used only with Snow Monkey)
 * Taxonomy posts (Can be used only with Snow Monkey)
 * Pickup slider
@@ -103,14 +102,13 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 13. Slider block (The number of images can be increased or decreased freely)
 14. Panel block (The number of items can be increased or decreased freely)
 15. Media text block
-16. Thumbnail gallery block (The number of images can be increased or decreased freely)
-17. Categories list block
-18. Evaluation star block
-19. Accordion block
-20. Limited datetime block (The number of items can be increased or decreased freely)
-21. Countdown timer block
-22. Directory structure block (The number of items can be increased or decreased freely)
-23. Price menu block (The number of items can be increased or decreased freely)
+16. Categories list block
+17. Evaluation star block
+18. Accordion block
+19. Limited datetime block (The number of items can be increased or decreased freely)
+20. Countdown timer block
+21. Directory structure block (The number of items can be increased or decreased freely)
+22. Price menu block (The number of items can be increased or decreased freely)
 
 == Changelog ==
 

@@ -1,0 +1,49 @@
+@charset 'utf-8';
+
+@import '../../src/css/core/block';
+
+.smb-spider-slider {
+  &--16to9,
+  &--4to3 {
+    .spider__slide {
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        display: block;
+      }
+
+      .spider__figure {
+        position: absolute;
+
+        @supports (object-fit: cover) {
+          height: 100%;
+          object-fit: cover;
+          object-position: 50% 50%;
+        }
+      }
+    }
+  }
+
+  &--16to9 .spider__slide::before {
+    padding: 56.25% 0 0;
+  }
+
+  &--4to3 .spider__slide::before {
+    padding: 75% 0 0;
+  }
+
+  .spider__dots[data-thumbnails="true"] {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    @include _margin(.5, -.25, -.5);
+
+    .spider__dot {
+      margin: 0;
+      flex: 0 0 25%;
+      max-width: 25%;
+      @include _padding(0, .25, .5);
+    }
+  }
+}

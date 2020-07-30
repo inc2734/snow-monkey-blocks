@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2020-07-27 14:19+0900\n"
-"PO-Revision-Date: 2020-07-27 14:20+0900\n"
+"POT-Creation-Date: 2020-07-30 12:49+0900\n"
+"PO-Revision-Date: 2020-07-30 12:49+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -88,6 +88,7 @@ msgid "(no title)"
 msgstr "(タイトルなし)"
 
 #: snow-monkey-blocks.php:48 snow-monkey-blocks.php:57
+#: snow-monkey-blocks.php:66
 msgid "Snow Monkey Blocks"
 msgstr "Snow Monkey Blocks"
 
@@ -99,11 +100,15 @@ msgstr "[共通ブロック]"
 msgid "[Sections]"
 msgstr "[セクション]"
 
-#: snow-monkey-blocks.php:85
+#: snow-monkey-blocks.php:68
+msgid "[Deprecated]"
+msgstr "[非推奨]"
+
+#: snow-monkey-blocks.php:94
 msgid "[ PR ] Premium WordPress Theme Snow Monkey"
 msgstr "【PR】プレミアム WordPress テーマ Snow Monkey"
 
-#: snow-monkey-blocks.php:103
+#: snow-monkey-blocks.php:112
 #, php-format
 msgid ""
 "Snow Monkey Blocks is optimized for the %1$sSnow Monkey%2$s theme, but it "
@@ -112,7 +117,7 @@ msgstr ""
 "Snow Monkey Blocksは %1$sSnow Monkey%2$s テーマに最適化されていますが、他の"
 "テーマでも使用できます。"
 
-#: snow-monkey-blocks.php:109
+#: snow-monkey-blocks.php:118
 #, php-format
 msgid ""
 "When used together with the %1$sSnow Monkey%2$s theme, it can be displayed "
@@ -147,7 +152,7 @@ msgstr "アコーディオンのように伸縮するコンテンツエリアを
 #: block/list/block/edit.js:73 block/media-text/block/edit.js:208
 #: block/panels/block/edit.js:50 block/panels/block/item/horizontal/edit.js:191
 #: block/panels/block/item/vertical/edit.js:176
-#: block/pickup-slider/block/edit.js:43 block/pricing-table/block/edit.js:32
+#: block/pickup-slider/block/edit.js:41 block/pricing-table/block/edit.js:32
 #: block/pricing-table/block/item/edit.js:198
 #: block/rating-box/block/item/edit.js:45 block/recent-posts/block/edit.js:115
 #: block/rss/block/edit.js:118 block/section-break-the-grid/block/edit.js:299
@@ -155,6 +160,8 @@ msgstr "アコーディオンのように伸縮するコンテンツエリアを
 #: block/section-with-bgimage/block/edit.js:234
 #: block/section-with-bgvideo/block/edit.js:160 block/section/block/edit.js:206
 #: block/slider/block/edit.js:128 block/slider/block/item/edit.js:189
+#: block/spider-pickup-slider/block/edit.js:29
+#: block/spider-slider/block/edit.js:190
 #: block/step/block/item/standard/edit.js:191
 #: block/taxonomy-posts/block/edit.js:129 block/taxonomy-terms/block/edit.js:60
 #: block/testimonial/block/edit.js:37 block/thumbnail-gallery/block/edit.js:41
@@ -415,7 +422,8 @@ msgstr "マイクロコピー付きのボタンです。"
 #: block/countdown/block/index.js:39 block/items/block/item/banner/edit.js:238
 #: block/media-text/block/edit.js:266 block/recent-posts/block/edit.js:204
 #: block/rss/block/edit.js:190 block/slider/block/edit.js:42
-#: block/taxonomy-posts/block/edit.js:248 block/taxonomy-terms/editor.js:13
+#: block/spider-slider/block/edit.js:121 block/taxonomy-posts/block/edit.js:248
+#: block/taxonomy-terms/editor.js:13
 msgid "Default"
 msgstr "デフォルト"
 
@@ -523,12 +531,12 @@ msgstr "このブロックはカテゴリーの一覧を表示します"
 msgid "Title"
 msgstr "タイトル"
 
-#: block/child-pages/block/edit.js:23 block/child-pages/block/edit.js:34
+#: block/child-pages/block/edit.js:23 block/child-pages/block/edit.js:33
 #: block/child-pages/block/index.js:11
 msgid "Child pages"
 msgstr "このページの子ページ"
 
-#: block/child-pages/block/edit.js:38
+#: block/child-pages/block/edit.js:36
 msgid "In the actual screen, it is displayed when the page have child pages."
 msgstr "実際の画面では、このページが子ページを持っている場合に表示されます。"
 
@@ -568,13 +576,13 @@ msgid "Move to before 1st heading"
 msgstr "最初の見出しの前に移動"
 
 #: block/contents-outline/block/edit.js:109
-#: block/pickup-slider/block/edit.js:97 block/recent-posts/block/edit.js:240
+#: block/pickup-slider/block/edit.js:95 block/recent-posts/block/edit.js:240
 #: block/rss/block/edit.js:217 block/taxonomy-posts/block/edit.js:284
 msgid "HTML Anchor"
 msgstr "HTML アンカー"
 
 #: block/contents-outline/block/edit.js:111
-#: block/pickup-slider/block/edit.js:99 block/recent-posts/block/edit.js:242
+#: block/pickup-slider/block/edit.js:97 block/recent-posts/block/edit.js:242
 #: block/rss/block/edit.js:219 block/taxonomy-posts/block/edit.js:286
 msgid "Anchors lets you link directly to a section on a page."
 msgstr ""
@@ -818,10 +826,12 @@ msgid "Image aspect ratio"
 msgstr "画像のアスペクト比"
 
 #: block/items/block/item/banner/edit.js:242 block/slider/block/edit.js:50
+#: block/spider-slider/block/edit.js:129
 msgid "4:3"
 msgstr "4:3"
 
 #: block/items/block/item/banner/edit.js:246 block/slider/block/edit.js:46
+#: block/spider-slider/block/edit.js:125
 msgid "16:9"
 msgstr "16:9"
 
@@ -834,7 +844,7 @@ msgstr "16:9"
 #: block/pricing-table/block/item/edit.js:201
 #: block/recent-posts/block/edit.js:188
 #: block/section-break-the-grid/block/edit.js:371
-#: block/slider/block/item/edit.js:192
+#: block/slider/block/item/edit.js:192 block/spider-slider/block/edit.js:193
 #: block/step/block/item/standard/edit.js:214
 #: block/taxonomy-posts/block/edit.js:232
 #: block/thumbnail-gallery/block/item/edit.js:125
@@ -1113,35 +1123,41 @@ msgstr "項目（水平方向）"
 msgid "It is a child block of the panels block."
 msgstr "パネルブロックの子ブロックです。"
 
-#: block/pickup-slider/block/edit.js:47
+#: block/pickup-slider/block/edit.js:45
+#: block/spider-pickup-slider/block/edit.js:33
 msgid "Display in random order"
 msgstr "ランダムな順序で表示"
 
-#: block/pickup-slider/block/edit.js:57
+#: block/pickup-slider/block/edit.js:55
 msgid "Link type"
 msgstr "リンクの種類"
 
-#: block/pickup-slider/block/edit.js:64
+#: block/pickup-slider/block/edit.js:62
 msgid "Button link"
 msgstr "ボタンリンク"
 
-#: block/pickup-slider/block/edit.js:71
+#: block/pickup-slider/block/edit.js:69
 msgid "Overall link"
 msgstr "全体リンク"
 
-#: block/pickup-slider/block/edit.js:80
+#: block/pickup-slider/block/edit.js:78
+#: block/spider-pickup-slider/block/edit.js:42
 msgid "Maximum number of displays"
 msgstr "最大表示数"
 
-#: block/pickup-slider/block/edit.js:84
+#: block/pickup-slider/block/edit.js:82
+#: block/spider-pickup-slider/block/edit.js:46
 msgid "If \"0\", all items are displayed."
 msgstr "「0」の場合、すべての項目が表示されます。"
 
-#: block/pickup-slider/block/edit.js:110
+#: block/pickup-slider/block/edit.js:107
+#: block/spider-pickup-slider/block/edit.js:59
+#: block/spider-pickup-slider/block/index.js:12
 msgid "Pickup slider"
 msgstr "ピックアップスライダー"
 
-#: block/pickup-slider/block/edit.js:114
+#: block/pickup-slider/block/edit.js:110
+#: block/spider-pickup-slider/block/edit.js:62
 msgid "Posts with \"pickup\" tag are displayed as sliders."
 msgstr "「pickup」タグが付与された記事をスライダーとして表示します。"
 
@@ -1150,6 +1166,7 @@ msgid "Pickup slider (Deprecated)"
 msgstr "ピックアップスライダー（非推奨）"
 
 #: block/pickup-slider/block/index.js:15
+#: block/spider-pickup-slider/block/index.js:14
 msgid "Display posts with pickup tags as a slider."
 msgstr "「pickup」タグが付与された記事をスライダーとして表示します。"
 
@@ -1655,7 +1672,7 @@ msgstr "フェードを有効にする"
 msgid "Change the slider's direction to become right-to-left"
 msgstr "スライダーの方向を右から左に変更"
 
-#: block/slider/block/edit.js:184
+#: block/slider/block/edit.js:184 block/spider-slider/block/edit.js:200
 msgid "Aspect ratio"
 msgstr "画像のアスペクト比"
 
@@ -1687,13 +1704,39 @@ msgstr "スクロールするスライド数（スモールウインドウ）"
 msgid "Slider (Deprecated)"
 msgstr "スライダー（非推奨）"
 
-#: block/slider/block/index.js:15
+#: block/slider/block/index.js:15 block/spider-slider/block/index.js:13
 msgid "Show attractive images as beautiful sliders."
 msgstr "魅力的な画像を美しいスライダーとして表示します。"
 
 #: block/slider/block/item/index.js:16
 msgid "It is a child block of the slider block."
 msgstr "スライダーブロックの子ブロックです。"
+
+#: block/spider-slider/block/edit.js:166 block/spider-slider/block/index.js:11
+msgid "Slider"
+msgstr "スライダー"
+
+#: block/spider-slider/block/edit.js:170
+msgid "Drag images, upload new ones or select files from your library."
+msgstr ""
+"画像をドラッグしたり、新しい画像をアップロードしたり、ライブラリからファイル"
+"を選択したりできます。"
+
+#: block/spider-slider/block/edit.js:207
+msgid "Show arrows"
+msgstr "矢印を表示"
+
+#: block/spider-slider/block/edit.js:213
+msgid "Show dots"
+msgstr "ドットを表示"
+
+#: block/spider-slider/block/edit.js:221
+msgid "Change dots to thumbnails"
+msgstr "ドットをサムネイルに変更"
+
+#: block/spider-slider/block/edit.js:230
+msgid "Fade"
+msgstr "フェード"
 
 #: block/step/block/index.js:12
 msgid "Step"
@@ -1812,6 +1855,11 @@ msgstr "メディア"
 msgid "Video"
 msgstr "動画"
 
+#, fuzzy
+#~| msgid "Box Settings"
+#~ msgid "Block settings"
+#~ msgstr "ブロック設定"
+
 #~ msgid "Heading 1"
 #~ msgstr "Heading 1"
 
@@ -1862,9 +1910,6 @@ msgstr "動画"
 
 #~ msgid "Parallax"
 #~ msgstr "パララックス"
-
-#~ msgid "Slider"
-#~ msgstr "スライダー"
 
 #~ msgid "Taxonomy terms"
 #~ msgstr "任意のタクソノミーの一覧"
@@ -1987,11 +2032,6 @@ msgstr "動画"
 
 #~ msgid "Width"
 #~ msgstr "幅"
-
-#, fuzzy
-#~| msgid "Box Settings"
-#~ msgid "Block setting"
-#~ msgstr "ボックス設定"
 
 #~ msgid "Item Settings"
 #~ msgstr "項目の設定"

@@ -6,6 +6,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/react-fontawesome": "^0.1.11",
     "@inc2734/for-each-html-nodes": "^0.4.0",
+    "@inc2734/spider": "0.0.5",
     "@wordpress/browserslist-config": "^2.7.0",
     "@wordpress/scripts": "12.1.1",
     "autoprefixer": "^9.8.5",
@@ -20,10 +21,10 @@
     "po2json": "^1.0.0-alpha",
     "postcss-cli": "^7.1.1",
     "prettier": "npm:wp-prettier@1.19.1",
+    "react-image": "4.0.3",
     "rimraf": "^3.0.2",
     "sass-basis": "^11.1.0",
-    "slick-carousel": "^1.8.1",
-    "react-image": "4.0.3"
+    "slick-carousel": "^1.8.1"
   },
   "scripts": {
     "block:accordion:clean": "rimraf dist/block/accordion",
@@ -106,17 +107,18 @@
     "block:panels:build:js": "wp-scripts build block/panels/editor --output-path=dist/block/panels",
     "block:panels:build:css": "node-sass block/panels -o dist/block/panels && postcss dist/block/panels/*.css -r",
     "block:panels": "npm run block:panels:clean && npm-run-all -s block:panels:build:*",
-
     "block:spider-pickup-slider:clean": "rimraf dist/block/spider-pickup-slider",
     "block:spider-pickup-slider:build:js": "wp-scripts build block/spider-pickup-slider/script block/spider-pickup-slider/editor --output-path=dist/block/spider-pickup-slider",
     "block:spider-pickup-slider:build:css": "node-sass block/spider-pickup-slider -o dist/block/spider-pickup-slider && postcss dist/block/spider-pickup-slider/*.css -r",
     "block:spider-pickup-slider": "npm run block:spider-pickup-slider:clean && npm-run-all -s block:spider-pickup-slider:build:*",
-
+    "block:spider-slider:clean": "rimraf dist/block/spider-slider",
+    "block:spider-slider:build:js": "wp-scripts build block/spider-slider/script block/spider-slider/editor --output-path=dist/block/spider-slider",
+    "block:spider-slider:build:css": "node-sass block/spider-slider -o dist/block/spider-slider && postcss dist/block/spider-slider/*.css -r",
+    "block:spider-slider": "npm run block:spider-slider:clean && npm-run-all -s block:spider-slider:build:*",
     "block:pickup-slider:clean": "rimraf dist/block/pickup-slider",
     "block:pickup-slider:build:js": "wp-scripts build block/pickup-slider/nopro block/pickup-slider/editor --output-path=dist/block/pickup-slider",
     "block:pickup-slider:build:css": "node-sass block/pickup-slider -o dist/block/pickup-slider && postcss dist/block/pickup-slider/*.css -r",
     "block:pickup-slider": "npm run block:pickup-slider:clean && npm-run-all -s block:pickup-slider:build:*",
-
     "block:price-menu:clean": "rimraf dist/block/price-menu",
     "block:price-menu:build:js": "wp-scripts build block/price-menu/editor --output-path=dist/block/price-menu",
     "block:price-menu:build:css": "node-sass block/price-menu -o dist/block/price-menu && postcss dist/block/price-menu/*.css -r",

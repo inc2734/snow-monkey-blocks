@@ -45,12 +45,13 @@ if ( ! $query->have_posts() ) {
 <div class="smb-spider-pickup-slider">
 	<div class="spider">
 		<div class="spider__canvas">
+			<?php $index = 0; ?>
 			<?php while ( $query->have_posts() ) : ?>
 				<?php
 				$query->the_post();
 				$thumbnail_size = wp_is_mobile() ? 'large' : 'full';
 				?>
-				<div class="spider__slide">
+				<div class="spider__slide" data-id="<?php echo esc_attr( $index ); ?>">
 					<?php the_post_thumbnail( $thumbnail_size, [ 'class' => 'spider__figure' ] ); ?>
 
 					<div class="smb-spider-pickup-slider__item">
@@ -64,6 +65,7 @@ if ( ! $query->have_posts() ) {
 						</ul>
 					</div>
 				</div>
+			<?php $index ++; ?>
 			<?php endwhile; ?>
 			<?php wp_reset_postdata(); ?>
 		</div>
