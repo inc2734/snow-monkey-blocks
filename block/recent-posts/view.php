@@ -36,7 +36,7 @@ $instance = [
 $widget_id  = 'snow_monkey_blocks_recent_posts-';
 $widget_id .= ! empty( $attributes['myAnchor'] ) ? $attributes['myAnchor'] : rand();
 
-$args     = [
+$widget_args = [
 	'before_widget' => '',
 	'after_widget'  => '',
 	'widget_id'     => $widget_id,
@@ -55,7 +55,7 @@ $widget = ob_get_clean();
 
 if ( empty( $widget ) ) {
 	$no_posts_text = $attributes['noPostsText'];
-	$no_posts_text = apply_filters( 'snow_monkey_blocks_recent_posts_no_posts_text', $no_posts_text, $args, $instance );
+	$no_posts_text = apply_filters( 'snow_monkey_blocks_recent_posts_no_posts_text', $no_posts_text, $widget_args, $instance );
 
 	if ( ! $no_posts_text ) {
 		return;
@@ -69,7 +69,7 @@ $classnames[] = $attributes['className'];
 	<?php
 	if ( empty( $no_posts_text ) ) {
 		// @codingStandardsIgnoreStart
-		echo apply_filters( 'inc2734_wp_awesome_widgets_render_widget', $widget, $args, $instance );
+		echo apply_filters( 'inc2734_wp_awesome_widgets_render_widget', $widget, $widget_args, $instance );
 		// @codingStandardsIgnoreEnd
 	} else {
 		echo wp_kses_post( apply_filters( 'the_content', $no_posts_text ) );

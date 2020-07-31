@@ -21,7 +21,7 @@ $instance = [
 $widget_id  = 'snow_monkey_blocks_pickup_slider-';
 $widget_id .= ! empty( $attributes['myAnchor'] ) ? $attributes['myAnchor'] : rand();
 
-$args     = [
+$widget_args = [
 	'before_widget' => '',
 	'after_widget'  => '',
 	'widget_id'     => $widget_id,
@@ -47,7 +47,7 @@ $classnames[] = $attributes['className'];
 <div class="<?php echo esc_attr( join( ' ', $classnames ) ); ?>" id="<?php echo esc_attr( $attributes['myAnchor'] ); ?>">
 	<?php
 	// @codingStandardsIgnoreStart
-	echo apply_filters( 'inc2734_wp_awesome_widgets_render_widget', $widget, $args, $instance );
+	echo apply_filters( 'inc2734_wp_awesome_widgets_render_widget', $widget, $widget_args, $instance );
 	// @codingStandardsIgnoreEnd
 	?>
 </div>
