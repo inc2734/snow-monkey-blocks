@@ -2,9 +2,9 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Requires at least: 5.4
-Tested up to: 5.4
-Stable tag: 8.8.3
+Requires at least: 5.5
+Tested up to: 5.5
+Stable tag: 9.0.0-beta1
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -111,6 +111,19 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 22. Price menu block (The number of items can be increased or decreased freely)
 
 == Changelog ==
+
+= 9.0.0 =
+* WordPress 5.5 compatibility.
+* The block template feature of Snow Monkey Blocks has been integrated into block patterns.
+* [Media text] Add media and text order setting for mobile devices.
+* [Slider] It has been deprecated. A new block has been added.
+* [Pickup slider] It has been deprecated. A new block has been added.
+* [Thumbnail gallery] It has been deprecated.
+* [Section] The parallax feature has been deprecated.
+* [Recent posts] Added a setting for the number of columns displayed on smartphones.
+* [Taxonomy posts] Added a setting for the number of columns displayed on smartphones.
+* [Balloon] Fixed avatar misalignment in the editor.
+* [Balloon] Add color settings.
 
 = 8.8.3 =
 * Fixed a bug that the image of the headings block templates were not displayed.
