@@ -38,7 +38,7 @@ $query = new WP_Query(
 );
 
 if ( ! $query->have_posts() ) {
- return;
+	return;
 }
 ?>
 
@@ -65,7 +65,7 @@ if ( ! $query->have_posts() ) {
 						</ul>
 					</div>
 				</div>
-			<?php $index ++; ?>
+				<?php $index ++; ?>
 			<?php endwhile; ?>
 			<?php wp_reset_postdata(); ?>
 		</div>
