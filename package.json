@@ -6,7 +6,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/react-fontawesome": "^0.1.11",
     "@inc2734/for-each-html-nodes": "^0.4.0",
-    "@inc2734/spider": "0.0.5",
+    "@inc2734/spider": "0.0.6",
     "@wordpress/browserslist-config": "^2.7.0",
     "@wordpress/scripts": "12.1.1",
     "autoprefixer": "^9.8.6",

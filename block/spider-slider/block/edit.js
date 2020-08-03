@@ -7,7 +7,6 @@ import {
 	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 import { PanelBody, ToggleControl, SelectControl } from '@wordpress/components';
-import { useEffect, useRef } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
@@ -63,11 +62,6 @@ export default function( {
 		},
 		[ images ]
 	);
-
-	const targetRef = useRef();
-	useEffect( () => {
-		new Spider( targetRef.current );
-	}, [ images, arrows, dots ] );
 
 	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-spider-slider', className, {
@@ -238,7 +232,6 @@ export default function( {
 				<BlockWrapper
 					className={ classes }
 					data-fade={ fade ? 'true' : 'false' }
-					ref={ targetRef }
 				>
 					<div className="spider">
 						<div className="spider__canvas">
