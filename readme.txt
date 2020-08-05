@@ -124,6 +124,7 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 * [Taxonomy posts] Added a setting for the number of columns displayed on smartphones.
 * [Balloon] Fixed avatar misalignment in the editor.
 * [Balloon] Add color settings.
+* [Contents outline] Add "Show section block titles" and "Show heading blocks in section blocks" settings.
 
 = 8.8.3 =
 * Fixed a bug that the image of the headings block templates were not displayed.

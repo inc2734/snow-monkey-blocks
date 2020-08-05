@@ -16,7 +16,13 @@ import {
 } from '@wordpress/components';
 
 export default function( { attributes, setAttributes } ) {
-	const { headings, moveToBefore1stHeading, myAnchor } = attributes;
+	const {
+		headings,
+		moveToBefore1stHeading,
+		includesSectionTitle,
+		includesSectionHeadings,
+		myAnchor,
+	} = attributes;
 
 	const BlockWrapper = Block.div;
 
@@ -45,6 +51,16 @@ export default function( { attributes, setAttributes } ) {
 	const onChangeHeadings4 = ( isChecked ) =>
 		setAttributes( {
 			headings: _generateNewHeadings( isChecked, 'h4' ),
+		} );
+
+	const onChangeIncludesSectionTitle = ( value ) =>
+		setAttributes( {
+			includesSectionTitle: value,
+		} );
+
+	const onChangeIncludesSectionHeadings = ( value ) =>
+		setAttributes( {
+			includesSectionHeadings: value,
 		} );
 
 	const onChangeMoveToBefore1stHeading = ( value ) =>
@@ -91,6 +107,26 @@ export default function( { attributes, setAttributes } ) {
 							-1 !== indexOf( headings.split( ',' ), 'h4' )
 						}
 						onChange={ onChangeHeadings4 }
+					/>
+
+					<CheckboxControl
+						value={ true }
+						label={ __(
+							'Show section block titles',
+							'snow-monkey-blocks'
+						) }
+						checked={ includesSectionTitle }
+						onChange={ onChangeIncludesSectionTitle }
+					/>
+
+					<CheckboxControl
+						value={ true }
+						label={ __(
+							'Show heading blocks in section blocks',
+							'snow-monkey-blocks'
+						) }
+						checked={ includesSectionHeadings }
+						onChange={ onChangeIncludesSectionHeadings }
 					/>
 
 					<ToggleControl

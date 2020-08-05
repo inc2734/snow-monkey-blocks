@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2020-07-30 12:49+0900\n"
-"PO-Revision-Date: 2020-07-30 12:49+0900\n"
+"POT-Creation-Date: 2020-08-05 14:10+0900\n"
+"PO-Revision-Date: 2020-08-05 14:11+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -140,7 +140,7 @@ msgstr "アコーディオンのように伸縮するコンテンツエリアを
 #: block/balloon/block/edit.js:98 block/box/block/edit.js:68
 #: block/btn/block/edit.js:87 block/categories-list/block/edit.js:192
 #: block/child-pages/block/edit.js:17 block/container/block/edit.js:40
-#: block/contents-outline/block/edit.js:64 block/countdown/block/edit.js:64
+#: block/contents-outline/block/edit.js:80 block/countdown/block/edit.js:64
 #: block/directory-structure/block/item/directory/edit.js:86
 #: block/directory-structure/block/item/file/edit.js:66
 #: block/faq/block/item/edit.js:63 block/items/block/edit.js:46
@@ -161,7 +161,7 @@ msgstr "アコーディオンのように伸縮するコンテンツエリアを
 #: block/section-with-bgvideo/block/edit.js:160 block/section/block/edit.js:206
 #: block/slider/block/edit.js:128 block/slider/block/item/edit.js:189
 #: block/spider-pickup-slider/block/edit.js:29
-#: block/spider-slider/block/edit.js:190
+#: block/spider-slider/block/edit.js:184
 #: block/step/block/item/standard/edit.js:191
 #: block/taxonomy-posts/block/edit.js:129 block/taxonomy-terms/block/edit.js:60
 #: block/testimonial/block/edit.js:37 block/thumbnail-gallery/block/edit.js:41
@@ -422,7 +422,7 @@ msgstr "マイクロコピー付きのボタンです。"
 #: block/countdown/block/index.js:39 block/items/block/item/banner/edit.js:238
 #: block/media-text/block/edit.js:266 block/recent-posts/block/edit.js:204
 #: block/rss/block/edit.js:190 block/slider/block/edit.js:42
-#: block/spider-slider/block/edit.js:121 block/taxonomy-posts/block/edit.js:248
+#: block/spider-slider/block/edit.js:115 block/taxonomy-posts/block/edit.js:248
 #: block/taxonomy-terms/editor.js:13
 msgid "Default"
 msgstr "デフォルト"
@@ -559,41 +559,49 @@ msgstr "コンテナ"
 msgid "Container blocks keep content within a certain width."
 msgstr "コンテナブロックはコンテンツを一定の幅に収めます。"
 
-#: block/contents-outline/block/edit.js:69
+#: block/contents-outline/block/edit.js:85
 msgid "Show h2"
 msgstr "h2 を表示"
 
-#: block/contents-outline/block/edit.js:79
+#: block/contents-outline/block/edit.js:95
 msgid "Show h3"
 msgstr "h3 を表示"
 
-#: block/contents-outline/block/edit.js:89
+#: block/contents-outline/block/edit.js:105
 msgid "Show h4"
 msgstr "h4 を表示"
 
-#: block/contents-outline/block/edit.js:98
+#: block/contents-outline/block/edit.js:114
+msgid "Show section block titles"
+msgstr "セクションのタイトルを表示"
+
+#: block/contents-outline/block/edit.js:121
+msgid "Show heading blocks in section blocks"
+msgstr "セクション内の見出しを表示"
+
+#: block/contents-outline/block/edit.js:128
 msgid "Move to before 1st heading"
 msgstr "最初の見出しの前に移動"
 
-#: block/contents-outline/block/edit.js:109
+#: block/contents-outline/block/edit.js:139
 #: block/pickup-slider/block/edit.js:95 block/recent-posts/block/edit.js:240
 #: block/rss/block/edit.js:217 block/taxonomy-posts/block/edit.js:284
 msgid "HTML Anchor"
 msgstr "HTML アンカー"
 
-#: block/contents-outline/block/edit.js:111
+#: block/contents-outline/block/edit.js:141
 #: block/pickup-slider/block/edit.js:97 block/recent-posts/block/edit.js:242
 #: block/rss/block/edit.js:219 block/taxonomy-posts/block/edit.js:286
 msgid "Anchors lets you link directly to a section on a page."
 msgstr ""
 "アンカーを使用すると、ページ上のセクションに直接リンクすることができます。"
 
-#: block/contents-outline/block/edit.js:122
+#: block/contents-outline/block/edit.js:152
 #: block/contents-outline/block/index.js:11
 msgid "Contents outline"
 msgstr "目次"
 
-#: block/contents-outline/block/edit.js:128
+#: block/contents-outline/block/edit.js:158
 msgid "In the actual screen, it is displayed when headings exists on the page."
 msgstr "実際の画面では、見出しがページに存在する場合に表示されます。"
 
@@ -826,12 +834,12 @@ msgid "Image aspect ratio"
 msgstr "画像のアスペクト比"
 
 #: block/items/block/item/banner/edit.js:242 block/slider/block/edit.js:50
-#: block/spider-slider/block/edit.js:129
+#: block/spider-slider/block/edit.js:123
 msgid "4:3"
 msgstr "4:3"
 
 #: block/items/block/item/banner/edit.js:246 block/slider/block/edit.js:46
-#: block/spider-slider/block/edit.js:125
+#: block/spider-slider/block/edit.js:119
 msgid "16:9"
 msgstr "16:9"
 
@@ -844,7 +852,7 @@ msgstr "16:9"
 #: block/pricing-table/block/item/edit.js:201
 #: block/recent-posts/block/edit.js:188
 #: block/section-break-the-grid/block/edit.js:371
-#: block/slider/block/item/edit.js:192 block/spider-slider/block/edit.js:193
+#: block/slider/block/item/edit.js:192 block/spider-slider/block/edit.js:187
 #: block/step/block/item/standard/edit.js:214
 #: block/taxonomy-posts/block/edit.js:232
 #: block/thumbnail-gallery/block/item/edit.js:125
@@ -1672,7 +1680,7 @@ msgstr "フェードを有効にする"
 msgid "Change the slider's direction to become right-to-left"
 msgstr "スライダーの方向を右から左に変更"
 
-#: block/slider/block/edit.js:184 block/spider-slider/block/edit.js:200
+#: block/slider/block/edit.js:184 block/spider-slider/block/edit.js:194
 msgid "Aspect ratio"
 msgstr "画像のアスペクト比"
 
@@ -1712,29 +1720,29 @@ msgstr "魅力的な画像を美しいスライダーとして表示します。
 msgid "It is a child block of the slider block."
 msgstr "スライダーブロックの子ブロックです。"
 
-#: block/spider-slider/block/edit.js:166 block/spider-slider/block/index.js:11
+#: block/spider-slider/block/edit.js:160 block/spider-slider/block/index.js:11
 msgid "Slider"
 msgstr "スライダー"
 
-#: block/spider-slider/block/edit.js:170
+#: block/spider-slider/block/edit.js:164
 msgid "Drag images, upload new ones or select files from your library."
 msgstr ""
 "画像をドラッグしたり、新しい画像をアップロードしたり、ライブラリからファイル"
 "を選択したりできます。"
 
-#: block/spider-slider/block/edit.js:207
+#: block/spider-slider/block/edit.js:201
 msgid "Show arrows"
 msgstr "矢印を表示"
 
-#: block/spider-slider/block/edit.js:213
+#: block/spider-slider/block/edit.js:207
 msgid "Show dots"
 msgstr "ドットを表示"
 
-#: block/spider-slider/block/edit.js:221
+#: block/spider-slider/block/edit.js:215
 msgid "Change dots to thumbnails"
 msgstr "ドットをサムネイルに変更"
 
-#: block/spider-slider/block/edit.js:230
+#: block/spider-slider/block/edit.js:224
 msgid "Fade"
 msgstr "フェード"
 

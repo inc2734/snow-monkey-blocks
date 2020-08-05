@@ -7,6 +7,14 @@
     "type": "boolean",
     "default": true
   },
+  "includesSectionTitle": {
+    "type": "boolean",
+    "default": false
+  },
+  "includesSectionHeadings": {
+    "type": "boolean",
+    "default": false
+  },
   "myAnchor": {
     "type": "string",
     "default": ""
