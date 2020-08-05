@@ -16,11 +16,20 @@
   &__person {
     margin: 0 0 20px;
     display: inline-flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
 
     @include _media-min(md) {
       margin: 0 20px 0 0;
+      flex-direction: column;
+    }
+
+    .smb-balloon__name {
+      margin: 0 0 0 5px;
+
+      @include _media-min(md) {
+        margin: 5px 0 0 0;
+      }
     }
   }
 
@@ -39,7 +48,6 @@
   }
 
   &__name {
-    margin-top: 5px;
     font-size: 12px;
     line-height: 1;
     white-space: nowrap;
@@ -99,6 +107,16 @@
     .smb-balloon__person {
       @include _media-min(md) {
         margin: 0 0 0 20px;
+      }
+
+      .smb-balloon__name {
+        margin-right: 5px;
+        order: -1;
+
+        @include _media-min(md) {
+          margin-right: 0;
+          order: initial;
+        }
       }
     }
 
