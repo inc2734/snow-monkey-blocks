@@ -1,5 +1,16 @@
 @charset 'utf-8';
 
 .editor-styles-wrapper {
-  @import 'style';
+  .smb-testimonial {
+    &__item__figure {
+      > .components-button {
+        height: 100%;
+        width: 100%;
+
+        > img {
+          height: 100%;
+        }
+      }
+    }
+  }
 }

@@ -1,0 +1,30 @@
+{
+  "name": "snow-monkey-blocks/contents-outline",
+  "category": "smb",
+  "attributes": {
+    "headings": {
+      "type": "string",
+      "default": "h2,h3,h4"
+    },
+    "moveToBefore1stHeading": {
+      "type": "boolean",
+      "default": true
+    },
+    "includesSectionTitle": {
+      "type": "boolean",
+      "default": false
+    },
+    "includesSectionHeadings": {
+      "type": "boolean",
+      "default": false
+    },
+    "myAnchor": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "customClassName": false,
+    "lightBlockWrapper": true
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "snow-monkey-blocks/items",
+  "category": "smb",
+  "attributes": {
+    "sm": {
+      "type": "number",
+      "default": 1
+    },
+    "md": {
+      "type": "number",
+      "default": 1
+    },
+    "lg": {
+      "type": "number",
+      "default": 2
+    }
+  },
+  "supports": {
+    "lightBlockWrapper": true
+  }
+}

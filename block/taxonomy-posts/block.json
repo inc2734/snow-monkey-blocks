@@ -1,0 +1,53 @@
+{
+  "name": "snow-monkey-blocks/taxonomy-posts",
+  "category": "smb",
+  "attributes": {
+    "taxonomy": {
+      "type": "string",
+      "default": null
+    },
+    "termId": {
+      "type": "number",
+      "default": 0
+    },
+    "postsPerPage": {
+      "type": "number",
+      "default": 6
+    },
+    "layout": {
+      "type": "string",
+      "default": "rich-media"
+    },
+    "ignoreStickyPosts": {
+      "type": "boolean",
+      "default": true
+    },
+    "smCols": {
+      "type": "number",
+      "default": 0
+    },
+    "noPostsText": {
+      "type": "string",
+      "default": ""
+    },
+    "itemTitleTagName": {
+      "type": "string",
+      "default": "h3"
+    },
+    "itemThumbnailSizeSlug": {
+      "type": "string",
+      "default": "large"
+    },
+    "className": {
+      "type": "string",
+      "default": ""
+    },
+    "myAnchor": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "anchor": false
+  }
+}

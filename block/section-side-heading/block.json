@@ -1,0 +1,86 @@
+{
+  "name": "snow-monkey-blocks/section-side-heading",
+  "category": "smb-section",
+  "attributes": {
+    "wrapperTagName": {
+      "type": "string",
+      "default": "div"
+    },
+    "titleTagName": {
+      "type": "string",
+      "default": "h2"
+    },
+    "title": {
+      "type": "string",
+      "source": "html",
+      "selector": ".smb-section__title",
+      "default": ""
+    },
+    "subtitle": {
+      "type": "string",
+      "source": "html",
+      "selector": ".smb-section__subtitle",
+      "default": ""
+    },
+    "lede": {
+      "type": "string",
+      "source": "html",
+      "selector": ".smb-section__lede",
+      "default": ""
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "backgroundColor2": {
+      "type": "string"
+    },
+    "backgroundColorAngle": {
+      "type": "number",
+      "default": 0
+    },
+    "textColor": {
+      "type": "string"
+    },
+    "isSlim": {
+      "type": "boolean",
+      "default": false
+    },
+    "headingPosition": {
+      "type": "string",
+      "default": "left"
+    },
+    "headingColumnSize": {
+      "type": "string",
+      "default": 33
+    },
+    "topDividerType": {
+      "type": "string",
+      "default": "tilt"
+    },
+    "topDividerLevel": {
+      "type": "number",
+      "default": 0
+    },
+    "topDividerColor": {
+      "type": "string",
+      "default": "#fff"
+    },
+    "bottomDividerType": {
+      "type": "string",
+      "default": "tilt"
+    },
+    "bottomDividerLevel": {
+      "type": "number",
+      "default": 0
+    },
+    "bottomDividerColor": {
+      "type": "string",
+      "default": "#fff"
+    }
+  },
+  "supports": {
+    "align": [ "wide", "full" ],
+    "anchor": true,
+    "lightBlockWrapper": true
+  }
+}

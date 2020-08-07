@@ -85,8 +85,14 @@
     }
   }
 
-  // Touchable parent block
   .block-editor-inner-blocks {
-    position: relative;
+    position: relative; // Touchable parent block
+
+    > .block-editor-block-list__layout {
+      > * {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
   }
 }

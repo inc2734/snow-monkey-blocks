@@ -1,0 +1,22 @@
+{
+  "name": "snow-monkey-blocks/taxonomy-terms",
+  "category": "smb",
+  "attributes": {
+    "taxonomy": {
+      "type": "string",
+      "default": null
+    },
+    "orderby": {
+      "type": "string",
+      "default": "id"
+    },
+    "order": {
+      "type": "string",
+      "default": "asc"
+    },
+    "className": {
+      "type": "string",
+      "default": ""
+    }
+  }
+}

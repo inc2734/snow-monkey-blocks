@@ -1,5 +1,11 @@
 @charset 'utf-8';
 
 .editor-styles-wrapper {
-  @import 'style';
+  .smb-rating-box {
+    &__item {
+      &:not(:first-child) {
+        @include _padding-top(.5);
+      }
+    }
+  }
 }

@@ -29,14 +29,12 @@ wp_register_script(
 	true
 );
 
-/**
- * editor_style
- */
-wp_register_style(
-	'snow-monkey-blocks/section-with-bgimage/editor',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-with-bgimage/editor.css',
-	[ 'snow-monkey-blocks-editor', 'snow-monkey-blocks/section/editor' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-with-bgimage/editor.css' )
+register_block_type_from_metadata(
+	__DIR__,
+	[
+		'style'         => 'snow-monkey-blocks/section-with-bgimage',
+		'editor_script' => 'snow-monkey-blocks/section-with-bgimage/editor',
+	]
 );
 
 /**
@@ -47,15 +45,6 @@ wp_enqueue_style(
 	! Blocks\is_pro() && is_admin() ? SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-with-bgimage/nopro-editor.css' : null,
 	[],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-with-bgimage/nopro-editor.css' )
-);
-
-register_block_type(
-	'snow-monkey-blocks/section-with-bgimage',
-	[
-		'style'         => ! is_admin() ? 'snow-monkey-blocks/section-with-bgimage' : null,
-		'editor_script' => 'snow-monkey-blocks/section-with-bgimage/editor',
-		'editor_style'  => 'snow-monkey-blocks/section-with-bgimage/editor',
-	]
 );
 
 /**

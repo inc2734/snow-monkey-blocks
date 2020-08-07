@@ -30,48 +30,37 @@ wp_register_script(
 	true
 );
 
-/**
- * nopro
- */
-wp_enqueue_script(
-	'snow-monkey-blocks/taxonomy-terms/nopro',
-	! Blocks\is_pro() && ! is_admin() ? SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/taxonomy-terms/nopro.js' : null,
-	[],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/taxonomy-terms/nopro.js' ),
-	true
-);
-
-/**
- * nopro
- */
-wp_enqueue_style(
-	'snow-monkey-blocks/taxonomy-terms/nopro',
-	! Blocks\is_pro() && ! is_admin() ? SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/taxonomy-terms/nopro.css' : null,
-	[],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/taxonomy-terms/nopro.css' )
-);
-
-/**
- * nopro
- */
-wp_enqueue_style(
-	'snow-monkey-blocks/taxonomy-terms/nopro/editor',
-	! Blocks\is_pro() && is_admin() ? SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/taxonomy-terms/nopro-editor.css' : null,
-	[],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/taxonomy-terms/nopro-editor.css' )
-);
-
-$attributes = file_get_contents( __DIR__ . '/block/attributes.json' );
-$attributes = json_decode( $attributes, true );
-
-register_block_type(
-	'snow-monkey-blocks/taxonomy-terms',
+register_block_type_from_metadata(
+	__DIR__,
 	[
 		'style'           => 'snow-monkey-blocks/taxonomy-terms',
 		'editor_script'   => 'snow-monkey-blocks/taxonomy-terms/editor',
-		'attributes'      => $attributes,
 		'render_callback' => function( $attributes ) {
 			return DynamicBlocks::render( 'taxonomy-terms', $attributes );
 		},
 	]
 );
+
+/**
+ * nopro
+ */
+if ( ! Blocks\is_pro() && ! is_admin() ) {
+	wp_enqueue_style(
+		'snow-monkey-blocks/taxonomy-terms/nopro',
+		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/taxonomy-terms/nopro.css',
+		[],
+		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/taxonomy-terms/nopro.css' )
+	);
+}
+
+/**
+ * nopro
+ */
+if ( ! Blocks\is_pro() && is_admin() ) {
+	wp_enqueue_style(
+		'snow-monkey-blocks/taxonomy-terms/nopro/editor',
+		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/taxonomy-terms/nopro-editor.css',
+		[],
+		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/taxonomy-terms/nopro-editor.css' )
+	);
+}

@@ -27,21 +27,10 @@ wp_register_script(
 	true
 );
 
-/**
- * editor_style
- */
-wp_register_style(
-	'snow-monkey-blocks/faq/editor',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/faq/editor.css',
-	[ 'snow-monkey-blocks-editor' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/faq/editor.css' )
-);
-
-register_block_type(
-	'snow-monkey-blocks/faq',
+register_block_type_from_metadata(
+	__DIR__,
 	[
-		'style'         => ! is_admin() ? 'snow-monkey-blocks/faq' : null,
+		'style'         => 'snow-monkey-blocks/faq',
 		'editor_script' => 'snow-monkey-blocks/faq/editor',
-		'editor_style'  => 'snow-monkey-blocks/faq/editor',
 	]
 );

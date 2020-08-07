@@ -1,5 +1,5 @@
 import { registerBlock } from '../../src/js/helper/helper';
 
-import * as spiderPickupSlider from './block';
+import * as spiderPickupSlider from './';
 
 registerBlock( spiderPickupSlider );

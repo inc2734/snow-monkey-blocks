@@ -5,8 +5,6 @@
  * @license GPL-2.0+
  */
 
-use Snow_Monkey\Plugin\Blocks;
-
 /**
  * style
  */
@@ -39,8 +37,8 @@ wp_register_style(
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/slider/editor.css' )
 );
 
-register_block_type(
-	'snow-monkey-blocks/slider',
+register_block_type_from_metadata(
+	__DIR__,
 	[
 		'style'         => ! is_admin() ? 'snow-monkey-blocks/slider' : null,
 		'editor_script' => 'snow-monkey-blocks/slider/editor',

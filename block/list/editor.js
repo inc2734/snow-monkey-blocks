@@ -1,5 +1,5 @@
 import { registerBlock } from '../../src/js/helper/helper';
 
-import * as list from './block';
+import * as list from './';
 
 registerBlock( list );

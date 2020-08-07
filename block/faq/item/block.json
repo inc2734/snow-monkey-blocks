@@ -1,0 +1,35 @@
+{
+  "name": "snow-monkey-blocks/faq--item",
+  "category": "smb",
+  "parent": [ "snow-monkey-blocks/faq" ],
+  "attributes": {
+    "question": {
+      "type": "string",
+      "source": "html",
+      "selector": ".smb-faq__item__question__body",
+      "default": ""
+    },
+    "questionColor": {
+      "type": "string"
+    },
+    "answerColor": {
+      "type": "string"
+    },
+    "questionLabel": {
+      "type": "string",
+      "source": "html",
+      "selector": ".smb-faq__item__question__label",
+      "default": "Q"
+    },
+    "answerLabel": {
+      "type": "string",
+      "source": "html",
+      "selector": ".smb-faq__item__answer__label",
+      "default": "A"
+    }
+  },
+  "supports": {
+    "anchor": true,
+    "lightBlockWrapper": true
+  }
+}

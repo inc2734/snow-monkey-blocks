@@ -1,0 +1,12 @@
+{
+  "name": "snow-monkey-blocks/pricing-table",
+  "category": "smb",
+  "attributes": {
+    "columnSize": {
+      "type": "string"
+    }
+  },
+  "supports": {
+    "lightBlockWrapper": true
+  }
+}

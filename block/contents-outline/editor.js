@@ -1,5 +1,5 @@
 import { registerBlock } from '../../src/js/helper/helper';
 
-import * as contentsOutline from './block';
+import * as contentsOutline from './';
 
 registerBlock( contentsOutline );

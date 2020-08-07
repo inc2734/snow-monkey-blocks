@@ -1,5 +1,5 @@
 import { registerBlock } from '../../src/js/helper/helper';
 
-import * as alert from './block';
+import * as alert from './';
 
 registerBlock( alert );

@@ -1,0 +1,26 @@
+{
+  "name": "snow-monkey-blocks/box",
+  "category": "smb",
+  "attributes": {
+    "backgroundColor": {
+      "type": "string"
+    },
+    "borderColor": {
+      "type": "string"
+    },
+    "textColor": {
+      "type": "string"
+    },
+    "borderWidth": {
+      "type": "number",
+      "default": 1
+    },
+    "opacity": {
+      "type": "number",
+      "default": 1
+    }
+  },
+  "supports": {
+    "lightBlockWrapper": true
+  }
+}

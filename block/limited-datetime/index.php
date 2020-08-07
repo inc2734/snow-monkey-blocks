@@ -29,13 +29,9 @@ wp_register_style(
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/limited-datetime/editor.css' )
 );
 
-$attributes = file_get_contents( __DIR__ . '/block/attributes.json' );
-$attributes = json_decode( $attributes, true );
-
-register_block_type(
-	'snow-monkey-blocks/limited-datetime',
+register_block_type_from_metadata(
+	__DIR__,
 	[
-		'attributes'      => $attributes,
 		'editor_script'   => 'snow-monkey-blocks/limited-datetime/editor',
 		'editor_style'    => 'snow-monkey-blocks/limited-datetime/editor',
 		'render_callback' => function( $attributes, $content ) {

@@ -1,5 +1,3 @@
-'use strict';
-
 export function apply( countdownNode ) {
 	const dataTime = countdownNode.getAttribute( 'data-time' );
 	if ( undefined === dataTime ) {

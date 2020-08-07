@@ -1,5 +1,5 @@
 import { registerBlock } from '../../src/js/helper/helper';
 
-import * as mediaText from './block';
+import * as mediaText from './';
 
 registerBlock( mediaText );

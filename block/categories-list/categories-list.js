@@ -1,5 +1,3 @@
-'use strict';
-
 import Masonry from 'masonry-layout';
 
 export function apply( categoryList ) {

@@ -1,0 +1,14 @@
+{
+  "name": "snow-monkey-blocks/child-pages",
+  "category": "smb",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "className": {
+      "type": "string",
+      "default": ""
+    }
+  }
+}

@@ -1,7 +1,5 @@
 import { registerBlock } from '../../src/js/helper/helper';
 
-import * as testimonial from './block';
-import * as testimonialItem from './block/item';
+import * as testimonial from './';
 
 registerBlock( testimonial );
-registerBlock( testimonialItem );

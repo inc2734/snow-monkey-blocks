@@ -76,6 +76,12 @@ class Bootstrap {
 		foreach ( glob( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/*/index.php' ) as $file ) {
 			require_once( $file );
 		}
+		foreach ( glob( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/*/item/index.php' ) as $file ) {
+			require_once( $file );
+		}
+		foreach ( glob( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/*/item/*/index.php' ) as $file ) {
+			require_once( $file );
+		}
 	}
 
 	/**

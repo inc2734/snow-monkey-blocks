@@ -1,27 +1,13 @@
 @charset 'utf-8';
 
+@import '../../src/css/core/block';
+
 .editor-styles-wrapper {
-  @import 'style';
-
   .smb-directory-structure {
-    &__item__name {
-      padding: 0;
-
-      div {
-        display: inline;
-      }
-
-      .block-editor-rich-text__editable {
-        display: inline-block;
-        padding: 0 .46739rem;
-      }
-    }
-
     .block-editor-inner-blocks {
       .block-editor-block-list__layout {
-        .block-editor-block-list__block {
-          margin-top: 0;
-          margin-bottom: 0;
+        > *:not(:first-child) {
+          @include _margin-top(.25);
         }
       }
     }

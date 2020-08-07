@@ -1,5 +1,8 @@
 import { groupBy, reduce, get } from 'lodash';
-import { registerBlockType } from '@wordpress/blocks';
+import {
+	registerBlockType,
+	unstable__bootstrapServerSideBlockDefinitions, // eslint-disable-line camelcase
+} from '@wordpress/blocks';
 import { registerFormatType } from '@wordpress/rich-text';
 
 export const registerBlock = ( block ) => {
@@ -7,7 +10,10 @@ export const registerBlock = ( block ) => {
 		return;
 	}
 
-	const { name, settings } = block;
+	const { metadata, settings, name } = block;
+	if ( metadata ) {
+		unstable__bootstrapServerSideBlockDefinitions( { [ name ]: metadata } );
+	}
 	registerBlockType( name, settings );
 };
 

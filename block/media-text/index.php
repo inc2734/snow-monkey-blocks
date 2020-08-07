@@ -27,22 +27,11 @@ wp_register_script(
 	true
 );
 
-/**
- * editor_style
- */
-wp_register_style(
-	'snow-monkey-blocks/media-text/editor',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/media-text/editor.css',
-	[ 'snow-monkey-blocks-editor' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/media-text/editor.css' )
-);
-
-register_block_type(
-	'snow-monkey-blocks/media-text',
+register_block_type_from_metadata(
+	__DIR__,
 	[
-		'style'         => ! is_admin() ? 'snow-monkey-blocks/media-text' : null,
+		'style'         => 'snow-monkey-blocks/media-text',
 		'editor_script' => 'snow-monkey-blocks/media-text/editor',
-		'editor_style'  => 'snow-monkey-blocks/media-text/editor',
 	]
 );
 

@@ -1,0 +1,17 @@
+{
+  "name": "snow-monkey-blocks/spider-pickup-slider",
+  "category": "smb",
+  "attributes": {
+    "random": {
+      "type": "boolean",
+      "default": false
+    },
+    "postsPerPage": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "supports": {
+    "align": [ "wide", "full" ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "snow-monkey-blocks/evaluation-star",
+  "category": "smb",
+  "attributes": {
+    "evaluationValue": {
+      "type": "number",
+      "default": 3
+    },
+    "iconColor": {
+      "type": "string"
+    },
+    "isDisplayNumeric": {
+      "type": "boolean",
+      "default": true
+    },
+    "numericAlign": {
+      "type": "string",
+      "default": "left"
+    },
+    "numericColor": {
+      "type": "string"
+    }
+  },
+  "supports": {
+    "lightBlockWrapper": true
+  },
+  "example": {}
+}

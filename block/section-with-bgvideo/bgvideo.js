@@ -1,5 +1,3 @@
-'use strict';
-
 export function apply( video ) {
 	const wrapper = video.parentNode;
 	const aspectRatio = video.height / video.width; // e.g. 0.5625

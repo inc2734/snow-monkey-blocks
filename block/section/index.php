@@ -29,55 +29,37 @@ wp_register_script(
 	true
 );
 
-/**
- * editor_style
- */
-wp_register_style(
-	'snow-monkey-blocks/section/editor',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section/editor.css',
-	[ 'snow-monkey-blocks-editor' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section/editor.css' )
-);
-
-/**
- * nopro
- */
-wp_enqueue_script(
-	'snow-monkey-blocks/section/nopro',
-	! Blocks\is_pro() && ! is_admin() ? SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section/nopro.js' : null,
-	[],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section/nopro.js' ),
-	true
-);
-
-/**
- * nopro
- */
-wp_enqueue_style(
-	'snow-monkey-blocks/section/nopro',
-	! Blocks\is_pro() && ! is_admin() ? SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section/nopro.css' : null,
-	[],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section/nopro.css' )
-);
-
-/**
- * nopro
- */
-wp_enqueue_style(
-	'snow-monkey-blocks/section/nopro/editor',
-	! Blocks\is_pro() && is_admin() ? SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section/nopro-editor.css' : null,
-	[],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section/nopro-editor.css' )
-);
-
-register_block_type(
-	'snow-monkey-blocks/section',
+register_block_type_from_metadata(
+	__DIR__,
 	[
 		'style'         => 'snow-monkey-blocks/section',
 		'editor_script' => 'snow-monkey-blocks/section/editor',
-		'editor_style'  => 'snow-monkey-blocks/section/editor',
 	]
 );
+
+/**
+ * nopro
+ */
+if ( ! Blocks\is_pro() && ! is_admin() ) {
+	wp_enqueue_style(
+		'snow-monkey-blocks/section/nopro',
+		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section/nopro.css',
+		[],
+		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section/nopro.css' )
+	);
+}
+
+/**
+ * nopro
+ */
+if ( ! Blocks\is_pro() && is_admin() ) {
+	wp_enqueue_style(
+		'snow-monkey-blocks/section/nopro/editor',
+		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section/nopro-editor.css',
+		[],
+		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section/nopro-editor.css' )
+	);
+}
 
 /**
  * excerpt_allowed_blocks

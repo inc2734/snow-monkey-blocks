@@ -41,9 +41,10 @@
     border: 3px solid _lighter($_color-gray);
 
     > img {
-      max-width: 100%;
-      height: auto;
-      padding: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: 50% 50%;
     }
   }
 

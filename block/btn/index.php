@@ -33,14 +33,14 @@ wp_register_script(
 wp_register_style(
 	'snow-monkey-blocks/btn/editor',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/btn/editor.css',
-	[ 'snow-monkey-blocks-editor' ],
+	[ 'snow-monkey-blocks-editor', 'snow-monkey-blocks/btn' ],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/btn/editor.css' )
 );
 
-register_block_type(
-	'snow-monkey-blocks/btn',
+register_block_type_from_metadata(
+	__DIR__,
 	[
-		'style'         => ! is_admin() ? 'snow-monkey-blocks/btn' : null,
+		'style'         => 'snow-monkey-blocks/btn',
 		'editor_script' => 'snow-monkey-blocks/btn/editor',
 		'editor_style'  => 'snow-monkey-blocks/btn/editor',
 	]

@@ -1,0 +1,22 @@
+{
+  "name": "snow-monkey-blocks/countdown",
+  "category": "smb",
+  "attributes": {
+    "alignment": {
+      "type": "string"
+    },
+    "countdownTime": {
+      "type": "date"
+    },
+    "numericColor": {
+      "type": "string"
+    },
+    "clockColor": {
+      "type": "string"
+    }
+  },
+  "supports": {
+    "lightBlockWrapper": true
+  },
+  "example": {}
+}

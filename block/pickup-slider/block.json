@@ -1,0 +1,29 @@
+{
+  "name": "snow-monkey-blocks/pickup-slider",
+  "category": "smb-deprecated",
+  "attributes": {
+    "random": {
+      "type": "boolean",
+      "default": false
+    },
+    "linkType": {
+      "type": "string",
+      "default": "button"
+    },
+    "postsPerPage": {
+      "type": "number",
+      "default": 0
+    },
+    "className": {
+      "type": "string",
+      "default": ""
+    },
+    "myAnchor": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "anchor": false
+  }
+}

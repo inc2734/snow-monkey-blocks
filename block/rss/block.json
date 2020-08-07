@@ -1,0 +1,41 @@
+{
+  "name": "snow-monkey-blocks/rss",
+  "category": "smb",
+  "attributes": {
+    "feedURL": {
+      "type": "string",
+      "default": ""
+    },
+    "postsPerPage": {
+       "type": "number",
+       "default": 6
+    },
+    "layout": {
+       "type": "string",
+       "default": "rich-media"
+    },
+    "smCols": {
+      "type": "number",
+      "default": 0
+    },
+    "noPostsText": {
+       "type": "string",
+       "default": ""
+    },
+    "itemTitleTagName": {
+      "type": "string",
+      "default": "h3"
+    },
+    "className": {
+       "type": "string",
+       "default": ""
+    },
+    "myAnchor": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "anchor": false
+  }
+}

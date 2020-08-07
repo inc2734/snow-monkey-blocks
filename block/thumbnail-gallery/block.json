@@ -1,0 +1,25 @@
+{
+  "name": "snow-monkey-blocks/thumbnail-gallery",
+  "category": "smb-deprecated",
+  "attributes": {
+    "arrows": {
+      "type": "boolean",
+      "default": false
+    },
+    "speed": {
+      "type": "number",
+      "default": 300
+    },
+    "autoplay": {
+      "type": "boolean",
+      "default": false
+    },
+    "autoplaySpeed": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "supports": {
+    "align": [ "wide", "full" ]
+  }
+}

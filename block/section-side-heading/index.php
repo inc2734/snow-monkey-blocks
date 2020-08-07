@@ -29,34 +29,25 @@ wp_register_script(
 	true
 );
 
-/**
- * editor_style
- */
-wp_register_style(
-	'snow-monkey-blocks/section-side-heading/editor',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-side-heading/editor.css',
-	[ 'snow-monkey-blocks-editor', 'snow-monkey-blocks/section/editor' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-side-heading/editor.css' )
+register_block_type_from_metadata(
+	__DIR__,
+	[
+		'style'         => 'snow-monkey-blocks/section-side-heading',
+		'editor_script' => 'snow-monkey-blocks/section-side-heading/editor',
+	]
 );
 
 /**
  * nopro
  */
-wp_enqueue_style(
-	'snow-monkey-blocks/section-side-heading/nopro/editor',
-	! Blocks\is_pro() && is_admin() ? SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-side-heading/nopro-editor.css' : null,
-	[],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-side-heading/nopro-editor.css' )
-);
-
-register_block_type(
-	'snow-monkey-blocks/section-side-heading',
-	[
-		'style'         => ! is_admin() ? 'snow-monkey-blocks/section-side-heading' : null,
-		'editor_script' => 'snow-monkey-blocks/section-side-heading/editor',
-		'editor_style'  => 'snow-monkey-blocks/section-side-heading/editor',
-	]
-);
+if ( ! Blocks\is_pro() && is_admin() ) {
+	wp_enqueue_style(
+		'snow-monkey-blocks/section-side-heading/nopro/editor',
+		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-side-heading/nopro-editor.css',
+		[],
+		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-side-heading/nopro-editor.css' )
+	);
+}
 
 /**
  * excerpt_allowed_blocks

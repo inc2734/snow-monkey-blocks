@@ -1,0 +1,22 @@
+{
+  "name": "snow-monkey-blocks/price-menu--item",
+  "category": "smb",
+  "parent": [ "snow-monkey-blocks/price-menu" ],
+  "attributes": {
+    "title": {
+      "type": "string",
+      "source": "html",
+      "selector": ".smb-price-menu__item__title",
+      "default": ""
+    },
+    "price": {
+      "type": "string",
+      "source": "html",
+      "selector": ".smb-price-menu__item__price",
+      "default": ""
+    }
+  },
+  "supports": {
+    "lightBlockWrapper": true
+  }
+}

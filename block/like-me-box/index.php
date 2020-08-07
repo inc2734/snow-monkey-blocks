@@ -20,47 +20,36 @@ wp_register_script(
 	true
 );
 
-/**
- * nopro
- */
-wp_enqueue_script(
-	'snow-monkey-blocks/like-me-box/nopro',
-	! Blocks\is_pro() && ! is_admin() ? SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/like-me-box/nopro.js' : null,
-	[],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/like-me-box/nopro.js' ),
-	true
-);
-
-/**
- * nopro
- */
-wp_enqueue_style(
-	'snow-monkey-blocks/like-me-box/nopro',
-	! Blocks\is_pro() && ! is_admin() ? SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/like-me-box/nopro.css' : null,
-	[],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/like-me-box/nopro.css' )
-);
-
-/**
- * nopro
- */
-wp_enqueue_style(
-	'snow-monkey-blocks/like-me-box/nopro/editor',
-	! Blocks\is_pro() && is_admin() ? SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/like-me-box/nopro-editor.css' : null,
-	[],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/like-me-box/nopro-editor.css' )
-);
-
-$attributes = file_get_contents( __DIR__ . '/block/attributes.json' );
-$attributes = json_decode( $attributes, true );
-
-register_block_type(
-	'snow-monkey-blocks/like-me-box',
+register_block_type_from_metadata(
+	__DIR__,
 	[
 		'editor_script'   => 'snow-monkey-blocks/like-me-box/editor',
-		'attributes'      => $attributes,
 		'render_callback' => function( $attributes ) {
 			return DynamicBlocks::render( 'like-me-box', $attributes );
 		},
 	]
 );
+
+/**
+ * nopro
+ */
+if ( ! Blocks\is_pro() && ! is_admin() ) {
+	wp_enqueue_style(
+		'snow-monkey-blocks/like-me-box/nopro',
+		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/like-me-box/nopro.css',
+		[],
+		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/like-me-box/nopro.css' )
+	);
+}
+
+/**
+ * nopro
+ */
+if ( ! Blocks\is_pro() && is_admin() ) {
+	wp_enqueue_style(
+		'snow-monkey-blocks/like-me-box/nopro/editor',
+		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/like-me-box/nopro-editor.css',
+		[],
+		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/like-me-box/nopro-editor.css' )
+	);
+}

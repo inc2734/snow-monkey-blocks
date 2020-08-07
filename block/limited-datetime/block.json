@@ -1,0 +1,37 @@
+{
+  "name": "snow-monkey-blocks/limited-datetime",
+  "category": "smb",
+  "attributes": {
+    "isUseStartDate": {
+      "type": "boolean",
+      "default": false
+    },
+    "startDate": {
+      "type": "date",
+      "default": null
+    },
+    "isUseEndDate": {
+      "type": "boolean",
+      "default": false
+    },
+    "endDate": {
+      "type": "date",
+      "default": null
+    }
+  },
+  "supports": {
+    "alignWide": false,
+    "customClassName": false,
+    "className": false
+  },
+  "example": {
+    "innerBlocks": [
+      {
+        "name": "core/paragraph",
+        "attributes": {
+          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+        }
+      }
+    ]
+  }
+}

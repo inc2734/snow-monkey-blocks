@@ -1,0 +1,17 @@
+{
+  "name": "snow-monkey-blocks/testimonial",
+  "category": "smb",
+  "attributes": {
+    "md": {
+      "type": "number",
+      "default": 2
+    },
+    "lg": {
+      "type": "number",
+      "default": 2
+    }
+  },
+  "supports": {
+    "lightBlockWrapper": true
+  }
+}

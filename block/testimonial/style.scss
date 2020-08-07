@@ -13,10 +13,14 @@
       @include _margin-top($_between-lines);
       @include _margin-right(.5);
       flex: 0 0 48px;
+      @include _circle(48px);
       max-width: 48px;
 
       img {
-        @include _circle(48px);
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: 50% 50%;
       }
     }
 

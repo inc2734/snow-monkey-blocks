@@ -1,5 +1,5 @@
 import { registerBlock } from '../../src/js/helper/helper';
 
-import * as btnBox from './block';
+import * as btnBox from './';
 
 registerBlock( btnBox );

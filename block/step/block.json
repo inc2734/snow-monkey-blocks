@@ -1,0 +1,7 @@
+{
+  "name": "snow-monkey-blocks/step",
+  "category": "smb",
+  "supports": {
+    "lightBlockWrapper": true
+  }
+}

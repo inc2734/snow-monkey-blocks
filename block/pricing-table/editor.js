@@ -1,7 +1,5 @@
 import { registerBlock } from '../../src/js/helper/helper';
 
-import * as pricingTable from './block';
-import * as pricingTableItem from './block/item';
+import * as pricingTable from './';
 
 registerBlock( pricingTable );
-registerBlock( pricingTableItem );

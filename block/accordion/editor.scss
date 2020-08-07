@@ -1,17 +1,8 @@
 @charset 'utf-8';
 
 .editor-styles-wrapper {
-  @import 'style';
 
   .smb-accordion__item__body {
     display: block;
-
-    > .block-editor-inner-blocks {
-      > .block-editor-block-list__layout {
-        > .wp-block:first-child {
-          margin-top: 0;
-        }
-      }
-    }
   }
 }

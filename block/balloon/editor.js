@@ -1,5 +1,5 @@
 import { registerBlock } from '../../src/js/helper/helper';
 
-import * as balloon from './block';
+import * as balloon from './';
 
 registerBlock( balloon );

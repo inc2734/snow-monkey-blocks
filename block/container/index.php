@@ -5,8 +5,6 @@
  * @license GPL-2.0+
  */
 
-use Snow_Monkey\Plugin\Blocks;
-
 /**
  * editor_script
  */
@@ -29,8 +27,8 @@ wp_register_style(
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/container/editor.css' )
 );
 
-register_block_type(
-	'snow-monkey-blocks/container',
+register_block_type_from_metadata(
+	__DIR__,
 	[
 		'editor_script' => 'snow-monkey-blocks/container/editor',
 		'editor_style'  => 'snow-monkey-blocks/container/editor',

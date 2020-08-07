@@ -1,7 +1,5 @@
 import { registerBlock } from '../../src/js/helper/helper';
 
-import * as thumbnailGallery from './block';
-import * as thumbnailGalleryItem from './block/item';
+import * as thumbnailGallery from './';
 
 registerBlock( thumbnailGallery );
-registerBlock( thumbnailGalleryItem );

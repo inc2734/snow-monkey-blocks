@@ -20,50 +20,36 @@ wp_register_script(
 	true
 );
 
-/**
- * nopro
- */
-wp_enqueue_script(
-	'snow-monkey-blocks/recent-posts/nopro',
-	! Blocks\is_pro() && ! is_admin() ? SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/recent-posts/nopro.js' : null,
-	[],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/recent-posts/nopro.js' ),
-	true
-);
-
-/**
- * nopro
- */
-wp_enqueue_style(
-	'snow-monkey-blocks/recent-posts/nopro',
-	! Blocks\is_pro() && ! is_admin() ? SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/recent-posts/nopro.css' : null,
-	[],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/recent-posts/nopro.css' )
-);
-
-/**
- * nopro
- */
-wp_enqueue_style(
-	'snow-monkey-blocks/recent-posts/nopro/editor',
-	! Blocks\is_pro() && is_admin() ? SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/recent-posts/nopro-editor.css' : null,
-	[],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/recent-posts/nopro-editor.css' )
-);
-
-$attributes = file_get_contents( __DIR__ . '/block/attributes.json' );
-$attributes = json_decode( $attributes, true );
-$supports = file_get_contents( __DIR__ . '/block/supports.json' );
-$supports = json_decode( $supports, true );
-
-register_block_type(
-	'snow-monkey-blocks/recent-posts',
+register_block_type_from_metadata(
+	__DIR__,
 	[
 		'editor_script'   => 'snow-monkey-blocks/recent-posts/editor',
-		'attributes'      => $attributes,
-		'supports'        => $supports,
 		'render_callback' => function( $attributes ) {
 			return DynamicBlocks::render( 'recent-posts', $attributes );
 		},
 	]
 );
+
+/**
+ * nopro
+ */
+if ( ! Blocks\is_pro() && ! is_admin() ) {
+	wp_enqueue_style(
+		'snow-monkey-blocks/recent-posts/nopro',
+		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/recent-posts/nopro.css',
+		[],
+		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/recent-posts/nopro.css' )
+	);
+}
+
+/**
+ * nopro
+ */
+if ( ! Blocks\is_pro() && is_admin() ) {
+	wp_enqueue_style(
+		'snow-monkey-blocks/recent-posts/nopro/editor',
+		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/recent-posts/nopro-editor.css',
+		[],
+		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/recent-posts/nopro-editor.css' )
+	);
+}

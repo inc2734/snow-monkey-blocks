@@ -5,7 +5,6 @@
  * @license GPL-2.0+
  */
 
-use Snow_Monkey\Plugin\Blocks;
 use Snow_Monkey\Plugin\Blocks\App\DynamicBlocks;
 
 /**
@@ -40,31 +39,12 @@ wp_register_script(
 	true
 );
 
-/**
- * editor_style
- */
-wp_register_style(
-	'snow-monkey-blocks/spider-pickup-slider/editor',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/spider-pickup-slider/editor.css',
-	[ 'snow-monkey-blocks-editor' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/spider-pickup-slider/editor.css' ),
-	true
-);
-
-$attributes = file_get_contents( __DIR__ . '/block/attributes.json' );
-$attributes = json_decode( $attributes, true );
-$supports = file_get_contents( __DIR__ . '/block/supports.json' );
-$supports = json_decode( $supports, true );
-
-register_block_type(
-	'snow-monkey-blocks/spider-pickup-slider',
+register_block_type_from_metadata(
+	__DIR__,
 	[
 		'style'           => ! is_admin() ? 'snow-monkey-blocks/spider-pickup-slider' : null,
 		'script'          => ! is_admin() ? 'snow-monkey-blocks/spider-pickup-slider' : null,
 		'editor_script'   => 'snow-monkey-blocks/spider-pickup-slider/editor',
-		'editor_style'    => 'snow-monkey-blocks/spider-pickup-slider/editor',
-		'attributes'      => $attributes,
-		'supports'        => $supports,
 		'render_callback' => function( $attributes, $content ) {
 			return DynamicBlocks::render( 'spider-pickup-slider', $attributes, $content );
 		},
