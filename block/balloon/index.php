@@ -38,7 +38,7 @@ wp_register_style(
 );
 
 register_block_type_from_metadata(
-	__DIR__ ,
+	__DIR__,
 	[
 		'style'         => 'snow-monkey-blocks/balloon',
 		'editor_script' => 'snow-monkey-blocks/balloon/editor',

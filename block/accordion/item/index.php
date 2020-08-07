@@ -18,7 +18,7 @@ wp_register_script(
 );
 
 register_block_type_from_metadata(
-	__DIR__ ,
+	__DIR__,
 	[
 		'editor_script' => 'snow-monkey-blocks/accordion/item/editor',
 	]

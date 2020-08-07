@@ -28,7 +28,7 @@ wp_register_script(
 );
 
 register_block_type_from_metadata(
-	__DIR__ ,
+	__DIR__,
 	[
 		'style'         => 'snow-monkey-blocks/alert',
 		'editor_script' => 'snow-monkey-blocks/alert/editor',
