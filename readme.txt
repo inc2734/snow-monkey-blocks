@@ -64,12 +64,6 @@ By default these blocks are restricted. If you are using the theme that has 1 co
 * Section (Break the grid)
 * Section (Side heading)
 
-= Formatter =
-
-* Text highlighter
-* Text badge
-* Format clear button
-
 == Installation ==
 
 This plugin can be installed directly from your site.
@@ -125,6 +119,9 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 * [Balloon] Fixed avatar misalignment in the editor.
 * [Balloon] Add color settings.
 * [Contents outline] Add "Show section block titles" and "Show heading blocks in section blocks" settings.
+* [Text highlighter]  It has been removed.
+* [Text badge]  It has been removed.
+* [Format clear button]  It has been removed.
 
 = 8.8.3 =
 * Fixed a bug that the image of the headings block templates were not displayed.
