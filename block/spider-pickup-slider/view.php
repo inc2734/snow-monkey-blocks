@@ -40,9 +40,18 @@ $query = new WP_Query(
 if ( ! $query->have_posts() ) {
 	return;
 }
+
+$classes = [ 'smb-spider-pickup-slider' ];
+if ( isset( $attributes['align'] ) ) {
+	if ( 'full' === $attributes['align'] ) {
+		$classes[] = 'alignfull';
+	} elseif ( 'wide' === $attributes['align'] ) {
+		$classes[] = 'alignwide';
+	}
+}
 ?>
 
-<div class="smb-spider-pickup-slider">
+<div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 	<div class="spider">
 		<div class="spider__canvas">
 			<?php $index = 0; ?>

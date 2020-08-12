@@ -20,6 +20,17 @@
       padding: 56.25% 0 0;
     }
 
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, .15);
+    }
+
     .spider__figure {
       position: absolute;
 
@@ -35,6 +46,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    z-index: 1;
     transform: translate(-50%, -50%);
     width: 100%;
     display: flex;
@@ -96,4 +108,8 @@
       }
     }
   }
+}
+
+.smb-section + .smb-spider-pickup-slider.alignfull {
+  margin-top: 0;
 }
