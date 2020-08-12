@@ -20,6 +20,6 @@ wp_register_script(
 register_block_type_from_metadata(
 	__DIR__,
 	[
-		'editor_script' => 'snow-monkey-blocks/rating-box/editor',
+		'editor_script' => 'snow-monkey-blocks/rating-box/item/editor',
 	]
 );
