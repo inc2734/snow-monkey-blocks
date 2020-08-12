@@ -163,7 +163,7 @@
     "block:rating-box": "npm run block:rating-box:build && npm run block:rating-box:item",
     "block:rating-box:item:build:js": "wp-scripts build block/rating-box/item/editor --output-path=dist/block/rating-box/item",
     "block:rating-box:item:build": "npm-run-all -s block:rating-box:item:build:*",
-    "block:rating-box": "npm run block:rating-box:item:build",
+    "block:rating-box:item": "npm run block:rating-box:item:build",
     "block:recent-posts:build:js": "wp-scripts build block/recent-posts/editor --output-path=dist/block/recent-posts",
     "block:recent-posts:build:css": "node-sass block/recent-posts -o dist/block/recent-posts && postcss dist/block/recent-posts/*.css -r",
     "block:recent-posts:build": "npm-run-all -s block:recent-posts:build:*",
