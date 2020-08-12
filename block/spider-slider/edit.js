@@ -102,12 +102,14 @@ export default function( {
 		} );
 	};
 
-	const sizeSlugOptions = imageSizes.map( ( imageSize ) => {
-		return {
-			value: imageSize.slug,
-			label: imageSize.name,
-		};
-	} );
+	const sizeSlugOptions =
+		'object' === typeof imageSizes &&
+		imageSizes.map( ( imageSize ) => {
+			return {
+				value: imageSize.slug,
+				label: imageSize.name,
+			};
+		} );
 
 	const aspectRatioOptions = [
 		{
@@ -183,48 +185,64 @@ export default function( {
 				<PanelBody
 					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
 				>
-					<SelectControl
-						label={ __( 'Images size', 'snow-monkey-blocks' ) }
-						value={ sizeSlug }
-						options={ sizeSlugOptions }
-						onChange={ onChangeSizeSlug }
-					/>
+					{ images && (
+						<>
+							<SelectControl
+								label={ __(
+									'Images size',
+									'snow-monkey-blocks'
+								) }
+								value={ sizeSlug }
+								options={ sizeSlugOptions }
+								onChange={ onChangeSizeSlug }
+							/>
 
-					<SelectControl
-						label={ __( 'Aspect ratio', 'snow-monkey-blocks' ) }
-						value={ aspectRatio }
-						onChange={ onChangeAspectRatio }
-						options={ aspectRatioOptions }
-					/>
+							<SelectControl
+								label={ __(
+									'Aspect ratio',
+									'snow-monkey-blocks'
+								) }
+								value={ aspectRatio }
+								onChange={ onChangeAspectRatio }
+								options={ aspectRatioOptions }
+							/>
 
-					<ToggleControl
-						label={ __( 'Show arrows', 'snow-monkey-blocks' ) }
-						checked={ arrows }
-						onChange={ onChangeArrows }
-					/>
+							<ToggleControl
+								label={ __(
+									'Show arrows',
+									'snow-monkey-blocks'
+								) }
+								checked={ arrows }
+								onChange={ onChangeArrows }
+							/>
 
-					<ToggleControl
-						label={ __( 'Show dots', 'snow-monkey-blocks' ) }
-						checked={ dots }
-						onChange={ onChangeDots }
-					/>
+							<ToggleControl
+								label={ __(
+									'Show dots',
+									'snow-monkey-blocks'
+								) }
+								checked={ dots }
+								onChange={ onChangeDots }
+							/>
 
-					{ dots && (
-						<ToggleControl
-							label={ __(
-								'Change dots to thumbnails',
-								'snow-monkey-blocks'
+							{ dots && (
+								<ToggleControl
+									label={ __(
+										'Change dots to thumbnails',
+										'snow-monkey-blocks'
+									) }
+									checked={ dotsToThumbnail }
+									onChange={ onChangeDotsToThumbnail }
+								/>
 							) }
-							checked={ dotsToThumbnail }
-							onChange={ onChangeDotsToThumbnail }
-						/>
-					) }
 
-					<ToggleControl
-						label={ __( 'Fade', 'snow-monkey-blocks' ) }
-						checked={ fade }
-						onChange={ onChangeFade }
-					/>
+							<ToggleControl
+								label={ __( 'Fade', 'snow-monkey-blocks' ) }
+								checked={ fade }
+								onChange={ onChangeFade }
+							/>
+						</>
+					) }
 				</PanelBody>
 			</InspectorControls>
 
