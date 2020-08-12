@@ -106,7 +106,7 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 
 == Changelog ==
 
-= 9.0.2 =
+= 9.0.3 =
 * [Rating box] Bug fixes.
 * [Slider] Bug fixes.
 
