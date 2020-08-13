@@ -80,13 +80,15 @@ export default function( {
 				return image;
 			}
 
-			const newUrl = get( resizedImages, [ image.id, value, 'url' ] );
-			const newWidth = get( resizedImages, [ image.id, value, 'width' ] );
-			const newHeight = get( resizedImages, [
-				image.id,
-				value,
-				'height',
-			] );
+			const newUrl =
+				get( resizedImages, [ image.id, value, 'url' ] ) ||
+				get( resizedImages, [ image.id, 'full', 'url' ] );
+			const newWidth =
+				get( resizedImages, [ image.id, value, 'width' ] ) ||
+				get( resizedImages, [ image.id, 'full', 'width' ] );
+			const newHeight =
+				get( resizedImages, [ image.id, value, 'height' ] ) ||
+				get( resizedImages, [ image.id, 'full', 'height' ] );
 
 			return {
 				...image,
