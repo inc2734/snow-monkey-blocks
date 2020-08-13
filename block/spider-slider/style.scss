@@ -18,7 +18,8 @@
         position: absolute;
 
         @supports (object-fit: cover) {
-          height: 100%;
+          height: auto;
+          max-height: none;
           object-fit: cover;
           object-position: 50% 50%;
         }
