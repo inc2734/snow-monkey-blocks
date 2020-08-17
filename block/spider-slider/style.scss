@@ -6,9 +6,6 @@
   &--16to9,
   &--4to3 {
     .spider__slide {
-      position: relative;
-      overflow: hidden;
-
       &::before {
         content: '';
         display: block;
@@ -33,6 +30,29 @@
 
   &--4to3 .spider__slide::before {
     padding: 75% 0 0;
+  }
+
+  &__item {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  &__item__caption {
+    @include _font-size-line-height($_base-font-size-px - 2);
+  }
+
+  .spider__slide {
+    position: relative;
+    flex-wrap: wrap;
+    overflow: hidden;
+
+    .smb-spider-slider__item {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      @include _padding(.25, .5);
+    }
   }
 
   .spider__dots[data-thumbnails="true"] {

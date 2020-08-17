@@ -8,6 +8,7 @@ export default function( { attributes, className } ) {
 		dots,
 		dotsToThumbnail,
 		fade,
+		displayCaption,
 	} = attributes;
 
 	if ( ! images.length ) {
@@ -37,6 +38,14 @@ export default function( { attributes, className } ) {
 									height={ img.height }
 									data-image-id={ img.id }
 								/>
+
+								{ displayCaption && !! img.caption && (
+									<div className="smb-spider-slider__item">
+										<div className="smb-spider-slider__item__caption">
+											{ img.caption }
+										</div>
+									</div>
+								) }
 							</div>
 						);
 					} ) }

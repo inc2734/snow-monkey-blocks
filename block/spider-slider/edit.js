@@ -26,6 +26,7 @@ export default function( {
 		dots,
 		dotsToThumbnail,
 		fade,
+		displayCaption,
 	} = attributes;
 	const hasImages = !! images.length;
 
@@ -153,6 +154,11 @@ export default function( {
 			fade: value,
 		} );
 
+	const onChangeDisplayCaption = ( value ) =>
+		setAttributes( {
+			displayCaption: value,
+		} );
+
 	const mediaPlaceholder = (
 		<MediaPlaceholder
 			addToGallery={ hasImages }
@@ -211,7 +217,7 @@ export default function( {
 
 							<ToggleControl
 								label={ __(
-									'Show arrows',
+									'Display arrows',
 									'snow-monkey-blocks'
 								) }
 								checked={ arrows }
@@ -220,7 +226,7 @@ export default function( {
 
 							<ToggleControl
 								label={ __(
-									'Show dots',
+									'Display dots',
 									'snow-monkey-blocks'
 								) }
 								checked={ dots }
@@ -242,6 +248,15 @@ export default function( {
 								label={ __( 'Fade', 'snow-monkey-blocks' ) }
 								checked={ fade }
 								onChange={ onChangeFade }
+							/>
+
+							<ToggleControl
+								label={ __(
+									'Display caption',
+									'snow-monkey-blocks'
+								) }
+								checked={ displayCaption }
+								onChange={ onChangeDisplayCaption }
 							/>
 						</>
 					) }
@@ -270,6 +285,14 @@ export default function( {
 											height={ img.height }
 											data-image-id={ img.id }
 										/>
+
+										{ displayCaption && !! img.caption && (
+											<div className="smb-spider-slider__item">
+												<div className="smb-spider-slider__item__caption">
+													{ img.caption }
+												</div>
+											</div>
+										) }
 									</div>
 								);
 							} ) }

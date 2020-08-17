@@ -37,6 +37,12 @@
           "source": "attribute",
           "selector": ".spider__figure",
           "attribute": "height"
+        },
+        "caption": {
+          "type": "string",
+          "source": "html",
+          "selector": ".smb-spider-slider__item__caption",
+          "default": ""
         }
       }
     },
@@ -63,6 +69,10 @@
     "aspectRatio": {
       "type": "string",
       "default": ""
+    },
+    "displayCaption": {
+      "type": "boolean",
+      "default": false
     }
   },
   "supports": {
