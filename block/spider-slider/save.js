@@ -9,6 +9,7 @@ export default function( { attributes, className } ) {
 		dotsToThumbnail,
 		fade,
 		displayCaption,
+		interval,
 	} = attributes;
 
 	if ( ! images.length ) {
@@ -20,7 +21,11 @@ export default function( { attributes, className } ) {
 	} );
 
 	return (
-		<div className={ classes } data-fade={ fade ? 'true' : 'false' }>
+		<div
+			className={ classes }
+			data-fade={ fade ? 'true' : 'false' }
+			data-interval={ 0 < interval ? interval * 1000 : undefined }
+		>
 			<div className="spider">
 				<div className="spider__canvas">
 					{ images.map( ( img, index ) => {

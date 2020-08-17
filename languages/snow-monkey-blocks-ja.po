@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2020-08-17 14:56+0900\n"
-"PO-Revision-Date: 2020-08-17 14:57+0900\n"
+"POT-Creation-Date: 2020-08-17 16:53+0900\n"
+"PO-Revision-Date: 2020-08-17 16:53+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -157,7 +157,7 @@ msgstr "アコーディオンのように伸縮するコンテンツエリアを
 #: block/section-with-bgimage/edit.js:234
 #: block/section-with-bgvideo/edit.js:160 block/section/edit.js:206
 #: block/slider/edit.js:126 block/slider/item/edit.js:187
-#: block/spider-pickup-slider/edit.js:29 block/spider-slider/edit.js:194
+#: block/spider-pickup-slider/edit.js:34 block/spider-slider/edit.js:205
 #: block/step/item/standard/edit.js:191 block/taxonomy-posts/edit.js:129
 #: block/taxonomy-terms/edit.js:60 block/testimonial/edit.js:37
 #: block/thumbnail-gallery/edit.js:41 block/thumbnail-gallery/item/edit.js:120
@@ -391,7 +391,7 @@ msgstr "マイクロコピー付きのボタンです。"
 #: block/btn-box/index.js:24 block/btn/index.js:29 block/countdown/index.js:39
 #: block/items/item/banner/edit.js:235 block/media-text/edit.js:266
 #: block/recent-posts/edit.js:206 block/rss/edit.js:195 block/slider/edit.js:40
-#: block/spider-slider/edit.js:120 block/taxonomy-posts/edit.js:250
+#: block/spider-slider/edit.js:126 block/taxonomy-posts/edit.js:250
 #: block/taxonomy-terms/index.js:28
 msgid "Default"
 msgstr "デフォルト"
@@ -787,12 +787,12 @@ msgid "Image aspect ratio"
 msgstr "画像のアスペクト比"
 
 #: block/items/item/banner/edit.js:239 block/slider/edit.js:48
-#: block/spider-slider/edit.js:128
+#: block/spider-slider/edit.js:134
 msgid "4:3"
 msgstr "4:3"
 
 #: block/items/item/banner/edit.js:243 block/slider/edit.js:44
-#: block/spider-slider/edit.js:124
+#: block/spider-slider/edit.js:130
 msgid "16:9"
 msgstr "16:9"
 
@@ -801,7 +801,7 @@ msgstr "16:9"
 #: block/panels/item/horizontal/edit.js:236
 #: block/panels/item/vertical/edit.js:205 block/pricing-table/item/edit.js:201
 #: block/recent-posts/edit.js:188 block/section-break-the-grid/edit.js:371
-#: block/slider/item/edit.js:190 block/spider-slider/edit.js:200
+#: block/slider/item/edit.js:190 block/spider-slider/edit.js:211
 #: block/step/item/standard/edit.js:214 block/taxonomy-posts/edit.js:232
 #: block/thumbnail-gallery/item/edit.js:123
 msgid "Images size"
@@ -1058,7 +1058,7 @@ msgstr "項目（水平方向）"
 msgid "It is a child block of the panels block."
 msgstr "パネルブロックの子ブロックです。"
 
-#: block/pickup-slider/edit.js:45 block/spider-pickup-slider/edit.js:33
+#: block/pickup-slider/edit.js:45 block/spider-pickup-slider/edit.js:38
 msgid "Display in random order"
 msgstr "ランダムな順序で表示"
 
@@ -1074,20 +1074,20 @@ msgstr "ボタンリンク"
 msgid "Overall link"
 msgstr "全体リンク"
 
-#: block/pickup-slider/edit.js:78 block/spider-pickup-slider/edit.js:42
+#: block/pickup-slider/edit.js:78 block/spider-pickup-slider/edit.js:47
 msgid "Maximum number of displays"
 msgstr "最大表示数"
 
-#: block/pickup-slider/edit.js:82 block/spider-pickup-slider/edit.js:46
+#: block/pickup-slider/edit.js:82 block/spider-pickup-slider/edit.js:51
 msgid "If \"0\", all items are displayed."
 msgstr "「0」の場合、すべての項目が表示されます。"
 
 #: block/pickup-slider/edit.js:107 block/pickup-slider/index.js:14
-#: block/spider-pickup-slider/edit.js:59 block/spider-pickup-slider/index.js:13
+#: block/spider-pickup-slider/edit.js:79 block/spider-pickup-slider/index.js:13
 msgid "Pickup slider"
 msgstr "ピックアップスライダー"
 
-#: block/pickup-slider/edit.js:110 block/spider-pickup-slider/edit.js:62
+#: block/pickup-slider/edit.js:110 block/spider-pickup-slider/edit.js:82
 msgid "Posts with \"pickup\" tag are displayed as sliders."
 msgstr "「pickup」タグが付与された記事をスライダーとして表示します。"
 
@@ -1583,7 +1583,8 @@ msgstr "前/次の矢印"
 msgid "Slide animation speed in milliseconds"
 msgstr "スライドアニメーション速度（ミリ秒）"
 
-#: block/slider/edit.js:157 block/thumbnail-gallery/edit.js:61
+#: block/slider/edit.js:157 block/spider-pickup-slider/edit.js:62
+#: block/spider-slider/edit.js:275 block/thumbnail-gallery/edit.js:61
 msgid "Autoplay Speed in seconds"
 msgstr "自動再生の間隔（秒）"
 
@@ -1595,7 +1596,7 @@ msgstr "フェードを有効にする"
 msgid "Change the slider's direction to become right-to-left"
 msgstr "スライダーの方向を右から左に変更"
 
-#: block/slider/edit.js:182 block/spider-slider/edit.js:210
+#: block/slider/edit.js:182 block/spider-slider/edit.js:221
 msgid "Aspect ratio"
 msgstr "画像のアスペクト比"
 
@@ -1623,7 +1624,7 @@ msgstr "表示するスライド数（スモールウインドウ）"
 msgid "# of slides to scroll (Small window)"
 msgstr "スクロールするスライド数（スモールウインドウ）"
 
-#: block/slider/index.js:15 block/spider-slider/edit.js:170
+#: block/slider/index.js:15 block/spider-slider/edit.js:181
 #: block/spider-slider/index.js:13
 msgid "Slider"
 msgstr "スライダー"
@@ -1636,29 +1637,33 @@ msgstr "魅力的な画像を美しいスライダーとして表示します。
 msgid "It is a child block of the slider block."
 msgstr "スライダーブロックの子ブロックです。"
 
-#: block/spider-slider/edit.js:174
+#: block/spider-pickup-slider/edit.js:66 block/spider-slider/edit.js:279
+msgid "If \"0\", no scroll."
+msgstr "「0」の場合、スクロールしません。"
+
+#: block/spider-slider/edit.js:185
 msgid "Drag images, upload new ones or select files from your library."
 msgstr ""
 "画像をドラッグしたり、新しい画像をアップロードしたり、ライブラリからファイル"
 "を選択したりできます。"
 
-#: block/spider-slider/edit.js:220
+#: block/spider-slider/edit.js:231
 msgid "Display arrows"
 msgstr "矢印を表示"
 
-#: block/spider-slider/edit.js:229
+#: block/spider-slider/edit.js:240
 msgid "Display dots"
 msgstr "ドットを表示"
 
-#: block/spider-slider/edit.js:239
+#: block/spider-slider/edit.js:250
 msgid "Change dots to thumbnails"
 msgstr "ドットをサムネイルに変更"
 
-#: block/spider-slider/edit.js:248
+#: block/spider-slider/edit.js:259
 msgid "Fade"
 msgstr "フェード"
 
-#: block/spider-slider/edit.js:255
+#: block/spider-slider/edit.js:266
 msgid "Display caption"
 msgstr "キャプションを表示"
 

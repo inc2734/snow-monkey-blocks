@@ -6,11 +6,16 @@ import {
 	InspectorControls,
 	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
-import { PanelBody, ToggleControl, SelectControl } from '@wordpress/components';
+import {
+	PanelBody,
+	ToggleControl,
+	SelectControl,
+	RangeControl,
+} from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
-import { getResizedImages } from '../../src/js/helper/helper';
+import { getResizedImages, toNumber } from '../../src/js/helper/helper';
 
 export default function( {
 	attributes,
@@ -27,6 +32,7 @@ export default function( {
 		dotsToThumbnail,
 		fade,
 		displayCaption,
+		interval,
 	} = attributes;
 	const hasImages = !! images.length;
 
@@ -159,6 +165,11 @@ export default function( {
 			displayCaption: value,
 		} );
 
+	const onChangeInterval = ( value ) =>
+		setAttributes( {
+			interval: toNumber( value, 0, 10 ),
+		} );
+
 	const mediaPlaceholder = (
 		<MediaPlaceholder
 			addToGallery={ hasImages }
@@ -257,6 +268,21 @@ export default function( {
 								) }
 								checked={ displayCaption }
 								onChange={ onChangeDisplayCaption }
+							/>
+
+							<RangeControl
+								label={ __(
+									'Autoplay Speed in seconds',
+									'snow-monkey-blocks'
+								) }
+								help={ __(
+									'If "0", no scroll.',
+									'snow-monkey-blocks'
+								) }
+								value={ interval }
+								onChange={ onChangeInterval }
+								min="0"
+								max="10"
 							/>
 						</>
 					) }

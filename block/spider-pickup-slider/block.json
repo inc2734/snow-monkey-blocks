@@ -9,6 +9,10 @@
     "postsPerPage": {
       "type": "number",
       "default": 0
+    },
+    "interval": {
+      "type": "number",
+      "default": 0
     }
   },
   "supports": {

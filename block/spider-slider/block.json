@@ -73,6 +73,10 @@
     "displayCaption": {
       "type": "boolean",
       "default": false
+    },
+    "interval": {
+      "type": "number",
+      "default": 0
     }
   },
   "supports": {

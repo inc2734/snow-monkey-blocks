@@ -10,7 +10,7 @@ import { __ } from '@wordpress/i18n';
 import { toNumber } from '../../src/js/helper/helper';
 
 export default function( { attributes, setAttributes } ) {
-	const { random, postsPerPage } = attributes;
+	const { random, postsPerPage, interval } = attributes;
 
 	const onChangeRandom = ( value ) =>
 		setAttributes( {
@@ -20,6 +20,11 @@ export default function( { attributes, setAttributes } ) {
 	const onChangePostsPerPage = ( value ) =>
 		setAttributes( {
 			postsPerPage: toNumber( value, 0, 10 ),
+		} );
+
+	const onChangeInterval = ( value ) =>
+		setAttributes( {
+			interval: toNumber( value, 0, 10 ),
 		} );
 
 	return (
@@ -48,6 +53,21 @@ export default function( { attributes, setAttributes } ) {
 						) }
 						value={ postsPerPage }
 						onChange={ onChangePostsPerPage }
+						min="0"
+						max="10"
+					/>
+
+					<RangeControl
+						label={ __(
+							'Autoplay Speed in seconds',
+							'snow-monkey-blocks'
+						) }
+						help={ __(
+							'If "0", no scroll.',
+							'snow-monkey-blocks'
+						) }
+						value={ interval }
+						onChange={ onChangeInterval }
 						min="0"
 						max="10"
 					/>

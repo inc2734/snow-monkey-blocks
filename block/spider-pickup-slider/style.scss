@@ -33,6 +33,7 @@
 
     .spider__figure {
       position: absolute;
+      width: 100%;
 
       @supports (object-fit: cover) {
         height: 100%;

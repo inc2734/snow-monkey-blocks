@@ -51,7 +51,7 @@ if ( isset( $attributes['align'] ) ) {
 }
 ?>
 
-<div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
+<div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>" data-interval="<?php echo esc_attr( 0 < $attributes['interval'] ? $attributes['interval'] * 1000 : null ); ?>">
 	<div class="spider">
 		<div class="spider__canvas">
 			<?php $index = 0; ?>
