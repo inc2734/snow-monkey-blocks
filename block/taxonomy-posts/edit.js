@@ -244,15 +244,15 @@ export default function( { attributes, setAttributes } ) {
 						onChange={ onChangeSmCols }
 						options={ [
 							{
-								value: '',
+								value: 0,
 								label: __( 'Default', 'snow-monkey-blocks' ),
 							},
 							{
-								value: '1',
+								value: 1,
 								label: __( '1 column', 'snow-monkey-blocks' ),
 							},
 							{
-								value: '2',
+								value: 2,
 								label: __( '2 columns', 'snow-monkey-blocks' ),
 							},
 						] }
