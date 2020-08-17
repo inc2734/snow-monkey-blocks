@@ -13,11 +13,13 @@ $custom_template  = $widget_templates . '/recent-posts.php';
 $default_template = get_template_directory() . '/app/widget/snow-monkey-recent-posts/_widget.php';
 
 $force_sm_1col = null;
-$sm_cols = (int) $attributes['smCols'];
-if ( 1 === $sm_cols ) {
-	$force_sm_1col = 1;
-} elseif ( 2 === $sm_cols ) {
-	$force_sm_1col = 0;
+if ( in_array( $attributes['layout'], [ 'rich-media', 'panel' ] ) ) {
+	$sm_cols = (int) $attributes['smCols'];
+	if ( 1 === $sm_cols ) {
+		$force_sm_1col = 1;
+	} elseif ( 2 === $sm_cols ) {
+		$force_sm_1col = 0;
+	}
 }
 
 $instance = [

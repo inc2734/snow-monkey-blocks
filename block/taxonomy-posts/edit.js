@@ -235,28 +235,39 @@ export default function( { attributes, setAttributes } ) {
 						onChange={ onChangeItemThumbnailSizeSlug }
 					/>
 
-					<SelectControl
-						label={ __(
-							'Number of columns displayed on mobile device',
-							'snow-monkey-blocks'
-						) }
-						value={ smCols }
-						onChange={ onChangeSmCols }
-						options={ [
-							{
-								value: 0,
-								label: __( 'Default', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 1,
-								label: __( '1 column', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 2,
-								label: __( '2 columns', 'snow-monkey-blocks' ),
-							},
-						] }
-					/>
+					{ ( layout === 'layout' || layout === 'panel' ) && (
+						<SelectControl
+							label={ __(
+								'Number of columns displayed on mobile device',
+								'snow-monkey-blocks'
+							) }
+							value={ smCols }
+							onChange={ onChangeSmCols }
+							options={ [
+								{
+									value: 0,
+									label: __(
+										'Default',
+										'snow-monkey-blocks'
+									),
+								},
+								{
+									value: 1,
+									label: __(
+										'1 column',
+										'snow-monkey-blocks'
+									),
+								},
+								{
+									value: 2,
+									label: __(
+										'2 columns',
+										'snow-monkey-blocks'
+									),
+								},
+							] }
+						/>
+					) }
 
 					<ToggleControl
 						label={ __(
