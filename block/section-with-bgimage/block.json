@@ -53,19 +53,23 @@
     "lgImageURL": {
       "type": "string",
       "source": "attribute",
-      "selector": ".smb-section-with-bgimage__bgimage--lg > img, .smb-section-with-bgimage__bgimage--lg > video",
+      "selector": ".smb-section-with-bgimage__bgimage--lg img, .smb-section-with-bgimage__bgimage--lg video",
       "attribute": "src",
       "default": ""
     },
     "lgImageAlt": {
       "type": "string",
       "source": "attribute",
-      "selector": ".smb-section-with-bgimage__bgimage--lg > img",
+      "selector": ".smb-section-with-bgimage__bgimage--lg img",
       "attribute": "alt",
       "default": ""
     },
     "lgImageMediaType": {
       "type": "string"
+    },
+    "lgImageRepeat": {
+      "type": "boolean",
+      "default": false
     },
     "mdImageID": {
       "type": "number",
@@ -74,19 +78,23 @@
     "mdImageURL": {
       "type": "string",
       "source": "attribute",
-      "selector": ".smb-section-with-bgimage__bgimage--md > img, .smb-section-with-bgimage__bgimage--md > video",
+      "selector": ".smb-section-with-bgimage__bgimage--md img, .smb-section-with-bgimage__bgimage--md video",
       "attribute": "src",
       "default": ""
     },
     "mdImageAlt": {
       "type": "string",
       "source": "attribute",
-      "selector": ".smb-section-with-bgimage__bgimage--md > img",
+      "selector": ".smb-section-with-bgimage__bgimage--md img",
       "attribute": "alt",
       "default": ""
     },
     "mdImageMediaType": {
       "type": "string"
+    },
+    "mdImageRepeat": {
+      "type": "boolean",
+      "default": false
     },
     "smImageID": {
       "type": "number",
@@ -95,19 +103,23 @@
     "smImageURL": {
       "type": "string",
       "source": "attribute",
-      "selector": ".smb-section-with-bgimage__bgimage--sm > img, .smb-section-with-bgimage__bgimage--sm > video",
+      "selector": ".smb-section-with-bgimage__bgimage--sm img, .smb-section-with-bgimage__bgimage--sm video",
       "attribute": "src",
       "default": ""
     },
     "smImageAlt": {
       "type": "string",
       "source": "attribute",
-      "selector": ".smb-section-with-bgimage__bgimage--sm > img",
+      "selector": ".smb-section-with-bgimage__bgimage--sm img",
       "attribute": "alt",
       "default": ""
     },
     "smImageMediaType": {
       "type": "string"
+    },
+    "smImageRepeat": {
+      "type": "boolean",
+      "default": false
     },
     "height": {
       "type": "string",

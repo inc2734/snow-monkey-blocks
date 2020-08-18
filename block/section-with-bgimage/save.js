@@ -13,14 +13,17 @@ export default function( { attributes, className } ) {
 		lgImageURL,
 		lgImageAlt,
 		lgImageMediaType,
+		lgImageRepeat,
 		mdImageID,
 		mdImageURL,
 		mdImageAlt,
 		mdImageMediaType,
+		mdImageRepeat,
 		smImageID,
 		smImageURL,
 		smImageAlt,
 		smImageMediaType,
+		smImageRepeat,
 		height,
 		contentsAlignment,
 		maskColor,
@@ -84,8 +87,24 @@ export default function( { attributes, className } ) {
 							style={ maskStyles }
 						/>
 					) }
+
 					{ ( 'image' === lgImageMediaType ||
-						undefined === lgImageMediaType ) && (
+						undefined === lgImageMediaType ) &&
+					lgImageRepeat ? (
+						<div
+							className="smb-section-with-bgimage__repeatable-image"
+							style={ {
+								backgroundImage: `url( ${ lgImageURL } )`,
+							} }
+						>
+							<img
+								src={ lgImageURL }
+								alt={ lgImageAlt }
+								className={ `wp-image-${ lgImageID }` }
+								style={ bgimageStyles }
+							/>
+						</div>
+					) : (
 						<img
 							src={ lgImageURL }
 							alt={ lgImageAlt }
@@ -93,6 +112,7 @@ export default function( { attributes, className } ) {
 							style={ bgimageStyles }
 						/>
 					) }
+
 					{ 'video' === lgImageMediaType && (
 						<video
 							playsinline
@@ -105,6 +125,7 @@ export default function( { attributes, className } ) {
 					) }
 				</div>
 			) }
+
 			{ mdImageURL && (
 				<div
 					className={ classnames(
@@ -118,8 +139,24 @@ export default function( { attributes, className } ) {
 							style={ maskStyles }
 						/>
 					) }
+
 					{ ( 'image' === mdImageMediaType ||
-						undefined === mdImageMediaType ) && (
+						undefined === mdImageMediaType ) &&
+					mdImageRepeat ? (
+						<div
+							className="smb-section-with-bgimage__repeatable-image"
+							style={ {
+								backgroundImage: `url( ${ mdImageURL } )`,
+							} }
+						>
+							<img
+								src={ mdImageURL }
+								alt={ mdImageAlt }
+								className={ `wp-image-${ mdImageID }` }
+								style={ bgimageStyles }
+							/>
+						</div>
+					) : (
 						<img
 							src={ mdImageURL }
 							alt={ mdImageAlt }
@@ -127,6 +164,7 @@ export default function( { attributes, className } ) {
 							style={ bgimageStyles }
 						/>
 					) }
+
 					{ 'video' === mdImageMediaType && (
 						<video
 							playsinline
@@ -139,6 +177,7 @@ export default function( { attributes, className } ) {
 					) }
 				</div>
 			) }
+
 			{ smImageURL && (
 				<div
 					className={ classnames(
@@ -152,8 +191,24 @@ export default function( { attributes, className } ) {
 							style={ maskStyles }
 						/>
 					) }
+
 					{ ( 'image' === smImageMediaType ||
-						undefined === smImageMediaType ) && (
+						undefined === smImageMediaType ) &&
+					smImageRepeat ? (
+						<div
+							className="smb-section-with-bgimage__repeatable-image"
+							style={ {
+								backgroundImage: `url( ${ smImageURL } )`,
+							} }
+						>
+							<img
+								src={ smImageURL }
+								alt={ smImageAlt }
+								className={ `wp-image-${ smImageID }` }
+								style={ bgimageStyles }
+							/>
+						</div>
+					) : (
 						<img
 							src={ smImageURL }
 							alt={ smImageAlt }
@@ -161,6 +216,7 @@ export default function( { attributes, className } ) {
 							style={ bgimageStyles }
 						/>
 					) }
+
 					{ 'video' === smImageMediaType && (
 						<video
 							playsinline
@@ -173,6 +229,7 @@ export default function( { attributes, className } ) {
 					) }
 				</div>
 			) }
+
 			<div className={ containerClasses }>
 				{ ! RichText.isEmpty( title ) &&
 					! RichText.isEmpty( subtitle ) &&

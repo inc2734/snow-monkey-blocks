@@ -10,6 +10,19 @@
   flex-wrap: wrap;
   align-items: center;
 
+  &__repeatable-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-repeat: repeat;
+
+    img {
+      display: none;
+    }
+  }
+
   &__bgimage {
     position: absolute;
     top: 0;
@@ -24,8 +37,18 @@
     }
 
     &--md {
+      display: none;
+
+      @include _media-only(md) {
+        display: block;
+      }
+    }
+
+    &--lg {
+      display: none;
+
       @include _media-min(lg) {
-        display: none;
+        display: block;
       }
     }
 

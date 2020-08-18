@@ -41,14 +41,17 @@ export default function( {
 		lgImageURL,
 		lgImageAlt,
 		lgImageMediaType,
+		lgImageRepeat,
 		mdImageID,
 		mdImageURL,
 		mdImageAlt,
 		mdImageMediaType,
+		mdImageRepeat,
 		smImageID,
 		smImageURL,
 		smImageAlt,
 		smImageMediaType,
+		smImageRepeat,
 		height,
 		contentsAlignment,
 		maskColor,
@@ -141,6 +144,11 @@ export default function( {
 			lgImageMediaType: undefined,
 		} );
 
+	const onChangeLgImageRepeat = ( value ) =>
+		setAttributes( {
+			lgImageRepeat: value,
+		} );
+
 	const onSelectMdImage = ( media ) => {
 		const newImageURL =
 			!! media.sizes && !! media.sizes.large
@@ -163,6 +171,11 @@ export default function( {
 			mdImageMediaType: undefined,
 		} );
 
+	const onChangeMdImageRepeat = ( value ) =>
+		setAttributes( {
+			mdImageRepeat: value,
+		} );
+
 	const onSelectSmImage = ( media ) => {
 		const newImageURL =
 			!! media.sizes && !! media.sizes.large
@@ -183,6 +196,11 @@ export default function( {
 			smImageAlt: '',
 			smImageID: 0,
 			smImageMediaType: undefined,
+		} );
+
+	const onChangeSmImageRepeat = ( value ) =>
+		setAttributes( {
+			smImageRepeat: value,
 		} );
 
 	const onChangeMaskColor = ( value ) =>
@@ -349,37 +367,73 @@ export default function( {
 
 					<ResponsiveTabPanel
 						desktop={ () => (
-							<Figure
-								src={ lgImageURL }
-								id={ lgImageID }
-								alt={ lgImageAlt }
-								onSelect={ onSelectLgImage }
-								onRemove={ onRemoveLgImage }
-								mediaType={ lgImageMediaType }
-								allowedTypes={ imageAllowdTypes }
-							/>
+							<>
+								<Figure
+									src={ lgImageURL }
+									id={ lgImageID }
+									alt={ lgImageAlt }
+									onSelect={ onSelectLgImage }
+									onRemove={ onRemoveLgImage }
+									mediaType={ lgImageMediaType }
+									allowedTypes={ imageAllowdTypes }
+								/>
+								{ 'image' === lgImageMediaType && (
+									<ToggleControl
+										label={ __(
+											'Repeat images',
+											'snow-monkey-blocks'
+										) }
+										checked={ lgImageRepeat }
+										onChange={ onChangeLgImageRepeat }
+									/>
+								) }
+							</>
 						) }
 						tablet={ () => (
-							<Figure
-								src={ mdImageURL }
-								id={ mdImageID }
-								alt={ mdImageAlt }
-								onSelect={ onSelectMdImage }
-								onRemove={ onRemoveMdImage }
-								mediaType={ mdImageMediaType }
-								allowedTypes={ imageAllowdTypes }
-							/>
+							<>
+								<Figure
+									src={ mdImageURL }
+									id={ mdImageID }
+									alt={ mdImageAlt }
+									onSelect={ onSelectMdImage }
+									onRemove={ onRemoveMdImage }
+									mediaType={ mdImageMediaType }
+									allowedTypes={ imageAllowdTypes }
+								/>
+								{ 'image' === mdImageMediaType && (
+									<ToggleControl
+										label={ __(
+											'Repeat images',
+											'snow-monkey-blocks'
+										) }
+										checked={ mdImageRepeat }
+										onChange={ onChangeMdImageRepeat }
+									/>
+								) }
+							</>
 						) }
 						mobile={ () => (
-							<Figure
-								src={ smImageURL }
-								id={ smImageID }
-								alt={ smImageAlt }
-								onSelect={ onSelectSmImage }
-								onRemove={ onRemoveSmImage }
-								mediaType={ smImageMediaType }
-								allowedTypes={ imageAllowdTypes }
-							/>
+							<>
+								<Figure
+									src={ smImageURL }
+									id={ smImageID }
+									alt={ smImageAlt }
+									onSelect={ onSelectSmImage }
+									onRemove={ onRemoveSmImage }
+									mediaType={ smImageMediaType }
+									allowedTypes={ imageAllowdTypes }
+								/>
+								{ 'image' === smImageMediaType && (
+									<ToggleControl
+										label={ __(
+											'Repeat images',
+											'snow-monkey-blocks'
+										) }
+										checked={ smImageRepeat }
+										onChange={ onChangeSmImageRepeat }
+									/>
+								) }
+							</>
 						) }
 					/>
 				</PanelBody>
@@ -456,8 +510,24 @@ export default function( {
 								style={ maskStyles }
 							/>
 						) }
+
 						{ ( 'image' === lgImageMediaType ||
-							undefined === lgImageMediaType ) && (
+							undefined === lgImageMediaType ) &&
+						lgImageRepeat ? (
+							<div
+								className="smb-section-with-bgimage__repeatable-image"
+								style={ {
+									backgroundImage: `url( ${ lgImageURL } )`,
+								} }
+							>
+								<img
+									src={ lgImageURL }
+									alt={ lgImageAlt }
+									className={ `wp-image-${ lgImageID }` }
+									style={ bgimageStyles }
+								/>
+							</div>
+						) : (
 							<img
 								src={ lgImageURL }
 								alt={ lgImageAlt }
@@ -465,6 +535,7 @@ export default function( {
 								style={ bgimageStyles }
 							/>
 						) }
+
 						{ 'video' === lgImageMediaType && (
 							<video
 								playsinline
@@ -477,6 +548,7 @@ export default function( {
 						) }
 					</div>
 				) }
+
 				{ mdImageURL && (
 					<div
 						className={ classnames(
@@ -490,8 +562,24 @@ export default function( {
 								style={ maskStyles }
 							/>
 						) }
+
 						{ ( 'image' === mdImageMediaType ||
-							undefined === mdImageMediaType ) && (
+							undefined === mdImageMediaType ) &&
+						mdImageRepeat ? (
+							<div
+								className="smb-section-with-bgimage__repeatable-image"
+								style={ {
+									backgroundImage: `url( ${ mdImageURL } )`,
+								} }
+							>
+								<img
+									src={ mdImageURL }
+									alt={ mdImageAlt }
+									className={ `wp-image-${ mdImageID }` }
+									style={ bgimageStyles }
+								/>
+							</div>
+						) : (
 							<img
 								src={ mdImageURL }
 								alt={ mdImageAlt }
@@ -499,6 +587,7 @@ export default function( {
 								style={ bgimageStyles }
 							/>
 						) }
+
 						{ 'video' === mdImageMediaType && (
 							<video
 								playsinline
@@ -511,6 +600,7 @@ export default function( {
 						) }
 					</div>
 				) }
+
 				{ smImageURL && (
 					<div
 						className={ classnames(
@@ -524,8 +614,24 @@ export default function( {
 								style={ maskStyles }
 							/>
 						) }
+
 						{ ( 'image' === smImageMediaType ||
-							undefined === smImageMediaType ) && (
+							undefined === smImageMediaType ) &&
+						smImageRepeat ? (
+							<div
+								className="smb-section-with-bgimage__repeatable-image"
+								style={ {
+									backgroundImage: `url( ${ smImageURL } )`,
+								} }
+							>
+								<img
+									src={ smImageURL }
+									alt={ smImageAlt }
+									className={ `wp-image-${ smImageID }` }
+									style={ bgimageStyles }
+								/>
+							</div>
+						) : (
 							<img
 								src={ smImageURL }
 								alt={ smImageAlt }
@@ -545,6 +651,7 @@ export default function( {
 						) }
 					</div>
 				) }
+
 				<div className={ containerClasses }>
 					{ ! RichText.isEmpty( title ) &&
 						( ! RichText.isEmpty( subtitle ) || isSelected ) &&
