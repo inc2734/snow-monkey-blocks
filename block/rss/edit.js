@@ -180,7 +180,7 @@ export default function( { attributes, setAttributes } ) {
 						</div>
 					</BaseControl>
 
-					{ ( layout === 'layout' || layout === 'panel' ) && (
+					{ ( 'rich-media' === layout || 'panel' === layout ) && (
 						<SelectControl
 							label={ __(
 								'Number of columns displayed on mobile device',
