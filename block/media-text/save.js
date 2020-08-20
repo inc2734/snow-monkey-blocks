@@ -16,6 +16,7 @@ export default function( { attributes, className } ) {
 		imageMediaType,
 		caption,
 		imagePosition,
+		verticalAlignment,
 		imageColumnSize,
 		mobileOrder,
 		url,
@@ -30,8 +31,11 @@ export default function( { attributes, className } ) {
 		[ `smb-media-text--mobile-${ mobileOrder }` ]: !! mobileOrder,
 	} );
 
-	const rowClasses = classnames( 'c-row', 'c-row--margin', 'c-row--middle', {
+	const rowClasses = classnames( 'c-row', 'c-row--margin', {
 		'c-row--reverse': 'left' === imagePosition,
+		'c-row--top': 'top' === verticalAlignment,
+		'c-row--middle': 'center' === verticalAlignment,
+		'c-row--bottom': 'bottom' === verticalAlignment,
 	} );
 
 	const textColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', [

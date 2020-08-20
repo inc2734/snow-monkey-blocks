@@ -19,8 +19,11 @@ import {
 	InnerBlocks,
 	InspectorControls,
 	BlockControls,
+	BlockVerticalAlignmentToolbar,
 	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
+
+import { pullLeft, pullRight } from '@wordpress/icons';
 
 import {
 	getColumnSize,
@@ -48,6 +51,7 @@ export default function( {
 		imageSizeSlug,
 		caption,
 		imagePosition,
+		verticalAlignment,
 		imageColumnSize,
 		mobileOrder,
 		url,
@@ -97,8 +101,11 @@ export default function( {
 		[ `smb-media-text--mobile-${ mobileOrder }` ]: !! mobileOrder,
 	} );
 
-	const rowClasses = classnames( 'c-row', 'c-row--margin', 'c-row--middle', {
+	const rowClasses = classnames( 'c-row', 'c-row--margin', {
 		'c-row--reverse': 'left' === imagePosition,
+		'c-row--top': 'top' === verticalAlignment,
+		'c-row--middle': 'center' === verticalAlignment,
+		'c-row--bottom': 'bottom' === verticalAlignment,
 	} );
 
 	const textColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', [
@@ -109,9 +116,9 @@ export default function( {
 		`c-row__col--lg-${ imageColumnWidth }`,
 	] );
 
-	const onChangeImagePosition = ( value ) =>
+	const onChangeVerticalAlignment = ( value ) =>
 		setAttributes( {
-			imagePosition: value,
+			verticalAlignment: value,
 		} );
 
 	const onChangeImageColumnSize = ( value ) =>
@@ -201,28 +208,27 @@ export default function( {
 			caption: value,
 		} );
 
+	const toolbarControls = [
+		{
+			icon: pullLeft,
+			title: __( 'Show media on left', 'snow-monkey-blocks' ),
+			isActive: 'left' === imagePosition,
+			onClick: () => setAttributes( { imagePosition: 'left' } ),
+		},
+		{
+			icon: pullRight,
+			title: __( 'Show media on right', 'snow-monkey-blocks' ),
+			isActive: 'right' === imagePosition,
+			onClick: () => setAttributes( { imagePosition: 'right' } ),
+		},
+	];
+
 	return (
 		<>
 			<InspectorControls>
 				<PanelBody
 					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
 				>
-					<SelectControl
-						label={ __( 'Image Position', 'snow-monkey-blocks' ) }
-						value={ imagePosition }
-						options={ [
-							{
-								value: 'right',
-								label: __( 'Right side', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'left',
-								label: __( 'Left side', 'snow-monkey-blocks' ),
-							},
-						] }
-						onChange={ onChangeImagePosition }
-					/>
-
 					<SelectControl
 						label={ __(
 							'Image Column Size',
@@ -249,14 +255,12 @@ export default function( {
 						] }
 						onChange={ onChangeImageColumnSize }
 					/>
-
 					<ImageSizeSelectControl
 						label={ __( 'Images size', 'snow-monkey-blocks' ) }
 						id={ imageID }
 						slug={ imageSizeSlug }
 						onChange={ onChangeImageSizeSlug }
 					/>
-
 					<SelectControl
 						label={ __( 'Sort by mobile', 'snow-monkey-blocks' ) }
 						value={ mobileOrder }
@@ -282,7 +286,6 @@ export default function( {
 						] }
 						onChange={ onChangeMobileOrder }
 					/>
-
 					<BaseControl
 						label={ __( 'Title Tag', 'snow-monkey-blocks' ) }
 						id="snow-monkey-blocks/media-text/title-tag-name"
@@ -310,6 +313,41 @@ export default function( {
 					</BaseControl>
 				</PanelBody>
 			</InspectorControls>
+
+			<BlockControls>
+				<ToolbarGroup controls={ toolbarControls } />
+				<BlockVerticalAlignmentToolbar
+					onChange={ onChangeVerticalAlignment }
+					value={ verticalAlignment }
+				/>
+
+				{ imageURL &&
+					( 'image' === imageMediaType ||
+						undefined === imageMediaType ) && (
+						<ToolbarGroup>
+							<Button
+								icon="admin-links"
+								className="components-toolbar__control"
+								label={ __( 'Link', 'snow-monkey-blocks' ) }
+								aria-expanded={ isLinkUIOpen }
+								onClick={ toggleLinkUIOpen }
+							/>
+
+							{ !! url && (
+								<Button
+									isPressed
+									icon="editor-unlink"
+									className="components-toolbar__control"
+									label={ __(
+										'Unlink',
+										'snow-monkey-blocks'
+									) }
+									onClick={ () => onChangeUrl( '', false ) }
+								/>
+							) }
+						</ToolbarGroup>
+					) }
+			</BlockControls>
 
 			<BlockWrapper className={ classes }>
 				<div className={ rowClasses }>
@@ -374,35 +412,6 @@ export default function( {
 					</div>
 				</div>
 			</BlockWrapper>
-
-			{ imageURL &&
-				( 'image' === imageMediaType ||
-					undefined === imageMediaType ) && (
-					<BlockControls>
-						<ToolbarGroup>
-							<Button
-								icon="admin-links"
-								className="components-toolbar__control"
-								label={ __( 'Link', 'snow-monkey-blocks' ) }
-								aria-expanded={ isLinkUIOpen }
-								onClick={ toggleLinkUIOpen }
-							/>
-
-							{ !! url && (
-								<Button
-									isPressed
-									icon="editor-unlink"
-									className="components-toolbar__control"
-									label={ __(
-										'Unlink',
-										'snow-monkey-blocks'
-									) }
-									onClick={ () => onChangeUrl( '', false ) }
-								/>
-							) }
-						</ToolbarGroup>
-					</BlockControls>
-				) }
 		</>
 	);
 }

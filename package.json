@@ -8,6 +8,7 @@
     "@inc2734/for-each-html-nodes": "^0.4.0",
     "@inc2734/spider": "0.0.9",
     "@wordpress/browserslist-config": "^2.7.0",
+    "@wordpress/icons": "^2.4.0",
     "@wordpress/scripts": "12.1.1",
     "autoprefixer": "^9.8.6",
     "classnames": "^2.2.6",

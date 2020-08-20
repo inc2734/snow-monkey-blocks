@@ -61,6 +61,10 @@
       "type": "string",
       "default": "right"
     },
+    "verticalAlignment": {
+      "type": "string",
+      "default": "center"
+    },
     "imageColumnSize": {
       "type": "string",
       "default": 66
