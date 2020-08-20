@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.5
 Tested up to: 5.5
-Stable tag: 9.2.0
+Stable tag: 9.3.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -105,6 +105,11 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 22. Price menu block (The number of items can be increased or decreased freely)
 
 == Changelog ==
+
+= 9.3.0 =
+* [Media text] Add vertial alignment setting.
+* [Media text] Changed the image position setting to the block toolbar.
+* [Section (with background image/video)] Fixed an issue where images for PC/tablet use were not inherited to smaller sizes.
 
 = 9.2.0 =
 * [Recent posts] Fix columns setting bug.
