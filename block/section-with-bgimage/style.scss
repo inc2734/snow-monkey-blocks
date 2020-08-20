@@ -29,26 +29,20 @@
     right: 0;
     bottom: 0;
     left: 0;
+    background-color: #fff;
 
-    &--sm {
-      @include _media-min(md) {
+    &--lg {
+    }
+
+    &--md {
+      @include _media-min(lg) {
         display: none;
       }
     }
 
-    &--md {
-      display: none;
-
-      @include _media-only(md) {
-        display: block;
-      }
-    }
-
-    &--lg {
-      display: none;
-
-      @include _media-min(lg) {
-        display: block;
+    &--sm {
+      @include _media-min(md) {
+        display: none;
       }
     }
 
