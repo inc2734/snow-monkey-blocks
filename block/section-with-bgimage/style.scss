@@ -29,7 +29,8 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: #fff;
+    background-color: $_color-white; // For IE11
+    background-color: _var-color-white();
 
     &--lg {
     }
@@ -73,7 +74,8 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: #000;
+    background-color: $_color-black; // For IE11
+    background-color: _var-color-black();
   }
 
   > .#{$_prefix}c-container {

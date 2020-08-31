@@ -37,12 +37,16 @@
   }
 
   &--remark {
-    background-color: _lightest($_color-gray);
-    border-color: _lighter($_color-gray);
-    color: $_color-text;
+    background-color: _lightest($_color-gray); // For IE11
+    background-color: _var-lightest-color-gray();
+    border-color: _lighter($_color-gray); // For IE11
+    border-color: _var-lighter-color-gray();
+    color: $_color-text; // For IE11
+    color: _var-color-text();
 
     .svg-inline--fa {
-      color: $_color-gray;
+      color: $_color-gray; // For IE11
+      color: _var-color-gray();
     }
   }
 

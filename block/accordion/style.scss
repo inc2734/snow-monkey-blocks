@@ -19,8 +19,10 @@
     &__title {
       display: flex;
       align-items: center;
-      background-color: _lighter( $_color-gray );
-      color: $_color-text;
+      background-color: _lighter($_color-gray); // For IE11
+      background-color: _var-lighter-color-gray();
+      color: $_color-text; // For IE11
+      color: _var-color-text();
       @include _padding(.25, .5);
 
       &__label {

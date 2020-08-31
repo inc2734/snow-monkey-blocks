@@ -25,7 +25,7 @@
     "prettier": "npm:wp-prettier@1.19.1",
     "react-image": "4.0.3",
     "rimraf": "^3.0.2",
-    "sass-basis": "^11.1.0",
+    "sass-basis": "^12.0.1",
     "slick-carousel": "^1.8.1"
   },
   "scripts": {

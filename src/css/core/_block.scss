@@ -20,7 +20,8 @@ $_font-path: false;
   display: inline-block;
   font-size: 10px;
   line-height: 1;
-  color: #fff;
+  color: $_color-white; // For IE11
+  color: _var-color-white();
   background-color: #cd3034;
   border-radius: 2px;
   padding: 3px 4px;

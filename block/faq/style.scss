@@ -4,11 +4,15 @@
 
 .smb-faq {
   &__item {
-    border-bottom: 1px solid _lighter($_color-gray);
+    border-bottom: 1px solid transparent;
+    border-bottom-color: _lighter($_color-gray); // For IE11
+    border-bottom-color: _var-lighter-color-gray();
     @include _padding(1, 0);
 
     &:first-child {
-      border-top: 1px solid _lighter($_color-gray);
+      border-top: 1px solid transparent;
+      border-top-color: _lighter($_color-gray); // For IE11
+      border-top-color: _var-lighter-color-gray();
     }
 
     &__question,

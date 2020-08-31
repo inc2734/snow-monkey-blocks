@@ -9,7 +9,8 @@
 
   &__numeric {
     font-weight: bold;
-    color: $_color-gray;
+    color: $_color-gray; // For IE11
+    color: _var-color-gray();
 
     &--left {
       float: left;

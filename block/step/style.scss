@@ -16,7 +16,9 @@
       top: 0;
       bottom: 0;
       left: ($_base-font-size-px * 2.5 / 2);
-      border-left: 1px dotted _light($_color-gray);
+      border-left: 1px dotted transparent;
+      border-left-color: _light($_color-gray); // For IE11
+      border-left-color: _var-light-color-gray();
     }
 
     &:not(:first-child) {
@@ -49,8 +51,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: $_color-text;
-      color: #fff;
+      background-color: $_color-text; // For IE11
+      background-color: _var-color-text();
+      color: $_color-white; // For IE11
+      color: _var-color-white();
       font-weight: normal;
       @include _font-size($_base-font-size-px - 4);
       line-height: 1;

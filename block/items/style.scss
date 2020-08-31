@@ -54,7 +54,8 @@
     }
 
     &__lede {
-      color: $_color-gray;
+      color: $_color-gray; // For IE11
+      color: _var-color-gray();
       @include _font-size-line-height($_base-font-size-px - 2);
 
       > a {
@@ -74,11 +75,11 @@
 
   &__banner {
     position: relative;
-    //display: block;
-    //text-decoration: none;
     overflow: hidden;
-    background-color: #fff;
-    color: #fff;
+    background-color: $_color-white; // For IE11
+    background-color: _var-color-white();
+    color: $_color-white; // For IE11
+    color: _var-color-white();
 
     @include _hover(lg) {
       .smb-items__banner__figure {
@@ -149,7 +150,8 @@
 
       &__dummy {
         position: relative;
-        background-color: $_color-gray;
+        background-color: $_color-gray; // For IE11
+        background-color: _var-color-gray();
 
         &::before {
           content: '';
@@ -160,7 +162,8 @@
 
       &__mask {
         @include _position(absolute, 0, 0, 0, 0);
-        background-color: #000;
+        background-color: $_color-black; // For IE11
+        background-color: _var-color-black();
       }
     }
 

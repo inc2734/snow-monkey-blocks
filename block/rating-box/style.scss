@@ -24,7 +24,8 @@
 
       &__bar {
         position: relative;
-        background-color: _lighter($_color-gray);
+        background-color: _lighter($_color-gray); //for IE11
+        background-color: _var-lighter-color-gray();
       }
 
       &__rating {
@@ -40,7 +41,8 @@
         right: 0;
         @include _font-size($_base-font-size-px - 4);
         line-height: 1;
-        color: $_color-gray;
+        color: $_color-gray; // For IE11
+        color: _var-color-gray();
       }
     }
   }
