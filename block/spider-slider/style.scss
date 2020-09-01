@@ -32,6 +32,32 @@
     padding: 75% 0 0;
   }
 
+  @for $i from 2 through 6 {
+    @include _media-only(sm) {
+      &[data-lg-slide-to-show="#{ $i }"] {
+        .spider__slide {
+          max-width: 100% / $i;
+        }
+      }
+    }
+
+    @include _media-only(md) {
+      &[data-md-slide-to-show="#{ $i }"] {
+        .spider__slide {
+          max-width: 100% / $i;
+        }
+      }
+    }
+
+    @include _media-min(lg) {
+      &[data-lg-slide-to-show="#{ $i }"] {
+        .spider__slide {
+          max-width: 100% / $i;
+        }
+      }
+    }
+  }
+
   &__item {
     flex: 1 1 100%;
     max-width: 100%;

@@ -77,6 +77,18 @@
     "interval": {
       "type": "number",
       "default": 0
+    },
+    "lgSlidesToShow": {
+      "type": "number",
+      "default": 1
+    },
+    "mdSlidesToShow": {
+      "type": "number",
+      "default": 1
+    },
+    "smSlidesToShow": {
+      "type": "number",
+      "default": 1
     }
   },
   "supports": {

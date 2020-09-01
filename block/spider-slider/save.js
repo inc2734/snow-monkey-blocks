@@ -10,6 +10,9 @@ export default function( { attributes, className } ) {
 		fade,
 		displayCaption,
 		interval,
+		lgSlidesToShow,
+		mdSlidesToShow,
+		smSlidesToShow,
 	} = attributes;
 
 	if ( ! images.length ) {
@@ -25,6 +28,15 @@ export default function( { attributes, className } ) {
 			className={ classes }
 			data-fade={ fade ? 'true' : 'false' }
 			data-interval={ 0 < interval ? interval * 1000 : undefined }
+			data-lg-slide-to-show={
+				! fade && 1 < lgSlidesToShow ? lgSlidesToShow : undefined
+			}
+			data-md-slide-to-show={
+				! fade && 1 < mdSlidesToShow ? mdSlidesToShow : undefined
+			}
+			data-sm-slide-to-show={
+				! fade && 1 < smSlidesToShow ? smSlidesToShow : undefined
+			}
 		>
 			<div className="spider">
 				<div className="spider__canvas">

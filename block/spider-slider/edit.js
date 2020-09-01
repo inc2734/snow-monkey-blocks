@@ -15,6 +15,7 @@ import {
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
+import ResponsiveTabPanel from '../../src/js/component/responsive-tab-panel';
 import { getResizedImages, toNumber } from '../../src/js/helper/helper';
 
 export default function( {
@@ -33,6 +34,9 @@ export default function( {
 		fade,
 		displayCaption,
 		interval,
+		lgSlidesToShow,
+		mdSlidesToShow,
+		smSlidesToShow,
 	} = attributes;
 	const hasImages = !! images.length;
 
@@ -43,6 +47,7 @@ export default function( {
 			if ( ! hasImages ) {
 				return {
 					resizedImages: newResizedImages,
+					imageSizes: [],
 				};
 			}
 
@@ -64,7 +69,7 @@ export default function( {
 
 			return {
 				resizedImages: newResizedImages,
-				imageSizes: settings.imageSizes,
+				imageSizes: settings.imageSizes || [],
 			};
 		},
 		[ images ]
@@ -111,14 +116,14 @@ export default function( {
 		} );
 	};
 
-	const sizeSlugOptions =
-		'object' === typeof imageSizes &&
-		imageSizes.map( ( imageSize ) => {
-			return {
-				value: imageSize.slug,
-				label: imageSize.name,
-			};
-		} );
+	const sizeSlugOptions = hasImages
+		? imageSizes.map( ( imageSize ) => {
+				return {
+					value: imageSize.slug,
+					label: imageSize.name,
+				};
+		  } )
+		: [];
 
 	const aspectRatioOptions = [
 		{
@@ -170,6 +175,21 @@ export default function( {
 			interval: toNumber( value, 0, 10 ),
 		} );
 
+	const onChangeLgSlidesToShow = ( value ) =>
+		setAttributes( {
+			lgSlidesToShow: toNumber( value, 1, 6 ),
+		} );
+
+	const onChangeMdSlidesToShow = ( value ) =>
+		setAttributes( {
+			mdSlidesToShow: toNumber( value, 1, 6 ),
+		} );
+
+	const onChangeSmSlidesToShow = ( value ) =>
+		setAttributes( {
+			smSlidesToShow: toNumber( value, 1, 6 ),
+		} );
+
 	const mediaPlaceholder = (
 		<MediaPlaceholder
 			addToGallery={ hasImages }
@@ -194,105 +214,138 @@ export default function( {
 		/>
 	);
 
-	if ( ! hasImages ) {
-		return mediaPlaceholder;
-	}
-
 	return (
 		<>
 			<InspectorControls>
 				<PanelBody
 					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
 				>
-					{ images && (
-						<>
-							<SelectControl
-								label={ __(
-									'Images size',
-									'snow-monkey-blocks'
-								) }
-								value={ sizeSlug }
-								options={ sizeSlugOptions }
-								onChange={ onChangeSizeSlug }
-							/>
-
-							<SelectControl
-								label={ __(
-									'Aspect ratio',
-									'snow-monkey-blocks'
-								) }
-								value={ aspectRatio }
-								onChange={ onChangeAspectRatio }
-								options={ aspectRatioOptions }
-							/>
-
-							<ToggleControl
-								label={ __(
-									'Display arrows',
-									'snow-monkey-blocks'
-								) }
-								checked={ arrows }
-								onChange={ onChangeArrows }
-							/>
-
-							<ToggleControl
-								label={ __(
-									'Display dots',
-									'snow-monkey-blocks'
-								) }
-								checked={ dots }
-								onChange={ onChangeDots }
-							/>
-
-							{ dots && (
-								<ToggleControl
+					<SelectControl
+						label={ __( 'Images size', 'snow-monkey-blocks' ) }
+						value={ sizeSlug }
+						options={ sizeSlugOptions }
+						onChange={ onChangeSizeSlug }
+					/>
+					<SelectControl
+						label={ __( 'Aspect ratio', 'snow-monkey-blocks' ) }
+						value={ aspectRatio }
+						onChange={ onChangeAspectRatio }
+						options={ aspectRatioOptions }
+					/>
+					<ToggleControl
+						label={ __( 'Display arrows', 'snow-monkey-blocks' ) }
+						checked={ arrows }
+						onChange={ onChangeArrows }
+					/>
+					<ToggleControl
+						label={ __( 'Display dots', 'snow-monkey-blocks' ) }
+						checked={ dots }
+						onChange={ onChangeDots }
+					/>
+					{ dots && (
+						<ToggleControl
+							label={ __(
+								'Change dots to thumbnails',
+								'snow-monkey-blocks'
+							) }
+							checked={ dotsToThumbnail }
+							onChange={ onChangeDotsToThumbnail }
+						/>
+					) }
+					<ToggleControl
+						label={ __( 'Fade', 'snow-monkey-blocks' ) }
+						checked={ fade }
+						onChange={ onChangeFade }
+					/>
+					<ToggleControl
+						label={ __( 'Display caption', 'snow-monkey-blocks' ) }
+						checked={ displayCaption }
+						onChange={ onChangeDisplayCaption }
+					/>
+					<RangeControl
+						label={ __(
+							'Autoplay Speed in seconds',
+							'snow-monkey-blocks'
+						) }
+						help={ __(
+							'If "0", no scroll.',
+							'snow-monkey-blocks'
+						) }
+						value={ interval }
+						onChange={ onChangeInterval }
+						min="0"
+						max="10"
+					/>
+					{ ! fade && (
+						<ResponsiveTabPanel
+							desktop={ () => (
+								<RangeControl
 									label={ __(
-										'Change dots to thumbnails',
+										'# of slides to show (Large window)',
 										'snow-monkey-blocks'
 									) }
-									checked={ dotsToThumbnail }
-									onChange={ onChangeDotsToThumbnail }
+									value={ lgSlidesToShow }
+									onChange={ onChangeLgSlidesToShow }
+									min="1"
+									max={
+										6 < images.length ? 6 : images.length
+									}
 								/>
 							) }
-
-							<ToggleControl
-								label={ __( 'Fade', 'snow-monkey-blocks' ) }
-								checked={ fade }
-								onChange={ onChangeFade }
-							/>
-
-							<ToggleControl
-								label={ __(
-									'Display caption',
-									'snow-monkey-blocks'
-								) }
-								checked={ displayCaption }
-								onChange={ onChangeDisplayCaption }
-							/>
-
-							<RangeControl
-								label={ __(
-									'Autoplay Speed in seconds',
-									'snow-monkey-blocks'
-								) }
-								help={ __(
-									'If "0", no scroll.',
-									'snow-monkey-blocks'
-								) }
-								value={ interval }
-								onChange={ onChangeInterval }
-								min="0"
-								max="10"
-							/>
-						</>
+							tablet={ () => (
+								<RangeControl
+									label={ __(
+										'# of slides to show (Medium window)',
+										'snow-monkey-blocks'
+									) }
+									value={ mdSlidesToShow }
+									onChange={ onChangeMdSlidesToShow }
+									min="1"
+									max={
+										6 < images.length ? 6 : images.length
+									}
+								/>
+							) }
+							mobile={ () => (
+								<RangeControl
+									label={ __(
+										'# of slides to show (Small window)',
+										'snow-monkey-blocks'
+									) }
+									value={ smSlidesToShow }
+									onChange={ onChangeSmSlidesToShow }
+									min="1"
+									max={
+										6 < images.length ? 6 : images.length
+									}
+								/>
+							) }
+						/>
 					) }
 				</PanelBody>
 			</InspectorControls>
 
-			{ images && (
+			{ ! hasImages ? (
+				<BlockWrapper>{ mediaPlaceholder }</BlockWrapper>
+			) : (
 				<BlockWrapper
 					className={ classes }
 					data-fade={ fade ? 'true' : 'false' }
+					data-lg-slide-to-show={
+						! fade && 1 < lgSlidesToShow
+							? lgSlidesToShow
+							: undefined
+					}
+					data-md-slide-to-show={
+						! fade && 1 < mdSlidesToShow
+							? mdSlidesToShow
+							: undefined
+					}
+					data-sm-slide-to-show={
+						! fade && 1 < smSlidesToShow
+							? smSlidesToShow
+							: undefined
+					}
 				>
 					<div className="spider">
 						<div className="spider__canvas">
@@ -372,9 +425,10 @@ export default function( {
 							} ) }
 						</div>
 					) }
+
+					{ mediaPlaceholder }
 				</BlockWrapper>
 			) }
-			{ mediaPlaceholder }
 		</>
 	);
 }
