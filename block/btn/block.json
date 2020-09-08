@@ -25,6 +25,10 @@
     },
     "textColor": {
       "type": "string"
+    },
+    "wrap": {
+      "type": "boolean",
+      "default": false
     }
   },
   "supports": {

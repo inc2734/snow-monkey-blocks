@@ -1,6 +1,10 @@
 import classnames from 'classnames';
 
-import { PanelBody, SelectControl } from '@wordpress/components';
+import {
+	PanelBody,
+	SelectControl,
+	CheckboxControl,
+} from '@wordpress/components';
 
 import {
 	RichText,
@@ -29,6 +33,7 @@ export default function( {
 		backgroundColor,
 		textColor,
 		align,
+		wrap,
 	} = attributes;
 
 	const BlockWrapper = Block.div;
@@ -40,6 +45,7 @@ export default function( {
 
 	const classes = classnames( 'smb-btn', {
 		[ `smb-btn--${ modifier }` ]: !! modifier,
+		'smb-btn--wrap': wrap,
 	} );
 
 	const btnStyles = {
@@ -80,6 +86,11 @@ export default function( {
 		} );
 	};
 
+	const onChangeWrap = ( value ) =>
+		setAttributes( {
+			wrap: value,
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -103,6 +114,12 @@ export default function( {
 								label: __( 'Full size', 'snow-monkey-blocks' ),
 							},
 						] }
+					/>
+
+					<CheckboxControl
+						label={ __( 'Wrap', 'snow-monkey-blocks' ) }
+						checked={ wrap }
+						onChange={ onChangeWrap }
 					/>
 				</PanelBody>
 

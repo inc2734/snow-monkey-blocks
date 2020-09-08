@@ -10,6 +10,7 @@
     "@wordpress/browserslist-config": "^2.7.0",
     "@wordpress/icons": "^2.5.0",
     "@wordpress/scripts": "12.2.0",
+    "@wordpress/eslint-plugin": "^7.1.0",
     "autoprefixer": "^9.8.6",
     "classnames": "^2.2.6",
     "cpy-cli": "^3.1.1",

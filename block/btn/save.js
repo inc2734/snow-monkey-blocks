@@ -10,6 +10,7 @@ export default function( { attributes, className } ) {
 		modifier,
 		backgroundColor,
 		textColor,
+		wrap,
 	} = attributes;
 
 	const wrapperClasses = classnames(
@@ -20,6 +21,7 @@ export default function( { attributes, className } ) {
 
 	const classes = classnames( 'smb-btn', {
 		[ `smb-btn--${ modifier }` ]: !! modifier,
+		'smb-btn--wrap': wrap,
 	} );
 
 	const btnStyles = {
