@@ -34,7 +34,7 @@
 
   @for $i from 2 through 6 {
     @include _media-only(sm) {
-      &[data-lg-slide-to-show="#{ $i }"] {
+      &[data-sm-slide-to-show="#{ $i }"] {
         .spider__slide {
           max-width: 100% / $i;
         }
