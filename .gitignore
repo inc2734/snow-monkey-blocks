@@ -5,3 +5,5 @@ snow-monkey-blocks.zip
 snow-monkey-blocks
 dist/
 npm-debug.log
+.wp-env.override.json
+/sql/
