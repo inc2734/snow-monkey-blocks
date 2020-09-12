@@ -102,6 +102,21 @@ export default function( {
 		opacity: maskOpacity,
 	};
 
+	const repeatableLgImageStyles = {
+		opacity: maskOpacity,
+		backgroundImage: `url( ${ lgImageURL } )`,
+	};
+
+	const repeatableMdImageStyles = {
+		opacity: maskOpacity,
+		backgroundImage: `url( ${ mdImageURL } )`,
+	};
+
+	const repeatableSmImageStyles = {
+		opacity: maskOpacity,
+		backgroundImage: `url( ${ smImageURL } )`,
+	};
+
 	const onChangeHeight = ( value ) =>
 		setAttributes( {
 			height: value,
@@ -516,9 +531,7 @@ export default function( {
 							lgImageRepeat && (
 								<div
 									className="smb-section-with-bgimage__repeatable-image"
-									style={ {
-										backgroundImage: `url( ${ lgImageURL } )`,
-									} }
+									style={ repeatableLgImageStyles }
 								>
 									<img
 										src={ lgImageURL }
@@ -572,9 +585,7 @@ export default function( {
 							mdImageRepeat && (
 								<div
 									className="smb-section-with-bgimage__repeatable-image"
-									style={ {
-										backgroundImage: `url( ${ mdImageURL } )`,
-									} }
+									style={ repeatableMdImageStyles }
 								>
 									<img
 										src={ mdImageURL }
@@ -628,9 +639,7 @@ export default function( {
 							smImageRepeat && (
 								<div
 									className="smb-section-with-bgimage__repeatable-image"
-									style={ {
-										backgroundImage: `url( ${ smImageURL } )`,
-									} }
+									style={ repeatableSmImageStyles }
 								>
 									<img
 										src={ smImageURL }
