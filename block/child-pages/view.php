@@ -21,22 +21,27 @@ if ( ! $pages_query->have_posts() ) {
 	return;
 }
 
-if ( isset( $attributes['title'] ) ) {
-	$block_title = $attributes['title'];
-	$child_page_title_callback = function( $child_pages_title ) use ( $block_title ) {
-		return $block_title;
-	};
-	add_filter( 'snow_monkey_child_pages_title', $child_page_title_callback, 9 );
-}
-
 $classnames[] = 'smb-child-pages';
 $classnames[] = $attributes['className'];
 ?>
 <div class="<?php echo esc_attr( join( ' ', $classnames ) ); ?>">
 	<?php
 	if ( class_exists( '\Framework\Helper' ) ) {
-		\Framework\Helper::get_template_part( 'template-parts/content/child-pages' );
+		\Framework\Helper::get_template_part(
+			'template-parts/content/child-pages',
+			null,
+			[
+				'_title' => $attributes['title'],
+			]
+		);
 	} else {
+		if ( isset( $attributes['title'] ) ) {
+			$block_title = $attributes['title'];
+			$child_page_title_callback = function( $child_pages_title ) use ( $block_title ) {
+				return $block_title;
+			};
+			add_filter( 'snow_monkey_child_pages_title', $child_page_title_callback, 9 );
+		}
 		get_template_part( 'template-parts/child-pages' );
 	}
 	?>
