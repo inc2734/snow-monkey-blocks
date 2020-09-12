@@ -4,6 +4,9 @@ import {
 	PanelBody,
 	SelectControl,
 	CheckboxControl,
+	ToolbarGroup,
+	Popover,
+	Button,
 } from '@wordpress/components';
 
 import {
@@ -11,10 +14,11 @@ import {
 	InspectorControls,
 	PanelColorSettings,
 	ContrastChecker,
-	URLPopover,
+	BlockControls,
 	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
+import { useState, useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 import LinkControl from '../../src/js/component/link-control';
@@ -35,6 +39,15 @@ export default function( {
 		align,
 		wrap,
 	} = attributes;
+
+	const [ isLinkUIOpen, setIsLinkUIOpen ] = useState( false );
+	const toggleLinkUIOpen = () => setIsLinkUIOpen( ! isLinkUIOpen );
+	const closeLinkUIOpen = () => setIsLinkUIOpen( false );
+	useEffect( () => {
+		if ( ! isSelected ) {
+			closeLinkUIOpen();
+		}
+	}, [ isSelected ] );
 
 	const BlockWrapper = Block.div;
 	const wrapperClasses = classnames(
@@ -169,23 +182,43 @@ export default function( {
 						allowedFormats={ [] }
 					/>
 				</span>
-
-				{ isSelected && (
-					<URLPopover
-						position={
-							undefined === align
-								? 'bottom left'
-								: 'bottom center'
-						}
-					>
-						<LinkControl
-							url={ url }
-							target={ target }
-							onChange={ onChangeUrl }
-						/>
-					</URLPopover>
-				) }
 			</BlockWrapper>
+
+			<BlockControls>
+				<ToolbarGroup>
+					<Button
+						icon="admin-links"
+						className="components-toolbar__control"
+						label={ __( 'Link', 'snow-monkey-blocks' ) }
+						aria-expanded={ isLinkUIOpen }
+						onClick={ toggleLinkUIOpen }
+					/>
+
+					{ !! url && (
+						<Button
+							isPressed
+							icon="editor-unlink"
+							className="components-toolbar__control"
+							label={ __( 'Unlink', 'snow-monkey-blocks' ) }
+							onClick={ () => onChangeUrl( '', false ) }
+						/>
+					) }
+				</ToolbarGroup>
+			</BlockControls>
+
+			{ isLinkUIOpen && (
+				<Popover
+					position={
+						undefined === align ? 'bottom left' : 'bottom center'
+					}
+				>
+					<LinkControl
+						url={ url }
+						target={ target }
+						onChange={ onChangeUrl }
+					/>
+				</Popover>
+			) }
 		</>
 	);
 }

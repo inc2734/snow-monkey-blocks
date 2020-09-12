@@ -1,15 +1,23 @@
 import classnames from 'classnames';
 
-import { PanelBody, SelectControl, Popover } from '@wordpress/components';
+import {
+	PanelBody,
+	SelectControl,
+	Popover,
+	ToolbarGroup,
+	Button,
+} from '@wordpress/components';
 
 import {
 	RichText,
 	InspectorControls,
 	PanelColorSettings,
 	ContrastChecker,
+	BlockControls,
 	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
+import { useState, useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 import LinkControl from '../../src/js/component/link-control';
@@ -31,6 +39,15 @@ export default function( {
 		btnTextColor,
 		btnSize,
 	} = attributes;
+
+	const [ isLinkUIOpen, setIsLinkUIOpen ] = useState( false );
+	const toggleLinkUIOpen = () => setIsLinkUIOpen( ! isLinkUIOpen );
+	const closeLinkUIOpen = () => setIsLinkUIOpen( false );
+	useEffect( () => {
+		if ( ! isSelected ) {
+			closeLinkUIOpen();
+		}
+	}, [ isSelected ] );
 
 	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-btn-box', className );
@@ -215,17 +232,39 @@ export default function( {
 						/>
 					) }
 				</div>
-
-				{ isSelected && (
-					<Popover position="bottom center">
-						<LinkControl
-							url={ btnURL }
-							target={ btnTarget }
-							onChange={ onChangeBtnUrl }
-						/>
-					</Popover>
-				) }
 			</BlockWrapper>
+
+			<BlockControls>
+				<ToolbarGroup>
+					<Button
+						icon="admin-links"
+						className="components-toolbar__control"
+						label={ __( 'Link', 'snow-monkey-blocks' ) }
+						aria-expanded={ isLinkUIOpen }
+						onClick={ toggleLinkUIOpen }
+					/>
+
+					{ !! btnURL && (
+						<Button
+							isPressed
+							icon="editor-unlink"
+							className="components-toolbar__control"
+							label={ __( 'Unlink', 'snow-monkey-blocks' ) }
+							onClick={ () => onChangeBtnUrl( '', false ) }
+						/>
+					) }
+				</ToolbarGroup>
+			</BlockControls>
+
+			{ isLinkUIOpen && (
+				<Popover position="bottom center">
+					<LinkControl
+						url={ btnURL }
+						target={ btnTarget }
+						onChange={ onChangeBtnUrl }
+					/>
+				</Popover>
+			) }
 		</>
 	);
 }
