@@ -230,7 +230,7 @@ export default function( {
 
 	const onChangeMaskOpacity = ( value ) =>
 		setAttributes( {
-			maskOpacity: toNumber( Math.abs( 1 - value ), 0, 1 ),
+			maskOpacity: toNumber( ( 1 - value ).toFixed( 1 ), 0, 1 ),
 		} );
 
 	const onChangeMaskColor2 = ( value ) =>
@@ -475,7 +475,7 @@ export default function( {
 				>
 					<RangeControl
 						label={ __( 'Mask Opacity', 'snow-monkey-blocks' ) }
-						value={ Math.abs( 1 - maskOpacity ) }
+						value={ Number( ( 1 - maskOpacity ).toFixed( 1 ) ) }
 						onChange={ onChangeMaskOpacity }
 						min={ 0 }
 						max={ 1 }
@@ -519,7 +519,7 @@ export default function( {
 							'smb-section-with-bgimage__bgimage--lg'
 						) }
 					>
-						{ 0 < Math.abs( 1 - maskOpacity ) && (
+						{ 0 < Number( ( 1 - maskOpacity ).toFixed( 1 ) ) && (
 							<div
 								className="smb-section-with-bgimage__mask"
 								style={ maskStyles }
@@ -573,7 +573,7 @@ export default function( {
 							'smb-section-with-bgimage__bgimage--md'
 						) }
 					>
-						{ 0 < Math.abs( 1 - maskOpacity ) && (
+						{ 0 < Number( ( 1 - maskOpacity ).toFixed( 1 ) ) && (
 							<div
 								className="smb-section-with-bgimage__mask"
 								style={ maskStyles }
@@ -627,7 +627,7 @@ export default function( {
 							'smb-section-with-bgimage__bgimage--sm'
 						) }
 					>
-						{ 0 < Math.abs( 1 - maskOpacity ) && (
+						{ 0 < Number( ( 1 - maskOpacity ).toFixed( 1 ) ) && (
 							<div
 								className="smb-section-with-bgimage__mask"
 								style={ maskStyles }
