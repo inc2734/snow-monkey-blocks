@@ -194,6 +194,10 @@ export default function( { attributes, setAttributes } ) {
 								label: __( 'Text', 'snow-monkey-blocks' ),
 							},
 							{
+								value: 'text2',
+								label: __( 'Text 2', 'snow-monkey-blocks' ),
+							},
+							{
 								value: 'panel',
 								label: __( 'Panels', 'snow-monkey-blocks' ),
 							},
