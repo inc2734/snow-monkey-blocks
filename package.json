@@ -257,7 +257,7 @@
     "pretest:php": "wp-env start",
     "test:php": "wp-env run phpunit 'phpunit -c /var/www/html/wp-content/plugins/snow-monkey-blocks/.phpunit.xml.dist --verbose'",
     "lint:js": "wp-scripts lint-js block src/js",
-    "lint": "run-p lint:*",
+    "lint": "run-s lint:*",
     "format:js": "wp-scripts format-js block format src/js",
     "format": "run-p format:*",
     "build": "run-s css js packages po2json img block",
