@@ -1,4 +1,4 @@
-dist: trusty
+dist: xenial
 sudo: false
 language: php
 notifications:
@@ -35,6 +35,7 @@ install:
 - npm run build
 script:
 - npm run lint
+- npm run test
 before_deploy:
 - npm run zip
 - ls -la snow-monkey-blocks.zip
