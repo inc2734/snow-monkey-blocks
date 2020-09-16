@@ -6,10 +6,10 @@
  */
 
 $is_use_start_date = ! empty( $attributes['isUseStartDate'] ) ? $attributes['isUseStartDate'] : false;
-$start_date = $is_use_start_date && isset( $attributes['startDate'] ) ? $attributes['startDate'] : false;
+$start_date        = $is_use_start_date && isset( $attributes['startDate'] ) ? $attributes['startDate'] : false;
 
 $is_use_end_date = ! empty( $attributes['isUseEndDate'] ) ? $attributes['isUseEndDate'] : false;
-$end_date = $is_use_end_date && isset( $attributes['endDate'] ) ? $attributes['endDate'] : false;
+$end_date        = $is_use_end_date && isset( $attributes['endDate'] ) ? $attributes['endDate'] : false;
 
 if ( ! $start_date && ! $end_date ) {
 	echo $content; // XSS ok.

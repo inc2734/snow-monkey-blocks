@@ -10,16 +10,26 @@ namespace Snow_Monkey\Plugin\Blocks\App\Setup;
 use Snow_Monkey\Plugin\Blocks;
 
 class Assets {
+
+	/**
+	 * constructor
+	 */
 	public function __construct() {
 		add_action( 'enqueue_block_editor_assets', [ $this, '_enqueue_block_editor_assets' ] );
-		add_action( 'wp_enqueue_scripts', [ $this, '_wp_enqueue_scripts' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, '_wp_enqueue_pro_scripts' ] );
 		add_action( 'enqueue_block_assets', [ $this, '_enqueue_block_assets' ] );
 		add_action( 'enqueue_block_assets', [ $this, '_enqueue_block_nopro_assets' ] );
-		add_action( 'render_block', [ $this, '_enqueue_block_scripts' ], 10, 2 );
+		add_filter( 'render_block', [ $this, '_enqueue_block_scripts' ], 10, 2 );
 	}
 
-	public function _enqueue_block_scripts( $content, $block ) {
+	/**
+	 * Process script to be enqueued at block displaying.
+	 *
+	 * @param string $block_content The block content about to be appended.
+	 * @param string $block The full block, including name and attributes.
+	 * @return string
+	 */
+	public function _enqueue_block_scripts( $block_content, $block ) {
 		if ( is_admin() ) {
 			return;
 		}
@@ -80,11 +90,11 @@ class Assets {
 			}
 		}
 
-		return $content;
+		return $block_content;
 	}
 
 	/**
-	 * Enqueue block script for editor
+	 * Enqueue block script for editor.
 	 *
 	 * @return void
 	 */
@@ -129,9 +139,6 @@ class Assets {
 		);
 	}
 
-	public function _wp_enqueue_scripts() {
-	}
-
 	/**
 	 * Enqueue pro assets
 	 * The parallax effect for section with bgimage block
@@ -151,6 +158,9 @@ class Assets {
 		);
 	}
 
+	/**
+	 * Enqueue block assets
+	 */
 	public function _enqueue_block_assets() {
 		wp_enqueue_style(
 			'snow-monkey-blocks',

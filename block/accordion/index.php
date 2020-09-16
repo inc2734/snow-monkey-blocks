@@ -40,7 +40,6 @@ wp_register_style(
 register_block_type_from_metadata(
 	__DIR__,
 	[
-		//'style'         => ! is_admin() ? 'snow-monkey-blocks/accordion' : null,
 		'style'         => 'snow-monkey-blocks/accordion',
 		'editor_script' => 'snow-monkey-blocks/accordion/editor',
 		'editor_style'  => 'snow-monkey-blocks/accordion/editor',

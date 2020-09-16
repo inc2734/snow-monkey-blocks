@@ -1,10 +1,16 @@
 <?php
+/**
+ * @package snow-monkey-blocks
+ * @author inc2734
+ * @license GPL-2.0+
+ */
+
 $widget_templates = apply_filters( 'inc2734_wp_awesome_widgets_widget_templates', 'templates/widget' );
 $custom_template  = $widget_templates . '/rss.php';
 $default_template = get_template_directory() . '/app/widget/snow-monkey-rss/_widget.php';
 
 $force_sm_1col = null;
-if ( in_array( $attributes['layout'], [ 'rich-media', 'panel' ] ) ) {
+if ( in_array( $attributes['layout'], [ 'rich-media', 'panel' ], true ) ) {
 	$sm_cols = (int) $attributes['smCols'];
 	if ( 1 === $sm_cols ) {
 		$force_sm_1col = 1;

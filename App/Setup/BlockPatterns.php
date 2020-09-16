@@ -10,6 +10,10 @@ namespace Snow_Monkey\Plugin\Blocks\App\Setup;
 use Snow_Monkey\Plugin\Blocks;
 
 class BlockPatterns {
+
+	/**
+	 * constructor
+	 */
 	public function __construct() {
 		if ( ! Blocks\is_pro() ) {
 			return;
@@ -195,7 +199,7 @@ class BlockPatterns {
 	/**
 	 * Return block pattern html
 	 *
-	 * @param string $path
+	 * @param string $path Path to the block pattern template path.
 	 * @return string
 	 */
 	protected function _render( $path ) {

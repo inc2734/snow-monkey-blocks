@@ -18,10 +18,16 @@ namespace Snow_Monkey\Plugin\Blocks;
 
 class Bootstrap {
 
+	/**
+	 * constructor
+	 */
 	public function __construct() {
 		add_action( 'plugins_loaded', [ $this, '_bootstrap' ] );
 	}
 
+	/**
+	 * bootstrap
+	 */
 	public function _bootstrap() {
 		new App\Setup\TextDomain();
 		new App\Setup\Assets();
@@ -34,9 +40,9 @@ class Bootstrap {
 	}
 
 	/**
-	 * Add block category
+	 * Add block categories.
 	 *
-	 * @param array $categories
+	 * @param array $categories Array of block categories.
 	 * @return array
 	 */
 	public function _block_categories( $categories ) {
@@ -72,6 +78,9 @@ class Bootstrap {
 		return $categories;
 	}
 
+	/**
+	 * Register blocks.
+	 */
 	public function _register_blocks() {
 		foreach ( glob( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/*/index.php' ) as $file ) {
 			require_once( $file );
@@ -85,9 +94,9 @@ class Bootstrap {
 	}
 
 	/**
-	 * Add meta box for the Snow Monkey PR when the Gutenberg page or not using the Snow Monkey
+	 * Add meta box for the Snow Monkey PR when the Gutenberg page or not using the Snow Monkey.
 	 *
-	 * @param string $post_type
+	 * @param string $post_type The post type.
 	 * @return void
 	 */
 	public function _add_pr_meta_box( $post_type ) {
@@ -105,7 +114,7 @@ class Bootstrap {
 	}
 
 	/**
-	 * Display Snow Monkey PR meta box html
+	 * Display Snow Monkey PR meta box html.
 	 *
 	 * @return void
 	 */
@@ -131,9 +140,9 @@ class Bootstrap {
 	}
 
 	/**
-	 * Because the data attribute is destroyed by the influence of wptexturize, it corrects it
+	 * Because the data attribute is destroyed by the influence of wptexturize, it corrects it.
 	 *
-	 * @param string $content
+	 * @param string $content The post content.
 	 * @return string
 	 */
 	public function _the_content_for_slider( $content ) {
@@ -153,21 +162,21 @@ class Bootstrap {
 require_once( __DIR__ . '/vendor/autoload.php' );
 
 /**
- * Directory url of this plugin
+ * Directory url of this plugin.
  *
  * @var string
  */
 define( 'SNOW_MONKEY_BLOCKS_DIR_URL', untrailingslashit( plugin_dir_url( __FILE__ ) ) );
 
 /**
- * Directory path of this plugin
+ * Directory path of this plugin.
  *
  * @var string
  */
 define( 'SNOW_MONKEY_BLOCKS_DIR_PATH', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 
 /**
- * Whether pro edition
+ * Whether pro edition.
  *
  * @return boolean
  */
@@ -177,7 +186,7 @@ function is_pro() {
 }
 
 /**
- * Return true when active the Gutenberg plugin
+ * Return true when active the Gutenberg plugin.
  *
  * @return boolean
  */
@@ -191,13 +200,14 @@ function is_gutenberg_page() {
 }
 
 /**
- * Return true when the page has block editor
+ * Return true when the page has block editor.
  *
  * @return boolean
  */
 function is_block_editor() {
 	return is_gutenberg_page()
-				 || ( function_exists( '\use_block_editor_for_post' ) && \use_block_editor_for_post( get_post() ) );
+				|| ( function_exists( '\use_block_editor_for_post' )
+				&& \use_block_editor_for_post( get_post() ) );
 }
 
 new \Snow_Monkey\Plugin\Blocks\Bootstrap();

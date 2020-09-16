@@ -1,22 +1,27 @@
 <?php
 /**
  * @package snow-monkey-blocks
- * @author inc2734
- * @author kmix-39
+ * @author inc2734, kmix-39
  * @license GPL-2.0+
  */
 
 $categories = get_categories(
 	[
 		'pad_counts' => true,
-		'orderby' => $attributes['orderby'],
-		'order' => $attributes['order'],
+		'orderby'    => $attributes['orderby'],
+		'order'      => $attributes['order'],
 	]
 );
 
-$exclusion_id = [];
+$exclusion_ids = [];
 if ( isset( $attributes['exclusionCategories'] ) && ! empty( $attributes['exclusionCategories'] ) ) {
-	$exclusion_id = explode( ',', $attributes['exclusionCategories'] );
+	$exclusion_ids = explode( ',', $attributes['exclusionCategories'] );
+	$exclusion_ids = array_map(
+		function( $value ) {
+			return (int) $value;
+		},
+		$exclusion_ids
+	);
 }
 
 $classnames[] = 'smb-categories-list';
@@ -27,7 +32,7 @@ $classnames[] = $attributes['className'];
 		<?php foreach ( $categories as $category ) : ?>
 			<?php
 			$category_detail = get_category( $category );
-			if ( in_array( $category_detail->term_id, $exclusion_id ) ) {
+			if ( in_array( $category_detail->term_id, $exclusion_ids, true ) ) {
 				continue;
 			}
 			?>
@@ -58,12 +63,12 @@ $classnames[] = $attributes['className'];
 							<?php
 							$_wp_query = new \WP_Query(
 								[
-									'cat' => $category_detail->term_id,
-									'posts_per_page' => (string) $attributes['articles'],
-									'order' => 'DESC',
+									'cat'                 => $category_detail->term_id,
+									'posts_per_page'      => (string) $attributes['articles'],
+									'order'               => 'DESC',
 									'ignore_sticky_posts' => true,
-									'no_found_rows' => true,
-									'suppress_filters' => true,
+									'no_found_rows'       => true,
+									'suppress_filters'    => true,
 								]
 							);
 							?>

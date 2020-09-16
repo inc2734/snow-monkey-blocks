@@ -36,8 +36,8 @@ $classnames[] = $attributes['className'];
 		);
 	} else {
 		if ( isset( $attributes['title'] ) ) {
-			$block_title = $attributes['title'];
-			$child_page_title_callback = function( $child_pages_title ) use ( $block_title ) {
+			$block_title               = $attributes['title'];
+			$child_page_title_callback = function() use ( $block_title ) {
 				return $block_title;
 			};
 			add_filter( 'snow_monkey_child_pages_title', $child_page_title_callback, 9 );

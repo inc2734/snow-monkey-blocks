@@ -8,6 +8,11 @@
  * @see https://github.com/inc2734/wp-awesome-widgets/blob/master/src/widget/pickup-slider/_widget.php
  */
 
+$attributes = wp_parse_args( $attributes, [] );
+if ( ! $attributes ) {
+	return;
+}
+
 $widget_templates = apply_filters( 'inc2734_wp_awesome_widgets_widget_templates', 'templates/widget' );
 $custom_template  = $widget_templates . '/pickup-slider.php';
 $default_template = get_template_directory() . '/vendor/inc2734/wp-awesome-widgets/src/widget/pickup-slider/_widget.php';
