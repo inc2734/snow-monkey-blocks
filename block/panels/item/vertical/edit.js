@@ -23,10 +23,7 @@ import {
 import Figure from '@smb/component/figure';
 import LinkControl from '@smb/component/link-control';
 import ImageSizeSelectControl from '@smb/component/image-size-select-control';
-import {
-	getResizedImages,
-	stringToInnerText,
-} from '@smb/helper';
+import { getResizedImages, stringToInnerText } from '@smb/helper';
 
 export default function( {
 	attributes,

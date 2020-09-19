@@ -25,11 +25,7 @@ import {
 
 import { pullLeft, pullRight } from '@wordpress/icons';
 
-import {
-	getColumnSize,
-	getMediaType,
-	getResizedImages,
-} from '@smb/helper';
+import { getColumnSize, getMediaType, getResizedImages } from '@smb/helper';
 import Figure from '@smb/component/figure';
 import LinkControl from '@smb/component/link-control';
 import ImageSizeSelectControl from '@smb/component/image-size-select-control';

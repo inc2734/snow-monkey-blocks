@@ -23,11 +23,7 @@ import {
 	ToggleControl,
 } from '@wordpress/components';
 
-import {
-	toNumber,
-	getMediaType,
-	getResizedImages,
-} from '@smb/helper';
+import { toNumber, getMediaType, getResizedImages } from '@smb/helper';
 import Figure from '@smb/component/figure';
 import ImageSizeSelectControl from '@smb/component/image-size-select-control';
 
