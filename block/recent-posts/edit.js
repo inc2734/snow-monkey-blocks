@@ -23,7 +23,7 @@ import {
 	InspectorAdvancedControls,
 } from '@wordpress/block-editor';
 
-import { toNumber } from '../../src/js/helper/helper';
+import { toNumber } from '@smb/helper';
 
 export default function( { attributes, setAttributes } ) {
 	const {

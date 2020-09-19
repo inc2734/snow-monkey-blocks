@@ -2,7 +2,7 @@ import classnames from 'classnames';
 
 import { RichText, InnerBlocks } from '@wordpress/block-editor';
 
-import { getColumnSize, divider } from '../../src/js/helper/helper';
+import { getColumnSize, divider } from '@smb/helper';
 
 import metadata from './block.json';
 

@@ -1,6 +1,6 @@
 import { sprintf } from '@wordpress/i18n';
 
-import { toNumber } from '../../src/js/helper/helper';
+import { toNumber } from '@smb/helper';
 
 import metadata from './block.json';
 

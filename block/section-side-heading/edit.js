@@ -21,7 +21,7 @@ import {
 	ToggleControl,
 } from '@wordpress/components';
 
-import { toNumber, getColumnSize, divider } from '../../src/js/helper/helper';
+import { toNumber, getColumnSize, divider } from '@smb/helper';
 
 export default function( {
 	attributes,

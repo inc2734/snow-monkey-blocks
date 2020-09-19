@@ -22,7 +22,7 @@ import {
 	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
-import { toNumber } from '../../src/js/helper/helper';
+import { toNumber } from '@smb/helper';
 import { getVideoId } from './utils';
 
 export default function( {

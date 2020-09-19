@@ -11,7 +11,7 @@ import {
 	Placeholder,
 } from '@wordpress/components';
 
-import DateTimePicker from '../../src/js/component/date-time-picker';
+import DateTimePicker from '@smb/component/date-time-picker';
 
 export default function( { attributes, setAttributes, className } ) {
 	const { isUseStartDate, startDate, isUseEndDate, endDate } = attributes;

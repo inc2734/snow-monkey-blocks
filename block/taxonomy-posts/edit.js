@@ -23,7 +23,7 @@ import {
 	Button,
 } from '@wordpress/components';
 
-import { toNumber, buildTermsTree } from '../../src/js/helper/helper';
+import { toNumber, buildTermsTree } from '@smb/helper';
 
 export default function( { attributes, setAttributes } ) {
 	const {

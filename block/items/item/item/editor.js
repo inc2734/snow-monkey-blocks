@@ -1,4 +1,4 @@
-import { registerBlock } from '../../../../src/js/helper/helper';
+import { registerBlock } from '@smb/helper';
 
 import * as itemsItem from './';
 

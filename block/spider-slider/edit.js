@@ -15,8 +15,8 @@ import {
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
-import ResponsiveTabPanel from '../../src/js/component/responsive-tab-panel';
-import { getResizedImages, toNumber } from '../../src/js/helper/helper';
+import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
+import { getResizedImages, toNumber } from '@smb/helper';
 
 export default function( {
 	attributes,

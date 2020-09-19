@@ -21,9 +21,9 @@ import {
 	Button,
 } from '@wordpress/components';
 
-import { toNumber, getMediaType } from '../../src/js/helper/helper';
-import ResponsiveTabPanel from '../../src/js/component/responsive-tab-panel';
-import Figure from '../../src/js/component/figure';
+import { toNumber, getMediaType } from '@smb/helper';
+import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
+import Figure from '@smb/component/figure';
 
 export default function( {
 	attributes,

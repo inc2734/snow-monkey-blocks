@@ -2,7 +2,7 @@ import classnames from 'classnames';
 
 import { sprintf } from '@wordpress/i18n';
 
-import { toNumber } from '../../src/js/helper/helper';
+import { toNumber } from '@smb/helper';
 
 export default function( { attributes, className } ) {
 	const {

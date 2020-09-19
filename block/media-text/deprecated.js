@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { RichText, InnerBlocks } from '@wordpress/block-editor';
 
 import metadata from './block.json';
-import { getColumnSize } from '../../src/js/helper/helper';
+import { getColumnSize } from '@smb/helper';
 
 const blockAttributes = metadata.attributes;
 

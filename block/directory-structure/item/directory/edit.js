@@ -17,7 +17,7 @@ import {
 	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
-import FontAwesome from '../../../../src/js/component/font-awesome';
+import FontAwesome from '@smb/component/font-awesome';
 
 export default function( { attributes, setAttributes, className } ) {
 	const { iconColor, iconVendor, iconClass, name } = attributes;

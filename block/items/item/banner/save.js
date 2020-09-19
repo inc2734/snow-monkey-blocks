@@ -2,7 +2,7 @@ import classnames from 'classnames';
 
 import { RichText } from '@wordpress/block-editor';
 
-import { stringToInnerText } from '../../../../src/js/helper/helper';
+import { stringToInnerText } from '@smb/helper';
 
 export default function( { attributes, className } ) {
 	const {

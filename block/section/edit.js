@@ -21,7 +21,7 @@ import {
 	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
-import { toNumber, divider } from '../../src/js/helper/helper';
+import { toNumber, divider } from '@smb/helper';
 
 export default function( {
 	attributes,

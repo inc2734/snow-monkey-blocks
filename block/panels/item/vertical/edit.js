@@ -20,13 +20,13 @@ import {
 	Toolbar,
 } from '@wordpress/components';
 
-import Figure from '../../../../src/js/component/figure';
-import LinkControl from '../../../../src/js/component/link-control';
-import ImageSizeSelectControl from '../../../../src/js/component/image-size-select-control';
+import Figure from '@smb/component/figure';
+import LinkControl from '@smb/component/link-control';
+import ImageSizeSelectControl from '@smb/component/image-size-select-control';
 import {
 	getResizedImages,
 	stringToInnerText,
-} from '../../../../src/js/helper/helper';
+} from '@smb/helper';
 
 export default function( {
 	attributes,

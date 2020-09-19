@@ -17,10 +17,10 @@ import { useState, useEffect } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
-import Figure from '../../../src/js/component/figure';
-import LinkControl from '../../../src/js/component/link-control';
-import ImageSizeSelectControl from '../../../src/js/component/image-size-select-control';
-import { getResizedImages } from '../../../src/js/helper/helper';
+import Figure from '@smb/component/figure';
+import LinkControl from '@smb/component/link-control';
+import ImageSizeSelectControl from '@smb/component/image-size-select-control';
+import { getResizedImages } from '@smb/helper';
 
 export default function( {
 	attributes,

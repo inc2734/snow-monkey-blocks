@@ -29,10 +29,10 @@ import {
 	getColumnSize,
 	getMediaType,
 	getResizedImages,
-} from '../../src/js/helper/helper';
-import Figure from '../../src/js/component/figure';
-import LinkControl from '../../src/js/component/link-control';
-import ImageSizeSelectControl from '../../src/js/component/image-size-select-control';
+} from '@smb/helper';
+import Figure from '@smb/component/figure';
+import LinkControl from '@smb/component/link-control';
+import ImageSizeSelectControl from '@smb/component/image-size-select-control';
 
 export default function( {
 	attributes,

@@ -2,7 +2,7 @@ import classnames from 'classnames';
 
 import { RichText, InnerBlocks } from '@wordpress/block-editor';
 
-import { getColumnSize } from '../../src/js/helper/helper';
+import { getColumnSize } from '@smb/helper';
 
 export default function( { attributes, className } ) {
 	const {

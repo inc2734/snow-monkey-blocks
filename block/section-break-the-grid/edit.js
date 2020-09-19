@@ -27,9 +27,9 @@ import {
 	toNumber,
 	getMediaType,
 	getResizedImages,
-} from '../../src/js/helper/helper';
-import Figure from '../../src/js/component/figure';
-import ImageSizeSelectControl from '../../src/js/component/image-size-select-control';
+} from '@smb/helper';
+import Figure from '@smb/component/figure';
+import ImageSizeSelectControl from '@smb/component/image-size-select-control';
 
 export default function( {
 	attributes,

@@ -22,8 +22,8 @@ import {
 	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
-import Figure from '../../../../src/js/component/figure';
-import LinkControl from '../../../../src/js/component/link-control';
+import Figure from '@smb/component/figure';
+import LinkControl from '@smb/component/link-control';
 
 export default function( {
 	attributes,

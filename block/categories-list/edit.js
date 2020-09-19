@@ -18,7 +18,7 @@ import {
 	SelectControl,
 } from '@wordpress/components';
 
-import { toNumber } from '../../src/js/helper/helper';
+import { toNumber } from '@smb/helper';
 import { apply } from './categories-list';
 
 export default function( { attributes, setAttributes, className } ) {

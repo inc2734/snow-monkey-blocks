@@ -21,7 +21,7 @@ import {
 import { useState, useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
-import LinkControl from '../../src/js/component/link-control';
+import LinkControl from '@smb/component/link-control';
 
 export default function( {
 	attributes,

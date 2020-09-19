@@ -7,7 +7,7 @@ import {
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
-import { toNumber } from '../../src/js/helper/helper';
+import { toNumber } from '@smb/helper';
 
 export default function( { attributes, setAttributes } ) {
 	const { random, postsPerPage, interval } = attributes;

@@ -5,9 +5,9 @@ import { PanelBody } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
-import Figure from '../../../src/js/component/figure';
-import ImageSizeSelectControl from '../../../src/js/component/image-size-select-control';
-import { getResizedImages } from '../../../src/js/helper/helper';
+import Figure from '@smb/component/figure';
+import ImageSizeSelectControl from '@smb/component/image-size-select-control';
+import { getResizedImages } from '@smb/helper';
 
 export default function( {
 	attributes,

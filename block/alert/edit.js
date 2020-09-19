@@ -15,7 +15,7 @@ import {
 	Button,
 } from '@wordpress/components';
 
-import FontAwesome from '../../src/js/component/font-awesome';
+import FontAwesome from '@smb/component/font-awesome';
 
 export default function( {
 	attributes,

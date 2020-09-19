@@ -11,7 +11,7 @@ import {
 	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
-import DateTimePicker from '../../src/js/component/date-time-picker';
+import DateTimePicker from '@smb/component/date-time-picker';
 
 export default function( { attributes, setAttributes, className } ) {
 	const { alignment, numericColor, clockColor, countdownTime } = attributes;
