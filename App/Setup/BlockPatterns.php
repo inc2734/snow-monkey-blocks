@@ -19,6 +19,15 @@ class BlockPatterns {
 			return;
 		}
 
+		add_action( 'init', [ $this, '_register_block_patterns' ] );
+	}
+
+	/**
+	 * Register block patterns.
+	 *
+	 * @return void
+	 */
+	public function _register_block_patterns() {
 		register_block_pattern_category( 'smb-headings', [ 'label' => __( 'Headings', 'snow-monkey-blocks' ) ] );
 		register_block_pattern_category( 'smb-features', [ 'label' => __( 'Features', 'snow-monkey-blocks' ) ] );
 		register_block_pattern_category( 'smb-text-with-image', [ 'label' => __( 'Text with image', 'snow-monkey-blocks' ) ] );
