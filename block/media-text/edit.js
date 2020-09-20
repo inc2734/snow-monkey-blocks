@@ -355,7 +355,6 @@ export default function( {
 									tagName={ titleTagName }
 									value={ title }
 									onChange={ onChangeTitle }
-									allowedFormats={ [] }
 									placeholder={ __(
 										'Write title…',
 										'snow-monkey-blocks'

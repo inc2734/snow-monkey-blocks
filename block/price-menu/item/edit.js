@@ -28,7 +28,6 @@ export default function( { attributes, setAttributes, className } ) {
 				className="smb-price-menu__item__title"
 				placeholder={ __( 'Write title…', 'snow-monkey-blocks' ) }
 				value={ title }
-				allowedFormats={ [] }
 				onChange={ onChangeTitle }
 				keepPlaceholderOnFocus={ true }
 			/>
@@ -37,7 +36,6 @@ export default function( { attributes, setAttributes, className } ) {
 				className="smb-price-menu__item__price"
 				placeholder={ __( 'Write price…', 'snow-monkey-blocks' ) }
 				value={ price }
-				allowedFormats={ [] }
 				onChange={ onChangePrice }
 				keepPlaceholderOnFocus={ true }
 			/>

@@ -131,7 +131,6 @@ export default function( { attributes, setAttributes, className } ) {
 							'snow-monkey-blocks'
 						) }
 						value={ question }
-						allowedFormats={ [] }
 						multiline={ false }
 						onChange={ onChangeQuestion }
 					/>

@@ -69,7 +69,6 @@ export default function( { attributes, setAttributes, className } ) {
 					className="smb-rating-box__item__title"
 					placeholder={ __( 'Write title…', 'snow-monkey-blocks' ) }
 					value={ title }
-					allowedFormats={ [] }
 					multiline={ false }
 					onChange={ onChangeTitle }
 				/>

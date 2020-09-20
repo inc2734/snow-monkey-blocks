@@ -296,7 +296,6 @@ export default function( {
 										'snow-monkey-blocks'
 									) }
 									value={ linkLabel }
-									allowedFormats={ [] }
 									multiline={ false }
 									onChange={ onChangeLinkLabel }
 								/>

@@ -246,7 +246,6 @@ export default function( {
 										'Button',
 										'snow-monkey-blocks'
 									) }
-									allowedFormats={ [] }
 									onChange={ ( value ) =>
 										setAttributes( { btnLabel: value } )
 									}

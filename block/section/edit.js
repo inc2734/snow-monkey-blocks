@@ -494,7 +494,6 @@ export default function( {
 									className="smb-section__subtitle"
 									value={ subtitle }
 									onChange={ onChangeSubtitle }
-									allowedFormats={ [] }
 									placeholder={ __(
 										'Write subtitle…',
 										'snow-monkey-blocks'
@@ -509,7 +508,6 @@ export default function( {
 									tagName={ titleTagName }
 									value={ title }
 									onChange={ onChangeTitle }
-									allowedFormats={ [] }
 									placeholder={ __(
 										'Write title…',
 										'snow-monkey-blocks'
@@ -524,7 +522,6 @@ export default function( {
 									className="smb-section__lede"
 									value={ lede }
 									onChange={ onChangeLede }
-									allowedFormats={ [] }
 									placeholder={ __(
 										'Write lede…',
 										'snow-monkey-blocks'

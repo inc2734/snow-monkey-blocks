@@ -338,7 +338,6 @@ export default function( {
 										'Button',
 										'snow-monkey-blocks'
 									) }
-									allowedFormats={ [] }
 									onChange={ onChangeBtnLabel }
 								/>
 							</span>

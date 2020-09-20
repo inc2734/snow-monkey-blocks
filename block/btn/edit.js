@@ -179,7 +179,6 @@ export default function( {
 						placeholder={ __( 'Button', 'snow-monkey-blocks' ) }
 						onChange={ onChangeContent }
 						style={ btnLabelStyles }
-						allowedFormats={ [] }
 					/>
 				</span>
 			</BlockWrapper>

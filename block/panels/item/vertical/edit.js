@@ -264,7 +264,6 @@ export default function( {
 											'Link',
 											'snow-monkey-blocks'
 										) }
-										allowedFormats={ [] }
 										onChange={ onChangeLinkLabel }
 										keepPlaceholderOnFocus={ true }
 									/>

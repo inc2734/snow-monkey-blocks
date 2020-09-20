@@ -182,7 +182,6 @@ export default function( {
 							className="smb-btn-box__lede"
 							value={ lede }
 							onChange={ onChangeLede }
-							allowedFormats={ [] }
 							placeholder={ __(
 								'Write lede…',
 								'snow-monkey-blocks'
@@ -214,7 +213,6 @@ export default function( {
 								) }
 								onChange={ onChangeBtnLabel }
 								style={ { color: btnTextColor } }
-								allowedFormats={ [] }
 							/>
 						</span>
 					</div>
@@ -224,7 +222,6 @@ export default function( {
 							className="smb-btn-box__note"
 							value={ note }
 							onChange={ onChangeNote }
-							allowedFormats={ [] }
 							placeholder={ __(
 								'Write note…',
 								'snow-monkey-blocks'

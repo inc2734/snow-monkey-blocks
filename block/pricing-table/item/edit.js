@@ -253,7 +253,6 @@ export default function( {
 							'snow-monkey-blocks'
 						) }
 						value={ title }
-						allowedFormats={ [] }
 						onChange={ onChangeTitle }
 						keepPlaceholderOnFocus={ true }
 					/>
@@ -266,7 +265,6 @@ export default function( {
 								'snow-monkey-blocks'
 							) }
 							value={ price }
-							allowedFormats={ [] }
 							onChange={ onChangePrice }
 							keepPlaceholderOnFocus={ true }
 						/>
@@ -280,7 +278,6 @@ export default function( {
 								'snow-monkey-blocks'
 							) }
 							value={ lede }
-							allowedFormats={ [] }
 							onChange={ onChangeLede }
 							keepPlaceholderOnFocus={ true }
 						/>
@@ -319,7 +316,6 @@ export default function( {
 										'Button',
 										'snow-monkey-blocks'
 									) }
-									allowedFormats={ [] }
 									onChange={ onChangeBtnLabel }
 								/>
 
