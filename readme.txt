@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.5
 Tested up to: 5.5
-Stable tag: 9.4.2
+Stable tag: 9.5.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -111,6 +111,8 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 * [Taxonomy posts] Add text2 layout. (Require Snow Monkey v11.4.0)
 * [RSS] Add text2 layout. (Require Snow Monkey v11.4.0)
 * [Evaluation star] Add title setting.
+* Change registering block patterns timing `plugins_loaded` to `init`.
+* Formatting is now available for all blocks of text entry.
 
 = 9.4.2 =
 * [Child pages] Fixed a bug that caused the title tag to be printed even if the title was not entered.
