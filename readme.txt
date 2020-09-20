@@ -106,6 +106,12 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 
 == Changelog ==
 
+= 9.5.0 =
+* [Recent posts] Add text2 layout. (Require Snow Monkey v11.4.0)
+* [Taxonomy posts] Add text2 layout. (Require Snow Monkey v11.4.0)
+* [RSS] Add text2 layout. (Require Snow Monkey v11.4.0)
+* [Evaluation star] Add title setting.
+
 = 9.4.2 =
 * [Child pages] Fixed a bug that caused the title tag to be printed even if the title was not entered.
 * [Section (Background image/video)] Fixed a bug that the image would not spread to full size in the editor.

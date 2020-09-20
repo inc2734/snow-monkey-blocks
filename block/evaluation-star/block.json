@@ -19,6 +19,13 @@
     },
     "numericColor": {
       "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "titleAlign": {
+      "type": "string",
+      "default": "left"
     }
   },
   "supports": {

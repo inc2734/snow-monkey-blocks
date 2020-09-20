@@ -3,6 +3,22 @@
 @import '../../src/css/core/block';
 
 .smb-evaluation-star {
+  display: flex;
+  align-items: center;
+
+  &__title {
+    @include _margin-right(.25);
+    margin-left: 0;
+  }
+
+  &--title-right {
+    .smb-evaluation-star__title {
+      order: 1;
+      margin-right: 0;
+      @include _margin-left(.25);
+    }
+  }
+
   &__body {
     display: inline-block;
   }

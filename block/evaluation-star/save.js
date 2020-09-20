@@ -1,5 +1,6 @@
 import classnames from 'classnames';
 
+import { RichText } from '@wordpress/block-editor';
 import { sprintf } from '@wordpress/i18n';
 
 import { toNumber } from '@smb/helper';
@@ -11,6 +12,8 @@ export default function( { attributes, className } ) {
 		isDisplayNumeric,
 		numericAlign,
 		numericColor,
+		title,
+		titleAlign,
 	} = attributes;
 
 	const generateIcons = () => {
@@ -35,11 +38,14 @@ export default function( { attributes, className } ) {
 		return icons;
 	};
 
-	const classes = classnames( 'smb-evaluation-star', className );
+	const classes = classnames( 'smb-evaluation-star', className, {
+		[ `smb-evaluation-star--title-${ titleAlign }` ]: 'left' !== titleAlign,
+	} );
 
-	const bodyClasses = classnames( 'smb-evaluation-star__numeric', [
-		`smb-evaluation-star__numeric--${ numericAlign }`,
-	] );
+	const bodyClasses = classnames(
+		'smb-evaluation-star__numeric',
+		`smb-evaluation-star__numeric--${ numericAlign }`
+	);
 
 	const evaluationStarBodyStyles = {
 		color: numericColor || undefined,
@@ -51,6 +57,14 @@ export default function( { attributes, className } ) {
 
 	return (
 		<div className={ classes }>
+			{ ! RichText.isEmpty( title ) && (
+				<RichText.Content
+					tagName="span"
+					className="smb-evaluation-star__title"
+					value={ attributes.name }
+				/>
+			) }
+
 			<div className="smb-evaluation-star__body">
 				{ isDisplayNumeric && (
 					<span

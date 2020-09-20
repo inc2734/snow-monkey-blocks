@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import {
 	InspectorControls,
 	PanelColorSettings,
+	RichText,
 	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 import { __, sprintf } from '@wordpress/i18n';
@@ -17,13 +18,20 @@ import {
 import FontAwesome from '@smb/component/font-awesome';
 import { toNumber } from '@smb/helper';
 
-export default function( { attributes, setAttributes, className } ) {
+export default function( {
+	attributes,
+	setAttributes,
+	className,
+	isSelected,
+} ) {
 	const {
 		evaluationValue,
 		iconColor,
 		isDisplayNumeric,
 		numericAlign,
 		numericColor,
+		title,
+		titleAlign,
 	} = attributes;
 
 	const generateIcons = () => {
@@ -49,11 +57,15 @@ export default function( { attributes, setAttributes, className } ) {
 	};
 
 	const BlockWrapper = Block.div;
-	const classes = classnames( 'smb-evaluation-star', className );
 
-	const bodyClasses = classnames( 'smb-evaluation-star__numeric', [
-		`smb-evaluation-star__numeric--${ numericAlign }`,
-	] );
+	const classes = classnames( 'smb-evaluation-star', className, {
+		[ `smb-evaluation-star--title-${ titleAlign }` ]: 'left' !== titleAlign,
+	} );
+
+	const bodyClasses = classnames(
+		'smb-evaluation-star__numeric',
+		`smb-evaluation-star__numeric--${ numericAlign }`
+	);
 
 	const evaluationStarBodyStyles = {
 		color: numericColor || undefined,
@@ -89,6 +101,16 @@ export default function( { attributes, setAttributes, className } ) {
 			numericColor: value,
 		} );
 
+	const onChangeTitle = ( value ) =>
+		setAttributes( {
+			title: value,
+		} );
+
+	const onChangeTitleAlign = ( value ) =>
+		setAttributes( {
+			titleAlign: value,
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -106,6 +128,28 @@ export default function( { attributes, setAttributes, className } ) {
 						min={ 0 }
 						max={ 5 }
 						step={ 0.1 }
+					/>
+
+					<SelectControl
+						label={ __( 'Title position', 'snow-monkey-blocks' ) }
+						value={ titleAlign }
+						onChange={ onChangeTitleAlign }
+						options={ [
+							{
+								value: 'left',
+								label: __(
+									'Position left',
+									'snow-monkey-blocks'
+								),
+							},
+							{
+								value: 'right',
+								label: __(
+									'Position right',
+									'snow-monkey-blocks'
+								),
+							},
+						] }
 					/>
 				</PanelBody>
 
@@ -161,6 +205,20 @@ export default function( { attributes, setAttributes, className } ) {
 			</InspectorControls>
 
 			<BlockWrapper className={ classes }>
+				{ ( ! RichText.isEmpty( title ) || isSelected ) && (
+					<RichText
+						tagName="span"
+						className="smb-evaluation-star__title"
+						placeholder={ __(
+							'Write title…',
+							'snow-monkey-blocks'
+						) }
+						value={ title }
+						onChange={ onChangeTitle }
+						keepPlaceholderOnFocus={ true }
+					/>
+				) }
+
 				<div className="smb-evaluation-star__body">
 					<span
 						className={ bodyClasses }
