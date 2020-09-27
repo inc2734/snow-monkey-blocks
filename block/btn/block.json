@@ -1,6 +1,9 @@
 {
   "name": "snow-monkey-blocks/btn",
   "category": "smb",
+  "parent": [
+   "snow-monkey-blocks/buttons"
+  ],
   "attributes": {
     "content": {
       "type": "string",

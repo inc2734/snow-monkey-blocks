@@ -61,6 +61,12 @@
     "block:btn:js": "wp-scripts build block/btn/editor --output-path=dist/block/btn",
     "block:btn:css": "node-sass block/btn -o dist/block/btn && postcss dist/block/btn/*.css -r",
     "block:btn": "run-s block:btn:*",
+
+    "block:buttons:clean": "rimraf dist/block/buttons && mkdir -p dist/block/buttons",
+    "block:buttons:js": "wp-scripts build block/buttons/editor --output-path=dist/block/buttons",
+    "block:buttons:css": "node-sass block/buttons -o dist/block/buttons && postcss dist/block/buttons/*.css -r",
+    "block:buttons": "run-s block:buttons:*",
+
     "block:btn-box:clean": "rimraf dist/block/btn-box && mkdir -p dist/block/btn-box",
     "block:btn-box:js": "wp-scripts build block/btn-box/editor --output-path=dist/block/btn-box",
     "block:btn-box:css": "node-sass block/btn-box -o dist/block/btn-box && postcss dist/block/btn-box/*.css -r",

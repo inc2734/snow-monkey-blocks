@@ -1,0 +1,26 @@
+@charset 'utf-8';
+
+@import '../../src/css/core/block';
+
+.smb-buttons {
+  display: flex;
+  flex-wrap: wrap;
+
+  &.has-text-align-left {
+    justify-content: flex-start;
+  }
+
+  &.has-text-align-center {
+    justify-content: center;
+  }
+
+  &.has-text-align-right {
+    justify-content: flex-end;
+  }
+
+  > * {
+    &:not(:first-child) {
+      @include _margin-left(.5);
+    }
+  }
+}

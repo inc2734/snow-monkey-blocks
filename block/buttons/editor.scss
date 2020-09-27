@@ -1,0 +1,43 @@
+@charset 'utf-8';
+
+@import '../../src/css/core/block';
+
+.editor-styles-wrapper {
+  .smb-buttons {
+    .block-editor-inner-blocks {
+      flex: 1 1 auto;
+
+      .block-editor-block-list__layout {
+        display: flex;
+        flex-wrap: wrap;
+
+        > * {
+          margin-right: initial; // < Snow Monkey v11.5.0
+          margin-left: initial; // < Snow Monkey v11.5.0
+
+          &:not(:first-child) {
+            @include _margin-left(.5);
+          }
+        }
+      }
+    }
+
+    &.has-text-align-left {
+      .block-editor-block-list__layout {
+        justify-content: flex-start;
+      }
+    }
+
+    &.has-text-align-center {
+      .block-editor-block-list__layout {
+        justify-content: center;
+      }
+    }
+
+    &.has-text-align-right {
+      .block-editor-block-list__layout {
+        justify-content: flex-end;
+      }
+    }
+  }
+}

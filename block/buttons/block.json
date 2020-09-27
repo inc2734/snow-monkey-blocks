@@ -1,0 +1,15 @@
+{
+  "name": "snow-monkey-blocks/buttons",
+  "category": "smb",
+  "attributes": {
+		"align": {
+			"type": "string"
+		}
+  },
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "alignWide": false,
+    "lightBlockWrapper": true
+  }
+}
