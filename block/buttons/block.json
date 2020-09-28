@@ -2,13 +2,13 @@
   "name": "snow-monkey-blocks/buttons",
   "category": "smb",
   "attributes": {
-		"align": {
+		"textAlign": {
 			"type": "string"
 		}
   },
   "supports": {
     "anchor": true,
-    "align": false,
+    "align": [ "left", "right" ],
     "alignWide": false,
     "lightBlockWrapper": true
   }

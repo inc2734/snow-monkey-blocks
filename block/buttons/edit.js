@@ -9,7 +9,7 @@ import {
 } from '@wordpress/block-editor';
 
 export default function( { attributes, setAttributes, className } ) {
-	const { align } = attributes;
+	const { textAlign } = attributes;
 
 	const allowedBlocks = [ 'snow-monkey-blocks/btn' ];
 	const template = [ [ 'snow-monkey-blocks/btn' ] ];
@@ -20,17 +20,18 @@ export default function( { attributes, setAttributes, className } ) {
 
 	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-buttons', className, {
-		[ `has-text-align-${ align }` ]: align,
+		[ `has-text-align-${ textAlign }` ]: textAlign,
 	} );
+
+	const onChangeTextAlign = ( value ) =>
+		setAttributes( { textAlign: value } );
 
 	return (
 		<>
 			<BlockControls>
 				<AlignmentToolbar
-					value={ align }
-					onChange={ ( newAlign ) =>
-						setAttributes( { align: newAlign } )
-					}
+					value={ textAlign }
+					onChange={ onChangeTextAlign }
 				/>
 			</BlockControls>
 
