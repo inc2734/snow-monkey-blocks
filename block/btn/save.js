@@ -8,6 +8,7 @@ export default function( { attributes, className } ) {
 		url,
 		target,
 		modifier,
+		borderRadius,
 		backgroundColor,
 		textColor,
 		wrap,
@@ -26,6 +27,7 @@ export default function( { attributes, className } ) {
 
 	const btnStyles = {
 		backgroundColor: backgroundColor || undefined,
+		borderRadius: borderRadius ? `${ borderRadius }px` : undefined,
 	};
 	if ( 'is-style-ghost' === attributes.className ) {
 		btnStyles.borderColor = backgroundColor || undefined;

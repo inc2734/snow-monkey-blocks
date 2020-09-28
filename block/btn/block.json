@@ -23,6 +23,9 @@
       "type": "string",
       "default": ""
     },
+    "borderRadius": {
+      "type": "number"
+    },
     "backgroundColor": {
       "type": "string"
     },

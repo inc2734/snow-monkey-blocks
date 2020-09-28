@@ -7,6 +7,7 @@ import {
 	ToolbarGroup,
 	Popover,
 	Button,
+	RangeControl,
 } from '@wordpress/components';
 
 import {
@@ -34,6 +35,7 @@ export default function( {
 		url,
 		target,
 		modifier,
+		borderRadius,
 		backgroundColor,
 		textColor,
 		align,
@@ -63,6 +65,7 @@ export default function( {
 
 	const btnStyles = {
 		backgroundColor: backgroundColor || undefined,
+		borderRadius: borderRadius ? `${ borderRadius }px` : undefined,
 	};
 	if ( 'is-style-ghost' === attributes.className ) {
 		btnStyles.borderColor = backgroundColor || undefined;
@@ -75,6 +78,11 @@ export default function( {
 	const onChangeModifier = ( value ) =>
 		setAttributes( {
 			modifier: value,
+		} );
+
+	const onChangeBorderRadius = ( value ) =>
+		setAttributes( {
+			borderRadius: value,
 		} );
 
 	const onChangeBackgroundColor = ( value ) =>
@@ -127,6 +135,16 @@ export default function( {
 								label: __( 'Full size', 'snow-monkey-blocks' ),
 							},
 						] }
+					/>
+
+					<RangeControl
+						label={ __( 'Border radius', 'snow-monkey-blocks' ) }
+						value={ borderRadius }
+						onChange={ onChangeBorderRadius }
+						min="0"
+						max="50"
+						initialPosition="6"
+						allowReset
 					/>
 
 					<CheckboxControl
