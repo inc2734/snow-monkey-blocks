@@ -65,7 +65,10 @@ export default function( {
 
 	const btnStyles = {
 		backgroundColor: backgroundColor || undefined,
-		borderRadius: 'undefined' !== typeof borderRadius ? `${ borderRadius }px` : undefined,
+		borderRadius:
+			'undefined' !== typeof borderRadius
+				? `${ borderRadius }px`
+				: undefined,
 	};
 	if ( 'is-style-ghost' === attributes.className ) {
 		btnStyles.borderColor = backgroundColor || undefined;
@@ -132,7 +135,10 @@ export default function( {
 							},
 							{
 								value: 'little-wider',
-								label: __( 'Litle wider', 'snow-monkey-blocks' ),
+								label: __(
+									'Litle wider',
+									'snow-monkey-blocks'
+								),
 							},
 							{
 								value: 'wider',
