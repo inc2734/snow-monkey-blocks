@@ -65,7 +65,7 @@ export default function( {
 
 	const btnStyles = {
 		backgroundColor: backgroundColor || undefined,
-		borderRadius: borderRadius ? `${ borderRadius }px` : undefined,
+		borderRadius: 'undefined' !== typeof borderRadius ? `${ borderRadius }px` : undefined,
 	};
 	if ( 'is-style-ghost' === attributes.className ) {
 		btnStyles.borderColor = backgroundColor || undefined;
@@ -129,6 +129,18 @@ export default function( {
 									'Normal size',
 									'snow-monkey-blocks'
 								),
+							},
+							{
+								value: 'little-wider',
+								label: __( 'Litle wider', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'wider',
+								label: __( 'Wider', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'more-wider',
+								label: __( 'More wider', 'snow-monkey-blocks' ),
 							},
 							{
 								value: 'full',

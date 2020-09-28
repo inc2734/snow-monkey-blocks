@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2020-09-28 10:12+0900\n"
-"PO-Revision-Date: 2020-09-28 10:13+0900\n"
+"POT-Creation-Date: 2020-09-28 10:44+0900\n"
+"PO-Revision-Date: 2020-09-28 10:45+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -204,7 +204,7 @@ msgstr "枠線の太さ"
 msgid "Background Opacity"
 msgstr "背景の不透明度"
 
-#: block/box/edit.js:92 block/btn-box/edit.js:142 block/btn/edit.js:158
+#: block/box/edit.js:92 block/btn-box/edit.js:142 block/btn/edit.js:170
 #: block/countdown/edit.js:72 block/evaluation-star/edit.js:190
 #: block/faq/item/edit.js:103 block/items/item/banner/edit.js:273
 #: block/items/item/block-link/edit.js:235 block/items/item/item/edit.js:119
@@ -217,7 +217,7 @@ msgstr "背景の不透明度"
 msgid "Color Settings"
 msgstr "色設定"
 
-#: block/box/edit.js:99 block/btn-box/edit.js:149 block/btn/edit.js:165
+#: block/box/edit.js:99 block/btn-box/edit.js:149 block/btn/edit.js:177
 #: block/pricing-table/item/edit.js:216
 #: block/section-break-the-grid/edit.js:597
 #: block/section-side-heading/edit.js:311 block/section/edit.js:307
@@ -228,7 +228,7 @@ msgstr "背景色"
 msgid "Border Color"
 msgstr "枠線の色"
 
-#: block/box/edit.js:111 block/btn/edit.js:172
+#: block/box/edit.js:111 block/btn/edit.js:184
 #: block/items/item/banner/edit.js:284 block/pricing-table/item/edit.js:223
 #: block/section-break-the-grid/edit.js:693
 #: block/section-side-heading/edit.js:318
@@ -279,7 +279,7 @@ msgstr "ボタンの文字色"
 msgid "Write lede…"
 msgstr "リード文を書く…"
 
-#: block/btn-box/edit.js:211 block/btn/edit.js:197 block/btn/index.js:15
+#: block/btn-box/edit.js:211 block/btn/edit.js:209 block/btn/index.js:15
 #: block/items/item/block-link/edit.js:330 block/items/item/item/edit.js:246
 #: block/items/item/standard/edit.js:338 block/pricing-table/item/edit.js:316
 msgid "Button"
@@ -289,7 +289,7 @@ msgstr "ボタン"
 msgid "Write note…"
 msgstr "注釈を書く…"
 
-#: block/btn-box/edit.js:239 block/btn/edit.js:209
+#: block/btn-box/edit.js:239 block/btn/edit.js:221
 #: block/items/item/block-link/edit.js:359 block/items/item/item/edit.js:264
 #: block/items/item/standard/edit.js:368 block/media-text/edit.js:327
 #: block/panels/item/horizontal/edit.js:295
@@ -300,7 +300,7 @@ msgstr "注釈を書く…"
 msgid "Link"
 msgstr "リンク"
 
-#: block/btn-box/edit.js:249 block/btn/edit.js:219
+#: block/btn-box/edit.js:249 block/btn/edit.js:231
 #: block/items/item/block-link/edit.js:369
 #: block/items/item/standard/edit.js:378 block/media-text/edit.js:338
 #: block/panels/item/horizontal/edit.js:336
@@ -333,14 +333,26 @@ msgid "Normal size"
 msgstr "ノーマルサイズ"
 
 #: block/btn/edit.js:135
+msgid "Litle wider"
+msgstr "少し広め"
+
+#: block/btn/edit.js:139
+msgid "Wider"
+msgstr "広め"
+
+#: block/btn/edit.js:143
+msgid "More wider"
+msgstr "もっと広め"
+
+#: block/btn/edit.js:147
 msgid "Full size"
 msgstr "フルサイズ"
 
-#: block/btn/edit.js:141
+#: block/btn/edit.js:153
 msgid "Border radius"
 msgstr "角丸半径"
 
-#: block/btn/edit.js:151
+#: block/btn/edit.js:163
 msgid "Wrap"
 msgstr "折り返す"
 

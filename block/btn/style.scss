@@ -5,6 +5,21 @@
 .smb-btn {
   @include btn();
 
+  &--little-wider {
+    @include _padding-right(2);
+    @include _padding-left(2);
+  }
+
+  &--wider {
+    @include _padding-right(3);
+    @include _padding-left(3);
+  }
+
+  &--more-wider {
+    @include _padding-right(4);
+    @include _padding-left(4);
+  }
+
   &--full {
     width: 100%;
     display: block;

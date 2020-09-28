@@ -27,7 +27,7 @@ export default function( { attributes, className } ) {
 
 	const btnStyles = {
 		backgroundColor: backgroundColor || undefined,
-		borderRadius: borderRadius ? `${ borderRadius }px` : undefined,
+		borderRadius: 'undefined' !== typeof borderRadius ? `${ borderRadius }px` : undefined,
 	};
 	if ( 'is-style-ghost' === attributes.className ) {
 		btnStyles.borderColor = backgroundColor || undefined;
