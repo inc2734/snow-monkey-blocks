@@ -39,11 +39,18 @@ const ToolbarEditButton = ( {
 	</BlockControls>
 );
 
-const Image = ( { src, alt, id } ) => (
-	<img src={ src } alt={ alt } className={ `wp-image-${ id }` } />
+const Image = ( { src, alt, id, style } ) => (
+	<img
+		src={ src }
+		alt={ alt }
+		className={ `wp-image-${ id }` }
+		style={ style }
+	/>
 );
 
-const Video = ( { src } ) => <video controls src={ src } />;
+const Video = ( { src, style } ) => (
+	<video controls src={ src } style={ style } />
+);
 
 const Figure = memo(
 	( {
@@ -57,10 +64,11 @@ const Figure = memo(
 		onSelect,
 		onRemove,
 		mediaType,
+		style,
 	} ) => {
 		let media;
 		if ( 'image' === mediaType ) {
-			media = <Image src={ src } alt={ alt } id={ id } />;
+			media = <Image src={ src } alt={ alt } id={ id } style={ style } />;
 
 			if ( !! url ) {
 				media = (
@@ -78,7 +86,7 @@ const Figure = memo(
 				);
 			}
 		} else if ( 'video' === mediaType ) {
-			media = <Video src={ src } />;
+			media = <Video src={ src } style={ style } />;
 		}
 
 		return (

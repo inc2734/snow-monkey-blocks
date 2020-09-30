@@ -29,6 +29,8 @@ export default function( { attributes, className } ) {
 		shadowColor,
 		shadowHorizontalPosition,
 		shadowVerticalPosition,
+		maskColor,
+		maskOpacity,
 	} = attributes;
 
 	const Wrapper = wrapperTagName;
@@ -75,6 +77,8 @@ export default function( { attributes, className } ) {
 
 	const shadowClasses = classnames( 'smb-section-break-the-grid__shadow' );
 
+	const maskClasses = classnames( 'smb-section-break-the-grid__mask' );
+
 	const sectionStyles = {
 		color: textColor || undefined,
 	};
@@ -93,6 +97,15 @@ export default function( { attributes, className } ) {
 			contentBackgroundColor && hexToRgba( contentBackgroundColor, 0.98 ),
 	};
 
+	const maskStyles = {};
+	if ( maskColor ) {
+		maskStyles.backgroundColor = maskColor;
+	}
+
+	const figureStyles = {
+		opacity: maskOpacity,
+	};
+
 	const image = (
 		<img
 			src={ imageURL }
@@ -100,6 +113,7 @@ export default function( { attributes, className } ) {
 			width={ !! imageWidth && imageWidth }
 			height={ !! imageHeight && imageHeight }
 			className={ `wp-image-${ imageID }` }
+			style={ figureStyles }
 		/>
 	);
 
@@ -109,6 +123,7 @@ export default function( { attributes, className } ) {
 			src={ imageURL }
 			width={ !! imageWidth && imageWidth }
 			height={ !! imageHeight && imageHeight }
+			style={ figureStyles }
 		/>
 	);
 
@@ -172,6 +187,15 @@ export default function( { attributes, className } ) {
 									style={ shadowStyles }
 								/>
 							) }
+
+							{ 0 <
+								Number( ( 1 - maskOpacity ).toFixed( 1 ) ) && (
+								<div
+									className={ maskClasses }
+									style={ maskStyles }
+								/>
+							) }
+
 							{ figure }
 						</div>
 					</div>

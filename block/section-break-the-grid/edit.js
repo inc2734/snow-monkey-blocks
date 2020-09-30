@@ -59,6 +59,8 @@ export default function( {
 		shadowColor,
 		shadowHorizontalPosition,
 		shadowVerticalPosition,
+		maskColor,
+		maskOpacity,
 	} = attributes;
 
 	const { resizedImages } = useSelect( ( select ) => {
@@ -130,6 +132,8 @@ export default function( {
 
 	const shadowClasses = classnames( 'smb-section-break-the-grid__shadow' );
 
+	const maskClasses = classnames( 'smb-section-break-the-grid__mask' );
+
 	const sectionStyles = {
 		color: textColor || undefined,
 	};
@@ -146,6 +150,15 @@ export default function( {
 	const contentStyles = {
 		backgroundColor:
 			contentBackgroundColor && hexToRgba( contentBackgroundColor, 0.98 ),
+	};
+
+	const maskStyles = {};
+	if ( maskColor ) {
+		maskStyles.backgroundColor = maskColor;
+	}
+
+	const figureStyles = {
+		opacity: maskOpacity,
 	};
 
 	const onChangeImagePosition = ( value ) =>
@@ -226,6 +239,16 @@ export default function( {
 	const onChangeLede = ( value ) =>
 		setAttributes( {
 			lede: value,
+		} );
+
+	const onChangeMaskColor = ( value ) =>
+		setAttributes( {
+			maskColor: value,
+		} );
+
+	const onChangeMaskOpacity = ( value ) =>
+		setAttributes( {
+			maskOpacity: toNumber( ( 1 - value ).toFixed( 1 ), 0, 1 ),
 		} );
 
 	const onSelectImage = ( media ) => {
@@ -415,6 +438,29 @@ export default function( {
 						] }
 						onChange={ onChangeVerticalAlignment }
 					/>
+
+					<BaseControl
+						className="editor-color-palette-control"
+						label={ __( 'Mask Color', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/section-break-the-grid/content-background-color"
+					>
+						<ColorPalette
+							className="editor-color-palette-control__color-palette"
+							value={ maskColor }
+							onChange={ onChangeMaskColor }
+						/>
+					</BaseControl>
+
+					{ !! maskColor && (
+						<RangeControl
+							label={ __( 'Mask Opacity', 'snow-monkey-blocks' ) }
+							value={ Number( ( 1 - maskOpacity ).toFixed( 1 ) ) }
+							onChange={ onChangeMaskOpacity }
+							min={ 0 }
+							max={ 1 }
+							step={ 0.1 }
+						/>
+					) }
 				</PanelBody>
 
 				<PanelBody
@@ -762,6 +808,17 @@ export default function( {
 										style={ shadowStyles }
 									/>
 								) }
+
+								{ 0 <
+									Number(
+										( 1 - maskOpacity ).toFixed( 1 )
+									) && (
+									<div
+										className={ maskClasses }
+										style={ maskStyles }
+									/>
+								) }
+
 								<Figure
 									src={ imageURL }
 									id={ imageID }
@@ -770,6 +827,7 @@ export default function( {
 									onRemove={ onRemoveImage }
 									mediaType={ imageMediaType }
 									allowedTypes={ [ 'image', 'video' ] }
+									style={ figureStyles }
 								/>
 							</div>
 						</div>

@@ -106,6 +106,10 @@
     }
   }
 
+  &__mask {
+    @include _position(absolute, 0, 0, 0, 0);
+  }
+
   &__figure {
     position: relative;
 

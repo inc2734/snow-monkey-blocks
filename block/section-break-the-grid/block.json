@@ -113,6 +113,13 @@
     "shadowVerticalPosition": {
       "type": "number",
       "default": 5
+    },
+    "maskColor": {
+      "type": "string"
+    },
+    "maskOpacity": {
+      "type": "number",
+      "default": 1
     }
   },
   "supports": {
