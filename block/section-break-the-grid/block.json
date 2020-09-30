@@ -96,6 +96,10 @@
     "contentBackgroundColor": {
       "type": "string"
     },
+    "contentBackgroundOpacity": {
+      "type": "number",
+      "default": 0.98
+    },
     "contentPadding": {
       "type": "string"
     },

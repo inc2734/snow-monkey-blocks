@@ -54,6 +54,7 @@ export default function( {
 		contentHorizontalPosition,
 		contentVerticalPosition,
 		contentBackgroundColor,
+		contentBackgroundOpacity,
 		contentPadding,
 		removeContentOutsidePadding,
 		shadowColor,
@@ -149,7 +150,7 @@ export default function( {
 
 	const contentStyles = {
 		backgroundColor:
-			contentBackgroundColor && hexToRgba( contentBackgroundColor, 0.98 ),
+			contentBackgroundColor && hexToRgba( contentBackgroundColor, contentBackgroundOpacity ),
 	};
 
 	const maskStyles = {};
@@ -194,6 +195,11 @@ export default function( {
 	const onChangeContentBackgroundColor = ( value ) =>
 		setAttributes( {
 			contentBackgroundColor: value,
+		} );
+
+	const onChangeContentBackgroundOpacity = ( value ) =>
+		setAttributes( {
+			contentBackgroundOpacity: value,
 		} );
 
 	const onChangeContentPadding = ( value ) =>
@@ -651,6 +657,17 @@ export default function( {
 							onChange={ onChangeContentBackgroundColor }
 						/>
 					</BaseControl>
+
+					{ !! contentBackgroundColor && (
+						<RangeControl
+							label={ __( 'Background Opacity', 'snow-monkey-blocks' ) }
+							value={ Number( ( contentBackgroundOpacity ).toFixed( 1 ) ) }
+							onChange={ onChangeContentBackgroundOpacity }
+							min={ 0 }
+							max={ 1 }
+							step={ 0.1 }
+						/>
+					) }
 
 					<SelectControl
 						label={ __( 'Content Padding', 'snow-monkey-blocks' ) }

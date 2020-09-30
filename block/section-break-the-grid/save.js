@@ -24,6 +24,7 @@ export default function( { attributes, className } ) {
 		contentHorizontalPosition,
 		contentVerticalPosition,
 		contentBackgroundColor,
+		contentBackgroundOpacity,
 		contentPadding,
 		removeContentOutsidePadding,
 		shadowColor,
@@ -94,7 +95,7 @@ export default function( { attributes, className } ) {
 
 	const contentStyles = {
 		backgroundColor:
-			contentBackgroundColor && hexToRgba( contentBackgroundColor, 0.98 ),
+			contentBackgroundColor && hexToRgba( contentBackgroundColor, contentBackgroundOpacity ),
 	};
 
 	const maskStyles = {};
