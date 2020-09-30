@@ -333,8 +333,8 @@ export default function( {
 									wrapperTagName === wrapperTagNames[ index ];
 								return (
 									<Button
-										isDefault={ ! isPrimary }
 										isPrimary={ isPrimary }
+										isSecondary={ ! isPrimary }
 										onClick={ onClickWrapperTagName }
 									>
 										{ wrapperTagNames[ index ] }
@@ -359,9 +359,10 @@ export default function( {
 									titleTagName === titleTagNames[ index ];
 								return (
 									<Button
-										isDefault={ ! isPrimary }
 										isPrimary={ isPrimary }
+										isSecondary={ ! isPrimary }
 										onClick={ onClickTitleTagName }
+										key={ index }
 									>
 										{ titleTagNames[ index ] }
 									</Button>

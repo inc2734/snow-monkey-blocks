@@ -134,9 +134,10 @@ export default function( {
 									icon === iconList[ index ].value;
 								return (
 									<Button
-										isDefault={ ! isPrimary }
 										isPrimary={ isPrimary }
+										isSecondary={ ! isPrimary }
 										onClick={ onClickIcon }
+										key={ index }
 									>
 										<i
 											className={ `fas fa-${ iconList[ index ].value }` }

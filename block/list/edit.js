@@ -88,9 +88,10 @@ export default function( { attributes, setAttributes, className, clientId } ) {
 								const isPrimary = icon === value;
 								return (
 									<Button
-										isDefault={ ! isPrimary }
 										isPrimary={ isPrimary }
+										isSecondary={ ! isPrimary }
 										onClick={ onClickIcon }
+										key={ index }
 									>
 										<i
 											className={ `fas fa-${ iconList[ index ].value }` }

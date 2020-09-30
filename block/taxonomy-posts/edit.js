@@ -221,9 +221,10 @@ export default function( { attributes, setAttributes } ) {
 									itemTitleTagNames[ index ];
 								return (
 									<Button
-										isDefault={ ! isPrimary }
 										isPrimary={ isPrimary }
+										isSecondary={ ! isPrimary }
 										onClick={ onClickItemTitleTagName }
+										key={ index }
 									>
 										{ itemTitleTagNames[ index ] }
 									</Button>

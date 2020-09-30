@@ -83,6 +83,9 @@ class Bootstrap {
 	 */
 	public function _register_blocks() {
 		foreach ( glob( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/*/index.php' ) as $file ) {
+			if ( false !== strpos( $file, '/accordion' ) ) {
+				continue;
+			}
 			require_once( $file );
 		}
 		foreach ( glob( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/*/item/index.php' ) as $file ) {

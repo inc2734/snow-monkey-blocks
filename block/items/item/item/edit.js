@@ -91,9 +91,10 @@ export default function( {
 									titleTagName === titleTagNames[ index ];
 								return (
 									<Button
-										isDefault={ ! isPrimary }
 										isPrimary={ isPrimary }
+										isSecondary={ ! isPrimary }
 										onClick={ onClickTitleTagName }
+										key={ index }
 									>
 										{ titleTagNames[ index ] }
 									</Button>
