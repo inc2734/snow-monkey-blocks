@@ -336,6 +336,7 @@ export default function( {
 										isPrimary={ isPrimary }
 										isSecondary={ ! isPrimary }
 										onClick={ onClickWrapperTagName }
+										key={ index }
 									>
 										{ wrapperTagNames[ index ] }
 									</Button>
