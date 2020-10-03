@@ -95,7 +95,8 @@ export default function( { attributes, className } ) {
 
 	const contentStyles = {
 		backgroundColor:
-			contentBackgroundColor && hexToRgba( contentBackgroundColor, contentBackgroundOpacity ),
+			contentBackgroundColor &&
+			hexToRgba( contentBackgroundColor, contentBackgroundOpacity ),
 	};
 
 	const maskStyles = {};

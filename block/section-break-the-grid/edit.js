@@ -150,7 +150,8 @@ export default function( {
 
 	const contentStyles = {
 		backgroundColor:
-			contentBackgroundColor && hexToRgba( contentBackgroundColor, contentBackgroundOpacity ),
+			contentBackgroundColor &&
+			hexToRgba( contentBackgroundColor, contentBackgroundOpacity ),
 	};
 
 	const maskStyles = {};
@@ -660,8 +661,13 @@ export default function( {
 
 					{ !! contentBackgroundColor && (
 						<RangeControl
-							label={ __( 'Background Opacity', 'snow-monkey-blocks' ) }
-							value={ Number( ( contentBackgroundOpacity ).toFixed( 1 ) ) }
+							label={ __(
+								'Background Opacity',
+								'snow-monkey-blocks'
+							) }
+							value={ Number(
+								contentBackgroundOpacity.toFixed( 1 )
+							) }
 							onChange={ onChangeContentBackgroundOpacity }
 							min={ 0 }
 							max={ 1 }
