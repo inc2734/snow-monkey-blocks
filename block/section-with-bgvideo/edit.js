@@ -261,34 +261,20 @@ export default function( {
 					/>
 				</PanelBody>
 
-				<PanelColorSettings
-					title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
-					colorSettings={ [
-						{
-							value: maskColor,
-							onChange: onChangeMaskColor,
-							label: __( 'Mask Color', 'snow-monkey-blocks' ),
-						},
-						{
-							value: textColor,
-							onChange: onChangeTextColor,
-							label: __( 'Text Color', 'snow-monkey-blocks' ),
-						},
-					] }
-				></PanelColorSettings>
-
 				<PanelBody
 					title={ __( 'Mask Settings', 'snow-monkey-blocks' ) }
 				>
-					<RangeControl
-						label={ __( 'Mask Opacity', 'snow-monkey-blocks' ) }
-						value={ Number( ( 1 - maskOpacity ).toFixed( 1 ) ) }
-						onChange={ onChangeMaskOpacity }
-						min={ 0 }
-						max={ 1 }
-						step={ 0.1 }
-					/>
+					<BaseControl
+						className="editor-color-palette-control"
+						label={ __( 'Mask Color', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/section-with-bgvideo/mask-color"
+					>
+						<ColorPalette
+							className="editor-color-palette-control__color-palette"
+							value={ maskColor }
+							onChange={ onChangeMaskColor }
+						/>
+					</BaseControl>
 
 					{ maskColor && (
 						<BaseControl
@@ -316,7 +302,28 @@ export default function( {
 							max="360"
 						/>
 					) }
+
+					<RangeControl
+						label={ __( 'Mask Opacity', 'snow-monkey-blocks' ) }
+						value={ Number( ( 1 - maskOpacity ).toFixed( 1 ) ) }
+						onChange={ onChangeMaskOpacity }
+						min={ 0 }
+						max={ 1 }
+						step={ 0.1 }
+					/>
 				</PanelBody>
+
+				<PanelColorSettings
+					title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
+					initialOpen={ false }
+					colorSettings={ [
+						{
+							value: textColor,
+							onChange: onChangeTextColor,
+							label: __( 'Text Color', 'snow-monkey-blocks' ),
+						},
+					] }
+				></PanelColorSettings>
 			</InspectorControls>
 
 			<BlockWrapper className={ classes } style={ sectionStyles }>
