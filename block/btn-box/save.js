@@ -13,12 +13,15 @@ export default function( { attributes, className } ) {
 		btnBackgroundColor,
 		btnTextColor,
 		btnSize,
+		btnBorderRadius,
+		btnWrap,
 	} = attributes;
 
 	const classes = classnames( 'smb-btn-box', className );
 
 	const btnClasses = classnames( 'smb-btn', {
 		[ `smb-btn--${ btnSize }` ]: !! btnSize,
+		'smb-btn--wrap': btnWrap,
 	} );
 
 	const btnBoxStyle = {
@@ -27,6 +30,10 @@ export default function( { attributes, className } ) {
 
 	const btnBoxBtnStyles = {
 		backgroundColor: btnBackgroundColor || undefined,
+		borderRadius:
+			'undefined' !== typeof btnBorderRadius
+				? `${ btnBorderRadius }px`
+				: undefined,
 	};
 	if ( 'is-style-ghost' === attributes.className ) {
 		btnBoxBtnStyles.borderColor = btnBackgroundColor || undefined;

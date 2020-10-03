@@ -39,7 +39,14 @@
     },
     "btnSize": {
       "type": "string",
-      "default": null
+      "default": ""
+    },
+    "btnBorderRadius": {
+      "type": "number"
+    },
+    "btnWrap": {
+      "type": "boolean",
+      "default": false
     }
   },
   "supports": {

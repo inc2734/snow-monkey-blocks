@@ -6,6 +6,8 @@ import {
 	Popover,
 	ToolbarGroup,
 	Button,
+	CheckboxControl,
+	RangeControl,
 } from '@wordpress/components';
 
 import {
@@ -38,6 +40,8 @@ export default function( {
 		btnBackgroundColor,
 		btnTextColor,
 		btnSize,
+		btnBorderRadius,
+		btnWrap,
 	} = attributes;
 
 	const [ isLinkUIOpen, setIsLinkUIOpen ] = useState( false );
@@ -54,6 +58,7 @@ export default function( {
 
 	const btnClasses = classnames( 'smb-btn', {
 		[ `smb-btn--${ btnSize }` ]: !! btnSize,
+		'smb-btn--wrap': btnWrap,
 	} );
 
 	const btnBoxStyle = {
@@ -62,6 +67,10 @@ export default function( {
 
 	const btnBoxBtnStyles = {
 		backgroundColor: btnBackgroundColor || undefined,
+		borderRadius:
+			'undefined' !== typeof btnBorderRadius
+				? `${ btnBorderRadius }px`
+				: undefined,
 	};
 	if ( 'is-style-ghost' === attributes.className ) {
 		btnBoxBtnStyles.borderColor = btnBackgroundColor || undefined;
@@ -109,6 +118,16 @@ export default function( {
 		} );
 	};
 
+	const onChangeBtnBorderRadius = ( value ) =>
+		setAttributes( {
+			btnBorderRadius: value,
+		} );
+
+	const onChangeBtnWrap = ( value ) =>
+		setAttributes( {
+			btnWrap: value,
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -123,18 +142,46 @@ export default function( {
 							{
 								value: '',
 								label: __(
-									'Normal button',
+									'Normal size',
 									'snow-monkey-blocks'
 								),
 							},
 							{
-								value: 'full',
+								value: 'little-wider',
 								label: __(
-									'Full button',
+									'Litle wider',
 									'snow-monkey-blocks'
 								),
 							},
+							{
+								value: 'wider',
+								label: __( 'Wider', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'more-wider',
+								label: __( 'More wider', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'full',
+								label: __( 'Full size', 'snow-monkey-blocks' ),
+							},
 						] }
+					/>
+
+					<RangeControl
+						label={ __( 'Border radius', 'snow-monkey-blocks' ) }
+						value={ btnBorderRadius }
+						onChange={ onChangeBtnBorderRadius }
+						min="0"
+						max="50"
+						initialPosition="6"
+						allowReset
+					/>
+
+					<CheckboxControl
+						label={ __( 'Wrap', 'snow-monkey-blocks' ) }
+						checked={ btnWrap }
+						onChange={ onChangeBtnWrap }
 					/>
 				</PanelBody>
 
