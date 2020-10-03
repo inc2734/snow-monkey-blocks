@@ -8,6 +8,7 @@ import {
 	Button,
 	CheckboxControl,
 	RangeControl,
+	BaseControl,
 } from '@wordpress/components';
 
 import {
@@ -16,6 +17,7 @@ import {
 	PanelColorSettings,
 	ContrastChecker,
 	BlockControls,
+	ColorPalette,
 	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
@@ -183,6 +185,30 @@ export default function( {
 						checked={ btnWrap }
 						onChange={ onChangeBtnWrap }
 					/>
+
+					<BaseControl
+						className="editor-color-palette-control"
+						label={ __( 'Background Color', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/btn-box/background-color"
+					>
+						<ColorPalette
+							className="editor-color-palette-control__color-palette"
+							value={ btnBackgroundColor }
+							onChange={ onChangeBtnBackgroundColor }
+						/>
+					</BaseControl>
+
+					<BaseControl
+						className="editor-color-palette-control"
+						label={ __( 'Text Color', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/btn-box/text-color"
+					>
+						<ColorPalette
+							className="editor-color-palette-control__color-palette"
+							value={ btnTextColor }
+							onChange={ onChangeBtnTextcolor }
+						/>
+					</BaseControl>
 				</PanelBody>
 
 				<PanelColorSettings
@@ -194,22 +220,6 @@ export default function( {
 							onChange: onChangeBackgroundColor,
 							label: __(
 								'Background Color',
-								'snow-monkey-blocks'
-							),
-						},
-						{
-							value: btnBackgroundColor,
-							onChange: onChangeBtnBackgroundColor,
-							label: __(
-								'Background Color of Button',
-								'snow-monkey-blocks'
-							),
-						},
-						{
-							value: btnTextColor,
-							onChange: onChangeBtnTextcolor,
-							label: __(
-								'Text Color of Button',
 								'snow-monkey-blocks'
 							),
 						},
