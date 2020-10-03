@@ -8,19 +8,27 @@ export default function( { attributes, className } ) {
 		title,
 		lede,
 		summary,
-		btnLabel,
 		url,
 		target,
-		btnBackgroundColor,
-		btnTextColor,
 		imageID,
 		imageURL,
 		imageAlt,
 		imageWidth,
 		imageHeight,
+		btnLabel,
+		btnBackgroundColor,
+		btnTextColor,
+		btnSize,
+		btnBorderRadius,
+		btnWrap,
 	} = attributes;
 
 	const classes = classnames( 'c-row__col', className );
+
+	const btnClasses = classnames( 'smb-items__item__btn', 'smb-btn', {
+		[ `smb-btn--${ btnSize }` ]: !! btnSize,
+		'smb-btn--wrap': btnWrap,
+	} );
 
 	const itemBtnLabelStyles = {
 		color: btnTextColor || undefined,
@@ -28,6 +36,10 @@ export default function( { attributes, className } ) {
 
 	const itemBtnStyles = {
 		backgroundColor: btnBackgroundColor || undefined,
+		borderRadius:
+			'undefined' !== typeof btnBorderRadius
+				? `${ btnBorderRadius }px`
+				: undefined,
 	};
 
 	return (
@@ -68,7 +80,7 @@ export default function( { attributes, className } ) {
 				{ ! RichText.isEmpty( btnLabel ) && !! url && (
 					<div className="smb-items__item__action">
 						<a
-							className="smb-items__item__btn smb-btn"
+							className={ btnClasses }
 							href={ url }
 							style={ itemBtnStyles }
 							target={ '_self' === target ? undefined : target }

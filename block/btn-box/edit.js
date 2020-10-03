@@ -209,6 +209,11 @@ export default function( {
 							onChange={ onChangeBtnTextcolor }
 						/>
 					</BaseControl>
+
+					<ContrastChecker
+						backgroundColor={ btnBackgroundColor }
+						textColor={ btnTextColor }
+					/>
 				</PanelBody>
 
 				<PanelColorSettings
@@ -224,12 +229,7 @@ export default function( {
 							),
 						},
 					] }
-				>
-					<ContrastChecker
-						backgroundColor={ btnBackgroundColor }
-						textColor={ btnTextColor }
-					/>
-				</PanelColorSettings>
+				></PanelColorSettings>
 			</InspectorControls>
 
 			<BlockWrapper className={ classes } style={ btnBoxStyle }>
