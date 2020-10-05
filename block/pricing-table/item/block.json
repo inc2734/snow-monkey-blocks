@@ -28,29 +28,6 @@
       "multiline": "li",
       "default": ""
     },
-    "btnLabel": {
-      "type": "string",
-      "source": "html",
-      "selector": ".smb-pricing-table__item__btn > .smb-btn__label",
-      "default": ""
-    },
-    "btnURL": {
-      "type": "string",
-      "source": "attribute",
-      "selector": ".smb-pricing-table__item__btn",
-      "attribute": "href",
-      "default": ""
-    },
-    "btnTarget": {
-      "type": "string",
-      "default": "_self"
-    },
-    "btnBackgroundColor": {
-      "type": "string"
-    },
-    "btnTextColor": {
-      "type": "string"
-    },
     "imageID": {
       "type": "number",
       "default": 0
@@ -86,6 +63,40 @@
     "imageSizeSlug": {
       "type": "string",
       "default": "large"
+    },
+    "btnLabel": {
+      "type": "string",
+      "source": "html",
+      "selector": ".smb-pricing-table__item__btn > .smb-btn__label",
+      "default": ""
+    },
+    "btnURL": {
+      "type": "string",
+      "source": "attribute",
+      "selector": ".smb-pricing-table__item__btn",
+      "attribute": "href",
+      "default": ""
+    },
+    "btnTarget": {
+      "type": "string",
+      "default": "_self"
+    },
+    "btnBackgroundColor": {
+      "type": "string"
+    },
+    "btnTextColor": {
+      "type": "string"
+    },
+    "btnSize": {
+      "type": "string",
+      "default": ""
+    },
+    "btnBorderRadius": {
+      "type": "number"
+    },
+    "btnWrap": {
+      "type": "boolean",
+      "default": false
     }
   },
   "supports": {

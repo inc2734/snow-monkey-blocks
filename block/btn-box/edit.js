@@ -93,7 +93,7 @@ export default function( {
 			btnBackgroundColor: value,
 		} );
 
-	const onChangeBtnTextcolor = ( value ) =>
+	const onChangeBtnTextColor = ( value ) =>
 		setAttributes( {
 			btnTextColor: value,
 		} );
@@ -206,7 +206,7 @@ export default function( {
 						<ColorPalette
 							className="editor-color-palette-control__color-palette"
 							value={ btnTextColor }
-							onChange={ onChangeBtnTextcolor }
+							onChange={ onChangeBtnTextColor }
 						/>
 					</BaseControl>
 

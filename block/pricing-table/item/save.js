@@ -8,22 +8,34 @@ export default function( { attributes, className } ) {
 		price,
 		lede,
 		list,
-		btnLabel,
-		btnURL,
-		btnTarget,
-		btnBackgroundColor,
-		btnTextColor,
 		imageID,
 		imageURL,
 		imageAlt,
 		imageWidth,
 		imageHeight,
+		btnLabel,
+		btnURL,
+		btnTarget,
+		btnBackgroundColor,
+		btnTextColor,
+		btnSize,
+		btnBorderRadius,
+		btnWrap,
 	} = attributes;
 
 	const classes = classnames( 'c-row__col', className );
 
+	const btnClasses = classnames( 'smb-btn', 'smb-pricing-table__item__btn', {
+		[ `smb-btn--${ btnSize }` ]: !! btnSize,
+		'smb-btn--wrap': btnWrap,
+	} );
+
 	const btnStyles = {
 		backgroundColor: btnBackgroundColor || undefined,
+		borderRadius:
+			'undefined' !== typeof btnBorderRadius
+				? `${ btnBorderRadius }px`
+				: undefined,
 	};
 
 	const btnLabelStyles = {
@@ -68,7 +80,7 @@ export default function( { attributes, className } ) {
 				{ ! RichText.isEmpty( btnLabel ) && !! btnURL && (
 					<div className="smb-pricing-table__item__action">
 						<a
-							className="smb-pricing-table__item__btn smb-btn"
+							className={ btnClasses }
 							href={ btnURL }
 							style={ btnStyles }
 							target={

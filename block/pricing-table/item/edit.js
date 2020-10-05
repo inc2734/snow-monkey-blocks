@@ -9,14 +9,18 @@ import {
 	Popover,
 	ToolbarGroup,
 	PanelBody,
+	SelectControl,
+	RangeControl,
+	CheckboxControl,
+	BaseControl,
 } from '@wordpress/components';
 
 import {
 	RichText,
 	InspectorControls,
-	PanelColorSettings,
 	ContrastChecker,
 	BlockControls,
+	ColorPalette,
 	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
@@ -36,17 +40,20 @@ export default function( {
 		price,
 		lede,
 		list,
-		btnLabel,
-		btnURL,
-		btnTarget,
-		btnBackgroundColor,
-		btnTextColor,
 		imageID,
 		imageURL,
 		imageAlt,
 		imageWidth,
 		imageHeight,
 		imageSizeSlug,
+		btnLabel,
+		btnURL,
+		btnTarget,
+		btnBackgroundColor,
+		btnTextColor,
+		btnSize,
+		btnBorderRadius,
+		btnWrap,
 	} = attributes;
 
 	const [ isLinkUIOpen, setIsLinkUIOpen ] = useState( false );
@@ -84,23 +91,22 @@ export default function( {
 	const BlockWrapper = Block.div;
 	const classes = classnames( 'c-row__col', className );
 
+	const btnClasses = classnames( 'smb-btn', 'smb-pricing-table__item__btn', {
+		[ `smb-btn--${ btnSize }` ]: !! btnSize,
+		'smb-btn--wrap': btnWrap,
+	} );
+
 	const btnStyles = {
 		backgroundColor: btnBackgroundColor || undefined,
+		borderRadius:
+			'undefined' !== typeof btnBorderRadius
+				? `${ btnBorderRadius }px`
+				: undefined,
 	};
 
 	const btnLabelStyles = {
 		color: btnTextColor || undefined,
 	};
-
-	const onChangeBtnBackgroundColor = ( value ) =>
-		setAttributes( {
-			btnBackgroundColor: value,
-		} );
-
-	const onChangeBtnTextColor = ( value ) =>
-		setAttributes( {
-			btnTextColor: value,
-		} );
 
 	const onSelectImage = ( media ) => {
 		const newImageURL =
@@ -167,6 +173,31 @@ export default function( {
 			btnTarget: ! opensInNewTab ? '_self' : '_blank',
 		} );
 
+	const onChangeBtnBackgroundColor = ( value ) =>
+		setAttributes( {
+			btnBackgroundColor: value,
+		} );
+
+	const onChangeBtnTextColor = ( value ) =>
+		setAttributes( {
+			btnTextColor: value,
+		} );
+
+	const onChangeBtnSize = ( value ) =>
+		setAttributes( {
+			btnSize: value,
+		} );
+
+	const onChangeBtnBorderRadius = ( value ) =>
+		setAttributes( {
+			btnBorderRadius: value,
+		} );
+
+	const onChangeBtnWrap = ( value ) =>
+		setAttributes( {
+			btnWrap: value,
+		} );
+
 	const onChangeImageSizeSlug = ( value ) => {
 		let newImageURL = imageURL;
 		if ( !! resizedImages[ value ] && !! resizedImages[ value ].url ) {
@@ -205,30 +236,88 @@ export default function( {
 					/>
 				</PanelBody>
 
-				<PanelColorSettings
-					title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
-					colorSettings={ [
-						{
-							value: btnBackgroundColor,
-							onChange: onChangeBtnBackgroundColor,
-							label: __(
-								'Background Color',
-								'snow-monkey-blocks'
-							),
-						},
-						{
-							value: btnTextColor,
-							onChange: onChangeBtnTextColor,
-							label: __( 'Text Color', 'snow-monkey-blocks' ),
-						},
-					] }
+				<PanelBody
+					title={ __( 'Button Settings', 'snow-monkey-blocks' ) }
 				>
+					<SelectControl
+						label={ __( 'Button size', 'snow-monkey-blocks' ) }
+						value={ btnSize }
+						onChange={ onChangeBtnSize }
+						options={ [
+							{
+								value: '',
+								label: __(
+									'Normal size',
+									'snow-monkey-blocks'
+								),
+							},
+							{
+								value: 'little-wider',
+								label: __(
+									'Litle wider',
+									'snow-monkey-blocks'
+								),
+							},
+							{
+								value: 'wider',
+								label: __( 'Wider', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'more-wider',
+								label: __( 'More wider', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'full',
+								label: __( 'Full size', 'snow-monkey-blocks' ),
+							},
+						] }
+					/>
+
+					<RangeControl
+						label={ __( 'Border radius', 'snow-monkey-blocks' ) }
+						value={ btnBorderRadius }
+						onChange={ onChangeBtnBorderRadius }
+						min="0"
+						max="50"
+						initialPosition="6"
+						allowReset
+					/>
+
+					<CheckboxControl
+						label={ __( 'Wrap', 'snow-monkey-blocks' ) }
+						checked={ btnWrap }
+						onChange={ onChangeBtnWrap }
+					/>
+
+					<BaseControl
+						className="editor-color-palette-control"
+						label={ __( 'Background Color', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/pricing-table--item/background-color"
+					>
+						<ColorPalette
+							className="editor-color-palette-control__color-palette"
+							value={ btnBackgroundColor }
+							onChange={ onChangeBtnBackgroundColor }
+						/>
+					</BaseControl>
+
+					<BaseControl
+						className="editor-color-palette-control"
+						label={ __( 'Text Color', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/pricing-table--item/text-color"
+					>
+						<ColorPalette
+							className="editor-color-palette-control__color-palette"
+							value={ btnTextColor }
+							onChange={ onChangeBtnTextColor }
+						/>
+					</BaseControl>
+
 					<ContrastChecker
 						backgroundColor={ btnBackgroundColor }
 						textColor={ btnTextColor }
 					/>
-				</PanelColorSettings>
+				</PanelBody>
 			</InspectorControls>
 
 			<BlockWrapper className={ classes }>
@@ -293,7 +382,7 @@ export default function( {
 					{ ( ! RichText.isEmpty( btnLabel ) || isSelected ) && (
 						<div className="smb-pricing-table__item__action">
 							<span
-								className="smb-pricing-table__item__btn smb-btn"
+								className={ btnClasses }
 								href={ btnURL }
 								style={ btnStyles }
 								target={
