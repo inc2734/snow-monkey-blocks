@@ -95,24 +95,26 @@
         flex: 0 0 50%;
         overflow: hidden;
 
-        @supports(object-fit: cover) {
-          flex: 1 0 auto;
-        }
-
         img {
-          height: 100%;
-          max-width: none;
           position: absolute;
-          top: 0;
-          bottom: 0;
+          top: 50%;
+          left: 0;
           right: 0;
+          max-height: none;
+          max-width: none;
+          height: auto;
+          width: 100%;
+          transform: translateY(-50%);
 
           @supports(object-fit: cover) {
-            position: static;
-            max-width: 100%;
             object-position: 50% 50%;
             object-fit: cover;
-            width: 100%;
+            position: static;
+            top: initial;
+            left: initial;
+            right: initial;
+            height: 100%;
+            transform: initial;
           }
         }
       }
