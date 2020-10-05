@@ -34,12 +34,18 @@
         a {
           filter: none !important; // Patch to blink
 
+          // Fallback
           &::after {
             content: '';
             @include _position(absolute, 0, 0, 0, 0);
           }
         }
       }
+    }
+
+    a.smb-items__item--block-link {
+      display: block;
+      color: inherit;
     }
 
     &__figure {
