@@ -52,7 +52,9 @@ export default function( { attributes, className } ) {
 	);
 
 	const rowClasses = classnames( 'c-row', 'c-row--margin', {
-		[ `c-row--lg-${ verticalAlignment }` ]: true,
+		'c-row--lg-top': 'top' === verticalAlignment,
+		'c-row--lg-middle': 'center' === verticalAlignment,
+		'c-row--lg-bottom': 'bottom' === verticalAlignment,
 	} );
 
 	const textColumnClasses = classnames(
