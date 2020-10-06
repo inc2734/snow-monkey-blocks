@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.5
 Tested up to: 5.5
-Stable tag: 9.5.0
+Stable tag: 9.6.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -105,6 +105,23 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 22. Price menu block (The number of items can be increased or decreased freely)
 
 == Changelog ==
+
+= 9.6.0 =
+* [Button] Changed to allow multiple buttons to be lined up like the core button block.
+* [Button] Add border radius setting.
+* [Button] Add new button size settings.
+* [Section(break the grid)] Add mask setting.
+* [Section(break the grid)] Add content background opacity setting.
+* [Section(break the grid)] Add mobile order setting.
+* [Button box] Add button setting.
+* [Items] Add button setting.
+* [Pricing table] Add button setting.
+* [Section(background image/video)] Move mask color setting to mask setting.
+* [Section(YouTube)] Move mask color setting to mask setting.
+* [Section(break the grid)] Move image position setting to toolbar.
+* [Section(break the grid)] Move vertical alignment setting to toolbar.
+* [Items] Fixed an issue with blocked links not being set if the button label is not entered.
+* [Panels] Fixed an issue where images would be collapsed in IE11 when viewed horizontally.
 
 = 9.5.0 =
 * [Recent posts] Add text2 layout. (Require Snow Monkey v11.4.0)
