@@ -24,7 +24,7 @@ import { __ } from '@wordpress/i18n';
 
 import LinkControl from '@smb/component/link-control';
 
-export default function( {
+export default function ( {
 	attributes,
 	setAttributes,
 	className,

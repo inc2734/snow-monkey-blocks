@@ -32,7 +32,7 @@ import { toNumber, getMediaType, getResizedImages } from '@smb/helper';
 import Figure from '@smb/component/figure';
 import ImageSizeSelectControl from '@smb/component/image-size-select-control';
 
-export default function( {
+export default function ( {
 	attributes,
 	setAttributes,
 	isSelected,
@@ -153,8 +153,9 @@ export default function( {
 		shadowStyles.backgroundColor = shadowColor;
 	}
 	if ( shadowHorizontalPosition || shadowVerticalPosition ) {
-		shadowStyles.transform = `translate(${ shadowHorizontalPosition ||
-			0 }%, ${ shadowVerticalPosition || 0 }%)`;
+		shadowStyles.transform = `translate(${
+			shadowHorizontalPosition || 0
+		}%, ${ shadowVerticalPosition || 0 }%)`;
 	}
 
 	const contentStyles = {

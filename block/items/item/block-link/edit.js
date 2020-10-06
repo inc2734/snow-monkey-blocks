@@ -30,7 +30,7 @@ import LinkControl from '@smb/component/link-control';
 import ImageSizeSelectControl from '@smb/component/image-size-select-control';
 import { getResizedImages } from '@smb/helper';
 
-export default function( {
+export default function ( {
 	attributes,
 	setAttributes,
 	isSelected,

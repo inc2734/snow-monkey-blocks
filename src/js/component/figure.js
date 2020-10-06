@@ -115,7 +115,7 @@ const Figure = memo(
 	}
 );
 
-export default function( props ) {
+export default function ( props ) {
 	const { src, onSelect, mediaType, allowedTypes = [ 'image' ] } = props;
 
 	const mediaTypeFallback = ! mediaType && src ? 'image' : mediaType;

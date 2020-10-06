@@ -9,9 +9,7 @@ export function apply( slider ) {
 	config.fade = true;
 	config.dots = true;
 	config.customPaging = ( thisSlider, i ) =>
-		$( thisSlider.$slides[ i ] )
-			.find( 'img' )
-			.clone()[ 0 ];
+		$( thisSlider.$slides[ i ] ).find( 'img' ).clone()[ 0 ];
 	config.arrows = config.arrows || false;
 	config.adaptiveHeight = true;
 	config.rows = 0;

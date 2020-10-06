@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import { RichText, InnerBlocks } from '@wordpress/block-editor';
 
-export default function( { attributes, className } ) {
+export default function ( { attributes, className } ) {
 	const { title, initialState } = attributes;
 	const classes = classnames( 'smb-accordion__item', className );
 

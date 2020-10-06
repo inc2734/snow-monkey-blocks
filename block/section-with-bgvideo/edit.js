@@ -25,7 +25,7 @@ import {
 import { toNumber } from '@smb/helper';
 import { getVideoId } from './utils';
 
-export default function( {
+export default function ( {
 	attributes,
 	setAttributes,
 	isSelected,

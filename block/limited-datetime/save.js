@@ -1,5 +1,5 @@
 import { InnerBlocks } from '@wordpress/block-editor';
 
-export default function() {
+export default function () {
 	return <InnerBlocks.Content />;
 }

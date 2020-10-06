@@ -2,7 +2,7 @@ import classnames from 'classnames';
 
 import { RichText } from '@wordpress/block-editor';
 
-export default function( { attributes, className } ) {
+export default function ( { attributes, className } ) {
 	const { title, rating, color } = attributes;
 
 	const classes = classnames( 'smb-rating-box__item', className );

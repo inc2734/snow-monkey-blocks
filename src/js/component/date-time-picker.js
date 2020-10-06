@@ -4,7 +4,7 @@ import { Button, DateTimePicker } from '@wordpress/components';
 import { __experimentalGetSettings } from '@wordpress/date';
 import { __ } from '@wordpress/i18n';
 
-export default function( { currentDate, onChange, onReset } ) {
+export default function ( { currentDate, onChange, onReset } ) {
 	// @see https://developer.wordpress.org/block-editor/components/date-time/#usage
 	const settings = __experimentalGetSettings();
 	const is12HourTime = /a(?!\\)/i.test(

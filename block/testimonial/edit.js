@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
 import { toNumber } from '@smb/helper';
 import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
 
-export default function( { attributes, setAttributes, className } ) {
+export default function ( { attributes, setAttributes, className } ) {
 	const { md, lg } = attributes;
 
 	const allowedBlocks = [ 'snow-monkey-blocks/testimonial--item' ];

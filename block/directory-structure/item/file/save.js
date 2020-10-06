@@ -2,7 +2,7 @@ import classnames from 'classnames';
 
 import { RichText } from '@wordpress/block-editor';
 
-export default function( { attributes, className } ) {
+export default function ( { attributes, className } ) {
 	const blockClasses = classnames(
 		'smb-directory-structure__item',
 		'smb-directory-structure__item--file',

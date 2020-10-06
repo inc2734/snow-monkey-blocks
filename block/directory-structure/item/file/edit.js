@@ -18,7 +18,7 @@ import {
 
 import FontAwesome from '@smb/component/font-awesome';
 
-export default function( { attributes, setAttributes, className } ) {
+export default function ( { attributes, setAttributes, className } ) {
 	const { iconColor, iconVendor, iconClass, name } = attributes;
 
 	const BlockWrapper = Block.div;

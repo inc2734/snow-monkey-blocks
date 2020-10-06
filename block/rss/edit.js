@@ -25,7 +25,7 @@ import { useState } from '@wordpress/element';
 
 import { toNumber } from '@smb/helper';
 
-export default function( { attributes, setAttributes } ) {
+export default function ( { attributes, setAttributes } ) {
 	const [ isEditing, setIsEditing ] = useState( ! attributes.feedURL );
 
 	const {

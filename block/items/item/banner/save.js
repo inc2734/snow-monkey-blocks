@@ -4,7 +4,7 @@ import { RichText } from '@wordpress/block-editor';
 
 import { stringToInnerText } from '@smb/helper';
 
-export default function( { attributes, className } ) {
+export default function ( { attributes, className } ) {
 	const {
 		title,
 		lede,

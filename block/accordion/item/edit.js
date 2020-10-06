@@ -10,7 +10,7 @@ import {
 	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
-export default function( { attributes, setAttributes, className } ) {
+export default function ( { attributes, setAttributes, className } ) {
 	const { title, initialState } = attributes;
 
 	const BlockWrapper = Block.div;

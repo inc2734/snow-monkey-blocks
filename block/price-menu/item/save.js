@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import { RichText } from '@wordpress/block-editor';
 
-export default function( { attributes, className } ) {
+export default function ( { attributes, className } ) {
 	const { title, price } = attributes;
 
 	const classes = classnames( 'smb-price-menu__item', className );

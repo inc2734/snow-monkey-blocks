@@ -23,7 +23,7 @@ import {
 
 import { toNumber, getColumnSize, divider } from '@smb/helper';
 
-export default function( {
+export default function ( {
 	attributes,
 	setAttributes,
 	isSelected,

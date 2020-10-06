@@ -3,7 +3,7 @@ import ServerSideRender from '@wordpress/server-side-render';
 import { InspectorControls } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 
-export default function( { attributes, setAttributes } ) {
+export default function ( { attributes, setAttributes } ) {
 	const { pageName } = attributes;
 
 	const onChangePageName = ( value ) =>

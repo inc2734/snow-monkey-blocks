@@ -2,7 +2,7 @@ import classnames from 'classnames';
 
 import { InnerBlocks } from '@wordpress/block-editor';
 
-export default function( { className } ) {
+export default function ( { className } ) {
 	const classes = classnames( 'smb-step', className );
 
 	return (

@@ -124,8 +124,9 @@ export default [
 				shadowStyles.backgroundColor = shadowColor;
 			}
 			if ( shadowHorizontalPosition || shadowVerticalPosition ) {
-				shadowStyles.transform = `translate(${ shadowHorizontalPosition ||
-					0 }%, ${ shadowVerticalPosition || 0 }%)`;
+				shadowStyles.transform = `translate(${
+					shadowHorizontalPosition || 0
+				}%, ${ shadowVerticalPosition || 0 }%)`;
 			}
 
 			const contentStyles = {

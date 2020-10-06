@@ -25,7 +25,7 @@ import {
 import Figure from '@smb/component/figure';
 import LinkControl from '@smb/component/link-control';
 
-export default function( {
+export default function ( {
 	attributes,
 	setAttributes,
 	isSelected,

@@ -11,7 +11,7 @@ import {
 
 import { toNumber } from '@smb/helper';
 
-export default function( { attributes, setAttributes, className } ) {
+export default function ( { attributes, setAttributes, className } ) {
 	const { title, rating, color } = attributes;
 
 	const classes = classnames( 'smb-rating-box__item', className );

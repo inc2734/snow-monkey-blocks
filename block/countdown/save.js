@@ -2,7 +2,7 @@ import classnames from 'classnames';
 
 import { __ } from '@wordpress/i18n';
 
-export default function( { attributes, className } ) {
+export default function ( { attributes, className } ) {
 	const blockClasses = classnames( 'smb-countdown', className );
 
 	const listClasses = classnames( 'smb-countdown__list', {

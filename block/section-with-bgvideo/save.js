@@ -4,7 +4,7 @@ import { RichText, InnerBlocks } from '@wordpress/block-editor';
 
 import { getVideoId } from './utils';
 
-export default function( { attributes, className } ) {
+export default function ( { attributes, className } ) {
 	const {
 		titleTagName,
 		title,

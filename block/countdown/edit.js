@@ -13,7 +13,7 @@ import {
 
 import DateTimePicker from '@smb/component/date-time-picker';
 
-export default function( { attributes, setAttributes, className } ) {
+export default function ( { attributes, setAttributes, className } ) {
 	const { alignment, numericColor, clockColor, countdownTime } = attributes;
 
 	const BlockWrapper = Block.div;

@@ -2,7 +2,7 @@ import { SelectControl } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import { getResizedImages } from '@smb/helper';
 
-export default function( props ) {
+export default function ( props ) {
 	const { label, id, slug, onChange } = props;
 
 	if ( ! id ) {

@@ -10,7 +10,7 @@ const linkControlTarget = ( target ) => {
 	}
 };
 
-export default function( props ) {
+export default function ( props ) {
 	const { url, target, onChange } = props;
 
 	return (

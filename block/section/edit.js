@@ -23,7 +23,7 @@ import {
 
 import { toNumber, divider } from '@smb/helper';
 
-export default function( {
+export default function ( {
 	attributes,
 	setAttributes,
 	isSelected,

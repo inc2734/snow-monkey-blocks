@@ -8,7 +8,7 @@ import {
 } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 
-export default function( {
+export default function ( {
 	attributes,
 	setAttributes,
 	isSelected,

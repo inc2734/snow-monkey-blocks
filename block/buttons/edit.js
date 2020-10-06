@@ -8,7 +8,7 @@ import {
 	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
-export default function( { attributes, setAttributes, className } ) {
+export default function ( { attributes, setAttributes, className } ) {
 	const { textAlign } = attributes;
 
 	const allowedBlocks = [ 'snow-monkey-blocks/btn' ];

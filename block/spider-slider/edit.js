@@ -18,7 +18,7 @@ import { __ } from '@wordpress/i18n';
 import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
 import { getResizedImages, toNumber } from '@smb/helper';
 
-export default function( {
+export default function ( {
 	attributes,
 	setAttributes,
 	className,

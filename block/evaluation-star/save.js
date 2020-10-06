@@ -5,7 +5,7 @@ import { sprintf } from '@wordpress/i18n';
 
 import { toNumber } from '@smb/helper';
 
-export default function( { attributes, className } ) {
+export default function ( { attributes, className } ) {
 	const {
 		evaluationValue,
 		iconColor,

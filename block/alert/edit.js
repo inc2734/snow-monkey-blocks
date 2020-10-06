@@ -17,7 +17,7 @@ import {
 
 import FontAwesome from '@smb/component/font-awesome';
 
-export default function( {
+export default function ( {
 	attributes,
 	setAttributes,
 	isSelected,

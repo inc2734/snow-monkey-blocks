@@ -2,7 +2,7 @@ import { PanelBody, TextControl, Placeholder } from '@wordpress/components';
 import { InspectorControls } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 
-export default function( { attributes, setAttributes } ) {
+export default function ( { attributes, setAttributes } ) {
 	const { title } = attributes;
 
 	const onChangeTitle = ( value ) =>

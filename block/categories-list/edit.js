@@ -21,7 +21,7 @@ import {
 import { toNumber } from '@smb/helper';
 import { apply } from './categories-list';
 
-export default function( { attributes, setAttributes, className } ) {
+export default function ( { attributes, setAttributes, className } ) {
 	const { articles, exclusionCategories, orderby, order } = attributes;
 
 	const ulRef = useRef();

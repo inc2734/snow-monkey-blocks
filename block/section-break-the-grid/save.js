@@ -3,7 +3,7 @@ import hexToRgba from 'hex-to-rgba';
 
 import { RichText, InnerBlocks } from '@wordpress/block-editor';
 
-export default function( { attributes, className } ) {
+export default function ( { attributes, className } ) {
 	const {
 		wrapperTagName,
 		titleTagName,
@@ -93,8 +93,9 @@ export default function( { attributes, className } ) {
 		shadowStyles.backgroundColor = shadowColor;
 	}
 	if ( shadowHorizontalPosition || shadowVerticalPosition ) {
-		shadowStyles.transform = `translate(${ shadowHorizontalPosition ||
-			0 }%, ${ shadowVerticalPosition || 0 }%)`;
+		shadowStyles.transform = `translate(${
+			shadowHorizontalPosition || 0
+		}%, ${ shadowVerticalPosition || 0 }%)`;
 	}
 
 	const contentStyles = {

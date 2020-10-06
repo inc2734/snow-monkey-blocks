@@ -2,7 +2,7 @@ import classnames from 'classnames';
 
 import { RichText, InnerBlocks } from '@wordpress/block-editor';
 
-export default function( { attributes, className } ) {
+export default function ( { attributes, className } ) {
 	const { title, numberColor } = attributes;
 
 	const classes = classnames( 'smb-step__item', className );

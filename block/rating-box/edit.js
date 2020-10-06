@@ -5,7 +5,7 @@ import {
 	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
-export default function( { className } ) {
+export default function ( { className } ) {
 	const allowedBlocks = [ 'snow-monkey-blocks/rating-box--item' ];
 	const template = [ [ 'snow-monkey-blocks/rating-box--item' ] ];
 

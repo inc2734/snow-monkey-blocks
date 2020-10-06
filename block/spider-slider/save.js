@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-export default function( { attributes, className } ) {
+export default function ( { attributes, className } ) {
 	const {
 		images,
 		aspectRatio,

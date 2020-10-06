@@ -12,7 +12,7 @@ import {
 	Spinner,
 } from '@wordpress/components';
 
-export default function( { attributes, setAttributes } ) {
+export default function ( { attributes, setAttributes } ) {
 	const { taxonomy, orderby, order } = attributes;
 
 	const { taxonomies } = useSelect( ( select ) => {

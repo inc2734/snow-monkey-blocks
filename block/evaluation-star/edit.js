@@ -18,7 +18,7 @@ import {
 import FontAwesome from '@smb/component/font-awesome';
 import { toNumber } from '@smb/helper';
 
-export default function( {
+export default function ( {
 	attributes,
 	setAttributes,
 	className,

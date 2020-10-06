@@ -2,7 +2,7 @@ import classnames from 'classnames';
 
 import { InnerBlocks } from '@wordpress/block-editor';
 
-export default function( { attributes, className } ) {
+export default function ( { attributes, className } ) {
 	const { columnSize } = attributes;
 
 	const classes = classnames( 'smb-pricing-table', {

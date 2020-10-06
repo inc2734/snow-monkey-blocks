@@ -25,7 +25,7 @@ import { toNumber, getMediaType } from '@smb/helper';
 import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
 import Figure from '@smb/component/figure';
 
-export default function( {
+export default function ( {
 	attributes,
 	setAttributes,
 	isSelected,

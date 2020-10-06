@@ -11,7 +11,7 @@ import {
 	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
-export default function( { attributes, setAttributes, className, clientId } ) {
+export default function ( { attributes, setAttributes, className, clientId } ) {
 	const { content, icon, iconColor } = attributes;
 
 	const iconList = [

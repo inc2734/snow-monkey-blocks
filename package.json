@@ -267,7 +267,7 @@
     "test:unit:php": "wp-env run phpunit 'phpunit -c /var/www/html/wp-content/plugins/snow-monkey-blocks/.phpunit.xml.dist --verbose'",
     "test:unit": "run-s test:unit:*",
     "test": "run-s test:*",
-    "format:js": "wp-scripts format-js block format src/js",
+    "format:js": "wp-scripts format-js block src/js",
     "format": "run-p format:*",
     "build": "run-s css js packages po2json img block",
     "clean:css": "rimraf dist/css",

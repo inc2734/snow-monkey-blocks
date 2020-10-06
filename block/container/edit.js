@@ -9,7 +9,7 @@ import { PanelBody, ToggleControl } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
-export default function( { attributes, setAttributes, className, clientId } ) {
+export default function ( { attributes, setAttributes, className, clientId } ) {
 	const { isSlim } = attributes;
 
 	const hasInnerBlocks = useSelect(

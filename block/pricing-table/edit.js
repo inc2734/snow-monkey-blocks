@@ -8,7 +8,7 @@ import {
 } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 
-export default function( { attributes, setAttributes, className } ) {
+export default function ( { attributes, setAttributes, className } ) {
 	const { columnSize } = attributes;
 
 	const BlockWrapper = Block.div;

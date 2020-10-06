@@ -2,7 +2,7 @@
 
 import { TabPanel, Dashicon } from '@wordpress/components';
 
-export default function( props ) {
+export default function ( props ) {
 	const { desktop, tablet, mobile } = props;
 
 	const icons = [];

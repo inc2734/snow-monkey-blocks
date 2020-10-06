@@ -15,7 +15,7 @@ import {
 	ToggleControl,
 } from '@wordpress/components';
 
-export default function( { attributes, setAttributes } ) {
+export default function ( { attributes, setAttributes } ) {
 	const {
 		headings,
 		moveToBefore1stHeading,

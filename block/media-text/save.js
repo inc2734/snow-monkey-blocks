@@ -4,7 +4,7 @@ import { RichText, InnerBlocks } from '@wordpress/block-editor';
 
 import { getColumnSize } from '@smb/helper';
 
-export default function( { attributes, className } ) {
+export default function ( { attributes, className } ) {
 	const {
 		titleTagName,
 		title,

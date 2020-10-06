@@ -2,7 +2,7 @@ import classnames from 'classnames';
 
 import { InnerBlocks } from '@wordpress/block-editor';
 
-export default function( { attributes, className } ) {
+export default function ( { attributes, className } ) {
 	const { sm, md, lg, imagePadding } = attributes;
 
 	const classes = classnames( 'smb-panels', className );
