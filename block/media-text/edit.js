@@ -196,7 +196,7 @@ export default function( {
 
 	const onChangeMobileOrder = ( value ) =>
 		setAttributes( {
-			mobileOrder: value,
+			mobileOrder: '' === value ? undefined : value,
 		} );
 
 	const onChangeCaption = ( value ) =>

@@ -80,7 +80,7 @@
     },
     "verticalAlignment": {
       "type": "string",
-      "default": "middle"
+      "default": "center"
     },
     "contentSize": {
       "type": "string",
@@ -124,6 +124,9 @@
     "maskOpacity": {
       "type": "number",
       "default": 1
+    },
+    "mobileOrder": {
+      "type": "string"
     }
   },
   "supports": {

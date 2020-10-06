@@ -11,6 +11,8 @@ import {
 	InspectorControls,
 	PanelColorSettings,
 	ColorPalette,
+	BlockControls,
+	BlockVerticalAlignmentToolbar,
 	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
 
@@ -21,7 +23,10 @@ import {
 	Button,
 	RangeControl,
 	ToggleControl,
+	ToolbarGroup,
 } from '@wordpress/components';
+
+import { pullLeft, pullRight } from '@wordpress/icons';
 
 import { toNumber, getMediaType, getResizedImages } from '@smb/helper';
 import Figure from '@smb/component/figure';
@@ -62,6 +67,7 @@ export default function( {
 		shadowVerticalPosition,
 		maskColor,
 		maskOpacity,
+		mobileOrder,
 	} = attributes;
 
 	const { resizedImages } = useSelect( ( select ) => {
@@ -99,13 +105,16 @@ export default function( {
 			[ `smb-section-break-the-grid--vertical-${ contentVerticalPosition }` ]:
 				contentVerticalPosition &&
 				verticalAlignment &&
-				'middle' !== verticalAlignment,
+				'center' !== verticalAlignment,
+			[ `smb-section-break-the-grid--mobile-${ mobileOrder }` ]: !! mobileOrder,
 			[ className ]: !! className,
 		}
 	);
 
 	const rowClasses = classnames( 'c-row', 'c-row--margin', {
-		[ `c-row--lg-${ verticalAlignment }` ]: true,
+		'c-row--lg-top': 'top' === verticalAlignment,
+		'c-row--lg-middle': 'center' === verticalAlignment,
+		'c-row--lg-bottom': 'bottom' === verticalAlignment,
 	} );
 
 	const textColumnClasses = classnames(
@@ -162,11 +171,6 @@ export default function( {
 	const figureStyles = {
 		opacity: maskOpacity,
 	};
-
-	const onChangeImagePosition = ( value ) =>
-		setAttributes( {
-			imagePosition: value,
-		} );
 
 	const onChangeImageSize = ( value ) =>
 		setAttributes( {
@@ -258,6 +262,11 @@ export default function( {
 			maskOpacity: toNumber( ( 1 - value ).toFixed( 1 ), 0, 1 ),
 		} );
 
+	const onChangeMobileOrder = ( value ) =>
+		setAttributes( {
+			mobileOrder: '' === value ? undefined : value,
+		} );
+
 	const onSelectImage = ( media ) => {
 		const newImageURL =
 			!! media.sizes && !! media.sizes[ imageSizeSlug ]
@@ -317,6 +326,21 @@ export default function( {
 			imageSizeSlug: value,
 		} );
 	};
+
+	const toolbarControls = [
+		{
+			icon: pullLeft,
+			title: __( 'Show media on left', 'snow-monkey-blocks' ),
+			isActive: 'left' === imagePosition,
+			onClick: () => setAttributes( { imagePosition: 'left' } ),
+		},
+		{
+			icon: pullRight,
+			title: __( 'Show media on right', 'snow-monkey-blocks' ),
+			isActive: 'right' === imagePosition,
+			onClick: () => setAttributes( { imagePosition: 'right' } ),
+		},
+	];
 
 	return (
 		<>
@@ -379,27 +403,37 @@ export default function( {
 						</div>
 					</BaseControl>
 
-					<SelectControl
-						label={ __( 'Image position', 'snow-monkey-blocks' ) }
-						value={ imagePosition }
-						options={ [
-							{
-								value: 'left',
-								label: __( 'Left side', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'right',
-								label: __( 'Right side', 'snow-monkey-blocks' ),
-							},
-						] }
-						onChange={ onChangeImagePosition }
-					/>
-
 					<ImageSizeSelectControl
 						label={ __( 'Images size', 'snow-monkey-blocks' ) }
 						id={ imageID }
 						slug={ imageSizeSlug }
 						onChange={ onChangeImageSizeSlug }
+					/>
+
+					<SelectControl
+						label={ __( 'Sort by mobile', 'snow-monkey-blocks' ) }
+						value={ mobileOrder }
+						options={ [
+							{
+								value: '',
+								label: __( 'Default', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'text',
+								label: __(
+									'Text > Image',
+									'snow-monkey-blocks'
+								),
+							},
+							{
+								value: 'image',
+								label: __(
+									'Image > Text',
+									'snow-monkey-blocks'
+								),
+							},
+						] }
+						onChange={ onChangeMobileOrder }
 					/>
 
 					<SelectControl
@@ -423,29 +457,6 @@ export default function( {
 							},
 						] }
 						onChange={ onChangeImageSize }
-					/>
-
-					<SelectControl
-						label={ __(
-							'Vertical Alignment',
-							'snow-monkey-blocks'
-						) }
-						value={ verticalAlignment }
-						options={ [
-							{
-								value: 'top',
-								label: __( 'Top', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'middle',
-								label: __( 'Middle', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'bottom',
-								label: __( 'Bottom', 'snow-monkey-blocks' ),
-							},
-						] }
-						onChange={ onChangeVerticalAlignment }
 					/>
 
 					<BaseControl
@@ -542,7 +553,7 @@ export default function( {
 						onChange={ onChangeContentHorizontalPosition }
 					/>
 
-					{ verticalAlignment && 'middle' !== verticalAlignment && (
+					{ verticalAlignment && 'center' !== verticalAlignment && (
 						<SelectControl
 							label={ __(
 								'Vertical position of content',
@@ -766,6 +777,14 @@ export default function( {
 					] }
 				></PanelColorSettings>
 			</InspectorControls>
+
+			<BlockControls>
+				<ToolbarGroup controls={ toolbarControls } />
+				<BlockVerticalAlignmentToolbar
+					onChange={ onChangeVerticalAlignment }
+					value={ verticalAlignment }
+				/>
+			</BlockControls>
 
 			<BlockWrapper className={ classes } style={ sectionStyles }>
 				<div className="c-container">

@@ -32,6 +32,7 @@ export default function( { attributes, className } ) {
 		shadowVerticalPosition,
 		maskColor,
 		maskOpacity,
+		mobileOrder,
 	} = attributes;
 
 	const Wrapper = wrapperTagName;
@@ -45,6 +46,7 @@ export default function( { attributes, className } ) {
 				contentVerticalPosition &&
 				verticalAlignment &&
 				'middle' !== verticalAlignment,
+			[ `smb-section-break-the-grid--mobile-${ mobileOrder }` ]: !! mobileOrder,
 			[ className ]: !! className,
 		}
 	);
