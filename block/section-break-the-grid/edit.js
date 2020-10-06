@@ -169,7 +169,7 @@ export default function( {
 	}
 
 	const figureStyles = {
-		opacity: maskOpacity,
+		opacity: !! maskColor ? maskOpacity : undefined,
 	};
 
 	const onChangeImageSize = ( value ) =>

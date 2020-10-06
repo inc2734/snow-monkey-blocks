@@ -109,7 +109,7 @@ export default function( { attributes, className } ) {
 	}
 
 	const figureStyles = {
-		opacity: maskOpacity,
+		opacity: !! maskColor ? maskOpacity : undefined,
 	};
 
 	const image = (
