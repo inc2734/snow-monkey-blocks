@@ -31,7 +31,7 @@ class Assets {
 	 */
 	public function _enqueue_block_scripts( $block_content, $block ) {
 		if ( is_admin() ) {
-			return;
+			return $block_content;
 		}
 
 		// Parallax assets for the section with background image/video block
