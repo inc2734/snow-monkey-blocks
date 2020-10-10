@@ -1,9 +1,36 @@
+import classnames from 'classnames';
 import { get, times } from 'lodash';
 
 import { RichText, InnerBlocks } from '@wordpress/block-editor';
 import { createBlock } from '@wordpress/blocks';
 
+import metadata from './block.json';
+
+const blockAttributes = metadata.attributes;
+
 export default [
+	{
+		attributes: {
+			...blockAttributes,
+		},
+
+		save( { attributes, className } ) {
+			const { columnSize } = attributes;
+
+			const classes = classnames( 'smb-pricing-table', {
+				[ `smb-pricing-table--col-size-${ columnSize }` ]: !! columnSize,
+				[ className ]: !! className,
+			} );
+
+			return (
+				<div className={ classes }>
+					<div className="c-row c-row--md-nowrap">
+						<InnerBlocks.Content />
+					</div>
+				</div>
+			);
+		},
+	},
 	{
 		save() {
 			return (

@@ -6,10 +6,25 @@ import {
 	InspectorControls,
 	__experimentalBlock as Block,
 } from '@wordpress/block-editor';
+import { useEffect } from '@wordpress/element';
+import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
-export default function ( { attributes, setAttributes, className } ) {
-	const { columnSize } = attributes;
+export default function ( { attributes, setAttributes, className, clientId } ) {
+	const { columnSize, childrenCount } = attributes;
+
+	const innerBlocksCount = useSelect( ( select ) => {
+		return select( 'core/editor' ).getBlocksByClientId( clientId )[ 0 ]
+			.innerBlocks.length;
+	} );
+
+	useEffect( () => {
+		if ( !! innerBlocksCount ) {
+			setAttributes( {
+				childrenCount: innerBlocksCount,
+			} );
+		}
+	}, [ innerBlocksCount ] );
 
 	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-pricing-table', {
@@ -69,7 +84,10 @@ export default function ( { attributes, setAttributes, className } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<BlockWrapper className={ classes }>
+			<BlockWrapper
+				className={ classes }
+				data-has-items={ 0 < childrenCount ? childrenCount : undefined }
+			>
 				<div className="c-row c-row--md-nowrap">
 					<InnerBlocks
 						allowedBlocks={ allowedBlocks }

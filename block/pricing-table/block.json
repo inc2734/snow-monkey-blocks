@@ -4,6 +4,10 @@
   "attributes": {
     "columnSize": {
       "type": "string"
+    },
+    "childrenCount": {
+      "type": "number",
+      "default": 0
     }
   },
   "supports": {

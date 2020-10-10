@@ -3,9 +3,7 @@
 @import '../../src/css/core/block';
 
 .editor-styles-wrapper {
-
   .smb-pricing-table {
-
     &__item {
       > ul {
         @include _list-unstyled();
@@ -19,11 +17,6 @@
 
         > .block-editor-block-list__layout {
           display: flex;
-          flex-wrap: wrap;
-
-          > .block-list-appender {
-            flex: 1 1 100%;
-          }
         }
       }
     }
