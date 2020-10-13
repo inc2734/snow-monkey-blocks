@@ -40,6 +40,10 @@ $widget_args = [
 	'id'            => null,
 ];
 
+$args = [
+	'_context' => 'snow-monkey-blocks/rss',
+];
+
 ob_start();
 
 if ( file_exists( get_theme_file_path( $custom_template ) ) ) {
