@@ -13,9 +13,16 @@
 
       .spider__figure {
         position: absolute;
+        top: 50%; // For IE11
+        left: 50%; // For IE11
+        transform: translate(-50%, -50%); // For IE11
+        width: 100%;
 
         @supports (object-fit: cover) {
-          height: auto;
+          top: 0;
+          left: 0;
+          transform: initial;
+          height: 100%;
           max-height: none;
           object-fit: cover;
           object-position: 50% 50%;
