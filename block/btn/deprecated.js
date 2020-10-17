@@ -61,9 +61,16 @@ export default [
 						href={ url }
 						style={ btnStyles }
 						target={ '_self' === target ? undefined : target }
-						rel={ '_self' === target ? undefined : 'noopener noreferrer' }
+						rel={
+							'_self' === target
+								? undefined
+								: 'noopener noreferrer'
+						}
 					>
-						<span className="smb-btn__label" style={ btnLabelStyles }>
+						<span
+							className="smb-btn__label"
+							style={ btnLabelStyles }
+						>
 							<RichText.Content value={ content } />
 						</span>
 					</a>
