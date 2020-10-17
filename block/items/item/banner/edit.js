@@ -242,7 +242,17 @@ export default function ( {
 						options={ [
 							{
 								value: 'default',
-								label: __( 'Default', 'snow-monkey-blocks' ),
+								label: __(
+									'Fit to the image',
+									'snow-monkey-blocks'
+								),
+							},
+							{
+								value: 'contents',
+								label: __(
+									'Fit to the contents',
+									'snow-monkey-blocks'
+								),
 							},
 							{
 								value: 'standard',

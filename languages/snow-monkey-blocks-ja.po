@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2020-10-17 10:25+0900\n"
-"PO-Revision-Date: 2020-10-17 10:26+0900\n"
+"POT-Creation-Date: 2020-10-17 19:32+0900\n"
+"PO-Revision-Date: 2020-10-17 19:33+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -89,7 +89,7 @@ msgstr "アコーディオンのように伸縮するコンテンツエリアを
 #: block/contents-outline/edit.js:80 block/countdown/edit.js:64
 #: block/directory-structure/item/directory/edit.js:86
 #: block/directory-structure/item/file/edit.js:66 block/faq/item/edit.js:63
-#: block/items/edit.js:46 block/items/item/banner/edit.js:210
+#: block/items/edit.js:46 block/items/item/banner/edit.js:220
 #: block/items/item/block-link/edit.js:227 block/items/item/item/edit.js:76
 #: block/items/item/standard/edit.js:227 block/like-me-box/edit.js:18
 #: block/limited-datetime/edit.js:77 block/list/edit.js:73
@@ -206,7 +206,7 @@ msgstr "背景の不透明度"
 
 #: block/box/edit.js:92 block/btn-box/edit.js:220 block/btn/edit.js:176
 #: block/countdown/edit.js:72 block/evaluation-star/edit.js:190
-#: block/faq/item/edit.js:103 block/items/item/banner/edit.js:273
+#: block/faq/item/edit.js:103 block/items/item/banner/edit.js:287
 #: block/items/item/item/edit.js:120 block/rating-box/item/edit.js:55
 #: block/section-break-the-grid/edit.js:770
 #: block/section-side-heading/edit.js:306
@@ -229,7 +229,7 @@ msgid "Border Color"
 msgstr "枠線の色"
 
 #: block/box/edit.js:111 block/btn-box/edit.js:203 block/btn/edit.js:190
-#: block/items/item/banner/edit.js:284 block/items/item/block-link/edit.js:332
+#: block/items/item/banner/edit.js:298 block/items/item/block-link/edit.js:332
 #: block/items/item/standard/edit.js:331 block/pricing-table/item/edit.js:306
 #: block/section-break-the-grid/edit.js:776
 #: block/section-side-heading/edit.js:320
@@ -346,10 +346,10 @@ msgid "It is a button with micro copy."
 msgstr "マイクロコピー付きのボタンです。"
 
 #: block/btn-box/index.js:24 block/btn/index.js:29 block/countdown/index.js:39
-#: block/items/item/banner/edit.js:235 block/media-text/edit.js:266
-#: block/recent-posts/edit.js:211 block/rss/edit.js:200
-#: block/section-break-the-grid/edit.js:420 block/slider/edit.js:40
-#: block/spider-slider/edit.js:131 block/taxonomy-terms/index.js:28
+#: block/media-text/edit.js:266 block/recent-posts/edit.js:211
+#: block/rss/edit.js:200 block/section-break-the-grid/edit.js:420
+#: block/slider/edit.js:40 block/spider-slider/edit.js:131
+#: block/taxonomy-terms/index.js:28
 msgid "Default"
 msgstr "デフォルト"
 
@@ -748,25 +748,33 @@ msgstr "項目"
 msgid "Let's line up the contents."
 msgstr "コンテンツを並べましょう。"
 
-#: block/items/item/banner/edit.js:213
+#: block/items/item/banner/edit.js:223
 msgid "Image"
 msgstr "画像"
 
-#: block/items/item/banner/edit.js:228
+#: block/items/item/banner/edit.js:238
 msgid "Image aspect ratio"
 msgstr "画像のアスペクト比"
 
-#: block/items/item/banner/edit.js:239 block/slider/edit.js:48
+#: block/items/item/banner/edit.js:245
+msgid "Fit to the image"
+msgstr "画像に合わせる"
+
+#: block/items/item/banner/edit.js:249
+msgid "Fit to the contents"
+msgstr "コンテンツに合わせる"
+
+#: block/items/item/banner/edit.js:253 block/slider/edit.js:48
 #: block/spider-slider/edit.js:139
 msgid "4:3"
 msgstr "4:3"
 
-#: block/items/item/banner/edit.js:243 block/slider/edit.js:44
+#: block/items/item/banner/edit.js:257 block/slider/edit.js:44
 #: block/spider-slider/edit.js:135
 msgid "16:9"
 msgstr "16:9"
 
-#: block/items/item/banner/edit.js:250 block/items/item/block-link/edit.js:258
+#: block/items/item/banner/edit.js:264 block/items/item/block-link/edit.js:258
 #: block/items/item/standard/edit.js:257 block/media-text/edit.js:255
 #: block/panels/item/horizontal/edit.js:234
 #: block/panels/item/vertical/edit.js:203 block/pricing-table/item/edit.js:232
@@ -777,17 +785,17 @@ msgstr "16:9"
 msgid "Images size"
 msgstr "画像サイズ"
 
-#: block/items/item/banner/edit.js:257
+#: block/items/item/banner/edit.js:271
 msgid "Blur"
 msgstr "ぼかす"
 
-#: block/items/item/banner/edit.js:263 block/section-break-the-grid/edit.js:477
+#: block/items/item/banner/edit.js:277 block/section-break-the-grid/edit.js:477
 #: block/section-with-bgimage/edit.js:501
 #: block/section-with-bgvideo/edit.js:307
 msgid "Mask Opacity"
 msgstr "背景マスクの不透明度"
 
-#: block/items/item/banner/edit.js:279 block/section-break-the-grid/edit.js:465
+#: block/items/item/banner/edit.js:293 block/section-break-the-grid/edit.js:465
 #: block/section-with-bgimage/edit.js:463
 #: block/section-with-bgvideo/edit.js:269
 msgid "Mask Color"

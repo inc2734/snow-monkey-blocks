@@ -112,20 +112,17 @@
       }
     }
 
+    &--contents,
     &--standard,
     &--wide {
-      position: relative;
-
-      &::before {
-        content: '';
-        display: block;
-      }
-
       .smb-items__banner__figure {
         @include _position(absolute, 0, 0, 0, 0);
 
         > img {
-          object-fit: cover;
+          @supports (object-fit: cover) {
+            object-fit: cover;
+            height: 100%;
+          }
         }
 
         &__dummy {
@@ -135,6 +132,22 @@
             display: none;
           }
         }
+      }
+    }
+
+    &--contents {
+      .smb-items__banner__body {
+        position: relative;
+      }
+    }
+
+    &--standard,
+    &--wide {
+      position: relative;
+
+      &::before {
+        content: '';
+        display: block;
       }
     }
 
