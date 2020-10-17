@@ -18,9 +18,13 @@
     justify-content: flex-end;
   }
 
-  > * {
-    &:not(:first-child) {
-      @include _margin-left(.5);
-    }
+  @include _margin-right(-.25);
+  @include _margin-left(-.25);
+  @include _margin-bottom(-.5);
+
+  > .smb-btn-wrapper {
+    @include _padding-right(.25);
+    @include _padding-left(.25);
+    @include _padding-bottom(.5);
   }
 }
