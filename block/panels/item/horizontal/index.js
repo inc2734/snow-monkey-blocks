@@ -12,7 +12,7 @@ const { name } = metadata;
 export { metadata, name };
 
 export const settings = {
-	title: __( 'Item (Horizontal)', 'snow-monkey-blocks' ),
+	title: __( 'Item (Horizontal layout)', 'snow-monkey-blocks' ),
 	description: __(
 		'It is a child block of the panels block.',
 		'snow-monkey-blocks'
