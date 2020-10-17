@@ -20,13 +20,17 @@ export default function ( { attributes, className } ) {
 		imageAlt,
 		imageWidth,
 		imageHeight,
+		align,
 	} = attributes;
 
 	const classes = classnames( 'c-row__col', className );
 	const bannerClasses = classnames(
 		'smb-items__banner',
 		`smb-items__banner--${ imageSize }`,
-		{ 'smb-items__banner--blur': blur }
+		{
+			'smb-items__banner--blur': blur,
+			[ `has-text-align-${ align }` ]: align,
+		}
 	);
 
 	const styles = {

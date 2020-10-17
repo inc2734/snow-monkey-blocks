@@ -78,7 +78,10 @@
     "imageSizeSlug": {
       "type": "string",
       "default": "large"
-    }
+    },
+		"align": {
+			"type": "string"
+		}
   },
   "supports": {
     "lightBlockWrapper": true

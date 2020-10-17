@@ -16,6 +16,7 @@ import {
 } from '@wordpress/components';
 
 import {
+	AlignmentToolbar,
 	InspectorControls,
 	RichText,
 	PanelColorSettings,
@@ -50,6 +51,7 @@ export default function ( {
 		imageWidth,
 		imageHeight,
 		imageSizeSlug,
+		align,
 	} = attributes;
 
 	const [ isLinkUIOpen, setIsLinkUIOpen ] = useState( false );
@@ -89,7 +91,10 @@ export default function ( {
 	const bannerClasses = classnames(
 		'smb-items__banner',
 		`smb-items__banner--${ imageSize }`,
-		{ 'smb-items__banner--blur': blur }
+		{
+			'smb-items__banner--blur': blur,
+			[ `has-text-align-${ align }` ]: align,
+		}
 	);
 
 	const styles = {
@@ -202,6 +207,11 @@ export default function ( {
 			imageSizeSlug: value,
 		} );
 	};
+
+	const onChangeAlign = ( value ) =>
+		setAttributes( {
+			align: value,
+		} );
 
 	return (
 		<>
@@ -346,6 +356,7 @@ export default function ( {
 			</BlockWrapper>
 
 			<BlockControls>
+				<AlignmentToolbar value={ align } onChange={ onChangeAlign } />
 				<ToolbarGroup>
 					<Button
 						icon="admin-links"

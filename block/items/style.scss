@@ -93,6 +93,13 @@
       }
     }
 
+    &[class*="has-text-align-"] {
+      text-align: initial;
+    }
+    &.has-text-align-left .smb-items__banner__body { align-items: flex-start; }
+    &.has-text-align-center .smb-items__banner__body { align-items: center; }
+    &.has-text-align-right .smb-items__banner__body { align-items: flex-end; }
+
     &--blur {
       .smb-items__banner__figure > img {
         filter: blur(3px);
