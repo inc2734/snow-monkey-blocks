@@ -22,6 +22,7 @@ $classnames[] = $attributes['className'];
 		'template-parts/common/like-me-box',
 		null,
 		[
+			'_context'            => 'snow-monkey-blocks/like-me-box',
 			'_facebook_page_name' => $page_name,
 		]
 	);

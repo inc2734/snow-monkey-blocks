@@ -31,7 +31,8 @@ $classnames[] = $attributes['className'];
 			'template-parts/content/child-pages',
 			null,
 			[
-				'_title' => $attributes['title'],
+				'_context' => 'snow-monkey-blocks/child-pages',
+				'_title'   => $attributes['title'],
 			]
 		);
 	} else {

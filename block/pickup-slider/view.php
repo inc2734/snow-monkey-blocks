@@ -32,6 +32,10 @@ $widget_args = [
 	'widget_id'     => $widget_id,
 ];
 
+$args = [
+	'_context' => 'snow-monkey-blocks/pickup-slider',
+];
+
 ob_start();
 
 if ( file_exists( get_theme_file_path( $custom_template ) ) ) {
