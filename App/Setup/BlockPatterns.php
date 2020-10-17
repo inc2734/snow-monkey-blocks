@@ -212,6 +212,7 @@ class BlockPatterns {
 	 * @return string
 	 */
 	protected function _render( $path ) {
+		$path = realpath( $path );
 		if ( ! file_exists( $path ) ) {
 			return;
 		}
