@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.5
 Tested up to: 5.5
-Stable tag: 9.6.2
+Stable tag: 9.7.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -105,6 +105,16 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 22. Price menu block (The number of items can be increased or decreased freely)
 
 == Changelog ==
+
+= 9.7.0 =
+* [Slider] Fixed layout mismatch in ie11.
+* [Pickup slider] Fixed layout mismatch in ie11.
+* [Panel] Change children items name.
+* [Buttons] Update layout.
+* [Button] Fixed a bug that prevented it from becoming full size.
+* [Items (Banner)] Add text alignment setting.
+* [Items (Banner)] Add "Fit the content" to size setting.
+* [Items (Banner)] Change the size setting from "Default" to "Fit to image".
 
 = 9.6.2 =
 * Fix bug that Assets::_enqueue_block_scripts() does not return $block_content in admin context.
