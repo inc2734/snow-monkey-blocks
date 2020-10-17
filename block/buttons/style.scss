@@ -23,8 +23,19 @@
   @include _margin-bottom(-.5);
 
   > .smb-btn-wrapper {
+    flex: 0 0 auto;
     @include _padding-right(.25);
     @include _padding-left(.25);
     @include _padding-bottom(.5);
+  }
+
+  > .smb-btn-wrapper--more-wider {
+    @include _media-max(sm) {
+      flex: 1 1 auto;
+    }
+  }
+
+  > .smb-btn-wrapper--full {
+    flex: 1 1 auto;
   }
 }

@@ -6,18 +6,35 @@
   @include btn();
 
   &--little-wider {
-    @include _padding-right(2);
-    @include _padding-left(2);
+    @include _padding-right(1.5);
+    @include _padding-left(1.5);
+
+    @include _media-min(md) {
+      @include _padding-right(2);
+      @include _padding-left(2);
+    }
   }
 
   &--wider {
-    @include _padding-right(3);
-    @include _padding-left(3);
+    @include _padding-right(2);
+    @include _padding-left(2);
+
+    @include _media-min(md) {
+      @include _padding-right(3);
+      @include _padding-left(3);
+    }
   }
 
   &--more-wider {
-    @include _padding-right(4);
-    @include _padding-left(4);
+    width: 100%;
+    display: block;
+
+    @include _media-min(md) {
+      width: auto;
+      display: inline-block;
+      @include _padding-right(4);
+      @include _padding-left(4);
+    }
   }
 
   &--full {

@@ -1,5 +1,6 @@
 @mixin btn() {
   @include _btn();
+  line-height: 1.5;
   display: inline-flex;
   justify-content: center;
   background-color: $color-accent;
@@ -8,7 +9,7 @@
   border-radius: _var-border-radius();
   color: $_color-white; // For IE11
   color: _var-color-white();
-  @include _padding(.5, 1.25);
+  @include _padding(.35, 1.25);
   max-width: 100%;
   @include _transition(all);
 
