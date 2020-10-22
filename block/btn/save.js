@@ -14,14 +14,9 @@ export default function ( { attributes, className } ) {
 		wrap,
 	} = attributes;
 
-	const wrapperClasses = classnames(
-		'u-clearfix',
-		'smb-btn-wrapper',
-		className,
-		{
-			[ `smb-btn-wrapper--${ modifier }` ]: !! modifier,
-		}
-	);
+	const wrapperClasses = classnames( 'smb-btn-wrapper', className, {
+		[ `smb-btn-wrapper--${ modifier }` ]: !! modifier,
+	} );
 
 	const classes = classnames( 'smb-btn', {
 		[ `smb-btn--${ modifier }` ]: !! modifier,

@@ -51,15 +51,19 @@ export default function ( {
 		}
 	}, [ isSelected ] );
 
-	const BlockWrapper = Block.div;
-	const wrapperClasses = classnames(
-		'u-clearfix',
-		'smb-btn-wrapper',
-		className,
-		{
-			[ `smb-btn-wrapper--${ modifier }` ]: !! modifier,
+	// At old version, using .u-clearfix. but no need now.
+	useEffect( () => {
+		if ( !! attributes.className ) {
+			setAttributes( {
+				className: attributes.className.replace( 'u-clearfix', '' ),
+			} );
 		}
-	);
+	}, [] );
+
+	const BlockWrapper = Block.div;
+	const wrapperClasses = classnames( 'smb-btn-wrapper', className, {
+		[ `smb-btn-wrapper--${ modifier }` ]: !! modifier,
+	} );
 
 	const classes = classnames( 'smb-btn', {
 		[ `smb-btn--${ modifier }` ]: !! modifier,
