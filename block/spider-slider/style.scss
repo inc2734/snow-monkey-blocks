@@ -88,6 +88,10 @@
     }
   }
 
+  .spider__figure {
+    width: 100%; // For IE11
+  }
+
   .spider__dots[data-thumbnails="true"] {
     flex-wrap: wrap;
     justify-content: flex-start;
