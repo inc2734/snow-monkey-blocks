@@ -406,6 +406,7 @@ export default function ( {
 										'snow-monkey-blocks'
 									) }
 									onChange={ onChangeBtnLabel }
+									withoutInteractiveFormatting={ true }
 								/>
 
 								{ isLinkUIOpen && (

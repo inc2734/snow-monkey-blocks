@@ -250,6 +250,7 @@ export default function ( {
 									onChange={ ( value ) =>
 										setAttributes( { btnLabel: value } )
 									}
+									withoutInteractiveFormatting={ true }
 								/>
 							</span>
 						</div>

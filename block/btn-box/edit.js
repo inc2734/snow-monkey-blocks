@@ -270,6 +270,7 @@ export default function ( {
 								) }
 								onChange={ onChangeBtnLabel }
 								style={ { color: btnTextColor } }
+								withoutInteractiveFormatting={ true }
 							/>
 						</span>
 					</div>
