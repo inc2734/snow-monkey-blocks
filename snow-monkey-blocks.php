@@ -16,6 +16,10 @@
 
 namespace Snow_Monkey\Plugin\Blocks;
 
+use FilesystemIterator;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
+
 class Bootstrap {
 
 	/**
@@ -82,14 +86,18 @@ class Bootstrap {
 	 * Register blocks.
 	 */
 	public function _register_blocks() {
-		foreach ( glob( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/*/index.php' ) as $file ) {
-			require_once( $file );
-		}
-		foreach ( glob( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/*/item/index.php' ) as $file ) {
-			require_once( $file );
-		}
-		foreach ( glob( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/*/item/*/index.php' ) as $file ) {
-			require_once( $file );
+		$iterator = new RecursiveDirectoryIterator( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block', FilesystemIterator::SKIP_DOTS );
+		$iterator = new RecursiveIteratorIterator( $iterator );
+		foreach ( $iterator as $file ) {
+			if ( ! $file->isFile() ) {
+				continue;
+			}
+
+			if ( 'index.php' !== $file->getBasename() ) {
+				continue;
+			}
+
+			include_once( realpath( $file->getPathname() ) );
 		}
 	}
 
