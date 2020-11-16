@@ -61,7 +61,7 @@ export default function ( { attributes, className } ) {
 				<RichText.Content
 					tagName="span"
 					className="smb-evaluation-star__title"
-					value={ attributes.name }
+					value={ title }
 				/>
 			) }
 
