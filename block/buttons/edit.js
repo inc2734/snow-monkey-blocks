@@ -1,11 +1,11 @@
 import classnames from 'classnames';
 
 import {
-	InnerBlocks,
 	AlignmentToolbar,
 	BlockControls,
+	useBlockProps,
 	__experimentalAlignmentHookSettingsProvider as AlignmentHookSettingsProvider,
-	__experimentalBlock as Block,
+	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
 export default function ( { attributes, setAttributes, className } ) {
@@ -18,10 +18,22 @@ export default function ( { attributes, setAttributes, className } ) {
 		isEmbedButton: true,
 	};
 
-	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-buttons', className, {
 		[ `has-text-align-${ textAlign }` ]: textAlign,
 	} );
+
+	const blockProps = useBlockProps( {
+		className: classes,
+	} );
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{},
+		{
+			allowedBlocks,
+			template,
+			orientation: 'horizontal',
+		}
+	);
 
 	const onChangeTextAlign = ( value ) =>
 		setAttributes( { textAlign: value } );
@@ -35,15 +47,11 @@ export default function ( { attributes, setAttributes, className } ) {
 				/>
 			</BlockControls>
 
-			<BlockWrapper className={ classes }>
+			<div { ...blockProps }>
 				<AlignmentHookSettingsProvider value={ alignmentHooksSetting }>
-					<InnerBlocks
-						allowedBlocks={ allowedBlocks }
-						template={ template }
-						orientation="horizontal"
-					/>
+					<div { ...innerBlocksProps } />
 				</AlignmentHookSettingsProvider>
-			</BlockWrapper>
+			</div>
 		</>
 	);
 }

@@ -1,4 +1,5 @@
 {
+  "apiVersion": 2,
   "name": "snow-monkey-blocks/btn",
   "category": "smb",
   "parent": [
@@ -38,7 +39,6 @@
     }
   },
   "supports": {
-    "align": [ "left", "center", "right" ],
-    "lightBlockWrapper": true
+    "align": [ "left", "center", "right" ]
   }
 }

@@ -1,8 +1,9 @@
 import classnames from 'classnames';
 
-import { RichText } from '@wordpress/block-editor';
+import { RichText, useBlockProps } from '@wordpress/block-editor';
 
-export default function ( { attributes, className } ) {
+export default function ( props ) {
+	const { attributes, className } = props;
 	const {
 		content,
 		url,
@@ -39,7 +40,7 @@ export default function ( { attributes, className } ) {
 	};
 
 	return (
-		<div className={ wrapperClasses }>
+		<div { ...useBlockProps.save( { className: wrapperClasses } ) }>
 			<a
 				className={ classes }
 				href={ url }

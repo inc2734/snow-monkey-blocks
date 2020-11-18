@@ -1,22 +1,22 @@
 import classnames from 'classnames';
 
 import {
-	PanelBody,
-	SelectControl,
-	CheckboxControl,
-	ToolbarGroup,
-	Popover,
 	Button,
+	CheckboxControl,
+	PanelBody,
+	Popover,
 	RangeControl,
+	SelectControl,
+	ToolbarGroup,
 } from '@wordpress/components';
 
 import {
-	RichText,
+	BlockControls,
+	ContrastChecker,
 	InspectorControls,
 	PanelColorSettings,
-	ContrastChecker,
-	BlockControls,
-	__experimentalBlock as Block,
+	RichText,
+	useBlockProps,
 } from '@wordpress/block-editor';
 
 import { useState, useEffect } from '@wordpress/element';
@@ -60,7 +60,6 @@ export default function ( {
 		}
 	}, [] );
 
-	const BlockWrapper = Block.div;
 	const wrapperClasses = classnames( 'smb-btn-wrapper', className, {
 		[ `smb-btn-wrapper--${ modifier }` ]: !! modifier,
 	} );
@@ -84,6 +83,10 @@ export default function ( {
 	const btnLabelStyles = {
 		color: textColor || undefined,
 	};
+
+	const blockProps = useBlockProps( {
+		className: wrapperClasses,
+	} );
 
 	const onChangeModifier = ( value ) =>
 		setAttributes( {
@@ -205,7 +208,7 @@ export default function ( {
 				</PanelColorSettings>
 			</InspectorControls>
 
-			<BlockWrapper className={ wrapperClasses }>
+			<div { ...blockProps }>
 				<span
 					className={ classes }
 					href={ url }
@@ -225,7 +228,7 @@ export default function ( {
 						withoutInteractiveFormatting={ true }
 					/>
 				</span>
-			</BlockWrapper>
+			</div>
 
 			<BlockControls>
 				<ToolbarGroup>

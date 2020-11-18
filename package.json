@@ -25,7 +25,7 @@
     "path": "^0.12.7",
     "po2json": "^1.0.0-alpha",
     "postcss": "^8.1.7",
-    "postcss-cli": "^8.2.0",
+    "postcss-cli": "^8.3.0",
     "postcss-mq-optimize": "^1.1.0",
     "prettier": "npm:wp-prettier@2.0.5",
     "react-image": "4.0.3",
