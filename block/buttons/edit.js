@@ -21,18 +21,15 @@ export default function ( { attributes, setAttributes, className } ) {
 		className: classes,
 	} );
 
-	const innerBlocksProps = useInnerBlocksProps(
-		blockProps,
-		{
-			allowedBlocks,
-			template,
-			orientation: 'horizontal',
-			__experimentalLayout: {
-				type: 'default',
-				alignments: [],
-			},
-		}
-	);
+	const innerBlocksProps = useInnerBlocksProps( blockProps, {
+		allowedBlocks,
+		template,
+		orientation: 'horizontal',
+		__experimentalLayout: {
+			type: 'default',
+			alignments: [],
+		},
+	} );
 
 	const onChangeTextAlign = ( value ) =>
 		setAttributes( { textAlign: value } );

@@ -3,6 +3,11 @@
 @import '../../src/css/core/block';
 
 .smb-accordion {
+  > .smb-accordion__item {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
   &__item {
     position: relative;
 

@@ -1,15 +1,13 @@
-'use strict';
-
 import classnames from 'classnames';
 
-import { RichText, InnerBlocks } from '@wordpress/block-editor';
+import { RichText, InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
 	const { title, initialState } = attributes;
 	const classes = classnames( 'smb-accordion__item', className );
 
 	return (
-		<div className={ classes }>
+		<div { ...useBlockProps.save( { className: classes } ) }>
 			<input
 				type="checkbox"
 				className="smb-accordion__item__control"

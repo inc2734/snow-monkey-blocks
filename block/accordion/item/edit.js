@@ -6,15 +6,22 @@ import { __ } from '@wordpress/i18n';
 import {
 	InspectorControls,
 	RichText,
-	InnerBlocks,
-	__experimentalBlock as Block,
+	useBlockProps,
+	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
 export default function ( { attributes, setAttributes, className } ) {
 	const { title, initialState } = attributes;
 
-	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-accordion__item', className );
+
+	const blockProps = useBlockProps( {
+		className: classes,
+	} );
+
+	const innerBlocksProps = useInnerBlocksProps( {
+		className: 'smb-accordion__item__body',
+	} );
 
 	const onChangeInitialState = ( value ) =>
 		setAttributes( {
@@ -43,7 +50,7 @@ export default function ( { attributes, setAttributes, className } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<BlockWrapper className={ classes }>
+			<div { ...blockProps }>
 				<div className="smb-accordion__item__title">
 					<RichText
 						className="smb-accordion__item__title__label"
@@ -58,10 +65,9 @@ export default function ( { attributes, setAttributes, className } ) {
 						<i className="fas fa-angle-down"></i>
 					</div>
 				</div>
-				<div className="smb-accordion__item__body">
-					<InnerBlocks />
-				</div>
-			</BlockWrapper>
+
+				<div { ...innerBlocksProps } />
+			</div>
 		</>
 	);
 }
