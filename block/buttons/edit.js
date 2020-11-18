@@ -27,7 +27,7 @@ export default function ( { attributes, setAttributes, className } ) {
 	} );
 
 	const innerBlocksProps = useInnerBlocksProps(
-		{},
+		blockProps,
 		{
 			allowedBlocks,
 			template,
@@ -47,11 +47,7 @@ export default function ( { attributes, setAttributes, className } ) {
 				/>
 			</BlockControls>
 
-			<div { ...blockProps }>
-				<AlignmentHookSettingsProvider value={ alignmentHooksSetting }>
-					<div { ...innerBlocksProps } />
-				</AlignmentHookSettingsProvider>
-			</div>
+			<div { ...innerBlocksProps } />
 		</>
 	);
 }

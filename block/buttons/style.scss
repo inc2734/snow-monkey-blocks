@@ -24,6 +24,8 @@
 
   > .smb-btn-wrapper {
     flex: 0 0 auto;
+    margin-top: 0;
+    margin-bottom: 0;
     @include _padding-right(.25);
     @include _padding-left(.25);
     @include _padding-bottom(.5);
