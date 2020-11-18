@@ -4,7 +4,6 @@ import {
 	AlignmentToolbar,
 	BlockControls,
 	useBlockProps,
-	__experimentalAlignmentHookSettingsProvider as AlignmentHookSettingsProvider,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
@@ -13,10 +12,6 @@ export default function ( { attributes, setAttributes, className } ) {
 
 	const allowedBlocks = [ 'snow-monkey-blocks/btn' ];
 	const template = [ [ 'snow-monkey-blocks/btn' ] ];
-
-	const alignmentHooksSetting = {
-		isEmbedButton: true,
-	};
 
 	const classes = classnames( 'smb-buttons', className, {
 		[ `has-text-align-${ textAlign }` ]: textAlign,
@@ -32,6 +27,10 @@ export default function ( { attributes, setAttributes, className } ) {
 			allowedBlocks,
 			template,
 			orientation: 'horizontal',
+			__experimentalLayout: {
+				type: 'default',
+				alignments: [],
+			},
 		}
 	);
 
