@@ -4,11 +4,11 @@ import { Button, PanelBody, SelectControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 import {
-	RichText,
-	MediaUpload,
 	InspectorControls,
+	MediaUpload,
 	PanelColorSettings,
-	__experimentalBlock as Block,
+	RichText,
+	useBlockProps,
 } from '@wordpress/block-editor';
 
 export default function ( { attributes, setAttributes, className } ) {
@@ -48,10 +48,13 @@ export default function ( { attributes, setAttributes, className } ) {
 		borderColor: backgroundColor || undefined,
 	};
 
-	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-balloon', {
 		[ className ]: !! className,
 		[ `smb-balloon--${ modifier }` ]: !! modifier,
+	} );
+
+	const blockProps = useBlockProps( {
+		className: classes,
 	} );
 
 	const onChangeModifier = ( value ) =>
@@ -105,7 +108,7 @@ export default function ( { attributes, setAttributes, className } ) {
 							{
 								value: '',
 								label: __(
-									'Normal balloon',
+									'Normal Balloon',
 									'snow-monkey-blocks'
 								),
 							},
@@ -144,7 +147,7 @@ export default function ( { attributes, setAttributes, className } ) {
 				></PanelColorSettings>
 			</InspectorControls>
 
-			<BlockWrapper className={ classes }>
+			<div { ...blockProps }>
 				<div className="smb-balloon__person">
 					<div
 						className="smb-balloon__figure"
@@ -173,7 +176,7 @@ export default function ( { attributes, setAttributes, className } ) {
 					onChange={ onChangeBalloonBody }
 					style={ bodyStyles }
 				/>
-			</BlockWrapper>
+			</div>
 		</>
 	);
 }
