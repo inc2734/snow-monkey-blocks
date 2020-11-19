@@ -1,21 +1,18 @@
 import classnames from 'classnames';
 
-import { remove, union, indexOf, compact } from 'lodash';
+import { compact, indexOf, remove, union } from 'lodash';
 import { useSelect } from '@wordpress/data';
 import { useEffect, useRef } from '@wordpress/element';
-import {
-	InspectorControls,
-	__experimentalBlock as Block,
-} from '@wordpress/block-editor';
+import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 
 import {
-	PanelBody,
-	RangeControl,
-	Placeholder,
-	Spinner,
 	CheckboxControl,
+	PanelBody,
+	Placeholder,
+	RangeControl,
 	SelectControl,
+	Spinner,
 } from '@wordpress/components';
 
 import { toNumber } from '@smb/helper';
@@ -40,13 +37,15 @@ export default function ( { attributes, setAttributes, className } ) {
 
 	if ( ! articleCategories || ! articleCategories.length ) {
 		return (
-			<Placeholder
-				icon="editor-ul"
-				label={ __( 'Categories list', 'snow-monkey-blocks' ) }
-			>
-				<Spinner />
-				{ __( 'Loading Setting Data', 'snow-monkey-blocks' ) }
-			</Placeholder>
+			<div { ...useBlockProps() }>
+				<Placeholder
+					icon="editor-ul"
+					label={ __( 'Categories list', 'snow-monkey-blocks' ) }
+				>
+					<Spinner />
+					{ __( 'Loading Setting Data', 'snow-monkey-blocks' ) }
+				</Placeholder>
+			</div>
 		);
 	}
 
@@ -115,7 +114,6 @@ export default function ( { attributes, setAttributes, className } ) {
 		);
 	};
 
-	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-categories-list', className );
 
 	const View = () => {
@@ -130,7 +128,10 @@ export default function ( { attributes, setAttributes, className } ) {
 						)
 				) {
 					return (
-						<li className="smb-categories-list__item">
+						<li
+							className="smb-categories-list__item"
+							key={ category.id }
+						>
 							<div className="smb-categories-list__item__count">
 								{ category.count }
 								<span>
@@ -169,13 +170,13 @@ export default function ( { attributes, setAttributes, className } ) {
 			.filter( ( category ) => category );
 
 		return (
-			<BlockWrapper className={ classes }>
+			<div className={ classes }>
 				<ul className="smb-categories-list__list" ref={ ulRef }>
 					{ articleCategoriesList.filter(
 						( articleCategory ) => articleCategory
 					) }
 				</ul>
-			</BlockWrapper>
+			</div>
 		);
 	};
 
@@ -283,7 +284,9 @@ export default function ( { attributes, setAttributes, className } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<View />
+			<div { ...useBlockProps() }>
+				<View />
+			</div>
 		</>
 	);
 }
