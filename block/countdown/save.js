@@ -2,8 +2,10 @@ import classnames from 'classnames';
 
 import { __ } from '@wordpress/i18n';
 
+import { useBlockProps } from '@wordpress/block-editor';
+
 export default function ( { attributes, className } ) {
-	const blockClasses = classnames( 'smb-countdown', className );
+	const classes = classnames( 'smb-countdown', className );
 
 	const listClasses = classnames( 'smb-countdown__list', {
 		[ `align-${ attributes.alignment }` ]: !! attributes.alignment,
@@ -18,7 +20,7 @@ export default function ( { attributes, className } ) {
 	};
 
 	return (
-		<div className={ blockClasses }>
+		<div { ...useBlockProps.save( { className: classes } ) }>
 			<ul
 				className={ listClasses }
 				data-time={ attributes.countdownTime }

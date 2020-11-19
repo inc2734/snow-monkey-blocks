@@ -4,11 +4,11 @@ import { PanelBody } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 import {
-	BlockControls,
 	AlignmentToolbar,
+	BlockControls,
 	InspectorControls,
 	PanelColorSettings,
-	__experimentalBlock as Block,
+	useBlockProps,
 } from '@wordpress/block-editor';
 
 import DateTimePicker from '@smb/component/date-time-picker';
@@ -16,7 +16,6 @@ import DateTimePicker from '@smb/component/date-time-picker';
 export default function ( { attributes, setAttributes, className } ) {
 	const { alignment, numericColor, clockColor, countdownTime } = attributes;
 
-	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-countdown', className );
 
 	const listClasses = classnames( 'smb-countdown__list', {
@@ -30,6 +29,10 @@ export default function ( { attributes, setAttributes, className } ) {
 	const clockStyles = {
 		color: clockColor || undefined,
 	};
+
+	const blockProps = useBlockProps( {
+		className: classes,
+	} );
 
 	const onChangeAlignment = ( value ) =>
 		setAttributes( {
@@ -86,7 +89,7 @@ export default function ( { attributes, setAttributes, className } ) {
 				></PanelColorSettings>
 			</InspectorControls>
 
-			<BlockWrapper className={ classes }>
+			<div { ...blockProps }>
 				<ul className={ listClasses } data-time={ countdownTime }>
 					<li className="smb-countdown__list-item smb-countdown__list-item__days">
 						<span
@@ -145,7 +148,7 @@ export default function ( { attributes, setAttributes, className } ) {
 						</span>
 					</li>
 				</ul>
-			</BlockWrapper>
+			</div>
 		</>
 	);
 }
