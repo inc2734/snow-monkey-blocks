@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { RichText } from '@wordpress/block-editor';
+import { RichText, useBlockProps } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
 	const {
@@ -40,7 +40,12 @@ export default function ( { attributes, className } ) {
 	}
 
 	return (
-		<div className={ classes } style={ btnBoxStyle }>
+		<div
+			{ ...useBlockProps.save( {
+				className: classes,
+				style: btnBoxStyle,
+			} ) }
+		>
 			<div className="c-container">
 				{ ! RichText.isEmpty( lede ) && (
 					<div className="smb-btn-box__lede">

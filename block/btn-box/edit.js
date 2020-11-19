@@ -1,24 +1,24 @@
 import classnames from 'classnames';
 
 import {
-	PanelBody,
-	SelectControl,
-	Popover,
-	ToolbarGroup,
+	BaseControl,
 	Button,
 	CheckboxControl,
+	PanelBody,
+	Popover,
 	RangeControl,
-	BaseControl,
+	SelectControl,
+	ToolbarGroup,
 } from '@wordpress/components';
 
 import {
-	RichText,
-	InspectorControls,
-	PanelColorSettings,
-	ContrastChecker,
 	BlockControls,
 	ColorPalette,
-	__experimentalBlock as Block,
+	ContrastChecker,
+	InspectorControls,
+	PanelColorSettings,
+	RichText,
+	useBlockProps,
 } from '@wordpress/block-editor';
 
 import { useState, useEffect } from '@wordpress/element';
@@ -55,7 +55,6 @@ export default function ( {
 		}
 	}, [ isSelected ] );
 
-	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-btn-box', className );
 
 	const btnClasses = classnames( 'smb-btn', {
@@ -77,6 +76,11 @@ export default function ( {
 	if ( 'is-style-ghost' === attributes.className ) {
 		btnBoxBtnStyles.borderColor = btnBackgroundColor || undefined;
 	}
+
+	const blockProps = useBlockProps( {
+		className: classes,
+		style: btnBoxStyle,
+	} );
 
 	const onChangeBtnSize = ( value ) =>
 		setAttributes( {
@@ -232,7 +236,7 @@ export default function ( {
 				></PanelColorSettings>
 			</InspectorControls>
 
-			<BlockWrapper className={ classes } style={ btnBoxStyle }>
+			<div { ...blockProps }>
 				<div className="c-container">
 					{ ( ! RichText.isEmpty( lede ) || isSelected ) && (
 						<RichText
@@ -287,7 +291,7 @@ export default function ( {
 						/>
 					) }
 				</div>
-			</BlockWrapper>
+			</div>
 
 			<BlockControls>
 				<ToolbarGroup>
