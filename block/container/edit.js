@@ -3,7 +3,8 @@ import classnames from 'classnames';
 import {
 	InnerBlocks,
 	InspectorControls,
-	__experimentalBlock as Block,
+	useBlockProps,
+	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
 import { PanelBody, ToggleControl } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
@@ -21,12 +22,26 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		[ clientId ]
 	);
 
-	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-container', 'c-container', className );
 
 	const bodyClasses = classnames( 'smb-container__body', {
 		'u-slim-width': !! isSlim,
 	} );
+
+	const blockProps = useBlockProps( {
+		className: classes,
+	} );
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: bodyClasses,
+		},
+		{
+			renderAppender: hasInnerBlocks
+				? undefined
+				: InnerBlocks.ButtonBlockAppender,
+		}
+	);
 
 	const onChangeIsSlim = ( value ) =>
 		setAttributes( {
@@ -50,17 +65,9 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<BlockWrapper className={ classes }>
-				<div className={ bodyClasses }>
-					<InnerBlocks
-						renderAppender={
-							hasInnerBlocks
-								? undefined
-								: () => <InnerBlocks.ButtonBlockAppender />
-						}
-					/>
-				</div>
-			</BlockWrapper>
+			<div { ...blockProps }>
+				<div { ...innerBlocksProps } />
+			</div>
 		</>
 	);
 }

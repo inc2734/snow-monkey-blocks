@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { InnerBlocks } from '@wordpress/block-editor';
+import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
 	const { isSlim } = attributes;
@@ -12,7 +12,7 @@ export default function ( { attributes, className } ) {
 	} );
 
 	return (
-		<div className={ classes }>
+		<div { ...useBlockProps.save( { className: classes } ) }>
 			<div className={ bodyClasses }>
 				<InnerBlocks.Content />
 			</div>
