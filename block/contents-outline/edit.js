@@ -1,16 +1,16 @@
-import { remove, union, indexOf, compact } from 'lodash';
+import { compact, indexOf, remove, union } from 'lodash';
 
 import { __ } from '@wordpress/i18n';
 
 import {
-	InspectorControls,
 	InspectorAdvancedControls,
-	__experimentalBlock as Block,
+	InspectorControls,
+	useBlockProps,
 } from '@wordpress/block-editor';
 
 import {
-	PanelBody,
 	CheckboxControl,
+	PanelBody,
 	TextControl,
 	ToggleControl,
 } from '@wordpress/components';
@@ -24,8 +24,6 @@ export default function ( { attributes, setAttributes } ) {
 		myAnchor,
 	} = attributes;
 
-	const BlockWrapper = Block.div;
-
 	const _generateNewHeadings = ( isChecked, heading ) => {
 		let newHeadings = headings.split( ',' );
 
@@ -37,6 +35,10 @@ export default function ( { attributes, setAttributes } ) {
 
 		return compact( union( newHeadings ) ).join( ',' );
 	};
+
+	const blockProps = useBlockProps( {
+		className: 'wpco-wrapper',
+	} );
 
 	const onChangeHeadings2 = ( isChecked ) =>
 		setAttributes( {
@@ -152,7 +154,7 @@ export default function ( { attributes, setAttributes } ) {
 				/>
 			</InspectorAdvancedControls>
 
-			<BlockWrapper className="wpco-wrapper" aria-hidden="false">
+			<div { ...blockProps } aria-hidden="false">
 				<div className="wpco">
 					<h2 className="wpco__title">
 						{ __( 'Contents outline', 'snow-monkey-blocks' ) }
@@ -168,7 +170,7 @@ export default function ( { attributes, setAttributes } ) {
 						</ol>
 					</div>
 				</div>
-			</BlockWrapper>
+			</div>
 		</>
 	);
 }
