@@ -1,12 +1,12 @@
 import classnames from 'classnames';
 
-import { InnerBlocks } from '@wordpress/block-editor';
+import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
 export default function ( { className } ) {
-	const blockClasses = classnames( 'smb-directory-structure', className );
+	const classes = classnames( 'smb-directory-structure', className );
 
 	return (
-		<div className={ blockClasses }>
+		<div { ...useBlockProps.save( { className: classes } ) }>
 			<InnerBlocks.Content />
 		</div>
 	);

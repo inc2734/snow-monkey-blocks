@@ -2,19 +2,15 @@ import classnames from 'classnames';
 
 import { __ } from '@wordpress/i18n';
 
-import {
-	PanelBody,
-	BaseControl,
-	Button,
-	ButtonGroup,
-} from '@wordpress/components';
+import { BaseControl, Button, PanelBody } from '@wordpress/components';
 
 import {
-	InspectorControls,
 	InnerBlocks,
-	RichText,
+	InspectorControls,
 	PanelColorSettings,
-	__experimentalBlock as Block,
+	RichText,
+	useBlockProps,
+	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
 import FontAwesome from '@smb/component/font-awesome';
@@ -27,7 +23,6 @@ export default function ( { attributes, setAttributes, className } ) {
 		'snow-monkey-blocks/directory-structure--item--file',
 	];
 
-	const BlockWrapper = Block.div;
 	const classes = classnames(
 		'smb-directory-structure__item',
 		'smb-directory-structure__item--directory',
@@ -41,6 +36,21 @@ export default function ( { attributes, setAttributes, className } ) {
 	const iconStyles = {
 		color: iconColor || undefined,
 	};
+
+	const blockProps = useBlockProps( {
+		className: classes,
+	} );
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: itemListClasses,
+		},
+		{
+			allowedBlocks,
+			templateLock: false,
+			renderAppender: InnerBlocks.ButtonBlockAppender,
+		}
+	);
 
 	const iconList = [
 		{
@@ -89,7 +99,7 @@ export default function ( { attributes, setAttributes, className } ) {
 						label={ __( 'Icon', 'snow-monkey-blocks' ) }
 						id="snow-monkey-blocks/directory-structure--item--directory/icon"
 					>
-						<ButtonGroup>
+						<div className="smb-list-icon-selector">
 							{ iconList.map( ( iconData ) => {
 								const selected =
 									iconVendor === iconData.vendor &&
@@ -106,7 +116,6 @@ export default function ( { attributes, setAttributes, className } ) {
 
 								return (
 									<Button
-										isLarge
 										isPrimary={ selected }
 										aria-pressed={ selected }
 										onClick={ onClickIcon }
@@ -119,9 +128,10 @@ export default function ( { attributes, setAttributes, className } ) {
 									</Button>
 								);
 							} ) }
-						</ButtonGroup>
+						</div>
 					</BaseControl>
 				</PanelBody>
+
 				<PanelColorSettings
 					title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
 					initialOpen={ false }
@@ -135,7 +145,7 @@ export default function ( { attributes, setAttributes, className } ) {
 				/>
 			</InspectorControls>
 
-			<BlockWrapper className={ classes }>
+			<div { ...blockProps }>
 				<p>
 					<span className="fa-fw" style={ iconStyles }>
 						<FontAwesome icon={ [ iconVendor, iconClass ] } />
@@ -152,13 +162,9 @@ export default function ( { attributes, setAttributes, className } ) {
 						onChange={ onChangeName }
 					/>
 				</p>
-				<div className={ itemListClasses }>
-					<InnerBlocks
-						allowedBlocks={ allowedBlocks }
-						templateLock={ false }
-					/>
-				</div>
-			</BlockWrapper>
+
+				<div { ...innerBlocksProps } />
+			</div>
 		</>
 	);
 }

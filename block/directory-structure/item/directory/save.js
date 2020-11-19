@@ -1,9 +1,9 @@
 import classnames from 'classnames';
 
-import { InnerBlocks, RichText } from '@wordpress/block-editor';
+import { InnerBlocks, RichText, useBlockProps } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
-	const blockClasses = classnames(
+	const classes = classnames(
 		'smb-directory-structure__item',
 		'smb-directory-structure__item--directory',
 		className
@@ -18,7 +18,7 @@ export default function ( { attributes, className } ) {
 	};
 
 	return (
-		<div className={ blockClasses }>
+		<div { ...useBlockProps.save( { className: classes } ) }>
 			<p>
 				<span className="fa-fw" style={ iconStyles }>
 					<i

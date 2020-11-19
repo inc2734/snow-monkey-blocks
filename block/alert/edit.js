@@ -138,7 +138,6 @@ export default function ( {
 								return (
 									<Button
 										isPrimary={ isPrimary }
-										isSecondary={ ! isPrimary }
 										onClick={ onClickIcon }
 										key={ index }
 									>

@@ -89,7 +89,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 								return (
 									<Button
 										isPrimary={ isPrimary }
-										isSecondary={ ! isPrimary }
 										onClick={ onClickIcon }
 										key={ index }
 									>
