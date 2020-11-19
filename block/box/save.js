@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { InnerBlocks } from '@wordpress/block-editor';
+import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
 	const {
@@ -25,7 +25,12 @@ export default function ( { attributes, className } ) {
 	const classes = classnames( 'smb-box', className );
 
 	return (
-		<div className={ classes } style={ boxStyles }>
+		<div
+			{ ...useBlockProps.save( {
+				className: classes,
+				style: boxStyles,
+			} ) }
+		>
 			<div className="smb-box__background" style={ backgroundStyles } />
 			<div className="smb-box__body">
 				<InnerBlocks.Content />

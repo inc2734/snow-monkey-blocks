@@ -69,8 +69,16 @@
 }
 
 [data-type^="snow-monkey-blocks"] {
+  .block-list-appender:first-child {
+    .block-editor-default-block-appender {
+      .block-editor-default-block-appender__content {
+        margin-top: 0;
+      }
+    }
+  }
+
   .block-editor-default-block-appender {
-    > .block-editor-default-block-appender__content {
+    .block-editor-default-block-appender__content {
       margin-bottom: 0;
     }
   }

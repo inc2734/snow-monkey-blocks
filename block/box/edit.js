@@ -4,11 +4,11 @@ import { PanelBody, RangeControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 import {
-	InnerBlocks,
+	ContrastChecker,
 	InspectorControls,
 	PanelColorSettings,
-	ContrastChecker,
-	__experimentalBlock as Block,
+	useBlockProps,
+	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
 import { toNumber } from '@smb/helper';
@@ -33,8 +33,12 @@ export default function ( { attributes, setAttributes, className } ) {
 		opacity,
 	};
 
-	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-box', className );
+
+	const blockProps = useBlockProps( {
+		className: classes,
+		style: boxStyles,
+	} );
 
 	const onChangeBorderWidth = ( value ) =>
 		setAttributes( {
@@ -60,6 +64,10 @@ export default function ( { attributes, setAttributes, className } ) {
 		setAttributes( {
 			textColor: value,
 		} );
+
+	const innerBlocksProps = useInnerBlocksProps( {
+		className: 'smb-box__body',
+	} );
 
 	return (
 		<>
@@ -119,15 +127,14 @@ export default function ( { attributes, setAttributes, className } ) {
 				</PanelColorSettings>
 			</InspectorControls>
 
-			<BlockWrapper className={ classes } style={ boxStyles }>
+			<div { ...blockProps }>
 				<div
 					className="smb-box__background"
 					style={ backgroundStyles }
 				/>
-				<div className="smb-box__body">
-					<InnerBlocks />
-				</div>
-			</BlockWrapper>
+
+				<div { ...innerBlocksProps } />
+			</div>
 		</>
 	);
 }
