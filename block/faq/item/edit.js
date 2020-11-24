@@ -1,14 +1,14 @@
 import classnames from 'classnames';
 
-import { PanelBody, BaseControl, TextControl } from '@wordpress/components';
+import { BaseControl, PanelBody, TextControl } from '@wordpress/components';
 import { __, sprintf } from '@wordpress/i18n';
 
 import {
-	RichText,
 	InspectorControls,
 	PanelColorSettings,
-	InnerBlocks,
-	__experimentalBlock as Block,
+	RichText,
+	useBlockProps,
+	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
 export default function ( { attributes, setAttributes, className } ) {
@@ -20,7 +20,6 @@ export default function ( { attributes, setAttributes, className } ) {
 		answerLabel,
 	} = attributes;
 
-	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-faq__item', className );
 
 	const faqItemQestionLabelStyles = {
@@ -30,6 +29,14 @@ export default function ( { attributes, setAttributes, className } ) {
 	const faqItemAnswerLabelStyles = {
 		color: answerColor || undefined,
 	};
+
+	const blockProps = useBlockProps( {
+		className: classes,
+	} );
+
+	const innerBlocksProps = useInnerBlocksProps( {
+		className: 'smb-faq__item__answer__body',
+	} );
 
 	const onChangeQuestionLabel = ( value ) =>
 		setAttributes( {
@@ -116,7 +123,7 @@ export default function ( { attributes, setAttributes, className } ) {
 				></PanelColorSettings>
 			</InspectorControls>
 
-			<BlockWrapper className={ classes }>
+			<div { ...blockProps }>
 				<div className="smb-faq__item__question">
 					<div
 						className="smb-faq__item__question__label"
@@ -144,11 +151,9 @@ export default function ( { attributes, setAttributes, className } ) {
 						{ answerLabel }
 					</div>
 
-					<div className="smb-faq__item__answer__body">
-						<InnerBlocks />
-					</div>
+					<div { ...innerBlocksProps } />
 				</div>
-			</BlockWrapper>
+			</div>
 		</>
 	);
 }

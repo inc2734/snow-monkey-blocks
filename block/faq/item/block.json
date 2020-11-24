@@ -1,4 +1,5 @@
 {
+  "apiVersion": 2,
   "name": "snow-monkey-blocks/faq--item",
   "category": "smb",
   "parent": [ "snow-monkey-blocks/faq" ],
