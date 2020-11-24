@@ -4,15 +4,15 @@ import {
 	InspectorControls,
 	PanelColorSettings,
 	RichText,
-	__experimentalBlock as Block,
+	useBlockProps,
 } from '@wordpress/block-editor';
 import { __, sprintf } from '@wordpress/i18n';
 
 import {
 	PanelBody,
 	RangeControl,
-	ToggleControl,
 	SelectControl,
+	ToggleControl,
 } from '@wordpress/components';
 
 import FontAwesome from '@smb/component/font-awesome';
@@ -42,21 +42,21 @@ export default function ( {
 		const halfIconCount = fillIconCount + emptyIconCount === 5 ? 0 : 1;
 
 		for ( let i = 0; i < fillIconCount; i++ ) {
-			icons.push( <FontAwesome icon="star" /> );
+			icons.push( <FontAwesome icon="star" key={ `fill${ i }` } /> );
 		}
 
 		if ( halfIconCount !== 0 ) {
-			icons.push( <FontAwesome icon="star-half-alt" /> );
+			icons.push( <FontAwesome icon="star-half-alt" key="half1" /> );
 		}
 
 		for ( let j = 0; j < emptyIconCount; j++ ) {
-			icons.push( <FontAwesome icon={ [ 'far', 'star' ] } /> );
+			icons.push(
+				<FontAwesome icon={ [ 'far', 'star' ] } key={ `empty${ j }` } />
+			);
 		}
 
 		return icons;
 	};
-
-	const BlockWrapper = Block.div;
 
 	const classes = classnames( 'smb-evaluation-star', className, {
 		[ `smb-evaluation-star--title-${ titleAlign }` ]: 'left' !== titleAlign,
@@ -75,6 +75,10 @@ export default function ( {
 	const evaluationStarIconStyles = {
 		color: iconColor || undefined,
 	};
+
+	const blockProps = useBlockProps( {
+		className: classes,
+	} );
 
 	const onChangeEvaluationValue = ( value ) =>
 		setAttributes( {
@@ -204,7 +208,7 @@ export default function ( {
 				></PanelColorSettings>
 			</InspectorControls>
 
-			<BlockWrapper className={ classes }>
+			<div { ...blockProps }>
 				{ ( ! RichText.isEmpty( title ) || isSelected ) && (
 					<RichText
 						tagName="span"
@@ -233,7 +237,7 @@ export default function ( {
 						<span>{ generateIcons() }</span>
 					</div>
 				</div>
-			</BlockWrapper>
+			</div>
 		</>
 	);
 }

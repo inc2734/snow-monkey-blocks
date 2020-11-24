@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { RichText } from '@wordpress/block-editor';
+import { RichText, useBlockProps } from '@wordpress/block-editor';
 import { sprintf } from '@wordpress/i18n';
 
 import { toNumber } from '@smb/helper';
@@ -24,15 +24,15 @@ export default function ( { attributes, className } ) {
 		const halfIconCount = fillIconCount + emptyIconCount === 5 ? 0 : 1;
 
 		for ( let i = 0; i < fillIconCount; i++ ) {
-			icons.push( <i className="fas fa-star" /> );
+			icons.push( <i className="fas fa-star" key={ `fill${ i }` } /> );
 		}
 
 		if ( halfIconCount !== 0 ) {
-			icons.push( <i className="fas fa-star-half-alt" /> );
+			icons.push( <i className="fas fa-star-half-alt" key="half1" /> );
 		}
 
 		for ( let j = 0; j < emptyIconCount; j++ ) {
-			icons.push( <i className="far fa-star" /> );
+			icons.push( <i className="far fa-star" key={ `empty${ j }` } /> );
 		}
 
 		return icons;
@@ -56,7 +56,7 @@ export default function ( { attributes, className } ) {
 	};
 
 	return (
-		<div className={ classes }>
+		<div { ...useBlockProps.save( { className: classes } ) }>
 			{ ! RichText.isEmpty( title ) && (
 				<RichText.Content
 					tagName="span"
