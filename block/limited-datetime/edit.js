@@ -1,22 +1,52 @@
 import classnames from 'classnames';
 import moment from 'moment';
 
-import { InspectorControls, InnerBlocks } from '@wordpress/block-editor';
-import { __ } from '@wordpress/i18n';
+import {
+	InspectorControls,
+	InnerBlocks,
+	useBlockProps,
+	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+} from '@wordpress/block-editor';
 
 import {
-	PanelBody,
 	BaseControl,
 	CheckboxControl,
+	PanelBody,
 	Placeholder,
 } from '@wordpress/components';
 
+import { useSelect } from '@wordpress/data';
+
+import { __ } from '@wordpress/i18n';
+
 import DateTimePicker from '@smb/component/date-time-picker';
 
-export default function ( { attributes, setAttributes, className } ) {
+export default function ( { attributes, setAttributes, className, clientId } ) {
 	const { isUseStartDate, startDate, isUseEndDate, endDate } = attributes;
 
+	const hasInnerBlocks = useSelect(
+		( select ) => {
+			const { getBlock } = select( 'core/block-editor' );
+			const block = getBlock( clientId );
+			return !! ( block && block.innerBlocks.length );
+		},
+		[ clientId ]
+	);
+
 	const classes = classnames( 'smb-limited-datetime', className );
+
+	const blockProps = useBlockProps();
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: classes,
+		},
+		{
+			renderAppender: hasInnerBlocks
+				? undefined
+				: InnerBlocks.ButtonBlockAppender,
+		}
+	);
 
 	let formatedStartDate = __( 'Not been set.', 'snow-monkey-blocks' );
 	if ( isUseStartDate ) {
@@ -115,9 +145,9 @@ export default function ( { attributes, setAttributes, className } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<div className={ classes }>
+			<div { ...blockProps }>
 				<Placeholder
-					className="smb-limited-datetime__placeholder"
+					className="smb-limited-datetime-placeholder"
 					icon="calendar-alt"
 					label={ __(
 						'Only the set period is displayed',
@@ -149,7 +179,8 @@ export default function ( { attributes, setAttributes, className } ) {
 						</div>
 					</div>
 				</Placeholder>
-				<InnerBlocks />
+
+				<div { ...innerBlocksProps } />
 			</div>
 		</>
 	);

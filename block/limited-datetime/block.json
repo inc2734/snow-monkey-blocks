@@ -1,4 +1,5 @@
 {
+  "apiVersion": 2,
   "name": "snow-monkey-blocks/limited-datetime",
   "category": "smb",
   "attributes": {
@@ -7,7 +8,7 @@
       "default": false
     },
     "startDate": {
-      "type": "date",
+      "type": "string",
       "default": null
     },
     "isUseEndDate": {
@@ -15,7 +16,7 @@
       "default": false
     },
     "endDate": {
-      "type": "date",
+      "type": "string",
       "default": null
     }
   },
