@@ -5,23 +5,23 @@ import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
 import {
-	PanelBody,
-	SelectControl,
 	BaseControl,
-	RangeControl,
-	ToggleControl,
+	PanelBody,
 	Popover,
+	RangeControl,
+	SelectControl,
+	ToggleControl,
+	ToolbarButton,
 	ToolbarGroup,
-	Button,
 } from '@wordpress/components';
 
 import {
 	AlignmentToolbar,
-	InspectorControls,
-	RichText,
-	PanelColorSettings,
 	BlockControls,
-	__experimentalBlock as Block,
+	InspectorControls,
+	PanelColorSettings,
+	RichText,
+	useBlockProps,
 } from '@wordpress/block-editor';
 
 import Figure from '@smb/component/figure';
@@ -86,7 +86,6 @@ export default function ( {
 		};
 	} );
 
-	const BlockWrapper = Block.div;
 	const classes = classnames( 'c-row__col', className );
 	const bannerClasses = classnames(
 		'smb-items__banner',
@@ -108,6 +107,10 @@ export default function ( {
 	const maskStyles = {
 		backgroundColor: maskColor || undefined,
 	};
+
+	const blockProps = useBlockProps( {
+		className: classes,
+	} );
 
 	const onSelectImage = ( media ) => {
 		const newImageURL =
@@ -307,7 +310,7 @@ export default function ( {
 				></PanelColorSettings>
 			</InspectorControls>
 
-			<BlockWrapper className={ classes }>
+			<div { ...blockProps }>
 				<div className={ bannerClasses } style={ styles }>
 					<div className="smb-items__banner__figure">
 						{ 1 > maskOpacity && (
@@ -363,12 +366,12 @@ export default function ( {
 						</div>
 					) }
 				</div>
-			</BlockWrapper>
+			</div>
 
 			<BlockControls>
 				<AlignmentToolbar value={ align } onChange={ onChangeAlign } />
 				<ToolbarGroup>
-					<Button
+					<ToolbarButton
 						icon="admin-links"
 						className="components-toolbar__control"
 						label={ __( 'Link', 'snow-monkey-blocks' ) }
@@ -377,7 +380,7 @@ export default function ( {
 					/>
 
 					{ !! url && (
-						<Button
+						<ToolbarButton
 							isPressed
 							icon="editor-unlink"
 							className="components-toolbar__control"

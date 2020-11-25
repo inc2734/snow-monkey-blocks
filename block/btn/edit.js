@@ -1,12 +1,12 @@
 import classnames from 'classnames';
 
 import {
-	Button,
 	CheckboxControl,
 	PanelBody,
 	Popover,
 	RangeControl,
 	SelectControl,
+	ToolbarButton,
 	ToolbarGroup,
 } from '@wordpress/components';
 
@@ -232,7 +232,7 @@ export default function ( {
 
 			<BlockControls>
 				<ToolbarGroup>
-					<Button
+					<ToolbarButton
 						icon="admin-links"
 						className="components-toolbar__control"
 						label={ __( 'Link', 'snow-monkey-blocks' ) }
@@ -241,7 +241,7 @@ export default function ( {
 					/>
 
 					{ !! url && (
-						<Button
+						<ToolbarButton
 							isPressed
 							icon="editor-unlink"
 							className="components-toolbar__control"

@@ -6,23 +6,24 @@ import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
 import {
-	PanelBody,
 	BaseControl,
 	Button,
-	Popover,
-	ToolbarGroup,
 	CheckboxControl,
+	PanelBody,
+	Popover,
 	RangeControl,
 	SelectControl,
+	ToolbarButton,
+	ToolbarGroup,
 } from '@wordpress/components';
 
 import {
-	InspectorControls,
-	RichText,
-	ContrastChecker,
 	BlockControls,
 	ColorPalette,
-	__experimentalBlock as Block,
+	ContrastChecker,
+	InspectorControls,
+	RichText,
+	useBlockProps,
 } from '@wordpress/block-editor';
 
 import Figure from '@smb/component/figure';
@@ -91,7 +92,6 @@ export default function ( {
 
 	const titleTagNames = [ 'div', 'h2', 'h3', 'none' ];
 
-	const BlockWrapper = Block.div;
 	const classes = classnames( 'c-row__col', className );
 
 	const btnClasses = classnames( 'smb-items__item__btn', 'smb-btn', {
@@ -110,6 +110,10 @@ export default function ( {
 				? `${ btnBorderRadius }px`
 				: undefined,
 	};
+
+	const blockProps = useBlockProps( {
+		className: classes,
+	} );
 
 	const onSelectImage = ( media ) => {
 		const newImageURL =
@@ -346,7 +350,7 @@ export default function ( {
 				</PanelBody>
 			</InspectorControls>
 
-			<BlockWrapper className={ classes }>
+			<div { ...blockProps }>
 				<div className="smb-items__item smb-items__item--block-link">
 					{ ( !! imageURL || isSelected ) && (
 						<div className="smb-items__item__figure">
@@ -436,11 +440,11 @@ export default function ( {
 						</div>
 					) }
 				</div>
-			</BlockWrapper>
+			</div>
 
 			<BlockControls>
 				<ToolbarGroup>
-					<Button
+					<ToolbarButton
 						icon="admin-links"
 						className="components-toolbar__control"
 						label={ __( 'Link', 'snow-monkey-blocks' ) }
@@ -449,7 +453,7 @@ export default function ( {
 					/>
 
 					{ !! url && (
-						<Button
+						<ToolbarButton
 							isPressed
 							icon="editor-unlink"
 							className="components-toolbar__control"

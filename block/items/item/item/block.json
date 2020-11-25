@@ -1,4 +1,5 @@
 {
+  "apiVersion": 2,
   "name": "snow-monkey-blocks/items--item",
   "category": "smb",
   "parent": [ "DEPRECATED" ],

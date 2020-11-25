@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { InnerBlocks } from '@wordpress/block-editor';
+import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
 	const { sm, md, lg } = attributes;
@@ -8,7 +8,7 @@ export default function ( { attributes, className } ) {
 	const classes = classnames( 'smb-items', className );
 
 	return (
-		<div className={ classes }>
+		<div { ...useBlockProps.save( { className: classes } ) }>
 			<div
 				className="c-row c-row--margin"
 				data-columns={ sm }

@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { RichText } from '@wordpress/block-editor';
+import { RichText, useBlockProps } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
 	const {
@@ -43,7 +43,7 @@ export default function ( { attributes, className } ) {
 	};
 
 	return (
-		<div className={ classes }>
+		<div { ...useBlockProps.save( { className: classes } ) }>
 			<a
 				className="smb-items__item smb-items__item--block-link"
 				href={ url }

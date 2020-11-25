@@ -5,9 +5,9 @@ import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
 import {
-	Button,
 	Popover,
 	ToolbarGroup,
+	ToolbarButton,
 	PanelBody,
 	SelectControl,
 	RangeControl,
@@ -430,7 +430,7 @@ export default function ( {
 			{ ! RichText.isEmpty( btnLabel ) && (
 				<BlockControls>
 					<ToolbarGroup>
-						<Button
+						<ToolbarButton
 							icon="admin-links"
 							className="components-toolbar__control"
 							label={ __( 'Link', 'snow-monkey-blocks' ) }
@@ -439,7 +439,7 @@ export default function ( {
 						/>
 
 						{ !! btnURL && (
-							<Button
+							<ToolbarButton
 								isPressed
 								icon="editor-unlink"
 								className="components-toolbar__control"

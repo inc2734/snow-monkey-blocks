@@ -7,8 +7,8 @@ import { __ } from '@wordpress/i18n';
 import {
 	PanelBody,
 	SelectControl,
-	Button,
 	Popover,
+	ToolbarButton,
 	ToolbarGroup,
 } from '@wordpress/components';
 
@@ -321,7 +321,7 @@ export default function ( {
 			{ ! RichText.isEmpty( linkLabel ) && (
 				<BlockControls>
 					<ToolbarGroup>
-						<Button
+						<ToolbarButton
 							icon="admin-links"
 							className="components-toolbar__control"
 							label={ __( 'Link', 'snow-monkey-blocks' ) }
@@ -330,7 +330,7 @@ export default function ( {
 						/>
 
 						{ !! linkURL && (
-							<Button
+							<ToolbarButton
 								isPressed
 								icon="editor-unlink"
 								className="components-toolbar__control"

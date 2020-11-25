@@ -11,6 +11,7 @@ import {
 	Button,
 	BaseControl,
 	ToolbarGroup,
+	ToolbarButton,
 	Popover,
 } from '@wordpress/components';
 
@@ -322,7 +323,7 @@ export default function ( {
 					( 'image' === imageMediaType ||
 						undefined === imageMediaType ) && (
 						<ToolbarGroup>
-							<Button
+							<ToolbarButton
 								icon="admin-links"
 								className="components-toolbar__control"
 								label={ __( 'Link', 'snow-monkey-blocks' ) }
@@ -331,7 +332,7 @@ export default function ( {
 							/>
 
 							{ !! url && (
-								<Button
+								<ToolbarButton
 									isPressed
 									icon="editor-unlink"
 									className="components-toolbar__control"

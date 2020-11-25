@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { RichText } from '@wordpress/block-editor';
+import { RichText, useBlockProps } from '@wordpress/block-editor';
 
 import { stringToInnerText } from '@smb/helper';
 
@@ -46,7 +46,7 @@ export default function ( { attributes, className } ) {
 	};
 
 	return (
-		<div className={ classes }>
+		<div { ...useBlockProps.save( { className: classes } ) }>
 			<div className={ bannerClasses } style={ styles }>
 				<div className="smb-items__banner__figure">
 					{ 1 > maskOpacity && (

@@ -3,8 +3,8 @@ import classnames from 'classnames';
 import { PanelBody, RangeControl } from '@wordpress/components';
 import {
 	InspectorControls,
-	InnerBlocks,
-	__experimentalBlock as Block,
+	useBlockProps,
+	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 
@@ -21,8 +21,23 @@ export default function ( { attributes, setAttributes, className } ) {
 	];
 	const template = [ [ 'snow-monkey-blocks/items--item--standard' ] ];
 
-	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-items', className );
+
+	const blockProps = useBlockProps( {
+		className: classes,
+	} );
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: [ 'c-row', 'c-row--margin' ],
+		},
+		{
+			allowedBlocks,
+			template,
+			templateLock: false,
+			orientation: 'horizontal',
+		}
+	);
 
 	const onChangeLg = ( value ) =>
 		setAttributes( {
@@ -86,21 +101,14 @@ export default function ( { attributes, setAttributes, className } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<BlockWrapper className={ classes }>
+			<div { ...blockProps }>
 				<div
-					className="c-row c-row--margin"
+					{ ...innerBlocksProps }
 					data-columns={ sm }
 					data-md-columns={ md }
 					data-lg-columns={ lg }
-				>
-					<InnerBlocks
-						allowedBlocks={ allowedBlocks }
-						template={ template }
-						templateLock={ false }
-						orientation="horizontal"
-					/>
-				</div>
-			</BlockWrapper>
+				/>
+			</div>
 		</>
 	);
 }

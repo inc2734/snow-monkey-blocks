@@ -5,21 +5,22 @@ import { __ } from '@wordpress/i18n';
 import { useState, useEffect } from '@wordpress/element';
 
 import {
-	PanelBody,
 	BaseControl,
 	Button,
-	ToggleControl,
+	PanelBody,
 	Popover,
+	ToggleControl,
+	ToolbarButton,
 	ToolbarGroup,
 } from '@wordpress/components';
 
 import {
-	InspectorControls,
-	RichText,
-	PanelColorSettings,
-	ContrastChecker,
 	BlockControls,
-	__experimentalBlock as Block,
+	ContrastChecker,
+	InspectorControls,
+	PanelColorSettings,
+	RichText,
+	useBlockProps,
 } from '@wordpress/block-editor';
 
 import Figure from '@smb/component/figure';
@@ -58,7 +59,6 @@ export default function ( {
 
 	const titleTagNames = [ 'div', 'h2', 'h3', 'none' ];
 
-	const BlockWrapper = Block.div;
 	const classes = classnames( 'c-row__col', className );
 
 	const itemBtnLabelStyles = {
@@ -68,6 +68,10 @@ export default function ( {
 	const itemBtnStyles = {
 		backgroundColor: btnBackgroundColor || undefined,
 	};
+
+	const blockProps = useBlockProps( {
+		className: classes,
+	} );
 
 	return (
 		<>
@@ -147,7 +151,7 @@ export default function ( {
 				</PanelColorSettings>
 			</InspectorControls>
 
-			<BlockWrapper className={ classes }>
+			<div { ...blockProps }>
 				<div className="smb-items__item">
 					{ ( !! imageURL || isSelected ) && (
 						<div className="smb-items__item__figure">
@@ -256,11 +260,11 @@ export default function ( {
 						</div>
 					) }
 				</div>
-			</BlockWrapper>
+			</div>
 
 			<BlockControls>
 				<ToolbarGroup>
-					<Button
+					<ToolbarButton
 						icon="admin-links"
 						className="components-toolbar__control"
 						label={ __( 'Link', 'snow-monkey-blocks' ) }

@@ -7,7 +7,7 @@ import {
 } from '@wordpress/block-editor';
 
 import {
-	Button,
+	ToolbarButton,
 	Popover,
 	ToolbarGroup,
 	PanelBody,
@@ -212,7 +212,7 @@ export default function ( {
 
 			<BlockControls>
 				<ToolbarGroup>
-					<Button
+					<ToolbarButton
 						icon="admin-links"
 						className="components-toolbar__control"
 						label={ __( 'Link', 'snow-monkey-blocks' ) }
@@ -221,7 +221,7 @@ export default function ( {
 					/>
 
 					{ !! url && (
-						<Button
+						<ToolbarButton
 							isPressed
 							icon="editor-unlink"
 							className="components-toolbar__control"
