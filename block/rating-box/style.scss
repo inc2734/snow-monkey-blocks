@@ -3,7 +3,12 @@
 @import '../../src/css/core/block';
 
 .smb-rating-box {
-  &__body {}
+  &__body {
+    > .smb-rating-box__item {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
 
   &__item {
     &:not(:first-child) {

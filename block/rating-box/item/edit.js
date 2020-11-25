@@ -1,13 +1,15 @@
 import classnames from 'classnames';
 
 import { PanelBody, RangeControl } from '@wordpress/components';
-import { __ } from '@wordpress/i18n';
 
 import {
-	RichText,
 	InspectorControls,
 	PanelColorSettings,
+	RichText,
+	useBlockProps,
 } from '@wordpress/block-editor';
+
+import { __ } from '@wordpress/i18n';
 
 import { toNumber } from '@smb/helper';
 
@@ -21,9 +23,13 @@ export default function ( { attributes, setAttributes, className } ) {
 		backgroundColor: color || undefined,
 	};
 
+	const blockProps = useBlockProps( {
+		className: classes,
+	} );
+
 	const onChangeRating = ( value ) =>
 		setAttributes( {
-			rating: toNumber( value, 1, 10 ),
+			rating: toNumber( value, 0, 10 ),
 		} );
 
 	const onChangeColor = ( value ) =>
@@ -64,7 +70,7 @@ export default function ( { attributes, setAttributes, className } ) {
 				></PanelColorSettings>
 			</InspectorControls>
 
-			<div className={ classes }>
+			<div { ...blockProps }>
 				<RichText
 					className="smb-rating-box__item__title"
 					placeholder={ __( 'Write title…', 'snow-monkey-blocks' ) }
