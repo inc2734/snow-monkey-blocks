@@ -3,22 +3,48 @@ import classnames from 'classnames';
 import { __ } from '@wordpress/i18n';
 
 import {
-	RichText,
+	InnerBlocks,
 	InspectorControls,
 	PanelColorSettings,
-	InnerBlocks,
-	__experimentalBlock as Block,
+	RichText,
+	useBlockProps,
+	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
-export default function ( { attributes, setAttributes, className } ) {
+import { useSelect } from '@wordpress/data';
+
+export default function ( { attributes, setAttributes, className, clientId } ) {
 	const { title, numberColor } = attributes;
 
-	const BlockWrapper = Block.div;
+	const hasInnerBlocks = useSelect(
+		( select ) => {
+			const { getBlock } = select( 'core/block-editor' );
+			const block = getBlock( clientId );
+			return !! ( block && block.innerBlocks.length );
+		},
+		[ clientId ]
+	);
+
 	const classes = classnames( 'smb-step__item', className );
 
 	const itemNumberStyles = {
 		backgroundColor: numberColor || undefined,
 	};
+
+	const blockProps = useBlockProps( {
+		className: classes,
+	} );
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: 'smb-step__item__summary',
+		},
+		{
+			renderAppender: hasInnerBlocks
+				? undefined
+				: InnerBlocks.ButtonBlockAppender,
+		}
+	);
 
 	const onChangeNumberColor = ( value ) =>
 		setAttributes( {
@@ -46,7 +72,7 @@ export default function ( { attributes, setAttributes, className } ) {
 				></PanelColorSettings>
 			</InspectorControls>
 
-			<BlockWrapper className={ classes }>
+			<div { ...blockProps }>
 				<div className="smb-step__item__title">
 					<div
 						className="smb-step__item__number"
@@ -66,11 +92,9 @@ export default function ( { attributes, setAttributes, className } ) {
 				</div>
 
 				<div className="smb-step__item__body">
-					<div className="smb-step__item__summary">
-						<InnerBlocks />
-					</div>
+					<div { ...innerBlocksProps } />
 				</div>
-			</BlockWrapper>
+			</div>
 		</>
 	);
 }

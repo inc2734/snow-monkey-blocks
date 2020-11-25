@@ -1,4 +1,5 @@
 {
+  "apiVersion": 2,
   "name": "snow-monkey-blocks/step--item--free",
   "category": "smb",
   "parent": [ "snow-monkey-blocks/step" ],

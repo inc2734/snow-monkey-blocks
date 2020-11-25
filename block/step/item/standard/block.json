@@ -1,4 +1,5 @@
 {
+  "apiVersion": 2,
   "name": "snow-monkey-blocks/step--item",
   "category": "smb",
   "parent": [ "snow-monkey-blocks/step" ],
@@ -75,6 +76,7 @@
   },
   "supports": {
     "anchor": true,
-    "lightBlockWrapper": true
+    "lightBlockWrapper": true,
+    "inserter": false
   }
 }

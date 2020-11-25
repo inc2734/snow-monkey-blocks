@@ -1,25 +1,28 @@
 import classnames from 'classnames';
 
 import { useState, useEffect } from '@wordpress/element';
-import { useSelect } from '@wordpress/data';
-import { __ } from '@wordpress/i18n';
+
+import {
+	BlockControls,
+	InnerBlocks,
+	InspectorControls,
+	PanelColorSettings,
+	RichText,
+	useBlockProps,
+	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+} from '@wordpress/block-editor';
 
 import {
 	PanelBody,
-	SelectControl,
 	Popover,
+	SelectControl,
 	ToolbarButton,
 	ToolbarGroup,
 } from '@wordpress/components';
 
-import {
-	RichText,
-	InspectorControls,
-	PanelColorSettings,
-	InnerBlocks,
-	BlockControls,
-	__experimentalBlock as Block,
-} from '@wordpress/block-editor';
+import { useSelect } from '@wordpress/data';
+
+import { __ } from '@wordpress/i18n';
 
 import Figure from '@smb/component/figure';
 import LinkControl from '@smb/component/link-control';
@@ -31,6 +34,7 @@ export default function ( {
 	setAttributes,
 	isSelected,
 	className,
+	clientId,
 } ) {
 	const {
 		title,
@@ -47,6 +51,15 @@ export default function ( {
 		linkTarget,
 		linkColor,
 	} = attributes;
+
+	const hasInnerBlocks = useSelect(
+		( select ) => {
+			const { getBlock } = select( 'core/block-editor' );
+			const block = getBlock( clientId );
+			return !! ( block && block.innerBlocks.length );
+		},
+		[ clientId ]
+	);
 
 	const [ isLinkUIOpen, setIsLinkUIOpen ] = useState( false );
 	const toggleLinkUIOpen = () => setIsLinkUIOpen( ! isLinkUIOpen );
@@ -80,7 +93,6 @@ export default function ( {
 		};
 	} );
 
-	const BlockWrapper = Block.div;
 	const classes = classnames(
 		'smb-step__item',
 		`smb-step__item--image-${ imagePosition }`,
@@ -94,6 +106,21 @@ export default function ( {
 	const itemLinkStyles = {
 		color: linkColor || undefined,
 	};
+
+	const blockProps = useBlockProps( {
+		className: classes,
+	} );
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: 'smb-step__item__summary',
+		},
+		{
+			renderAppender: hasInnerBlocks
+				? InnerBlocks.DefaultBlockAppender
+				: InnerBlocks.ButtonBlockAppender,
+		}
+	);
 
 	const onChangeImagePosition = ( value ) =>
 		setAttributes( {
@@ -236,7 +263,7 @@ export default function ( {
 				></PanelColorSettings>
 			</InspectorControls>
 
-			<BlockWrapper className={ classes }>
+			<div { ...blockProps }>
 				<div className="smb-step__item__title">
 					<div
 						className="smb-step__item__number"
@@ -269,54 +296,51 @@ export default function ( {
 						</div>
 					) }
 
-					<div className="smb-step__item__summary">
-						<InnerBlocks />
+					<div { ...innerBlocksProps } />
 
-						{ ( ! RichText.isEmpty( linkLabel ) || isSelected ) && (
-							<span
-								className="smb-step__item__link"
-								href={ linkURL }
-								style={ itemLinkStyles }
-								target={
-									'_self' === linkTarget
-										? undefined
-										: linkTarget
-								}
-								rel={
-									'_self' === linkTarget
-										? undefined
-										: 'noopener noreferrer'
-								}
-							>
-								<i className="fas fa-arrow-circle-right" />
-								<RichText
-									className="smb-step__item__link__label"
-									placeholder={ __(
-										'Link text',
-										'snow-monkey-blocks'
-									) }
-									value={ linkLabel }
-									multiline={ false }
-									onChange={ onChangeLinkLabel }
-								/>
-
-								{ isLinkUIOpen && (
-									<Popover
-										position="bottom center"
-										onClose={ closeLinkUIOpen }
-									>
-										<LinkControl
-											url={ linkURL }
-											target={ linkTarget }
-											onChange={ onChangeLinkUrl }
-										/>
-									</Popover>
+					{ ( ! RichText.isEmpty( linkLabel ) || isSelected ) && (
+						<span
+							className="smb-step__item__link"
+							href={ linkURL }
+							style={ itemLinkStyles }
+							target={
+								'_self' === linkTarget ? undefined : linkTarget
+							}
+							rel={
+								'_self' === linkTarget
+									? undefined
+									: 'noopener noreferrer'
+							}
+						>
+							<i className="fas fa-arrow-circle-right" />
+							<RichText
+								className="smb-step__item__link__label"
+								placeholder={ __(
+									'Link text',
+									'snow-monkey-blocks'
 								) }
-							</span>
-						) }
-					</div>
+								value={ linkLabel }
+								multiline={ false }
+								onChange={ onChangeLinkLabel }
+								withoutInteractiveFormatting={ true }
+							/>
+
+							{ isLinkUIOpen && (
+								<Popover
+									position="bottom center"
+									onClose={ closeLinkUIOpen }
+								>
+									<LinkControl
+										url={ linkURL }
+										target={ linkTarget }
+										onChange={ onChangeLinkUrl }
+									/>
+								</Popover>
+							) }
+						</span>
+					) }
 				</div>
-			</BlockWrapper>
+			</div>
 
 			{ ! RichText.isEmpty( linkLabel ) && (
 				<BlockControls>

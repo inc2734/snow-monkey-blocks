@@ -29,10 +29,21 @@ wp_register_script(
 	true
 );
 
+/**
+ * editor_style
+ */
+wp_register_style(
+	'snow-monkey-blocks/step/editor',
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/step/editor.css',
+	[ 'snow-monkey-blocks-editor', 'snow-monkey-blocks/step' ],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/step/editor.css' )
+);
+
 register_block_type_from_metadata(
 	__DIR__,
 	[
 		'style'         => 'snow-monkey-blocks/step',
 		'editor_script' => 'snow-monkey-blocks/step/editor',
+		'editor_style'  => 'snow-monkey-blocks/step/editor',
 	]
 );

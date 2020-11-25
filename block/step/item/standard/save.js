@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { RichText, InnerBlocks } from '@wordpress/block-editor';
+import { RichText, InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
 	const {
@@ -33,7 +33,7 @@ export default function ( { attributes, className } ) {
 	};
 
 	return (
-		<div className={ classes }>
+		<div { ...useBlockProps.save( { className: classes } ) }>
 			<div className="smb-step__item__title">
 				<div
 					className="smb-step__item__number"
@@ -59,28 +59,28 @@ export default function ( { attributes, className } ) {
 
 				<div className="smb-step__item__summary">
 					<InnerBlocks.Content />
-
-					{ ! RichText.isEmpty( linkLabel ) && (
-						<a
-							className="smb-step__item__link"
-							href={ linkURL }
-							style={ itemLinkStyles }
-							target={
-								'_self' === linkTarget ? undefined : linkTarget
-							}
-							rel={
-								'_self' === linkTarget
-									? undefined
-									: 'noopener noreferrer'
-							}
-						>
-							<i className="fas fa-arrow-circle-right" />
-							<span className="smb-step__item__link__label">
-								<RichText.Content value={ linkLabel } />
-							</span>
-						</a>
-					) }
 				</div>
+
+				{ ! RichText.isEmpty( linkLabel ) && (
+					<a
+						className="smb-step__item__link"
+						href={ linkURL }
+						style={ itemLinkStyles }
+						target={
+							'_self' === linkTarget ? undefined : linkTarget
+						}
+						rel={
+							'_self' === linkTarget
+								? undefined
+								: 'noopener noreferrer'
+						}
+					>
+						<i className="fas fa-arrow-circle-right" />
+						<span className="smb-step__item__link__label">
+							<RichText.Content value={ linkLabel } />
+						</span>
+					</a>
+				) }
 			</div>
 		</div>
 	);

@@ -5,6 +5,13 @@
 .smb-step {
   counter-reset: item;
 
+  &__body {
+    > .smb-step__item {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
   &__item {
     position: relative;
     @include _padding-left(1.75);

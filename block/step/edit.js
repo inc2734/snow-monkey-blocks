@@ -1,8 +1,8 @@
 import classnames from 'classnames';
 
 import {
-	InnerBlocks,
-	__experimentalBlock as Block,
+	useBlockProps,
+	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
 export default function ( { className } ) {
@@ -12,18 +12,26 @@ export default function ( { className } ) {
 	];
 	const template = [ [ 'snow-monkey-blocks/step--item--free' ] ];
 
-	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-step', className );
 
+	const blockProps = useBlockProps( {
+		className: classes,
+	} );
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: 'smb-step__body',
+		},
+		{
+			allowedBlocks,
+			template,
+			templateLock: false,
+		}
+	);
+
 	return (
-		<BlockWrapper className={ classes }>
-			<div className="smb-step__body">
-				<InnerBlocks
-					allowedBlocks={ allowedBlocks }
-					template={ template }
-					templateLock={ false }
-				/>
-			</div>
-		</BlockWrapper>
+		<div { ...blockProps }>
+			<div { ...innerBlocksProps } />
+		</div>
 	);
 }
