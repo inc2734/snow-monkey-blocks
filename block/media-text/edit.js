@@ -6,22 +6,23 @@ import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
 import {
-	PanelBody,
-	SelectControl,
-	Button,
 	BaseControl,
-	ToolbarGroup,
-	ToolbarButton,
+	Button,
+	PanelBody,
 	Popover,
+	SelectControl,
+	ToolbarButton,
+	ToolbarGroup,
 } from '@wordpress/components';
 
 import {
-	RichText,
-	InnerBlocks,
-	InspectorControls,
 	BlockControls,
 	BlockVerticalAlignmentToolbar,
-	__experimentalBlock as Block,
+	InnerBlocks,
+	InspectorControls,
+	RichText,
+	useBlockProps,
+	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
 import { pullLeft, pullRight } from '@wordpress/icons';
@@ -36,6 +37,7 @@ export default function ( {
 	setAttributes,
 	isSelected,
 	className,
+	clientId,
 } ) {
 	const {
 		titleTagName,
@@ -88,12 +90,20 @@ export default function ( {
 		};
 	} );
 
+	const hasInnerBlocks = useSelect(
+		( select ) => {
+			const { getBlock } = select( 'core/block-editor' );
+			const block = getBlock( clientId );
+			return !! ( block && block.innerBlocks.length );
+		},
+		[ clientId ]
+	);
+
 	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
 	const { textColumnWidth, imageColumnWidth } = getColumnSize(
 		imageColumnSize
 	);
 
-	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-media-text', className, {
 		[ `smb-media-text--mobile-${ mobileOrder }` ]: !! mobileOrder,
 	} );
@@ -112,6 +122,21 @@ export default function ( {
 	const imageColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', [
 		`c-row__col--lg-${ imageColumnWidth }`,
 	] );
+
+	const blockProps = useBlockProps( {
+		className: classes,
+	} );
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: 'smb-media-text__body',
+		},
+		{
+			renderAppender: hasInnerBlocks
+				? undefined
+				: InnerBlocks.ButtonBlockAppender,
+		}
+	);
 
 	const onChangeVerticalAlignment = ( value ) =>
 		setAttributes( {
@@ -347,7 +372,7 @@ export default function ( {
 					) }
 			</BlockControls>
 
-			<BlockWrapper className={ classes }>
+			<div { ...blockProps }>
 				<div className={ rowClasses }>
 					<div className={ textColumnClasses }>
 						{ ( ! RichText.isEmpty( title ) || isSelected ) &&
@@ -363,10 +388,10 @@ export default function ( {
 									) }
 								/>
 							) }
-						<div className="smb-media-text__body">
-							<InnerBlocks />
-						</div>
+
+						<div { ...innerBlocksProps } />
 					</div>
+
 					<div className={ imageColumnClasses }>
 						<div className="smb-media-text__figure">
 							<Figure
@@ -408,7 +433,7 @@ export default function ( {
 						) }
 					</div>
 				</div>
-			</BlockWrapper>
+			</div>
 		</>
 	);
 }

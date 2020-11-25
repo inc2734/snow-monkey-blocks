@@ -40,6 +40,10 @@ export default function ( { attributes, setAttributes, className } ) {
 		style: boxStyles,
 	} );
 
+	const innerBlocksProps = useInnerBlocksProps( {
+		className: 'smb-box__body',
+	} );
+
 	const onChangeBorderWidth = ( value ) =>
 		setAttributes( {
 			borderWidth: toNumber( value, 1, 5 ),
@@ -64,10 +68,6 @@ export default function ( { attributes, setAttributes, className } ) {
 		setAttributes( {
 			textColor: value,
 		} );
-
-	const innerBlocksProps = useInnerBlocksProps( {
-		className: 'smb-box__body',
-	} );
 
 	return (
 		<>

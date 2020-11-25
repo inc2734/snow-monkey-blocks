@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { RichText, InnerBlocks } from '@wordpress/block-editor';
+import { RichText, InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
 import { getColumnSize } from '@smb/helper';
 
@@ -91,7 +91,7 @@ export default function ( { attributes, className } ) {
 	}
 
 	return (
-		<div className={ classes }>
+		<div { ...useBlockProps.save( { className: classes } ) }>
 			<div className={ rowClasses }>
 				<div className={ textColumnClasses }>
 					{ ! RichText.isEmpty( title ) &&
@@ -102,10 +102,12 @@ export default function ( { attributes, className } ) {
 								value={ title }
 							/>
 						) }
+
 					<div className="smb-media-text__body">
 						<InnerBlocks.Content />
 					</div>
 				</div>
+
 				<div className={ imageColumnClasses }>
 					<div className="smb-media-text__figure">{ figure }</div>
 
