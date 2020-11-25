@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { RichText, InnerBlocks } from '@wordpress/block-editor';
+import { RichText, InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
 import { divider } from '@smb/helper';
 
@@ -26,7 +26,7 @@ export default function ( { attributes, className } ) {
 		bottomDividerColor,
 	} = attributes;
 
-	const Wrapper = wrapperTagName;
+	const TagName = wrapperTagName;
 
 	const classes = classnames( 'smb-section', className );
 
@@ -94,7 +94,12 @@ export default function ( { attributes, className } ) {
 	};
 
 	return (
-		<Wrapper className={ classes } style={ sectionStyles }>
+		<TagName
+			{ ...useBlockProps.save( {
+				className: classes,
+				style: sectionStyles,
+			} ) }
+		>
 			{ ( 0 < Object.keys( backgroundStyles ).length ||
 				!! topDividerLevel ||
 				!! bottomDividerLevel ) && (
@@ -160,6 +165,6 @@ export default function ( { attributes, className } ) {
 					</div>
 				</div>
 			</div>
-		</Wrapper>
+		</TagName>
 	);
 }

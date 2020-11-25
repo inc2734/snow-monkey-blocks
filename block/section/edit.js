@@ -1,25 +1,28 @@
 import classnames from 'classnames';
 import { times } from 'lodash';
 
-import { __ } from '@wordpress/i18n';
-
 import {
-	PanelBody,
-	BaseControl,
-	SelectControl,
-	RangeControl,
-	Button,
-	ToggleControl,
-} from '@wordpress/components';
-
-import {
-	RichText,
+	ColorPalette,
 	InnerBlocks,
 	InspectorControls,
 	PanelColorSettings,
-	ColorPalette,
-	__experimentalBlock as Block,
+	RichText,
+	useBlockProps,
+	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
+
+import {
+	BaseControl,
+	Button,
+	PanelBody,
+	RangeControl,
+	SelectControl,
+	ToggleControl,
+} from '@wordpress/components';
+
+import { useSelect } from '@wordpress/data';
+
+import { __ } from '@wordpress/i18n';
 
 import { toNumber, divider } from '@smb/helper';
 
@@ -28,6 +31,7 @@ export default function ( {
 	setAttributes,
 	isSelected,
 	className,
+	clientId,
 } ) {
 	const {
 		wrapperTagName,
@@ -50,10 +54,19 @@ export default function ( {
 		bottomDividerColor,
 	} = attributes;
 
+	const hasInnerBlocks = useSelect(
+		( select ) => {
+			const { getBlock } = select( 'core/block-editor' );
+			const block = getBlock( clientId );
+			return !! ( block && block.innerBlocks.length );
+		},
+		[ clientId ]
+	);
+
 	const wrapperTagNames = [ 'div', 'section', 'aside' ];
 	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
 
-	const BlockWrapper = Block[ wrapperTagName ];
+	const TagName = wrapperTagName;
 	const classes = classnames( 'smb-section', className );
 
 	const topDividerClasses = classnames(
@@ -118,6 +131,22 @@ export default function ( {
 		paddingTop: Math.abs( topDividerLevel ),
 		paddingBottom: Math.abs( bottomDividerLevel ),
 	};
+
+	const blockProps = useBlockProps( {
+		className: classes,
+		style: sectionStyles,
+	} );
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: 'smb-section__body',
+		},
+		{
+			renderAppender: hasInnerBlocks
+				? undefined
+				: InnerBlocks.ButtonBlockAppender,
+		}
+	);
 
 	const onChangeIsSlim = ( value ) =>
 		setAttributes( {
@@ -457,7 +486,7 @@ export default function ( {
 				</PanelBody>
 			</InspectorControls>
 
-			<BlockWrapper className={ classes } style={ sectionStyles }>
+			<TagName { ...blockProps }>
 				{ ( 0 < Object.keys( backgroundStyles ).length ||
 					!! topDividerLevel ||
 					!! bottomDividerLevel ) && (
@@ -531,12 +560,10 @@ export default function ( {
 								/>
 							) }
 
-						<div className="smb-section__body">
-							<InnerBlocks />
-						</div>
+						<div { ...innerBlocksProps } />
 					</div>
 				</div>
-			</BlockWrapper>
+			</TagName>
 		</>
 	);
 }
