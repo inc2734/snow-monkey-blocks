@@ -1,11 +1,13 @@
 import classnames from 'classnames';
 
-import { PanelBody, BaseControl, SelectControl } from '@wordpress/components';
+import { BaseControl, PanelBody, SelectControl } from '@wordpress/components';
+
 import {
-	InnerBlocks,
 	InspectorControls,
-	__experimentalBlock as Block,
+	useBlockProps,
+	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
+
 import { useEffect } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
@@ -14,8 +16,9 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 	const { columnSize, childrenCount } = attributes;
 
 	const innerBlocksCount = useSelect( ( select ) => {
-		return select( 'core/editor' ).getBlocksByClientId( clientId )[ 0 ]
-			.innerBlocks.length;
+		return select( 'core/block-editor' ).getBlocksByClientId(
+			clientId
+		)[ 0 ].innerBlocks.length;
 	} );
 
 	useEffect( () => {
@@ -26,14 +29,29 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		}
 	}, [ innerBlocksCount ] );
 
-	const BlockWrapper = Block.div;
+	const allowedBlocks = [ 'snow-monkey-blocks/pricing-table--item' ];
+	const template = [ [ 'snow-monkey-blocks/pricing-table--item' ] ];
+
 	const classes = classnames( 'smb-pricing-table', {
 		[ `smb-pricing-table--col-size-${ columnSize }` ]: !! columnSize,
 		[ className ]: !! className,
 	} );
 
-	const allowedBlocks = [ 'snow-monkey-blocks/pricing-table--item' ];
-	const template = [ [ 'snow-monkey-blocks/pricing-table--item' ] ];
+	const blockProps = useBlockProps( {
+		className: classes,
+	} );
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: [ 'c-row', 'c-row--md-nowrap' ],
+		},
+		{
+			allowedBlocks,
+			template,
+			templateLock: false,
+			orientation: 'horizontal',
+		}
+	);
 
 	const onChangeColumnSize = ( value ) =>
 		setAttributes( {
@@ -84,19 +102,12 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<BlockWrapper
-				className={ classes }
+			<div
+				{ ...blockProps }
 				data-has-items={ 0 < childrenCount ? childrenCount : undefined }
 			>
-				<div className="c-row c-row--md-nowrap">
-					<InnerBlocks
-						allowedBlocks={ allowedBlocks }
-						template={ template }
-						templateLock={ false }
-						orientation="horizontal"
-					/>
-				</div>
-			</BlockWrapper>
+				<div { ...innerBlocksProps } />
+			</div>
 		</>
 	);
 }

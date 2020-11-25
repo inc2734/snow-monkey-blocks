@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { InnerBlocks } from '@wordpress/block-editor';
+import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
 	const { columnSize, childrenCount } = attributes;
@@ -12,7 +12,7 @@ export default function ( { attributes, className } ) {
 
 	return (
 		<div
-			className={ classes }
+			{ ...useBlockProps.save( { className: classes } ) }
 			data-has-items={ 0 < childrenCount ? childrenCount : undefined }
 		>
 			<div className="c-row c-row--md-nowrap">

@@ -2,7 +2,6 @@
 
 @import 'core/block';
 
-
 .#{$_prefix}c-row {
   > .block-editor-inner-blocks {
     > .block-editor-block-list__layout {
@@ -69,6 +68,10 @@
 }
 
 [data-type^="snow-monkey-blocks"] {
+  .components-placeholder__label .dashicon {
+      margin-right: .25em;
+  }
+
   .block-list-appender:first-child {
     .block-editor-default-block-appender {
       .block-editor-default-block-appender__content {

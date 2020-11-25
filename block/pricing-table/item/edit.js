@@ -2,27 +2,28 @@ import classnames from 'classnames';
 
 import { useState, useEffect } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
-import { __ } from '@wordpress/i18n';
 
 import {
-	Popover,
-	ToolbarGroup,
-	ToolbarButton,
-	PanelBody,
-	SelectControl,
-	RangeControl,
-	CheckboxControl,
 	BaseControl,
+	CheckboxControl,
+	PanelBody,
+	Popover,
+	RangeControl,
+	SelectControl,
+	ToolbarButton,
+	ToolbarGroup,
 } from '@wordpress/components';
 
 import {
-	RichText,
-	InspectorControls,
-	ContrastChecker,
 	BlockControls,
 	ColorPalette,
-	__experimentalBlock as Block,
+	ContrastChecker,
+	InspectorControls,
+	RichText,
+	useBlockProps,
 } from '@wordpress/block-editor';
+
+import { __ } from '@wordpress/i18n';
 
 import Figure from '@smb/component/figure';
 import LinkControl from '@smb/component/link-control';
@@ -88,7 +89,6 @@ export default function ( {
 		};
 	} );
 
-	const BlockWrapper = Block.div;
 	const classes = classnames( 'c-row__col', className );
 
 	const btnClasses = classnames( 'smb-btn', 'smb-pricing-table__item__btn', {
@@ -107,6 +107,10 @@ export default function ( {
 	const btnLabelStyles = {
 		color: btnTextColor || undefined,
 	};
+
+	const blockProps = useBlockProps( {
+		className: classes,
+	} );
 
 	const onSelectImage = ( media ) => {
 		const newImageURL =
@@ -320,7 +324,7 @@ export default function ( {
 				</PanelBody>
 			</InspectorControls>
 
-			<BlockWrapper className={ classes }>
+			<div { ...blockProps }>
 				<div className="smb-pricing-table__item">
 					{ ( !! imageURL || isSelected ) && (
 						<div className="smb-pricing-table__item__figure">
@@ -425,14 +429,13 @@ export default function ( {
 						</div>
 					) }
 				</div>
-			</BlockWrapper>
+			</div>
 
 			{ ! RichText.isEmpty( btnLabel ) && (
 				<BlockControls>
 					<ToolbarGroup>
 						<ToolbarButton
 							icon="admin-links"
-							className="components-toolbar__control"
 							label={ __( 'Link', 'snow-monkey-blocks' ) }
 							aria-expanded={ isLinkUIOpen }
 							onClick={ toggleLinkUIOpen }
@@ -442,7 +445,6 @@ export default function ( {
 							<ToolbarButton
 								isPressed
 								icon="editor-unlink"
-								className="components-toolbar__control"
 								label={ __( 'Unlink', 'snow-monkey-blocks' ) }
 								onClick={ () => onChangeBtnUrl( '', false ) }
 							/>

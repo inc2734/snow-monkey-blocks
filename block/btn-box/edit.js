@@ -297,7 +297,6 @@ export default function ( {
 				<ToolbarGroup>
 					<ToolbarButton
 						icon="admin-links"
-						className="components-toolbar__control"
 						label={ __( 'Link', 'snow-monkey-blocks' ) }
 						aria-expanded={ isLinkUIOpen }
 						onClick={ toggleLinkUIOpen }
@@ -307,7 +306,6 @@ export default function ( {
 						<ToolbarButton
 							isPressed
 							icon="editor-unlink"
-							className="components-toolbar__control"
 							label={ __( 'Unlink', 'snow-monkey-blocks' ) }
 							onClick={ () => onChangeBtnUrl( '', false ) }
 						/>
