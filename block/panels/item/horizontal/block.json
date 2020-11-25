@@ -1,4 +1,5 @@
 {
+  "apiVersion": 2,
   "name": "snow-monkey-blocks/panels--item--horizontal",
   "category": "smb",
   "parent": [ "snow-monkey-blocks/panels" ],

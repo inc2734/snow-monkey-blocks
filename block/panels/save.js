@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { InnerBlocks } from '@wordpress/block-editor';
+import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
 	const { sm, md, lg, imagePadding } = attributes;
@@ -8,7 +8,10 @@ export default function ( { attributes, className } ) {
 	const classes = classnames( 'smb-panels', className );
 
 	return (
-		<div className={ classes } data-image-padding={ imagePadding }>
+		<div
+			{ ...useBlockProps.save( { className: classes } ) }
+			data-image-padding={ imagePadding }
+		>
 			<div
 				className="c-row c-row--margin c-row--fill"
 				data-columns={ sm }

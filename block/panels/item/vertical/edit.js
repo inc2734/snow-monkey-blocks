@@ -3,22 +3,24 @@ import { times } from 'lodash';
 
 import { useState, useEffect } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
-import { __ } from '@wordpress/i18n';
 
 import {
+	BlockControls,
 	InspectorControls,
 	RichText,
-	BlockControls,
-	__experimentalBlock as Block,
+	useBlockProps,
 } from '@wordpress/block-editor';
 
 import {
-	PanelBody,
 	BaseControl,
 	Button,
+	PanelBody,
 	Popover,
-	Toolbar,
+	ToolbarButton,
+	ToolbarGroup,
 } from '@wordpress/components';
+
+import { __ } from '@wordpress/i18n';
 
 import Figure from '@smb/component/figure';
 import LinkControl from '@smb/component/link-control';
@@ -80,11 +82,14 @@ export default function ( {
 
 	const titleTagNames = [ 'div', 'h2', 'h3', 'none' ];
 
-	const BlockWrapper = Block.div;
 	const classes = classnames( 'c-row__col', className );
 
 	const actionClasses = classnames( 'smb-panels__item__action', {
 		'smb-panels__item__action--nolabel': ! linkLabel && ! isSelected,
+	} );
+
+	const blockProps = useBlockProps( {
+		className: classes,
 	} );
 
 	const onSelectImage = ( media ) => {
@@ -208,7 +213,7 @@ export default function ( {
 				</PanelBody>
 			</InspectorControls>
 
-			<BlockWrapper className={ classes }>
+			<div { ...blockProps }>
 				<div className="smb-panels__item">
 					{ ( !! imageURL || isSelected ) && (
 						<div className="smb-panels__item__figure">
@@ -286,28 +291,26 @@ export default function ( {
 						) }
 					</div>
 				</div>
-			</BlockWrapper>
+			</div>
 
 			<BlockControls>
-				<Toolbar>
-					<Button
+				<ToolbarGroup>
+					<ToolbarButton
 						icon="admin-links"
-						className="components-toolbar__control"
 						label={ __( 'Link', 'snow-monkey-blocks' ) }
 						aria-expanded={ isLinkUIOpen }
 						onClick={ toggleLinkUIOpen }
 					/>
 
 					{ !! linkURL && (
-						<Button
+						<ToolbarButton
 							isPressed
 							icon="editor-unlink"
-							className="components-toolbar__control"
 							label={ __( 'Unlink', 'snow-monkey-blocks' ) }
 							onClick={ () => onChangeLinkUrl( '', false ) }
 						/>
 					) }
-				</Toolbar>
+				</ToolbarGroup>
 			</BlockControls>
 		</>
 	);

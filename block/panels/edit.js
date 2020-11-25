@@ -1,11 +1,13 @@
 import classnames from 'classnames';
 
 import { PanelBody, RangeControl, ToggleControl } from '@wordpress/components';
+
 import {
 	InspectorControls,
-	InnerBlocks,
-	__experimentalBlock as Block,
+	useBlockProps,
+	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
+
 import { __ } from '@wordpress/i18n';
 
 import { toNumber } from '@smb/helper';
@@ -20,8 +22,23 @@ export default function ( { attributes, setAttributes, className } ) {
 	];
 	const template = [ [ 'snow-monkey-blocks/panels--item' ] ];
 
-	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-panels', className );
+
+	const blockProps = useBlockProps( {
+		className: classes,
+	} );
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: [ 'c-row', 'c-row--margin', 'c-row--fill' ],
+		},
+		{
+			allowedBlocks,
+			template,
+			templateLock: false,
+			orientation: 'horizontal',
+		}
+	);
 
 	const onChangeLg = ( value ) =>
 		setAttributes( {
@@ -105,24 +122,14 @@ export default function ( { attributes, setAttributes, className } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<BlockWrapper
-				className={ classes }
-				data-image-padding={ imagePadding }
-			>
+			<div { ...blockProps } data-image-padding={ imagePadding }>
 				<div
-					className="c-row c-row--margin c-row--fill"
+					{ ...innerBlocksProps }
 					data-columns={ sm }
 					data-md-columns={ md }
 					data-lg-columns={ lg }
-				>
-					<InnerBlocks
-						allowedBlocks={ allowedBlocks }
-						template={ template }
-						templateLock={ false }
-						orientation="horizontal"
-					/>
-				</div>
-			</BlockWrapper>
+				/>
+			</div>
 		</>
 	);
 }

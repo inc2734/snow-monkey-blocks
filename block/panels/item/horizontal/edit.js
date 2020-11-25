@@ -6,19 +6,20 @@ import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
 import {
+	BlockControls,
 	InspectorControls,
 	RichText,
-	BlockControls,
-	__experimentalBlock as Block,
+	useBlockProps,
 } from '@wordpress/block-editor';
 
 import {
-	PanelBody,
-	SelectControl,
 	BaseControl,
 	Button,
+	PanelBody,
 	Popover,
-	Toolbar,
+	SelectControl,
+	ToolbarButton,
+	ToolbarGroup,
 } from '@wordpress/components';
 
 import Figure from '@smb/component/figure';
@@ -82,7 +83,6 @@ export default function ( {
 
 	const titleTagNames = [ 'div', 'h2', 'h3', 'none' ];
 
-	const BlockWrapper = Block.div;
 	const classes = classnames( 'c-row__col', className );
 
 	const itemClasses = classnames(
@@ -95,6 +95,10 @@ export default function ( {
 
 	const actionClasses = classnames( 'smb-panels__item__action', {
 		'smb-panels__item__action--nolabel': ! linkLabel && ! isSelected,
+	} );
+
+	const blockProps = useBlockProps( {
+		className: classes,
 	} );
 
 	const onChangeImagePosition = ( value ) =>
@@ -239,7 +243,7 @@ export default function ( {
 				</PanelBody>
 			</InspectorControls>
 
-			<BlockWrapper className={ classes }>
+			<div { ...blockProps }>
 				<div className={ itemClasses }>
 					{ ( !! imageURL || isSelected ) && (
 						<div className="smb-panels__item__figure">
@@ -317,28 +321,26 @@ export default function ( {
 						) }
 					</div>
 				</div>
-			</BlockWrapper>
+			</div>
 
 			<BlockControls>
-				<Toolbar>
-					<Button
+				<ToolbarGroup>
+					<ToolbarButton
 						icon="admin-links"
-						className="components-toolbar__control"
 						label={ __( 'Link', 'snow-monkey-blocks' ) }
 						aria-expanded={ isLinkUIOpen }
 						onClick={ toggleLinkUIOpen }
 					/>
 
 					{ !! linkURL && (
-						<Button
+						<ToolbarButton
 							isPressed
 							icon="editor-unlink"
-							className="components-toolbar__control"
 							label={ __( 'Unlink', 'snow-monkey-blocks' ) }
 							onClick={ () => onChangeLinkUrl( '', false ) }
 						/>
 					) }
-				</Toolbar>
+				</ToolbarGroup>
 			</BlockControls>
 		</>
 	);
