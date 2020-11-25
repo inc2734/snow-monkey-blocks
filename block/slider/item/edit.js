@@ -1,20 +1,21 @@
 import classnames from 'classnames';
 
 import {
-	RichText,
 	BlockControls,
 	InspectorControls,
+	RichText,
+	useBlockProps,
 } from '@wordpress/block-editor';
 
 import {
-	ToolbarButton,
-	Popover,
-	ToolbarGroup,
 	PanelBody,
+	Popover,
+	ToolbarButton,
+	ToolbarGroup,
 } from '@wordpress/components';
 
-import { useState, useEffect } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
+import { useState, useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 import Figure from '@smb/component/figure';
@@ -73,6 +74,8 @@ export default function ( {
 	} );
 
 	const classes = classnames( 'smb-slider__item', className );
+
+	const blockProps = useBlockProps();
 
 	const onSelectImage = ( media ) => {
 		const newImageURL =
@@ -195,20 +198,24 @@ export default function ( {
 				</PanelBody>
 			</InspectorControls>
 
-			{ !! url ? (
-				<span
-					className={ classes }
-					href={ url }
-					target={ '_self' === target ? undefined : target }
-					rel={
-						'_self' === target ? undefined : 'noopener noreferrer'
-					}
-				>
-					{ item }
-				</span>
-			) : (
-				<div className={ classes }>{ item }</div>
-			) }
+			<div { ...blockProps }>
+				{ !! url ? (
+					<span
+						className={ classes }
+						href={ url }
+						target={ '_self' === target ? undefined : target }
+						rel={
+							'_self' === target
+								? undefined
+								: 'noopener noreferrer'
+						}
+					>
+						{ item }
+					</span>
+				) : (
+					<div className={ classes }>{ item }</div>
+				) }
+			</div>
 
 			<BlockControls>
 				<ToolbarGroup>

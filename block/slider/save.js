@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { InnerBlocks } from '@wordpress/block-editor';
+import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
 import { generateConfig } from './utils';
 
@@ -45,7 +45,7 @@ export default function ( { attributes, className } ) {
 	const dir = true === config.rtl ? 'rtl' : 'ltr';
 
 	return (
-		<div className={ classes }>
+		<div { ...useBlockProps.save( { className: classes } ) }>
 			<div
 				className="smb-slider__canvas"
 				dir={ dir }

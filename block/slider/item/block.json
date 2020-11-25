@@ -1,4 +1,5 @@
 {
+  "apiVersion": 2,
   "name": "snow-monkey-blocks/slider--item",
   "category": "smb-deprecated",
   "parent": [ "snow-monkey-blocks/slider" ],

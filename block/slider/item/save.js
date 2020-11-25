@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { RichText } from '@wordpress/block-editor';
+import { RichText, useBlockProps } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
 	const {
@@ -40,7 +40,7 @@ export default function ( { attributes, className } ) {
 
 	return !! url ? (
 		<a
-			className={ classes }
+			{ ...useBlockProps.save( { className: classes } ) }
 			href={ url }
 			target={ '_self' === target ? undefined : target }
 			rel={ '_self' === target ? undefined : 'noopener noreferrer' }
@@ -48,6 +48,6 @@ export default function ( { attributes, className } ) {
 			{ item }
 		</a>
 	) : (
-		<div className={ classes }>{ item }</div>
+		<div { ...useBlockProps.save( { className: classes } ) }>{ item }</div>
 	);
 }

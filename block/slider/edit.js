@@ -3,10 +3,17 @@ import classnames from 'classnames';
 import {
 	PanelBody,
 	RangeControl,
-	ToggleControl,
 	SelectControl,
+	ToggleControl,
 } from '@wordpress/components';
-import { InspectorControls, InnerBlocks } from '@wordpress/block-editor';
+
+import {
+	InnerBlocks,
+	InspectorControls,
+	useBlockProps,
+	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+} from '@wordpress/block-editor';
+
 import { __ } from '@wordpress/i18n';
 
 import { toNumber } from '@smb/helper';
@@ -33,6 +40,23 @@ export default function ( { attributes, setAttributes, className } ) {
 	const template = [ [ 'snow-monkey-blocks/slider--item' ] ];
 
 	const classes = classnames( 'smb-slider', className );
+
+	const blockProps = useBlockProps( {
+		className: classes,
+	} );
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: 'smb-slider__canvas',
+		},
+		{
+			allowedBlocks,
+			template,
+			templateLock: false,
+			//orientation: 'horizontal',
+			renderAppender: InnerBlocks.ButtonBlockAppender,
+		}
+	);
 
 	const aspectRatioOptions = [
 		{
@@ -262,15 +286,8 @@ export default function ( { attributes, setAttributes, className } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<div className={ classes }>
-				<div className="smb-slider__canvas">
-					<InnerBlocks
-						allowedBlocks={ allowedBlocks }
-						template={ template }
-						templateLock={ false }
-						orientation="horizontal"
-					/>
-				</div>
+			<div { ...blockProps }>
+				<div { ...innerBlocksProps } />
 			</div>
 		</>
 	);

@@ -5,26 +5,23 @@
 .editor-styles-wrapper {
   .smb-slider {
     &__canvas {
-      visibility: visible !important;
+      @include _row();
+      @include _row--margin(.5);
+      margin-bottom: 0;
       padding-bottom: 0;
+      visibility: visible !important;
 
-      > .block-editor-inner-blocks > .block-editor-block-list__layout {
-        @include _row();
-        @include _row--margin(.5);
-        margin-bottom: 0;
+      > [data-type="snow-monkey-blocks/slider--item"] {
+        position: relative;
+        margin-top: 0;
+        margin-right: 0;
+        margin-left: 0;
+        @include _row__col(1, 2);
+        @include _row__col--margin(.5);
+      }
 
-        > [data-type="snow-monkey-blocks/slider--item"] {
-          position: relative;
-          margin-top: 0;
-          margin-right: 0;
-          margin-left: 0;
-          @include _row__col(1, 2);
-          @include _row__col--margin(.5);
-        }
-
-        > .block-list-appender {
-          flex: 1 1 100%;
-        }
+      > .block-list-appender {
+        flex: 1 1 100%;
       }
     }
 
