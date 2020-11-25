@@ -1,26 +1,29 @@
 import classnames from 'classnames';
 import { times } from 'lodash';
 
-import { __ } from '@wordpress/i18n';
-
 import {
-	PanelBody,
-	SelectControl,
-	RangeControl,
 	BaseControl,
 	Button,
-	ToggleControl,
+	PanelBody,
+	RangeControl,
+	SelectControl,
 	TextControl,
+	ToggleControl,
 } from '@wordpress/components';
 
 import {
-	RichText,
+	ColorPalette,
 	InnerBlocks,
 	InspectorControls,
 	PanelColorSettings,
-	ColorPalette,
-	__experimentalBlock as Block,
+	RichText,
+	useBlockProps,
+	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
+
+import { useSelect } from '@wordpress/data';
+
+import { __ } from '@wordpress/i18n';
 
 import { toNumber } from '@smb/helper';
 import { getVideoId } from './utils';
@@ -30,6 +33,7 @@ export default function ( {
 	setAttributes,
 	isSelected,
 	className,
+	clientId,
 } ) {
 	const {
 		titleTagName,
@@ -49,9 +53,18 @@ export default function ( {
 		isSlim,
 	} = attributes;
 
+	const hasInnerBlocks = useSelect(
+		( select ) => {
+			const { getBlock } = select( 'core/block-editor' );
+			const block = getBlock( clientId );
+			return !! ( block && block.innerBlocks.length );
+		},
+		[ clientId ]
+	);
+
 	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
 
-	const BlockWrapper = Block.div;
+	const TagName = 'div';
 	const classes = classnames(
 		'smb-section',
 		'smb-section-with-bgimage',
@@ -82,6 +95,22 @@ export default function ( {
 	const bgvideoStyles = {
 		opacity: maskOpacity,
 	};
+
+	const blockProps = useBlockProps( {
+		className: classes,
+		style: sectionStyles,
+	} );
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: [ 'smb-section__body' ],
+		},
+		{
+			renderAppender: hasInnerBlocks
+				? undefined
+				: InnerBlocks.ButtonBlockAppender,
+		}
+	);
 
 	const onChangeVideoUrl = ( value ) =>
 		setAttributes( {
@@ -326,7 +355,7 @@ export default function ( {
 				></PanelColorSettings>
 			</InspectorControls>
 
-			<BlockWrapper className={ classes } style={ sectionStyles }>
+			<TagName { ...blockProps }>
 				<div
 					className="smb-section-with-bgimage__mask"
 					style={ maskStyles }
@@ -384,11 +413,9 @@ export default function ( {
 							/>
 						) }
 
-					<div className="smb-section__body">
-						<InnerBlocks />
-					</div>
+					<div { ...innerBlocksProps } />
 				</div>
-			</BlockWrapper>
+			</TagName>
 		</>
 	);
 }

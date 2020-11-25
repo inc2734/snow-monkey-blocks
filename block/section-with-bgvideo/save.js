@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { RichText, InnerBlocks } from '@wordpress/block-editor';
+import { RichText, InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
 import { getVideoId } from './utils';
 
@@ -23,6 +23,7 @@ export default function ( { attributes, className } ) {
 		isSlim,
 	} = attributes;
 
+	const TagName = 'div';
 	const classes = classnames(
 		'smb-section',
 		'smb-section-with-bgimage',
@@ -55,7 +56,12 @@ export default function ( { attributes, className } ) {
 	};
 
 	return (
-		<div className={ classes } style={ sectionStyles }>
+		<TagName
+			{ ...useBlockProps.save( {
+				className: classes,
+				style: sectionStyles,
+			} ) }
+		>
 			<div
 				className="smb-section-with-bgimage__mask"
 				style={ maskStyles }
@@ -69,7 +75,7 @@ export default function ( { attributes, className } ) {
 								videoURL
 							) }?controls=0&autoplay=1&showinfo=0&rel=0&disablekb=1&iv_load_policy=3&loop=1&playlist=${ getVideoId(
 								videoURL
-							) }&playsinline=1&modestbranding=1` }
+							) }&playsinline=1&modestbranding=1&mute=1` }
 							width={ videoWidth }
 							height={ videoHeight }
 							frameBorder="0"
@@ -117,6 +123,6 @@ export default function ( { attributes, className } ) {
 					<InnerBlocks.Content />
 				</div>
 			</div>
-		</div>
+		</TagName>
 	);
 }

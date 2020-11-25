@@ -44,7 +44,7 @@ register_block_type_from_metadata(
 	[
 		'style'         => 'snow-monkey-blocks/section-with-bgimage',
 		'editor_script' => 'snow-monkey-blocks/section-with-bgimage/editor',
-		//'editor_style'  => 'snow-monkey-blocks/section-with-bgimage/editor',
+		'editor_style'  => 'snow-monkey-blocks/section-with-bgimage/editor',
 	]
 );
 
