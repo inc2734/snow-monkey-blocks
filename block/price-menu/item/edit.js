@@ -1,16 +1,17 @@
 import classnames from 'classnames';
 
-import {
-	RichText,
-	__experimentalBlock as Block,
-} from '@wordpress/block-editor';
+import { RichText, useBlockProps } from '@wordpress/block-editor';
+
 import { __ } from '@wordpress/i18n';
 
 export default function ( { attributes, setAttributes, className } ) {
 	const { title, price } = attributes;
 
-	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-price-menu__item', className );
+
+	const blockProps = useBlockProps( {
+		className: classes,
+	} );
 
 	const onChangeTitle = ( value ) =>
 		setAttributes( {
@@ -23,7 +24,7 @@ export default function ( { attributes, setAttributes, className } ) {
 		} );
 
 	return (
-		<BlockWrapper className={ classes }>
+		<div { ...blockProps }>
 			<RichText
 				className="smb-price-menu__item__title"
 				placeholder={ __( 'Write title…', 'snow-monkey-blocks' ) }
@@ -39,6 +40,6 @@ export default function ( { attributes, setAttributes, className } ) {
 				onChange={ onChangePrice }
 				keepPlaceholderOnFocus={ true }
 			/>
-		</BlockWrapper>
+		</div>
 	);
 }

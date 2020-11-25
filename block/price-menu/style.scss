@@ -7,6 +7,11 @@
   border-top-color: _lighter($_color-gray); // For IE11
   border-top-color: _var-lighter-color-gray();
 
+  > .smb-price-menu__item {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
   &__item {
     border-bottom: 1px solid transparent;
     border-bottom-color: _lighter($_color-gray); // For IE11
