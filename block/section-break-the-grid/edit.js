@@ -2,29 +2,31 @@ import classnames from 'classnames';
 import hexToRgba from 'hex-to-rgba';
 import { times } from 'lodash';
 
-import { useSelect } from '@wordpress/data';
-import { __, sprintf } from '@wordpress/i18n';
-
 import {
-	RichText,
+	BlockControls,
+	BlockVerticalAlignmentToolbar,
+	ColorPalette,
 	InnerBlocks,
 	InspectorControls,
 	PanelColorSettings,
-	ColorPalette,
-	BlockControls,
-	BlockVerticalAlignmentToolbar,
-	__experimentalBlock as Block,
+	RichText,
+	useBlockProps,
+	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
 import {
-	PanelBody,
-	SelectControl,
 	BaseControl,
 	Button,
+	PanelBody,
 	RangeControl,
+	SelectControl,
 	ToggleControl,
 	ToolbarGroup,
 } from '@wordpress/components';
+
+import { useSelect } from '@wordpress/data';
+
+import { __, sprintf } from '@wordpress/i18n';
 
 import { pullLeft, pullRight } from '@wordpress/icons';
 
@@ -37,6 +39,7 @@ export default function ( {
 	setAttributes,
 	isSelected,
 	className,
+	clientId,
 } ) {
 	const {
 		wrapperTagName,
@@ -70,6 +73,15 @@ export default function ( {
 		mobileOrder,
 	} = attributes;
 
+	const hasInnerBlocks = useSelect(
+		( select ) => {
+			const { getBlock } = select( 'core/block-editor' );
+			const block = getBlock( clientId );
+			return !! ( block && block.innerBlocks.length );
+		},
+		[ clientId ]
+	);
+
 	const { resizedImages } = useSelect( ( select ) => {
 		if ( ! imageID ) {
 			return {
@@ -96,7 +108,7 @@ export default function ( {
 	const wrapperTagNames = [ 'div', 'section', 'aside' ];
 	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
 
-	const BlockWrapper = Block[ wrapperTagName ];
+	const TagName = wrapperTagName;
 	const classes = classnames(
 		'smb-section',
 		'smb-section-break-the-grid',
@@ -172,6 +184,25 @@ export default function ( {
 	const figureStyles = {
 		opacity: !! maskColor ? maskOpacity : undefined,
 	};
+
+	const blockProps = useBlockProps( {
+		className: classes,
+		style: sectionStyles,
+	} );
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: [
+				'smb-section__body',
+				'smb-section-break-the-grid__body',
+			],
+		},
+		{
+			renderAppender: hasInnerBlocks
+				? undefined
+				: InnerBlocks.ButtonBlockAppender,
+		}
+	);
 
 	const onChangeImageSize = ( value ) =>
 		setAttributes( {
@@ -787,7 +818,7 @@ export default function ( {
 				/>
 			</BlockControls>
 
-			<BlockWrapper className={ classes } style={ sectionStyles }>
+			<TagName { ...blockProps }>
 				<div className="c-container">
 					<div className={ rowClasses }>
 						<div className={ textColumnClasses }>
@@ -840,9 +871,7 @@ export default function ( {
 										/>
 									) }
 
-								<div className="smb-section__body smb-section-break-the-grid__body">
-									<InnerBlocks />
-								</div>
+								<div { ...innerBlocksProps } />
 							</div>
 						</div>
 						<div className={ imageColumnClasses }>
@@ -878,7 +907,7 @@ export default function ( {
 						</div>
 					</div>
 				</div>
-			</BlockWrapper>
+			</TagName>
 		</>
 	);
 }

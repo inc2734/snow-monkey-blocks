@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import hexToRgba from 'hex-to-rgba';
 
-import { RichText, InnerBlocks } from '@wordpress/block-editor';
+import { RichText, InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
 	const {
@@ -35,7 +35,7 @@ export default function ( { attributes, className } ) {
 		mobileOrder,
 	} = attributes;
 
-	const Wrapper = wrapperTagName;
+	const TagName = wrapperTagName;
 
 	const classes = classnames(
 		'smb-section',
@@ -144,7 +144,12 @@ export default function ( { attributes, className } ) {
 	}
 
 	return (
-		<Wrapper className={ classes } style={ sectionStyles }>
+		<TagName
+			{ ...useBlockProps.save( {
+				className: classes,
+				style: sectionStyles,
+			} ) }
+		>
 			<div className="c-container">
 				<div className={ rowClasses }>
 					<div className={ textColumnClasses }>
@@ -208,6 +213,6 @@ export default function ( { attributes, className } ) {
 					</div>
 				</div>
 			</div>
-		</Wrapper>
+		</TagName>
 	);
 }
