@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { RichText, InnerBlocks } from '@wordpress/block-editor';
+import { RichText, InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
 	const {
@@ -35,7 +35,7 @@ export default function ( { attributes, className } ) {
 		isSlim,
 	} = attributes;
 
-	const Wrapper = wrapperTagName;
+	const TagName = wrapperTagName;
 
 	const classes = classnames(
 		'smb-section',
@@ -88,7 +88,12 @@ export default function ( { attributes, className } ) {
 	};
 
 	return (
-		<Wrapper className={ classes } style={ sectionStyles }>
+		<TagName
+			{ ...useBlockProps.save( {
+				className: classes,
+				style: sectionStyles,
+			} ) }
+		>
 			{ lgImageURL && (
 				<div
 					className={ classnames(
@@ -284,6 +289,6 @@ export default function ( { attributes, className } ) {
 					<InnerBlocks.Content />
 				</div>
 			</div>
-		</Wrapper>
+		</TagName>
 	);
 }

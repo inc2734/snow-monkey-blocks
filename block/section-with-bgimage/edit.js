@@ -1,25 +1,28 @@
 import classnames from 'classnames';
 import { times } from 'lodash';
 
-import { __ } from '@wordpress/i18n';
-
 import {
-	RichText,
+	ColorPalette,
 	InnerBlocks,
 	InspectorControls,
 	PanelColorSettings,
-	ColorPalette,
-	__experimentalBlock as Block,
+	RichText,
+	useBlockProps,
+	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
 import {
-	PanelBody,
-	SelectControl,
-	RangeControl,
-	ToggleControl,
 	BaseControl,
 	Button,
+	PanelBody,
+	RangeControl,
+	SelectControl,
+	ToggleControl,
 } from '@wordpress/components';
+
+import { useSelect } from '@wordpress/data';
+
+import { __ } from '@wordpress/i18n';
 
 import { toNumber, getMediaType } from '@smb/helper';
 import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
@@ -30,6 +33,7 @@ export default function ( {
 	setAttributes,
 	isSelected,
 	className,
+	clientId,
 } ) {
 	const {
 		wrapperTagName,
@@ -63,10 +67,19 @@ export default function ( {
 		isSlim,
 	} = attributes;
 
+	const hasInnerBlocks = useSelect(
+		( select ) => {
+			const { getBlock } = select( 'core/block-editor' );
+			const block = getBlock( clientId );
+			return !! ( block && block.innerBlocks.length );
+		},
+		[ clientId ]
+	);
+
 	const wrapperTagNames = [ 'div', 'section', 'aside' ];
 	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
 
-	const BlockWrapper = Block[ wrapperTagName ];
+	const TagName = wrapperTagName;
 	const classes = classnames(
 		'smb-section',
 		'smb-section-with-bgimage',
@@ -116,6 +129,22 @@ export default function ( {
 		opacity: maskOpacity,
 		backgroundImage: `url( ${ smImageURL } )`,
 	};
+
+	const blockProps = useBlockProps( {
+		className: classes,
+		style: sectionStyles,
+	} );
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: [ 'smb-section__body' ],
+		},
+		{
+			renderAppender: hasInnerBlocks
+				? undefined
+				: InnerBlocks.ButtonBlockAppender,
+		}
+	);
 
 	const onChangeHeight = ( value ) =>
 		setAttributes( {
@@ -520,7 +549,7 @@ export default function ( {
 				></PanelColorSettings>
 			</InspectorControls>
 
-			<BlockWrapper className={ classes } style={ sectionStyles }>
+			<TagName { ...blockProps }>
 				{ lgImageURL && (
 					<div
 						className={ classnames(
@@ -726,11 +755,9 @@ export default function ( {
 							/>
 						) }
 
-					<div className="smb-section__body">
-						<InnerBlocks />
-					</div>
+					<div { ...innerBlocksProps } />
 				</div>
-			</BlockWrapper>
+			</TagName>
 		</>
 	);
 }
