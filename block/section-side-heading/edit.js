@@ -1,25 +1,28 @@
 import classnames from 'classnames';
 import { times } from 'lodash';
 
-import { __ } from '@wordpress/i18n';
-
 import {
-	RichText,
+	ColorPalette,
 	InnerBlocks,
 	InspectorControls,
 	PanelColorSettings,
-	ColorPalette,
-	__experimentalBlock as Block,
+	RichText,
+	useBlockProps,
+	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
 import {
-	PanelBody,
 	BaseControl,
-	SelectControl,
-	RangeControl,
 	Button,
+	PanelBody,
+	RangeControl,
+	SelectControl,
 	ToggleControl,
 } from '@wordpress/components';
+
+import { useSelect } from '@wordpress/data';
+
+import { __ } from '@wordpress/i18n';
 
 import { toNumber, getColumnSize, divider } from '@smb/helper';
 
@@ -28,6 +31,7 @@ export default function ( {
 	setAttributes,
 	isSelected,
 	className,
+	clientId,
 } ) {
 	const {
 		wrapperTagName,
@@ -50,6 +54,15 @@ export default function ( {
 		bottomDividerColor,
 	} = attributes;
 
+	const hasInnerBlocks = useSelect(
+		( select ) => {
+			const { getBlock } = select( 'core/block-editor' );
+			const block = getBlock( clientId );
+			return !! ( block && block.innerBlocks.length );
+		},
+		[ clientId ]
+	);
+
 	const { textColumnWidth, imageColumnWidth } = getColumnSize(
 		headingColumnSize
 	);
@@ -57,7 +70,7 @@ export default function ( {
 	const wrapperTagNames = [ 'div', 'section', 'aside' ];
 	const titleTagNames = [ 'h1', 'h2', 'h3' ];
 
-	const BlockWrapper = Block[ wrapperTagName ];
+	const TagName = wrapperTagName;
 	const classes = classnames(
 		'smb-section',
 		'smb-section-side-heading',
@@ -111,6 +124,25 @@ export default function ( {
 		paddingTop: Math.abs( topDividerLevel ),
 		paddingBottom: Math.abs( bottomDividerLevel ),
 	};
+
+	const blockProps = useBlockProps( {
+		className: classes,
+		style: sectionStyles,
+	} );
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: [
+				'smb-section__body',
+				'smb-section-side-heading__body',
+			],
+		},
+		{
+			renderAppender: hasInnerBlocks
+				? undefined
+				: InnerBlocks.ButtonBlockAppender,
+		}
+	);
 
 	const onChangeHeadingPosition = ( value ) =>
 		setAttributes( {
@@ -461,7 +493,7 @@ export default function ( {
 				</PanelBody>
 			</InspectorControls>
 
-			<BlockWrapper className={ classes } style={ sectionStyles }>
+			<TagName { ...blockProps }>
 				{ !! topDividerLevel && (
 					<div className={ topDividerClasses }>
 						{ divider(
@@ -529,14 +561,12 @@ export default function ( {
 									) }
 							</div>
 							<div className={ contentColClasses }>
-								<div className="smb-section__body smb-section-side-heading__body">
-									<InnerBlocks />
-								</div>
+								<div { ...innerBlocksProps } />
 							</div>
 						</div>
 					</div>
 				</div>
-			</BlockWrapper>
+			</TagName>
 		</>
 	);
 }

@@ -1,4 +1,5 @@
 {
+  "apiVersion": 2,
   "name": "snow-monkey-blocks/section-side-heading",
   "category": "smb-section",
   "attributes": {
