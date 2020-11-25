@@ -12,5 +12,13 @@
         }
       }
     }
+
+    &__body {
+      > .c-row {
+        > .block-list-appender {
+          flex: 1 1 100%;
+        }
+      }
+    }
   }
 }

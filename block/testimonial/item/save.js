@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { RichText } from '@wordpress/block-editor';
+import { RichText, useBlockProps } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
 	const { avatarID, avatarURL, avatarAlt, name, lede, content } = attributes;
@@ -8,7 +8,7 @@ export default function ( { attributes, className } ) {
 	const colClasses = classnames( 'c-row__col', className );
 
 	return (
-		<div className={ colClasses }>
+		<div { ...useBlockProps.save( { className: colClasses } ) }>
 			<div className="smb-testimonial__item">
 				<div className="smb-testimonial__item__figure">
 					<img

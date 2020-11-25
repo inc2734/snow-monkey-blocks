@@ -1,4 +1,5 @@
 {
+  "apiVersion": 2,
   "name": "snow-monkey-blocks/testimonial--item",
   "category": "smb",
   "parent": [ "snow-monkey-blocks/testimonial" ],
