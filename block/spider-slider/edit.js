@@ -2,17 +2,20 @@ import classnames from 'classnames';
 import { get } from 'lodash';
 
 import {
-	MediaPlaceholder,
 	InspectorControls,
-	__experimentalBlock as Block,
+	MediaPlaceholder,
+	useBlockProps,
 } from '@wordpress/block-editor';
+
 import {
 	PanelBody,
-	ToggleControl,
-	SelectControl,
 	RangeControl,
+	SelectControl,
+	ToggleControl,
 } from '@wordpress/components';
+
 import { useSelect } from '@wordpress/data';
+
 import { __ } from '@wordpress/i18n';
 
 import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
@@ -75,7 +78,6 @@ export default function ( {
 		[ images ]
 	);
 
-	const BlockWrapper = Block.div;
 	const classes = classnames( 'smb-spider-slider', className, {
 		[ `smb-spider-slider--${ aspectRatio }` ]: !! aspectRatio,
 	} );
@@ -326,10 +328,10 @@ export default function ( {
 			</InspectorControls>
 
 			{ ! hasImages ? (
-				<BlockWrapper>{ mediaPlaceholder }</BlockWrapper>
+				<div { ...useBlockProps() }>{ mediaPlaceholder }</div>
 			) : (
-				<BlockWrapper
-					className={ classes }
+				<div
+					{ ...useBlockProps( { className: classes } ) }
 					data-fade={ fade ? 'true' : 'false' }
 					data-lg-slide-to-show={
 						! fade && 1 < lgSlidesToShow
@@ -427,7 +429,7 @@ export default function ( {
 					) }
 
 					{ mediaPlaceholder }
-				</BlockWrapper>
+				</div>
 			) }
 		</>
 	);

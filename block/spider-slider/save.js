@@ -1,5 +1,7 @@
 import classnames from 'classnames';
 
+import { useBlockProps } from '@wordpress/block-editor';
+
 export default function ( { attributes, className } ) {
 	const {
 		images,
@@ -25,7 +27,7 @@ export default function ( { attributes, className } ) {
 
 	return (
 		<div
-			className={ classes }
+			{ ...useBlockProps.save( { className: classes } ) }
 			data-fade={ fade ? 'true' : 'false' }
 			data-interval={ 0 < interval ? interval * 1000 : undefined }
 			data-lg-slide-to-show={
