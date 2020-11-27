@@ -1,7 +1,14 @@
 import classnames from 'classnames';
 
 import { PanelBody, RangeControl, ToggleControl } from '@wordpress/components';
-import { InspectorControls, InnerBlocks } from '@wordpress/block-editor';
+
+import {
+	InnerBlocks,
+	InspectorControls,
+	useBlockProps,
+	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+} from '@wordpress/block-editor';
+
 import { __ } from '@wordpress/i18n';
 
 import { toNumber } from '@smb/helper';
@@ -13,6 +20,22 @@ export default function ( { attributes, setAttributes, className } ) {
 	const template = [ [ 'snow-monkey-blocks/thumbnail-gallery--item' ] ];
 
 	const classes = classnames( 'smb-thumbnail-gallery', className );
+
+	const blockProps = useBlockProps( {
+		className: classes,
+	} );
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: 'smb-thumbnail-gallery__canvas',
+		},
+		{
+			allowedBlocks,
+			template,
+			templateLock: false,
+			renderAppender: InnerBlocks.ButtonBlockAppender,
+		}
+	);
 
 	const onChangeArrows = ( value ) =>
 		setAttributes( {
@@ -69,15 +92,8 @@ export default function ( { attributes, setAttributes, className } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<div className={ classes }>
-				<div className="smb-thumbnail-gallery__canvas">
-					<InnerBlocks
-						allowedBlocks={ allowedBlocks }
-						template={ template }
-						templateLock={ false }
-						orientation="horizontal"
-					/>
-				</div>
+			<div { ...blockProps }>
+				<div { ...innerBlocksProps } />
 			</div>
 		</>
 	);

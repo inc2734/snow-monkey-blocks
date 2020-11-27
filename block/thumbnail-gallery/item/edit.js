@@ -1,6 +1,10 @@
 import classnames from 'classnames';
 
-import { RichText, InspectorControls } from '@wordpress/block-editor';
+import {
+	InspectorControls,
+	RichText,
+	useBlockProps,
+} from '@wordpress/block-editor';
 import { PanelBody } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
@@ -49,6 +53,10 @@ export default function ( {
 	} );
 
 	const classes = classnames( 'smb-thumbnail-gallery__item', className );
+
+	const blockProps = useBlockProps( {
+		className: classes,
+	} );
 
 	const onSelectImage = ( media ) => {
 		const newImageURL =
@@ -128,7 +136,7 @@ export default function ( {
 				</PanelBody>
 			</InspectorControls>
 
-			<div className={ classes }>
+			<div { ...blockProps }>
 				<div className="smb-thumbnail-gallery__item__figure">
 					<Figure
 						src={ imageURL }

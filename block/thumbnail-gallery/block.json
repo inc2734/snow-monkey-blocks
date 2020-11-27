@@ -1,4 +1,5 @@
 {
+  "apiVersion": 2,
   "name": "snow-monkey-blocks/thumbnail-gallery",
   "category": "smb-deprecated",
   "attributes": {
