@@ -52,7 +52,7 @@ export default function ( {
 		};
 	} );
 
-	const classes = classnames( 'smb-thumbnail-gallery__item', className );
+	const classes = classnames( 'c-row__item', className );
 
 	const blockProps = useBlockProps( {
 		className: classes,
@@ -137,20 +137,17 @@ export default function ( {
 			</InspectorControls>
 
 			<div { ...blockProps }>
-				<div className="smb-thumbnail-gallery__item__figure">
-					<Figure
-						src={ imageURL }
-						id={ imageID }
-						alt={ imageAlt }
-						onSelect={ onSelectImage }
-						onRemove={ onRemoveImage }
-						isSelected={ isSelected }
-					/>
-				</div>
+				<Figure
+					src={ imageURL }
+					id={ imageID }
+					alt={ imageAlt }
+					onSelect={ onSelectImage }
+					onRemove={ onRemoveImage }
+					isSelected={ isSelected }
+				/>
 
 				{ ( ! RichText.isEmpty( caption ) || isSelected ) && (
 					<RichText
-						className="smb-thumbnail-gallery__item__caption"
 						placeholder={ __(
 							'Write caption…',
 							'snow-monkey-blocks'

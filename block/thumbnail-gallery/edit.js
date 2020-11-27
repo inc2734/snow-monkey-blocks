@@ -27,7 +27,7 @@ export default function ( { attributes, setAttributes, className } ) {
 
 	const innerBlocksProps = useInnerBlocksProps(
 		{
-			className: 'smb-thumbnail-gallery__canvas',
+			className: [ 'c-row', 'c-row--margin' ],
 		},
 		{
 			allowedBlocks,
@@ -93,7 +93,7 @@ export default function ( { attributes, setAttributes, className } ) {
 			</InspectorControls>
 
 			<div { ...blockProps }>
-				<div { ...innerBlocksProps } />
+				<div { ...innerBlocksProps } data-columns="2" />
 			</div>
 		</>
 	);

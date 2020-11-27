@@ -1,5 +1,5 @@
 import { PanelBody, TextControl, Placeholder } from '@wordpress/components';
-import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
+import { InspectorControls } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 
 export default function ( { attributes, setAttributes } ) {
@@ -28,17 +28,15 @@ export default function ( { attributes, setAttributes } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<div { ...useBlockProps() }>
-				<Placeholder
-					icon="screenoptions"
-					label={ __( 'Child pages', 'snow-monkey-blocks' ) }
-				>
-					{ __(
-						'In the actual screen, it is displayed when the page have child pages.',
-						'snow-monkey-blocks'
-					) }
-				</Placeholder>
-			</div>
+			<Placeholder
+				icon="screenoptions"
+				label={ __( 'Child pages', 'snow-monkey-blocks' ) }
+			>
+				{ __(
+					'In the actual screen, it is displayed when the page have child pages.',
+					'snow-monkey-blocks'
+				) }
+			</Placeholder>
 		</>
 	);
 }

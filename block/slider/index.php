@@ -27,21 +27,10 @@ wp_register_script(
 	true
 );
 
-/**
- * editor_style
- */
-wp_register_style(
-	'snow-monkey-blocks/slider/editor',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/slider/editor.css',
-	[ 'snow-monkey-blocks-editor' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/slider/editor.css' )
-);
-
 register_block_type_from_metadata(
 	__DIR__,
 	[
 		'style'         => ! is_admin() ? 'snow-monkey-blocks/slider' : null,
 		'editor_script' => 'snow-monkey-blocks/slider/editor',
-		'editor_style'  => 'snow-monkey-blocks/slider/editor',
 	]
 );

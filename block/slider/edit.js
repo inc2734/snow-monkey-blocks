@@ -47,13 +47,12 @@ export default function ( { attributes, setAttributes, className } ) {
 
 	const innerBlocksProps = useInnerBlocksProps(
 		{
-			className: 'smb-slider__canvas',
+			className: [ 'c-row', 'c-row--margin' ],
 		},
 		{
 			allowedBlocks,
 			template,
 			templateLock: false,
-			//orientation: 'horizontal',
 			renderAppender: InnerBlocks.ButtonBlockAppender,
 		}
 	);
@@ -287,7 +286,7 @@ export default function ( { attributes, setAttributes, className } ) {
 			</InspectorControls>
 
 			<div { ...blockProps }>
-				<div { ...innerBlocksProps } />
+				<div { ...innerBlocksProps } data-columns="2" />
 			</div>
 		</>
 	);

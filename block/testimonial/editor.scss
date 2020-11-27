@@ -1,5 +1,7 @@
 @charset 'utf-8';
 
+@import '../../src/css/core/block';
+
 .editor-styles-wrapper {
   .smb-testimonial {
     &__item__figure {
@@ -16,6 +18,8 @@
     &__body {
       > .c-row {
         > .block-list-appender {
+          @include _margin-right(.5);
+          @include _margin-left(.5);
           flex: 1 1 100%;
         }
       }

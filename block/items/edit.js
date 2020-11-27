@@ -2,6 +2,7 @@ import classnames from 'classnames';
 
 import { PanelBody, RangeControl } from '@wordpress/components';
 import {
+	InnerBlocks,
 	InspectorControls,
 	useBlockProps,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
@@ -35,7 +36,7 @@ export default function ( { attributes, setAttributes, className } ) {
 			allowedBlocks,
 			template,
 			templateLock: false,
-			orientation: 'horizontal',
+			renderAppender: InnerBlocks.ButtonBlockAppender,
 		}
 	);
 

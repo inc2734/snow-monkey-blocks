@@ -2,45 +2,24 @@
 
 @import 'core/block';
 
-.#{$_prefix}c-row {
-  > .block-editor-inner-blocks {
-    > .block-editor-block-list__layout {
-      > [data-type^="snow-monkey-blocks"] {
-        margin-top: 0;
-      }
-    }
-  }
-}
-
 .#{$_prefix}c-row[data-columns] {
   margin: 0;
+}
 
-  > .block-editor-inner-blocks {
-    flex: 1 1 0%;
-
-    > .block-editor-block-list__layout {
-      display: flex;
-      flex-wrap: wrap;
-
-      > [data-type^="snow-monkey-blocks"] {
-        margin-right: 0;
-        margin-left: 0;
-      }
-
-      > .block-list-appender {
-        @include _row__col--width(100%);
-      }
+.editor-styles-wrapper {
+  .#{$_prefix}c-row[data-columns],
+  .#{$_prefix}c-row--margin {
+    > .block-list-appender {
+      @include _row__col--width(100%);
+      @include _margin-right(.5);
+      @include _margin-left(.5);
     }
   }
 }
 
 &.#{$_prefix}c-row--margin {
-  > .block-editor-inner-blocks {
-    > .block-editor-block-list__layout {
-      > [data-type^="snow-monkey-blocks"] {
-        @include _row__col--margin(1);
-      }
-    }
+  > [data-type^="snow-monkey-blocks"] {
+    @include _row__col--margin(1);
   }
 }
 
@@ -54,12 +33,8 @@
 
       @for $i from 1 through 6 {
         &[data#{$prefix}-columns="#{$i}"] {
-          > .block-editor-inner-blocks {
-            > .block-editor-block-list__layout {
-              > [data-type^="snow-monkey-blocks"] {
-                @include _row__col--width(1 / $i * 100%);
-              }
-            }
+          > [data-type^="snow-monkey-blocks"] {
+            @include _row__col--width(1 / $i * 100%);
           }
         }
       }
@@ -92,17 +67,6 @@
 
       @include _hover(lg) {
         outline: 1px dashed #007cba;
-      }
-    }
-  }
-
-  .block-editor-inner-blocks {
-    position: relative; // Touchable parent block
-
-    > .block-editor-block-list__layout {
-      > * {
-        margin-top: 0;
-        margin-bottom: 0;
       }
     }
   }

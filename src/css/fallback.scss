@@ -24,6 +24,8 @@
         @include _row--margin(1);
 
         > .#{$_prefix}c-row__col {
+          margin-right: 0;
+          margin-left: 0;
           @include _row__col--margin(1);
         }
       }

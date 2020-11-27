@@ -73,9 +73,11 @@ export default function ( {
 		};
 	} );
 
-	const classes = classnames( 'smb-slider__item', className );
+	const classes = classnames( 'c-row__item', className );
 
-	const blockProps = useBlockProps();
+	const blockProps = useBlockProps( {
+		className: classes,
+	} );
 
 	const onSelectImage = ( media ) => {
 		const newImageURL =
@@ -198,24 +200,7 @@ export default function ( {
 				</PanelBody>
 			</InspectorControls>
 
-			<div { ...blockProps }>
-				{ !! url ? (
-					<span
-						className={ classes }
-						href={ url }
-						target={ '_self' === target ? undefined : target }
-						rel={
-							'_self' === target
-								? undefined
-								: 'noopener noreferrer'
-						}
-					>
-						{ item }
-					</span>
-				) : (
-					<div className={ classes }>{ item }</div>
-				) }
-			</div>
+			<div { ...blockProps }>{ item }</div>
 
 			<BlockControls>
 				<ToolbarGroup>
