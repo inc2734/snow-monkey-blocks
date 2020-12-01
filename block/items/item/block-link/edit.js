@@ -224,6 +224,16 @@ export default function ( {
 		} );
 	};
 
+	const onSelectImageURL = ( newURL ) => {
+		if ( newURL !== imageURL ) {
+			setAttributes( {
+				imageURL: newURL,
+				imageID: 0,
+				imageSizeSlug: 'large',
+			} );
+		}
+	};
+
 	return (
 		<>
 			<InspectorControls>
@@ -359,6 +369,7 @@ export default function ( {
 								id={ imageID }
 								alt={ imageAlt }
 								onSelect={ onSelectImage }
+								onSelectURL={ onSelectImageURL }
 								onRemove={ onRemoveImage }
 								isSelected={ isSelected }
 							/>

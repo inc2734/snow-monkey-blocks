@@ -325,6 +325,16 @@ export default function ( {
 		} );
 	};
 
+	const onSelectImageURL = ( newURL ) => {
+		if ( newURL !== imageURL ) {
+			setAttributes( {
+				imageURL: newURL,
+				imageID: 0,
+				imageSizeSlug: 'large',
+			} );
+		}
+	};
+
 	const onRemoveImage = () =>
 		setAttributes( {
 			imageURL: '',
@@ -898,6 +908,7 @@ export default function ( {
 									id={ imageID }
 									alt={ imageAlt }
 									onSelect={ onSelectImage }
+									onSelectURL={ onSelectImageURL }
 									onRemove={ onRemoveImage }
 									mediaType={ imageMediaType }
 									allowedTypes={ [ 'image', 'video' ] }

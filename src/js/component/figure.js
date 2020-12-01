@@ -18,6 +18,7 @@ const ToolbarEditButton = ( {
 	allowedTypes,
 	accept,
 	onSelect,
+	onSelectURL,
 	onRemove,
 } ) => (
 	<BlockControls>
@@ -27,6 +28,7 @@ const ToolbarEditButton = ( {
 			allowedTypes={ allowedTypes }
 			accept={ accept }
 			onSelect={ onSelect }
+			onSelectURL={ onSelectURL }
 		/>
 
 		{ !! src && !! onRemove && (
@@ -62,6 +64,7 @@ const Figure = memo(
 		allowedTypes,
 		accept,
 		onSelect,
+		onSelectURL,
 		onRemove,
 		mediaType,
 		style,
@@ -97,6 +100,7 @@ const Figure = memo(
 					allowedTypes={ allowedTypes }
 					accept={ accept }
 					onSelect={ onSelect }
+					onSelectURL={ onSelectURL }
 					onRemove={ onRemove }
 				/>
 				{ media }
@@ -116,7 +120,13 @@ const Figure = memo(
 );
 
 export default function ( props ) {
-	const { src, onSelect, mediaType, allowedTypes = [ 'image' ] } = props;
+	const {
+		src,
+		onSelect,
+		onSelectURL,
+		mediaType,
+		allowedTypes = [ 'image' ],
+	} = props;
 
 	const mediaTypeFallback = ! mediaType && src ? 'image' : mediaType;
 
@@ -143,6 +153,7 @@ export default function ( props ) {
 				icon="format-image"
 				labels={ { title } }
 				onSelect={ onSelect }
+				onSelectURL={ onSelectURL }
 				accept={ accept }
 				allowedTypes={ allowedTypes }
 			/>

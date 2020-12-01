@@ -170,6 +170,14 @@ export default function ( {
 										imageAlt: media.alt,
 									} );
 								} }
+								onSelectURL={ ( newURL ) => {
+									if ( newURL !== imageURL ) {
+										setAttributes( {
+											imageURL: newURL,
+											imageID: 0,
+										} );
+									}
+								} }
 								onRemove={ () =>
 									setAttributes( {
 										imageURL: '',

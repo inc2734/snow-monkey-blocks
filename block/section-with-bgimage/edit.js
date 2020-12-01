@@ -180,6 +180,15 @@ export default function ( {
 		} );
 	};
 
+	const onSelectLgImageURL = ( newURL ) => {
+		if ( newURL !== lgImageURL ) {
+			setAttributes( {
+				lgImageURL: newURL,
+				lgImageID: 0,
+			} );
+		}
+	};
+
 	const onRemoveLgImage = () =>
 		setAttributes( {
 			lgImageURL: '',
@@ -207,6 +216,15 @@ export default function ( {
 		} );
 	};
 
+	const onSelectMdImageURL = ( newURL ) => {
+		if ( newURL !== mdImageURL ) {
+			setAttributes( {
+				mdImageURL: newURL,
+				mdImageID: 0,
+			} );
+		}
+	};
+
 	const onRemoveMdImage = () =>
 		setAttributes( {
 			mdImageURL: '',
@@ -232,6 +250,15 @@ export default function ( {
 			smImageAlt: media.alt,
 			smImageMediaType: getMediaType( media ),
 		} );
+	};
+
+	const onSelectSmImageURL = ( newURL ) => {
+		if ( newURL !== smImageURL ) {
+			setAttributes( {
+				smImageURL: newURL,
+				smImageID: 0,
+			} );
+		}
 	};
 
 	const onRemoveSmImage = () =>
@@ -419,6 +446,7 @@ export default function ( {
 									id={ lgImageID }
 									alt={ lgImageAlt }
 									onSelect={ onSelectLgImage }
+									onSelectURL={ onSelectLgImageURL }
 									onRemove={ onRemoveLgImage }
 									mediaType={ lgImageMediaType }
 									allowedTypes={ imageAllowdTypes }
@@ -442,6 +470,7 @@ export default function ( {
 									id={ mdImageID }
 									alt={ mdImageAlt }
 									onSelect={ onSelectMdImage }
+									onSelectURL={ onSelectMdImageURL }
 									onRemove={ onRemoveMdImage }
 									mediaType={ mdImageMediaType }
 									allowedTypes={ imageAllowdTypes }
@@ -465,6 +494,7 @@ export default function ( {
 									id={ smImageID }
 									alt={ smImageAlt }
 									onSelect={ onSelectSmImage }
+									onSelectURL={ onSelectSmImageURL }
 									onRemove={ onRemoveSmImage }
 									mediaType={ smImageMediaType }
 									allowedTypes={ imageAllowdTypes }
