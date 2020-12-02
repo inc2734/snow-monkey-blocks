@@ -376,80 +376,82 @@ export default function ( {
 						</div>
 					) }
 
-					{ 'none' !== titleTagName && (
-						<RichText
-							tagName={ titleTagName }
-							className="smb-items__item__title"
-							placeholder={ __(
-								'Write title…',
-								'snow-monkey-blocks'
-							) }
-							value={ title }
-							onChange={ onChangeTitle }
-							keepPlaceholderOnFocus={ true }
-						/>
-					) }
-
-					{ ( ! RichText.isEmpty( lede ) || isSelected ) && (
-						<RichText
-							className="smb-items__item__lede"
-							placeholder={ __(
-								'Write lede…',
-								'snow-monkey-blocks'
-							) }
-							value={ lede }
-							onChange={ onChangeLede }
-							keepPlaceholderOnFocus={ true }
-						/>
-					) }
-
-					{ ( ! RichText.isEmpty( summary ) || isSelected ) && (
-						<RichText
-							className="smb-items__item__content"
-							placeholder={ __(
-								'Write content…',
-								'snow-monkey-blocks'
-							) }
-							value={ summary }
-							onChange={ onChangeSummary }
-							keepPlaceholderOnFocus={ true }
-						/>
-					) }
-
-					{ ( ! RichText.isEmpty( btnLabel ) || isSelected ) && (
-						<div className="smb-items__item__action">
-							<span
-								className={ btnClasses }
-								style={ itemBtnStyles }
-							>
-								<RichText
-									className="smb-btn__label"
-									style={ itemBtnLabelStyles }
-									value={ btnLabel }
-									keepPlaceholderOnFocus={ true }
-									placeholder={ __(
-										'Button',
-										'snow-monkey-blocks'
-									) }
-									onChange={ onChangeBtnLabel }
-									withoutInteractiveFormatting={ true }
-								/>
-
-								{ isLinkUIOpen && (
-									<Popover
-										position="bottom center"
-										onClose={ closeLinkUIOpen }
-									>
-										<LinkControl
-											url={ url }
-											target={ target }
-											onChange={ onChangeUrl }
-										/>
-									</Popover>
+					<div className="smb-items__item__body">
+						{ 'none' !== titleTagName && (
+							<RichText
+								tagName={ titleTagName }
+								className="smb-items__item__title"
+								placeholder={ __(
+									'Write title…',
+									'snow-monkey-blocks'
 								) }
-							</span>
-						</div>
-					) }
+								value={ title }
+								onChange={ onChangeTitle }
+								keepPlaceholderOnFocus={ true }
+							/>
+						) }
+
+						{ ( ! RichText.isEmpty( lede ) || isSelected ) && (
+							<RichText
+								className="smb-items__item__lede"
+								placeholder={ __(
+									'Write lede…',
+									'snow-monkey-blocks'
+								) }
+								value={ lede }
+								onChange={ onChangeLede }
+								keepPlaceholderOnFocus={ true }
+							/>
+						) }
+
+						{ ( ! RichText.isEmpty( summary ) || isSelected ) && (
+							<RichText
+								className="smb-items__item__content"
+								placeholder={ __(
+									'Write content…',
+									'snow-monkey-blocks'
+								) }
+								value={ summary }
+								onChange={ onChangeSummary }
+								keepPlaceholderOnFocus={ true }
+							/>
+						) }
+
+						{ ( ! RichText.isEmpty( btnLabel ) || isSelected ) && (
+							<div className="smb-items__item__action">
+								<span
+									className={ btnClasses }
+									style={ itemBtnStyles }
+								>
+									<RichText
+										className="smb-btn__label"
+										style={ itemBtnLabelStyles }
+										value={ btnLabel }
+										keepPlaceholderOnFocus={ true }
+										placeholder={ __(
+											'Button',
+											'snow-monkey-blocks'
+										) }
+										onChange={ onChangeBtnLabel }
+										withoutInteractiveFormatting={ true }
+									/>
+
+									{ isLinkUIOpen && (
+										<Popover
+											position="bottom center"
+											onClose={ closeLinkUIOpen }
+										>
+											<LinkControl
+												url={ url }
+												target={ target }
+												onChange={ onChangeUrl }
+											/>
+										</Popover>
+									) }
+								</span>
+							</div>
+						) }
+					</div>
 				</div>
 			</div>
 

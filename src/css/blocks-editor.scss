@@ -28,11 +28,11 @@
     @include _media-min($screen-min) {
       $prefix: '';
       @if $size != 'sm' {
-        $prefix: -#{$size};
+        $prefix: -#{ $size };
       }
 
       @for $i from 1 through 6 {
-        &[data#{$prefix}-columns="#{$i}"] {
+        &[data#{ $prefix }-columns="#{ $i }"] {
           > [data-type^="snow-monkey-blocks"] {
             @include _row__col--width(1 / $i * 100%);
           }

@@ -62,38 +62,52 @@ export default function ( { attributes, className } ) {
 					</div>
 				) }
 
-				{ 'none' !== titleTagName && (
-					<RichText.Content
-						tagName={ titleTagName }
-						className="smb-items__item__title"
-						value={ title }
-					/>
-				) }
+				<div className="smb-items__item__body">
+					{ 'none' !== titleTagName && (
+						<RichText.Content
+							tagName={ titleTagName }
+							className="smb-items__item__title"
+							value={ title }
+						/>
+					) }
 
-				{ ! RichText.isEmpty( lede ) && (
-					<div className="smb-items__item__lede">
-						<RichText.Content value={ lede } />
-					</div>
-				) }
+					{ ! RichText.isEmpty( lede ) && (
+						<div className="smb-items__item__lede">
+							<RichText.Content value={ lede } />
+						</div>
+					) }
 
-				{ ! RichText.isEmpty( summary ) && (
-					<div className="smb-items__item__content">
-						<RichText.Content value={ summary } />
-					</div>
-				) }
+					{ ! RichText.isEmpty( summary ) && (
+						<div className="smb-items__item__content">
+							<RichText.Content value={ summary } />
+						</div>
+					) }
 
-				{ ! RichText.isEmpty( btnLabel ) && !! url && (
-					<div className="smb-items__item__action">
-						<span className={ btnClasses } style={ itemBtnStyles }>
-							<span
-								className="smb-btn__label"
-								style={ itemBtnLabelStyles }
+					{ ! RichText.isEmpty( btnLabel ) && !! url && (
+						<div className="smb-items__item__action">
+							<a
+								className={ btnClasses }
+								href={ url }
+								style={ itemBtnStyles }
+								target={
+									'_self' === target ? undefined : target
+								}
+								rel={
+									'_self' === target
+										? undefined
+										: 'noopener noreferrer'
+								}
 							>
-								<RichText.Content value={ btnLabel } />
-							</span>
-						</span>
-					</div>
-				) }
+								<span
+									className="smb-btn__label"
+									style={ itemBtnLabelStyles }
+								>
+									<RichText.Content value={ btnLabel } />
+								</span>
+							</a>
+						</div>
+					) }
+				</div>
 			</a>
 		</div>
 	);

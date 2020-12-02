@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { PanelBody, RangeControl } from '@wordpress/components';
+import { PanelBody, RangeControl, ToggleControl } from '@wordpress/components';
 import {
 	InnerBlocks,
 	InspectorControls,
@@ -13,7 +13,7 @@ import { toNumber } from '@smb/helper';
 import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
 
 export default function ( { attributes, setAttributes, className } ) {
-	const { sm, md, lg } = attributes;
+	const { sm, md, lg, isGlue } = attributes;
 
 	const allowedBlocks = [
 		'snow-monkey-blocks/items--item--standard',
@@ -22,7 +22,13 @@ export default function ( { attributes, setAttributes, className } ) {
 	];
 	const template = [ [ 'snow-monkey-blocks/items--item--standard' ] ];
 
-	const classes = classnames( 'smb-items', className );
+	const classes = classnames( 'smb-items', className, {
+		'smb-items--glue': isGlue,
+	} );
+
+	const rowClasses = classnames( 'c-row', {
+		'c-row--margin': ! isGlue,
+	} );
 
 	const blockProps = useBlockProps( {
 		className: classes,
@@ -30,7 +36,7 @@ export default function ( { attributes, setAttributes, className } ) {
 
 	const innerBlocksProps = useInnerBlocksProps(
 		{
-			className: [ 'c-row', 'c-row--margin' ],
+			className: rowClasses,
 		},
 		{
 			allowedBlocks,
@@ -39,6 +45,11 @@ export default function ( { attributes, setAttributes, className } ) {
 			renderAppender: InnerBlocks.ButtonBlockAppender,
 		}
 	);
+
+	const onChangeIsGlue = ( value ) =>
+		setAttributes( {
+			isGlue: value,
+		} );
 
 	const onChangeLg = ( value ) =>
 		setAttributes( {
@@ -61,6 +72,15 @@ export default function ( { attributes, setAttributes, className } ) {
 				<PanelBody
 					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
 				>
+					<ToggleControl
+						label={ __(
+							'Glue each item together',
+							'snow-monkey-blocks'
+						) }
+						checked={ isGlue }
+						onChange={ onChangeIsGlue }
+					/>
+
 					<ResponsiveTabPanel
 						desktop={ () => (
 							<RangeControl
