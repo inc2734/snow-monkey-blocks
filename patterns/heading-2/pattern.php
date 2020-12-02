@@ -26,11 +26,15 @@
 							</p>
 							<!-- /wp:paragraph -->
 
-							<!-- wp:button {"align":"left","className":"is-style-default"} -->
-							<div class="wp-block-button alignleft is-style-default">
-								<a class="wp-block-button__link" href="https://example.com">Button</a>
+							<!-- wp:buttons -->
+							<div class="wp-block-buttons">
+								<!-- wp:button {"className":"is-style-default"} -->
+								<div class="wp-block-button">
+									<a class="wp-block-button__link">Lorem</a>
+								</div>
+								<!-- /wp:button -->
 							</div>
-							<!-- /wp:button -->
+							<!-- /wp:buttons -->
 						</div>
 					</div>
 					<div class="c-row__col c-row__col--1-1 c-row__col--lg-1-2">

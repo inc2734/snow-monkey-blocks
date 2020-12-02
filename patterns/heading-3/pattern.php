@@ -32,11 +32,15 @@
 			</div>
 			<!-- /wp:snow-monkey-blocks/container -->
 
-			<!-- wp:button {"customTextColor":"#ffffff","align":"center","className":"is-style-outline"} -->
-			<div class="wp-block-button aligncenter is-style-outline">
-				<a class="wp-block-button__link has-text-color" href="https://example.com" style="color:#ffffff">Button</a>
+			<!-- wp:buttons -->
+			<div class="wp-block-buttons">
+				<!-- wp:button {"className":"is-style-outline"} -->
+				<div class="wp-block-button is-style-outline">
+					<a class="wp-block-button__link">Lorem</a>
+				</div>
+				<!-- /wp:button -->
 			</div>
-			<!-- /wp:button -->
+			<!-- /wp:buttons -->
 		</div>
 	</div>
 </div>

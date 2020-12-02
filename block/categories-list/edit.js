@@ -30,9 +30,7 @@ export default function ( { attributes, setAttributes, className } ) {
 	} );
 
 	const articleCategories = useSelect( ( select ) =>
-		select(
-			'snow-monkey-blocks/categories-list'
-		).getArticleCategories()
+		select( 'snow-monkey-blocks/categories-list' ).getArticleCategories()
 	);
 
 	if ( ! articleCategories || ! articleCategories.length ) {
