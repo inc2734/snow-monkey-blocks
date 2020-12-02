@@ -2,7 +2,7 @@
 
 @import 'core/block';
 
-.#{$_prefix}c-row[data-columns] {
+.#{$_prefix}c-row {
   margin: 0;
 }
 
@@ -45,6 +45,11 @@
 [data-type^="snow-monkey-blocks"] {
   .components-placeholder__label .dashicon {
       margin-right: .25em;
+  }
+
+  .block-list-appender:empty {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   .block-list-appender:first-child {

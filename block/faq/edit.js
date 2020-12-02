@@ -1,6 +1,7 @@
 import classnames from 'classnames';
 
 import {
+	InnerBlocks,
 	useBlockProps,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
@@ -23,6 +24,7 @@ export default function ( { className } ) {
 			allowedBlocks,
 			template,
 			templateLock: false,
+			renderAppender: InnerBlocks.ButtonBlockAppender,
 		}
 	);
 

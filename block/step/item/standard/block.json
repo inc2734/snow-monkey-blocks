@@ -76,7 +76,6 @@
   },
   "supports": {
     "anchor": true,
-    "lightBlockWrapper": true,
     "inserter": false
   }
 }

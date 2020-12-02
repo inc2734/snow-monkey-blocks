@@ -1,0 +1,9 @@
+@charset 'utf-8';
+
+.editor-styles-wrapper {
+  .smb-price-menu {
+    &__item:not(:first-child) {
+      margin-top: 2px; // Required to show the appender between items
+    }
+  }
+}

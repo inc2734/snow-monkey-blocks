@@ -93,7 +93,6 @@
     }
   },
   "supports": {
-    "align": [ "wide", "full" ],
-    "lightBlockWrapper": true
+    "align": [ "wide", "full" ]
   }
 }

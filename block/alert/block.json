@@ -24,8 +24,5 @@
       "type": "string",
       "default": "exclamation-circle"
     }
-  },
-  "supports": {
-    "lightBlockWrapper": true
   }
 }

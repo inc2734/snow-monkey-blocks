@@ -77,8 +77,5 @@
       "type": "string",
       "default": "large"
     }
-  },
-  "supports": {
-    "lightBlockWrapper": true
   }
 }

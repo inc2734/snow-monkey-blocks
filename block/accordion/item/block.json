@@ -16,8 +16,5 @@
       "type": "boolean",
       "default": false
     }
-  },
-  "supports": {
-    "lightBlockWrapper": true
   }
 }

@@ -40,8 +40,5 @@
       "selector": ".smb-testimonial__item__content",
       "default": ""
     }
-  },
-  "supports": {
-    "lightBlockWrapper": true
   }
 }

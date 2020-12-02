@@ -16,8 +16,5 @@
       "type": "string"
     }
   },
-  "supports": {
-    "lightBlockWrapper": true
-  },
   "example": {}
 }

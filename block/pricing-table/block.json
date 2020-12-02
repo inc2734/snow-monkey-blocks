@@ -10,8 +10,5 @@
       "type": "number",
       "default": 0
     }
-  },
-  "supports": {
-    "lightBlockWrapper": true
   }
 }

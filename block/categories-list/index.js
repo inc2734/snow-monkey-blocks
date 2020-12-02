@@ -1,6 +1,6 @@
 import { registerStore } from '@wordpress/data';
+import { apiFetch as apiFetchAction, controls } from '@wordpress/data-controls';
 import { __ } from '@wordpress/i18n';
-import apiFetch from '@wordpress/api-fetch';
 
 import blockConfig from '@smb/config/block';
 import metadata from './block.json';
@@ -11,6 +11,21 @@ const { name } = metadata;
 
 export { metadata, name };
 
+const DEFAULT_STATE = {
+	articleCategories: {},
+};
+
+const reducer = ( state = DEFAULT_STATE, action ) => {
+	switch ( action.type ) {
+		case 'SET_ARTICLE_CATEGORIES':
+			return {
+				...state,
+				articleCategories: action.articleCategories,
+			};
+	}
+	return state;
+};
+
 const actions = {
 	setArticleCategories( articleCategories ) {
 		return {
@@ -18,49 +33,34 @@ const actions = {
 			articleCategories,
 		};
 	},
-	receiveArticleCategories( path ) {
-		return {
-			type: 'RECEIVE_ARTICLE_CATEGORIES',
-			path,
-		};
+
+	*fetchArticleCategories() {
+		const articleCategories = yield apiFetchAction( {
+			path: `/wp/v2/categories/?per_page=-1`,
+		} );
+
+		return actions.setArticleCategories( articleCategories );
 	},
 };
 
-const DEFAULT_STATE = {
-	articleCategories: {},
+const selectors = {
+	getArticleCategories( state ) {
+		return state.articleCategories;
+	},
+};
+
+const resolvers = {
+	*getArticleCategories() {
+		yield actions.fetchArticleCategories();
+	},
 };
 
 registerStore( name, {
-	reducer( state = DEFAULT_STATE, action ) {
-		switch ( action.type ) {
-			case 'SET_ARTICLE_CATEGORIES':
-				return {
-					...state,
-					articleCategories: action.articleCategories,
-				};
-		}
-		return state;
-	},
+	reducer,
 	actions,
-	selectors: {
-		receiveArticleCategories( state ) {
-			const { articleCategories } = state;
-			return articleCategories;
-		},
-	},
-	controls: {
-		RECEIVE_ARTICLE_CATEGORIES( action ) {
-			return apiFetch( { path: action.path } );
-		},
-	},
-	resolvers: {
-		*receiveArticleCategories() {
-			const articleCategories = yield actions.receiveArticleCategories(
-				'/wp/v2/categories/?per_page=-1'
-			);
-			return actions.setArticleCategories( articleCategories );
-		},
-	},
+	selectors,
+	controls,
+	resolvers,
 } );
 
 export const settings = {

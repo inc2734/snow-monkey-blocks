@@ -10,5 +10,11 @@
         @include _margin-top(.5);
       }
     }
+
+    .block-list-appender {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
   }
 }

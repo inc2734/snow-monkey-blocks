@@ -30,7 +30,6 @@
     }
   },
   "supports": {
-    "anchor": true,
-    "lightBlockWrapper": true
+    "anchor": true
   }
 }

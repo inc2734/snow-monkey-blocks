@@ -23,8 +23,5 @@
       "type": "string",
       "default": "div"
     }
-  },
-  "supports": {
-    "lightBlockWrapper": true
   }
 }

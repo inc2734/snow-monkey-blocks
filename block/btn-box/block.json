@@ -49,9 +49,5 @@
       "type": "boolean",
       "default": false
     }
-  },
-  "supports": {
-    "align": [ "wide", "full" ],
-    "lightBlockWrapper": true
   }
 }

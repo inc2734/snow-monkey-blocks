@@ -84,7 +84,6 @@
     }
   },
   "supports": {
-    "lightBlockWrapper": true,
     "align": [ "wide", "full" ],
     "anchor": true
   }

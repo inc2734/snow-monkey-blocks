@@ -1,8 +1,5 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/step",
-  "category": "smb",
-  "supports": {
-    "lightBlockWrapper": true
-  }
+  "category": "smb"
 }

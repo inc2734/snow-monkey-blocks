@@ -10,7 +10,6 @@
   "supports": {
     "anchor": true,
     "align": [ "left", "right" ],
-    "alignWide": false,
-    "lightBlockWrapper": true
+    "alignWide": false
   }
 }

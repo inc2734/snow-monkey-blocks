@@ -25,7 +25,6 @@
     }
   },
   "supports": {
-    "customClassName": false,
-    "lightBlockWrapper": true
+    "customClassName": false
   }
 }

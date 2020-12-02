@@ -2,9 +2,6 @@
   "apiVersion": 2,
   "name": "snow-monkey-blocks/faq",
   "category": "smb",
-  "supports": {
-    "lightBlockWrapper": true
-  },
   "example": {
     "innerBlocks": [
       {

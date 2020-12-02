@@ -17,8 +17,5 @@
     "color": {
       "type": "string"
     }
-  },
-  "supports": {
-    "lightBlockWrapper": true
   }
 }

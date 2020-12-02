@@ -29,8 +29,5 @@
       "default": "left"
     }
   },
-  "supports": {
-    "lightBlockWrapper": true
-  },
   "example": {}
 }
