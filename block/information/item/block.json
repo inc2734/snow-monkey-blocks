@@ -1,0 +1,28 @@
+{
+  "apiVersion": 2,
+  "name": "snow-monkey-blocks/information--item",
+  "category": "smb",
+  "parent": [ "snow-monkey-blocks/information" ],
+  "attributes": {
+    "label": {
+      "type": "string",
+      "source": "html",
+      "selector": ".smb-information__item__label"
+    },
+    "labelColumnSize": {
+      "type": "number",
+      "default": 25
+    },
+    "smIsSplitColumn": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "usesContext": [
+    "snow-monkey-blocks/labelColumnSize",
+    "snow-monkey-blocks/smIsSplitColumn"
+  ],
+  "supports": {
+    "anchor": true
+  }
+}

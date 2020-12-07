@@ -1,0 +1,51 @@
+{
+  "apiVersion": 2,
+  "name": "snow-monkey-blocks/information",
+  "category": "smb",
+  "attributes": {
+    "labelColumnSize": {
+      "type": "number",
+      "default": 25
+    },
+    "smIsSplitColumn": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "providesContext": {
+    "snow-monkey-blocks/labelColumnSize": "labelColumnSize",
+    "snow-monkey-blocks/smIsSplitColumn": "smIsSplitColumn"
+  },
+  "example": {
+    "innerBlocks": [
+      {
+        "name": "snow-monkey-blocks/information--item",
+        "attributes": {
+          "label": "Lorem ipsum dolor sit amet"
+        },
+        "innerBlocks": [
+          {
+            "name": "core/paragraph",
+            "attributes": {
+              "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillu</p>"
+            }
+          }
+        ]
+      },
+      {
+        "name": "snow-monkey-blocks/information--item",
+        "attributes": {
+          "label": "consectetur adipisicing elit"
+        },
+        "innerBlocks": [
+          {
+            "name": "core/paragraph",
+            "attributes": {
+              "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillu</p>"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

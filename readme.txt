@@ -53,6 +53,7 @@ https://www.youtube.com/watch?v=uD6omb4TLdA&t=283s
 * Price menu
 * Taxonomy terms (Can be used only with Snow Monkey)
 * RSS (Can be used only with Snow Monkey)
+* Information
 
 = Section blocks =
 
@@ -103,6 +104,7 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 20. Countdown timer block
 21. Directory structure block (The number of items can be increased or decreased freely)
 22. Price menu block (The number of items can be increased or decreased freely)
+23. Information block (The number of items can be increased or decreased freely)
 
 == Changelog ==
 
@@ -110,6 +112,7 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 * WordPress 5.6 compatibility.
 * Added the ability to specify the URL for each block of images.
 * [Items] Add the option to glue each item together.
+* [Information] Add new block.
 
 = 9.7.1 =
 * [Evaluation star] Title not being displayed fixed.

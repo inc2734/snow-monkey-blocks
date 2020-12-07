@@ -13,7 +13,7 @@ export default {
 				btnLabel: 'more',
 				btnURL: 'https://2inc.org',
 				imageURL: `${ smb.pluginUrl }/dist/img/photos/sunset-over-lake-1.jpg`,
-				imageID: 1
+				imageID: 1,
 			},
 		},
 		{
@@ -26,7 +26,7 @@ export default {
 				btnLabel: 'more',
 				btnURL: 'https://2inc.org',
 				imageURL: `${ smb.pluginUrl }/dist/img/photos/sunset-over-lake-1.jpg`,
-				imageID: 1
+				imageID: 1,
 			},
 		},
 	],
