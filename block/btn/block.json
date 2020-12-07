@@ -40,5 +40,11 @@
   },
   "supports": {
     "align": [ "left", "center", "right" ]
+  },
+  "example": {
+    "attributes": {
+      "content": "button",
+      "url": "https://2inc.org"
+    }
   }
 }

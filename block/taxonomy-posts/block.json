@@ -49,5 +49,12 @@
   },
   "supports": {
     "anchor": false
+  },
+  "example": {
+  	"attributes": {
+      "postsPerPage": 3,
+      "taxonomy": "category",
+      "termId": 0
+    }
   }
 }

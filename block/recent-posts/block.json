@@ -45,5 +45,10 @@
   },
   "supports": {
     "anchor": false
+  },
+  "example": {
+    "attributes": {
+      "postsPerPage": 3
+    }
   }
 }

@@ -5,7 +5,6 @@ import metadata from './block.json';
 import edit from './edit';
 import save from './save';
 import deprecated from './deprecated';
-import example from './example';
 
 const { name } = metadata;
 
@@ -21,5 +20,4 @@ export const settings = {
 	edit,
 	save,
 	deprecated,
-	example,
 };

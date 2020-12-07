@@ -15,6 +15,5 @@
     "clockColor": {
       "type": "string"
     }
-  },
-  "example": {}
+  }
 }

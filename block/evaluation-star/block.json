@@ -29,5 +29,10 @@
       "default": "left"
     }
   },
-  "example": {}
+  "example": {
+    "attributes": {
+      "evaluationValue": 3,
+      "isDisplayNumeric": true
+    }
+  }
 }

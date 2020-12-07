@@ -18,5 +18,10 @@
       "type": "string",
       "default": ""
     }
+  },
+  "example": {
+    "attributes": {
+      "taxonomy": "category"
+    }
   }
 }

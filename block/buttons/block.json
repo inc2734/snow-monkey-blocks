@@ -11,5 +11,23 @@
     "anchor": true,
     "align": [ "left", "right" ],
     "alignWide": false
+  },
+  "example": {
+    "innerBlocks": [
+      {
+        "name": "snow-monkey-blocks/btn",
+        "attributes": {
+          "content": "button",
+          "url": "https://2inc.org"
+        }
+      },
+      {
+        "name": "snow-monkey-blocks/btn",
+        "attributes": {
+          "content": "button",
+          "url": "https://2inc.org"
+        }
+      }
+    ]
   }
 }
