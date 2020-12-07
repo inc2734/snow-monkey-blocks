@@ -134,9 +134,13 @@
     "block:items:item:block-link:clean": "rimraf dist/block/items/item/block-link && mkdir -p dist/block/items/item/block-link",
     "block:items:item:block-link:js": "wp-scripts build block/items/item/block-link/editor --output-path=dist/block/items/item/block-link",
     "block:items:item:block-link": "run-s block:items:item:block-link:*",
+
     "block:items:item:standard:clean": "rimraf dist/block/items/item/standard && mkdir -p dist/block/items/item/standard",
     "block:items:item:standard:js": "wp-scripts build block/items/item/standard/editor --output-path=dist/block/items/item/standard",
     "block:items:item:standard": "run-s block:items:item:standard:*",
+    "block:items:item:free:clean": "rimraf dist/block/items/item/free && mkdir -p dist/block/items/item/free",
+    "block:items:item:free:js": "wp-scripts build block/items/item/free/editor --output-path=dist/block/items/item/free",
+    "block:items:item:free": "run-s block:items:item:free:*",
     "block:items:item": "run-p block:items:item:*",
     "block:like-me-box:clean": "rimraf dist/block/like-me-box && mkdir -p dist/block/like-me-box",
     "block:like-me-box:js": "wp-scripts build block/like-me-box/editor --output-path=dist/block/like-me-box",

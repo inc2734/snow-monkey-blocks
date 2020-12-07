@@ -20,5 +20,15 @@ export default {
 					attributes
 				),
 		},
+		{
+			type: 'block',
+			blocks: [ 'snow-monkey-blocks/items--item--free' ],
+			transform: ( attributes ) =>
+				createBlock( 'snow-monkey-blocks/items--item--free', {}, [
+					createBlock( 'core/paragraph', {
+						content: attributes.title,
+					} ),
+				] ),
+		},
 	],
 };

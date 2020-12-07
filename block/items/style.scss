@@ -14,22 +14,6 @@
     .#{ $_prefix }c-row {
       @include _margin-bottom(-1);
 
-      @each $size, $screen-min in $_sizes {
-        @include _media-min($screen-min) {
-          $prefix: '';
-          @if $size != 'sm' {
-            $prefix: -#{ $size };
-          }
-
-          &[data#{ $prefix }-columns]:not([data#{ $prefix }-columns="1"]) {
-            .smb-items__item__body {
-              @include _padding-right(.5);
-              @include _padding-left(.5);
-            }
-          }
-        }
-      }
-
       &__col {
         @include _padding-bottom(1);
       }
@@ -100,6 +84,10 @@
       > a {
         color: inherit;
       }
+    }
+
+    &__body {
+      @include _content();
     }
 
     &__content {

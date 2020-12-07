@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2020-12-08 06:11+0900\n"
-"PO-Revision-Date: 2020-12-08 06:12+0900\n"
+"POT-Creation-Date: 2020-12-08 08:55+0900\n"
+"PO-Revision-Date: 2020-12-08 08:55+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -40,7 +40,7 @@ msgstr "アコーディオンのように伸縮するコンテンツエリアを
 #: block/countdown/edit.js:67
 #: block/directory-structure/item/directory/edit.js:96
 #: block/directory-structure/item/file/edit.js:64 block/faq/item/edit.js:70
-#: block/information/edit.js:51 block/items/edit.js:73
+#: block/information/edit.js:51 block/items/edit.js:74
 #: block/items/item/banner/edit.js:233 block/items/item/block-link/edit.js:241
 #: block/items/item/item/edit.js:80 block/items/item/standard/edit.js:241
 #: block/like-me-box/edit.js:18 block/limited-datetime/edit.js:107
@@ -70,9 +70,10 @@ msgid "Enter title here"
 msgstr "タイトルを入力"
 
 #: block/accordion/item/index.js:14 block/faq/item/index.js:14
-#: block/information/item/index.js:13 block/price-menu/item/index.js:13
-#: block/pricing-table/item/index.js:14 block/rating-box/item/index.js:14
-#: block/step/item/standard/index.js:15 block/testimonial/item/index.js:14
+#: block/information/item/index.js:13 block/items/item/item/index.js:16
+#: block/price-menu/item/index.js:13 block/pricing-table/item/index.js:14
+#: block/rating-box/item/index.js:14 block/step/item/standard/index.js:15
+#: block/testimonial/item/index.js:14
 msgid "Item"
 msgstr "項目"
 
@@ -760,24 +761,24 @@ msgstr "ラベルを書く…"
 msgid "It is a child block of the information block."
 msgstr "情報スブロックの子ブロックです。"
 
-#: block/items/edit.js:77
+#: block/items/edit.js:78
 msgid "Glue each item together"
 msgstr "各項目をくっつける"
 
-#: block/items/edit.js:88 block/panels/edit.js:75 block/testimonial/edit.js:62
+#: block/items/edit.js:89 block/panels/edit.js:75 block/testimonial/edit.js:62
 msgid "Columns per row (Large window)"
 msgstr "行あたりのカラム数（ラージウインドウ）"
 
-#: block/items/edit.js:100 block/panels/edit.js:89 block/testimonial/edit.js:76
+#: block/items/edit.js:101 block/panels/edit.js:89 block/testimonial/edit.js:76
 msgid "Columns per row (Medium window)"
 msgstr "行あたりのカラム数（ミディアムウインドウ）"
 
-#: block/items/edit.js:112 block/panels/edit.js:103
+#: block/items/edit.js:113 block/panels/edit.js:103
 msgid "Columns per row (Small window)"
 msgstr "行あたりのカラム数（スモールウインドウ）"
 
-#: block/items/index.js:15 block/items/item/item/index.js:16
-#: block/slider/item/index.js:15 block/thumbnail-gallery/item/index.js:15
+#: block/items/index.js:15 block/slider/item/index.js:15
+#: block/thumbnail-gallery/item/index.js:15
 msgid "Items"
 msgstr "項目"
 
@@ -843,7 +844,7 @@ msgid "Banner"
 msgstr "バナー"
 
 #: block/items/item/banner/index.js:17 block/items/item/block-link/index.js:17
-#: block/items/item/standard/index.js:17
+#: block/items/item/free/index.js:16 block/items/item/standard/index.js:17
 msgid "It is a child block of the items block."
 msgstr "項目ブロックの子ブロックです。"
 
@@ -868,8 +869,12 @@ msgid "Write content…"
 msgstr "内容を書く…"
 
 #: block/items/item/block-link/index.js:15
-msgid "Items (Block Link)"
+msgid "Item (Block Link)"
 msgstr "項目（ブロックリンク）"
+
+#: block/items/item/free/index.js:14 block/step/item/free/index.js:14
+msgid "Item (Free input)"
+msgstr "項目（自由入力）"
 
 #: block/items/item/item/edit.js:111
 msgid "Block link"
@@ -894,7 +899,7 @@ msgid "(Deprecated)"
 msgstr "（非推奨）"
 
 #: block/items/item/standard/index.js:15
-msgid "Items (Standard)"
+msgid "Item (Standard)"
 msgstr "項目（スタンダード）"
 
 #: block/like-me-box/edit.js:22
@@ -1675,10 +1680,6 @@ msgstr "ステップをわかりやすい手順で表現しましょう。"
 #: block/step/item/free/edit.js:69 block/step/item/standard/edit.js:265
 msgid "Number Color"
 msgstr "番号の色"
-
-#: block/step/item/free/index.js:14
-msgid "Item (Free input)"
-msgstr "項目（自由入力）"
 
 #: block/step/item/free/index.js:16 block/step/item/standard/index.js:17
 msgid "It is a child block of the step block."

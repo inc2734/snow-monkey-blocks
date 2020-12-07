@@ -19,6 +19,7 @@ export default function ( { attributes, setAttributes, className } ) {
 		'snow-monkey-blocks/items--item--standard',
 		'snow-monkey-blocks/items--item--block-link',
 		'snow-monkey-blocks/items--banner',
+		'snow-monkey-blocks/items--item--free',
 	];
 	const template = [ [ 'snow-monkey-blocks/items--item--standard' ] ];
 

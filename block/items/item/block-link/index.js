@@ -12,7 +12,7 @@ const { name } = metadata;
 export { metadata, name };
 
 export const settings = {
-	title: __( 'Items (Block Link)', 'snow-monkey-blocks' ),
+	title: __( 'Item (Block Link)', 'snow-monkey-blocks' ),
 	description: __(
 		'It is a child block of the items block.',
 		'snow-monkey-blocks'
