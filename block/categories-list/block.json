@@ -18,10 +18,6 @@
     "order": {
       "type": "string",
       "default": ""
-    },
-    "className": {
-      "type": "string",
-      "default": ""
     }
   }
 }

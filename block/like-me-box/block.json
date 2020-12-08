@@ -5,10 +5,6 @@
     "pageName": {
       "type": "string",
       "default": "inc2734.monkey.wrench"
-    },
-    "className": {
-      "type": "string",
-      "default": ""
     }
   },
   "example": {

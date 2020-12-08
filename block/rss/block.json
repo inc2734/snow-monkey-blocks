@@ -26,10 +26,6 @@
       "type": "string",
       "default": "h3"
     },
-    "className": {
-       "type": "string",
-       "default": ""
-    },
     "myAnchor": {
       "type": "string",
       "default": ""

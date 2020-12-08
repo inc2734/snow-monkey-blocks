@@ -38,10 +38,6 @@
       "type": "string",
       "default": "large"
     },
-    "className": {
-      "type": "string",
-      "default": ""
-    },
     "myAnchor": {
       "type": "string",
       "default": ""

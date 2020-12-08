@@ -13,10 +13,6 @@
     "order": {
       "type": "string",
       "default": "asc"
-    },
-    "className": {
-      "type": "string",
-      "default": ""
     }
   },
   "example": {
