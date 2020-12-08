@@ -114,6 +114,7 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 * [Items] Add the option to glue each item together.
 * [Items] Add free input child block.
 * [Panels] Add free input child block.
+* [Panels] Change max per row 4 to 6.
 * [Information] Add new block.
 
 = 9.7.1 =

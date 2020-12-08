@@ -44,17 +44,17 @@ export default function ( { attributes, setAttributes, className } ) {
 
 	const onChangeLg = ( value ) =>
 		setAttributes( {
-			lg: toNumber( value, 1, 4 ),
+			lg: toNumber( value, 1, 6 ),
 		} );
 
 	const onChangeMd = ( value ) =>
 		setAttributes( {
-			md: toNumber( value, 1, 4 ),
+			md: toNumber( value, 1, 6 ),
 		} );
 
 	const onChangeSm = ( value ) =>
 		setAttributes( {
-			sm: toNumber( value, 1, 4 ),
+			sm: toNumber( value, 1, 6 ),
 		} );
 
 	const onChangeImagePadding = ( value ) =>
@@ -79,7 +79,7 @@ export default function ( { attributes, setAttributes, className } ) {
 									value={ lg }
 									onChange={ onChangeLg }
 									min="1"
-									max="4"
+									max="6"
 								/>
 							);
 						} }
@@ -93,7 +93,7 @@ export default function ( { attributes, setAttributes, className } ) {
 									value={ md }
 									onChange={ onChangeMd }
 									min="1"
-									max="4"
+									max="6"
 								/>
 							);
 						} }
@@ -107,7 +107,7 @@ export default function ( { attributes, setAttributes, className } ) {
 									value={ sm }
 									onChange={ onChangeSm }
 									min="1"
-									max="4"
+									max="6"
 								/>
 							);
 						} }
