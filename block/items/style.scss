@@ -58,6 +58,12 @@
           }
         }
       }
+
+      &--free {
+        .smb-items__body {
+          @include _content();
+        }
+      }
     }
 
     a.smb-items__item--block-link {
@@ -84,10 +90,6 @@
       > a {
         color: inherit;
       }
-    }
-
-    &__body {
-      @include _content();
     }
 
     &__content {

@@ -32,7 +32,6 @@
     }
 
     &__body {
-      @include _content();
       @include _padding(1);
     }
 
@@ -140,6 +139,12 @@
       > .smb-panels__item__figure {
         order: 1;
       }
+    }
+  }
+
+  &__item--free {
+    > .smb-panels__body {
+      @include _content();
     }
   }
 
