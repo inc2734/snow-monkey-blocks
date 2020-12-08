@@ -25,6 +25,9 @@ if ( $attributes['includesSectionHeadings'] ) {
 	$selectors[] = '.smb-section__body';
 }
 
+$anchor = ! empty( $attributes['myAnchor'] ) ? $attributes['myAnchor'] : null; // Backward compatible
+$anchor = ! empty( $attributes['anchor'] ) ? $attributes['anchor'] : $anchor;
+
 echo do_shortcode(
 	sprintf(
 		'[wp_contents_outline post_id="%1$d" selector="%2$s" headings="%3$s" move_to_before_1st_heading="%4$s" id="%5$s" class="%6$s"]',
@@ -32,7 +35,7 @@ echo do_shortcode(
 		implode( ',', $selectors ),
 		$attributes['headings'],
 		$attributes['moveToBefore1stHeading'] ? 'true' : 'false',
-		! empty( $attributes['myAnchor'] ) ? $attributes['myAnchor'] : null,
+		$anchor,
 		'smb-contents-outline'
 	)
 );

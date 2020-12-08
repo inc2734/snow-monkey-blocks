@@ -22,7 +22,9 @@ if ( ! $pages_query->have_posts() ) {
 }
 
 $classnames[] = 'smb-child-pages';
-$classnames[] = $attributes['className'];
+if ( ! empty( $attributes['className'] ) ) {
+	$classnames[] = $attributes['className'];
+}
 ?>
 <div class="<?php echo esc_attr( join( ' ', $classnames ) ); ?>">
 	<?php

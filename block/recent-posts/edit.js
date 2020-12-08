@@ -1,4 +1,4 @@
-import { times } from 'lodash';
+import { times, omit } from 'lodash';
 
 import ServerSideRender from '@wordpress/server-side-render';
 import { useSelect } from '@wordpress/data';
@@ -11,17 +11,13 @@ import {
 	SelectControl,
 	RangeControl,
 	ToggleControl,
-	TextControl,
 	TextareaControl,
 	Spinner,
 	BaseControl,
 	Button,
 } from '@wordpress/components';
 
-import {
-	InspectorControls,
-	InspectorAdvancedControls,
-} from '@wordpress/block-editor';
+import { InspectorControls } from '@wordpress/block-editor';
 
 import { toNumber } from '@smb/helper';
 
@@ -35,7 +31,6 @@ export default function ( { attributes, setAttributes } ) {
 		noPostsText,
 		itemTitleTagName,
 		itemThumbnailSizeSlug,
-		myAnchor,
 	} = attributes;
 
 	const allPostTypes = useSelect( ( select ) => {
@@ -103,10 +98,10 @@ export default function ( { attributes, setAttributes } ) {
 			noPostsText: value,
 		} );
 
-	const onChangeMyAnchor = ( value ) =>
-		setAttributes( {
-			myAnchor: value.replace( /[\s#]/g, '-' ),
-		} );
+	// Backward compatible
+	const serverSideRenderAttributes = {
+		...omit( attributes, [ 'myAnchor' ] ),
+	};
 
 	return (
 		<>
@@ -251,18 +246,6 @@ export default function ( { attributes, setAttributes } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<InspectorAdvancedControls>
-				<TextControl
-					label={ __( 'HTML Anchor', 'snow-monkey-blocks' ) }
-					help={ __(
-						'Anchors lets you link directly to a section on a page.',
-						'snow-monkey-blocks'
-					) }
-					value={ myAnchor || '' }
-					onChange={ onChangeMyAnchor }
-				/>
-			</InspectorAdvancedControls>
-
 			{ ! allPostTypes ? (
 				<Placeholder
 					icon="editor-ul"
@@ -273,7 +256,7 @@ export default function ( { attributes, setAttributes } ) {
 			) : (
 				<ServerSideRender
 					block="snow-monkey-blocks/recent-posts"
-					attributes={ attributes }
+					attributes={ serverSideRenderAttributes }
 					className="components-disabled"
 				/>
 			) }

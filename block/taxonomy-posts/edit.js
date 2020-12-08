@@ -1,13 +1,10 @@
-import { find, times } from 'lodash';
+import { find, times, omit } from 'lodash';
 
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 import ServerSideRender from '@wordpress/server-side-render';
 
-import {
-	InspectorControls,
-	InspectorAdvancedControls,
-} from '@wordpress/block-editor';
+import { InspectorControls } from '@wordpress/block-editor';
 
 import {
 	BaseControl,
@@ -15,7 +12,6 @@ import {
 	SelectControl,
 	RangeControl,
 	ToggleControl,
-	TextControl,
 	TextareaControl,
 	TreeSelect,
 	Placeholder,
@@ -36,7 +32,6 @@ export default function ( { attributes, setAttributes } ) {
 		noPostsText,
 		itemTitleTagName,
 		itemThumbnailSizeSlug,
-		myAnchor,
 	} = attributes;
 
 	const { taxonomiesTerms, taxonomies } = useSelect( ( select ) => {
@@ -117,10 +112,10 @@ export default function ( { attributes, setAttributes } ) {
 			noPostsText: value,
 		} );
 
-	const onChangeMyAnchor = ( value ) =>
-		setAttributes( {
-			myAnchor: value.replace( /[\s#]/g, '-' ),
-		} );
+	// Backward compatible
+	const serverSideRenderAttributes = {
+		...omit( attributes, [ 'myAnchor' ] ),
+	};
 
 	return (
 		<>
@@ -295,18 +290,6 @@ export default function ( { attributes, setAttributes } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<InspectorAdvancedControls>
-				<TextControl
-					label={ __( 'HTML Anchor', 'snow-monkey-blocks' ) }
-					help={ __(
-						'Anchors lets you link directly to a section on a page.',
-						'snow-monkey-blocks'
-					) }
-					value={ myAnchor || '' }
-					onChange={ onChangeMyAnchor }
-				/>
-			</InspectorAdvancedControls>
-
 			{ ! selectedTerm || ! terms ? (
 				<Placeholder
 					icon="editor-ul"
@@ -317,7 +300,7 @@ export default function ( { attributes, setAttributes } ) {
 			) : (
 				<ServerSideRender
 					block="snow-monkey-blocks/taxonomy-posts"
-					attributes={ attributes }
+					attributes={ serverSideRenderAttributes }
 					className="components-disabled"
 				/>
 			) }

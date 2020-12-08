@@ -34,13 +34,13 @@
       "type": "string",
       "default": "large"
     },
-    "myAnchor": {
+    "anchor": {
       "type": "string",
       "default": ""
     }
   },
   "supports": {
-    "anchor": false
+    "anchor": true
   },
   "example": {
     "attributes": {

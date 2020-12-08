@@ -23,7 +23,9 @@ if ( ! $terms ) {
 }
 
 $classnames[] = 'smb-taxonomy-terms';
-$classnames[] = $attributes['className'];
+if ( ! empty( $attributes['className'] ) ) {
+	$classnames[] = $attributes['className'];
+}
 
 $block_style = preg_match( '|(is-style-[^ "\']+)|', $attributes['className'], $match )
 	? $match[1]

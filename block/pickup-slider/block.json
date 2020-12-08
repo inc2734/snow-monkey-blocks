@@ -14,12 +14,12 @@
       "type": "number",
       "default": 0
     },
-    "myAnchor": {
+    "anchor": {
       "type": "string",
       "default": ""
     }
   },
   "supports": {
-    "anchor": false
+    "anchor": true
   }
 }

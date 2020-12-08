@@ -1,4 +1,4 @@
-import { times } from 'lodash';
+import { times, omit } from 'lodash';
 
 import ServerSideRender from '@wordpress/server-side-render';
 import { __ } from '@wordpress/i18n';
@@ -15,11 +15,7 @@ import {
 	BaseControl,
 } from '@wordpress/components';
 
-import {
-	InspectorControls,
-	InspectorAdvancedControls,
-	BlockControls,
-} from '@wordpress/block-editor';
+import { InspectorControls, BlockControls } from '@wordpress/block-editor';
 
 import { useState } from '@wordpress/element';
 
@@ -35,7 +31,6 @@ export default function ( { attributes, setAttributes } ) {
 		smCols,
 		noPostsText,
 		itemTitleTagName,
-		myAnchor,
 	} = attributes;
 
 	const itemTitleTagNames = [ 'h2', 'h3', 'h4' ];
@@ -73,10 +68,10 @@ export default function ( { attributes, setAttributes } ) {
 			noPostsText: value,
 		} );
 
-	const onChangeMyAnchor = ( value ) =>
-		setAttributes( {
-			myAnchor: value.replace( /[\s#]/g, '-' ),
-		} );
+	// Backward compatible
+	const serverSideRenderAttributes = {
+		...omit( attributes, [ 'myAnchor' ] ),
+	};
 
 	if ( isEditing ) {
 		return (
@@ -231,21 +226,9 @@ export default function ( { attributes, setAttributes } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<InspectorAdvancedControls>
-				<TextControl
-					label={ __( 'HTML Anchor', 'snow-monkey-blocks' ) }
-					help={ __(
-						'Anchors lets you link directly to a section on a page.',
-						'snow-monkey-blocks'
-					) }
-					value={ myAnchor || '' }
-					onChange={ onChangeMyAnchor }
-				/>
-			</InspectorAdvancedControls>
-
 			<ServerSideRender
 				block="snow-monkey-blocks/rss"
-				attributes={ attributes }
+				attributes={ serverSideRenderAttributes }
 				className="components-disabled"
 			/>
 		</>

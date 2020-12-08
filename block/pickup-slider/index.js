@@ -4,6 +4,7 @@ import blockConfig from '@smb/config/block';
 import metadata from './block.json';
 import edit from './edit';
 import save from './save';
+import deprecated from './deprecated';
 
 const { name } = metadata;
 
@@ -29,4 +30,5 @@ export const settings = {
 	},
 	edit,
 	save,
+	deprecated,
 };

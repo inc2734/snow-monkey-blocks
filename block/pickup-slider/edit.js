@@ -1,15 +1,11 @@
 import { __ } from '@wordpress/i18n';
 
-import {
-	InspectorControls,
-	InspectorAdvancedControls,
-} from '@wordpress/block-editor';
+import { InspectorControls } from '@wordpress/block-editor';
 
 import {
 	PanelBody,
 	RangeControl,
 	SelectControl,
-	TextControl,
 	ToggleControl,
 	Placeholder,
 } from '@wordpress/components';
@@ -17,7 +13,7 @@ import {
 import { toNumber } from '@smb/helper';
 
 export default function ( { attributes, setAttributes } ) {
-	const { random, linkType, postsPerPage, myAnchor } = attributes;
+	const { random, linkType, postsPerPage } = attributes;
 
 	const onChangeLinkType = ( value ) =>
 		setAttributes( {
@@ -27,11 +23,6 @@ export default function ( { attributes, setAttributes } ) {
 	const onChangePostsPerPage = ( value ) =>
 		setAttributes( {
 			postsPerPage: toNumber( value, 0, 10 ),
-		} );
-
-	const onChangeMyAnchor = ( value ) =>
-		setAttributes( {
-			myAnchor: value.replace( /[\s#]/g, '-' ),
 		} );
 
 	return (
@@ -89,18 +80,6 @@ export default function ( { attributes, setAttributes } ) {
 					/>
 				</PanelBody>
 			</InspectorControls>
-
-			<InspectorAdvancedControls>
-				<TextControl
-					label={ __( 'HTML Anchor', 'snow-monkey-blocks' ) }
-					help={ __(
-						'Anchors lets you link directly to a section on a page.',
-						'snow-monkey-blocks'
-					) }
-					value={ myAnchor || '' }
-					onChange={ onChangeMyAnchor }
-				/>
-			</InspectorAdvancedControls>
 
 			<Placeholder
 				icon="format-gallery"

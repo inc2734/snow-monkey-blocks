@@ -19,12 +19,13 @@
       "type": "boolean",
       "default": false
     },
-    "myAnchor": {
+    "anchor": {
       "type": "string",
       "default": ""
     }
   },
   "supports": {
+    "anchor": true,
     "customClassName": false
   }
 }

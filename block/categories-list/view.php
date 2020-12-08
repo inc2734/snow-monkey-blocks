@@ -25,7 +25,9 @@ if ( isset( $attributes['exclusionCategories'] ) && ! empty( $attributes['exclus
 }
 
 $classnames[] = 'smb-categories-list';
-$classnames[] = $attributes['className'];
+if ( ! empty( $attributes['className'] ) ) {
+	$classnames[] = $attributes['className'];
+}
 ?>
 <div class="<?php echo esc_attr( join( ' ', $classnames ) ); ?>">
 	<ul class="smb-categories-list__list">

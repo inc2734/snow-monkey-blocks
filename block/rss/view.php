@@ -30,8 +30,11 @@ $instance = [
 	'link-url'       => null,
 ];
 
+$anchor = ! empty( $attributes['myAnchor'] ) ? $attributes['myAnchor'] : null; // Backward compatible
+$anchor = ! empty( $attributes['anchor'] ) ? $attributes['anchor'] : $anchor;
+
 $widget_id  = 'snow_monkey_blocks_rss-';
-$widget_id .= ! empty( $attributes['myAnchor'] ) ? $attributes['myAnchor'] : rand();
+$widget_id .= ! empty( $anchor ) ? $anchor : rand();
 
 $widget_args = [
 	'before_widget' => '',
@@ -64,9 +67,11 @@ if ( empty( $widget ) ) {
 }
 
 $classnames[] = 'smb-rss';
-$classnames[] = $attributes['className'];
+if ( ! empty( $attributes['className'] ) ) {
+	$classnames[] = $attributes['className'];
+}
 ?>
-<div class="<?php echo esc_attr( join( ' ', $classnames ) ); ?>" id="<?php echo esc_attr( $attributes['myAnchor'] ); ?>">
+<div class="<?php echo esc_attr( join( ' ', $classnames ) ); ?>" id="<?php echo esc_attr( $anchor ); ?>">
 	<?php
 	if ( empty( $no_posts_text ) ) {
 		// @codingStandardsIgnoreStart

@@ -14,7 +14,9 @@ if ( empty( $page_name ) ) {
 }
 
 $classnames[] = 'smb-like-me-box';
-$classnames[] = $attributes['className'];
+if ( ! empty( $attributes['className'] ) ) {
+	$classnames[] = $attributes['className'];
+}
 ?>
 <div class="<?php echo esc_attr( join( ' ', $classnames ) ); ?>">
 	<?php

@@ -2,16 +2,11 @@ import { compact, indexOf, remove, union } from 'lodash';
 
 import { __ } from '@wordpress/i18n';
 
-import {
-	InspectorAdvancedControls,
-	InspectorControls,
-	useBlockProps,
-} from '@wordpress/block-editor';
+import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 
 import {
 	CheckboxControl,
 	PanelBody,
-	TextControl,
 	ToggleControl,
 } from '@wordpress/components';
 
@@ -21,7 +16,6 @@ export default function ( { attributes, setAttributes } ) {
 		moveToBefore1stHeading,
 		includesSectionTitle,
 		includesSectionHeadings,
-		myAnchor,
 	} = attributes;
 
 	const _generateNewHeadings = ( isChecked, heading ) => {
@@ -68,11 +62,6 @@ export default function ( { attributes, setAttributes } ) {
 	const onChangeMoveToBefore1stHeading = ( value ) =>
 		setAttributes( {
 			moveToBefore1stHeading: value,
-		} );
-
-	const onChangeMyAnchor = ( value ) =>
-		setAttributes( {
-			myAnchor: value.replace( /[\s#]/g, '-' ),
 		} );
 
 	return (
@@ -141,18 +130,6 @@ export default function ( { attributes, setAttributes } ) {
 					/>
 				</PanelBody>
 			</InspectorControls>
-
-			<InspectorAdvancedControls>
-				<TextControl
-					label={ __( 'HTML Anchor', 'snow-monkey-blocks' ) }
-					help={ __(
-						'Anchors lets you link directly to a section on a page.',
-						'snow-monkey-blocks'
-					) }
-					value={ myAnchor || '' }
-					onChange={ onChangeMyAnchor }
-				/>
-			</InspectorAdvancedControls>
 
 			<div { ...blockProps } aria-hidden="false">
 				<div className="wpco">
