@@ -3,6 +3,13 @@
 @import '../../src/css/core/block';
 
 .smb-panels {
+  > .#{ $_prefix }c-row {
+    &__col {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
   &__item {
     position: relative;
     display: block;
@@ -12,7 +19,6 @@
     color: _var-color-text();
     text-decoration: none;
     box-shadow: 0 0 35px 0 rgba(#000, .1);
-    text-align: center;
     @include _transition(all);
 
     @include _hover(lg) {
@@ -26,6 +32,7 @@
     }
 
     &__body {
+      @include _content();
       @include _padding(1);
     }
 
@@ -77,9 +84,14 @@
     }
   }
 
+  &__item:not([class*="smb-panels__item--"]) {
+    text-align: center;
+  }
+
   &__item--horizontal {
     display: flex;
     flex-direction: column;
+    text-align: center;
 
     @include _media-min(md) {
       flex-direction: row;

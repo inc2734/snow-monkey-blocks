@@ -8,17 +8,22 @@ import {
 export default function ( { className } ) {
 	const classes = classnames( 'c-row__col', className );
 
+	const itemClasses = classnames(
+		'smb-panels__item',
+		'smb-panels__item--free'
+	);
+
 	const blockProps = useBlockProps( {
 		className: classes,
 	} );
 
 	const innerBlocksProps = useInnerBlocksProps( {
-		className: 'smb-items__item__body',
+		className: 'smb-panels__item__body',
 	} );
 
 	return (
 		<div { ...blockProps }>
-			<div className="smb-items__item">
+			<div className={ itemClasses }>
 				<div { ...innerBlocksProps } />
 			</div>
 		</div>

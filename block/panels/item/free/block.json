@@ -1,0 +1,6 @@
+{
+  "apiVersion": 2,
+  "name": "snow-monkey-blocks/panels--item--free",
+  "category": "smb",
+  "parent": [ "snow-monkey-blocks/panels" ]
+}

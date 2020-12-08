@@ -20,6 +20,7 @@ export default function ( { attributes, setAttributes, className } ) {
 	const allowedBlocks = [
 		'snow-monkey-blocks/panels--item',
 		'snow-monkey-blocks/panels--item--horizontal',
+		'snow-monkey-blocks/panels--item--free',
 	];
 	const template = [ [ 'snow-monkey-blocks/panels--item' ] ];
 

@@ -12,5 +12,15 @@ export default {
 				);
 			},
 		},
+		{
+			type: 'block',
+			blocks: [ 'snow-monkey-blocks/panels--item--free' ],
+			transform: ( attributes ) =>
+				createBlock( 'snow-monkey-blocks/panels--item--free', {}, [
+					createBlock( 'core/paragraph', {
+						content: attributes.summary,
+					} ),
+				] ),
+		},
 	],
 };

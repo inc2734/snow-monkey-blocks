@@ -1,0 +1,12 @@
+@charset 'utf-8';
+
+@import '../../src/css/core/block';
+
+.editor-styles-wrapper {
+  .smb-panels {
+    > .#{ $_prefix }c-row {
+      margin-bottom: 0;
+    }
+  }
+}
+

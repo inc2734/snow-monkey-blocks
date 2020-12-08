@@ -112,6 +112,8 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 * WordPress 5.6 compatibility.
 * Added the ability to specify the URL for each block of images.
 * [Items] Add the option to glue each item together.
+* [Items] Add free input child block.
+* [Panels] Add free input child block.
 * [Information] Add new block.
 
 = 9.7.1 =

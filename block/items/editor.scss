@@ -3,9 +3,7 @@
 @import '../../src/css/core/block';
 
 .smb-items {
-  &--glue {
-    .#{ $_prefix }c-row {
-      margin-bottom: 0;
-    }
+  > .#{ $_prefix }c-row {
+    margin-bottom: 0;
   }
 }
