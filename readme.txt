@@ -116,6 +116,7 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 * [Panels] Add free input child block.
 * [Panels] Change max per row 4 to 6.
 * [Information] Add new block.
+* [Button] Add text block style.
 
 = 9.7.1 =
 * [Evaluation star] Title not being displayed fixed.

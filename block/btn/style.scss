@@ -55,6 +55,14 @@
   }
 }
 
+.smb-btn-wrapper.is-style-text {
+  .smb-btn {
+    background-color: transparent !important;
+    border-color: none !important;
+    color: $color-accent;
+  }
+}
+
 .smb-btn-wrapper.aligncenter {
   text-align: center;
 }

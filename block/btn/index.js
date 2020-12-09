@@ -29,6 +29,7 @@ export const settings = {
 			isDefault: true,
 		},
 		{ name: 'ghost', label: __( 'Ghost', 'snow-monkey-blocks' ) },
+		{ name: 'text', label: __( 'Text', 'snow-monkey-blocks' ) },
 	],
 	deprecated,
 };
