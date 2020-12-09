@@ -14,7 +14,12 @@ export default function ( { attributes, setAttributes, className } ) {
 	const allowedBlocks = [ 'snow-monkey-blocks/information--item' ];
 	const template = [ [ 'snow-monkey-blocks/information--item' ] ];
 
-	const { labelColumnSize, smIsSplitColumn } = attributes;
+	const {
+		labelColumnSize,
+		labelAlign,
+		labelVerticalAlign,
+		smIsSplitColumn,
+	} = attributes;
 
 	const classes = classnames( 'smb-information', className );
 
@@ -37,6 +42,16 @@ export default function ( { attributes, setAttributes, className } ) {
 	const onChangeLabelColumnSize = ( value ) =>
 		setAttributes( {
 			labelColumnSize: parseInt( value ),
+		} );
+
+	const onChangeLabelAlign = ( value ) =>
+		setAttributes( {
+			labelAlign: value,
+		} );
+
+	const onChangeLabelVerticalAlign = ( value ) =>
+		setAttributes( {
+			labelVerticalAlign: value,
 		} );
 
 	const onChangeSmIsSplitColumn = ( value ) =>
@@ -69,6 +84,44 @@ export default function ( { attributes, setAttributes, className } ) {
 						onChange={ onChangeLabelColumnSize }
 					/>
 
+					<SelectControl
+						label={ __(
+							'Label horizontal alignment',
+							'snow-monkey-blocks'
+						) }
+						value={ labelAlign }
+						options={ [
+							{
+								value: undefined,
+								label: __( 'Left side', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'right',
+								label: __( 'Right side', 'snow-monkey-blocks' ),
+							},
+						] }
+						onChange={ onChangeLabelAlign }
+					/>
+
+					<SelectControl
+						label={ __(
+							'Label vertical alignment',
+							'snow-monkey-blocks'
+						) }
+						value={ labelVerticalAlign }
+						options={ [
+							{
+								value: undefined,
+								label: __( 'Top', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'middle',
+								label: __( 'Middle', 'snow-monkey-blocks' ),
+							},
+						] }
+						onChange={ onChangeLabelVerticalAlign }
+					/>
+
 					<ToggleControl
 						label={ __(
 							"Don't split the column in a smartphone",
@@ -83,6 +136,8 @@ export default function ( { attributes, setAttributes, className } ) {
 			<div
 				{ ...blockProps }
 				data-sm-split-column={ smIsSplitColumn ? 'true' : undefined }
+				data-label-align={ labelAlign || 'left' }
+				data-label-vertical-align={ labelVerticalAlign || 'top' }
 			>
 				<div { ...innerBlocksProps } />
 			</div>

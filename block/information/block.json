@@ -7,6 +7,12 @@
       "type": "number",
       "default": 25
     },
+    "labelAlign": {
+      "type": "string"
+    },
+    "labelVerticalAlign": {
+      "type": "string"
+    },
     "smIsSplitColumn": {
       "type": "boolean",
       "default": false

@@ -59,7 +59,7 @@ export default function ( { attributes, setAttributes, className, context } ) {
 	return (
 		<>
 			<div { ...blockProps }>
-				<div className="c-row">
+				<div className="c-row c-row--fill">
 					<div className={ labelColumnClasses }>
 						<div className="smb-information__item__question__label">
 							<RichText
