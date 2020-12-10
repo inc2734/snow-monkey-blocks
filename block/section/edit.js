@@ -106,6 +106,13 @@ export default function ( {
 			backgroundStyles.backgroundImage = `linear-gradient(${ backgroundColorAngle }deg, ${ backgroundColor } 0%, ${ backgroundColor2 } 100%)`;
 		}
 
+		if ( backgroundHorizontalPosition || backgroundVerticalPosition ) {
+			backgroundStyles.transform = `translate(${
+				backgroundHorizontalPosition || 0
+			}%, ${ backgroundVerticalPosition || 0 }%)`;
+		}
+
+		/*
 		if ( 0 < backgroundHorizontalPosition ) {
 			backgroundStyles.left = `${ Math.abs(
 				backgroundHorizontalPosition
@@ -125,6 +132,7 @@ export default function ( {
 				backgroundVerticalPosition
 			) }%`;
 		}
+		*/
 	}
 
 	const innerStyles = {
