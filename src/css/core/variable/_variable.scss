@@ -1,9 +1,8 @@
 $_base-font-size-px: 16px !default;
-$_between-lines: (1rem / 2.3) !default;
+$_between-lines: (1rem / 2.6) !default;
 $_container-max-width: 1280px !default;
 $_transition-duration: .2s !default;
-$_font-path: '../../vendor/inc2734/wp-basis/src/assets/packages/sass-basis/src/font' !default;
-$_base-margin-bottom: 1.25 !default;
+$_base-margin-bottom: 1 !default;
 $_h2-font-size-scale: 1.5 !default;
 $_h2-margin-top: $_base-margin-bottom * 2 !default;
 $_h2-margin-bottom: $_base-margin-bottom * 1.25 !default;
@@ -14,5 +13,5 @@ $_border-radius: 6px !default;
 $color-accent: #cd162c !default;
 $one-column-slim-max-width: 46rem !default;
 $border-bottom-width: 1px !default;
-$_font-family: sans-serif !default;
+$_font-family: system-ui, -apple-system, BlinkMacSystemFont, "ヒラギノ角ゴ W3", sans-serif !default;
 $img-path: '../img' !default;
