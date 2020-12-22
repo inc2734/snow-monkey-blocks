@@ -2,8 +2,10 @@
 
 @import '../../src/css/core/block';
 
-.smb-items {
-  > .#{ $_prefix }c-row {
-    margin-bottom: 0;
+.editor-styles-wrapper {
+  .smb-items {
+    > .#{ $_prefix }c-row {
+      margin-bottom: 0;
+    }
   }
 }

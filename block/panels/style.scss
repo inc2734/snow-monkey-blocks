@@ -143,7 +143,12 @@
   }
 
   &__item--free {
-    > .smb-panels__body {
+    > .smb-panels__item__body {
+      > * {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
       @include _content();
     }
   }
