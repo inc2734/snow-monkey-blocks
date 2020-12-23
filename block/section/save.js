@@ -13,6 +13,7 @@ export default function ( { attributes, className } ) {
 		lede,
 		backgroundHorizontalPosition,
 		backgroundVerticalPosition,
+		isBackgroundNoOver,
 		backgroundColor,
 		backgroundColor2,
 		backgroundColorAngle,
@@ -67,33 +68,33 @@ export default function ( { attributes, className } ) {
 			backgroundStyles.backgroundImage = `linear-gradient(${ backgroundColorAngle }deg, ${ backgroundColor } 0%, ${ backgroundColor2 } 100%)`;
 		}
 
-		if ( backgroundHorizontalPosition || backgroundVerticalPosition ) {
-			backgroundStyles.transform = `translate(${
-				backgroundHorizontalPosition || 0
-			}%, ${ backgroundVerticalPosition || 0 }%)`;
-		}
+		if ( ! isBackgroundNoOver ) {
+			if ( backgroundHorizontalPosition || backgroundVerticalPosition ) {
+				backgroundStyles.transform = `translate(${
+					backgroundHorizontalPosition || 0
+				}%, ${ backgroundVerticalPosition || 0 }%)`;
+			}
+		} else {
+			if ( 0 < backgroundHorizontalPosition ) {
+				backgroundStyles.left = `${ Math.abs(
+					backgroundHorizontalPosition
+				) }%`;
+			} else if ( 0 > backgroundHorizontalPosition ) {
+				backgroundStyles.right = `${ Math.abs(
+					backgroundHorizontalPosition
+				) }%`;
+			}
 
-		/*
-		if ( 0 < backgroundHorizontalPosition ) {
-			backgroundStyles.left = `${ Math.abs(
-				backgroundHorizontalPosition
-			) }%`;
-		} else if ( 0 > backgroundHorizontalPosition ) {
-			backgroundStyles.right = `${ Math.abs(
-				backgroundHorizontalPosition
-			) }%`;
+			if ( 0 < backgroundVerticalPosition ) {
+				backgroundStyles.top = `${ Math.abs(
+					backgroundVerticalPosition
+				) }%`;
+			} else if ( 0 > backgroundVerticalPosition ) {
+				backgroundStyles.bottom = `${ Math.abs(
+					backgroundVerticalPosition
+				) }%`;
+			}
 		}
-
-		if ( 0 < backgroundVerticalPosition ) {
-			backgroundStyles.top = `${ Math.abs(
-				backgroundVerticalPosition
-			) }%`;
-		} else if ( 0 > backgroundVerticalPosition ) {
-			backgroundStyles.bottom = `${ Math.abs(
-				backgroundVerticalPosition
-			) }%`;
-		}
-		*/
 	}
 
 	const innerStyles = {

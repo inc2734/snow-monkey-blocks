@@ -41,6 +41,7 @@ export default function ( {
 		lede,
 		backgroundHorizontalPosition,
 		backgroundVerticalPosition,
+		isBackgroundNoOver,
 		backgroundColor,
 		backgroundColor2,
 		backgroundColorAngle,
@@ -106,33 +107,33 @@ export default function ( {
 			backgroundStyles.backgroundImage = `linear-gradient(${ backgroundColorAngle }deg, ${ backgroundColor } 0%, ${ backgroundColor2 } 100%)`;
 		}
 
-		if ( backgroundHorizontalPosition || backgroundVerticalPosition ) {
-			backgroundStyles.transform = `translate(${
-				backgroundHorizontalPosition || 0
-			}%, ${ backgroundVerticalPosition || 0 }%)`;
-		}
+		if ( ! isBackgroundNoOver ) {
+			if ( backgroundHorizontalPosition || backgroundVerticalPosition ) {
+				backgroundStyles.transform = `translate(${
+					backgroundHorizontalPosition || 0
+				}%, ${ backgroundVerticalPosition || 0 }%)`;
+			}
+		} else {
+			if ( 0 < backgroundHorizontalPosition ) {
+				backgroundStyles.left = `${ Math.abs(
+					backgroundHorizontalPosition
+				) }%`;
+			} else if ( 0 > backgroundHorizontalPosition ) {
+				backgroundStyles.right = `${ Math.abs(
+					backgroundHorizontalPosition
+				) }%`;
+			}
 
-		/*
-		if ( 0 < backgroundHorizontalPosition ) {
-			backgroundStyles.left = `${ Math.abs(
-				backgroundHorizontalPosition
-			) }%`;
-		} else if ( 0 > backgroundHorizontalPosition ) {
-			backgroundStyles.right = `${ Math.abs(
-				backgroundHorizontalPosition
-			) }%`;
+			if ( 0 < backgroundVerticalPosition ) {
+				backgroundStyles.top = `${ Math.abs(
+					backgroundVerticalPosition
+				) }%`;
+			} else if ( 0 > backgroundVerticalPosition ) {
+				backgroundStyles.bottom = `${ Math.abs(
+					backgroundVerticalPosition
+				) }%`;
+			}
 		}
-
-		if ( 0 < backgroundVerticalPosition ) {
-			backgroundStyles.top = `${ Math.abs(
-				backgroundVerticalPosition
-			) }%`;
-		} else if ( 0 > backgroundVerticalPosition ) {
-			backgroundStyles.bottom = `${ Math.abs(
-				backgroundVerticalPosition
-			) }%`;
-		}
-		*/
 	}
 
 	const innerStyles = {
@@ -169,6 +170,11 @@ export default function ( {
 	const onChangeBackgroundVerticalPosition = ( value ) =>
 		setAttributes( {
 			backgroundVerticalPosition: toNumber( value, -90, 90 ),
+		} );
+
+	const onChangeIsBackgroundNoOver = ( value ) =>
+		setAttributes( {
+			isBackgroundNoOver: value,
 		} );
 
 	const onChangeBackgroundColor = ( value ) =>
@@ -331,6 +337,18 @@ export default function ( {
 								min="-90"
 								max="90"
 							/>
+
+							{ ( 0 !== backgroundHorizontalPosition ||
+								0 !== backgroundVerticalPosition ) && (
+								<ToggleControl
+									label={ __(
+										"Make sure the background doesn't overflow to the outside",
+										'snow-monkey-blocks'
+									) }
+									checked={ isBackgroundNoOver }
+									onChange={ onChangeIsBackgroundNoOver }
+								/>
+							) }
 						</>
 					) }
 				</PanelBody>
