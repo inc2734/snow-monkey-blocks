@@ -59,20 +59,18 @@ export default function ( { attributes, setAttributes, className, context } ) {
 	return (
 		<>
 			<div { ...blockProps }>
-				<div className="c-row c-row--fill">
+				<div className="c-row">
 					<div className={ labelColumnClasses }>
-						<div className="smb-information__item__question__label">
-							<RichText
-								className="smb-information__item__label"
-								placeholder={ __(
-									'Write label',
-									'snow-monkey-blocks'
-								) }
-								keepPlaceholderOnFocus={ true }
-								value={ label }
-								onChange={ onChangeLabel }
-							/>
-						</div>
+						<RichText
+							className="smb-information__item__label"
+							placeholder={ __(
+								'Write label',
+								'snow-monkey-blocks'
+							) }
+							keepPlaceholderOnFocus={ true }
+							value={ label }
+							onChange={ onChangeLabel }
+						/>
 					</div>
 					<div className={ bodyColumnClasses }>
 						<div { ...innerBlocksProps } />

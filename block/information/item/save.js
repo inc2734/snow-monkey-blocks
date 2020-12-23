@@ -26,7 +26,7 @@ export default function ( { attributes, className } ) {
 
 	return (
 		<div { ...useBlockProps.save( { className: classes } ) }>
-			<div className="c-row c-row--fill">
+			<div className="c-row">
 				<div className={ labelColumnClasses }>
 					<div className="smb-information__item__label">
 						<RichText.Content value={ label } />

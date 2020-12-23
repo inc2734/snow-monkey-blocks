@@ -11,9 +11,11 @@
       @include _margin-top(1);
     }
 
-    &__label {
-      display: flex;
-      flex-direction: column;
+    > .#{ $_prefix }c-row {
+      > .#{ $_prefix }c-row__col:first-child {
+        display: flex;
+        flex-direction: column;
+      }
     }
 
     &__body {
@@ -43,9 +45,13 @@
     }
 
     &[data-label-vertical-align="middle"] {
-      .smb-information__item__label {
-        @include _media-min(md) {
-          justify-content: center;
+      .smb-information__item {
+        > .#{ $_prefix }c-row {
+          > .#{ $_prefix }c-row__col:first-child {
+            @include _media-min(md) {
+              justify-content: center;
+            }
+          }
         }
       }
     }
@@ -59,8 +65,12 @@
     }
 
     &[data-label-vertical-align="middle"] {
-      .smb-information__item__label {
-        justify-content: center;
+      .smb-information__item {
+        > .#{ $_prefix }c-row {
+          > .#{ $_prefix }c-row__col:first-child {
+            justify-content: center;
+          }
+        }
       }
     }
   }
@@ -79,9 +89,6 @@
 
       &__body {
         margin-top: 0;
-        border-left: 1px solid transparent;
-        border-left-color: _lighter($_color-gray); // For IE11
-        border-left-color: _var-lighter-color-gray();
         @include _padding(.5);
 
         @include _media-min(md) {
@@ -92,6 +99,21 @@
 
     &:not([data-sm-split-column="true"]) {
       .smb-information__item {
+        > .#{ $_prefix }c-row {
+          > .#{ $_prefix }c-row__col:last-child {
+            border-top: 1px solid transparent;
+            border-top-color: _lighter($_color-gray); // For IE11
+            border-top-color: _var-lighter-color-gray();
+
+            @include _media-min(md) {
+              border-top: none;
+              border-left: 1px solid transparent;
+              border-left-color: _lighter($_color-gray); // For IE11
+              border-left-color: _var-lighter-color-gray();
+            }
+          }
+        }
+
         &__label {
           @include _padding(.25, .5);
 
@@ -99,25 +121,19 @@
             @include _padding(1);
           }
         }
-
-        &__body {
-          border-top: 1px solid transparent;
-          border-top-color: _lighter($_color-gray); // For IE11
-          border-top-color: _var-lighter-color-gray();
-
-          @include _media-max(sm) {
-            border-left: none;
-          }
-
-          @include _media-min(md) {
-            border-top: none;
-          }
-        }
       }
     }
 
     &[data-sm-split-column="true"] {
       .smb-information__item {
+        > .#{ $_prefix }c-row {
+          > .#{ $_prefix }c-row__col:last-child {
+            border-left: 1px solid transparent;
+            border-left-color: _lighter($_color-gray); // For IE11
+            border-left-color: _var-lighter-color-gray();
+          }
+        }
+
         &__label {
           @include _padding(.5);
 
