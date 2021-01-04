@@ -4,6 +4,7 @@
 
 .smb-section {
   position: relative;
+  z-index: -1;
 
   &__background {
     position: absolute;
