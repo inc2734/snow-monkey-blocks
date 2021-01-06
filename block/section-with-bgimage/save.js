@@ -14,16 +14,19 @@ export default function ( { attributes, className } ) {
 		lgImageAlt,
 		lgImageMediaType,
 		lgImageRepeat,
+		lgFocalPoint,
 		mdImageID,
 		mdImageURL,
 		mdImageAlt,
 		mdImageMediaType,
 		mdImageRepeat,
+		mdFocalPoint,
 		smImageID,
 		smImageURL,
 		smImageAlt,
 		smImageMediaType,
 		smImageRepeat,
+		smFocalPoint,
 		height,
 		contentsAlignment,
 		maskColor,
@@ -56,6 +59,33 @@ export default function ( { attributes, className } ) {
 		'u-slim-width': !! isSlim,
 	} );
 
+	const isLgVideo = 'video' === lgImageMediaType;
+	const isLgImage =
+		'image' === lgImageMediaType || undefined === lgImageMediaType;
+	const hasLgBackground = !! lgImageURL;
+	const lgPointValue =
+		lgFocalPoint && ! parallax
+			? `${ lgFocalPoint.x * 100 }% ${ lgFocalPoint.y * 100 }%`
+			: undefined;
+
+	const isMdVideo = 'video' === mdImageMediaType;
+	const isMdImage =
+		'image' === mdImageMediaType || undefined === mdImageMediaType;
+	const hasMdBackground = !! mdImageURL;
+	const mdPointValue =
+		mdFocalPoint && ! parallax
+			? `${ mdFocalPoint.x * 100 }% ${ mdFocalPoint.y * 100 }%`
+			: undefined;
+
+	const isSmVideo = 'video' === smImageMediaType;
+	const isSmImage =
+		'image' === smImageMediaType || undefined === smImageMediaType;
+	const hasSmBackground = !! smImageURL;
+	const smPointValue =
+		smFocalPoint && ! parallax
+			? `${ smFocalPoint.x * 100 }% ${ smFocalPoint.y * 100 }%`
+			: undefined;
+
 	const sectionStyles = {
 		color: textColor || undefined,
 	};
@@ -68,23 +98,52 @@ export default function ( { attributes, className } ) {
 		}
 	}
 
+	const lgVideoStyles = {
+		opacity: maskOpacity,
+		objectPosition: lgPointValue,
+	};
+
+	const norepeatableLgImageStyles = {
+		opacity: maskOpacity,
+		objectPosition: lgPointValue,
+	};
+
 	const repeatableLgImageStyles = {
 		opacity: maskOpacity,
 		backgroundImage: `url( ${ lgImageURL } )`,
+		backgroundPosition: lgPointValue,
+	};
+
+	const mdVideoStyles = {
+		opacity: maskOpacity,
+		objectPosition: mdPointValue,
+	};
+
+	const norepeatableMdImageStyles = {
+		opacity: maskOpacity,
+		objectPosition: mdPointValue,
 	};
 
 	const repeatableMdImageStyles = {
 		opacity: maskOpacity,
 		backgroundImage: `url( ${ mdImageURL } )`,
+		backgroundPosition: mdPointValue,
+	};
+
+	const smVideoStyles = {
+		opacity: maskOpacity,
+		objectPosition: smPointValue,
+	};
+
+	const norepeatableSmImageStyles = {
+		opacity: maskOpacity,
+		objectPosition: smPointValue,
 	};
 
 	const repeatableSmImageStyles = {
 		opacity: maskOpacity,
 		backgroundImage: `url( ${ smImageURL } )`,
-	};
-
-	const bgimageStyles = {
-		opacity: maskOpacity,
+		backgroundPosition: smPointValue,
 	};
 
 	return (
@@ -94,7 +153,7 @@ export default function ( { attributes, className } ) {
 				style: sectionStyles,
 			} ) }
 		>
-			{ lgImageURL && (
+			{ hasLgBackground && (
 				<div
 					className={ classnames(
 						bgimageClasses,
@@ -108,9 +167,8 @@ export default function ( { attributes, className } ) {
 						/>
 					) }
 
-					{ ( 'image' === lgImageMediaType ||
-						undefined === lgImageMediaType ) &&
-						lgImageRepeat && (
+					{ isLgImage &&
+						( lgImageRepeat ? (
 							<div
 								className="smb-section-with-bgimage__repeatable-image"
 								style={ repeatableLgImageStyles }
@@ -119,36 +177,32 @@ export default function ( { attributes, className } ) {
 									src={ lgImageURL }
 									alt={ lgImageAlt }
 									className={ `wp-image-${ lgImageID }` }
-									style={ bgimageStyles }
+									style={ norepeatableLgImageStyles }
 								/>
 							</div>
-						) }
-
-					{ ( 'image' === lgImageMediaType ||
-						undefined === lgImageMediaType ) &&
-						! lgImageRepeat && (
+						) : (
 							<img
 								src={ lgImageURL }
 								alt={ lgImageAlt }
 								className={ `wp-image-${ lgImageID }` }
-								style={ bgimageStyles }
+								style={ norepeatableLgImageStyles }
 							/>
-						) }
+						) ) }
 
-					{ 'video' === lgImageMediaType && (
+					{ isLgVideo && (
 						<video
-							playsinline
+							playsInline
 							loop
 							autoPlay
 							muted
 							src={ lgImageURL }
-							style={ bgimageStyles }
+							style={ lgVideoStyles }
 						/>
 					) }
 				</div>
 			) }
 
-			{ mdImageURL && (
+			{ hasMdBackground && (
 				<div
 					className={ classnames(
 						bgimageClasses,
@@ -162,9 +216,8 @@ export default function ( { attributes, className } ) {
 						/>
 					) }
 
-					{ ( 'image' === mdImageMediaType ||
-						undefined === mdImageMediaType ) &&
-						mdImageRepeat && (
+					{ isMdImage &&
+						( mdImageRepeat ? (
 							<div
 								className="smb-section-with-bgimage__repeatable-image"
 								style={ repeatableMdImageStyles }
@@ -173,36 +226,32 @@ export default function ( { attributes, className } ) {
 									src={ mdImageURL }
 									alt={ mdImageAlt }
 									className={ `wp-image-${ mdImageID }` }
-									style={ bgimageStyles }
+									style={ norepeatableMdImageStyles }
 								/>
 							</div>
-						) }
-
-					{ ( 'image' === mdImageMediaType ||
-						undefined === mdImageMediaType ) &&
-						! mdImageRepeat && (
+						) : (
 							<img
 								src={ mdImageURL }
 								alt={ mdImageAlt }
 								className={ `wp-image-${ mdImageID }` }
-								style={ bgimageStyles }
+								style={ norepeatableMdImageStyles }
 							/>
-						) }
+						) ) }
 
-					{ 'video' === mdImageMediaType && (
+					{ isMdVideo && (
 						<video
-							playsinline
+							playsInline
 							loop
 							autoPlay
 							muted
 							src={ mdImageURL }
-							style={ bgimageStyles }
+							style={ mdVideoStyles }
 						/>
 					) }
 				</div>
 			) }
 
-			{ smImageURL && (
+			{ hasSmBackground && (
 				<div
 					className={ classnames(
 						bgimageClasses,
@@ -216,9 +265,8 @@ export default function ( { attributes, className } ) {
 						/>
 					) }
 
-					{ ( 'image' === smImageMediaType ||
-						undefined === smImageMediaType ) &&
-						smImageRepeat && (
+					{ isSmImage &&
+						( smImageRepeat ? (
 							<div
 								className="smb-section-with-bgimage__repeatable-image"
 								style={ repeatableSmImageStyles }
@@ -227,30 +275,26 @@ export default function ( { attributes, className } ) {
 									src={ smImageURL }
 									alt={ smImageAlt }
 									className={ `wp-image-${ smImageID }` }
-									style={ bgimageStyles }
+									style={ norepeatableSmImageStyles }
 								/>
 							</div>
-						) }
-
-					{ ( 'image' === smImageMediaType ||
-						undefined === smImageMediaType ) &&
-						! smImageRepeat && (
+						) : (
 							<img
 								src={ smImageURL }
 								alt={ smImageAlt }
 								className={ `wp-image-${ smImageID }` }
-								style={ bgimageStyles }
+								style={ norepeatableSmImageStyles }
 							/>
-						) }
+						) ) }
 
-					{ 'video' === smImageMediaType && (
+					{ isSmVideo && (
 						<video
-							playsinline
+							playsInline
 							loop
 							autoPlay
 							muted
 							src={ smImageURL }
-							style={ bgimageStyles }
+							style={ smVideoStyles }
 						/>
 					) }
 				</div>

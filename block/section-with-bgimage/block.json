@@ -72,6 +72,9 @@
       "type": "boolean",
       "default": false
     },
+		"lgFocalPoint": {
+			"type": "object"
+		},
     "mdImageID": {
       "type": "number",
       "default": 0
@@ -97,6 +100,9 @@
       "type": "boolean",
       "default": false
     },
+		"mdFocalPoint": {
+			"type": "object"
+		},
     "smImageID": {
       "type": "number",
       "default": 0
@@ -122,6 +128,9 @@
       "type": "boolean",
       "default": false
     },
+		"smFocalPoint": {
+			"type": "object"
+		},
     "height": {
       "type": "string",
       "default": "fit"

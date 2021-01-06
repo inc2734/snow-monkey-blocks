@@ -14,6 +14,7 @@ import {
 import {
 	BaseControl,
 	Button,
+	FocalPointPicker,
 	PanelBody,
 	RangeControl,
 	SelectControl,
@@ -46,16 +47,19 @@ export default function ( {
 		lgImageAlt,
 		lgImageMediaType,
 		lgImageRepeat,
+		lgFocalPoint,
 		mdImageID,
 		mdImageURL,
 		mdImageAlt,
 		mdImageMediaType,
 		mdImageRepeat,
+		mdFocalPoint,
 		smImageID,
 		smImageURL,
 		smImageAlt,
 		smImageMediaType,
 		smImageRepeat,
+		smFocalPoint,
 		height,
 		contentsAlignment,
 		maskColor,
@@ -99,6 +103,36 @@ export default function ( {
 		'u-slim-width': !! isSlim,
 	} );
 
+	const isLgVideo = 'video' === lgImageMediaType;
+	const isLgImage =
+		'image' === lgImageMediaType || undefined === lgImageMediaType;
+	const hasLgBackground = !! lgImageURL;
+	const showLgFocalPointPicker = isLgVideo || ( isLgImage && ! parallax );
+	const lgPointValue =
+		lgFocalPoint && ! parallax
+			? `${ lgFocalPoint.x * 100 }% ${ lgFocalPoint.y * 100 }%`
+			: undefined;
+
+	const isMdVideo = 'video' === mdImageMediaType;
+	const isMdImage =
+		'image' === mdImageMediaType || undefined === mdImageMediaType;
+	const hasMdBackground = !! mdImageURL;
+	const showMdFocalPointPicker = isMdVideo || ( isMdImage && ! parallax );
+	const mdPointValue =
+		mdFocalPoint && ! parallax
+			? `${ mdFocalPoint.x * 100 }% ${ mdFocalPoint.y * 100 }%`
+			: undefined;
+
+	const isSmVideo = 'video' === smImageMediaType;
+	const isSmImage =
+		'image' === smImageMediaType || undefined === smImageMediaType;
+	const hasSmBackground = !! smImageURL;
+	const showSmFocalPointPicker = isSmVideo || ( isSmImage && ! parallax );
+	const smPointValue =
+		smFocalPoint && ! parallax
+			? `${ smFocalPoint.x * 100 }% ${ smFocalPoint.y * 100 }%`
+			: undefined;
+
 	const sectionStyles = {
 		color: textColor || undefined,
 	};
@@ -111,23 +145,52 @@ export default function ( {
 		}
 	}
 
-	const bgimageStyles = {
+	const lgVideoStyles = {
 		opacity: maskOpacity,
+		objectPosition: lgPointValue,
+	};
+
+	const norepeatableLgImageStyles = {
+		opacity: maskOpacity,
+		objectPosition: lgPointValue,
 	};
 
 	const repeatableLgImageStyles = {
 		opacity: maskOpacity,
 		backgroundImage: `url( ${ lgImageURL } )`,
+		backgroundPosition: lgPointValue,
+	};
+
+	const mdVideoStyles = {
+		opacity: maskOpacity,
+		objectPosition: mdPointValue,
+	};
+
+	const norepeatableMdImageStyles = {
+		opacity: maskOpacity,
+		objectPosition: mdPointValue,
 	};
 
 	const repeatableMdImageStyles = {
 		opacity: maskOpacity,
 		backgroundImage: `url( ${ mdImageURL } )`,
+		backgroundPosition: mdPointValue,
+	};
+
+	const smVideoStyles = {
+		opacity: maskOpacity,
+		objectPosition: smPointValue,
+	};
+
+	const norepeatableSmImageStyles = {
+		opacity: maskOpacity,
+		objectPosition: smPointValue,
 	};
 
 	const repeatableSmImageStyles = {
 		opacity: maskOpacity,
 		backgroundImage: `url( ${ smImageURL } )`,
+		backgroundPosition: smPointValue,
 	};
 
 	const blockProps = useBlockProps( {
@@ -202,6 +265,12 @@ export default function ( {
 			lgImageRepeat: value,
 		} );
 
+	const onChangeLgFocalPoint = ( value ) => {
+		setAttributes( {
+			lgFocalPoint: value,
+		} );
+	};
+
 	const onSelectMdImage = ( media ) => {
 		const newImageURL =
 			!! media.sizes && !! media.sizes.large
@@ -238,6 +307,12 @@ export default function ( {
 			mdImageRepeat: value,
 		} );
 
+	const onChangeMdFocalPoint = ( value ) => {
+		setAttributes( {
+			lgFocalPoint: value,
+		} );
+	};
+
 	const onSelectSmImage = ( media ) => {
 		const newImageURL =
 			!! media.sizes && !! media.sizes.large
@@ -273,6 +348,12 @@ export default function ( {
 		setAttributes( {
 			smImageRepeat: value,
 		} );
+
+	const onChangeSmFocalPoint = ( value ) => {
+		setAttributes( {
+			lgFocalPoint: value,
+		} );
+	};
 
 	const onChangeMaskColor = ( value ) =>
 		setAttributes( {
@@ -451,7 +532,8 @@ export default function ( {
 									mediaType={ lgImageMediaType }
 									allowedTypes={ imageAllowdTypes }
 								/>
-								{ 'image' === lgImageMediaType && (
+
+								{ hasLgBackground && isLgImage && (
 									<ToggleControl
 										label={ __(
 											'Repeat images',
@@ -459,6 +541,18 @@ export default function ( {
 										) }
 										checked={ lgImageRepeat }
 										onChange={ onChangeLgImageRepeat }
+									/>
+								) }
+
+								{ showLgFocalPointPicker && (
+									<FocalPointPicker
+										label={ __(
+											'Focal point picker',
+											'snow-monkey-blocks'
+										) }
+										url={ lgImageURL }
+										value={ lgFocalPoint }
+										onChange={ onChangeLgFocalPoint }
 									/>
 								) }
 							</>
@@ -475,7 +569,8 @@ export default function ( {
 									mediaType={ mdImageMediaType }
 									allowedTypes={ imageAllowdTypes }
 								/>
-								{ 'image' === mdImageMediaType && (
+
+								{ hasMdBackground && isMdImage && (
 									<ToggleControl
 										label={ __(
 											'Repeat images',
@@ -483,6 +578,18 @@ export default function ( {
 										) }
 										checked={ mdImageRepeat }
 										onChange={ onChangeMdImageRepeat }
+									/>
+								) }
+
+								{ showMdFocalPointPicker && (
+									<FocalPointPicker
+										label={ __(
+											'Focal point picker',
+											'snow-monkey-blocks'
+										) }
+										url={ mdImageURL }
+										value={ mdFocalPoint }
+										onChange={ onChangeMdFocalPoint }
 									/>
 								) }
 							</>
@@ -499,7 +606,8 @@ export default function ( {
 									mediaType={ smImageMediaType }
 									allowedTypes={ imageAllowdTypes }
 								/>
-								{ 'image' === smImageMediaType && (
+
+								{ hasSmBackground && isSmImage && (
 									<ToggleControl
 										label={ __(
 											'Repeat images',
@@ -507,6 +615,18 @@ export default function ( {
 										) }
 										checked={ smImageRepeat }
 										onChange={ onChangeSmImageRepeat }
+									/>
+								) }
+
+								{ showSmFocalPointPicker && (
+									<FocalPointPicker
+										label={ __(
+											'Focal point picker',
+											'snow-monkey-blocks'
+										) }
+										url={ smImageURL }
+										value={ smFocalPoint }
+										onChange={ onChangeSmFocalPoint }
 									/>
 								) }
 							</>
@@ -580,7 +700,7 @@ export default function ( {
 			</InspectorControls>
 
 			<TagName { ...blockProps }>
-				{ lgImageURL && (
+				{ hasLgBackground && (
 					<div
 						className={ classnames(
 							bgimageClasses,
@@ -594,9 +714,8 @@ export default function ( {
 							/>
 						) }
 
-						{ ( 'image' === lgImageMediaType ||
-							undefined === lgImageMediaType ) &&
-							lgImageRepeat && (
+						{ isLgImage &&
+							( lgImageRepeat ? (
 								<div
 									className="smb-section-with-bgimage__repeatable-image"
 									style={ repeatableLgImageStyles }
@@ -605,36 +724,32 @@ export default function ( {
 										src={ lgImageURL }
 										alt={ lgImageAlt }
 										className={ `wp-image-${ lgImageID }` }
-										style={ bgimageStyles }
+										style={ norepeatableLgImageStyles }
 									/>
 								</div>
-							) }
-
-						{ ( 'image' === lgImageMediaType ||
-							undefined === lgImageMediaType ) &&
-							! lgImageRepeat && (
+							) : (
 								<img
 									src={ lgImageURL }
 									alt={ lgImageAlt }
 									className={ `wp-image-${ lgImageID }` }
-									style={ bgimageStyles }
+									style={ norepeatableLgImageStyles }
 								/>
-							) }
+							) ) }
 
-						{ 'video' === lgImageMediaType && (
+						{ isLgVideo && (
 							<video
-								playsinline
+								playsInline
 								loop
 								autoPlay
 								muted
 								src={ lgImageURL }
-								style={ bgimageStyles }
+								style={ lgVideoStyles }
 							/>
 						) }
 					</div>
 				) }
 
-				{ mdImageURL && (
+				{ hasMdBackground && (
 					<div
 						className={ classnames(
 							bgimageClasses,
@@ -648,9 +763,8 @@ export default function ( {
 							/>
 						) }
 
-						{ ( 'image' === mdImageMediaType ||
-							undefined === mdImageMediaType ) &&
-							mdImageRepeat && (
+						{ isMdImage &&
+							( mdImageRepeat ? (
 								<div
 									className="smb-section-with-bgimage__repeatable-image"
 									style={ repeatableMdImageStyles }
@@ -659,36 +773,32 @@ export default function ( {
 										src={ mdImageURL }
 										alt={ mdImageAlt }
 										className={ `wp-image-${ mdImageID }` }
-										style={ bgimageStyles }
+										style={ norepeatableMdImageStyles }
 									/>
 								</div>
-							) }
-
-						{ ( 'image' === mdImageMediaType ||
-							undefined === mdImageMediaType ) &&
-							! mdImageRepeat && (
+							) : (
 								<img
 									src={ mdImageURL }
 									alt={ mdImageAlt }
 									className={ `wp-image-${ mdImageID }` }
-									style={ bgimageStyles }
+									style={ norepeatableMdImageStyles }
 								/>
-							) }
+							) ) }
 
-						{ 'video' === mdImageMediaType && (
+						{ isMdVideo && (
 							<video
-								playsinline
+								playsInline
 								loop
 								autoPlay
 								muted
 								src={ mdImageURL }
-								style={ bgimageStyles }
+								style={ mdVideoStyles }
 							/>
 						) }
 					</div>
 				) }
 
-				{ smImageURL && (
+				{ hasSmBackground && (
 					<div
 						className={ classnames(
 							bgimageClasses,
@@ -702,9 +812,8 @@ export default function ( {
 							/>
 						) }
 
-						{ ( 'image' === smImageMediaType ||
-							undefined === smImageMediaType ) &&
-							smImageRepeat && (
+						{ isSmImage &&
+							( smImageRepeat ? (
 								<div
 									className="smb-section-with-bgimage__repeatable-image"
 									style={ repeatableSmImageStyles }
@@ -713,30 +822,26 @@ export default function ( {
 										src={ smImageURL }
 										alt={ smImageAlt }
 										className={ `wp-image-${ smImageID }` }
-										style={ bgimageStyles }
+										style={ norepeatableSmImageStyles }
 									/>
 								</div>
-							) }
-
-						{ ( 'image' === smImageMediaType ||
-							undefined === smImageMediaType ) &&
-							! smImageRepeat && (
+							) : (
 								<img
 									src={ smImageURL }
 									alt={ smImageAlt }
 									className={ `wp-image-${ smImageID }` }
-									style={ bgimageStyles }
+									style={ norepeatableSmImageStyles }
 								/>
-							) }
+							) ) }
 
-						{ 'video' === smImageMediaType && (
+						{ isSmVideo && (
 							<video
-								playsinline
+								playsInline
 								loop
 								autoPlay
 								muted
 								src={ smImageURL }
-								style={ bgimageStyles }
+								style={ smVideoStyles }
 							/>
 						) }
 					</div>
