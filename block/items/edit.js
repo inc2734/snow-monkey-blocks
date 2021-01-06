@@ -2,6 +2,8 @@ import classnames from 'classnames';
 
 import { PanelBody, RangeControl, ToggleControl } from '@wordpress/components';
 import {
+	BlockControls,
+	BlockVerticalAlignmentToolbar,
 	InnerBlocks,
 	InspectorControls,
 	useBlockProps,
@@ -13,7 +15,7 @@ import { toNumber } from '@smb/helper';
 import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
 
 export default function ( { attributes, setAttributes, className } ) {
-	const { sm, md, lg, isGlue } = attributes;
+	const { sm, md, lg, isGlue, verticalAlignment } = attributes;
 
 	const allowedBlocks = [
 		'snow-monkey-blocks/items--item--standard',
@@ -29,6 +31,8 @@ export default function ( { attributes, setAttributes, className } ) {
 
 	const rowClasses = classnames( 'c-row', {
 		'c-row--margin': ! isGlue,
+		'c-row--middle': 'center' === verticalAlignment,
+		'c-row--bottom': 'bottom' === verticalAlignment,
 	} );
 
 	const blockProps = useBlockProps( {
@@ -65,6 +69,11 @@ export default function ( { attributes, setAttributes, className } ) {
 	const onChangeSm = ( value ) =>
 		setAttributes( {
 			sm: toNumber( value, 1, 6 ),
+		} );
+
+	const onChangeVerticalAlignment = ( value ) =>
+		setAttributes( {
+			verticalAlignment: value,
 		} );
 
 	return (
@@ -122,6 +131,13 @@ export default function ( { attributes, setAttributes, className } ) {
 					/>
 				</PanelBody>
 			</InspectorControls>
+
+			<BlockControls>
+				<BlockVerticalAlignmentToolbar
+					onChange={ onChangeVerticalAlignment }
+					value={ verticalAlignment }
+				/>
+			</BlockControls>
 
 			<div { ...blockProps }>
 				<div

@@ -18,6 +18,10 @@
     "isGlue": {
       "type": "boolean",
       "default": false
+    },
+    "verticalAlignment": {
+      "type": "string",
+      "default": "top"
     }
   }
 }

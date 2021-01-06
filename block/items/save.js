@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
-	const { sm, md, lg, isGlue } = attributes;
+	const { sm, md, lg, isGlue, verticalAlignment } = attributes;
 
 	const classes = classnames( 'smb-items', className, {
 		'smb-items--glue': isGlue,
@@ -11,6 +11,8 @@ export default function ( { attributes, className } ) {
 
 	const rowClasses = classnames( 'c-row', {
 		'c-row--margin': ! isGlue,
+		'c-row--middle': 'center' === verticalAlignment,
+		'c-row--bottom': 'bottom' === verticalAlignment,
 	} );
 
 	return (
