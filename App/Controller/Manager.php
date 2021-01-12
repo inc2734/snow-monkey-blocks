@@ -135,6 +135,7 @@ class Manager {
 						value="1"
 						<?php checked( 1, $this->_get_option( $block->name, self::AVAILABLE_BLOCKS_NAME ) ); ?>
 					>
+					<span class="smb-available-block-toggle"></span>
 					<?php
 				},
 				self::MENU_SLUG,

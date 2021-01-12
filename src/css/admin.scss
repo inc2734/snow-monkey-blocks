@@ -2,6 +2,9 @@
 .settings_page_snow-monkey-blocks {
   .form-table {
     tbody {
+      margin: 0 -1rem -1rem;
+      display: block;
+
       @media screen and (min-width: 783px) {
         display: flex;
         flex-wrap: wrap;
@@ -9,29 +12,86 @@
     }
 
     tr {
+      position: relative;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      padding: 0 1rem 1rem;
+
       @media screen and (min-width: 783px) {
-        flex: 1 1 25%;
-        max-width: 25%;
-        display: flex;
-        flex-direction: row-reverse;
-        align-items: center;
+        flex: 1 1 33.33333%;
+        max-width: 33.33333%;
       }
+
+      .smb-available-block-toggle {
+        pointer-events: none;
+        position: relative;
+        box-sizing: border-box;
+        display: inline-block;
+        width: 24px;
+        height: 16px;
+        background: #bbb;
+        border-radius: 8px;
+        cursor: pointer;
+        padding: 2px;
+        vertical-align: middle;
+        outline: 0;
+        transition: all .4s ease,box-shadow 0s;
+
+        &:after {
+          content: "";
+          position: relative;
+          left: 0;
+          display: block;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background-color: #fff;
+          transition: all .2s ease;
+        }
+      }
+
+      input {
+        display: none;
+
+        &:checked + .smb-available-block-toggle {
+          background-color: #007cba;
+
+          &::after {
+            left: 8px;
+          }
+        }
+      }
+
+      label {
+        position: absolute;
+        top: 0;
+        right: 1rem;
+        bottom: 1rem;
+        left: 1rem;
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        box-shadow: 0 0 0 1px #ccd0d4, 0 1px 1px 1px rgba(0, 0, 0, .04);
+        padding: 1rem 1rem 1rem 3rem;
+      }
+    }
+
+    th, td {
+      display: block;
+      padding: 1.5rem 1rem;
     }
 
     th {
+      flex: 1 1 auto;
       width: auto;
-
-      @media screen and (min-width: 783px) {
-        flex: 1 1 auto;
-      }
     }
 
     td {
-      @media screen and (min-width: 783px) {
-        flex: 0 1 auto;
-        margin-bottom: 0;
-        line-height: 1;
-      }
+      flex: 0 1 auto;
+      margin-bottom: 0;
+      line-height: 1;
     }
   }
 }
