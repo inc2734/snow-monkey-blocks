@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.6
 Tested up to: 5.6
-Stable tag: 10.1.0
+Stable tag: 10.2.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -107,6 +107,9 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 23. Information block (The number of items can be increased or decreased freely)
 
 == Changelog ==
+
+= 10.2.0 =
+* Add blocks manager. Dashboard > Settings > Snow Monkey Blocks.
 
 = 10.1.0 =
 * [Section (Background image/video)] Add focal point setting.
