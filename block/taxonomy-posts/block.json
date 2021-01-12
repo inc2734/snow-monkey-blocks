@@ -1,5 +1,7 @@
 {
   "name": "snow-monkey-blocks/taxonomy-posts",
+	"title": "Taxonomy posts",
+	"description": "You can display recent posts linked to any taxonomy.",
   "category": "smb",
   "attributes": {
     "taxonomy": {

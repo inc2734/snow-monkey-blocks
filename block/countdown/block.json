@@ -1,6 +1,8 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/countdown",
+	"title": "Countdown Timer",
+	"description": "Display the countdown until the set date and time (Front-end only)",
   "category": "smb",
   "attributes": {
     "alignment": {

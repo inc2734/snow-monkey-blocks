@@ -1,6 +1,8 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/spider-slider",
+	"title": "Slider",
+	"description": "Show attractive images as beautiful sliders.",
   "category": "smb",
   "attributes": {
     "images": {

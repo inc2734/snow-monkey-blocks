@@ -1,6 +1,8 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/buttons",
+	"title": "Buttons",
+	"description": "Prompt visitors to take action with a group of button-style links.",
   "category": "smb",
   "attributes": {
 		"textAlign": {

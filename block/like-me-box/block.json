@@ -1,5 +1,7 @@
 {
   "name": "snow-monkey-blocks/like-me-box",
+	"title": "Like me box",
+	"description": "You can display like me box.",
   "category": "smb",
   "attributes": {
     "pageName": {

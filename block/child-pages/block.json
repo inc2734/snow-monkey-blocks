@@ -1,5 +1,8 @@
 {
   "name": "snow-monkey-blocks/child-pages",
+
+	"title": "Child pages",
+	"description": "You can display child pages of this page.",
   "category": "smb",
   "attributes": {
     "title": {

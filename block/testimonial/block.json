@@ -1,6 +1,8 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/testimonial",
+	"title": "Testimonial",
+	"description": "Let's arrange the voice of the customer.",
   "category": "smb",
   "attributes": {
     "md": {

@@ -1,6 +1,8 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/list",
+	"title": "Icon list",
+	"description": "Icons are displayed only on the actual screen.",
   "category": "smb",
   "attributes": {
     "content": {

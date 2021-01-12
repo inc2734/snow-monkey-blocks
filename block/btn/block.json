@@ -1,6 +1,8 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/btn",
+	"title": "Button",
+	"description": "Prompt visitors to take action with a button-style link.",
   "category": "smb",
   "parent": [
    "snow-monkey-blocks/buttons"

@@ -1,6 +1,8 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/section-with-bgvideo",
+	"title": "Section (with background YouTube video)",
+	"description": "It is a section with a background YouTube video.",
   "category": "smb-section",
   "attributes": {
     "titleTagName": {

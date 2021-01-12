@@ -1,5 +1,7 @@
 {
   "name": "snow-monkey-blocks/pickup-slider",
+	"title": "Pickup slider (Deprecated)",
+  "description": "Display posts with pickup tags as a slider. This block is being retained for backwards compatibility and is not recommended for use. Its use may slow down the page display.",
   "category": "smb-deprecated",
   "attributes": {
     "random": {

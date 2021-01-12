@@ -20,6 +20,7 @@ class Assets {
 		add_action( 'enqueue_block_assets', [ $this, '_enqueue_block_assets' ] );
 		add_action( 'enqueue_block_assets', [ $this, '_enqueue_block_nopro_assets' ] );
 		add_filter( 'render_block', [ $this, '_enqueue_block_scripts' ], 10, 2 );
+		add_action( 'admin_enqueue_scripts', [ $this, '_admin_enqueue_scripts' ] );
 	}
 
 	/**
@@ -234,5 +235,17 @@ class Assets {
 				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/fallback.css' )
 			);
 		}
+	}
+
+	/**
+	 * Enqueue admin assets.
+	 */
+	public function _admin_enqueue_scripts() {
+		wp_enqueue_style(
+			'snow-monkey-blocks-admin',
+			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/css/admin.css',
+			[],
+			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/admin.css' )
+		);
 	}
 }

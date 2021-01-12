@@ -1,6 +1,8 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/rating-box",
+	"title": "Rating box",
+	"description": "Evaluate with bars.",
   "category": "smb",
   "example": {
     "innerBlocks": [

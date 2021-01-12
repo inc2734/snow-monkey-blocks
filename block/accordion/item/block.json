@@ -1,6 +1,7 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/accordion--item",
+	"title": "Item",
   "category": "smb",
   "parent": [
     "snow-monkey-blocks/accordion"

@@ -11,11 +11,6 @@ const { name } = metadata;
 export { metadata, name };
 
 export const settings = {
-	title: __( 'Button', 'snow-monkey-blocks' ),
-	description: __(
-		'Prompt visitors to take action with a button-style link.',
-		'snow-monkey-blocks'
-	),
 	icon: {
 		foreground: blockConfig.blockIconColor,
 		src: 'embed-generic',

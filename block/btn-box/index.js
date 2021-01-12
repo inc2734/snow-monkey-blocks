@@ -11,8 +11,6 @@ const { name } = metadata;
 export { metadata, name };
 
 export const settings = {
-	title: __( 'Button box', 'snow-monkey-blocks' ),
-	description: __( 'It is a button with micro copy.', 'snow-monkey-blocks' ),
 	icon: {
 		foreground: blockConfig.blockIconColor,
 		src: 'embed-generic',

@@ -10,11 +10,6 @@ const { name } = metadata;
 export { metadata, name };
 
 export const settings = {
-	title: __( 'Information', 'snow-monkey-blocks' ),
-	description: __(
-		'You can post an information table.',
-		'snow-monkey-blocks'
-	),
 	icon: {
 		foreground: blockConfig.blockIconColor,
 		src: 'businessman',

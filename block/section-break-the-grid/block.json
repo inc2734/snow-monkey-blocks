@@ -1,6 +1,8 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/section-break-the-grid",
+	"title": "Section (Break the grid)",
+	"description": "It is a break the grid section.",
   "category": "smb-section",
   "attributes": {
     "wrapperTagName": {

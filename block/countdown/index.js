@@ -24,11 +24,6 @@ const icon = (
 );
 
 export const settings = {
-	title: __( 'Countdown Timer', 'snow-monkey-blocks' ),
-	description: __(
-		'Display the countdown until the set date and time (Front-end only)',
-		'snow-monkey-blocks'
-	),
 	icon: {
 		foreground: blockConfig.blockIconColor,
 		src: icon,

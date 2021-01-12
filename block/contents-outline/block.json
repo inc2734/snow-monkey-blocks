@@ -1,6 +1,8 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/contents-outline",
+	"title": "Contents outline",
+	"description": "Display the table of contents above the first heading.",
   "category": "smb",
   "attributes": {
     "headings": {

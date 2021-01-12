@@ -1,6 +1,9 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/directory-structure",
+
+	"title": "Directory structure",
+	"description": "Display a list of directories and files",
   "category": "smb",
   "example": {
     "innerBlocks": [

@@ -1,6 +1,8 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/step",
+	"title": "Step",
+	"description": "Express the steps in an easy-to-understand manner.",
   "category": "smb",
   "example": {
     "innerBlocks": [

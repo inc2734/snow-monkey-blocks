@@ -1,6 +1,8 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/limited-datetime",
+	"title": "Limited DateTime",
+	"description": "Only the set period is displayed",
   "category": "smb",
   "attributes": {
     "isUseStartDate": {

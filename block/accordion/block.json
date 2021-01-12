@@ -1,6 +1,8 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/accordion",
+	"title": "Accordion",
+	"description": "You can set up a content area that expands and contracts like the accordion.",
   "category": "smb",
   "example": {
     "innerBlocks": [

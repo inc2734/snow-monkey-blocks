@@ -1,6 +1,8 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/balloon",
+	"title": "Balloon",
+	"description": "It is a block that can express a conversation.",
   "category": "smb",
   "attributes": {
     "avatarID": {

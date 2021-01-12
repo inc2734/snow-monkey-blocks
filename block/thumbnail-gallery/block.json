@@ -1,6 +1,8 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/thumbnail-gallery",
+	"title": "Thumbnail gallery (Deprecated)",
+	"description": "You can display a slide show with thumbnails. This block is being retained for backwards compatibility and is not recommended for use. Its use may slow down the page display.",
   "category": "smb-deprecated",
   "attributes": {
     "arrows": {

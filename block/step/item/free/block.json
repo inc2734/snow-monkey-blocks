@@ -1,6 +1,8 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/step--item--free",
+	"title": "Item (Free input)",
+	"description": "It is a child block of the step block.",
   "category": "smb",
   "parent": [ "snow-monkey-blocks/step" ],
   "attributes": {

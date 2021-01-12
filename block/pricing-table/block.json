@@ -1,6 +1,8 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/pricing-table",
+	"title": "Pricing table",
+	"description": "Let's present the rate plan in an easy-to-understand manner.",
   "category": "smb",
   "attributes": {
     "columnSize": {

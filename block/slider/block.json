@@ -1,6 +1,8 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/slider",
+	"title": "Slider (Deprecated)",
+	"description": "Show attractive images as beautiful sliders. This block is being retained for backwards compatibility and is not recommended for use. Its use may slow down the page display.",
   "category": "smb-deprecated",
   "attributes": {
     "slidesToShow": {

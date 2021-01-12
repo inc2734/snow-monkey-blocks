@@ -1,6 +1,5 @@
 import { registerStore } from '@wordpress/data';
 import { apiFetch as apiFetchAction, controls } from '@wordpress/data-controls';
-import { __ } from '@wordpress/i18n';
 
 import blockConfig from '@smb/config/block';
 import metadata from './block.json';
@@ -64,11 +63,6 @@ registerStore( name, {
 } );
 
 export const settings = {
-	title: __( 'Categories list', 'snow-monkey-blocks' ),
-	description: __(
-		'This is a block that displays a list of categories',
-		'snow-monkey-blocks'
-	),
 	icon: {
 		foreground: blockConfig.blockIconColor,
 		src: 'excerpt-view',

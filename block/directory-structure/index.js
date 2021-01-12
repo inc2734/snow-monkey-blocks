@@ -24,11 +24,6 @@ const icon = (
 );
 
 export const settings = {
-	title: __( 'Directory structure', 'snow-monkey-blocks' ),
-	description: __(
-		'Display a list of directories and files',
-		'snow-monkey-blocks'
-	),
 	icon: {
 		foreground: blockConfig.blockIconColor,
 		src: icon,

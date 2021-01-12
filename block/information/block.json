@@ -1,6 +1,8 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/information",
+	"title": "Information",
+	"description": "You can post an information table.",
   "category": "smb",
   "attributes": {
     "labelColumnSize": {

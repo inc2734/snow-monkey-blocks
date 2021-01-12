@@ -1,6 +1,8 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/items",
+	"title": "Items",
+	"description": "Let's line up the contents.",
   "category": "smb",
   "attributes": {
     "sm": {

@@ -1,5 +1,7 @@
 {
   "name": "snow-monkey-blocks/spider-pickup-slider",
+	"title": "Pickup slider",
+	"description": "Display posts with pickup tags as a slider.",
   "category": "smb",
   "attributes": {
     "random": {

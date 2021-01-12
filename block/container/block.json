@@ -1,6 +1,8 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/container",
+	"title": "Container",
+	"description": "Container blocks keep content within a certain width.",
   "category": "smb",
   "attributes": {
     "isSlim": {

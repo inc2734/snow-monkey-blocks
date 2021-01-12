@@ -1,5 +1,7 @@
 {
   "name": "snow-monkey-blocks/taxonomy-terms",
+	"title": "Taxonomy",
+	"description": "You can display terms linked to any taxonomy.",
   "category": "smb",
   "attributes": {
     "taxonomy": {

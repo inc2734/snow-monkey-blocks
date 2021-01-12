@@ -1,6 +1,8 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/btn-box",
+	"title": "Button box",
+	"description": "It is a button with micro copy.",
   "category": "smb",
   "attributes": {
     "lede": {

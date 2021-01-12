@@ -1,6 +1,8 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/section",
+	"title": "Section",
+	"description": "Contents can be separated by appropriate margins.",
   "category": "smb-section",
   "attributes": {
     "wrapperTagName": {

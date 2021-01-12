@@ -1,5 +1,7 @@
 {
   "name": "snow-monkey-blocks/rss",
+	"title": "RSS",
+	"description": "Display entries from any RSS or Atom feed.",
   "category": "smb",
   "attributes": {
     "feedURL": {

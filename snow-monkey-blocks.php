@@ -36,6 +36,7 @@ class Bootstrap {
 		new App\Setup\TextDomain();
 		new App\Setup\Assets();
 		new App\Setup\BlockPatterns();
+		new App\Controller\Manager();
 
 		add_filter( 'block_categories', [ $this, '_block_categories' ] );
 		add_action( 'init', [ $this, '_register_blocks' ] );

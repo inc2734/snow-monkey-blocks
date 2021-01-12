@@ -1,6 +1,8 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/box",
+	"title": "Box",
+	"description": "It is a box.",
   "category": "smb",
   "attributes": {
     "backgroundColor": {

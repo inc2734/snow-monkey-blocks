@@ -1,5 +1,7 @@
 {
   "name": "snow-monkey-blocks/recent-posts",
+	"title": "Recent posts",
+	"description": "You can display recent posts with richer.",
   "category": "smb",
   "attributes": {
     "postType": {

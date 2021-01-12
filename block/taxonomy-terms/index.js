@@ -10,11 +10,6 @@ const { name } = metadata;
 export { metadata, name };
 
 export const settings = {
-	title: __( 'Taxonomy', 'snow-monkey-blocks' ),
-	description: __(
-		'You can display terms linked to any taxonomy.',
-		'snow-monkey-blocks'
-	),
 	icon: {
 		foreground: blockConfig.blockIconColor,
 		src: 'tag',

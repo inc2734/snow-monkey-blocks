@@ -1,6 +1,8 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/section-with-bgimage",
+	"title": "Section (with background image/video)",
+	"description": "It is a section with a background image/video.",
   "category": "smb-section",
   "attributes": {
     "wrapperTagName": {
