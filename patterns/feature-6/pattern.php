@@ -27,7 +27,7 @@
 							<div class="smb-items__banner smb-items__banner--wide">
 								<div class="smb-items__banner__figure">
 									<div class="smb-items__banner__figure__mask"></div>
-									<img src="http://localhost:8888/wp-content/plugins/snow-monkey-blocks/dist/img/photos/0023_xlarge.jpg" alt="" class="wp-image-0" style="opacity:0.7"/>
+									<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/0023_xlarge.jpg" alt="" class="wp-image-0" style="opacity:0.7"/>
 								</div>
 								<div class="smb-items__banner__body">
 									<div class="smb-items__banner__title">
@@ -49,7 +49,7 @@
 							<div class="smb-items__banner smb-items__banner--wide">
 								<div class="smb-items__banner__figure">
 									<div class="smb-items__banner__figure__mask"></div>
-									<img src="http://localhost:8888/wp-content/plugins/snow-monkey-blocks/dist/img/photos/0127_xlarge.jpg" alt="" class="wp-image-0" style="opacity:0.7"/>
+									<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/0127_xlarge.jpg" alt="" class="wp-image-0" style="opacity:0.7"/>
 								</div>
 								<div class="smb-items__banner__body">
 									<div class="smb-items__banner__title">
