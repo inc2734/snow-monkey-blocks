@@ -148,8 +148,13 @@ class Manager {
 	 * unregister_block_type() on front-end and post edit page.
 	 */
 	public function _unregister_block_type() {
-		global $pagenow;
-		if ( is_admin() && 'post.php' !== $pagenow ) {
+		$option_page_slug = str_replace(
+			get_site_url(),
+			'',
+			admin_url( '/options-general.php?page=' . static::MENU_SLUG )
+		);
+
+		if ( $_SERVER['REQUEST_URI'] === $option_page_slug ) {
 			return;
 		}
 
