@@ -49,14 +49,16 @@ export default function ( { attributes, className } ) {
 								data-id={ index }
 								key={ index }
 							>
-								<img
-									className="spider__figure"
-									src={ img.url }
-									alt={ img.alt }
-									width={ img.width }
-									height={ img.height }
-									data-image-id={ img.id }
-								/>
+								<div className="smb-spider-slider__figure-wrapper">
+									<img
+										className="spider__figure"
+										src={ img.url }
+										alt={ img.alt }
+										width={ img.width }
+										height={ img.height }
+										data-image-id={ img.id }
+									/>
+								</div>
 
 								{ displayCaption && !! img.caption && (
 									<div className="smb-spider-slider__item">

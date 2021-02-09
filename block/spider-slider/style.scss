@@ -3,39 +3,40 @@
 @import '../../src/css/core/block';
 
 .smb-spider-slider {
-  &--16to9,
-  &--4to3 {
-    .spider__slide {
-      &::before {
-        content: '';
-        display: block;
-      }
+  &--16to9 .spider__slide, // @deprecated
+  &--4to3 .spider__slide, // @deprecated
+  &--16x9 .smb-spider-slider__figure-wrapper,
+  &--4x3 .smb-spider-slider__figure-wrapper {
+    .spider__figure {
+      position: absolute;
+      top: 50%; // For IE11
+      left: 50%; // For IE11
+      transform: translate(-50%, -50%); // For IE11
+      width: 100%;
 
-      .spider__figure {
-        position: absolute;
-        top: 50%; // For IE11
-        left: 50%; // For IE11
-        transform: translate(-50%, -50%); // For IE11
-        width: 100%;
-
-        @supports (object-fit: cover) {
-          top: 0;
-          left: 0;
-          transform: initial;
-          height: 100%;
-          max-height: none;
-          object-fit: cover;
-          object-position: 50% 50%;
-        }
+      @supports (object-fit: cover) {
+        top: 0;
+        left: 0;
+        transform: initial;
+        height: 100%;
+        max-height: none;
+        object-fit: cover;
+        object-position: 50% 50%;
       }
     }
   }
 
-  &--16to9 .spider__slide::before {
+  &--16to9 .spider__slide::before, // @deprecated
+  &--16x9 .smb-spider-slider__figure-wrapper::before {
+    content: '';
+    display: block;
     padding: 56.25% 0 0;
   }
 
-  &--4to3 .spider__slide::before {
+  &--4to3 .spider__slide::before, // @deprecated
+  &--4x3 .smb-spider-slider__figure-wrapper::before {
+    content: '';
+    display: block;
     padding: 75% 0 0;
   }
 
@@ -74,8 +75,10 @@
     @include _font-size-line-height($_base-font-size-px - 2);
   }
 
-  .spider__slide {
+  .spider__slide,
+  .smb-spider-slider__figure-wrapper {
     position: relative;
+    flex: 1 0 100% !important;
     flex-wrap: wrap;
     overflow: hidden;
 

@@ -133,11 +133,11 @@ export default function ( {
 			label: __( 'Default', 'snow-monkey-blocks' ),
 		},
 		{
-			value: '16to9',
+			value: '16x9',
 			label: __( '16:9', 'snow-monkey-blocks' ),
 		},
 		{
-			value: '4to3',
+			value: '4x3',
 			label: __( '4:3', 'snow-monkey-blocks' ),
 		},
 	];
@@ -358,14 +358,16 @@ export default function ( {
 										data-id={ index }
 										key={ index }
 									>
-										<img
-											className="spider__figure"
-											src={ img.url }
-											alt={ img.alt }
-											width={ img.width }
-											height={ img.height }
-											data-image-id={ img.id }
-										/>
+										<div className="smb-spider-slider__figure-wrapper">
+											<img
+												className="spider__figure"
+												src={ img.url }
+												alt={ img.alt }
+												width={ img.width }
+												height={ img.height }
+												data-image-id={ img.id }
+											/>
+										</div>
 
 										{ displayCaption && !! img.caption && (
 											<div className="smb-spider-slider__item">
