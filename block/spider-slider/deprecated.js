@@ -11,12 +11,6 @@ export default [
 			...blockAttributes,
 		},
 
-		//isEligible( attributes ) {
-		//	if ( '16to9' === attributes.aspectRatio || '4to3' === attributes.aspectRatio ) {
-		//		return true;
-		//	}
-		//},
-
 		migrate( attributes ) {
 			if ( '16to9' === attributes.aspectRatio ) {
 				attributes.aspectRatio = '16x9';
