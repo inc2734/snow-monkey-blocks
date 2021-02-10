@@ -108,6 +108,11 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 
 == Changelog ==
 
+= 10.3.0 =
+* [Slider] Fixed bug that caused images to not be displayed in the editor when the fade setting was enabled.
+* [Slider] Change the HTML structure of the slider block.
+* [Child pages] Add some settings.
+
 = 10.2.1 =
 * [Slider] Fixed a bug that prevented slide spacing from being reflected on iOS.
 * [Pickup Slider] Fixed a bug that prevented slide spacing from being reflected on iOS.
