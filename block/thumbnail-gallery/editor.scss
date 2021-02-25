@@ -3,10 +3,9 @@
 @import '../../src/css/core/block';
 
 .editor-styles-wrapper {
-  .smb-panels {
+  .smb-thumbnail-slider {
     > .#{ $_prefix }c-row--margin {
       margin-bottom: 0;
     }
   }
 }
-
