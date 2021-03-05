@@ -6,9 +6,10 @@ import { InspectorControls } from '@wordpress/block-editor';
 
 import {
 	BaseControl,
+	Disabled,
 	PanelBody,
-	SelectControl,
 	Placeholder,
+	SelectControl,
 	Spinner,
 } from '@wordpress/components';
 
@@ -140,11 +141,12 @@ export default function ( { attributes, setAttributes } ) {
 					<Spinner />
 				</Placeholder>
 			) : (
-				<ServerSideRender
-					block="snow-monkey-blocks/taxonomy-terms"
-					attributes={ attributes }
-					className="components-disabled"
-				/>
+				<Disabled>
+					<ServerSideRender
+						block="snow-monkey-blocks/taxonomy-terms"
+						attributes={ attributes }
+					/>
+				</Disabled>
 			) }
 		</>
 	);

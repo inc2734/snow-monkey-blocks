@@ -4,15 +4,16 @@ import ServerSideRender from '@wordpress/server-side-render';
 import { __ } from '@wordpress/i18n';
 
 import {
+	BaseControl,
+	Button,
+	Disabled,
 	PanelBody,
 	Placeholder,
-	SelectControl,
 	RangeControl,
+	SelectControl,
 	TextControl,
 	TextareaControl,
-	Button,
 	ToolbarGroup,
-	BaseControl,
 } from '@wordpress/components';
 
 import { InspectorControls, BlockControls } from '@wordpress/block-editor';
@@ -226,11 +227,12 @@ export default function ( { attributes, setAttributes } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<ServerSideRender
-				block="snow-monkey-blocks/rss"
-				attributes={ serverSideRenderAttributes }
-				className="components-disabled"
-			/>
+			<Disabled>
+				<ServerSideRender
+					block="snow-monkey-blocks/rss"
+					attributes={ serverSideRenderAttributes }
+				/>
+			</Disabled>
 		</>
 	);
 }

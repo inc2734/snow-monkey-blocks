@@ -2,10 +2,11 @@ import { times } from 'lodash';
 
 import {
 	BaseControl,
-	PanelBody,
-	TextControl,
-	SelectControl,
 	Button,
+	Disabled,
+	PanelBody,
+	SelectControl,
+	TextControl,
 } from '@wordpress/components';
 import { InspectorControls } from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
@@ -173,11 +174,12 @@ export default function ( { attributes, setAttributes } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<ServerSideRender
-				block="snow-monkey-blocks/child-pages"
-				attributes={ attributes }
-				className="components-disabled"
-			/>
+			<Disabled>
+				<ServerSideRender
+					block="snow-monkey-blocks/child-pages"
+					attributes={ attributes }
+				/>
+			</Disabled>
 		</>
 	);
 }

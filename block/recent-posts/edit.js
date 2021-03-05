@@ -6,15 +6,16 @@ import { useMemo } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 import {
-	PanelBody,
-	Placeholder,
-	SelectControl,
-	RangeControl,
-	ToggleControl,
-	TextareaControl,
-	Spinner,
 	BaseControl,
 	Button,
+	Disabled,
+	PanelBody,
+	Placeholder,
+	RangeControl,
+	SelectControl,
+	Spinner,
+	TextareaControl,
+	ToggleControl,
 } from '@wordpress/components';
 
 import { InspectorControls } from '@wordpress/block-editor';
@@ -254,11 +255,12 @@ export default function ( { attributes, setAttributes } ) {
 					<Spinner />
 				</Placeholder>
 			) : (
-				<ServerSideRender
-					block="snow-monkey-blocks/recent-posts"
-					attributes={ serverSideRenderAttributes }
-					className="components-disabled"
-				/>
+				<Disabled>
+					<ServerSideRender
+						block="snow-monkey-blocks/recent-posts"
+						attributes={ serverSideRenderAttributes }
+					/>
+				</Disabled>
 			) }
 		</>
 	);

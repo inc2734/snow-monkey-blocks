@@ -8,15 +8,16 @@ import { InspectorControls } from '@wordpress/block-editor';
 
 import {
 	BaseControl,
-	PanelBody,
-	SelectControl,
-	RangeControl,
-	ToggleControl,
-	TextareaControl,
-	TreeSelect,
-	Placeholder,
-	Spinner,
 	Button,
+	Disabled,
+	PanelBody,
+	Placeholder,
+	RangeControl,
+	SelectControl,
+	Spinner,
+	TextareaControl,
+	ToggleControl,
+	TreeSelect,
 } from '@wordpress/components';
 
 import { toNumber, buildTermsTree } from '@smb/helper';
@@ -298,11 +299,12 @@ export default function ( { attributes, setAttributes } ) {
 					<Spinner />
 				</Placeholder>
 			) : (
-				<ServerSideRender
-					block="snow-monkey-blocks/taxonomy-posts"
-					attributes={ serverSideRenderAttributes }
-					className="components-disabled"
-				/>
+				<Disabled>
+					<ServerSideRender
+						block="snow-monkey-blocks/taxonomy-posts"
+						attributes={ serverSideRenderAttributes }
+					/>
+				</Disabled>
 			) }
 		</>
 	);
