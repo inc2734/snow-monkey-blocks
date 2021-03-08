@@ -1,20 +1,21 @@
 import classnames from 'classnames';
 
 import {
-	AlignmentToolbar,
 	BlockControls,
 	useBlockProps,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
+import { JustifyToolbar } from './justify-toolbar';
+
 export default function ( { attributes, setAttributes, className } ) {
-	const { textAlign } = attributes;
+	const { contentJustification } = attributes;
 
 	const allowedBlocks = [ 'snow-monkey-blocks/btn' ];
 	const template = [ [ 'snow-monkey-blocks/btn' ] ];
 
 	const classes = classnames( 'smb-buttons', className, {
-		[ `has-text-align-${ textAlign }` ]: textAlign,
+		[ `is-content-justification-${ contentJustification }` ]: contentJustification,
 	} );
 
 	const blockProps = useBlockProps( {
@@ -31,15 +32,20 @@ export default function ( { attributes, setAttributes, className } ) {
 		},
 	} );
 
-	const onChangeTextAlign = ( value ) =>
-		setAttributes( { textAlign: value } );
+	const onChangeContentJustification = ( value ) =>
+		setAttributes( { contentJustification: value } );
 
 	return (
 		<>
 			<BlockControls>
-				<AlignmentToolbar
-					value={ textAlign }
-					onChange={ onChangeTextAlign }
+				<JustifyToolbar
+					allowedControls={ [ 'left', 'center', 'right' ] }
+					value={ contentJustification }
+					onChange={ onChangeContentJustification }
+					popoverProps={ {
+						position: 'bottom right',
+						isAlternate: true,
+					} }
 				/>
 			</BlockControls>
 
