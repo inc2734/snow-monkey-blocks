@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2021-03-05 14:38+0900\n"
-"PO-Revision-Date: 2021-03-05 14:38+0900\n"
+"POT-Creation-Date: 2021-03-08 12:21+0900\n"
+"PO-Revision-Date: 2021-03-08 12:21+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -47,7 +47,7 @@ msgstr ""
 #: block/slider/edit.js:149 block/slider/item/edit.js:203
 #: block/spider-pickup-slider/edit.js:34 block/spider-slider/edit.js:223
 #: block/step/item/standard/edit.js:228 block/taxonomy-posts/edit.js:125
-#: block/taxonomy-terms/edit.js:61 block/testimonial/edit.js:55
+#: block/taxonomy-terms/edit.js:61 block/testimonial/edit.js:56
 #: block/thumbnail-gallery/edit.js:64 block/thumbnail-gallery/item/edit.js:138
 msgid "Block Settings"
 msgstr "ブロック設定"
@@ -306,6 +306,26 @@ msgstr "ゴースト"
 #: block/taxonomy-posts/edit.js:190
 msgid "Text"
 msgstr "テキスト"
+
+#: block/buttons/justify-toolbar.js:47
+msgid "Justify items left"
+msgstr "コンテンツを左揃え"
+
+#: block/buttons/justify-toolbar.js:54
+msgid "Justify items center"
+msgstr "コンテンツを中央揃え"
+
+#: block/buttons/justify-toolbar.js:61
+msgid "Justify items right"
+msgstr "コンテンツを右揃え"
+
+#: block/buttons/justify-toolbar.js:68
+msgid "Space between items"
+msgstr "項目の間隔"
+
+#: block/buttons/justify-toolbar.js:78
+msgid "Change items justification"
+msgstr "揃え位置の変更"
 
 #: block/categories-list/edit.js:41 translation/translation.php:16
 msgid "Categories list"
@@ -710,11 +730,11 @@ msgstr "ラベルを書く…"
 msgid "Glue each item together"
 msgstr "各項目をくっつける"
 
-#: block/items/edit.js:99 block/panels/edit.js:77 block/testimonial/edit.js:62
+#: block/items/edit.js:99 block/panels/edit.js:77 block/testimonial/edit.js:63
 msgid "Columns per row (Large window)"
 msgstr "行あたりのカラム数（ラージウインドウ）"
 
-#: block/items/edit.js:111 block/panels/edit.js:91 block/testimonial/edit.js:76
+#: block/items/edit.js:111 block/panels/edit.js:91 block/testimonial/edit.js:77
 msgid "Columns per row (Medium window)"
 msgstr "行あたりのカラム数（ミディアムウインドウ）"
 

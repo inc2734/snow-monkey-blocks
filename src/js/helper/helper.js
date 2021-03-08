@@ -16,6 +16,7 @@ export const registerBlock = ( block ) => {
 		if ( !! metadata.title ) {
 			/* eslint @wordpress/i18n-no-variables: 0 */
 			metadata.title = __( metadata.title, 'snow-monkey-blocks' );
+			settings.title = metadata.title;
 		}
 		if ( !! metadata.description ) {
 			/* eslint @wordpress/i18n-no-variables: 0 */
@@ -23,10 +24,12 @@ export const registerBlock = ( block ) => {
 				metadata.description,
 				'snow-monkey-blocks'
 			);
+			settings.description = metadata.description;
 		}
 		if ( !! metadata.keywords ) {
 			/* eslint @wordpress/i18n-no-variables: 0 */
 			metadata.keywords = __( metadata.keywords, 'snow-monkey-blocks' );
+			settings.keywords = metadata.keywords;
 		}
 		unstable__bootstrapServerSideBlockDefinitions( { [ name ]: metadata } );
 	}
