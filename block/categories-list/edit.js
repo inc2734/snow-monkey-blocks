@@ -17,6 +17,7 @@ import {
 
 import { toNumber } from '@smb/helper';
 import { apply } from './categories-list';
+import { store } from './store';
 
 export default function ( { attributes, setAttributes, className } ) {
 	const { articles, exclusionCategories, orderby, order } = attributes;
@@ -30,7 +31,7 @@ export default function ( { attributes, setAttributes, className } ) {
 	} );
 
 	const articleCategories = useSelect( ( select ) =>
-		select( 'snow-monkey-blocks/categories-list' ).getArticleCategories()
+		select( store ).getArticleCategories()
 	);
 
 	if ( ! articleCategories || ! articleCategories.length ) {

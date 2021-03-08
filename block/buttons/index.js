@@ -5,8 +5,6 @@ import save from './save';
 import deprecated from './deprecated';
 import transforms from './transforms';
 
-import { __ } from '@wordpress/i18n';
-
 const { name } = metadata;
 
 export { metadata, name };
