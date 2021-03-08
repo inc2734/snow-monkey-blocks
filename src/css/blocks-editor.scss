@@ -7,10 +7,21 @@
 }
 
 .editor-styles-wrapper {
+  .#{$_prefix}c-row {
+    &__col {
+      margin: 0;
+    }
+  }
+
   .#{$_prefix}c-row[data-columns],
   .#{$_prefix}c-row--margin {
     > .block-list-appender {
       @include _row__col--width(100%);
+    }
+  }
+
+  .#{$_prefix}c-row--margin {
+    > .block-list-appender {
       @include _margin-right(.5);
       @include _margin-left(.5);
     }

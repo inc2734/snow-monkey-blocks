@@ -3,9 +3,8 @@
 @import '../../src/css/core/block';
 
 .editor-styles-wrapper {
-  .smb-items {
-    > .#{ $_prefix }c-row--margin {
-      margin-bottom: 0;
-    }
+  .smb-items > .#{ $_prefix }c-row--margin,
+  .smb-items--glue > .#{ $_prefix }c-row {
+    margin-bottom: 0;
   }
 }

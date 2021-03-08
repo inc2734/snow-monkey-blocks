@@ -39,6 +39,7 @@ export default function ( { attributes, setAttributes, className } ) {
 			template,
 			templateLock: false,
 			renderAppender: InnerBlocks.ButtonBlockAppender,
+			orientation: 'horizontal',
 		}
 	);
 
