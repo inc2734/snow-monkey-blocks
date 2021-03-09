@@ -21,9 +21,9 @@
     justify-content: flex-end;
   }
 
-  @include _margin-right(-.25);
-  @include _margin-left(-.25);
-  @include _margin-bottom(-.5);
+  @include _margin-right(-.25, false);
+  @include _margin-left(-.25, false);
+  @include _margin-bottom(-.5, false);
 
   > .smb-btn-wrapper {
     flex: 0 0 auto;

@@ -37,7 +37,7 @@
       flex-direction: row;
       flex-wrap: nowrap;
       align-items: center;
-      @include _margin-left(-1.75);
+      @include _margin-left(-1.75, false);
       @include _margin-bottom(.5);
       font-weight: bold;
 

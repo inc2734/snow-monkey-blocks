@@ -12,7 +12,7 @@
     "@wordpress/eslint-plugin": "^8.0.2",
     "@wordpress/icons": "^2.9.1",
     "@wordpress/scripts": "13.0.3",
-    "autoprefixer": "^10.2.4",
+    "autoprefixer": "^10.2.5",
     "browser-sync": "^2.26.14",
     "classnames": "^2.2.6",
     "cpy-cli": "^3.1.1",
@@ -30,7 +30,7 @@
     "prettier": "npm:wp-prettier@2.0.5",
     "react-image": "4.0.3",
     "rimraf": "^3.0.2",
-    "sass-basis": "^12.2.2",
+    "sass-basis": "^12.3.1",
     "slick-carousel": "^1.8.1"
   },
   "scripts": {
