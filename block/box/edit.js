@@ -6,9 +6,10 @@ import { __ } from '@wordpress/i18n';
 import {
 	ContrastChecker,
 	InspectorControls,
-	PanelColorSettings,
 	useBlockProps,
+	__experimentalUseEditorFeature as useEditorFeature,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 } from '@wordpress/block-editor';
 
 import { toNumber } from '@smb/helper';
@@ -16,11 +17,15 @@ import { toNumber } from '@smb/helper';
 export default function ( { attributes, setAttributes, className } ) {
 	const {
 		backgroundColor,
+		backgroundGradientColor,
 		borderColor,
 		textColor,
 		borderWidth,
 		opacity,
 	} = attributes;
+
+	const enableCustomColors = useEditorFeature( 'color.custom' );
+	const enableCustomGradients = useEditorFeature( 'color.customGradient' );
 
 	const boxStyles = {
 		color: textColor || undefined,
@@ -28,6 +33,7 @@ export default function ( { attributes, setAttributes, className } ) {
 
 	const backgroundStyles = {
 		backgroundColor: backgroundColor || undefined,
+		backgroundImage: backgroundGradientColor || undefined,
 		borderColor: borderColor || undefined,
 		borderWidth: borderWidth || undefined,
 		opacity,
@@ -57,6 +63,11 @@ export default function ( { attributes, setAttributes, className } ) {
 	const onChangeBackgroundColor = ( value ) =>
 		setAttributes( {
 			backgroundColor: value,
+		} );
+
+	const onChangeBackgroundGradientColor = ( value ) =>
+		setAttributes( {
+			backgroundGradientColor: value,
 		} );
 
 	const onChangeBorderColor = ( value ) =>
@@ -96,26 +107,30 @@ export default function ( { attributes, setAttributes, className } ) {
 					/>
 				</PanelBody>
 
-				<PanelColorSettings
+				<PanelColorGradientSettings
 					title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
 					initialOpen={ false }
-					colorSettings={ [
+					settings={ [
 						{
-							value: backgroundColor,
-							onChange: onChangeBackgroundColor,
+							colorValue: backgroundColor,
+							gradientValue: backgroundGradientColor,
+							onColorChange: onChangeBackgroundColor,
+							onGradientChange: onChangeBackgroundGradientColor,
 							label: __(
 								'Background Color',
 								'snow-monkey-blocks'
 							),
+							enableCustomColors: ! enableCustomColors,
+							disableCustomGradients: ! enableCustomGradients,
 						},
 						{
-							value: borderColor,
-							onChange: onChangeBorderColor,
+							colorValue: borderColor,
+							onColorChange: onChangeBorderColor,
 							label: __( 'Border Color', 'snow-monkey-blocks' ),
 						},
 						{
-							value: textColor,
-							onChange: onChangeTextColor,
+							colorValue: textColor,
+							onColorChange: onChangeTextColor,
 							label: __( 'Text Color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -124,7 +139,7 @@ export default function ( { attributes, setAttributes, className } ) {
 						backgroundColor={ backgroundColor }
 						textColor={ textColor }
 					/>
-				</PanelColorSettings>
+				</PanelColorGradientSettings>
 			</InspectorControls>
 
 			<div { ...blockProps }>

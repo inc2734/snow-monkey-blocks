@@ -8,6 +8,9 @@
     "backgroundColor": {
       "type": "string"
     },
+    "backgroundGradientColor": {
+      "type": "string"
+    },
     "borderColor": {
       "type": "string"
     },

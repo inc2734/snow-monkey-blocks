@@ -5,6 +5,7 @@ import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 export default function ( { attributes, className } ) {
 	const {
 		backgroundColor,
+		backgroundGradientColor,
 		borderColor,
 		textColor,
 		borderWidth,
@@ -17,6 +18,7 @@ export default function ( { attributes, className } ) {
 
 	const backgroundStyles = {
 		backgroundColor: backgroundColor || undefined,
+		backgroundImage: backgroundGradientColor || undefined,
 		borderColor: borderColor || undefined,
 		borderWidth: borderWidth || undefined,
 		opacity,
