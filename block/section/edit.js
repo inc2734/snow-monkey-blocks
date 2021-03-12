@@ -5,10 +5,10 @@ import {
 	ColorPalette,
 	InnerBlocks,
 	InspectorControls,
-	PanelColorSettings,
 	RichText,
 	useBlockProps,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 } from '@wordpress/block-editor';
 
 import {
@@ -43,8 +43,7 @@ export default function ( {
 		backgroundVerticalPosition,
 		isBackgroundNoOver,
 		backgroundColor,
-		backgroundColor2,
-		backgroundColorAngle,
+		backgroundGradientColor,
 		textColor,
 		isSlim,
 		topDividerType,
@@ -101,11 +100,9 @@ export default function ( {
 	}
 
 	const backgroundStyles = {};
-	if ( backgroundColor ) {
+	if ( backgroundColor || backgroundGradientColor ) {
 		backgroundStyles.backgroundColor = backgroundColor;
-		if ( backgroundColor2 ) {
-			backgroundStyles.backgroundImage = `linear-gradient(${ backgroundColorAngle }deg, ${ backgroundColor } 0%, ${ backgroundColor2 } 100%)`;
-		}
+		backgroundStyles.backgroundImage = backgroundGradientColor;
 
 		if ( ! isBackgroundNoOver ) {
 			if ( backgroundHorizontalPosition || backgroundVerticalPosition ) {
@@ -182,19 +179,14 @@ export default function ( {
 			backgroundColor: value,
 		} );
 
+	const onChangeBackgroundGradientColor = ( value ) =>
+		setAttributes( {
+			backgroundGradientColor: value,
+		} );
+
 	const onChangeTextColor = ( value ) =>
 		setAttributes( {
 			textColor: value,
-		} );
-
-	const onChangeBackgroundColor2 = ( value ) =>
-		setAttributes( {
-			backgroundColor2: value,
-		} );
-
-	const onChangeBackgroundColorAngle = ( value ) =>
-		setAttributes( {
-			backgroundColorAngle: toNumber( value, 0, 360 ),
 		} );
 
 	const onChangeTopDividerType = ( value ) =>
@@ -312,7 +304,7 @@ export default function ( {
 						onChange={ onChangeIsSlim }
 					/>
 
-					{ backgroundColor && (
+					{ ( backgroundColor || backgroundGradientColor ) && (
 						<>
 							<RangeControl
 								label={ __(
@@ -353,62 +345,27 @@ export default function ( {
 					) }
 				</PanelBody>
 
-				<PanelColorSettings
+				<PanelColorGradientSettings
 					title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
 					initialOpen={ false }
-					colorSettings={ [
+					settings={ [
 						{
-							value: backgroundColor,
-							onChange: onChangeBackgroundColor,
+							colorValue: backgroundColor,
+							gradientValue: backgroundGradientColor,
+							onColorChange: onChangeBackgroundColor,
+							onGradientChange: onChangeBackgroundGradientColor,
 							label: __(
 								'Background Color',
 								'snow-monkey-blocks'
 							),
 						},
 						{
-							value: textColor,
-							onChange: onChangeTextColor,
+							colorValue: textColor,
+							onColorChange: onChangeTextColor,
 							label: __( 'Text Color', 'snow-monkey-blocks' ),
 						},
 					] }
-				></PanelColorSettings>
-
-				{ backgroundColor && (
-					<PanelBody
-						title={ __(
-							'Background Gradation Settings',
-							'snow-monkey-blocks'
-						) }
-					>
-						<BaseControl
-							className="editor-color-palette-control"
-							label={ __(
-								'Background Color 2',
-								'snow-monkey-blocks'
-							) }
-							id="snow-monkey-blocks/section/background-color2"
-						>
-							<ColorPalette
-								className="editor-color-palette-control__color-palette"
-								value={ backgroundColor2 }
-								onChange={ onChangeBackgroundColor2 }
-							/>
-						</BaseControl>
-
-						{ backgroundColor2 && (
-							<RangeControl
-								label={ __(
-									'Background Gradation Angle',
-									'snow-monkey-blocks'
-								) }
-								value={ backgroundColorAngle }
-								onChange={ onChangeBackgroundColorAngle }
-								min="0"
-								max="360"
-							/>
-						) }
-					</PanelBody>
-				) }
+				></PanelColorGradientSettings>
 
 				<PanelBody
 					title={ __( 'Top divider Settings', 'snow-monkey-blocks' ) }

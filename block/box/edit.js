@@ -7,7 +7,6 @@ import {
 	ContrastChecker,
 	InspectorControls,
 	useBlockProps,
-	__experimentalUseEditorFeature as useEditorFeature,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 } from '@wordpress/block-editor';
@@ -23,9 +22,6 @@ export default function ( { attributes, setAttributes, className } ) {
 		borderWidth,
 		opacity,
 	} = attributes;
-
-	const enableCustomColors = useEditorFeature( 'color.custom' );
-	const enableCustomGradients = useEditorFeature( 'color.customGradient' );
 
 	const boxStyles = {
 		color: textColor || undefined,
@@ -120,8 +116,6 @@ export default function ( { attributes, setAttributes, className } ) {
 								'Background Color',
 								'snow-monkey-blocks'
 							),
-							enableCustomColors: ! enableCustomColors,
-							disableCustomGradients: ! enableCustomGradients,
 						},
 						{
 							colorValue: borderColor,

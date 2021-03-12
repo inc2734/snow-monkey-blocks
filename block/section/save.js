@@ -15,8 +15,7 @@ export default function ( { attributes, className } ) {
 		backgroundVerticalPosition,
 		isBackgroundNoOver,
 		backgroundColor,
-		backgroundColor2,
-		backgroundColorAngle,
+		backgroundGradientColor,
 		textColor,
 		isSlim,
 		topDividerType,
@@ -62,11 +61,9 @@ export default function ( { attributes, className } ) {
 	}
 
 	const backgroundStyles = {};
-	if ( backgroundColor ) {
+	if ( backgroundColor || backgroundGradientColor ) {
 		backgroundStyles.backgroundColor = backgroundColor;
-		if ( backgroundColor2 ) {
-			backgroundStyles.backgroundImage = `linear-gradient(${ backgroundColorAngle }deg, ${ backgroundColor } 0%, ${ backgroundColor2 } 100%)`;
-		}
+		backgroundStyles.backgroundImage = backgroundGradientColor;
 
 		if ( ! isBackgroundNoOver ) {
 			if ( backgroundHorizontalPosition || backgroundVerticalPosition ) {

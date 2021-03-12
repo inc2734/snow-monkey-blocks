@@ -12,8 +12,7 @@ export default function ( { attributes, className } ) {
 		subtitle,
 		lede,
 		backgroundColor,
-		backgroundColor2,
-		backgroundColorAngle,
+		backgroundGradientColor,
 		textColor,
 		headingPosition,
 		headingColumnSize,
@@ -74,11 +73,9 @@ export default function ( { attributes, className } ) {
 	if ( textColor ) {
 		sectionStyles.color = textColor;
 	}
-	if ( backgroundColor ) {
+	if ( backgroundColor || backgroundGradientColor ) {
 		sectionStyles.backgroundColor = backgroundColor;
-		if ( backgroundColor2 ) {
-			sectionStyles.backgroundImage = `linear-gradient(${ backgroundColorAngle }deg, ${ backgroundColor } 0%, ${ backgroundColor2 } 100%)`;
-		}
+		sectionStyles.backgroundImage = backgroundGradientColor;
 	}
 
 	const innerStyles = {

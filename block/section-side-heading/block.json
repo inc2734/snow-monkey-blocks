@@ -34,12 +34,8 @@
     "backgroundColor": {
       "type": "string"
     },
-    "backgroundColor2": {
+    "backgroundGradientColor": {
       "type": "string"
-    },
-    "backgroundColorAngle": {
-      "type": "number",
-      "default": 0
     },
     "textColor": {
       "type": "string"
