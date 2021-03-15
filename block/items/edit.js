@@ -15,7 +15,7 @@ import { toNumber } from '@smb/helper';
 import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
 
 export default function ( { attributes, setAttributes, className } ) {
-	const { sm, md, lg, isGlue, verticalAlignment } = attributes;
+	const { sm, md, lg, isGlue, isFill, verticalAlignment } = attributes;
 
 	const allowedBlocks = [
 		'snow-monkey-blocks/items--item--standard',
@@ -27,6 +27,7 @@ export default function ( { attributes, setAttributes, className } ) {
 
 	const classes = classnames( 'smb-items', className, {
 		'smb-items--glue': isGlue,
+		'smb-items--fill': isFill,
 	} );
 
 	const rowClasses = classnames( 'c-row', {
@@ -55,6 +56,11 @@ export default function ( { attributes, setAttributes, className } ) {
 	const onChangeIsGlue = ( value ) =>
 		setAttributes( {
 			isGlue: value,
+		} );
+
+	const onChangeIsFill = ( value ) =>
+		setAttributes( {
+			isFill: value,
 		} );
 
 	const onChangeLg = ( value ) =>
@@ -90,6 +96,15 @@ export default function ( { attributes, setAttributes, className } ) {
 						) }
 						checked={ isGlue }
 						onChange={ onChangeIsGlue }
+					/>
+
+					<ToggleControl
+						label={ __(
+							'Align the bottom of the button of each items (standard, block link item only).',
+							'snow-monkey-blocks'
+						) }
+						checked={ isFill }
+						onChange={ onChangeIsFill }
 					/>
 
 					<ResponsiveTabPanel

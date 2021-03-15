@@ -3,10 +3,11 @@ import classnames from 'classnames';
 import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
-	const { sm, md, lg, isGlue, verticalAlignment } = attributes;
+	const { sm, md, lg, isGlue, isFill, verticalAlignment } = attributes;
 
 	const classes = classnames( 'smb-items', className, {
 		'smb-items--glue': isGlue,
+		'smb-items--fill': isFill,
 	} );
 
 	const rowClasses = classnames( 'c-row', {

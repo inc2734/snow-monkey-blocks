@@ -13,6 +13,25 @@
     }
   }
 
+  &--fill {
+    .wp-block-snow-monkey-blocks-items--item--standard,
+    .wp-block-snow-monkey-blocks-items--item--block-link {
+      display: flex;
+      flex-direction: column;
+
+      .smb-items__item,
+      .smb-items__item__body {
+        flex: 1 1 0%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .smb-items__item__content {
+        margin-bottom: auto;
+      }
+    }
+  }
+
   a.smb-items__item {
     color: $_color-text; // for IE11
     color: _var-color-text();

@@ -85,7 +85,7 @@ export default function ( { attributes, className } ) {
 
 					{ ! RichText.isEmpty( btnLabel ) && !! url && (
 						<div className="smb-items__item__action">
-							<a
+							<span
 								className={ btnClasses }
 								href={ url }
 								style={ itemBtnStyles }
@@ -104,7 +104,7 @@ export default function ( { attributes, className } ) {
 								>
 									<RichText.Content value={ btnLabel } />
 								</span>
-							</a>
+							</span>
 						</div>
 					) }
 				</div>

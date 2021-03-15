@@ -21,6 +21,10 @@
       "type": "boolean",
       "default": false
     },
+    "isFill": {
+      "type": "boolean",
+      "default": false
+    },
     "verticalAlignment": {
       "type": "string",
       "default": "top"
