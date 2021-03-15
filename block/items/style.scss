@@ -3,12 +3,12 @@
 @import '../../src/css/core/block';
 
 .smb-items {
-  > .#{ $_prefix }c-row {
-    &__col {
-      margin-top: 0;
-      margin-bottom: 0;
-    }
-  }
+  // > .#{ $_prefix }c-row {
+  //   &__col {
+  //     margin-top: 0;
+  //     margin-bottom: 0;
+  //   }
+  // }
 
   &--glue {
     > .#{ $_prefix }c-row {

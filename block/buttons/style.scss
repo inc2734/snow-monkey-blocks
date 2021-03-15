@@ -5,6 +5,7 @@
 .smb-buttons {
   display: flex;
   flex-wrap: wrap;
+  @include _margin-bottom(-.5, false);
 
   &.has-text-align-left,
   &.is-content-justification-left {
@@ -14,23 +15,28 @@
   &.has-text-align-center,
   &.is-content-justification-center {
     justify-content: center;
+
+    > .smb-btn-wrapper {
+      @include _margin-right(.25, false);
+      @include _margin-left(.25, false);
+    }
   }
 
   &.has-text-align-right,
   &.is-content-justification-right {
     justify-content: flex-end;
-  }
 
-  @include _margin-right(-.25, false);
-  @include _margin-left(-.25, false);
-  @include _margin-bottom(-.5, false);
+    > .smb-btn-wrapper {
+      margin-right: 0;
+      @include _margin-left(.5, false);
+    }
+  }
 
   > .smb-btn-wrapper {
     flex: 0 0 auto;
     margin-top: 0;
     margin-bottom: 0;
-    @include _padding-right(.25);
-    @include _padding-left(.25);
+    @include _margin-right(.5, false);
     @include _padding-bottom(.5);
   }
 

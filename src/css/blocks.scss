@@ -20,12 +20,19 @@
 .#{$_prefix}c-row {
   @each $size, $screen-min in $_sizes {
     @include _media-min($screen-min) {
+      $prefix: '';
+      @if $size != 'sm' {
+        $prefix: -#{ $size };
+      }
+
+      &[data#{ $prefix }-columns] {
+        > .#{$_prefix}c-row__col {
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+      }
 
       @for $i from 1 through 6 {
-        $prefix: '';
-        @if $size != 'sm' {
-          $prefix: -#{ $size };
-        }
 
         &[data#{ $prefix }-columns="#{ $i }"] {
           > .#{ $_prefix }c-row__col {

@@ -2,16 +2,8 @@
 
 @import 'core/block';
 
-.#{$_prefix}c-row {
-  margin: 0;
-}
-
 .editor-styles-wrapper {
-  .#{$_prefix}c-row {
-    &__col {
-      margin: 0;
-    }
-  }
+  //@import 'blocks';
 
   .#{$_prefix}c-row[data-columns],
   .#{$_prefix}c-row--margin {
@@ -22,8 +14,8 @@
 
   .#{$_prefix}c-row--margin {
     > .block-list-appender {
-      @include _margin-right(.5);
-      @include _margin-left(.5);
+      @include _margin-right(.5, false);
+      @include _margin-left(.5, false);
     }
   }
 }
@@ -31,25 +23,6 @@
 &.#{$_prefix}c-row--margin {
   > [data-type^="snow-monkey-blocks"] {
     @include _row__col--margin(1);
-  }
-}
-
-.#{$_prefix}c-row {
-  @each $size, $screen-min in $_sizes {
-    @include _media-min($screen-min) {
-      $prefix: '';
-      @if $size != 'sm' {
-        $prefix: -#{ $size };
-      }
-
-      @for $i from 1 through 6 {
-        &[data#{ $prefix }-columns="#{ $i }"] {
-          > [data-type^="snow-monkey-blocks"] {
-            @include _row__col--width(1 / $i * 100%);
-          }
-        }
-      }
-    }
   }
 }
 
