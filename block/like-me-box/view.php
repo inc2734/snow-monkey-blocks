@@ -20,13 +20,23 @@ if ( ! empty( $attributes['className'] ) ) {
 ?>
 <div class="<?php echo esc_attr( join( ' ', $classnames ) ); ?>">
 	<?php
-	Helper::get_template_part(
-		'template-parts/common/like-me-box',
-		null,
-		[
-			'_context'            => 'snow-monkey-blocks/like-me-box',
-			'_facebook_page_name' => $page_name,
-		]
-	);
+	$template_args = [
+		'_context'            => 'snow-monkey-blocks/like-me-box',
+		'_facebook_page_name' => $page_name,
+	];
+
+	if ( class_exists( '\Framework\Helper' ) ) {
+		\Framework\Helper::get_template_part(
+			'template-parts/common/like-me-box',
+			null,
+			$template_args
+		);
+	} else {
+		get_template_part(
+			'template-parts/common/like-me-box',
+			null,
+			$template_args
+		);
+	}
 	?>
 </div>
