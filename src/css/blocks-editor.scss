@@ -3,8 +3,6 @@
 @import 'core/block';
 
 .editor-styles-wrapper {
-  //@import 'blocks';
-
   .#{$_prefix}c-row[data-columns],
   .#{$_prefix}c-row--margin {
     > .block-list-appender {
@@ -18,6 +16,10 @@
       @include _margin-left(.5, false);
     }
   }
+}
+
+.block-editor-block-list__block.#{ $_prefix }c-row__col {
+  margin-top: 0;
 }
 
 &.#{$_prefix}c-row--margin {

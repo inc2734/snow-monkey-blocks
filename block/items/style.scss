@@ -5,10 +5,10 @@
 .smb-items {
   &--glue {
     > .#{ $_prefix }c-row {
-      @include _margin-bottom(-1, false);
+      @include _margin-bottom(-1);
 
       > .#{ $_prefix }c-row__col {
-        @include _padding-bottom(1);
+        @include _margin-bottom(1);
       }
     }
   }
