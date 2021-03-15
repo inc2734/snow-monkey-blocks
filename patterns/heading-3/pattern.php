@@ -32,11 +32,11 @@
 			</div>
 			<!-- /wp:snow-monkey-blocks/container -->
 
-			<!-- wp:buttons -->
-			<div class="wp-block-buttons">
-				<!-- wp:button {"className":"is-style-outline"} -->
+			<!-- wp:buttons { "contentJustification":"center" } -->
+			<div class="wp-block-buttons is-content-justification-center">
+				<!-- wp:button { "textColor":"white", "className":"is-style-outline"} -->
 				<div class="wp-block-button is-style-outline">
-					<a class="wp-block-button__link">Lorem</a>
+					<a class="wp-block-button__link has-white-color has-text-color">Lorem</a>
 				</div>
 				<!-- /wp:button -->
 			</div>
