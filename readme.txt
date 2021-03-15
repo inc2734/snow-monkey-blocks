@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.7
 Tested up to: 5.7
-Stable tag: 10.3.3
+Stable tag: 11.0.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -107,6 +107,22 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 23. Information block (The number of items can be increased or decreased freely)
 
 == Changelog ==
+
+= 11.0.0 =
+* [Box] Add gradient setting to background color setting.
+* [Items] Add new setting. "Align the bottom of the button of each items (standard, block link item only)."
+* [Section] Change the gradient setting to the core.
+* [Section (Side heading)] Change the gradient setting to the core.
+* [Buttons] Updates horizontal alignment settings to match core blocks.
+* [Testimonial] Fix bottom margin bug on editor.
+* [Slider] Fixed a bug that prevented slide interval from being reflected.
+* [Pickup slider] Fixed a bug that prevented slide interval from being reflected.
+* [Like me box] Fixed a bug that sometimes resulted in a Fatal error.
+* Change `className="components-disabled"` to `<Disabled />`.
+* Change `registerStore` to `createReduxStore`.
+* Fixed a bug where the title and description of each block were not translated.
+* In Snow Monkey theme, some layouts are broken when "White space size between elements" is set to "Wide".
+* Fix heading3 block pattern bug.
 
 = 10.3.3 =
 * [Slider] Fixed a bug that prevented slide interval from being reflected on iOS.
