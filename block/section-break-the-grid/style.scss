@@ -3,6 +3,8 @@
 @import '../../src/css/core/block';
 
 .smb-section-break-the-grid {
+  position: relative;
+
   $imageSizes: (
     140: 'l',
     180: 'xl',
@@ -169,6 +171,7 @@
     right: 0;
     bottom: 0;
     left: 0;
+    z-index: -1;
   }
 
   &.alignfull {

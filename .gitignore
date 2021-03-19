@@ -8,3 +8,4 @@ npm-debug.log
 .wp-env.override.json
 /sql/
 translation/
+/uploads/
