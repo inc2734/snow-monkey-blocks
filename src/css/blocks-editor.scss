@@ -3,6 +3,8 @@
 @import 'core/block';
 
 .editor-styles-wrapper {
+  @include related-components();
+
   .#{$_prefix}c-row[data-columns],
   .#{$_prefix}c-row--margin {
     > .block-list-appender {

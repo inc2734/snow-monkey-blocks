@@ -1,0 +1,13 @@
+@mixin related-components {
+  .smb-section,
+  .smb-btn-box,
+  .smb-slider,
+  .smb-pickup-slider {
+    & + .smb-section,
+    & + .smb-btn-box,
+    & + .smb-slider,
+    & + .smb-pickup-slider {
+      margin-top: 0;
+    }
+  }
+}

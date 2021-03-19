@@ -5,17 +5,7 @@
 @import '../../format/highlighter/format';
 @import '../../format/badge/format';
 
-.smb-section,
-.smb-btn-box,
-.smb-slider,
-.smb-pickup-slider {
-  & + .smb-section,
-  & + .smb-btn-box,
-  & + .smb-slider,
-  & + .smb-pickup-slider {
-    margin-top: 0;
-  }
-}
+@include related-components();
 
 .#{$_prefix}c-row {
   @each $size, $screen-min in $_sizes {
