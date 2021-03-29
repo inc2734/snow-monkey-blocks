@@ -99,7 +99,7 @@
     }
   }
 
-  &:not([class*=".smb-section-break-the-grid--mobile-"]) {
+  &:not([class*="smb-section-break-the-grid--mobile-"]) {
     .smb-section-break-the-grid__content {
       @include _media-max(md) {
         @include _margin-bottom(-2);
