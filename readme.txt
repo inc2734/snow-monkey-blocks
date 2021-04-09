@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.7
 Tested up to: 5.7
-Stable tag: 11.0.2
+Stable tag: 11.0.3
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -107,6 +107,10 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 23. Information block (The number of items can be increased or decreased freely)
 
 == Changelog ==
+
+= 11.0.3 =
+* [Slider] Fixed a bug in which loop playback was not performed when the number of slides to be displayed was more than two.
+* [Buttons] Fixed a bug that blocks could be broken after changing the alignment.
 
 = 11.0.2 =
 * [Section (Break the grid)] Fixed a bug in which the bottom part of the text was sometimes cut off when using alignfull + mobile.
