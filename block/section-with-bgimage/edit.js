@@ -29,6 +29,8 @@ import { toNumber, getMediaType } from '@smb/helper';
 import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
 import Figure from '@smb/component/figure';
 
+const IMAGE_ALLOWED_TYPES = [ 'image', 'video' ];
+
 export default function ( {
 	attributes,
 	setAttributes,
@@ -395,8 +397,6 @@ export default function ( {
 			lede: value,
 		} );
 
-	const imageAllowdTypes = [ 'image', 'video' ];
-
 	return (
 		<>
 			<InspectorControls>
@@ -530,7 +530,7 @@ export default function ( {
 									onSelectURL={ onSelectLgImageURL }
 									onRemove={ onRemoveLgImage }
 									mediaType={ lgImageMediaType }
-									allowedTypes={ imageAllowdTypes }
+									allowedTypes={ IMAGE_ALLOWED_TYPES }
 								/>
 
 								{ hasLgBackground && isLgImage && (
@@ -567,7 +567,7 @@ export default function ( {
 									onSelectURL={ onSelectMdImageURL }
 									onRemove={ onRemoveMdImage }
 									mediaType={ mdImageMediaType }
-									allowedTypes={ imageAllowdTypes }
+									allowedTypes={ IMAGE_ALLOWED_TYPES }
 								/>
 
 								{ hasMdBackground && isMdImage && (
@@ -604,7 +604,7 @@ export default function ( {
 									onSelectURL={ onSelectSmImageURL }
 									onRemove={ onRemoveSmImage }
 									mediaType={ smImageMediaType }
-									allowedTypes={ imageAllowdTypes }
+									allowedTypes={ IMAGE_ALLOWED_TYPES }
 								/>
 
 								{ hasSmBackground && isSmImage && (

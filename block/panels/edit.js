@@ -14,15 +14,16 @@ import { __ } from '@wordpress/i18n';
 import { toNumber } from '@smb/helper';
 import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
 
+const ALLOWED_BLOCKS = [
+	'snow-monkey-blocks/panels--item',
+	'snow-monkey-blocks/panels--item--horizontal',
+	'snow-monkey-blocks/panels--item--free',
+];
+
+const TEMPLATE = [ [ 'snow-monkey-blocks/panels--item' ] ];
+
 export default function ( { attributes, setAttributes, className } ) {
 	const { sm, md, lg, imagePadding } = attributes;
-
-	const allowedBlocks = [
-		'snow-monkey-blocks/panels--item',
-		'snow-monkey-blocks/panels--item--horizontal',
-		'snow-monkey-blocks/panels--item--free',
-	];
-	const template = [ [ 'snow-monkey-blocks/panels--item' ] ];
 
 	const classes = classnames( 'smb-panels', className );
 
@@ -35,8 +36,8 @@ export default function ( { attributes, setAttributes, className } ) {
 			className: [ 'c-row', 'c-row--margin', 'c-row--fill' ],
 		},
 		{
-			allowedBlocks,
-			template,
+			allowedBlocks: ALLOWED_BLOCKS,
+			template: TEMPLATE,
 			templateLock: false,
 			renderAppender: InnerBlocks.ButtonBlockAppender,
 			orientation: 'horizontal',

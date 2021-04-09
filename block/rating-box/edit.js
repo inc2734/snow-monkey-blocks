@@ -6,10 +6,10 @@ import {
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
-export default function ( { className } ) {
-	const allowedBlocks = [ 'snow-monkey-blocks/rating-box--item' ];
-	const template = [ [ 'snow-monkey-blocks/rating-box--item' ] ];
+const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/rating-box--item' ];
+const TEMPLATE = [ [ 'snow-monkey-blocks/rating-box--item' ] ];
 
+export default function ( { className } ) {
 	const classes = classnames( 'smb-rating-box', className );
 
 	const blockProps = useBlockProps( {
@@ -21,8 +21,8 @@ export default function ( { className } ) {
 			className: 'smb-rating-box__body',
 		},
 		{
-			allowedBlocks,
-			template,
+			allowedBlocks: ALLOWED_BLOCKS,
+			template: TEMPLATE,
 			templateLock: false,
 			renderAppender: InnerBlocks.ButtonBlockAppender,
 		}

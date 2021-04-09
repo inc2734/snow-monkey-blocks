@@ -6,13 +6,14 @@ import {
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
-export default function ( { className } ) {
-	const allowedBlocks = [
-		'snow-monkey-blocks/step--item',
-		'snow-monkey-blocks/step--item--free',
-	];
-	const template = [ [ 'snow-monkey-blocks/step--item--free' ] ];
+const ALLOWED_BLOCKS = [
+	'snow-monkey-blocks/step--item',
+	'snow-monkey-blocks/step--item--free',
+];
 
+const TEMPLATE = [ [ 'snow-monkey-blocks/step--item--free' ] ];
+
+export default function ( { className } ) {
 	const classes = classnames( 'smb-step', className );
 
 	const blockProps = useBlockProps( {
@@ -24,8 +25,8 @@ export default function ( { className } ) {
 			className: 'smb-step__body',
 		},
 		{
-			allowedBlocks,
-			template,
+			allowedBlocks: ALLOWED_BLOCKS,
+			template: TEMPLATE,
 			templateLock: false,
 			renderAppender: InnerBlocks.ButtonBlockAppender,
 		}

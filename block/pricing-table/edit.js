@@ -12,6 +12,9 @@ import { useEffect } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
+const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/pricing-table--item' ];
+const TEMPLATE = [ [ 'snow-monkey-blocks/pricing-table--item' ] ];
+
 export default function ( { attributes, setAttributes, className, clientId } ) {
 	const { columnSize, childrenCount } = attributes;
 
@@ -29,9 +32,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		}
 	}, [ innerBlocksCount ] );
 
-	const allowedBlocks = [ 'snow-monkey-blocks/pricing-table--item' ];
-	const template = [ [ 'snow-monkey-blocks/pricing-table--item' ] ];
-
 	const classes = classnames( 'smb-pricing-table', {
 		[ `smb-pricing-table--col-size-${ columnSize }` ]: !! columnSize,
 		[ className ]: !! className,
@@ -46,8 +46,8 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 			className: [ 'c-row', 'c-row--md-nowrap' ],
 		},
 		{
-			allowedBlocks,
-			template,
+			allowedBlocks: ALLOWED_BLOCKS,
+			template: TEMPLATE,
 			templateLock: false,
 			orientation: 'horizontal',
 		}

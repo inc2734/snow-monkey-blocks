@@ -14,11 +14,11 @@ import { __ } from '@wordpress/i18n';
 import { toNumber } from '@smb/helper';
 import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
 
+const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/testimonial--item' ];
+const TEMPLATE = [ [ 'snow-monkey-blocks/testimonial--item' ] ];
+
 export default function ( { attributes, setAttributes, className } ) {
 	const { md, lg } = attributes;
-
-	const allowedBlocks = [ 'snow-monkey-blocks/testimonial--item' ];
-	const template = [ [ 'snow-monkey-blocks/testimonial--item' ] ];
 
 	const classes = classnames( 'smb-testimonial', className );
 
@@ -31,8 +31,8 @@ export default function ( { attributes, setAttributes, className } ) {
 			className: [ 'c-row', 'c-row--margin' ],
 		},
 		{
-			allowedBlocks,
-			template,
+			allowedBlocks: ALLOWED_BLOCKS,
+			template: TEMPLATE,
 			templateLock: false,
 			renderAppender: InnerBlocks.ButtonBlockAppender,
 			orientation: 'horizontal',

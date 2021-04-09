@@ -21,8 +21,10 @@ const icons = {
 	'space-between': justifySpaceBetween,
 };
 
+const ALLOWED_CONTROLS = [ 'left', 'center', 'right', 'space-between' ];
+
 export function JustifyToolbar( {
-	allowedControls = [ 'left', 'center', 'right', 'space-between' ],
+	allowedControls = ALLOWED_CONTROLS,
 	isCollapsed = true,
 	onChange,
 	value,

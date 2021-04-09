@@ -6,12 +6,12 @@ import {
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
-export default function ( { className } ) {
-	const allowedBlocks = [
-		'snow-monkey-blocks/directory-structure--item--directory',
-		'snow-monkey-blocks/directory-structure--item--file',
-	];
+const ALLOWED_BLOCKS = [
+	'snow-monkey-blocks/directory-structure--item--directory',
+	'snow-monkey-blocks/directory-structure--item--file',
+];
 
+export default function ( { className } ) {
 	const classes = classnames( 'smb-directory-structure', className );
 
 	const blockProps = useBlockProps( {
@@ -19,7 +19,7 @@ export default function ( { className } ) {
 	} );
 
 	const innerBlocksProps = useInnerBlocksProps( blockProps, {
-		allowedBlocks,
+		allowedBlocks: ALLOWED_BLOCKS,
 		templateLock: false,
 		renderAppender: InnerBlocks.ButtonBlockAppender,
 	} );

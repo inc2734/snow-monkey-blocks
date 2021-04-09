@@ -21,6 +21,8 @@ import { __ } from '@wordpress/i18n';
 import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
 import { getResizedImages, toNumber } from '@smb/helper';
 
+const ALLOWED_TYPES = [ 'image' ];
+
 export default function ( {
 	attributes,
 	setAttributes,
@@ -210,7 +212,7 @@ export default function ( {
 			} }
 			onSelect={ onSelectImages }
 			accept="image/*"
-			allowedTypes={ [ 'image' ] }
+			allowedTypes={ ALLOWED_TYPES }
 			multiple
 			value={ images }
 		/>

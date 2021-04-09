@@ -6,10 +6,10 @@ import {
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
-export default function ( { className } ) {
-	const allowedBlocks = [ 'snow-monkey-blocks/faq--item' ];
-	const template = [ [ 'snow-monkey-blocks/faq--item' ] ];
+const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/faq--item' ];
+const TEMPLATE = [ [ 'snow-monkey-blocks/faq--item' ] ];
 
+export default function ( { className } ) {
 	const classes = classnames( 'smb-faq', className );
 
 	const blockProps = useBlockProps( {
@@ -21,8 +21,8 @@ export default function ( { className } ) {
 			className: 'smb-faq__body',
 		},
 		{
-			allowedBlocks,
-			template,
+			allowedBlocks: ALLOWED_BLOCKS,
+			template: TEMPLATE,
 			templateLock: false,
 			renderAppender: InnerBlocks.ButtonBlockAppender,
 		}

@@ -32,6 +32,8 @@ import Figure from '@smb/component/figure';
 import LinkControl from '@smb/component/link-control';
 import ImageSizeSelectControl from '@smb/component/image-size-select-control';
 
+const ALLOWED_TYPES = [ 'image', 'video' ];
+
 export default function ( {
 	attributes,
 	setAttributes,
@@ -412,7 +414,7 @@ export default function ( {
 								onSelectURL={ onSelectImageURL }
 								onRemove={ onRemoveImage }
 								mediaType={ imageMediaType }
-								allowedTypes={ [ 'image', 'video' ] }
+								allowedTypes={ ALLOWED_TYPES }
 							/>
 
 							{ isLinkUIOpen && (

@@ -13,11 +13,11 @@ import { __ } from '@wordpress/i18n';
 
 import { toNumber } from '@smb/helper';
 
+const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/thumbnail-gallery--item' ];
+const TEMPLATE = [ [ 'snow-monkey-blocks/thumbnail-gallery--item' ] ];
+
 export default function ( { attributes, setAttributes, className } ) {
 	const { arrows, speed, autoplaySpeed } = attributes;
-
-	const allowedBlocks = [ 'snow-monkey-blocks/thumbnail-gallery--item' ];
-	const template = [ [ 'snow-monkey-blocks/thumbnail-gallery--item' ] ];
 
 	const classes = classnames( 'smb-thumbnail-gallery', className );
 
@@ -30,8 +30,8 @@ export default function ( { attributes, setAttributes, className } ) {
 			className: [ 'c-row', 'c-row--margin' ],
 		},
 		{
-			allowedBlocks,
-			template,
+			allowedBlocks: ALLOWED_BLOCKS,
+			template: TEMPLATE,
 			templateLock: false,
 			renderAppender: InnerBlocks.ButtonBlockAppender,
 		}

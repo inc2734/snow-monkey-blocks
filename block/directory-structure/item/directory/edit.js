@@ -15,13 +15,13 @@ import {
 
 import FontAwesome from '@smb/component/font-awesome';
 
+const ALLOWED_BLOCKS = [
+	'snow-monkey-blocks/directory-structure--item--directory',
+	'snow-monkey-blocks/directory-structure--item--file',
+];
+
 export default function ( { attributes, setAttributes, className } ) {
 	const { iconColor, iconVendor, iconClass, name } = attributes;
-
-	const allowedBlocks = [
-		'snow-monkey-blocks/directory-structure--item--directory',
-		'snow-monkey-blocks/directory-structure--item--file',
-	];
 
 	const classes = classnames(
 		'smb-directory-structure__item',
@@ -46,7 +46,7 @@ export default function ( { attributes, setAttributes, className } ) {
 			className: itemListClasses,
 		},
 		{
-			allowedBlocks,
+			allowedBlocks: ALLOWED_BLOCKS,
 			templateLock: false,
 			renderAppender: InnerBlocks.ButtonBlockAppender,
 		}

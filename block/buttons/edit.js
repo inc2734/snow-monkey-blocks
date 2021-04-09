@@ -8,11 +8,12 @@ import {
 
 import { JustifyToolbar } from './justify-toolbar';
 
+const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/btn' ];
+const TEMPLATE = [ [ 'snow-monkey-blocks/btn' ] ];
+const ALLOWED_CONTROLS = [ 'left', 'center', 'right' ];
+
 export default function ( { attributes, setAttributes, className } ) {
 	const { contentJustification } = attributes;
-
-	const allowedBlocks = [ 'snow-monkey-blocks/btn' ];
-	const template = [ [ 'snow-monkey-blocks/btn' ] ];
 
 	const classes = classnames( 'smb-buttons', className, {
 		[ `is-content-justification-${ contentJustification }` ]: contentJustification,
@@ -23,8 +24,8 @@ export default function ( { attributes, setAttributes, className } ) {
 	} );
 
 	const innerBlocksProps = useInnerBlocksProps( blockProps, {
-		allowedBlocks,
-		template,
+		allowedBlocks: ALLOWED_BLOCKS,
+		template: TEMPLATE,
 		orientation: 'horizontal',
 		__experimentalLayout: {
 			type: 'default',
@@ -39,7 +40,7 @@ export default function ( { attributes, setAttributes, className } ) {
 		<>
 			<BlockControls>
 				<JustifyToolbar
-					allowedControls={ [ 'left', 'center', 'right' ] }
+					allowedControls={ ALLOWED_CONTROLS }
 					value={ contentJustification }
 					onChange={ onChangeContentJustification }
 					popoverProps={ {

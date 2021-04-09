@@ -10,10 +10,10 @@ import {
 import { PanelBody, SelectControl, ToggleControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
-export default function ( { attributes, setAttributes, className } ) {
-	const allowedBlocks = [ 'snow-monkey-blocks/information--item' ];
-	const template = [ [ 'snow-monkey-blocks/information--item' ] ];
+const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/information--item' ];
+const TEMPLATE = [ [ 'snow-monkey-blocks/information--item' ] ];
 
+export default function ( { attributes, setAttributes, className } ) {
 	const {
 		labelColumnSize,
 		labelAlign,
@@ -32,8 +32,8 @@ export default function ( { attributes, setAttributes, className } ) {
 			className: 'smb-information__body',
 		},
 		{
-			allowedBlocks,
-			template,
+			allowedBlocks: ALLOWED_BLOCKS,
+			template: TEMPLATE,
 			templateLock: false,
 			renderAppender: InnerBlocks.ButtonBlockAppender,
 		}

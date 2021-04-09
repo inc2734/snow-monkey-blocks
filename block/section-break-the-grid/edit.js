@@ -34,6 +34,8 @@ import { toNumber, getMediaType, getResizedImages } from '@smb/helper';
 import Figure from '@smb/component/figure';
 import ImageSizeSelectControl from '@smb/component/image-size-select-control';
 
+const ALLOWED_TYPES = [ 'image', 'video' ];
+
 export default function ( {
 	attributes,
 	setAttributes,
@@ -911,7 +913,7 @@ export default function ( {
 									onSelectURL={ onSelectImageURL }
 									onRemove={ onRemoveImage }
 									mediaType={ imageMediaType }
-									allowedTypes={ [ 'image', 'video' ] }
+									allowedTypes={ ALLOWED_TYPES }
 									style={ figureStyles }
 								/>
 							</div>
