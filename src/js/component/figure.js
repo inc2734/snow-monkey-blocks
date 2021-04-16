@@ -1,4 +1,4 @@
-'use strict';
+import { isEmpty } from 'lodash';
 
 import {
 	MediaPlaceholder,
@@ -68,21 +68,30 @@ const Figure = memo(
 		onRemove,
 		mediaType,
 		style,
+		rel,
+		linkClass,
 	} ) => {
 		let media;
 		if ( 'image' === mediaType ) {
 			media = <Image src={ src } alt={ alt } id={ id } style={ style } />;
+
+			let newRel;
+			if ( !! rel ) {
+				newRel = isEmpty( rel ) ? undefined : rel;
+			} else {
+				newRel =
+					'_self' === target || ! target
+						? undefined
+						: 'noopener noreferrer';
+			}
 
 			if ( !! url ) {
 				media = (
 					<span
 						href={ url }
 						target={ '_self' === target ? undefined : target }
-						rel={
-							'_self' === target
-								? undefined
-								: 'noopener noreferrer'
-						}
+						rel={ newRel }
+						className={ linkClass }
 					>
 						{ media }
 					</span>

@@ -1,3 +1,4 @@
+import { isEmpty } from 'lodash';
 import classnames from 'classnames';
 
 import { RichText, InnerBlocks, useBlockProps } from '@wordpress/block-editor';
@@ -8,23 +9,27 @@ export default function ( { attributes, className } ) {
 	const {
 		titleTagName,
 		title,
-		imageID,
-		imageURL,
-		imageAlt,
-		imageWidth,
-		imageHeight,
-		imageMediaType,
+		mediaId,
+		mediaUrl,
+		mediaAlt,
+		mediaWidth,
+		mediaHeight,
+		mediaType,
 		caption,
-		imagePosition,
+		mediaPosition,
 		verticalAlignment,
-		imageColumnSize,
+		mediaColumnSize,
 		mobileOrder,
-		url,
-		target,
+		href,
+		rel,
+		linkClass,
+		linkTarget,
 	} = attributes;
 
-	const { textColumnWidth, imageColumnWidth } = getColumnSize(
-		imageColumnSize
+	const newRel = isEmpty( rel ) ? undefined : rel;
+
+	const { textColumnWidth, mediaColumnWidth } = getColumnSize(
+		mediaColumnSize
 	);
 
 	const classes = classnames( 'smb-media-text', className, {
@@ -32,7 +37,7 @@ export default function ( { attributes, className } ) {
 	} );
 
 	const rowClasses = classnames( 'c-row', 'c-row--margin', {
-		'c-row--reverse': 'left' === imagePosition,
+		'c-row--reverse': 'left' === mediaPosition,
 		'c-row--top': 'top' === verticalAlignment,
 		'c-row--middle': 'center' === verticalAlignment,
 		'c-row--bottom': 'bottom' === verticalAlignment,
@@ -43,41 +48,38 @@ export default function ( { attributes, className } ) {
 	] );
 
 	const imageColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', [
-		`c-row__col--lg-${ imageColumnWidth }`,
+		`c-row__col--lg-${ mediaColumnWidth }`,
 	] );
 
 	const image = (
 		<img
-			src={ imageURL }
-			alt={ imageAlt }
-			width={ !! imageWidth && imageWidth }
-			height={ !! imageHeight && imageHeight }
-			className={ `wp-image-${ imageID }` }
+			src={ mediaUrl }
+			alt={ mediaAlt }
+			width={ !! mediaWidth && mediaWidth }
+			height={ !! mediaHeight && mediaHeight }
+			className={ `wp-image-${ mediaId }` }
 		/>
 	);
 
 	const video = (
 		<video
 			controls
-			src={ imageURL }
-			width={ !! imageWidth && imageWidth }
-			height={ !! imageHeight && imageHeight }
+			src={ mediaUrl }
+			width={ !! mediaWidth && mediaWidth }
+			height={ !! mediaHeight && mediaHeight }
 		/>
 	);
 
 	let figure;
-	if ( !! imageURL ) {
-		if ( 'image' === imageMediaType || undefined === imageMediaType ) {
-			if ( !! url ) {
+	if ( !! mediaUrl ) {
+		if ( 'image' === mediaType || undefined === mediaType ) {
+			if ( !! href ) {
 				figure = (
 					<a
-						href={ url }
-						target={ '_self' === target ? undefined : target }
-						rel={
-							'_self' === target
-								? undefined
-								: 'noopener noreferrer'
-						}
+						href={ href }
+						target={ linkTarget }
+						className={ linkClass }
+						rel={ newRel }
 					>
 						{ image }
 					</a>
@@ -85,7 +87,7 @@ export default function ( { attributes, className } ) {
 			} else {
 				figure = image;
 			}
-		} else if ( 'video' === imageMediaType ) {
+		} else if ( 'video' === mediaType ) {
 			figure = video;
 		}
 	}

@@ -1,8 +1,8 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/media-text",
-	"title": "Media text",
-	"description": "Set media and words side-by-side for a richer layout.",
+  "title": "Media text",
+  "description": "Set media and words side-by-side for a richer layout.",
   "category": "smb",
   "attributes": {
     "titleTagName": {
@@ -15,43 +15,46 @@
       "selector": ".smb-media-text__title",
       "default": ""
     },
-    "imageID": {
+    "mediaId": {
       "type": "number",
       "default": 0
     },
-    "imageURL": {
+    "mediaUrl": {
       "type": "string",
       "source": "attribute",
       "selector": ".smb-media-text__figure img, .smb-media-text__figure video",
       "attribute": "src",
       "default": ""
     },
-    "imageAlt": {
+    "mediaLink": {
+      "type": "string"
+    },
+    "mediaAlt": {
       "type": "string",
       "source": "attribute",
       "selector": ".smb-media-text__figure img",
       "attribute": "alt",
       "default": ""
     },
-    "imageWidth": {
+    "mediaWidth": {
       "type": "string",
       "source": "attribute",
       "selector": ".smb-media-text__figure img, .smb-media-text__figure video",
       "attribute": "width",
       "default": ""
     },
-    "imageHeight": {
+    "mediaHeight": {
       "type": "string",
       "source": "attribute",
       "selector": ".smb-media-text__figure img, .smb-media-text__figure video",
       "attribute": "height",
       "default": ""
     },
-    "imageSizeSlug": {
+    "mediaSizeSlug": {
       "type": "string",
       "default": "large"
     },
-    "imageMediaType": {
+    "mediaType": {
       "type": "string"
     },
     "caption": {
@@ -60,7 +63,7 @@
       "selector": ".smb-media-text__caption",
       "default": ""
     },
-    "imagePosition": {
+    "mediaPosition": {
       "type": "string",
       "default": "right"
     },
@@ -68,19 +71,37 @@
       "type": "string",
       "default": "center"
     },
-    "imageColumnSize": {
+    "mediaColumnSize": {
       "type": "string",
       "default": 66
     },
     "mobileOrder": {
       "type": "string"
     },
-    "url": {
+    "href": {
       "type": "string",
       "default": ""
     },
-    "target": {
+    "rel": {
       "type": "string",
+      "source": "attribute",
+      "selector": ".smb-media-text__figure > a",
+      "attribute": "rel"
+    },
+    "linkClass": {
+      "type": "string",
+      "source": "attribute",
+      "selector": ".smb-media-text__figure > a",
+      "attribute": "class"
+    },
+    "linkDestination": {
+      "type": "string"
+    },
+    "linkTarget": {
+      "type": "string",
+      "source": "attribute",
+      "selector": ".smb-media-text__figure > a",
+      "attribute": "target",
       "default": "_self"
     }
   },

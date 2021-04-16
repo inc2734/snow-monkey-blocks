@@ -82,7 +82,8 @@ export const getColumnSize = ( imageColumnSize ) => {
 
 	return {
 		textColumnWidth,
-		imageColumnWidth,
+		mediaColumnWidth: imageColumnWidth,
+		imageColumnWidth, // deprecated
 	};
 };
 

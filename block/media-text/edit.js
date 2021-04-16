@@ -1,7 +1,6 @@
 import classnames from 'classnames';
 import { times } from 'lodash';
 
-import { useState, useEffect } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
@@ -9,10 +8,9 @@ import {
 	BaseControl,
 	Button,
 	PanelBody,
-	Popover,
 	SelectControl,
-	ToolbarButton,
 	ToolbarGroup,
+	ToolbarButton,
 } from '@wordpress/components';
 
 import {
@@ -22,6 +20,7 @@ import {
 	InspectorControls,
 	RichText,
 	useBlockProps,
+	__experimentalImageURLInputUI as ImageURLInputUI,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
@@ -29,10 +28,11 @@ import { pullLeft, pullRight } from '@wordpress/icons';
 
 import { getColumnSize, getMediaType, getResizedImages } from '@smb/helper';
 import Figure from '@smb/component/figure';
-import LinkControl from '@smb/component/link-control';
 import ImageSizeSelectControl from '@smb/component/image-size-select-control';
 
 const ALLOWED_TYPES = [ 'image', 'video' ];
+const LINK_DESTINATION_MEDIA = 'media';
+const LINK_DESTINATION_ATTACHMENT = 'attachment';
 
 export default function ( {
 	attributes,
@@ -44,53 +44,51 @@ export default function ( {
 	const {
 		titleTagName,
 		title,
-		imageID,
-		imageURL,
-		imageAlt,
-		imageWidth,
-		imageHeight,
-		imageSizeSlug,
+		mediaId,
+		mediaUrl,
+		mediaAlt,
+		mediaWidth,
+		mediaHeight,
+		mediaSizeSlug,
 		caption,
-		imagePosition,
+		mediaPosition,
 		verticalAlignment,
-		imageColumnSize,
+		mediaColumnSize,
 		mobileOrder,
-		url,
-		target,
-		imageMediaType,
+		href,
+		linkTarget,
+		rel,
+		linkClass,
+		linkDestination,
+		mediaType,
 	} = attributes;
 
-	const [ isLinkUIOpen, setIsLinkUIOpen ] = useState( false );
-	const toggleLinkUIOpen = () => setIsLinkUIOpen( ! isLinkUIOpen );
-	const closeLinkUIOpen = () => setIsLinkUIOpen( false );
-	useEffect( () => {
-		if ( ! isSelected ) {
-			closeLinkUIOpen();
-		}
-	}, [ isSelected ] );
+	const { resizedImages, image } = useSelect(
+		( select ) => {
+			if ( ! mediaId ) {
+				return {
+					resizedImages: {},
+				};
+			}
 
-	const { resizedImages } = useSelect( ( select ) => {
-		if ( ! imageID ) {
+			const { getMedia } = select( 'core' );
+			const media = getMedia( mediaId );
+			if ( ! media ) {
+				return {
+					resizedImages: {},
+				};
+			}
+
+			const { getSettings } = select( 'core/block-editor' );
+			const { imageSizes } = getSettings();
+
 			return {
-				resizedImages: {},
+				image: media,
+				resizedImages: getResizedImages( imageSizes, media ),
 			};
-		}
-
-		const { getMedia } = select( 'core' );
-		const media = getMedia( imageID );
-		if ( ! media ) {
-			return {
-				resizedImages: {},
-			};
-		}
-
-		const { getSettings } = select( 'core/block-editor' );
-		const { imageSizes } = getSettings();
-
-		return {
-			resizedImages: getResizedImages( imageSizes, media ),
-		};
-	} );
+		},
+		[ isSelected, mediaId ]
+	);
 
 	const hasInnerBlocks = useSelect(
 		( select ) => {
@@ -102,8 +100,8 @@ export default function ( {
 	);
 
 	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
-	const { textColumnWidth, imageColumnWidth } = getColumnSize(
-		imageColumnSize
+	const { textColumnWidth, mediaColumnWidth } = getColumnSize(
+		mediaColumnSize
 	);
 
 	const classes = classnames( 'smb-media-text', className, {
@@ -111,7 +109,7 @@ export default function ( {
 	} );
 
 	const rowClasses = classnames( 'c-row', 'c-row--margin', {
-		'c-row--reverse': 'left' === imagePosition,
+		'c-row--reverse': 'left' === mediaPosition,
 		'c-row--top': 'top' === verticalAlignment,
 		'c-row--middle': 'center' === verticalAlignment,
 		'c-row--bottom': 'bottom' === verticalAlignment,
@@ -122,7 +120,7 @@ export default function ( {
 	] );
 
 	const imageColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', [
-		`c-row__col--lg-${ imageColumnWidth }`,
+		`c-row__col--lg-${ mediaColumnWidth }`,
 	] );
 
 	const blockProps = useBlockProps( {
@@ -145,9 +143,9 @@ export default function ( {
 			verticalAlignment: value,
 		} );
 
-	const onChangeImageColumnSize = ( value ) =>
+	const onChangeMediaColumnSize = ( value ) =>
 		setAttributes( {
-			imageColumnSize: value,
+			mediaColumnSize: value,
 		} );
 
 	const onChangeTitle = ( value ) =>
@@ -156,79 +154,91 @@ export default function ( {
 		} );
 
 	const onSelectImage = ( media ) => {
-		const newImageURL =
-			!! media.sizes && !! media.sizes[ imageSizeSlug ]
-				? media.sizes[ imageSizeSlug ].url
+		const newMediaUrl =
+			!! media.sizes && !! media.sizes[ mediaSizeSlug ]
+				? media.sizes[ mediaSizeSlug ].url
 				: media.url;
 
-		const newImageWidth =
-			!! media.sizes && !! media.sizes[ imageSizeSlug ]
-				? media.sizes[ imageSizeSlug ].width
+		const newMediaWidth =
+			!! media.sizes && !! media.sizes[ mediaSizeSlug ]
+				? media.sizes[ mediaSizeSlug ].width
 				: media.width;
 
-		const newImageHeight =
-			!! media.sizes && !! media.sizes[ imageSizeSlug ]
-				? media.sizes[ imageSizeSlug ].height
+		const newMediaHeight =
+			!! media.sizes && !! media.sizes[ mediaSizeSlug ]
+				? media.sizes[ mediaSizeSlug ].height
 				: media.height;
 
+		let newHref = href;
+		if ( linkDestination === LINK_DESTINATION_MEDIA ) {
+			// Update the media link.
+			newHref = media.url;
+		}
+
+		// Check if the image is linked to the attachment page.
+		if ( linkDestination === LINK_DESTINATION_ATTACHMENT ) {
+			// Update the media link.
+			newHref = media.link;
+		}
+
 		setAttributes( {
-			imageURL: newImageURL,
-			imageID: media.id,
-			imageAlt: media.alt,
-			imageWidth: newImageWidth,
-			imageHeight: newImageHeight,
-			imageMediaType: getMediaType( media ),
+			mediaType: getMediaType( media ),
+			mediaLink: media.link || undefined,
+			mediaId: media.id,
+			mediaUrl: newMediaUrl,
+			mediaAlt: media.alt,
+			mediaWidth: newMediaWidth,
+			mediaHeight: newMediaHeight,
+			href: newHref,
 		} );
 	};
 
-	const onSelectImageURL = ( newURL ) => {
-		if ( newURL !== imageURL ) {
+	const onSelectMediaUrl = ( newMediaUrl ) => {
+		if ( newMediaUrl !== mediaUrl ) {
 			setAttributes( {
-				imageURL: newURL,
-				imageID: 0,
-				imageSizeSlug: 'large',
+				mediaUrl: newMediaUrl,
+				mediaId: 0,
+				mediaSizeSlug: 'large',
 			} );
 		}
 	};
 
 	const onRemoveImage = () => {
 		setAttributes( {
-			imageURL: '',
-			imageAlt: '',
-			imageWidth: '',
-			imageHeight: '',
-			imageID: 0,
-			imageMediaType: undefined,
+			mediaUrl: '',
+			mediaAlt: '',
+			mediaWidth: '',
+			mediaHeight: '',
+			mediaId: 0,
+			mediaType: undefined,
 		} );
 	};
 
-	const onChangeUrl = ( { url: newUrl, opensInNewTab } ) =>
-		setAttributes( {
-			url: newUrl,
-			target: ! opensInNewTab ? '_self' : '_blank',
-		} );
+	const onSetHref = ( props ) => {
+		setAttributes( props );
+	};
 
-	const onChangeImageSizeSlug = ( value ) => {
-		let newImageURL = imageURL;
+	const onChangeMediaSizeSlug = ( value ) => {
+		let newMediaUrl = mediaUrl;
 		if ( !! resizedImages[ value ] && !! resizedImages[ value ].url ) {
-			newImageURL = resizedImages[ value ].url;
+			newMediaUrl = resizedImages[ value ].url;
 		}
 
-		let newImageWidth = imageWidth;
+		let newMediaWidth = mediaWidth;
 		if ( !! resizedImages[ value ] && !! resizedImages[ value ].width ) {
-			newImageWidth = resizedImages[ value ].width;
+			newMediaWidth = resizedImages[ value ].width;
 		}
 
-		let newImageHeight = imageHeight;
+		let newMediaHeight = mediaHeight;
 		if ( !! resizedImages[ value ] && !! resizedImages[ value ].height ) {
-			newImageHeight = resizedImages[ value ].height;
+			newMediaHeight = resizedImages[ value ].height;
 		}
 
 		setAttributes( {
-			imageURL: newImageURL,
-			imageWidth: newImageWidth,
-			imageHeight: newImageHeight,
-			imageSizeSlug: value,
+			mediaUrl: newMediaUrl,
+			mediaWidth: newMediaWidth,
+			mediaHeight: newMediaHeight,
+			mediaSizeSlug: value,
 		} );
 	};
 
@@ -242,21 +252,6 @@ export default function ( {
 			caption: value,
 		} );
 
-	const toolbarControls = [
-		{
-			icon: pullLeft,
-			title: __( 'Show media on left', 'snow-monkey-blocks' ),
-			isActive: 'left' === imagePosition,
-			onClick: () => setAttributes( { imagePosition: 'left' } ),
-		},
-		{
-			icon: pullRight,
-			title: __( 'Show media on right', 'snow-monkey-blocks' ),
-			isActive: 'right' === imagePosition,
-			onClick: () => setAttributes( { imagePosition: 'right' } ),
-		},
-	];
-
 	return (
 		<>
 			<InspectorControls>
@@ -268,7 +263,7 @@ export default function ( {
 							'Image Column Size',
 							'snow-monkey-blocks'
 						) }
-						value={ imageColumnSize }
+						value={ mediaColumnSize }
 						options={ [
 							{
 								value: 66,
@@ -287,13 +282,13 @@ export default function ( {
 								label: __( '25%', 'snow-monkey-blocks' ),
 							},
 						] }
-						onChange={ onChangeImageColumnSize }
+						onChange={ onChangeMediaColumnSize }
 					/>
 					<ImageSizeSelectControl
 						label={ __( 'Images size', 'snow-monkey-blocks' ) }
-						id={ imageID }
-						slug={ imageSizeSlug }
-						onChange={ onChangeImageSizeSlug }
+						id={ mediaId }
+						slug={ mediaSizeSlug }
+						onChange={ onChangeMediaSizeSlug }
 					/>
 					<SelectControl
 						label={ __( 'Sort by mobile', 'snow-monkey-blocks' ) }
@@ -350,34 +345,50 @@ export default function ( {
 			</InspectorControls>
 
 			<BlockControls>
-				<ToolbarGroup controls={ toolbarControls } />
 				<BlockVerticalAlignmentToolbar
 					onChange={ onChangeVerticalAlignment }
 					value={ verticalAlignment }
 				/>
 
-				{ imageURL &&
-					( 'image' === imageMediaType ||
-						undefined === imageMediaType ) && (
-						<ToolbarGroup>
-							<ToolbarButton
-								icon="admin-links"
-								label={ __( 'Link', 'snow-monkey-blocks' ) }
-								aria-expanded={ isLinkUIOpen }
-								onClick={ toggleLinkUIOpen }
-							/>
+				<ToolbarGroup>
+					<ToolbarButton
+						icon={ pullLeft }
+						title={ __(
+							'Show media on left',
+							'snow-monkey-blocks'
+						) }
+						isActive={ 'left' === mediaPosition }
+						onClick={ () =>
+							setAttributes( { mediaPosition: 'left' } )
+						}
+					/>
+					<ToolbarButton
+						icon={ pullRight }
+						title={ __(
+							'Show media on right',
+							'snow-monkey-blocks'
+						) }
+						isActive={ 'right' === mediaPosition }
+						onClick={ () =>
+							setAttributes( { mediaPosition: 'right' } )
+						}
+					/>
+				</ToolbarGroup>
 
-							{ !! url && (
-								<ToolbarButton
-									isPressed
-									icon="editor-unlink"
-									label={ __(
-										'Unlink',
-										'snow-monkey-blocks'
-									) }
-									onClick={ () => onChangeUrl( '', false ) }
-								/>
-							) }
+				{ mediaUrl &&
+					( 'image' === mediaType || undefined === mediaType ) && (
+						<ToolbarGroup>
+							<ImageURLInputUI
+								url={ href || '' }
+								onChangeUrl={ onSetHref }
+								linkDestination={ linkDestination }
+								mediaType={ mediaType }
+								mediaUrl={ mediaUrl }
+								mediaLink={ image && image.link }
+								linkTarget={ linkTarget }
+								linkClass={ linkClass }
+								rel={ rel }
+							/>
 						</ToolbarGroup>
 					) }
 			</BlockControls>
@@ -405,30 +416,19 @@ export default function ( {
 					<div className={ imageColumnClasses }>
 						<div className="smb-media-text__figure">
 							<Figure
-								src={ imageURL }
-								id={ imageID }
-								alt={ imageAlt }
-								url={ url }
-								target={ target }
+								src={ mediaUrl }
+								id={ mediaId }
+								alt={ mediaAlt }
+								url={ href }
+								target={ linkTarget }
 								onSelect={ onSelectImage }
-								onSelectURL={ onSelectImageURL }
+								onSelectURL={ onSelectMediaUrl }
 								onRemove={ onRemoveImage }
-								mediaType={ imageMediaType }
+								mediaType={ mediaType }
 								allowedTypes={ ALLOWED_TYPES }
+								linkClass={ linkClass }
+								rel={ rel }
 							/>
-
-							{ isLinkUIOpen && (
-								<Popover
-									position="bottom center"
-									onClose={ closeLinkUIOpen }
-								>
-									<LinkControl
-										url={ url }
-										target={ target }
-										onChange={ onChangeUrl }
-									/>
-								</Popover>
-							) }
 						</div>
 
 						{ ( ! RichText.isEmpty( caption ) || isSelected ) && (
