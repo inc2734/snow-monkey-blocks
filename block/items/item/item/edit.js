@@ -23,6 +23,8 @@ import {
 	useBlockProps,
 } from '@wordpress/block-editor';
 
+import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
+
 import Figure from '@smb/component/figure';
 import LinkControl from '@smb/component/link-control';
 
@@ -72,6 +74,12 @@ export default function ( {
 	const blockProps = useBlockProps( {
 		className: classes,
 	} );
+
+	const onChangeUrl = ( { url: newUrl, opensInNewTab } ) =>
+		setAttributes( {
+			btnURL: newUrl,
+			btnTarget: ! opensInNewTab ? '_self' : '_blank',
+		} );
 
 	return (
 		<>
@@ -272,12 +280,21 @@ export default function ( {
 
 			<BlockControls>
 				<ToolbarGroup>
-					<ToolbarButton
-						icon="admin-links"
-						label={ __( 'Link', 'snow-monkey-blocks' ) }
-						aria-expanded={ isLinkUIOpen }
-						onClick={ toggleLinkUIOpen }
-					/>
+					{ !! btnURL ? (
+						<ToolbarButton
+							isPressed
+							icon={ linkOffIcon }
+							label={ __( 'Unlink', 'snow-monkey-blocks' ) }
+							onClick={ onChangeUrl( '', false ) }
+						/>
+					) : (
+						<ToolbarButton
+							icon={ linkIcon }
+							label={ __( 'Link', 'snow-monkey-blocks' ) }
+							aria-expanded={ isLinkUIOpen }
+							onClick={ toggleLinkUIOpen }
+						/>
+					) }
 				</ToolbarGroup>
 			</BlockControls>
 
@@ -286,12 +303,7 @@ export default function ( {
 					<LinkControl
 						url={ btnURL }
 						target={ btnTarget }
-						onChange={ ( { url: newUrl, opensInNewTab } ) => {
-							setAttributes( {
-								btnURL: newUrl,
-								btnTarget: ! opensInNewTab ? '_self' : '_blank',
-							} );
-						} }
+						onChange={ onChangeUrl }
 					/>
 				</Popover>
 			) }

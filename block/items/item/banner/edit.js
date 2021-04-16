@@ -24,6 +24,8 @@ import {
 	useBlockProps,
 } from '@wordpress/block-editor';
 
+import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
+
 import Figure from '@smb/component/figure';
 import LinkControl from '@smb/component/link-control';
 import ImageSizeSelectControl from '@smb/component/image-size-select-control';
@@ -382,19 +384,19 @@ export default function ( {
 			<BlockControls>
 				<AlignmentToolbar value={ align } onChange={ onChangeAlign } />
 				<ToolbarGroup>
-					<ToolbarButton
-						icon="admin-links"
-						label={ __( 'Link', 'snow-monkey-blocks' ) }
-						aria-expanded={ isLinkUIOpen }
-						onClick={ toggleLinkUIOpen }
-					/>
-
-					{ !! url && (
+					{ !! url ? (
 						<ToolbarButton
 							isPressed
-							icon="editor-unlink"
+							icon={ linkOffIcon }
 							label={ __( 'Unlink', 'snow-monkey-blocks' ) }
 							onClick={ () => onChangeUrl( '', false ) }
+						/>
+					) : (
+						<ToolbarButton
+							icon={ linkIcon }
+							label={ __( 'Link', 'snow-monkey-blocks' ) }
+							aria-expanded={ isLinkUIOpen }
+							onClick={ toggleLinkUIOpen }
 						/>
 					) }
 				</ToolbarGroup>

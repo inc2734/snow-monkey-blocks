@@ -17,6 +17,7 @@ import {
 import { useSelect } from '@wordpress/data';
 import { useState, useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
+import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
 
 import Figure from '@smb/component/figure';
 import LinkControl from '@smb/component/link-control';
@@ -215,19 +216,19 @@ export default function ( {
 
 			<BlockControls>
 				<ToolbarGroup>
-					<ToolbarButton
-						icon="admin-links"
-						label={ __( 'Link', 'snow-monkey-blocks' ) }
-						aria-expanded={ isLinkUIOpen }
-						onClick={ toggleLinkUIOpen }
-					/>
-
-					{ !! url && (
+					{ !! url ? (
 						<ToolbarButton
 							isPressed
-							icon="editor-unlink"
+							icon={ linkOffIcon }
 							label={ __( 'Unlink', 'snow-monkey-blocks' ) }
 							onClick={ () => onChangeUrl( '', false ) }
+						/>
+					) : (
+						<ToolbarButton
+							icon={ linkIcon }
+							label={ __( 'Link', 'snow-monkey-blocks' ) }
+							aria-expanded={ isLinkUIOpen }
+							onClick={ toggleLinkUIOpen }
 						/>
 					) }
 				</ToolbarGroup>

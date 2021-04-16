@@ -24,6 +24,7 @@ import {
 } from '@wordpress/block-editor';
 
 import { __ } from '@wordpress/i18n';
+import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
 
 import Figure from '@smb/component/figure';
 import LinkControl from '@smb/component/link-control';
@@ -445,19 +446,19 @@ export default function ( {
 			{ ! RichText.isEmpty( btnLabel ) && (
 				<BlockControls>
 					<ToolbarGroup>
-						<ToolbarButton
-							icon="admin-links"
-							label={ __( 'Link', 'snow-monkey-blocks' ) }
-							aria-expanded={ isLinkUIOpen }
-							onClick={ toggleLinkUIOpen }
-						/>
-
-						{ !! btnURL && (
+						{ !! btnURL ? (
 							<ToolbarButton
 								isPressed
-								icon="editor-unlink"
+								icon={ linkOffIcon }
 								label={ __( 'Unlink', 'snow-monkey-blocks' ) }
 								onClick={ () => onChangeBtnUrl( '', false ) }
+							/>
+						) : (
+							<ToolbarButton
+								icon={ linkIcon }
+								label={ __( 'Link', 'snow-monkey-blocks' ) }
+								aria-expanded={ isLinkUIOpen }
+								onClick={ toggleLinkUIOpen }
 							/>
 						) }
 					</ToolbarGroup>
