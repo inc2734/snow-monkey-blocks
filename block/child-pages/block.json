@@ -24,6 +24,18 @@
     "itemThumbnailSizeSlug": {
       "type": "string",
       "default": "large"
+    },
+    "arrows": {
+      "type": "boolean",
+      "default": false
+    },
+    "dots": {
+      "type": "boolean",
+      "default": true
+    },
+    "interval": {
+      "type": "number",
+      "default": 0
     }
   }
 }

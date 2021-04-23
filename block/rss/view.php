@@ -28,6 +28,9 @@ $instance = [
 	'item-title-tag' => $attributes['itemTitleTagName'],
 	'link-text'      => null,
 	'link-url'       => null,
+	'arrows'         => $attributes['arrows'],
+	'dots'           => $attributes['dots'],
+	'interval'       => $attributes['interval'],
 ];
 
 $anchor = ! empty( $attributes['myAnchor'] ) ? $attributes['myAnchor'] : null; // Backward compatible

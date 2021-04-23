@@ -33,6 +33,9 @@ export default function ( { attributes, setAttributes } ) {
 		noPostsText,
 		itemTitleTagName,
 		itemThumbnailSizeSlug,
+		arrows,
+		dots,
+		interval,
 	} = attributes;
 
 	const { taxonomiesTerms, taxonomies } = useSelect( ( select ) => {
@@ -111,6 +114,21 @@ export default function ( { attributes, setAttributes } ) {
 	const onChangeNoPostsText = ( value ) =>
 		setAttributes( {
 			noPostsText: value,
+		} );
+
+	const onChangeArrows = ( value ) =>
+		setAttributes( {
+			arrows: value,
+		} );
+
+	const onChangeDots = ( value ) =>
+		setAttributes( {
+			dots: value,
+		} );
+
+	const onChangeInterval = ( value ) =>
+		setAttributes( {
+			interval: toNumber( value, 0, 10 ),
 		} );
 
 	// Backward compatible
@@ -210,6 +228,43 @@ export default function ( { attributes, setAttributes } ) {
 							},
 						] }
 					/>
+
+					{ 'carousel' === layout && (
+						<>
+							<ToggleControl
+								label={ __(
+									'Display arrows',
+									'snow-monkey-blocks'
+								) }
+								checked={ arrows }
+								onChange={ onChangeArrows }
+							/>
+
+							<ToggleControl
+								label={ __(
+									'Display dots',
+									'snow-monkey-blocks'
+								) }
+								checked={ dots }
+								onChange={ onChangeDots }
+							/>
+
+							<RangeControl
+								label={ __(
+									'Autoplay Speed in seconds',
+									'snow-monkey-blocks'
+								) }
+								help={ __(
+									'If "0", no scroll.',
+									'snow-monkey-blocks'
+								) }
+								value={ interval }
+								onChange={ onChangeInterval }
+								min="0"
+								max="10"
+							/>
+						</>
+					) }
 
 					<BaseControl
 						label={ __( 'Title Tag', 'snow-monkey-blocks' ) }

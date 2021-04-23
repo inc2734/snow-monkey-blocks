@@ -33,6 +33,9 @@ $instance = [
 	'item-thumbnail-size' => $attributes['itemThumbnailSizeSlug'],
 	'link-text'           => null,
 	'link-url'            => null,
+	'arrows'              => $attributes['arrows'],
+	'dots'                => $attributes['dots'],
+	'interval'            => $attributes['interval'],
 ];
 
 $anchor = ! empty( $attributes['myAnchor'] ) ? $attributes['myAnchor'] : null; // Backward compatible

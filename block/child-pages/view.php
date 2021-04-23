@@ -49,17 +49,27 @@ if ( ! empty( $attributes['className'] ) ) {
 				'_item_thumbnail_size' => $attributes['itemThumbnailSizeSlug'],
 				'_item_title_tag'      => $attributes['itemTitleTagName'],
 				'_title'               => $attributes['title'],
+				'_arrows'              => $attributes['arrows'],
+				'_dots'                => $attributes['dots'],
+				'_interval'            => $attributes['interval'],
 			]
 		);
 	} else {
-		if ( isset( $attributes['title'] ) ) {
-			$block_title               = $attributes['title'];
-			$child_page_title_callback = function() use ( $block_title ) {
-				return $block_title;
-			};
-			add_filter( 'snow_monkey_child_pages_title', $child_page_title_callback, 9 );
-		}
-		get_template_part( 'template-parts/child-pages' );
+		get_template_part(
+			'template-parts/child-pages',
+			null,
+			[
+				'_context'             => 'snow-monkey-blocks/child-pages',
+				'_entries_layout'      => $attributes['layout'],
+				'_force_sm_1col'       => $force_sm_1col,
+				'_item_thumbnail_size' => $attributes['itemThumbnailSizeSlug'],
+				'_item_title_tag'      => $attributes['itemTitleTagName'],
+				'_title'               => $attributes['title'],
+				'_arrows'              => $attributes['arrows'],
+				'_dots'                => $attributes['dots'],
+				'_interval'            => $attributes['interval'],
+			]
+		);
 	}
 	?>
 </div>
