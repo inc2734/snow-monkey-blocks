@@ -21,6 +21,10 @@
     color: _var-color-gray();
     text-align: center;
   }
+
+  .#{ $_prefix }c-container {
+    @include _container-padding(false);
+  }
 }
 
 .smb-btn-box.is-style-ghost {

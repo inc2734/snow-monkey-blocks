@@ -20,10 +20,10 @@
   }
 
   &__title {
-    @include _font-size-line-height($_base-font-size * $_h2-font-size-scale / 1.25);
+    @include _font-size-line-height($_h2-font-size-scale / 1.25);
 
     @include _media-min(lg) {
-      @include _font-size-line-height($_base-font-size * $_h2-font-size-scale);
+      @include _font-size-line-height($_h2-font-size-scale);
     }
   }
 

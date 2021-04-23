@@ -58,7 +58,7 @@
         content: '';
         display: block;
         height: 1px;
-        width: $_base-font-size-px * 2;
+        width: 2rem;
         background-color: $_color-text; // For IE11
         background-color: _var-color-text();
       }

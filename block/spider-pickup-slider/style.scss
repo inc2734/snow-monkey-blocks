@@ -60,7 +60,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    @include container-padding();
+    @include _container-padding(false);
     color: $_color-white; // For IE11
     color: _var-color-white();
     text-shadow: rgba($_color-text, .3) 1px 1px 3px;
@@ -83,15 +83,15 @@
 
     &__title {
       font-weight: bold;
-      @include _font-size-line-height($_base-font-size-px * 1.5);
+      @include _font-size-line-height(1.5);
       max-width: 100%; // For IE11
 
       @include _media-min(md) {
-        @include _font-size-line-height($_base-font-size-px * 2);
+        @include _font-size-line-height(2);
       }
 
       @include _media-min(lg) {
-        @include _font-size-line-height($_base-font-size-px * 3);
+        @include _font-size-line-height(3);
       }
 
       a {
@@ -123,4 +123,13 @@
 
 .smb-section + .smb-spider-pickup-slider.alignfull {
   margin-top: 0;
+}
+
+.alignwide,
+.alignfull {
+  &.smb-spider-pickup-slider {
+    &__item {
+      @include _container-padding();
+    }
+  }
 }

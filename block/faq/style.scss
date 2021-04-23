@@ -26,7 +26,7 @@
       &__label {
         flex: 0 0 0%;
         @include _margin-right(1);
-        @include _font-size($_base-font-size-px * 1.5);
+        @include _font-size(1.5);
         line-height: 1;
         font-weight: normal;
         color: $color-accent;

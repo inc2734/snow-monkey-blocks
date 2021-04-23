@@ -15,11 +15,6 @@
     @include _margin-top(.25);
   }
 
-  .smb-directory-structure__item {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
   &__item {
     p {
       display: flex;

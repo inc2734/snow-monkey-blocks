@@ -22,7 +22,7 @@
       position: absolute;
       top: 0;
       bottom: 0;
-      left: ($_base-font-size-px * 2.5 / 2);
+      left: 1.25rem;
       border-left: 1px dotted transparent;
       border-left-color: _light($_color-gray); // For IE11
       border-left-color: _var-light-color-gray();
@@ -43,7 +43,7 @@
 
       > .smb-step__item__number {
         @include _margin-right(.5);
-        flex: 0 0 ($_base-font-size-px * 2.5);
+        flex: 0 0 2.5rem;
       }
 
       > span {
@@ -54,7 +54,7 @@
     &__number {
       position: relative;
       z-index: 1;
-      @include _circle($_base-font-size-px * 2.5);
+      @include _circle(2.5rem);
       display: flex;
       align-items: center;
       justify-content: center;
