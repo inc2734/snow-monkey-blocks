@@ -150,6 +150,7 @@ export default function ( { attributes, setAttributes } ) {
 								label: __( 'Panels', 'snow-monkey-blocks' ),
 							},
 							{
+								value: 'carousel',
 								label: sprintf(
 									// translators: %1$s: Layout
 									__(
