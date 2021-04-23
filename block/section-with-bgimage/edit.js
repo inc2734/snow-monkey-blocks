@@ -2,13 +2,12 @@ import classnames from 'classnames';
 import { times } from 'lodash';
 
 import {
-	ColorPalette,
 	InnerBlocks,
 	InspectorControls,
-	PanelColorSettings,
 	RichText,
 	useBlockProps,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 } from '@wordpress/block-editor';
 
 import {
@@ -65,8 +64,7 @@ export default function ( {
 		height,
 		contentsAlignment,
 		maskColor,
-		maskColor2,
-		maskColorAngle,
+		maskGradientColor,
 		maskOpacity,
 		textColor,
 		parallax,
@@ -140,11 +138,9 @@ export default function ( {
 	};
 
 	const maskStyles = {};
-	if ( maskColor ) {
+	if ( maskColor || maskGradientColor ) {
 		maskStyles.backgroundColor = maskColor;
-		if ( maskColor2 ) {
-			maskStyles.backgroundImage = `linear-gradient(${ maskColorAngle }deg, ${ maskColor } 0%, ${ maskColor2 } 100%)`;
-		}
+		maskStyles.backgroundImage = maskGradientColor;
 	}
 
 	const lgVideoStyles = {
@@ -362,6 +358,11 @@ export default function ( {
 			maskColor: value,
 		} );
 
+	const onChangeMaskGradientColor = ( value ) =>
+		setAttributes( {
+			maskGradientColor: value,
+		} );
+
 	const onChangeTextColor = ( value ) =>
 		setAttributes( {
 			textColor: value,
@@ -370,16 +371,6 @@ export default function ( {
 	const onChangeMaskOpacity = ( value ) =>
 		setAttributes( {
 			maskOpacity: toNumber( ( 1 - value ).toFixed( 1 ), 0, 1 ),
-		} );
-
-	const onChangeMaskColor2 = ( value ) =>
-		setAttributes( {
-			maskColor2: value,
-		} );
-
-	const onChangeMaskColorAngle = ( value ) =>
-		setAttributes( {
-			maskColorAngle: toNumber( value, 0, 360 ),
 		} );
 
 	const onChangeSubtitle = ( value ) =>
@@ -632,49 +623,6 @@ export default function ( {
 							</>
 						) }
 					/>
-				</PanelBody>
-
-				<PanelBody
-					title={ __( 'Mask Settings', 'snow-monkey-blocks' ) }
-				>
-					<BaseControl
-						className="editor-color-palette-control"
-						label={ __( 'Mask Color', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/section-with-bgimage/mask-color"
-					>
-						<ColorPalette
-							className="editor-color-palette-control__color-palette"
-							value={ maskColor }
-							onChange={ onChangeMaskColor }
-						/>
-					</BaseControl>
-
-					{ maskColor && (
-						<BaseControl
-							className="editor-color-palette-control"
-							label={ __( 'Mask Color 2', 'snow-monkey-blocks' ) }
-							id="snow-monkey-blocks/section-with-bgimage/mask-color2"
-						>
-							<ColorPalette
-								className="editor-color-palette-control__color-palette"
-								value={ maskColor2 }
-								onChange={ onChangeMaskColor2 }
-							/>
-						</BaseControl>
-					) }
-
-					{ maskColor && maskColor2 && (
-						<RangeControl
-							label={ __(
-								'Mask Gradation Angle',
-								'snow-monkey-blocks'
-							) }
-							value={ maskColorAngle }
-							onChange={ onChangeMaskColorAngle }
-							min="0"
-							max="360"
-						/>
-					) }
 
 					<RangeControl
 						label={ __( 'Mask Opacity', 'snow-monkey-blocks' ) }
@@ -686,17 +634,24 @@ export default function ( {
 					/>
 				</PanelBody>
 
-				<PanelColorSettings
+				<PanelColorGradientSettings
 					title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
 					initialOpen={ false }
-					colorSettings={ [
+					settings={ [
 						{
-							value: textColor,
-							onChange: onChangeTextColor,
+							colorValue: maskColor,
+							gradientValue: maskGradientColor,
+							onColorChange: onChangeMaskColor,
+							onGradientChange: onChangeMaskGradientColor,
+							label: __( 'Mask Color', 'snow-monkey-blocks' ),
+						},
+						{
+							colorValue: textColor,
+							onColorChange: onChangeTextColor,
 							label: __( 'Text Color', 'snow-monkey-blocks' ),
 						},
 					] }
-				></PanelColorSettings>
+				></PanelColorGradientSettings>
 			</InspectorControls>
 
 			<TagName { ...blockProps }>

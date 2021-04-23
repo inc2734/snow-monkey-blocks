@@ -144,12 +144,8 @@
     "maskColor": {
       "type": "string"
     },
-    "maskColor2": {
+    "maskGradientColor": {
       "type": "string"
-    },
-    "maskColorAngle": {
-      "type": "number",
-      "default": 0
     },
     "maskOpacity": {
       "type": "number",

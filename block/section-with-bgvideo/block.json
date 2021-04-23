@@ -48,15 +48,10 @@
       "default": "left"
     },
     "maskColor": {
-      "type": "string",
-      "default": ""
-    },
-    "maskColor2": {
       "type": "string"
     },
-    "maskColorAngle": {
-      "type": "number",
-      "default": 0
+    "maskGradientColor": {
+      "type": "string"
     },
     "maskOpacity": {
       "type": "number",
