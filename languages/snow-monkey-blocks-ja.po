@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
 "POT-Creation-Date: 2021-04-23 20:51+0900\n"
-"PO-Revision-Date: 2021-04-23 20:51+0900\n"
+"PO-Revision-Date: 2021-04-24 01:25+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -1705,7 +1705,7 @@ msgstr "レーティングボックス"
 
 #: translation/translation.php:53
 msgid "Evaluate with bars."
-msgstr "バーでで評価します。"
+msgstr "バーで評価します。"
 
 #: translation/translation.php:55
 msgid "You can display recent posts with richer."
