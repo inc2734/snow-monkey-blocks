@@ -1,8 +1,5 @@
 import classnames from 'classnames';
 
-import { useState, useEffect } from '@wordpress/element';
-import { useSelect } from '@wordpress/data';
-
 import {
 	BaseControl,
 	CheckboxControl,
@@ -23,6 +20,8 @@ import {
 	useBlockProps,
 } from '@wordpress/block-editor';
 
+import { useState, useRef } from '@wordpress/element';
+import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
 
@@ -59,13 +58,10 @@ export default function ( {
 	} = attributes;
 
 	const [ isLinkUIOpen, setIsLinkUIOpen ] = useState( false );
-	const toggleLinkUIOpen = () => setIsLinkUIOpen( ! isLinkUIOpen );
-	const closeLinkUIOpen = () => setIsLinkUIOpen( false );
-	useEffect( () => {
-		if ( ! isSelected ) {
-			closeLinkUIOpen();
-		}
-	}, [ isSelected ] );
+	const urlIsSet = !! btnURL;
+	const urlIsSetandSelected = urlIsSet && isSelected;
+	const toggleLinkUI = () => setIsLinkUIOpen( ! isLinkUIOpen );
+	const closeLinkUI = () => setIsLinkUIOpen( false );
 
 	const { resizedImages } = useSelect( ( select ) => {
 		if ( ! imageID ) {
@@ -109,8 +105,11 @@ export default function ( {
 		color: btnTextColor || undefined,
 	};
 
+	const ref = useRef();
+
 	const blockProps = useBlockProps( {
 		className: classes,
+		ref,
 	} );
 
 	const onSelectImage = ( media ) => {
@@ -425,10 +424,11 @@ export default function ( {
 									withoutInteractiveFormatting={ true }
 								/>
 
-								{ isLinkUIOpen && (
+								{ ( isLinkUIOpen || urlIsSetandSelected ) && (
 									<Popover
 										position="bottom center"
-										onClose={ closeLinkUIOpen }
+										anchorRef={ ref.current }
+										onClose={ closeLinkUI }
 									>
 										<LinkControl
 											url={ btnURL }
@@ -443,27 +443,26 @@ export default function ( {
 				</div>
 			</div>
 
-			{ ! RichText.isEmpty( btnLabel ) && (
-				<BlockControls>
-					<ToolbarGroup>
-						{ !! btnURL ? (
-							<ToolbarButton
-								isPressed
-								icon={ linkOffIcon }
-								label={ __( 'Unlink', 'snow-monkey-blocks' ) }
-								onClick={ () => onChangeBtnUrl( '', false ) }
-							/>
-						) : (
-							<ToolbarButton
-								icon={ linkIcon }
-								label={ __( 'Link', 'snow-monkey-blocks' ) }
-								aria-expanded={ isLinkUIOpen }
-								onClick={ toggleLinkUIOpen }
-							/>
-						) }
-					</ToolbarGroup>
-				</BlockControls>
-			) }
+			<BlockControls>
+				<ToolbarGroup>
+					{ ! urlIsSet && (
+						<ToolbarButton
+							icon={ linkIcon }
+							label={ __( 'Link', 'snow-monkey-blocks' ) }
+							aria-expanded={ isLinkUIOpen }
+							onClick={ toggleLinkUI }
+						/>
+					) }
+					{ urlIsSetandSelected && (
+						<ToolbarButton
+							isPressed
+							icon={ linkOffIcon }
+							label={ __( 'Unlink', 'snow-monkey-blocks' ) }
+							onClick={ () => onChangeBtnUrl( '', false ) }
+						/>
+					) }
+				</ToolbarGroup>
+			</BlockControls>
 		</>
 	);
 }

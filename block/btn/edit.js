@@ -19,7 +19,7 @@ import {
 	useBlockProps,
 } from '@wordpress/block-editor';
 
-import { useState, useEffect } from '@wordpress/element';
+import { useState, useEffect, useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
 
@@ -39,18 +39,14 @@ export default function ( {
 		borderRadius,
 		backgroundColor,
 		textColor,
-		align,
 		wrap,
 	} = attributes;
 
 	const [ isLinkUIOpen, setIsLinkUIOpen ] = useState( false );
-	const toggleLinkUIOpen = () => setIsLinkUIOpen( ! isLinkUIOpen );
-	const closeLinkUIOpen = () => setIsLinkUIOpen( false );
-	useEffect( () => {
-		if ( ! isSelected ) {
-			closeLinkUIOpen();
-		}
-	}, [ isSelected ] );
+	const urlIsSet = !! url;
+	const urlIsSetandSelected = urlIsSet && isSelected;
+	const toggleLinkUI = () => setIsLinkUIOpen( ! isLinkUIOpen );
+	const closeLinkUI = () => setIsLinkUIOpen( false );
 
 	// At old version, using .u-clearfix. but no need now.
 	useEffect( () => {
@@ -85,8 +81,11 @@ export default function ( {
 		color: textColor || undefined,
 	};
 
+	const ref = useRef();
+
 	const blockProps = useBlockProps( {
 		className: wrapperClasses,
+		ref,
 	} );
 
 	const onChangeModifier = ( value ) =>
@@ -233,29 +232,30 @@ export default function ( {
 
 			<BlockControls>
 				<ToolbarGroup>
-					{ !! url ? (
+					{ ! urlIsSet && (
+						<ToolbarButton
+							icon={ linkIcon }
+							label={ __( 'Link', 'snow-monkey-blocks' ) }
+							aria-expanded={ isLinkUIOpen }
+							onClick={ toggleLinkUI }
+						/>
+					) }
+					{ urlIsSetandSelected && (
 						<ToolbarButton
 							isPressed
 							icon={ linkOffIcon }
 							label={ __( 'Unlink', 'snow-monkey-blocks' ) }
 							onClick={ () => onChangeUrl( '', false ) }
 						/>
-					) : (
-						<ToolbarButton
-							icon={ linkIcon }
-							label={ __( 'Link', 'snow-monkey-blocks' ) }
-							aria-expanded={ isLinkUIOpen }
-							onClick={ toggleLinkUIOpen }
-						/>
 					) }
 				</ToolbarGroup>
 			</BlockControls>
 
-			{ isLinkUIOpen && (
+			{ ( isLinkUIOpen || urlIsSetandSelected ) && (
 				<Popover
-					position={
-						undefined === align ? 'bottom left' : 'bottom center'
-					}
+					position="bottom center"
+					anchorRef={ ref.current }
+					onClose={ closeLinkUI }
 				>
 					<LinkControl
 						url={ url }

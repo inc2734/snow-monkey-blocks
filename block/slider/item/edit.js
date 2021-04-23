@@ -15,7 +15,7 @@ import {
 } from '@wordpress/components';
 
 import { useSelect } from '@wordpress/data';
-import { useState, useEffect } from '@wordpress/element';
+import { useState, useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
 
@@ -43,13 +43,10 @@ export default function ( {
 	} = attributes;
 
 	const [ isLinkUIOpen, setIsLinkUIOpen ] = useState( false );
-	const toggleLinkUIOpen = () => setIsLinkUIOpen( ! isLinkUIOpen );
-	const closeLinkUIOpen = () => setIsLinkUIOpen( false );
-	useEffect( () => {
-		if ( ! isSelected ) {
-			closeLinkUIOpen();
-		}
-	}, [ isSelected ] );
+	const urlIsSet = !! url;
+	const urlIsSetandSelected = urlIsSet && isSelected;
+	const toggleLinkUI = () => setIsLinkUIOpen( ! isLinkUIOpen );
+	const closeLinkUI = () => setIsLinkUIOpen( false );
 
 	const { resizedImages } = useSelect( ( select ) => {
 		if ( ! imageID ) {
@@ -76,8 +73,11 @@ export default function ( {
 
 	const classes = classnames( 'c-row__item', className );
 
+	const ref = useRef();
+
 	const blockProps = useBlockProps( {
 		className: classes,
+		ref,
 	} );
 
 	const onSelectImage = ( media ) => {
@@ -172,10 +172,11 @@ export default function ( {
 					isSelected={ isSelected }
 				/>
 
-				{ isLinkUIOpen && (
+				{ ( isLinkUIOpen || urlIsSetandSelected ) && (
 					<Popover
 						position="bottom center"
-						onClose={ closeLinkUIOpen }
+						anchorRef={ ref.current }
+						onClose={ closeLinkUI }
 					>
 						<LinkControl
 							url={ url }
@@ -186,7 +187,7 @@ export default function ( {
 				) }
 			</div>
 
-			{ ( ! RichText.isEmpty( caption ) || isSelected ) && (
+			{ isSelected && (
 				<RichText
 					className="smb-slider__item__caption"
 					placeholder={ __( 'Write caption…', 'snow-monkey-blocks' ) }
@@ -216,19 +217,20 @@ export default function ( {
 
 			<BlockControls>
 				<ToolbarGroup>
-					{ !! url ? (
+					{ ! urlIsSet && (
+						<ToolbarButton
+							icon={ linkIcon }
+							label={ __( 'Link', 'snow-monkey-blocks' ) }
+							aria-expanded={ isLinkUIOpen }
+							onClick={ toggleLinkUI }
+						/>
+					) }
+					{ urlIsSetandSelected && (
 						<ToolbarButton
 							isPressed
 							icon={ linkOffIcon }
 							label={ __( 'Unlink', 'snow-monkey-blocks' ) }
 							onClick={ () => onChangeUrl( '', false ) }
-						/>
-					) : (
-						<ToolbarButton
-							icon={ linkIcon }
-							label={ __( 'Link', 'snow-monkey-blocks' ) }
-							aria-expanded={ isLinkUIOpen }
-							onClick={ toggleLinkUIOpen }
 						/>
 					) }
 				</ToolbarGroup>

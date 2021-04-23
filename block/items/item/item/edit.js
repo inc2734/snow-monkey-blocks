@@ -1,9 +1,6 @@
 import classnames from 'classnames';
 import { times } from 'lodash';
 
-import { __ } from '@wordpress/i18n';
-import { useState, useEffect } from '@wordpress/element';
-
 import {
 	BaseControl,
 	Button,
@@ -23,6 +20,8 @@ import {
 	useBlockProps,
 } from '@wordpress/block-editor';
 
+import { useState, useRef } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
 
 import Figure from '@smb/component/figure';
@@ -51,13 +50,10 @@ export default function ( {
 	} = attributes;
 
 	const [ isLinkUIOpen, setIsLinkUIOpen ] = useState( false );
-	const toggleLinkUIOpen = () => setIsLinkUIOpen( ! isLinkUIOpen );
-	const closeLinkUIOpen = () => setIsLinkUIOpen( false );
-	useEffect( () => {
-		if ( ! isSelected ) {
-			closeLinkUIOpen();
-		}
-	}, [ isSelected ] );
+	const urlIsSet = !! btnURL;
+	const urlIsSetandSelected = urlIsSet && isSelected;
+	const toggleLinkUI = () => setIsLinkUIOpen( ! isLinkUIOpen );
+	const closeLinkUI = () => setIsLinkUIOpen( false );
 
 	const titleTagNames = [ 'div', 'h2', 'h3', 'none' ];
 
@@ -71,8 +67,11 @@ export default function ( {
 		backgroundColor: btnBackgroundColor || undefined,
 	};
 
+	const ref = useRef();
+
 	const blockProps = useBlockProps( {
 		className: classes,
+		ref,
 	} );
 
 	const onChangeUrl = ( { url: newUrl, opensInNewTab } ) =>
@@ -280,26 +279,31 @@ export default function ( {
 
 			<BlockControls>
 				<ToolbarGroup>
-					{ !! btnURL ? (
+					{ ! urlIsSet && (
+						<ToolbarButton
+							icon={ linkIcon }
+							label={ __( 'Link', 'snow-monkey-blocks' ) }
+							aria-expanded={ isLinkUIOpen }
+							onClick={ toggleLinkUI }
+						/>
+					) }
+					{ urlIsSetandSelected && (
 						<ToolbarButton
 							isPressed
 							icon={ linkOffIcon }
 							label={ __( 'Unlink', 'snow-monkey-blocks' ) }
 							onClick={ onChangeUrl( '', false ) }
 						/>
-					) : (
-						<ToolbarButton
-							icon={ linkIcon }
-							label={ __( 'Link', 'snow-monkey-blocks' ) }
-							aria-expanded={ isLinkUIOpen }
-							onClick={ toggleLinkUIOpen }
-						/>
 					) }
 				</ToolbarGroup>
 			</BlockControls>
 
-			{ isLinkUIOpen && (
-				<Popover position="bottom center" onClose={ closeLinkUIOpen }>
+			{ ( isLinkUIOpen || urlIsSetandSelected ) && (
+				<Popover
+					position="bottom center"
+					anchorRef={ ref.current }
+					onClose={ closeLinkUI }
+				>
 					<LinkControl
 						url={ btnURL }
 						target={ btnTarget }
