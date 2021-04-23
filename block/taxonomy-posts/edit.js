@@ -1,7 +1,7 @@
 import { find, times, omit } from 'lodash';
 
 import { useSelect } from '@wordpress/data';
-import { __ } from '@wordpress/i18n';
+import { __, sprintf } from '@wordpress/i18n';
 import ServerSideRender from '@wordpress/server-side-render';
 
 import { InspectorControls } from '@wordpress/block-editor';
@@ -196,6 +196,16 @@ export default function ( { attributes, setAttributes } ) {
 							{
 								value: 'panel',
 								label: __( 'Panels', 'snow-monkey-blocks' ),
+							},
+							{
+								label: sprintf(
+									// translators: %1$s: Layout
+									__(
+										'Carousel (%1$s)',
+										'snow-monkey-blocks'
+									),
+									__( 'Rich media', 'snow-monkey-blocks' )
+								),
 							},
 						] }
 					/>

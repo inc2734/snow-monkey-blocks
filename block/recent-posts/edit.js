@@ -3,7 +3,7 @@ import { times, omit } from 'lodash';
 import ServerSideRender from '@wordpress/server-side-render';
 import { useSelect } from '@wordpress/data';
 import { useMemo } from '@wordpress/element';
-import { __ } from '@wordpress/i18n';
+import { __, sprintf } from '@wordpress/i18n';
 
 import {
 	BaseControl,
@@ -152,6 +152,16 @@ export default function ( { attributes, setAttributes } ) {
 							{
 								value: 'panel',
 								label: __( 'Panels', 'snow-monkey-blocks' ),
+							},
+							{
+								label: sprintf(
+									// translators: %1$s: Layout
+									__(
+										'Carousel (%1$s)',
+										'snow-monkey-blocks'
+									),
+									__( 'Rich media', 'snow-monkey-blocks' )
+								),
 							},
 						] }
 					/>

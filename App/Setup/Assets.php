@@ -202,7 +202,8 @@ class Assets {
 				'spider',
 				SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/packages/spider/dist/js/spider.js',
 				[],
-				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/spider/dist/js/spider.js' )
+				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/spider/dist/js/spider.js' ),
+				true
 			);
 		}
 	}
