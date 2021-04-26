@@ -395,7 +395,7 @@ export default function ( {
 					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
 				>
 					<BaseControl
-						label={ __( 'Title Tag', 'snow-monkey-blocks' ) }
+						label={ __( 'Wrapper Tag', 'snow-monkey-blocks' ) }
 						id="snow-monkey-blocks/section-with-bgimage/wrapper-tag-name"
 					>
 						<div className="smb-list-icon-selector">
