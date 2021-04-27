@@ -220,7 +220,10 @@ export default function ( { attributes, setAttributes } ) {
 					) }
 
 					<BaseControl
-						label={ __( 'Title Tag', 'snow-monkey-blocks' ) }
+						label={ __(
+							'Title Tag of each items',
+							'snow-monkey-blocks'
+						) }
 						id="snow-monkey-blocks/rss/item-title-tag-name"
 					>
 						<div className="smb-list-icon-selector">

@@ -33,6 +33,8 @@ export default function ( { attributes, setAttributes } ) {
 		noPostsText,
 		itemTitleTagName,
 		itemThumbnailSizeSlug,
+		forceDisplayItemMeta,
+		forceDisplayItemTerms,
 		arrows,
 		dots,
 		interval,
@@ -109,6 +111,16 @@ export default function ( { attributes, setAttributes } ) {
 	const onChangeItemThumbnailSizeSlug = ( value ) =>
 		setAttributes( {
 			itemThumbnailSizeSlug: value,
+		} );
+
+	const onChangeForceDisplayItemMeta = ( value ) =>
+		setAttributes( {
+			forceDisplayItemMeta: value,
+		} );
+
+	const onChangeForceDisplayItemTerms = ( value ) =>
+		setAttributes( {
+			forceDisplayItemTerms: value,
 		} );
 
 	const onChangeNoPostsText = ( value ) =>
@@ -267,7 +279,10 @@ export default function ( { attributes, setAttributes } ) {
 					) }
 
 					<BaseControl
-						label={ __( 'Title Tag', 'snow-monkey-blocks' ) }
+						label={ __(
+							'Title Tag of each items',
+							'snow-monkey-blocks'
+						) }
 						id="snow-monkey-blocks/taxonomy-posts/item-title-tag-name"
 					>
 						<div className="smb-list-icon-selector">
@@ -296,10 +311,39 @@ export default function ( { attributes, setAttributes } ) {
 					</BaseControl>
 
 					<SelectControl
-						label={ __( 'Images size', 'snow-monkey-blocks' ) }
+						label={ __(
+							'Images size of each items',
+							'snow-monkey-blocks'
+						) }
 						value={ itemThumbnailSizeSlug }
 						options={ itemThumbnailSizeSlugOption }
 						onChange={ onChangeItemThumbnailSizeSlug }
+					/>
+
+					<ToggleControl
+						label={ __(
+							'Force display meta of each items',
+							'snow-monkey-blocks'
+						) }
+						help={ __(
+							"If it's already displayed, this setting will be ignored.",
+							'snow-monkey-blocks'
+						) }
+						checked={ forceDisplayItemMeta }
+						onChange={ onChangeForceDisplayItemMeta }
+					/>
+
+					<ToggleControl
+						label={ __(
+							'Force display category label of each items',
+							'snow-monkey-blocks'
+						) }
+						help={ __(
+							"If it's already displayed, this setting will be ignored.",
+							'snow-monkey-blocks'
+						) }
+						checked={ forceDisplayItemTerms }
+						onChange={ onChangeForceDisplayItemTerms }
 					/>
 
 					{ ( 'rich-media' === layout || 'panel' === layout ) && (

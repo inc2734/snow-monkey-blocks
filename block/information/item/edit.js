@@ -64,7 +64,7 @@ export default function ( { attributes, setAttributes, className, context } ) {
 						<RichText
 							className="smb-information__item__label"
 							placeholder={ __(
-								'Write label',
+								'Write label…',
 								'snow-monkey-blocks'
 							) }
 							keepPlaceholderOnFocus={ true }

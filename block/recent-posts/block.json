@@ -32,6 +32,14 @@
       "type": "string",
       "default": "h3"
     },
+    "forceDisplayItemMeta": {
+      "type": "boolean",
+      "default": false
+    },
+    "forceDisplayItemTerms": {
+      "type": "boolean",
+      "default": false
+    },
     "itemThumbnailSizeSlug": {
       "type": "string",
       "default": "large"

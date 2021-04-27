@@ -40,6 +40,14 @@
       "type": "string",
       "default": "large"
     },
+    "forceDisplayItemMeta": {
+      "type": "boolean",
+      "default": false
+    },
+    "forceDisplayItemTerms": {
+      "type": "boolean",
+      "default": false
+    },
     "arrows": {
       "type": "boolean",
       "default": false
