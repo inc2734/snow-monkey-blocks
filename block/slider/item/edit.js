@@ -71,7 +71,7 @@ export default function ( {
 		};
 	} );
 
-	const classes = classnames( 'c-row__item', className );
+	const classes = classnames( 'c-row__col', className );
 
 	const ref = useRef();
 

@@ -11,7 +11,6 @@
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: -1;
   }
 
   &__divider {
@@ -70,22 +69,7 @@
     @include _font-size-line-height($_base-font-size-px - 2);
   }
 
-  > .#{ $_prefix }c-container,
-  &__inner > .#{ $_prefix }c-container {
-    @include _container-padding(false);
-  }
-
   .#{$_prefix}c-container {
     position: relative;
-  }
-}
-
-.alignwide,
-.alignfull {
-  &.smb-section {
-    > .#{ $_prefix }c-container,
-    &__inner > .#{ $_prefix }c-container {
-      @include _container-padding();
-    }
   }
 }

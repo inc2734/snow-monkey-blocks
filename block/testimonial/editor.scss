@@ -3,6 +3,8 @@
 @import '../../src/css/core/block';
 
 .editor-styles-wrapper {
+  @import 'style';
+
   .smb-testimonial {
     &__item__figure {
       > .components-button {

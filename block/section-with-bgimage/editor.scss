@@ -1,7 +1,11 @@
 .editor-styles-wrapper {
+  @import 'style';
+
   .smb-section-with-bgimage {
     &__bgimage {
-      img, iframe, video {
+      img,
+      iframe,
+      video {
         @supports (object-fit: cover) {
           max-width: 100%;
           height: 100%;

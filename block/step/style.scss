@@ -3,47 +3,51 @@
 @import '../../src/css/core/block';
 
 .smb-step {
+  $number-size: 2.5rem;
+  $gap-coefficient: 2.5;
+
   counter-reset: item;
 
   &__body {
-    > .smb-step__item {
-      margin-top: 0;
-      margin-bottom: 0;
+    > *:not(:first-child) {
+      @include _margin-top(1);
     }
-  }
-
-  &__item {
-    position: relative;
-    @include _padding-left(1.75);
 
     &::before {
       content: '';
       display: block;
       position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 1.25rem;
+      top: $_half-leading * 1rem; // For IE11
+      top: calc(#{ _var-half-leading() } * 1rem);
+      bottom: $_half-leading * 1rem; // For IE11
+      bottom: calc(#{ _var-half-leading() } * 1rem);
+      left: $number-size / 2;
       border-left: 1px dotted transparent;
       border-left-color: _light($_color-gray); // For IE11
       border-left-color: _var-light-color-gray();
     }
+  }
 
-    &:not(:first-child) {
-      @include _padding-top(1);
-    }
+  &__item {
+    position: relative;
+    @include _margin-left($gap-coefficient);
 
     &__title {
+      position: relative;
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
       align-items: center;
-      @include _margin-left(-1.75, false);
       @include _margin-bottom(.5);
       font-weight: bold;
 
       > .smb-step__item__number {
-        @include _margin-right(.5);
-        flex: 0 0 2.5rem;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        @include _margin-left($gap-coefficient * -1);
+        //left: calc(#{ _space(-1 * $gap-coefficient, true, true) } + #{ $number-size });
+        transform: translateY(-50%);
       }
 
       > span {
@@ -52,9 +56,7 @@
     }
 
     &__number {
-      position: relative;
-      z-index: 1;
-      @include _circle(2.5rem);
+      @include _circle($number-size);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -77,9 +79,6 @@
           display: none;
         }
       }
-    }
-
-    &__body {
     }
 
     &__summary {

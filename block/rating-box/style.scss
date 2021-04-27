@@ -4,17 +4,12 @@
 
 .smb-rating-box {
   &__body {
-    > .smb-rating-box__item {
-      margin-top: 0;
-      margin-bottom: 0;
+    > *:not(:first-child) {
+      @include _margin-top(.5);
     }
   }
 
   &__item {
-    &:not(:first-child) {
-      @include _padding-top(.5);
-    }
-
     &__title {
       @include _margin-bottom(.125);
     }

@@ -8,12 +8,21 @@
 /**
  * style
  */
-wp_register_style(
-	'snow-monkey-blocks/btn',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/btn/style.css',
-	[ 'snow-monkey-blocks' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/btn/style.css' )
-);
+if ( ! is_admin() ) {
+	wp_register_style(
+		'snow-monkey-blocks/btn',
+		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/btn/style.css',
+		[ 'snow-monkey-blocks' ],
+		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/btn/style.css' )
+	);
+} else {
+	wp_register_style(
+		'snow-monkey-blocks/btn',
+		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/btn/editor.css',
+		[ 'snow-monkey-blocks-editor' ],
+		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/btn/editor.css' )
+	);
+}
 
 /**
  * editor_script
@@ -27,22 +36,11 @@ wp_register_script(
 	true
 );
 
-/**
- * editor_style
- */
-wp_register_style(
-	'snow-monkey-blocks/btn/editor',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/btn/editor.css',
-	[ 'snow-monkey-blocks-editor', 'snow-monkey-blocks/btn' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/btn/editor.css' )
-);
-
 register_block_type_from_metadata(
 	__DIR__,
 	[
 		'style'         => 'snow-monkey-blocks/btn',
 		'editor_script' => 'snow-monkey-blocks/btn/editor',
-		'editor_style'  => 'snow-monkey-blocks/btn/editor',
 	]
 );
 

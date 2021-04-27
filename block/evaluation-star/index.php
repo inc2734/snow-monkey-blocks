@@ -8,12 +8,21 @@
 /**
  * style
  */
-wp_register_style(
-	'snow-monkey-blocks/evaluation-star',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/evaluation-star/style.css',
-	[ 'snow-monkey-blocks' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/evaluation-star/style.css' )
-);
+if ( ! is_admin() ) {
+	wp_register_style(
+		'snow-monkey-blocks/evaluation-star',
+		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/evaluation-star/style.css',
+		[ 'snow-monkey-blocks' ],
+		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/evaluation-star/style.css' )
+	);
+} else {
+	wp_register_style(
+		'snow-monkey-blocks/evaluation-star',
+		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/evaluation-star/editor.css',
+		[ 'snow-monkey-blocks-editor' ],
+		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/evaluation-star/editor.css' )
+	);
+}
 
 /**
  * editor_script

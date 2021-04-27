@@ -6,6 +6,25 @@
  */
 
 /**
+ * style
+ */
+if ( ! is_admin() ) {
+	wp_register_style(
+		'snow-monkey-blocks/countdown',
+		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/countdown/style.css',
+		[ 'snow-monkey-blocks' ],
+		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/countdown/style.css' )
+	);
+} else {
+	wp_register_style(
+		'snow-monkey-blocks/countdown',
+		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/countdown/editor.css',
+		[ 'snow-monkey-blocks-editor' ],
+		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/countdown/editor.css' )
+	);
+}
+
+/**
  * script
  */
 wp_register_script(
@@ -14,16 +33,6 @@ wp_register_script(
 	[],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/countdown/script.js' ),
 	true
-);
-
-/**
- * style
- */
-wp_register_style(
-	'snow-monkey-blocks/countdown',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/countdown/style.css',
-	[ 'snow-monkey-blocks' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/countdown/style.css' )
 );
 
 /**

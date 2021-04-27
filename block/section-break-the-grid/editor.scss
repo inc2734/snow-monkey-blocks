@@ -1,5 +1,41 @@
-.smb-section-break-the-grid {
-  &__shadow {
-    z-index: 0;
+@charset 'utf-8';
+
+@import '../../src/css/core/block';
+
+.editor-styles-wrapper {
+  @import 'style';
+}
+
+[data-align="full"] .smb-section-break-the-grid {
+  > .c-container {
+    max-width: none;
+  }
+}
+
+[data-align="full"] .smb-section-break-the-grid--right,
+[data-align="full"] .smb-section-break-the-grid--left {
+  .smb-section-break-the-grid__figure {
+    @include _media-max(md) {
+      right: 0;
+      left: 0;
+      margin-right: calc(50% - 50vw);
+      margin-left: calc(50% - 50vw);
+    }
+  }
+}
+
+[data-align="full"] .smb-section-break-the-grid--right {
+  .smb-section-break-the-grid__figure {
+    @include _media-min(lg) {
+      right: _space(-1);
+    }
+  }
+}
+
+[data-align="full"] .smb-section-break-the-grid--left {
+  .smb-section-break-the-grid__figure {
+    @include _media-min(lg) {
+      left: _space(-1);
+    }
   }
 }

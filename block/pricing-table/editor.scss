@@ -3,14 +3,9 @@
 @import '../../src/css/core/block';
 
 .editor-styles-wrapper {
-  .smb-pricing-table {
-    &__item {
-      > ul {
-        @include _list-unstyled();
-        @include _margin-top(.5);
-      }
-    }
+  @import 'style';
 
+  .smb-pricing-table {
     .block-list-appender {
       display: flex;
       flex-direction: column;

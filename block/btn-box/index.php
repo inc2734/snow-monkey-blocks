@@ -8,12 +8,21 @@
 /**
  * style
  */
-wp_register_style(
-	'snow-monkey-blocks/btn-box',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/btn-box/style.css',
-	[ 'snow-monkey-blocks' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/btn-box/style.css' )
-);
+if ( ! is_admin() ) {
+	wp_register_style(
+		'snow-monkey-blocks/btn-box',
+		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/btn-box/style.css',
+		[ 'snow-monkey-blocks' ],
+		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/btn-box/style.css' )
+	);
+} else {
+	wp_register_style(
+		'snow-monkey-blocks/btn-box',
+		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/btn-box/editor.css',
+		[ 'snow-monkey-blocks-editor' ],
+		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/btn-box/editor.css' )
+	);
+}
 
 /**
  * editor_script

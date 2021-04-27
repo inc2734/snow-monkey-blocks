@@ -8,12 +8,21 @@
 /**
  * style
  */
-wp_register_style(
-	'snow-monkey-blocks/balloon',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/balloon/style.css',
-	[ 'snow-monkey-blocks' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/balloon/style.css' )
-);
+if ( ! is_admin() ) {
+	wp_register_style(
+		'snow-monkey-blocks/balloon',
+		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/balloon/style.css',
+		[ 'snow-monkey-blocks' ],
+		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/balloon/style.css' )
+	);
+} else {
+	wp_register_style(
+		'snow-monkey-blocks/balloon',
+		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/balloon/editor.css',
+		[ 'snow-monkey-blocks-editor' ],
+		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/balloon/editor.css' )
+	);
+}
 
 /**
  * editor_script
@@ -27,22 +36,11 @@ wp_register_script(
 	true
 );
 
-/**
- * editor_style
- */
-wp_register_style(
-	'snow-monkey-blocks/balloon/editor',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/balloon/editor.css',
-	[ 'snow-monkey-blocks-editor', 'snow-monkey-blocks/balloon' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/balloon/editor.css' )
-);
-
 register_block_type_from_metadata(
 	__DIR__,
 	[
 		'style'         => 'snow-monkey-blocks/balloon',
 		'editor_script' => 'snow-monkey-blocks/balloon/editor',
-		'editor_style'  => 'snow-monkey-blocks/balloon/editor',
 	]
 );
 

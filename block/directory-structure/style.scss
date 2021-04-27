@@ -36,7 +36,7 @@
   &__item__list {
     margin-left: 1.5rem;
 
-    > .smb-directory-structure__item {
+    > * {
       @include _margin-top(.25);
     }
   }

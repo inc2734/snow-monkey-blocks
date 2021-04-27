@@ -3,6 +3,8 @@
 @import '../../src/css/core/block';
 
 .editor-styles-wrapper {
+  @import 'style';
+
   .smb-panels {
     > .#{ $_prefix }c-row--margin {
       margin-bottom: 0;

@@ -8,6 +8,25 @@
 use Snow_Monkey\Plugin\Blocks;
 
 /**
+ * style
+ */
+if ( ! is_admin() ) {
+	wp_register_style(
+		'snow-monkey-blocks/section-with-bgvideo',
+		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-with-bgvideo/style.css',
+		[ 'snow-monkey-blocks', 'snow-monkey-blocks/section' ],
+		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-with-bgvideo/style.css' )
+	);
+} else {
+	wp_register_style(
+		'snow-monkey-blocks/section-with-bgvideo',
+		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-with-bgvideo/editor.css',
+		[ 'snow-monkey-blocks-editor', 'snow-monkey-blocks/section' ],
+		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-with-bgvideo/editor.css' )
+	);
+}
+
+/**
  * script
  */
 wp_register_script(
@@ -16,16 +35,6 @@ wp_register_script(
 	[],
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-with-bgvideo/script.js' ),
 	true
-);
-
-/**
- * style
- */
-wp_register_style(
-	'snow-monkey-blocks/section-with-bgvideo',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-with-bgvideo/style.css',
-	[ 'snow-monkey-blocks', 'snow-monkey-blocks/section' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-with-bgvideo/style.css' )
 );
 
 /**
@@ -38,16 +47,6 @@ wp_register_script(
 	array_merge( $asset['dependencies'], [ 'snow-monkey-blocks-editor', 'snow-monkey-blocks/section/editor' ] ),
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-with-bgvideo/editor.js' ),
 	true
-);
-
-/**
- * editor_style
- */
-wp_register_style(
-	'snow-monkey-blocks/section-with-bgvideo/editor',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-with-bgvideo/editor.css',
-	[ 'snow-monkey-blocks-editor', 'snow-monkey-blocks/section-with-bgvideo' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-with-bgvideo/editor.css' )
 );
 
 register_block_type_from_metadata(

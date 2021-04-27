@@ -8,12 +8,21 @@
 /**
  * style
  */
-wp_register_style(
-	'snow-monkey-blocks/media-text',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/media-text/style.css',
-	[ 'snow-monkey-blocks' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/media-text/style.css' )
-);
+if ( ! is_admin() ) {
+	wp_register_style(
+		'snow-monkey-blocks/media-text',
+		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/media-text/style.css',
+		[ 'snow-monkey-blocks' ],
+		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/media-text/style.css' )
+	);
+} else {
+	wp_register_style(
+		'snow-monkey-blocks/media-text',
+		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/media-text/editor.css',
+		[ 'snow-monkey-blocks-editor' ],
+		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/media-text/editor.css' )
+	);
+}
 
 /**
  * editor_script

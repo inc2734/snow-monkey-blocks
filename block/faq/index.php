@@ -8,12 +8,21 @@
 /**
  * style
  */
-wp_register_style(
-	'snow-monkey-blocks/faq',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/faq/style.css',
-	[ 'snow-monkey-blocks' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/faq/style.css' )
-);
+if ( ! is_admin() ) {
+	wp_register_style(
+		'snow-monkey-blocks/faq',
+		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/faq/style.css',
+		[ 'snow-monkey-blocks' ],
+		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/faq/style.css' )
+	);
+} else {
+	wp_register_style(
+		'snow-monkey-blocks/faq',
+		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/faq/editor.css',
+		[ 'snow-monkey-blocks-editor' ],
+		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/faq/editor.css' )
+	);
+}
 
 /**
  * editor_script
