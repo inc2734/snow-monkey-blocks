@@ -1,10 +1,10 @@
 === Snow Monkey Blocks ===
-Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber
+Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.7
 Tested up to: 5.7
-Stable tag: 11.1.0
+Stable tag: 11.2.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -107,6 +107,22 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 23. Information block (The number of items can be increased or decreased freely)
 
 == Changelog ==
+
+= 11.2.0 =
+* [Recent posts] Added the ability to display meta information and category labels.
+* [Taxonomy posts]　Added the ability to display meta information and category labels.
+* [Recent posts] Add new layout "Carousel (Rich media)".
+* [Taxonomy posts] Add new layout "Carousel (Rich media)".
+* [RSS] Add new layout "Carousel (Rich media)".
+* [Child pages] Add new layout "Carousel (Rich media)".
+* [Section (Background image/video)]Gradients in background mask color settings changed to core components.
+* [Section (YouTube)] Gradients in background mask color settings changed to core components.
+* [Step] Refactoring CSS.
+* [Section] Fixed a bug that sometimes caused thin lines to be displayed when setting delimiters.
+* [Section (Side heading)] Fixed a bug that sometimes caused thin lines to be displayed when setting delimiters.
+* Update CSS of each blocks for block editor.
+* Changed the popover display conditions for buttons in each block.
+* Fixed some translations.
 
 = 11.1.0 =
 * [Media text] Add media link and attachment link settings.
