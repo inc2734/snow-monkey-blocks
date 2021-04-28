@@ -6,6 +6,5 @@ snow-monkey-blocks
 dist/
 npm-debug.log
 .wp-env.override.json
-/sql/
-translation/
-/uploads/
+/.translation/
+/.export/*

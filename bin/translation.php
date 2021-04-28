@@ -5,7 +5,7 @@
  * @license GPL-2.0+
  */
 
-$translation_dir = __DIR__ . '/../translation';
+$translation_dir = __DIR__ . '/../.translation';
 $block_dirs      = [
 	__DIR__ . '/../block/*',
 	__DIR__ . '/../block/*/*',
