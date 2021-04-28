@@ -10,7 +10,7 @@
     justify-content: center;
 
     &__figure {
-      @include _margin-top($_between-lines);
+      @include _margin-top($_half-leading * 1rem);
       @include _margin-right(.5);
       flex: 0 0 48px;
       @include _circle(48px);

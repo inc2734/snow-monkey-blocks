@@ -37,7 +37,7 @@
   "scripts": {
     "export:wp-content:themes": "npm run cli 'cp -r wp-content/themes .export/wp-content'",
     "export:wp-content:uploads": "npm run cli 'cp -r wp-content/uploads .export/wp-content'",
-    "export:wp-content": "npm run cli 'rm -rf .export/wp-content' && mkdir -p .export/wp-content/uploads && run-p -s export:wp-content:*",
+    "export:wp-content": "npm run cli 'rm -rf .export/wp-content' && mkdir -p .export/wp-content/uploads && run-p export:wp-content:*",
     "export:db": "mkdir -p .export/sql && npm run wp 'db export .export/sql/local.sql'",
     "export": "run-p export:*",
     "wp-env": "wp-env",
