@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.7
 Tested up to: 5.7
-Stable tag: 11.2.0
+Stable tag: 11.2.1
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -123,6 +123,9 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 * Update CSS of each blocks for block editor.
 * Changed the popover display conditions for buttons in each block.
 * Fixed some translations.
+
+= 11.2.1 =
+* [Step] Correct the misalignment of the line.
 
 = 11.1.0 =
 * [Media text] Add media link and attachment link settings.
