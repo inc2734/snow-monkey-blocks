@@ -9,6 +9,8 @@
   counter-reset: item;
 
   &__body {
+    position: relative;
+
     > *:not(:first-child) {
       @include _margin-top(1);
     }
@@ -29,7 +31,6 @@
   }
 
   &__item {
-    position: relative;
     @include _margin-left($gap-coefficient);
 
     &__title {
