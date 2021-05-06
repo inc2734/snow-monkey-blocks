@@ -11,8 +11,13 @@ export default function ( { attributes, className } ) {
 		title,
 		subtitle,
 		lede,
+		backgroundHorizontalPosition,
+		backgroundVerticalPosition,
+		isBackgroundNoOver,
 		backgroundColor,
 		backgroundGradientColor,
+		fixedBackgroundColor,
+		fixedBackgroundGradientColor,
 		textColor,
 		headingPosition,
 		headingColumnSize,
@@ -20,9 +25,11 @@ export default function ( { attributes, className } ) {
 		topDividerType,
 		topDividerLevel,
 		topDividerColor,
+		topDividerVerticalPosition,
 		bottomDividerType,
 		bottomDividerLevel,
 		bottomDividerColor,
+		bottomDividerVerticalPosition,
 	} = attributes;
 
 	const { textColumnWidth, imageColumnWidth } = getColumnSize(
@@ -69,19 +76,70 @@ export default function ( { attributes, className } ) {
 		`c-row__col--md-${ textColumnWidth }`
 	);
 
+	const hasBackgroundColor = backgroundColor || backgroundGradientColor;
+	const hasFixedBackgroundColor =
+		fixedBackgroundColor || fixedBackgroundGradientColor;
+	const hasTopDivider = !! topDividerLevel;
+	const hasBottomDivider = !! bottomDividerLevel;
+	const hasTitle = ! RichText.isEmpty( title ) && 'none' !== titleTagName;
+	const hasSubTitle = ! RichText.isEmpty( subtitle );
+	const hasLede = ! RichText.isEmpty( lede );
+
 	const sectionStyles = {};
 	if ( textColor ) {
 		sectionStyles.color = textColor;
 	}
-	if ( backgroundColor || backgroundGradientColor ) {
-		sectionStyles.backgroundColor = backgroundColor;
-		sectionStyles.backgroundImage = backgroundGradientColor;
-	}
 
-	const innerStyles = {
+	const fixedBackgroundStyles = {
 		paddingTop: Math.abs( topDividerLevel ),
 		paddingBottom: Math.abs( bottomDividerLevel ),
+		backgroundColor: fixedBackgroundColor,
+		backgroundImage: fixedBackgroundGradientColor,
 	};
+
+	const dividersStyles = {};
+	if ( topDividerVerticalPosition ) {
+		dividersStyles.top = `${ topDividerVerticalPosition }%`;
+	}
+	if ( bottomDividerVerticalPosition ) {
+		dividersStyles.bottom = `${ bottomDividerVerticalPosition }%`;
+	}
+
+	const backgroundStyles = {};
+	if ( hasBackgroundColor ) {
+		backgroundStyles.backgroundColor = backgroundColor;
+		backgroundStyles.backgroundImage = backgroundGradientColor;
+
+		if ( ! isBackgroundNoOver ) {
+			if ( backgroundHorizontalPosition || backgroundVerticalPosition ) {
+				backgroundStyles.transform = `translate(${
+					backgroundHorizontalPosition || 0
+				}%, ${ backgroundVerticalPosition || 0 }%)`;
+			}
+		} else {
+			if ( 0 < backgroundHorizontalPosition ) {
+				backgroundStyles.left = `${ Math.abs(
+					backgroundHorizontalPosition
+				) }%`;
+			} else if ( 0 > backgroundHorizontalPosition ) {
+				backgroundStyles.right = `${ Math.abs(
+					backgroundHorizontalPosition
+				) }%`;
+			}
+
+			if ( 0 < backgroundVerticalPosition ) {
+				backgroundStyles.top = `${ Math.abs(
+					backgroundVerticalPosition
+				) }%`;
+			} else if ( 0 > backgroundVerticalPosition ) {
+				backgroundStyles.bottom = `${ Math.abs(
+					backgroundVerticalPosition
+				) }%`;
+			}
+		}
+	}
+
+	const innerStyles = {};
 
 	return (
 		<TagName
@@ -90,22 +148,46 @@ export default function ( { attributes, className } ) {
 				style: sectionStyles,
 			} ) }
 		>
-			{ !! topDividerLevel && (
-				<div className={ topDividerClasses }>
-					{ divider(
-						topDividerType,
-						topDividerLevel,
-						topDividerColor
+			{ ( hasFixedBackgroundColor ||
+				hasBackgroundColor ||
+				hasTopDivider ||
+				hasBottomDivider ) && (
+				<div
+					className="smb-section__fixed-background"
+					style={ fixedBackgroundStyles }
+				>
+					{ hasBackgroundColor && (
+						<div
+							className="smb-section__background"
+							style={ backgroundStyles }
+						/>
 					) }
-				</div>
-			) }
 
-			{ !! bottomDividerLevel && (
-				<div className={ bottomDividerClasses }>
-					{ divider(
-						bottomDividerType,
-						bottomDividerLevel,
-						bottomDividerColor
+					{ ( hasTopDivider || hasBottomDivider ) && (
+						<div
+							className="smb-section__dividers"
+							style={ dividersStyles }
+						>
+							{ hasTopDivider && (
+								<div className={ topDividerClasses }>
+									{ divider(
+										topDividerType,
+										topDividerLevel,
+										topDividerColor
+									) }
+								</div>
+							) }
+
+							{ hasBottomDivider && (
+								<div className={ bottomDividerClasses }>
+									{ divider(
+										bottomDividerType,
+										bottomDividerLevel,
+										bottomDividerColor
+									) }
+								</div>
+							) }
+						</div>
 					) }
 				</div>
 			) }
@@ -114,16 +196,15 @@ export default function ( { attributes, className } ) {
 				<div className={ containerClasses }>
 					<div className={ rowClasses }>
 						<div className={ headingColClasses }>
-							{ ! RichText.isEmpty( title ) &&
-								! RichText.isEmpty( subtitle ) && (
-									<RichText.Content
-										tagName="div"
-										className="smb-section__subtitle smb-section-side-heading__subtitle"
-										value={ subtitle }
-									/>
-								) }
+							{ hasTitle && hasSubTitle && (
+								<RichText.Content
+									tagName="div"
+									className="smb-section__subtitle smb-section-side-heading__subtitle"
+									value={ subtitle }
+								/>
+							) }
 
-							{ ! RichText.isEmpty( title ) && (
+							{ hasTitle && (
 								<RichText.Content
 									tagName={ titleTagName }
 									className="smb-section__title smb-section-side-heading__title"
@@ -131,14 +212,13 @@ export default function ( { attributes, className } ) {
 								/>
 							) }
 
-							{ ! RichText.isEmpty( title ) &&
-								! RichText.isEmpty( lede ) && (
-									<RichText.Content
-										tagName="div"
-										className="smb-section__lede smb-section-side-heading__lede"
-										value={ lede }
-									/>
-								) }
+							{ hasTitle && hasLede && (
+								<RichText.Content
+									tagName="div"
+									className="smb-section__lede smb-section-side-heading__lede"
+									value={ lede }
+								/>
+							) }
 						</div>
 						<div className={ contentColClasses }>
 							<div className="smb-section__body smb-section-side-heading__body">

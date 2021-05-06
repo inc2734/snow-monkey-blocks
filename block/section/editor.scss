@@ -4,4 +4,9 @@
 
 .editor-styles-wrapper {
   @import 'style';
+
+  [data-align="full"] .smb-section .c-container {
+    padding-right: 0;
+    padding-left: 0;
+  }
 }

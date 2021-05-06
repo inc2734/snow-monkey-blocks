@@ -2,12 +2,12 @@ import classnames from 'classnames';
 import { times } from 'lodash';
 
 import {
-	ColorPalette,
 	InnerBlocks,
 	InspectorControls,
 	RichText,
 	useBlockProps,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	__experimentalColorGradientControl as ColorGradientControl,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 } from '@wordpress/block-editor';
 
@@ -39,8 +39,13 @@ export default function ( {
 		title,
 		subtitle,
 		lede,
+		backgroundHorizontalPosition,
+		backgroundVerticalPosition,
+		isBackgroundNoOver,
 		backgroundColor,
 		backgroundGradientColor,
+		fixedBackgroundColor,
+		fixedBackgroundGradientColor,
 		textColor,
 		headingPosition,
 		headingColumnSize,
@@ -48,9 +53,11 @@ export default function ( {
 		topDividerType,
 		topDividerLevel,
 		topDividerColor,
+		topDividerVerticalPosition,
 		bottomDividerType,
 		bottomDividerLevel,
 		bottomDividerColor,
+		bottomDividerVerticalPosition,
 	} = attributes;
 
 	const hasInnerBlocks = useSelect(
@@ -67,7 +74,7 @@ export default function ( {
 	);
 
 	const wrapperTagNames = [ 'div', 'section', 'aside' ];
-	const titleTagNames = [ 'h1', 'h2', 'h3' ];
+	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
 
 	const TagName = wrapperTagName;
 	const classes = classnames(
@@ -108,19 +115,70 @@ export default function ( {
 		`c-row__col--md-${ textColumnWidth }`
 	);
 
+	const hasBackgroundColor = backgroundColor || backgroundGradientColor;
+	const hasFixedBackgroundColor =
+		fixedBackgroundColor || fixedBackgroundGradientColor;
+	const hasTopDivider = !! topDividerLevel;
+	const hasBottomDivider = !! bottomDividerLevel;
+	const hasTitle = ! RichText.isEmpty( title ) && 'none' !== titleTagName;
+	const hasSubTitle = ! RichText.isEmpty( subtitle );
+	const hasLede = ! RichText.isEmpty( lede );
+
 	const sectionStyles = {};
 	if ( textColor ) {
 		sectionStyles.color = textColor;
 	}
-	if ( backgroundColor || backgroundGradientColor ) {
-		sectionStyles.backgroundColor = backgroundColor;
-		sectionStyles.backgroundImage = backgroundGradientColor;
-	}
 
-	const innerStyles = {
+	const fixedBackgroundStyles = {
 		paddingTop: Math.abs( topDividerLevel ),
 		paddingBottom: Math.abs( bottomDividerLevel ),
+		backgroundColor: fixedBackgroundColor,
+		backgroundImage: fixedBackgroundGradientColor,
 	};
+
+	const dividersStyles = {};
+	if ( topDividerVerticalPosition ) {
+		dividersStyles.top = `${ topDividerVerticalPosition }%`;
+	}
+	if ( bottomDividerVerticalPosition ) {
+		dividersStyles.bottom = `${ bottomDividerVerticalPosition }%`;
+	}
+
+	const backgroundStyles = {};
+	if ( hasBackgroundColor ) {
+		backgroundStyles.backgroundColor = backgroundColor;
+		backgroundStyles.backgroundImage = backgroundGradientColor;
+
+		if ( ! isBackgroundNoOver ) {
+			if ( backgroundHorizontalPosition || backgroundVerticalPosition ) {
+				backgroundStyles.transform = `translate(${
+					backgroundHorizontalPosition || 0
+				}%, ${ backgroundVerticalPosition || 0 }%)`;
+			}
+		} else {
+			if ( 0 < backgroundHorizontalPosition ) {
+				backgroundStyles.left = `${ Math.abs(
+					backgroundHorizontalPosition
+				) }%`;
+			} else if ( 0 > backgroundHorizontalPosition ) {
+				backgroundStyles.right = `${ Math.abs(
+					backgroundHorizontalPosition
+				) }%`;
+			}
+
+			if ( 0 < backgroundVerticalPosition ) {
+				backgroundStyles.top = `${ Math.abs(
+					backgroundVerticalPosition
+				) }%`;
+			} else if ( 0 > backgroundVerticalPosition ) {
+				backgroundStyles.bottom = `${ Math.abs(
+					backgroundVerticalPosition
+				) }%`;
+			}
+		}
+	}
+
+	const innerStyles = {};
 
 	const blockProps = useBlockProps( {
 		className: classes,
@@ -156,6 +214,21 @@ export default function ( {
 			isSlim: value,
 		} );
 
+	const onChangeBackgroundHorizontalPosition = ( value ) =>
+		setAttributes( {
+			backgroundHorizontalPosition: toNumber( value, -90, 90 ),
+		} );
+
+	const onChangeBackgroundVerticalPosition = ( value ) =>
+		setAttributes( {
+			backgroundVerticalPosition: toNumber( value, -90, 90 ),
+		} );
+
+	const onChangeIsBackgroundNoOver = ( value ) =>
+		setAttributes( {
+			isBackgroundNoOver: value,
+		} );
+
 	const onChangeBackgroundColor = ( value ) =>
 		setAttributes( {
 			backgroundColor: value,
@@ -164,6 +237,16 @@ export default function ( {
 	const onChangeBackgroundGradientColor = ( value ) =>
 		setAttributes( {
 			backgroundGradientColor: value,
+		} );
+
+	const onChangeFixedBackgroundColor = ( value ) =>
+		setAttributes( {
+			fixedBackgroundColor: value,
+		} );
+
+	const onChangeFixedBackgroundGradientColor = ( value ) =>
+		setAttributes( {
+			fixedBackgroundGradientColor: value,
 		} );
 
 	const onChangeTextColor = ( value ) =>
@@ -186,6 +269,11 @@ export default function ( {
 			topDividerColor: value,
 		} );
 
+	const onChangeTopDividerVerticalPosition = ( value ) =>
+		setAttributes( {
+			topDividerVerticalPosition: value,
+		} );
+
 	const onChangeBottomDividerType = ( value ) =>
 		setAttributes( {
 			bottomDividerType: value,
@@ -199,6 +287,11 @@ export default function ( {
 	const onChangeBottomDividerColor = ( value ) =>
 		setAttributes( {
 			bottomDividerColor: value,
+		} );
+
+	const onChangeBottomDividerVerticalPosition = ( value ) =>
+		setAttributes( {
+			bottomDividerVerticalPosition: value,
 		} );
 
 	const onChangeSubtitle = ( value ) =>
@@ -326,27 +419,79 @@ export default function ( {
 					/>
 				</PanelBody>
 
-				<PanelColorGradientSettings
-					title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
+				<PanelBody
+					title={ __(
+						'Background (Movable) Settings',
+						'snow-monkey-blocks'
+					) }
 					initialOpen={ false }
-					settings={ [
-						{
-							colorValue: backgroundColor,
-							gradientValue: backgroundGradientColor,
-							onColorChange: onChangeBackgroundColor,
-							onGradientChange: onChangeBackgroundGradientColor,
-							label: __(
-								'Background Color',
-								'snow-monkey-blocks'
-							),
-						},
-						{
-							colorValue: textColor,
-							onColorChange: onChangeTextColor,
-							label: __( 'Text Color', 'snow-monkey-blocks' ),
-						},
-					] }
-				></PanelColorGradientSettings>
+				>
+					<ColorGradientControl
+						label={ __( 'Color', 'snow-monkey-blocks' ) }
+						colorValue={ backgroundColor }
+						gradientValue={ backgroundGradientColor }
+						onColorChange={ onChangeBackgroundColor }
+						onGradientChange={ onChangeBackgroundGradientColor }
+					/>
+
+					{ hasBackgroundColor && (
+						<>
+							<RangeControl
+								label={ __(
+									'Background Position (Left / Right)',
+									'snow-monkey-blocks'
+								) }
+								value={ backgroundHorizontalPosition }
+								onChange={
+									onChangeBackgroundHorizontalPosition
+								}
+								min="-90"
+								max="90"
+							/>
+
+							<RangeControl
+								label={ __(
+									'Background Position (Top / Bottom)',
+									'snow-monkey-blocks'
+								) }
+								value={ backgroundVerticalPosition }
+								onChange={ onChangeBackgroundVerticalPosition }
+								min="-90"
+								max="90"
+							/>
+
+							{ ( 0 !== backgroundHorizontalPosition ||
+								0 !== backgroundVerticalPosition ) && (
+								<ToggleControl
+									label={ __(
+										"Make sure the background doesn't overflow to the outside",
+										'snow-monkey-blocks'
+									) }
+									checked={ isBackgroundNoOver }
+									onChange={ onChangeIsBackgroundNoOver }
+								/>
+							) }
+						</>
+					) }
+				</PanelBody>
+
+				<PanelBody
+					title={ __(
+						'Background (Fixed) Settings',
+						'snow-monkey-blocks'
+					) }
+					initialOpen={ false }
+				>
+					<ColorGradientControl
+						label={ __( 'Color', 'snow-monkey-blocks' ) }
+						colorValue={ fixedBackgroundColor }
+						gradientValue={ fixedBackgroundGradientColor }
+						onColorChange={ onChangeFixedBackgroundColor }
+						onGradientChange={
+							onChangeFixedBackgroundGradientColor
+						}
+					/>
+				</PanelBody>
 
 				<PanelBody
 					title={ __( 'Top divider Settings', 'snow-monkey-blocks' ) }
@@ -384,17 +529,22 @@ export default function ( {
 						max="100"
 					/>
 
-					<BaseControl
-						className="editor-color-palette-control"
+					<ColorGradientControl
 						label={ __( 'Color', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/section-side-heading/top-divider-color"
-					>
-						<ColorPalette
-							className="editor-color-palette-control__color-palette"
-							value={ topDividerColor }
-							onChange={ onChangeTopDividerColor }
-						/>
-					</BaseControl>
+						colorValue={ topDividerColor }
+						onColorChange={ onChangeTopDividerColor }
+					/>
+
+					<RangeControl
+						label={ __(
+							'Position (Top / Bottom)',
+							'snow-monkey-blocks'
+						) }
+						value={ topDividerVerticalPosition }
+						onChange={ onChangeTopDividerVerticalPosition }
+						min="-90"
+						max="90"
+					/>
 				</PanelBody>
 
 				<PanelBody
@@ -436,37 +586,78 @@ export default function ( {
 						max="100"
 					/>
 
-					<BaseControl
-						className="editor-color-palette-control"
+					<ColorGradientControl
 						label={ __( 'Color', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/section-side-heading/bottom-divider-color"
-					>
-						<ColorPalette
-							className="editor-color-palette-control__color-palette"
-							value={ bottomDividerColor }
-							onChange={ onChangeBottomDividerColor }
-						/>
-					</BaseControl>
+						colorValue={ bottomDividerColor }
+						onColorChange={ onChangeBottomDividerColor }
+					/>
+
+					<RangeControl
+						label={ __(
+							'Position (Top / Bottom)',
+							'snow-monkey-blocks'
+						) }
+						value={ bottomDividerVerticalPosition }
+						onChange={ onChangeBottomDividerVerticalPosition }
+						min="-90"
+						max="90"
+					/>
 				</PanelBody>
+
+				<PanelColorGradientSettings
+					title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
+					initialOpen={ false }
+					settings={ [
+						{
+							colorValue: textColor,
+							onColorChange: onChangeTextColor,
+							label: __( 'Text Color', 'snow-monkey-blocks' ),
+						},
+					] }
+				></PanelColorGradientSettings>
 			</InspectorControls>
 
 			<TagName { ...blockProps }>
-				{ !! topDividerLevel && (
-					<div className={ topDividerClasses }>
-						{ divider(
-							topDividerType,
-							topDividerLevel,
-							topDividerColor
+				{ ( hasFixedBackgroundColor ||
+					hasBackgroundColor ||
+					hasTopDivider ||
+					hasBottomDivider ) && (
+					<div
+						className="smb-section__fixed-background"
+						style={ fixedBackgroundStyles }
+					>
+						{ hasBackgroundColor && (
+							<div
+								className="smb-section__background"
+								style={ backgroundStyles }
+							/>
 						) }
-					</div>
-				) }
 
-				{ !! bottomDividerLevel && (
-					<div className={ bottomDividerClasses }>
-						{ divider(
-							bottomDividerType,
-							bottomDividerLevel,
-							bottomDividerColor
+						{ ( hasTopDivider || hasBottomDivider ) && (
+							<div
+								className="smb-section__dividers"
+								style={ dividersStyles }
+							>
+								{ hasTopDivider && (
+									<div className={ topDividerClasses }>
+										{ divider(
+											topDividerType,
+											topDividerLevel,
+											topDividerColor
+										) }
+									</div>
+								) }
+
+								{ hasBottomDivider && (
+									<div className={ bottomDividerClasses }>
+										{ divider(
+											bottomDividerType,
+											bottomDividerLevel,
+											bottomDividerColor
+										) }
+									</div>
+								) }
+							</div>
 						) }
 					</div>
 				) }
@@ -475,22 +666,19 @@ export default function ( {
 					<div className={ containerClasses }>
 						<div className={ rowClasses }>
 							<div className={ headingColClasses }>
-								{ ! RichText.isEmpty( title ) &&
-									( ! RichText.isEmpty( subtitle ) ||
-										isSelected ) && (
-										<RichText
-											className="smb-section__subtitle smb-section-side-heading__subtitle"
-											value={ subtitle }
-											onChange={ onChangeSubtitle }
-											placeholder={ __(
-												'Write subtitle…',
-												'snow-monkey-blocks'
-											) }
-										/>
-									) }
+								{ hasTitle && ( hasSubTitle || isSelected ) && (
+									<RichText
+										className="smb-section__subtitle smb-section-side-heading__subtitle"
+										value={ subtitle }
+										onChange={ onChangeSubtitle }
+										placeholder={ __(
+											'Write subtitle…',
+											'snow-monkey-blocks'
+										) }
+									/>
+								) }
 
-								{ ( ! RichText.isEmpty( title ) ||
-									isSelected ) && (
+								{ hasTitle && (
 									<RichText
 										className="smb-section__title smb-section-side-heading__title"
 										tagName={ titleTagName }
@@ -503,19 +691,17 @@ export default function ( {
 									/>
 								) }
 
-								{ ! RichText.isEmpty( title ) &&
-									( ! RichText.isEmpty( lede ) ||
-										isSelected ) && (
-										<RichText
-											className="smb-section__lede smb-section-side-heading__lede"
-											value={ lede }
-											onChange={ onChangeLede }
-											placeholder={ __(
-												'Write lede…',
-												'snow-monkey-blocks'
-											) }
-										/>
-									) }
+								{ hasTitle && ( hasLede || isSelected ) && (
+									<RichText
+										className="smb-section__lede smb-section-side-heading__lede"
+										value={ lede }
+										onChange={ onChangeLede }
+										placeholder={ __(
+											'Write lede…',
+											'snow-monkey-blocks'
+										) }
+									/>
+								) }
 							</div>
 							<div className={ contentColClasses }>
 								<div { ...innerBlocksProps } />

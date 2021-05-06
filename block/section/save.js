@@ -16,14 +16,18 @@ export default function ( { attributes, className } ) {
 		isBackgroundNoOver,
 		backgroundColor,
 		backgroundGradientColor,
+		fixedBackgroundColor,
+		fixedBackgroundGradientColor,
 		textColor,
 		isSlim,
 		topDividerType,
 		topDividerLevel,
 		topDividerColor,
+		topDividerVerticalPosition,
 		bottomDividerType,
 		bottomDividerLevel,
 		bottomDividerColor,
+		bottomDividerVerticalPosition,
 	} = attributes;
 
 	const TagName = wrapperTagName;
@@ -46,22 +50,37 @@ export default function ( { attributes, className } ) {
 		'u-slim-width': !! isSlim,
 	} );
 
+	const hasBackgroundColor = backgroundColor || backgroundGradientColor;
+	const hasFixedBackgroundColor =
+		fixedBackgroundColor || fixedBackgroundGradientColor;
+	const hasTopDivider = !! topDividerLevel;
+	const hasBottomDivider = !! bottomDividerLevel;
+	const hasTitle = ! RichText.isEmpty( title ) && 'none' !== titleTagName;
+	const hasSubTitle = ! RichText.isEmpty( subtitle );
+	const hasLede = ! RichText.isEmpty( lede );
+
 	const sectionStyles = {};
 	if ( textColor ) {
 		sectionStyles.color = textColor;
 	}
-	if ( 0 < backgroundVerticalPosition ) {
-		if ( !! topDividerLevel ) {
-			sectionStyles.backgroundColor = topDividerColor;
-		}
-	} else if ( 0 > backgroundVerticalPosition ) {
-		if ( !! bottomDividerLevel ) {
-			sectionStyles.backgroundColor = bottomDividerColor;
-		}
+
+	const fixedBackgroundStyles = {
+		paddingTop: Math.abs( topDividerLevel ),
+		paddingBottom: Math.abs( bottomDividerLevel ),
+		backgroundColor: fixedBackgroundColor,
+		backgroundImage: fixedBackgroundGradientColor,
+	};
+
+	const dividersStyles = {};
+	if ( topDividerVerticalPosition ) {
+		dividersStyles.top = `${ topDividerVerticalPosition }%`;
+	}
+	if ( bottomDividerVerticalPosition ) {
+		dividersStyles.bottom = `${ bottomDividerVerticalPosition }%`;
 	}
 
 	const backgroundStyles = {};
-	if ( backgroundColor || backgroundGradientColor ) {
+	if ( hasBackgroundColor ) {
 		backgroundStyles.backgroundColor = backgroundColor;
 		backgroundStyles.backgroundImage = backgroundGradientColor;
 
@@ -94,10 +113,7 @@ export default function ( { attributes, className } ) {
 		}
 	}
 
-	const innerStyles = {
-		paddingTop: Math.abs( topDividerLevel ),
-		paddingBottom: Math.abs( bottomDividerLevel ),
-	};
+	const innerStyles = {};
 
 	return (
 		<TagName
@@ -106,29 +122,44 @@ export default function ( { attributes, className } ) {
 				style: sectionStyles,
 			} ) }
 		>
-			{ ( 0 < Object.keys( backgroundStyles ).length ||
-				!! topDividerLevel ||
-				!! bottomDividerLevel ) && (
+			{ ( hasFixedBackgroundColor ||
+				hasBackgroundColor ||
+				hasTopDivider ||
+				hasBottomDivider ) && (
 				<div
-					className="smb-section__background"
-					style={ backgroundStyles }
+					className="smb-section__fixed-background"
+					style={ fixedBackgroundStyles }
 				>
-					{ !! topDividerLevel && (
-						<div className={ topDividerClasses }>
-							{ divider(
-								topDividerType,
-								topDividerLevel,
-								topDividerColor
-							) }
-						</div>
+					{ hasBackgroundColor && (
+						<div
+							className="smb-section__background"
+							style={ backgroundStyles }
+						/>
 					) }
 
-					{ !! bottomDividerLevel && (
-						<div className={ bottomDividerClasses }>
-							{ divider(
-								bottomDividerType,
-								bottomDividerLevel,
-								bottomDividerColor
+					{ ( hasTopDivider || hasBottomDivider ) && (
+						<div
+							className="smb-section__dividers"
+							style={ dividersStyles }
+						>
+							{ hasTopDivider && (
+								<div className={ topDividerClasses }>
+									{ divider(
+										topDividerType,
+										topDividerLevel,
+										topDividerColor
+									) }
+								</div>
+							) }
+
+							{ hasBottomDivider && (
+								<div className={ bottomDividerClasses }>
+									{ divider(
+										bottomDividerType,
+										bottomDividerLevel,
+										bottomDividerColor
+									) }
+								</div>
 							) }
 						</div>
 					) }
@@ -137,34 +168,29 @@ export default function ( { attributes, className } ) {
 
 			<div className="smb-section__inner" style={ innerStyles }>
 				<div className={ containerClasses }>
-					{ ! RichText.isEmpty( title ) &&
-						! RichText.isEmpty( subtitle ) &&
-						'none' !== titleTagName && (
-							<RichText.Content
-								tagName="div"
-								className="smb-section__subtitle"
-								value={ subtitle }
-							/>
-						) }
+					{ hasTitle && hasSubTitle && (
+						<RichText.Content
+							tagName="div"
+							className="smb-section__subtitle"
+							value={ subtitle }
+						/>
+					) }
 
-					{ ! RichText.isEmpty( title ) &&
-						'none' !== titleTagName && (
-							<RichText.Content
-								tagName={ titleTagName }
-								className="smb-section__title"
-								value={ title }
-							/>
-						) }
+					{ hasTitle && (
+						<RichText.Content
+							tagName={ titleTagName }
+							className="smb-section__title"
+							value={ title }
+						/>
+					) }
 
-					{ ! RichText.isEmpty( title ) &&
-						! RichText.isEmpty( lede ) &&
-						'none' !== titleTagName && (
-							<RichText.Content
-								tagName="div"
-								className="smb-section__lede"
-								value={ lede }
-							/>
-						) }
+					{ hasTitle && hasLede && (
+						<RichText.Content
+							tagName="div"
+							className="smb-section__lede"
+							value={ lede }
+						/>
+					) }
 
 					<div className="smb-section__body">
 						<InnerBlocks.Content />

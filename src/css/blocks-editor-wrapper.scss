@@ -76,3 +76,8 @@
     transform: translateX(-50%);
   }
 }
+
+.block-editor-color-gradient-control__color-indicator .components-base-control__label {
+  display: flex;
+  align-items: center;
+}
