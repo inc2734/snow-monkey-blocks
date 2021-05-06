@@ -29,6 +29,9 @@
     "backgroundColor": {
       "type": "string"
     },
+    "textColor": {
+      "type": "string"
+    },
     "balloonName": {
       "type": "string",
       "default": ""

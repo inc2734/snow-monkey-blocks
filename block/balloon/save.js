@@ -9,6 +9,7 @@ export default function ( { attributes, className } ) {
 		avatarURL,
 		avatarBorderColor,
 		backgroundColor,
+		textColor,
 		balloonName,
 		balloonBody,
 		modifier,
@@ -21,6 +22,7 @@ export default function ( { attributes, className } ) {
 	const bodyStyles = {
 		backgroundColor: backgroundColor || undefined,
 		borderColor: backgroundColor || undefined,
+		color: textColor || undefined,
 	};
 
 	const classes = classnames( 'smb-balloon', {

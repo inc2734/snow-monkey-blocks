@@ -18,6 +18,7 @@ export default function ( { attributes, setAttributes, className } ) {
 		avatarURL,
 		avatarBorderColor,
 		backgroundColor,
+		textColor,
 		balloonName,
 		balloonBody,
 		modifier,
@@ -46,6 +47,7 @@ export default function ( { attributes, setAttributes, className } ) {
 	const bodyStyles = {
 		backgroundColor: backgroundColor || undefined,
 		borderColor: backgroundColor || undefined,
+		color: textColor || undefined,
 	};
 
 	const classes = classnames( 'smb-balloon', {
@@ -70,6 +72,11 @@ export default function ( { attributes, setAttributes, className } ) {
 	const onChangeBackgroundColor = ( value ) =>
 		setAttributes( {
 			backgroundColor: value,
+		} );
+
+	const onChangeTextColor = ( value ) =>
+		setAttributes( {
+			textColor: value,
 		} );
 
 	const onSelectImage = ( media ) => {
@@ -134,6 +141,11 @@ export default function ( { attributes, setAttributes, className } ) {
 								'Avatar Border Color',
 								'snow-monkey-blocks'
 							),
+						},
+						{
+							value: textColor,
+							onChange: onChangeTextColor,
+							label: __( 'Text Color', 'snow-monkey-blocks' ),
 						},
 						{
 							value: backgroundColor,
