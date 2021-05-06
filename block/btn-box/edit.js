@@ -1,7 +1,6 @@
 import classnames from 'classnames';
 
 import {
-	BaseControl,
 	CheckboxControl,
 	PanelBody,
 	Popover,
@@ -13,12 +12,12 @@ import {
 
 import {
 	BlockControls,
-	ColorPalette,
 	ContrastChecker,
 	InspectorControls,
 	PanelColorSettings,
 	RichText,
 	useBlockProps,
+	__experimentalColorGradientControl as ColorGradientControl,
 } from '@wordpress/block-editor';
 
 import { useState, useRef } from '@wordpress/element';
@@ -191,29 +190,17 @@ export default function ( {
 						onChange={ onChangeBtnWrap }
 					/>
 
-					<BaseControl
-						className="editor-color-palette-control"
+					<ColorGradientControl
 						label={ __( 'Background Color', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/btn-box/background-color"
-					>
-						<ColorPalette
-							className="editor-color-palette-control__color-palette"
-							value={ btnBackgroundColor }
-							onChange={ onChangeBtnBackgroundColor }
-						/>
-					</BaseControl>
+						colorValue={ btnBackgroundColor }
+						onColorChange={ onChangeBtnBackgroundColor }
+					/>
 
-					<BaseControl
-						className="editor-color-palette-control"
+					<ColorGradientControl
 						label={ __( 'Text Color', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/btn-box/text-color"
-					>
-						<ColorPalette
-							className="editor-color-palette-control__color-palette"
-							value={ btnTextColor }
-							onChange={ onChangeBtnTextColor }
-						/>
-					</BaseControl>
+						colorValue={ btnTextColor }
+						onColorChange={ onChangeBtnTextColor }
+					/>
 
 					<ContrastChecker
 						backgroundColor={ btnBackgroundColor }

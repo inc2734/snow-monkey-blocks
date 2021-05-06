@@ -5,13 +5,13 @@ import { times } from 'lodash';
 import {
 	BlockControls,
 	BlockVerticalAlignmentToolbar,
-	ColorPalette,
 	InnerBlocks,
 	InspectorControls,
 	PanelColorSettings,
 	RichText,
 	useBlockProps,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	__experimentalColorGradientControl as ColorGradientControl,
 } from '@wordpress/block-editor';
 
 import {
@@ -502,29 +502,6 @@ export default function ( {
 						] }
 						onChange={ onChangeImageSize }
 					/>
-
-					<BaseControl
-						className="editor-color-palette-control"
-						label={ __( 'Mask Color', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/section-break-the-grid/content-background-color"
-					>
-						<ColorPalette
-							className="editor-color-palette-control__color-palette"
-							value={ maskColor }
-							onChange={ onChangeMaskColor }
-						/>
-					</BaseControl>
-
-					{ !! maskColor && (
-						<RangeControl
-							label={ __( 'Mask Opacity', 'snow-monkey-blocks' ) }
-							value={ Number( ( 1 - maskOpacity ).toFixed( 1 ) ) }
-							onChange={ onChangeMaskOpacity }
-							min={ 0 }
-							max={ 1 }
-							step={ 0.1 }
-						/>
-					) }
 				</PanelBody>
 
 				<PanelBody
@@ -702,17 +679,11 @@ export default function ( {
 						/>
 					) }
 
-					<BaseControl
-						className="editor-color-palette-control"
+					<ColorGradientControl
 						label={ __( 'Background Color', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/section-break-the-grid/content-background-color"
-					>
-						<ColorPalette
-							className="editor-color-palette-control__color-palette"
-							value={ contentBackgroundColor }
-							onChange={ onChangeContentBackgroundColor }
-						/>
-					</BaseControl>
+						colorValue={ contentBackgroundColor }
+						onColorChange={ onChangeContentBackgroundColor }
+					/>
 
 					{ !! contentBackgroundColor && (
 						<RangeControl
@@ -767,20 +738,36 @@ export default function ( {
 				</PanelBody>
 
 				<PanelBody
+					title={ __( 'Mask Settings', 'snow-monkey-blocks' ) }
+					initialOpen={ false }
+				>
+					<ColorGradientControl
+						label={ __( 'Color', 'snow-monkey-blocks' ) }
+						colorValue={ maskColor }
+						onColorChange={ onChangeMaskColor }
+					/>
+
+					{ !! maskColor && (
+						<RangeControl
+							label={ __( 'Opacity', 'snow-monkey-blocks' ) }
+							value={ Number( ( 1 - maskOpacity ).toFixed( 1 ) ) }
+							onChange={ onChangeMaskOpacity }
+							min={ 0 }
+							max={ 1 }
+							step={ 0.1 }
+						/>
+					) }
+				</PanelBody>
+
+				<PanelBody
 					title={ __( 'Shadow Settings', 'snow-monkey-blocks' ) }
 					initialOpen={ false }
 				>
-					<BaseControl
-						className="editor-color-palette-control"
+					<ColorGradientControl
 						label={ __( 'Color', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/section-break-the-grid/shadow-color"
-					>
-						<ColorPalette
-							className="editor-color-palette-control__color-palette"
-							value={ shadowColor }
-							onChange={ onChangeShadowColor }
-						/>
-					</BaseControl>
+						colorValue={ shadowColor }
+						onColorChange={ onChangeShadowColor }
+					/>
 
 					{ shadowColor && (
 						<RangeControl

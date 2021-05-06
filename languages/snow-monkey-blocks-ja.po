@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2021-05-06 12:17+0900\n"
-"PO-Revision-Date: 2021-05-06 12:17+0900\n"
+"POT-Creation-Date: 2021-05-06 13:51+0900\n"
+"PO-Revision-Date: 2021-05-06 13:51+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -26,7 +26,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-4: languages\n"
 
 #: block/accordion/item/edit.js:40 block/alert/edit.js:87
-#: block/balloon/edit.js:101 block/box/edit.js:83 block/btn/edit.js:132
+#: block/balloon/edit.js:109 block/btn/edit.js:132
 #: block/categories-list/edit.js:201 block/child-pages/edit.js:85
 #: block/container/edit.js:55 block/contents-outline/edit.js:71
 #: block/countdown/edit.js:67
@@ -89,7 +89,7 @@ msgstr "edit"
 msgid "lightbulb"
 msgstr "lightbulb"
 
-#: block/alert/edit.js:90 block/balloon/edit.js:104
+#: block/alert/edit.js:90 block/balloon/edit.js:112
 #: block/section-side-heading/edit.js:501
 #: block/section-side-heading/edit.js:558 block/section/edit.js:423
 #: block/section/edit.js:480
@@ -131,15 +131,15 @@ msgstr "アイコン"
 msgid "Write title…"
 msgstr "タイトルを書く…"
 
-#: block/balloon/edit.js:111
+#: block/balloon/edit.js:119
 msgid "Normal Balloon"
 msgstr "ノーマル吹き出し"
 
-#: block/balloon/edit.js:118
+#: block/balloon/edit.js:126
 msgid "Reverse Balloon"
 msgstr "反転吹き出し"
 
-#: block/balloon/edit.js:127 block/box/edit.js:107 block/btn-box/edit.js:225
+#: block/balloon/edit.js:135 block/box/edit.js:132 block/btn-box/edit.js:225
 #: block/btn/edit.js:186 block/countdown/edit.js:75
 #: block/directory-structure/item/directory/edit.js:136
 #: block/directory-structure/item/file/edit.js:104
@@ -154,36 +154,13 @@ msgstr "反転吹き出し"
 msgid "Color Settings"
 msgstr "色設定"
 
-#: block/balloon/edit.js:134
+#: block/balloon/edit.js:142
 msgid "Avatar Border Color"
 msgstr "アバターの線の色"
 
-#: block/balloon/edit.js:142 block/box/edit.js:116 block/btn-box/edit.js:196
-#: block/btn-box/edit.js:232 block/btn/edit.js:193
-#: block/items/item/block-link/edit.js:336
-#: block/items/item/standard/edit.js:334 block/pricing-table/item/edit.js:308
-#: block/section-break-the-grid/edit.js:707
-msgid "Background Color"
-msgstr "背景色"
-
-#: block/balloon/edit.js:168
-msgid "Name"
-msgstr "名前"
-
-#: block/box/edit.js:86
-msgid "Border width"
-msgstr "枠線の太さ"
-
-#: block/box/edit.js:95 block/section-break-the-grid/edit.js:720
-msgid "Background Opacity"
-msgstr "背景の不透明度"
-
-#: block/box/edit.js:123
-msgid "Border Color"
-msgstr "枠線の色"
-
-#: block/box/edit.js:128 block/btn-box/edit.js:208 block/btn/edit.js:200
-#: block/items/item/banner/edit.js:320 block/items/item/block-link/edit.js:348
+#: block/balloon/edit.js:149 block/box/edit.js:138 block/btn-box/edit.js:208
+#: block/btn/edit.js:200 block/items/item/banner/edit.js:320
+#: block/items/item/block-link/edit.js:348
 #: block/items/item/standard/edit.js:346 block/pricing-table/item/edit.js:320
 #: block/section-break-the-grid/edit.js:819
 #: block/section-side-heading/edit.js:614
@@ -191,6 +168,48 @@ msgstr "枠線の色"
 #: block/section-with-bgvideo/edit.js:319 block/section/edit.js:536
 msgid "Text Color"
 msgstr "文字色"
+
+#: block/balloon/edit.js:155 block/btn-box/edit.js:196
+#: block/btn-box/edit.js:232 block/btn/edit.js:193
+#: block/items/item/block-link/edit.js:336
+#: block/items/item/standard/edit.js:334 block/pricing-table/item/edit.js:308
+#: block/section-break-the-grid/edit.js:707
+msgid "Background Color"
+msgstr "背景色"
+
+#: block/balloon/edit.js:186
+msgid "Name"
+msgstr "名前"
+
+#: block/box/edit.js:88
+msgid "Background Settings"
+msgstr "背景の設定"
+
+#: block/box/edit.js:92 block/box/edit.js:117
+#: block/section-break-the-grid/edit.js:775
+#: block/section-side-heading/edit.js:430
+#: block/section-side-heading/edit.js:486
+#: block/section-side-heading/edit.js:533
+#: block/section-side-heading/edit.js:590
+#: block/section-with-bgimage/edit.js:640
+#: block/section-with-bgvideo/edit.js:295 block/section/edit.js:352
+#: block/section/edit.js:408 block/section/edit.js:455
+#: block/section/edit.js:512
+msgid "Color"
+msgstr "色"
+
+#: block/box/edit.js:101 block/section-with-bgimage/edit.js:648
+#: block/section-with-bgvideo/edit.js:303
+msgid "Opacity"
+msgstr "不透明度"
+
+#: block/box/edit.js:113
+msgid "Border Settings"
+msgstr "枠線の設定"
+
+#: block/box/edit.js:123
+msgid "Width"
+msgstr "幅"
 
 #: block/btn-box/edit.js:142 block/items/item/block-link/edit.js:282
 #: block/items/item/standard/edit.js:280 block/pricing-table/item/edit.js:254
@@ -1149,6 +1168,10 @@ msgstr "上に %1$s 移動"
 msgid "Move %1$s down"
 msgstr "下に %1$s 移動"
 
+#: block/section-break-the-grid/edit.js:720
+msgid "Background Opacity"
+msgstr "背景の不透明度"
+
 #: block/section-break-the-grid/edit.js:734
 msgid "Content Padding"
 msgstr "コンテンツの余白"
@@ -1176,18 +1199,6 @@ msgstr "外側の余白を削除"
 #: block/section-break-the-grid/edit.js:770
 msgid "Shadow Settings"
 msgstr "影の設定"
-
-#: block/section-break-the-grid/edit.js:775
-#: block/section-side-heading/edit.js:430
-#: block/section-side-heading/edit.js:486
-#: block/section-side-heading/edit.js:533
-#: block/section-side-heading/edit.js:590
-#: block/section-with-bgimage/edit.js:640
-#: block/section-with-bgvideo/edit.js:295 block/section/edit.js:352
-#: block/section/edit.js:408 block/section/edit.js:455
-#: block/section/edit.js:512
-msgid "Color"
-msgstr "色"
 
 #: block/section-break-the-grid/edit.js:788
 msgid "Horizontal Position"
@@ -1329,11 +1340,6 @@ msgstr "焦点ピッカー"
 #: block/section-with-bgvideo/edit.js:291
 msgid "Mask Settings"
 msgstr "背景マスクの設定"
-
-#: block/section-with-bgimage/edit.js:648
-#: block/section-with-bgvideo/edit.js:303
-msgid "Opacity"
-msgstr "不透明度"
 
 #: block/section-with-bgvideo/edit.js:216
 msgid "YouTube URL"
@@ -1965,6 +1971,12 @@ msgid ""
 msgstr ""
 "%1$sSnow Monkey%2$s テーマと一緒に使用すると、最も美しいバランスで表示され、"
 "フロントスクリーンと同じデザインで編集画面に表示されます。"
+
+#~ msgid "Border width"
+#~ msgstr "枠線の太さ"
+
+#~ msgid "Border Color"
+#~ msgstr "枠線の色"
 
 #~ msgid "Mask Color 2"
 #~ msgstr "背景マスクの色2"

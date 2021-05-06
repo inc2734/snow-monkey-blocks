@@ -1,15 +1,17 @@
 import classnames from 'classnames';
 
-import { PanelBody, RangeControl } from '@wordpress/components';
-import { __ } from '@wordpress/i18n';
-
 import {
 	ContrastChecker,
 	InspectorControls,
 	useBlockProps,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	__experimentalColorGradientControl as ColorGradientControl,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 } from '@wordpress/block-editor';
+
+import { PanelBody, RangeControl } from '@wordpress/components';
+
+import { __ } from '@wordpress/i18n';
 
 import { toNumber } from '@smb/helper';
 
@@ -80,21 +82,19 @@ export default function ( { attributes, setAttributes, className } ) {
 		<>
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+					title={ __( 'Background Settings', 'snow-monkey-blocks' ) }
+					initialOpen={ false }
 				>
-					<RangeControl
-						label={ __( 'Border width', 'snow-monkey-blocks' ) }
-						value={ borderWidth }
-						onChange={ onChangeBorderWidth }
-						min="1"
-						max="5"
+					<ColorGradientControl
+						label={ __( 'Color', 'snow-monkey-blocks' ) }
+						colorValue={ backgroundColor }
+						gradientValue={ backgroundGradientColor }
+						onColorChange={ onChangeBackgroundColor }
+						onGradientChange={ onChangeBackgroundGradientColor }
 					/>
 
 					<RangeControl
-						label={ __(
-							'Background Opacity',
-							'snow-monkey-blocks'
-						) }
+						label={ __( 'Opacity', 'snow-monkey-blocks' ) }
 						value={ opacity }
 						onChange={ onChangeOpacity }
 						min={ 0 }
@@ -103,25 +103,29 @@ export default function ( { attributes, setAttributes, className } ) {
 					/>
 				</PanelBody>
 
+				<PanelBody
+					title={ __( 'Border Settings', 'snow-monkey-blocks' ) }
+					initialOpen={ false }
+				>
+					<ColorGradientControl
+						label={ __( 'Color', 'snow-monkey-blocks' ) }
+						colorValue={ borderColor }
+						onColorChange={ onChangeBorderColor }
+					/>
+
+					<RangeControl
+						label={ __( 'Width', 'snow-monkey-blocks' ) }
+						value={ borderWidth }
+						onChange={ onChangeBorderWidth }
+						min="1"
+						max="5"
+					/>
+				</PanelBody>
+
 				<PanelColorGradientSettings
 					title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
 					initialOpen={ false }
 					settings={ [
-						{
-							colorValue: backgroundColor,
-							gradientValue: backgroundGradientColor,
-							onColorChange: onChangeBackgroundColor,
-							onGradientChange: onChangeBackgroundGradientColor,
-							label: __(
-								'Background Color',
-								'snow-monkey-blocks'
-							),
-						},
-						{
-							colorValue: borderColor,
-							onColorChange: onChangeBorderColor,
-							label: __( 'Border Color', 'snow-monkey-blocks' ),
-						},
 						{
 							colorValue: textColor,
 							onColorChange: onChangeTextColor,

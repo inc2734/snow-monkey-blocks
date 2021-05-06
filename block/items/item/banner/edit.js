@@ -22,6 +22,7 @@ import {
 	PanelColorSettings,
 	RichText,
 	useBlockProps,
+	__experimentalColorGradientControl as ColorGradientControl,
 } from '@wordpress/block-editor';
 
 import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
@@ -294,9 +295,20 @@ export default function ( {
 						checked={ blur }
 						onChange={ onChangeBlur }
 					/>
+				</PanelBody>
+
+				<PanelBody
+					title={ __( 'Mask Settings', 'snow-monkey-blocks' ) }
+					initialOpen={ false }
+				>
+					<ColorGradientControl
+						label={ __( 'Color', 'snow-monkey-blocks' ) }
+						colorValue={ maskColor }
+						onColorChange={ onChangeMaskColor }
+					/>
 
 					<RangeControl
-						label={ __( 'Mask Opacity', 'snow-monkey-blocks' ) }
+						label={ __( 'Opacity', 'snow-monkey-blocks' ) }
 						value={ Number( ( 1 - maskOpacity ).toFixed( 1 ) ) }
 						onChange={ onChangeMaskOpacity }
 						min={ 0 }
@@ -309,11 +321,6 @@ export default function ( {
 					title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
 					initialOpen={ false }
 					colorSettings={ [
-						{
-							value: maskColor,
-							onChange: onChangeMaskColor,
-							label: __( 'Mask Color', 'snow-monkey-blocks' ),
-						},
 						{
 							value: textColor,
 							onChange: onChangeTextColor,

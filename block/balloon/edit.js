@@ -4,6 +4,7 @@ import { Button, PanelBody, SelectControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 import {
+	ContrastChecker,
 	InspectorControls,
 	MediaUpload,
 	PanelColorSettings,
@@ -156,7 +157,12 @@ export default function ( { attributes, setAttributes, className } ) {
 							),
 						},
 					] }
-				></PanelColorSettings>
+				>
+					<ContrastChecker
+						backgroundColor={ backgroundColor }
+						textColor={ textColor }
+					/>
+				</PanelColorSettings>
 			</InspectorControls>
 
 			<div { ...blockProps }>
