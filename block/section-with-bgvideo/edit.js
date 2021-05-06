@@ -17,6 +17,7 @@ import {
 	RichText,
 	useBlockProps,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	__experimentalColorGradientControl as ColorGradientControl,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 } from '@wordpress/block-editor';
 
@@ -63,6 +64,7 @@ export default function ( {
 	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
 
 	const TagName = 'div';
+
 	const classes = classnames(
 		'smb-section',
 		'smb-section-with-bgimage',
@@ -77,6 +79,10 @@ export default function ( {
 	const containerClasses = classnames( 'c-container', {
 		'u-slim-width': !! isSlim,
 	} );
+
+	const hasTitle = ! RichText.isEmpty( title ) && 'none' !== titleTagName;
+	const hasSubTitle = ! RichText.isEmpty( subtitle );
+	const hasLede = ! RichText.isEmpty( lede );
 
 	const sectionStyles = {
 		color: textColor || undefined,
@@ -279,9 +285,22 @@ export default function ( {
 						checked={ isSlim }
 						onChange={ onChangeIsSlim }
 					/>
+				</PanelBody>
+
+				<PanelBody
+					title={ __( 'Mask Settings', 'snow-monkey-blocks' ) }
+					initialOpen={ false }
+				>
+					<ColorGradientControl
+						label={ __( 'Color', 'snow-monkey-blocks' ) }
+						colorValue={ maskColor }
+						gradientValue={ maskGradientColor }
+						onColorChange={ onChangeMaskColor }
+						onGradientChange={ onChangeMaskGradientColor }
+					/>
 
 					<RangeControl
-						label={ __( 'Mask Opacity', 'snow-monkey-blocks' ) }
+						label={ __( 'Opacity', 'snow-monkey-blocks' ) }
 						value={ Number( ( 1 - maskOpacity ).toFixed( 1 ) ) }
 						onChange={ onChangeMaskOpacity }
 						min={ 0 }
@@ -294,13 +313,6 @@ export default function ( {
 					title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
 					initialOpen={ false }
 					settings={ [
-						{
-							colorValue: maskColor,
-							gradientValue: maskGradientColor,
-							onColorChange: onChangeMaskColor,
-							onGradientChange: onChangeMaskGradientColor,
-							label: __( 'Mask Color', 'snow-monkey-blocks' ),
-						},
 						{
 							colorValue: textColor,
 							onColorChange: onChangeTextColor,
@@ -326,36 +338,34 @@ export default function ( {
 					) }
 				</div>
 				<div className={ containerClasses }>
-					{ ! RichText.isEmpty( title ) &&
-						( ! RichText.isEmpty( subtitle ) || isSelected ) &&
-						'none' !== titleTagName && (
-							<RichText
-								className="smb-section__subtitle"
-								value={ subtitle }
-								onChange={ onChangeSubtitle }
-								placeholder={ __(
-									'Write subtitle…',
-									'snow-monkey-blocks'
-								) }
-							/>
-						) }
+					{ hasTitle && ( hasSubTitle || isSelected ) && (
+						<RichText
+							className="smb-section__subtitle"
+							value={ subtitle }
+							onChange={ onChangeSubtitle }
+							placeholder={ __(
+								'Write subtitle…',
+								'snow-monkey-blocks'
+							) }
+						/>
+					) }
 
-					{ ( ! RichText.isEmpty( title ) || isSelected ) &&
-						'none' !== titleTagName && (
-							<RichText
-								className="smb-section__title"
-								tagName={ titleTagName }
-								value={ title }
-								onChange={ onChangeTitle }
-								placeholder={ __(
-									'Write title…',
-									'snow-monkey-blocks'
-								) }
-							/>
-						) }
+					{ ( hasTitle ||
+						( isSelected && 'none' !== titleTagName ) ) && (
+						<RichText
+							className="smb-section__title"
+							tagName={ titleTagName }
+							value={ title }
+							onChange={ onChangeTitle }
+							placeholder={ __(
+								'Write title…',
+								'snow-monkey-blocks'
+							) }
+						/>
+					) }
 
-					{ ! RichText.isEmpty( title ) &&
-						( ! RichText.isEmpty( lede ) || isSelected ) &&
+					{ hasTitle &&
+						( hasLede || isSelected ) &&
 						'none' !== titleTagName && (
 							<RichText
 								className="smb-section__lede"

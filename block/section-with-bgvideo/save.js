@@ -16,14 +16,14 @@ export default function ( { attributes, className } ) {
 		height,
 		contentsAlignment,
 		maskColor,
-		maskColor2,
-		maskColorAngle,
+		maskGradientColor,
 		maskOpacity,
 		textColor,
 		isSlim,
 	} = attributes;
 
 	const TagName = 'div';
+
 	const classes = classnames(
 		'smb-section',
 		'smb-section-with-bgimage',
@@ -39,16 +39,18 @@ export default function ( { attributes, className } ) {
 		'u-slim-width': !! isSlim,
 	} );
 
+	const hasTitle = ! RichText.isEmpty( title ) && 'none' !== titleTagName;
+	const hasSubTitle = ! RichText.isEmpty( subtitle );
+	const hasLede = ! RichText.isEmpty( lede );
+
 	const sectionStyles = {
 		color: textColor || undefined,
 	};
 
 	const maskStyles = {};
-	if ( maskColor ) {
+	if ( maskColor || maskGradientColor ) {
 		maskStyles.backgroundColor = maskColor;
-		if ( maskColor2 ) {
-			maskStyles.backgroundImage = `linear-gradient(${ maskColorAngle }deg, ${ maskColor } 0%, ${ maskColor2 } 100%)`;
-		}
+		maskStyles.backgroundImage = maskGradientColor;
 	}
 
 	const bgvideoStyles = {
@@ -91,17 +93,15 @@ export default function ( { attributes, className } ) {
 				) }
 			</div>
 			<div className={ containerClasses }>
-				{ ! RichText.isEmpty( title ) &&
-					! RichText.isEmpty( subtitle ) &&
-					'none' !== titleTagName && (
-						<RichText.Content
-							tagName="div"
-							className="smb-section__subtitle"
-							value={ subtitle }
-						/>
-					) }
+				{ hasTitle && hasSubTitle && (
+					<RichText.Content
+						tagName="div"
+						className="smb-section__subtitle"
+						value={ subtitle }
+					/>
+				) }
 
-				{ ! RichText.isEmpty( title ) && 'none' !== titleTagName && (
+				{ hasTitle && (
 					<RichText.Content
 						tagName={ titleTagName }
 						className="smb-section__title"
@@ -109,15 +109,13 @@ export default function ( { attributes, className } ) {
 					/>
 				) }
 
-				{ ! RichText.isEmpty( title ) &&
-					! RichText.isEmpty( lede ) &&
-					'none' !== titleTagName && (
-						<RichText.Content
-							tagName="div"
-							className="smb-section__lede"
-							value={ lede }
-						/>
-					) }
+				{ hasTitle && hasLede && (
+					<RichText.Content
+						tagName="div"
+						className="smb-section__lede"
+						value={ lede }
+					/>
+				) }
 
 				<div className="smb-section__body">
 					<InnerBlocks.Content />

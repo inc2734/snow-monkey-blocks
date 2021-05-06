@@ -598,7 +598,8 @@ export default function ( {
 							/>
 						) }
 
-						{ hasTitle && (
+						{ ( hasTitle ||
+							( isSelected && 'none' !== titleTagName ) ) && (
 							<RichText
 								className="smb-section__title"
 								tagName={ titleTagName }
