@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.7
 Tested up to: 5.7
-Stable tag: 11.2.1
+Stable tag: 11.3.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -107,6 +107,22 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 23. Information block (The number of items can be increased or decreased freely)
 
 == Changelog ==
+
+= 11.3.0 =
+* [Balloon] Add text color setting.
+* [Section] Add "Background (Fixed) Settings".
+* [Section (Side heading)] Add "Background (Fixed) Settings".
+* [Section] Add texture settings.
+* [Section (Side heading)] Add texture settings.
+* [Section] Changed so that moving the background color does not move the position of the separator.
+* [Section (Side heading)] Changed so that moving the background color does not move the position of the separator.
+* [Section] Change "Background Settings" to "Background (Movable) Settings".
+* [Section (Side heading)] Change "Background Settings" to "Background (Movable) Settings".
+* [Section] Fixed a bug that caused the delimiters to shrink in Firefox.
+* [Section (Side heading)] Fixed a bug that caused the delimiters to shrink in Firefox.
+* [Section (Background image/video)] Fixed a bug where the gradient was not reflected.
+* [Section (YouTube)] Fixed a bug where the gradient was not reflected.
+* [Countdown] Fixed a bug where the block style was not reflected.
 
 = 11.2.0 =
 * [Recent posts] Added the ability to display meta information and category labels.
