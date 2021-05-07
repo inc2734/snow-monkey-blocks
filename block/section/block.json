@@ -49,11 +49,25 @@
     "backgroundGradientColor": {
       "type": "string"
     },
+    "backgroundTexture": {
+      "type": "string"
+    },
+    "backgroundTextureOpacity": {
+      "type": "number",
+      "default": 1
+    },
     "fixedBackgroundColor": {
       "type": "string"
     },
     "fixedBackgroundGradientColor": {
       "type": "string"
+    },
+    "fixedBackgroundTexture": {
+      "type": "string"
+    },
+    "fixedBackgroundTextureOpacity": {
+      "type": "number",
+      "default": 1
     },
     "textColor": {
       "type": "string"

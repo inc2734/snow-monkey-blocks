@@ -44,8 +44,12 @@ export default function ( {
 		isBackgroundNoOver,
 		backgroundColor,
 		backgroundGradientColor,
+		backgroundTexture,
+		backgroundTextureOpacity,
 		fixedBackgroundColor,
 		fixedBackgroundGradientColor,
+		fixedBackgroundTexture,
+		fixedBackgroundTextureOpacity,
 		textColor,
 		headingPosition,
 		headingColumnSize,
@@ -118,6 +122,8 @@ export default function ( {
 	const hasBackgroundColor = backgroundColor || backgroundGradientColor;
 	const hasFixedBackgroundColor =
 		fixedBackgroundColor || fixedBackgroundGradientColor;
+	const hasBackgroundTexture = backgroundTexture;
+	const hasFixedBackgroundTexture = fixedBackgroundTexture;
 	const hasTopDivider = !! topDividerLevel;
 	const hasBottomDivider = !! bottomDividerLevel;
 	const hasTitle = ! RichText.isEmpty( title ) && 'none' !== titleTagName;
@@ -134,6 +140,15 @@ export default function ( {
 		paddingBottom: Math.abs( bottomDividerLevel ),
 		backgroundColor: fixedBackgroundColor,
 		backgroundImage: fixedBackgroundGradientColor,
+	};
+
+	const fixedBackgroundTextureStyles = {
+		backgroundImage: hasFixedBackgroundTexture
+			? `url(${ smb.pluginUrl }/dist/block/section/img/${ fixedBackgroundTexture }.png)`
+			: undefined,
+		opacity: !! fixedBackgroundTextureOpacity
+			? fixedBackgroundTextureOpacity
+			: undefined,
 	};
 
 	const dividersStyles = {};
@@ -177,6 +192,15 @@ export default function ( {
 			}
 		}
 	}
+
+	const backgroundTextureStyles = {
+		backgroundImage: hasBackgroundTexture
+			? `url(${ smb.pluginUrl }/dist/block/section/img/${ backgroundTexture }.png)`
+			: undefined,
+		opacity: !! backgroundTextureOpacity
+			? backgroundTextureOpacity
+			: undefined,
+	};
 
 	const innerStyles = {};
 
@@ -239,6 +263,16 @@ export default function ( {
 			backgroundGradientColor: value,
 		} );
 
+	const onChangeBackgroundTexture = ( value ) =>
+		setAttributes( {
+			backgroundTexture: value,
+		} );
+
+	const onChangeBackgroundTextureOpacity = ( value ) =>
+		setAttributes( {
+			backgroundTextureOpacity: toNumber( value, 0.1, 1 ),
+		} );
+
 	const onChangeFixedBackgroundColor = ( value ) =>
 		setAttributes( {
 			fixedBackgroundColor: value,
@@ -247,6 +281,16 @@ export default function ( {
 	const onChangeFixedBackgroundGradientColor = ( value ) =>
 		setAttributes( {
 			fixedBackgroundGradientColor: value,
+		} );
+
+	const onChangeFixedBackgroundTexture = ( value ) =>
+		setAttributes( {
+			fixedBackgroundTexture: value,
+		} );
+
+	const onChangeFixedBackgroundTextureOpacity = ( value ) =>
+		setAttributes( {
+			fixedBackgroundTextureOpacity: toNumber( value, 0.1, 1 ),
 		} );
 
 	const onChangeTextColor = ( value ) =>
@@ -308,6 +352,29 @@ export default function ( {
 		setAttributes( {
 			lede: value,
 		} );
+
+	const textureOptions = [
+		{
+			value: undefined,
+			label: __( 'None', 'snow-monkey-blocks' ),
+		},
+		{
+			value: 'stripe',
+			label: __( 'Stripe', 'snow-monkey-blocks' ),
+		},
+		{
+			value: 'noise',
+			label: __( 'Noise', 'snow-monkey-blocks' ),
+		},
+		{
+			value: 'dots',
+			label: __( 'Dots', 'snow-monkey-blocks' ),
+		},
+		{
+			value: 'dots2',
+			label: __( 'Dots 2', 'snow-monkey-blocks' ),
+		},
+	];
 
 	return (
 		<>
@@ -473,6 +540,29 @@ export default function ( {
 							) }
 						</>
 					) }
+
+					<SelectControl
+						label={ __( 'Texture', 'snow-monkey-blocks' ) }
+						value={ backgroundTexture }
+						onChange={ onChangeBackgroundTexture }
+						options={ textureOptions }
+					/>
+
+					{ hasBackgroundTexture && (
+						<RangeControl
+							label={ __(
+								'Texture Opacity',
+								'snow-monkey-blocks'
+							) }
+							value={ Number(
+								backgroundTextureOpacity.toFixed( 1 )
+							) }
+							onChange={ onChangeBackgroundTextureOpacity }
+							min={ 0.1 }
+							max={ 1 }
+							step={ 0.1 }
+						/>
+					) }
 				</PanelBody>
 
 				<PanelBody
@@ -491,6 +581,29 @@ export default function ( {
 							onChangeFixedBackgroundGradientColor
 						}
 					/>
+
+					<SelectControl
+						label={ __( 'Texture', 'snow-monkey-blocks' ) }
+						value={ fixedBackgroundTexture }
+						onChange={ onChangeFixedBackgroundTexture }
+						options={ textureOptions }
+					/>
+
+					{ hasFixedBackgroundTexture && (
+						<RangeControl
+							label={ __(
+								'Texture Opacity',
+								'snow-monkey-blocks'
+							) }
+							value={ Number(
+								fixedBackgroundTextureOpacity.toFixed( 1 )
+							) }
+							onChange={ onChangeFixedBackgroundTextureOpacity }
+							min={ 0.1 }
+							max={ 1 }
+							step={ 0.1 }
+						/>
+					) }
 				</PanelBody>
 
 				<PanelBody
@@ -619,18 +732,34 @@ export default function ( {
 
 			<TagName { ...blockProps }>
 				{ ( hasFixedBackgroundColor ||
+					hasFixedBackgroundTexture ||
 					hasBackgroundColor ||
+					hasBackgroundTexture ||
 					hasTopDivider ||
 					hasBottomDivider ) && (
 					<div
 						className="smb-section__fixed-background"
 						style={ fixedBackgroundStyles }
 					>
-						{ hasBackgroundColor && (
+						{ hasFixedBackgroundTexture && (
+							<div
+								className="smb-section__fixed-background__texture"
+								style={ fixedBackgroundTextureStyles }
+							/>
+						) }
+
+						{ ( hasBackgroundColor || hasBackgroundTexture ) && (
 							<div
 								className="smb-section__background"
 								style={ backgroundStyles }
-							/>
+							>
+								{ hasBackgroundTexture && (
+									<div
+										className="smb-section__background__texture"
+										style={ backgroundTextureStyles }
+									/>
+								) }
+							</div>
 						) }
 
 						{ ( hasTopDivider || hasBottomDivider ) && (

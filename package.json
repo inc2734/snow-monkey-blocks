@@ -212,6 +212,7 @@
     "block:section:clean": "rimraf dist/block/section && mkdir -p dist/block/section",
     "block:section:js": "wp-scripts build block/section/editor --output-path=dist/block/section",
     "block:section:css": "node-sass block/section -o dist/block/section && postcss dist/block/section/*.css -r",
+    "block:section:img": "cpy '**' '../../../dist/block/section/img' --cwd=block/section/img --parents",
     "block:section": "run-s block:section:*",
     "block:section-break-the-grid:clean": "rimraf dist/block/section-break-the-grid && mkdir -p dist/block/section-break-the-grid",
     "block:section-break-the-grid:js": "wp-scripts build block/section-break-the-grid/editor --output-path=dist/block/section-break-the-grid",

@@ -5,12 +5,25 @@
 .smb-section {
   position: relative;
 
+  &__background,
   &__fixed-background {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+  }
+
+  &__background,
+  &__fixed-background {
+    &__texture {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      mix-blend-mode: multiply;
+    }
   }
 
   &__dividers {
@@ -61,14 +74,6 @@
         max-width: 200px;
       }
     }
-  }
-
-  &__background {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
   }
 
   &__inner {

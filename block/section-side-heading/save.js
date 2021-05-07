@@ -16,8 +16,12 @@ export default function ( { attributes, className } ) {
 		isBackgroundNoOver,
 		backgroundColor,
 		backgroundGradientColor,
+		backgroundTexture,
+		backgroundTextureOpacity,
 		fixedBackgroundColor,
 		fixedBackgroundGradientColor,
+		fixedBackgroundTexture,
+		fixedBackgroundTextureOpacity,
 		textColor,
 		headingPosition,
 		headingColumnSize,
@@ -79,6 +83,8 @@ export default function ( { attributes, className } ) {
 	const hasBackgroundColor = backgroundColor || backgroundGradientColor;
 	const hasFixedBackgroundColor =
 		fixedBackgroundColor || fixedBackgroundGradientColor;
+	const hasBackgroundTexture = backgroundTexture;
+	const hasFixedBackgroundTexture = fixedBackgroundTexture;
 	const hasTopDivider = !! topDividerLevel;
 	const hasBottomDivider = !! bottomDividerLevel;
 	const hasTitle = ! RichText.isEmpty( title ) && 'none' !== titleTagName;
@@ -95,6 +101,15 @@ export default function ( { attributes, className } ) {
 		paddingBottom: Math.abs( bottomDividerLevel ),
 		backgroundColor: fixedBackgroundColor,
 		backgroundImage: fixedBackgroundGradientColor,
+	};
+
+	const fixedBackgroundTextureStyles = {
+		backgroundImage: hasFixedBackgroundTexture
+			? `url(${ smb.pluginUrl }/dist/block/section/img/${ fixedBackgroundTexture }.png)`
+			: undefined,
+		opacity: !! fixedBackgroundTextureOpacity
+			? fixedBackgroundTextureOpacity
+			: undefined,
 	};
 
 	const dividersStyles = {};
@@ -139,6 +154,15 @@ export default function ( { attributes, className } ) {
 		}
 	}
 
+	const backgroundTextureStyles = {
+		backgroundImage: hasBackgroundTexture
+			? `url(${ smb.pluginUrl }/dist/block/section/img/${ backgroundTexture }.png)`
+			: undefined,
+		opacity: !! backgroundTextureOpacity
+			? backgroundTextureOpacity
+			: undefined,
+	};
+
 	const innerStyles = {};
 
 	return (
@@ -149,18 +173,34 @@ export default function ( { attributes, className } ) {
 			} ) }
 		>
 			{ ( hasFixedBackgroundColor ||
+				hasFixedBackgroundTexture ||
 				hasBackgroundColor ||
+				hasBackgroundTexture ||
 				hasTopDivider ||
 				hasBottomDivider ) && (
 				<div
 					className="smb-section__fixed-background"
 					style={ fixedBackgroundStyles }
 				>
-					{ hasBackgroundColor && (
+					{ hasFixedBackgroundTexture && (
+						<div
+							className="smb-section__fixed-background__texture"
+							style={ fixedBackgroundTextureStyles }
+						/>
+					) }
+
+					{ ( hasBackgroundColor || hasBackgroundTexture ) && (
 						<div
 							className="smb-section__background"
 							style={ backgroundStyles }
-						/>
+						>
+							{ hasBackgroundTexture && (
+								<div
+									className="smb-section__background__texture"
+									style={ backgroundTextureStyles }
+								/>
+							) }
+						</div>
 					) }
 
 					{ ( hasTopDivider || hasBottomDivider ) && (
