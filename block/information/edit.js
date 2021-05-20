@@ -92,7 +92,7 @@ export default function ( { attributes, setAttributes, className } ) {
 						value={ labelAlign }
 						options={ [
 							{
-								value: undefined,
+								value: '',
 								label: __( 'Left side', 'snow-monkey-blocks' ),
 							},
 							{
@@ -111,7 +111,7 @@ export default function ( { attributes, setAttributes, className } ) {
 						value={ labelVerticalAlign }
 						options={ [
 							{
-								value: undefined,
+								value: '',
 								label: __( 'Top', 'snow-monkey-blocks' ),
 							},
 							{

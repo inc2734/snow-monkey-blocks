@@ -316,7 +316,7 @@ export default function ( {
 
 	const textureOptions = [
 		{
-			value: undefined,
+			value: '',
 			label: __( 'None', 'snow-monkey-blocks' ),
 		},
 		{

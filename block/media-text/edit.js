@@ -295,7 +295,7 @@ export default function ( {
 						value={ mobileOrder }
 						options={ [
 							{
-								value: undefined,
+								value: '',
 								label: __( 'Default', 'snow-monkey-blocks' ),
 							},
 							{
