@@ -86,9 +86,16 @@
   }
 
   &__lede {
-    display: flex;
     justify-content: center;
     @include _font-size-line-height($_base-font-size-px - 2);
+    text-align: center;
+
+    @supports (width: fit-content) {
+      width: fit-content;
+      margin-right: auto;
+      margin-left: auto;
+      text-align: left;
+    }
   }
 
   .#{$_prefix}c-container {
