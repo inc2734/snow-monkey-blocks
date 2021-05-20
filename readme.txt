@@ -4,7 +4,7 @@ Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Requires at least: 5.7
 Tested up to: 5.7
-Stable tag: 11.3.0
+Stable tag: 11.3.1
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -107,6 +107,15 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 23. Information block (The number of items can be increased or decreased freely)
 
 == Changelog ==
+
+= 11.3.1 =
+* [Section] Fixed a bug where applying formatting to a lead could break the layout.
+* [Section (Background image/video)] Fixed a bug where applying formatting to a lead could break the layout.
+* [Section (YouTube)] Fixed a bug where applying formatting to a lead could break the layout.
+* [Section (Break the grid)] Fixed a bug where applying formatting to a lead could break the layout.
+* [Section (Break the grid)] Fixed a bug that images did not extend to the edge of the screen when made full width in the editor.
+* [Section] Fixed a bug where it tried to load a texture image even if the texture was set to "None".
+* [Section (Side heading)] Fixed a bug where it tried to load a texture image even if the texture was set to "None".
 
 = 11.3.0 =
 * [Balloon] Add text color setting.
