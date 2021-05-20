@@ -6,9 +6,13 @@
   @import 'style';
 }
 
-[data-align="full"] .smb-section-break-the-grid {
+.editor-styles-wrapper [data-align="full"] .smb-section-break-the-grid {
   > .c-container {
     max-width: none;
+
+    > * {
+      max-width: none;
+    }
   }
 }
 
