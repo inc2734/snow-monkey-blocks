@@ -60,18 +60,6 @@ register_block_type_from_metadata(
 );
 
 /**
- * nopro
- */
-if ( ! Blocks\is_pro() && is_admin() ) {
-	wp_enqueue_style(
-		'snow-monkey-blocks/section-with-bgvideo/nopro/editor',
-		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-with-bgvideo/nopro-editor.css',
-		[],
-		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-with-bgvideo/nopro-editor.css' )
-	);
-}
-
-/**
  * excerpt_allowed_blocks
  */
 add_filter(

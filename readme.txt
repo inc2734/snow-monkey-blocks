@@ -57,8 +57,6 @@ https://www.youtube.com/watch?v=uD6omb4TLdA&t=283s
 
 = Section blocks =
 
-By default these blocks are restricted. If you are using the theme that has 1 column template, you can activate these blocks using filter hooks.
-
 * Section
 * Section with background image
 * Section with background video

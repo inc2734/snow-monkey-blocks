@@ -24,6 +24,10 @@
     @include _media-min($screen-min) {
       $prefix: _size-prefix($size);
 
+      &#{$prefix}-middle {
+        align-items: center;
+      }
+
       &#{$prefix}-margin {
         @include _row--margin(1);
 
