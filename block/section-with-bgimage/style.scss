@@ -98,15 +98,15 @@
       text-align: left;
     }
 
+    .smb-section__lede-wrapper {
+      display: block;
+    }
+
     .smb-section__title {
       &::after {
         margin-right: auto;
         margin-left: 0;
       }
-    }
-
-    .smb-section__lede {
-      display: block;
     }
   }
 
@@ -132,15 +132,15 @@
       text-align: right;
     }
 
+    .smb-section__lede-wrapper {
+      display: block;
+    }
+
     .smb-section__title {
       &::after {
         margin-right: 0;
         margin-left: auto;
       }
-    }
-
-    .smb-section__lede {
-      display: block;
     }
   }
 

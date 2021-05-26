@@ -157,12 +157,9 @@
     }
   }
 
-  &__subtitle {
+  &__subtitle,
+  &__title {
     text-align: left;
-  }
-
-  &__lede {
-    display: block;
   }
 
   &__shadow {

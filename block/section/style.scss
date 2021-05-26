@@ -85,17 +85,17 @@
     text-align: center;
   }
 
-  &__lede {
-    justify-content: center;
-    @include _font-size-line-height($_base-font-size-px - 2);
+  &__title {
     text-align: center;
+  }
 
-    @supports (width: fit-content) {
-      width: fit-content;
-      margin-right: auto;
-      margin-left: auto;
-      text-align: left;
-    }
+  &__lede-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__lede {
+    @include _font-size-line-height($_base-font-size-px - 2);
   }
 
   .#{$_prefix}c-container {

@@ -320,11 +320,13 @@ export default function ( { attributes, className } ) {
 				) }
 
 				{ hasTitle && hasLede && (
-					<RichText.Content
-						tagName="div"
-						className="smb-section__lede"
-						value={ lede }
-					/>
+					<div className="smb-section__lede-wrapper">
+						<RichText.Content
+							tagName="div"
+							className="smb-section__lede"
+							value={ lede }
+						/>
+					</div>
 				) }
 
 				<div className="smb-section__body">

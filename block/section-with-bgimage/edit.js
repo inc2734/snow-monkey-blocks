@@ -101,7 +101,7 @@ export default function ( {
 		'js-bg-parallax__bgimage': !! parallax,
 	} );
 
-	const containerClasses = classnames( 'c-container', {
+	const containerClasses = classnames( 'c-container', 'wp-block', {
 		'u-slim-width': !! isSlim,
 	} );
 
@@ -843,15 +843,17 @@ export default function ( {
 					) }
 
 					{ hasTitle && ( hasLede || isSelected ) && (
-						<RichText
-							className="smb-section__lede"
-							value={ lede }
-							onChange={ onChangeLede }
-							placeholder={ __(
-								'Write lede…',
-								'snow-monkey-blocks'
-							) }
-						/>
+						<div className="smb-section__lede-wrapper">
+							<RichText
+								className="smb-section__lede"
+								value={ lede }
+								onChange={ onChangeLede }
+								placeholder={ __(
+									'Write lede…',
+									'snow-monkey-blocks'
+								) }
+							/>
+						</div>
 					) }
 
 					<div { ...innerBlocksProps } />
