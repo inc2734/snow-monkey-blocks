@@ -66,15 +66,19 @@ export default [
 				}
 			);
 
-			const bgimageClasses = classnames( 'smb-section-with-bgimage__bgimage', {
-				'js-bg-parallax__bgimage': !! parallax,
-			} );
+			const bgimageClasses = classnames(
+				'smb-section-with-bgimage__bgimage',
+				{
+					'js-bg-parallax__bgimage': !! parallax,
+				}
+			);
 
 			const containerClasses = classnames( 'c-container', {
 				'u-slim-width': !! isSlim,
 			} );
 
-			const hasTitle = ! RichText.isEmpty( title ) && 'none' !== titleTagName;
+			const hasTitle =
+				! RichText.isEmpty( title ) && 'none' !== titleTagName;
 			const hasSubTitle = ! RichText.isEmpty( subtitle );
 			const hasLede = ! RichText.isEmpty( lede );
 			const hasMask = 0 < Number( ( 1 - maskOpacity ).toFixed( 1 ) );

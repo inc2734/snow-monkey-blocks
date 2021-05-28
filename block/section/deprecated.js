@@ -70,14 +70,16 @@ export default [
 				'u-slim-width': !! isSlim,
 			} );
 
-			const hasBackgroundColor = backgroundColor || backgroundGradientColor;
+			const hasBackgroundColor =
+				backgroundColor || backgroundGradientColor;
 			const hasFixedBackgroundColor =
 				fixedBackgroundColor || fixedBackgroundGradientColor;
 			const hasBackgroundTexture = backgroundTexture;
 			const hasFixedBackgroundTexture = fixedBackgroundTexture;
 			const hasTopDivider = !! topDividerLevel;
 			const hasBottomDivider = !! bottomDividerLevel;
-			const hasTitle = ! RichText.isEmpty( title ) && 'none' !== titleTagName;
+			const hasTitle =
+				! RichText.isEmpty( title ) && 'none' !== titleTagName;
 			const hasSubTitle = ! RichText.isEmpty( subtitle );
 			const hasLede = ! RichText.isEmpty( lede );
 
@@ -116,7 +118,10 @@ export default [
 				backgroundStyles.backgroundImage = backgroundGradientColor;
 
 				if ( ! isBackgroundNoOver ) {
-					if ( backgroundHorizontalPosition || backgroundVerticalPosition ) {
+					if (
+						backgroundHorizontalPosition ||
+						backgroundVerticalPosition
+					) {
 						backgroundStyles.transform = `translate(${
 							backgroundHorizontalPosition || 0
 						}%, ${ backgroundVerticalPosition || 0 }%)`;
@@ -179,7 +184,8 @@ export default [
 								/>
 							) }
 
-							{ ( hasBackgroundColor || hasBackgroundTexture ) && (
+							{ ( hasBackgroundColor ||
+								hasBackgroundTexture ) && (
 								<div
 									className="smb-section__background"
 									style={ backgroundStyles }

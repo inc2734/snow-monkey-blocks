@@ -742,7 +742,7 @@ export default function ( {
 						) }
 
 						{ hasTitle && ( hasLede || isSelected ) && (
-							<div class="smb-section__lede-wrapper">
+							<div className="smb-section__lede-wrapper">
 								<RichText
 									className="smb-section__lede"
 									value={ lede }
