@@ -7,7 +7,7 @@
   border-radius: $_border-radius; //for IE11
   border-radius: _var-border-radius();
   @include _padding(1);
-  overflow: hidden;
+  overflow: visible;
 
   &__background {
     @include _alert();
