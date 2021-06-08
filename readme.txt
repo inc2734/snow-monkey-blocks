@@ -106,6 +106,10 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 
 == Changelog ==
 
+= 11.4.1 =
+* [Box] Fixed a bug that the ruled lines were sometimes missing in Safari.
+* [Slider] Fixed a bug that could scroll horizontally even though it was a fade.
+
 = 11.4.0 =
 * The section blocks can now be displayed in all themes.
 * [Section] Fixed a bug where applying formatting to a lead could break the layout.
