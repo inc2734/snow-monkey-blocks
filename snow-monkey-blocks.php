@@ -38,7 +38,7 @@ class Bootstrap {
 		new App\Setup\BlockPatterns();
 		new App\Controller\Manager();
 
-		add_filter( 'block_categories', [ $this, '_block_categories' ] );
+		add_filter( 'block_categories_all', [ $this, '_block_categories_all' ] );
 		add_action( 'init', [ $this, '_register_blocks' ] );
 		add_action( 'add_meta_boxes', [ $this, '_add_pr_meta_box' ] );
 		add_action( 'the_content', [ $this, '_the_content_for_slider' ], 11 );
@@ -50,7 +50,7 @@ class Bootstrap {
 	 * @param array $categories Array of block categories.
 	 * @return array
 	 */
-	public function _block_categories( $categories ) {
+	public function _block_categories_all( $categories ) {
 		$slugs = array_column( $categories, 'slug' );
 
 		if ( ! in_array( 'smb', $slugs, true ) ) {
