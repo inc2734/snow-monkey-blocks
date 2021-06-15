@@ -18,5 +18,8 @@
       "selector": ".smb-price-menu__item__price",
       "default": ""
     }
+  },
+  "supports": {
+    "html": false
   }
 }

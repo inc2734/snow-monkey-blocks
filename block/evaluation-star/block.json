@@ -31,6 +31,9 @@
       "default": "left"
     }
   },
+  "supports": {
+    "html": false
+  },
   "example": {
     "attributes": {
       "evaluationValue": 3,

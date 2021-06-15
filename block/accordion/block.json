@@ -4,6 +4,9 @@
 	"title": "Accordion",
 	"description": "You can set up a content area that expands and contracts like the accordion.",
   "category": "smb",
+  "supports": {
+    "html": false
+  },
   "example": {
     "innerBlocks": [
       {

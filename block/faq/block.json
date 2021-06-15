@@ -4,6 +4,9 @@
 	"title": "FAQ",
 	"description": "You can list the FAQs.",
   "category": "smb",
+  "supports": {
+    "html": false
+  },
   "example": {
     "innerBlocks": [
       {

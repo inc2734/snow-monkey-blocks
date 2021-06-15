@@ -4,5 +4,8 @@
 	"title": "Item (Free input)",
 	"description": "It is a child block of the panels block.",
   "category": "smb",
-  "parent": [ "snow-monkey-blocks/panels" ]
+  "parent": [ "snow-monkey-blocks/panels" ],
+  "supports": {
+    "html": false
+  }
 }

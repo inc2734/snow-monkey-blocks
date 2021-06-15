@@ -27,6 +27,9 @@
       "default": "exclamation-circle"
     }
   },
+  "supports": {
+    "html": false
+  },
   "example": {
     "attributes": {
       "title": "Lorem ipsum dolor sit amet",

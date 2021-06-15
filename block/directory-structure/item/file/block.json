@@ -23,5 +23,8 @@
     "iconColor": {
       "type": "string"
     }
+  },
+  "supports": {
+    "html": false
   }
 }

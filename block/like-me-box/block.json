@@ -9,6 +9,9 @@
       "default": "inc2734.monkey.wrench"
     }
   },
+  "supports": {
+    "html": false
+  },
   "example": {
     "attributes": {
       "pageName": "inc2734.monkey.wrench"

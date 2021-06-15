@@ -95,5 +95,8 @@
       "type": "boolean",
       "default": false
     }
+  },
+  "supports": {
+    "html": false
   }
 }

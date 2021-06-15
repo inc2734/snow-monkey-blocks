@@ -4,6 +4,9 @@
 	"title": "Price menu",
 	"description": "Display the menu name and the price.",
   "category": "smb",
+  "supports": {
+    "html": false
+  },
   "example": {
     "innerBlocks": [
       {

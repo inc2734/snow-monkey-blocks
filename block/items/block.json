@@ -29,5 +29,8 @@
       "type": "string",
       "default": "top"
     }
+  },
+  "supports": {
+    "html": false
   }
 }

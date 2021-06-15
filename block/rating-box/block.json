@@ -4,6 +4,9 @@
 	"title": "Rating box",
 	"description": "Evaluate with bars.",
   "category": "smb",
+  "supports": {
+    "html": false
+  },
   "example": {
     "innerBlocks": [
       {

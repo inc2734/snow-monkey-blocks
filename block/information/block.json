@@ -24,6 +24,9 @@
     "snow-monkey-blocks/labelColumnSize": "labelColumnSize",
     "snow-monkey-blocks/smIsSplitColumn": "smIsSplitColumn"
   },
+  "supports": {
+    "html": false
+  },
   "example": {
     "innerBlocks": [
       {

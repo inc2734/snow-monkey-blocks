@@ -37,5 +37,8 @@
       "type": "number",
       "default": 0
     }
+  },
+  "supports": {
+    "html": false
   }
 }

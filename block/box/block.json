@@ -26,6 +26,9 @@
       "default": 1
     }
   },
+  "supports": {
+    "html": false
+  },
   "example": {
     "innerBlocks": [
       {

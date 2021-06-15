@@ -46,5 +46,8 @@
       "selector": ".smb-thumbnail-gallery__item__caption",
       "default": ""
     }
+  },
+  "supports": {
+    "html": false
   }
 }

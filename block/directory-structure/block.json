@@ -5,6 +5,9 @@
 	"title": "Directory structure",
 	"description": "Display a list of directories and files",
   "category": "smb",
+  "supports": {
+    "html": false
+  },
   "example": {
     "innerBlocks": [
       {

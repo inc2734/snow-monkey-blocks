@@ -10,6 +10,9 @@
       "default": false
     }
   },
+  "supports": {
+    "html": false
+  },
   "example": {
     "innerBlocks": [
       {

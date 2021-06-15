@@ -17,6 +17,9 @@
       "default": "asc"
     }
   },
+  "supports": {
+    "html": false
+  },
   "example": {
     "attributes": {
       "taxonomy": "category"

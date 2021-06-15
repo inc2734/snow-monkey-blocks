@@ -48,6 +48,9 @@
       "default": ""
     }
   },
+  "supports": {
+    "html": false
+  },
   "example": {
     "attributes": {
       "balloonName": "Lorem",

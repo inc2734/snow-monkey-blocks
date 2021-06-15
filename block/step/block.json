@@ -4,6 +4,9 @@
 	"title": "Step",
 	"description": "Express the steps in an easy-to-understand manner.",
   "category": "smb",
+  "supports": {
+    "html": false
+  },
   "example": {
     "innerBlocks": [
       {
