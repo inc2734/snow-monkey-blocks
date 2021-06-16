@@ -5,8 +5,6 @@
 @import '../../format/highlighter/format';
 @import '../../format/badge/format';
 
-//@include related-components();
-
 .#{$_prefix}c-row {
   @each $size, $screen-min in $_sizes {
     @include _media-min($screen-min) {

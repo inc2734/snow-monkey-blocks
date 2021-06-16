@@ -116,10 +116,17 @@ class Assets {
 			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/blocks-editor-wrapper.css' )
 		);
 
+		$editor_style_dependencies = [ 'snow-monkey-blocks' ];
+		if ( wp_style_is( 'wp-edit-post' ) ) {
+			$editor_style_dependencies[] = 'wp-edit-post';
+		}
+		if ( wp_style_is( 'wp-edit-widgets' ) ) {
+			$editor_style_dependencies[] = 'wp-edit-widgets';
+		}
 		wp_enqueue_style(
 			'snow-monkey-blocks-editor',
 			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/css/blocks-editor.css',
-			[ 'snow-monkey-blocks', 'wp-edit-post' ],
+			$editor_style_dependencies,
 			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/blocks-editor.css' )
 		);
 
