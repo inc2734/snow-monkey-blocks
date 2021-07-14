@@ -120,10 +120,10 @@
           @supports(object-fit: cover) {
             object-position: 50% 50%;
             object-fit: cover;
-            position: static;
-            top: initial;
-            left: initial;
-            right: initial;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             height: 100%;
             transform: initial;
           }
