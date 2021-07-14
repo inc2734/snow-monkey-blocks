@@ -27,9 +27,10 @@ if ( ! empty( $attributes['className'] ) ) {
 	$classnames[] = $attributes['className'];
 }
 
-$block_style = preg_match( '|(is-style-[^ "\']+)|', $attributes['className'], $match )
-	? $match[1]
-	: false;
+$block_style = isset( $attributes['className'] )
+							&& preg_match( '|(is-style-[^ "\']+)|', $attributes['className'], $match )
+								? $match[1]
+								: false;
 ?>
 
 <div class="<?php echo esc_attr( implode( ' ', $classnames ) ); ?>">
