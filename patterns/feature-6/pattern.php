@@ -7,9 +7,9 @@
 ?>
 
 <!-- wp:snow-monkey-blocks/section {"backgroundColor":"#f7f7f7","align":"full"} -->
-<div class="wp-block-snow-monkey-blocks-section alignfull smb-section">
+<div class="wp-block-snow-monkey-blocks-section alignfull smb-section smb-section--fit">
 	<div class="smb-section__background" style="background-color:#f7f7f7"></div>
-	<div class="smb-section__inner" style="padding-top:0;padding-bottom:0">
+	<div class="smb-section__inner">
 		<div class="c-container">
 			<h2 class="smb-section__title">Lorem ipsum dolor sit amet</h2>
 			<div class="smb-section__body">

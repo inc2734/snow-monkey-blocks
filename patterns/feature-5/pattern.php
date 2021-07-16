@@ -7,14 +7,14 @@
 ?>
 
 <!-- wp:snow-monkey-blocks/section {"align":"full"} -->
-<div class="wp-block-snow-monkey-blocks-section alignfull smb-section">
-	<div class="smb-section__inner" style="padding-top:0;padding-bottom:0">
+<div class="wp-block-snow-monkey-blocks-section alignfull smb-section smb-section--fit">
+	<div class="smb-section__inner">
 		<div class="c-container">
 			<h2 class="smb-section__title">Lorem ipsum dolor sit amet</h2>
 			<div class="smb-section__body">
-				<!-- wp:snow-monkey-blocks/media-text {"imageID":0,"imagePosition":"left","imageColumnSize":"33"} -->
+				<!-- wp:snow-monkey-blocks/media-text {"mediaPosition":"left","mediaColumnSize":"33"} -->
 				<div class="wp-block-snow-monkey-blocks-media-text smb-media-text">
-					<div class="c-row c-row--margin c-row--middle c-row--reverse">
+					<div class="c-row c-row--margin c-row--reverse c-row--middle">
 						<div class="c-row__col c-row__col--1-1 c-row__col--lg-2-3">
 							<h2 class="smb-media-text__title">Lorem ipsum dolor sit amet</h2>
 							<div class="smb-media-text__body">
@@ -34,9 +34,9 @@
 				</div>
 				<!-- /wp:snow-monkey-blocks/media-text -->
 
-				<!-- wp:snow-monkey-blocks/media-text {"imageID":0,"imagePosition":"left","imageColumnSize":"33"} -->
+				<!-- wp:snow-monkey-blocks/media-text {"mediaPosition":"left","mediaColumnSize":"33"} -->
 				<div class="wp-block-snow-monkey-blocks-media-text smb-media-text">
-					<div class="c-row c-row--margin c-row--middle c-row--reverse">
+					<div class="c-row c-row--margin c-row--reverse c-row--middle">
 						<div class="c-row__col c-row__col--1-1 c-row__col--lg-2-3">
 							<h2 class="smb-media-text__title">Lorem ipsum dolor sit amet</h2>
 							<div class="smb-media-text__body">

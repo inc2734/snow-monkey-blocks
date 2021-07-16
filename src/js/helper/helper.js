@@ -306,3 +306,45 @@ export const stringToInnerText = ( text ) => {
 	wrapper.innerHTML = text;
 	return wrapper.innerText;
 };
+
+/**
+ * @see https://github.com/WordPress/gutenberg/blob/3da717b8d0ac7d7821fc6d0475695ccf3ae2829f/packages/components/src/focal-point-picker/utils.js
+ */
+const VIDEO_EXTENSIONS = [
+	'avi',
+	'mpg',
+	'mpeg',
+	'mov',
+	'mp4',
+	'm4v',
+	'ogg',
+	'ogv',
+	'webm',
+	'wmv',
+];
+
+/**
+ * Gets the extension of a file name.
+ *
+ * @see https://github.com/WordPress/gutenberg/blob/3da717b8d0ac7d7821fc6d0475695ccf3ae2829f/packages/components/src/focal-point-picker/utils.js
+ *
+ * @param {string} filename The file name.
+ * @return {string} The extension of the file name.
+ */
+export function getExtension( filename = '' ) {
+	const parts = filename.split( '.' );
+	return parts[ parts.length - 1 ];
+}
+
+/**
+ * Checks if a file is a video.
+ *
+ * @see https://github.com/WordPress/gutenberg/blob/3da717b8d0ac7d7821fc6d0475695ccf3ae2829f/packages/components/src/focal-point-picker/utils.js
+ *
+ * @param {string} filename The file name.
+ * @return {boolean} Whether the file is a video.
+ */
+export function isVideoType( filename = '' ) {
+	if ( ! filename ) return false;
+	return VIDEO_EXTENSIONS.includes( getExtension( filename ) );
+}

@@ -26,7 +26,12 @@ import {
 
 import { pullLeft, pullRight } from '@wordpress/icons';
 
-import { getColumnSize, getMediaType, getResizedImages } from '@smb/helper';
+import {
+	getColumnSize,
+	getMediaType,
+	getResizedImages,
+	isVideoType,
+} from '@smb/helper';
 import Figure from '@smb/component/figure';
 import ImageSizeSelectControl from '@smb/component/image-size-select-control';
 
@@ -195,10 +200,26 @@ export default function ( {
 
 	const onSelectMediaUrl = ( newMediaUrl ) => {
 		if ( newMediaUrl !== mediaUrl ) {
+			let newHref = href;
+			if ( linkDestination === LINK_DESTINATION_MEDIA ) {
+				// Update the media link.
+				newHref = newMediaUrl;
+			}
+
+			// Check if the image is linked to the attachment page.
+			if ( linkDestination === LINK_DESTINATION_ATTACHMENT ) {
+				// Update the media link.
+				newHref = '';
+			}
+
 			setAttributes( {
 				mediaUrl: newMediaUrl,
 				mediaId: 0,
 				mediaSizeSlug: 'large',
+				mediaType: getMediaType( {
+					media_type: isVideoType( newMediaUrl ) ? 'video' : 'image',
+				} ),
+				href: newHref,
 			} );
 		}
 	};
@@ -211,6 +232,8 @@ export default function ( {
 			mediaHeight: '',
 			mediaId: 0,
 			mediaType: undefined,
+			href: '',
+			linkDestination: '',
 		} );
 	};
 

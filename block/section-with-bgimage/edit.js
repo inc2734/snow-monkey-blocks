@@ -25,7 +25,7 @@ import { useSelect } from '@wordpress/data';
 
 import { __ } from '@wordpress/i18n';
 
-import { toNumber, getMediaType } from '@smb/helper';
+import { toNumber, getMediaType, isVideoType } from '@smb/helper';
 import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
 import Figure from '@smb/component/figure';
 
@@ -253,6 +253,9 @@ export default function ( {
 			setAttributes( {
 				lgImageURL: newURL,
 				lgImageID: 0,
+				lgImageMediaType: getMediaType( {
+					media_type: isVideoType( newURL ) ? 'video' : 'image',
+				} ),
 			} );
 		}
 	};
@@ -295,6 +298,9 @@ export default function ( {
 			setAttributes( {
 				mdImageURL: newURL,
 				mdImageID: 0,
+				mdImageMediaType: getMediaType( {
+					media_type: isVideoType( newURL ) ? 'video' : 'image',
+				} ),
 			} );
 		}
 	};
@@ -337,6 +343,9 @@ export default function ( {
 			setAttributes( {
 				smImageURL: newURL,
 				smImageID: 0,
+				smImageMediaType: getMediaType( {
+					media_type: isVideoType( newURL ) ? 'video' : 'image',
+				} ),
 			} );
 		}
 	};

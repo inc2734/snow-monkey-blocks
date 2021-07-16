@@ -38,7 +38,10 @@
     "wrap": {
       "type": "boolean",
       "default": false
-    }
+    },
+  	"linkDestination": {
+			"type": "string"
+		}
   },
   "supports": {
     "align": [ "left", "center", "right" ]

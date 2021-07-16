@@ -31,7 +31,12 @@ import { __, sprintf } from '@wordpress/i18n';
 
 import { pullLeft, pullRight } from '@wordpress/icons';
 
-import { toNumber, getMediaType, getResizedImages } from '@smb/helper';
+import {
+	toNumber,
+	getMediaType,
+	getResizedImages,
+	isVideoType,
+} from '@smb/helper';
 import Figure from '@smb/component/figure';
 import ImageSizeSelectControl from '@smb/component/image-size-select-control';
 
@@ -334,6 +339,9 @@ export default function ( {
 				imageURL: newURL,
 				imageID: 0,
 				imageSizeSlug: 'large',
+				mediaType: getMediaType( {
+					media_type: isVideoType( newURL ) ? 'video' : 'image',
+				} ),
 			} );
 		}
 	};
