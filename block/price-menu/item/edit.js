@@ -30,7 +30,6 @@ export default function ( { attributes, setAttributes, className } ) {
 				placeholder={ __( 'Write title…', 'snow-monkey-blocks' ) }
 				value={ title }
 				onChange={ onChangeTitle }
-				keepPlaceholderOnFocus={ true }
 			/>
 
 			<RichText
@@ -38,7 +37,6 @@ export default function ( { attributes, setAttributes, className } ) {
 				placeholder={ __( 'Write price…', 'snow-monkey-blocks' ) }
 				value={ price }
 				onChange={ onChangePrice }
-				keepPlaceholderOnFocus={ true }
 			/>
 		</div>
 	);

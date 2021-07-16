@@ -366,7 +366,6 @@ export default function ( {
 									) }
 									value={ title }
 									onChange={ onChangeTitle }
-									keepPlaceholderOnFocus={ true }
 								/>
 							) }
 
@@ -379,7 +378,6 @@ export default function ( {
 									) }
 									value={ lede }
 									onChange={ onChangeLede }
-									keepPlaceholderOnFocus={ true }
 								/>
 							) }
 						</div>

@@ -219,7 +219,6 @@ export default function ( {
 						) }
 						value={ title }
 						onChange={ onChangeTitle }
-						keepPlaceholderOnFocus={ true }
 					/>
 				) }
 

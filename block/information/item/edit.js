@@ -67,7 +67,6 @@ export default function ( { attributes, setAttributes, className, context } ) {
 								'Write label…',
 								'snow-monkey-blocks'
 							) }
-							keepPlaceholderOnFocus={ true }
 							value={ label }
 							onChange={ onChangeLabel }
 						/>

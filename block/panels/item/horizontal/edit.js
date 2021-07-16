@@ -281,7 +281,6 @@ export default function ( {
 									) }
 									value={ title }
 									onChange={ onChangeTitle }
-									keepPlaceholderOnFocus={ true }
 								/>
 							) }
 
@@ -294,7 +293,6 @@ export default function ( {
 								) }
 								value={ summary }
 								onChange={ onChangeSummary }
-								keepPlaceholderOnFocus={ true }
 							/>
 						) }
 
@@ -312,7 +310,6 @@ export default function ( {
 											'snow-monkey-blocks'
 										) }
 										onChange={ onChangeLinkLabel }
-										keepPlaceholderOnFocus={ true }
 									/>
 								) }
 							</div>

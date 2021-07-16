@@ -376,7 +376,6 @@ export default function ( {
 								) }
 								value={ title }
 								onChange={ onChangeTitle }
-								keepPlaceholderOnFocus={ true }
 							/>
 						) }
 
@@ -389,7 +388,6 @@ export default function ( {
 								) }
 								value={ lede }
 								onChange={ onChangeLede }
-								keepPlaceholderOnFocus={ true }
 							/>
 						) }
 
@@ -402,7 +400,6 @@ export default function ( {
 								) }
 								value={ summary }
 								onChange={ onChangeSummary }
-								keepPlaceholderOnFocus={ true }
 							/>
 						) }
 
@@ -416,7 +413,6 @@ export default function ( {
 										className="smb-btn__label"
 										style={ itemBtnLabelStyles }
 										value={ btnLabel }
-										keepPlaceholderOnFocus={ true }
 										placeholder={ __(
 											'Button',
 											'snow-monkey-blocks'

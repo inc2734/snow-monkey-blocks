@@ -220,7 +220,6 @@ export default function ( {
 					<RichText
 						className="smb-btn__label"
 						value={ content }
-						keepPlaceholderOnFocus={ true }
 						placeholder={ __( 'Button', 'snow-monkey-blocks' ) }
 						onChange={ onChangeContent }
 						style={ btnLabelStyles }

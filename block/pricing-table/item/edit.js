@@ -344,7 +344,6 @@ export default function ( {
 						) }
 						value={ title }
 						onChange={ onChangeTitle }
-						keepPlaceholderOnFocus={ true }
 					/>
 
 					{ ( ! RichText.isEmpty( price ) || isSelected ) && (
@@ -356,7 +355,6 @@ export default function ( {
 							) }
 							value={ price }
 							onChange={ onChangePrice }
-							keepPlaceholderOnFocus={ true }
 						/>
 					) }
 
@@ -369,7 +367,6 @@ export default function ( {
 							) }
 							value={ lede }
 							onChange={ onChangeLede }
-							keepPlaceholderOnFocus={ true }
 						/>
 					) }
 
@@ -401,7 +398,6 @@ export default function ( {
 									className="smb-btn__label"
 									style={ btnLabelStyles }
 									value={ btnLabel }
-									keepPlaceholderOnFocus={ true }
 									placeholder={ __(
 										'Button',
 										'snow-monkey-blocks'
