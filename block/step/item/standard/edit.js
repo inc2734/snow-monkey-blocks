@@ -15,7 +15,6 @@ import {
 	Popover,
 	SelectControl,
 	ToolbarButton,
-	ToolbarGroup,
 } from '@wordpress/components';
 
 import { useSelect } from '@wordpress/data';
@@ -353,25 +352,23 @@ export default function ( {
 				</div>
 			</div>
 
-			<BlockControls>
-				<ToolbarGroup>
-					{ ! urlIsSet && (
-						<ToolbarButton
-							icon={ linkIcon }
-							label={ __( 'Link', 'snow-monkey-blocks' ) }
-							aria-expanded={ isLinkUIOpen }
-							onClick={ toggleLinkUI }
-						/>
-					) }
-					{ urlIsSetandSelected && (
-						<ToolbarButton
-							isPressed
-							icon={ linkOffIcon }
-							label={ __( 'Unlink', 'snow-monkey-blocks' ) }
-							onClick={ () => onChangeLinkUrl( '', false ) }
-						/>
-					) }
-				</ToolbarGroup>
+			<BlockControls group="block">
+				{ ! urlIsSet && (
+					<ToolbarButton
+						icon={ linkIcon }
+						label={ __( 'Link', 'snow-monkey-blocks' ) }
+						aria-expanded={ isLinkUIOpen }
+						onClick={ toggleLinkUI }
+					/>
+				) }
+				{ urlIsSetandSelected && (
+					<ToolbarButton
+						isPressed
+						icon={ linkOffIcon }
+						label={ __( 'Unlink', 'snow-monkey-blocks' ) }
+						onClick={ () => onChangeLinkUrl( '', false ) }
+					/>
+				) }
 			</BlockControls>
 		</>
 	);

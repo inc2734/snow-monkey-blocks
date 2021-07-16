@@ -47,6 +47,10 @@
     }
   }
 
+  &.is-content-justification-space-between {
+    justify-content: space-between;
+  }
+
   > .smb-btn-wrapper {
     flex: 0 1 auto;
     margin: 0;

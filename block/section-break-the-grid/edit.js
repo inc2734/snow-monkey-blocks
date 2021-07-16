@@ -21,6 +21,7 @@ import {
 	RangeControl,
 	SelectControl,
 	ToggleControl,
+	ToolbarButton,
 	ToolbarGroup,
 } from '@wordpress/components';
 
@@ -370,21 +371,6 @@ export default function ( {
 			imageSizeSlug: value,
 		} );
 	};
-
-	const toolbarControls = [
-		{
-			icon: pullLeft,
-			title: __( 'Show media on left', 'snow-monkey-blocks' ),
-			isActive: 'left' === imagePosition,
-			onClick: () => setAttributes( { imagePosition: 'left' } ),
-		},
-		{
-			icon: pullRight,
-			title: __( 'Show media on right', 'snow-monkey-blocks' ),
-			isActive: 'right' === imagePosition,
-			onClick: () => setAttributes( { imagePosition: 'right' } ),
-		},
-	];
 
 	return (
 		<>
@@ -809,12 +795,35 @@ export default function ( {
 				></PanelColorSettings>
 			</InspectorControls>
 
-			<BlockControls>
-				<ToolbarGroup controls={ toolbarControls } />
-				<BlockVerticalAlignmentToolbar
-					onChange={ onChangeVerticalAlignment }
-					value={ verticalAlignment }
-				/>
+			<BlockControls gruop="block">
+				<ToolbarGroup>
+					<BlockVerticalAlignmentToolbar
+						onChange={ onChangeVerticalAlignment }
+						value={ verticalAlignment }
+					/>
+					<ToolbarButton
+						icon={ pullLeft }
+						title={ __(
+							'Show media on left',
+							'snow-monkey-blocks'
+						) }
+						isActive={ 'left' === imagePosition }
+						onClick={ () =>
+							setAttributes( { imagePosition: 'left' } )
+						}
+					/>
+					<ToolbarButton
+						icon={ pullRight }
+						title={ __(
+							'Show media on right',
+							'snow-monkey-blocks'
+						) }
+						isActive={ 'right' === imagePosition }
+						onClick={ () =>
+							setAttributes( { imagePosition: 'right' } )
+						}
+					/>
+				</ToolbarGroup>
 			</BlockControls>
 
 			<TagName { ...blockProps }>

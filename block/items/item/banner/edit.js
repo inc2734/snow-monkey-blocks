@@ -12,7 +12,6 @@ import {
 	SelectControl,
 	ToggleControl,
 	ToolbarButton,
-	ToolbarGroup,
 } from '@wordpress/components';
 
 import {
@@ -388,26 +387,25 @@ export default function ( {
 				</div>
 			</div>
 
-			<BlockControls>
+			<BlockControls group="block">
 				<AlignmentToolbar value={ align } onChange={ onChangeAlign } />
-				<ToolbarGroup>
-					{ ! urlIsSet && (
-						<ToolbarButton
-							icon={ linkIcon }
-							label={ __( 'Link', 'snow-monkey-blocks' ) }
-							aria-expanded={ isLinkUIOpen }
-							onClick={ toggleLinkUI }
-						/>
-					) }
-					{ urlIsSetandSelected && (
-						<ToolbarButton
-							isPressed
-							icon={ linkOffIcon }
-							label={ __( 'Unlink', 'snow-monkey-blocks' ) }
-							onClick={ () => onChangeUrl( '', false ) }
-						/>
-					) }
-				</ToolbarGroup>
+
+				{ ! urlIsSet && (
+					<ToolbarButton
+						icon={ linkIcon }
+						label={ __( 'Link', 'snow-monkey-blocks' ) }
+						aria-expanded={ isLinkUIOpen }
+						onClick={ toggleLinkUI }
+					/>
+				) }
+				{ urlIsSetandSelected && (
+					<ToolbarButton
+						isPressed
+						icon={ linkOffIcon }
+						label={ __( 'Unlink', 'snow-monkey-blocks' ) }
+						onClick={ () => onChangeUrl( '', false ) }
+					/>
+				) }
 			</BlockControls>
 
 			{ ( isLinkUIOpen || urlIsSetandSelected ) && (

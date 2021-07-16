@@ -6,7 +6,7 @@ import {
 	MediaReplaceFlow,
 } from '@wordpress/block-editor';
 
-import { Button, ToolbarGroup, ToolbarItem } from '@wordpress/components';
+import { Button, ToolbarItem } from '@wordpress/components';
 
 import { memo, useMemo } from '@wordpress/element';
 
@@ -21,7 +21,7 @@ const ToolbarEditButton = ( {
 	onSelectURL,
 	onRemove,
 } ) => (
-	<BlockControls>
+	<BlockControls group="inline">
 		<MediaReplaceFlow
 			mediaId={ id }
 			mediaURL={ src }
@@ -32,11 +32,9 @@ const ToolbarEditButton = ( {
 		/>
 
 		{ !! src && !! onRemove && (
-			<ToolbarGroup>
-				<ToolbarItem as={ Button } onClick={ onRemove }>
-					{ __( 'Release', 'snow-monkey-blocks' ) }
-				</ToolbarItem>
-			</ToolbarGroup>
+			<ToolbarItem as={ Button } onClick={ onRemove }>
+				{ __( 'Release', 'snow-monkey-blocks' ) }
+			</ToolbarItem>
 		) }
 	</BlockControls>
 );

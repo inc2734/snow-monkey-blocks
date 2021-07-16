@@ -14,7 +14,7 @@ import {
 	TextControl,
 	TextareaControl,
 	ToggleControl,
-	ToolbarGroup,
+	ToolbarButton,
 } from '@wordpress/components';
 
 import { InspectorControls, BlockControls } from '@wordpress/block-editor';
@@ -119,15 +119,11 @@ export default function ( { attributes, setAttributes } ) {
 
 	return (
 		<>
-			<BlockControls>
-				<ToolbarGroup
-					controls={ [
-						{
-							icon: 'edit',
-							title: __( 'Edit RSS URL' ),
-							onClick: () => setIsEditing( true ),
-						},
-					] }
+			<BlockControls group="block">
+				<ToolbarButton
+					icon="edit"
+					title={ __( 'Edit RSS URL', 'snow-monkey-blocks' ) }
+					onClick={ () => setIsEditing( true ) }
 				/>
 			</BlockControls>
 

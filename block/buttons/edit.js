@@ -2,15 +2,13 @@ import classnames from 'classnames';
 
 import {
 	BlockControls,
-	useBlockProps,
+	JustifyContentControl,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	useBlockProps,
 } from '@wordpress/block-editor';
-
-import { JustifyToolbar } from './justify-toolbar';
 
 const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/btn' ];
 const TEMPLATE = [ [ 'snow-monkey-blocks/btn' ] ];
-const ALLOWED_CONTROLS = [ 'left', 'center', 'right' ];
 
 export default function ( { attributes, setAttributes, className } ) {
 	const { contentJustification } = attributes;
@@ -38,15 +36,10 @@ export default function ( { attributes, setAttributes, className } ) {
 
 	return (
 		<>
-			<BlockControls>
-				<JustifyToolbar
-					allowedControls={ ALLOWED_CONTROLS }
+			<BlockControls group="block">
+				<JustifyContentControl
 					value={ contentJustification }
 					onChange={ onChangeContentJustification }
-					popoverProps={ {
-						position: 'bottom right',
-						isAlternate: true,
-					} }
 				/>
 			</BlockControls>
 

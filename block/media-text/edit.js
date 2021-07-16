@@ -344,13 +344,12 @@ export default function ( {
 				</PanelBody>
 			</InspectorControls>
 
-			<BlockControls>
-				<BlockVerticalAlignmentToolbar
-					onChange={ onChangeVerticalAlignment }
-					value={ verticalAlignment }
-				/>
-
+			<BlockControls gruop="block">
 				<ToolbarGroup>
+					<BlockVerticalAlignmentToolbar
+						onChange={ onChangeVerticalAlignment }
+						value={ verticalAlignment }
+					/>
 					<ToolbarButton
 						icon={ pullLeft }
 						title={ __(
@@ -373,11 +372,10 @@ export default function ( {
 							setAttributes( { mediaPosition: 'right' } )
 						}
 					/>
-				</ToolbarGroup>
 
-				{ mediaUrl &&
-					( 'image' === mediaType || undefined === mediaType ) && (
-						<ToolbarGroup>
+					{ mediaUrl &&
+						( 'image' === mediaType ||
+							undefined === mediaType ) && (
 							<ImageURLInputUI
 								url={ href || '' }
 								onChangeUrl={ onSetHref }
@@ -389,8 +387,8 @@ export default function ( {
 								linkClass={ linkClass }
 								rel={ rel }
 							/>
-						</ToolbarGroup>
-					) }
+						) }
+				</ToolbarGroup>
 			</BlockControls>
 
 			<div { ...blockProps }>

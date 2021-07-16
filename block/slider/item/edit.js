@@ -7,12 +7,7 @@ import {
 	useBlockProps,
 } from '@wordpress/block-editor';
 
-import {
-	PanelBody,
-	Popover,
-	ToolbarButton,
-	ToolbarGroup,
-} from '@wordpress/components';
+import { PanelBody, Popover, ToolbarButton } from '@wordpress/components';
 
 import { useSelect } from '@wordpress/data';
 import { useState, useRef } from '@wordpress/element';
@@ -215,25 +210,23 @@ export default function ( {
 
 			<div { ...blockProps }>{ item }</div>
 
-			<BlockControls>
-				<ToolbarGroup>
-					{ ! urlIsSet && (
-						<ToolbarButton
-							icon={ linkIcon }
-							label={ __( 'Link', 'snow-monkey-blocks' ) }
-							aria-expanded={ isLinkUIOpen }
-							onClick={ toggleLinkUI }
-						/>
-					) }
-					{ urlIsSetandSelected && (
-						<ToolbarButton
-							isPressed
-							icon={ linkOffIcon }
-							label={ __( 'Unlink', 'snow-monkey-blocks' ) }
-							onClick={ () => onChangeUrl( '', false ) }
-						/>
-					) }
-				</ToolbarGroup>
+			<BlockControls group="block">
+				{ ! urlIsSet && (
+					<ToolbarButton
+						icon={ linkIcon }
+						label={ __( 'Link', 'snow-monkey-blocks' ) }
+						aria-expanded={ isLinkUIOpen }
+						onClick={ toggleLinkUI }
+					/>
+				) }
+				{ urlIsSetandSelected && (
+					<ToolbarButton
+						isPressed
+						icon={ linkOffIcon }
+						label={ __( 'Unlink', 'snow-monkey-blocks' ) }
+						onClick={ () => onChangeUrl( '', false ) }
+					/>
+				) }
 			</BlockControls>
 		</>
 	);
