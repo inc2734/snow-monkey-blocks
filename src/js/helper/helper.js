@@ -1,8 +1,5 @@
 import { groupBy, reduce, get } from 'lodash';
-import {
-	registerBlockType,
-	unstable__bootstrapServerSideBlockDefinitions, // eslint-disable-line camelcase
-} from '@wordpress/blocks';
+import { registerBlockType } from '@wordpress/blocks';
 import { registerFormatType } from '@wordpress/rich-text';
 import { __ } from '@wordpress/i18n';
 
@@ -31,9 +28,8 @@ export const registerBlock = ( block ) => {
 			metadata.keywords = __( metadata.keywords, 'snow-monkey-blocks' );
 			settings.keywords = metadata.keywords;
 		}
-		unstable__bootstrapServerSideBlockDefinitions( { [ name ]: metadata } );
 	}
-	registerBlockType( name, settings );
+	registerBlockType( { name, ...metadata }, settings );
 };
 
 export const registerFormat = ( format ) => {
