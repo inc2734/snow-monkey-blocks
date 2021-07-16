@@ -19,7 +19,7 @@ wp_register_script(
 	true
 );
 
-register_block_type_from_metadata(
+register_block_type(
 	__DIR__,
 	[
 		'editor_script' => 'snow-monkey-blocks/step/item/standard/editor',

@@ -50,7 +50,7 @@ wp_register_style(
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/categories-list/editor.css' )
 );
 
-register_block_type_from_metadata(
+register_block_type(
 	__DIR__,
 	[
 		'script'          => ! is_admin() ? 'snow-monkey-blocks/categories-list' : null,

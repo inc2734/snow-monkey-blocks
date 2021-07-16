@@ -39,7 +39,7 @@ wp_register_script(
 	true
 );
 
-register_block_type_from_metadata(
+register_block_type(
 	__DIR__,
 	[
 		'style'           => ! is_admin() ? 'snow-monkey-blocks/spider-pickup-slider' : null,

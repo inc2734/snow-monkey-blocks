@@ -37,7 +37,7 @@ wp_register_style(
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/thumbnail-gallery/editor.css' )
 );
 
-register_block_type_from_metadata(
+register_block_type(
 	__DIR__,
 	[
 		'style'         => ! is_admin() ? 'snow-monkey-blocks/thumbnail-gallery' : null,

@@ -38,7 +38,7 @@ wp_register_script(
 	true
 );
 
-register_block_type_from_metadata(
+register_block_type(
 	__DIR__,
 	[
 		'style'         => 'snow-monkey-blocks/section-side-heading',
