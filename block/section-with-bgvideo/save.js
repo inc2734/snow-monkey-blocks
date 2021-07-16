@@ -28,9 +28,11 @@ export default function ( { attributes, className } ) {
 		'smb-section',
 		'smb-section-with-bgimage',
 		'smb-section-with-bgvideo',
-		`smb-section-with-bgimage--${ contentsAlignment }`,
-		`smb-section-with-bgimage--${ height }`,
-		className
+		className,
+		{
+			[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
+			[ `smb-section--${ height }` ]: !! height,
+		}
 	);
 
 	const bgvideoClasses = classnames( 'smb-section-with-bgimage__bgimage' );

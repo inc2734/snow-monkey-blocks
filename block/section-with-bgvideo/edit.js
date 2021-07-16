@@ -69,9 +69,11 @@ export default function ( {
 		'smb-section',
 		'smb-section-with-bgimage',
 		'smb-section-with-bgvideo',
-		`smb-section-with-bgimage--${ contentsAlignment }`,
-		`smb-section-with-bgimage--${ height }`,
-		className
+		className,
+		{
+			[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
+			[ `smb-section--${ height }` ]: !! height,
+		}
 	);
 
 	const bgvideoClasses = classnames( 'smb-section-with-bgimage__bgimage' );
@@ -262,6 +264,10 @@ export default function ( {
 						value={ contentsAlignment }
 						options={ [
 							{
+								value: '',
+								label: __( 'Normal', 'snow-monkey-blocks' ),
+							},
+							{
 								value: 'left',
 								label: __( 'Left side', 'snow-monkey-blocks' ),
 							},
@@ -337,48 +343,51 @@ export default function ( {
 						/>
 					) }
 				</div>
-				<div className={ containerClasses }>
-					{ hasTitle && ( hasSubTitle || isSelected ) && (
-						<RichText
-							className="smb-section__subtitle"
-							value={ subtitle }
-							onChange={ onChangeSubtitle }
-							placeholder={ __(
-								'Write subtitle…',
-								'snow-monkey-blocks'
-							) }
-						/>
-					) }
 
-					{ ( hasTitle ||
-						( isSelected && 'none' !== titleTagName ) ) && (
-						<RichText
-							className="smb-section__title"
-							tagName={ titleTagName }
-							value={ title }
-							onChange={ onChangeTitle }
-							placeholder={ __(
-								'Write title…',
-								'snow-monkey-blocks'
-							) }
-						/>
-					) }
-
-					{ hasTitle &&
-						( hasLede || isSelected ) &&
-						'none' !== titleTagName && (
+				<div className="smb-section__inner">
+					<div className={ containerClasses }>
+						{ hasTitle && ( hasSubTitle || isSelected ) && (
 							<RichText
-								className="smb-section__lede"
-								value={ lede }
-								onChange={ onChangeLede }
+								className="smb-section__subtitle"
+								value={ subtitle }
+								onChange={ onChangeSubtitle }
 								placeholder={ __(
-									'Write lede…',
+									'Write subtitle…',
 									'snow-monkey-blocks'
 								) }
 							/>
 						) }
 
-					<div { ...innerBlocksProps } />
+						{ ( hasTitle ||
+							( isSelected && 'none' !== titleTagName ) ) && (
+							<RichText
+								className="smb-section__title"
+								tagName={ titleTagName }
+								value={ title }
+								onChange={ onChangeTitle }
+								placeholder={ __(
+									'Write title…',
+									'snow-monkey-blocks'
+								) }
+							/>
+						) }
+
+						{ hasTitle &&
+							( hasLede || isSelected ) &&
+							'none' !== titleTagName && (
+								<RichText
+									className="smb-section__lede"
+									value={ lede }
+									onChange={ onChangeLede }
+									placeholder={ __(
+										'Write lede…',
+										'snow-monkey-blocks'
+									) }
+								/>
+							) }
+
+						<div { ...innerBlocksProps } />
+					</div>
 				</div>
 			</TagName>
 		</>

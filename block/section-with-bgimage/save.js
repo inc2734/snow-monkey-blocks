@@ -42,10 +42,10 @@ export default function ( { attributes, className } ) {
 	const classes = classnames(
 		'smb-section',
 		'smb-section-with-bgimage',
-		`smb-section-with-bgimage--${ contentsAlignment }`,
-		`smb-section-with-bgimage--${ height }`,
 		className,
 		{
+			[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
+			[ `smb-section--${ height }` ]: !! height,
 			'js-bg-parallax': !! parallax,
 		}
 	);
@@ -302,35 +302,37 @@ export default function ( { attributes, className } ) {
 				</div>
 			) }
 
-			<div className={ containerClasses }>
-				{ hasTitle && hasSubTitle && (
-					<RichText.Content
-						tagName="div"
-						className="smb-section__subtitle"
-						value={ subtitle }
-					/>
-				) }
-
-				{ hasTitle && (
-					<RichText.Content
-						tagName={ titleTagName }
-						className="smb-section__title"
-						value={ title }
-					/>
-				) }
-
-				{ hasTitle && hasLede && (
-					<div className="smb-section__lede-wrapper">
+			<div className="smb-section__inner">
+				<div className={ containerClasses }>
+					{ hasTitle && hasSubTitle && (
 						<RichText.Content
 							tagName="div"
-							className="smb-section__lede"
-							value={ lede }
+							className="smb-section__subtitle"
+							value={ subtitle }
 						/>
-					</div>
-				) }
+					) }
 
-				<div className="smb-section__body">
-					<InnerBlocks.Content />
+					{ hasTitle && (
+						<RichText.Content
+							tagName={ titleTagName }
+							className="smb-section__title"
+							value={ title }
+						/>
+					) }
+
+					{ hasTitle && hasLede && (
+						<div className="smb-section__lede-wrapper">
+							<RichText.Content
+								tagName="div"
+								className="smb-section__lede"
+								value={ lede }
+							/>
+						</div>
+					) }
+
+					<div className="smb-section__body">
+						<InnerBlocks.Content />
+					</div>
 				</div>
 			</div>
 		</TagName>

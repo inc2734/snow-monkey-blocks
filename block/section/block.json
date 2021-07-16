@@ -111,6 +111,14 @@
     "bottomDividerVerticalPosition": {
       "type": "number",
       "default": 0
+    },
+    "height": {
+      "type": "string",
+      "default": "fit"
+    },
+    "contentsAlignment": {
+      "type": "string",
+      "default": ""
     }
   },
   "supports": {

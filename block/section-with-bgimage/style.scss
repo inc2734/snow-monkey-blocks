@@ -5,10 +5,18 @@
 .smb-section-with-bgimage {
   position: relative;
   overflow: hidden;
+
+  // @deprecaed
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
+
+  // @deprecaed
+  > .smb-section__inner {
+    margin-right: auto;
+    margin-left: auto;
+  }
 
   &__repeatable-image {
     position: absolute;
@@ -90,6 +98,7 @@
     flex: 1 1 100%;
   }
 
+  // @deprecated
   &--left {
     .smb-section__subtitle,
     .smb-section__title,
@@ -110,6 +119,7 @@
     }
   }
 
+  // @deprecated
   &--center {
     .smb-section__title,
     .smb-section__body {
@@ -124,6 +134,7 @@
     }
   }
 
+  // @deprecated
   &--right {
     .smb-section__subtitle,
     .smb-section__title,

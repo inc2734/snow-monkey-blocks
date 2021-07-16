@@ -32,11 +32,16 @@ export default function ( { attributes, className } ) {
 		bottomDividerLevel,
 		bottomDividerColor,
 		bottomDividerVerticalPosition,
+		height,
+		contentsAlignment,
 	} = attributes;
 
 	const TagName = wrapperTagName;
 
-	const classes = classnames( 'smb-section', className );
+	const classes = classnames( 'smb-section', className, {
+		[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
+		[ `smb-section--${ height }` ]: !! height,
+	} );
 
 	const topDividerClasses = classnames(
 		'smb-section__divider',

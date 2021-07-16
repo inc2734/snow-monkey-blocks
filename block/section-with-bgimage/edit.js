@@ -89,10 +89,10 @@ export default function ( {
 	const classes = classnames(
 		'smb-section',
 		'smb-section-with-bgimage',
-		`smb-section-with-bgimage--${ contentsAlignment }`,
-		`smb-section-with-bgimage--${ height }`,
 		className,
 		{
+			[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
+			[ `smb-section--${ height }` ]: !! height,
 			'js-bg-parallax': !! parallax,
 		}
 	);
@@ -101,7 +101,7 @@ export default function ( {
 		'js-bg-parallax__bgimage': !! parallax,
 	} );
 
-	const containerClasses = classnames( 'c-container', 'wp-block', {
+	const containerClasses = classnames( 'c-container', {
 		'u-slim-width': !! isSlim,
 	} );
 
@@ -480,6 +480,10 @@ export default function ( {
 						value={ contentsAlignment }
 						options={ [
 							{
+								value: '',
+								label: __( 'Normal', 'snow-monkey-blocks' ),
+							},
+							{
 								value: 'left',
 								label: __( 'Left side', 'snow-monkey-blocks' ),
 							},
@@ -815,48 +819,50 @@ export default function ( {
 					</div>
 				) }
 
-				<div className={ containerClasses }>
-					{ hasTitle && ( hasSubTitle || isSelected ) && (
-						<RichText
-							className="smb-section__subtitle"
-							value={ subtitle }
-							onChange={ onChangeSubtitle }
-							placeholder={ __(
-								'Write subtitle…',
-								'snow-monkey-blocks'
-							) }
-						/>
-					) }
-
-					{ ( hasTitle ||
-						( isSelected && 'none' !== titleTagName ) ) && (
-						<RichText
-							className="smb-section__title"
-							tagName={ titleTagName }
-							value={ title }
-							onChange={ onChangeTitle }
-							placeholder={ __(
-								'Write title…',
-								'snow-monkey-blocks'
-							) }
-						/>
-					) }
-
-					{ hasTitle && ( hasLede || isSelected ) && (
-						<div className="smb-section__lede-wrapper">
+				<div className="smb-section__inner">
+					<div className={ containerClasses }>
+						{ hasTitle && ( hasSubTitle || isSelected ) && (
 							<RichText
-								className="smb-section__lede"
-								value={ lede }
-								onChange={ onChangeLede }
+								className="smb-section__subtitle"
+								value={ subtitle }
+								onChange={ onChangeSubtitle }
 								placeholder={ __(
-									'Write lede…',
+									'Write subtitle…',
 									'snow-monkey-blocks'
 								) }
 							/>
-						</div>
-					) }
+						) }
 
-					<div { ...innerBlocksProps } />
+						{ ( hasTitle ||
+							( isSelected && 'none' !== titleTagName ) ) && (
+							<RichText
+								className="smb-section__title"
+								tagName={ titleTagName }
+								value={ title }
+								onChange={ onChangeTitle }
+								placeholder={ __(
+									'Write title…',
+									'snow-monkey-blocks'
+								) }
+							/>
+						) }
+
+						{ hasTitle && ( hasLede || isSelected ) && (
+							<div className="smb-section__lede-wrapper">
+								<RichText
+									className="smb-section__lede"
+									value={ lede }
+									onChange={ onChangeLede }
+									placeholder={ __(
+										'Write lede…',
+										'snow-monkey-blocks'
+									) }
+								/>
+							</div>
+						) }
+
+						<div { ...innerBlocksProps } />
+					</div>
 				</div>
 			</TagName>
 		</>

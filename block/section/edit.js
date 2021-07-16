@@ -60,6 +60,8 @@ export default function ( {
 		bottomDividerLevel,
 		bottomDividerColor,
 		bottomDividerVerticalPosition,
+		height,
+		contentsAlignment,
 	} = attributes;
 
 	const hasInnerBlocks = useSelect(
@@ -75,7 +77,10 @@ export default function ( {
 	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
 
 	const TagName = wrapperTagName;
-	const classes = classnames( 'smb-section', className );
+	const classes = classnames( 'smb-section', className, {
+		[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
+		[ `smb-section--${ height }` ]: !! height,
+	} );
 
 	const topDividerClasses = classnames(
 		'smb-section__divider',
@@ -89,7 +94,7 @@ export default function ( {
 		`smb-section__divider--${ bottomDividerType }`
 	);
 
-	const containerClasses = classnames( 'c-container', 'wp-block', {
+	const containerClasses = classnames( 'c-container', {
 		'u-slim-width': !! isSlim,
 	} );
 
@@ -193,6 +198,16 @@ export default function ( {
 				: InnerBlocks.ButtonBlockAppender,
 		}
 	);
+
+	const onChangeHeight = ( value ) =>
+		setAttributes( {
+			height: value,
+		} );
+
+	const onChangeContentAlignment = ( value ) =>
+		setAttributes( {
+			contentsAlignment: value,
+		} );
 
 	const onChangeIsSlim = ( value ) =>
 		setAttributes( {
@@ -397,6 +412,49 @@ export default function ( {
 							} ) }
 						</div>
 					</BaseControl>
+
+					<SelectControl
+						label={ __( 'Height', 'snow-monkey-blocks' ) }
+						value={ height }
+						options={ [
+							{
+								value: 'fit',
+								label: __( 'Fit', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'wide',
+								label: __( 'Wide', 'snow-monkey-blocks' ),
+							},
+						] }
+						onChange={ onChangeHeight }
+					/>
+
+					<SelectControl
+						label={ __(
+							'Contents alignment',
+							'snow-monkey-blocks'
+						) }
+						value={ contentsAlignment }
+						options={ [
+							{
+								value: '',
+								label: __( 'Normal', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'left',
+								label: __( 'Left side', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'center',
+								label: __( 'Center', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'right',
+								label: __( 'Right side', 'snow-monkey-blocks' ),
+							},
+						] }
+						onChange={ onChangeContentAlignment }
+					/>
 
 					<ToggleControl
 						label={ __(
