@@ -126,7 +126,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 				data-icon-color={ iconColor }
 			>
 				<style>
-					{ `.editor-styles-wrapper [data-block="${ clientId }"] ul li::before { border-color: ${ iconColor } }` }
+					{ `.editor-styles-wrapper [data-block="${ clientId }"] ul li::before, .customize-control-sidebar_block_editor [data-block="${ clientId }"] ul li::before { border-color: ${ iconColor } }` }
 				</style>
 
 				<RichText

@@ -35,9 +35,11 @@ $widget_args = [
 	'widget_id'     => $widget_id,
 ];
 
+// phpcs:disable VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
 $args = [
 	'_context' => 'snow-monkey-blocks/pickup-slider',
 ];
+// phpcs:enable
 
 ob_start();
 

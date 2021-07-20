@@ -2,7 +2,8 @@
 
 @import 'core/block';
 
-.editor-styles-wrapper {
+.editor-styles-wrapper,
+.customize-control-sidebar_block_editor {
   //@include related-components();
 
   .#{$_prefix}c-row[data-columns],

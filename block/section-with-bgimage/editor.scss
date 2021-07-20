@@ -1,4 +1,7 @@
-.editor-styles-wrapper {
+@charset 'utf-8';
+
+.editor-styles-wrapper,
+.customize-control-sidebar_block_editor {
   @import 'style';
 
   .smb-section-with-bgimage {

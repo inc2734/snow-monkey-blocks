@@ -2,11 +2,13 @@
 
 @import '../../src/css/core/block';
 
-.editor-styles-wrapper {
+.editor-styles-wrapper,
+.customize-control-sidebar_block_editor {
   @import 'style';
 }
 
-.editor-styles-wrapper [data-align="full"] .smb-section-break-the-grid {
+.editor-styles-wrapper [data-align="full"] .smb-section-break-the-grid,
+.customize-control-sidebar_block_editor [data-align="full"] .smb-section-break-the-grid {
   > .c-container {
     max-width: none;
 

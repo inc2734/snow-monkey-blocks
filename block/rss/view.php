@@ -46,9 +46,11 @@ $widget_args = [
 	'id'            => null,
 ];
 
+// phpcs:disable VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
 $args = [
 	'_context' => 'snow-monkey-blocks/rss',
 ];
+// phpcs:enable
 
 ob_start();
 
