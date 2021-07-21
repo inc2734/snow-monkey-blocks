@@ -2,9 +2,9 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
+Stable tag: 12.0.0-beta1
 Requires at least: 5.8
-Tested up to: 5.7
-Stable tag: 11.4.1
+Tested up to: 5.8
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -105,6 +105,19 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 23. Information block (The number of items can be increased or decreased freely)
 
 == Changelog ==
+
+= 12.0.0 =
+* Compatible with WordPress 5.8. 5.7 is not supported.
+* CSS changes with the WordPress 5.8 update.
+* [Button] Change the margin from `margin` to `gap`.
+* [Section] Add setting the vertical position of the content.
+* [Section] Add height setting.
+* [Section (Background image/video)] Change the class name of vertical alignment and height.
+* [Section (YouTube)] Change the class name of vertical alignment and height.
+* [Section (Background image/video)] Fixed a bug that caused videos to be treated as images when specified as URLs in the media.
+* [Section (Break the grid)] Fixed a bug that caused videos to be treated as images when specified as URLs in the media.
+* [Media text] Fixed a bug that caused videos to be treated as images when specified as URLs in the media.
+* [Slider (Deprecated)] Fixed a bug where images were sometimes not displayed in full width.
 
 = 11.4.1 =
 * [Box] Fixed a bug that the ruled lines were sometimes missing in Safari.
