@@ -118,14 +118,14 @@
           transform: translateY(-50%);
 
           @supports(object-fit: cover) {
-            object-position: 50% 50%;
-            object-fit: cover;
-            top: 0;
-            left: 0;
+            position: relative;
+            top: 50%;
+            left: auto;
             right: 0;
-            bottom: 0;
-            height: 100%;
-            transform: initial;
+            bottom: auto;
+            height: auto;
+            width: 100%;
+            transform: translateY(-50%);
           }
         }
       }
