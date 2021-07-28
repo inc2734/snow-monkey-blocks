@@ -219,6 +219,6 @@ class BlockPatterns {
 
 		ob_start();
 		include( $path );
-		return ob_get_clean();
+		return preg_replace( '/(\t|\r\n|\r|\n)/ms', '', ob_get_clean() );
 	}
 }

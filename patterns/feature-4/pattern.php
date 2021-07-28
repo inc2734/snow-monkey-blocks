@@ -24,57 +24,38 @@
 										<div class="wp-block-snow-monkey-blocks-items--item--standard c-row__col">
 											<div class="smb-items__item">
 												<div class="smb-items__item__body">
-													<div class="smb-items__item__title">
-														Lorem ipsum
-													</div>
-													<div class="smb-items__item__content">
-														consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-													</div>
+													<div class="smb-items__item__title">Lorem ipsum</div>
+													<div class="smb-items__item__content">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
 												</div>
 											</div>
 										</div>
 										<!-- /wp:snow-monkey-blocks/items--item--standard -->
-
 										<!-- wp:snow-monkey-blocks/items--item--standard -->
 										<div class="wp-block-snow-monkey-blocks-items--item--standard c-row__col">
 											<div class="smb-items__item">
 												<div class="smb-items__item__body">
-													<div class="smb-items__item__title">
-														Lorem ipsum
-													</div>
-													<div class="smb-items__item__content">
-														consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-													</div>
+													<div class="smb-items__item__title">Lorem ipsum</div>
+													<div class="smb-items__item__content">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
 												</div>
 											</div>
 										</div>
 										<!-- /wp:snow-monkey-blocks/items--item--standard -->
-
 										<!-- wp:snow-monkey-blocks/items--item--standard -->
 										<div class="wp-block-snow-monkey-blocks-items--item--standard c-row__col">
 											<div class="smb-items__item">
 												<div class="smb-items__item__body">
-													<div class="smb-items__item__title">
-														Lorem ipsum
-													</div>
-													<div class="smb-items__item__content">
-														consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-													</div>
+													<div class="smb-items__item__title">Lorem ipsum</div>
+													<div class="smb-items__item__content">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
 												</div>
 											</div>
 										</div>
 										<!-- /wp:snow-monkey-blocks/items--item--standard -->
-
 										<!-- wp:snow-monkey-blocks/items--item--standard -->
 										<div class="wp-block-snow-monkey-blocks-items--item--standard c-row__col">
 											<div class="smb-items__item">
 												<div class="smb-items__item__body">
-													<div class="smb-items__item__title">
-														Lorem ipsum
-													</div>
-													<div class="smb-items__item__content">
-														consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-													</div>
+													<div class="smb-items__item__title">Lorem ipsum</div>
+													<div class="smb-items__item__content">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
 												</div>
 											</div>
 										</div>

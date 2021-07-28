@@ -18,17 +18,12 @@
 							<h2 class="smb-media-text__title">Lorem ipsum</h2>
 							<div class="smb-media-text__body">
 								<!-- wp:paragraph -->
-								<p>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-								</p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 								<!-- /wp:paragraph -->
-
 								<!-- wp:buttons -->
 								<div class="wp-block-buttons">
 									<!-- wp:button {"className":"is-style-outline"} -->
-									<div class="wp-block-button is-style-outline">
-										<a class="wp-block-button__link">Lorem</a>
-									</div>
+									<div class="wp-block-button is-style-outline"><a class="wp-block-button__link">Lorem</a></div>
 									<!-- /wp:button -->
 								</div>
 								<!-- /wp:buttons -->

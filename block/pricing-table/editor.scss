@@ -7,6 +7,10 @@
   @import 'style';
 
   .smb-pricing-table {
+    .block-editor-media-placeholder {
+      white-space: initial;
+    }
+
     .block-list-appender {
       display: flex;
       flex-direction: column;

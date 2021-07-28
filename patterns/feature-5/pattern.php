@@ -19,9 +19,7 @@
 							<h2 class="smb-media-text__title">Lorem ipsum dolor sit amet</h2>
 							<div class="smb-media-text__body">
 								<!-- wp:paragraph -->
-								<p>
-									consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-								</p>
+								<p>consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 								<!-- /wp:paragraph -->
 							</div>
 						</div>
@@ -33,7 +31,6 @@
 					</div>
 				</div>
 				<!-- /wp:snow-monkey-blocks/media-text -->
-
 				<!-- wp:snow-monkey-blocks/media-text {"mediaPosition":"left","mediaColumnSize":"33"} -->
 				<div class="wp-block-snow-monkey-blocks-media-text smb-media-text">
 					<div class="c-row c-row--margin c-row--reverse c-row--middle">
@@ -41,9 +38,7 @@
 							<h2 class="smb-media-text__title">Lorem ipsum dolor sit amet</h2>
 							<div class="smb-media-text__body">
 								<!-- wp:paragraph -->
-								<p>
-									consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-								</p>
+								<p>consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 								<!-- /wp:paragraph -->
 							</div>
 						</div>
