@@ -7,7 +7,7 @@
 ?>
 
 <!-- wp:snow-monkey-blocks/section-with-bgimage {"titleTagName":"none","height":"wide","maskOpacity":0.6,"textColor":"#fff","align":"full","className":"smb-section-with-bgimage\u002d\u002dleft smb-section-with-bgimage\u002d\u002dwide"} -->
-<div class="wp-block-snow-monkey-blocks-section-with-bgimage alignfull smb-section smb-section-with-bgimage smb-section--left smb-section--wide smb-section-with-bgimage--left smb-section-with-bgimage--wide" style="color:#fff">
+<div class="wp-block-snow-monkey-blocks-section-with-bgimage alignfull smb-section smb-section-with-bgimage smb-section--left smb-section--wide smb-section-with-bgimage--left" style="color:#fff">
 	<div class="smb-section-with-bgimage__bgimage smb-section-with-bgimage__bgimage--lg">
 		<div class="smb-section-with-bgimage__mask"></div>
 		<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/mountain-landscape-and-tree-at-sunset.jpg" alt="" class="wp-image-0" style="opacity:0.6"/>

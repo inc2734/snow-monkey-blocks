@@ -100,7 +100,7 @@
   }
 
   // @deprecated
-  &--left {
+  &--left:not([class*="smb-section--"]) {
     .smb-section__subtitle,
     .smb-section__title,
     .smb-section__lede,
@@ -121,7 +121,7 @@
   }
 
   // @deprecated
-  &--center {
+  &--center:not([class*="smb-section--"]) {
     .smb-section__title,
     .smb-section__body {
       text-align: center;
@@ -136,7 +136,7 @@
   }
 
   // @deprecated
-  &--right {
+  &--right:not([class*="smb-section--"]) {
     .smb-section__subtitle,
     .smb-section__title,
     .smb-section__lede,
