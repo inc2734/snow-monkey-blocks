@@ -1,4 +1,4 @@
-import { find, times, omit } from 'lodash';
+import { find, times } from 'lodash';
 
 import { useSelect } from '@wordpress/data';
 import { __, sprintf } from '@wordpress/i18n';
@@ -142,11 +142,6 @@ export default function ( { attributes, setAttributes } ) {
 		setAttributes( {
 			interval: toNumber( value, 0, 10 ),
 		} );
-
-	// Backward compatible
-	const serverSideRenderAttributes = {
-		...omit( attributes, [ 'myAnchor' ] ),
-	};
 
 	return (
 		<>
@@ -412,7 +407,7 @@ export default function ( { attributes, setAttributes } ) {
 				<Disabled>
 					<ServerSideRender
 						block="snow-monkey-blocks/taxonomy-posts"
-						attributes={ serverSideRenderAttributes }
+						attributes={ attributes }
 					/>
 				</Disabled>
 			) }

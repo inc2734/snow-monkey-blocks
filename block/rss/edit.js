@@ -1,4 +1,4 @@
-import { times, omit } from 'lodash';
+import { times } from 'lodash';
 
 import ServerSideRender from '@wordpress/server-side-render';
 import { __, sprintf } from '@wordpress/i18n';
@@ -87,11 +87,6 @@ export default function ( { attributes, setAttributes } ) {
 		setAttributes( {
 			interval: toNumber( value, 0, 10 ),
 		} );
-
-	// Backward compatible
-	const serverSideRenderAttributes = {
-		...omit( attributes, [ 'myAnchor' ] ),
-	};
 
 	if ( isEditing ) {
 		return (
@@ -296,7 +291,7 @@ export default function ( { attributes, setAttributes } ) {
 			<Disabled>
 				<ServerSideRender
 					block="snow-monkey-blocks/rss"
-					attributes={ serverSideRenderAttributes }
+					attributes={ attributes }
 				/>
 			</Disabled>
 		</>

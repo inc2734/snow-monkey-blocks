@@ -186,8 +186,7 @@ export const divider = ( type, level, color ) => {
  *
  * @copyright torounit
  * @see https://github.com/torounit/advanced-posts-blocks/blob/master/src/util/terms.js
- *
- * @param {Array} flatTerms  Array of terms in flat format.
+ * @param {Array} flatTerms Array of terms in flat format.
  * @return {Array} Array of terms in tree format.
  */
 export const buildTermsTree = ( flatTerms ) => {
@@ -222,8 +221,7 @@ export const buildTermsTree = ( flatTerms ) => {
 
 /**
  * @see https://github.com/WordPress/gutenberg/blob/ddd3fffdd327d2f9c5202481345fb7427d4a822b/packages/block-library/src/media-text/edit.native.js#L69-L83
- *
- * @param  {Object} media
+ * @param {Object} media
  * @return {string} image or video
  */
 export const getMediaType = ( media ) => {
@@ -241,8 +239,8 @@ export const getMediaType = ( media ) => {
 /**
  * Return resized image list
  *
- * @param {Array} imageSizes
- * @param {Object} media from getMedia()
+ * @param {Array}  imageSizes
+ * @param {Object} media      from getMedia()
  * @return {Object} list of url, width, height
  */
 export const getResizedImages = ( imageSizes, media ) => {
@@ -327,7 +325,6 @@ const VIDEO_EXTENSIONS = [
  * Gets the extension of a file name.
  *
  * @see https://github.com/WordPress/gutenberg/blob/3da717b8d0ac7d7821fc6d0475695ccf3ae2829f/packages/components/src/focal-point-picker/utils.js
- *
  * @param {string} filename The file name.
  * @return {string} The extension of the file name.
  */
@@ -340,7 +337,6 @@ export function getExtension( filename = '' ) {
  * Checks if a file is a video.
  *
  * @see https://github.com/WordPress/gutenberg/blob/3da717b8d0ac7d7821fc6d0475695ccf3ae2829f/packages/components/src/focal-point-picker/utils.js
- *
  * @param {string} filename The file name.
  * @return {boolean} Whether the file is a video.
  */

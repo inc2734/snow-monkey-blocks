@@ -1,4 +1,4 @@
-import { times, omit } from 'lodash';
+import { times } from 'lodash';
 
 import ServerSideRender from '@wordpress/server-side-render';
 import { useSelect } from '@wordpress/data';
@@ -128,11 +128,6 @@ export default function ( { attributes, setAttributes } ) {
 		setAttributes( {
 			interval: toNumber( value, 0, 10 ),
 		} );
-
-	// Backward compatible
-	const serverSideRenderAttributes = {
-		...omit( attributes, [ 'myAnchor' ] ),
-	};
 
 	return (
 		<>
@@ -368,7 +363,7 @@ export default function ( { attributes, setAttributes } ) {
 				<Disabled>
 					<ServerSideRender
 						block="snow-monkey-blocks/recent-posts"
-						attributes={ serverSideRenderAttributes }
+						attributes={ attributes }
 					/>
 				</Disabled>
 			) }
