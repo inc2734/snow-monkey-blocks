@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 12.0.1
+Stable tag: 12.0.2
 Requires at least: 5.8
 Tested up to: 5.8
 Requires PHP: 5.6
@@ -105,6 +105,11 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 23. Information block (The number of items can be increased or decreased freely)
 
 == Changelog ==
+
+= 12.0.2 =
+* Fixed a bug in which the "Contents alignment" of child sections was not correctly reflected when section-based blocks were nested.
+* [Section (Break the grid)] Fixed a bug where the lead text was not centered even if the "Contents alignment" was centered.
+* [Section (YouTube)] Fixed a bug where the lead text was not centered even if the "Contents alignment" was centered.
 
 = 12.0.1 =
 * [Recent posts] Fixed a bug where this is not being re-rendered in the block based widget screen. This may affect the compatibility with older block. In this case, please reconfigure a new block.
