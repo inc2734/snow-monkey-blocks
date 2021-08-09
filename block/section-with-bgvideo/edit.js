@@ -372,9 +372,8 @@ export default function ( {
 							/>
 						) }
 
-						{ hasTitle &&
-							( hasLede || isSelected ) &&
-							'none' !== titleTagName && (
+						{ hasTitle && ( hasLede || isSelected ) && (
+							<div className="smb-section__lede-wrapper">
 								<RichText
 									className="smb-section__lede"
 									value={ lede }
@@ -384,7 +383,8 @@ export default function ( {
 										'snow-monkey-blocks'
 									) }
 								/>
-							) }
+							</div>
+						) }
 
 						<div { ...innerBlocksProps } />
 					</div>

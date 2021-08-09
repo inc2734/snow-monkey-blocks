@@ -94,33 +94,38 @@ export default function ( { attributes, className } ) {
 					</>
 				) }
 			</div>
-			<div className={ containerClasses }>
-				{ hasTitle && hasSubTitle && (
-					<RichText.Content
-						tagName="div"
-						className="smb-section__subtitle"
-						value={ subtitle }
-					/>
-				) }
 
-				{ hasTitle && (
-					<RichText.Content
-						tagName={ titleTagName }
-						className="smb-section__title"
-						value={ title }
-					/>
-				) }
+			<div className="smb-section__inner">
+				<div className={ containerClasses }>
+					{ hasTitle && hasSubTitle && (
+						<RichText.Content
+							tagName="div"
+							className="smb-section__subtitle"
+							value={ subtitle }
+						/>
+					) }
 
-				{ hasTitle && hasLede && (
-					<RichText.Content
-						tagName="div"
-						className="smb-section__lede"
-						value={ lede }
-					/>
-				) }
+					{ hasTitle && (
+						<RichText.Content
+							tagName={ titleTagName }
+							className="smb-section__title"
+							value={ title }
+						/>
+					) }
 
-				<div className="smb-section__body">
-					<InnerBlocks.Content />
+					{ hasTitle && hasLede && (
+						<div className="smb-section__lede-wrapper">
+							<RichText.Content
+								tagName="div"
+								className="smb-section__lede"
+								value={ lede }
+							/>
+						</div>
+					) }
+
+					<div className="smb-section__body">
+						<InnerBlocks.Content />
+					</div>
 				</div>
 			</div>
 		</TagName>

@@ -84,6 +84,10 @@ export default function ( { attributes, className } ) {
 
 	const maskClasses = classnames( 'smb-section-break-the-grid__mask' );
 
+	const hasTitle = ! RichText.isEmpty( title ) && 'none' !== titleTagName;
+	const hasSubTitle = ! RichText.isEmpty( subtitle );
+	const hasLede = ! RichText.isEmpty( lede );
+
 	const sectionStyles = {
 		color: textColor || undefined,
 	};
@@ -150,16 +154,15 @@ export default function ( { attributes, className } ) {
 				style: sectionStyles,
 			} ) }
 		>
-			<div className="c-container">
-				<div className={ rowClasses }>
-					<div className={ textColumnClasses }>
-						<div
-							className={ contentClasses }
-							style={ contentStyles }
-						>
-							{ ! RichText.isEmpty( title ) &&
-								! RichText.isEmpty( subtitle ) &&
-								'none' !== titleTagName && (
+			<div className="smb-section__inner">
+				<div className="c-container">
+					<div className={ rowClasses }>
+						<div className={ textColumnClasses }>
+							<div
+								className={ contentClasses }
+								style={ contentStyles }
+							>
+								{ hasTitle && hasSubTitle && (
 									<RichText.Content
 										tagName="div"
 										className="smb-section__subtitle smb-section-break-the-grid__subtitle"
@@ -167,8 +170,7 @@ export default function ( { attributes, className } ) {
 									/>
 								) }
 
-							{ ! RichText.isEmpty( title ) &&
-								'none' !== titleTagName && (
+								{ hasTitle && (
 									<RichText.Content
 										tagName={ titleTagName }
 										className="smb-section__title smb-section-break-the-grid__title"
@@ -176,39 +178,42 @@ export default function ( { attributes, className } ) {
 									/>
 								) }
 
-							{ ! RichText.isEmpty( title ) &&
-								! RichText.isEmpty( lede ) &&
-								'none' !== titleTagName && (
-									<RichText.Content
-										tagName="div"
-										className="smb-section__lede smb-section-break-the-grid__lede"
-										value={ lede }
+								{ hasTitle && hasLede && (
+									<div className="smb-section__lede-wrapper smb-section-break-the-grid__lede-wrapper">
+										<RichText.Content
+											tagName="div"
+											className="smb-section__lede smb-section-break-the-grid__lede"
+											value={ lede }
+										/>
+									</div>
+								) }
+
+								<div className="smb-section__body smb-section-break-the-grid__body">
+									<InnerBlocks.Content />
+								</div>
+							</div>
+						</div>
+						<div className={ imageColumnClasses }>
+							<div className={ figureClasses }>
+								{ shadowColor && (
+									<div
+										className={ shadowClasses }
+										style={ shadowStyles }
 									/>
 								) }
 
-							<div className="smb-section__body smb-section-break-the-grid__body">
-								<InnerBlocks.Content />
+								{ 0 <
+									Number(
+										( 1 - maskOpacity ).toFixed( 1 )
+									) && (
+									<div
+										className={ maskClasses }
+										style={ maskStyles }
+									/>
+								) }
+
+								{ figure }
 							</div>
-						</div>
-					</div>
-					<div className={ imageColumnClasses }>
-						<div className={ figureClasses }>
-							{ shadowColor && (
-								<div
-									className={ shadowClasses }
-									style={ shadowStyles }
-								/>
-							) }
-
-							{ 0 <
-								Number( ( 1 - maskOpacity ).toFixed( 1 ) ) && (
-								<div
-									className={ maskClasses }
-									style={ maskStyles }
-								/>
-							) }
-
-							{ figure }
 						</div>
 					</div>
 				</div>

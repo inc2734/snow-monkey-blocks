@@ -164,6 +164,10 @@ export default function ( {
 
 	const maskClasses = classnames( 'smb-section-break-the-grid__mask' );
 
+	const hasTitle = ! RichText.isEmpty( title ) && 'none' !== titleTagName;
+	const hasSubTitle = ! RichText.isEmpty( subtitle );
+	const hasLede = ! RichText.isEmpty( lede );
+
 	const sectionStyles = {
 		color: textColor || undefined,
 	};
@@ -842,40 +846,35 @@ export default function ( {
 								className={ contentClasses }
 								style={ contentStyles }
 							>
-								{ ! RichText.isEmpty( title ) &&
-									( ! RichText.isEmpty( subtitle ) ||
-										isSelected ) &&
-									'none' !== titleTagName && (
-										<RichText
-											className="smb-section__subtitle smb-section-break-the-grid__subtitle"
-											value={ subtitle }
-											onChange={ onChangeSubtitle }
-											placeholder={ __(
-												'Write subtitle…',
-												'snow-monkey-blocks'
-											) }
-										/>
-									) }
+								{ hasTitle && ( hasSubTitle || isSelected ) && (
+									<RichText
+										className="smb-section__subtitle smb-section-break-the-grid__subtitle"
+										value={ subtitle }
+										onChange={ onChangeSubtitle }
+										placeholder={ __(
+											'Write subtitle…',
+											'snow-monkey-blocks'
+										) }
+									/>
+								) }
 
-								{ ( ! RichText.isEmpty( title ) ||
-									isSelected ) &&
-									'none' !== titleTagName && (
-										<RichText
-											className="smb-section__title smb-section-break-the-grid__title"
-											tagName={ titleTagName }
-											value={ title }
-											onChange={ onChangeTitle }
-											placeholder={ __(
-												'Write title…',
-												'snow-monkey-blocks'
-											) }
-										/>
-									) }
+								{ ( hasTitle ||
+									( isSelected &&
+										'none' !== titleTagName ) ) && (
+									<RichText
+										className="smb-section__title smb-section-break-the-grid__title"
+										tagName={ titleTagName }
+										value={ title }
+										onChange={ onChangeTitle }
+										placeholder={ __(
+											'Write title…',
+											'snow-monkey-blocks'
+										) }
+									/>
+								) }
 
-								{ ! RichText.isEmpty( title ) &&
-									( ! RichText.isEmpty( lede ) ||
-										isSelected ) &&
-									'none' !== titleTagName && (
+								{ hasTitle && ( hasLede || isSelected ) && (
+									<div className="smb-section__lede-wrapper smb-section-break-the-grid__lede-wrapper">
 										<RichText
 											className="smb-section__lede smb-section-break-the-grid__lede"
 											value={ lede }
@@ -885,7 +884,8 @@ export default function ( {
 												'snow-monkey-blocks'
 											) }
 										/>
-									) }
+									</div>
+								) }
 
 								<div { ...innerBlocksProps } />
 							</div>

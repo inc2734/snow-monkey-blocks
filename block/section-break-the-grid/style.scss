@@ -162,6 +162,10 @@
     text-align: left;
   }
 
+  &__lede-wrapper {
+    justify-content: flex-start;
+  }
+
   &__shadow {
     position: absolute;
     top: 0;

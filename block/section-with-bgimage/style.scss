@@ -6,19 +6,6 @@
   position: relative;
   overflow: hidden;
 
-  // @deprecaed
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-
-  // @deprecaed
-  > .smb-section__inner {
-    margin-right: auto;
-    margin-left: auto;
-    flex: 1 1 auto;
-  }
-
   &__repeatable-image {
     position: absolute;
     top: 0;
@@ -94,64 +81,67 @@
     background-color: _var-color-black();
   }
 
-  > .#{$_prefix}c-container {
-    position: relative;
-    flex: 1 1 100%;
-  }
-
   // @deprecated
   &--left:not([class*="smb-section--"]) {
-    .smb-section__subtitle,
-    .smb-section__title,
-    .smb-section__lede,
-    .smb-section__body {
-      text-align: left;
-    }
+    > .#{ $_prefix }c-container {
+      > .smb-section__subtitle,
+      > .smb-section__title,
+      > .smb-section__lede,
+      > .smb-section__lede-wrapper > .smb-section__lede,
+      > .smb-section__body {
+        text-align: left;
+      }
 
-    .smb-section__lede-wrapper {
-      display: block;
-    }
+      > .smb-section__lede-wrapper {
+        display: block;
+      }
 
-    .smb-section__title {
-      &::after {
-        margin-right: auto;
-        margin-left: 0;
+      > .smb-section__title {
+        &::after {
+          margin-right: auto;
+          margin-left: 0;
+        }
       }
     }
   }
 
   // @deprecated
   &--center:not([class*="smb-section--"]) {
-    .smb-section__title,
-    .smb-section__body {
-      text-align: center;
-    }
+    > .#{ $_prefix }c-container {
+      > .smb-section__title,
+      > .smb-section__body {
+        text-align: center;
+      }
 
-    .smb-section__title {
-      &::after {
-        margin-right: auto;
-        margin-left: auto;
+      > .smb-section__title {
+        &::after {
+          margin-right: auto;
+          margin-left: auto;
+        }
       }
     }
   }
 
   // @deprecated
   &--right:not([class*="smb-section--"]) {
-    .smb-section__subtitle,
-    .smb-section__title,
-    .smb-section__lede,
-    .smb-section__body {
-      text-align: right;
-    }
+    > .#{ $_prefix }c-container {
+      > .smb-section__subtitle,
+      > .smb-section__title,
+      > .smb-section__lede,
+      > .smb-section__lede-wrapper > .smb-section__lede,
+      > .smb-section__body {
+        text-align: right;
+      }
 
-    .smb-section__lede-wrapper {
-      display: block;
-    }
+      > .smb-section__lede-wrapper {
+        display: block;
+      }
 
-    .smb-section__title {
-      &::after {
-        margin-right: 0;
-        margin-left: auto;
+      > .smb-section__title {
+        &::after {
+          margin-right: 0;
+          margin-left: auto;
+        }
       }
     }
   }

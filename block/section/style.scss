@@ -84,6 +84,7 @@
     align-items: center;
 
     > .#{$_prefix}c-container {
+      position: relative;
       flex: 1 1 auto;
     }
   }
@@ -106,60 +107,68 @@
     @include _font-size-line-height($_base-font-size-px - 2);
   }
 
-  .#{$_prefix}c-container {
-    position: relative;
-  }
-
   &--left {
-    .smb-section__subtitle,
-    .smb-section__title,
-    .smb-section__lede,
-    .smb-section__body {
-      text-align: left;
-    }
+    > .smb-section__inner {
+      > .#{$_prefix}c-container {
+        > .smb-section__subtitle,
+        > .smb-section__title,
+        > .smb-section__lede-wrapper > .smb-section__lede,
+        > .smb-section__body {
+          text-align: left;
+        }
 
-    .smb-section__lede-wrapper {
-      display: block;
-    }
+        > .smb-section__lede-wrapper {
+          display: block;
+        }
 
-    .smb-section__title {
-      &::after {
-        margin-right: auto;
-        margin-left: 0;
+        > .smb-section__title {
+          &::after {
+            margin-right: auto;
+            margin-left: 0;
+          }
+        }
       }
     }
   }
 
   &--center {
-    .smb-section__title,
-    .smb-section__body {
-      text-align: center;
-    }
+    > .smb-section__inner {
+      > .#{$_prefix}c-container {
+        > .smb-section__title,
+        > .smb-section__body {
+          text-align: center;
+        }
 
-    .smb-section__title {
-      &::after {
-        margin-right: auto;
-        margin-left: auto;
+        > .smb-section__title {
+          &::after {
+            margin-right: auto;
+            margin-left: auto;
+          }
+        }
       }
     }
   }
 
   &--right {
-    .smb-section__subtitle,
-    .smb-section__title,
-    .smb-section__lede,
-    .smb-section__body {
-      text-align: right;
-    }
+    > .smb-section__inner {
+      > .#{$_prefix}c-container {
+        > .smb-section__subtitle,
+        > .smb-section__title,
+        > .smb-section__lede-wrapper > .smb-section__lede,
+        > .smb-section__body {
+          text-align: right;
+        }
 
-    .smb-section__lede-wrapper {
-      display: block;
-    }
+        > .smb-section__lede-wrapper {
+          display: block;
+        }
 
-    .smb-section__title {
-      &::after {
-        margin-right: 0;
-        margin-left: auto;
+        > .smb-section__title {
+          &::after {
+            margin-right: 0;
+            margin-left: auto;
+          }
+        }
       }
     }
   }

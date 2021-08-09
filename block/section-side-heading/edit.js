@@ -823,15 +823,17 @@ export default function ( {
 								) }
 
 								{ hasTitle && ( hasLede || isSelected ) && (
-									<RichText
-										className="smb-section__lede smb-section-side-heading__lede"
-										value={ lede }
-										onChange={ onChangeLede }
-										placeholder={ __(
-											'Write lede…',
-											'snow-monkey-blocks'
-										) }
-									/>
+									<div className="smb-section__lede-wrapper smb-section-side-heading__lede-wrapper">
+										<RichText
+											className="smb-section__lede smb-section-side-heading__lede"
+											value={ lede }
+											onChange={ onChangeLede }
+											placeholder={ __(
+												'Write lede…',
+												'snow-monkey-blocks'
+											) }
+										/>
+									</div>
 								) }
 							</div>
 							<div className={ contentColClasses }>

@@ -253,11 +253,13 @@ export default function ( { attributes, className } ) {
 							) }
 
 							{ hasTitle && hasLede && (
-								<RichText.Content
-									tagName="div"
-									className="smb-section__lede smb-section-side-heading__lede"
-									value={ lede }
-								/>
+								<div className="smb-section__lede-wrapper smb-section-side-heading__lede-wrapper">
+									<RichText.Content
+										tagName="div"
+										className="smb-section__lede smb-section-side-heading__lede"
+										value={ lede }
+									/>
+								</div>
 							) }
 						</div>
 						<div className={ contentColClasses }>
