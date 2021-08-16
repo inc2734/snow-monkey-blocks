@@ -130,6 +130,10 @@
     },
     "mobileOrder": {
       "type": "string"
+    },
+    "contentsAlignment": {
+      "type": "string",
+      "default": ""
     }
   },
   "supports": {

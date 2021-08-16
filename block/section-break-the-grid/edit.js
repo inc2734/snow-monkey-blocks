@@ -79,6 +79,7 @@ export default function ( {
 		maskColor,
 		maskOpacity,
 		mobileOrder,
+		contentsAlignment,
 	} = attributes;
 
 	const hasInnerBlocks = useSelect(
@@ -127,6 +128,7 @@ export default function ( {
 				verticalAlignment &&
 				'center' !== verticalAlignment,
 			[ `smb-section-break-the-grid--mobile-${ mobileOrder }` ]: !! mobileOrder,
+			[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
 			[ className ]: !! className,
 		}
 	);
@@ -309,6 +311,11 @@ export default function ( {
 	const onChangeMobileOrder = ( value ) =>
 		setAttributes( {
 			mobileOrder: '' === value ? undefined : value,
+		} );
+
+	const onChangeContentAlignment = ( value ) =>
+		setAttributes( {
+			contentsAlignment: value,
 		} );
 
 	const onSelectImage = ( media ) => {
@@ -506,6 +513,33 @@ export default function ( {
 					title={ __( 'Contents Settings', 'snow-monkey-blocks' ) }
 					initialOpen={ false }
 				>
+					<SelectControl
+						label={ __(
+							'Contents alignment',
+							'snow-monkey-blocks'
+						) }
+						value={ contentsAlignment }
+						options={ [
+							{
+								value: '',
+								label: __( 'Normal', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'left',
+								label: __( 'Left side', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'center',
+								label: __( 'Center', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'right',
+								label: __( 'Right side', 'snow-monkey-blocks' ),
+							},
+						] }
+						onChange={ onChangeContentAlignment }
+					/>
+
 					<SelectControl
 						label={ __(
 							'Content Size Adjustment',
@@ -839,87 +873,90 @@ export default function ( {
 			</BlockControls>
 
 			<TagName { ...blockProps }>
-				<div className="c-container">
-					<div className={ rowClasses }>
-						<div className={ textColumnClasses }>
-							<div
-								className={ contentClasses }
-								style={ contentStyles }
-							>
-								{ hasTitle && ( hasSubTitle || isSelected ) && (
-									<RichText
-										className="smb-section__subtitle smb-section-break-the-grid__subtitle"
-										value={ subtitle }
-										onChange={ onChangeSubtitle }
-										placeholder={ __(
-											'Write subtitle…',
-											'snow-monkey-blocks'
+				<div className="smb-section__inner">
+					<div className="c-container">
+						<div className={ rowClasses }>
+							<div className={ textColumnClasses }>
+								<div
+									className={ contentClasses }
+									style={ contentStyles }
+								>
+									{ hasTitle &&
+										( hasSubTitle || isSelected ) && (
+											<RichText
+												className="smb-section__subtitle smb-section-break-the-grid__subtitle"
+												value={ subtitle }
+												onChange={ onChangeSubtitle }
+												placeholder={ __(
+													'Write subtitle…',
+													'snow-monkey-blocks'
+												) }
+											/>
 										) }
-									/>
-								) }
 
-								{ ( hasTitle ||
-									( isSelected &&
-										'none' !== titleTagName ) ) && (
-									<RichText
-										className="smb-section__title smb-section-break-the-grid__title"
-										tagName={ titleTagName }
-										value={ title }
-										onChange={ onChangeTitle }
-										placeholder={ __(
-											'Write title…',
-											'snow-monkey-blocks'
-										) }
-									/>
-								) }
-
-								{ hasTitle && ( hasLede || isSelected ) && (
-									<div className="smb-section__lede-wrapper smb-section-break-the-grid__lede-wrapper">
+									{ ( hasTitle ||
+										( isSelected &&
+											'none' !== titleTagName ) ) && (
 										<RichText
-											className="smb-section__lede smb-section-break-the-grid__lede"
-											value={ lede }
-											onChange={ onChangeLede }
+											className="smb-section__title smb-section-break-the-grid__title"
+											tagName={ titleTagName }
+											value={ title }
+											onChange={ onChangeTitle }
 											placeholder={ __(
-												'Write lede…',
+												'Write title…',
 												'snow-monkey-blocks'
 											) }
 										/>
-									</div>
-								) }
+									) }
 
-								<div { ...innerBlocksProps } />
+									{ hasTitle && ( hasLede || isSelected ) && (
+										<div className="smb-section__lede-wrapper smb-section-break-the-grid__lede-wrapper">
+											<RichText
+												className="smb-section__lede smb-section-break-the-grid__lede"
+												value={ lede }
+												onChange={ onChangeLede }
+												placeholder={ __(
+													'Write lede…',
+													'snow-monkey-blocks'
+												) }
+											/>
+										</div>
+									) }
+
+									<div { ...innerBlocksProps } />
+								</div>
 							</div>
-						</div>
-						<div className={ imageColumnClasses }>
-							<div className={ figureClasses }>
-								{ shadowColor && (
-									<div
-										className={ shadowClasses }
-										style={ shadowStyles }
-									/>
-								) }
+							<div className={ imageColumnClasses }>
+								<div className={ figureClasses }>
+									{ shadowColor && (
+										<div
+											className={ shadowClasses }
+											style={ shadowStyles }
+										/>
+									) }
 
-								{ 0 <
-									Number(
-										( 1 - maskOpacity ).toFixed( 1 )
-									) && (
-									<div
-										className={ maskClasses }
-										style={ maskStyles }
-									/>
-								) }
+									{ 0 <
+										Number(
+											( 1 - maskOpacity ).toFixed( 1 )
+										) && (
+										<div
+											className={ maskClasses }
+											style={ maskStyles }
+										/>
+									) }
 
-								<Figure
-									src={ imageURL }
-									id={ imageID }
-									alt={ imageAlt }
-									onSelect={ onSelectImage }
-									onSelectURL={ onSelectImageURL }
-									onRemove={ onRemoveImage }
-									mediaType={ imageMediaType }
-									allowedTypes={ ALLOWED_TYPES }
-									style={ figureStyles }
-								/>
+									<Figure
+										src={ imageURL }
+										id={ imageID }
+										alt={ imageAlt }
+										onSelect={ onSelectImage }
+										onSelectURL={ onSelectImageURL }
+										onRemove={ onRemoveImage }
+										mediaType={ imageMediaType }
+										allowedTypes={ ALLOWED_TYPES }
+										style={ figureStyles }
+									/>
+								</div>
 							</div>
 						</div>
 					</div>

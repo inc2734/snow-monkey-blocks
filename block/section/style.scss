@@ -134,6 +134,7 @@
   &--center {
     > .smb-section__inner {
       > .#{$_prefix}c-container {
+        > .smb-section__subtitle,
         > .smb-section__title,
         > .smb-section__body {
           text-align: center;
