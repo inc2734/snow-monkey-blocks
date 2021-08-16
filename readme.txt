@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 12.0.3
+Stable tag: 12.1.0
 Requires at least: 5.8
 Tested up to: 5.8
 Requires PHP: 5.6
@@ -105,6 +105,9 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 23. Information block (The number of items can be increased or decreased freely)
 
 == Changelog ==
+
+= 12.1.0 =
+* [Section (Break the grid)] Add "Contents alignment" setting.
 
 = 12.0.3 =
 * [Section (Break the grid)] Fixed a bug where media could not be placed on the left.
