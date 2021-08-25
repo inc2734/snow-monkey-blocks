@@ -6,6 +6,7 @@ import {
 	BlockVerticalAlignmentToolbar,
 	InnerBlocks,
 	InspectorControls,
+	JustifyContentControl,
 	useBlockProps,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
@@ -23,18 +24,39 @@ const ALLOWED_BLOCKS = [
 
 const TEMPLATE = [ [ 'snow-monkey-blocks/items--item--standard' ] ];
 
+const HORIZONTAL_JUSTIFY_CONTROLS = [
+	'left',
+	'center',
+	'right',
+	'space-between',
+];
+
 export default function ( { attributes, setAttributes, className } ) {
-	const { sm, md, lg, isGlue, isFill, verticalAlignment } = attributes;
+	const {
+		sm,
+		md,
+		lg,
+		isGlue,
+		isFill,
+		verticalAlignment,
+		contentJustification,
+	} = attributes;
 
 	const classes = classnames( 'smb-items', className, {
 		'smb-items--glue': isGlue,
 		'smb-items--fill': isFill,
 	} );
 
+	const contentJustificationModifier =
+		!! contentJustification && 'left' !== contentJustification
+			? contentJustification.replace( 'space-', '' )
+			: undefined;
+
 	const rowClasses = classnames( 'c-row', {
 		'c-row--margin': ! isGlue,
 		'c-row--middle': 'center' === verticalAlignment,
 		'c-row--bottom': 'bottom' === verticalAlignment,
+		[ `c-row--${ contentJustificationModifier }` ]: contentJustification,
 	} );
 
 	const blockProps = useBlockProps( {
@@ -83,6 +105,11 @@ export default function ( { attributes, setAttributes, className } ) {
 		setAttributes( {
 			verticalAlignment: value,
 		} );
+
+	const onChangeContentJustification = ( value ) =>
+		setAttributes( { contentJustification: value } );
+
+	const justifyControls = HORIZONTAL_JUSTIFY_CONTROLS;
 
 	return (
 		<>
@@ -149,10 +176,16 @@ export default function ( { attributes, setAttributes, className } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<BlockControls>
+			<BlockControls group="block">
 				<BlockVerticalAlignmentToolbar
 					onChange={ onChangeVerticalAlignment }
 					value={ verticalAlignment }
+				/>
+
+				<JustifyContentControl
+					allowedControls={ justifyControls }
+					value={ contentJustification }
+					onChange={ onChangeContentJustification }
 				/>
 			</BlockControls>
 

@@ -28,7 +28,10 @@
     "verticalAlignment": {
       "type": "string",
       "default": "top"
-    }
+    },
+		"contentJustification": {
+			"type": "string"
+		}
   },
   "supports": {
     "html": false

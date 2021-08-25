@@ -9,6 +9,16 @@ import {
 
 const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/btn' ];
 const TEMPLATE = [ [ 'snow-monkey-blocks/btn' ] ];
+const LAYOUT = {
+	type: 'default',
+	alignments: [],
+};
+const HORIZONTAL_JUSTIFY_CONTROLS = [
+	'left',
+	'center',
+	'right',
+	'space-between',
+];
 
 export default function ( { attributes, setAttributes, className } ) {
 	const { contentJustification } = attributes;
@@ -25,19 +35,19 @@ export default function ( { attributes, setAttributes, className } ) {
 		allowedBlocks: ALLOWED_BLOCKS,
 		template: TEMPLATE,
 		orientation: 'horizontal',
-		__experimentalLayout: {
-			type: 'default',
-			alignments: [],
-		},
+		__experimentalLayout: LAYOUT,
 	} );
 
 	const onChangeContentJustification = ( value ) =>
 		setAttributes( { contentJustification: value } );
 
+	const justifyControls = HORIZONTAL_JUSTIFY_CONTROLS;
+
 	return (
 		<>
 			<BlockControls group="block">
 				<JustifyContentControl
+					allowedControls={ justifyControls }
 					value={ contentJustification }
 					onChange={ onChangeContentJustification }
 				/>

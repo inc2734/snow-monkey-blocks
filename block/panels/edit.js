@@ -3,8 +3,10 @@ import classnames from 'classnames';
 import { PanelBody, RangeControl, ToggleControl } from '@wordpress/components';
 
 import {
+	BlockControls,
 	InnerBlocks,
 	InspectorControls,
+	JustifyContentControl,
 	useBlockProps,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
@@ -22,8 +24,15 @@ const ALLOWED_BLOCKS = [
 
 const TEMPLATE = [ [ 'snow-monkey-blocks/panels--item' ] ];
 
+const HORIZONTAL_JUSTIFY_CONTROLS = [
+	'left',
+	'center',
+	'right',
+	'space-between',
+];
+
 export default function ( { attributes, setAttributes, className } ) {
-	const { sm, md, lg, imagePadding } = attributes;
+	const { sm, md, lg, imagePadding, contentJustification } = attributes;
 
 	const classes = classnames( 'smb-panels', className );
 
@@ -31,9 +40,18 @@ export default function ( { attributes, setAttributes, className } ) {
 		className: classes,
 	} );
 
+	const contentJustificationModifier =
+		!! contentJustification && 'left' !== contentJustification
+			? contentJustification.replace( 'space-', '' )
+			: undefined;
+
+	const rowClasses = classnames( 'c-row', 'c-row--margin', 'c-row--fill', {
+		[ `c-row--${ contentJustificationModifier }` ]: contentJustification,
+	} );
+
 	const innerBlocksProps = useInnerBlocksProps(
 		{
-			className: [ 'c-row', 'c-row--margin', 'c-row--fill' ],
+			className: rowClasses,
 		},
 		{
 			allowedBlocks: ALLOWED_BLOCKS,
@@ -63,6 +81,11 @@ export default function ( { attributes, setAttributes, className } ) {
 		setAttributes( {
 			imagePadding: value,
 		} );
+
+	const onChangeContentJustification = ( value ) =>
+		setAttributes( { contentJustification: value } );
+
+	const justifyControls = HORIZONTAL_JUSTIFY_CONTROLS;
 
 	return (
 		<>
@@ -125,6 +148,14 @@ export default function ( { attributes, setAttributes, className } ) {
 					/>
 				</PanelBody>
 			</InspectorControls>
+
+			<BlockControls group="block">
+				<JustifyContentControl
+					allowedControls={ justifyControls }
+					value={ contentJustification }
+					onChange={ onChangeContentJustification }
+				/>
+			</BlockControls>
 
 			<div { ...blockProps } data-image-padding={ imagePadding }>
 				<div

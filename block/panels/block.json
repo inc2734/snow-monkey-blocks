@@ -24,7 +24,10 @@
     "itemTitleTagName": {
       "type": "string",
       "default": "div"
-    }
+    },
+		"contentJustification": {
+			"type": "string"
+		}
   },
   "supports": {
     "html": false
