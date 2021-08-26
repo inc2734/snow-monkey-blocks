@@ -21,6 +21,9 @@
       "type": "number",
       "default": 1
     },
+    "borderRadius": {
+      "type": "number"
+    },
     "opacity": {
       "type": "number",
       "default": 1

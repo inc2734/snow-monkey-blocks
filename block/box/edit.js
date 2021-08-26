@@ -22,11 +22,16 @@ export default function ( { attributes, setAttributes, className } ) {
 		borderColor,
 		textColor,
 		borderWidth,
+		borderRadius,
 		opacity,
 	} = attributes;
 
 	const boxStyles = {
 		color: textColor || undefined,
+		borderRadius:
+			!! borderRadius || 0 <= borderRadius
+				? `${ borderRadius }px`
+				: undefined,
 	};
 
 	const backgroundStyles = {
@@ -34,6 +39,10 @@ export default function ( { attributes, setAttributes, className } ) {
 		backgroundImage: backgroundGradientColor || undefined,
 		borderColor: borderColor || undefined,
 		borderWidth: borderWidth || undefined,
+		borderRadius:
+			!! borderRadius || 0 <= borderRadius
+				? `${ borderRadius }px`
+				: undefined,
 		opacity,
 	};
 
@@ -51,6 +60,11 @@ export default function ( { attributes, setAttributes, className } ) {
 	const onChangeBorderWidth = ( value ) =>
 		setAttributes( {
 			borderWidth: toNumber( value, 1, 5 ),
+		} );
+
+	const onChangeBorderRadius = ( value ) =>
+		setAttributes( {
+			borderRadius: !! value || 0 <= value ? value : undefined,
 		} );
 
 	const onChangeOpacity = ( value ) =>
@@ -119,6 +133,20 @@ export default function ( { attributes, setAttributes, className } ) {
 						onChange={ onChangeBorderWidth }
 						min="1"
 						max="5"
+					/>
+
+					<RangeControl
+						label={ __( 'Border radius', 'snow-monkey-blocks' ) }
+						help={ __(
+							'-If set to -1, the default border radius will be applied.',
+							'snow-monkey-blocks'
+						) }
+						value={ borderRadius }
+						onChange={ onChangeBorderRadius }
+						min="-1"
+						max="50"
+						initialPosition="-1"
+						allowReset
 					/>
 				</PanelBody>
 

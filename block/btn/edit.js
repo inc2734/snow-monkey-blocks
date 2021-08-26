@@ -68,7 +68,7 @@ export default function ( {
 	const btnStyles = {
 		backgroundColor: backgroundColor || undefined,
 		borderRadius:
-			'undefined' !== typeof borderRadius
+			!! borderRadius || 0 <= borderRadius
 				? `${ borderRadius }px`
 				: undefined,
 	};
@@ -94,7 +94,7 @@ export default function ( {
 
 	const onChangeBorderRadius = ( value ) =>
 		setAttributes( {
-			borderRadius: value,
+			borderRadius: !! value || 0 <= value ? value : undefined,
 		} );
 
 	const onChangeBackgroundColor = ( value ) =>
@@ -166,11 +166,15 @@ export default function ( {
 
 					<RangeControl
 						label={ __( 'Border radius', 'snow-monkey-blocks' ) }
+						help={ __(
+							'-If set to -1, the default border radius will be applied.',
+							'snow-monkey-blocks'
+						) }
 						value={ borderRadius }
 						onChange={ onChangeBorderRadius }
-						min="0"
+						min="-1"
 						max="50"
-						initialPosition="6"
+						initialPosition="-1"
 						allowReset
 					/>
 

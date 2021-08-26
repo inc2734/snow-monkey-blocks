@@ -9,11 +9,13 @@ export default function ( { attributes, className } ) {
 		borderColor,
 		textColor,
 		borderWidth,
+		borderRadius,
 		opacity,
 	} = attributes;
 
 	const boxStyles = {
 		color: textColor || undefined,
+		borderRadius: !! borderRadius ? `${ borderRadius }px` : undefined,
 	};
 
 	const backgroundStyles = {
@@ -21,6 +23,10 @@ export default function ( { attributes, className } ) {
 		backgroundImage: backgroundGradientColor || undefined,
 		borderColor: borderColor || undefined,
 		borderWidth: borderWidth || undefined,
+		borderRadius:
+			!! borderRadius || 0 <= borderRadius
+				? `${ borderRadius }px`
+				: undefined,
 		opacity,
 	};
 

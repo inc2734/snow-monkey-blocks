@@ -27,7 +27,7 @@ export default function ( props ) {
 	const btnStyles = {
 		backgroundColor: backgroundColor || undefined,
 		borderRadius:
-			'undefined' !== typeof borderRadius
+			!! borderRadius || 0 <= borderRadius
 				? `${ borderRadius }px`
 				: undefined,
 	};
