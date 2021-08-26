@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
 "POT-Creation-Date: 2021-08-26 11:02+0900\n"
-"PO-Revision-Date: 2021-08-26 11:03+0900\n"
+"PO-Revision-Date: 2021-08-26 11:48+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -222,7 +222,7 @@ msgstr "角丸半径"
 
 #: block/box/edit.js:141 block/btn/edit.js:170
 msgid "-If set to -1, the default border radius will be applied."
-msgstr "-1 に設定するとデフォルトの枠線半径が適用されます。"
+msgstr "-1 に設定するとデフォルトの角丸半径が適用されます。"
 
 #: block/btn-box/edit.js:140 block/items/item/block-link/edit.js:281
 #: block/items/item/standard/edit.js:279 block/pricing-table/item/edit.js:252
