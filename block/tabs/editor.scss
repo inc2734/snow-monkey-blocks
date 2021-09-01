@@ -1,0 +1,72 @@
+@charset 'utf-8';
+
+.editor-styles-wrapper,
+.customize-control-sidebar_block_editor {
+  @import 'style';
+
+  .smb-tabs__tabs {
+    &[data-has-tabs="true"] {
+      padding-top: 42px;
+    }
+  }
+
+  .smb-tabs__add-tab,
+  .smb-tabs__up-tab,
+  .smb-tabs__remove-tab,
+  .smb-tabs__down-tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: _lighter($_color-gray); // for IE11
+    color: _var-lighter-color-gray();
+    @include _transition(color);
+
+    @include _hover(lg) {
+      color: $_color-text; // for IE11
+      color: _var-color-text();
+    }
+
+    svg {
+      stroke: currentColor;
+    }
+  }
+
+  [aria-selected="true"] {
+    .smb-tabs__add-tab,
+    .smb-tabs__up-tab,
+    .smb-tabs__remove-tab,
+    .smb-tabs__down-tab {
+      color: $_color-text; // for IE11
+      color: _var-color-text();
+    }
+  }
+
+  .smb-tabs__up-tab,
+  .smb-tabs__remove-tab,
+  .smb-tabs__down-tab {
+    position: absolute;
+    height: 42px;
+    width: 42px;
+    overflow: hidden;
+    bottom: 100%;
+    border: none;
+    background-color: transparent;
+  }
+
+  .smb-tabs__up-tab {
+    left: 0;
+  }
+
+  .smb-tabs__remove-tab {
+    left: calc(50% - 21px);
+  }
+
+  .smb-tabs__down-tab {
+    right: 0;
+  }
+
+  .smb-tabs__tab-wrapper {
+    min-width: 42px * 3;
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "apiVersion": 2,
+  "name": "snow-monkey-blocks/tabs",
+	"title": "Tabs",
+	"description": "This is tabs block.",
+  "category": "smb",
+  "attributes": {
+    "tabs": {
+      "type": "array",
+      "default": []
+    },
+    "matchHeight": {
+      "type": "boolean",
+      "default": false
+    },
+    "tabsId": {
+      "type": "string",
+      "source": "attribute",
+      "selector": ".smb-tabs",
+      "attribute": "data-tabs-id",
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "example": {
+  }
+}

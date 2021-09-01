@@ -1,0 +1,30 @@
+{
+  "apiVersion": 2,
+  "name": "snow-monkey-blocks/tab-panel",
+	"title": "Tab panel",
+	"description": "This is tab panel block.",
+  "category": "smb",
+  "parent": [ "snow-monkey-blocks/tabs" ],
+  "attributes": {
+    "tabPanelId": {
+      "type": "string",
+      "source": "attribute",
+      "selector": ".smb-tab-panel",
+      "attribute": "id",
+      "default": ""
+    },
+    "ariaHidden": {
+      "type": "string",
+      "source": "attribute",
+      "selector": ".smb-tab-panel",
+      "attribute": "aria-hidden",
+      "default": "true"
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": false
+  },
+  "example": {
+  }
+}

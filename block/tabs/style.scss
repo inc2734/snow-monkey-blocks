@@ -1,0 +1,84 @@
+@charset 'utf-8';
+
+@import '../../src/css/core/block';
+
+.smb-tabs {
+  &__tabs {
+    position: relative;
+    z-index: 1;
+    margin-bottom: -1px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: auto;
+
+    > .smb-tabs__tab-wrapper {
+      flex: 0 1 auto;
+    }
+  }
+
+  &__tab-wrapper {
+    position: relative;
+    display: flex;
+
+    > .smb-tabs__tab {
+      flex: 1 1 auto;
+    }
+  }
+
+  &__tab {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    @include _padding(.25, 1);
+    white-space: nowrap;
+    color: _light($_color-text); // for IE11
+    color: _var-light-color-text();
+    border-top-left-radius: $_border-radius; // for IE11
+    border-top-left-radius: _var-border-radius();
+    border-top-right-radius: $_border-radius; // for IE11
+    border-top-right-radius: _var-border-radius();
+
+    &[aria-selected="true"] {
+      background-color: #fff; // for IE11
+      background-color: _var-color-white();
+      border: 1px solid _light($_color-gray);
+      color: $_color-text; // for IE11
+      color: _var-color-text();
+      border-bottom: none;
+    }
+  }
+
+  &--match-height {
+    .smb-tabs__body {
+      display: flex;
+      overflow: hidden;
+
+      & > .smb-tab-panel {
+        position: relative;
+        flex: 1 0 100%;
+        max-width: 100%;
+      }
+    }
+
+    .smb-tab-panel[aria-hidden="true"] {
+      display: block;
+      visibility: hidden;
+    }
+  }
+}
+
+.smb-tab-panel {
+  background-color: #fff; // for IE11
+  background-color: _var-color-white();
+  border: 1px solid _light($_color-gray);
+  @include _padding(1);
+
+  &[aria-hidden="true"] {
+    display: none;
+  }
+
+  &__body {
+    @include content();
+  }
+}
