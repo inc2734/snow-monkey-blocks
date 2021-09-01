@@ -21,12 +21,21 @@ wp_register_script(
 /**
  * style
  */
-wp_register_style(
-	'snow-monkey-blocks/categories-list',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/categories-list/style.css',
-	[ 'snow-monkey-blocks' ],
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/categories-list/style.css' )
-);
+if ( ! is_admin() ) {
+	wp_register_style(
+		'snow-monkey-blocks/categories-list',
+		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/categories-list/style.css',
+		[ 'snow-monkey-blocks' ],
+		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/categories-list/style.css' )
+	);
+} else {
+	wp_register_style(
+		'snow-monkey-blocks/categories-list',
+		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/categories-list/editor.css',
+		[ 'snow-monkey-blocks-editor' ],
+		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/categories-list/style.css' )
+	);
+}
 
 /**
  * editor_script
@@ -54,9 +63,8 @@ register_block_type(
 	__DIR__,
 	[
 		'script'          => ! is_admin() ? 'snow-monkey-blocks/categories-list' : null,
-		'style'           => ! is_admin() ? 'snow-monkey-blocks/categories-list' : null,
+		'style'           => 'snow-monkey-blocks/categories-list',
 		'editor_script'   => 'snow-monkey-blocks/categories-list/editor',
-		'editor_style'    => 'snow-monkey-blocks/categories-list/editor',
 		'render_callback' => function( $attributes ) {
 			return DynamicBlocks::render( 'categories-list', $attributes );
 		},

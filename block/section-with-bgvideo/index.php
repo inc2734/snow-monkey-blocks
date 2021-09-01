@@ -55,7 +55,6 @@ register_block_type(
 		'style'         => 'snow-monkey-blocks/section-with-bgvideo',
 		'script'        => ! is_admin() ? 'snow-monkey-blocks/section-with-bgvideo' : null,
 		'editor_script' => 'snow-monkey-blocks/section-with-bgvideo/editor',
-		'editor_style'  => 'snow-monkey-blocks/section-with-bgvideo/editor',
 	]
 );
 
