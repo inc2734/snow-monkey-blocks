@@ -42,6 +42,13 @@ foreach ( $block_dirs as $block_dir ) {
 		if ( $data->keywords ) {
 			$_put( $data->keywords );
 		}
+		if ( $data->styles ) {
+			foreach ( $data->styles as $style ) {
+				if ( $style->label ) {
+					$_put( $style->label );
+				}
+			}
+		}
 	}
 }
 

@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2021-09-01 14:49+0900\n"
-"PO-Revision-Date: 2021-09-01 14:50+0900\n"
+"POT-Creation-Date: 2021-09-02 17:51+0900\n"
+"PO-Revision-Date: 2021-09-02 17:52+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -47,7 +47,7 @@ msgstr ""
 #: block/section-with-bgvideo/edit.js:188 block/section/edit.js:359
 #: block/slider/edit.js:149 block/slider/item/edit.js:200
 #: block/spider-pickup-slider/edit.js:34 block/spider-slider/edit.js:225
-#: block/step/item/standard/edit.js:226 block/tabs/edit.js:122
+#: block/step/item/standard/edit.js:226 block/tabs/edit.js:158
 #: block/taxonomy-posts/edit.js:150 block/taxonomy-terms/edit.js:61
 #: block/testimonial/edit.js:56 block/thumbnail-gallery/edit.js:64
 #: block/thumbnail-gallery/item/edit.js:138
@@ -319,8 +319,8 @@ msgstr "リンクを解除"
 #: block/information/index.js:22 block/media-text/edit.js:322
 #: block/recent-posts/edit.js:312 block/rss/edit.js:257
 #: block/section-break-the-grid/edit.js:468 block/slider/edit.js:63
-#: block/spider-slider/edit.js:135 block/taxonomy-posts/edit.js:356
-#: block/taxonomy-terms/index.js:22
+#: block/spider-slider/edit.js:135 block/tabs/index.js:22
+#: block/taxonomy-posts/edit.js:356 block/taxonomy-terms/index.js:22
 msgid "Default"
 msgstr "デフォルト"
 
@@ -435,7 +435,8 @@ msgid "Rich media"
 msgstr "リッチメディア"
 
 #: block/child-pages/edit.js:108 block/recent-posts/edit.js:167
-#: block/rss/edit.js:148 block/taxonomy-posts/edit.js:211
+#: block/rss/edit.js:148 block/tabs/index.js:27
+#: block/taxonomy-posts/edit.js:211
 msgid "Simple"
 msgstr "シンプル"
 
@@ -1121,7 +1122,7 @@ msgstr "ノーマル"
 #: block/section-break-the-grid/edit.js:533
 #: block/section-with-bgimage/edit.js:501
 #: block/section-with-bgvideo/edit.js:276 block/section/edit.js:449
-#: block/step/item/standard/edit.js:239
+#: block/step/item/standard/edit.js:239 block/tabs/edit.js:204
 msgid "Center"
 msgstr "中央"
 
@@ -1460,13 +1461,65 @@ msgstr "リンク色"
 msgid "Link text"
 msgstr "リンクテキスト"
 
-#: block/tabs/edit.js:126
+#: block/tabs/edit.js:161
+msgid "Tabs orientation"
+msgstr "タブの向き"
+
+#: block/tabs/edit.js:167
+msgid "Horizontal"
+msgstr "水平方向"
+
+#: block/tabs/edit.js:171
+msgid "Vertical"
+msgstr "垂直方向"
+
+#: block/tabs/edit.js:180
 msgid "Align the height of each tab panels"
 msgstr "各タブパネルの高さを揃える"
 
-#: block/tabs/edit.js:248
+#: block/tabs/edit.js:189
+msgid "Tabs justification"
+msgstr "タブの配置"
+
+#: block/tabs/edit.js:197
+msgid "Left"
+msgstr "左"
+
+#: block/tabs/edit.js:211
+msgid "Right"
+msgstr "右"
+
+#: block/tabs/edit.js:218
+msgid "Stretch"
+msgstr "均等"
+
+#: block/tabs/edit.js:316
+msgid "Move to left"
+msgstr "左に移動"
+
+#: block/tabs/edit.js:320
+msgid "Move to up"
+msgstr "上に移動"
+
+#: block/tabs/edit.js:340
+msgid "Remove this tab"
+msgstr "このタブを削除"
+
+#: block/tabs/edit.js:355
+msgid "Move to right"
+msgstr "右に移動"
+
+#: block/tabs/edit.js:359
+msgid "Move to down"
+msgstr "下に移動"
+
+#: block/tabs/edit.js:389
 msgid "Tab"
 msgstr "タブ"
+
+#: block/tabs/index.js:31
+msgid "Line"
+msgstr "ライン"
 
 #: block/taxonomy-posts/edit.js:155 block/taxonomy-terms/edit.js:66
 msgid "Loading taxonomies…"
@@ -1778,7 +1831,7 @@ msgstr "ステップ"
 msgid "Express the steps in an easy-to-understand manner."
 msgstr "ステップをわかりやすい手順で表現しましょう。"
 
-#: .translation/translation.php:76 .translation/translation.php:99
+#: .translation/translation.php:76
 msgid "Tabs"
 msgstr "タブ"
 
@@ -1850,6 +1903,10 @@ msgstr "項目（非推奨）"
 #: .translation/translation.php:98
 msgid "It is a child block of the slider block."
 msgstr "スライダーブロックの子ブロックです。"
+
+#: .translation/translation.php:99
+msgid "Tab panel"
+msgstr "タブパネル"
 
 #: .translation/translation.php:100
 msgid "This is tab panel block."
@@ -2028,9 +2085,6 @@ msgstr ""
 
 #~ msgid "Space between items"
 #~ msgstr "項目の間隔"
-
-#~ msgid "Change items justification"
-#~ msgstr "揃え位置の変更"
 
 #~ msgid "Mask Opacity"
 #~ msgstr "背景マスクの不透明度"

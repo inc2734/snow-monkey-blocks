@@ -3,16 +3,30 @@ import classnames from 'classnames';
 import { InnerBlocks, RichText, useBlockProps } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
-	const { tabs, matchHeight, tabsId } = attributes;
+	const {
+		tabs: _tabs,
+		matchHeight,
+		tabsJustification,
+		tabsId,
+		orientation,
+	} = attributes;
+	const tabs = JSON.parse( _tabs );
 
-	const classes = classnames( 'smb-tabs', className, {
-		'smb-tabs--match-height': matchHeight,
-	} );
+	const dataMatchHeightBoolean =
+		'vertical' === orientation ||
+		( 'horizontal' === orientation && 'true' === matchHeight );
+
+	const classes = classnames( 'smb-tabs', className );
 
 	return (
 		<div
 			{ ...useBlockProps.save( { className: classes } ) }
 			data-tabs-id={ tabsId }
+			data-orientation={ orientation }
+			data-match-height={ dataMatchHeightBoolean ? 'true' : matchHeight }
+			data-tabs-justification={
+				'horizontal' === orientation ? tabsJustification : undefined
+			}
 		>
 			{ 0 < tabs.length && (
 				<div className="smb-tabs__tabs">
@@ -40,7 +54,7 @@ export default function ( { attributes, className } ) {
 			<div className="smb-tabs__body">
 				<InnerBlocks.Content />
 			</div>
-			{ matchHeight && (
+			{ dataMatchHeightBoolean && (
 				<style>
 					{ tabs.map(
 						( tab, index ) =>

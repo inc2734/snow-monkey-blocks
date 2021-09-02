@@ -6,12 +6,22 @@
   "category": "smb",
   "attributes": {
     "tabs": {
-      "type": "array",
-      "default": []
+      "type": "string",
+      "default": "[]"
     },
     "matchHeight": {
-      "type": "boolean",
-      "default": false
+      "type": "string",
+      "source": "attribute",
+      "selector": ".smb-tabs",
+      "attribute": "data-match-height",
+      "default": "false"
+    },
+    "tabsJustification": {
+      "type": "string",
+      "source": "attribute",
+      "selector": ".smb-tabs",
+      "attribute": "data-tabs-justification",
+      "default": "flex-start"
     },
     "tabsId": {
       "type": "string",
@@ -19,11 +29,53 @@
       "selector": ".smb-tabs",
       "attribute": "data-tabs-id",
       "default": ""
+    },
+    "orientation": {
+      "type": "string",
+      "source": "attribute",
+      "selector": ".smb-tabs",
+      "attribute": "data-orientation",
+      "default": "horizontal"
     }
   },
   "supports": {
     "html": false
   },
   "example": {
+    "attributes": {
+      "tabs": "[{\"title\":\"Tab\",\"tabPanelId\":\"1\"},{\"title\": \"Tab\",\"tabPanelId\":\"2\"}]"
+    },
+    "innerBlocks": [
+      {
+        "name": "snow-monkey-blocks/tab-panel",
+        "attributes": {
+          "tabPanelId": "1",
+          "ariaHidden": "false"
+        },
+        "innerBlocks": [
+          {
+            "name": "core/paragraph",
+            "attributes": {
+              "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+            }
+          }
+        ]
+      },
+      {
+        "name": "snow-monkey-blocks/tab-panel",
+        "attributes": {
+          "tabPanelId": "2",
+          "ariaHidden": "true"
+        },
+        "innerBlocks": [
+          {
+            "name": "core/paragraph",
+            "attributes": {
+              "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+            }
+          }
+        ]
+      }
+    ]
   }
 }

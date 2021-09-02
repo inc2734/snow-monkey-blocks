@@ -19,7 +19,7 @@
           display: block;
         }
 
-        & > img {
+        > img {
           @include _position(absolute, 0, 0, 0, 0);
           object-fit: cover;
           object-position: 50% 50%;
