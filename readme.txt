@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 12.2.0
+Stable tag: 12.3.0
 Requires at least: 5.8
 Tested up to: 5.8
 Requires PHP: 5.6
@@ -54,6 +54,7 @@ https://www.youtube.com/watch?v=uD6omb4TLdA&t=283s
 * Taxonomy terms (Can be used only with Snow Monkey)
 * RSS (Can be used only with Snow Monkey)
 * Information
+* Tabs
 
 = Section blocks =
 
@@ -103,8 +104,13 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 21. Directory structure block (The number of items can be increased or decreased freely)
 22. Price menu block (The number of items can be increased or decreased freely)
 23. Information block (The number of items can be increased or decreased freely)
+24. Tabs block (The number of tab can be increased or decreased freely)
 
 == Changelog ==
+
+= 12.3.0 =
+* Add new block: Tabs block.
+* Update icons.
 
 = 12.2.0 =
 * [Items] Add setting for item justification.
