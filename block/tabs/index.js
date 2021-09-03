@@ -1,6 +1,7 @@
 import { __ } from '@wordpress/i18n';
 
 import blockConfig from '@smb/config/block';
+import icon from './icon';
 import metadata from './block.json';
 import edit from './edit';
 import save from './save';
@@ -12,7 +13,7 @@ export { metadata, name };
 export const settings = {
 	icon: {
 		foreground: blockConfig.blockIconColor,
-		src: 'editor-ol',
+		src: icon,
 	},
 	edit,
 	save,
