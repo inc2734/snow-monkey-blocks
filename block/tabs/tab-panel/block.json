@@ -22,8 +22,10 @@
     }
   },
   "supports": {
-    "html": false,
-    "anchor": false
+      "customClassName": false,
+      "reusable": false,
+      "html": false,
+      "__experimentalToolbar": false
   },
   "example": {
   }
