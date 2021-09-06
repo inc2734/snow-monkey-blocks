@@ -11,7 +11,7 @@
     "@wordpress/env": "4.1.0",
     "@wordpress/eslint-plugin": "^9.1.1",
     "@wordpress/icons": "^5.0.1",
-    "@wordpress/scripts": "18.0.0",
+    "@wordpress/scripts": "^17.1.0",
     "autoprefixer": "^10.3.4",
     "browser-sync": "^2.27.5",
     "classnames": "^2.3.1",
