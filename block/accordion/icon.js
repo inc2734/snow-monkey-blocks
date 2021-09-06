@@ -1,8 +1,7 @@
 export default (
 	<svg viewBox="0 0 24 24">
-		<rect x="3" y="3" width="18" height="3" />
-		<rect x="3" y="13" width="18" height="3" />
-		<rect x="3" y="18" width="18" height="3" />
-		<polygon points="20 5 20 10 4 10 4 5 3 5 3 11 21 11 21 5 20 5" />
+		<path d="M2,16.5v4H22v-4Zm19,3H3v-2H21Z" />
+		<path d="M2,3.5v4H22v-4Zm19,3H3v-2H21Z" />
+		<polygon points="21 7.5 21 13.5 3 13.5 3 7.5 2 7.5 2 14.5 22 14.5 22 7.5 21 7.5" />
 	</svg>
 );
