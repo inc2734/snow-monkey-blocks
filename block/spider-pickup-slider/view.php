@@ -54,7 +54,11 @@ if ( isset( $attributes['align'] ) ) {
 }
 ?>
 
-<div class="<?php echo esc_attr( implode( ' ', $classnames ) ); ?>" data-interval="<?php echo esc_attr( 0 < $attributes['interval'] ? $attributes['interval'] * 1000 : null ); ?>">
+<div
+	class="<?php echo esc_attr( implode( ' ', $classnames ) ); ?>"
+	data-interval="<?php echo esc_attr( 0 < $attributes['interval'] ? $attributes['interval'] * 1000 : null ); ?>"
+	data-fade="<?php echo esc_attr( $attributes['fade'] ? 'true' : 'false' ); ?>"
+>
 	<div class="spider">
 		<div class="spider__canvas">
 			<?php $index = 0; ?>
@@ -82,7 +86,38 @@ if ( isset( $attributes['align'] ) ) {
 			<?php wp_reset_postdata(); ?>
 		</div>
 
-		<button class="spider__arrow" data-direction="prev">Prev</button>
-		<button class="spider__arrow" data-direction="next">Next</button>
+		<?php if ( $attributes['arrows'] ) : ?>
+			<button class="spider__arrow" data-direction="prev">Prev</button>
+			<button class="spider__arrow" data-direction="next">Next</button>
+		<?php endif; ?>
 	</div>
+
+	<?php if ( $attributes['dots'] ) : ?>
+		<div
+			class="spider__dots"
+			data-thumbnails="<?php echo esc_attr( $attributes['dotsToThumbnail'] ? 'true' : 'false' ); ?>"
+		>
+			<?php $index = 0; ?>
+			<?php while ( $query->have_posts() ) : ?>
+				<?php
+				$query->the_post();
+				?>
+					<button
+						class="spider__dot"
+						data-id="<?php echo esc_attr( $index ); ?>"
+						<?php if ( $attributes['dotsToThumbnail'] ) : ?>
+							data-has-thumbnail="<?php echo esc_attr( has_post_thumbnail() ? 'true' : 'false' ); ?>"
+						<?php endif; ?>
+					>
+						<?php if ( $attributes['dotsToThumbnail'] ) : ?>
+							<?php the_post_thumbnail( 'medium', [ 'class' => 'spider__figure' ] ); ?>
+						<?php else : ?>
+							<?php echo esc_html( $index ); ?>
+						<?php endif; ?>
+					</button>
+				<?php $index ++; ?>
+			<?php endwhile; ?>
+			<?php wp_reset_postdata(); ?>
+		</div>
+	<?php endif; ?>
 </div>

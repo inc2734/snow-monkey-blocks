@@ -50,6 +50,50 @@
     }
   }
 
+  .spider__dots[data-thumbnails="true"] {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    @include _margin(.5, -.25, -.5);
+
+    @supports (gap: 1px) {
+      margin-right: 0;
+      margin-bottom: 0;
+      margin-left: 0;
+      gap: _space(.5, true, true);
+    }
+
+    .spider__dot {
+      position: relative;
+      margin: 0;
+      flex: 0 0 25%;
+      max-width: 25%;
+      @include _padding(0, .25, .5);
+
+      @supports (gap: 1px) {
+        padding: 0;
+      }
+
+      &[data-has-thumbnail="false"] {
+        @supports (gap: 1px) {
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: _lighter($_color-gray); // For IE11
+            background-color: _var-lighter-color-gray();
+          }
+        }
+      }
+
+      img {
+        position: relative;
+      }
+    }
+  }
+
   &__item {
     position: absolute;
     top: 50%;

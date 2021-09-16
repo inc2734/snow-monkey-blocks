@@ -12,6 +12,22 @@
       "type": "number",
       "default": 0
     },
+    "dots": {
+      "type": "boolean",
+      "default": false
+    },
+    "dotsToThumbnail": {
+      "type": "boolean",
+      "default": false
+    },
+    "arrows": {
+      "type": "boolean",
+      "default": true
+    },
+    "fade": {
+      "type": "boolean",
+      "default": false
+    },
     "interval": {
       "type": "number",
       "default": 0

@@ -10,7 +10,15 @@ import { __ } from '@wordpress/i18n';
 import { toNumber } from '@smb/helper';
 
 export default function ( { attributes, setAttributes } ) {
-	const { random, postsPerPage, interval } = attributes;
+	const {
+		random,
+		postsPerPage,
+		arrows,
+		dots,
+		dotsToThumbnail,
+		fade,
+		interval,
+	} = attributes;
 
 	const onChangeRandom = ( value ) =>
 		setAttributes( {
@@ -20,6 +28,26 @@ export default function ( { attributes, setAttributes } ) {
 	const onChangePostsPerPage = ( value ) =>
 		setAttributes( {
 			postsPerPage: toNumber( value, 0, 10 ),
+		} );
+
+	const onChangeArrows = ( value ) =>
+		setAttributes( {
+			arrows: value,
+		} );
+
+	const onChangeDots = ( value ) =>
+		setAttributes( {
+			dots: value,
+		} );
+
+	const onChangeDotsToThumbnail = ( value ) =>
+		setAttributes( {
+			dotsToThumbnail: value,
+		} );
+
+	const onChangeFade = ( value ) =>
+		setAttributes( {
+			fade: value,
 		} );
 
 	const onChangeInterval = ( value ) =>
@@ -55,6 +83,35 @@ export default function ( { attributes, setAttributes } ) {
 						onChange={ onChangePostsPerPage }
 						min="0"
 						max="10"
+					/>
+
+					<ToggleControl
+						label={ __( 'Display arrows', 'snow-monkey-blocks' ) }
+						checked={ arrows }
+						onChange={ onChangeArrows }
+					/>
+
+					<ToggleControl
+						label={ __( 'Display dots', 'snow-monkey-blocks' ) }
+						checked={ dots }
+						onChange={ onChangeDots }
+					/>
+
+					{ dots && (
+						<ToggleControl
+							label={ __(
+								'Change dots to thumbnails',
+								'snow-monkey-blocks'
+							) }
+							checked={ dotsToThumbnail }
+							onChange={ onChangeDotsToThumbnail }
+						/>
+					) }
+
+					<ToggleControl
+						label={ __( 'Fade', 'snow-monkey-blocks' ) }
+						checked={ fade }
+						onChange={ onChangeFade }
 					/>
 
 					<RangeControl
