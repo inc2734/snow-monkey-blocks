@@ -41,17 +41,20 @@ if ( ! $query->have_posts() ) {
 	return;
 }
 
-$classes = [ 'smb-spider-pickup-slider' ];
+$classnames[] = 'smb-spider-pickup-slider';
+if ( ! empty( $attributes['className'] ) ) {
+	$classnames[] = $attributes['className'];
+}
 if ( isset( $attributes['align'] ) ) {
 	if ( 'full' === $attributes['align'] ) {
-		$classes[] = 'alignfull';
+		$classnames[] = 'alignfull';
 	} elseif ( 'wide' === $attributes['align'] ) {
-		$classes[] = 'alignwide';
+		$classnames[] = 'alignwide';
 	}
 }
 ?>
 
-<div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>" data-interval="<?php echo esc_attr( 0 < $attributes['interval'] ? $attributes['interval'] * 1000 : null ); ?>">
+<div class="<?php echo esc_attr( implode( ' ', $classnames ) ); ?>" data-interval="<?php echo esc_attr( 0 < $attributes['interval'] ? $attributes['interval'] * 1000 : null ); ?>">
 	<div class="spider">
 		<div class="spider__canvas">
 			<?php $index = 0; ?>
