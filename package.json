@@ -6,12 +6,12 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/react-fontawesome": "^0.1.15",
     "@inc2734/for-each-html-nodes": "^0.4.0",
-    "@inc2734/spider": "0.0.21",
+    "@inc2734/spider": "0.0.24",
     "@wordpress/browserslist-config": "^4.1.0",
-    "@wordpress/env": "4.1.0",
-    "@wordpress/eslint-plugin": "^9.1.1",
-    "@wordpress/icons": "^5.0.1",
-    "@wordpress/scripts": "^17.1.0",
+    "@wordpress/env": "4.1.1",
+    "@wordpress/eslint-plugin": "^9.1.2",
+    "@wordpress/icons": "^5.0.2",
+    "@wordpress/scripts": "^18.0.1",
     "autoprefixer": "^10.3.4",
     "browser-sync": "^2.27.5",
     "classnames": "^2.3.1",
@@ -32,7 +32,7 @@
     "rimraf": "^3.0.2",
     "sass-basis": "^15.0.2",
     "slick-carousel": "^1.8.1",
-    "typescript": "^4.4.2"
+    "typescript": "^4.4.3"
   },
   "scripts": {
     "export:wp-content:themes": "npm run cli 'cp -r wp-content/themes .export/wp-content'",
