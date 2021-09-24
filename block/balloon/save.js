@@ -43,7 +43,9 @@ export default function ( { attributes, className } ) {
 						className={ `wp-image-${ avatarID }` }
 					/>
 				</div>
-				<div className="smb-balloon__name">{ balloonName }</div>
+				<div className="smb-balloon__name">
+					<RichText.Content value={ balloonName } />
+				</div>
 			</div>
 			<div className="smb-balloon__body" style={ bodyStyles }>
 				<RichText.Content value={ balloonBody } />
