@@ -15,6 +15,11 @@ export const settings = {
 		foreground: blockConfig.blockIconColor,
 		src: icon,
 	},
+	keywords: [
+		__( 'Categories', 'snow-monkey-blocks' ),
+		__( 'Tags', 'snow-monkey-blocks' ),
+		__( 'Taxonomies', 'snow-monkey-blocks' ),
+	],
 	edit,
 	save,
 	styles: [

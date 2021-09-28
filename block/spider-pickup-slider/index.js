@@ -1,3 +1,5 @@
+import { __ } from '@wordpress/i18n';
+
 import blockConfig from '@smb/config/block';
 import metadata from './block.json';
 import icon from './icon';
@@ -13,6 +15,10 @@ export const settings = {
 		foreground: blockConfig.blockIconColor,
 		src: icon,
 	},
+	keywords: [
+		__( 'Slider', 'snow-monkey-blocks' ),
+		__( 'Carousel', 'snow-monkey-blocks' ),
+	],
 	edit,
 	save,
 };

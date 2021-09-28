@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2021-09-02 17:51+0900\n"
-"PO-Revision-Date: 2021-09-02 17:52+0900\n"
+"POT-Creation-Date: 2021-09-28 11:02+0900\n"
+"PO-Revision-Date: 2021-09-28 11:04+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -46,7 +46,7 @@ msgstr ""
 #: block/section-with-bgimage/edit.js:411
 #: block/section-with-bgvideo/edit.js:188 block/section/edit.js:359
 #: block/slider/edit.js:149 block/slider/item/edit.js:200
-#: block/spider-pickup-slider/edit.js:34 block/spider-slider/edit.js:225
+#: block/spider-pickup-slider/edit.js:62 block/spider-slider/edit.js:225
 #: block/step/item/standard/edit.js:226 block/tabs/edit.js:158
 #: block/taxonomy-posts/edit.js:150 block/taxonomy-terms/edit.js:61
 #: block/testimonial/edit.js:56 block/thumbnail-gallery/edit.js:64
@@ -314,21 +314,21 @@ msgstr "リンク"
 msgid "Unlink"
 msgstr "リンクを解除"
 
-#: block/btn-box/index.js:21 block/btn/index.js:23
-#: block/child-pages/edit.js:221 block/countdown/index.js:34
-#: block/information/index.js:22 block/media-text/edit.js:322
+#: block/btn-box/index.js:22 block/btn/index.js:24
+#: block/child-pages/edit.js:221 block/countdown/index.js:21
+#: block/information/index.js:23 block/media-text/edit.js:322
 #: block/recent-posts/edit.js:312 block/rss/edit.js:257
 #: block/section-break-the-grid/edit.js:468 block/slider/edit.js:63
-#: block/spider-slider/edit.js:135 block/tabs/index.js:22
-#: block/taxonomy-posts/edit.js:356 block/taxonomy-terms/index.js:22
+#: block/spider-slider/edit.js:135 block/tabs/index.js:23
+#: block/taxonomy-posts/edit.js:356 block/taxonomy-terms/index.js:23
 msgid "Default"
 msgstr "デフォルト"
 
-#: block/btn-box/index.js:24 block/btn/index.js:26
+#: block/btn-box/index.js:25 block/btn/index.js:27
 msgid "Ghost"
 msgstr "ゴースト"
 
-#: block/btn/index.js:27 block/child-pages/edit.js:112
+#: block/btn/index.js:28 block/child-pages/edit.js:112
 #: block/recent-posts/edit.js:171 block/rss/edit.js:152
 #: block/taxonomy-posts/edit.js:215
 msgid "Text"
@@ -357,7 +357,8 @@ msgid "articles"
 msgstr "記事"
 
 #: block/categories-list/edit.js:151 block/recent-posts/edit.js:358
-#: .translation/translation.php:54 block/categories-list/view.php:62
+#: .translation/translation.php:55 .translation/translation.php:105
+#: block/categories-list/view.php:62
 msgid "Recent posts"
 msgstr "最近の投稿"
 
@@ -435,7 +436,7 @@ msgid "Rich media"
 msgstr "リッチメディア"
 
 #: block/child-pages/edit.js:108 block/recent-posts/edit.js:167
-#: block/rss/edit.js:148 block/tabs/index.js:27
+#: block/rss/edit.js:148 block/tabs/index.js:28
 #: block/taxonomy-posts/edit.js:211
 msgid "Simple"
 msgstr "シンプル"
@@ -447,7 +448,7 @@ msgstr "テキスト2"
 
 #: block/child-pages/edit.js:120 block/recent-posts/edit.js:179
 #: block/rss/edit.js:160 block/taxonomy-posts/edit.js:223
-#: .translation/translation.php:44
+#: .translation/translation.php:45
 msgid "Panels"
 msgstr "パネル"
 
@@ -457,26 +458,26 @@ msgid "Carousel (%1$s)"
 msgstr "カルーセル（%1$s）"
 
 #: block/child-pages/edit.js:140 block/recent-posts/edit.js:199
-#: block/rss/edit.js:180 block/spider-slider/edit.js:240
-#: block/taxonomy-posts/edit.js:243
+#: block/rss/edit.js:180 block/spider-pickup-slider/edit.js:89
+#: block/spider-slider/edit.js:240 block/taxonomy-posts/edit.js:243
 msgid "Display arrows"
 msgstr "矢印を表示"
 
 #: block/child-pages/edit.js:149 block/recent-posts/edit.js:208
-#: block/rss/edit.js:189 block/spider-slider/edit.js:245
-#: block/taxonomy-posts/edit.js:252
+#: block/rss/edit.js:189 block/spider-pickup-slider/edit.js:95
+#: block/spider-slider/edit.js:245 block/taxonomy-posts/edit.js:252
 msgid "Display dots"
 msgstr "ドットを表示"
 
 #: block/child-pages/edit.js:158 block/recent-posts/edit.js:217
 #: block/rss/edit.js:198 block/slider/edit.js:180
-#: block/spider-pickup-slider/edit.js:62 block/spider-slider/edit.js:271
+#: block/spider-pickup-slider/edit.js:119 block/spider-slider/edit.js:271
 #: block/taxonomy-posts/edit.js:261 block/thumbnail-gallery/edit.js:84
 msgid "Autoplay Speed in seconds"
 msgstr "自動再生の間隔（秒）"
 
 #: block/child-pages/edit.js:162 block/recent-posts/edit.js:221
-#: block/rss/edit.js:202 block/spider-pickup-slider/edit.js:66
+#: block/rss/edit.js:202 block/spider-pickup-slider/edit.js:123
 #: block/spider-slider/edit.js:275 block/taxonomy-posts/edit.js:265
 msgid "If \"0\", no scroll."
 msgstr "「0」の場合、スクロールしません。"
@@ -580,17 +581,9 @@ msgstr "分"
 msgid "Seconds"
 msgstr "秒"
 
-#: block/countdown/index.js:39
+#: block/countdown/index.js:26
 msgid "Inline"
 msgstr "インライン"
-
-#: block/countdown/index.js:42
-msgid "Countdown"
-msgstr "カウントダウン"
-
-#: block/directory-structure/index.js:31 .translation/translation.php:26
-msgid "Directory structure"
-msgstr "ディレクトリ構造"
 
 #: block/directory-structure/item/directory/edit.js:57
 msgid "folder - Solid"
@@ -759,7 +752,7 @@ msgstr "中央"
 msgid "Don't split the column in a smartphone"
 msgstr "スマートフォンでカラムを分割しない"
 
-#: block/information/index.js:27
+#: block/information/index.js:28
 msgid "Border"
 msgstr "ボーダー"
 
@@ -792,6 +785,7 @@ msgid "Columns per row (Small window)"
 msgstr "行あたりのカラム数（スモールウインドウ）"
 
 #: block/items/item/banner/edit.js:238 src/js/component/figure.js:143
+#: .translation/translation.php:77
 msgid "Image"
 msgstr "画像"
 
@@ -854,7 +848,7 @@ msgstr "ボタンの文字色"
 msgid "Facebook page name"
 msgstr "Facebook ページ名"
 
-#: block/like-me-box/edit.js:34 .translation/translation.php:36
+#: block/like-me-box/edit.js:34 .translation/translation.php:37
 msgid "Like me box"
 msgstr "いいね！ボックス"
 
@@ -886,7 +880,7 @@ msgstr "終了日時"
 msgid "Use end datetime"
 msgstr "終了日時を使用する"
 
-#: block/limited-datetime/edit.js:153 .translation/translation.php:39
+#: block/limited-datetime/edit.js:153 .translation/translation.php:40
 msgid "Only the set period is displayed"
 msgstr "設定した期間のみ表示されます"
 
@@ -957,7 +951,7 @@ msgstr "画像の周りに余白を設定"
 msgid "Image Position"
 msgstr "画像の位置"
 
-#: block/pickup-slider/edit.js:36 block/spider-pickup-slider/edit.js:38
+#: block/pickup-slider/edit.js:36 block/spider-pickup-slider/edit.js:66
 msgid "Display in random order"
 msgstr "ランダムな順序で表示"
 
@@ -973,20 +967,20 @@ msgstr "ボタンリンク"
 msgid "Overall link"
 msgstr "全体リンク"
 
-#: block/pickup-slider/edit.js:69 block/spider-pickup-slider/edit.js:47
+#: block/pickup-slider/edit.js:69 block/spider-pickup-slider/edit.js:75
 msgid "Maximum number of displays"
 msgstr "最大表示数"
 
-#: block/pickup-slider/edit.js:73 block/spider-pickup-slider/edit.js:51
+#: block/pickup-slider/edit.js:73 block/spider-pickup-slider/edit.js:79
 msgid "If \"0\", all items are displayed."
 msgstr "「0」の場合、すべての項目が表示されます。"
 
-#: block/pickup-slider/edit.js:86 block/spider-pickup-slider/edit.js:79
-#: .translation/translation.php:70
+#: block/pickup-slider/edit.js:86 block/spider-pickup-slider/edit.js:136
+#: .translation/translation.php:91
 msgid "Pickup slider"
 msgstr "ピックアップスライダー"
 
-#: block/pickup-slider/edit.js:89 block/spider-pickup-slider/edit.js:82
+#: block/pickup-slider/edit.js:89 block/spider-pickup-slider/edit.js:139
 msgid "Posts with \"pickup\" tag are displayed as sliders."
 msgstr "「pickup」タグが付与された記事をスライダーとして表示します。"
 
@@ -1427,7 +1421,16 @@ msgstr "表示するスライド数（スモールウインドウ）"
 msgid "# of slides to scroll (Small window)"
 msgstr "スクロールするスライド数（スモールウインドウ）"
 
-#: block/spider-slider/edit.js:205 .translation/translation.php:72
+#: block/spider-pickup-slider/edit.js:103 block/spider-slider/edit.js:252
+msgid "Change dots to thumbnails"
+msgstr "ドットをサムネイルに変更"
+
+#: block/spider-pickup-slider/edit.js:112 block/spider-slider/edit.js:260
+msgid "Fade"
+msgstr "フェード"
+
+#: block/spider-slider/edit.js:205 .translation/translation.php:93
+#: .translation/translation.php:95
 msgid "Slider"
 msgstr "スライダー"
 
@@ -1436,14 +1439,6 @@ msgid "Drag images, upload new ones or select files from your library."
 msgstr ""
 "画像をドラッグしたり、新しい画像をアップロードしたり、ライブラリからファイル"
 "を選択したりできます。"
-
-#: block/spider-slider/edit.js:252
-msgid "Change dots to thumbnails"
-msgstr "ドットをサムネイルに変更"
-
-#: block/spider-slider/edit.js:260
-msgid "Fade"
-msgstr "フェード"
 
 #: block/spider-slider/edit.js:265
 msgid "Display caption"
@@ -1517,7 +1512,7 @@ msgstr "下に移動"
 msgid "Tab"
 msgstr "タブ"
 
-#: block/tabs/index.js:31
+#: block/tabs/index.js:32
 msgid "Line"
 msgstr "ライン"
 
@@ -1525,20 +1520,20 @@ msgstr "ライン"
 msgid "Loading taxonomies…"
 msgstr "タクソノミーを読み込んでいます…"
 
-#: block/taxonomy-posts/edit.js:402 .translation/translation.php:78
+#: block/taxonomy-posts/edit.js:402 .translation/translation.php:102
 msgid "Taxonomy posts"
 msgstr "任意のタクソノミーの投稿"
 
 #: block/taxonomy-terms/edit.js:75 block/taxonomy-terms/edit.js:139
-#: .translation/translation.php:80
+#: .translation/translation.php:107
 msgid "Taxonomy"
 msgstr "タクソノミー"
 
-#: block/taxonomy-terms/index.js:27
+#: block/taxonomy-terms/index.js:28
 msgid "Tag"
 msgstr "タグ"
 
-#: block/taxonomy-terms/index.js:31
+#: block/taxonomy-terms/index.js:32
 msgid "Slash"
 msgstr "スラッシュ"
 
@@ -1546,15 +1541,15 @@ msgstr "スラッシュ"
 msgid "Write name…"
 msgstr "名前を書く…"
 
-#: block/thumbnail-gallery/item/index.js:15 .translation/translation.php:34
+#: block/thumbnail-gallery/item/index.js:16 .translation/translation.php:35
 msgid "Items"
 msgstr "項目"
 
-#: block/thumbnail-gallery/item/index.js:17
+#: block/thumbnail-gallery/item/index.js:18
 msgid "(Deprecated)"
 msgstr "（非推奨）"
 
-#: block/thumbnail-gallery/item/index.js:19
+#: block/thumbnail-gallery/item/index.js:20
 msgid "It is a child block of the thumbnail gallery block."
 msgstr "サムネイルギャラリーブロックの子ブロックです。"
 
@@ -1570,7 +1565,7 @@ msgstr "解除"
 msgid "Media"
 msgstr "メディア"
 
-#: src/js/component/figure.js:145
+#: src/js/component/figure.js:145 .translation/translation.php:85
 msgid "Video"
 msgstr "動画"
 
@@ -1635,9 +1630,11 @@ msgstr "このブロックはカテゴリーの一覧を表示します"
 msgid "You can display child pages of this page."
 msgstr "このページの子ページを表示できます。"
 
-#: .translation/translation.php:20
+#: .translation/translation.php:20 .translation/translation.php:65
+#: .translation/translation.php:70 .translation/translation.php:75
+#: .translation/translation.php:83
 msgid "Container"
-msgstr "コンテナ"
+msgstr "コンテナー"
 
 #: .translation/translation.php:21
 msgid "Container blocks keep content within a certain width."
@@ -1655,71 +1652,79 @@ msgstr "カウントダウンタイマー"
 msgid "Display the countdown until the set date and time (Front-end only)"
 msgstr "設定した日時までのカウントダウンを表示 (実画面のみ反映)"
 
+#: .translation/translation.php:26
+msgid "Countdown"
+msgstr "カウントダウン"
+
 #: .translation/translation.php:27
+msgid "Directory structure"
+msgstr "ディレクトリ構造"
+
+#: .translation/translation.php:28
 msgid "Display a list of directories and files"
 msgstr "ディレクトリとファイルの一覧を表示する"
 
-#: .translation/translation.php:28
+#: .translation/translation.php:29
 msgid "Evaluation star"
 msgstr "星評価"
 
-#: .translation/translation.php:29
+#: .translation/translation.php:30
 msgid "Evaluate with star icons"
 msgstr "星アイコンで評価します"
 
-#: .translation/translation.php:30 App/Setup/BlockPatterns.php:35
+#: .translation/translation.php:31 App/Setup/BlockPatterns.php:35
 msgid "FAQ"
 msgstr "FAQ"
 
-#: .translation/translation.php:31
+#: .translation/translation.php:32
 msgid "You can list the FAQs."
 msgstr "FAQを列挙できます。"
 
-#: .translation/translation.php:32
+#: .translation/translation.php:33
 msgid "Information"
 msgstr "情報"
 
-#: .translation/translation.php:33
+#: .translation/translation.php:34
 msgid "You can post an information table."
 msgstr "情報テーブルを掲載できます。"
 
-#: .translation/translation.php:35
+#: .translation/translation.php:36
 msgid "Let's line up the contents."
 msgstr "コンテンツを並べましょう。"
 
-#: .translation/translation.php:37
+#: .translation/translation.php:38
 msgid "You can display like me box."
 msgstr "いいね！ボックスを表示できます。"
 
-#: .translation/translation.php:38
+#: .translation/translation.php:39
 msgid "Limited DateTime"
 msgstr "期間限定の表示"
 
-#: .translation/translation.php:40
+#: .translation/translation.php:41
 msgid "Icon list"
 msgstr "アイコンリスト"
 
-#: .translation/translation.php:41
+#: .translation/translation.php:42
 msgid "Icons are displayed only on the actual screen."
 msgstr "アイコンは実際の画面でのみ表示されます。"
 
-#: .translation/translation.php:42
+#: .translation/translation.php:43
 msgid "Media text"
 msgstr "メディアと文章"
 
-#: .translation/translation.php:43
+#: .translation/translation.php:44
 msgid "Set media and words side-by-side for a richer layout."
 msgstr "画像と文章を横並びのリッチなレイアウトにします。"
 
-#: .translation/translation.php:45
+#: .translation/translation.php:46
 msgid "Let's line up the contents like the panel."
 msgstr "パネルのようにコンテンツを並べましょう。"
 
-#: .translation/translation.php:46
+#: .translation/translation.php:47
 msgid "Pickup slider (Deprecated)"
 msgstr "ピックアップスライダー（非推奨）"
 
-#: .translation/translation.php:47
+#: .translation/translation.php:48
 msgid ""
 "Display posts with pickup tags as a slider. This block is being retained for "
 "backwards compatibility and is not recommended for use. Its use may slow "
@@ -1729,83 +1734,113 @@ msgstr ""
 "位互換性のために保持されており、使用することはお勧めできません。使用すると"
 "ページの表示速度を遅くすることがあります。"
 
-#: .translation/translation.php:48
+#: .translation/translation.php:49
 msgid "Price menu"
 msgstr "価格メニュー"
 
-#: .translation/translation.php:49
+#: .translation/translation.php:50
 msgid "Display the menu name and the price."
 msgstr "メニュー名と価格を表示します。"
 
-#: .translation/translation.php:50
+#: .translation/translation.php:51
 msgid "Pricing table"
 msgstr "価格表"
 
-#: .translation/translation.php:51
+#: .translation/translation.php:52
 msgid "Let's present the rate plan in an easy-to-understand manner."
 msgstr "料金プランを分かりやすく提示しましょう。"
 
-#: .translation/translation.php:52
+#: .translation/translation.php:53
 msgid "Rating box"
 msgstr "レーティングボックス"
 
-#: .translation/translation.php:53
+#: .translation/translation.php:54
 msgid "Evaluate with bars."
 msgstr "バーで評価します。"
 
-#: .translation/translation.php:55
+#: .translation/translation.php:56
 msgid "You can display recent posts with richer."
 msgstr "最近の投稿をよりリッチに表示できます。"
 
-#: .translation/translation.php:56
+#: .translation/translation.php:57 .translation/translation.php:104
+msgid "Posts list"
+msgstr "投稿リスト"
+
+#: .translation/translation.php:58 .translation/translation.php:106
+msgid "Latest posts"
+msgstr "最新の投稿"
+
+#: .translation/translation.php:59
 msgid "RSS"
 msgstr "RSS"
 
-#: .translation/translation.php:57
+#: .translation/translation.php:60
 msgid "Display entries from any RSS or Atom feed."
 msgstr "RSS または Atom フィードからの投稿を表示します。"
 
-#: .translation/translation.php:58
+#: .translation/translation.php:61
 msgid "Section (Break the grid)"
 msgstr "セクション（ブロークングリッド）"
 
-#: .translation/translation.php:59
+#: .translation/translation.php:62
 msgid "It is a break the grid section."
 msgstr "ブロークングリッドセクションです。"
 
-#: .translation/translation.php:60
+#: .translation/translation.php:63 .translation/translation.php:68
+#: .translation/translation.php:73 .translation/translation.php:81
+msgid "Outer"
+msgstr "外枠"
+
+#: .translation/translation.php:64 .translation/translation.php:69
+#: .translation/translation.php:74 .translation/translation.php:82
+msgid "Wrapper"
+msgstr "ラッパー"
+
+#: .translation/translation.php:66
 msgid "Section (Side heading)"
 msgstr "セクション（サイド見出し）"
 
-#: .translation/translation.php:61 .translation/translation.php:67
+#: .translation/translation.php:67 .translation/translation.php:88
 msgid "Contents can be separated by appropriate margins."
 msgstr "コンテンツを適切な余白で区切ることができます。"
 
-#: .translation/translation.php:62
+#: .translation/translation.php:71
 msgid "Section (with background image/video)"
 msgstr "セクション（背景画像 / 動画）"
 
-#: .translation/translation.php:63
+#: .translation/translation.php:72
 msgid "It is a section with a background image/video."
 msgstr "背景画像 / 動画つきのセクションです。"
 
-#: .translation/translation.php:64
+#: .translation/translation.php:76 .translation/translation.php:84
+msgid "Main visual"
+msgstr "メインビジュアル"
+
+#: .translation/translation.php:78
+msgid "Header image"
+msgstr "ヘッダー画像"
+
+#: .translation/translation.php:79
 msgid "Section (with background YouTube video)"
 msgstr "セクション（背景 YouTube 動画）"
 
-#: .translation/translation.php:65
+#: .translation/translation.php:80
 msgid "It is a section with a background YouTube video."
 msgstr "背景 YouTube 動画つきのセクションです。"
 
-#: .translation/translation.php:66
+#: .translation/translation.php:86
+msgid "Header video"
+msgstr "ヘッダー動画"
+
+#: .translation/translation.php:87
 msgid "Section"
 msgstr "セクション"
 
-#: .translation/translation.php:68
+#: .translation/translation.php:89
 msgid "Slider (Deprecated)"
 msgstr "スライダー（非推奨）"
 
-#: .translation/translation.php:69
+#: .translation/translation.php:90
 msgid ""
 "Show attractive images as beautiful sliders. This block is being retained "
 "for backwards compatibility and is not recommended for use. Its use may slow "
@@ -1815,51 +1850,67 @@ msgstr ""
 "めに保持されており、使用することはお勧めできません。使用するとページの表示速"
 "度を遅くすることがあります。"
 
-#: .translation/translation.php:71
+#: .translation/translation.php:92
 msgid "Display posts with pickup tags as a slider."
 msgstr "「pickup」タグが付与された記事をスライダーとして表示します。"
 
-#: .translation/translation.php:73
+#: .translation/translation.php:94 .translation/translation.php:97
+msgid "Carousel"
+msgstr "カルーセル"
+
+#: .translation/translation.php:96
 msgid "Show attractive images as beautiful sliders."
 msgstr "魅力的な画像を美しいスライダーとして表示します。"
 
-#: .translation/translation.php:74
+#: .translation/translation.php:98
 msgid "Step"
 msgstr "ステップ"
 
-#: .translation/translation.php:75
+#: .translation/translation.php:99
 msgid "Express the steps in an easy-to-understand manner."
 msgstr "ステップをわかりやすい手順で表現しましょう。"
 
-#: .translation/translation.php:76
+#: .translation/translation.php:100
 msgid "Tabs"
 msgstr "タブ"
 
-#: .translation/translation.php:77
+#: .translation/translation.php:101
 msgid "This is tabs block."
 msgstr "これはタブブロックです。"
 
-#: .translation/translation.php:79
+#: .translation/translation.php:103
 msgid "You can display recent posts linked to any taxonomy."
 msgstr "任意のタクソノミーに紐付いた最近の投稿を表示できます。"
 
-#: .translation/translation.php:81
+#: .translation/translation.php:108
 msgid "You can display terms linked to any taxonomy."
 msgstr "任意のタクソノミーに紐付いたタームの一覧を表示できます。"
 
-#: .translation/translation.php:82
+#: .translation/translation.php:109
+msgid "Categories"
+msgstr "カテゴリー"
+
+#: .translation/translation.php:110
+msgid "Tags"
+msgstr "タグ"
+
+#: .translation/translation.php:111
+msgid "Taxonomies"
+msgstr "タクソノミー"
+
+#: .translation/translation.php:112
 msgid "Testimonial"
 msgstr "お客様の声"
 
-#: .translation/translation.php:83
+#: .translation/translation.php:113
 msgid "Let's arrange the voice of the customer."
 msgstr "お客様の声を並べましょう。"
 
-#: .translation/translation.php:84
+#: .translation/translation.php:114
 msgid "Thumbnail gallery (Deprecated)"
 msgstr "サムネイルギャラリー（非推奨）"
 
-#: .translation/translation.php:85
+#: .translation/translation.php:115
 msgid ""
 "You can display a slide show with thumbnails. This block is being retained "
 "for backwards compatibility and is not recommended for use. Its use may slow "
@@ -1869,109 +1920,109 @@ msgstr ""
 "に保持されており、使用することはお勧めできません。使用するとページの表示速度"
 "を遅くすることがあります。"
 
-#: .translation/translation.php:86 .translation/translation.php:87
-#: .translation/translation.php:89 .translation/translation.php:91
-#: .translation/translation.php:93 .translation/translation.php:95
-#: .translation/translation.php:101 .translation/translation.php:124
+#: .translation/translation.php:116 .translation/translation.php:117
+#: .translation/translation.php:119 .translation/translation.php:121
+#: .translation/translation.php:123 .translation/translation.php:125
+#: .translation/translation.php:131 .translation/translation.php:154
 msgid "Item"
 msgstr "項目"
 
-#: .translation/translation.php:88
+#: .translation/translation.php:118
 msgid "It is a child block of the FAQ block."
 msgstr "FAQブロックの子ブロックです。"
 
-#: .translation/translation.php:90
+#: .translation/translation.php:120
 msgid "It is a child block of the information block."
 msgstr "情報ブロックの子ブロックです。"
 
-#: .translation/translation.php:92
+#: .translation/translation.php:122
 msgid "It is a child block of the price menu block."
 msgstr "価格メニューブロックの子ブロックです。"
 
-#: .translation/translation.php:94
+#: .translation/translation.php:124
 msgid "It is a child block of the pricing table block."
 msgstr "価格表ブロックの子ブロックです。"
 
-#: .translation/translation.php:96
+#: .translation/translation.php:126
 msgid "It is a child block of the rating box block."
 msgstr "レーティングボックスブロックの子ブロックです。"
 
-#: .translation/translation.php:97
+#: .translation/translation.php:127
 msgid "Items (Deprecated)"
 msgstr "項目（非推奨）"
 
-#: .translation/translation.php:98
+#: .translation/translation.php:128
 msgid "It is a child block of the slider block."
 msgstr "スライダーブロックの子ブロックです。"
 
-#: .translation/translation.php:99
+#: .translation/translation.php:129
 msgid "Tab panel"
 msgstr "タブパネル"
 
-#: .translation/translation.php:100
+#: .translation/translation.php:130
 msgid "This is tab panel block."
 msgstr "これはタブパネルブロックです。"
 
-#: .translation/translation.php:102
+#: .translation/translation.php:132
 msgid "It is a child block of the testimonial block."
 msgstr "お客様の声ブロックの子ブロックです。"
 
-#: .translation/translation.php:103
+#: .translation/translation.php:133
 msgid "Directory item"
 msgstr "ディレクトリ項目"
 
-#: .translation/translation.php:104
+#: .translation/translation.php:134
 msgid "Display a directory item"
 msgstr "ディレクトリ項目を表示する"
 
-#: .translation/translation.php:105
+#: .translation/translation.php:135
 msgid "File item"
 msgstr "ファイル項目"
 
-#: .translation/translation.php:106
+#: .translation/translation.php:136
 msgid "Display a file item"
 msgstr "ファイル項目を表示する"
 
-#: .translation/translation.php:107
+#: .translation/translation.php:137
 msgid "Banner"
 msgstr "バナー"
 
-#: .translation/translation.php:108 .translation/translation.php:110
-#: .translation/translation.php:112 .translation/translation.php:115
+#: .translation/translation.php:138 .translation/translation.php:140
+#: .translation/translation.php:142 .translation/translation.php:145
 msgid "It is a child block of the items block."
 msgstr "項目ブロックの子ブロックです。"
 
-#: .translation/translation.php:109
+#: .translation/translation.php:139
 msgid "Item (Block Link)"
 msgstr "項目（ブロックリンク）"
 
-#: .translation/translation.php:111 .translation/translation.php:116
-#: .translation/translation.php:122
+#: .translation/translation.php:141 .translation/translation.php:146
+#: .translation/translation.php:152
 msgid "Item (Free input)"
 msgstr "項目（自由入力）"
 
-#: .translation/translation.php:113
+#: .translation/translation.php:143
 msgid "Item (Deprecated)"
 msgstr "項目（非推奨）"
 
-#: .translation/translation.php:114
+#: .translation/translation.php:144
 msgid "Item (Standard)"
 msgstr "項目（スタンダード）"
 
-#: .translation/translation.php:117 .translation/translation.php:119
-#: .translation/translation.php:121
+#: .translation/translation.php:147 .translation/translation.php:149
+#: .translation/translation.php:151
 msgid "It is a child block of the panels block."
 msgstr "パネルブロックの子ブロックです。"
 
-#: .translation/translation.php:118
+#: .translation/translation.php:148
 msgid "Item (Horizontal layout)"
 msgstr "項目（水平レイアウト）"
 
-#: .translation/translation.php:120
+#: .translation/translation.php:150
 msgid "Item (Vertical layout)"
 msgstr "項目（垂直レイアウト）"
 
-#: .translation/translation.php:123 .translation/translation.php:125
+#: .translation/translation.php:153 .translation/translation.php:155
 msgid "It is a child block of the step block."
 msgstr "ステップブロックの子ブロックです。"
 
