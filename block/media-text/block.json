@@ -1,7 +1,7 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/media-text",
-  "title": "Media text",
+  "title": "Media & text",
   "description": "Set media and words side-by-side for a richer layout.",
   "category": "smb",
   "attributes": {

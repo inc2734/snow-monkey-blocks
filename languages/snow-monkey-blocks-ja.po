@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2021-10-07 10:09+0900\n"
-"PO-Revision-Date: 2021-10-07 10:09+0900\n"
+"POT-Creation-Date: 2021-10-07 10:19+0900\n"
+"PO-Revision-Date: 2021-10-07 10:19+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -459,26 +459,26 @@ msgstr "カルーセル（%1$s）"
 
 #: block/child-pages/edit.js:140 block/recent-posts/edit.js:199
 #: block/rss/edit.js:180 block/spider-pickup-slider/edit.js:89
-#: block/spider-slider/edit.js:285 block/taxonomy-posts/edit.js:243
+#: block/spider-slider/edit.js:288 block/taxonomy-posts/edit.js:243
 msgid "Display arrows"
 msgstr "矢印を表示"
 
 #: block/child-pages/edit.js:149 block/recent-posts/edit.js:208
 #: block/rss/edit.js:189 block/spider-pickup-slider/edit.js:95
-#: block/spider-slider/edit.js:291 block/taxonomy-posts/edit.js:252
+#: block/spider-slider/edit.js:294 block/taxonomy-posts/edit.js:252
 msgid "Display dots"
 msgstr "ドットを表示"
 
 #: block/child-pages/edit.js:158 block/recent-posts/edit.js:217
 #: block/rss/edit.js:198 block/slider/edit.js:180
-#: block/spider-pickup-slider/edit.js:119 block/spider-slider/edit.js:332
+#: block/spider-pickup-slider/edit.js:119 block/spider-slider/edit.js:335
 #: block/taxonomy-posts/edit.js:261 block/thumbnail-gallery/edit.js:84
 msgid "Autoplay Speed in seconds"
 msgstr "自動再生の間隔（秒）"
 
 #: block/child-pages/edit.js:162 block/recent-posts/edit.js:221
 #: block/rss/edit.js:202 block/spider-pickup-slider/edit.js:123
-#: block/spider-slider/edit.js:336 block/taxonomy-posts/edit.js:265
+#: block/spider-slider/edit.js:339 block/taxonomy-posts/edit.js:265
 msgid "If \"0\", no scroll."
 msgstr "「0」の場合、スクロールしません。"
 
@@ -788,8 +788,8 @@ msgstr "行あたりのカラム数（ミディアムウインドウ）"
 msgid "Columns per row (Small window)"
 msgstr "行あたりのカラム数（スモールウインドウ）"
 
-#: block/items/item/banner/edit.js:238 block/section-with-bgimage/index.js:25
-#: src/js/component/figure.js:143
+#: block/items/item/banner/edit.js:238 block/media-text/index.js:19
+#: block/section-with-bgimage/index.js:25 src/js/component/figure.js:143
 msgid "Image"
 msgstr "画像"
 
@@ -945,6 +945,15 @@ msgstr "メディアを右に表示"
 #: block/thumbnail-gallery/item/edit.js:163
 msgid "Write caption…"
 msgstr "キャプションを書く…"
+
+#: block/media-text/index.js:20 block/section-with-bgvideo/index.js:25
+#: src/js/component/figure.js:145
+msgid "Video"
+msgstr "動画"
+
+#: block/media-text/index.js:21
+msgid "Media & sentence"
+msgstr "メディアと文章"
 
 #: block/panels/edit.js:143
 msgid "Set padding around images"
@@ -1416,10 +1425,6 @@ msgstr "動画の横幅"
 msgid "Video height"
 msgstr "ビデオの高さ"
 
-#: block/section-with-bgvideo/index.js:25 src/js/component/figure.js:145
-msgid "Video"
-msgstr "動画"
-
 #: block/section-with-bgvideo/index.js:26
 msgid "Header video"
 msgstr "ヘッダー動画"
@@ -1448,7 +1453,7 @@ msgstr "スライダーの方向を右から左に変更"
 msgid "Aspect ratio"
 msgstr "画像のアスペクト比"
 
-#: block/slider/edit.js:216 block/spider-slider/edit.js:349
+#: block/slider/edit.js:216 block/spider-slider/edit.js:352
 msgid "# of slides to show (Large window)"
 msgstr "表示するスライド数（ラージウインドウ）"
 
@@ -1456,7 +1461,7 @@ msgstr "表示するスライド数（ラージウインドウ）"
 msgid "# of slides to scroll (Large window)"
 msgstr "スクロールするスライド数（ラージウインドウ）"
 
-#: block/slider/edit.js:240 block/spider-slider/edit.js:363
+#: block/slider/edit.js:240 block/spider-slider/edit.js:366
 msgid "# of slides to show (Medium window)"
 msgstr "表示するスライド数（ミディアムウインドウ）"
 
@@ -1464,7 +1469,7 @@ msgstr "表示するスライド数（ミディアムウインドウ）"
 msgid "# of slides to scroll (Medium window)"
 msgstr "スクロールするスライド数（ミディアムウインドウ）"
 
-#: block/slider/edit.js:264 block/spider-slider/edit.js:377
+#: block/slider/edit.js:264 block/spider-slider/edit.js:380
 msgid "# of slides to show (Small window)"
 msgstr "表示するスライド数（スモールウインドウ）"
 
@@ -1472,11 +1477,11 @@ msgstr "表示するスライド数（スモールウインドウ）"
 msgid "# of slides to scroll (Small window)"
 msgstr "スクロールするスライド数（スモールウインドウ）"
 
-#: block/spider-pickup-slider/edit.js:103 block/spider-slider/edit.js:299
+#: block/spider-pickup-slider/edit.js:103 block/spider-slider/edit.js:302
 msgid "Change dots to thumbnails"
 msgstr "ドットをサムネイルに変更"
 
-#: block/spider-pickup-slider/edit.js:112 block/spider-slider/edit.js:308
+#: block/spider-pickup-slider/edit.js:112 block/spider-slider/edit.js:311
 msgid "Fade"
 msgstr "フェード"
 
@@ -1495,15 +1500,15 @@ msgstr ""
 "画像をドラッグしたり、新しい画像をアップロードしたり、ライブラリからファイル"
 "を選択したりできます。"
 
-#: block/spider-slider/edit.js:278
+#: block/spider-slider/edit.js:279
 msgid "Margin size between slides"
 msgstr "スライド間の余白サイズ"
 
-#: block/spider-slider/edit.js:316
+#: block/spider-slider/edit.js:319
 msgid "Shifting the slider"
 msgstr "スライダーをずらす"
 
-#: block/spider-slider/edit.js:325
+#: block/spider-slider/edit.js:328
 msgid "Display caption"
 msgstr "キャプションを表示"
 
@@ -1770,8 +1775,8 @@ msgid "Icons are displayed only on the actual screen."
 msgstr "アイコンは実際の画面でのみ表示されます。"
 
 #: .translation/translation.php:42
-msgid "Media text"
-msgstr "メディアと文章"
+msgid "Media & text"
+msgstr "メディアとテキスト"
 
 #: .translation/translation.php:43
 msgid "Set media and words side-by-side for a richer layout."
