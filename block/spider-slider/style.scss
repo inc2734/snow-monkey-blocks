@@ -117,12 +117,14 @@
   .smb-spider-slider--gutter-#{ $size } {
     $gutter: _space($level, true, true);
 
-    .spider__slide:not(:last-child) {
-      margin-right: $gutter;
-    }
-
     @for $i from 2 through 6 {
       @include _media-only(sm) {
+        &[data-sm-slide-to-show] {
+          .spider__slide:not(:last-child) {
+            margin-right: $gutter;
+          }
+        }
+
         &[data-sm-slide-to-show="#{ $i }"] {
           .spider__slide {
             max-width: calc(#{ 100% / $i } - #{ ($i - 1) } * #{ $gutter } / #{ $i });
@@ -131,6 +133,12 @@
       }
 
       @include _media-only(md) {
+        &[data-md-slide-to-show] {
+          .spider__slide:not(:last-child) {
+            margin-right: $gutter;
+          }
+        }
+
         &[data-md-slide-to-show="#{ $i }"] {
           .spider__slide {
             max-width: calc(#{ 100% / $i } - #{ ($i - 1) } * #{ $gutter } / #{ $i });
@@ -139,6 +147,12 @@
       }
 
       @include _media-min(lg) {
+        &[data-lg-slide-to-show] {
+          .spider__slide:not(:last-child) {
+            margin-right: $gutter;
+          }
+        }
+
         &[data-lg-slide-to-show="#{ $i }"] {
           .spider__slide {
             max-width: calc(#{ 100% / $i } - #{ ($i - 1) } * #{ $gutter } / #{ $i });
@@ -189,12 +203,14 @@
       &.smb-spider-slider--gutter-#{ $size } {
         $gutter: _space($level, true, true);
 
-        .spider__slide:not(:last-child) {
-          margin-right: $gutter;
-        }
-
         @for $i from 2 through 6 {
           @include _media-only(sm) {
+            &[data-sm-slide-to-show] {
+              .spider__slide:not(:last-child) {
+                margin-right: $gutter;
+              }
+            }
+
             &[data-sm-slide-to-show="#{ $i }"] {
               .spider__slide {
                 max-width: calc(var(--spider-reference-width) / #{ $i } - #{ ($i - 1) } * #{ $gutter } / #{ $i });
@@ -203,6 +219,12 @@
           }
 
           @include _media-only(md) {
+            &[data-md-slide-to-show] {
+              .spider__slide:not(:last-child) {
+                margin-right: $gutter;
+              }
+            }
+
             &[data-md-slide-to-show="#{ $i }"] {
               .spider__slide {
                 max-width: calc(var(--spider-reference-width) / #{ $i } - #{ ($i - 1) } * #{ $gutter } / #{ $i });
@@ -211,6 +233,12 @@
           }
 
           @include _media-min(lg) {
+            &[data-lg-slide-to-show] {
+              .spider__slide:not(:last-child) {
+                margin-right: $gutter;
+              }
+            }
+
             &[data-lg-slide-to-show="#{ $i }"] {
               .spider__slide {
                 max-width: calc(var(--spider-reference-width) / #{ $i } - #{ ($i - 1) } * #{ $gutter } / #{ $i });
