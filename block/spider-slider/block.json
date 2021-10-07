@@ -69,6 +69,13 @@
       "type": "boolean",
       "default": false
     },
+    "shifted": {
+      "type": "boolean",
+      "default": false
+    },
+    "gutter": {
+      "type": "string"
+    },
     "aspectRatio": {
       "type": "string",
       "default": ""

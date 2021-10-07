@@ -3,43 +3,6 @@
 @import '../../src/css/core/block';
 
 .smb-spider-slider {
-  &--16to9 .spider__slide, // @deprecated
-  &--4to3 .spider__slide, // @deprecated
-  &--16x9 .smb-spider-slider__figure-wrapper,
-  &--4x3 .smb-spider-slider__figure-wrapper {
-    .spider__figure {
-      position: absolute;
-      top: 50%; // For IE11
-      left: 50%; // For IE11
-      transform: translate(-50%, -50%); // For IE11
-      width: 100%;
-
-      @supports (object-fit: cover) {
-        top: 0;
-        left: 0;
-        transform: initial;
-        height: 100%;
-        max-height: none;
-        object-fit: cover;
-        object-position: 50% 50%;
-      }
-    }
-  }
-
-  &--16to9 .spider__slide::before, // @deprecated
-  &--16x9 .smb-spider-slider__figure-wrapper::before {
-    content: '';
-    display: block;
-    padding: 56.25% 0 0;
-  }
-
-  &--4to3 .spider__slide::before, // @deprecated
-  &--4x3 .smb-spider-slider__figure-wrapper::before {
-    content: '';
-    display: block;
-    padding: 75% 0 0;
-  }
-
   @for $i from 2 through 6 {
     @include _media-only(sm) {
       &[data-sm-slide-to-show="#{ $i }"] {
@@ -107,6 +70,155 @@
       flex: 0 0 25%;
       max-width: 25%;
       @include _padding(0, .25, .5);
+    }
+  }
+}
+
+.smb-spider-slider {
+  &--16to9 .spider__slide, // @deprecated
+  &--4to3 .spider__slide, // @deprecated
+  &--16x9 .smb-spider-slider__figure-wrapper,
+  &--4x3 .smb-spider-slider__figure-wrapper {
+    .spider__figure {
+      position: absolute;
+      top: 50%; // For IE11
+      left: 50%; // For IE11
+      transform: translate(-50%, -50%); // For IE11
+      width: 100%;
+
+      @supports (object-fit: cover) {
+        top: 0;
+        left: 0;
+        transform: initial;
+        height: 100%;
+        max-height: none;
+        object-fit: cover;
+        object-position: 50% 50%;
+      }
+    }
+  }
+
+  &--16to9 .spider__slide::before, // @deprecated
+  &--16x9 .smb-spider-slider__figure-wrapper::before {
+    content: '';
+    display: block;
+    padding: 56.25% 0 0;
+  }
+
+  &--4to3 .spider__slide::before, // @deprecated
+  &--4x3 .smb-spider-slider__figure-wrapper::before {
+    content: '';
+    display: block;
+    padding: 75% 0 0;
+  }
+}
+
+@each $size, $level in (s: .5, m: 1, l: 1.5) {
+  .smb-spider-slider--gutter-#{ $size } {
+    $gutter: _space($level, true, true);
+
+    .spider__slide:not(:last-child) {
+      margin-right: $gutter;
+    }
+
+    @for $i from 2 through 6 {
+      @include _media-only(sm) {
+        &[data-sm-slide-to-show="#{ $i }"] {
+          .spider__slide {
+            max-width: calc(#{ 100% / $i } - #{ ($i - 1) } * #{ $gutter } / #{ $i });
+          }
+        }
+      }
+
+      @include _media-only(md) {
+        &[data-md-slide-to-show="#{ $i }"] {
+          .spider__slide {
+            max-width: calc(#{ 100% / $i } - #{ ($i - 1) } * #{ $gutter } / #{ $i });
+          }
+        }
+      }
+
+      @include _media-min(lg) {
+        &[data-lg-slide-to-show="#{ $i }"] {
+          .spider__slide {
+            max-width: calc(#{ 100% / $i } - #{ ($i - 1) } * #{ $gutter } / #{ $i });
+          }
+        }
+      }
+    }
+  }
+}
+
+.smb-spider-slider--shifted {
+  @supports (--var: 1) {
+    .spider__canvas::before,
+    .spider__canvas::after {
+      content: '';
+      display: block;
+      flex: 0 0 auto;
+      width: calc((var(--spider-canvas-width) - var(--spider-reference-width)) / 2);
+    }
+
+    @for $i from 2 through 6 {
+      @include _media-only(sm) {
+        &[data-sm-slide-to-show="#{ $i }"] {
+          .spider__slide {
+            max-width: calc(var(--spider-reference-width) / #{ $i });
+          }
+        }
+      }
+
+      @include _media-only(md) {
+        &[data-md-slide-to-show="#{ $i }"] {
+          .spider__slide {
+            max-width: calc(var(--spider-reference-width) / #{ $i });
+          }
+        }
+      }
+
+      @include _media-min(lg) {
+        &[data-lg-slide-to-show="#{ $i }"] {
+          .spider__slide {
+            max-width: calc(var(--spider-reference-width) / #{ $i });
+          }
+        }
+      }
+    }
+
+    @each $size, $level in (s: .5, m: 1, l: 1.5) {
+      &.smb-spider-slider--gutter-#{ $size } {
+        $gutter: _space($level, true, true);
+
+        .spider__slide:not(:last-child) {
+          margin-right: $gutter;
+        }
+
+        @for $i from 2 through 6 {
+          @include _media-only(sm) {
+            &[data-sm-slide-to-show="#{ $i }"] {
+              .spider__slide {
+                max-width: calc(var(--spider-reference-width) / #{ $i } - #{ ($i - 1) } * #{ $gutter } / #{ $i });
+              }
+            }
+          }
+
+          @include _media-only(md) {
+            &[data-md-slide-to-show="#{ $i }"] {
+              .spider__slide {
+                max-width: calc(var(--spider-reference-width) / #{ $i } - #{ ($i - 1) } * #{ $gutter } / #{ $i });
+              }
+            }
+          }
+
+          @include _media-min(lg) {
+            &[data-lg-slide-to-show="#{ $i }"] {
+              .spider__slide {
+                max-width: calc(var(--spider-reference-width) / #{ $i } - #{ ($i - 1) } * #{ $gutter } / #{ $i });
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

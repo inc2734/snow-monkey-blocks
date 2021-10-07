@@ -10,6 +10,8 @@ export default function ( { attributes, className } ) {
 		dots,
 		dotsToThumbnail,
 		fade,
+		shifted,
+		gutter,
 		displayCaption,
 		interval,
 		lgSlidesToShow,
@@ -21,8 +23,13 @@ export default function ( { attributes, className } ) {
 		return null;
 	}
 
+	const isShiftable = ! fade && 'full' === attributes.align;
+	const isShifted = !! shifted && isShiftable;
+
 	const classes = classnames( 'smb-spider-slider', className, {
 		[ `smb-spider-slider--${ aspectRatio }` ]: !! aspectRatio,
+		'smb-spider-slider--shifted': isShifted,
+		[ `smb-spider-slider--gutter-${ gutter }` ]: !! gutter,
 	} );
 
 	return (
@@ -41,6 +48,11 @@ export default function ( { attributes, className } ) {
 			}
 		>
 			<div className="spider">
+				{ isShifted && (
+					<div className="c-container">
+						<div className="spider__reference" />
+					</div>
+				) }
 				<div className="spider__canvas">
 					{ images.map( ( img, index ) => {
 						return (

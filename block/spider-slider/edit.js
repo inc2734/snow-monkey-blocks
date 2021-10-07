@@ -37,6 +37,8 @@ export default function ( {
 		dots,
 		dotsToThumbnail,
 		fade,
+		shifted,
+		gutter,
 		displayCaption,
 		interval,
 		lgSlidesToShow,
@@ -80,8 +82,13 @@ export default function ( {
 		[ images ]
 	);
 
+	const isShiftable = ! fade && 'full' === attributes.align;
+	const isShifted = !! shifted && isShiftable;
+
 	const classes = classnames( 'smb-spider-slider', className, {
 		[ `smb-spider-slider--${ aspectRatio }` ]: !! aspectRatio,
+		'smb-spider-slider--shifted': isShifted,
+		[ `smb-spider-slider--gutter-${ gutter }` ]: !! gutter,
 	} );
 
 	const onSelectImages = ( newImages ) => {
@@ -144,6 +151,25 @@ export default function ( {
 		},
 	];
 
+	const gutterOptions = [
+		{
+			value: '',
+			label: __( 'None', 'snow-monkey-blocks' ),
+		},
+		{
+			value: 's',
+			label: __( 'S', 'snow-monkey-blocks' ),
+		},
+		{
+			value: 'm',
+			label: __( 'M', 'snow-monkey-blocks' ),
+		},
+		{
+			value: 'l',
+			label: __( 'L', 'snow-monkey-blocks' ),
+		},
+	];
+
 	const onChangeAspectRatio = ( value ) =>
 		setAttributes( {
 			aspectRatio: value,
@@ -167,6 +193,16 @@ export default function ( {
 	const onChangeFade = ( value ) =>
 		setAttributes( {
 			fade: value,
+		} );
+
+	const onChangeShifted = ( value ) =>
+		setAttributes( {
+			shifted: value,
+		} );
+
+	const onChangeGutter = ( value ) =>
+		setAttributes( {
+			gutter: value,
 		} );
 
 	const onChangeDisplayCaption = ( value ) =>
@@ -230,22 +266,36 @@ export default function ( {
 						options={ sizeSlugOptions }
 						onChange={ onChangeSizeSlug }
 					/>
+
 					<SelectControl
 						label={ __( 'Aspect ratio', 'snow-monkey-blocks' ) }
 						value={ aspectRatio }
 						onChange={ onChangeAspectRatio }
 						options={ aspectRatioOptions }
 					/>
+
+					<SelectControl
+						label={ __(
+							'Margin size between slides',
+							'snow-monkey-blocks'
+						) }
+						value={ gutter }
+						onChange={ onChangeGutter }
+						options={ gutterOptions }
+					/>
+
 					<ToggleControl
 						label={ __( 'Display arrows', 'snow-monkey-blocks' ) }
 						checked={ arrows }
 						onChange={ onChangeArrows }
 					/>
+
 					<ToggleControl
 						label={ __( 'Display dots', 'snow-monkey-blocks' ) }
 						checked={ dots }
 						onChange={ onChangeDots }
 					/>
+
 					{ dots && (
 						<ToggleControl
 							label={ __(
@@ -256,16 +306,30 @@ export default function ( {
 							onChange={ onChangeDotsToThumbnail }
 						/>
 					) }
+
 					<ToggleControl
 						label={ __( 'Fade', 'snow-monkey-blocks' ) }
 						checked={ fade }
 						onChange={ onChangeFade }
 					/>
+
+					{ isShiftable && (
+						<ToggleControl
+							label={ __(
+								'Shifting the slider',
+								'snow-monkey-blocks'
+							) }
+							checked={ shifted }
+							onChange={ onChangeShifted }
+						/>
+					) }
+
 					<ToggleControl
 						label={ __( 'Display caption', 'snow-monkey-blocks' ) }
 						checked={ displayCaption }
 						onChange={ onChangeDisplayCaption }
 					/>
+
 					<RangeControl
 						label={ __(
 							'Autoplay Speed in seconds',
@@ -352,6 +416,11 @@ export default function ( {
 					}
 				>
 					<div className="spider">
+						{ isShifted && (
+							<div className="c-container">
+								<div className="spider__reference" />
+							</div>
+						) }
 						<div className="spider__canvas">
 							{ images.map( ( img, index ) => {
 								return (
