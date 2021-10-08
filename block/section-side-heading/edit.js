@@ -2,6 +2,7 @@ import classnames from 'classnames';
 import { times } from 'lodash';
 
 import {
+	BlockControls,
 	InnerBlocks,
 	InspectorControls,
 	RichText,
@@ -18,10 +19,12 @@ import {
 	RangeControl,
 	SelectControl,
 	ToggleControl,
+	ToolbarButton,
+	ToolbarGroup,
 } from '@wordpress/components';
 
 import { useSelect } from '@wordpress/data';
-
+import { pullLeft, pullRight } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
 
 import { toNumber, getColumnSize, divider } from '@smb/helper';
@@ -223,10 +226,10 @@ export default function ( {
 		}
 	);
 
-	const onChangeHeadingPosition = ( value ) =>
-		setAttributes( {
-			headingPosition: value,
-		} );
+	// const onChangeHeadingPosition = ( value ) =>
+	// 	setAttributes( {
+	// 		headingPosition: value,
+	// 	} );
 
 	const onChangeHeadingColumnSize = ( value ) =>
 		setAttributes( {
@@ -436,22 +439,6 @@ export default function ( {
 							} ) }
 						</div>
 					</BaseControl>
-
-					<SelectControl
-						label={ __( 'Heading Position', 'snow-monkey-blocks' ) }
-						value={ headingPosition }
-						options={ [
-							{
-								value: 'right',
-								label: __( 'Right side', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'left',
-								label: __( 'Left side', 'snow-monkey-blocks' ),
-							},
-						] }
-						onChange={ onChangeHeadingPosition }
-					/>
 
 					<SelectControl
 						label={ __(
@@ -729,6 +716,34 @@ export default function ( {
 					] }
 				></PanelColorGradientSettings>
 			</InspectorControls>
+
+			<BlockControls gruop="block">
+				<ToolbarGroup>
+					<ToolbarButton
+						icon={ pullLeft }
+						title={ __(
+							'Show heading on left',
+							'snow-monkey-blocks'
+						) }
+						isActive={ 'left' === headingPosition }
+						onClick={ () =>
+							setAttributes( { headingPosition: 'left' } )
+						}
+					/>
+
+					<ToolbarButton
+						icon={ pullRight }
+						title={ __(
+							'Show heading on right',
+							'snow-monkey-blocks'
+						) }
+						isActive={ 'right' === headingPosition }
+						onClick={ () =>
+							setAttributes( { headingPosition: 'right' } )
+						}
+					/>
+				</ToolbarGroup>
+			</BlockControls>
 
 			<TagName { ...blockProps }>
 				{ ( hasFixedBackgroundColor ||

@@ -35,6 +35,8 @@ export default function ( { attributes, className } ) {
 		textColor,
 		parallax,
 		isSlim,
+		contentJustification,
+		itemsAlignment,
 	} = attributes;
 
 	const TagName = wrapperTagName;
@@ -46,6 +48,8 @@ export default function ( { attributes, className } ) {
 		{
 			[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
 			[ `smb-section--${ height }` ]: !! height,
+			[ `is-content-justification-${ contentJustification }` ]: contentJustification,
+			[ `is-items-alignment-${ itemsAlignment }` ]: itemsAlignment,
 			'js-bg-parallax': !! parallax,
 		}
 	);

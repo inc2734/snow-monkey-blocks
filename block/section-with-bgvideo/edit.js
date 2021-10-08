@@ -2,6 +2,20 @@ import classnames from 'classnames';
 import { times } from 'lodash';
 
 import {
+	AlignmentToolbar,
+	BlockControls,
+	BlockVerticalAlignmentToolbar,
+	InnerBlocks,
+	InspectorControls,
+	JustifyToolbar,
+	RichText,
+	__experimentalColorGradientControl as ColorGradientControl,
+	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
+	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	useBlockProps,
+} from '@wordpress/block-editor';
+
+import {
 	BaseControl,
 	Button,
 	PanelBody,
@@ -9,24 +23,16 @@ import {
 	SelectControl,
 	TextControl,
 	ToggleControl,
+	ToolbarGroup,
 } from '@wordpress/components';
 
-import {
-	InnerBlocks,
-	InspectorControls,
-	RichText,
-	useBlockProps,
-	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
-	__experimentalColorGradientControl as ColorGradientControl,
-	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
-} from '@wordpress/block-editor';
-
 import { useSelect } from '@wordpress/data';
-
 import { __ } from '@wordpress/i18n';
 
 import { toNumber } from '@smb/helper';
 import { getVideoId } from './utils';
+
+const HORIZONTAL_JUSTIFY_CONTROLS = [ 'left', 'center', 'right' ];
 
 export default function ( {
 	attributes,
@@ -50,6 +56,8 @@ export default function ( {
 		maskOpacity,
 		textColor,
 		isSlim,
+		contentJustification,
+		itemsAlignment,
 	} = attributes;
 
 	const hasInnerBlocks = useSelect(
@@ -73,6 +81,8 @@ export default function ( {
 		{
 			[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
 			[ `smb-section--${ height }` ]: !! height,
+			[ `is-content-justification-${ contentJustification }` ]: contentJustification,
+			[ `is-items-alignment-${ itemsAlignment }` ]: itemsAlignment,
 		}
 	);
 
@@ -181,6 +191,16 @@ export default function ( {
 			lede: value,
 		} );
 
+	const onChangeContentJustification = ( value ) =>
+		setAttributes( {
+			contentJustification: value,
+		} );
+
+	const onChangeItemsAlignment = ( value ) =>
+		setAttributes( {
+			itemsAlignment: value,
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -252,35 +272,12 @@ export default function ( {
 								value: 'wide',
 								label: __( 'Wide', 'snow-monkey-blocks' ),
 							},
+							{
+								value: 'full',
+								label: __( 'Full', 'snow-monkey-blocks' ),
+							},
 						] }
 						onChange={ onChangeHeight }
-					/>
-
-					<SelectControl
-						label={ __(
-							'Contents alignment',
-							'snow-monkey-blocks'
-						) }
-						value={ contentsAlignment }
-						options={ [
-							{
-								value: '',
-								label: __( 'Normal', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'left',
-								label: __( 'Left side', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'center',
-								label: __( 'Center', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'right',
-								label: __( 'Right side', 'snow-monkey-blocks' ),
-							},
-						] }
-						onChange={ onChangeContentsAlignment }
 					/>
 
 					<ToggleControl
@@ -327,6 +324,26 @@ export default function ( {
 					] }
 				></PanelColorGradientSettings>
 			</InspectorControls>
+
+			<BlockControls gruop="block">
+				<ToolbarGroup>
+					<BlockVerticalAlignmentToolbar
+						onChange={ onChangeItemsAlignment }
+						value={ itemsAlignment }
+					/>
+
+					<JustifyToolbar
+						allowedControls={ HORIZONTAL_JUSTIFY_CONTROLS }
+						onChange={ onChangeContentJustification }
+						value={ contentJustification }
+					/>
+
+					<AlignmentToolbar
+						value={ contentsAlignment }
+						onChange={ onChangeContentsAlignment }
+					/>
+				</ToolbarGroup>
+			</BlockControls>
 
 			<TagName { ...blockProps }>
 				<div

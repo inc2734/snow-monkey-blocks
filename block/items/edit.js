@@ -6,7 +6,7 @@ import {
 	BlockVerticalAlignmentToolbar,
 	InnerBlocks,
 	InspectorControls,
-	JustifyContentControl,
+	JustifyToolbar,
 	useBlockProps,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
@@ -109,8 +109,6 @@ export default function ( { attributes, setAttributes, className } ) {
 	const onChangeContentJustification = ( value ) =>
 		setAttributes( { contentJustification: value } );
 
-	const justifyControls = HORIZONTAL_JUSTIFY_CONTROLS;
-
 	return (
 		<>
 			<InspectorControls>
@@ -182,8 +180,8 @@ export default function ( { attributes, setAttributes, className } ) {
 					value={ verticalAlignment }
 				/>
 
-				<JustifyContentControl
-					allowedControls={ justifyControls }
+				<JustifyToolbar
+					allowedControls={ HORIZONTAL_JUSTIFY_CONTROLS }
 					value={ contentJustification }
 					onChange={ onChangeContentJustification }
 				/>

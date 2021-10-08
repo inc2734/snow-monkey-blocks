@@ -20,6 +20,8 @@ export default function ( { attributes, className } ) {
 		maskOpacity,
 		textColor,
 		isSlim,
+		contentJustification,
+		itemsAlignment,
 	} = attributes;
 
 	const TagName = 'div';
@@ -32,6 +34,8 @@ export default function ( { attributes, className } ) {
 		{
 			[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
 			[ `smb-section--${ height }` ]: !! height,
+			[ `is-content-justification-${ contentJustification }` ]: contentJustification,
+			[ `is-items-alignment-${ itemsAlignment }` ]: itemsAlignment,
 		}
 	);
 

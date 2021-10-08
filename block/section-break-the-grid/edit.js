@@ -3,6 +3,7 @@ import hexToRgba from 'hex-to-rgba';
 import { times } from 'lodash';
 
 import {
+	AlignmentToolbar,
 	BlockControls,
 	BlockVerticalAlignmentToolbar,
 	InnerBlocks,
@@ -313,7 +314,7 @@ export default function ( {
 			mobileOrder: '' === value ? undefined : value,
 		} );
 
-	const onChangeContentAlignment = ( value ) =>
+	const onChangeContentsAlignment = ( value ) =>
 		setAttributes( {
 			contentsAlignment: value,
 		} );
@@ -513,33 +514,6 @@ export default function ( {
 					title={ __( 'Contents Settings', 'snow-monkey-blocks' ) }
 					initialOpen={ false }
 				>
-					<SelectControl
-						label={ __(
-							'Contents alignment',
-							'snow-monkey-blocks'
-						) }
-						value={ contentsAlignment }
-						options={ [
-							{
-								value: '',
-								label: __( 'Normal', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'left',
-								label: __( 'Left side', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'center',
-								label: __( 'Center', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'right',
-								label: __( 'Right side', 'snow-monkey-blocks' ),
-							},
-						] }
-						onChange={ onChangeContentAlignment }
-					/>
-
 					<SelectControl
 						label={ __(
 							'Content Size Adjustment',
@@ -847,6 +821,7 @@ export default function ( {
 						onChange={ onChangeVerticalAlignment }
 						value={ verticalAlignment }
 					/>
+
 					<ToolbarButton
 						icon={ pullLeft }
 						title={ __(
@@ -858,6 +833,7 @@ export default function ( {
 							setAttributes( { imagePosition: 'left' } )
 						}
 					/>
+
 					<ToolbarButton
 						icon={ pullRight }
 						title={ __(
@@ -868,6 +844,11 @@ export default function ( {
 						onClick={ () =>
 							setAttributes( { imagePosition: 'right' } )
 						}
+					/>
+
+					<AlignmentToolbar
+						value={ contentsAlignment }
+						onChange={ onChangeContentsAlignment }
 					/>
 				</ToolbarGroup>
 			</BlockControls>

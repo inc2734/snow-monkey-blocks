@@ -119,7 +119,13 @@
     "contentsAlignment": {
       "type": "string",
       "default": ""
-    }
+    },
+    "contentJustification": {
+			"type": "string"
+		},
+    "itemsAlignment": {
+			"type": "string"
+		}
   },
   "supports": {
     "align": [ "wide", "full" ],

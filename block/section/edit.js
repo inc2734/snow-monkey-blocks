@@ -2,13 +2,17 @@ import classnames from 'classnames';
 import { times } from 'lodash';
 
 import {
+	AlignmentToolbar,
+	BlockControls,
+	BlockVerticalAlignmentToolbar,
 	InnerBlocks,
 	InspectorControls,
+	JustifyToolbar,
 	RichText,
-	useBlockProps,
-	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 	__experimentalColorGradientControl as ColorGradientControl,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
+	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	useBlockProps,
 } from '@wordpress/block-editor';
 
 import {
@@ -18,13 +22,15 @@ import {
 	RangeControl,
 	SelectControl,
 	ToggleControl,
+	ToolbarGroup,
 } from '@wordpress/components';
 
 import { useSelect } from '@wordpress/data';
-
 import { __ } from '@wordpress/i18n';
 
 import { toNumber, divider } from '@smb/helper';
+
+const HORIZONTAL_JUSTIFY_CONTROLS = [ 'left', 'center', 'right' ];
 
 export default function ( {
 	attributes,
@@ -62,6 +68,8 @@ export default function ( {
 		bottomDividerVerticalPosition,
 		height,
 		contentsAlignment,
+		contentJustification,
+		itemsAlignment,
 	} = attributes;
 
 	const hasInnerBlocks = useSelect(
@@ -80,6 +88,8 @@ export default function ( {
 	const classes = classnames( 'smb-section', className, {
 		[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
 		[ `smb-section--${ height }` ]: !! height,
+		[ `is-content-justification-${ contentJustification }` ]: contentJustification,
+		[ `is-items-alignment-${ itemsAlignment }` ]: itemsAlignment,
 	} );
 
 	const topDividerClasses = classnames(
@@ -204,7 +214,7 @@ export default function ( {
 			height: value,
 		} );
 
-	const onChangeContentAlignment = ( value ) =>
+	const onChangeContentsAlignment = ( value ) =>
 		setAttributes( {
 			contentsAlignment: value,
 		} );
@@ -329,6 +339,16 @@ export default function ( {
 			lede: value,
 		} );
 
+	const onChangeContentJustification = ( value ) =>
+		setAttributes( {
+			contentJustification: value,
+		} );
+
+	const onChangeItemsAlignment = ( value ) =>
+		setAttributes( {
+			itemsAlignment: value,
+		} );
+
 	const textureOptions = [
 		{
 			value: '',
@@ -425,35 +445,12 @@ export default function ( {
 								value: 'wide',
 								label: __( 'Wide', 'snow-monkey-blocks' ),
 							},
+							{
+								value: 'full',
+								label: __( 'Full', 'snow-monkey-blocks' ),
+							},
 						] }
 						onChange={ onChangeHeight }
-					/>
-
-					<SelectControl
-						label={ __(
-							'Contents alignment',
-							'snow-monkey-blocks'
-						) }
-						value={ contentsAlignment }
-						options={ [
-							{
-								value: '',
-								label: __( 'Normal', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'left',
-								label: __( 'Left side', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'center',
-								label: __( 'Center', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'right',
-								label: __( 'Right side', 'snow-monkey-blocks' ),
-							},
-						] }
-						onChange={ onChangeContentAlignment }
 					/>
 
 					<ToggleControl
@@ -709,6 +706,26 @@ export default function ( {
 					] }
 				></PanelColorGradientSettings>
 			</InspectorControls>
+
+			<BlockControls gruop="block">
+				<ToolbarGroup>
+					<BlockVerticalAlignmentToolbar
+						onChange={ onChangeItemsAlignment }
+						value={ itemsAlignment }
+					/>
+
+					<JustifyToolbar
+						allowedControls={ HORIZONTAL_JUSTIFY_CONTROLS }
+						onChange={ onChangeContentJustification }
+						value={ contentJustification }
+					/>
+
+					<AlignmentToolbar
+						value={ contentsAlignment }
+						onChange={ onChangeContentsAlignment }
+					/>
+				</ToolbarGroup>
+			</BlockControls>
 
 			<TagName { ...blockProps }>
 				{ ( hasFixedBackgroundColor ||

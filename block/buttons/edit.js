@@ -2,7 +2,7 @@ import classnames from 'classnames';
 
 import {
 	BlockControls,
-	JustifyContentControl,
+	JustifyToolbar,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 	useBlockProps,
 } from '@wordpress/block-editor';
@@ -41,13 +41,11 @@ export default function ( { attributes, setAttributes, className } ) {
 	const onChangeContentJustification = ( value ) =>
 		setAttributes( { contentJustification: value } );
 
-	const justifyControls = HORIZONTAL_JUSTIFY_CONTROLS;
-
 	return (
 		<>
 			<BlockControls group="block">
-				<JustifyContentControl
-					allowedControls={ justifyControls }
+				<JustifyToolbar
+					allowedControls={ HORIZONTAL_JUSTIFY_CONTROLS }
 					value={ contentJustification }
 					onChange={ onChangeContentJustification }
 				/>

@@ -34,6 +34,8 @@ export default function ( { attributes, className } ) {
 		bottomDividerVerticalPosition,
 		height,
 		contentsAlignment,
+		contentJustification,
+		itemsAlignment,
 	} = attributes;
 
 	const TagName = wrapperTagName;
@@ -41,6 +43,8 @@ export default function ( { attributes, className } ) {
 	const classes = classnames( 'smb-section', className, {
 		[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
 		[ `smb-section--${ height }` ]: !! height,
+		[ `is-content-justification-${ contentJustification }` ]: contentJustification,
+		[ `is-items-alignment-${ itemsAlignment }` ]: itemsAlignment,
 	} );
 
 	const topDividerClasses = classnames(
