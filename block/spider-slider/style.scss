@@ -163,8 +163,14 @@
   }
 }
 
-.smb-spider-slider--shifted {
+.smb-spider-slider--shifted.alignfull,
+[data-align="full"] > .smb-spider-slider--shifted {
   @supports (--var: 1) {
+    .spider__arrows {
+      max-width: var(--spider-reference-width);
+      left: calc(50% - var(--spider-reference-width) / 2);
+    }
+
     .spider__canvas::before,
     .spider__canvas::after {
       content: '';

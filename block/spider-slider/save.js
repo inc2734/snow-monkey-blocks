@@ -23,7 +23,9 @@ export default function ( { attributes, className } ) {
 		return null;
 	}
 
-	const isShiftable = ! fade && 'full' === attributes.align;
+	const isAlignwide = 'wide' === attributes.align;
+	const isAlignfull = 'full' === attributes.align;
+	const isShiftable = ! fade;
 	const isShifted = !! shifted && isShiftable;
 
 	const classes = classnames( 'smb-spider-slider', className, {
@@ -48,7 +50,7 @@ export default function ( { attributes, className } ) {
 			}
 		>
 			<div className="spider">
-				{ isShifted && (
+				{ ( isAlignfull || isAlignwide ) && (
 					<div className="c-container">
 						<div className="spider__reference" />
 					</div>
@@ -85,14 +87,14 @@ export default function ( { attributes, className } ) {
 				</div>
 
 				{ arrows && (
-					<>
+					<div className="spider__arrows">
 						<button className="spider__arrow" data-direction="prev">
 							Prev
 						</button>
 						<button className="spider__arrow" data-direction="next">
 							Next
 						</button>
-					</>
+					</div>
 				) }
 			</div>
 

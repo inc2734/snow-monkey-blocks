@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2021-10-07 10:19+0900\n"
-"PO-Revision-Date: 2021-10-07 10:19+0900\n"
+"POT-Creation-Date: 2021-10-08 10:52+0900\n"
+"PO-Revision-Date: 2021-10-08 10:52+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -471,14 +471,14 @@ msgstr "ドットを表示"
 
 #: block/child-pages/edit.js:158 block/recent-posts/edit.js:217
 #: block/rss/edit.js:198 block/slider/edit.js:180
-#: block/spider-pickup-slider/edit.js:119 block/spider-slider/edit.js:335
+#: block/spider-pickup-slider/edit.js:119 block/spider-slider/edit.js:346
 #: block/taxonomy-posts/edit.js:261 block/thumbnail-gallery/edit.js:84
 msgid "Autoplay Speed in seconds"
 msgstr "自動再生の間隔（秒）"
 
 #: block/child-pages/edit.js:162 block/recent-posts/edit.js:221
 #: block/rss/edit.js:202 block/spider-pickup-slider/edit.js:123
-#: block/spider-slider/edit.js:339 block/taxonomy-posts/edit.js:265
+#: block/spider-slider/edit.js:350 block/taxonomy-posts/edit.js:265
 msgid "If \"0\", no scroll."
 msgstr "「0」の場合、スクロールしません。"
 
@@ -788,7 +788,7 @@ msgstr "行あたりのカラム数（ミディアムウインドウ）"
 msgid "Columns per row (Small window)"
 msgstr "行あたりのカラム数（スモールウインドウ）"
 
-#: block/items/item/banner/edit.js:238 block/media-text/index.js:19
+#: block/items/item/banner/edit.js:238 block/media-text/index.js:21
 #: block/section-with-bgimage/index.js:25 src/js/component/figure.js:143
 msgid "Image"
 msgstr "画像"
@@ -946,12 +946,12 @@ msgstr "メディアを右に表示"
 msgid "Write caption…"
 msgstr "キャプションを書く…"
 
-#: block/media-text/index.js:20 block/section-with-bgvideo/index.js:25
+#: block/media-text/index.js:22 block/section-with-bgvideo/index.js:25
 #: src/js/component/figure.js:145
 msgid "Video"
 msgstr "動画"
 
-#: block/media-text/index.js:21
+#: block/media-text/index.js:23
 msgid "Media & sentence"
 msgstr "メディアと文章"
 
@@ -1453,7 +1453,7 @@ msgstr "スライダーの方向を右から左に変更"
 msgid "Aspect ratio"
 msgstr "画像のアスペクト比"
 
-#: block/slider/edit.js:216 block/spider-slider/edit.js:352
+#: block/slider/edit.js:216 block/spider-slider/edit.js:363
 msgid "# of slides to show (Large window)"
 msgstr "表示するスライド数（ラージウインドウ）"
 
@@ -1461,7 +1461,7 @@ msgstr "表示するスライド数（ラージウインドウ）"
 msgid "# of slides to scroll (Large window)"
 msgstr "スクロールするスライド数（ラージウインドウ）"
 
-#: block/slider/edit.js:240 block/spider-slider/edit.js:366
+#: block/slider/edit.js:240 block/spider-slider/edit.js:377
 msgid "# of slides to show (Medium window)"
 msgstr "表示するスライド数（ミディアムウインドウ）"
 
@@ -1469,7 +1469,7 @@ msgstr "表示するスライド数（ミディアムウインドウ）"
 msgid "# of slides to scroll (Medium window)"
 msgstr "スクロールするスライド数（ミディアムウインドウ）"
 
-#: block/slider/edit.js:264 block/spider-slider/edit.js:380
+#: block/slider/edit.js:264 block/spider-slider/edit.js:391
 msgid "# of slides to show (Small window)"
 msgstr "表示するスライド数（スモールウインドウ）"
 
@@ -1508,7 +1508,11 @@ msgstr "スライド間の余白サイズ"
 msgid "Shifting the slider"
 msgstr "スライダーをずらす"
 
-#: block/spider-slider/edit.js:328
+#: block/spider-slider/edit.js:327
+msgid "It must be full width."
+msgstr "全幅である必要があります。"
+
+#: block/spider-slider/edit.js:339
 msgid "Display caption"
 msgstr "キャプションを表示"
 

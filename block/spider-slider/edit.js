@@ -15,7 +15,7 @@ import {
 } from '@wordpress/components';
 
 import { useSelect } from '@wordpress/data';
-
+import { Icon, warning } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
 
 import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
@@ -82,7 +82,9 @@ export default function ( {
 		[ images ]
 	);
 
-	const isShiftable = ! fade && 'full' === attributes.align;
+	const isAlignwide = 'wide' === attributes.align;
+	const isAlignfull = 'full' === attributes.align;
+	const isShiftable = ! fade;
 	const isShifted = !! shifted && isShiftable;
 
 	const classes = classnames( 'smb-spider-slider', className, {
@@ -319,6 +321,21 @@ export default function ( {
 								'Shifting the slider',
 								'snow-monkey-blocks'
 							) }
+							help={
+								!! shifted &&
+								! isAlignfull && (
+									<>
+										<Icon
+											icon={ warning }
+											style={ { fill: '#d94f4f' } }
+										/>
+										{ __(
+											'It must be full width.',
+											'snow-monkey-blocks'
+										) + '(.alignfull)' }
+									</>
+								)
+							}
 							checked={ shifted }
 							onChange={ onChangeShifted }
 						/>
@@ -416,7 +433,7 @@ export default function ( {
 					}
 				>
 					<div className="spider">
-						{ isShifted && (
+						{ ( isAlignfull || isAlignwide ) && (
 							<div className="c-container">
 								<div className="spider__reference" />
 							</div>
@@ -453,7 +470,7 @@ export default function ( {
 						</div>
 
 						{ arrows && (
-							<>
+							<div className="spider__arrows">
 								<button
 									className="spider__arrow"
 									data-direction="prev"
@@ -466,7 +483,7 @@ export default function ( {
 								>
 									Next
 								</button>
-							</>
+							</div>
 						) }
 					</div>
 

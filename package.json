@@ -6,7 +6,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/react-fontawesome": "^0.1.15",
     "@inc2734/for-each-html-nodes": "^0.4.0",
-    "@inc2734/spider": "0.0.27",
+    "@inc2734/spider": "0.0.28",
     "@wordpress/browserslist-config": "^4.1.0",
     "@wordpress/env": "4.1.1",
     "@wordpress/eslint-plugin": "^9.1.2",
