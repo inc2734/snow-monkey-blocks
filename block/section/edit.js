@@ -91,7 +91,8 @@ export default function ( {
 		[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
 		[ `smb-section--${ height }` ]: !! height,
 		[ `is-content-justification-${ contentJustification }` ]: !! contentJustification,
-		[ `is-items-alignment-${ itemsAlignment }` ]: !! itemsAlignment && isItemsAlignmentable,
+		[ `is-items-alignment-${ itemsAlignment }` ]:
+			!! itemsAlignment && isItemsAlignmentable,
 	} );
 
 	const topDividerClasses = classnames(
