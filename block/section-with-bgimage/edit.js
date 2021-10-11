@@ -94,6 +94,8 @@ export default function ( {
 
 	const TagName = wrapperTagName;
 
+	const isItemsAlignmentable = 'fit' !== height;
+
 	const classes = classnames(
 		'smb-section',
 		'smb-section-with-bgimage',
@@ -101,8 +103,8 @@ export default function ( {
 		{
 			[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
 			[ `smb-section--${ height }` ]: !! height,
-			[ `is-content-justification-${ contentJustification }` ]: contentJustification,
-			[ `is-items-alignment-${ itemsAlignment }` ]: itemsAlignment,
+			[ `is-content-justification-${ contentJustification }` ]: !! contentJustification,
+			[ `is-items-alignment-${ itemsAlignment }` ]: !! itemsAlignment && isItemsAlignmentable,
 			'js-bg-parallax': !! parallax,
 		}
 	);
@@ -679,10 +681,12 @@ export default function ( {
 
 			<BlockControls gruop="block">
 				<ToolbarGroup>
-					<BlockVerticalAlignmentToolbar
-						onChange={ onChangeItemsAlignment }
-						value={ itemsAlignment }
-					/>
+					{ isItemsAlignmentable && (
+						<BlockVerticalAlignmentToolbar
+							onChange={ onChangeItemsAlignment }
+							value={ itemsAlignment }
+						/>
+					) }
 
 					<JustifyToolbar
 						allowedControls={ HORIZONTAL_JUSTIFY_CONTROLS }

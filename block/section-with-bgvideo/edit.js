@@ -70,8 +70,9 @@ export default function ( {
 	);
 
 	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
-
 	const TagName = 'div';
+
+	const isItemsAlignmentable = 'fit' !== height;
 
 	const classes = classnames(
 		'smb-section',
@@ -81,8 +82,8 @@ export default function ( {
 		{
 			[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
 			[ `smb-section--${ height }` ]: !! height,
-			[ `is-content-justification-${ contentJustification }` ]: contentJustification,
-			[ `is-items-alignment-${ itemsAlignment }` ]: itemsAlignment,
+			[ `is-content-justification-${ contentJustification }` ]: !! contentJustification,
+			[ `is-items-alignment-${ itemsAlignment }` ]: !! itemsAlignment && isItemsAlignmentable,
 		}
 	);
 
@@ -327,10 +328,12 @@ export default function ( {
 
 			<BlockControls gruop="block">
 				<ToolbarGroup>
-					<BlockVerticalAlignmentToolbar
-						onChange={ onChangeItemsAlignment }
-						value={ itemsAlignment }
-					/>
+					{ isItemsAlignmentable && (
+						<BlockVerticalAlignmentToolbar
+							onChange={ onChangeItemsAlignment }
+							value={ itemsAlignment }
+						/>
+					) }
 
 					<JustifyToolbar
 						allowedControls={ HORIZONTAL_JUSTIFY_CONTROLS }

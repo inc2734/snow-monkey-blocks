@@ -41,6 +41,8 @@ export default function ( { attributes, className } ) {
 
 	const TagName = wrapperTagName;
 
+	const isItemsAlignmentable = 'fit' !== height;
+
 	const classes = classnames(
 		'smb-section',
 		'smb-section-with-bgimage',
@@ -48,8 +50,8 @@ export default function ( { attributes, className } ) {
 		{
 			[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
 			[ `smb-section--${ height }` ]: !! height,
-			[ `is-content-justification-${ contentJustification }` ]: contentJustification,
-			[ `is-items-alignment-${ itemsAlignment }` ]: itemsAlignment,
+			[ `is-content-justification-${ contentJustification }` ]: !! contentJustification,
+			[ `is-items-alignment-${ itemsAlignment }` ]: !! itemsAlignment && isItemsAlignmentable,
 			'js-bg-parallax': !! parallax,
 		}
 	);
