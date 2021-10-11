@@ -130,6 +130,13 @@ export default function ( { attributes, setAttributes } ) {
 									__( 'Rich media', 'snow-monkey-blocks' )
 								),
 							},
+							{
+								value: 'large-image',
+								label: __(
+									'Large image',
+									'snow-monkey-blocks'
+								),
+							},
 						] }
 					/>
 
