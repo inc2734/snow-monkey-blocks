@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 12.5.1
+Stable tag: 12.6.0
 Requires at least: 5.8
 Tested up to: 5.8
 Requires PHP: 5.6
@@ -107,6 +107,26 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 24. Tabs block (The number of tab can be increased or decreased freely)
 
 == Changelog ==
+
+= 12.6.0 =
+* [Section (Break the grid)] Move "Contents alignment" inspector to block toolbar.
+* [Section (Side heading)] Move "heading position" inspector to block toolbar.
+* [Section (Background image/video)] Add new setting: "Full" into "Height".
+* [Section (Background image/video)] Add new setting: Vertical alignment.
+* [Section (Background image/video)] Add new setting: Horizontal alignment.
+* [Section (Background image/video)] Move "Contents alignment" inspector to block toolbar.
+* [Section (YouTube)] Add new setting: "Full" into "Height".
+* [Section (YouTube)] Add new setting: Vertical alignment.
+* [Section (YouTube)] Add new setting: Horizontal alignment.
+* [Section (YouTube)] Move "Contents alignment" inspector to block toolbar.
+* [Section] Add new setting: "Full" into "Height".
+* [Section] Add new setting: Vertical alignment.
+* [Section] Add new setting: Horizontal alignment.
+* [Section] Move "Contents alignment" inspector to block toolbar.
+* [Child pages] Add new setting: "Large image" into "Layout".
+* [Recent posts] Add new setting: "Large image" into "Layout".
+* [RSS] Add new setting: "Large image" into "Layout".
+* [Taxonomy posts] Add new setting: "Large image" into "Layout".
 
 = 12.5.1 =
 * [Slider] Refactoring HTML.
