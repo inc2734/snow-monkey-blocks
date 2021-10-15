@@ -164,7 +164,9 @@
 }
 
 .smb-spider-slider--shifted.alignfull,
-[data-align="full"] > .smb-spider-slider--shifted {
+.smb-spider-slider--shifted.alignwide,
+[data-align="full"] > .smb-spider-slider--shifted,
+[data-align="wide"] > .smb-spider-slider--shifted {
   @supports (--var: 1) {
     .spider__arrows {
       max-width: var(--spider-reference-width);

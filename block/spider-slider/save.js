@@ -26,7 +26,7 @@ export default function ( { attributes, className } ) {
 	const isAlignwide = 'wide' === attributes.align;
 	const isAlignfull = 'full' === attributes.align;
 	const isShiftable = ! fade;
-	const isShifted = !! shifted && isShiftable;
+	const isShifted = shifted && isShiftable && ( isAlignwide || isAlignfull );
 
 	const classes = classnames( 'smb-spider-slider', className, {
 		[ `smb-spider-slider--${ aspectRatio }` ]: !! aspectRatio,
@@ -50,7 +50,7 @@ export default function ( { attributes, className } ) {
 			}
 		>
 			<div className="spider">
-				{ ( isAlignfull || isAlignwide ) && (
+				{ isShifted && (
 					<div className="c-container">
 						<div className="spider__reference" />
 					</div>

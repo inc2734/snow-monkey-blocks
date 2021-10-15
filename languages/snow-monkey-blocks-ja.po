@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2021-10-11 10:52+0900\n"
-"PO-Revision-Date: 2021-10-11 10:52+0900\n"
+"POT-Creation-Date: 2021-10-15 10:19+0900\n"
+"PO-Revision-Date: 2021-10-15 10:19+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -315,12 +315,12 @@ msgid "Unlink"
 msgstr "リンクを解除"
 
 #: block/btn-box/index.js:22 block/btn/index.js:24
-#: block/child-pages/edit.js:225 block/countdown/index.js:21
+#: block/child-pages/edit.js:228 block/countdown/index.js:21
 #: block/information/index.js:23 block/media-text/edit.js:322
-#: block/recent-posts/edit.js:316 block/rss/edit.js:261
+#: block/recent-posts/edit.js:319 block/rss/edit.js:264
 #: block/section-break-the-grid/edit.js:469 block/slider/edit.js:63
 #: block/spider-slider/edit.js:144 block/tabs/index.js:23
-#: block/taxonomy-posts/edit.js:360 block/taxonomy-terms/index.js:28
+#: block/taxonomy-posts/edit.js:363 block/taxonomy-terms/index.js:28
 msgid "Default"
 msgstr "デフォルト"
 
@@ -356,7 +356,7 @@ msgstr "投稿数が0のカテゴリは、除外されていない場合でも�
 msgid "articles"
 msgstr "記事"
 
-#: block/categories-list/edit.js:151 block/recent-posts/edit.js:362
+#: block/categories-list/edit.js:151 block/recent-posts/edit.js:365
 #: block/taxonomy-posts/index.js:21 .translation/translation.php:54
 #: block/categories-list/view.php:62
 msgid "Recent posts"
@@ -457,37 +457,37 @@ msgstr "パネル"
 msgid "Carousel (%1$s)"
 msgstr "カルーセル（%1$s）"
 
-#: block/child-pages/edit.js:135 block/recent-posts/edit.js:194
-#: block/rss/edit.js:175 block/taxonomy-posts/edit.js:238
+#: block/child-pages/edit.js:136 block/recent-posts/edit.js:195
+#: block/rss/edit.js:176 block/taxonomy-posts/edit.js:239
 msgid "Large image"
 msgstr "大きな画像"
 
-#: block/child-pages/edit.js:144 block/recent-posts/edit.js:203
-#: block/rss/edit.js:184 block/spider-pickup-slider/edit.js:89
-#: block/spider-slider/edit.js:290 block/taxonomy-posts/edit.js:247
+#: block/child-pages/edit.js:147 block/recent-posts/edit.js:206
+#: block/rss/edit.js:187 block/spider-pickup-slider/edit.js:89
+#: block/spider-slider/edit.js:290 block/taxonomy-posts/edit.js:250
 msgid "Display arrows"
 msgstr "矢印を表示"
 
-#: block/child-pages/edit.js:153 block/recent-posts/edit.js:212
-#: block/rss/edit.js:193 block/spider-pickup-slider/edit.js:95
-#: block/spider-slider/edit.js:296 block/taxonomy-posts/edit.js:256
+#: block/child-pages/edit.js:156 block/recent-posts/edit.js:215
+#: block/rss/edit.js:196 block/spider-pickup-slider/edit.js:95
+#: block/spider-slider/edit.js:296 block/taxonomy-posts/edit.js:259
 msgid "Display dots"
 msgstr "ドットを表示"
 
-#: block/child-pages/edit.js:162 block/recent-posts/edit.js:221
-#: block/rss/edit.js:202 block/slider/edit.js:180
+#: block/child-pages/edit.js:165 block/recent-posts/edit.js:224
+#: block/rss/edit.js:205 block/slider/edit.js:180
 #: block/spider-pickup-slider/edit.js:119 block/spider-slider/edit.js:352
-#: block/taxonomy-posts/edit.js:265 block/thumbnail-gallery/edit.js:84
+#: block/taxonomy-posts/edit.js:268 block/thumbnail-gallery/edit.js:84
 msgid "Autoplay Speed in seconds"
 msgstr "自動再生の間隔（秒）"
 
-#: block/child-pages/edit.js:166 block/recent-posts/edit.js:225
-#: block/rss/edit.js:206 block/spider-pickup-slider/edit.js:123
-#: block/spider-slider/edit.js:356 block/taxonomy-posts/edit.js:269
+#: block/child-pages/edit.js:169 block/recent-posts/edit.js:228
+#: block/rss/edit.js:209 block/spider-pickup-slider/edit.js:123
+#: block/spider-slider/edit.js:356 block/taxonomy-posts/edit.js:272
 msgid "If \"0\", no scroll."
 msgstr "「0」の場合、スクロールしません。"
 
-#: block/child-pages/edit.js:178 block/items/item/block-link/edit.js:245
+#: block/child-pages/edit.js:181 block/items/item/block-link/edit.js:245
 #: block/items/item/item/edit.js:89 block/items/item/standard/edit.js:244
 #: block/media-text/edit.js:342 block/panels/item/horizontal/edit.js:205
 #: block/panels/item/vertical/edit.js:190
@@ -498,7 +498,7 @@ msgstr "「0」の場合、スクロールしません。"
 msgid "Title Tag"
 msgstr "タイトルタグ"
 
-#: block/child-pages/edit.js:207 block/items/item/banner/edit.js:286
+#: block/child-pages/edit.js:210 block/items/item/banner/edit.js:286
 #: block/items/item/block-link/edit.js:273
 #: block/items/item/standard/edit.js:271 block/media-text/edit.js:311
 #: block/panels/item/horizontal/edit.js:248
@@ -509,18 +509,18 @@ msgstr "タイトルタグ"
 msgid "Images size"
 msgstr "画像サイズ"
 
-#: block/child-pages/edit.js:216 block/recent-posts/edit.js:307
-#: block/rss/edit.js:252 block/taxonomy-posts/edit.js:351
+#: block/child-pages/edit.js:219 block/recent-posts/edit.js:310
+#: block/rss/edit.js:255 block/taxonomy-posts/edit.js:354
 msgid "Number of columns displayed on mobile device"
 msgstr "モバイル端末時の表示カラム数"
 
-#: block/child-pages/edit.js:232 block/recent-posts/edit.js:323
-#: block/rss/edit.js:268 block/taxonomy-posts/edit.js:367
+#: block/child-pages/edit.js:235 block/recent-posts/edit.js:326
+#: block/rss/edit.js:271 block/taxonomy-posts/edit.js:370
 msgid "1 column"
 msgstr "1カラム"
 
-#: block/child-pages/edit.js:239 block/recent-posts/edit.js:330
-#: block/rss/edit.js:275 block/taxonomy-posts/edit.js:374
+#: block/child-pages/edit.js:242 block/recent-posts/edit.js:333
+#: block/rss/edit.js:278 block/taxonomy-posts/edit.js:377
 msgid "2 columns"
 msgstr "2カラム"
 
@@ -1032,39 +1032,39 @@ msgstr "投稿タイプ"
 msgid "Number of posts"
 msgstr "表示する投稿数"
 
-#: block/recent-posts/edit.js:238 block/rss/edit.js:219
-#: block/taxonomy-posts/edit.js:282
+#: block/recent-posts/edit.js:241 block/rss/edit.js:222
+#: block/taxonomy-posts/edit.js:285
 msgid "Title Tag of each items"
 msgstr "各項目のタイトルタグ"
 
-#: block/recent-posts/edit.js:270 block/taxonomy-posts/edit.js:314
+#: block/recent-posts/edit.js:273 block/taxonomy-posts/edit.js:317
 msgid "Images size of each items"
 msgstr "各項目の画像サイズ"
 
-#: block/recent-posts/edit.js:280 block/taxonomy-posts/edit.js:324
+#: block/recent-posts/edit.js:283 block/taxonomy-posts/edit.js:327
 msgid "Force display meta of each items"
 msgstr "各項目のメタ情報を強制的に表示する"
 
-#: block/recent-posts/edit.js:284 block/recent-posts/edit.js:297
-#: block/taxonomy-posts/edit.js:328 block/taxonomy-posts/edit.js:341
+#: block/recent-posts/edit.js:287 block/recent-posts/edit.js:300
+#: block/taxonomy-posts/edit.js:331 block/taxonomy-posts/edit.js:344
 msgid "If it's already displayed, this setting will be ignored."
 msgstr "すでに表示されている場合、この設定は無視されます。"
 
-#: block/recent-posts/edit.js:293 block/taxonomy-posts/edit.js:337
+#: block/recent-posts/edit.js:296 block/taxonomy-posts/edit.js:340
 msgid "Force display category label of each items"
 msgstr "各項目のカテゴリーラベルを強制的に表示する"
 
-#: block/recent-posts/edit.js:340 block/taxonomy-posts/edit.js:384
+#: block/recent-posts/edit.js:343 block/taxonomy-posts/edit.js:387
 msgid "Ignore sticky posts"
 msgstr "先頭固定表示を除外する"
 
-#: block/recent-posts/edit.js:349 block/rss/edit.js:285
-#: block/taxonomy-posts/edit.js:393
+#: block/recent-posts/edit.js:352 block/rss/edit.js:288
+#: block/taxonomy-posts/edit.js:396
 msgid "Text if no posts matched"
 msgstr "一致する投稿がない場合のテキスト"
 
-#: block/recent-posts/edit.js:352 block/rss/edit.js:288
-#: block/taxonomy-posts/edit.js:396
+#: block/recent-posts/edit.js:355 block/rss/edit.js:291
+#: block/taxonomy-posts/edit.js:399
 msgid "Allow HTML"
 msgstr "HTML 許可"
 
@@ -1495,8 +1495,8 @@ msgid "Shifting the slider"
 msgstr "スライダーをずらす"
 
 #: block/spider-slider/edit.js:333
-msgid "It must be full width."
-msgstr "全幅である必要があります。"
+msgid "It must be full width (.alignfull) or wide width (.alignwide)."
+msgstr "全幅 (.alignfull) または幅広 (.alignwide) でなければなりません。"
 
 #: block/spider-slider/edit.js:345
 msgid "Display caption"
@@ -1582,7 +1582,7 @@ msgstr "ライン"
 msgid "Loading taxonomies…"
 msgstr "タクソノミーを読み込んでいます…"
 
-#: block/taxonomy-posts/edit.js:406 .translation/translation.php:78
+#: block/taxonomy-posts/edit.js:409 .translation/translation.php:78
 msgid "Taxonomy posts"
 msgstr "任意のタクソノミーの投稿"
 
@@ -2138,6 +2138,9 @@ msgid ""
 msgstr ""
 "%1$sSnow Monkey%2$s テーマと一緒に使用すると、最も美しいバランスで表示され、"
 "フロントスクリーンと同じデザインで編集画面に表示されます。"
+
+#~ msgid "It must be full width."
+#~ msgstr "全幅である必要があります。"
 
 #~ msgid "Contents alignment"
 #~ msgstr "コンテンツの水平位置"

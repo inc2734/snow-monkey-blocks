@@ -11,7 +11,8 @@
     }
   }
 
-  [data-align="full"] > .smb-spider-slider--shifted {
+  [data-align="full"] > .smb-spider-slider--shifted,
+  [data-align="wide"] > .smb-spider-slider--shifted {
     @supports (--var: 1) {
       .spider {
         --spider-reference-width: 840px; // .wp-block default max-width. You will need to overwrite it at themes.

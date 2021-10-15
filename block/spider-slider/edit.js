@@ -85,7 +85,7 @@ export default function ( {
 	const isAlignwide = 'wide' === attributes.align;
 	const isAlignfull = 'full' === attributes.align;
 	const isShiftable = ! fade;
-	const isShifted = !! shifted && isShiftable;
+	const isShifted = shifted && isShiftable && ( isAlignwide || isAlignfull );
 
 	const classes = classnames( 'smb-spider-slider', className, {
 		[ `smb-spider-slider--${ aspectRatio }` ]: !! aspectRatio,
@@ -322,17 +322,17 @@ export default function ( {
 								'snow-monkey-blocks'
 							) }
 							help={
-								!! shifted &&
-								! isAlignfull && (
+								shifted &&
+								( ! isAlignfull || ! isAlignwide ) && (
 									<>
 										<Icon
 											icon={ warning }
 											style={ { fill: '#d94f4f' } }
 										/>
 										{ __(
-											'It must be full width.',
+											'It must be full width (.alignfull) or wide width (.alignwide).',
 											'snow-monkey-blocks'
-										) + '(.alignfull)' }
+										) }
 									</>
 								)
 							}
@@ -433,7 +433,7 @@ export default function ( {
 					}
 				>
 					<div className="spider">
-						{ ( isAlignfull || isAlignwide ) && (
+						{ isShifted && (
 							<div className="c-container">
 								<div className="spider__reference" />
 							</div>
