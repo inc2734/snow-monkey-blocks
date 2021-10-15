@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2021-10-15 10:19+0900\n"
-"PO-Revision-Date: 2021-10-15 10:19+0900\n"
+"POT-Creation-Date: 2021-10-15 12:47+0900\n"
+"PO-Revision-Date: 2021-10-15 12:47+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -1732,7 +1732,7 @@ msgstr "星評価"
 msgid "Evaluate with star icons"
 msgstr "星アイコンで評価します"
 
-#: .translation/translation.php:30 App/Setup/BlockPatterns.php:35
+#: .translation/translation.php:30 App/Setup/BlockPatterns.php:50
 msgid "FAQ"
 msgstr "FAQ"
 
@@ -2054,48 +2054,48 @@ msgstr "利用可能なブロックの設定をリセット"
 msgid "Available blocks"
 msgstr "利用可能なブロック"
 
-#: App/Setup/BlockPatterns.php:31
-msgid "Headings"
-msgstr "Headings"
-
-#: App/Setup/BlockPatterns.php:32
-msgid "Features"
-msgstr "Features"
-
-#: App/Setup/BlockPatterns.php:33
-msgid "Text with image"
-msgstr "Text with image"
-
 #: App/Setup/BlockPatterns.php:34
-msgid "Pricing"
-msgstr "Pricing"
+msgid "Headers"
+msgstr "ヘッダー"
 
-#: App/Setup/BlockPatterns.php:41 App/Setup/BlockPatterns.php:51
-#: App/Setup/BlockPatterns.php:61 App/Setup/BlockPatterns.php:71
-#: App/Setup/BlockPatterns.php:81
+#: App/Setup/BlockPatterns.php:38
+msgid "Features"
+msgstr "特徴"
+
+#: App/Setup/BlockPatterns.php:42
+msgid "Text with image"
+msgstr "テキストと画像"
+
+#: App/Setup/BlockPatterns.php:46
+msgid "Pricing"
+msgstr "価格"
+
+#: App/Setup/BlockPatterns.php:67 App/Setup/BlockPatterns.php:77
+#: App/Setup/BlockPatterns.php:87 App/Setup/BlockPatterns.php:97
+#: App/Setup/BlockPatterns.php:107
 #, php-format
 msgid "Heading %1$s"
 msgstr "Heading %1$s"
 
-#: App/Setup/BlockPatterns.php:91 App/Setup/BlockPatterns.php:101
-#: App/Setup/BlockPatterns.php:111 App/Setup/BlockPatterns.php:121
-#: App/Setup/BlockPatterns.php:131 App/Setup/BlockPatterns.php:141
+#: App/Setup/BlockPatterns.php:117 App/Setup/BlockPatterns.php:127
+#: App/Setup/BlockPatterns.php:137 App/Setup/BlockPatterns.php:147
+#: App/Setup/BlockPatterns.php:157 App/Setup/BlockPatterns.php:167
 #, php-format
 msgid "Feature %1$s"
-msgstr "Feature %1$s"
+msgstr "特徴 %1$s"
 
-#: App/Setup/BlockPatterns.php:151 App/Setup/BlockPatterns.php:161
-#: App/Setup/BlockPatterns.php:171
+#: App/Setup/BlockPatterns.php:177 App/Setup/BlockPatterns.php:187
+#: App/Setup/BlockPatterns.php:197
 #, php-format
 msgid "Text with image %1$s"
-msgstr "Text with image %1$s"
+msgstr "テキストと画像 %1$s"
 
-#: App/Setup/BlockPatterns.php:181
+#: App/Setup/BlockPatterns.php:207
 #, php-format
 msgid "Pricing %1$s"
-msgstr "Pricing %1$s"
+msgstr "価格 %1$s"
 
-#: App/Setup/BlockPatterns.php:191 App/Setup/BlockPatterns.php:201
+#: App/Setup/BlockPatterns.php:217 App/Setup/BlockPatterns.php:227
 #, php-format
 msgid "FAQ %1$s"
 msgstr "FAQ %1$s"

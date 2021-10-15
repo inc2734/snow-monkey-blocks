@@ -28,18 +28,44 @@ class BlockPatterns {
 	 * @return void
 	 */
 	public function _register_block_patterns() {
-		register_block_pattern_category( 'smb-headings', [ 'label' => __( 'Headings', 'snow-monkey-blocks' ) ] );
-		register_block_pattern_category( 'smb-features', [ 'label' => __( 'Features', 'snow-monkey-blocks' ) ] );
-		register_block_pattern_category( 'smb-text-with-image', [ 'label' => __( 'Text with image', 'snow-monkey-blocks' ) ] );
-		register_block_pattern_category( 'smb-pricing', [ 'label' => __( 'Pricing', 'snow-monkey-blocks' ) ] );
-		register_block_pattern_category( 'smb-faq', [ 'label' => __( 'FAQ', 'snow-monkey-blocks' ) ] );
+		$block_pattern_categories = [
+			[
+				'name'  => 'smb-headers',
+				'label' => __( 'Headers', 'snow-monkey-blocks' ),
+			],
+			[
+				'name'  => 'smb-features',
+				'label' => __( 'Features', 'snow-monkey-blocks' ),
+			],
+			[
+				'name'  => 'smb-text-with-image',
+				'label' => __( 'Text with image', 'snow-monkey-blocks' ),
+			],
+			[
+				'name'  => 'smb-pricing',
+				'label' => __( 'Pricing', 'snow-monkey-blocks' ),
+			],
+			[
+				'name'  => 'smb-faq',
+				'label' => __( 'FAQ', 'snow-monkey-blocks' ),
+			],
+		];
+
+		foreach ( $block_pattern_categories as $block_pattern_categorie ) {
+			register_block_pattern_category(
+				$block_pattern_categorie['name'],
+				[
+					'label' => '[Snow Monkey Blocks] ' . $block_pattern_categorie['label'],
+				]
+			);
+		}
 
 		register_block_pattern(
 			'snow-monkey-blocks/heading-1',
 			[
 				// translators: $1: number
 				'title'      => sprintf( __( 'Heading %1$s', 'snow-monkey-blocks' ), 1 ),
-				'categories' => [ 'smb-headings' ],
+				'categories' => [ 'smb-headers' ],
 				'content'    => $this->_render( SNOW_MONKEY_BLOCKS_DIR_PATH . '/patterns/heading-1/pattern.php' ),
 			]
 		);
@@ -49,7 +75,7 @@ class BlockPatterns {
 			[
 				// translators: $1: number
 				'title'      => sprintf( __( 'Heading %1$s', 'snow-monkey-blocks' ), 2 ),
-				'categories' => [ 'smb-headings' ],
+				'categories' => [ 'smb-headers' ],
 				'content'    => $this->_render( SNOW_MONKEY_BLOCKS_DIR_PATH . '/patterns/heading-2/pattern.php' ),
 			]
 		);
@@ -59,7 +85,7 @@ class BlockPatterns {
 			[
 				// translators: $1: number
 				'title'      => sprintf( __( 'Heading %1$s', 'snow-monkey-blocks' ), 3 ),
-				'categories' => [ 'smb-headings' ],
+				'categories' => [ 'smb-headers' ],
 				'content'    => $this->_render( SNOW_MONKEY_BLOCKS_DIR_PATH . '/patterns/heading-3/pattern.php' ),
 			]
 		);
@@ -69,7 +95,7 @@ class BlockPatterns {
 			[
 				// translators: $1: number
 				'title'      => sprintf( __( 'Heading %1$s', 'snow-monkey-blocks' ), 4 ),
-				'categories' => [ 'smb-headings' ],
+				'categories' => [ 'smb-headers' ],
 				'content'    => $this->_render( SNOW_MONKEY_BLOCKS_DIR_PATH . '/patterns/heading-4/pattern.php' ),
 			]
 		);
@@ -79,7 +105,7 @@ class BlockPatterns {
 			[
 				// translators: $1: number
 				'title'      => sprintf( __( 'Heading %1$s', 'snow-monkey-blocks' ), 5 ),
-				'categories' => [ 'smb-headings' ],
+				'categories' => [ 'smb-headers' ],
 				'content'    => $this->_render( SNOW_MONKEY_BLOCKS_DIR_PATH . '/patterns/heading-5/pattern.php' ),
 			]
 		);

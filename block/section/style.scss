@@ -4,6 +4,8 @@
 
 .smb-section {
   position: relative;
+  display: flex;
+  align-items: center;
 
   &__background,
   &__fixed-background {
@@ -186,8 +188,6 @@
   &.is-content-justification-left,
   &.is-content-justification-center,
   &.is-content-justification-right {
-    display: flex;
-
     > .smb-section__inner {
       flex: 0 1 auto;
     }
@@ -202,11 +202,6 @@
     justify-content: flex-end;
   }
 
-  &.is-items-alignment-top,
-  &.is-items-alignment-center,
-  &.is-items-alignment-bottom {
-    display: flex;
-  }
   &.is-items-alignment-top {
     align-items: flex-start;
   }
