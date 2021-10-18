@@ -30,9 +30,10 @@ import { useSelect } from '@wordpress/data';
 
 import { __ } from '@wordpress/i18n';
 
-import { toNumber, getMediaType, isVideoType } from '@smb/helper';
+import WidthPicker from '@smb/component/width-picker';
 import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
 import Figure from '@smb/component/figure';
+import { toNumber, getMediaType, isVideoType } from '@smb/helper';
 
 const IMAGE_ALLOWED_TYPES = [ 'image', 'video' ];
 const HORIZONTAL_JUSTIFY_CONTROLS = [ 'left', 'center', 'right' ];
@@ -75,6 +76,7 @@ export default function ( {
 		maskOpacity,
 		textColor,
 		parallax,
+		contentsMaxWidth,
 		isSlim,
 		contentJustification,
 		itemsAlignment,
@@ -115,7 +117,7 @@ export default function ( {
 	} );
 
 	const containerClasses = classnames( 'c-container', {
-		'u-slim-width': !! isSlim,
+		'u-slim-width': isSlim && ! contentsMaxWidth,
 	} );
 
 	const hasTitle = ! RichText.isEmpty( title ) && 'none' !== titleTagName;
@@ -211,6 +213,11 @@ export default function ( {
 		backgroundPosition: smPointValue,
 	};
 
+	const innerStyles = {
+		maxWidth:
+			!! contentsMaxWidth && ! isSlim ? contentsMaxWidth : undefined,
+	};
+
 	const blockProps = useBlockProps( {
 		className: classes,
 		style: sectionStyles,
@@ -240,6 +247,11 @@ export default function ( {
 	const onChangeParallax = ( value ) =>
 		setAttributes( {
 			parallax: value,
+		} );
+
+	const onChangeContentsMaxWidth = ( value ) =>
+		setAttributes( {
+			contentsMaxWidth: value,
 		} );
 
 	const onChangeIsSlim = ( value ) =>
@@ -521,14 +533,31 @@ export default function ( {
 						) }
 					/>
 
-					<ToggleControl
-						label={ __(
-							'Make the content width slim',
-							'snow-monkey-blocks'
-						) }
-						checked={ isSlim }
-						onChange={ onChangeIsSlim }
-					/>
+					{ ! isSlim && (
+						<BaseControl
+							label={ __(
+								'Max width of the contents',
+								'snow-monkey-blocks'
+							) }
+							id="snow-monkey-blocks/section/contents-max-width"
+						>
+							<WidthPicker
+								value={ contentsMaxWidth }
+								onChange={ onChangeContentsMaxWidth }
+							/>
+						</BaseControl>
+					) }
+
+					{ ! contentsMaxWidth && (
+						<ToggleControl
+							label={ __(
+								'Make the contents width slim',
+								'snow-monkey-blocks'
+							) }
+							checked={ isSlim }
+							onChange={ onChangeIsSlim }
+						/>
+					) }
 
 					<ResponsiveTabPanel
 						desktop={ () => (
@@ -850,7 +879,7 @@ export default function ( {
 					</div>
 				) }
 
-				<div className="smb-section__inner">
+				<div className="smb-section__inner" style={ innerStyles }>
 					<div className={ containerClasses }>
 						{ hasTitle && ( hasSubTitle || isSelected ) && (
 							<RichText

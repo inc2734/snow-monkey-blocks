@@ -56,7 +56,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 				>
 					<ToggleControl
 						label={ __(
-							'Make the content width slim',
+							'Make the contents width slim',
 							'snow-monkey-blocks'
 						) }
 						checked={ isSlim }

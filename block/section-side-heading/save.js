@@ -25,6 +25,7 @@ export default function ( { attributes, className } ) {
 		textColor,
 		headingPosition,
 		headingColumnSize,
+		contentsMaxWidth,
 		isSlim,
 		topDividerType,
 		topDividerLevel,
@@ -61,7 +62,7 @@ export default function ( { attributes, className } ) {
 	);
 
 	const containerClasses = classnames( 'c-container', {
-		'u-slim-width': !! isSlim,
+		'u-slim-width': isSlim && ! contentsMaxWidth,
 	} );
 
 	const rowClasses = classnames( 'c-row', 'c-row--md-margin', {
@@ -163,7 +164,10 @@ export default function ( { attributes, className } ) {
 			: undefined,
 	};
 
-	const innerStyles = {};
+	const innerStyles = {
+		maxWidth:
+			!! contentsMaxWidth && ! isSlim ? contentsMaxWidth : undefined,
+	};
 
 	return (
 		<TagName

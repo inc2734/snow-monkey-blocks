@@ -23,6 +23,7 @@ export default function ( { attributes, className } ) {
 		fixedBackgroundTexture,
 		fixedBackgroundTextureOpacity,
 		textColor,
+		contentsMaxWidth,
 		isSlim,
 		topDividerType,
 		topDividerLevel,
@@ -63,7 +64,7 @@ export default function ( { attributes, className } ) {
 	);
 
 	const containerClasses = classnames( 'c-container', {
-		'u-slim-width': !! isSlim,
+		'u-slim-width': isSlim && ! contentsMaxWidth,
 	} );
 
 	const hasBackgroundColor = backgroundColor || backgroundGradientColor;
@@ -149,7 +150,10 @@ export default function ( { attributes, className } ) {
 			: undefined,
 	};
 
-	const innerStyles = {};
+	const innerStyles = {
+		maxWidth:
+			!! contentsMaxWidth && ! isSlim ? contentsMaxWidth : undefined,
+	};
 
 	return (
 		<TagName

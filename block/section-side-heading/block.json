@@ -72,6 +72,9 @@
     "textColor": {
       "type": "string"
     },
+    "contentsMaxWidth": {
+      "type": "string"
+    },
     "isSlim": {
       "type": "boolean",
       "default": false

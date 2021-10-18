@@ -64,6 +64,9 @@
       "type": "boolean",
       "default": false
     },
+    "contentsMaxWidth": {
+      "type": "string"
+    },
     "isSlim": {
       "type": "boolean",
       "default": false

@@ -28,6 +28,7 @@ import {
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
+import WidthPicker from '@smb/component/width-picker';
 import { toNumber, divider } from '@smb/helper';
 
 const HORIZONTAL_JUSTIFY_CONTROLS = [ 'left', 'center', 'right' ];
@@ -57,6 +58,7 @@ export default function ( {
 		fixedBackgroundTexture,
 		fixedBackgroundTextureOpacity,
 		textColor,
+		contentsMaxWidth,
 		isSlim,
 		topDividerType,
 		topDividerLevel,
@@ -108,7 +110,7 @@ export default function ( {
 	);
 
 	const containerClasses = classnames( 'c-container', {
-		'u-slim-width': !! isSlim,
+		'u-slim-width': isSlim && ! contentsMaxWidth,
 	} );
 
 	const hasBackgroundColor = backgroundColor || backgroundGradientColor;
@@ -194,7 +196,10 @@ export default function ( {
 			: undefined,
 	};
 
-	const innerStyles = {};
+	const innerStyles = {
+		maxWidth:
+			!! contentsMaxWidth && ! isSlim ? contentsMaxWidth : undefined,
+	};
 
 	const blockProps = useBlockProps( {
 		className: classes,
@@ -220,6 +225,11 @@ export default function ( {
 	const onChangeContentsAlignment = ( value ) =>
 		setAttributes( {
 			contentsAlignment: value,
+		} );
+
+	const onChangeContentsMaxWidth = ( value ) =>
+		setAttributes( {
+			contentsMaxWidth: value,
 		} );
 
 	const onChangeIsSlim = ( value ) =>
@@ -456,14 +466,31 @@ export default function ( {
 						onChange={ onChangeHeight }
 					/>
 
-					<ToggleControl
-						label={ __(
-							'Make the content width slim',
-							'snow-monkey-blocks'
-						) }
-						checked={ isSlim }
-						onChange={ onChangeIsSlim }
-					/>
+					{ ! isSlim && (
+						<BaseControl
+							label={ __(
+								'Max width of the contents',
+								'snow-monkey-blocks'
+							) }
+							id="snow-monkey-blocks/section/contents-max-width"
+						>
+							<WidthPicker
+								value={ contentsMaxWidth }
+								onChange={ onChangeContentsMaxWidth }
+							/>
+						</BaseControl>
+					) }
+
+					{ ! contentsMaxWidth && (
+						<ToggleControl
+							label={ __(
+								'Make the contents width slim',
+								'snow-monkey-blocks'
+							) }
+							checked={ isSlim }
+							onChange={ onChangeIsSlim }
+						/>
+					) }
 				</PanelBody>
 
 				<PanelBody

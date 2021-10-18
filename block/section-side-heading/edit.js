@@ -27,6 +27,7 @@ import { useSelect } from '@wordpress/data';
 import { pullLeft, pullRight } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
 
+import WidthPicker from '@smb/component/width-picker';
 import { toNumber, getColumnSize, divider } from '@smb/helper';
 
 export default function ( {
@@ -56,6 +57,7 @@ export default function ( {
 		textColor,
 		headingPosition,
 		headingColumnSize,
+		contentsMaxWidth,
 		isSlim,
 		topDividerType,
 		topDividerLevel,
@@ -103,7 +105,7 @@ export default function ( {
 	);
 
 	const containerClasses = classnames( 'c-container', {
-		'u-slim-width': !! isSlim,
+		'u-slim-width': isSlim && ! contentsMaxWidth,
 	} );
 
 	const rowClasses = classnames( 'c-row', 'c-row--md-margin', {
@@ -205,7 +207,10 @@ export default function ( {
 			: undefined,
 	};
 
-	const innerStyles = {};
+	const innerStyles = {
+		maxWidth:
+			!! contentsMaxWidth && ! isSlim ? contentsMaxWidth : undefined,
+	};
 
 	const blockProps = useBlockProps( {
 		className: classes,
@@ -234,6 +239,11 @@ export default function ( {
 	const onChangeHeadingColumnSize = ( value ) =>
 		setAttributes( {
 			headingColumnSize: value,
+		} );
+
+	const onChangeContentsMaxWidth = ( value ) =>
+		setAttributes( {
+			contentsMaxWidth: value,
 		} );
 
 	const onChangeIsSlim = ( value ) =>
@@ -463,14 +473,31 @@ export default function ( {
 						] }
 					/>
 
-					<ToggleControl
-						label={ __(
-							'Make the content width slim',
-							'snow-monkey-blocks'
-						) }
-						checked={ isSlim }
-						onChange={ onChangeIsSlim }
-					/>
+					{ ! isSlim && (
+						<BaseControl
+							label={ __(
+								'Max width of the contents',
+								'snow-monkey-blocks'
+							) }
+							id="snow-monkey-blocks/section/contents-max-width"
+						>
+							<WidthPicker
+								value={ contentsMaxWidth }
+								onChange={ onChangeContentsMaxWidth }
+							/>
+						</BaseControl>
+					) }
+
+					{ ! contentsMaxWidth && (
+						<ToggleControl
+							label={ __(
+								'Make the contents width slim',
+								'snow-monkey-blocks'
+							) }
+							checked={ isSlim }
+							onChange={ onChangeIsSlim }
+						/>
+					) }
 				</PanelBody>
 
 				<PanelBody

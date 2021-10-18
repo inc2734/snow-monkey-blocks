@@ -34,6 +34,7 @@ export default function ( { attributes, className } ) {
 		maskOpacity,
 		textColor,
 		parallax,
+		contentsMaxWidth,
 		isSlim,
 		contentJustification,
 		itemsAlignment,
@@ -62,7 +63,7 @@ export default function ( { attributes, className } ) {
 	} );
 
 	const containerClasses = classnames( 'c-container', {
-		'u-slim-width': !! isSlim,
+		'u-slim-width': isSlim && ! contentsMaxWidth,
 	} );
 
 	const hasTitle = ! RichText.isEmpty( title ) && 'none' !== titleTagName;
@@ -153,6 +154,11 @@ export default function ( { attributes, className } ) {
 		opacity: maskOpacity,
 		backgroundImage: `url( ${ smImageURL } )`,
 		backgroundPosition: smPointValue,
+	};
+
+	const innerStyles = {
+		maxWidth:
+			!! contentsMaxWidth && ! isSlim ? contentsMaxWidth : undefined,
 	};
 
 	return (
@@ -309,7 +315,7 @@ export default function ( { attributes, className } ) {
 				</div>
 			) }
 
-			<div className="smb-section__inner">
+			<div className="smb-section__inner" style={ innerStyles }>
 				<div className={ containerClasses }>
 					{ hasTitle && hasSubTitle && (
 						<RichText.Content

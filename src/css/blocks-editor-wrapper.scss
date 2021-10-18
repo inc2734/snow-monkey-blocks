@@ -77,6 +77,14 @@
   }
 }
 
+.smb-width-picker {
+  padding: 0;
+
+  .components-button {
+    height: 30px;
+  }
+}
+
 .components-base-control__help,
 .block-editor-color-gradient-control__color-indicator .components-base-control__label {
   display: flex;
