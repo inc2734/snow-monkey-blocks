@@ -104,7 +104,6 @@ export default function ( {
 		{
 			[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
 			[ `smb-section--${ height }` ]: !! height,
-			[ `is-content-justification-${ contentJustification }` ]: !! contentJustification,
 			[ `is-items-alignment-${ itemsAlignment }` ]:
 				!! itemsAlignment && isItemsAlignmentable,
 			'js-bg-parallax': !! parallax,
@@ -115,9 +114,14 @@ export default function ( {
 		'js-bg-parallax__bgimage': !! parallax,
 	} );
 
+	const innerClasses = classnames( 'smb-section__inner', {
+		[ `is-content-justification-${ contentJustification }` ]: !! contentJustification,
+	} );
+
 	const contentsWrapperClasses = classnames(
 		'smb-section__contents-wrapper',
 		{
+			[ `smb-section__contents-wrapper--${ contentsAlignment }` ]: !! contentsAlignment,
 			'u-slim-width': isSlim && ! contentsMaxWidth,
 		}
 	);
@@ -881,7 +885,7 @@ export default function ( {
 					</div>
 				) }
 
-				<div className="smb-section__inner" style={ innerStyles }>
+				<div className={ innerClasses } style={ innerStyles }>
 					<div className="c-container">
 						<div
 							className={ contentsWrapperClasses }

@@ -147,6 +147,19 @@
     }
   }
 
+  &__mask {
+    @include _position(absolute, 0, 0, 0, 0);
+  }
+
+  &__figure {
+    position: relative;
+
+    > img {
+      position: relative;
+      width: 100%;
+    }
+  }
+
   &__content {
     position: relative;
     z-index: 1;
@@ -172,24 +185,47 @@
         }
       }
     }
-  }
 
-  &__mask {
-    @include _position(absolute, 0, 0, 0, 0);
-  }
+    &--left,
+    &--center,
+    &--right {
+      > .smb-section__header {
+        text-align: inherit;
+      }
+    }
 
-  &__figure {
-    position: relative;
+    &--left,
+    &--right {
+      > .smb-section__header > .smb-section__lede-wrapper {
+        display: block;
+      }
+    }
 
-    > img {
-      position: relative;
-      width: 100%;
+    &--left {
+      text-align: left;
+    }
+
+    &--center {
+      text-align: center;
+    }
+
+    &--right {
+      text-align: right;
     }
   }
 
+  // @deprecated
   &__subtitle,
   &__title {
     text-align: left;
+  }
+
+  &__header {
+    text-align: left;
+
+    > * {
+      text-align: inherit;
+    }
   }
 
   &__lede-wrapper {
@@ -473,30 +509,22 @@
 }
 
 .smb-section-break-the-grid.smb-section {
+  // @deprecated
   &--left {
     > .smb-section__inner {
       > .#{ $_prefix }c-container {
-        > .smb-section__contents-wrapper {
-          > .#{ $_prefix }c-row {
-            > .#{ $_prefix }c-row__col {
-              > .smb-section-break-the-grid__content {
-                > .smb-section__subtitle,
-                > .smb-section__title,
-                > .smb-section__lede-wrapper > .smb-section__lede,
-                > .smb-section__body {
-                  text-align: left;
-                }
+        > .#{ $_prefix }c-row {
+          > .#{ $_prefix }c-row__col {
+            > .smb-section-break-the-grid__content {
+              > .smb-section__subtitle,
+              > .smb-section__title,
+              > .smb-section__lede-wrapper > .smb-section__lede,
+              > .smb-section__body {
+                text-align: left;
+              }
 
-                > .smb-section__lede-wrapper {
-                  display: block;
-                }
-
-                > .smb-section__title {
-                  &::after {
-                    margin-right: auto;
-                    margin-left: 0;
-                  }
-                }
+              > .smb-section__lede-wrapper {
+                display: block;
               }
             }
           }
@@ -505,25 +533,17 @@
     }
   }
 
+  // @deprecated
   &--center {
     > .smb-section__inner {
       > .#{ $_prefix }c-container {
-        > .smb-section__contents-wrapper {
-          > .#{ $_prefix }c-row {
-            > .#{ $_prefix }c-row__col {
-              > .smb-section-break-the-grid__content {
-                > .smb-section__subtitle,
-                > .smb-section__title,
-                > .smb-section__body {
-                  text-align: center;
-                }
-
-                > .smb-section__title {
-                  &::after {
-                    margin-right: auto;
-                    margin-left: auto;
-                  }
-                }
+        > .#{ $_prefix }c-row {
+          > .#{ $_prefix }c-row__col {
+            > .smb-section-break-the-grid__content {
+              > .smb-section__subtitle,
+              > .smb-section__title,
+              > .smb-section__body {
+                text-align: center;
               }
             }
           }
@@ -532,30 +552,22 @@
     }
   }
 
+  // @deprecated
   &--right {
     > .smb-section__inner {
       > .#{ $_prefix }c-container {
-        > .smb-section__contents-wrapper {
-          > .#{ $_prefix }c-row {
-            > .#{ $_prefix }c-row__col {
-              > .smb-section-break-the-grid__content {
-                > .smb-section__subtitle,
-                > .smb-section__title,
-                > .smb-section__lede-wrapper > .smb-section__lede,
-                > .smb-section__body {
-                  text-align: right;
-                }
+        > .#{ $_prefix }c-row {
+          > .#{ $_prefix }c-row__col {
+            > .smb-section-break-the-grid__content {
+              > .smb-section__subtitle,
+              > .smb-section__title,
+              > .smb-section__lede-wrapper > .smb-section__lede,
+              > .smb-section__body {
+                text-align: right;
+              }
 
-                > .smb-section__lede-wrapper {
-                  display: block;
-                }
-
-                > .smb-section__title {
-                  &::after {
-                    margin-right: 0;
-                    margin-left: auto;
-                  }
-                }
+              > .smb-section__lede-wrapper {
+                display: block;
               }
             }
           }

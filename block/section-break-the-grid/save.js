@@ -84,6 +84,7 @@ export default function ( { attributes, className } ) {
 		[ `smb-section-break-the-grid__content--w-${ contentSize }` ]: !! contentSize,
 		[ `smb-section-break-the-grid__content--p-${ contentPadding }` ]: !! contentPadding,
 		[ `smb-section-break-the-grid__content--horizontal-${ contentHorizontalPosition }` ]: !! contentHorizontalPosition,
+		[ `smb-section-break-the-grid__content--${ contentsAlignment }` ]: !! contentsAlignment,
 		'smb-section-break-the-grid__content--remove-outside-p':
 			contentPadding && removeContentOutsidePadding,
 	} );
@@ -164,14 +165,14 @@ export default function ( { attributes, className } ) {
 		>
 			<div className="smb-section__inner">
 				<div className="c-container">
-					<div className="smb-section__contents-wrapper">
+					<div className="smb-section__contents-wrapper smb-section-break-the-grid__contents-wrapper">
 						<div className={ rowClasses }>
 							<div className={ textColumnClasses }>
 								<div
 									className={ contentClasses }
 									style={ contentStyles }
 								>
-									<div className="smb-section__header">
+									<div className="smb-section__header smb-section-break-the-grid__header">
 										{ hasTitle && hasSubTitle && (
 											<RichText.Content
 												tagName="div"

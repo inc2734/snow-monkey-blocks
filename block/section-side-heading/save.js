@@ -54,7 +54,6 @@ export default function ( { attributes, className } ) {
 		className,
 		{
 			[ `smb-section--${ height }` ]: !! height,
-			[ `is-content-justification-${ contentJustification }` ]: !! contentJustification,
 			[ `is-items-alignment-${ itemsAlignment }` ]:
 				!! itemsAlignment && isItemsAlignmentable,
 		}
@@ -71,6 +70,10 @@ export default function ( { attributes, className } ) {
 		'smb-section__divider--bottom',
 		`smb-section__divider--${ bottomDividerType }`
 	);
+
+	const innerClasses = classnames( 'smb-section__inner', {
+		[ `is-content-justification-${ contentJustification }` ]: !! contentJustification,
+	} );
 
 	const contentsWrapperClasses = classnames(
 		'smb-section__contents-wrapper',
@@ -252,7 +255,7 @@ export default function ( { attributes, className } ) {
 				</div>
 			) }
 
-			<div className="smb-section__inner" style={ innerStyles }>
+			<div className={ innerClasses } style={ innerStyles }>
 				<div className="c-container">
 					<div
 						className={ contentsWrapperClasses }
@@ -260,7 +263,7 @@ export default function ( { attributes, className } ) {
 					>
 						<div className={ rowClasses }>
 							<div className={ headingColClasses }>
-								<div className="smb-section__header">
+								<div className="smb-section__header smb-section-side-heading__header">
 									{ hasTitle && hasSubTitle && (
 										<RichText.Content
 											tagName="div"
