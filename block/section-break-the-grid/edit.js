@@ -907,87 +907,98 @@ export default function ( {
 			<TagName { ...blockProps }>
 				<div className="smb-section__inner">
 					<div className="c-container">
-						<div className={ rowClasses }>
-							<div className={ textColumnClasses }>
-								<div
-									className={ contentClasses }
-									style={ contentStyles }
-								>
-									{ hasTitle &&
-										( hasSubTitle || isSelected ) && (
-											<RichText
-												className="smb-section__subtitle smb-section-break-the-grid__subtitle"
-												value={ subtitle }
-												onChange={ onChangeSubtitle }
-												placeholder={ __(
-													'Write subtitle…',
-													'snow-monkey-blocks'
+						<div className="smb-section__contents-wrapper">
+							<div className={ rowClasses }>
+								<div className={ textColumnClasses }>
+									<div
+										className={ contentClasses }
+										style={ contentStyles }
+									>
+										<div className="smb-section__header">
+											{ hasTitle &&
+												( hasSubTitle ||
+													isSelected ) && (
+													<RichText
+														className="smb-section__subtitle smb-section-break-the-grid__subtitle"
+														value={ subtitle }
+														onChange={
+															onChangeSubtitle
+														}
+														placeholder={ __(
+															'Write subtitle…',
+															'snow-monkey-blocks'
+														) }
+													/>
 												) }
+
+											{ ( hasTitle ||
+												( isSelected &&
+													'none' !==
+														titleTagName ) ) && (
+												<RichText
+													className="smb-section__title smb-section-break-the-grid__title"
+													tagName={ titleTagName }
+													value={ title }
+													onChange={ onChangeTitle }
+													placeholder={ __(
+														'Write title…',
+														'snow-monkey-blocks'
+													) }
+												/>
+											) }
+
+											{ hasTitle &&
+												( hasLede || isSelected ) && (
+													<div className="smb-section__lede-wrapper smb-section-break-the-grid__lede-wrapper">
+														<RichText
+															className="smb-section__lede smb-section-break-the-grid__lede"
+															value={ lede }
+															onChange={
+																onChangeLede
+															}
+															placeholder={ __(
+																'Write lede…',
+																'snow-monkey-blocks'
+															) }
+														/>
+													</div>
+												) }
+										</div>
+
+										<div { ...innerBlocksProps } />
+									</div>
+								</div>
+								<div className={ imageColumnClasses }>
+									<div className={ figureClasses }>
+										{ shadowColor && (
+											<div
+												className={ shadowClasses }
+												style={ shadowStyles }
 											/>
 										) }
 
-									{ ( hasTitle ||
-										( isSelected &&
-											'none' !== titleTagName ) ) && (
-										<RichText
-											className="smb-section__title smb-section-break-the-grid__title"
-											tagName={ titleTagName }
-											value={ title }
-											onChange={ onChangeTitle }
-											placeholder={ __(
-												'Write title…',
-												'snow-monkey-blocks'
-											) }
-										/>
-									) }
-
-									{ hasTitle && ( hasLede || isSelected ) && (
-										<div className="smb-section__lede-wrapper smb-section-break-the-grid__lede-wrapper">
-											<RichText
-												className="smb-section__lede smb-section-break-the-grid__lede"
-												value={ lede }
-												onChange={ onChangeLede }
-												placeholder={ __(
-													'Write lede…',
-													'snow-monkey-blocks'
-												) }
+										{ 0 <
+											Number(
+												( 1 - maskOpacity ).toFixed( 1 )
+											) && (
+											<div
+												className={ maskClasses }
+												style={ maskStyles }
 											/>
-										</div>
-									) }
+										) }
 
-									<div { ...innerBlocksProps } />
-								</div>
-							</div>
-							<div className={ imageColumnClasses }>
-								<div className={ figureClasses }>
-									{ shadowColor && (
-										<div
-											className={ shadowClasses }
-											style={ shadowStyles }
+										<Figure
+											src={ imageURL }
+											id={ imageID }
+											alt={ imageAlt }
+											onSelect={ onSelectImage }
+											onSelectURL={ onSelectImageURL }
+											onRemove={ onRemoveImage }
+											mediaType={ imageMediaType }
+											allowedTypes={ ALLOWED_TYPES }
+											style={ figureStyles }
 										/>
-									) }
-
-									{ 0 <
-										Number(
-											( 1 - maskOpacity ).toFixed( 1 )
-										) && (
-										<div
-											className={ maskClasses }
-											style={ maskStyles }
-										/>
-									) }
-
-									<Figure
-										src={ imageURL }
-										id={ imageID }
-										alt={ imageAlt }
-										onSelect={ onSelectImage }
-										onSelectURL={ onSelectImageURL }
-										onRemove={ onRemoveImage }
-										mediaType={ imageMediaType }
-										allowedTypes={ ALLOWED_TYPES }
-										style={ figureStyles }
-									/>
+									</div>
 								</div>
 							</div>
 						</div>

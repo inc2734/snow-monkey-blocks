@@ -3,8 +3,10 @@ import { times } from 'lodash';
 
 import {
 	BlockControls,
+	BlockVerticalAlignmentToolbar,
 	InnerBlocks,
 	InspectorControls,
+	JustifyToolbar,
 	RichText,
 	useBlockProps,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
@@ -29,6 +31,8 @@ import { __ } from '@wordpress/i18n';
 
 import WidthPicker from '@smb/component/width-picker';
 import { toNumber, getColumnSize, divider } from '@smb/helper';
+
+const HORIZONTAL_JUSTIFY_CONTROLS = [ 'left', 'center', 'right' ];
 
 export default function ( {
 	attributes,
@@ -67,6 +71,9 @@ export default function ( {
 		bottomDividerLevel,
 		bottomDividerColor,
 		bottomDividerVerticalPosition,
+		height,
+		contentJustification,
+		itemsAlignment,
 	} = attributes;
 
 	const hasInnerBlocks = useSelect(
@@ -85,11 +92,20 @@ export default function ( {
 	const wrapperTagNames = [ 'div', 'section', 'aside' ];
 	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
 
+	const isItemsAlignmentable = 'fit' !== height;
+
 	const TagName = wrapperTagName;
+
 	const classes = classnames(
 		'smb-section',
 		'smb-section-side-heading',
-		className
+		className,
+		{
+			[ `smb-section--${ height }` ]: !! height,
+			[ `is-content-justification-${ contentJustification }` ]: !! contentJustification,
+			[ `is-items-alignment-${ itemsAlignment }` ]:
+				!! itemsAlignment && isItemsAlignmentable,
+		}
 	);
 
 	const topDividerClasses = classnames(
@@ -104,9 +120,12 @@ export default function ( {
 		`smb-section__divider--${ bottomDividerType }`
 	);
 
-	const containerClasses = classnames( 'c-container', {
-		'u-slim-width': isSlim && ! contentsMaxWidth,
-	} );
+	const contentsWrapperClasses = classnames(
+		'smb-section__contents-wrapper',
+		{
+			'u-slim-width': isSlim && ! contentsMaxWidth,
+		}
+	);
 
 	const rowClasses = classnames( 'c-row', 'c-row--md-margin', {
 		'c-row--reverse': 'right' === headingPosition,
@@ -207,7 +226,9 @@ export default function ( {
 			: undefined,
 	};
 
-	const innerStyles = {
+	const innerStyles = {};
+
+	const contentsWrapperStyles = {
 		maxWidth:
 			!! contentsMaxWidth && ! isSlim ? contentsMaxWidth : undefined,
 	};
@@ -231,10 +252,10 @@ export default function ( {
 		}
 	);
 
-	// const onChangeHeadingPosition = ( value ) =>
-	// 	setAttributes( {
-	// 		headingPosition: value,
-	// 	} );
+	const onChangeHeight = ( value ) =>
+		setAttributes( {
+			height: value,
+		} );
 
 	const onChangeHeadingColumnSize = ( value ) =>
 		setAttributes( {
@@ -366,6 +387,16 @@ export default function ( {
 			lede: value,
 		} );
 
+	const onChangeContentJustification = ( value ) =>
+		setAttributes( {
+			contentJustification: value,
+		} );
+
+	const onChangeItemsAlignment = ( value ) =>
+		setAttributes( {
+			itemsAlignment: value,
+		} );
+
 	const textureOptions = [
 		{
 			value: '',
@@ -449,6 +480,26 @@ export default function ( {
 							} ) }
 						</div>
 					</BaseControl>
+
+					<SelectControl
+						label={ __( 'Height', 'snow-monkey-blocks' ) }
+						value={ height }
+						options={ [
+							{
+								value: 'fit',
+								label: __( 'Fit', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'wide',
+								label: __( 'Wide', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'full',
+								label: __( 'Full', 'snow-monkey-blocks' ),
+							},
+						] }
+						onChange={ onChangeHeight }
+					/>
 
 					<SelectControl
 						label={ __(
@@ -745,6 +796,19 @@ export default function ( {
 			</InspectorControls>
 
 			<BlockControls gruop="block">
+				{ isItemsAlignmentable && (
+					<BlockVerticalAlignmentToolbar
+						onChange={ onChangeItemsAlignment }
+						value={ itemsAlignment }
+					/>
+				) }
+
+				<JustifyToolbar
+					allowedControls={ HORIZONTAL_JUSTIFY_CONTROLS }
+					onChange={ onChangeContentJustification }
+					value={ contentJustification }
+				/>
+
 				<ToolbarGroup>
 					<ToolbarButton
 						icon={ pullLeft }
@@ -834,52 +898,65 @@ export default function ( {
 				) }
 
 				<div className="smb-section__inner" style={ innerStyles }>
-					<div className={ containerClasses }>
-						<div className={ rowClasses }>
-							<div className={ headingColClasses }>
-								{ hasTitle && ( hasSubTitle || isSelected ) && (
-									<RichText
-										className="smb-section__subtitle smb-section-side-heading__subtitle"
-										value={ subtitle }
-										onChange={ onChangeSubtitle }
-										placeholder={ __(
-											'Write subtitle…',
-											'snow-monkey-blocks'
-										) }
-									/>
-								) }
-
-								{ ( hasTitle ||
-									( isSelected &&
-										'none' !== titleTagName ) ) && (
-									<RichText
-										className="smb-section__title smb-section-side-heading__title"
-										tagName={ titleTagName }
-										value={ title }
-										onChange={ onChangeTitle }
-										placeholder={ __(
-											'Write title…',
-											'snow-monkey-blocks'
-										) }
-									/>
-								) }
-
-								{ hasTitle && ( hasLede || isSelected ) && (
-									<div className="smb-section__lede-wrapper smb-section-side-heading__lede-wrapper">
-										<RichText
-											className="smb-section__lede smb-section-side-heading__lede"
-											value={ lede }
-											onChange={ onChangeLede }
-											placeholder={ __(
-												'Write lede…',
-												'snow-monkey-blocks'
+					<div className="c-container">
+						<div
+							className={ contentsWrapperClasses }
+							style={ contentsWrapperStyles }
+						>
+							<div className={ rowClasses }>
+								<div className={ headingColClasses }>
+									<div className="smb-section__header">
+										{ hasTitle &&
+											( hasSubTitle || isSelected ) && (
+												<RichText
+													className="smb-section__subtitle smb-section-side-heading__subtitle"
+													value={ subtitle }
+													onChange={
+														onChangeSubtitle
+													}
+													placeholder={ __(
+														'Write subtitle…',
+														'snow-monkey-blocks'
+													) }
+												/>
 											) }
-										/>
+
+										{ ( hasTitle ||
+											( isSelected &&
+												'none' !== titleTagName ) ) && (
+											<RichText
+												className="smb-section__title smb-section-side-heading__title"
+												tagName={ titleTagName }
+												value={ title }
+												onChange={ onChangeTitle }
+												placeholder={ __(
+													'Write title…',
+													'snow-monkey-blocks'
+												) }
+											/>
+										) }
+
+										{ hasTitle &&
+											( hasLede || isSelected ) && (
+												<div className="smb-section__lede-wrapper smb-section-side-heading__lede-wrapper">
+													<RichText
+														className="smb-section__lede smb-section-side-heading__lede"
+														value={ lede }
+														onChange={
+															onChangeLede
+														}
+														placeholder={ __(
+															'Write lede…',
+															'snow-monkey-blocks'
+														) }
+													/>
+												</div>
+											) }
 									</div>
-								) }
-							</div>
-							<div className={ contentColClasses }>
-								<div { ...innerBlocksProps } />
+								</div>
+								<div className={ contentColClasses }>
+									<div { ...innerBlocksProps } />
+								</div>
 							</div>
 						</div>
 					</div>

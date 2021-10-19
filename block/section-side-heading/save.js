@@ -35,18 +35,29 @@ export default function ( { attributes, className } ) {
 		bottomDividerLevel,
 		bottomDividerColor,
 		bottomDividerVerticalPosition,
+		height,
+		contentJustification,
+		itemsAlignment,
 	} = attributes;
 
 	const { textColumnWidth, imageColumnWidth } = getColumnSize(
 		headingColumnSize
 	);
 
+	const isItemsAlignmentable = 'fit' !== height;
+
 	const TagName = wrapperTagName;
 
 	const classes = classnames(
 		'smb-section',
 		'smb-section-side-heading',
-		className
+		className,
+		{
+			[ `smb-section--${ height }` ]: !! height,
+			[ `is-content-justification-${ contentJustification }` ]: !! contentJustification,
+			[ `is-items-alignment-${ itemsAlignment }` ]:
+				!! itemsAlignment && isItemsAlignmentable,
+		}
 	);
 
 	const topDividerClasses = classnames(
@@ -61,9 +72,12 @@ export default function ( { attributes, className } ) {
 		`smb-section__divider--${ bottomDividerType }`
 	);
 
-	const containerClasses = classnames( 'c-container', {
-		'u-slim-width': isSlim && ! contentsMaxWidth,
-	} );
+	const contentsWrapperClasses = classnames(
+		'smb-section__contents-wrapper',
+		{
+			'u-slim-width': isSlim && ! contentsMaxWidth,
+		}
+	);
 
 	const rowClasses = classnames( 'c-row', 'c-row--md-margin', {
 		'c-row--reverse': 'right' === headingPosition,
@@ -164,7 +178,9 @@ export default function ( { attributes, className } ) {
 			: undefined,
 	};
 
-	const innerStyles = {
+	const innerStyles = {};
+
+	const contentsWrapperStyles = {
 		maxWidth:
 			!! contentsMaxWidth && ! isSlim ? contentsMaxWidth : undefined,
 	};
@@ -237,38 +253,45 @@ export default function ( { attributes, className } ) {
 			) }
 
 			<div className="smb-section__inner" style={ innerStyles }>
-				<div className={ containerClasses }>
-					<div className={ rowClasses }>
-						<div className={ headingColClasses }>
-							{ hasTitle && hasSubTitle && (
-								<RichText.Content
-									tagName="div"
-									className="smb-section__subtitle smb-section-side-heading__subtitle"
-									value={ subtitle }
-								/>
-							) }
+				<div className="c-container">
+					<div
+						className={ contentsWrapperClasses }
+						style={ contentsWrapperStyles }
+					>
+						<div className={ rowClasses }>
+							<div className={ headingColClasses }>
+								<div className="smb-section__header">
+									{ hasTitle && hasSubTitle && (
+										<RichText.Content
+											tagName="div"
+											className="smb-section__subtitle smb-section-side-heading__subtitle"
+											value={ subtitle }
+										/>
+									) }
 
-							{ hasTitle && (
-								<RichText.Content
-									tagName={ titleTagName }
-									className="smb-section__title smb-section-side-heading__title"
-									value={ title }
-								/>
-							) }
+									{ hasTitle && (
+										<RichText.Content
+											tagName={ titleTagName }
+											className="smb-section__title smb-section-side-heading__title"
+											value={ title }
+										/>
+									) }
 
-							{ hasTitle && hasLede && (
-								<div className="smb-section__lede-wrapper smb-section-side-heading__lede-wrapper">
-									<RichText.Content
-										tagName="div"
-										className="smb-section__lede smb-section-side-heading__lede"
-										value={ lede }
-									/>
+									{ hasTitle && hasLede && (
+										<div className="smb-section__lede-wrapper smb-section-side-heading__lede-wrapper">
+											<RichText.Content
+												tagName="div"
+												className="smb-section__lede smb-section-side-heading__lede"
+												value={ lede }
+											/>
+										</div>
+									) }
 								</div>
-							) }
-						</div>
-						<div className={ contentColClasses }>
-							<div className="smb-section__body smb-section-side-heading__body">
-								<InnerBlocks.Content />
+							</div>
+							<div className={ contentColClasses }>
+								<div className="smb-section__body smb-section-side-heading__body">
+									<InnerBlocks.Content />
+								</div>
 							</div>
 						</div>
 					</div>

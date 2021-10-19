@@ -164,63 +164,67 @@ export default function ( { attributes, className } ) {
 		>
 			<div className="smb-section__inner">
 				<div className="c-container">
-					<div className={ rowClasses }>
-						<div className={ textColumnClasses }>
-							<div
-								className={ contentClasses }
-								style={ contentStyles }
-							>
-								{ hasTitle && hasSubTitle && (
-									<RichText.Content
-										tagName="div"
-										className="smb-section__subtitle smb-section-break-the-grid__subtitle"
-										value={ subtitle }
-									/>
-								) }
+					<div className="smb-section__contents-wrapper">
+						<div className={ rowClasses }>
+							<div className={ textColumnClasses }>
+								<div
+									className={ contentClasses }
+									style={ contentStyles }
+								>
+									<div className="smb-section__header">
+										{ hasTitle && hasSubTitle && (
+											<RichText.Content
+												tagName="div"
+												className="smb-section__subtitle smb-section-break-the-grid__subtitle"
+												value={ subtitle }
+											/>
+										) }
 
-								{ hasTitle && (
-									<RichText.Content
-										tagName={ titleTagName }
-										className="smb-section__title smb-section-break-the-grid__title"
-										value={ title }
-									/>
-								) }
+										{ hasTitle && (
+											<RichText.Content
+												tagName={ titleTagName }
+												className="smb-section__title smb-section-break-the-grid__title"
+												value={ title }
+											/>
+										) }
 
-								{ hasTitle && hasLede && (
-									<div className="smb-section__lede-wrapper smb-section-break-the-grid__lede-wrapper">
-										<RichText.Content
-											tagName="div"
-											className="smb-section__lede smb-section-break-the-grid__lede"
-											value={ lede }
-										/>
+										{ hasTitle && hasLede && (
+											<div className="smb-section__lede-wrapper smb-section-break-the-grid__lede-wrapper">
+												<RichText.Content
+													tagName="div"
+													className="smb-section__lede smb-section-break-the-grid__lede"
+													value={ lede }
+												/>
+											</div>
+										) }
 									</div>
-								) }
 
-								<div className="smb-section__body smb-section-break-the-grid__body">
-									<InnerBlocks.Content />
+									<div className="smb-section__body smb-section-break-the-grid__body">
+										<InnerBlocks.Content />
+									</div>
 								</div>
 							</div>
-						</div>
-						<div className={ imageColumnClasses }>
-							<div className={ figureClasses }>
-								{ shadowColor && (
-									<div
-										className={ shadowClasses }
-										style={ shadowStyles }
-									/>
-								) }
+							<div className={ imageColumnClasses }>
+								<div className={ figureClasses }>
+									{ shadowColor && (
+										<div
+											className={ shadowClasses }
+											style={ shadowStyles }
+										/>
+									) }
 
-								{ 0 <
-									Number(
-										( 1 - maskOpacity ).toFixed( 1 )
-									) && (
-									<div
-										className={ maskClasses }
-										style={ maskStyles }
-									/>
-								) }
+									{ 0 <
+										Number(
+											( 1 - maskOpacity ).toFixed( 1 )
+										) && (
+										<div
+											className={ maskClasses }
+											style={ maskStyles }
+										/>
+									) }
 
-								{ figure }
+									{ figure }
+								</div>
 							</div>
 						</div>
 					</div>

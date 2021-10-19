@@ -62,9 +62,12 @@ export default function ( { attributes, className } ) {
 		'js-bg-parallax__bgimage': !! parallax,
 	} );
 
-	const containerClasses = classnames( 'c-container', {
-		'u-slim-width': isSlim && ! contentsMaxWidth,
-	} );
+	const contentsWrapperClasses = classnames(
+		'smb-section__contents-wrapper',
+		{
+			'u-slim-width': isSlim && ! contentsMaxWidth,
+		}
+	);
 
 	const hasTitle = ! RichText.isEmpty( title ) && 'none' !== titleTagName;
 	const hasSubTitle = ! RichText.isEmpty( subtitle );
@@ -156,7 +159,9 @@ export default function ( { attributes, className } ) {
 		backgroundPosition: smPointValue,
 	};
 
-	const innerStyles = {
+	const innerStyles = {};
+
+	const contentsWrapperStyles = {
 		maxWidth:
 			!! contentsMaxWidth && ! isSlim ? contentsMaxWidth : undefined,
 	};
@@ -316,35 +321,42 @@ export default function ( { attributes, className } ) {
 			) }
 
 			<div className="smb-section__inner" style={ innerStyles }>
-				<div className={ containerClasses }>
-					{ hasTitle && hasSubTitle && (
-						<RichText.Content
-							tagName="div"
-							className="smb-section__subtitle"
-							value={ subtitle }
-						/>
-					) }
+				<div className="c-container">
+					<div
+						className={ contentsWrapperClasses }
+						style={ contentsWrapperStyles }
+					>
+						<div className="smb-section__header">
+							{ hasTitle && hasSubTitle && (
+								<RichText.Content
+									tagName="div"
+									className="smb-section__subtitle"
+									value={ subtitle }
+								/>
+							) }
 
-					{ hasTitle && (
-						<RichText.Content
-							tagName={ titleTagName }
-							className="smb-section__title"
-							value={ title }
-						/>
-					) }
+							{ hasTitle && (
+								<RichText.Content
+									tagName={ titleTagName }
+									className="smb-section__title"
+									value={ title }
+								/>
+							) }
 
-					{ hasTitle && hasLede && (
-						<div className="smb-section__lede-wrapper">
-							<RichText.Content
-								tagName="div"
-								className="smb-section__lede"
-								value={ lede }
-							/>
+							{ hasTitle && hasLede && (
+								<div className="smb-section__lede-wrapper">
+									<RichText.Content
+										tagName="div"
+										className="smb-section__lede"
+										value={ lede }
+									/>
+								</div>
+							) }
 						</div>
-					) }
 
-					<div className="smb-section__body">
-						<InnerBlocks.Content />
+						<div className="smb-section__body">
+							<InnerBlocks.Content />
+						</div>
 					</div>
 				</div>
 			</div>

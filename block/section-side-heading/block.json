@@ -118,7 +118,17 @@
     "bottomDividerVerticalPosition": {
       "type": "number",
       "default": 0
-    }
+    },
+    "height": {
+      "type": "string",
+      "default": "fit"
+    },
+    "contentJustification": {
+			"type": "string"
+		},
+    "itemsAlignment": {
+			"type": "string"
+		}
   },
   "supports": {
     "align": [ "wide", "full" ],

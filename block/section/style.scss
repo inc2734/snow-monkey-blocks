@@ -82,7 +82,6 @@
     flex: 1 1 auto;
     position: relative;
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
 
@@ -92,13 +91,25 @@
     }
   }
 
-  &__subtitle {
-    @include _font-size-line-height($_base-font-size-px - 4);
+  // @deprecated
+  &__subtitle,
+  &__title {
     text-align: center;
   }
 
-  &__title {
+  &__header {
     text-align: center;
+
+    > * {
+      text-align: inherit;
+    }
+  }
+
+  &__subtitle {
+    @include _font-size-line-height($_base-font-size-px - 4);
+  }
+
+  &__title {
   }
 
   &__lede-wrapper {
@@ -110,9 +121,36 @@
     @include _font-size-line-height($_base-font-size-px - 2);
   }
 
+  &--left,
+  &--center,
+  &--right {
+    > .smb-section__inner {
+      > .#{$_prefix}c-container {
+        > .smb-section__contents-wrapper {
+            > .smb-section__header {
+              text-align: inherit;
+            }
+        }
+      }
+    }
+  }
+
+  &--left,
+  &--right {
+    > .smb-section__inner {
+      > .#{$_prefix}c-container {
+        > .smb-section__lede-wrapper, // @deprecated
+        > .smb-section__contents-wrapper > .smb-section__header > .smb-section__lede-wrapper {
+          display: block;
+        }
+      }
+    }
+  }
+
   &--left {
     > .smb-section__inner {
       > .#{$_prefix}c-container {
+        // @deprecated
         > .smb-section__subtitle,
         > .smb-section__title,
         > .smb-section__lede-wrapper > .smb-section__lede,
@@ -120,11 +158,12 @@
           text-align: left;
         }
 
-        > .smb-section__lede-wrapper {
-          display: block;
+        > .smb-section__contents-wrapper {
+          text-align: left;
         }
 
-        > .smb-section__title {
+        > .smb-section__title, // @deprecated
+        > .smb-section__contents-wrapper > .smb-section__header > .smb-section__title {
           &::after {
             margin-right: auto;
             margin-left: 0;
@@ -137,13 +176,19 @@
   &--center {
     > .smb-section__inner {
       > .#{$_prefix}c-container {
+        // @deprecated
         > .smb-section__subtitle,
         > .smb-section__title,
         > .smb-section__body {
           text-align: center;
         }
 
-        > .smb-section__title {
+        > .smb-section__contents-wrapper {
+          text-align: center;
+        }
+
+        > .smb-section__title, // @deprecated
+        > .smb-section__contents-wrapper > .smb-section__header > .smb-section__title {
           &::after {
             margin-right: auto;
             margin-left: auto;
@@ -156,6 +201,7 @@
   &--right {
     > .smb-section__inner {
       > .#{$_prefix}c-container {
+        // @deprecated
         > .smb-section__subtitle,
         > .smb-section__title,
         > .smb-section__lede-wrapper > .smb-section__lede,
@@ -163,11 +209,12 @@
           text-align: right;
         }
 
-        > .smb-section__lede-wrapper {
-          display: block;
+        > .smb-section__contents-wrapper {
+          text-align: right;
         }
 
-        > .smb-section__title {
+        > .smb-section__title, // @deprecated
+        > .smb-section__contents-wrapper > .smb-section__header > .smb-section__title {
           &::after {
             margin-right: 0;
             margin-left: auto;
@@ -189,17 +236,36 @@
   &.is-content-justification-center,
   &.is-content-justification-right {
     > .smb-section__inner {
-      flex: 0 1 auto;
+      > .#{ $_prefix }c-container {
+        display: flex;
+
+        > .smb-section__contents-wrapper {
+          margin-right: 0;
+          margin-left: 0;
+        }
+      }
     }
   }
   &.is-content-justification-left {
-    justify-content: flex-start;
+    > .smb-section__inner {
+      > .#{ $_prefix }c-container {
+        justify-content: flex-start;
+      }
+    }
   }
   &.is-content-justification-center {
-    justify-content: center
+    > .smb-section__inner {
+      > .#{ $_prefix }c-container {
+        justify-content: center;
+      }
+    }
   }
   &.is-content-justification-right {
-    justify-content: flex-end;
+    > .smb-section__inner {
+      > .#{ $_prefix }c-container {
+        justify-content: flex-end;
+      }
+    }
   }
 
   &.is-items-alignment-top {

@@ -145,10 +145,4 @@
       }
     }
   }
-
-  &--wide {
-    @supports(object-fit: cover) { // For IE11
-      min-height: 75vh;
-    }
-  }
 }
