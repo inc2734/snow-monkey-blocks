@@ -23,7 +23,6 @@ import {
 	RangeControl,
 	SelectControl,
 	ToggleControl,
-	ToolbarGroup,
 } from '@wordpress/components';
 
 import { useSelect } from '@wordpress/data';
@@ -710,25 +709,23 @@ export default function ( {
 			</InspectorControls>
 
 			<BlockControls gruop="block">
-				<ToolbarGroup>
-					{ isItemsAlignmentable && (
-						<BlockVerticalAlignmentToolbar
-							onChange={ onChangeItemsAlignment }
-							value={ itemsAlignment }
-						/>
-					) }
-
-					<JustifyToolbar
-						allowedControls={ HORIZONTAL_JUSTIFY_CONTROLS }
-						onChange={ onChangeContentJustification }
-						value={ contentJustification }
+				{ isItemsAlignmentable && (
+					<BlockVerticalAlignmentToolbar
+						onChange={ onChangeItemsAlignment }
+						value={ itemsAlignment }
 					/>
+				) }
 
-					<AlignmentToolbar
-						value={ contentsAlignment }
-						onChange={ onChangeContentsAlignment }
-					/>
-				</ToolbarGroup>
+				<JustifyToolbar
+					allowedControls={ HORIZONTAL_JUSTIFY_CONTROLS }
+					onChange={ onChangeContentJustification }
+					value={ contentJustification }
+				/>
+
+				<AlignmentToolbar
+					value={ contentsAlignment }
+					onChange={ onChangeContentsAlignment }
+				/>
 			</BlockControls>
 
 			<TagName { ...blockProps }>

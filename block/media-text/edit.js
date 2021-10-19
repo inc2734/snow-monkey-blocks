@@ -368,11 +368,12 @@ export default function ( {
 			</InspectorControls>
 
 			<BlockControls gruop="block">
+				<BlockVerticalAlignmentToolbar
+					onChange={ onChangeVerticalAlignment }
+					value={ verticalAlignment }
+				/>
+
 				<ToolbarGroup>
-					<BlockVerticalAlignmentToolbar
-						onChange={ onChangeVerticalAlignment }
-						value={ verticalAlignment }
-					/>
 					<ToolbarButton
 						icon={ pullLeft }
 						title={ __(
@@ -384,6 +385,7 @@ export default function ( {
 							setAttributes( { mediaPosition: 'left' } )
 						}
 					/>
+
 					<ToolbarButton
 						icon={ pullRight }
 						title={ __(

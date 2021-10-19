@@ -18,18 +18,6 @@
   }
 }
 
-[data-align="full"] .smb-section-break-the-grid--right,
-[data-align="full"] .smb-section-break-the-grid--left {
-  .smb-section-break-the-grid__figure {
-    @include _media-max(md) {
-      right: 0;
-      left: 0;
-      margin-right: calc(50% - 50vw);
-      margin-left: calc(50% - 50vw);
-    }
-  }
-}
-
 [data-align="full"] .smb-section-break-the-grid--right {
   .smb-section-break-the-grid__figure {
     @include _media-min(lg) {

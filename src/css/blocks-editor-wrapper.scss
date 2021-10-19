@@ -90,3 +90,7 @@
   display: flex;
   align-items: center;
 }
+
+.smb-toolbar-button-rotate-90 svg {
+  transform: rotate(90deg);
+}

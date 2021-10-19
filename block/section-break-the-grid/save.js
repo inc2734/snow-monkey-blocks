@@ -36,6 +36,10 @@ export default function ( { attributes, className } ) {
 		contentsAlignment,
 	} = attributes;
 
+	const isAvailableVerticalAlignment = [ 'right', 'left' ].includes(
+		imagePosition
+	);
+
 	const TagName = wrapperTagName;
 
 	const classes = classnames(
@@ -46,29 +50,31 @@ export default function ( { attributes, className } ) {
 			[ `smb-section-break-the-grid--vertical-${ contentVerticalPosition }` ]:
 				contentVerticalPosition &&
 				verticalAlignment &&
-				'middle' !== verticalAlignment,
-			[ `smb-section-break-the-grid--mobile-${ mobileOrder }` ]: !! mobileOrder,
+				'center' !== verticalAlignment &&
+				isAvailableVerticalAlignment,
+			[ `smb-section-break-the-grid--mobile-${ mobileOrder }` ]:
+				!! mobileOrder && isAvailableVerticalAlignment,
 			[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
 			[ className ]: !! className,
 		}
 	);
 
-	const rowClasses = classnames( 'c-row', 'c-row--margin', {
-		'c-row--lg-top': 'top' === verticalAlignment,
-		'c-row--lg-middle': 'center' === verticalAlignment,
-		'c-row--lg-bottom': 'bottom' === verticalAlignment,
+	const rowClasses = classnames( 'c-row', {
+		'c-row--margin': isAvailableVerticalAlignment,
+		'c-row--lg-top':
+			'top' === verticalAlignment && isAvailableVerticalAlignment,
+		'c-row--lg-middle':
+			'center' === verticalAlignment && isAvailableVerticalAlignment,
+		'c-row--lg-bottom':
+			'bottom' === verticalAlignment && isAvailableVerticalAlignment,
 	} );
 
-	const textColumnClasses = classnames(
-		'c-row__col',
-		'c-row__col--1-1',
-		'c-row__col--lg-1-2'
-	);
-	const imageColumnClasses = classnames(
-		'c-row__col',
-		'c-row__col--1-1',
-		'c-row__col--lg-1-2'
-	);
+	const textColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', {
+		'c-row__col--lg-1-2': isAvailableVerticalAlignment,
+	} );
+	const imageColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', {
+		'c-row__col--lg-1-2': isAvailableVerticalAlignment,
+	} );
 
 	const figureClasses = classnames( 'smb-section-break-the-grid__figure', {
 		[ `smb-section-break-the-grid__figure--w-${ imageSize }` ]: !! imageSize,

@@ -47,62 +47,94 @@
 
   @include _media-min(lg) {
     @each $key, $value in $contentTopVerticalPositions {
-      &--vertical-#{$value} {
-        .smb-section-break-the-grid__content {
-          margin-bottom: 1px * $key;
-        }
+      &--vertical-#{ $value } {
+        > .smb-section__inner {
+          > .#{ $_prefix }c-container {
+            > .#{ $_prefix }c-row {
+              > .#{ $_prefix }c-row__col {
+                > .smb-section-break-the-grid__content {
+                  margin-bottom: 1px * $key;
+                }
 
-        .smb-section-break-the-grid__figure {
-          margin-top: 1px * $key;
+                > .smb-section-break-the-grid__figure {
+                  margin-top: 1px * $key;
+                }
+              }
+            }
+          }
         }
       }
     }
 
     @each $key, $value in $contentBottomVerticalPositions {
-      &--vertical-#{$value} {
-        .smb-section-break-the-grid__content {
-          margin-top: 1px * $key;
-        }
+      &--vertical-#{ $value } {
+        > .smb-section__inner {
+          > .#{ $_prefix }c-container {
+            > .#{ $_prefix }c-row {
+              > .#{ $_prefix }c-row__col {
+                > .smb-section-break-the-grid__content {
+                  margin-top: 1px * $key;
+                }
 
-        .smb-section-break-the-grid__figure {
-          margin-bottom: 1px * $key;
+                > .smb-section-break-the-grid__figure {
+                  margin-bottom: 1px * $key;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &--mobile-image {
+    > .smb-section__inner {
+      > .#{ $_prefix }c-container {
+        > .#{ $_prefix }c-row {
+          > .#{ $_prefix }c-row__col {
+            &:first-child {
+              @include _media-max(md) {
+                order: 1 !important;
+              }
+            }
+
+            > .smb-section-break-the-grid__figure {
+              @include _media-max(md) {
+                @include _margin-bottom(-3);
+              }
+
+              @include _media-min(lg) {
+                @each $key, $value in $imageSizes {
+                  &--w-#{ $value } {
+                    width: $key * 1%;
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
   }
 
   &--mobile-text {
-    .#{ $_prefix }c-row__col:first-child {
-      @include _media-max(md) {
-        order: 0 !important;
-      }
-    }
+    > .smb-section__inner {
+      > .#{ $_prefix }c-container {
+        > .#{ $_prefix }c-row {
+          > .#{ $_prefix }c-row__col {
+            &:first-child {
+              @include _media-max(md) {
+                order: 0 !important;
+              }
+            }
 
-    .smb-section-break-the-grid__content {
-      @include _media-max(md) {
-        @include _margin-bottom(-2);
-      }
-    }
-  }
-
-  &--mobile-image {
-    .#{ $_prefix }c-row__col:first-child {
-      @include _media-max(md) {
-        order: 1 !important;
-      }
-    }
-
-    .smb-section-break-the-grid__figure {
-      @include _media-max(md) {
-        @include _margin-bottom(-2);
-      }
-    }
-  }
-
-  &:not([class*="smb-section-break-the-grid--mobile-"]) {
-    .smb-section-break-the-grid__content {
-      @include _media-max(md) {
-        @include _margin-bottom(-2);
+            > .smb-section-break-the-grid__content {
+              @include _media-max(md) {
+                @include _margin-bottom(-3);
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -112,25 +144,23 @@
     z-index: 1;
 
     @each $key, $value in $contentPaddings {
-      &--p-#{$value} {
-        @include _padding($key / 2);
-      }
-    }
+      &--p-#{ $value } {
+        @include _padding($key / 3);
 
-    &--remove-outside-p {
-      padding-top: 0;
-    }
+        @include _media-min(md) {
+          @include _padding($key / 2);
+        }
 
-    @include _media-min(lg) {
-      @each $key, $value in $contentSizes {
-        &--w-#{$value} {
-          width: $key * 1%;
+        @include _media-min(lg) {
+          @include _padding($key);
         }
       }
+    }
 
-      @each $key, $value in $contentPaddings {
-        &--p-#{$value} {
-          @include _padding($key);
+    @each $key, $value in $contentSizes {
+      &--w-#{ $value } {
+        @include _media-min(lg) {
+          width: $key * 1%;
         }
       }
     }
@@ -142,14 +172,6 @@
 
   &__figure {
     position: relative;
-
-    @include _media-min(lg) {
-      @each $key, $value in $imageSizes {
-        &--w-#{$value} {
-          width: $key * 1%;
-        }
-      }
-    }
 
     > img {
       position: relative;
@@ -174,34 +196,71 @@
     left: 0;
   }
 
-  &--right {
-    .smb-section-break-the-grid__content {
-      @include _media-min(lg) {
-        @each $key, $value in $contentHorizontalPositions {
-          &--horizontal-#{$value} {
-            left: 1% * $key;
-          }
-        }
-
-        &--remove-outside-p {
+  &--right,
+  &--left {
+    > .smb-section__inner {
+      > .#{ $_prefix }c-container {
+        @include _media-min(lg) {
+          padding-right: 0;
           padding-left: 0;
         }
       }
     }
 
-    .smb-section-break-the-grid__figure {
-      right: _space(-.5);
-
-      @include _media-min(md) {
-        right: _space(-1);
+    &:not([class*="smb-section-break-the-grid--mobile-"]) {
+      > .smb-section__inner {
+        > .#{ $_prefix }c-container {
+          > .#{ $_prefix }c-row {
+            > .#{ $_prefix }c-row__col {
+              > .smb-section-break-the-grid__content {
+                @include _media-max(md) {
+                  @include _margin-bottom(-3);
+                }
+              }
+            }
+          }
+        }
       }
+    }
+  }
 
-      @include _media-min(lg) {
-        right: 0;
+  &--right {
+    > .smb-section__inner {
+      > .#{ $_prefix }c-container {
+        > .#{ $_prefix }c-row {
+          > .#{ $_prefix }c-row__col {
+            > .smb-section-break-the-grid__content {
+              @include _media-min(lg) {
+                @each $key, $value in $contentHorizontalPositions {
+                  &--horizontal-#{ $value } {
+                    left: 1% * $key;
+                  }
+                }
 
-        @each $key, $value in $imageSizes {
-          &--w-#{$value} {
-            margin-left: -1 * $key + 100%;
+                &--remove-outside-p {
+                  padding-top: 0 !important;
+                  padding-left: 0 !important;
+                }
+              }
+            }
+
+            > .smb-section-break-the-grid__figure {
+              right: _space(-.5);
+
+              @include _media-min(md) {
+                right: _space(-1);
+              }
+
+              @include _media-min(lg) {
+                right: 0;
+
+                @each $key, $value in $imageSizes {
+                  &--w-#{ $value } {
+                    margin-left: -1 * $key + 100%;
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -214,41 +273,131 @@
       flex-direction: row-reverse;
     }
 
-    .smb-section__inner {
-      > .#{ $_prefix }c-container > .#{ $_prefix }c-row {
-        flex-direction: row-reverse;
-      }
-    }
+    > .smb-section__inner {
+      > .#{ $_prefix }c-container {
+        > .#{ $_prefix }c-row {
+          flex-direction: row-reverse;
 
-    .smb-section-break-the-grid__content {
-      @include _media-min(lg) {
-        @each $key, $value in $contentHorizontalPositions {
-          &--horizontal-#{$value} {
-            right: 1% * $key;
+          > .#{ $_prefix }c-row__col {
+            > .smb-section-break-the-grid__content {
+              @include _media-min(lg) {
+                @each $key, $value in $contentHorizontalPositions {
+                  &--horizontal-#{ $value } {
+                    right: 1% * $key;
+                  }
+                }
+
+                @each $key, $value in $contentSizes {
+                  &--w-#{ $value } {
+                    margin-left: 100 - $key * 1%;
+                  }
+                }
+
+                &--remove-outside-p {
+                  padding-top: 0 !important;
+                  padding-right: 0 !important;
+                }
+              }
+            }
+
+            > .smb-section-break-the-grid__figure {
+              left: _space(-.5);
+
+              @include _media-min(md) {
+                left: _space(-1);
+              }
+
+              @include _media-min(lg) {
+                left: 0;
+
+                @each $key, $value in $imageSizes {
+                  &--w-#{ $value } {
+                    margin-right: -1 * $key + 100%;
+                  }
+                }
+              }
+            }
           }
         }
+      }
+    }
+  }
 
-        @each $key, $value in $contentSizes {
-          &--w-#{$value} {
-            margin-left: 100 - $key * 1%;
+  &--top,
+  &--bottom {
+    > .smb-section__inner {
+      > .#{ $_prefix }c-container {
+        padding-right: 0;
+        padding-left: 0;
+
+        > .#{ $_prefix }c-row {
+          > .#{ $_prefix }c-row__col {
+            width: 100%;
+
+            > .smb-section-break-the-grid__content {
+              &--remove-outside-p {
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
+              }
+            }
+
+            > .smb-section-break-the-grid__figure {
+              @each $key, $value in $imageSizes {
+                &--w-#{ $value } {
+                  width: $key * 1%;
+                }
+              }
+            }
           }
-        }
-
-        &--remove-outside-p {
-          padding-right: 0;
         }
       }
     }
+  }
 
-    .smb-section-break-the-grid__figure {
-      left: _space(-.5);
+  &--top {
+    > .smb-section__inner {
+      > .#{ $_prefix }c-container {
+        > .#{ $_prefix }c-row {
+          flex-direction: column;
 
-      @include _media-min(md) {
-        left: _space(-1);
+          > .#{ $_prefix }c-row__col {
+            > .smb-section-break-the-grid__content {
+              @each $key, $value in $contentHorizontalPositions {
+                &--horizontal-#{ $value } {
+                  @include _margin-bottom(-1.5 * $key / 10);
+
+                  @include _media-min(md) {
+                    @include _margin-bottom(-2 * $key / 10);
+                  }
+                }
+              }
+            }
+          }
+        }
       }
+    }
+  }
 
-      @include _media-min(lg) {
-        left: 0;
+  &--bottom {
+    > .smb-section__inner {
+      > .#{ $_prefix }c-container {
+        > .#{ $_prefix }c-row {
+          flex-direction: column-reverse;
+
+          > .#{ $_prefix }c-row__col {
+            > .smb-section-break-the-grid__content {
+              @each $key, $value in $contentHorizontalPositions {
+                &--horizontal-#{ $value } {
+                  @include _margin-top(-1.5 * $key / 10);
+
+                  @include _media-min(md) {
+                    @include _margin-top(-2 * $key / 10);
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -267,30 +416,34 @@
   }
 }
 
-.alignfull.smb-section-break-the-grid--right,
-.alignfull.smb-section-break-the-grid--left {
-  .smb-section-break-the-grid__figure {
-    @include _media-max(md) {
-      right: 0;
-      left: 0;
-      margin-right: calc(50% - 50vw);
-      margin-left: calc(50% - 50vw);
-    }
-  }
-}
-
 .alignfull.smb-section-break-the-grid--right {
-  .smb-section-break-the-grid__figure {
-    @include _media-min(lg) {
-      right: _space(-1);
+  > .smb-section__inner {
+    > .#{ $_prefix }c-container {
+      > .#{ $_prefix }c-row {
+        > .#{ $_prefix }c-row__col {
+          > .smb-section-break-the-grid__figure {
+            @include _media-min(lg) {
+              right: _space(-1);
+            }
+          }
+        }
+      }
     }
   }
 }
 
 .alignfull.smb-section-break-the-grid--left {
-  .smb-section-break-the-grid__figure {
-    @include _media-min(lg) {
-      left: _space(-1);
+  > .smb-section__inner {
+    > .#{ $_prefix }c-container {
+      > .#{ $_prefix }c-row {
+        > .#{ $_prefix }c-row__col {
+          > .smb-section-break-the-grid__figure {
+            @include _media-min(lg) {
+              left: _space(-1);
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -298,9 +451,9 @@
 .smb-section-break-the-grid.smb-section {
   &--left {
     > .smb-section__inner {
-      > .#{$_prefix}c-container {
-        > .#{$_prefix}c-row {
-          > .#{$_prefix}c-row__col {
+      > .#{ $_prefix }c-container {
+        > .#{ $_prefix }c-row {
+          > .#{ $_prefix }c-row__col {
             > .smb-section-break-the-grid__content {
               > .smb-section__subtitle,
               > .smb-section__title,
@@ -328,9 +481,9 @@
 
   &--center {
     > .smb-section__inner {
-      > .#{$_prefix}c-container {
-        > .#{$_prefix}c-row {
-          > .#{$_prefix}c-row__col {
+      > .#{ $_prefix }c-container {
+        > .#{ $_prefix }c-row {
+          > .#{ $_prefix }c-row__col {
             > .smb-section-break-the-grid__content {
               > .smb-section__subtitle,
               > .smb-section__title,
@@ -353,9 +506,9 @@
 
   &--right {
     > .smb-section__inner {
-      > .#{$_prefix}c-container {
-        > .#{$_prefix}c-row {
-          > .#{$_prefix}c-row__col {
+      > .#{ $_prefix }c-container {
+        > .#{ $_prefix }c-row {
+          > .#{ $_prefix }c-row__col {
             > .smb-section-break-the-grid__content {
               > .smb-section__subtitle,
               > .smb-section__title,

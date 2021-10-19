@@ -27,9 +27,7 @@ import {
 } from '@wordpress/components';
 
 import { useSelect } from '@wordpress/data';
-
 import { __, sprintf } from '@wordpress/i18n';
-
 import { pullLeft, pullRight } from '@wordpress/icons';
 
 import {
@@ -115,6 +113,10 @@ export default function ( {
 		};
 	} );
 
+	const isAvailableVerticalAlignment = [ 'right', 'left' ].includes(
+		imagePosition
+	);
+
 	const wrapperTagNames = [ 'div', 'section', 'aside' ];
 	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
 
@@ -127,29 +129,31 @@ export default function ( {
 			[ `smb-section-break-the-grid--vertical-${ contentVerticalPosition }` ]:
 				contentVerticalPosition &&
 				verticalAlignment &&
-				'center' !== verticalAlignment,
-			[ `smb-section-break-the-grid--mobile-${ mobileOrder }` ]: !! mobileOrder,
+				'center' !== verticalAlignment &&
+				isAvailableVerticalAlignment,
+			[ `smb-section-break-the-grid--mobile-${ mobileOrder }` ]:
+				!! mobileOrder && isAvailableVerticalAlignment,
 			[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
 			[ className ]: !! className,
 		}
 	);
 
-	const rowClasses = classnames( 'c-row', 'c-row--margin', {
-		'c-row--lg-top': 'top' === verticalAlignment,
-		'c-row--lg-middle': 'center' === verticalAlignment,
-		'c-row--lg-bottom': 'bottom' === verticalAlignment,
+	const rowClasses = classnames( 'c-row', {
+		'c-row--margin': isAvailableVerticalAlignment,
+		'c-row--lg-top':
+			'top' === verticalAlignment && isAvailableVerticalAlignment,
+		'c-row--lg-middle':
+			'center' === verticalAlignment && isAvailableVerticalAlignment,
+		'c-row--lg-bottom':
+			'bottom' === verticalAlignment && isAvailableVerticalAlignment,
 	} );
 
-	const textColumnClasses = classnames(
-		'c-row__col',
-		'c-row__col--1-1',
-		'c-row__col--lg-1-2'
-	);
-	const imageColumnClasses = classnames(
-		'c-row__col',
-		'c-row__col--1-1',
-		'c-row__col--lg-1-2'
-	);
+	const textColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', {
+		'c-row__col--lg-1-2': isAvailableVerticalAlignment,
+	} );
+	const imageColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', {
+		'c-row__col--lg-1-2': isAvailableVerticalAlignment,
+	} );
 
 	const figureClasses = classnames( 'smb-section-break-the-grid__figure', {
 		[ `smb-section-break-the-grid__figure--w-${ imageSize }` ]: !! imageSize,
@@ -392,6 +396,33 @@ export default function ( {
 		} );
 	};
 
+	let contentSizeOptions = [
+		{
+			value: 'xs',
+			label: __( '-40%', 'snow-monkey-blocks' ),
+		},
+		{
+			value: 's',
+			label: __( '-20%', 'snow-monkey-blocks' ),
+		},
+		{
+			value: 'm',
+			label: __( '+-0%', 'snow-monkey-blocks' ),
+		},
+	];
+	contentSizeOptions = isAvailableVerticalAlignment
+		? contentSizeOptions.concat( [
+				{
+					value: 'l',
+					label: __( '+20%', 'snow-monkey-blocks' ),
+				},
+				{
+					value: 'xl',
+					label: __( '+40%', 'snow-monkey-blocks' ),
+				},
+		  ] )
+		: contentSizeOptions;
+
 	return (
 		<>
 			<InspectorControls>
@@ -460,31 +491,39 @@ export default function ( {
 						onChange={ onChangeImageSizeSlug }
 					/>
 
-					<SelectControl
-						label={ __( 'Sort by mobile', 'snow-monkey-blocks' ) }
-						value={ mobileOrder }
-						options={ [
-							{
-								value: '',
-								label: __( 'Default', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'text',
-								label: __(
-									'Text > Image',
-									'snow-monkey-blocks'
-								),
-							},
-							{
-								value: 'image',
-								label: __(
-									'Image > Text',
-									'snow-monkey-blocks'
-								),
-							},
-						] }
-						onChange={ onChangeMobileOrder }
-					/>
+					{ isAvailableVerticalAlignment && (
+						<SelectControl
+							label={ __(
+								'Sort by mobile',
+								'snow-monkey-blocks'
+							) }
+							value={ mobileOrder }
+							options={ [
+								{
+									value: '',
+									label: __(
+										'Default',
+										'snow-monkey-blocks'
+									),
+								},
+								{
+									value: 'text',
+									label: __(
+										'Text > Image',
+										'snow-monkey-blocks'
+									),
+								},
+								{
+									value: 'image',
+									label: __(
+										'Image > Text',
+										'snow-monkey-blocks'
+									),
+								},
+							] }
+							onChange={ onChangeMobileOrder }
+						/>
+					) }
 
 					<SelectControl
 						label={ __(
@@ -520,28 +559,7 @@ export default function ( {
 							'snow-monkey-blocks'
 						) }
 						value={ contentSize }
-						options={ [
-							{
-								value: 'xs',
-								label: __( '-40%', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 's',
-								label: __( '-20%', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'm',
-								label: __( '+-0%', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'l',
-								label: __( '+20%', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'xl',
-								label: __( '+40%', 'snow-monkey-blocks' ),
-							},
-						] }
+						options={ contentSizeOptions }
 						onChange={ onChangeContentSize }
 					/>
 
@@ -580,110 +598,115 @@ export default function ( {
 						onChange={ onChangeContentHorizontalPosition }
 					/>
 
-					{ verticalAlignment && 'center' !== verticalAlignment && (
-						<SelectControl
-							label={ __(
-								'Vertical position of content',
-								'snow-monkey-blocks'
-							) }
-							value={ contentVerticalPosition }
-							options={ [
-								{
-									value: '',
-									label: __( '+-0%', 'snow-monkey-blocks' ),
-								},
-								{
-									value: 'txl',
-									label: sprintf(
-										// translators: %1$s: px
-										__(
-											'Move %1$s up',
+					{ !! verticalAlignment &&
+						'center' !== verticalAlignment &&
+						isAvailableVerticalAlignment && (
+							<SelectControl
+								label={ __(
+									'Vertical position of content',
+									'snow-monkey-blocks'
+								) }
+								value={ contentVerticalPosition }
+								options={ [
+									{
+										value: '',
+										label: __(
+											'+-0%',
 											'snow-monkey-blocks'
 										),
-										'100px'
-									),
-								},
-								{
-									value: 'tl',
-									label: sprintf(
-										// translators: %1$s: px
-										__(
-											'Move %1$s up',
-											'snow-monkey-blocks'
+									},
+									{
+										value: 'txl',
+										label: sprintf(
+											// translators: %1$s: px
+											__(
+												'Move %1$s up',
+												'snow-monkey-blocks'
+											),
+											'100px'
 										),
-										'80px'
-									),
-								},
-								{
-									value: 'tm',
-									label: sprintf(
-										// translators: %1$s: px
-										__(
-											'Move %1$s up',
-											'snow-monkey-blocks'
+									},
+									{
+										value: 'tl',
+										label: sprintf(
+											// translators: %1$s: px
+											__(
+												'Move %1$s up',
+												'snow-monkey-blocks'
+											),
+											'80px'
 										),
-										'60px'
-									),
-								},
-								{
-									value: 'ts',
-									label: sprintf(
-										// translators: %1$s: px
-										__(
-											'Move %1$s up',
-											'snow-monkey-blocks'
+									},
+									{
+										value: 'tm',
+										label: sprintf(
+											// translators: %1$s: px
+											__(
+												'Move %1$s up',
+												'snow-monkey-blocks'
+											),
+											'60px'
 										),
-										'40px'
-									),
-								},
-								{
-									value: 'bs',
-									label: sprintf(
-										// translators: %1$s: px
-										__(
-											'Move %1$s down',
-											'snow-monkey-blocks'
+									},
+									{
+										value: 'ts',
+										label: sprintf(
+											// translators: %1$s: px
+											__(
+												'Move %1$s up',
+												'snow-monkey-blocks'
+											),
+											'40px'
 										),
-										'40px'
-									),
-								},
-								{
-									value: 'bm',
-									label: sprintf(
-										// translators: %1$s: px
-										__(
-											'Move %1$s down',
-											'snow-monkey-blocks'
+									},
+									{
+										value: 'bs',
+										label: sprintf(
+											// translators: %1$s: px
+											__(
+												'Move %1$s down',
+												'snow-monkey-blocks'
+											),
+											'40px'
 										),
-										'60px'
-									),
-								},
-								{
-									value: 'bl',
-									label: sprintf(
-										// translators: %1$s: px
-										__(
-											'Move %1$s down',
-											'snow-monkey-blocks'
+									},
+									{
+										value: 'bm',
+										label: sprintf(
+											// translators: %1$s: px
+											__(
+												'Move %1$s down',
+												'snow-monkey-blocks'
+											),
+											'60px'
 										),
-										'80px'
-									),
-								},
-								{
-									value: 'bxl',
-									label: sprintf(
-										// translators: %1$s: px
-										__(
-											'Move %1$s down',
-											'snow-monkey-blocks'
+									},
+									{
+										value: 'bl',
+										label: sprintf(
+											// translators: %1$s: px
+											__(
+												'Move %1$s down',
+												'snow-monkey-blocks'
+											),
+											'80px'
 										),
-										'100px'
-									),
-								},
-							] }
-							onChange={ onChangeContentVerticalPosition }
-						/>
-					) }
+									},
+									{
+										value: 'bxl',
+										label: sprintf(
+											// translators: %1$s: px
+											__(
+												'Move %1$s down',
+												'snow-monkey-blocks'
+											),
+											'100px'
+										),
+									},
+								] }
+								onChange={ onChangeContentVerticalPosition }
+							/>
+						) }
 
 					<ColorGradientControl
 						label={ __( 'Background Color', 'snow-monkey-blocks' ) }
@@ -816,12 +839,19 @@ export default function ( {
 			</InspectorControls>
 
 			<BlockControls gruop="block">
-				<ToolbarGroup>
+				{ isAvailableVerticalAlignment && (
 					<BlockVerticalAlignmentToolbar
 						onChange={ onChangeVerticalAlignment }
 						value={ verticalAlignment }
 					/>
+				) }
 
+				<AlignmentToolbar
+					value={ contentsAlignment }
+					onChange={ onChangeContentsAlignment }
+				/>
+
+				<ToolbarGroup>
 					<ToolbarButton
 						icon={ pullLeft }
 						title={ __(
@@ -846,9 +876,30 @@ export default function ( {
 						}
 					/>
 
-					<AlignmentToolbar
-						value={ contentsAlignment }
-						onChange={ onChangeContentsAlignment }
+					<ToolbarButton
+						icon={ pullLeft }
+						title={ __(
+							'Show media on top',
+							'snow-monkey-blocks'
+						) }
+						isActive={ 'top' === imagePosition }
+						onClick={ () =>
+							setAttributes( { imagePosition: 'top' } )
+						}
+						className="smb-toolbar-button-rotate-90"
+					/>
+
+					<ToolbarButton
+						icon={ pullRight }
+						title={ __(
+							'Show media on bottom',
+							'snow-monkey-blocks'
+						) }
+						isActive={ 'bottom' === imagePosition }
+						onClick={ () =>
+							setAttributes( { imagePosition: 'bottom' } )
+						}
+						className="smb-toolbar-button-rotate-90"
 					/>
 				</ToolbarGroup>
 			</BlockControls>

@@ -56,7 +56,7 @@ export default function ( { attributes, setAttributes, className } ) {
 
 	return (
 		<>
-			<BlockControls>
+			<BlockControls group="block">
 				<AlignmentToolbar
 					value={ alignment }
 					onChange={ onChangeAlignment }
