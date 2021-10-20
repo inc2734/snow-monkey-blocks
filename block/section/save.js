@@ -237,33 +237,33 @@ export default function ( { attributes, className } ) {
 						className={ contentsWrapperClasses }
 						style={ contentsWrapperStyles }
 					>
-						<div className="smb-section__header">
-							{ hasTitle && hasSubTitle && (
-								<RichText.Content
-									tagName="div"
-									className="smb-section__subtitle"
-									value={ subtitle }
-								/>
-							) }
+						{ hasTitle && (
+							<div className="smb-section__header">
+								{ hasSubTitle && (
+									<RichText.Content
+										tagName="div"
+										className="smb-section__subtitle"
+										value={ subtitle }
+									/>
+								) }
 
-							{ hasTitle && (
 								<RichText.Content
 									tagName={ titleTagName }
 									className="smb-section__title"
 									value={ title }
 								/>
-							) }
 
-							{ hasTitle && hasLede && (
-								<div className="smb-section__lede-wrapper">
-									<RichText.Content
-										tagName="div"
-										className="smb-section__lede"
-										value={ lede }
-									/>
-								</div>
-							) }
-						</div>
+								{ hasLede && (
+									<div className="smb-section__lede-wrapper">
+										<RichText.Content
+											tagName="div"
+											className="smb-section__lede"
+											value={ lede }
+										/>
+									</div>
+								) }
+							</div>
+						) }
 
 						<div className="smb-section__body">
 							<InnerBlocks.Content />

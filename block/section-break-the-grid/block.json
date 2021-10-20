@@ -132,8 +132,7 @@
       "type": "string"
     },
     "contentsAlignment": {
-      "type": "string",
-      "default": ""
+      "type": "string"
     }
   },
   "supports": {

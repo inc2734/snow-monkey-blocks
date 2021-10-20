@@ -915,9 +915,11 @@ export default function ( {
 										className={ contentClasses }
 										style={ contentStyles }
 									>
-										<div className="smb-section__header smb-section-break-the-grid__header">
-											{ hasTitle &&
-												( hasSubTitle ||
+										{ ( hasTitle ||
+											( isSelected &&
+												'none' !== titleTagName ) ) && (
+											<div className="smb-section__header smb-section-break-the-grid__header">
+												{ ( hasSubTitle ||
 													isSelected ) && (
 													<RichText
 														className="smb-section__subtitle smb-section-break-the-grid__subtitle"
@@ -932,10 +934,6 @@ export default function ( {
 													/>
 												) }
 
-											{ ( hasTitle ||
-												( isSelected &&
-													'none' !==
-														titleTagName ) ) && (
 												<RichText
 													className="smb-section__title smb-section-break-the-grid__title"
 													tagName={ titleTagName }
@@ -946,10 +944,8 @@ export default function ( {
 														'snow-monkey-blocks'
 													) }
 												/>
-											) }
 
-											{ hasTitle &&
-												( hasLede || isSelected ) && (
+												{ ( hasLede || isSelected ) && (
 													<div className="smb-section__lede-wrapper smb-section-break-the-grid__lede-wrapper">
 														<RichText
 															className="smb-section__lede smb-section-break-the-grid__lede"
@@ -964,7 +960,8 @@ export default function ( {
 														/>
 													</div>
 												) }
-										</div>
+											</div>
+										) }
 
 										<div { ...innerBlocksProps } />
 									</div>

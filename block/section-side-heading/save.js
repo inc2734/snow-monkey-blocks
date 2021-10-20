@@ -263,33 +263,33 @@ export default function ( { attributes, className } ) {
 					>
 						<div className={ rowClasses }>
 							<div className={ headingColClasses }>
-								<div className="smb-section__header smb-section-side-heading__header">
-									{ hasTitle && hasSubTitle && (
-										<RichText.Content
-											tagName="div"
-											className="smb-section__subtitle smb-section-side-heading__subtitle"
-											value={ subtitle }
-										/>
-									) }
+								{ hasTitle && (
+									<div className="smb-section__header smb-section-side-heading__header">
+										{ hasSubTitle && (
+											<RichText.Content
+												tagName="div"
+												className="smb-section__subtitle smb-section-side-heading__subtitle"
+												value={ subtitle }
+											/>
+										) }
 
-									{ hasTitle && (
 										<RichText.Content
 											tagName={ titleTagName }
 											className="smb-section__title smb-section-side-heading__title"
 											value={ title }
 										/>
-									) }
 
-									{ hasTitle && hasLede && (
-										<div className="smb-section__lede-wrapper smb-section-side-heading__lede-wrapper">
-											<RichText.Content
-												tagName="div"
-												className="smb-section__lede smb-section-side-heading__lede"
-												value={ lede }
-											/>
-										</div>
-									) }
-								</div>
+										{ hasLede && (
+											<div className="smb-section__lede-wrapper smb-section-side-heading__lede-wrapper">
+												<RichText.Content
+													tagName="div"
+													className="smb-section__lede smb-section-side-heading__lede"
+													value={ lede }
+												/>
+											</div>
+										) }
+									</div>
+								) }
 							</div>
 							<div className={ contentColClasses }>
 								<div className="smb-section__body smb-section-side-heading__body">

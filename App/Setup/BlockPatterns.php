@@ -91,26 +91,6 @@ class BlockPatterns {
 		);
 
 		register_block_pattern(
-			'snow-monkey-blocks/heading-4',
-			[
-				// translators: $1: number
-				'title'      => sprintf( __( 'Heading %1$s', 'snow-monkey-blocks' ), 4 ),
-				'categories' => [ 'smb-headers' ],
-				'content'    => $this->_render( SNOW_MONKEY_BLOCKS_DIR_PATH . '/patterns/heading-4/pattern.php' ),
-			]
-		);
-
-		register_block_pattern(
-			'snow-monkey-blocks/heading-5',
-			[
-				// translators: $1: number
-				'title'      => sprintf( __( 'Heading %1$s', 'snow-monkey-blocks' ), 5 ),
-				'categories' => [ 'smb-headers' ],
-				'content'    => $this->_render( SNOW_MONKEY_BLOCKS_DIR_PATH . '/patterns/heading-5/pattern.php' ),
-			]
-		);
-
-		register_block_pattern(
 			'snow-monkey-blocks/feature-1',
 			[
 				// translators: $1: number

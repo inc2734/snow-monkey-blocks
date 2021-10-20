@@ -891,22 +891,21 @@ export default function ( {
 							className={ contentsWrapperClasses }
 							style={ contentsWrapperStyles }
 						>
-							<div className="smb-section__header">
-								{ hasTitle && ( hasSubTitle || isSelected ) && (
-									<RichText
-										className="smb-section__subtitle"
-										value={ subtitle }
-										onChange={ onChangeSubtitle }
-										placeholder={ __(
-											'Write subtitle…',
-											'snow-monkey-blocks'
-										) }
-									/>
-								) }
+							{ ( hasTitle ||
+								( isSelected && 'none' !== titleTagName ) ) && (
+								<div className="smb-section__header">
+									{ ( hasSubTitle || isSelected ) && (
+										<RichText
+											className="smb-section__subtitle"
+											value={ subtitle }
+											onChange={ onChangeSubtitle }
+											placeholder={ __(
+												'Write subtitle…',
+												'snow-monkey-blocks'
+											) }
+										/>
+									) }
 
-								{ ( hasTitle ||
-									( isSelected &&
-										'none' !== titleTagName ) ) && (
 									<RichText
 										className="smb-section__title"
 										tagName={ titleTagName }
@@ -917,22 +916,22 @@ export default function ( {
 											'snow-monkey-blocks'
 										) }
 									/>
-								) }
 
-								{ hasTitle && ( hasLede || isSelected ) && (
-									<div className="smb-section__lede-wrapper">
-										<RichText
-											className="smb-section__lede"
-											value={ lede }
-											onChange={ onChangeLede }
-											placeholder={ __(
-												'Write lede…',
-												'snow-monkey-blocks'
-											) }
-										/>
-									</div>
-								) }
-							</div>
+									{ ( hasLede || isSelected ) && (
+										<div className="smb-section__lede-wrapper">
+											<RichText
+												className="smb-section__lede"
+												value={ lede }
+												onChange={ onChangeLede }
+												placeholder={ __(
+													'Write lede…',
+													'snow-monkey-blocks'
+												) }
+											/>
+										</div>
+									) }
+								</div>
+							) }
 
 							<div { ...innerBlocksProps } />
 						</div>

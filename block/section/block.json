@@ -120,8 +120,7 @@
       "default": "fit"
     },
     "contentsAlignment": {
-      "type": "string",
-      "default": ""
+      "type": "string"
     },
     "contentJustification": {
 			"type": "string"

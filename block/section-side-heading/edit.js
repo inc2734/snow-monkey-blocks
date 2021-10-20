@@ -908,9 +908,11 @@ export default function ( {
 						>
 							<div className={ rowClasses }>
 								<div className={ headingColClasses }>
-									<div className="smb-section__header smb-section-side-heading__header">
-										{ hasTitle &&
-											( hasSubTitle || isSelected ) && (
+									{ ( hasTitle ||
+										( isSelected &&
+											'none' !== titleTagName ) ) && (
+										<div className="smb-section__header smb-section-side-heading__header">
+											{ ( hasSubTitle || isSelected ) && (
 												<RichText
 													className="smb-section__subtitle smb-section-side-heading__subtitle"
 													value={ subtitle }
@@ -924,9 +926,6 @@ export default function ( {
 												/>
 											) }
 
-										{ ( hasTitle ||
-											( isSelected &&
-												'none' !== titleTagName ) ) && (
 											<RichText
 												className="smb-section__title smb-section-side-heading__title"
 												tagName={ titleTagName }
@@ -937,10 +936,8 @@ export default function ( {
 													'snow-monkey-blocks'
 												) }
 											/>
-										) }
 
-										{ hasTitle &&
-											( hasLede || isSelected ) && (
+											{ ( hasLede || isSelected ) && (
 												<div className="smb-section__lede-wrapper smb-section-side-heading__lede-wrapper">
 													<RichText
 														className="smb-section__lede smb-section-side-heading__lede"
@@ -955,7 +952,8 @@ export default function ( {
 													/>
 												</div>
 											) }
-									</div>
+										</div>
+									) }
 								</div>
 								<div className={ contentColClasses }>
 									<div { ...innerBlocksProps } />

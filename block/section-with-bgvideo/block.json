@@ -44,8 +44,7 @@
       "default": "fit"
     },
     "contentsAlignment": {
-      "type": "string",
-      "default": "left"
+      "type": "string"
     },
     "maskColor": {
       "type": "string"

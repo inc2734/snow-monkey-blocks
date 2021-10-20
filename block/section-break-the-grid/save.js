@@ -172,33 +172,33 @@ export default function ( { attributes, className } ) {
 									className={ contentClasses }
 									style={ contentStyles }
 								>
-									<div className="smb-section__header smb-section-break-the-grid__header">
-										{ hasTitle && hasSubTitle && (
-											<RichText.Content
-												tagName="div"
-												className="smb-section__subtitle smb-section-break-the-grid__subtitle"
-												value={ subtitle }
-											/>
-										) }
+									{ hasTitle && (
+										<div className="smb-section__header smb-section-break-the-grid__header">
+											{ hasSubTitle && (
+												<RichText.Content
+													tagName="div"
+													className="smb-section__subtitle smb-section-break-the-grid__subtitle"
+													value={ subtitle }
+												/>
+											) }
 
-										{ hasTitle && (
 											<RichText.Content
 												tagName={ titleTagName }
 												className="smb-section__title smb-section-break-the-grid__title"
 												value={ title }
 											/>
-										) }
 
-										{ hasTitle && hasLede && (
-											<div className="smb-section__lede-wrapper smb-section-break-the-grid__lede-wrapper">
-												<RichText.Content
-													tagName="div"
-													className="smb-section__lede smb-section-break-the-grid__lede"
-													value={ lede }
-												/>
-											</div>
-										) }
-									</div>
+											{ hasLede && (
+												<div className="smb-section__lede-wrapper smb-section-break-the-grid__lede-wrapper">
+													<RichText.Content
+														tagName="div"
+														className="smb-section__lede smb-section-break-the-grid__lede"
+														value={ lede }
+													/>
+												</div>
+											) }
+										</div>
+									) }
 
 									<div className="smb-section__body smb-section-break-the-grid__body">
 										<InnerBlocks.Content />
