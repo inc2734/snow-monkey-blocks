@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 import hexToRgba from 'hex-to-rgba';
-import { omit } from 'lodash';
+import { omit, without } from 'lodash';
 
 import { RichText, InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
@@ -16,6 +16,23 @@ export default [
 
 		supports: {
 			align: [ 'wide', 'full' ],
+		},
+
+		migrate( attributes ) {
+			attributes.className = without(
+				attributes.className.split( ' ' ),
+				'smb-section--left',
+				'smb-section--center',
+				'smb-section--right'
+			).join( ' ' );
+
+			if ( ! attributes.className ) {
+				attributes = omit( attributes, 'className' );
+			}
+
+			return {
+				...attributes,
+			};
 		},
 
 		save( { attributes, className } ) {
