@@ -79,6 +79,7 @@ export default function ( {
 		maskOpacity,
 		mobileOrder,
 		contentsAlignment,
+		containerAlign,
 	} = attributes;
 
 	const hasInnerBlocks = useSelect(
@@ -137,6 +138,11 @@ export default function ( {
 			[ className ]: !! className,
 		}
 	);
+
+	const containerClasses = classnames( 'c-container', {
+		alignfull: 'full' === containerAlign,
+		alignwide: 'wide' === containerAlign,
+	} );
 
 	const rowClasses = classnames( 'c-row', {
 		'c-row--margin': isAvailableVerticalAlignment,
@@ -322,6 +328,11 @@ export default function ( {
 	const onChangeContentsAlignment = ( value ) =>
 		setAttributes( {
 			contentsAlignment: value,
+		} );
+
+	const onChangeContainerAlign = ( value ) =>
+		setAttributes( {
+			containerAlign: value,
 		} );
 
 	const onSelectImage = ( media ) => {
@@ -547,6 +558,29 @@ export default function ( {
 							},
 						] }
 						onChange={ onChangeImageSize }
+					/>
+
+					<SelectControl
+						label={ __(
+							'Container alignment',
+							'snow-monkey-blocks'
+						) }
+						value={ containerAlign }
+						onChange={ onChangeContainerAlign }
+						options={ [
+							{
+								value: '',
+								label: __( 'Default', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'wide',
+								label: __( 'Wide width', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'full',
+								label: __( 'Full width', 'snow-monkey-blocks' ),
+							},
+						] }
 					/>
 				</PanelBody>
 
@@ -907,7 +941,7 @@ export default function ( {
 
 			<TagName { ...blockProps }>
 				<div className="smb-section__inner">
-					<div className="c-container">
+					<div className={ containerClasses }>
 						<div className="smb-section__contents-wrapper smb-section-break-the-grid__contents-wrapper">
 							<div className={ rowClasses }>
 								<div className={ textColumnClasses }>

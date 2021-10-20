@@ -79,6 +79,7 @@ export default function ( {
 		isSlim,
 		contentJustification,
 		itemsAlignment,
+		containerAlign,
 	} = attributes;
 
 	const hasInnerBlocks = useSelect(
@@ -116,6 +117,11 @@ export default function ( {
 
 	const innerClasses = classnames( 'smb-section__inner', {
 		[ `is-content-justification-${ contentJustification }` ]: !! contentJustification,
+	} );
+
+	const containerClasses = classnames( 'c-container', {
+		alignfull: 'full' === containerAlign,
+		alignwide: 'wide' === containerAlign,
 	} );
 
 	const contentsWrapperClasses = classnames(
@@ -447,6 +453,11 @@ export default function ( {
 			itemsAlignment: value,
 		} );
 
+	const onChangeContainerAlign = ( value ) =>
+		setAttributes( {
+			containerAlign: value,
+		} );
+
 	return (
 		<>
 			<InspectorControls>
@@ -539,6 +550,29 @@ export default function ( {
 							'This setting is being retained for backwards compatibility and is not recommended for use. Its use may slow down the page display.',
 							'snow-monkey-blocks'
 						) }
+					/>
+
+					<SelectControl
+						label={ __(
+							'Container alignment',
+							'snow-monkey-blocks'
+						) }
+						value={ containerAlign }
+						onChange={ onChangeContainerAlign }
+						options={ [
+							{
+								value: '',
+								label: __( 'Default', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'wide',
+								label: __( 'Wide width', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'full',
+								label: __( 'Full width', 'snow-monkey-blocks' ),
+							},
+						] }
 					/>
 
 					{ ! isSlim && (
@@ -886,7 +920,7 @@ export default function ( {
 				) }
 
 				<div className={ innerClasses } style={ innerStyles }>
-					<div className="c-container">
+					<div className={ containerClasses }>
 						<div
 							className={ contentsWrapperClasses }
 							style={ contentsWrapperStyles }

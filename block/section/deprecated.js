@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 import hexToRgba from 'hex-to-rgba';
-import { without } from 'lodash';
+import { omit, without } from 'lodash';
 
 import { RichText, InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 

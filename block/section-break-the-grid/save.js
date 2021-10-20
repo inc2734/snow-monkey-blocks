@@ -34,6 +34,7 @@ export default function ( { attributes, className } ) {
 		maskOpacity,
 		mobileOrder,
 		contentsAlignment,
+		containerAlign,
 	} = attributes;
 
 	const isAvailableVerticalAlignment = [ 'right', 'left' ].includes(
@@ -58,6 +59,11 @@ export default function ( { attributes, className } ) {
 			[ className ]: !! className,
 		}
 	);
+
+	const containerClasses = classnames( 'c-container', {
+		alignfull: 'full' === containerAlign,
+		alignwide: 'wide' === containerAlign,
+	} );
 
 	const rowClasses = classnames( 'c-row', {
 		'c-row--margin': isAvailableVerticalAlignment,
@@ -164,7 +170,7 @@ export default function ( { attributes, className } ) {
 			} ) }
 		>
 			<div className="smb-section__inner">
-				<div className="c-container">
+				<div className={ containerClasses }>
 					<div className="smb-section__contents-wrapper smb-section-break-the-grid__contents-wrapper">
 						<div className={ rowClasses }>
 							<div className={ textColumnClasses }>

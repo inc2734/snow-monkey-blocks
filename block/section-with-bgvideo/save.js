@@ -23,6 +23,7 @@ export default function ( { attributes, className } ) {
 		isSlim,
 		contentJustification,
 		itemsAlignment,
+		containerAlign,
 	} = attributes;
 
 	const TagName = 'div';
@@ -46,6 +47,11 @@ export default function ( { attributes, className } ) {
 
 	const innerClasses = classnames( 'smb-section__inner', {
 		[ `is-content-justification-${ contentJustification }` ]: !! contentJustification,
+	} );
+
+	const containerClasses = classnames( 'c-container', {
+		alignfull: 'full' === containerAlign,
+		alignwide: 'wide' === containerAlign,
 	} );
 
 	const contentsWrapperClasses = classnames(
@@ -118,7 +124,7 @@ export default function ( { attributes, className } ) {
 			</div>
 
 			<div className={ innerClasses } style={ innerStyles }>
-				<div className="c-container">
+				<div className={ containerClasses }>
 					<div
 						className={ contentsWrapperClasses }
 						style={ contentsWrapperStyles }

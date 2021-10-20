@@ -128,7 +128,10 @@
 		},
     "itemsAlignment": {
 			"type": "string"
-		}
+		},
+    "containerAlign": {
+      "type": "string"
+    }
   },
   "supports": {
     "align": [ "wide", "full" ],
