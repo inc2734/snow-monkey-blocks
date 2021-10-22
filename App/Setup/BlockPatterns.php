@@ -61,32 +61,32 @@ class BlockPatterns {
 		}
 
 		register_block_pattern(
-			'snow-monkey-blocks/heading-1',
+			'snow-monkey-blocks/header-1',
 			[
 				// translators: $1: number
-				'title'      => sprintf( __( 'Heading %1$s', 'snow-monkey-blocks' ), 1 ),
+				'title'      => sprintf( __( 'Header %1$s', 'snow-monkey-blocks' ), 1 ),
 				'categories' => [ 'smb-headers' ],
-				'content'    => $this->_render( SNOW_MONKEY_BLOCKS_DIR_PATH . '/patterns/heading-1/pattern.php' ),
+				'content'    => $this->_render( SNOW_MONKEY_BLOCKS_DIR_PATH . '/patterns/header-1/pattern.php' ),
 			]
 		);
 
 		register_block_pattern(
-			'snow-monkey-blocks/heading-2',
+			'snow-monkey-blocks/header-2',
 			[
 				// translators: $1: number
-				'title'      => sprintf( __( 'Heading %1$s', 'snow-monkey-blocks' ), 2 ),
+				'title'      => sprintf( __( 'Header %1$s', 'snow-monkey-blocks' ), 2 ),
 				'categories' => [ 'smb-headers' ],
-				'content'    => $this->_render( SNOW_MONKEY_BLOCKS_DIR_PATH . '/patterns/heading-2/pattern.php' ),
+				'content'    => $this->_render( SNOW_MONKEY_BLOCKS_DIR_PATH . '/patterns/header-2/pattern.php' ),
 			]
 		);
 
 		register_block_pattern(
-			'snow-monkey-blocks/heading-3',
+			'snow-monkey-blocks/header-3',
 			[
 				// translators: $1: number
-				'title'      => sprintf( __( 'Heading %1$s', 'snow-monkey-blocks' ), 3 ),
+				'title'      => sprintf( __( 'Header %1$s', 'snow-monkey-blocks' ), 3 ),
 				'categories' => [ 'smb-headers' ],
-				'content'    => $this->_render( SNOW_MONKEY_BLOCKS_DIR_PATH . '/patterns/heading-3/pattern.php' ),
+				'content'    => $this->_render( SNOW_MONKEY_BLOCKS_DIR_PATH . '/patterns/header-3/pattern.php' ),
 			]
 		);
 
