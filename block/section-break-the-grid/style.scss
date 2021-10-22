@@ -166,13 +166,9 @@
 
     @each $key, $value in $contentPaddings {
       &--p-#{ $value } {
-        @include _padding($key / 3);
+        @include _padding($key / 2);
 
         @include _media-min(md) {
-          @include _padding($key / 2);
-        }
-
-        @include _media-min(lg) {
           @include _padding($key);
         }
       }
