@@ -242,15 +242,6 @@
 
   &--right,
   &--left {
-    > .smb-section__inner {
-      > .#{ $_prefix }c-container {
-        @include _media-min(lg) {
-          padding-right: 0;
-          padding-left: 0;
-        }
-      }
-    }
-
     &:not([class*="smb-section-break-the-grid--mobile-"]) {
       > .smb-section__inner {
         > .#{ $_prefix }c-container {

@@ -31,7 +31,10 @@ export default function ( props ) {
 				? `${ borderRadius }px`
 				: undefined,
 	};
-	if ( 'is-style-ghost' === attributes.className ) {
+	if (
+		!! attributes.className &&
+		attributes.className.split( ' ' ).includes( 'is-style-ghost' )
+	) {
 		btnStyles.borderColor = backgroundColor || undefined;
 	}
 
