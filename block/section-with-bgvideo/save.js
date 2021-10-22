@@ -1,29 +1,33 @@
 import classnames from 'classnames';
 
-import { RichText, InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
 import { getVideoId } from './utils';
 
+import { Save as Header } from '../section/components/header';
+
 export default function ( { attributes, className } ) {
 	const {
-		titleTagName,
-		title,
-		subtitle,
-		lede,
 		videoURL,
 		videoWidth,
 		videoHeight,
-		height,
 		contentsAlignment,
 		maskColor,
 		maskGradientColor,
 		maskOpacity,
 		textColor,
-		contentsMaxWidth,
-		isSlim,
 		contentJustification,
 		itemsAlignment,
+
+		title,
+		subtitle,
+		lede,
+
+		titleTagName,
+		height,
 		containerAlign,
+		contentsMaxWidth,
+		isSlim,
 	} = attributes;
 
 	const TagName = 'div';
@@ -61,10 +65,6 @@ export default function ( { attributes, className } ) {
 			'u-slim-width': isSlim && ! contentsMaxWidth,
 		}
 	);
-
-	const hasTitle = ! RichText.isEmpty( title ) && 'none' !== titleTagName;
-	const hasSubTitle = ! RichText.isEmpty( subtitle );
-	const hasLede = ! RichText.isEmpty( lede );
 
 	const sectionStyles = {
 		color: textColor || undefined,
@@ -129,33 +129,14 @@ export default function ( { attributes, className } ) {
 						className={ contentsWrapperClasses }
 						style={ contentsWrapperStyles }
 					>
-						{ hasTitle && (
-							<div className="smb-section__header">
-								{ hasSubTitle && (
-									<RichText.Content
-										tagName="div"
-										className="smb-section__subtitle"
-										value={ subtitle }
-									/>
-								) }
-
-								<RichText.Content
-									tagName={ titleTagName }
-									className="smb-section__title"
-									value={ title }
-								/>
-
-								{ hasLede && (
-									<div className="smb-section__lede-wrapper">
-										<RichText.Content
-											tagName="div"
-											className="smb-section__lede"
-											value={ lede }
-										/>
-									</div>
-								) }
-							</div>
-						) }
+						<Header
+							{ ...{
+								title,
+								titleTagName,
+								subtitle,
+								lede,
+							} }
+						/>
 
 						<div className="smb-section__body">
 							<InnerBlocks.Content />

@@ -5,32 +5,6 @@
 	"description": "It is a break the grid section.",
   "category": "smb-section",
   "attributes": {
-    "wrapperTagName": {
-      "type": "string",
-      "default": "div"
-    },
-    "titleTagName": {
-      "type": "string",
-      "default": "h2"
-    },
-    "title": {
-      "type": "string",
-      "source": "html",
-      "selector": ".smb-section__title",
-      "default": ""
-    },
-    "subtitle": {
-      "type": "string",
-      "source": "html",
-      "selector": ".smb-section__subtitle",
-      "default": ""
-    },
-    "lede": {
-      "type": "string",
-      "source": "html",
-      "selector": ".smb-section__lede",
-      "default": ""
-    },
     "imageID": {
       "type": "number",
       "default": 0
@@ -134,8 +108,107 @@
     "contentsAlignment": {
       "type": "string"
     },
+
+    "title": {
+      "type": "string",
+      "source": "html",
+      "selector": ".smb-section__title",
+      "default": ""
+    },
+    "subtitle": {
+      "type": "string",
+      "source": "html",
+      "selector": ".smb-section__subtitle",
+      "default": ""
+    },
+    "lede": {
+      "type": "string",
+      "source": "html",
+      "selector": ".smb-section__lede",
+      "default": ""
+    },
+
+    "wrapperTagName": {
+      "type": "string",
+      "default": "div"
+    },
+    "titleTagName": {
+      "type": "string",
+      "default": "h2"
+    },
     "containerAlign": {
       "type": "string"
+    },
+
+    "backgroundHorizontalPosition": {
+      "type": "number",
+      "default": 0
+    },
+    "backgroundVerticalPosition": {
+      "type": "number",
+      "default": 0
+    },
+    "isBackgroundNoOver": {
+      "type": "boolean",
+      "default": false
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "backgroundGradientColor": {
+      "type": "string"
+    },
+    "backgroundTexture": {
+      "type": "string"
+    },
+    "backgroundTextureOpacity": {
+      "type": "number",
+      "default": 1
+    },
+    "fixedBackgroundColor": {
+      "type": "string"
+    },
+    "fixedBackgroundGradientColor": {
+      "type": "string"
+    },
+    "fixedBackgroundTexture": {
+      "type": "string"
+    },
+    "fixedBackgroundTextureOpacity": {
+      "type": "number",
+      "default": 1
+    },
+    "topDividerType": {
+      "type": "string",
+      "default": "tilt"
+    },
+    "topDividerLevel": {
+      "type": "number",
+      "default": 0
+    },
+    "topDividerColor": {
+      "type": "string",
+      "default": "#fff"
+    },
+    "topDividerVerticalPosition": {
+      "type": "number",
+      "default": 0
+    },
+    "bottomDividerType": {
+      "type": "string",
+      "default": "tilt"
+    },
+    "bottomDividerLevel": {
+      "type": "number",
+      "default": 0
+    },
+    "bottomDividerColor": {
+      "type": "string",
+      "default": "#fff"
+    },
+    "bottomDividerVerticalPosition": {
+      "type": "number",
+      "default": 0
     }
   },
   "supports": {

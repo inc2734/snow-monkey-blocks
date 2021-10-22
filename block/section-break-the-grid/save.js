@@ -1,15 +1,13 @@
 import classnames from 'classnames';
 import hexToRgba from 'hex-to-rgba';
 
-import { RichText, InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+
+import { SectionBackground } from '../section/components/background';
+import { Save as Header } from '../section/components/header';
 
 export default function ( { attributes, className } ) {
 	const {
-		wrapperTagName,
-		titleTagName,
-		title,
-		subtitle,
-		lede,
 		imageID,
 		imageURL,
 		imageAlt,
@@ -34,7 +32,34 @@ export default function ( { attributes, className } ) {
 		maskOpacity,
 		mobileOrder,
 		contentsAlignment,
+
+		title,
+		subtitle,
+		lede,
+
+		wrapperTagName,
+		titleTagName,
 		containerAlign,
+
+		backgroundHorizontalPosition,
+		backgroundVerticalPosition,
+		isBackgroundNoOver,
+		backgroundColor,
+		backgroundGradientColor,
+		backgroundTexture,
+		backgroundTextureOpacity,
+		fixedBackgroundColor,
+		fixedBackgroundGradientColor,
+		fixedBackgroundTexture,
+		fixedBackgroundTextureOpacity,
+		topDividerType,
+		topDividerLevel,
+		topDividerColor,
+		topDividerVerticalPosition,
+		bottomDividerType,
+		bottomDividerLevel,
+		bottomDividerColor,
+		bottomDividerVerticalPosition,
 	} = attributes;
 
 	const isAvailableVerticalAlignment = [ 'right', 'left' ].includes(
@@ -98,10 +123,6 @@ export default function ( { attributes, className } ) {
 	const shadowClasses = classnames( 'smb-section-break-the-grid__shadow' );
 
 	const maskClasses = classnames( 'smb-section-break-the-grid__mask' );
-
-	const hasTitle = ! RichText.isEmpty( title ) && 'none' !== titleTagName;
-	const hasSubTitle = ! RichText.isEmpty( subtitle );
-	const hasLede = ! RichText.isEmpty( lede );
 
 	const sectionStyles = {
 		color: textColor || undefined,
@@ -169,6 +190,30 @@ export default function ( { attributes, className } ) {
 				style: sectionStyles,
 			} ) }
 		>
+			<SectionBackground
+				{ ...{
+					backgroundHorizontalPosition,
+					backgroundVerticalPosition,
+					isBackgroundNoOver,
+					backgroundColor,
+					backgroundGradientColor,
+					backgroundTexture,
+					backgroundTextureOpacity,
+					fixedBackgroundColor,
+					fixedBackgroundGradientColor,
+					fixedBackgroundTexture,
+					fixedBackgroundTextureOpacity,
+					topDividerType,
+					topDividerLevel,
+					topDividerColor,
+					topDividerVerticalPosition,
+					bottomDividerType,
+					bottomDividerLevel,
+					bottomDividerColor,
+					bottomDividerVerticalPosition,
+				} }
+			/>
+
 			<div className="smb-section__inner">
 				<div className={ containerClasses }>
 					<div className="smb-section__contents-wrapper smb-section-break-the-grid__contents-wrapper">
@@ -178,33 +223,15 @@ export default function ( { attributes, className } ) {
 									className={ contentClasses }
 									style={ contentStyles }
 								>
-									{ hasTitle && (
-										<div className="smb-section__header smb-section-break-the-grid__header">
-											{ hasSubTitle && (
-												<RichText.Content
-													tagName="div"
-													className="smb-section__subtitle smb-section-break-the-grid__subtitle"
-													value={ subtitle }
-												/>
-											) }
-
-											<RichText.Content
-												tagName={ titleTagName }
-												className="smb-section__title smb-section-break-the-grid__title"
-												value={ title }
-											/>
-
-											{ hasLede && (
-												<div className="smb-section__lede-wrapper smb-section-break-the-grid__lede-wrapper">
-													<RichText.Content
-														tagName="div"
-														className="smb-section__lede smb-section-break-the-grid__lede"
-														value={ lede }
-													/>
-												</div>
-											) }
-										</div>
-									) }
+									<Header
+										{ ...{
+											title,
+											titleTagName,
+											subtitle,
+											lede,
+										} }
+										className="smb-section-break-the-grid"
+									/>
 
 									<div className="smb-section__body smb-section-break-the-grid__body">
 										<InnerBlocks.Content />

@@ -5,14 +5,23 @@
 	"description": "Contents can be separated by appropriate margins.",
   "category": "smb-section",
   "attributes": {
-    "wrapperTagName": {
-      "type": "string",
-      "default": "div"
+    "textColor": {
+      "type": "string"
     },
-    "titleTagName": {
+    "contentsWidth": {
       "type": "string",
-      "default": "h2"
+      "default": null
     },
+    "contentsAlignment": {
+      "type": "string"
+    },
+    "contentJustification": {
+			"type": "string"
+		},
+    "itemsAlignment": {
+			"type": "string"
+		},
+
     "title": {
       "type": "string",
       "source": "html",
@@ -31,6 +40,30 @@
       "selector": ".smb-section__lede",
       "default": ""
     },
+
+    "wrapperTagName": {
+      "type": "string",
+      "default": "div"
+    },
+    "titleTagName": {
+      "type": "string",
+      "default": "h2"
+    },
+    "height": {
+      "type": "string",
+      "default": "fit"
+    },
+    "containerAlign": {
+      "type": "string"
+    },
+    "contentsMaxWidth": {
+      "type": "string"
+    },
+    "isSlim": {
+      "type": "boolean",
+      "default": false
+    },
+
     "backgroundHorizontalPosition": {
       "type": "number",
       "default": 0
@@ -69,20 +102,6 @@
       "type": "number",
       "default": 1
     },
-    "textColor": {
-      "type": "string"
-    },
-    "contentsWidth": {
-      "type": "string",
-      "default": null
-    },
-    "contentsMaxWidth": {
-      "type": "string"
-    },
-    "isSlim": {
-      "type": "boolean",
-      "default": false
-    },
     "topDividerType": {
       "type": "string",
       "default": "tilt"
@@ -114,22 +133,6 @@
     "bottomDividerVerticalPosition": {
       "type": "number",
       "default": 0
-    },
-    "height": {
-      "type": "string",
-      "default": "fit"
-    },
-    "contentsAlignment": {
-      "type": "string"
-    },
-    "contentJustification": {
-			"type": "string"
-		},
-    "itemsAlignment": {
-			"type": "string"
-		},
-    "containerAlign": {
-      "type": "string"
     }
   },
   "supports": {

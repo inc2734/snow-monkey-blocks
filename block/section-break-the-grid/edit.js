@@ -1,6 +1,5 @@
 import classnames from 'classnames';
 import hexToRgba from 'hex-to-rgba';
-import { times } from 'lodash';
 
 import {
 	AlignmentToolbar,
@@ -9,15 +8,12 @@ import {
 	InnerBlocks,
 	InspectorControls,
 	PanelColorSettings,
-	RichText,
 	useBlockProps,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 	__experimentalColorGradientControl as ColorGradientControl,
 } from '@wordpress/block-editor';
 
 import {
-	BaseControl,
-	Button,
 	PanelBody,
 	RangeControl,
 	SelectControl,
@@ -39,6 +35,17 @@ import {
 import Figure from '@smb/component/figure';
 import ImageSizeSelectControl from '@smb/component/image-size-select-control';
 
+import { PanelBasicSettings } from '../section/components/basic';
+import { Edit as Header } from '../section/components/header';
+
+import {
+	PanelSectionMovableBackgroundSettings,
+	PanelSectionFixedBackgroundSettings,
+	PanelSectionTopDividerSettings,
+	PanelSectionBottomDividerSettings,
+	SectionBackground,
+} from '../section/components/background';
+
 const ALLOWED_TYPES = [ 'image', 'video' ];
 
 export default function ( {
@@ -49,11 +56,6 @@ export default function ( {
 	clientId,
 } ) {
 	const {
-		wrapperTagName,
-		titleTagName,
-		title,
-		subtitle,
-		lede,
 		imageID,
 		imageURL,
 		imageAlt,
@@ -79,7 +81,34 @@ export default function ( {
 		maskOpacity,
 		mobileOrder,
 		contentsAlignment,
+
+		title,
+		subtitle,
+		lede,
+
+		wrapperTagName,
+		titleTagName,
 		containerAlign,
+
+		backgroundHorizontalPosition,
+		backgroundVerticalPosition,
+		isBackgroundNoOver,
+		backgroundColor,
+		backgroundGradientColor,
+		backgroundTexture,
+		backgroundTextureOpacity,
+		fixedBackgroundColor,
+		fixedBackgroundGradientColor,
+		fixedBackgroundTexture,
+		fixedBackgroundTextureOpacity,
+		topDividerType,
+		topDividerLevel,
+		topDividerColor,
+		topDividerVerticalPosition,
+		bottomDividerType,
+		bottomDividerLevel,
+		bottomDividerColor,
+		bottomDividerVerticalPosition,
 	} = attributes;
 
 	const hasInnerBlocks = useSelect(
@@ -117,9 +146,6 @@ export default function ( {
 	const isAvailableVerticalAlignment = [ 'right', 'left' ].includes(
 		imagePosition
 	);
-
-	const wrapperTagNames = [ 'div', 'section', 'aside' ];
-	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
 
 	const TagName = wrapperTagName;
 	const classes = classnames(
@@ -177,10 +203,6 @@ export default function ( {
 	const shadowClasses = classnames( 'smb-section-break-the-grid__shadow' );
 
 	const maskClasses = classnames( 'smb-section-break-the-grid__mask' );
-
-	const hasTitle = ! RichText.isEmpty( title ) && 'none' !== titleTagName;
-	const hasSubTitle = ! RichText.isEmpty( subtitle );
-	const hasLede = ! RichText.isEmpty( lede );
 
 	const sectionStyles = {
 		color: textColor || undefined,
@@ -330,11 +352,6 @@ export default function ( {
 			contentsAlignment: value,
 		} );
 
-	const onChangeContainerAlign = ( value ) =>
-		setAttributes( {
-			containerAlign: value,
-		} );
-
 	const onSelectImage = ( media ) => {
 		const newImageURL =
 			!! media.sizes && !! media.sizes[ imageSizeSlug ]
@@ -408,6 +425,116 @@ export default function ( {
 		} );
 	};
 
+	const onChangeWrapperTagName = ( value ) =>
+		setAttributes( {
+			wrapperTagName: value,
+		} );
+
+	const onChangeTitleTagName = ( value ) =>
+		setAttributes( {
+			titleTagName: value,
+		} );
+
+	const onChangeContainerAlign = ( value ) =>
+		setAttributes( {
+			containerAlign: value,
+		} );
+
+	const onChangeBackgroundHorizontalPosition = ( value ) =>
+		setAttributes( {
+			backgroundHorizontalPosition: toNumber( value, -90, 90 ),
+		} );
+
+	const onChangeBackgroundVerticalPosition = ( value ) =>
+		setAttributes( {
+			backgroundVerticalPosition: toNumber( value, -90, 90 ),
+		} );
+
+	const onChangeIsBackgroundNoOver = ( value ) =>
+		setAttributes( {
+			isBackgroundNoOver: value,
+		} );
+
+	const onChangeBackgroundColor = ( value ) =>
+		setAttributes( {
+			backgroundColor: value,
+		} );
+
+	const onChangeBackgroundGradientColor = ( value ) =>
+		setAttributes( {
+			backgroundGradientColor: value,
+		} );
+
+	const onChangeBackgroundTexture = ( value ) =>
+		setAttributes( {
+			backgroundTexture: value,
+		} );
+
+	const onChangeBackgroundTextureOpacity = ( value ) =>
+		setAttributes( {
+			backgroundTextureOpacity: toNumber( value, 0.1, 1 ),
+		} );
+
+	const onChangeFixedBackgroundColor = ( value ) =>
+		setAttributes( {
+			fixedBackgroundColor: value,
+		} );
+
+	const onChangeFixedBackgroundGradientColor = ( value ) =>
+		setAttributes( {
+			fixedBackgroundGradientColor: value,
+		} );
+
+	const onChangeFixedBackgroundTexture = ( value ) =>
+		setAttributes( {
+			fixedBackgroundTexture: value,
+		} );
+
+	const onChangeFixedBackgroundTextureOpacity = ( value ) =>
+		setAttributes( {
+			fixedBackgroundTextureOpacity: toNumber( value, 0.1, 1 ),
+		} );
+
+	const onChangeTopDividerType = ( value ) =>
+		setAttributes( {
+			topDividerType: value,
+		} );
+
+	const onChangeTopDividerLevel = ( value ) =>
+		setAttributes( {
+			topDividerLevel: toNumber( value, -100, 100 ),
+		} );
+
+	const onChangeTopDividerColor = ( value ) =>
+		setAttributes( {
+			topDividerColor: value,
+		} );
+
+	const onChangeTopDividerVerticalPosition = ( value ) =>
+		setAttributes( {
+			topDividerVerticalPosition: value,
+		} );
+
+	const onChangeBottomDividerType = ( value ) =>
+		setAttributes( {
+			bottomDividerType: value,
+		} );
+
+	const onChangeBottomDividerLevel = ( value ) =>
+		setAttributes( {
+			bottomDividerLevel: toNumber( value, -100, 100 ),
+		} );
+
+	const onChangeBottomDividerColor = ( value ) =>
+		setAttributes( {
+			bottomDividerColor: value,
+		} );
+
+	const onChangeBottomDividerVerticalPosition = ( value ) =>
+		setAttributes( {
+			bottomDividerVerticalPosition: value,
+		} );
+
 	let contentSizeOptions = [
 		{
 			value: 'xs',
@@ -438,64 +565,29 @@ export default function ( {
 	return (
 		<>
 			<InspectorControls>
+				<PanelBasicSettings
+					disableIsSlim={ true }
+					disableContentsMaxWidth={ true }
+					settings={ [
+						{
+							wrapperTagNameValue: wrapperTagName,
+							onWrapperTagNameChange: onChangeWrapperTagName,
+						},
+						{
+							titleTagNameValue: titleTagName,
+							onTitleTagNameChange: onChangeTitleTagName,
+						},
+						{
+							containerAlignValue: containerAlign,
+							onContainerAlignChange: onChangeContainerAlign,
+						},
+					] }
+				/>
+
 				<PanelBody
-					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+					title={ __( 'Media Settings', 'snow-monkey-blocks' ) }
+					initialOpen={ true }
 				>
-					<BaseControl
-						label={ __( 'Wrapper Tag', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/section-break-the-grid/wrapper-tag-name"
-					>
-						<div className="smb-list-icon-selector">
-							{ times( wrapperTagNames.length, ( index ) => {
-								const onClickWrapperTagName = () =>
-									setAttributes( {
-										wrapperTagName:
-											wrapperTagNames[ index ],
-									} );
-
-								const isPrimary =
-									wrapperTagName === wrapperTagNames[ index ];
-								return (
-									<Button
-										isPrimary={ isPrimary }
-										isSecondary={ ! isPrimary }
-										onClick={ onClickWrapperTagName }
-										key={ index }
-									>
-										{ wrapperTagNames[ index ] }
-									</Button>
-								);
-							} ) }
-						</div>
-					</BaseControl>
-
-					<BaseControl
-						label={ __( 'Title Tag', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/section-break-the-grid/title-tag-name"
-					>
-						<div className="smb-list-icon-selector">
-							{ times( titleTagNames.length, ( index ) => {
-								const onClickTitleTagName = () =>
-									setAttributes( {
-										titleTagName: titleTagNames[ index ],
-									} );
-
-								const isPrimary =
-									titleTagName === titleTagNames[ index ];
-								return (
-									<Button
-										isPrimary={ isPrimary }
-										isSecondary={ ! isPrimary }
-										onClick={ onClickTitleTagName }
-										key={ index }
-									>
-										{ titleTagNames[ index ] }
-									</Button>
-								);
-							} ) }
-						</div>
-					</BaseControl>
-
 					<ImageSizeSelectControl
 						label={ __( 'Images size', 'snow-monkey-blocks' ) }
 						id={ imageID }
@@ -559,34 +651,11 @@ export default function ( {
 						] }
 						onChange={ onChangeImageSize }
 					/>
-
-					<SelectControl
-						label={ __(
-							'Container alignment',
-							'snow-monkey-blocks'
-						) }
-						value={ containerAlign }
-						onChange={ onChangeContainerAlign }
-						options={ [
-							{
-								value: '',
-								label: __( 'Default', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'wide',
-								label: __( 'Wide width', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'full',
-								label: __( 'Full width', 'snow-monkey-blocks' ),
-							},
-						] }
-					/>
 				</PanelBody>
 
 				<PanelBody
 					title={ __( 'Contents Settings', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
+					initialOpen={ true }
 				>
 					<SelectControl
 						label={ __(
@@ -860,6 +929,105 @@ export default function ( {
 					) }
 				</PanelBody>
 
+				<PanelSectionMovableBackgroundSettings
+					hasColor={ backgroundColor || backgroundGradientColor }
+					disableNoOver={
+						0 === backgroundHorizontalPosition &&
+						0 === backgroundVerticalPosition
+					}
+					hasTexture={ !! backgroundTexture }
+					settings={ [
+						{
+							colorValue: backgroundColor,
+							gradientValue: backgroundGradientColor,
+							onColorChange: onChangeBackgroundColor,
+							onGradientChange: onChangeBackgroundGradientColor,
+						},
+						{
+							horizontalPositionValue: backgroundHorizontalPosition,
+							onHorizontalPositionChange: onChangeBackgroundHorizontalPosition,
+						},
+						{
+							verticalPositionValue: backgroundVerticalPosition,
+							onVerticalPositionChange: onChangeBackgroundVerticalPosition,
+						},
+						{
+							isNoOverValue: isBackgroundNoOver,
+							onIsNoOverChange: onChangeIsBackgroundNoOver,
+						},
+						{
+							textureValue: backgroundTexture,
+							onTextureChange: onChangeBackgroundTexture,
+						},
+						{
+							textureOpacityValue: backgroundTextureOpacity,
+							onTextureOpacityChange: onChangeBackgroundTextureOpacity,
+						},
+					] }
+				/>
+
+				<PanelSectionFixedBackgroundSettings
+					hasTexture={ !! fixedBackgroundTexture }
+					settings={ [
+						{
+							colorValue: fixedBackgroundColor,
+							gradientValue: fixedBackgroundGradientColor,
+							onColorChange: onChangeFixedBackgroundColor,
+							onGradientChange: onChangeFixedBackgroundGradientColor,
+						},
+						{
+							textureValue: fixedBackgroundTexture,
+							onTextureChange: onChangeFixedBackgroundTexture,
+						},
+						{
+							textureOpacityValue: fixedBackgroundTextureOpacity,
+							onTextureOpacityChange: onChangeFixedBackgroundTextureOpacity,
+						},
+					] }
+				/>
+
+				<PanelSectionTopDividerSettings
+					settings={ [
+						{
+							typeValue: topDividerType,
+							onTypeChange: onChangeTopDividerType,
+						},
+						{
+							levelValue: topDividerLevel,
+							onLevelChange: onChangeTopDividerLevel,
+						},
+						{
+							colorValue: topDividerColor,
+							onColorChange: onChangeTopDividerColor,
+						},
+						{
+							verticalPosition: topDividerVerticalPosition,
+							onVerticalPositionChange: onChangeTopDividerVerticalPosition,
+						},
+					] }
+				/>
+
+				<PanelSectionBottomDividerSettings
+					settings={ [
+						{
+							typeValue: bottomDividerType,
+							onTypeChange: onChangeBottomDividerType,
+						},
+						{
+							levelValue: bottomDividerLevel,
+							onLevelChange: onChangeBottomDividerLevel,
+						},
+						{
+							colorValue: bottomDividerColor,
+							onColorChange: onChangeBottomDividerColor,
+						},
+						{
+							verticalPosition: bottomDividerVerticalPosition,
+							onVerticalPositionChange: onChangeBottomDividerVerticalPosition,
+						},
+					] }
+				/>
+
 				<PanelColorSettings
 					title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
 					initialOpen={ false }
@@ -940,6 +1108,30 @@ export default function ( {
 			</BlockControls>
 
 			<TagName { ...blockProps }>
+				<SectionBackground
+					{ ...{
+						backgroundHorizontalPosition,
+						backgroundVerticalPosition,
+						isBackgroundNoOver,
+						backgroundColor,
+						backgroundGradientColor,
+						backgroundTexture,
+						backgroundTextureOpacity,
+						fixedBackgroundColor,
+						fixedBackgroundGradientColor,
+						fixedBackgroundTexture,
+						fixedBackgroundTextureOpacity,
+						topDividerType,
+						topDividerLevel,
+						topDividerColor,
+						topDividerVerticalPosition,
+						bottomDividerType,
+						bottomDividerLevel,
+						bottomDividerColor,
+						bottomDividerVerticalPosition,
+					} }
+				/>
+
 				<div className="smb-section__inner">
 					<div className={ containerClasses }>
 						<div className="smb-section__contents-wrapper smb-section-break-the-grid__contents-wrapper">
@@ -949,53 +1141,25 @@ export default function ( {
 										className={ contentClasses }
 										style={ contentStyles }
 									>
-										{ ( hasTitle ||
-											( isSelected &&
-												'none' !== titleTagName ) ) && (
-											<div className="smb-section__header smb-section-break-the-grid__header">
-												{ ( hasSubTitle ||
-													isSelected ) && (
-													<RichText
-														className="smb-section__subtitle smb-section-break-the-grid__subtitle"
-														value={ subtitle }
-														onChange={
-															onChangeSubtitle
-														}
-														placeholder={ __(
-															'Write subtitle…',
-															'snow-monkey-blocks'
-														) }
-													/>
-												) }
-
-												<RichText
-													className="smb-section__title smb-section-break-the-grid__title"
-													tagName={ titleTagName }
-													value={ title }
-													onChange={ onChangeTitle }
-													placeholder={ __(
-														'Write title…',
-														'snow-monkey-blocks'
-													) }
-												/>
-
-												{ ( hasLede || isSelected ) && (
-													<div className="smb-section__lede-wrapper smb-section-break-the-grid__lede-wrapper">
-														<RichText
-															className="smb-section__lede smb-section-break-the-grid__lede"
-															value={ lede }
-															onChange={
-																onChangeLede
-															}
-															placeholder={ __(
-																'Write lede…',
-																'snow-monkey-blocks'
-															) }
-														/>
-													</div>
-												) }
-											</div>
-										) }
+										<Header
+											isSelected={ isSelected }
+											className="smb-section-break-the-grid"
+											settings={ [
+												{
+													subtitleValue: subtitle,
+													onSubtitleChange: onChangeSubtitle,
+												},
+												{
+													titleTagNameValue: titleTagName,
+													titleValue: title,
+													onTitleChange: onChangeTitle,
+												},
+												{
+													ledeValue: lede,
+													onLedeChange: onChangeLede,
+												},
+											] }
+										/>
 
 										<div { ...innerBlocksProps } />
 									</div>

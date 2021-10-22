@@ -5,28 +5,6 @@
 	"description": "It is a section with a background YouTube video.",
   "category": "smb-section",
   "attributes": {
-    "titleTagName": {
-      "type": "string",
-      "default": "h2"
-    },
-    "title": {
-      "type": "string",
-      "source": "html",
-      "selector": ".smb-section__title",
-      "default": ""
-    },
-    "subtitle": {
-      "type": "string",
-      "source": "html",
-      "selector": ".smb-section__subtitle",
-      "default": ""
-    },
-    "lede": {
-      "type": "string",
-      "source": "html",
-      "selector": ".smb-section__lede",
-      "default": ""
-    },
     "videoURL": {
       "type": "string",
       "default": ""
@@ -38,10 +16,6 @@
     "videoHeight": {
       "type": "number",
       "default": 360
-    },
-    "height": {
-      "type": "string",
-      "default": "fit"
     },
     "contentsAlignment": {
       "type": "string"
@@ -63,21 +37,49 @@
       "type": "boolean",
       "default": false
     },
-    "contentsMaxWidth": {
-      "type": "string"
-    },
-    "isSlim": {
-      "type": "boolean",
-      "default": false
-    },
     "contentJustification": {
 			"type": "string"
 		},
     "itemsAlignment": {
 			"type": "string"
 		},
+
+    "title": {
+      "type": "string",
+      "source": "html",
+      "selector": ".smb-section__title",
+      "default": ""
+    },
+    "subtitle": {
+      "type": "string",
+      "source": "html",
+      "selector": ".smb-section__subtitle",
+      "default": ""
+    },
+    "lede": {
+      "type": "string",
+      "source": "html",
+      "selector": ".smb-section__lede",
+      "default": ""
+    },
+
+    "titleTagName": {
+      "type": "string",
+      "default": "h2"
+    },
+    "height": {
+      "type": "string",
+      "default": "fit"
+    },
     "containerAlign": {
       "type": "string"
+    },
+    "contentsMaxWidth": {
+      "type": "string"
+    },
+    "isSlim": {
+      "type": "boolean",
+      "default": false
     }
   },
   "supports": {

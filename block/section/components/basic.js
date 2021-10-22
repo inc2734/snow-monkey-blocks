@@ -1,0 +1,229 @@
+import { times } from 'lodash';
+
+import {
+	BaseControl,
+	Button,
+	PanelBody,
+	SelectControl,
+	ToggleControl,
+} from '@wordpress/components';
+
+import { Fragment } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
+
+import WidthPicker from '@smb/component/width-picker';
+
+export const PanelBasicSettings = ( {
+	disableIsSlim,
+	disableContentsMaxWidth,
+	settings,
+} ) => {
+	const wrapperTagNames = [ 'div', 'section', 'aside' ];
+	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
+
+	return (
+		<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
+			{ settings.map( ( setting, index ) => {
+				if (
+					setting.hasOwnProperty( 'wrapperTagNameValue' ) &&
+					setting.hasOwnProperty( 'onWrapperTagNameChange' )
+				) {
+					return (
+						<BaseControl
+							key={ index }
+							label={ __( 'Wrapper Tag', 'snow-monkey-blocks' ) }
+							id="snow-monkey-blocks/section/wrapper-tag-name"
+						>
+							<div className="smb-list-icon-selector">
+								{ times(
+									wrapperTagNames.length,
+									( wrapperTagName ) => {
+										const onClickButton = () => {
+											setting.onWrapperTagNameChange(
+												wrapperTagNames[
+													wrapperTagName
+												]
+											);
+										};
+
+										const isPrimary =
+											setting.wrapperTagNameValue ===
+											wrapperTagNames[ wrapperTagName ];
+										return (
+											<Button
+												key={ wrapperTagName }
+												isPrimary={ isPrimary }
+												isSecondary={ ! isPrimary }
+												onClick={ onClickButton }
+											>
+												{
+													wrapperTagNames[
+														wrapperTagName
+													]
+												}
+											</Button>
+										);
+									}
+								) }
+							</div>
+						</BaseControl>
+					);
+				}
+
+				if (
+					setting.hasOwnProperty( 'titleTagNameValue' ) &&
+					setting.hasOwnProperty( 'onTitleTagNameChange' )
+				) {
+					return (
+						<BaseControl
+							key={ index }
+							label={ __( 'Title Tag', 'snow-monkey-blocks' ) }
+							id="snow-monkey-blocks/section/title-tag-name"
+						>
+							<div className="smb-list-icon-selector">
+								{ times(
+									titleTagNames.length,
+									( titleTagName ) => {
+										const onClickButton = () => {
+											setting.onTitleTagNameChange(
+												titleTagNames[ titleTagName ]
+											);
+										};
+
+										const isPrimary =
+											setting.titleTagNameValue ===
+											titleTagNames[ titleTagName ];
+										return (
+											<Button
+												isPrimary={ isPrimary }
+												isSecondary={ ! isPrimary }
+												onClick={ onClickButton }
+												key={ titleTagName }
+											>
+												{
+													titleTagNames[
+														titleTagName
+													]
+												}
+											</Button>
+										);
+									}
+								) }
+							</div>
+						</BaseControl>
+					);
+				}
+
+				if (
+					setting.hasOwnProperty( 'heightValue' ) &&
+					setting.hasOwnProperty( 'onHeightChange' )
+				) {
+					return (
+						<SelectControl
+							key={ index }
+							label={ __( 'Height', 'snow-monkey-blocks' ) }
+							value={ setting.heightValue }
+							options={ [
+								{
+									value: 'fit',
+									label: __( 'Fit', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'wide',
+									label: __( 'Wide', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'full',
+									label: __( 'Full', 'snow-monkey-blocks' ),
+								},
+							] }
+							onChange={ setting.onHeightChange }
+						/>
+					);
+				}
+
+				if (
+					setting.hasOwnProperty( 'containerAlignValue' ) &&
+					setting.hasOwnProperty( 'onContainerAlignChange' )
+				) {
+					return (
+						<SelectControl
+							key={ index }
+							label={ __(
+								'Container alignment',
+								'snow-monkey-blocks'
+							) }
+							value={ setting.containerAlignValue }
+							onChange={ setting.onContainerAlignChange }
+							options={ [
+								{
+									value: '',
+									label: __(
+										'Default',
+										'snow-monkey-blocks'
+									),
+								},
+								{
+									value: 'wide',
+									label: __(
+										'Wide width',
+										'snow-monkey-blocks'
+									),
+								},
+								{
+									value: 'full',
+									label: __(
+										'Full width',
+										'snow-monkey-blocks'
+									),
+								},
+							] }
+						/>
+					);
+				}
+
+				if (
+					! disableContentsMaxWidth &&
+					setting.hasOwnProperty( 'contentsMaxWidthValue' ) &&
+					setting.hasOwnProperty( 'onContentsMaxWidthChange' )
+				) {
+					return (
+						<BaseControl
+							key={ index }
+							label={ __(
+								'Max width of the contents',
+								'snow-monkey-blocks'
+							) }
+							id="snow-monkey-blocks/section/contents-max-width"
+						>
+							<WidthPicker
+								value={ setting.contentsMaxWidthValue }
+								onChange={ setting.onContentsMaxWidthChange }
+							/>
+						</BaseControl>
+					);
+				}
+
+				if (
+					! disableIsSlim &&
+					setting.hasOwnProperty( 'isSlimValue' ) &&
+					setting.hasOwnProperty( 'onIsSlimChange' )
+				) {
+					return (
+						<ToggleControl
+							key={ index }
+							label={ __(
+								'Make the contents width slim',
+								'snow-monkey-blocks'
+							) }
+							checked={ setting.isSlimValue }
+							onChange={ setting.onIsSlimChange }
+						/>
+					);
+				}
+
+				return <Fragment key={ index }></Fragment>;
+			} ) }
+		</PanelBody>
+	);
+};

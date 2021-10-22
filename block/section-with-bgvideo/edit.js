@@ -1,5 +1,4 @@
 import classnames from 'classnames';
-import { times } from 'lodash';
 
 import {
 	AlignmentToolbar,
@@ -8,7 +7,6 @@ import {
 	InnerBlocks,
 	InspectorControls,
 	JustifyToolbar,
-	RichText,
 	__experimentalColorGradientControl as ColorGradientControl,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
@@ -17,20 +15,19 @@ import {
 
 import {
 	BaseControl,
-	Button,
 	PanelBody,
 	RangeControl,
-	SelectControl,
 	TextControl,
-	ToggleControl,
 } from '@wordpress/components';
 
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
 import { toNumber } from '@smb/helper';
-import WidthPicker from '@smb/component/width-picker';
 import { getVideoId } from './utils';
+
+import { PanelBasicSettings } from '../section/components/basic';
+import { Edit as Header } from '../section/components/header';
 
 const HORIZONTAL_JUSTIFY_CONTROLS = [ 'left', 'center', 'right' ];
 
@@ -42,24 +39,26 @@ export default function ( {
 	clientId,
 } ) {
 	const {
-		titleTagName,
-		title,
-		subtitle,
-		lede,
 		videoURL,
 		videoWidth,
 		videoHeight,
-		height,
 		contentsAlignment,
 		maskColor,
 		maskGradientColor,
 		maskOpacity,
 		textColor,
-		contentsMaxWidth,
-		isSlim,
 		contentJustification,
 		itemsAlignment,
+
+		title,
+		subtitle,
+		lede,
+
+		titleTagName,
+		height,
 		containerAlign,
+		contentsMaxWidth,
+		isSlim,
 	} = attributes;
 
 	const hasInnerBlocks = useSelect(
@@ -71,7 +70,6 @@ export default function ( {
 		[ clientId ]
 	);
 
-	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
 	const TagName = 'div';
 
 	const isItemsAlignmentable = 'fit' !== height;
@@ -107,10 +105,6 @@ export default function ( {
 			'u-slim-width': isSlim && ! contentsMaxWidth,
 		}
 	);
-
-	const hasTitle = ! RichText.isEmpty( title ) && 'none' !== titleTagName;
-	const hasSubTitle = ! RichText.isEmpty( subtitle );
-	const hasLede = ! RichText.isEmpty( lede );
 
 	const sectionStyles = {
 		color: textColor || undefined,
@@ -164,24 +158,9 @@ export default function ( {
 			videoHeight: toNumber( value, 1, 960 ),
 		} );
 
-	const onChangeHeight = ( value ) =>
-		setAttributes( {
-			height: value,
-		} );
-
 	const onChangeContentsAlignment = ( value ) =>
 		setAttributes( {
 			contentsAlignment: value,
-		} );
-
-	const onChangeContentsMaxWidth = ( value ) =>
-		setAttributes( {
-			contentsMaxWidth: value,
-		} );
-
-	const onChangeIsSlim = ( value ) =>
-		setAttributes( {
-			isSlim: value,
 		} );
 
 	const onChangeMaskColor = ( value ) =>
@@ -204,9 +183,14 @@ export default function ( {
 			maskOpacity: toNumber( ( 1 - value ).toFixed( 1 ), 0, 1 ),
 		} );
 
-	const onChangeSubtitle = ( value ) =>
+	const onChangeContentJustification = ( value ) =>
 		setAttributes( {
-			subtitle: value,
+			contentJustification: value,
+		} );
+
+	const onChangeItemsAlignment = ( value ) =>
+		setAttributes( {
+			itemsAlignment: value,
 		} );
 
 	const onChangeTitle = ( value ) =>
@@ -219,14 +203,19 @@ export default function ( {
 			lede: value,
 		} );
 
-	const onChangeContentJustification = ( value ) =>
+	const onChangeSubtitle = ( value ) =>
 		setAttributes( {
-			contentJustification: value,
+			subtitle: value,
 		} );
 
-	const onChangeItemsAlignment = ( value ) =>
+	const onChangeTitleTagName = ( value ) =>
 		setAttributes( {
-			itemsAlignment: value,
+			titleTagName: value,
+		} );
+
+	const onChangeHeight = ( value ) =>
+		setAttributes( {
+			height: value,
 		} );
 
 	const onChangeContainerAlign = ( value ) =>
@@ -234,39 +223,50 @@ export default function ( {
 			containerAlign: value,
 		} );
 
+	const onChangeContentsMaxWidth = ( value ) =>
+		setAttributes( {
+			contentsMaxWidth: value,
+		} );
+
+	const onChangeIsSlim = ( value ) =>
+		setAttributes( {
+			isSlim: value,
+		} );
+
 	return (
 		<>
 			<InspectorControls>
+				<PanelBasicSettings
+					disableIsSlim={ !! contentsMaxWidth }
+					disableContentsMaxWidth={ isSlim }
+					settings={ [
+						{
+							titleTagNameValue: titleTagName,
+							onTitleTagNameChange: onChangeTitleTagName,
+						},
+						{
+							heightValue: height,
+							onHeightChange: onChangeHeight,
+						},
+						{
+							containerAlignValue: containerAlign,
+							onContainerAlignChange: onChangeContainerAlign,
+						},
+						{
+							contentsMaxWidthValue: contentsMaxWidth,
+							onContentsMaxWidthChange: onChangeContentsMaxWidth,
+						},
+						{
+							isSlimValue: isSlim,
+							onIsSlimChange: onChangeIsSlim,
+						},
+					] }
+				/>
+
 				<PanelBody
-					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+					title={ __( 'Video Settings', 'snow-monkey-blocks' ) }
+					initialOpen={ true }
 				>
-					<BaseControl
-						label={ __( 'Title Tag', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/section-with-bgvideo/title-tag-name"
-					>
-						<div className="smb-list-icon-selector">
-							{ times( titleTagNames.length, ( index ) => {
-								const onClickTitleTagName = () =>
-									setAttributes( {
-										titleTagName: titleTagNames[ index ],
-									} );
-
-								const isPrimary =
-									titleTagName === titleTagNames[ index ];
-								return (
-									<Button
-										isPrimary={ isPrimary }
-										isSecondary={ ! isPrimary }
-										onClick={ onClickTitleTagName }
-										key={ index }
-									>
-										{ titleTagNames[ index ] }
-									</Button>
-								);
-							} ) }
-						</div>
-					</BaseControl>
-
 					<BaseControl
 						label={ __( 'YouTube URL', 'snow-monkey-blocks' ) }
 						id="snow-monkey-blocks/section-with-bgvideo/video-url"
@@ -292,75 +292,6 @@ export default function ( {
 						min="1"
 						max="960"
 					/>
-
-					<SelectControl
-						label={ __( 'Height', 'snow-monkey-blocks' ) }
-						value={ height }
-						options={ [
-							{
-								value: 'fit',
-								label: __( 'Fit', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'wide',
-								label: __( 'Wide', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'full',
-								label: __( 'Full', 'snow-monkey-blocks' ),
-							},
-						] }
-						onChange={ onChangeHeight }
-					/>
-
-					<SelectControl
-						label={ __(
-							'Container alignment',
-							'snow-monkey-blocks'
-						) }
-						value={ containerAlign }
-						onChange={ onChangeContainerAlign }
-						options={ [
-							{
-								value: '',
-								label: __( 'Default', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'wide',
-								label: __( 'Wide width', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'full',
-								label: __( 'Full width', 'snow-monkey-blocks' ),
-							},
-						] }
-					/>
-
-					{ ! isSlim && (
-						<BaseControl
-							label={ __(
-								'Max width of the contents',
-								'snow-monkey-blocks'
-							) }
-							id="snow-monkey-blocks/section/contents-max-width"
-						>
-							<WidthPicker
-								value={ contentsMaxWidth }
-								onChange={ onChangeContentsMaxWidth }
-							/>
-						</BaseControl>
-					) }
-
-					{ ! contentsMaxWidth && (
-						<ToggleControl
-							label={ __(
-								'Make the contents width slim',
-								'snow-monkey-blocks'
-							) }
-							checked={ isSlim }
-							onChange={ onChangeIsSlim }
-						/>
-					) }
 				</PanelBody>
 
 				<PanelBody
@@ -440,47 +371,24 @@ export default function ( {
 							className={ contentsWrapperClasses }
 							style={ contentsWrapperStyles }
 						>
-							{ ( hasTitle ||
-								( isSelected && 'none' !== titleTagName ) ) && (
-								<div className="smb-section__header">
-									{ ( hasSubTitle || isSelected ) && (
-										<RichText
-											className="smb-section__subtitle"
-											value={ subtitle }
-											onChange={ onChangeSubtitle }
-											placeholder={ __(
-												'Write subtitle…',
-												'snow-monkey-blocks'
-											) }
-										/>
-									) }
-
-									<RichText
-										className="smb-section__title"
-										tagName={ titleTagName }
-										value={ title }
-										onChange={ onChangeTitle }
-										placeholder={ __(
-											'Write title…',
-											'snow-monkey-blocks'
-										) }
-									/>
-
-									{ ( hasLede || isSelected ) && (
-										<div className="smb-section__lede-wrapper">
-											<RichText
-												className="smb-section__lede"
-												value={ lede }
-												onChange={ onChangeLede }
-												placeholder={ __(
-													'Write lede…',
-													'snow-monkey-blocks'
-												) }
-											/>
-										</div>
-									) }
-								</div>
-							) }
+							<Header
+								isSelected={ isSelected }
+								settings={ [
+									{
+										subtitleValue: subtitle,
+										onSubtitleChange: onChangeSubtitle,
+									},
+									{
+										titleTagNameValue: titleTagName,
+										titleValue: title,
+										onTitleChange: onChangeTitle,
+									},
+									{
+										ledeValue: lede,
+										onLedeChange: onChangeLede,
+									},
+								] }
+							/>
 
 							<div { ...innerBlocksProps } />
 						</div>
