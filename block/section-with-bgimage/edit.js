@@ -26,7 +26,13 @@ import { __ } from '@wordpress/i18n';
 
 import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
 import Figure from '@smb/component/figure';
-import { toNumber, getMediaType, isVideoType } from '@smb/helper';
+import ImageSizeSelectControl from '@smb/component/image-size-select-control';
+import {
+	toNumber,
+	getMediaType,
+	getResizedImages,
+	isVideoType,
+} from '@smb/helper';
 
 import { PanelBasicSettings } from '../section/components/basic';
 import { Edit as Header } from '../section/components/header';
@@ -48,18 +54,21 @@ export default function ( {
 		lgImageMediaType,
 		lgImageRepeat,
 		lgFocalPoint,
+		lgImageSizeSlug,
 		mdImageID,
 		mdImageURL,
 		mdImageAlt,
 		mdImageMediaType,
 		mdImageRepeat,
 		mdFocalPoint,
+		mdImageSizeSlug,
 		smImageID,
 		smImageURL,
 		smImageAlt,
 		smImageMediaType,
 		smImageRepeat,
 		smFocalPoint,
+		smImageSizeSlug,
 		contentsAlignment,
 		maskColor,
 		maskGradientColor,
@@ -88,6 +97,46 @@ export default function ( {
 			return !! ( block && block.innerBlocks.length );
 		},
 		[ clientId ]
+	);
+
+	const { lgResizedImages, mdResizedImages, smResizedImages } = useSelect(
+		( select ) => {
+			let _lgResizedImages = {};
+			let _mdResizedImages = {};
+			let _smResizedImages = {};
+
+			const { getMedia } = select( 'core' );
+			const { getSettings } = select( 'core/block-editor' );
+			const { imageSizes } = getSettings();
+
+			if ( !! lgImageID ) {
+				const media = getMedia( lgImageID );
+				if ( !! media ) {
+					_lgResizedImages = getResizedImages( imageSizes, media );
+				}
+			}
+
+			if ( !! mdImageID ) {
+				const media = getMedia( mdImageID );
+				if ( !! media ) {
+					_mdResizedImages = getResizedImages( imageSizes, media );
+				}
+			}
+
+			if ( !! smImageID ) {
+				const media = getMedia( smImageID );
+				if ( !! media ) {
+					_smResizedImages = getResizedImages( imageSizes, media );
+				}
+			}
+
+			return {
+				lgResizedImages: _lgResizedImages,
+				mdResizedImages: _mdResizedImages,
+				smResizedImages: _smResizedImages,
+			};
+		},
+		[ lgImageID, mdImageID, smImageID ]
 	);
 
 	const TagName = wrapperTagName;
@@ -253,8 +302,8 @@ export default function ( {
 
 	const onSelectLgImage = ( media ) => {
 		const newImageURL =
-			!! media.sizes && !! media.sizes.large
-				? media.sizes.large.url
+			!! media.sizes && !! media.sizes[ lgImageSizeSlug ]
+				? media.sizes[ lgImageSizeSlug ].url
 				: media.url;
 
 		setAttributes( {
@@ -270,11 +319,24 @@ export default function ( {
 			setAttributes( {
 				lgImageURL: newURL,
 				lgImageID: 0,
+				lgImageSizeSlug: 'large',
 				lgImageMediaType: getMediaType( {
 					media_type: isVideoType( newURL ) ? 'video' : 'image',
 				} ),
 			} );
 		}
+	};
+
+	const onChangeLgImageSizeSlug = ( value ) => {
+		let newImageURL = lgImageURL;
+		if ( !! lgResizedImages[ value ] && !! lgResizedImages[ value ].url ) {
+			newImageURL = lgResizedImages[ value ].url;
+		}
+
+		setAttributes( {
+			lgImageURL: newImageURL,
+			lgImageSizeSlug: value,
+		} );
 	};
 
 	const onRemoveLgImage = () =>
@@ -298,8 +360,8 @@ export default function ( {
 
 	const onSelectMdImage = ( media ) => {
 		const newImageURL =
-			!! media.sizes && !! media.sizes.large
-				? media.sizes.large.url
+			!! media.sizes && !! media.sizes[ mdImageSizeSlug ]
+				? media.sizes[ mdImageSizeSlug ].url
 				: media.url;
 
 		setAttributes( {
@@ -315,11 +377,24 @@ export default function ( {
 			setAttributes( {
 				mdImageURL: newURL,
 				mdImageID: 0,
+				lgImageSizeSlug: 'large',
 				mdImageMediaType: getMediaType( {
 					media_type: isVideoType( newURL ) ? 'video' : 'image',
 				} ),
 			} );
 		}
+	};
+
+	const onChangeMdImageSizeSlug = ( value ) => {
+		let newImageURL = mdImageURL;
+		if ( !! mdResizedImages[ value ] && !! mdResizedImages[ value ].url ) {
+			newImageURL = mdResizedImages[ value ].url;
+		}
+
+		setAttributes( {
+			mdImageURL: newImageURL,
+			mdImageSizeSlug: value,
+		} );
 	};
 
 	const onRemoveMdImage = () =>
@@ -343,8 +418,8 @@ export default function ( {
 
 	const onSelectSmImage = ( media ) => {
 		const newImageURL =
-			!! media.sizes && !! media.sizes.large
-				? media.sizes.large.url
+			!! media.sizes && !! media.sizes[ smImageSizeSlug ]
+				? media.sizes[ smImageSizeSlug ].url
 				: media.url;
 
 		setAttributes( {
@@ -360,11 +435,24 @@ export default function ( {
 			setAttributes( {
 				smImageURL: newURL,
 				smImageID: 0,
+				smImageSizeSlug: 'large',
 				smImageMediaType: getMediaType( {
 					media_type: isVideoType( newURL ) ? 'video' : 'image',
 				} ),
 			} );
 		}
+	};
+
+	const onChangeSmImageSizeSlug = ( value ) => {
+		let newImageURL = smImageURL;
+		if ( !! smResizedImages[ value ] && !! smResizedImages[ value ].url ) {
+			newImageURL = smResizedImages[ value ].url;
+		}
+
+		setAttributes( {
+			smImageURL: newImageURL,
+			smImageSizeSlug: value,
+		} );
 	};
 
 	const onRemoveSmImage = () =>
@@ -514,14 +602,26 @@ export default function ( {
 								/>
 
 								{ hasLgBackground && isLgImage && (
-									<ToggleControl
-										label={ __(
-											'Repeat images',
-											'snow-monkey-blocks'
-										) }
-										checked={ lgImageRepeat }
-										onChange={ onChangeLgImageRepeat }
-									/>
+									<>
+										<ToggleControl
+											label={ __(
+												'Repeat images',
+												'snow-monkey-blocks'
+											) }
+											checked={ lgImageRepeat }
+											onChange={ onChangeLgImageRepeat }
+										/>
+
+										<ImageSizeSelectControl
+											label={ __(
+												'Images size',
+												'snow-monkey-blocks'
+											) }
+											id={ lgImageID }
+											slug={ lgImageSizeSlug }
+											onChange={ onChangeLgImageSizeSlug }
+										/>
+									</>
 								) }
 
 								{ showLgFocalPointPicker && (
@@ -551,14 +651,26 @@ export default function ( {
 								/>
 
 								{ hasMdBackground && isMdImage && (
-									<ToggleControl
-										label={ __(
-											'Repeat images',
-											'snow-monkey-blocks'
-										) }
-										checked={ mdImageRepeat }
-										onChange={ onChangeMdImageRepeat }
-									/>
+									<>
+										<ToggleControl
+											label={ __(
+												'Repeat images',
+												'snow-monkey-blocks'
+											) }
+											checked={ mdImageRepeat }
+											onChange={ onChangeMdImageRepeat }
+										/>
+
+										<ImageSizeSelectControl
+											label={ __(
+												'Images size',
+												'snow-monkey-blocks'
+											) }
+											id={ mdImageID }
+											slug={ mdImageSizeSlug }
+											onChange={ onChangeMdImageSizeSlug }
+										/>
+									</>
 								) }
 
 								{ showMdFocalPointPicker && (
@@ -588,14 +700,26 @@ export default function ( {
 								/>
 
 								{ hasSmBackground && isSmImage && (
-									<ToggleControl
-										label={ __(
-											'Repeat images',
-											'snow-monkey-blocks'
-										) }
-										checked={ smImageRepeat }
-										onChange={ onChangeSmImageRepeat }
-									/>
+									<>
+										<ToggleControl
+											label={ __(
+												'Repeat images',
+												'snow-monkey-blocks'
+											) }
+											checked={ smImageRepeat }
+											onChange={ onChangeSmImageRepeat }
+										/>
+
+										<ImageSizeSelectControl
+											label={ __(
+												'Images size',
+												'snow-monkey-blocks'
+											) }
+											id={ smImageID }
+											slug={ smImageSizeSlug }
+											onChange={ onChangeSmImageSizeSlug }
+										/>
+									</>
 								) }
 
 								{ showSmFocalPointPicker && (

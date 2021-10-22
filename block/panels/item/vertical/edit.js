@@ -53,28 +53,31 @@ export default function ( {
 	const toggleLinkUI = () => setIsLinkUIOpen( ! isLinkUIOpen );
 	const closeLinkUI = () => setIsLinkUIOpen( false );
 
-	const { resizedImages } = useSelect( ( select ) => {
-		if ( ! imageID ) {
+	const { resizedImages } = useSelect(
+		( select ) => {
+			if ( ! imageID ) {
+				return {
+					resizedImages: {},
+				};
+			}
+
+			const { getMedia } = select( 'core' );
+			const media = getMedia( imageID );
+			if ( ! media ) {
+				return {
+					resizedImages: {},
+				};
+			}
+
+			const { getSettings } = select( 'core/block-editor' );
+			const { imageSizes } = getSettings();
+
 			return {
-				resizedImages: {},
+				resizedImages: getResizedImages( imageSizes, media ),
 			};
-		}
-
-		const { getMedia } = select( 'core' );
-		const media = getMedia( imageID );
-		if ( ! media ) {
-			return {
-				resizedImages: {},
-			};
-		}
-
-		const { getSettings } = select( 'core/block-editor' );
-		const { imageSizes } = getSettings();
-
-		return {
-			resizedImages: getResizedImages( imageSizes, media ),
-		};
-	} );
+		},
+		[ imageID ]
+	);
 
 	const titleTagNames = [ 'div', 'h2', 'h3', 'none' ];
 

@@ -92,7 +92,7 @@ export default function ( {
 				resizedImages: getResizedImages( imageSizes, media ),
 			};
 		},
-		[ isSelected, mediaId ]
+		[ mediaId ]
 	);
 
 	const hasInnerBlocks = useSelect(

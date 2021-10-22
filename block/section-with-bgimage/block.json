@@ -51,6 +51,10 @@
 		"lgFocalPoint": {
 			"type": "object"
 		},
+    "lgImageSizeSlug": {
+      "type": "string",
+      "default": "large"
+    },
     "mdImageID": {
       "type": "number",
       "default": 0
@@ -79,6 +83,10 @@
 		"mdFocalPoint": {
 			"type": "object"
 		},
+    "mdImageSizeSlug": {
+      "type": "string",
+      "default": "large"
+    },
     "smImageID": {
       "type": "number",
       "default": 0
@@ -107,6 +115,10 @@
 		"smFocalPoint": {
 			"type": "object"
 		},
+    "smImageSizeSlug": {
+      "type": "string",
+      "default": "large"
+    },
     "contentsAlignment": {
       "type": "string"
     },
