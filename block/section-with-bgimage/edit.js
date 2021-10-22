@@ -183,7 +183,8 @@ export default function ( {
 	const isLgImage =
 		'image' === lgImageMediaType || undefined === lgImageMediaType;
 	const hasLgBackground = !! lgImageURL;
-	const showLgFocalPointPicker = isLgVideo || ( isLgImage && ! parallax );
+	const showLgFocalPointPicker =
+		isLgVideo || ( isLgImage && hasLgBackground && ! parallax );
 	const lgPointValue =
 		lgFocalPoint && ! parallax
 			? `${ lgFocalPoint.x * 100 }% ${ lgFocalPoint.y * 100 }%`
@@ -193,7 +194,8 @@ export default function ( {
 	const isMdImage =
 		'image' === mdImageMediaType || undefined === mdImageMediaType;
 	const hasMdBackground = !! mdImageURL;
-	const showMdFocalPointPicker = isMdVideo || ( isMdImage && ! parallax );
+	const showMdFocalPointPicker =
+		isMdVideo || ( isMdImage && hasMdBackground && ! parallax );
 	const mdPointValue =
 		mdFocalPoint && ! parallax
 			? `${ mdFocalPoint.x * 100 }% ${ mdFocalPoint.y * 100 }%`
@@ -203,7 +205,8 @@ export default function ( {
 	const isSmImage =
 		'image' === smImageMediaType || undefined === smImageMediaType;
 	const hasSmBackground = !! smImageURL;
-	const showSmFocalPointPicker = isSmVideo || ( isSmImage && ! parallax );
+	const showSmFocalPointPicker =
+		isSmVideo || ( isSmImage && hasSmBackground && ! parallax );
 	const smPointValue =
 		smFocalPoint && ! parallax
 			? `${ smFocalPoint.x * 100 }% ${ smFocalPoint.y * 100 }%`
@@ -587,6 +590,23 @@ export default function ( {
 					title={ __( 'Media Settings', 'snow-monkey-blocks' ) }
 					initialOpen={ true }
 				>
+					{ ( hasLgBackground ||
+						hasMdBackground ||
+						hasSmBackground ) && (
+						<ToggleControl
+							label={ __(
+								'Parallax (Deprecated)',
+								'snow-monkey-blocks'
+							) }
+							checked={ parallax }
+							onChange={ onChangeParallax }
+							help={ __(
+								'This setting is being retained for backwards compatibility and is not recommended for use. Its use may slow down the page display.',
+								'snow-monkey-blocks'
+							) }
+						/>
+					) }
+
 					<ResponsiveTabPanel
 						desktop={ () => (
 							<>
@@ -734,19 +754,6 @@ export default function ( {
 									/>
 								) }
 							</>
-						) }
-					/>
-
-					<ToggleControl
-						label={ __(
-							'Parallax (Deprecated)',
-							'snow-monkey-blocks'
-						) }
-						checked={ parallax }
-						onChange={ onChangeParallax }
-						help={ __(
-							'This setting is being retained for backwards compatibility and is not recommended for use. Its use may slow down the page display.',
-							'snow-monkey-blocks'
 						) }
 					/>
 				</PanelBody>
