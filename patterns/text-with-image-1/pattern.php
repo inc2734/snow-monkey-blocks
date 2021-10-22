@@ -11,9 +11,9 @@
 	<div class="smb-section__inner">
 		<div class="c-container">
 			<div class="smb-section__contents-wrapper smb-section-break-the-grid__contents-wrapper">
-				<div class="c-row c-row--margin c-row--lg-middle">
+				<div class="c-row c-row--lg-middle">
 					<div class="c-row__col c-row__col--1-1 c-row__col--lg-1-2">
-						<div class="smb-section-break-the-grid__content smb-section-break-the-grid__content--w-s smb-section-break-the-grid__content--horizontal-s">
+						<div class="smb-section-break-the-grid__content smb-section-break-the-grid__content--w--20 smb-section-break-the-grid__content--horizontal-10">
 							<div class="smb-section__header smb-section-break-the-grid__header">
 								<h2 class="smb-section__title smb-section-break-the-grid__title">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
 							</div>
@@ -25,7 +25,7 @@
 						</div>
 					</div>
 					<div class="c-row__col c-row__col--1-1 c-row__col--lg-1-2">
-						<div class="smb-section-break-the-grid__figure smb-section-break-the-grid__figure--w-l">
+						<div class="smb-section-break-the-grid__figure smb-section-break-the-grid__figure--w-40">
 							<div class="smb-section-break-the-grid__shadow" style="background-color:#f7f7f7;transform:translate(5%, 5%)"></div>
 							<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/0135_xlarge.jpg" alt="" class="wp-image-0"/>
 						</div>

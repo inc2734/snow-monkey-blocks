@@ -11,6 +11,18 @@ export default [
 	{
 		attributes: {
 			...blockAttributes,
+			imageSize: {
+				type: 'string',
+				default: 'l',
+			},
+			contentSize: {
+				type: 'string',
+				default: 's',
+			},
+			contentHorizontalPosition: {
+				type: 'string',
+				default: 's',
+			},
 		},
 
 		supports: {
@@ -19,19 +31,114 @@ export default [
 		},
 
 		migrate( attributes ) {
-			attributes.className = without(
-				attributes.className.split( ' ' ),
-				'smb-section--left',
-				'smb-section--center',
-				'smb-section--right'
-			).join( ' ' );
+			let newAttributes = { ...attributes };
 
-			if ( ! attributes.className ) {
-				attributes = omit( attributes, 'className' );
+			if ( !! newAttributes.imageSize ) {
+				switch ( newAttributes.imageSize ) {
+					case 'm':
+						newAttributes.imageSize = '';
+						break;
+					case 'l':
+						newAttributes.imageSize = '40';
+						break;
+					case 'xl':
+						newAttributes.imageSize = '80';
+						break;
+					default:
+						newAttributes.imageSize = '';
+				}
+			}
+
+			if ( !! newAttributes.contentSize ) {
+				switch ( newAttributes.contentSize ) {
+					case 'xs':
+						newAttributes.contentSize = '-40';
+						break;
+					case 's':
+						newAttributes.contentSize = '-20';
+						break;
+					case 'm':
+						newAttributes.contentSize = '';
+						break;
+					case 'l':
+						newAttributes.contentSize = '20';
+						break;
+					case 'xl':
+						newAttributes.contentSize = '40';
+						break;
+					default:
+						newAttributes.contentSize = '';
+				}
+			}
+
+			if ( !! newAttributes.contentHorizontalPosition ) {
+				switch ( newAttributes.contentHorizontalPosition ) {
+					case 'xs':
+						newAttributes.contentHorizontalPosition = '5';
+						break;
+					case 's':
+						newAttributes.contentHorizontalPosition = '10';
+						break;
+					case 'm':
+						newAttributes.contentHorizontalPosition = '15';
+						break;
+					case 'l':
+						newAttributes.contentHorizontalPosition = '20';
+						break;
+					case 'xl':
+						newAttributes.contentHorizontalPosition = '25';
+						break;
+					default:
+						newAttributes.contentHorizontalPosition = '';
+				}
+			}
+
+			if ( !! newAttributes.contentVerticalPosition ) {
+				switch ( newAttributes.contentVerticalPosition ) {
+					case 'txl':
+						newAttributes.contentVerticalPosition = 't100';
+						break;
+					case 'tl':
+						newAttributes.contentVerticalPosition = 't80';
+						break;
+					case 'tm':
+						newAttributes.contentVerticalPosition = 't60';
+						break;
+					case 'ts':
+						newAttributes.contentVerticalPosition = 't40';
+						break;
+					case 'bs':
+						newAttributes.contentVerticalPosition = 'b40';
+						break;
+					case 'bm':
+						newAttributes.contentVerticalPosition = 'b60';
+						break;
+					case 'bl':
+						newAttributes.contentVerticalPosition = 'b80';
+						break;
+					case 'bxl':
+						newAttributes.contentVerticalPosition = 'b100';
+						break;
+					default:
+						newAttributes.contentVerticalPosition = '';
+				}
+			}
+
+			if ( !! newAttributes.className ) {
+				newAttributes.className = without(
+					newAttributes.className.split( ' ' ),
+					'smb-section--left',
+					'smb-section--center',
+					'smb-section--right'
+				).join( ' ' );
+			}
+
+			if ( ! newAttributes.className ) {
+				newAttributes = omit( newAttributes, 'className' );
 			}
 
 			return {
-				...attributes,
+				...newAttributes,
 			};
 		},
 

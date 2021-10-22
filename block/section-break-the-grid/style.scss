@@ -5,19 +5,48 @@
 .smb-section-break-the-grid {
   position: relative;
 
-  $imageSizes: (
+  // @deprecated
+  $deprecatedImageSizes: (
     140: 'l',
     180: 'xl',
   );
 
-  $contentSizes: (
+  $imageSizes: (
+    10: '10',
+    20: '20',
+    30: '30',
+    40: '40',
+    50: '50',
+    60: '60',
+    70: '70',
+    80: '80',
+    90: '90',
+    100: '100',
+  );
+
+  // @deprecated
+  $deprecatedContentSizes: (
     60: 'xs',
     80: 's',
     120: 'l',
     140: 'xl',
   );
 
-  $contentHorizontalPositions: (
+  $contentSizes: (
+    -50: '-50',
+    -40: '-40',
+    -30: '-30',
+    -20: '-20',
+    -10: '-10',
+    10: '10',
+    20: '20',
+    30: '30',
+    40: '40',
+    50: '50',
+  );
+
+  // deprecated
+  $deprecatedContentHorizontalPositions: (
     5: 'xs',
     10: 's',
     15: 'm',
@@ -25,18 +54,45 @@
     25: 'xl',
   );
 
-  $contentTopVerticalPositions: (
+  $contentHorizontalPositions: (
+    5: '5', // deprecated
+    10: '10',
+    15: '15', // deprecated
+    20: '20',
+    25: '25', // deprecated
+    30: '30',
+    40: '40',
+    50: '50',
+  );
+
+  // deprecated
+  $deprecatedContentTopVerticalPositions: (
     100: 'txl',
     80: 'tl',
     60: 'tm',
     40: 'ts',
   );
 
-  $contentBottomVerticalPositions: (
+  $contentTopVerticalPositions: (
+    100: 't100',
+    80: 't80',
+    60: 't60',
+    40: 't40',
+  );
+
+  // deprecated
+  $deprecatedContentBottomVerticalPositions: (
     40: 'bs',
     60: 'bm',
     80: 'bl',
     100: 'bxl',
+  );
+
+  $contentBottomVerticalPositions: (
+    40: 'b40',
+    60: 'b60',
+    80: 'b80',
+    100: 'b100',
   );
 
   $contentPaddings: (
@@ -46,6 +102,29 @@
   );
 
   @include _media-min(lg) {
+    // deprecated
+    @each $key, $value in $deprecatedContentTopVerticalPositions {
+      &--vertical-#{ $value } {
+        > .smb-section__inner {
+          > .#{ $_prefix }c-container {
+            > .smb-section__contents-wrapper {
+              > .#{ $_prefix }c-row {
+                > .#{ $_prefix }c-row__col {
+                  > .smb-section-break-the-grid__content {
+                    margin-bottom: 1px * $key;
+                  }
+
+                  > .smb-section-break-the-grid__figure {
+                    margin-top: 1px * $key;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
     @each $key, $value in $contentTopVerticalPositions {
       &--vertical-#{ $value } {
         > .smb-section__inner {
@@ -59,6 +138,29 @@
 
                   > .smb-section-break-the-grid__figure {
                     margin-top: 1px * $key;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // deprecated
+    @each $key, $value in $deprecatedContentBottomVerticalPositions {
+      &--vertical-#{ $value } {
+        > .smb-section__inner {
+          > .#{ $_prefix }c-container {
+            > .smb-section__contents-wrapper {
+              > .#{ $_prefix }c-row {
+                > .#{ $_prefix }c-row__col {
+                  > .smb-section-break-the-grid__content {
+                    margin-top: 1px * $key;
+                  }
+
+                  > .smb-section-break-the-grid__figure {
+                    margin-bottom: 1px * $key;
                   }
                 }
               }
@@ -109,9 +211,16 @@
                 }
 
                 @include _media-min(lg) {
-                  @each $key, $value in $imageSizes {
+                  // deprecated
+                  @each $key, $value in $deprecatedImageSizes {
                     &--w-#{ $value } {
                       width: $key * 1%;
+                    }
+                  }
+
+                  @each $key, $value in $imageSizes {
+                    &--w-#{ $value } {
+                      width: 100 + $key * 1%;
                     }
                   }
                 }
@@ -174,10 +283,19 @@
       }
     }
 
-    @each $key, $value in $contentSizes {
+    // deprecated
+    @each $key, $value in $deprecatedContentSizes {
       &--w-#{ $value } {
         @include _media-min(lg) {
           width: $key * 1%;
+        }
+      }
+    }
+
+    @each $key, $value in $contentSizes {
+      &--w-#{ $value } {
+        @include _media-min(lg) {
+          width: 100 + $key * 1%;
         }
       }
     }
@@ -265,6 +383,13 @@
             > .#{ $_prefix }c-row__col {
               > .smb-section-break-the-grid__content {
                 @include _media-min(lg) {
+                  // deprecated
+                  @each $key, $value in $deprecatedContentHorizontalPositions {
+                    &--horizontal-#{ $value } {
+                      left: 1% * $key;
+                    }
+                  }
+
                   @each $key, $value in $contentHorizontalPositions {
                     &--horizontal-#{ $value } {
                       left: 1% * $key;
@@ -288,9 +413,16 @@
                 @include _media-min(lg) {
                   right: 0;
 
-                  @each $key, $value in $imageSizes {
+                  // deprecated
+                  @each $key, $value in $deprecatedImageSizes {
                     &--w-#{ $value } {
                       margin-left: -1 * $key + 100%;
+                    }
+                  }
+
+                  @each $key, $value in $imageSizes {
+                    &--w-#{ $value } {
+                      margin-left: -1 * $key * 1%;
                     }
                   }
                 }
@@ -317,15 +449,29 @@
             > .#{ $_prefix }c-row__col {
               > .smb-section-break-the-grid__content {
                 @include _media-min(lg) {
+                  // deprecated
+                  @each $key, $value in $deprecatedContentHorizontalPositions {
+                    &--horizontal-#{ $value } {
+                      right: 1% * $key;
+                    }
+                  }
+
                   @each $key, $value in $contentHorizontalPositions {
                     &--horizontal-#{ $value } {
                       right: 1% * $key;
                     }
                   }
 
-                  @each $key, $value in $contentSizes {
+                  // deprecated
+                  @each $key, $value in $deprecatedContentSizes {
                     &--w-#{ $value } {
                       margin-left: 100 - $key * 1%;
+                    }
+                  }
+
+                  @each $key, $value in $contentSizes {
+                    &--w-#{ $value } {
+                      margin-left: -1 * $key * 1%;
                     }
                   }
 
@@ -346,9 +492,16 @@
                 @include _media-min(lg) {
                   left: 0;
 
-                  @each $key, $value in $imageSizes {
+                  // deprecated
+                  @each $key, $value in $deprecatedImageSizes {
                     &--w-#{ $value } {
                       margin-right: -1 * $key + 100%;
+                    }
+                  }
+
+                  @each $key, $value in $imageSizes {
+                    &--w-#{ $value } {
+                      margin-right: -1 * ($key * 1%);
                     }
                   }
                 }
@@ -377,9 +530,16 @@
               }
 
               > .smb-section-break-the-grid__figure {
-                @each $key, $value in $imageSizes {
+                // deprecated
+                @each $key, $value in $deprecatedImageSizes {
                   &--w-#{ $value } {
                     width: $key * 1%;
+                  }
+                }
+
+                @each $key, $value in $imageSizes {
+                  &--w-#{ $value } {
+                    width: 100 + $key * 1%;
                   }
                 }
               }
@@ -399,6 +559,17 @@
 
             > .#{ $_prefix }c-row__col {
               > .smb-section-break-the-grid__content {
+                // deprecated
+                @each $key, $value in $deprecatedContentHorizontalPositions {
+                  &--horizontal-#{ $value } {
+                    @include _margin-bottom(-1.5 * $key / 10);
+
+                    @include _media-min(md) {
+                      @include _margin-bottom(-2 * $key / 10);
+                    }
+                  }
+                }
+
                 @each $key, $value in $contentHorizontalPositions {
                   &--horizontal-#{ $value } {
                     @include _margin-bottom(-1.5 * $key / 10);
@@ -425,6 +596,17 @@
 
             > .#{ $_prefix }c-row__col {
               > .smb-section-break-the-grid__content {
+                // deprecated
+                @each $key, $value in $deprecatedContentHorizontalPositions {
+                  &--horizontal-#{ $value } {
+                    @include _margin-top(-1.5 * $key / 10);
+
+                    @include _media-min(md) {
+                      @include _margin-top(-2 * $key / 10);
+                    }
+                  }
+                }
+
                 @each $key, $value in $contentHorizontalPositions {
                   &--horizontal-#{ $value } {
                     @include _margin-top(-1.5 * $key / 10);

@@ -49,7 +49,7 @@
     },
     "imageSize": {
       "type": "string",
-      "default": "l"
+      "default": "40"
     },
     "imageSizeSlug": {
       "type": "string",
@@ -61,11 +61,11 @@
     },
     "contentSize": {
       "type": "string",
-      "default": "s"
+      "default": "-20"
     },
     "contentHorizontalPosition": {
       "type": "string",
-      "default": "s"
+      "default": "10"
     },
     "contentVerticalPosition": {
       "type": "string"

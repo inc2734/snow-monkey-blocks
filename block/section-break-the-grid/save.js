@@ -91,7 +91,7 @@ export default function ( { attributes, className } ) {
 	} );
 
 	const rowClasses = classnames( 'c-row', {
-		'c-row--margin': isAvailableVerticalAlignment,
+		// 'c-row--margin': isAvailableVerticalAlignment,
 		'c-row--lg-top':
 			'top' === verticalAlignment && isAvailableVerticalAlignment,
 		'c-row--lg-middle':

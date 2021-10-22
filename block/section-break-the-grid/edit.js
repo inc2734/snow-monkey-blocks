@@ -174,7 +174,7 @@ export default function ( {
 	} );
 
 	const rowClasses = classnames( 'c-row', {
-		'c-row--margin': isAvailableVerticalAlignment,
+		// 'c-row--margin': isAvailableVerticalAlignment,
 		'c-row--lg-top':
 			'top' === verticalAlignment && isAvailableVerticalAlignment,
 		'c-row--lg-middle':
@@ -540,27 +540,51 @@ export default function ( {
 
 	let contentSizeOptions = [
 		{
-			value: 'xs',
+			value: '-50',
+			label: __( '-50%', 'snow-monkey-blocks' ),
+		},
+		{
+			value: '-40',
 			label: __( '-40%', 'snow-monkey-blocks' ),
 		},
 		{
-			value: 's',
+			value: '-30',
+			label: __( '-30%', 'snow-monkey-blocks' ),
+		},
+		{
+			value: '-20',
 			label: __( '-20%', 'snow-monkey-blocks' ),
 		},
 		{
-			value: 'm',
+			value: '-10',
+			label: __( '-10%', 'snow-monkey-blocks' ),
+		},
+		{
+			value: '',
 			label: __( '+-0%', 'snow-monkey-blocks' ),
 		},
 	];
 	contentSizeOptions = isAvailableVerticalAlignment
 		? contentSizeOptions.concat( [
 				{
-					value: 'l',
+					value: '10',
+					label: __( '+10%', 'snow-monkey-blocks' ),
+				},
+				{
+					value: '20',
 					label: __( '+20%', 'snow-monkey-blocks' ),
 				},
 				{
-					value: 'xl',
+					value: '30',
+					label: __( '+30%', 'snow-monkey-blocks' ),
+				},
+				{
+					value: '40',
 					label: __( '+40%', 'snow-monkey-blocks' ),
+				},
+				{
+					value: '50',
+					label: __( '+50%', 'snow-monkey-blocks' ),
 				},
 		  ] )
 		: contentSizeOptions;
@@ -640,16 +664,48 @@ export default function ( {
 						value={ imageSize }
 						options={ [
 							{
-								value: 'm',
+								value: '',
 								label: __( '+-0%', 'snow-monkey-blocks' ),
 							},
 							{
-								value: 'l',
+								value: '10',
+								label: __( '+10%', 'snow-monkey-blocks' ),
+							},
+							{
+								value: '20',
+								label: __( '+20%', 'snow-monkey-blocks' ),
+							},
+							{
+								value: '30',
+								label: __( '+30%', 'snow-monkey-blocks' ),
+							},
+							{
+								value: '40',
 								label: __( '+40%', 'snow-monkey-blocks' ),
 							},
 							{
-								value: 'xl',
+								value: '50',
+								label: __( '+50%', 'snow-monkey-blocks' ),
+							},
+							{
+								value: '60',
+								label: __( '+60%', 'snow-monkey-blocks' ),
+							},
+							{
+								value: '70',
+								label: __( '+70%', 'snow-monkey-blocks' ),
+							},
+							{
+								value: '80',
 								label: __( '+80%', 'snow-monkey-blocks' ),
+							},
+							{
+								value: '90',
+								label: __( '+90%', 'snow-monkey-blocks' ),
+							},
+							{
+								value: '100',
+								label: __( '+100%', 'snow-monkey-blocks' ),
 							},
 						] }
 						onChange={ onChangeImageSize }
@@ -681,25 +737,37 @@ export default function ( {
 								value: '',
 								label: __( '+-0%', 'snow-monkey-blocks' ),
 							},
+							// {
+							// 	value: '5',
+							// 	label: __( '5%', 'snow-monkey-blocks' ),
+							// },
 							{
-								value: 'xs',
-								label: __( '5%', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 's',
+								value: '10',
 								label: __( '10%', 'snow-monkey-blocks' ),
 							},
+							// {
+							// 	value: '15',
+							// 	label: __( '15%', 'snow-monkey-blocks' ),
+							// },
 							{
-								value: 'm',
-								label: __( '15%', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'l',
+								value: '20',
 								label: __( '20%', 'snow-monkey-blocks' ),
 							},
+							// {
+							// 	value: '25',
+							// 	label: __( '25%', 'snow-monkey-blocks' ),
+							// },
 							{
-								value: 'xl',
-								label: __( '25%', 'snow-monkey-blocks' ),
+								value: '30',
+								label: __( '30%', 'snow-monkey-blocks' ),
+							},
+							{
+								value: '40',
+								label: __( '40%', 'snow-monkey-blocks' ),
+							},
+							{
+								value: '50',
+								label: __( '50%', 'snow-monkey-blocks' ),
 							},
 						] }
 						onChange={ onChangeContentHorizontalPosition }
@@ -723,7 +791,7 @@ export default function ( {
 										),
 									},
 									{
-										value: 'txl',
+										value: 't100',
 										label: sprintf(
 											// translators: %1$s: px
 											__(
@@ -734,7 +802,7 @@ export default function ( {
 										),
 									},
 									{
-										value: 'tl',
+										value: 't80',
 										label: sprintf(
 											// translators: %1$s: px
 											__(
@@ -745,7 +813,7 @@ export default function ( {
 										),
 									},
 									{
-										value: 'tm',
+										value: 't60',
 										label: sprintf(
 											// translators: %1$s: px
 											__(
@@ -756,7 +824,7 @@ export default function ( {
 										),
 									},
 									{
-										value: 'ts',
+										value: 't40',
 										label: sprintf(
 											// translators: %1$s: px
 											__(
@@ -767,7 +835,7 @@ export default function ( {
 										),
 									},
 									{
-										value: 'bs',
+										value: 'b40',
 										label: sprintf(
 											// translators: %1$s: px
 											__(
@@ -778,7 +846,7 @@ export default function ( {
 										),
 									},
 									{
-										value: 'bm',
+										value: 'b60',
 										label: sprintf(
 											// translators: %1$s: px
 											__(
@@ -789,7 +857,7 @@ export default function ( {
 										),
 									},
 									{
-										value: 'bl',
+										value: 'b80',
 										label: sprintf(
 											// translators: %1$s: px
 											__(
@@ -800,7 +868,7 @@ export default function ( {
 										),
 									},
 									{
-										value: 'bxl',
+										value: 'b100',
 										label: sprintf(
 											// translators: %1$s: px
 											__(

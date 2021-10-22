@@ -6,14 +6,14 @@
  */
 ?>
 
-<!-- wp:snow-monkey-blocks/section-break-the-grid {"textColor":"#fff","imageSize":"xl","contentHorizontalPosition":"xs","contentBackgroundColor":"#000","contentPadding":"s","align":"full"} -->
+<!-- wp:snow-monkey-blocks/section-break-the-grid {"textColor":"#fff","imageSize":"80","contentHorizontalPosition":"5","contentBackgroundColor":"#000","contentPadding":"s","align":"full"} -->
 <div class="wp-block-snow-monkey-blocks-section-break-the-grid alignfull smb-section smb-section-break-the-grid smb-section-break-the-grid--right" style="color:#fff">
 	<div class="smb-section__inner">
 		<div class="c-container">
 			<div class="smb-section__contents-wrapper smb-section-break-the-grid__contents-wrapper">
-				<div class="c-row c-row--margin c-row--lg-middle">
+				<div class="c-row c-row--lg-middle">
 					<div class="c-row__col c-row__col--1-1 c-row__col--lg-1-2">
-						<div class="smb-section-break-the-grid__content smb-section-break-the-grid__content--w-s smb-section-break-the-grid__content--p-s smb-section-break-the-grid__content--horizontal-xs" style="background-color:rgba(0, 0, 0, 0.98)">
+						<div class="smb-section-break-the-grid__content smb-section-break-the-grid__content--w--20 smb-section-break-the-grid__content--p-s smb-section-break-the-grid__content--horizontal-5" style="background-color:rgba(0, 0, 0, 0.98)">
 							<div class="smb-section__header smb-section-break-the-grid__header">
 								<h2 class="smb-section__title smb-section-break-the-grid__title">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
 							</div>
@@ -25,7 +25,7 @@
 						</div>
 					</div>
 					<div class="c-row__col c-row__col--1-1 c-row__col--lg-1-2">
-						<div class="smb-section-break-the-grid__figure smb-section-break-the-grid__figure--w-xl">
+						<div class="smb-section-break-the-grid__figure smb-section-break-the-grid__figure--w-80">
 							<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/0117_xlarge.jpg" alt="" class="wp-image-0"/>
 						</div>
 					</div>
