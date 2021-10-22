@@ -368,9 +368,6 @@
   &--bottom {
     > .smb-section__inner {
       > .#{ $_prefix }c-container {
-        padding-right: 0;
-        padding-left: 0;
-
         > .smb-section__contents-wrapper {
           > .#{ $_prefix }c-row {
             > .#{ $_prefix }c-row__col {
@@ -454,12 +451,6 @@
   // @deprecated
   > .#{ $_prefix }c-container {
     max-width: none;
-  }
-
-  > .smb-section__inner {
-    > .#{ $_prefix }c-container {
-      max-width: none;
-    }
   }
 }
 
