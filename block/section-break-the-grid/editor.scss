@@ -7,19 +7,6 @@
   @import 'style';
 }
 
-.editor-styles-wrapper [data-align="full"] > .smb-section-break-the-grid,
-.customize-control-sidebar_block_editor [data-align="full"] > .smb-section-break-the-grid {
-  > .smb-section__inner {
-    > .c-container {
-      max-width: none;
-
-      > * {
-        max-width: none;
-      }
-    }
-  }
-}
-
 [data-align="full"] > .smb-section-break-the-grid--right {
   > .smb-section__inner {
     > .#{ $_prefix }c-container {
