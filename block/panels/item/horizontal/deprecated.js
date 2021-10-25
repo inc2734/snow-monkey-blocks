@@ -10,6 +10,10 @@ export default [
 	{
 		attributes: {
 			...blockAttributes,
+			linkTarget: {
+				type: 'string',
+				default: '_self',
+			},
 		},
 
 		save( { attributes, className } ) {

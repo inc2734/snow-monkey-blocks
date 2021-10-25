@@ -10,6 +10,14 @@ export default [
 	{
 		attributes: {
 			...blockAttributes,
+			url: {
+				type: 'string',
+				default: '',
+			},
+			target: {
+				type: 'string',
+				default: '_self',
+			},
 		},
 
 		save( { attributes, className } ) {

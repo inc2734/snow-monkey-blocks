@@ -28,10 +28,16 @@
     },
     "btnURL": {
       "type": "string",
+      "source": "attribute",
+      "selector": ".smb-btn",
+      "attribute": "href",
       "default": ""
     },
     "btnTarget": {
       "type": "string",
+      "source": "attribute",
+      "selector": ".smb-btn",
+      "attribute": "target",
       "default": "_self"
     },
     "btnBackgroundColor": {

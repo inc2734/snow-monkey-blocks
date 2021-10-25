@@ -10,6 +10,14 @@ export default [
 	{
 		attributes: {
 			...blockAttributes,
+			btnURL: {
+				type: 'string',
+				default: '',
+			},
+			btnTarget: {
+				type: 'string',
+				default: '_self',
+			},
 		},
 
 		supports: {
@@ -105,6 +113,14 @@ export default [
 	{
 		attributes: {
 			...blockAttributes,
+			btnURL: {
+				type: 'string',
+				default: '',
+			},
+			btnTarget: {
+				type: 'string',
+				default: '_self',
+			},
 		},
 
 		supports: {
@@ -175,6 +191,14 @@ export default [
 	{
 		attributes: {
 			...blockAttributes,
+			btnURL: {
+				type: 'string',
+				default: '',
+			},
+			btnTarget: {
+				type: 'string',
+				default: '_self',
+			},
 		},
 
 		save( { attributes } ) {
@@ -240,6 +264,14 @@ export default [
 	{
 		attributes: {
 			...blockAttributes,
+			btnURL: {
+				type: 'string',
+				default: '',
+			},
+			btnTarget: {
+				type: 'string',
+				default: '_self',
+			},
 		},
 
 		supports: {

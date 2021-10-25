@@ -1042,10 +1042,16 @@ License: https://github.com/kenwheeler/slick/blob/master/LICENSE
 - cooks: https://cooks.jp
 - License: CC BY 4.0 https://creativecommons.org/licenses/by/4.0/deed
 
-**visualhunt**
-- https://visualhunt.com/photo/1646/people-walking-towards-eiffel-tower-at-night/
-- https://visualhunt.com/photo/849/clouds-in-sky-over-fields/
-- https://visualhunt.com/photo/525/sunset-over-lake-1/
-- https://visualhunt.com/photo/1382/man-sitting-at-table-with-coffee-cup-using-digital-tablet/
-- https://visualhunt.com/photo/722/mountain-landscape-and-tree-at-sunset/
-- https://visualhunt.com/photo/3306/wave-ocean/
+**Pexels**
+- https://stocksnap.io/photo/nature-landscape-WRN48FO5MR
+- https://stocksnap.io/photo/nature-mountains-LGG8NAT9JY
+- http://alana.io/downloads/blue-sky-moon/
+- http://alana.io/downloads/swing-ocean-sea/
+- https://alana.io/downloads/smartphone-mobile-laptop/
+- https://alana.io/downloads/person-25/
+- http://alana.io/downloads/beach-sand-coast/
+- http://alana.io/downloads/man-guy-photographer/
+- http://alana.io/downloads/sunset-wind/
+- https://alana.io/downloads/building-windows-balconies/
+- https://alana.io/downloads/building-architecture-sky/
+- https://stocksnap.io/photo/purple-sky-PYLMXGT6UJ

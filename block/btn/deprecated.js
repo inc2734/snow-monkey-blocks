@@ -10,6 +10,14 @@ export default [
 	{
 		attributes: {
 			...blockAttributes,
+			url: {
+				type: 'string',
+				default: '',
+			},
+			target: {
+				type: 'string',
+				default: '_self',
+			},
 		},
 
 		supports: {
@@ -79,6 +87,14 @@ export default [
 	{
 		attributes: {
 			...blockAttributes,
+			url: {
+				type: 'string',
+				default: '',
+			},
+			target: {
+				type: 'string',
+				default: '_self',
+			},
 		},
 
 		supports: {
@@ -150,6 +166,14 @@ export default [
 	{
 		attributes: {
 			...blockAttributes,
+			url: {
+				type: 'string',
+				default: '',
+			},
+			target: {
+				type: 'string',
+				default: '_self',
+			},
 		},
 
 		supports: {
@@ -195,6 +219,14 @@ export default [
 	{
 		attributes: {
 			...blockAttributes,
+			url: {
+				type: 'string',
+				default: '',
+			},
+			target: {
+				type: 'string',
+				default: '_self',
+			},
 		},
 
 		supports: {

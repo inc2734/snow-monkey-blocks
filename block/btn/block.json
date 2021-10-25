@@ -16,10 +16,16 @@
     },
     "url": {
       "type": "string",
+      "source": "attribute",
+      "selector": ".smb-btn-wrapper a",
+      "attribute": "href",
       "default": ""
     },
     "target": {
       "type": "string",
+      "source": "attribute",
+      "selector": ".smb-btn-wrapper a",
+      "attribute": "target",
       "default": "_self"
     },
     "modifier": {

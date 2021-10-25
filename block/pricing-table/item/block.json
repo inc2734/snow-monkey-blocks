@@ -82,6 +82,9 @@
     },
     "btnTarget": {
       "type": "string",
+      "source": "attribute",
+      "selector": ".smb-pricing-table__item__btn",
+      "attribute": "target",
       "default": "_self"
     },
     "btnBackgroundColor": {

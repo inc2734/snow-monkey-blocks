@@ -37,6 +37,9 @@
     },
     "linkTarget": {
       "type": "string",
+      "source": "attribute",
+      "selector": ".smb-panels__item__action > a",
+      "attribute": "target",
       "default": "_self"
     },
     "imagePosition": {
