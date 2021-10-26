@@ -26,7 +26,7 @@
 							<div class="wp-block-snow-monkey-blocks-items--item--standard c-row__col">
 								<div class="smb-items__item">
 									<div class="smb-items__item__figure">
-										<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/sunset-over-lake-1.jpg" alt="" class="wp-image-0"/>
+										<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/beach-sand-coast2756.jpg" alt="" class="wp-image-0"/>
 									</div>
 									<div class="smb-items__item__body">
 										<div class="smb-items__item__title">Lorem ipsum</div>
@@ -40,7 +40,7 @@
 							<div class="wp-block-snow-monkey-blocks-items--item--standard c-row__col">
 								<div class="smb-items__item">
 									<div class="smb-items__item__figure">
-										<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/people-walking-towards-eiffel-tower-at-night.jpg" alt="" class="wp-image-0"/>
+										<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/building-architecture-sky2096.jpg" alt="" class="wp-image-0"/>
 									</div>
 									<div class="smb-items__item__body">
 										<div class="smb-items__item__title">Lorem ipsum</div>
@@ -54,7 +54,7 @@
 							<div class="wp-block-snow-monkey-blocks-items--item--standard c-row__col">
 								<div class="smb-items__item">
 									<div class="smb-items__item__figure">
-										<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/mountain-landscape-and-tree-at-sunset.jpg" alt="" class="wp-image-0"/>
+										<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/building-windows-balconies330.jpg" alt="" class="wp-image-0"/>
 									</div>
 									<div class="smb-items__item__body">
 										<div class="smb-items__item__title">Lorem ipsum</div>

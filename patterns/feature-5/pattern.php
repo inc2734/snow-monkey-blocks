@@ -28,7 +28,7 @@
 							</div>
 							<div class="c-row__col c-row__col--1-1 c-row__col--lg-1-3">
 								<div class="smb-media-text__figure">
-									<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/sunset-over-lake-1.jpg" alt="" class="wp-image-0"/>
+									<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/0117_xlarge.jpg" alt="" class="wp-image-0"/>
 								</div>
 							</div>
 						</div>
@@ -47,7 +47,7 @@
 							</div>
 							<div class="c-row__col c-row__col--1-1 c-row__col--lg-1-3">
 								<div class="smb-media-text__figure">
-									<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/people-walking-towards-eiffel-tower-at-night.jpg" alt="" class="wp-image-0"/>
+									<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/0135_xlarge.jpg" alt="" class="wp-image-0"/>
 								</div>
 							</div>
 						</div>

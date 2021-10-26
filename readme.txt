@@ -1042,16 +1042,40 @@ License: https://github.com/kenwheeler/slick/blob/master/LICENSE
 - cooks: https://cooks.jp
 - License: CC BY 4.0 https://creativecommons.org/licenses/by/4.0/deed
 
-**Pexels**
-- https://stocksnap.io/photo/nature-landscape-WRN48FO5MR
-- https://stocksnap.io/photo/nature-mountains-LGG8NAT9JY
-- http://alana.io/downloads/blue-sky-moon/
-- http://alana.io/downloads/swing-ocean-sea/
-- https://alana.io/downloads/smartphone-mobile-laptop/
-- https://alana.io/downloads/person-25/
-- http://alana.io/downloads/beach-sand-coast/
-- http://alana.io/downloads/man-guy-photographer/
-- http://alana.io/downloads/sunset-wind/
-- https://alana.io/downloads/building-windows-balconies/
-- https://alana.io/downloads/building-architecture-sky/
-- https://stocksnap.io/photo/purple-sky-PYLMXGT6UJ
+**Donald Tong**
+- https://stocksnap.io/author/25134
+- StockSnap_WRN48FO5MR.jpg
+  - https://stocksnap.io/photo/nature-landscape-WRN48FO5MR
+  - License: CC0 https://creativecommons.org/publicdomain/zero/1.0/
+
+**Michelle Kim**
+- https://stocksnap.io/author/50698
+- StockSnap_LGG8NAT9JY.jpg
+  - https://stocksnap.io/photo/nature-mountains-LGG8NAT9JY
+  - License: CC0 https://creativecommons.org/publicdomain/zero/1.0/
+
+**Nathan Anderson**
+- https://stocksnap.io/author/28174
+- StockSnap_YDXJ69TOAL.jpg
+  - https://stocksnap.io/photo/mountain-highland-YDXJ69TOAL
+  - License: CC0 https://creativecommons.org/publicdomain/zero/1.0/
+
+**Alana**
+- swing-ocean-sea2875.jpg
+  - http://alana.io/downloads/swing-ocean-sea/
+  - License: CC0 http://alana.io/license/
+- smartphone-mobile-laptop36.jpg
+  - https://alana.io/downloads/smartphone-mobile-laptop/
+  - License: CC0 http://alana.io/license/
+- beach-sand-coast2756.jpg
+  - http://alana.io/downloads/beach-sand-coast/
+  - License: CC0 http://alana.io/license/
+- man-guy-photographer1579.jpg
+  - http://alana.io/downloads/man-guy-photographer/
+  - License: CC0 http://alana.io/license/
+- building-windows-balconies330.jpg
+  - https://alana.io/downloads/building-windows-balconies/
+  - License: CC0 http://alana.io/license/
+- building-architecture-sky2096.jpg
+  - https://alana.io/downloads/building-architecture-sky/
+  - License: CC0 http://alana.io/license/

@@ -32,7 +32,7 @@
 							</div>
 							<div class="c-row__col c-row__col--1-1 c-row__col--lg-1-2">
 								<div class="smb-media-text__figure">
-									<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/fullsizeoutput_a92.jpg" alt="" class="wp-image-0"/>
+									<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/swing-ocean-sea2875.jpg" alt="" class="wp-image-0"/>
 								</div>
 							</div>
 						</div>
