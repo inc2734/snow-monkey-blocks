@@ -436,7 +436,8 @@
 
   &--left {
     // @deprecated
-    > .#{ $_prefix }c-container > .#{ $_prefix }c-row {
+    > .#{ $_prefix }c-container > .#{ $_prefix }c-row,
+    > .smb-section__inner > .#{ $_prefix }c-container > .#{ $_prefix }c-row {
       flex-direction: row-reverse;
     }
 
