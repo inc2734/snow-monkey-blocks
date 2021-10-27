@@ -2,7 +2,7 @@ export default {
 	attributes: {
 		title: 'Lorem',
 		imageID: 1,
-		imageURL: `${ smb.pluginUrl }/dist/img/photos/sunset-over-lake-1.jpg`,
+		imageURL: `${ smb.pluginUrl }/dist/img/photos/0117_xlarge.jpg`,
 	},
 	innerBlocks: [
 		{

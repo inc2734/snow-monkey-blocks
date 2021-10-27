@@ -2,7 +2,7 @@ export default {
 	attributes: {
 		title: 'Lorem ipsum dolor sit amet',
 		imageID: 1,
-		imageURL: `${ smb.pluginUrl }/dist/img/photos/sunset-over-lake-1.jpg`,
+		imageURL: `${ smb.pluginUrl }/dist/img/photos/dist/img/photos/StockSnap_LGG8NAT9JY.jpg`,
 		maskColor: '#000',
 		maskOpacity: 0.7,
 	},
