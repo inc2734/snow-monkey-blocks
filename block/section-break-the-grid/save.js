@@ -66,6 +66,9 @@ export default function ( { attributes, className } ) {
 		imagePosition
 	);
 
+	const isNowrapWhenMobile =
+		'nowrap' === mobileOrder && isAvailableVerticalAlignment;
+
 	const TagName = wrapperTagName;
 
 	const classes = classnames(
@@ -91,7 +94,6 @@ export default function ( { attributes, className } ) {
 	} );
 
 	const rowClasses = classnames( 'c-row', {
-		// 'c-row--margin': isAvailableVerticalAlignment,
 		'c-row--lg-top':
 			'top' === verticalAlignment && isAvailableVerticalAlignment,
 		'c-row--lg-middle':
@@ -100,11 +102,17 @@ export default function ( { attributes, className } ) {
 			'bottom' === verticalAlignment && isAvailableVerticalAlignment,
 	} );
 
-	const textColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', {
-		'c-row__col--lg-1-2': isAvailableVerticalAlignment,
+	const textColumnClasses = classnames( 'c-row__col', {
+		'c-row__col--1-1': ! isNowrapWhenMobile,
+		'c-row__col--1-2': isNowrapWhenMobile,
+		'c-row__col--lg-1-2':
+			isAvailableVerticalAlignment && ! isNowrapWhenMobile,
 	} );
-	const imageColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', {
-		'c-row__col--lg-1-2': isAvailableVerticalAlignment,
+	const imageColumnClasses = classnames( 'c-row__col', {
+		'c-row__col--1-1': ! isNowrapWhenMobile,
+		'c-row__col--1-2': isNowrapWhenMobile,
+		'c-row__col--lg-1-2':
+			isAvailableVerticalAlignment && ! isNowrapWhenMobile,
 	} );
 
 	const figureClasses = classnames( 'smb-section-break-the-grid__figure', {

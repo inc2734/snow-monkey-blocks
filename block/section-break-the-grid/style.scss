@@ -256,6 +256,86 @@
     }
   }
 
+  &--mobile-nowrap {
+    > .smb-section__inner {
+      > .#{ $_prefix }c-container {
+        > .smb-section__contents-wrapper {
+          @include _media-max(md) {
+            @include _padding(2, 0);
+          }
+
+          > .#{ $_prefix }c-row {
+            > .#{ $_prefix }c-row__col {
+              > .smb-section-break-the-grid__figure {
+                @include _media-max(md) {
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+
+                  > img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.smb-section-break-the-grid--right {
+      > .smb-section__inner {
+        > .#{ $_prefix }c-container {
+          > .smb-section__contents-wrapper {
+            > .#{ $_prefix }c-row {
+              > .#{ $_prefix }c-row__col {
+                > .smb-section-break-the-grid__content {
+                  @include _media-max(md) {
+                    @include _margin-right(-5);
+                  }
+                }
+
+                > .smb-section-break-the-grid__figure {
+                  @include _media-max(md) {
+                    left: _space(2);
+                    right: 0;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.smb-section-break-the-grid--left {
+      > .smb-section__inner {
+        > .#{ $_prefix }c-container {
+          > .smb-section__contents-wrapper {
+            > .#{ $_prefix }c-row {
+              > .#{ $_prefix }c-row__col {
+                > .smb-section-break-the-grid__content {
+                  @include _media-max(md) {
+                    @include _margin-left(-5);
+                  }
+                }
+
+                > .smb-section-break-the-grid__figure {
+                  @include _media-max(md) {
+                    right: _space(2);
+                    left: 0;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   &__mask {
     @include _position(absolute, 0, 0, 0, 0);
   }
