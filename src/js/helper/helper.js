@@ -344,3 +344,58 @@ export function isVideoType( filename = '' ) {
 	if ( ! filename ) return false;
 	return VIDEO_EXTENSIONS.includes( getExtension( filename ) );
 }
+
+/**
+ * Generate CSS spacing properties.
+ *
+ * @param {Object} values
+ * @return {Object} js padding value.
+ */
+export function generateSpacingProperties( values ) {
+	Object.keys( values ).forEach( ( key ) => {
+		const value = values?.[ key ];
+		if ( null === value || '' === value ) {
+			values[ key ] = undefined;
+		}
+	} );
+
+	const top = 0 === parseFloat( values?.top ) ? 0 : values?.top;
+	const right = 0 === parseFloat( values?.right ) ? 0 : values?.right;
+	const bottom = 0 === parseFloat( values?.bottom ) ? 0 : values?.bottom;
+	const left = 0 === parseFloat( values?.left ) ? 0 : values?.left;
+
+	if (
+		( ( top === right ) === bottom ) === left &&
+		'undefined' !== typeof top
+	) {
+		return {
+			padding: top,
+		};
+	} else if (
+		top === bottom &&
+		right === left &&
+		'undefined' !== typeof top &&
+		'undefined' !== typeof right
+	) {
+		return {
+			padding: `${ top } ${ right }`,
+		};
+	} else if (
+		top !== bottom &&
+		right === left &&
+		'undefined' !== typeof top &&
+		'undefined' !== typeof bottom &&
+		'undefined' !== typeof right
+	) {
+		return {
+			padding: `${ top } ${ right } ${ bottom }`,
+		};
+	}
+
+	return {
+		paddingTop: top,
+		paddingRight: right,
+		paddingBottom: bottom,
+		paddingLeft: left,
+	};
+}

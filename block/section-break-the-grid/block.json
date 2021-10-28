@@ -139,6 +139,10 @@
     "containerAlign": {
       "type": "string"
     },
+    "padding": {
+      "type": "object",
+      "default": {}
+    },
 
     "backgroundHorizontalPosition": {
       "type": "number",

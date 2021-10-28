@@ -31,6 +31,7 @@ import {
 	getMediaType,
 	getResizedImages,
 	isVideoType,
+	generateSpacingProperties,
 } from '@smb/helper';
 import Figure from '@smb/component/figure';
 import ImageSizeSelectControl from '@smb/component/image-size-select-control';
@@ -89,6 +90,7 @@ export default function ( {
 		wrapperTagName,
 		titleTagName,
 		containerAlign,
+		padding,
 
 		backgroundHorizontalPosition,
 		backgroundVerticalPosition,
@@ -217,6 +219,7 @@ export default function ( {
 
 	const sectionStyles = {
 		color: textColor || undefined,
+		...generateSpacingProperties( padding ),
 	};
 
 	const shadowStyles = {};
@@ -451,6 +454,11 @@ export default function ( {
 			containerAlign: value,
 		} );
 
+	const onChangePadding = ( value ) =>
+		setAttributes( {
+			padding: value,
+		} );
+
 	const onChangeBackgroundHorizontalPosition = ( value ) =>
 		setAttributes( {
 			backgroundHorizontalPosition: toNumber( value, -90, 90 ),
@@ -615,6 +623,11 @@ export default function ( {
 						{
 							containerAlignValue: containerAlign,
 							onContainerAlignChange: onChangeContainerAlign,
+						},
+						{
+							sides: [ 'top', 'bottom' ],
+							paddingValue: padding,
+							onPaddingChange: onChangePadding,
 						},
 					] }
 				/>

@@ -12,6 +12,7 @@ import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 import WidthPicker from '@smb/component/width-picker';
+import SpacingControl from '@smb/component/spacing-control';
 
 export const PanelBasicSettings = ( {
 	disableIsSlim,
@@ -218,6 +219,23 @@ export const PanelBasicSettings = ( {
 							) }
 							checked={ setting.isSlimValue }
 							onChange={ setting.onIsSlimChange }
+						/>
+					);
+				}
+
+				if (
+					setting.hasOwnProperty( 'paddingValue' ) &&
+					setting.hasOwnProperty( 'onPaddingChange' )
+				) {
+					return (
+						<SpacingControl
+							key={ index }
+							label={ __( 'Padding', 'snow-monkey-blocks' ) }
+							sides={
+								!! setting.sides ? setting.sides : undefined
+							}
+							values={ setting.paddingValue }
+							onChange={ setting.onPaddingChange }
 						/>
 					);
 				}

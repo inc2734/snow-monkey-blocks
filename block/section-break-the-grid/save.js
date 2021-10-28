@@ -6,6 +6,8 @@ import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 import { SectionBackground } from '../section/components/background';
 import { Save as Header } from '../section/components/header';
 
+import { generateSpacingProperties } from '@smb/helper';
+
 export default function ( { attributes, className } ) {
 	const {
 		imageID,
@@ -40,6 +42,7 @@ export default function ( { attributes, className } ) {
 		wrapperTagName,
 		titleTagName,
 		containerAlign,
+		padding,
 
 		backgroundHorizontalPosition,
 		backgroundVerticalPosition,
@@ -134,6 +137,7 @@ export default function ( { attributes, className } ) {
 
 	const sectionStyles = {
 		color: textColor || undefined,
+		...generateSpacingProperties( padding ),
 	};
 
 	const shadowStyles = {};
