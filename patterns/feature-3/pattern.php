@@ -65,7 +65,7 @@
 							<div class="wp-block-snow-monkey-blocks-panels--item--horizontal c-row__col">
 								<div class="smb-panels__item smb-panels__item--horizontal smb-panels__item--reverse">
 									<div class="smb-panels__item__figure">
-										<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/StockSnap_WRN48FO5MR.jpg" alt="" class="wp-image-0"/>
+										<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/stocksnap_wrn48fo5mr.jpg" alt="" class="wp-image-0"/>
 									</div>
 									<div class="smb-panels__item__body">
 										<div class="smb-panels__item__title">Lorem ipsum</div>

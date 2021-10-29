@@ -10,7 +10,7 @@
 <div class="wp-block-snow-monkey-blocks-section-with-bgimage alignfull smb-section smb-section-with-bgimage smb-section--wide" style="color:#fff">
 	<div class="smb-section-with-bgimage__bgimage smb-section-with-bgimage__bgimage--lg">
 		<div class="smb-section-with-bgimage__mask" style="background-color:#000000"></div>
-		<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/StockSnap_LGG8NAT9JY.jpg" alt="" class="wp-image-0" style="opacity:0.6"/>
+		<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/stocksnap_lgg8nat9jy.jpg" alt="" class="wp-image-0" style="opacity:0.6"/>
 	</div>
 	<div class="smb-section__inner">
 		<div class="c-container">

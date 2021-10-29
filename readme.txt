@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 13.0.0
+Stable tag: 13.0.1
 Requires at least: 5.8
 Tested up to: 5.8
 Requires PHP: 5.6
@@ -107,6 +107,9 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 24. Tabs block (The number of tab can be increased or decreased freely)
 
 == Changelog ==
+
+= 13.0.1 =
+* Change image name.
 
 = 13.0.0 =
 * [Section] Change HTML structures.
@@ -1076,19 +1079,19 @@ License: https://github.com/kenwheeler/slick/blob/master/LICENSE
 
 **Donald Tong**
 - https://stocksnap.io/author/25134
-- StockSnap_WRN48FO5MR.jpg
+- stocksnap_wrn48fo5mr.jpg
   - https://stocksnap.io/photo/nature-landscape-WRN48FO5MR
   - License: CC0 https://creativecommons.org/publicdomain/zero/1.0/
 
 **Michelle Kim**
 - https://stocksnap.io/author/50698
-- StockSnap_LGG8NAT9JY.jpg
+- stocksnap_lgg8nat9jy.jpg
   - https://stocksnap.io/photo/nature-mountains-LGG8NAT9JY
   - License: CC0 https://creativecommons.org/publicdomain/zero/1.0/
 
 **Nathan Anderson**
 - https://stocksnap.io/author/28174
-- StockSnap_YDXJ69TOAL.jpg
+- stocksnap_ydxj69toal.jpg
   - https://stocksnap.io/photo/mountain-highland-YDXJ69TOAL
   - License: CC0 https://creativecommons.org/publicdomain/zero/1.0/
 
