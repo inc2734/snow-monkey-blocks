@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 12.6.1
+Stable tag: 13.0.0
 Requires at least: 5.8
 Tested up to: 5.8
 Requires PHP: 5.6
@@ -107,6 +107,38 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 24. Tabs block (The number of tab can be increased or decreased freely)
 
 == Changelog ==
+
+= 13.0.0 =
+* [Section] Change HTML structures.
+* [Section] Add new setting: Max width of the contents.
+* [Section] Add new setting: Container alignment.
+* [Section (Background image/video)] Change HTML structures.
+* [Section (Background image/video)] Add new setting: Max width of the contents.
+* [Section (Background image/video)] Add new setting: Container alignment.
+* [Section (Background image/video)] Add new setting: Image size.
+* [Section (YouTube)] Change HTML structures.
+* [Section (YouTube)] Add new setting: Max width of the contents.
+* [Section (YouTube)] Add new setting: Container alignment.
+* [Section (Side heading)] Change HTML structures.
+* [Section (Side heading)] Add new setting: Max width of the contents.
+* [Section (Side heading)] Add new setting: Container alignment.
+* [Section (Break the grid)] Change HTML structures.
+* [Section (Break the grid)] Changed so that containers are not full width even if they are full width.
+* [Section (Break the grid)] Add new setting: Container alignment.
+* [Section (Break the grid)] Add new settings: Background settings.
+* [Section (Break the grid)] Add new settings: Fixed background settings.
+* [Section (Break the grid)] Add new setting: Padding.
+* [Section (Break the grid)] Add new settings: "Top" and "Bottom" to "Media position".
+* [Section (Break the grid)] Add new settings: "No wrap" to "Sort by mobile".
+* [Section (Break the grid)] Add new paramaters of "Image Size Adjustment".
+* [Section (Break the grid)] Add new paramaters of "Content Size Adjustment".
+* [Section (Break the grid)] Add new paramaters of "Degree of overlap of content to image".
+* [Section (Break the grid)] Change block attribute values. "imageSize", "contentSize" and "contentHorizontalPosition".
+* [Button] Fixed a bug that the background color setting was not reflected when entering a class in the additional CSS class after setting the block style to ghost.
+* [Button box] Fixed a bug that the background color setting was not reflected when entering a class in the additional CSS class after setting the block style to ghost.
+* [Items:banner] Fix block validation error.
+* Change images in block patterns.
+* Change block pattern categories name.
 
 = 12.6.1 =
 * [Slider] Fixed a bug that the slide position was shifted when set to alignwide.

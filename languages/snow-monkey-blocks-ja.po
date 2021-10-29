@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2021-10-28 11:43+0900\n"
-"PO-Revision-Date: 2021-10-28 11:43+0900\n"
+"POT-Creation-Date: 2021-10-29 14:11+0900\n"
+"PO-Revision-Date: 2021-10-29 14:11+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -1136,7 +1136,7 @@ msgid "No wrap"
 msgstr "折り返さない"
 
 #: block/section-break-the-grid/edit.js:689
-msgid "image Size Adjustment"
+msgid "Image Size Adjustment"
 msgstr "画像サイズ調整"
 
 #: block/section-break-the-grid/edit.js:720

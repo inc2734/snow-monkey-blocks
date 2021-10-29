@@ -686,7 +686,7 @@ export default function ( {
 
 					<SelectControl
 						label={ __(
-							'image Size Adjustment',
+							'Image Size Adjustment',
 							'snow-monkey-blocks'
 						) }
 						value={ imageSize }
