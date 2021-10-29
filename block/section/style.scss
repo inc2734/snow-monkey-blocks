@@ -183,6 +183,10 @@
     @include _font-size-line-height($_base-font-size-px - 2);
   }
 
+  &__body {
+    max-width: 100%;
+  }
+
   [data-is-text-align="left"] {
     text-align: left;
   }
@@ -255,6 +259,14 @@
     > .smb-section__inner {
       > .#{ $_prefix }c-container {
         display: flex;
+        flex-wrap: wrap;
+
+        > .smb-section__subtitle,
+        > .smb-section__title,
+        > .smb-section__lede-wrapper,
+        > .smb-section__body {
+          flex: 1 1 100%;
+        }
 
         > .smb-section__contents-wrapper {
           margin-right: 0;
