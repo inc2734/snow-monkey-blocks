@@ -19,12 +19,14 @@ export default [
 		},
 
 		migrate( attributes ) {
-			attributes.className = without(
-				attributes.className.split( ' ' ),
-				'smb-section--left',
-				'smb-section--center',
-				'smb-section--right'
-			).join( ' ' );
+			if ( !! attributes.className ) {
+				attributes.className = without(
+					attributes.className.split( ' ' ),
+					'smb-section--left',
+					'smb-section--center',
+					'smb-section--right'
+				).join( ' ' );
+			}
 
 			if ( ! attributes.className ) {
 				attributes = omit( attributes, 'className' );
