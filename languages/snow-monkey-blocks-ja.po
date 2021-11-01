@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2021-10-29 14:11+0900\n"
-"PO-Revision-Date: 2021-10-29 14:11+0900\n"
+"POT-Creation-Date: 2021-11-01 09:34+0900\n"
+"PO-Revision-Date: 2021-11-01 09:34+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -1415,9 +1415,8 @@ msgid "Background (Fixed) Settings"
 msgstr "背景（固定）の設定"
 
 #: block/section/components/background.js:269
-#: block/section/components/background.js:346
-msgid "Bottom divider Settings"
-msgstr "下の仕切りの設定"
+msgid "Top divider Settings"
+msgstr "上の仕切りの設定"
 
 #: block/section/components/background.js:295
 #: block/section/components/background.js:372
@@ -1428,6 +1427,10 @@ msgstr "レベル"
 #: block/section/components/background.js:403
 msgid "Position (Top / Bottom)"
 msgstr "位置（上 / 下）"
+
+#: block/section/components/background.js:346
+msgid "Bottom divider Settings"
+msgstr "下の仕切りの設定"
 
 #: block/section/components/basic.js:35
 msgid "Wrapper Tag"
@@ -2199,9 +2202,6 @@ msgid ""
 msgstr ""
 "%1$sSnow Monkey%2$s テーマと一緒に使用すると、最も美しいバランスで表示され、"
 "フロントスクリーンと同じデザインで編集画面に表示されます。"
-
-#~ msgid "Top divider Settings"
-#~ msgstr "上の仕切りの設定"
 
 #~ msgid "It must be full width."
 #~ msgstr "全幅である必要があります。"

@@ -266,7 +266,7 @@ export const PanelSectionFixedBackgroundSettings = ( {
 export const PanelSectionTopDividerSettings = ( { settings } ) => {
 	return (
 		<PanelBody
-			title={ __( 'Bottom divider Settings', 'snow-monkey-blocks' ) }
+			title={ __( 'Top divider Settings', 'snow-monkey-blocks' ) }
 			initialOpen={ false }
 		>
 			{ settings.map( ( setting, index ) => {
