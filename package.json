@@ -93,6 +93,7 @@
     "block:child-pages": "run-s block:child-pages:*",
     "block:container:clean": "rimraf dist/block/container && mkdir -p dist/block/container",
     "block:container:js": "wp-scripts build block/container/editor --output-path=dist/block/container",
+    "block:container:css": "node-sass block/container -o dist/block/container && postcss dist/block/container/*.css -r",
     "block:container": "run-s block:container:*",
     "block:contents-outline:clean": "rimraf dist/block/contents-outline && mkdir -p dist/block/contents-outline",
     "block:contents-outline:js": "wp-scripts build block/contents-outline/editor --output-path=dist/block/contents-outline",

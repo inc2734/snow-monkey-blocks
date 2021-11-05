@@ -2,8 +2,5 @@
 
 .editor-styles-wrapper,
 .customize-control-sidebar_block_editor {
-  .smb-container {
-    padding-right: 0;
-    padding-left: 0;
-  }
+  @import 'style';
 }

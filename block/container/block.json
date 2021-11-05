@@ -5,6 +5,9 @@
 	"description": "Container blocks keep content within a certain width.",
   "category": "smb",
   "attributes": {
+    "contentsMaxWidth": {
+      "type": "string"
+    },
     "isSlim": {
       "type": "boolean",
       "default": false

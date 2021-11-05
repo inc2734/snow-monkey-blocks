@@ -6,12 +6,15 @@ import {
 	useBlockProps,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
-import { PanelBody, ToggleControl } from '@wordpress/components';
+
+import { PanelBody, ToggleControl, BaseControl } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
+import WidthPicker from '@smb/component/width-picker';
+
 export default function ( { attributes, setAttributes, className, clientId } ) {
-	const { isSlim } = attributes;
+	const { contentsMaxWidth, isSlim } = attributes;
 
 	const hasInnerBlocks = useSelect(
 		( select ) => {
@@ -25,8 +28,12 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 	const classes = classnames( 'smb-container', 'c-container', className );
 
 	const bodyClasses = classnames( 'smb-container__body', {
-		'u-slim-width': !! isSlim,
+		'u-slim-width': isSlim && ! contentsMaxWidth,
 	} );
+
+	const bodyStyles = {
+		width: !! contentsMaxWidth && ! isSlim ? contentsMaxWidth : undefined,
+	};
 
 	const blockProps = useBlockProps( {
 		className: classes,
@@ -35,6 +42,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 	const innerBlocksProps = useInnerBlocksProps(
 		{
 			className: bodyClasses,
+			style: bodyStyles,
 		},
 		{
 			renderAppender: hasInnerBlocks
@@ -43,10 +51,18 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		}
 	);
 
+	const onChangeContentsMaxWidth = ( value ) =>
+		setAttributes( {
+			contentsMaxWidth: value,
+		} );
+
 	const onChangeIsSlim = ( value ) =>
 		setAttributes( {
 			isSlim: value,
 		} );
+
+	const disableIsSlim = !! contentsMaxWidth;
+	const disableContentsMaxWidth = isSlim;
 
 	return (
 		<>
@@ -54,14 +70,31 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 				<PanelBody
 					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
 				>
-					<ToggleControl
-						label={ __(
-							'Make the contents width slim',
-							'snow-monkey-blocks'
-						) }
-						checked={ isSlim }
-						onChange={ onChangeIsSlim }
-					/>
+					{ ! disableContentsMaxWidth && (
+						<BaseControl
+							label={ __(
+								'Max width of the contents',
+								'snow-monkey-blocks'
+							) }
+							id="snow-monkey-blocks/container/contents-max-width"
+						>
+							<WidthPicker
+								value={ contentsMaxWidth }
+								onChange={ onChangeContentsMaxWidth }
+							/>
+						</BaseControl>
+					) }
+
+					{ ! disableIsSlim && (
+						<ToggleControl
+							label={ __(
+								'Make the contents width slim',
+								'snow-monkey-blocks'
+							) }
+							checked={ isSlim }
+							onChange={ onChangeIsSlim }
+						/>
+					) }
 				</PanelBody>
 			</InspectorControls>
 
