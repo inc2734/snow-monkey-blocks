@@ -83,8 +83,7 @@ export default function ( { attributes, className } ) {
 	const innerStyles = {};
 
 	const contentsWrapperStyles = {
-		maxWidth:
-			!! contentsMaxWidth && ! isSlim ? contentsMaxWidth : undefined,
+		width: !! contentsMaxWidth && ! isSlim ? contentsMaxWidth : undefined,
 	};
 
 	return (

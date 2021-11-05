@@ -273,8 +273,7 @@ export default function ( {
 	const innerStyles = {};
 
 	const contentsWrapperStyles = {
-		maxWidth:
-			!! contentsMaxWidth && ! isSlim ? contentsMaxWidth : undefined,
+		width: !! contentsMaxWidth && ! isSlim ? contentsMaxWidth : undefined,
 	};
 
 	const blockProps = useBlockProps( {
