@@ -85,6 +85,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    max-width: 100%;
 
     > .#{$_prefix}c-container {
       position: relative;
