@@ -88,6 +88,10 @@
       "type": "number",
       "default": 0
     },
+    "duration": {
+      "type": "number",
+      "default": 0
+    },
     "lgSlidesToShow": {
       "type": "number",
       "default": 1

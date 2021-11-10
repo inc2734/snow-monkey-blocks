@@ -41,6 +41,7 @@ export default function ( {
 		gutter,
 		displayCaption,
 		interval,
+		duration,
 		lgSlidesToShow,
 		mdSlidesToShow,
 		smSlidesToShow,
@@ -217,6 +218,11 @@ export default function ( {
 			interval: toNumber( value, 0, 10 ),
 		} );
 
+	const onChangeDuration = ( value ) =>
+		setAttributes( {
+			duration: toNumber( value, 0, 10 ),
+		} );
+
 	const onChangeLgSlidesToShow = ( value ) =>
 		setAttributes( {
 			lgSlidesToShow: toNumber( value, 1, 6 ),
@@ -361,6 +367,23 @@ export default function ( {
 						min="0"
 						max="10"
 					/>
+
+					<RangeControl
+						label={ __(
+							'Animation Speed in seconds',
+							'snow-monkey-blocks'
+						) }
+						help={ __(
+							'If "0", default animation speed.',
+							'snow-monkey-blocks'
+						) }
+						value={ duration }
+						onChange={ onChangeDuration }
+						min="0"
+						max="5"
+						step="0.1"
+					/>
+
 					{ ! fade && (
 						<ResponsiveTabPanel
 							desktop={ () => (

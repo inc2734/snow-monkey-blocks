@@ -14,6 +14,7 @@ export default function ( { attributes, className } ) {
 		gutter,
 		displayCaption,
 		interval,
+		duration,
 		lgSlidesToShow,
 		mdSlidesToShow,
 		smSlidesToShow,
@@ -39,6 +40,7 @@ export default function ( { attributes, className } ) {
 			{ ...useBlockProps.save( { className: classes } ) }
 			data-fade={ fade ? 'true' : 'false' }
 			data-interval={ 0 < interval ? interval * 1000 : undefined }
+			data-duration={ 0 < duration ? duration * 1000 : undefined }
 			data-lg-slide-to-show={
 				! fade && 1 < lgSlidesToShow ? lgSlidesToShow : undefined
 			}
