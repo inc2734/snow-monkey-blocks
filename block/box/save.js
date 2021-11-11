@@ -17,11 +17,11 @@ export default function ( { attributes, className } ) {
 
 	const boxStyles = {
 		color: textColor || undefined,
-		borderRadius: !! borderRadius ? `${ borderRadius }px` : undefined,
+		borderRadius: 0 <= borderRadius ? `${ borderRadius }px` : undefined,
 		boxShadow: !! boxShadow.color
-			? `${ boxShadow.horizontal }px ${
-					boxShadow.vertical
-			  }px ${ boxShadow.blur }px ${ boxShadow.spread }px ${ hexToRgba(
+			? `${ boxShadow.horizontal }px ${ boxShadow.vertical }px ${
+					boxShadow.blur
+			  }px ${ boxShadow.spread }px ${ hexToRgba(
 					boxShadow.color,
 					boxShadow.opacity
 			  ) }`
@@ -33,10 +33,7 @@ export default function ( { attributes, className } ) {
 		backgroundImage: backgroundGradientColor || undefined,
 		borderColor: borderColor || undefined,
 		borderWidth: borderWidth || undefined,
-		borderRadius:
-			!! borderRadius || 0 <= borderRadius
-				? `${ borderRadius }px`
-				: undefined,
+		borderRadius: 0 <= borderRadius ? `${ borderRadius }px` : undefined,
 		opacity,
 	};
 

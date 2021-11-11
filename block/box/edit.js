@@ -31,14 +31,11 @@ export default function ( { attributes, setAttributes, className } ) {
 
 	const boxStyles = {
 		color: textColor || undefined,
-		borderRadius:
-			!! borderRadius || 0 <= borderRadius
-				? `${ borderRadius }px`
-				: undefined,
+		borderRadius: 0 <= borderRadius ? `${ borderRadius }px` : undefined,
 		boxShadow: !! boxShadow.color
-			? `${ boxShadow.horizontal }px ${
-					boxShadow.vertical
-			  }px ${ boxShadow.blur }px ${ boxShadow.spread }px ${ hexToRgba(
+			? `${ boxShadow.horizontal }px ${ boxShadow.vertical }px ${
+					boxShadow.blur
+			  }px ${ boxShadow.spread }px ${ hexToRgba(
 					boxShadow.color,
 					boxShadow.opacity
 			  ) }`
@@ -50,10 +47,7 @@ export default function ( { attributes, setAttributes, className } ) {
 		backgroundImage: backgroundGradientColor || undefined,
 		borderColor: borderColor || undefined,
 		borderWidth: borderWidth || undefined,
-		borderRadius:
-			!! borderRadius || 0 <= borderRadius
-				? `${ borderRadius }px`
-				: undefined,
+		borderRadius: 0 <= borderRadius ? `${ borderRadius }px` : undefined,
 		opacity,
 	};
 
@@ -148,11 +142,15 @@ export default function ( { attributes, setAttributes, className } ) {
 
 					<RangeControl
 						label={ __( 'Border radius', 'snow-monkey-blocks' ) }
+						help={ __(
+							'-If set to -1, the default border radius will be applied.',
+							'snow-monkey-blocks'
+						) }
 						value={ borderRadius }
 						onChange={ onChangeBorderRadius }
-						min="0"
+						min="-1"
 						max="50"
-						initialPosition="0"
+						initialPosition="-1"
 						allowReset
 					/>
 				</PanelBody>
