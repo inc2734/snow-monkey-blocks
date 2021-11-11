@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2021-11-10 09:26+0900\n"
-"PO-Revision-Date: 2021-11-10 09:27+0900\n"
+"POT-Creation-Date: 2021-11-11 15:39+0900\n"
+"PO-Revision-Date: 2021-11-11 15:40+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -133,7 +133,7 @@ msgstr "ノーマル吹き出し"
 msgid "Reverse Balloon"
 msgstr "反転吹き出し"
 
-#: block/balloon/edit.js:135 block/box/edit.js:154 block/btn-box/edit.js:214
+#: block/balloon/edit.js:135 block/box/edit.js:214 block/btn-box/edit.js:214
 #: block/btn/edit.js:192 block/countdown/edit.js:75
 #: block/directory-structure/item/directory/edit.js:136
 #: block/directory-structure/item/file/edit.js:104
@@ -152,7 +152,7 @@ msgstr "色設定"
 msgid "Avatar Border Color"
 msgstr "アバターの線の色"
 
-#: block/balloon/edit.js:149 block/box/edit.js:160 block/btn-box/edit.js:202
+#: block/balloon/edit.js:149 block/box/edit.js:220 block/btn-box/edit.js:202
 #: block/btn/edit.js:206 block/items/item/banner/edit.js:330
 #: block/items/item/block-link/edit.js:343
 #: block/items/item/standard/edit.js:341 block/pricing-table/item/edit.js:314
@@ -175,11 +175,11 @@ msgstr "背景色"
 msgid "Name"
 msgstr "名前"
 
-#: block/box/edit.js:99
+#: block/box/edit.js:110
 msgid "Background Settings"
 msgstr "背景の設定"
 
-#: block/box/edit.js:103 block/box/edit.js:125
+#: block/box/edit.js:114 block/box/edit.js:136
 #: block/items/item/banner/edit.js:308 block/section-break-the-grid/edit.js:977
 #: block/section-break-the-grid/edit.js:999
 #: block/section-with-bgimage/edit.js:765
@@ -188,33 +188,31 @@ msgstr "背景の設定"
 #: block/section/components/background.js:213
 #: block/section/components/background.js:311
 #: block/section/components/background.js:388
+#: src/js/component/panel-box-shadow-settings.js:27
 msgid "Color"
 msgstr "色"
 
-#: block/box/edit.js:111 block/items/item/banner/edit.js:314
+#: block/box/edit.js:122 block/items/item/banner/edit.js:314
 #: block/section-break-the-grid/edit.js:984
 #: block/section-with-bgimage/edit.js:773
 #: block/section-with-bgvideo/edit.js:309
+#: src/js/component/panel-box-shadow-settings.js:41
 msgid "Opacity"
 msgstr "不透明度"
 
-#: block/box/edit.js:121
+#: block/box/edit.js:132
 msgid "Border Settings"
 msgstr "枠線の設定"
 
-#: block/box/edit.js:131
+#: block/box/edit.js:142
 msgid "Width"
 msgstr "幅"
 
-#: block/box/edit.js:139 block/btn-box/edit.js:180 block/btn/edit.js:171
+#: block/box/edit.js:150 block/btn-box/edit.js:180 block/btn/edit.js:171
 #: block/items/item/block-link/edit.js:321
 #: block/items/item/standard/edit.js:319 block/pricing-table/item/edit.js:292
 msgid "Border radius"
 msgstr "角丸半径"
-
-#: block/box/edit.js:141 block/btn/edit.js:173
-msgid "-If set to -1, the default border radius will be applied."
-msgstr "-1 に設定するとデフォルトの角丸半径が適用されます。"
 
 #: block/btn-box/edit.js:143 block/items/item/block-link/edit.js:284
 #: block/items/item/standard/edit.js:282 block/pricing-table/item/edit.js:255
@@ -315,6 +313,10 @@ msgstr "デフォルト"
 #: block/btn-box/index.js:25 block/btn/index.js:27
 msgid "Ghost"
 msgstr "ゴースト"
+
+#: block/btn/edit.js:173
+msgid "-If set to -1, the default border radius will be applied."
+msgstr "-1 に設定するとデフォルトの角丸半径が適用されます。"
 
 #: block/btn/index.js:28 block/child-pages/edit.js:112
 #: block/recent-posts/edit.js:171 block/rss/edit.js:152
@@ -801,7 +803,7 @@ msgid "16:9"
 msgstr "16:9"
 
 #: block/items/item/banner/edit.js:297
-msgid "Blur"
+msgid "Shade off"
 msgstr "ぼかす"
 
 #: block/items/item/banner/edit.js:304 block/section-break-the-grid/edit.js:973
@@ -1591,11 +1593,11 @@ msgstr "リンクテキスト"
 msgid "Tabs orientation"
 msgstr "タブの向き"
 
-#: block/tabs/edit.js:167
+#: block/tabs/edit.js:167 src/js/component/panel-box-shadow-settings.js:61
 msgid "Horizontal"
 msgstr "水平方向"
 
-#: block/tabs/edit.js:171
+#: block/tabs/edit.js:171 src/js/component/panel-box-shadow-settings.js:79
 msgid "Vertical"
 msgstr "垂直方向"
 
@@ -1707,6 +1709,30 @@ msgstr "解除"
 #: src/js/component/figure.js:140
 msgid "Media"
 msgstr "メディア"
+
+#: src/js/component/panel-box-shadow-settings.js:15
+msgid "Box Shadow Settings"
+msgstr "ボックスシャドウの設定"
+
+#: src/js/component/panel-box-shadow-settings.js:95
+msgid "Blur"
+msgstr "ぼかし"
+
+#: src/js/component/panel-box-shadow-settings.js:111
+msgid "Spread"
+msgstr "スプレッド"
+
+#: src/js/component/panel-box-shadow-settings.js:127
+msgid "Position"
+msgstr "位置"
+
+#: src/js/component/panel-box-shadow-settings.js:134
+msgid "Outline"
+msgstr "アウトライン"
+
+#: src/js/component/panel-box-shadow-settings.js:141
+msgid "Inset"
+msgstr "インセット"
 
 #: src/js/component/width-picker.js:51
 msgid "Reset"

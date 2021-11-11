@@ -1,4 +1,5 @@
 import classnames from 'classnames';
+import hexToRgba from 'hex-to-rgba';
 
 import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
@@ -11,11 +12,20 @@ export default function ( { attributes, className } ) {
 		borderWidth,
 		borderRadius,
 		opacity,
+		boxShadow,
 	} = attributes;
 
 	const boxStyles = {
 		color: textColor || undefined,
 		borderRadius: !! borderRadius ? `${ borderRadius }px` : undefined,
+		boxShadow: !! boxShadow.color
+			? `${ boxShadow.horizontal }px ${
+					boxShadow.vertical
+			  }px ${ boxShadow.blur }px ${ boxShadow.spread }px ${ hexToRgba(
+					boxShadow.color,
+					boxShadow.opacity
+			  ) }`
+			: undefined,
 	};
 
 	const backgroundStyles = {

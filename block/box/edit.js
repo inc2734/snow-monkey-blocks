@@ -1,4 +1,5 @@
 import classnames from 'classnames';
+import hexToRgba from 'hex-to-rgba';
 
 import {
 	ContrastChecker,
@@ -13,6 +14,7 @@ import { PanelBody, RangeControl } from '@wordpress/components';
 
 import { __ } from '@wordpress/i18n';
 
+import PanelBoxShadowSettings from '@smb/component/panel-box-shadow-settings';
 import { toNumber } from '@smb/helper';
 
 export default function ( { attributes, setAttributes, className } ) {
@@ -24,6 +26,7 @@ export default function ( { attributes, setAttributes, className } ) {
 		borderWidth,
 		borderRadius,
 		opacity,
+		boxShadow,
 	} = attributes;
 
 	const boxStyles = {
@@ -32,6 +35,14 @@ export default function ( { attributes, setAttributes, className } ) {
 			!! borderRadius || 0 <= borderRadius
 				? `${ borderRadius }px`
 				: undefined,
+		boxShadow: !! boxShadow.color
+			? `${ boxShadow.horizontal }px ${
+					boxShadow.vertical
+			  }px ${ boxShadow.blur }px ${ boxShadow.spread }px ${ hexToRgba(
+					boxShadow.color,
+					boxShadow.opacity
+			  ) }`
+			: undefined,
 	};
 
 	const backgroundStyles = {
@@ -59,7 +70,7 @@ export default function ( { attributes, setAttributes, className } ) {
 
 	const onChangeBorderWidth = ( value ) =>
 		setAttributes( {
-			borderWidth: toNumber( value, 1, 5 ),
+			borderWidth: toNumber( value, 0, 5 ),
 		} );
 
 	const onChangeBorderRadius = ( value ) =>
@@ -131,24 +142,65 @@ export default function ( { attributes, setAttributes, className } ) {
 						label={ __( 'Width', 'snow-monkey-blocks' ) }
 						value={ borderWidth }
 						onChange={ onChangeBorderWidth }
-						min="1"
+						min="0"
 						max="5"
 					/>
 
 					<RangeControl
 						label={ __( 'Border radius', 'snow-monkey-blocks' ) }
-						help={ __(
-							'-If set to -1, the default border radius will be applied.',
-							'snow-monkey-blocks'
-						) }
 						value={ borderRadius }
 						onChange={ onChangeBorderRadius }
-						min="-1"
+						min="0"
 						max="50"
-						initialPosition="-1"
+						initialPosition="0"
 						allowReset
 					/>
 				</PanelBody>
+
+				<PanelBoxShadowSettings
+					settings={ [
+						{
+							colorValue: boxShadow.color,
+							onColorChange: ( value ) => {
+								const newBoxShadow = { ...boxShadow };
+								newBoxShadow.color = value;
+								setAttributes( { boxShadow: newBoxShadow } );
+							},
+						},
+						{
+							opacityValue: boxShadow.opacity,
+							onOpacityChange: ( value ) => {
+								const newBoxShadow = { ...boxShadow };
+								newBoxShadow.opacity = value;
+								setAttributes( { boxShadow: newBoxShadow } );
+							},
+						},
+						{
+							horizontalValue: boxShadow.horizontal,
+							onHorizontalChange: ( value ) => {
+								const newBoxShadow = { ...boxShadow };
+								newBoxShadow.horizontal = value;
+								setAttributes( { boxShadow: newBoxShadow } );
+							},
+						},
+						{
+							blurValue: boxShadow.blur,
+							onBlurChange: ( value ) => {
+								const newBoxShadow = { ...boxShadow };
+								newBoxShadow.blur = value;
+								setAttributes( { boxShadow: newBoxShadow } );
+							},
+						},
+						{
+							spreadValue: boxShadow.spread,
+							onSpreadChange: ( value ) => {
+								const newBoxShadow = { ...boxShadow };
+								newBoxShadow.spread = value;
+								setAttributes( { boxShadow: newBoxShadow } );
+							},
+						},
+					] }
+				/>
 
 				<PanelColorGradientSettings
 					title={ __( 'Color Settings', 'snow-monkey-blocks' ) }

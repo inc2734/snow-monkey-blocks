@@ -12,11 +12,9 @@
   &__background {
     @include _alert();
     @include _position(absolute, 0, 0, 0, 0);
-    border: 1px solid transparent;
+    border: 0 solid transparent;
     border-color: _lighter($_color-gray); // For IE11
     border-color: _var-lighter-color-gray();
-    border-radius: $_border-radius; //for IE11
-    border-radius: _var-border-radius();
   }
 
   &__body {

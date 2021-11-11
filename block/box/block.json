@@ -27,6 +27,18 @@
     "opacity": {
       "type": "number",
       "default": 1
+    },
+    "boxShadow": {
+      "type": "object",
+      "default": {
+        "color": "transparent",
+        "opacity": 0.1,
+        "horizontal": 0,
+        "vertical": 0,
+        "blur": 10,
+        "spread": 0,
+        "position": ""
+      }
     }
   },
   "supports": {

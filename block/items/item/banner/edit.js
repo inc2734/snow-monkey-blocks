@@ -294,7 +294,7 @@ export default function ( {
 					/>
 
 					<ToggleControl
-						label={ __( 'Blur', 'snow-monkey-blocks' ) }
+						label={ __( 'Shade off', 'snow-monkey-blocks' ) }
 						checked={ blur }
 						onChange={ onChangeBlur }
 					/>
