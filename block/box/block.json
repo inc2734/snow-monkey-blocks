@@ -31,7 +31,7 @@
     "boxShadow": {
       "type": "object",
       "default": {
-        "color": "transparent",
+        "color": "",
         "opacity": 0.1,
         "horizontal": 0,
         "vertical": 0,
