@@ -65,7 +65,7 @@ export default function ( { attributes, setAttributes, className } ) {
 				>
 					<BaseControl
 						label={ __( 'Icon', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/directory-structure--item--file/icon"
+						id="snow-monkey-blocks/directory-structure-item-file/icon"
 					>
 						<div className="smb-list-icon-selector">
 							{ iconList.map( ( iconData ) => {

@@ -12,11 +12,19 @@ import {
 import { __ } from '@wordpress/i18n';
 
 import { toNumber } from '@smb/helper';
+import { useMigrateDoubleHyphenToSingleHyphen } from '@smb/hooks';
 
-const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/thumbnail-gallery--item' ];
-const TEMPLATE = [ [ 'snow-monkey-blocks/thumbnail-gallery--item' ] ];
+const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/thumbnail-gallery-item' ];
+const TEMPLATE = [ [ 'snow-monkey-blocks/thumbnail-gallery-item' ] ];
 
-export default function ( { attributes, setAttributes, className } ) {
+export default function ( { attributes, setAttributes, className, clientId } ) {
+	useMigrateDoubleHyphenToSingleHyphen( clientId, [
+		{
+			oldBlockName: 'snow-monkey-blocks/thumbnail-gallery--item',
+			newBlockName: 'snow-monkey-blocks/thumbnail-gallery-item',
+		},
+	] );
+
 	const { arrows, speed, autoplaySpeed } = attributes;
 
 	const classes = classnames( 'smb-thumbnail-gallery', className );

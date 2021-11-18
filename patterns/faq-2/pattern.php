@@ -21,8 +21,8 @@
 
 					<!-- wp:snow-monkey-blocks/accordion -->
 					<div class="wp-block-snow-monkey-blocks-accordion smb-accordion">
-						<!-- wp:snow-monkey-blocks/accordion--item -->
-						<div class="wp-block-snow-monkey-blocks-accordion--item smb-accordion__item">
+						<!-- wp:snow-monkey-blocks/accordion-item -->
+						<div class="wp-block-snow-monkey-blocks-accordion-item smb-accordion__item">
 							<input type="checkbox" class="smb-accordion__item__control"/>
 							<div class="smb-accordion__item__title">
 								<span class="smb-accordion__item__title__label">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
@@ -34,9 +34,9 @@
 								<!-- /wp:paragraph -->
 							</div>
 						</div>
-						<!-- /wp:snow-monkey-blocks/accordion--item -->
-						<!-- wp:snow-monkey-blocks/accordion--item -->
-						<div class="wp-block-snow-monkey-blocks-accordion--item smb-accordion__item">
+						<!-- /wp:snow-monkey-blocks/accordion-item -->
+						<!-- wp:snow-monkey-blocks/accordion-item -->
+						<div class="wp-block-snow-monkey-blocks-accordion-item smb-accordion__item">
 							<input type="checkbox" class="smb-accordion__item__control"/>
 							<div class="smb-accordion__item__title">
 								<span class="smb-accordion__item__title__label">sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</span>
@@ -48,7 +48,7 @@
 								<!-- /wp:paragraph -->
 							</div>
 						</div>
-						<!-- /wp:snow-monkey-blocks/accordion--item -->
+						<!-- /wp:snow-monkey-blocks/accordion-item -->
 					</div>
 					<!-- /wp:snow-monkey-blocks/accordion -->
 				</div>

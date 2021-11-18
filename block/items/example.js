@@ -1,7 +1,7 @@
 export default {
 	innerBlocks: [
 		{
-			name: 'snow-monkey-blocks/items--item--standard',
+			name: 'snow-monkey-blocks/items-item-standard',
 			attributes: {
 				title: 'Lorem ipsum',
 				lede: 'consectetur',
@@ -11,7 +11,7 @@ export default {
 			},
 		},
 		{
-			name: 'snow-monkey-blocks/items--item--standard',
+			name: 'snow-monkey-blocks/items-item-standard',
 			attributes: {
 				title: 'dolor sit amet',
 				lede: 'cadipiscing elit',

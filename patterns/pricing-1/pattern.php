@@ -22,8 +22,8 @@
 					<!-- wp:snow-monkey-blocks/pricing-table {"columnSize":"","childrenCount":3} -->
 					<div class="wp-block-snow-monkey-blocks-pricing-table smb-pricing-table" data-has-items="3">
 						<div class="c-row c-row--md-nowrap">
-							<!-- wp:snow-monkey-blocks/pricing-table--item -->
-							<div class="wp-block-snow-monkey-blocks-pricing-table--item c-row__col">
+							<!-- wp:snow-monkey-blocks/pricing-table-item -->
+							<div class="wp-block-snow-monkey-blocks-pricing-table-item c-row__col">
 								<div class="smb-pricing-table__item">
 									<div class="smb-pricing-table__item__title">BASIC</div>
 									<div class="smb-pricing-table__item__price">$5</div>
@@ -38,9 +38,9 @@
 									</div>
 								</div>
 							</div>
-							<!-- /wp:snow-monkey-blocks/pricing-table--item -->
-							<!-- wp:snow-monkey-blocks/pricing-table--item -->
-							<div class="wp-block-snow-monkey-blocks-pricing-table--item c-row__col">
+							<!-- /wp:snow-monkey-blocks/pricing-table-item -->
+							<!-- wp:snow-monkey-blocks/pricing-table-item -->
+							<div class="wp-block-snow-monkey-blocks-pricing-table-item c-row__col">
 								<div class="smb-pricing-table__item">
 									<div class="smb-pricing-table__item__title">PREMIUM</div>
 									<div class="smb-pricing-table__item__price">$20</div>
@@ -55,9 +55,9 @@
 									</div>
 								</div>
 							</div>
-							<!-- /wp:snow-monkey-blocks/pricing-table--item -->
-							<!-- wp:snow-monkey-blocks/pricing-table--item -->
-							<div class="wp-block-snow-monkey-blocks-pricing-table--item c-row__col">
+							<!-- /wp:snow-monkey-blocks/pricing-table-item -->
+							<!-- wp:snow-monkey-blocks/pricing-table-item -->
+							<div class="wp-block-snow-monkey-blocks-pricing-table-item c-row__col">
 								<div class="smb-pricing-table__item">
 									<div class="smb-pricing-table__item__title">PRO</div>
 									<div class="smb-pricing-table__item__price">$100</div>
@@ -72,7 +72,7 @@
 									</div>
 								</div>
 							</div>
-							<!-- /wp:snow-monkey-blocks/pricing-table--item -->
+							<!-- /wp:snow-monkey-blocks/pricing-table-item -->
 						</div>
 					</div>
 					<!-- /wp:snow-monkey-blocks/pricing-table -->

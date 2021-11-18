@@ -12,10 +12,19 @@ import { useEffect } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
-const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/pricing-table--item' ];
-const TEMPLATE = [ [ 'snow-monkey-blocks/pricing-table--item' ] ];
+import { useMigrateDoubleHyphenToSingleHyphen } from '@smb/hooks';
+
+const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/pricing-table-item' ];
+const TEMPLATE = [ [ 'snow-monkey-blocks/pricing-table-item' ] ];
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
+	useMigrateDoubleHyphenToSingleHyphen( clientId, [
+		{
+			oldBlockName: 'snow-monkey-blocks/pricing-table--item',
+			newBlockName: 'snow-monkey-blocks/pricing-table-item',
+		},
+	] );
+
 	const { columnSize, childrenCount } = attributes;
 
 	const innerBlocksCount = useSelect( ( select ) => {

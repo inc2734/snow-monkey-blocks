@@ -70,7 +70,7 @@ export default [
 						''
 					);
 
-					return createBlock( 'snow-monkey-blocks/rating-box--item', {
+					return createBlock( 'snow-monkey-blocks/rating-box-item', {
 						title,
 						rating: Number( rating ),
 						color,

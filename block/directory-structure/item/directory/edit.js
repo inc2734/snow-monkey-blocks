@@ -14,13 +14,27 @@ import {
 } from '@wordpress/block-editor';
 
 import FontAwesome from '@smb/component/font-awesome';
+import { useMigrateDoubleHyphenToSingleHyphen } from '@smb/hooks';
 
 const ALLOWED_BLOCKS = [
-	'snow-monkey-blocks/directory-structure--item--directory',
-	'snow-monkey-blocks/directory-structure--item--file',
+	'snow-monkey-blocks/directory-structure-item-directory',
+	'snow-monkey-blocks/directory-structure-item-file',
 ];
 
-export default function ( { attributes, setAttributes, className } ) {
+export default function ( { attributes, setAttributes, className, clientId } ) {
+	useMigrateDoubleHyphenToSingleHyphen( clientId, [
+		{
+			oldBlockName:
+				'snow-monkey-blocks/directory-structure--item--directory',
+			newBlockName:
+				'snow-monkey-blocks/directory-structure-item-directory',
+		},
+		{
+			oldBlockName: 'snow-monkey-blocks/directory-structure--item--file',
+			newBlockName: 'snow-monkey-blocks/directory-structure-item-file',
+		},
+	] );
+
 	const { iconColor, iconVendor, iconClass, name } = attributes;
 
 	const classes = classnames(
@@ -97,7 +111,7 @@ export default function ( { attributes, setAttributes, className } ) {
 				>
 					<BaseControl
 						label={ __( 'Icon', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/directory-structure--item--directory/icon"
+						id="snow-monkey-blocks/directory-structure-item-directory/icon"
 					>
 						<div className="smb-list-icon-selector">
 							{ iconList.map( ( iconData ) => {

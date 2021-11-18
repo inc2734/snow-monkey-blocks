@@ -6,10 +6,19 @@ import {
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
-const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/rating-box--item' ];
-const TEMPLATE = [ [ 'snow-monkey-blocks/rating-box--item' ] ];
+import { useMigrateDoubleHyphenToSingleHyphen } from '@smb/hooks';
 
-export default function ( { className } ) {
+const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/rating-box-item' ];
+const TEMPLATE = [ [ 'snow-monkey-blocks/rating-box-item' ] ];
+
+export default function ( { className, clientId } ) {
+	useMigrateDoubleHyphenToSingleHyphen( clientId, [
+		{
+			oldBlockName: 'snow-monkey-blocks/rating-box--item',
+			newBlockName: 'snow-monkey-blocks/rating-box-item',
+		},
+	] );
+
 	const classes = classnames( 'smb-rating-box', className );
 
 	const blockProps = useBlockProps( {

@@ -87,7 +87,7 @@ export default function ( {
 				>
 					<BaseControl
 						label={ __( 'Title Tag', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/items--item/title-tag-name"
+						id="snow-monkey-blocks/items-item/title-tag-name"
 					>
 						<div className="smb-list-icon-selector">
 							{ times( titleTagNames.length, ( index ) => {

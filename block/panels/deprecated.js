@@ -129,7 +129,7 @@ export default [
 						''
 					);
 
-					return createBlock( 'snow-monkey-blocks/panels--item', {
+					return createBlock( 'snow-monkey-blocks/panels-item', {
 						titleTagName: attributes.itemTitleTagName,
 						title,
 						summary,

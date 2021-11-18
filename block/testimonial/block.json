@@ -20,7 +20,7 @@
   "example": {
     "innerBlocks": [
       {
-        "name": "snow-monkey-blocks/testimonial--item",
+        "name": "snow-monkey-blocks/testimonial-item",
         "attributes": {
           "avatarID": 1,
           "name": "Lorem",
@@ -29,7 +29,7 @@
         }
       },
       {
-        "name": "snow-monkey-blocks/testimonial--item",
+        "name": "snow-monkey-blocks/testimonial-item",
         "attributes": {
           "avatarID": 1,
           "name": "consectetur",

@@ -1,6 +1,6 @@
 {
   "apiVersion": 2,
-  "name": "snow-monkey-blocks/directory-structure--item--file",
+  "name": "snow-monkey-blocks/directory-structure-item-file",
 	"title": "File item",
 	"description": "Display a file item",
   "category": "smb",

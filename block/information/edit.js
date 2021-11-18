@@ -10,10 +10,19 @@ import {
 import { PanelBody, SelectControl, ToggleControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
-const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/information--item' ];
-const TEMPLATE = [ [ 'snow-monkey-blocks/information--item' ] ];
+import { useMigrateDoubleHyphenToSingleHyphen } from '@smb/hooks';
 
-export default function ( { attributes, setAttributes, className } ) {
+const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/information-item' ];
+const TEMPLATE = [ [ 'snow-monkey-blocks/information-item' ] ];
+
+export default function ( { attributes, setAttributes, className, clientId } ) {
+	useMigrateDoubleHyphenToSingleHyphen( clientId, [
+		{
+			oldBlockName: 'snow-monkey-blocks/information--item',
+			newBlockName: 'snow-monkey-blocks/information-item',
+		},
+	] );
+
 	const {
 		labelColumnSize,
 		labelAlign,

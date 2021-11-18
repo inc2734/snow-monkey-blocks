@@ -118,16 +118,13 @@ export default [
 						''
 					);
 
-					return createBlock(
-						'snow-monkey-blocks/testimonial--item',
-						{
-							avatarID: Number( avatarID ),
-							avatarURL,
-							name,
-							lede,
-							content,
-						}
-					);
+					return createBlock( 'snow-monkey-blocks/testimonial-item', {
+						avatarID: Number( avatarID ),
+						avatarURL,
+						name,
+						lede,
+						content,
+					} );
 				} );
 			};
 

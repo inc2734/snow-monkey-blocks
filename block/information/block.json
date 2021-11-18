@@ -30,7 +30,7 @@
   "example": {
     "innerBlocks": [
       {
-        "name": "snow-monkey-blocks/information--item",
+        "name": "snow-monkey-blocks/information-item",
         "attributes": {
           "label": "Lorem ipsum dolor sit amet"
         },
@@ -44,7 +44,7 @@
         ]
       },
       {
-        "name": "snow-monkey-blocks/information--item",
+        "name": "snow-monkey-blocks/information-item",
         "attributes": {
           "label": "consectetur adipisicing elit"
         },

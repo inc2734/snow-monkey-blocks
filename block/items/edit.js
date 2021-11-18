@@ -13,16 +13,17 @@ import {
 import { __ } from '@wordpress/i18n';
 
 import { toNumber } from '@smb/helper';
+import { useMigrateDoubleHyphenToSingleHyphen } from '@smb/hooks';
 import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
 
 const ALLOWED_BLOCKS = [
-	'snow-monkey-blocks/items--item--standard',
-	'snow-monkey-blocks/items--item--block-link',
-	'snow-monkey-blocks/items--banner',
-	'snow-monkey-blocks/items--item--free',
+	'snow-monkey-blocks/items-item-standard',
+	'snow-monkey-blocks/items-item-block-link',
+	'snow-monkey-blocks/items-banner',
+	'snow-monkey-blocks/items-item-free',
 ];
 
-const TEMPLATE = [ [ 'snow-monkey-blocks/items--item--standard' ] ];
+const TEMPLATE = [ [ 'snow-monkey-blocks/items-item-standard' ] ];
 
 const HORIZONTAL_JUSTIFY_CONTROLS = [
 	'left',
@@ -31,7 +32,30 @@ const HORIZONTAL_JUSTIFY_CONTROLS = [
 	'space-between',
 ];
 
-export default function ( { attributes, setAttributes, className } ) {
+export default function ( { attributes, setAttributes, className, clientId } ) {
+	useMigrateDoubleHyphenToSingleHyphen( clientId, [
+		{
+			oldBlockName: 'snow-monkey-blocks/items--item--standard',
+			newBlockName: 'snow-monkey-blocks/items-item-standard',
+		},
+		{
+			oldBlockName: 'snow-monkey-blocks/items--banner',
+			newBlockName: 'snow-monkey-blocks/items-banner',
+		},
+		{
+			oldBlockName: 'snow-monkey-blocks/items--item--block-link',
+			newBlockName: 'snow-monkey-blocks/items-item-block-link',
+		},
+		{
+			oldBlockName: 'snow-monkey-blocks/items--item--free',
+			newBlockName: 'snow-monkey-blocks/items-item-free',
+		},
+		{
+			oldBlockName: 'snow-monkey-blocks/items--item',
+			newBlockName: 'snow-monkey-blocks/items-item',
+		},
+	] );
+
 	const {
 		sm,
 		md,

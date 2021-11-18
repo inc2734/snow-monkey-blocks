@@ -85,7 +85,7 @@ export default [
 						''
 					);
 
-					return createBlock( 'snow-monkey-blocks/faq--item', {
+					return createBlock( 'snow-monkey-blocks/faq-item', {
 						question,
 						answer,
 						questionColor,

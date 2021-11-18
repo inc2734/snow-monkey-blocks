@@ -71,7 +71,7 @@ export default function ( { attributes, setAttributes, className } ) {
 				>
 					<BaseControl
 						label={ __( 'Question Label', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/faq--item/question-label"
+						id="snow-monkey-blocks/faq-item/question-label"
 					>
 						<TextControl
 							value={ questionLabel }
@@ -89,7 +89,7 @@ export default function ( { attributes, setAttributes, className } ) {
 					</BaseControl>
 					<BaseControl
 						label={ __( 'Answer Label', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/faq--item/answer-label"
+						id="snow-monkey-blocks/faq-item/answer-label"
 					>
 						<TextControl
 							value={ answerLabel }

@@ -4,10 +4,10 @@ export default {
 	to: [
 		{
 			type: 'block',
-			blocks: [ 'snow-monkey-blocks/directory-structure--item--file' ],
+			blocks: [ 'snow-monkey-blocks/directory-structure-item-file' ],
 			transform: ( attributes ) => {
 				return createBlock(
-					'snow-monkey-blocks/directory-structure--item--file',
+					'snow-monkey-blocks/directory-structure-item-file',
 					{
 						name: attributes.name,
 						iconVendor: 'fas',

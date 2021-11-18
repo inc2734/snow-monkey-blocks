@@ -1,6 +1,6 @@
 {
   "apiVersion": 2,
-  "name": "snow-monkey-blocks/testimonial--item",
+  "name": "snow-monkey-blocks/testimonial-item",
 	"title": "Item",
 	"description": "It is a child block of the testimonial block.",
   "category": "smb",

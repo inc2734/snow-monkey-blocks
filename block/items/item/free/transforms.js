@@ -4,25 +4,25 @@ export default {
 	to: [
 		{
 			type: 'block',
-			blocks: [ 'snow-monkey-blocks/items--item--block-link' ],
+			blocks: [ 'snow-monkey-blocks/items-item-block-link' ],
 			transform: ( attributes ) =>
 				createBlock(
-					'snow-monkey-blocks/items--item--block-link',
+					'snow-monkey-blocks/items-item-block-link',
 					attributes
 				),
 		},
 		{
 			type: 'block',
-			blocks: [ 'snow-monkey-blocks/items--banner' ],
+			blocks: [ 'snow-monkey-blocks/items-banner' ],
 			transform: ( attributes ) =>
-				createBlock( 'snow-monkey-blocks/items--banner', attributes ),
+				createBlock( 'snow-monkey-blocks/items-banner', attributes ),
 		},
 		{
 			type: 'block',
-			blocks: [ 'snow-monkey-blocks/items--item--standard' ],
+			blocks: [ 'snow-monkey-blocks/items-item-standard' ],
 			transform: ( attributes ) =>
 				createBlock(
-					'snow-monkey-blocks/items--item--standard',
+					'snow-monkey-blocks/items-item-standard',
 					attributes
 				),
 		},

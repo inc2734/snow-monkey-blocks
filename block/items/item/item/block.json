@@ -1,6 +1,6 @@
 {
   "apiVersion": 2,
-  "name": "snow-monkey-blocks/items--item",
+  "name": "snow-monkey-blocks/items-item",
   "title": "Item (Deprecated)",
   "category": "smb",
   "parent": [ "DEPRECATED" ],

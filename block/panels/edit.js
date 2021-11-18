@@ -14,15 +14,16 @@ import {
 import { __ } from '@wordpress/i18n';
 
 import { toNumber } from '@smb/helper';
+import { useMigrateDoubleHyphenToSingleHyphen } from '@smb/hooks';
 import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
 
 const ALLOWED_BLOCKS = [
-	'snow-monkey-blocks/panels--item',
-	'snow-monkey-blocks/panels--item--horizontal',
-	'snow-monkey-blocks/panels--item--free',
+	'snow-monkey-blocks/panels-item',
+	'snow-monkey-blocks/panels-item-horizontal',
+	'snow-monkey-blocks/panels-item-free',
 ];
 
-const TEMPLATE = [ [ 'snow-monkey-blocks/panels--item' ] ];
+const TEMPLATE = [ [ 'snow-monkey-blocks/panels-item' ] ];
 
 const HORIZONTAL_JUSTIFY_CONTROLS = [
 	'left',
@@ -31,7 +32,22 @@ const HORIZONTAL_JUSTIFY_CONTROLS = [
 	'space-between',
 ];
 
-export default function ( { attributes, setAttributes, className } ) {
+export default function ( { attributes, setAttributes, className, clientId } ) {
+	useMigrateDoubleHyphenToSingleHyphen( clientId, [
+		{
+			oldBlockName: 'snow-monkey-blocks/panels--item--free',
+			newBlockName: 'snow-monkey-blocks/panels-item-free',
+		},
+		{
+			oldBlockName: 'snow-monkey-blocks/panels--item--horizontal',
+			newBlockName: 'snow-monkey-blocks/panels-item-horizontal',
+		},
+		{
+			oldBlockName: 'snow-monkey-blocks/panels--item',
+			newBlockName: 'snow-monkey-blocks/panels-item',
+		},
+	] );
+
 	const { sm, md, lg, imagePadding, contentJustification } = attributes;
 
 	const classes = classnames( 'smb-panels', className );

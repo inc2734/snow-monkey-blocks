@@ -25,8 +25,8 @@
 				<!-- wp:snow-monkey-blocks/items -->
 					<div class="wp-block-snow-monkey-blocks-items smb-items">
 						<div class="c-row c-row--margin" data-columns="1" data-md-columns="1" data-lg-columns="2">
-							<!-- wp:snow-monkey-blocks/items--banner {"url":"#","maskOpacity":0.7,"imageSize":"wide"} -->
-							<div class="wp-block-snow-monkey-blocks-items--banner c-row__col">
+							<!-- wp:snow-monkey-blocks/items-banner {"url":"#","maskOpacity":0.7,"imageSize":"wide"} -->
+							<div class="wp-block-snow-monkey-blocks-items-banner c-row__col">
 								<div class="smb-items__banner smb-items__banner--wide">
 									<div class="smb-items__banner__figure">
 										<div class="smb-items__banner__figure__mask"></div>
@@ -39,9 +39,9 @@
 									<div class="smb-items__banner__action"><a href="#">Lorem ipsum dolor sit amet</a></div>
 								</div>
 							</div>
-							<!-- /wp:snow-monkey-blocks/items--banner -->
-							<!-- wp:snow-monkey-blocks/items--banner {"url":"#","maskOpacity":0.7,"imageSize":"wide"} -->
-							<div class="wp-block-snow-monkey-blocks-items--banner c-row__col">
+							<!-- /wp:snow-monkey-blocks/items-banner -->
+							<!-- wp:snow-monkey-blocks/items-banner {"url":"#","maskOpacity":0.7,"imageSize":"wide"} -->
+							<div class="wp-block-snow-monkey-blocks-items-banner c-row__col">
 								<div class="smb-items__banner smb-items__banner--wide">
 									<div class="smb-items__banner__figure">
 										<div class="smb-items__banner__figure__mask"></div>
@@ -54,7 +54,7 @@
 									<div class="smb-items__banner__action"><a href="#">Lorem ipsum dolor sit amet</a></div>
 								</div>
 							</div>
-							<!-- /wp:snow-monkey-blocks/items--banner -->
+							<!-- /wp:snow-monkey-blocks/items-banner -->
 						</div>
 					</div>
 					<!-- /wp:snow-monkey-blocks/items -->

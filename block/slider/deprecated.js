@@ -187,7 +187,7 @@ export default [
 						''
 					);
 
-					return createBlock( 'snow-monkey-blocks/slider--item', {
+					return createBlock( 'snow-monkey-blocks/slider-item', {
 						imageID: Number( imageID ),
 						imageURL,
 						caption,

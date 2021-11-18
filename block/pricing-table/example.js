@@ -4,7 +4,7 @@ export default {
 	},
 	innerBlocks: [
 		{
-			name: 'snow-monkey-blocks/pricing-table--item',
+			name: 'snow-monkey-blocks/pricing-table-item',
 			attributes: {
 				title: 'Lorem',
 				price: '$100',
@@ -17,7 +17,7 @@ export default {
 			},
 		},
 		{
-			name: 'snow-monkey-blocks/pricing-table--item',
+			name: 'snow-monkey-blocks/pricing-table-item',
 			attributes: {
 				title: 'ipsum',
 				price: '$100',

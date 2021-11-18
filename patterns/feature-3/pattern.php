@@ -22,8 +22,8 @@
 					<!-- wp:snow-monkey-blocks/panels -->
 					<div class="wp-block-snow-monkey-blocks-panels smb-panels" data-image-padding="false">
 						<div class="c-row c-row--margin c-row--fill" data-columns="1" data-md-columns="1" data-lg-columns="2">
-							<!-- wp:snow-monkey-blocks/panels--item--horizontal -->
-							<div class="wp-block-snow-monkey-blocks-panels--item--horizontal c-row__col">
+							<!-- wp:snow-monkey-blocks/panels-item-horizontal -->
+							<div class="wp-block-snow-monkey-blocks-panels-item-horizontal c-row__col">
 								<div class="smb-panels__item smb-panels__item--horizontal smb-panels__item--reverse">
 									<div class="smb-panels__item__figure">
 										<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/beach-sand-coast2756.jpg" alt="" class="wp-image-0"/>
@@ -34,9 +34,9 @@
 									</div>
 								</div>
 							</div>
-							<!-- /wp:snow-monkey-blocks/panels--item--horizontal -->
-							<!-- wp:snow-monkey-blocks/panels--item--horizontal -->
-							<div class="wp-block-snow-monkey-blocks-panels--item--horizontal c-row__col">
+							<!-- /wp:snow-monkey-blocks/panels-item-horizontal -->
+							<!-- wp:snow-monkey-blocks/panels-item-horizontal -->
+							<div class="wp-block-snow-monkey-blocks-panels-item-horizontal c-row__col">
 								<div class="smb-panels__item smb-panels__item--horizontal smb-panels__item--reverse">
 									<div class="smb-panels__item__figure">
 										<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/building-architecture-sky2096.jpg" alt="" class="wp-image-0"/>
@@ -47,9 +47,9 @@
 									</div>
 								</div>
 							</div>
-							<!-- /wp:snow-monkey-blocks/panels--item--horizontal -->
-							<!-- wp:snow-monkey-blocks/panels--item--horizontal -->
-							<div class="wp-block-snow-monkey-blocks-panels--item--horizontal c-row__col">
+							<!-- /wp:snow-monkey-blocks/panels-item-horizontal -->
+							<!-- wp:snow-monkey-blocks/panels-item-horizontal -->
+							<div class="wp-block-snow-monkey-blocks-panels-item-horizontal c-row__col">
 								<div class="smb-panels__item smb-panels__item--horizontal smb-panels__item--reverse">
 									<div class="smb-panels__item__figure">
 										<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/building-windows-balconies330.jpg" alt="" class="wp-image-0"/>
@@ -60,9 +60,9 @@
 									</div>
 								</div>
 							</div>
-							<!-- /wp:snow-monkey-blocks/panels--item--horizontal -->
-							<!-- wp:snow-monkey-blocks/panels--item--horizontal -->
-							<div class="wp-block-snow-monkey-blocks-panels--item--horizontal c-row__col">
+							<!-- /wp:snow-monkey-blocks/panels-item-horizontal -->
+							<!-- wp:snow-monkey-blocks/panels-item-horizontal -->
+							<div class="wp-block-snow-monkey-blocks-panels-item-horizontal c-row__col">
 								<div class="smb-panels__item smb-panels__item--horizontal smb-panels__item--reverse">
 									<div class="smb-panels__item__figure">
 										<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/stocksnap_wrn48fo5mr.jpg" alt="" class="wp-image-0"/>
@@ -73,7 +73,7 @@
 									</div>
 								</div>
 							</div>
-							<!-- /wp:snow-monkey-blocks/panels--item--horizontal -->
+							<!-- /wp:snow-monkey-blocks/panels-item-horizontal -->
 						</div>
 					</div>
 					<!-- /wp:snow-monkey-blocks/panels -->

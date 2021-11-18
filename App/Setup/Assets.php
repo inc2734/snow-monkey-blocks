@@ -116,7 +116,7 @@ class Assets {
 			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/blocks-editor-wrapper.css' )
 		);
 
-		$editor_style_dependencies = [ 'snow-monkey-blocks' ];
+		$editor_style_dependencies = [ 'wp-edit-blocks', 'snow-monkey-blocks' ];
 		wp_enqueue_style(
 			'snow-monkey-blocks-editor',
 			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/css/blocks-editor.css',

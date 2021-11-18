@@ -1,7 +1,7 @@
 export default {
 	innerBlocks: [
 		{
-			name: 'snow-monkey-blocks/panels--item',
+			name: 'snow-monkey-blocks/panels-item',
 			attributes: {
 				title: 'Lorem ipsum',
 				summary: 'sed do eiusmod tempor incididunt',
@@ -10,7 +10,7 @@ export default {
 			},
 		},
 		{
-			name: 'snow-monkey-blocks/panels--item',
+			name: 'snow-monkey-blocks/panels-item',
 			attributes: {
 				title: 'dolor sit amet',
 				summary: 'ut labore et dolore magna aliqua',

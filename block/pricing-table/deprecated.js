@@ -184,7 +184,7 @@ export default [
 					);
 
 					return createBlock(
-						'snow-monkey-blocks/pricing-table--item',
+						'snow-monkey-blocks/pricing-table-item',
 						{
 							title,
 							price,

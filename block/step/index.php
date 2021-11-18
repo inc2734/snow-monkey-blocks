@@ -5,8 +5,6 @@
  * @license GPL-2.0+
  */
 
-use Snow_Monkey\Plugin\Blocks;
-
 /**
  * style
  */

@@ -22,8 +22,8 @@
 					<!-- wp:snow-monkey-blocks/faq -->
 					<div class="wp-block-snow-monkey-blocks-faq smb-faq">
 						<div class="smb-faq__body">
-							<!-- wp:snow-monkey-blocks/faq--item -->
-							<div class="wp-block-snow-monkey-blocks-faq--item smb-faq__item">
+							<!-- wp:snow-monkey-blocks/faq-item -->
+							<div class="wp-block-snow-monkey-blocks-faq-item smb-faq__item">
 								<div class="smb-faq__item__question">
 									<div class="smb-faq__item__question__label">Q</div>
 									<div class="smb-faq__item__question__body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
@@ -37,9 +37,9 @@
 									</div>
 								</div>
 							</div>
-							<!-- /wp:snow-monkey-blocks/faq--item -->
-							<!-- wp:snow-monkey-blocks/faq--item -->
-							<div class="wp-block-snow-monkey-blocks-faq--item smb-faq__item">
+							<!-- /wp:snow-monkey-blocks/faq-item -->
+							<!-- wp:snow-monkey-blocks/faq-item -->
+							<div class="wp-block-snow-monkey-blocks-faq-item smb-faq__item">
 								<div class="smb-faq__item__question">
 									<div class="smb-faq__item__question__label">Q</div>
 									<div class="smb-faq__item__question__body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
@@ -53,7 +53,7 @@
 									</div>
 								</div>
 							</div>
-							<!-- /wp:snow-monkey-blocks/faq--item -->
+							<!-- /wp:snow-monkey-blocks/faq-item -->
 						</div>
 					</div>
 					<!-- /wp:snow-monkey-blocks/faq -->

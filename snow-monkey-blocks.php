@@ -41,7 +41,7 @@ class Bootstrap {
 		add_filter( 'block_categories_all', [ $this, '_block_categories_all' ] );
 		add_action( 'init', [ $this, '_register_blocks' ] );
 		add_action( 'add_meta_boxes', [ $this, '_add_pr_meta_box' ] );
-		add_action( 'the_content', [ $this, '_the_content_for_slider' ], 11 );
+		add_filter( 'the_content', [ $this, '_the_content_for_slider' ], 11 );
 	}
 
 	/**

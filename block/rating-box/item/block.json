@@ -1,6 +1,6 @@
 {
   "apiVersion": 2,
-  "name": "snow-monkey-blocks/rating-box--item",
+  "name": "snow-monkey-blocks/rating-box-item",
 	"title": "Item",
 	"description": "It is a child block of the rating box block.",
   "category": "smb",

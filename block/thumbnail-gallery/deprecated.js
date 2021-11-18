@@ -93,7 +93,7 @@ export default [
 					);
 
 					return createBlock(
-						'snow-monkey-blocks/thumbnail-gallery--item',
+						'snow-monkey-blocks/thumbnail-gallery-item',
 						{
 							imageID: Number( imageID ),
 							imageURL,

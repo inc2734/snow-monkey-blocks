@@ -22,8 +22,8 @@
 					<!-- wp:snow-monkey-blocks/items {"lg":3} -->
 					<div class="wp-block-snow-monkey-blocks-items smb-items">
 						<div class="c-row c-row--margin" data-columns="1" data-md-columns="1" data-lg-columns="3">
-							<!-- wp:snow-monkey-blocks/items--item--standard -->
-							<div class="wp-block-snow-monkey-blocks-items--item--standard c-row__col">
+							<!-- wp:snow-monkey-blocks/items-item-standard -->
+							<div class="wp-block-snow-monkey-blocks-items-item-standard c-row__col">
 								<div class="smb-items__item">
 									<div class="smb-items__item__figure">
 										<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/beach-sand-coast2756.jpg" alt="" class="wp-image-0"/>
@@ -35,9 +35,9 @@
 									</div>
 								</div>
 							</div>
-							<!-- /wp:snow-monkey-blocks/items--item--standard -->
-							<!-- wp:snow-monkey-blocks/items--item--standard -->
-							<div class="wp-block-snow-monkey-blocks-items--item--standard c-row__col">
+							<!-- /wp:snow-monkey-blocks/items-item-standard -->
+							<!-- wp:snow-monkey-blocks/items-item-standard -->
+							<div class="wp-block-snow-monkey-blocks-items-item-standard c-row__col">
 								<div class="smb-items__item">
 									<div class="smb-items__item__figure">
 										<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/building-architecture-sky2096.jpg" alt="" class="wp-image-0"/>
@@ -49,9 +49,9 @@
 									</div>
 								</div>
 							</div>
-							<!-- /wp:snow-monkey-blocks/items--item--standard -->
-							<!-- wp:snow-monkey-blocks/items--item--standard -->
-							<div class="wp-block-snow-monkey-blocks-items--item--standard c-row__col">
+							<!-- /wp:snow-monkey-blocks/items-item-standard -->
+							<!-- wp:snow-monkey-blocks/items-item-standard -->
+							<div class="wp-block-snow-monkey-blocks-items-item-standard c-row__col">
 								<div class="smb-items__item">
 									<div class="smb-items__item__figure">
 										<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/building-windows-balconies330.jpg" alt="" class="wp-image-0"/>
@@ -63,7 +63,7 @@
 									</div>
 								</div>
 							</div>
-							<!-- /wp:snow-monkey-blocks/items--item--standard -->
+							<!-- /wp:snow-monkey-blocks/items-item-standard -->
 						</div>
 					</div>
 					<!-- /wp:snow-monkey-blocks/items -->

@@ -1,6 +1,6 @@
 {
   "apiVersion": 2,
-  "name": "snow-monkey-blocks/accordion--item",
+  "name": "snow-monkey-blocks/accordion-item",
 	"title": "Item",
   "category": "smb",
   "parent": [
@@ -19,6 +19,7 @@
     }
   },
   "supports": {
-    "html": false
+    "html": false,
+    "className": true
   }
 }

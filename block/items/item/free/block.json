@@ -1,6 +1,6 @@
 {
   "apiVersion": 2,
-  "name": "snow-monkey-blocks/items--item--free",
+  "name": "snow-monkey-blocks/items-item-free",
 	"title": "Item (Free input)",
 	"description": "It is a child block of the items block.",
   "category": "smb",

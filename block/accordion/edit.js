@@ -6,10 +6,19 @@ import {
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
-const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/accordion--item' ];
-const TEMPLATE = [ [ 'snow-monkey-blocks/accordion--item' ] ];
+import { useMigrateDoubleHyphenToSingleHyphen } from '@smb/hooks';
 
-export default function ( { className } ) {
+const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/accordion-item' ];
+const TEMPLATE = [ [ 'snow-monkey-blocks/accordion-item' ] ];
+
+export default function ( { className, clientId } ) {
+	useMigrateDoubleHyphenToSingleHyphen( clientId, [
+		{
+			oldBlockName: 'snow-monkey-blocks/accordion--item',
+			newBlockName: 'snow-monkey-blocks/accordion-item',
+		},
+	] );
+
 	const classes = classnames( 'smb-accordion', className );
 
 	const blockProps = useBlockProps( {

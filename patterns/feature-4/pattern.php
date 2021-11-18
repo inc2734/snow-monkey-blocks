@@ -23,8 +23,8 @@
 									<!-- wp:snow-monkey-blocks/items -->
 									<div class="wp-block-snow-monkey-blocks-items smb-items">
 										<div class="c-row c-row--margin" data-columns="1" data-md-columns="1" data-lg-columns="2">
-											<!-- wp:snow-monkey-blocks/items--item--standard -->
-											<div class="wp-block-snow-monkey-blocks-items--item--standard c-row__col">
+											<!-- wp:snow-monkey-blocks/items-item-standard -->
+											<div class="wp-block-snow-monkey-blocks-items-item-standard c-row__col">
 												<div class="smb-items__item">
 													<div class="smb-items__item__body">
 														<div class="smb-items__item__title">Lorem ipsum</div>
@@ -32,9 +32,9 @@
 													</div>
 												</div>
 											</div>
-											<!-- /wp:snow-monkey-blocks/items--item--standard -->
-											<!-- wp:snow-monkey-blocks/items--item--standard -->
-											<div class="wp-block-snow-monkey-blocks-items--item--standard c-row__col">
+											<!-- /wp:snow-monkey-blocks/items-item-standard -->
+											<!-- wp:snow-monkey-blocks/items-item-standard -->
+											<div class="wp-block-snow-monkey-blocks-items-item-standard c-row__col">
 												<div class="smb-items__item">
 													<div class="smb-items__item__body">
 														<div class="smb-items__item__title">Lorem ipsum</div>
@@ -42,9 +42,9 @@
 													</div>
 												</div>
 											</div>
-											<!-- /wp:snow-monkey-blocks/items--item--standard -->
-											<!-- wp:snow-monkey-blocks/items--item--standard -->
-											<div class="wp-block-snow-monkey-blocks-items--item--standard c-row__col">
+											<!-- /wp:snow-monkey-blocks/items-item-standard -->
+											<!-- wp:snow-monkey-blocks/items-item-standard -->
+											<div class="wp-block-snow-monkey-blocks-items-item-standard c-row__col">
 												<div class="smb-items__item">
 													<div class="smb-items__item__body">
 														<div class="smb-items__item__title">Lorem ipsum</div>
@@ -52,9 +52,9 @@
 													</div>
 												</div>
 											</div>
-											<!-- /wp:snow-monkey-blocks/items--item--standard -->
-											<!-- wp:snow-monkey-blocks/items--item--standard -->
-											<div class="wp-block-snow-monkey-blocks-items--item--standard c-row__col">
+											<!-- /wp:snow-monkey-blocks/items-item-standard -->
+											<!-- wp:snow-monkey-blocks/items-item-standard -->
+											<div class="wp-block-snow-monkey-blocks-items-item-standard c-row__col">
 												<div class="smb-items__item">
 													<div class="smb-items__item__body">
 														<div class="smb-items__item__title">Lorem ipsum</div>
@@ -62,7 +62,7 @@
 													</div>
 												</div>
 											</div>
-											<!-- /wp:snow-monkey-blocks/items--item--standard -->
+											<!-- /wp:snow-monkey-blocks/items-item-standard -->
 										</div>
 									</div>
 									<!-- /wp:snow-monkey-blocks/items -->

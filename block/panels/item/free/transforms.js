@@ -4,16 +4,16 @@ export default {
 	to: [
 		{
 			type: 'block',
-			blocks: [ 'snow-monkey-blocks/panels--item' ],
+			blocks: [ 'snow-monkey-blocks/panels-item' ],
 			transform: ( attributes ) =>
-				createBlock( 'snow-monkey-blocks/panels--item', attributes ),
+				createBlock( 'snow-monkey-blocks/panels-item', attributes ),
 		},
 		{
 			type: 'block',
-			blocks: [ 'snow-monkey-blocks/panels--item--horizontal' ],
+			blocks: [ 'snow-monkey-blocks/panels-item-horizontal' ],
 			transform: ( attributes ) =>
 				createBlock(
-					'snow-monkey-blocks/panels--item--horizontal',
+					'snow-monkey-blocks/panels-item-horizontal',
 					attributes
 				),
 		},

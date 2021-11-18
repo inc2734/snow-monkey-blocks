@@ -1,6 +1,6 @@
 {
   "apiVersion": 2,
-  "name": "snow-monkey-blocks/panels--item",
+  "name": "snow-monkey-blocks/panels-item",
 	"title": "Item (Vertical layout)",
 	"description": "It is a child block of the panels block.",
   "category": "smb",

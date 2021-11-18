@@ -12,12 +12,20 @@ import {
 import { __ } from '@wordpress/i18n';
 
 import { toNumber } from '@smb/helper';
+import { useMigrateDoubleHyphenToSingleHyphen } from '@smb/hooks';
 import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
 
-const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/testimonial--item' ];
-const TEMPLATE = [ [ 'snow-monkey-blocks/testimonial--item' ] ];
+const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/testimonial-item' ];
+const TEMPLATE = [ [ 'snow-monkey-blocks/testimonial-item' ] ];
 
-export default function ( { attributes, setAttributes, className } ) {
+export default function ( { attributes, setAttributes, className, clientId } ) {
+	useMigrateDoubleHyphenToSingleHyphen( clientId, [
+		{
+			oldBlockName: 'snow-monkey-blocks/testimonial--item',
+			newBlockName: 'snow-monkey-blocks/testimonial-item',
+		},
+	] );
+
 	const { md, lg } = attributes;
 
 	const classes = classnames( 'smb-testimonial', className );

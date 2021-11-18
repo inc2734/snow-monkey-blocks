@@ -240,7 +240,7 @@ export default function ( {
 				>
 					<BaseControl
 						label={ __( 'Image', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/items--banner/image"
+						id="snow-monkey-blocks/items-banner/image"
 					>
 						<Figure
 							src={ imageURL }

@@ -1,6 +1,6 @@
 {
   "apiVersion": 2,
-  "name": "snow-monkey-blocks/thumbnail-gallery--item",
+  "name": "snow-monkey-blocks/thumbnail-gallery-item",
   "category": "smb-deprecated",
   "parent": [ "snow-monkey-blocks/thumbnail-gallery" ],
   "attributes": {
