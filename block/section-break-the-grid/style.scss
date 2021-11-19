@@ -347,36 +347,6 @@
       position: relative;
       width: 100%;
     }
-
-    &--match-height {
-      @include _media-min(lg) {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        margin: 0 !important;
-
-        img, video {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          max-height: none;
-          max-width: none;
-          min-height: 100%;
-          min-width: 100%;
-
-          @supports (object-fit: cover) {
-            object-position: 50% 50%;
-            max-width: 100%;
-            height: 100%;
-            width: 100%;
-            min-height: auto;
-            min-width: auto;
-            object-fit: cover;
-          }
-        }
-      }
-    }
   }
 
   &__content {
@@ -536,19 +506,6 @@
                     }
                   }
                 }
-
-                &--match-height {
-                  @include _media-min(lg) {
-                    left: 50%;
-                    right: 0 !important;
-
-                    @each $key, $value in $imageSizes {
-                      &.smb-section-break-the-grid__figure--w-#{ $value } {
-                        left: -1 * $key / 2 + 50%;
-                      }
-                    }
-                  }
-                }
               }
             }
           }
@@ -626,19 +583,6 @@
                   @each $key, $value in $imageSizes {
                     &--w-#{ $value } {
                       margin-right: -1 * ($key * 1%);
-                    }
-                  }
-                }
-
-                &--match-height {
-                  @include _media-min(lg) {
-                    right: 50%;
-                    left: 0 !important;
-
-                    @each $key, $value in $imageSizes {
-                      &.smb-section-break-the-grid__figure--w-#{ $value } {
-                        right: -1 * $key / 2 + 50%;
-                      }
                     }
                   }
                 }
@@ -750,6 +694,102 @@
 
                     @include _media-min(md) {
                       @include _margin-top(-2 * $key / 10);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &--match-height {
+    > .smb-section__inner {
+      position: static;
+
+      > .#{ $_prefix }c-container {
+        position: static;
+
+        > .smb-section__contents-wrapper {
+          > .#{ $_prefix }c-row {
+            > .#{ $_prefix }c-row__col {
+              > .smb-section-break-the-grid__figure {
+                @include _media-min(lg) {
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  margin: 0 !important;
+
+                  img, video {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    max-height: none;
+                    max-width: none;
+                    min-height: 100%;
+                    min-width: 100%;
+
+                    @supports (object-fit: cover) {
+                      object-position: 50% 50%;
+                      max-width: 100%;
+                      height: 100%;
+                      width: 100%;
+                      min-height: auto;
+                      min-width: auto;
+                      object-fit: cover;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.smb-section-break-the-grid--right {
+      > .smb-section__inner {
+        > .#{ $_prefix }c-container {
+          > .smb-section__contents-wrapper {
+            > .#{ $_prefix }c-row {
+              > .#{ $_prefix }c-row__col {
+                > .smb-section-break-the-grid__figure {
+                  @include _media-min(lg) {
+                    left: 50%;
+                    right: 0 !important;
+
+                    @each $key, $value in $imageSizes {
+                      &.smb-section-break-the-grid__figure--w-#{ $value } {
+                        left: -1 * $key / 2 + 50%;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.smb-section-break-the-grid--left {
+      > .smb-section__inner {
+        > .#{ $_prefix }c-container {
+          > .smb-section__contents-wrapper {
+            > .#{ $_prefix }c-row {
+              > .#{ $_prefix }c-row__col {
+                > .smb-section-break-the-grid__figure {
+                  @include _media-min(lg) {
+                    right: 50%;
+                    left: 0 !important;
+
+                    @each $key, $value in $imageSizes {
+                      &.smb-section-break-the-grid__figure--w-#{ $value } {
+                        right: -1 * $key / 2 + 50%;
+                      }
                     }
                   }
                 }

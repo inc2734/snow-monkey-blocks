@@ -172,6 +172,8 @@ export default function ( {
 				!! mobileOrder && isAvailableVerticalAlignment,
 			[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
 			[ className ]: !! className,
+			[ `smb-section-break-the-grid--match-height` ]:
+				imageMatchHeight && isAvailableVerticalAlignment,
 		}
 	);
 
@@ -204,8 +206,6 @@ export default function ( {
 
 	const figureClasses = classnames( 'smb-section-break-the-grid__figure', {
 		[ `smb-section-break-the-grid__figure--w-${ imageSize }` ]: !! imageSize,
-		[ `smb-section-break-the-grid__figure--match-height` ]:
-			imageMatchHeight && isAvailableVerticalAlignment,
 	} );
 
 	const contentClasses = classnames( 'smb-section-break-the-grid__content', {
