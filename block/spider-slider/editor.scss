@@ -10,23 +10,4 @@
       visibility: visible;
     }
   }
-
-  [data-align="full"] > .smb-spider-slider--shifted,
-  [data-align="wide"] > .smb-spider-slider--shifted {
-    @supports (--var: 1) {
-      .spider {
-        --spider-reference-width: 840px; // .wp-block default max-width. You will need to overwrite it at themes.
-        --spider-canvas-width: 100vw;
-        margin-right: auto;
-        margin-left: auto;
-        max-width: var(--spider-reference-width);
-      }
-
-      .spider__canvas {
-        margin-right: calc(50% - 50vw); // You will need to overwrite it at themes.
-        margin-right: calc(50% - 50vw); // You will need to overwrite it at themes.
-        width: var(--spider-canvas-width);
-      }
-    }
-  }
 }

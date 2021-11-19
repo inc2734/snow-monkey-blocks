@@ -15,6 +15,7 @@ import {
 } from '@wordpress/components';
 
 import { useSelect } from '@wordpress/data';
+import { useEffect, useRef } from '@wordpress/element';
 import { Icon, warning } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
 
@@ -87,6 +88,35 @@ export default function ( {
 	const isAlignfull = 'full' === attributes.align;
 	const isShiftable = ! fade;
 	const isShifted = shifted && isShiftable && ( isAlignwide || isAlignfull );
+
+	const ref = useRef();
+	const referenceRef = useRef();
+	const canvasRef = useRef();
+	useEffect( () => {
+		const width =
+			!! ref.current &&
+			!! canvasRef.current &&
+			isShifted &&
+			Math.floor( ref.current.offsetWidth );
+		if ( !! width ) {
+			ref.current.style.setProperty(
+				'--spider-canvas-width',
+				`${ width }px`
+			);
+			canvasRef.current.style.width = `${ width }px`;
+		}
+
+		const referenceWidth =
+			!! referenceRef.current &&
+			isShifted &&
+			Math.floor( referenceRef.current.offsetWidth );
+		if ( !! referenceWidth ) {
+			ref.current.style.setProperty(
+				'--spider-reference-width',
+				`${ referenceWidth }px`
+			);
+		}
+	}, [ !! ref.current && ref.current.offsetWidth ] );
 
 	const classes = classnames( 'smb-spider-slider', className, {
 		[ `smb-spider-slider--${ aspectRatio }` ]: !! aspectRatio,
@@ -434,10 +464,10 @@ export default function ( {
 			</InspectorControls>
 
 			{ ! hasImages ? (
-				<div { ...useBlockProps() }>{ mediaPlaceholder }</div>
+				<div { ...useBlockProps( { ref } ) }>{ mediaPlaceholder }</div>
 			) : (
 				<div
-					{ ...useBlockProps( { className: classes } ) }
+					{ ...useBlockProps( { className: classes, ref } ) }
 					data-fade={ fade ? 'true' : 'false' }
 					data-lg-slide-to-show={
 						! fade && 1 < lgSlidesToShow
@@ -458,10 +488,13 @@ export default function ( {
 					<div className="spider">
 						{ isShifted && (
 							<div className="c-container">
-								<div className="spider__reference" />
+								<div
+									className="spider__reference"
+									ref={ referenceRef }
+								/>
 							</div>
 						) }
-						<div className="spider__canvas">
+						<div className="spider__canvas" ref={ canvasRef }>
 							{ images.map( ( img, index ) => {
 								return (
 									<div
