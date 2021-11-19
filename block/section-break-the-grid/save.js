@@ -19,6 +19,7 @@ export default function ( { attributes, className } ) {
 		textColor,
 		imagePosition,
 		imageSize,
+		imageMatchHeight,
 		verticalAlignment,
 		contentSize,
 		contentHorizontalPosition,
@@ -120,6 +121,7 @@ export default function ( { attributes, className } ) {
 
 	const figureClasses = classnames( 'smb-section-break-the-grid__figure', {
 		[ `smb-section-break-the-grid__figure--w-${ imageSize }` ]: !! imageSize,
+		[ `smb-section-break-the-grid__figure--match-height` ]: imageMatchHeight,
 	} );
 
 	const contentClasses = classnames( 'smb-section-break-the-grid__content', {

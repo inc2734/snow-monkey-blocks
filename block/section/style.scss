@@ -81,14 +81,14 @@
 
   &__inner {
     flex: 1 1 auto;
-    position: relative;
+    // position: relative;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     max-width: 100%;
 
     > .#{$_prefix}c-container {
-      position: relative;
+      // position: relative;
       flex: 1 1 auto;
     }
 

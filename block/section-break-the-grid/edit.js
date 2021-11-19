@@ -14,6 +14,7 @@ import {
 } from '@wordpress/block-editor';
 
 import {
+	CheckboxControl,
 	PanelBody,
 	RangeControl,
 	SelectControl,
@@ -67,6 +68,7 @@ export default function ( {
 		textColor,
 		imagePosition,
 		imageSize,
+		imageMatchHeight,
 		verticalAlignment,
 		contentSize,
 		contentHorizontalPosition,
@@ -202,6 +204,8 @@ export default function ( {
 
 	const figureClasses = classnames( 'smb-section-break-the-grid__figure', {
 		[ `smb-section-break-the-grid__figure--w-${ imageSize }` ]: !! imageSize,
+		[ `smb-section-break-the-grid__figure--match-height` ]:
+			imageMatchHeight && isAvailableVerticalAlignment,
 	} );
 
 	const contentClasses = classnames( 'smb-section-break-the-grid__content', {
@@ -269,6 +273,11 @@ export default function ( {
 	const onChangeImageSize = ( value ) =>
 		setAttributes( {
 			imageSize: value,
+		} );
+
+	const onChangeImageMatchHeight = ( value ) =>
+		setAttributes( {
+			imageMatchHeight: value,
 		} );
 
 	const onChangeVerticalAlignment = ( value ) =>
@@ -738,6 +747,17 @@ export default function ( {
 						] }
 						onChange={ onChangeImageSize }
 					/>
+
+					{ isAvailableVerticalAlignment && (
+						<CheckboxControl
+							label={ __(
+								'Adjust the height of the media to the height of the block.',
+								'snow-monkey-blocks'
+							) }
+							checked={ imageMatchHeight }
+							onChange={ onChangeImageMatchHeight }
+						/>
+					) }
 				</PanelBody>
 
 				<PanelBody

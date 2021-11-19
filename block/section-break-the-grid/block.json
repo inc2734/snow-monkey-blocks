@@ -51,6 +51,10 @@
       "type": "string",
       "default": "40"
     },
+    "imageMatchHeight": {
+      "type": "boolean",
+      "default": false
+    },
     "imageSizeSlug": {
       "type": "string",
       "default": "large"
