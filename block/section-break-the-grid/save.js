@@ -43,6 +43,7 @@ export default function ( { attributes, className } ) {
 		wrapperTagName,
 		titleTagName,
 		containerAlign,
+		disableContainerPadding,
 		padding,
 
 		backgroundHorizontalPosition,
@@ -96,6 +97,7 @@ export default function ( { attributes, className } ) {
 	const containerClasses = classnames( 'c-container', {
 		alignfull: 'full' === containerAlign,
 		alignwide: 'wide' === containerAlign,
+		'c-container--no-padding': disableContainerPadding,
 	} );
 
 	const rowClasses = classnames( 'c-row', {

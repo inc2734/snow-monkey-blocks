@@ -41,6 +41,7 @@ export default function ( { attributes, className } ) {
 		titleTagName,
 		height,
 		containerAlign,
+		disableContainerPadding,
 		contentsMaxWidth,
 		isSlim,
 	} = attributes;
@@ -73,6 +74,7 @@ export default function ( { attributes, className } ) {
 	const containerClasses = classnames( 'c-container', {
 		alignfull: 'full' === containerAlign,
 		alignwide: 'wide' === containerAlign,
+		'c-container--no-padding': disableContainerPadding,
 	} );
 
 	const contentsWrapperClasses = classnames(

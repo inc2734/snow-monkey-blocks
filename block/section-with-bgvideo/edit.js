@@ -57,6 +57,7 @@ export default function ( {
 		titleTagName,
 		height,
 		containerAlign,
+		disableContainerPadding,
 		contentsMaxWidth,
 		isSlim,
 	} = attributes;
@@ -96,6 +97,7 @@ export default function ( {
 	const containerClasses = classnames( 'c-container', {
 		alignfull: 'full' === containerAlign,
 		alignwide: 'wide' === containerAlign,
+		'c-container--no-padding': disableContainerPadding,
 	} );
 
 	const contentsWrapperClasses = classnames(
@@ -222,6 +224,11 @@ export default function ( {
 			containerAlign: value,
 		} );
 
+	const onChangeDisableContainerPadding = ( value ) =>
+		setAttributes( {
+			disableContainerPadding: value,
+		} );
+
 	const onChangeContentsMaxWidth = ( value ) =>
 		setAttributes( {
 			contentsMaxWidth: value,
@@ -250,6 +257,10 @@ export default function ( {
 						{
 							containerAlignValue: containerAlign,
 							onContainerAlignChange: onChangeContainerAlign,
+						},
+						{
+							disableContainerPaddingValue: disableContainerPadding,
+							onDisableContainerPaddingChange: onChangeDisableContainerPadding,
 						},
 						{
 							contentsMaxWidthValue: contentsMaxWidth,

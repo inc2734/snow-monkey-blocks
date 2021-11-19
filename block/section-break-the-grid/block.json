@@ -143,6 +143,10 @@
     "containerAlign": {
       "type": "string"
     },
+    "disableContainerPadding": {
+      "type": "boolean",
+      "default": false
+    },
     "padding": {
       "type": "object",
       "default": {}

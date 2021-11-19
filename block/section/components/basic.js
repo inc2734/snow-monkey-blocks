@@ -3,6 +3,7 @@ import { times } from 'lodash';
 import {
 	BaseControl,
 	Button,
+	CheckboxControl,
 	PanelBody,
 	SelectControl,
 	ToggleControl,
@@ -179,6 +180,23 @@ export const PanelBasicSettings = ( {
 									),
 								},
 							] }
+						/>
+					);
+				}
+
+				if (
+					setting.hasOwnProperty( 'disableContainerPaddingValue' ) &&
+					setting.hasOwnProperty( 'onDisableContainerPaddingChange' )
+				) {
+					return (
+						<CheckboxControl
+							key={ index }
+							label={ __(
+								'Remove container padding',
+								'snow-monkey-blocks'
+							) }
+							checked={ setting.disableContainerPaddingValue }
+							onChange={ setting.onDisableContainerPaddingChange }
 						/>
 					);
 				}
