@@ -168,13 +168,32 @@ export default function ( {
 	} );
 
 	const containerClasses = classnames( 'c-container', {
-		alignfull: 'full' === containerAlign && 'full' === align,
-		alignwide: 'wide' === containerAlign && 'full' === align,
+		alignfull:
+			( 'full' === containerAlign ||
+				'contents-full' === containerAlign ) &&
+			'full' === align,
+		alignwide:
+			'wide' === containerAlign ||
+			( 'contents-wide' === containerAlign && 'full' === align ),
 		'c-container--no-padding':
 			disableContainerPadding &&
-			'full' === containerAlign &&
+			( 'full' === containerAlign ||
+				'contents-full' === containerAlign ) &&
 			'full' === align,
 	} );
+
+	let headerContainerClasses = containerClasses
+		.replace( 'c-container--no-padding', '' )
+		.trim();
+	if (
+		'contents-wide' === containerAlign ||
+		'contents-full' === containerAlign
+	) {
+		headerContainerClasses = headerContainerClasses
+			.replace( 'alignfull', '' )
+			.replace( 'alignwide', '' )
+			.trim();
+	}
 
 	const contentsWrapperClasses = classnames(
 		'smb-section__contents-wrapper',
@@ -571,10 +590,9 @@ export default function ( {
 					disableContentsMaxWidth={ isSlim }
 					disableContainerAlign={ 'full' !== align }
 					disableDisableContainerPadding={
-						'full' !== containerAlign ||
-						'full' !== align ||
-						isSlim ||
-						!! contentsMaxWidth
+						( 'full' !== containerAlign &&
+							'contents-full' !== containerAlign ) ||
+						'full' !== align
 					}
 					settings={ [
 						{
@@ -590,6 +608,7 @@ export default function ( {
 							onHeightChange: onChangeHeight,
 						},
 						{
+							contentsContainerControl: true,
 							containerAlignValue: containerAlign,
 							onContainerAlignChange: onChangeContainerAlign,
 						},
@@ -992,13 +1011,13 @@ export default function ( {
 							<Header
 								isSelected={ isSelected }
 								hasContainer={
-									disableContainerPadding &&
-									'full' === containerAlign &&
-									'full' === align
+									( disableContainerPadding &&
+										'full' === containerAlign &&
+										'full' === align ) ||
+									'contents-wide' === containerAlign ||
+									'contents-full' === containerAlign
 								}
-								containerClassName={ containerClasses
-									.replace( 'c-container--no-padding', '' )
-									.trim() }
+								containerClassName={ headerContainerClasses }
 								settings={ [
 									{
 										subtitleValue: subtitle,

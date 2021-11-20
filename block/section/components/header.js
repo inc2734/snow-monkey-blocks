@@ -86,8 +86,6 @@ export const Edit = ( {
 	isSelected,
 	hasContainer,
 	containerClassName,
-	// containerAlign,
-	// align,
 	className,
 	settings,
 } ) => {
@@ -202,8 +200,6 @@ export const Save = ( {
 	className,
 	hasContainer,
 	containerClassName,
-	// containerAlign,
-	// align,
 } ) => {
 	const hasTitle = ! RichText.isEmpty( title ) && 'none' !== titleTagName;
 	if ( ! hasTitle ) {

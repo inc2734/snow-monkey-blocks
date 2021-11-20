@@ -151,6 +151,42 @@ export const PanelBasicSettings = ( {
 					setting.hasOwnProperty( 'containerAlignValue' ) &&
 					setting.hasOwnProperty( 'onContainerAlignChange' )
 				) {
+					let options = [
+						{
+							value: '',
+							label: __( 'Default', 'snow-monkey-blocks' ),
+						},
+						{
+							value: 'wide',
+							label: __( 'Wide width', 'snow-monkey-blocks' ),
+						},
+						{
+							value: 'full',
+							label: __( 'Full width', 'snow-monkey-blocks' ),
+						},
+					];
+
+					if (
+						setting.hasOwnProperty( 'contentsContainerControl' )
+					) {
+						options = options.concat( [
+							{
+								value: 'contents-wide',
+								label: __(
+									'Wide width (Only contents)',
+									'snow-monkey-blocks'
+								),
+							},
+							{
+								value: 'contents-full',
+								label: __(
+									'Full width (Only contents)',
+									'snow-monkey-blocks'
+								),
+							},
+						] );
+					}
+
 					return (
 						<SelectControl
 							key={ index }
@@ -160,29 +196,7 @@ export const PanelBasicSettings = ( {
 							) }
 							value={ setting.containerAlignValue }
 							onChange={ setting.onContainerAlignChange }
-							options={ [
-								{
-									value: '',
-									label: __(
-										'Default',
-										'snow-monkey-blocks'
-									),
-								},
-								{
-									value: 'wide',
-									label: __(
-										'Wide width',
-										'snow-monkey-blocks'
-									),
-								},
-								{
-									value: 'full',
-									label: __(
-										'Full width',
-										'snow-monkey-blocks'
-									),
-								},
-							] }
+							options={ options }
 						/>
 					);
 				}

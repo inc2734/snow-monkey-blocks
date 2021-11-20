@@ -57,13 +57,32 @@ export default function ( { attributes, className } ) {
 	} );
 
 	const containerClasses = classnames( 'c-container', {
-		alignfull: 'full' === containerAlign && 'full' === align,
-		alignwide: 'wide' === containerAlign && 'full' === align,
+		alignfull:
+			( 'full' === containerAlign ||
+				'contents-full' === containerAlign ) &&
+			'full' === align,
+		alignwide:
+			'wide' === containerAlign ||
+			( 'contents-wide' === containerAlign && 'full' === align ),
 		'c-container--no-padding':
 			disableContainerPadding &&
-			'full' === containerAlign &&
+			( 'full' === containerAlign ||
+				'contents-full' === containerAlign ) &&
 			'full' === align,
 	} );
+
+	let headerContainerClasses = containerClasses
+		.replace( 'c-container--no-padding', '' )
+		.trim();
+	if (
+		'contents-wide' === containerAlign ||
+		'contents-full' === containerAlign
+	) {
+		headerContainerClasses = headerContainerClasses
+			.replace( 'alignfull', '' )
+			.replace( 'alignwide', '' )
+			.trim();
+	}
 
 	const contentsWrapperClasses = classnames(
 		'smb-section__contents-wrapper',
@@ -142,12 +161,12 @@ export default function ( { attributes, className } ) {
 								subtitle,
 								lede,
 								hasContainer:
-									disableContainerPadding &&
-									'full' === containerAlign &&
-									'full' === align,
-								containerClassName: containerClasses
-									.replace( 'c-container--no-padding', '' )
-									.trim(),
+									( disableContainerPadding &&
+										'full' === containerAlign &&
+										'full' === align ) ||
+									'contents-wide' === containerAlign ||
+									'contents-full' === containerAlign,
+								containerClassName: headerContainerClasses,
 							} }
 						/>
 
