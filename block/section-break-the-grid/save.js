@@ -10,6 +10,8 @@ import { generateSpacingProperties } from '@smb/helper';
 
 export default function ( { attributes, className } ) {
 	const {
+		align,
+
 		imageID,
 		imageURL,
 		imageAlt,
@@ -43,7 +45,6 @@ export default function ( { attributes, className } ) {
 		wrapperTagName,
 		titleTagName,
 		containerAlign,
-		disableContainerPadding,
 		padding,
 
 		backgroundHorizontalPosition,
@@ -95,9 +96,8 @@ export default function ( { attributes, className } ) {
 	);
 
 	const containerClasses = classnames( 'c-container', {
-		alignfull: 'full' === containerAlign,
-		alignwide: 'wide' === containerAlign,
-		'c-container--no-padding': disableContainerPadding,
+		alignfull: 'full' === containerAlign && 'full' === align,
+		alignwide: 'wide' === containerAlign && 'full' === align,
 	} );
 
 	const rowClasses = classnames( 'c-row', {

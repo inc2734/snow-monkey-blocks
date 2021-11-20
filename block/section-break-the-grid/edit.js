@@ -58,6 +58,8 @@ export default function ( {
 	clientId,
 } ) {
 	const {
+		align,
+
 		imageID,
 		imageURL,
 		imageAlt,
@@ -92,7 +94,6 @@ export default function ( {
 		wrapperTagName,
 		titleTagName,
 		containerAlign,
-		disableContainerPadding,
 		padding,
 
 		backgroundHorizontalPosition,
@@ -179,9 +180,8 @@ export default function ( {
 	);
 
 	const containerClasses = classnames( 'c-container', {
-		alignfull: 'full' === containerAlign,
-		alignwide: 'wide' === containerAlign,
-		'c-container--no-padding': disableContainerPadding,
+		alignfull: 'full' === containerAlign && 'full' === align,
+		alignwide: 'wide' === containerAlign && 'full' === align,
 	} );
 
 	const rowClasses = classnames( 'c-row', {
@@ -465,11 +465,6 @@ export default function ( {
 			containerAlign: value,
 		} );
 
-	const onChangeDisableContainerPadding = ( value ) =>
-		setAttributes( {
-			disableContainerPadding: value,
-		} );
-
 	const onChangePadding = ( value ) =>
 		setAttributes( {
 			padding: value,
@@ -627,6 +622,7 @@ export default function ( {
 				<PanelBasicSettings
 					disableIsSlim={ true }
 					disableContentsMaxWidth={ true }
+					disableContainerAlign={ 'full' !== align }
 					settings={ [
 						{
 							wrapperTagNameValue: wrapperTagName,
@@ -639,10 +635,6 @@ export default function ( {
 						{
 							containerAlignValue: containerAlign,
 							onContainerAlignChange: onChangeContainerAlign,
-						},
-						{
-							disableContainerPaddingValue: disableContainerPadding,
-							onDisableContainerPaddingChange: onChangeDisableContainerPadding,
 						},
 						{
 							sides: [ 'top', 'bottom' ],

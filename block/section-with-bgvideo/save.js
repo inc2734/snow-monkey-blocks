@@ -8,6 +8,8 @@ import { Save as Header } from '../section/components/header';
 
 export default function ( { attributes, className } ) {
 	const {
+		align,
+
 		videoURL,
 		videoWidth,
 		videoHeight,
@@ -55,9 +57,12 @@ export default function ( { attributes, className } ) {
 	} );
 
 	const containerClasses = classnames( 'c-container', {
-		alignfull: 'full' === containerAlign,
-		alignwide: 'wide' === containerAlign,
-		'c-container--no-padding': disableContainerPadding,
+		alignfull: 'full' === containerAlign && 'full' === align,
+		alignwide: 'wide' === containerAlign && 'full' === align,
+		'c-container--no-padding':
+			disableContainerPadding &&
+			'full' === containerAlign &&
+			'full' === align,
 	} );
 
 	const contentsWrapperClasses = classnames(
@@ -136,6 +141,13 @@ export default function ( { attributes, className } ) {
 								titleTagName,
 								subtitle,
 								lede,
+								hasContainer:
+									disableContainerPadding &&
+									'full' === containerAlign &&
+									'full' === align,
+								containerClassName: containerClasses
+									.replace( 'c-container--no-padding', '' )
+									.trim(),
 							} }
 						/>
 

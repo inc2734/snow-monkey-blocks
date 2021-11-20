@@ -45,6 +45,8 @@ export default function ( {
 	clientId,
 } ) {
 	const {
+		align,
+
 		textColor,
 		headingPosition,
 		headingColumnSize,
@@ -59,7 +61,6 @@ export default function ( {
 		titleTagName,
 		height,
 		containerAlign,
-		disableContainerPadding,
 		contentsMaxWidth,
 		isSlim,
 
@@ -117,9 +118,8 @@ export default function ( {
 	} );
 
 	const containerClasses = classnames( 'c-container', {
-		alignfull: 'full' === containerAlign,
-		alignwide: 'wide' === containerAlign,
-		'c-container--no-padding': disableContainerPadding,
+		alignfull: 'full' === containerAlign && 'full' === align,
+		alignwide: 'wide' === containerAlign && 'full' === align,
 	} );
 
 	const contentsWrapperClasses = classnames(
@@ -226,11 +226,6 @@ export default function ( {
 	const onChangeContainerAlign = ( value ) =>
 		setAttributes( {
 			containerAlign: value,
-		} );
-
-	const onChangeDisableContainerPadding = ( value ) =>
-		setAttributes( {
-			disableContainerPadding: value,
 		} );
 
 	const onChangeContentsMaxWidth = ( value ) =>
@@ -344,6 +339,7 @@ export default function ( {
 				<PanelBasicSettings
 					disableIsSlim={ !! contentsMaxWidth }
 					disableContentsMaxWidth={ isSlim }
+					disableContainerAlign={ 'full' !== align }
 					settings={ [
 						{
 							wrapperTagNameValue: wrapperTagName,
@@ -360,10 +356,6 @@ export default function ( {
 						{
 							containerAlignValue: containerAlign,
 							onContainerAlignChange: onChangeContainerAlign,
-						},
-						{
-							disableContainerPaddingValue: disableContainerPadding,
-							onDisableContainerPaddingChange: onChangeDisableContainerPadding,
 						},
 						{
 							contentsMaxWidthValue: contentsMaxWidth,

@@ -82,7 +82,15 @@ const getLedeClasses = ( className ) => {
 	} );
 };
 
-export const Edit = ( { isSelected, className, settings } ) => {
+export const Edit = ( {
+	isSelected,
+	hasContainer,
+	containerClassName,
+	// containerAlign,
+	// align,
+	className,
+	settings,
+} ) => {
 	const hasHeader = getHasHeader( settings );
 	if ( ! hasHeader ) {
 		return <></>;
@@ -102,8 +110,8 @@ export const Edit = ( { isSelected, className, settings } ) => {
 	const ledeWrapperClasses = getLedeWrapperClasses( className );
 	const ledeClasses = getLedeClasses( className );
 
-	return (
-		<div className={ headerClasses }>
+	const HaederInnerBlocks = () => (
+		<>
 			{ settings.map( ( setting, index ) => {
 				if (
 					( hasSubTitle || isSelected ) &&
@@ -166,11 +174,37 @@ export const Edit = ( { isSelected, className, settings } ) => {
 
 				return <Fragment key={ index }></Fragment>;
 			} ) }
-		</div>
+		</>
+	);
+
+	return (
+		<>
+			{ hasContainer ? (
+				<div className={ headerClasses }>
+					<div className={ containerClassName }>
+						<HaederInnerBlocks />
+					</div>
+				</div>
+			) : (
+				<div className={ headerClasses }>
+					<HaederInnerBlocks />
+				</div>
+			) }
+		</>
 	);
 };
 
-export const Save = ( { title, titleTagName, subtitle, lede, className } ) => {
+export const Save = ( {
+	title,
+	titleTagName,
+	subtitle,
+	lede,
+	className,
+	hasContainer,
+	containerClassName,
+	// containerAlign,
+	// align,
+} ) => {
 	const hasTitle = ! RichText.isEmpty( title ) && 'none' !== titleTagName;
 	if ( ! hasTitle ) {
 		return <></>;
@@ -185,8 +219,8 @@ export const Save = ( { title, titleTagName, subtitle, lede, className } ) => {
 	const ledeWrapperClasses = getLedeWrapperClasses( className );
 	const ledeClasses = getLedeClasses( className );
 
-	return (
-		<div className={ headerClasses }>
+	const HaederInnerBlocks = () => (
+		<>
 			{ hasSubTitle && (
 				<RichText.Content
 					tagName="div"
@@ -210,6 +244,22 @@ export const Save = ( { title, titleTagName, subtitle, lede, className } ) => {
 					/>
 				</div>
 			) }
-		</div>
+		</>
+	);
+
+	return (
+		<>
+			{ hasContainer ? (
+				<div className={ headerClasses }>
+					<div className={ containerClassName }>
+						<HaederInnerBlocks />
+					</div>
+				</div>
+			) : (
+				<div className={ headerClasses }>
+					<HaederInnerBlocks />
+				</div>
+			) }
+		</>
 	);
 };

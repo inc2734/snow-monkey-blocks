@@ -39,6 +39,8 @@ export default function ( {
 	clientId,
 } ) {
 	const {
+		align,
+
 		videoURL,
 		videoWidth,
 		videoHeight,
@@ -95,9 +97,12 @@ export default function ( {
 	} );
 
 	const containerClasses = classnames( 'c-container', {
-		alignfull: 'full' === containerAlign,
-		alignwide: 'wide' === containerAlign,
-		'c-container--no-padding': disableContainerPadding,
+		alignfull: 'full' === containerAlign && 'full' === align,
+		alignwide: 'wide' === containerAlign && 'full' === align,
+		'c-container--no-padding':
+			disableContainerPadding &&
+			'full' === containerAlign &&
+			'full' === align,
 	} );
 
 	const contentsWrapperClasses = classnames(
@@ -245,6 +250,10 @@ export default function ( {
 				<PanelBasicSettings
 					disableIsSlim={ !! contentsMaxWidth }
 					disableContentsMaxWidth={ isSlim }
+					disableContainerAlign={ 'full' !== align }
+					disableDisableContainerPadding={
+						'full' !== containerAlign || 'full' !== align
+					}
 					settings={ [
 						{
 							titleTagNameValue: titleTagName,
@@ -383,6 +392,14 @@ export default function ( {
 						>
 							<Header
 								isSelected={ isSelected }
+								hasContainer={
+									disableContainerPadding &&
+									'full' === containerAlign &&
+									'full' === align
+								}
+								containerClassName={ containerClasses
+									.replace( 'c-container--no-padding', '' )
+									.trim() }
 								settings={ [
 									{
 										subtitleValue: subtitle,

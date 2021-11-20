@@ -18,6 +18,8 @@ import SpacingControl from '@smb/component/spacing-control';
 export const PanelBasicSettings = ( {
 	disableIsSlim,
 	disableContentsMaxWidth,
+	disableContainerAlign,
+	disableDisableContainerPadding,
 	settings,
 } ) => {
 	const wrapperTagNames = [ 'div', 'section', 'aside' ];
@@ -145,6 +147,7 @@ export const PanelBasicSettings = ( {
 				}
 
 				if (
+					! disableContainerAlign &&
 					setting.hasOwnProperty( 'containerAlignValue' ) &&
 					setting.hasOwnProperty( 'onContainerAlignChange' )
 				) {
@@ -185,6 +188,7 @@ export const PanelBasicSettings = ( {
 				}
 
 				if (
+					! disableDisableContainerPadding &&
 					setting.hasOwnProperty( 'disableContainerPaddingValue' ) &&
 					setting.hasOwnProperty( 'onDisableContainerPaddingChange' )
 				) {
@@ -192,7 +196,7 @@ export const PanelBasicSettings = ( {
 						<CheckboxControl
 							key={ index }
 							label={ __(
-								'Remove container padding',
+								'Remove container padding of the contents',
 								'snow-monkey-blocks'
 							) }
 							checked={ setting.disableContainerPaddingValue }

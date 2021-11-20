@@ -57,10 +57,6 @@
     "containerAlign": {
       "type": "string"
     },
-    "disableContainerPadding": {
-      "type": "boolean",
-      "default": false
-    },
     "contentsMaxWidth": {
       "type": "string"
     },

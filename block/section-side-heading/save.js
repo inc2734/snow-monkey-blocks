@@ -9,6 +9,8 @@ import { Save as Header } from '../section/components/header';
 
 export default function ( { attributes, className } ) {
 	const {
+		align,
+
 		textColor,
 		headingPosition,
 		headingColumnSize,
@@ -23,7 +25,6 @@ export default function ( { attributes, className } ) {
 		titleTagName,
 		height,
 		containerAlign,
-		disableContainerPadding,
 		contentsMaxWidth,
 		isSlim,
 
@@ -72,9 +73,8 @@ export default function ( { attributes, className } ) {
 	} );
 
 	const containerClasses = classnames( 'c-container', {
-		alignfull: 'full' === containerAlign,
-		alignwide: 'wide' === containerAlign,
-		'c-container--no-padding': disableContainerPadding,
+		alignfull: 'full' === containerAlign && 'full' === align,
+		alignwide: 'wide' === containerAlign && 'full' === align,
 	} );
 
 	const contentsWrapperClasses = classnames(

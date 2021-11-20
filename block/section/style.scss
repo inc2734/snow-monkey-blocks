@@ -133,14 +133,15 @@
     &--left,
     &--center,
     &--right {
-      > .smb-section__header {
+      > .smb-section__header,
+      > .smb-section__header .#{ $_prefix }c-container {
         text-align: inherit;
       }
     }
 
     &--left,
     &--right {
-      > .smb-section__header > .smb-section__lede-wrapper {
+      > .smb-section__header .smb-section__lede-wrapper {
         display: block;
       }
     }
@@ -167,7 +168,8 @@
   &__header {
     text-align: center;
 
-    > * {
+    > *,
+    > .#{ $_prefix }c-container > * {
       text-align: inherit;
     }
   }
