@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 13.3.0
+Stable tag: 13.4.0
 Requires at least: 5.8
 Tested up to: 5.8
 Requires PHP: 5.6
@@ -107,6 +107,20 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 24. Tabs block (The number of tab can be increased or decreased freely)
 
 == Changelog ==
+
+= 13.4.0 =
+* [Section] Add new setting: Remove container padding.
+* [Section] Changed "Container alignment" to show only when the block is full width.
+* [Section] Add new setting: Add "Full width (Content only)" and "Full width (Content only)" to "Container alignment".
+* [Section (Background image/video)] Remove container padding.
+* [Section (Background image/video)] "Container alignment" to show only when the block is full width.
+* [Section (Background image/video)] Add new setting: Add "Full width (Content only)" and "Full width (Content only)" to "Container alignment".
+* [Section (YouTube)] Remove container padding.
+* [Section (YouTube)] "Container alignment" to show only when the block is full width.
+* [Section (YouTube)] Add new setting: Add "Full width (Content only)" and "Full width (Content only)" to "Container alignment".
+* [Section (Side heading)] "Container alignment" to show only when the block is full width.
+* [Section (Break the grid)] "Container alignment" to show only when the block is full width.
+* [Slider] Improved the display in the editor when the slider is shifted.
 
 = 13.3.0 =
 * Change some blocks name. Double hyphens to single hyphen. eg. `snow-monkey-blocks/step--item` to `snow-monkey-blocks/step-item`.
