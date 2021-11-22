@@ -82,33 +82,16 @@ const getLedeClasses = ( className ) => {
 	} );
 };
 
-export const Edit = ( {
-	isSelected,
-	hasContainer,
-	containerClassName,
-	className,
-	settings,
-} ) => {
-	const hasHeader = getHasHeader( settings );
-	if ( ! hasHeader ) {
-		return <></>;
-	}
-
-	const hasTitle = getHasTitle( settings );
-	if ( ! hasTitle && ! isSelected ) {
-		return <></>;
-	}
-
+const HaederInnerBlocksEdit = ( { isSelected, className, settings } ) => {
 	const hasSubTitle = getHasSubtitle( settings );
 	const hasLede = getHasLede( settings );
 
-	const headerClasses = getHeaderClasses( className );
 	const subtitleClasses = getSubtitleClasses( className );
 	const titleClasses = getTitleClasses( className );
 	const ledeWrapperClasses = getLedeWrapperClasses( className );
 	const ledeClasses = getLedeClasses( className );
 
-	const HaederInnerBlocks = () => (
+	return (
 		<>
 			{ settings.map( ( setting, index ) => {
 				if (
@@ -174,48 +157,68 @@ export const Edit = ( {
 			} ) }
 		</>
 	);
+};
+
+export const Edit = ( {
+	isSelected,
+	hasContainer,
+	containerClassName,
+	className,
+	settings,
+} ) => {
+	const hasHeader = getHasHeader( settings );
+	if ( ! hasHeader ) {
+		return <></>;
+	}
+
+	const hasTitle = getHasTitle( settings );
+	if ( ! hasTitle && ! isSelected ) {
+		return <></>;
+	}
+
+	const headerClasses = getHeaderClasses( className );
 
 	return (
 		<>
 			{ hasContainer ? (
 				<div className={ headerClasses }>
 					<div className={ containerClassName }>
-						<HaederInnerBlocks />
+						<HaederInnerBlocksEdit
+							isSelected={ isSelected }
+							className={ className }
+							settings={ settings }
+						/>
 					</div>
 				</div>
 			) : (
 				<div className={ headerClasses }>
-					<HaederInnerBlocks />
+					<HaederInnerBlocksEdit
+						isSelected={ isSelected }
+						className={ className }
+						settings={ settings }
+					/>
 				</div>
 			) }
 		</>
 	);
 };
 
-export const Save = ( {
+const HaederInnerBlocksSave = ( {
 	title,
 	titleTagName,
 	subtitle,
 	lede,
 	className,
-	hasContainer,
-	containerClassName,
 } ) => {
-	const hasTitle = ! RichText.isEmpty( title ) && 'none' !== titleTagName;
-	if ( ! hasTitle ) {
-		return <></>;
-	}
-
 	const hasSubTitle = ! RichText.isEmpty( subtitle );
 	const hasLede = ! RichText.isEmpty( lede );
 
-	const headerClasses = getHeaderClasses( className );
 	const subtitleClasses = getSubtitleClasses( className );
 	const titleClasses = getTitleClasses( className );
 	const ledeWrapperClasses = getLedeWrapperClasses( className );
 	const ledeClasses = getLedeClasses( className );
 
-	const HaederInnerBlocks = () => (
+	return (
 		<>
 			{ hasSubTitle && (
 				<RichText.Content
@@ -242,18 +245,47 @@ export const Save = ( {
 			) }
 		</>
 	);
+};
+
+export const Save = ( {
+	title,
+	titleTagName,
+	subtitle,
+	lede,
+	className,
+	hasContainer,
+	containerClassName,
+} ) => {
+	const hasTitle = ! RichText.isEmpty( title ) && 'none' !== titleTagName;
+	if ( ! hasTitle ) {
+		return <></>;
+	}
+
+	const headerClasses = getHeaderClasses( className );
 
 	return (
 		<>
 			{ hasContainer ? (
 				<div className={ headerClasses }>
 					<div className={ containerClassName }>
-						<HaederInnerBlocks />
+						<HaederInnerBlocksSave
+							title={ title }
+							titleTagName={ titleTagName }
+							subtitle={ subtitle }
+							lede={ lede }
+							className={ className }
+						/>
 					</div>
 				</div>
 			) : (
 				<div className={ headerClasses }>
-					<HaederInnerBlocks />
+					<HaederInnerBlocksSave
+						title={ title }
+						titleTagName={ titleTagName }
+						subtitle={ subtitle }
+						lede={ lede }
+						className={ className }
+					/>
 				</div>
 			) }
 		</>
