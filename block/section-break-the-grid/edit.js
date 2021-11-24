@@ -9,6 +9,7 @@ import {
 	InspectorControls,
 	PanelColorSettings,
 	useBlockProps,
+	useSetting,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 	__experimentalColorGradientControl as ColorGradientControl,
 } from '@wordpress/block-editor';
@@ -43,6 +44,7 @@ import { Edit as Header } from '../section/components/header';
 import {
 	PanelSectionMovableBackgroundSettings,
 	PanelSectionFixedBackgroundSettings,
+	PanelSectionBackgroundTextSettings,
 	PanelSectionTopDividerSettings,
 	PanelSectionBottomDividerSettings,
 	SectionBackground,
@@ -115,6 +117,7 @@ export default function ( {
 		bottomDividerLevel,
 		bottomDividerColor,
 		bottomDividerVerticalPosition,
+		backgroundText,
 	} = attributes;
 
 	const hasInnerBlocks = useSelect(
@@ -271,6 +274,8 @@ export default function ( {
 				: InnerBlocks.ButtonBlockAppender,
 		}
 	);
+
+	const fontSizes = useSetting( 'typography.fontSizes' ) || [];
 
 	const onChangeImageSize = ( value ) =>
 		setAttributes( {
@@ -1108,6 +1113,94 @@ export default function ( {
 					] }
 				/>
 
+				<PanelSectionBackgroundTextSettings
+					settings={ [
+						{
+							textValue: backgroundText.text,
+							onTextChange: ( value ) => {
+								setAttributes( {
+									backgroundText: {
+										...backgroundText,
+										...{ text: value },
+									},
+								} );
+							},
+						},
+						{
+							fontSizeValue: backgroundText.fontSize,
+							onFontSizeChange: ( value ) => {
+								const filteredFontSizes = fontSizes.filter(
+									( _fontSize ) => {
+										return (
+											!! _fontSize?.size &&
+											value === _fontSize?.size
+										);
+									}
+								);
+
+								setAttributes( {
+									backgroundText: {
+										...backgroundText,
+										...{
+											fontSize: value,
+											fontSizeSlug:
+												0 < filteredFontSizes.length &&
+												!! filteredFontSizes[ 0 ]?.slug
+													? filteredFontSizes[ 0 ]
+															.slug
+													: '',
+										},
+									},
+								} );
+							},
+						},
+						{
+							lineHeightValue: backgroundText.lineHeight,
+							onLineHeightChange: ( value ) => {
+								setAttributes( {
+									backgroundText: {
+										...backgroundText,
+										...{ lineHeight: value },
+									},
+								} );
+							},
+						},
+						{
+							opacityValue: backgroundText.opacity,
+							onOpacityChange: ( value ) => {
+								setAttributes( {
+									backgroundText: {
+										...backgroundText,
+										...{ opacity: value },
+									},
+								} );
+							},
+						},
+						{
+							colorValue: backgroundText.color,
+							onColorChange: ( value ) => {
+								setAttributes( {
+									backgroundText: {
+										...backgroundText,
+										...{ color: value },
+									},
+								} );
+							},
+						},
+						{
+							positionValue: backgroundText.position,
+							onPositionChange: ( value ) => {
+								setAttributes( {
+									backgroundText: {
+										...backgroundText,
+										...{ position: value },
+									},
+								} );
+							},
+						},
+					] }
+				/>
+
 				<PanelSectionTopDividerSettings
 					settings={ [
 						{
@@ -1251,6 +1344,8 @@ export default function ( {
 						bottomDividerLevel,
 						bottomDividerColor,
 						bottomDividerVerticalPosition,
+						backgroundText,
+						containerClasses,
 					} }
 				/>
 

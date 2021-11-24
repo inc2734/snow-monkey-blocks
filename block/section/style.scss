@@ -9,7 +9,8 @@
   @include _padding(1.5, 0);
 
   &__background,
-  &__fixed-background {
+  &__fixed-background,
+  &__background-text {
     position: absolute;
     top: 0;
     right: 0;
@@ -26,6 +27,20 @@
       bottom: 0;
       left: 0;
       mix-blend-mode: multiply;
+    }
+  }
+
+  &__background-text {
+    overflow: hidden;
+
+    .#{ $_prefix }c-container {
+      position: relative;
+      height: 100%;
+    }
+
+    &__inner {
+      position: absolute;
+      font-weight: bold;
     }
   }
 

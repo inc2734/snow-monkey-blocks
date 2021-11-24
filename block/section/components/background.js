@@ -1,18 +1,24 @@
 import classnames from 'classnames';
 
-import { __experimentalColorGradientControl as ColorGradientControl } from '@wordpress/block-editor';
+import {
+	__experimentalColorGradientControl as ColorGradientControl,
+	FontSizePicker,
+	RichText,
+} from '@wordpress/block-editor';
 
 import {
 	PanelBody,
 	RangeControl,
 	SelectControl,
 	ToggleControl,
+	TextareaControl,
 } from '@wordpress/components';
 
 import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 import { divider } from '@smb/helper';
+import SpacingControl from '@smb/component/spacing-control';
 
 const textureOptions = [
 	{
@@ -417,6 +423,113 @@ export const PanelSectionBottomDividerSettings = ( { settings } ) => {
 	);
 };
 
+export const PanelSectionBackgroundTextSettings = ( { settings } ) => {
+	return (
+		<PanelBody
+			title={ __( 'Background Text Settings', 'snow-monkey-blocks' ) }
+			initialOpen={ false }
+		>
+			{ settings.map( ( setting, index ) => {
+				if (
+					setting.hasOwnProperty( 'textValue' ) &&
+					setting.hasOwnProperty( 'onTextChange' )
+				) {
+					return (
+						<TextareaControl
+							key={ index }
+							label={ __( 'Text', 'snow-monkey-blocks' ) }
+							value={ setting.textValue }
+							onChange={ setting.onTextChange }
+						/>
+					);
+				}
+
+				if (
+					setting.hasOwnProperty( 'fontSizeValue' ) &&
+					setting.hasOwnProperty( 'onFontSizeChange' )
+				) {
+					return (
+						<FontSizePicker
+							key={ index }
+							value={ setting.fontSizeValue }
+							onChange={ setting.onFontSizeChange }
+							withReset={ false }
+						/>
+					);
+				}
+
+				if (
+					setting.hasOwnProperty( 'lineHeightValue' ) &&
+					setting.hasOwnProperty( 'onLineHeightChange' )
+				) {
+					return (
+						<RangeControl
+							key={ index }
+							label={ __( 'Line height', 'snow-monkey-blocks' ) }
+							value={ setting.lineHeightValue }
+							onChange={ setting.onLineHeightChange }
+							min="0"
+							max="5"
+							step="0.1"
+							initialPosition={ undefined }
+							allowReset
+						/>
+					);
+				}
+
+				if (
+					setting.hasOwnProperty( 'opacityValue' ) &&
+					setting.hasOwnProperty( 'onOpacityChange' )
+				) {
+					return (
+						<RangeControl
+							key={ index }
+							label={ __( 'Opacity', 'snow-monkey-blocks' ) }
+							value={ Number(
+								setting.opacityValue.toFixed( 1 )
+							) }
+							onChange={ setting.onOpacityChange }
+							min={ 0.1 }
+							max={ 1 }
+							step={ 0.1 }
+						/>
+					);
+				}
+
+				if (
+					setting.hasOwnProperty( 'colorValue' ) &&
+					setting.hasOwnProperty( 'onColorChange' )
+				) {
+					return (
+						<ColorGradientControl
+							key={ index }
+							label={ __( 'Color', 'snow-monkey-blocks' ) }
+							colorValue={ setting.colorValue }
+							onColorChange={ setting.onColorChange }
+						/>
+					);
+				}
+
+				if (
+					setting.hasOwnProperty( 'positionValue' ) &&
+					setting.hasOwnProperty( 'onPositionChange' )
+				) {
+					return (
+						<SpacingControl
+							key={ index }
+							label={ __( 'Position', 'snow-monkey-blocks' ) }
+							values={ setting.positionValue }
+							onChange={ setting.onPositionChange }
+						/>
+					);
+				}
+
+				return <Fragment key={ index }></Fragment>;
+			} ) }
+		</PanelBody>
+	);
+};
+
 export const SectionBackground = ( {
 	backgroundHorizontalPosition,
 	backgroundVerticalPosition,
@@ -437,6 +550,8 @@ export const SectionBackground = ( {
 	bottomDividerLevel,
 	bottomDividerColor,
 	bottomDividerVerticalPosition,
+	backgroundText,
+	containerClasses,
 } ) => {
 	const hasBackgroundColor = !! backgroundColor || !! backgroundGradientColor;
 	const hasBackgroundTexture = !! backgroundTexture;
@@ -445,6 +560,7 @@ export const SectionBackground = ( {
 	const hasFixedBackgroundTexture = !! fixedBackgroundTexture;
 	const hasTopDivider = !! topDividerLevel;
 	const hasBottomDivider = !! bottomDividerLevel;
+	const hasBackgroundText = !! backgroundText?.text;
 
 	const topDividerClasses = classnames(
 		'smb-section__divider',
@@ -502,10 +618,16 @@ export const SectionBackground = ( {
 	};
 
 	const fixedBackgroundStyles = {
-		paddingTop: Math.abs( topDividerLevel ),
-		paddingBottom: Math.abs( bottomDividerLevel ),
-		backgroundColor: fixedBackgroundColor,
-		backgroundImage: fixedBackgroundGradientColor,
+		paddingTop: !! topDividerLevel ? Math.abs( topDividerLevel ) : 0,
+		paddingBottom: !! bottomDividerLevel
+			? Math.abs( bottomDividerLevel )
+			: 0,
+		backgroundColor: !! fixedBackgroundColor
+			? fixedBackgroundColor
+			: undefined,
+		backgroundImage: !! fixedBackgroundGradientColor
+			? fixedBackgroundGradientColor
+			: undefined,
 	};
 
 	const fixedBackgroundTextureStyles = {
@@ -525,6 +647,33 @@ export const SectionBackground = ( {
 		dividersStyles.bottom = `${ bottomDividerVerticalPosition }%`;
 	}
 
+	const backgroundTextStyles = {};
+	backgroundTextStyles.color = !! backgroundText?.color
+		? backgroundText.color
+		: undefined;
+	backgroundTextStyles.opacity =
+		!! backgroundText?.opacity && 1 > backgroundText.opacity
+			? backgroundText.opacity
+			: undefined;
+	backgroundTextStyles.fontSize = !! backgroundText?.fontSize
+		? backgroundText.fontSize
+		: undefined;
+	backgroundTextStyles.lineHeight = !! backgroundText?.lineHeight
+		? backgroundText.lineHeight
+		: undefined;
+	backgroundTextStyles.top = !! backgroundText?.position?.top
+		? backgroundText.position.top
+		: undefined;
+	backgroundTextStyles.right = !! backgroundText?.position?.right
+		? backgroundText.position.right
+		: undefined;
+	backgroundTextStyles.bottom = !! backgroundText?.position?.bottom
+		? backgroundText.position.bottom
+		: undefined;
+	backgroundTextStyles.left = !! backgroundText?.position?.left
+		? backgroundText.position.left
+		: undefined;
+
 	return (
 		<>
 			{ ( hasFixedBackgroundColor ||
@@ -532,7 +681,8 @@ export const SectionBackground = ( {
 				hasBackgroundColor ||
 				hasBackgroundTexture ||
 				hasTopDivider ||
-				hasBottomDivider ) && (
+				hasBottomDivider ||
+				hasBackgroundText ) && (
 				<div
 					className="smb-section__fixed-background"
 					style={ fixedBackgroundStyles }
@@ -543,7 +693,6 @@ export const SectionBackground = ( {
 							style={ fixedBackgroundTextureStyles }
 						/>
 					) }
-
 					{ ( hasBackgroundColor || hasBackgroundTexture ) && (
 						<div
 							className="smb-section__background"
@@ -557,7 +706,28 @@ export const SectionBackground = ( {
 							) }
 						</div>
 					) }
-
+					{ hasBackgroundText && (
+						<div className="smb-section__background-text">
+							<div className={ containerClasses }>
+								<div
+									className={ classnames(
+										'smb-section__background-text__inner',
+										{
+											[ `has-${ backgroundText?.fontSizeSlug }-font-size` ]: !! backgroundText?.fontSizeSlug,
+										}
+									) }
+									style={ backgroundTextStyles }
+								>
+									<RichText.Content
+										value={ backgroundText.text?.replace(
+											/\n/g,
+											'<br>'
+										) }
+									/>
+								</div>
+							</div>
+						</div>
+					) }
 					{ ( hasTopDivider || hasBottomDivider ) && (
 						<div
 							className="smb-section__dividers"

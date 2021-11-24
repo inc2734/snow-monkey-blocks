@@ -45,6 +45,7 @@ export default function ( { attributes, className } ) {
 		bottomDividerLevel,
 		bottomDividerColor,
 		bottomDividerVerticalPosition,
+		backgroundText,
 	} = attributes;
 
 	const TagName = wrapperTagName;
@@ -135,6 +136,8 @@ export default function ( { attributes, className } ) {
 					bottomDividerLevel,
 					bottomDividerColor,
 					bottomDividerVerticalPosition,
+					backgroundText,
+					containerClasses,
 				} }
 			/>
 

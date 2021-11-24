@@ -2,6 +2,7 @@ import classnames from 'classnames';
 
 import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
+import { SectionBackground } from '../section/components/background';
 import { Save as Header } from '../section/components/header';
 
 export default function ( { attributes, className } ) {
@@ -46,6 +47,8 @@ export default function ( { attributes, className } ) {
 		disableContainerPadding,
 		contentsMaxWidth,
 		isSlim,
+
+		backgroundText,
 	} = attributes;
 
 	const TagName = wrapperTagName;
@@ -355,6 +358,13 @@ export default function ( { attributes, className } ) {
 					) }
 				</div>
 			) }
+
+			<SectionBackground
+				{ ...{
+					backgroundText,
+					containerClasses,
+				} }
+			/>
 
 			<div className={ innerClasses } style={ innerStyles }>
 				<div className={ containerClasses }>

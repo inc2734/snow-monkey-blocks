@@ -66,6 +66,7 @@ export default function ( { attributes, className } ) {
 		bottomDividerLevel,
 		bottomDividerColor,
 		bottomDividerVerticalPosition,
+		backgroundText,
 	} = attributes;
 
 	const isAvailableVerticalAlignment = [ 'right', 'left' ].includes(
@@ -227,6 +228,8 @@ export default function ( { attributes, className } ) {
 					bottomDividerLevel,
 					bottomDividerColor,
 					bottomDividerVerticalPosition,
+					backgroundText,
+					containerClasses,
 				} }
 			/>
 

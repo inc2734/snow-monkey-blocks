@@ -137,6 +137,23 @@
     "bottomDividerVerticalPosition": {
       "type": "number",
       "default": 0
+    },
+    "backgroundText": {
+      "type": "object",
+      "default": {
+        "text": "",
+        "color": "",
+        "fontSize": "",
+        "fontSizeSlug": "",
+        "lineHeight": "",
+        "opacity": 0.2,
+        "position": {
+          "top": null,
+          "right": null,
+          "bottom": null,
+          "left": null
+        }
+      }
     }
   },
   "supports": {
