@@ -707,7 +707,10 @@ export const SectionBackground = ( {
 						</div>
 					) }
 					{ hasBackgroundText && (
-						<div className="smb-section__background-text" aria-hidden="true">
+						<div
+							className="smb-section__background-text"
+							aria-hidden="true"
+						>
 							<div className={ containerClasses }>
 								<div
 									className={ classnames(
