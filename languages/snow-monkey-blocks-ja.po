@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2021-11-26 21:54+0900\n"
-"PO-Revision-Date: 2021-11-26 21:54+0900\n"
+"POT-Creation-Date: 2021-11-29 13:21+0900\n"
+"PO-Revision-Date: 2021-11-29 13:21+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -36,7 +36,7 @@ msgstr ""
 #: block/items/item/banner/edit.js:239 block/items/item/block-link/edit.js:245
 #: block/items/item/item/edit.js:86 block/items/item/standard/edit.js:244
 #: block/like-me-box/edit.js:18 block/limited-datetime/edit.js:107
-#: block/list/edit.js:77 block/media-text/edit.js:282 block/panels/edit.js:108
+#: block/list/edit.js:77 block/media-text/edit.js:282 block/panels/edit.js:109
 #: block/panels/item/horizontal/edit.js:205
 #: block/panels/item/vertical/edit.js:190 block/pickup-slider/edit.js:32
 #: block/pricing-table/edit.js:74 block/pricing-table/item/edit.js:244
@@ -44,7 +44,6 @@ msgstr ""
 #: block/rss/edit.js:127 block/section/components/basic.js:29
 #: block/slider/edit.js:157 block/slider/item/edit.js:203
 #: block/spider-contents-slider/edit.js:212
-#: block/spider-contents-slider/item/edit.js:82
 #: block/spider-pickup-slider/edit.js:62 block/spider-slider/edit.js:299
 #: block/step/item/standard/edit.js:229 block/tabs/edit.js:158
 #: block/taxonomy-posts/edit.js:150 block/taxonomy-terms/edit.js:61
@@ -291,6 +290,9 @@ msgstr "注釈を書く…"
 #: block/btn-box/edit.js:289 block/btn/edit.js:242
 #: block/items/item/banner/edit.js:398 block/items/item/block-link/edit.js:452
 #: block/items/item/item/edit.js:282 block/items/item/standard/edit.js:458
+#: block/panels/item/block-link/edit.js:67
+#: block/panels/item/block-link/edit.js:92
+#: block/panels/item/block-link/save.js:42
 #: block/panels/item/horizontal/edit.js:312
 #: block/panels/item/horizontal/edit.js:342
 #: block/panels/item/vertical/edit.js:281
@@ -302,6 +304,7 @@ msgstr "リンク"
 #: block/btn-box/edit.js:298 block/btn/edit.js:251
 #: block/items/item/banner/edit.js:407 block/items/item/block-link/edit.js:461
 #: block/items/item/item/edit.js:291 block/items/item/standard/edit.js:467
+#: block/panels/item/block-link/edit.js:101
 #: block/panels/item/horizontal/edit.js:351
 #: block/panels/item/vertical/edit.js:320 block/pricing-table/item/edit.js:444
 #: block/slider/item/edit.js:229 block/step/item/standard/edit.js:371
@@ -771,17 +774,17 @@ msgid ""
 "only)."
 msgstr "各項目のボタンの下部を揃えます (スタンダード・ブロックリンクのみ)。"
 
-#: block/items/edit.js:164 block/panels/edit.js:115
+#: block/items/edit.js:164 block/panels/edit.js:116
 #: block/testimonial/edit.js:71
 msgid "Columns per row (Large window)"
 msgstr "行あたりのカラム数（ラージウインドウ）"
 
-#: block/items/edit.js:176 block/panels/edit.js:129
+#: block/items/edit.js:176 block/panels/edit.js:130
 #: block/testimonial/edit.js:85
 msgid "Columns per row (Medium window)"
 msgstr "行あたりのカラム数（ミディアムウインドウ）"
 
-#: block/items/edit.js:188 block/panels/edit.js:143
+#: block/items/edit.js:188 block/panels/edit.js:144
 msgid "Columns per row (Small window)"
 msgstr "行あたりのカラム数（スモールウインドウ）"
 
@@ -954,7 +957,7 @@ msgstr "動画"
 msgid "Media & sentence"
 msgstr "メディアと文章"
 
-#: block/panels/edit.js:157
+#: block/panels/edit.js:158
 msgid "Set padding around images"
 msgstr "画像の周りに余白を設定"
 
@@ -1603,7 +1606,7 @@ msgstr "「0」の場合、デフォルトの速さが使用されます。"
 msgid "Carousel"
 msgstr "カルーセル"
 
-#: block/spider-contents-slider/item/edit.js:66
+#: block/spider-contents-slider/item/edit.js:73
 msgid "Change content position"
 msgstr "コンテンツの位置を変更"
 
@@ -2101,7 +2104,7 @@ msgstr ""
 #: .translation/translation.php:88 .translation/translation.php:89
 #: .translation/translation.php:91 .translation/translation.php:93
 #: .translation/translation.php:95 .translation/translation.php:97
-#: .translation/translation.php:105 .translation/translation.php:128
+#: .translation/translation.php:105 .translation/translation.php:130
 msgid "Item"
 msgstr "項目"
 
@@ -2182,8 +2185,8 @@ msgstr "項目ブロックの子ブロックです。"
 msgid "Item (Block Link)"
 msgstr "項目（ブロックリンク）"
 
-#: .translation/translation.php:115 .translation/translation.php:120
-#: .translation/translation.php:126
+#: .translation/translation.php:115 .translation/translation.php:122
+#: .translation/translation.php:128
 msgid "Item (Free input)"
 msgstr "項目（自由入力）"
 
@@ -2195,20 +2198,24 @@ msgstr "項目（非推奨）"
 msgid "Item (Standard)"
 msgstr "項目（スタンダード）"
 
+#: .translation/translation.php:120
+msgid "Item (Free input / Block link)"
+msgstr "項目（自由入力 / ブロックリンク）"
+
 #: .translation/translation.php:121 .translation/translation.php:123
-#: .translation/translation.php:125
+#: .translation/translation.php:125 .translation/translation.php:127
 msgid "It is a child block of the panels block."
 msgstr "パネルブロックの子ブロックです。"
 
-#: .translation/translation.php:122
+#: .translation/translation.php:124
 msgid "Item (Horizontal layout)"
 msgstr "項目（水平レイアウト）"
 
-#: .translation/translation.php:124
+#: .translation/translation.php:126
 msgid "Item (Vertical layout)"
 msgstr "項目（垂直レイアウト）"
 
-#: .translation/translation.php:127 .translation/translation.php:129
+#: .translation/translation.php:129 .translation/translation.php:131
 msgid "It is a child block of the step block."
 msgstr "ステップブロックの子ブロックです。"
 

@@ -21,6 +21,7 @@ const ALLOWED_BLOCKS = [
 	'snow-monkey-blocks/panels-item',
 	'snow-monkey-blocks/panels-item-horizontal',
 	'snow-monkey-blocks/panels-item-free',
+	'snow-monkey-blocks/panels-item-block-link',
 ];
 
 const TEMPLATE = [ [ 'snow-monkey-blocks/panels-item' ] ];

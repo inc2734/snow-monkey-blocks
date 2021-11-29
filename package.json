@@ -181,6 +181,9 @@
     "block:panels:item:free:clean": "rimraf dist/block/panels/item/free && mkdir -p dist/block/panels/item/free",
     "block:panels:item:free:js": "wp-scripts build block/panels/item/free/editor --output-path=dist/block/panels/item/free",
     "block:panels:item:free": "run-s block:panels:item:free:*",
+    "block:panels:item:block-link:clean": "rimraf dist/block/panels/item/block-link && mkdir -p dist/block/panels/item/block-link",
+    "block:panels:item:block-link:js": "wp-scripts build block/panels/item/block-link/editor --output-path=dist/block/panels/item/block-link",
+    "block:panels:item:block-link": "run-s block:panels:item:block-link:*",
     "block:panels:item": "run-p block:panels:item:*",
     "block:pickup-slider:clean": "rimraf dist/block/pickup-slider && mkdir -p dist/block/pickup-slider",
     "block:pickup-slider:js": "wp-scripts build block/pickup-slider/editor --output-path=dist/block/pickup-slider",
@@ -251,7 +254,6 @@
     "block:spider-slider:js": "wp-scripts build block/spider-slider/script block/spider-slider/editor --output-path=dist/block/spider-slider",
     "block:spider-slider:css": "node-sass block/spider-slider -o dist/block/spider-slider && postcss dist/block/spider-slider/*.css -r",
     "block:spider-slider": "run-s block:spider-slider:*",
-
     "block:spider-contents-slider:clean": "rimraf dist/block/spider-contents-slider && mkdir -p dist/block/spider-contents-slider",
     "block:spider-contents-slider:js": "wp-scripts build block/spider-contents-slider/editor --output-path=dist/block/spider-contents-slider",
     "block:spider-contents-slider:css": "node-sass block/spider-contents-slider -o dist/block/spider-contents-slider && postcss dist/block/spider-contents-slider/*.css -r",
@@ -260,7 +262,6 @@
     "block:spider-contents-slider:item:clean": "rimraf dist/block/spider-contents-slider/item && mkdir -p dist/block/spider-contents-slider/item",
     "block:spider-contents-slider:item:js": "wp-scripts build block/spider-contents-slider/item/editor --output-path=dist/block/spider-contents-slider/item",
     "block:spider-contents-slider:item": "run-s block:spider-contents-slider:item:*",
-
     "block:step:clean": "rimraf dist/block/step && mkdir -p dist/block/step",
     "block:step:js": "wp-scripts build block/step/editor --output-path=dist/block/step",
     "block:step:css": "node-sass block/step -o dist/block/step && postcss dist/block/step/*.css -r",

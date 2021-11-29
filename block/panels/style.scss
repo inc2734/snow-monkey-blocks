@@ -33,27 +33,22 @@
 
     &__body {
       @include _padding(1);
+
+      a {
+        position: relative;
+        z-index: 1;
+      }
     }
 
     &__title {
       margin: 0;
       @include _font-size-line-height(1);
       font-weight: bold;
-
-      a {
-        position: relative;
-        z-index: 1;
-      }
     }
 
     &__content {
       @include _margin-top(.25);
       @include _font-size-line-height($_base-font-size-px - 2);
-
-      a {
-        position: relative;
-        z-index: 1;
-      }
     }
 
     &__action {
@@ -64,6 +59,8 @@
       }
 
       > a {
+        position: initial;
+        z-index: initial;
         text-decoration: none;
 
         &::after {
@@ -82,100 +79,104 @@
       @include _font-size-line-height($_base-font-size-px - 2);
     }
   }
+}
 
-  &__item:not([class*="smb-panels__item--"]) {
-    text-align: center;
-  }
+.smb-panels__item:not([class*="smb-panels__item--"]) {
+  text-align: center;
+}
 
-  &__item--horizontal {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+.smb-panels__item--horizontal {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 
-    @include _media-min(md) {
-      flex-direction: row;
-      text-align: left;
+  @include _media-min(md) {
+    flex-direction: row;
+    text-align: left;
 
-      > .smb-panels__item__body {
-        flex: 1 1 auto;
-      }
+    > .smb-panels__item__body {
+      flex: 1 1 auto;
+    }
 
-      > .smb-panels__item__figure {
-        position: relative;
-        max-width: 50%;
-        flex: 0 0 50%;
-        overflow: hidden;
+    > .smb-panels__item__figure {
+      position: relative;
+      max-width: 50%;
+      flex: 0 0 50%;
+      overflow: hidden;
 
-        img {
-          position: absolute;
+      img {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        max-height: none;
+        max-width: none;
+        height: auto;
+        width: 100%;
+        transform: translateY(-50%);
+
+        @supports(object-fit: cover) {
+          position: relative;
           top: 50%;
-          left: 0;
+          left: auto;
           right: 0;
-          max-height: none;
-          max-width: none;
+          bottom: auto;
           height: auto;
           width: 100%;
           transform: translateY(-50%);
-
-          @supports(object-fit: cover) {
-            position: relative;
-            top: 50%;
-            left: auto;
-            right: 0;
-            bottom: auto;
-            height: auto;
-            width: 100%;
-            transform: translateY(-50%);
-          }
         }
       }
+    }
 
-      > .smb-panels__item__body {
-        align-self: center;
+    > .smb-panels__item__body {
+      align-self: center;
+    }
+  }
+
+  &.smb-panels__item--reverse {
+    > .smb-panels__item__figure {
+      order: 1;
+    }
+  }
+}
+
+.smb-panels__item--free,
+.smb-panels__item--block-link {
+  > .smb-panels__item__body {
+    > * {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    @include _content();
+  }
+}
+
+.smb-panels__item--block-link {
+}
+
+.smb-panels[data-image-padding="true"] {
+  .smb-panels__item__figure {
+    @include _padding(.5, .5, 0);
+
+    @include _media-min(md) {
+      @include _padding(.5, .5, 0);
+    }
+  }
+
+  .smb-panels__item--horizontal {
+    > .smb-panels__item__figure {
+      @include _media-min(md) {
+        @include _padding(.5, 0, .5, .5);
       }
     }
 
     &.smb-panels__item--reverse {
       > .smb-panels__item__figure {
-        order: 1;
-      }
-    }
-  }
+        @include _padding(0, .5, .5, .5);
 
-  &__item--free {
-    > .smb-panels__item__body {
-      > * {
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-
-      @include _content();
-    }
-  }
-
-  &[data-image-padding="true"] {
-    .smb-panels__item__figure {
-      @include _padding(.5, .5, 0);
-
-      @include _media-min(md) {
-        @include _padding(.5, .5, 0);
-      }
-    }
-
-    .smb-panels__item--horizontal {
-      > .smb-panels__item__figure {
         @include _media-min(md) {
-          @include _padding(.5, 0, .5, .5);
-        }
-      }
-
-      &.smb-panels__item--reverse {
-        > .smb-panels__item__figure {
-          @include _padding(0, .5, .5, .5);
-
-          @include _media-min(md) {
-            @include _padding(.5, .5, .5, 0);
-          }
+          @include _padding(.5, .5, .5, 0);
         }
       }
     }

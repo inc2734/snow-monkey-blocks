@@ -1,0 +1,27 @@
+{
+  "apiVersion": 2,
+  "name": "snow-monkey-blocks/panels-item-block-link",
+	"title": "Item (Free input / Block link)",
+	"description": "It is a child block of the panels block.",
+  "category": "smb",
+  "parent": [ "snow-monkey-blocks/panels" ],
+  "attributes": {
+    "linkURL": {
+      "type": "string",
+      "source": "attribute",
+      "selector": ".smb-panels__item__action > a",
+      "attribute": "href",
+      "default": ""
+    },
+    "linkTarget": {
+      "type": "string",
+      "source": "attribute",
+      "selector": ".smb-panels__item__action > a",
+      "attribute": "target",
+      "default": "_self"
+    }
+  },
+  "supports": {
+    "html": false
+  }
+}

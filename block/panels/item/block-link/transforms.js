@@ -19,10 +19,10 @@ export default {
 		},
 		{
 			type: 'block',
-			blocks: [ 'snow-monkey-blocks/panels-item-block-link' ],
+			blocks: [ 'snow-monkey-blocks/panels-item-free' ],
 			transform: ( attributes, innerBlocks ) =>
 				createBlock(
-					'snow-monkey-blocks/panels-item-block-link',
+					'snow-monkey-blocks/panels-item-free',
 					attributes,
 					innerBlocks
 				),

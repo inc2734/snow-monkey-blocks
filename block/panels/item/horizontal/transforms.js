@@ -22,5 +22,22 @@ export default {
 					} ),
 				] ),
 		},
+		{
+			type: 'block',
+			blocks: [ 'snow-monkey-blocks/panels-item-block-link' ],
+			transform: ( attributes ) =>
+				createBlock(
+					'snow-monkey-blocks/panels-item-block-link',
+					{
+						linkURL: attributes.linkURL,
+						linkTarget: attributes.linkTarget,
+					},
+					[
+						createBlock( 'core/paragraph', {
+							content: attributes.summary,
+						} ),
+					]
+				),
+		},
 	],
 };
