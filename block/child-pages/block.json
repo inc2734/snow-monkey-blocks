@@ -5,6 +5,10 @@
 	"description": "You can display child pages of this page.",
   "category": "smb",
   "attributes": {
+    "parent": {
+      "type": "object",
+      "default": {}
+    },
     "title": {
       "type": "string",
       "default": ""

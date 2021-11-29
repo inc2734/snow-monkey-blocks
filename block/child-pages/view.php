@@ -35,41 +35,60 @@ $classnames[] = 'smb-child-pages';
 if ( ! empty( $attributes['className'] ) ) {
 	$classnames[] = $attributes['className'];
 }
+
+ob_start();
+if ( class_exists( '\Framework\Helper' ) ) {
+	\Framework\Helper::get_template_part(
+		'template-parts/content/child-pages',
+		null,
+		[
+			'_context'             => 'snow-monkey-blocks/child-pages',
+			'_parent_id'           => ! empty( $attributes['parent']['id'] ) ? $attributes['parent']['id'] : get_the_ID(),
+			'_entries_layout'      => $attributes['layout'],
+			'_force_sm_1col'       => $force_sm_1col,
+			'_item_thumbnail_size' => $attributes['itemThumbnailSizeSlug'],
+			'_item_title_tag'      => $attributes['itemTitleTagName'],
+			'_title'               => $attributes['title'],
+			'_arrows'              => $attributes['arrows'],
+			'_dots'                => $attributes['dots'],
+			'_interval'            => $attributes['interval'],
+		]
+	);
+} else {
+	get_template_part(
+		'template-parts/child-pages',
+		null,
+		[
+			'_context'             => 'snow-monkey-blocks/child-pages',
+			'_parent_id'           => ! empty( $attributes['parent']['id'] ) ? $attributes['parent']['id'] : get_the_ID(),
+			'_entries_layout'      => $attributes['layout'],
+			'_force_sm_1col'       => $force_sm_1col,
+			'_item_thumbnail_size' => $attributes['itemThumbnailSizeSlug'],
+			'_item_title_tag'      => $attributes['itemTitleTagName'],
+			'_title'               => $attributes['title'],
+			'_arrows'              => $attributes['arrows'],
+			'_dots'                => $attributes['dots'],
+			'_interval'            => $attributes['interval'],
+		]
+	);
+}
+$child_pages = ob_get_clean();
+
+if ( empty( $child_pages ) && defined( 'REST_REQUEST' ) && REST_REQUEST ) {
+	$no_posts_text = __( 'No pages found.', 'snow-monkey-blocks' );
+	if ( ! $no_posts_text ) {
+		return;
+	}
+}
 ?>
 <div class="<?php echo esc_attr( join( ' ', $classnames ) ); ?>">
 	<?php
-	if ( class_exists( '\Framework\Helper' ) ) {
-		\Framework\Helper::get_template_part(
-			'template-parts/content/child-pages',
-			null,
-			[
-				'_context'             => 'snow-monkey-blocks/child-pages',
-				'_entries_layout'      => $attributes['layout'],
-				'_force_sm_1col'       => $force_sm_1col,
-				'_item_thumbnail_size' => $attributes['itemThumbnailSizeSlug'],
-				'_item_title_tag'      => $attributes['itemTitleTagName'],
-				'_title'               => $attributes['title'],
-				'_arrows'              => $attributes['arrows'],
-				'_dots'                => $attributes['dots'],
-				'_interval'            => $attributes['interval'],
-			]
-		);
+	if ( empty( $no_posts_text ) ) {
+		// @codingStandardsIgnoreStart
+		echo $child_pages;
+		// @codingStandardsIgnoreEnd
 	} else {
-		get_template_part(
-			'template-parts/child-pages',
-			null,
-			[
-				'_context'             => 'snow-monkey-blocks/child-pages',
-				'_entries_layout'      => $attributes['layout'],
-				'_force_sm_1col'       => $force_sm_1col,
-				'_item_thumbnail_size' => $attributes['itemThumbnailSizeSlug'],
-				'_item_title_tag'      => $attributes['itemTitleTagName'],
-				'_title'               => $attributes['title'],
-				'_arrows'              => $attributes['arrows'],
-				'_dots'                => $attributes['dots'],
-				'_interval'            => $attributes['interval'],
-			]
-		);
+		echo wp_kses_post( apply_filters( 'the_content', $no_posts_text ) );
 	}
 	?>
 </div>

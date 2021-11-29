@@ -88,3 +88,41 @@
 .smb-toolbar-button-rotate-90 svg {
   transform: rotate(90deg);
 }
+
+.smb-search-post-control {
+  position: relative;
+  padding: 0;
+
+  .block-editor-link-control {
+    min-width: auto;
+
+    &__search-results-wrapper {
+      margin-top: 0;
+    }
+
+    .block-editor-url-input {
+      margin-bottom: 0;
+    }
+
+    .block-editor-url-input__input {
+      margin: 0 !important;
+      width: 100% !important;
+    }
+
+    .block-editor-link-control__search-actions {
+      display: none !important;
+    }
+
+    .block-editor-link-control__search-item.is-current {
+      padding: 0;
+
+      & + .block-editor-link-control__search-item-action {
+        margin: 0 0 0 1rem;
+      }
+    }
+
+    .is-url {
+      display: none !important;
+    }
+  }
+}

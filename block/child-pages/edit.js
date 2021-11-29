@@ -10,11 +10,14 @@ import {
 	TextControl,
 	ToggleControl,
 } from '@wordpress/components';
+
 import { InspectorControls } from '@wordpress/block-editor';
+
 import { useSelect } from '@wordpress/data';
 import { __, sprintf } from '@wordpress/i18n';
 import ServerSideRender from '@wordpress/server-side-render';
 
+import SearchPostControl from '@smb/component/search-post-control';
 import { toNumber } from '@smb/helper';
 
 export default function ( { attributes, setAttributes } ) {
@@ -27,6 +30,7 @@ export default function ( { attributes, setAttributes } ) {
 		arrows,
 		dots,
 		interval,
+		parent,
 	} = attributes;
 
 	const itemThumbnailSizeSlugOption = useSelect( ( select ) => {
@@ -77,6 +81,16 @@ export default function ( { attributes, setAttributes } ) {
 		setAttributes( {
 			interval: toNumber( value, 0, 10 ),
 		} );
+
+	const onChangeparent = ( nextValue ) => {
+		setAttributes( {
+			parent: {
+				id: nextValue.id,
+				title: nextValue.title,
+				url: nextValue.url,
+			},
+		} );
+	};
 
 	return (
 		<>
@@ -246,6 +260,25 @@ export default function ( { attributes, setAttributes } ) {
 							] }
 						/>
 					) }
+
+					<SearchPostControl
+						label={ __(
+							'Specify the parent page',
+							'snow-monkey-blocks'
+						) }
+						onRemove={ () => setAttributes( { parent: {} } ) }
+						settings={ [] }
+						searchInputPlaceholder={ __(
+							'Search',
+							'snow-monkey-blocks'
+						) }
+						value={ parent }
+						onChange={ onChangeparent }
+						suggestionQuery={ {
+							type: 'post',
+							subtype: 'page',
+						} }
+					/>
 				</PanelBody>
 			</InspectorControls>
 
