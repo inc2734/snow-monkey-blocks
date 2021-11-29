@@ -185,6 +185,7 @@ class Manager {
 			function( $block_type ) {
 				return false !== strpos( $block_type->name, 'snow-monkey-blocks/' )
 						&& 'snow-monkey-blocks/btn' !== $block_type->name
+						&& ! $block_type->parent
 						&& false === strpos( $block_type->name, '--' );
 			}
 		);

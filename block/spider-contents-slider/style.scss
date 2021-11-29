@@ -69,32 +69,5 @@
     > .smb-section {
       height: 100%;
     }
-
-    /*
-    &[data-content-position] {
-      display: flex;
-      flex-direction: column;
-
-      > * {
-        margin-right: 0;
-        margin-left: 0;
-      }
-    }
-
-    > [data-align="full"],
-    > [data-align="wide"] {
-      flex: 1 1 auto;
-    }
-
-    > [data-align="full"] {
-      width: 100% !important;
-    }
-
-    > .smb-section {
-      height: 100%;
-      flex: 1 1 auto;
-      width: 100% !important;
-    }
-    */
   }
 }
