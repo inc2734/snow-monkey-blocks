@@ -36,6 +36,7 @@ https://www.youtube.com/watch?v=uD6omb4TLdA&t=283s
 * Testimonial
 * Items
 * Slider
+* Contents slider
 * Panels
 * Media text
 * Recent posts (Can be used only with Snow Monkey)

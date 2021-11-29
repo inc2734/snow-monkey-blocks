@@ -1,0 +1,100 @@
+@charset 'utf-8';
+
+@import '../../src/css/core/block';
+
+.smb-spider-contents-slider {
+  > .spider {
+    > .spider__canvas {
+      > .spider__slide {
+        &[data-content-position] {
+          display: flex;
+
+          > .smb-spider-contents-slider__item {
+            flex: 0 1 auto;
+            margin-right: 0;
+            margin-left: 0;
+            height: auto;
+          }
+        }
+
+        // Position: Top
+        &[data-content-position="top-left"] {
+          align-items: flex-start;
+          justify-content: flex-start;
+        }
+        &[data-content-position="top-center"] {
+          align-items: flex-start;
+          justify-content: center;
+        }
+        &[data-content-position="top-right"] {
+          align-items: flex-start;
+          justify-content: flex-end;
+        }
+        // Position: Center
+        &[data-content-position="center-left"] {
+          align-items: center;
+          justify-content: flex-start;
+        }
+        &[data-content-position="center-center"] {
+          align-items: center;
+          justify-content: center;
+        }
+        &[data-content-position="center-right"] {
+          align-items: center;
+          justify-content: flex-end;
+        }
+        // Position: Bottom
+        &[data-content-position="bottom-left"] {
+          align-items: flex-end;
+          justify-content: flex-start;
+        }
+        &[data-content-position="bottom-center"] {
+          align-items: flex-end;
+          justify-content: center;
+        }
+        &[data-content-position="bottom-right"] {
+          align-items: flex-end;
+          justify-content: flex-end;
+        }
+      }
+    }
+  }
+
+  &__item {
+    flex: 1 1 100%;
+    height: 100%;
+    max-width: 100%;
+    @include _content();
+
+    > .smb-section {
+      height: 100%;
+    }
+
+    /*
+    &[data-content-position] {
+      display: flex;
+      flex-direction: column;
+
+      > * {
+        margin-right: 0;
+        margin-left: 0;
+      }
+    }
+
+    > [data-align="full"],
+    > [data-align="wide"] {
+      flex: 1 1 auto;
+    }
+
+    > [data-align="full"] {
+      width: 100% !important;
+    }
+
+    > .smb-section {
+      height: 100%;
+      flex: 1 1 auto;
+      width: 100% !important;
+    }
+    */
+  }
+}

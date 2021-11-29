@@ -3,14 +3,14 @@ const path = require( 'path' );
 
 module.exports = {
 	...defaultConfig,
-  resolve: {
+	resolve: {
 		...defaultConfig.resolve,
-    alias: {
+		alias: {
 			...defaultConfig.resolve.alias,
-      '@smb/helper': path.resolve( __dirname, 'src/js/helper/helper' ),
-      '@smb/component': path.resolve( __dirname, 'src/js/component' ),
-      '@smb/hooks': path.resolve( __dirname, 'src/js/hooks' ),
-      '@smb/config': path.resolve( __dirname, 'src/js/config' ),
-    },
+			'@smb/helper': path.resolve( __dirname, 'src/js/helper/helper' ),
+			'@smb/component': path.resolve( __dirname, 'src/js/component' ),
+			'@smb/hooks': path.resolve( __dirname, 'src/js/hooks' ),
+			'@smb/config': path.resolve( __dirname, 'src/js/config' ),
+		},
 	},
 };

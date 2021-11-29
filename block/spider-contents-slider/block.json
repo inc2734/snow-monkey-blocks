@@ -1,0 +1,59 @@
+{
+  "apiVersion": 2,
+  "name": "snow-monkey-blocks/spider-contents-slider",
+	"title": "Contents slider",
+	"description": "Show contents as beautiful sliders.",
+  "category": "smb",
+  "attributes": {
+    "sizeSlug": {
+      "type": "string",
+      "default": "large"
+    },
+    "dots": {
+      "type": "boolean",
+      "default": false
+    },
+    "arrows": {
+      "type": "boolean",
+      "default": false
+    },
+    "fade": {
+      "type": "boolean",
+      "default": false
+    },
+    "shifted": {
+      "type": "boolean",
+      "default": false
+    },
+    "gutter": {
+      "type": "string"
+    },
+    "interval": {
+      "type": "number",
+      "default": 0
+    },
+    "duration": {
+      "type": "number",
+      "default": 0
+    },
+    "lgSlidesToShow": {
+      "type": "number",
+      "default": 1
+    },
+    "mdSlidesToShow": {
+      "type": "number",
+      "default": 1
+    },
+    "smSlidesToShow": {
+      "type": "number",
+      "default": 1
+    },
+    "sliderClientIds": {
+      "type": "string",
+      "default": "[]"
+    }
+  },
+  "supports": {
+    "align": [ "wide", "full" ]
+  }
+}

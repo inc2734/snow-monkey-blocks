@@ -1,0 +1,28 @@
+{
+  "apiVersion": 2,
+  "name": "snow-monkey-blocks/spider-contents-slider-item",
+	"title": "Slide",
+	"description": "It is a child block of the contents slider block.",
+  "category": "smb",
+  "parent": [ "snow-monkey-blocks/spider-contents-slider" ],
+  "attributes": {
+    "sliderId": {
+      "type": "string",
+      "source": "attribute",
+      "selector": ".spider__slide",
+      "attribute": "data-id",
+      "default": ""
+    },
+    "contentPosition": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": false,
+    "color": {
+      "text": false,
+      "gradients": true
+    }
+  }
+}
