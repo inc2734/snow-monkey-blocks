@@ -3,6 +3,12 @@
 @import '../../src/css/core/block';
 
 .smb-spider-contents-slider {
+  $contentPaddings: (
+    1: 's',
+    2: 'm',
+    3: 'l',
+  );
+
   > .spider {
     > .spider__canvas {
       > .spider__slide {
@@ -65,6 +71,16 @@
     height: 100%;
     max-width: 100%;
     @include _content();
+
+    @each $key, $value in $contentPaddings {
+      &--p-#{ $value } {
+        @include _padding($key / 2);
+
+        @include _media-min(md) {
+          @include _padding($key);
+        }
+      }
+    }
 
     > .smb-section {
       height: 100%;

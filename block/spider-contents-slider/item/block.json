@@ -16,12 +16,23 @@
     "contentPosition": {
       "type": "string",
       "default": ""
+    },
+    "contentPadding": {
+      "type": "string"
+    },
+    "style": {
+      "type": "object",
+      "default": {
+        "color": {
+          "background": "#eeeeee"
+        }
+      }
     }
   },
   "supports": {
     "html": false,
     "color": {
-      "text": false,
+      "text": true,
       "gradients": true
     }
   }

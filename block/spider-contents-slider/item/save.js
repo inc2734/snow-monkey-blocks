@@ -3,9 +3,13 @@ import classnames from 'classnames';
 import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
-	const { sliderId, contentPosition } = attributes;
+	const { sliderId, contentPosition, contentPadding } = attributes;
 
 	const classes = classnames( 'spider__slide', className );
+
+	const itemClasses = classnames( 'smb-spider-contents-slider__item', {
+		[ `smb-spider-contents-slider__item--p-${ contentPadding }` ]: !! contentPadding,
+	} );
 
 	return (
 		<div
@@ -15,7 +19,7 @@ export default function ( { attributes, className } ) {
 				contentPosition?.replace( ' ', '-' ) || undefined
 			}
 		>
-			<div className="smb-spider-contents-slider__item">
+			<div className={ itemClasses }>
 				<InnerBlocks.Content />
 			</div>
 		</div>

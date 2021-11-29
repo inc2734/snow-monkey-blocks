@@ -3,11 +3,13 @@ import classnames from 'classnames';
 import {
 	BlockControls,
 	InnerBlocks,
+	InspectorControls,
 	useBlockProps,
 	__experimentalBlockAlignmentMatrixControl as BlockAlignmentMatrixControl,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
+import { PanelBody, SelectControl } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import { useEffect, useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
@@ -19,7 +21,7 @@ export default function ( {
 	isSelected,
 	clientId,
 } ) {
-	const { sliderId, contentPosition } = attributes;
+	const { sliderId, contentPosition, contentPadding } = attributes;
 
 	const ref = useRef();
 
@@ -49,13 +51,17 @@ export default function ( {
 
 	const classes = classnames( 'spider__slide', className );
 
+	const itemClasses = classnames( 'smb-spider-contents-slider__item', {
+		[ `smb-spider-contents-slider__item--p-${ contentPadding }` ]: !! contentPadding,
+	} );
+
 	const blockProps = useBlockProps( {
 		className: classes,
 	} );
 
 	const innerBlocksProps = useInnerBlocksProps(
 		{
-			className: 'smb-spider-contents-slider__item',
+			className: itemClasses,
 		},
 		{
 			renderAppender: hasInnerBlocks
@@ -64,8 +70,44 @@ export default function ( {
 		}
 	);
 
+	const onChangeContentPadding = ( value ) =>
+		setAttributes( {
+			contentPadding: value,
+		} );
+
 	return (
 		<>
+			<InspectorControls>
+				<PanelBody
+					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+					initialOpen={ true }
+				>
+					<SelectControl
+						label={ __( 'Content Padding', 'snow-monkey-blocks' ) }
+						value={ contentPadding }
+						options={ [
+							{
+								value: '',
+								label: __( 'None', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 's',
+								label: __( 'S', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'm',
+								label: __( 'M', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'l',
+								label: __( 'L', 'snow-monkey-blocks' ),
+							},
+						] }
+						onChange={ onChangeContentPadding }
+					/>
+				</PanelBody>
+			</InspectorControls>
+
 			{ !! contentPosition && (
 				<BlockControls group="block">
 					<BlockAlignmentMatrixControl
