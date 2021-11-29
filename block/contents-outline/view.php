@@ -19,6 +19,7 @@ if ( $attributes['includesSectionTitle'] ) {
 	$selectors[] = '.smb-section__inner > .c-container';
 	$selectors[] = '.smb-section-break-the-grid__content';
 	$selectors[] = '.smb-section-side-heading > .smb-section__inner > .c-container > .c-row > .c-row__col:first-child';
+	$selectors[] = '.smb-section__header';
 }
 
 if ( $attributes['includesSectionHeadings'] ) {
