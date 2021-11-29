@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 13.4.0
+Stable tag: 13.5.0
 Requires at least: 5.8
 Tested up to: 5.8
 Requires PHP: 5.6
@@ -108,6 +108,16 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 24. Tabs block (The number of tab can be increased or decreased freely)
 
 == Changelog ==
+
+= 13.5.0 =
+* Add the "Contents Slider" block.
+* [Panel] Add the "Item (Free input / Block link)" block.
+* [Section] Add new feature: Background text.
+* [Section (Break the grid)] Add new feature: Background text.
+* [Section (Background image/video)] Add new feature: Background text.
+* [Section (YouTube)] Add new feature: Background text.
+* [Child pages] Add new feature: Specify the parent page.
+* [Contents outline] Fix bug that "Show section block titles" is not refrected.
 
 = 13.4.0 =
 * [Section] Add new setting: Remove container padding.
