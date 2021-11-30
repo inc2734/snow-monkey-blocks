@@ -117,7 +117,9 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 * [Section (Background image/video)] Add new feature: Background text.
 * [Section (YouTube)] Add new feature: Background text.
 * [Child pages] Add new feature: Specify the parent page.
+* [Box] Add new feature: Content Padding.
 * [Contents outline] Fix bug that "Show section block titles" is not refrected.
+* [Section (Break the grid)] Fixed bug that the lead text was not centered even if the text alignment was centered.
 
 = 13.4.0 =
 * [Section] Add new setting: Remove container padding.
