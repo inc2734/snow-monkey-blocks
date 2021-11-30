@@ -12,6 +12,7 @@ export default function ( { attributes, className } ) {
 		borderWidth,
 		borderRadius,
 		opacity,
+		contentPadding,
 		boxShadow,
 	} = attributes;
 
@@ -37,7 +38,9 @@ export default function ( { attributes, className } ) {
 		opacity,
 	};
 
-	const classes = classnames( 'smb-box', className );
+	const classes = classnames( 'smb-box', className, {
+		[ `smb-box--p-${ contentPadding }` ]: !! contentPadding,
+	} );
 
 	return (
 		<div

@@ -28,6 +28,10 @@
       "type": "number",
       "default": 1
     },
+    "contentPadding": {
+      "type": "string",
+      "default": ""
+    },
     "boxShadow": {
       "type": "object",
       "default": {

@@ -3,11 +3,26 @@
 @import '../../src/css/core/block';
 
 .smb-box {
+  $contentPaddings: (
+    0.5: 's',
+    1.5: 'l',
+  );
+
   position: relative;
   border-radius: $_border-radius; //for IE11
   border-radius: _var-border-radius();
   @include _padding(1);
   overflow: visible;
+
+  @each $key, $value in $contentPaddings {
+    &--p-#{ $value } {
+      @include _padding($key / 2);
+
+      @include _media-min(md) {
+        @include _padding($key);
+      }
+    }
+  }
 
   &__background {
     @include _alert();
@@ -21,5 +36,6 @@
 
   &__body {
     position: relative;
+    @include _content();
   }
 }

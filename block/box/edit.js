@@ -10,7 +10,7 @@ import {
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 } from '@wordpress/block-editor';
 
-import { PanelBody, RangeControl } from '@wordpress/components';
+import { PanelBody, RangeControl, SelectControl } from '@wordpress/components';
 
 import { __ } from '@wordpress/i18n';
 
@@ -26,6 +26,7 @@ export default function ( { attributes, setAttributes, className } ) {
 		borderWidth,
 		borderRadius,
 		opacity,
+		contentPadding,
 		boxShadow,
 	} = attributes;
 
@@ -51,7 +52,9 @@ export default function ( { attributes, setAttributes, className } ) {
 		opacity,
 	};
 
-	const classes = classnames( 'smb-box', className );
+	const classes = classnames( 'smb-box', className, {
+		[ `smb-box--p-${ contentPadding }` ]: !! contentPadding,
+	} );
 
 	const blockProps = useBlockProps( {
 		className: classes,
@@ -97,9 +100,39 @@ export default function ( { attributes, setAttributes, className } ) {
 			textColor: value,
 		} );
 
+	const onChangeContentPadding = ( value ) =>
+		setAttributes( {
+			contentPadding: value,
+		} );
+
 	return (
 		<>
 			<InspectorControls>
+				<PanelBody
+					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+					initialOpen={ true }
+				>
+					<SelectControl
+						label={ __( 'Content Padding', 'snow-monkey-blocks' ) }
+						value={ contentPadding }
+						options={ [
+							{
+								value: 's',
+								label: __( 'S', 'snow-monkey-blocks' ),
+							},
+							{
+								value: '',
+								label: __( 'M', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'l',
+								label: __( 'L', 'snow-monkey-blocks' ),
+							},
+						] }
+						onChange={ onChangeContentPadding }
+					/>
+				</PanelBody>
+
 				<PanelBody
 					title={ __( 'Background Settings', 'snow-monkey-blocks' ) }
 					initialOpen={ false }
