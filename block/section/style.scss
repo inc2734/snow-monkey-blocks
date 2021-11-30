@@ -32,13 +32,14 @@
 
   &__background-text {
     overflow: hidden;
-
-    .#{ $_prefix }c-container {
-      position: relative;
-      height: 100%;
-    }
+    position: relative;
+    height: 100%;
 
     &__inner {
+      position: relative;
+    }
+
+    &__text {
       position: absolute;
       font-weight: bold;
       max-width: 100%;

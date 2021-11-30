@@ -655,9 +655,10 @@ export const SectionBackground = ( {
 		!! backgroundText?.opacity && 1 > backgroundText.opacity
 			? backgroundText.opacity
 			: undefined;
-	backgroundTextStyles.fontSize = !! backgroundText?.fontSize
-		? backgroundText.fontSize
-		: undefined;
+	backgroundTextStyles.fontSize =
+		!! backgroundText?.fontSize && ! backgroundText?.fontSizeSlug
+			? backgroundText.fontSize
+			: undefined;
 	backgroundTextStyles.lineHeight = !! backgroundText?.lineHeight
 		? backgroundText.lineHeight
 		: undefined;
@@ -712,21 +713,23 @@ export const SectionBackground = ( {
 							aria-hidden="true"
 						>
 							<div className={ containerClasses }>
-								<div
-									className={ classnames(
-										'smb-section__background-text__inner',
-										{
-											[ `has-${ backgroundText?.fontSizeSlug }-font-size` ]: !! backgroundText?.fontSizeSlug,
-										}
-									) }
-									style={ backgroundTextStyles }
-								>
-									<RichText.Content
-										value={ backgroundText.text?.replace(
-											/\n/g,
-											'<br>'
+								<div className="smb-section__background-text__inner">
+									<div
+										className={ classnames(
+											'smb-section__background-text__text',
+											{
+												[ `has-${ backgroundText?.fontSizeSlug }-font-size` ]: !! backgroundText?.fontSizeSlug,
+											}
 										) }
-									/>
+										style={ backgroundTextStyles }
+									>
+										<RichText.Content
+											value={ backgroundText.text?.replace(
+												/\n/g,
+												'<br>'
+											) }
+										/>
+									</div>
 								</div>
 							</div>
 						</div>
