@@ -36,6 +36,14 @@ export default function ( {
 		if ( isSelected ) {
 			const thisSlider = ref.current.parentNode;
 			const canvas = thisSlider.parentNode;
+			const wrapper = canvas.parentNode.parentNode;
+			const referenceWidth = wrapper.style
+				.getPropertyValue( '--spider-reference-width' )
+				?.replace( 'px', '' );
+			const canvasWidth = wrapper.style
+				.getPropertyValue( '--spider-canvas-width' )
+				?.replace( 'px', '' );
+			const diff = canvasWidth / 2 - referenceWidth / 2;
 			const thisSliderLeft = thisSlider.getBoundingClientRect().left;
 			const thisSliderRight = thisSliderLeft + thisSlider.offsetWidth;
 			const canvasLeft = canvas.getBoundingClientRect().left;
@@ -44,7 +52,7 @@ export default function ( {
 				canvasRight < thisSliderRight ||
 				canvasLeft > thisSliderLeft
 			) {
-				canvas.scrollLeft = thisSlider.offsetLeft;
+				canvas.scrollLeft = thisSlider.offsetLeft - diff;
 			}
 		}
 	}, [ clientId, isSelected, sliderId ] );

@@ -364,36 +364,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					! fade && 1 < smSlidesToShow ? smSlidesToShow : undefined
 				}
 			>
-				<div
-					style={ {
-						display: 'flex',
-						gap: '3px',
-						marginBottom: '1rem',
-					} }
-				>
-					{ sliderClientIds.map( ( sliderClientId, index ) => {
-						return (
-							<Button
-								isPrimary={
-									currentSliderClientId === sliderClientId
-								}
-								isSecondary={
-									currentSliderClientId !== sliderClientId
-								}
-								onClick={ () => {
-									setCurrentSliderClientId( sliderClientId );
-									selectBlock( sliderClientId );
-								} }
-								key={ index }
-							>
-								{ index + 1 }
-							</Button>
-						);
-					} ) }
-
-					<InnerBlocks.ButtonBlockAppender />
-				</div>
-
 				<div className="spider">
 					{ isShifted && (
 						<div className="c-container">
@@ -438,6 +408,36 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						} ) }
 					</div>
 				) }
+
+				<div
+					style={ {
+						display: 'flex',
+						gap: '3px',
+						marginBottom: '1rem',
+					} }
+				>
+					{ sliderClientIds.map( ( sliderClientId, index ) => {
+						return (
+							<Button
+								isPrimary={
+									currentSliderClientId === sliderClientId
+								}
+								isSecondary={
+									currentSliderClientId !== sliderClientId
+								}
+								onClick={ () => {
+									setCurrentSliderClientId( sliderClientId );
+									selectBlock( sliderClientId );
+								} }
+								key={ index }
+							>
+								{ index + 1 }
+							</Button>
+						);
+					} ) }
+
+					<InnerBlocks.ButtonBlockAppender />
+				</div>
 			</div>
 		</>
 	);
