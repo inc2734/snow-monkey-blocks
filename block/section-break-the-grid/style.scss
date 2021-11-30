@@ -385,13 +385,10 @@
     &--right {
       > .smb-section__header {
         text-align: inherit;
-      }
-    }
 
-    &--left,
-    &--right {
-      > .smb-section__header > .smb-section__lede-wrapper {
-        display: block;
+        > .smb-section__lede-wrapper {
+          display: block;
+        }
       }
     }
 
