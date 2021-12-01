@@ -12,6 +12,8 @@
   > .spider {
     > .spider__canvas {
       > .spider__slide {
+        border: 0 solid transparent;
+
         &[data-content-position] {
           display: flex;
 

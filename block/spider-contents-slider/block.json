@@ -48,6 +48,10 @@
       "type": "number",
       "default": 1
     },
+    "canvasPadding": {
+      "type": "object",
+      "default": {}
+    },
     "sliderClientIds": {
       "type": "string",
       "default": "[]"

@@ -14,6 +14,7 @@ export default function ( { attributes, className } ) {
 		lgSlidesToShow,
 		mdSlidesToShow,
 		smSlidesToShow,
+		canvasPadding,
 		sliderClientIds: _sliderClientIds,
 	} = attributes;
 	const sliderClientIds = JSON.parse( _sliderClientIds );
@@ -32,6 +33,11 @@ export default function ( { attributes, className } ) {
 			[ `smb-spider-slider--gutter-${ gutter }` ]: !! gutter,
 		}
 	);
+
+	const canvasStyles = {
+		paddingTop: canvasPadding?.top || undefined,
+		paddingBottom: canvasPadding?.bottom || undefined,
+	};
 
 	return (
 		<div
@@ -55,7 +61,7 @@ export default function ( { attributes, className } ) {
 						<div className="spider__reference" />
 					</div>
 				) }
-				<div className="spider__canvas">
+				<div className="spider__canvas" style={ canvasStyles }>
 					<InnerBlocks.Content />
 				</div>
 

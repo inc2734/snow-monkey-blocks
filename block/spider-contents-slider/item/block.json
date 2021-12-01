@@ -20,6 +20,23 @@
     "contentPadding": {
       "type": "string"
     },
+    "border": {
+      "type": "object",
+      "default": {
+        "color": "",
+        "width": 1,
+        "radius": 0
+      }
+    },
+    "boxShadow": {
+      "type": "object",
+      "default": {
+        "color": "",
+        "opacity": 0.1,
+        "blur": 10,
+        "position": ""
+      }
+    },
     "style": {
       "type": "object",
       "default": {

@@ -15,7 +15,7 @@ export default function ( { settings } ) {
 			title={ __( 'Box Shadow Settings', 'snow-monkey-blocks' ) }
 			initialOpen={ false }
 		>
-			<BaseControl className="block-editor-color-gradient-control">
+			<BaseControl>
 				{ settings.map( ( setting, index ) => {
 					if (
 						setting.hasOwnProperty( 'colorValue' ) &&
@@ -38,6 +38,7 @@ export default function ( { settings } ) {
 					) {
 						return (
 							<RangeControl
+								key={ index }
 								label={ __( 'Opacity', 'snow-monkey-blocks' ) }
 								value={ Number(
 									setting.opacityValue.toFixed( 1 )
@@ -63,8 +64,8 @@ export default function ( { settings } ) {
 								) }
 								value={ setting.horizontalValue }
 								onChange={ setting.onHorizontalChange }
-								min={ -100 }
-								max={ 100 }
+								min={ setting?.min ?? -100 }
+								max={ setting?.max ?? 100 }
 							/>
 						);
 					}
@@ -79,8 +80,8 @@ export default function ( { settings } ) {
 								label={ __( 'Vertical', 'snow-monkey-blocks' ) }
 								value={ setting.verticalValue }
 								onChange={ setting.onVerticalChange }
-								min={ -100 }
-								max={ 100 }
+								min={ setting?.min ?? -100 }
+								max={ setting?.max ?? 100 }
 							/>
 						);
 					}
@@ -95,8 +96,8 @@ export default function ( { settings } ) {
 								label={ __( 'Blur', 'snow-monkey-blocks' ) }
 								value={ setting.blurValue }
 								onChange={ setting.onBlurChange }
-								min={ 0 }
-								max={ 100 }
+								min={ setting?.min ?? 0 }
+								max={ setting?.max ?? 100 }
 							/>
 						);
 					}
@@ -111,8 +112,8 @@ export default function ( { settings } ) {
 								label={ __( 'Spread', 'snow-monkey-blocks' ) }
 								value={ setting.spreadValue }
 								onChange={ setting.onSpreadChange }
-								min={ -100 }
-								max={ 100 }
+								min={ setting?.min ?? -100 }
+								max={ setting?.max ?? 100 }
 							/>
 						);
 					}

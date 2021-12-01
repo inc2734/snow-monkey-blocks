@@ -37,6 +37,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		lgSlidesToShow,
 		mdSlidesToShow,
 		smSlidesToShow,
+		canvasPadding,
 		sliderClientIds: _sliderClientIds,
 	} = attributes;
 	const sliderClientIds = JSON.parse( _sliderClientIds );
@@ -58,13 +59,44 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		'core/block-editor'
 	);
 
-	const { nowSliderClientIds } = useSelect( ( select ) => {
-		return {
-			nowSliderClientIds: select( 'core/block-editor' ).getBlockOrder(
-				clientId
-			),
-		};
-	}, [] );
+	const nowSliderClientIds = useSelect(
+		( select ) => {
+			return select( 'core/block-editor' ).getBlockOrder( clientId );
+		},
+		[ clientId ]
+	);
+
+	const maxBlur = useSelect(
+		( select ) => {
+			const slides = select( 'core/block-editor' ).getBlock( clientId )
+				.innerBlocks;
+
+			const maxBlurSlide = slides.reduce( ( prevSlide, currentSlide ) => {
+				const prevBlur =
+					( !! prevSlide?.attributes?.boxShadow?.color &&
+						prevSlide?.attributes?.boxShadow?.blur ) ||
+					0;
+				const currentBlur =
+					( !! currentSlide?.attributes?.boxShadow?.color &&
+						currentSlide?.attributes?.boxShadow?.blur ) ||
+					0;
+				return prevBlur < currentBlur ? currentSlide : prevSlide;
+			} );
+
+			return maxBlurSlide?.attributes?.boxShadow?.blur;
+		},
+		[ clientId ]
+	);
+
+	useEffect( () => {
+		setAttributes( {
+			canvasPadding: {
+				...canvasPadding,
+				top: maxBlur,
+				bottom: maxBlur,
+			},
+		} );
+	}, [ maxBlur ] );
 
 	const hasInnerBlocks = useSelect(
 		( select ) =>
@@ -123,6 +155,11 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		}
 	);
 
+	const canvasStyles = {
+		paddingTop: canvasPadding?.top || undefined,
+		paddingBottom: canvasPadding?.bottom || undefined,
+	};
+
 	const gutterOptions = [
 		{
 			value: '',
@@ -145,6 +182,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 	const innerBlocksProps = useInnerBlocksProps(
 		{
 			className: 'spider__canvas',
+			style: canvasStyles,
 		},
 		{
 			allowedBlocks: ALLOWED_BLOCKS,

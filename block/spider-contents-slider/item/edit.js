@@ -1,4 +1,5 @@
 import classnames from 'classnames';
+import hexToRgba from 'hex-to-rgba';
 
 import {
 	BlockControls,
@@ -14,6 +15,9 @@ import { useSelect } from '@wordpress/data';
 import { useEffect, useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
+import PanelBorderSettings from '@smb/component/panel-border-settings';
+import PanelBoxShadowSettings from '@smb/component/panel-box-shadow-settings';
+
 export default function ( {
 	attributes,
 	setAttributes,
@@ -21,7 +25,14 @@ export default function ( {
 	isSelected,
 	clientId,
 } ) {
-	const { sliderId, contentPosition, contentPadding } = attributes;
+	const {
+		sliderId,
+		contentPosition,
+		contentPadding,
+		border,
+		boxShadow,
+		style,
+	} = attributes;
 
 	const ref = useRef();
 
@@ -78,6 +89,19 @@ export default function ( {
 		}
 	);
 
+	const styles = {
+		background: style?.color?.background || undefined,
+		borderColor: border.color || undefined,
+		borderWidth: ( border.color && border.width ) || undefined,
+		borderRadius: border.radius || undefined,
+		boxShadow: !! boxShadow.color
+			? `0 0 ${ boxShadow.blur }px ${ hexToRgba(
+					boxShadow.color,
+					boxShadow.opacity
+			  ) }`
+			: undefined,
+	};
+
 	const onChangeContentPadding = ( value ) =>
 		setAttributes( {
 			contentPadding: value,
@@ -114,6 +138,65 @@ export default function ( {
 						onChange={ onChangeContentPadding }
 					/>
 				</PanelBody>
+
+				<PanelBorderSettings
+					settings={ [
+						{
+							colorValue: border.color,
+							onColorChange: ( value ) => {
+								const newBorder = { ...border };
+								newBorder.color = value;
+								setAttributes( { border: newBorder } );
+							},
+						},
+						{
+							widthValue: border.width,
+							onWidthChange: ( value ) => {
+								const newBorder = { ...border };
+								newBorder.width = value;
+								setAttributes( { border: newBorder } );
+							},
+						},
+						{
+							radiusValue: border.radius,
+							onRadiusChange: ( value ) => {
+								const newBorder = { ...border };
+								newBorder.radius = value;
+								setAttributes( { border: newBorder } );
+							},
+						},
+					] }
+				/>
+
+				<PanelBoxShadowSettings
+					settings={ [
+						{
+							colorValue: boxShadow.color,
+							onColorChange: ( value ) => {
+								const newBoxShadow = { ...boxShadow };
+								newBoxShadow.color = value;
+								setAttributes( { boxShadow: newBoxShadow } );
+							},
+						},
+						{
+							opacityValue: boxShadow.opacity,
+							onOpacityChange: ( value ) => {
+								const newBoxShadow = { ...boxShadow };
+								newBoxShadow.opacity = value;
+								setAttributes( { boxShadow: newBoxShadow } );
+							},
+						},
+						{
+							blurValue: boxShadow.blur,
+							onBlurChange: ( value ) => {
+								const newBoxShadow = { ...boxShadow };
+								newBoxShadow.blur = value;
+								setAttributes( { boxShadow: newBoxShadow } );
+							},
+							max: 10,
+						},
+					] }
+				/>
 			</InspectorControls>
 
 			{ !! contentPosition && (
@@ -140,6 +223,7 @@ export default function ( {
 				data-content-position={
 					contentPosition?.replace( ' ', '-' ) || undefined
 				}
+				style={ styles }
 			>
 				<div { ...innerBlocksProps } ref={ ref } />
 			</div>

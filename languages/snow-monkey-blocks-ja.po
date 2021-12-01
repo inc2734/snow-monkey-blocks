@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2021-11-29 21:27+0900\n"
-"PO-Revision-Date: 2021-11-29 21:27+0900\n"
+"POT-Creation-Date: 2021-12-01 11:31+0900\n"
+"PO-Revision-Date: 2021-12-01 11:31+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -26,7 +26,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-4: languages\n"
 
 #: block/accordion/item/edit.js:40 block/alert/edit.js:87
-#: block/balloon/edit.js:109 block/btn/edit.js:134
+#: block/balloon/edit.js:109 block/box/edit.js:112 block/btn/edit.js:134
 #: block/categories-list/edit.js:201 block/child-pages/edit.js:99
 #: block/container/edit.js:71 block/contents-outline/edit.js:71
 #: block/countdown/edit.js:67
@@ -43,8 +43,8 @@ msgstr ""
 #: block/rating-box/item/edit.js:49 block/recent-posts/edit.js:136
 #: block/rss/edit.js:127 block/section/components/basic.js:29
 #: block/slider/edit.js:157 block/slider/item/edit.js:203
-#: block/spider-contents-slider/edit.js:212
-#: block/spider-contents-slider/item/edit.js:82
+#: block/spider-contents-slider/edit.js:250
+#: block/spider-contents-slider/item/edit.js:114
 #: block/spider-pickup-slider/edit.js:62 block/spider-slider/edit.js:299
 #: block/step/item/standard/edit.js:229 block/tabs/edit.js:158
 #: block/taxonomy-posts/edit.js:150 block/taxonomy-terms/edit.js:61
@@ -135,7 +135,7 @@ msgstr "ノーマル吹き出し"
 msgid "Reverse Balloon"
 msgstr "反転吹き出し"
 
-#: block/balloon/edit.js:135 block/box/edit.js:204 block/btn-box/edit.js:214
+#: block/balloon/edit.js:135 block/box/edit.js:237 block/btn-box/edit.js:214
 #: block/btn/edit.js:192 block/countdown/edit.js:75
 #: block/directory-structure/item/directory/edit.js:150
 #: block/directory-structure/item/file/edit.js:104
@@ -154,7 +154,7 @@ msgstr "色設定"
 msgid "Avatar Border Color"
 msgstr "アバターの線の色"
 
-#: block/balloon/edit.js:149 block/box/edit.js:210 block/btn-box/edit.js:202
+#: block/balloon/edit.js:149 block/box/edit.js:243 block/btn-box/edit.js:202
 #: block/btn/edit.js:206 block/items/item/banner/edit.js:330
 #: block/items/item/block-link/edit.js:343
 #: block/items/item/standard/edit.js:341 block/pricing-table/item/edit.js:314
@@ -177,11 +177,37 @@ msgstr "背景色"
 msgid "Name"
 msgstr "名前"
 
-#: block/box/edit.js:104
+#: block/box/edit.js:116 block/section-break-the-grid/edit.js:965
+#: block/spider-contents-slider/item/edit.js:118
+msgid "Content Padding"
+msgstr "コンテンツの余白"
+
+#: block/box/edit.js:121 block/section-break-the-grid/edit.js:974
+#: block/spider-contents-slider/edit.js:170
+#: block/spider-contents-slider/item/edit.js:127
+#: block/spider-slider/edit.js:194
+msgid "S"
+msgstr "S"
+
+#: block/box/edit.js:125 block/section-break-the-grid/edit.js:978
+#: block/spider-contents-slider/edit.js:174
+#: block/spider-contents-slider/item/edit.js:131
+#: block/spider-slider/edit.js:198
+msgid "M"
+msgstr "M"
+
+#: block/box/edit.js:129 block/section-break-the-grid/edit.js:982
+#: block/spider-contents-slider/edit.js:178
+#: block/spider-contents-slider/item/edit.js:135
+#: block/spider-slider/edit.js:202
+msgid "L"
+msgstr "L"
+
+#: block/box/edit.js:137
 msgid "Background Settings"
 msgstr "背景の設定"
 
-#: block/box/edit.js:108 block/box/edit.js:130
+#: block/box/edit.js:141 block/box/edit.js:163
 #: block/items/item/banner/edit.js:308
 #: block/section-break-the-grid/edit.js:1005
 #: block/section-break-the-grid/edit.js:1027
@@ -192,34 +218,35 @@ msgstr "背景の設定"
 #: block/section/components/background.js:317
 #: block/section/components/background.js:394
 #: block/section/components/background.js:506
+#: src/js/component/panel-border-settings.js:22
 #: src/js/component/panel-box-shadow-settings.js:27
 msgid "Color"
 msgstr "色"
 
-#: block/box/edit.js:116 block/items/item/banner/edit.js:314
+#: block/box/edit.js:149 block/items/item/banner/edit.js:314
 #: block/section-break-the-grid/edit.js:1012
 #: block/section-with-bgimage/edit.js:825
 #: block/section-with-bgvideo/edit.js:361
 #: block/section/components/background.js:487
-#: src/js/component/panel-box-shadow-settings.js:41
+#: src/js/component/panel-box-shadow-settings.js:42
 msgid "Opacity"
 msgstr "不透明度"
 
-#: block/box/edit.js:126
+#: block/box/edit.js:159 src/js/component/panel-border-settings.js:10
 msgid "Border Settings"
 msgstr "枠線の設定"
 
-#: block/box/edit.js:136
+#: block/box/edit.js:169 src/js/component/panel-border-settings.js:37
 msgid "Width"
 msgstr "幅"
 
-#: block/box/edit.js:144 block/btn-box/edit.js:180 block/btn/edit.js:171
+#: block/box/edit.js:177 block/btn-box/edit.js:180 block/btn/edit.js:171
 #: block/items/item/block-link/edit.js:321
 #: block/items/item/standard/edit.js:319 block/pricing-table/item/edit.js:292
 msgid "Border radius"
 msgstr "角丸半径"
 
-#: block/box/edit.js:146 block/btn/edit.js:173
+#: block/box/edit.js:179 block/btn/edit.js:173
 msgid "-If set to -1, the default border radius will be applied."
 msgstr "-1 に設定するとデフォルトの角丸半径が適用されます。"
 
@@ -462,14 +489,14 @@ msgid "Large image"
 msgstr "大きな画像"
 
 #: block/child-pages/edit.js:161 block/recent-posts/edit.js:206
-#: block/rss/edit.js:187 block/spider-contents-slider/edit.js:225
+#: block/rss/edit.js:187 block/spider-contents-slider/edit.js:263
 #: block/spider-pickup-slider/edit.js:89 block/spider-slider/edit.js:326
 #: block/taxonomy-posts/edit.js:250
 msgid "Display arrows"
 msgstr "矢印を表示"
 
 #: block/child-pages/edit.js:170 block/recent-posts/edit.js:215
-#: block/rss/edit.js:196 block/spider-contents-slider/edit.js:231
+#: block/rss/edit.js:196 block/spider-contents-slider/edit.js:269
 #: block/spider-pickup-slider/edit.js:95 block/spider-slider/edit.js:332
 #: block/taxonomy-posts/edit.js:259
 msgid "Display dots"
@@ -477,14 +504,14 @@ msgstr "ドットを表示"
 
 #: block/child-pages/edit.js:179 block/recent-posts/edit.js:224
 #: block/rss/edit.js:205 block/slider/edit.js:188
-#: block/spider-contents-slider/edit.js:270
+#: block/spider-contents-slider/edit.js:308
 #: block/spider-pickup-slider/edit.js:119 block/spider-slider/edit.js:388
 #: block/taxonomy-posts/edit.js:268 block/thumbnail-gallery/edit.js:92
 msgid "Autoplay Speed in seconds"
 msgstr "自動再生の間隔（秒）"
 
 #: block/child-pages/edit.js:183 block/recent-posts/edit.js:228
-#: block/rss/edit.js:209 block/spider-contents-slider/edit.js:274
+#: block/rss/edit.js:209 block/spider-contents-slider/edit.js:312
 #: block/spider-pickup-slider/edit.js:123 block/spider-slider/edit.js:392
 #: block/taxonomy-posts/edit.js:272
 msgid "If \"0\", no scroll."
@@ -526,11 +553,11 @@ msgstr "1カラム"
 msgid "2 columns"
 msgstr "2カラム"
 
-#: block/child-pages/edit.js:265
+#: block/child-pages/edit.js:266
 msgid "Specify the parent page"
 msgstr "親ページを指定する"
 
-#: block/child-pages/edit.js:269
+#: block/child-pages/edit.js:272
 msgid "Search"
 msgstr "検索"
 
@@ -1250,36 +1277,13 @@ msgstr "下に %1$s 移動"
 msgid "Background Opacity"
 msgstr "背景の不透明度"
 
-#: block/section-break-the-grid/edit.js:965
-#: block/spider-contents-slider/item/edit.js:86
-msgid "Content Padding"
-msgstr "コンテンツの余白"
-
 #: block/section-break-the-grid/edit.js:970
 #: block/section/components/background.js:26
-#: block/spider-contents-slider/edit.js:129
-#: block/spider-contents-slider/item/edit.js:91 block/spider-slider/edit.js:190
+#: block/spider-contents-slider/edit.js:166
+#: block/spider-contents-slider/item/edit.js:123
+#: block/spider-slider/edit.js:190
 msgid "None"
 msgstr "なし"
-
-#: block/section-break-the-grid/edit.js:974
-#: block/spider-contents-slider/edit.js:133
-#: block/spider-contents-slider/item/edit.js:95 block/spider-slider/edit.js:194
-msgid "S"
-msgstr "S"
-
-#: block/section-break-the-grid/edit.js:978
-#: block/spider-contents-slider/edit.js:137
-#: block/spider-contents-slider/item/edit.js:99 block/spider-slider/edit.js:198
-msgid "M"
-msgstr "M"
-
-#: block/section-break-the-grid/edit.js:982
-#: block/spider-contents-slider/edit.js:141
-#: block/spider-contents-slider/item/edit.js:103
-#: block/spider-slider/edit.js:202
-msgid "L"
-msgstr "L"
 
 #: block/section-break-the-grid/edit.js:991
 msgid "Remove Outside Padding"
@@ -1484,7 +1488,7 @@ msgid "Line height"
 msgstr "行の高さ"
 
 #: block/section/components/background.js:520
-#: src/js/component/panel-box-shadow-settings.js:127
+#: src/js/component/panel-box-shadow-settings.js:128
 msgid "Position"
 msgstr "位置"
 
@@ -1564,7 +1568,7 @@ msgstr "スライダーの方向を右から左に変更"
 msgid "Aspect ratio"
 msgstr "画像のアスペクト比"
 
-#: block/slider/edit.js:224 block/spider-contents-slider/edit.js:304
+#: block/slider/edit.js:224 block/spider-contents-slider/edit.js:342
 #: block/spider-slider/edit.js:422
 msgid "# of slides to show (Large window)"
 msgstr "表示するスライド数（ラージウインドウ）"
@@ -1573,7 +1577,7 @@ msgstr "表示するスライド数（ラージウインドウ）"
 msgid "# of slides to scroll (Large window)"
 msgstr "スクロールするスライド数（ラージウインドウ）"
 
-#: block/slider/edit.js:248 block/spider-contents-slider/edit.js:320
+#: block/slider/edit.js:248 block/spider-contents-slider/edit.js:358
 #: block/spider-slider/edit.js:436
 msgid "# of slides to show (Medium window)"
 msgstr "表示するスライド数（ミディアムウインドウ）"
@@ -1582,7 +1586,7 @@ msgstr "表示するスライド数（ミディアムウインドウ）"
 msgid "# of slides to scroll (Medium window)"
 msgstr "スクロールするスライド数（ミディアムウインドウ）"
 
-#: block/slider/edit.js:272 block/spider-contents-slider/edit.js:336
+#: block/slider/edit.js:272 block/spider-contents-slider/edit.js:374
 #: block/spider-slider/edit.js:450
 msgid "# of slides to show (Small window)"
 msgstr "表示するスライド数（スモールウインドウ）"
@@ -1591,28 +1595,28 @@ msgstr "表示するスライド数（スモールウインドウ）"
 msgid "# of slides to scroll (Small window)"
 msgstr "スクロールするスライド数（スモールウインドウ）"
 
-#: block/spider-contents-slider/edit.js:216 block/spider-slider/edit.js:317
+#: block/spider-contents-slider/edit.js:254 block/spider-slider/edit.js:317
 msgid "Margin size between slides"
 msgstr "スライド間の余白サイズ"
 
-#: block/spider-contents-slider/edit.js:237
+#: block/spider-contents-slider/edit.js:275
 #: block/spider-pickup-slider/edit.js:112 block/spider-slider/edit.js:349
 msgid "Fade"
 msgstr "フェード"
 
-#: block/spider-contents-slider/edit.js:245 block/spider-slider/edit.js:357
+#: block/spider-contents-slider/edit.js:283 block/spider-slider/edit.js:357
 msgid "Shifting the slider"
 msgstr "スライダーをずらす"
 
-#: block/spider-contents-slider/edit.js:257 block/spider-slider/edit.js:369
+#: block/spider-contents-slider/edit.js:295 block/spider-slider/edit.js:369
 msgid "It must be full width (.alignfull) or wide width (.alignwide)."
 msgstr "全幅 (.alignfull) または幅広 (.alignwide) でなければなりません。"
 
-#: block/spider-contents-slider/edit.js:285 block/spider-slider/edit.js:403
+#: block/spider-contents-slider/edit.js:323 block/spider-slider/edit.js:403
 msgid "Animation Speed in seconds"
 msgstr "アニメーションの速さ（秒）"
 
-#: block/spider-contents-slider/edit.js:289 block/spider-slider/edit.js:407
+#: block/spider-contents-slider/edit.js:327 block/spider-slider/edit.js:407
 msgid "If \"0\", default animation speed."
 msgstr "「0」の場合、デフォルトの速さが使用されます。"
 
@@ -1621,7 +1625,7 @@ msgstr "「0」の場合、デフォルトの速さが使用されます。"
 msgid "Carousel"
 msgstr "カルーセル"
 
-#: block/spider-contents-slider/item/edit.js:115
+#: block/spider-contents-slider/item/edit.js:206
 msgid "Change content position"
 msgstr "コンテンツの位置を変更"
 
@@ -1672,11 +1676,11 @@ msgstr "リンクテキスト"
 msgid "Tabs orientation"
 msgstr "タブの向き"
 
-#: block/tabs/edit.js:167 src/js/component/panel-box-shadow-settings.js:61
+#: block/tabs/edit.js:167 src/js/component/panel-box-shadow-settings.js:62
 msgid "Horizontal"
 msgstr "水平方向"
 
-#: block/tabs/edit.js:171 src/js/component/panel-box-shadow-settings.js:79
+#: block/tabs/edit.js:171 src/js/component/panel-box-shadow-settings.js:80
 msgid "Vertical"
 msgstr "垂直方向"
 
@@ -1789,27 +1793,30 @@ msgstr "解除"
 msgid "Media"
 msgstr "メディア"
 
+#: src/js/component/panel-border-settings.js:55
+msgid "Radius"
+msgstr "半径"
+
 #: src/js/component/panel-box-shadow-settings.js:15
 msgid "Box Shadow Settings"
 msgstr "ボックスシャドウの設定"
 
-#: src/js/component/panel-box-shadow-settings.js:95
+#: src/js/component/panel-box-shadow-settings.js:96
 msgid "Blur"
 msgstr "ぼかし"
 
-#: src/js/component/panel-box-shadow-settings.js:111
+#: src/js/component/panel-box-shadow-settings.js:112
 msgid "Spread"
 msgstr "スプレッド"
 
-#: src/js/component/panel-box-shadow-settings.js:134
+#: src/js/component/panel-box-shadow-settings.js:135
 msgid "Outline"
 msgstr "アウトライン"
 
-#: src/js/component/panel-box-shadow-settings.js:141
+#: src/js/component/panel-box-shadow-settings.js:142
 msgid "Inset"
 msgstr "インセット"
 
-#: src/js/component/search-post-control.js:17
 #: src/js/component/width-picker.js:51
 msgid "Reset"
 msgstr "リセット"
