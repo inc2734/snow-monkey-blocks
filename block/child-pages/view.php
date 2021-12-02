@@ -7,10 +7,12 @@
  * @see https://github.com/inc2734/snow-monkey/blob/master/resources/template-parts/content/child-pages.php
  */
 
+$parent_id = ! empty( $attributes['parent']['id'] ) ? $attributes['parent']['id'] : get_the_ID();
+
 if ( class_exists( '\Framework\Helper' ) ) {
-	$pages_query = \Framework\Helper::get_child_pages_query( get_the_ID() );
+	$pages_query = \Framework\Helper::get_child_pages_query( $parent_id );
 } elseif ( class_exists( '\Inc2734\Mimizuku_Core\Helper' ) ) {
-	$pages_query = \Inc2734\Mimizuku_Core\Helper\get_child_pages_query( get_the_ID() );
+	$pages_query = \Inc2734\Mimizuku_Core\Helper\get_child_pages_query( $parent_id );
 }
 
 if ( empty( $pages_query ) ) {
@@ -43,7 +45,7 @@ if ( class_exists( '\Framework\Helper' ) ) {
 		null,
 		[
 			'_context'             => 'snow-monkey-blocks/child-pages',
-			'_parent_id'           => ! empty( $attributes['parent']['id'] ) ? $attributes['parent']['id'] : get_the_ID(),
+			'_parent_id'           => $parent_id,
 			'_entries_layout'      => $attributes['layout'],
 			'_force_sm_1col'       => $force_sm_1col,
 			'_item_thumbnail_size' => $attributes['itemThumbnailSizeSlug'],
