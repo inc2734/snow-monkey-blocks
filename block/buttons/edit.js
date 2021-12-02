@@ -2,10 +2,13 @@ import classnames from 'classnames';
 
 import {
 	BlockControls,
+	InnerBlocks,
 	JustifyToolbar,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 	useBlockProps,
 } from '@wordpress/block-editor';
+
+import { useSelect } from '@wordpress/data';
 
 const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/btn' ];
 const TEMPLATE = [ [ 'snow-monkey-blocks/btn' ] ];
@@ -20,8 +23,15 @@ const HORIZONTAL_JUSTIFY_CONTROLS = [
 	'space-between',
 ];
 
-export default function ( { attributes, setAttributes, className } ) {
+export default function ( { attributes, setAttributes, className, clientId } ) {
 	const { contentJustification } = attributes;
+
+	const hasInnerBlocks = useSelect(
+		( select ) =>
+			!! select( 'core/block-editor' ).getBlock( clientId )?.innerBlocks
+				?.length,
+		[ clientId ]
+	);
 
 	const classes = classnames( 'smb-buttons', className, {
 		[ `is-content-justification-${ contentJustification }` ]: contentJustification,
@@ -35,6 +45,9 @@ export default function ( { attributes, setAttributes, className } ) {
 		allowedBlocks: ALLOWED_BLOCKS,
 		template: TEMPLATE,
 		orientation: 'horizontal',
+		renderAppender: hasInnerBlocks
+			? undefined
+			: InnerBlocks.ButtonBlockAppender,
 		__experimentalLayout: LAYOUT,
 	} );
 

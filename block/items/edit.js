@@ -23,8 +23,6 @@ const ALLOWED_BLOCKS = [
 	'snow-monkey-blocks/items-item-free',
 ];
 
-const TEMPLATE = [ [ 'snow-monkey-blocks/items-item-standard' ] ];
-
 const HORIZONTAL_JUSTIFY_CONTROLS = [
 	'left',
 	'center',
@@ -93,7 +91,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		},
 		{
 			allowedBlocks: ALLOWED_BLOCKS,
-			template: TEMPLATE,
 			templateLock: false,
 			renderAppender: InnerBlocks.ButtonBlockAppender,
 			orientation: 'horizontal',

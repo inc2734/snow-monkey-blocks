@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import { BaseControl, PanelBody, SelectControl } from '@wordpress/components';
 
 import {
+	InnerBlocks,
 	InspectorControls,
 	useBlockProps,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
@@ -15,7 +16,10 @@ import { __ } from '@wordpress/i18n';
 import { useMigrateDoubleHyphenToSingleHyphen } from '@smb/hooks';
 
 const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/pricing-table-item' ];
-const TEMPLATE = [ [ 'snow-monkey-blocks/pricing-table-item' ] ];
+const TEMPLATE = [
+	[ 'snow-monkey-blocks/pricing-table-item' ],
+	[ 'snow-monkey-blocks/pricing-table-item' ],
+];
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
 	useMigrateDoubleHyphenToSingleHyphen( clientId, [
@@ -27,11 +31,19 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 
 	const { columnSize, childrenCount } = attributes;
 
-	const innerBlocksCount = useSelect( ( select ) => {
-		return select( 'core/block-editor' ).getBlocksByClientId(
-			clientId
-		)[ 0 ].innerBlocks.length;
-	} );
+	const hasInnerBlocks = useSelect(
+		( select ) =>
+			!! select( 'core/block-editor' ).getBlock( clientId )?.innerBlocks
+				?.length,
+		[ clientId ]
+	);
+
+	const innerBlocksCount = useSelect(
+		( select ) =>
+			select( 'core/block-editor' ).getBlock( clientId )?.innerBlocks
+				?.length,
+		[ clientId ]
+	);
 
 	useEffect( () => {
 		if ( !! innerBlocksCount ) {
@@ -59,6 +71,9 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 			template: TEMPLATE,
 			templateLock: false,
 			orientation: 'horizontal',
+			renderAppender: hasInnerBlocks
+				? undefined
+				: InnerBlocks.ButtonBlockAppender,
 		}
 	);
 
