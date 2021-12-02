@@ -98,6 +98,27 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		} );
 	}, [ maxBlur ] );
 
+	const selectedSlide = useSelect(
+		( select ) => {
+			const slides = select( 'core/block-editor' ).getBlock( clientId )
+				.innerBlocks;
+
+			const selectedSlideClientIds = slides.filter(
+				( slide ) =>
+					slide.clientId ===
+					select( 'core/block-editor' ).getSelectedBlockClientId()
+			);
+
+			if ( 0 < selectedSlideClientIds.length ) {
+				setCurrentSliderClientId( selectedSlideClientIds[ 0 ] );
+				return selectedSlideClientIds[ 0 ];
+			}
+
+			return undefined;
+		},
+		[ clientId ]
+	);
+
 	useEffect( () => {
 		if ( 0 < nowSliderClientIds.length && ! currentSliderClientId ) {
 			setCurrentSliderClientId( nowSliderClientIds[ 0 ] );
@@ -442,18 +463,17 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					style={ {
 						display: 'flex',
 						gap: '3px',
-						marginBottom: '1rem',
+						marginTop: '1rem',
 					} }
 				>
 					{ sliderClientIds.map( ( sliderClientId, index ) => {
+						const isActive =
+							currentSliderClientId === sliderClientId ||
+							selectedSlide?.clientId === sliderClientId;
 						return (
 							<Button
-								isPrimary={
-									currentSliderClientId === sliderClientId
-								}
-								isSecondary={
-									currentSliderClientId !== sliderClientId
-								}
+								isPrimary={ isActive }
+								isSecondary={ ! isActive }
 								onClick={ () => {
 									setCurrentSliderClientId( sliderClientId );
 									selectBlock( sliderClientId );
