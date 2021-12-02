@@ -1,7 +1,7 @@
 export default {
 	attributes: {
 		title: 'Lorem ipsum dolor sit amet',
-		videoURL: 'https://www.youtube.com/watch?v=rAnZPQRUTv0',
+		videoURL: 'https://www.youtube.com/watch?v=_0rxxbFlRXA',
 		maskColor: '#000',
 		maskOpacity: 0.7,
 	},

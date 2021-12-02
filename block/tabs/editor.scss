@@ -105,3 +105,9 @@
     }
   }
 }
+
+.block-editor-inserter__preview-container {
+  .smb-tab-panel:not(:first-child) {
+    display: none !important;
+  }
+}

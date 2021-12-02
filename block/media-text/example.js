@@ -1,7 +1,7 @@
 export default {
 	attributes: {
-		imageID: 1,
-		imageURL: `${ smb.pluginUrl }/dist/img/photos/man-guy-photographer1579.jpg`,
+		mediaId: 1,
+		mediaUrl: `${ smb.pluginUrl }/dist/img/photos/man-guy-photographer1579.jpg`,
 	},
 	innerBlocks: [
 		{
