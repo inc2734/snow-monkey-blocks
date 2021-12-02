@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 13.5.0
+Stable tag: 13.6.0
 Requires at least: 5.8
 Tested up to: 5.8
 Requires PHP: 5.6
@@ -108,6 +108,12 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 24. Tabs block (The number of tab can be increased or decreased freely)
 
 == Changelog ==
+
+= 13.6.0 =
+* [Contents slider] Improved display in the editor.
+* [Contents slider] Fixed bug that caused a validation error when saving a slide with the background color set.
+* [Child pages] Fix "Specify the parent page." bug.
+* Update examples.
 
 = 13.5.0 =
 * Add the "Contents Slider" block.
