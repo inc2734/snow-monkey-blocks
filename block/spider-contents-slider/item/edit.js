@@ -32,6 +32,7 @@ export default function ( {
 		border,
 		boxShadow,
 		style,
+		backgroundColor,
 	} = attributes;
 
 	const ref = useRef();
@@ -90,7 +91,8 @@ export default function ( {
 	);
 
 	const styles = {
-		background: style?.color?.background || undefined,
+		background:
+			( ! backgroundColor && style?.color?.background ) || undefined,
 		borderColor: border.color || undefined,
 		borderWidth: ( border.color && border.width ) || undefined,
 		borderRadius: border.radius || undefined,

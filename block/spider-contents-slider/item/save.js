@@ -11,6 +11,7 @@ export default function ( { attributes, className } ) {
 		border,
 		boxShadow,
 		style,
+		backgroundColor,
 	} = attributes;
 
 	const classes = classnames( 'spider__slide', className );
@@ -20,7 +21,8 @@ export default function ( { attributes, className } ) {
 	} );
 
 	const styles = {
-		background: style?.color?.background || undefined,
+		background:
+			( ! backgroundColor && style?.color?.background ) || undefined,
 		borderColor: border.color || undefined,
 		borderWidth: ( border.color && border.width ) || undefined,
 		borderRadius: border.radius || undefined,

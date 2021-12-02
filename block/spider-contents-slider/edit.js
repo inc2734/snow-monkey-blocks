@@ -98,13 +98,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		} );
 	}, [ maxBlur ] );
 
-	const hasInnerBlocks = useSelect(
-		( select ) =>
-			select( 'core/block-editor' ).getBlock( clientId ).innerBlocks
-				.length > 0,
-		[ clientId ]
-	);
-
 	useEffect( () => {
 		if ( 0 < nowSliderClientIds.length && ! currentSliderClientId ) {
 			setCurrentSliderClientId( nowSliderClientIds[ 0 ] );
@@ -187,9 +180,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		{
 			allowedBlocks: ALLOWED_BLOCKS,
 			orientation: 'horizontal',
-			renderAppender: hasInnerBlocks
-				? undefined
-				: InnerBlocks.ButtonBlockAppender,
+			renderAppender: false,
 		}
 	);
 
