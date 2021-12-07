@@ -266,3 +266,54 @@
     }
   }
 }
+
+.is-style-boundary-line.smb-items {
+  overflow: hidden; // Remove the border of the leftmost item.
+
+  > .c-row {
+    margin-left: -1px;
+
+    &--margin {
+      @include _row--margin(2);
+
+      > .c-row__col {
+        @include _row__col--margin(2);
+      }
+    }
+
+    > .c-row__col {
+      border-left: 1px solid transparent;
+      border-left-color: _lighter($_color-gray); // For IE11;
+      border-left-color: _var-lighter-color-gray();
+    }
+  }
+}
+
+.is-style-border.smb-items {
+  border: 1px solid transparent;
+  border-color: _lighter($_color-gray); // For IE11;
+  border-color: _var-lighter-color-gray();
+  overflow: hidden; // Remove the border of the leftmost/bottommost item.
+
+  > .c-row {
+    margin-bottom: -1px;
+    margin-right: -1px;
+
+    &--margin {
+      > .c-row__col {
+        @include _padding(1);
+      }
+    }
+
+    > .c-row__col {
+      margin-top: -1px;
+      margin-bottom: 0;
+      border-bottom: 1px solid transparent;
+      border-bottom-color: _lighter($_color-gray); // For IE11;
+      border-bottom-color: _var-lighter-color-gray();
+      border-right: 1px solid transparent;
+      border-right-color: _lighter($_color-gray); // For IE11;
+      border-right-color: _var-lighter-color-gray();
+    }
+  }
+}

@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2021-12-01 11:31+0900\n"
-"PO-Revision-Date: 2021-12-01 11:31+0900\n"
+"POT-Creation-Date: 2021-12-07 13:50+0900\n"
+"PO-Revision-Date: 2021-12-07 13:50+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -32,19 +32,19 @@ msgstr ""
 #: block/countdown/edit.js:67
 #: block/directory-structure/item/directory/edit.js:110
 #: block/directory-structure/item/file/edit.js:64 block/faq/item/edit.js:70
-#: block/information/edit.js:75 block/items/edit.js:140
+#: block/information/edit.js:75 block/items/edit.js:137
 #: block/items/item/banner/edit.js:239 block/items/item/block-link/edit.js:245
 #: block/items/item/item/edit.js:86 block/items/item/standard/edit.js:244
 #: block/like-me-box/edit.js:18 block/limited-datetime/edit.js:107
-#: block/list/edit.js:77 block/media-text/edit.js:282 block/panels/edit.js:109
+#: block/list/edit.js:77 block/media-text/edit.js:282 block/panels/edit.js:106
 #: block/panels/item/horizontal/edit.js:205
 #: block/panels/item/vertical/edit.js:190 block/pickup-slider/edit.js:32
-#: block/pricing-table/edit.js:74 block/pricing-table/item/edit.js:244
+#: block/pricing-table/edit.js:89 block/pricing-table/item/edit.js:244
 #: block/rating-box/item/edit.js:49 block/recent-posts/edit.js:136
 #: block/rss/edit.js:127 block/section/components/basic.js:29
 #: block/slider/edit.js:157 block/slider/item/edit.js:203
-#: block/spider-contents-slider/edit.js:250
-#: block/spider-contents-slider/item/edit.js:114
+#: block/spider-contents-slider/edit.js:262
+#: block/spider-contents-slider/item/edit.js:116
 #: block/spider-pickup-slider/edit.js:62 block/spider-slider/edit.js:299
 #: block/step/item/standard/edit.js:229 block/tabs/edit.js:158
 #: block/taxonomy-posts/edit.js:150 block/taxonomy-terms/edit.js:61
@@ -178,27 +178,27 @@ msgid "Name"
 msgstr "名前"
 
 #: block/box/edit.js:116 block/section-break-the-grid/edit.js:965
-#: block/spider-contents-slider/item/edit.js:118
+#: block/spider-contents-slider/item/edit.js:120
 msgid "Content Padding"
 msgstr "コンテンツの余白"
 
 #: block/box/edit.js:121 block/section-break-the-grid/edit.js:974
-#: block/spider-contents-slider/edit.js:170
-#: block/spider-contents-slider/item/edit.js:127
+#: block/spider-contents-slider/edit.js:184
+#: block/spider-contents-slider/item/edit.js:129
 #: block/spider-slider/edit.js:194
 msgid "S"
 msgstr "S"
 
 #: block/box/edit.js:125 block/section-break-the-grid/edit.js:978
-#: block/spider-contents-slider/edit.js:174
-#: block/spider-contents-slider/item/edit.js:131
+#: block/spider-contents-slider/edit.js:188
+#: block/spider-contents-slider/item/edit.js:133
 #: block/spider-slider/edit.js:198
 msgid "M"
 msgstr "M"
 
 #: block/box/edit.js:129 block/section-break-the-grid/edit.js:982
-#: block/spider-contents-slider/edit.js:178
-#: block/spider-contents-slider/item/edit.js:135
+#: block/spider-contents-slider/edit.js:192
+#: block/spider-contents-slider/item/edit.js:137
 #: block/spider-slider/edit.js:202
 msgid "L"
 msgstr "L"
@@ -341,9 +341,9 @@ msgstr "リンクを解除"
 
 #: block/btn-box/index.js:22 block/btn/index.js:24
 #: block/child-pages/edit.js:242 block/countdown/index.js:21
-#: block/information/index.js:23 block/media-text/edit.js:322
-#: block/recent-posts/edit.js:319 block/rss/edit.js:264
-#: block/section-break-the-grid/edit.js:674
+#: block/information/index.js:23 block/items/index.js:27
+#: block/media-text/edit.js:322 block/recent-posts/edit.js:319
+#: block/rss/edit.js:264 block/section-break-the-grid/edit.js:674
 #: block/section/components/basic.js:157 block/slider/edit.js:71
 #: block/spider-slider/edit.js:175 block/tabs/index.js:23
 #: block/taxonomy-posts/edit.js:363 block/taxonomy-terms/index.js:28
@@ -489,14 +489,14 @@ msgid "Large image"
 msgstr "大きな画像"
 
 #: block/child-pages/edit.js:161 block/recent-posts/edit.js:206
-#: block/rss/edit.js:187 block/spider-contents-slider/edit.js:263
+#: block/rss/edit.js:187 block/spider-contents-slider/edit.js:275
 #: block/spider-pickup-slider/edit.js:89 block/spider-slider/edit.js:326
 #: block/taxonomy-posts/edit.js:250
 msgid "Display arrows"
 msgstr "矢印を表示"
 
 #: block/child-pages/edit.js:170 block/recent-posts/edit.js:215
-#: block/rss/edit.js:196 block/spider-contents-slider/edit.js:269
+#: block/rss/edit.js:196 block/spider-contents-slider/edit.js:281
 #: block/spider-pickup-slider/edit.js:95 block/spider-slider/edit.js:332
 #: block/taxonomy-posts/edit.js:259
 msgid "Display dots"
@@ -504,14 +504,14 @@ msgstr "ドットを表示"
 
 #: block/child-pages/edit.js:179 block/recent-posts/edit.js:224
 #: block/rss/edit.js:205 block/slider/edit.js:188
-#: block/spider-contents-slider/edit.js:308
+#: block/spider-contents-slider/edit.js:320
 #: block/spider-pickup-slider/edit.js:119 block/spider-slider/edit.js:388
 #: block/taxonomy-posts/edit.js:268 block/thumbnail-gallery/edit.js:92
 msgid "Autoplay Speed in seconds"
 msgstr "自動再生の間隔（秒）"
 
 #: block/child-pages/edit.js:183 block/recent-posts/edit.js:228
-#: block/rss/edit.js:209 block/spider-contents-slider/edit.js:312
+#: block/rss/edit.js:209 block/spider-contents-slider/edit.js:324
 #: block/spider-pickup-slider/edit.js:123 block/spider-slider/edit.js:392
 #: block/taxonomy-posts/edit.js:272
 msgid "If \"0\", no scroll."
@@ -752,12 +752,12 @@ msgid "Label Column Size"
 msgstr "ラベルカラムのサイズ"
 
 #: block/information/edit.js:86 block/media-text/edit.js:301
-#: block/pricing-table/edit.js:97 block/section-side-heading/edit.js:389
+#: block/pricing-table/edit.js:112 block/section-side-heading/edit.js:389
 msgid "33%"
 msgstr "33%"
 
 #: block/information/edit.js:90 block/media-text/edit.js:305
-#: block/pricing-table/edit.js:93 block/section-break-the-grid/edit.js:814
+#: block/pricing-table/edit.js:108 block/section-break-the-grid/edit.js:814
 #: block/section-side-heading/edit.js:393
 msgid "25%"
 msgstr "25%"
@@ -792,7 +792,7 @@ msgstr "中央"
 msgid "Don't split the column in a smartphone"
 msgstr "スマートフォンでカラムを分割しない"
 
-#: block/information/index.js:28
+#: block/information/index.js:28 block/items/index.js:36
 msgid "Border"
 msgstr "ボーダー"
 
@@ -800,29 +800,33 @@ msgstr "ボーダー"
 msgid "Write label…"
 msgstr "ラベルを書く…"
 
-#: block/items/edit.js:144
+#: block/items/edit.js:141
 msgid "Glue each item together"
 msgstr "各項目をくっつける"
 
-#: block/items/edit.js:153
+#: block/items/edit.js:150
 msgid ""
 "Align the bottom of the button of each items (standard, block link item "
 "only)."
 msgstr "各項目のボタンの下部を揃えます (スタンダード・ブロックリンクのみ)。"
 
-#: block/items/edit.js:164 block/panels/edit.js:116
+#: block/items/edit.js:161 block/panels/edit.js:113
 #: block/testimonial/edit.js:71
 msgid "Columns per row (Large window)"
 msgstr "行あたりのカラム数（ラージウインドウ）"
 
-#: block/items/edit.js:176 block/panels/edit.js:130
+#: block/items/edit.js:173 block/panels/edit.js:127
 #: block/testimonial/edit.js:85
 msgid "Columns per row (Medium window)"
 msgstr "行あたりのカラム数（ミディアムウインドウ）"
 
-#: block/items/edit.js:188 block/panels/edit.js:144
+#: block/items/edit.js:185 block/panels/edit.js:141
 msgid "Columns per row (Small window)"
 msgstr "行あたりのカラム数（スモールウインドウ）"
+
+#: block/items/index.js:32
+msgid "Boundary line"
+msgstr "境界線"
 
 #: block/items/item/banner/edit.js:242 block/media-text/index.js:21
 #: block/section-with-bgimage/index.js:25 src/js/component/figure.js:143
@@ -953,7 +957,7 @@ msgstr "画像カラムのサイズ"
 msgid "66%"
 msgstr "66%"
 
-#: block/media-text/edit.js:297 block/pricing-table/edit.js:101
+#: block/media-text/edit.js:297 block/pricing-table/edit.js:116
 #: block/section-break-the-grid/edit.js:826
 #: block/section-side-heading/edit.js:385
 msgid "50%"
@@ -993,7 +997,7 @@ msgstr "動画"
 msgid "Media & sentence"
 msgstr "メディアと文章"
 
-#: block/panels/edit.js:158
+#: block/panels/edit.js:155
 msgid "Set padding around images"
 msgstr "画像の周りに余白を設定"
 
@@ -1039,21 +1043,21 @@ msgstr "「pickup」タグが付与された記事をスライダーとして表
 msgid "Write price…"
 msgstr "価格を書く…"
 
-#: block/pricing-table/edit.js:77
+#: block/pricing-table/edit.js:92
 msgid "Column Size"
 msgstr "カラムサイズ"
 
-#: block/pricing-table/edit.js:79
+#: block/pricing-table/edit.js:94
 msgid ""
 "If the text of each item is long, it is recommended to select other than "
 "\"Auto\"."
 msgstr "各項目のテキストが長い場合は「自動」以外を選択することをお勧めします。"
 
-#: block/pricing-table/edit.js:89
+#: block/pricing-table/edit.js:104
 msgid "Auto"
 msgstr "自動"
 
-#: block/pricing-table/edit.js:105
+#: block/pricing-table/edit.js:120
 msgid "100%"
 msgstr "100%"
 
@@ -1279,8 +1283,8 @@ msgstr "背景の不透明度"
 
 #: block/section-break-the-grid/edit.js:970
 #: block/section/components/background.js:26
-#: block/spider-contents-slider/edit.js:166
-#: block/spider-contents-slider/item/edit.js:123
+#: block/spider-contents-slider/edit.js:180
+#: block/spider-contents-slider/item/edit.js:125
 #: block/spider-slider/edit.js:190
 msgid "None"
 msgstr "なし"
@@ -1568,7 +1572,7 @@ msgstr "スライダーの方向を右から左に変更"
 msgid "Aspect ratio"
 msgstr "画像のアスペクト比"
 
-#: block/slider/edit.js:224 block/spider-contents-slider/edit.js:342
+#: block/slider/edit.js:224 block/spider-contents-slider/edit.js:354
 #: block/spider-slider/edit.js:422
 msgid "# of slides to show (Large window)"
 msgstr "表示するスライド数（ラージウインドウ）"
@@ -1577,7 +1581,7 @@ msgstr "表示するスライド数（ラージウインドウ）"
 msgid "# of slides to scroll (Large window)"
 msgstr "スクロールするスライド数（ラージウインドウ）"
 
-#: block/slider/edit.js:248 block/spider-contents-slider/edit.js:358
+#: block/slider/edit.js:248 block/spider-contents-slider/edit.js:370
 #: block/spider-slider/edit.js:436
 msgid "# of slides to show (Medium window)"
 msgstr "表示するスライド数（ミディアムウインドウ）"
@@ -1586,7 +1590,7 @@ msgstr "表示するスライド数（ミディアムウインドウ）"
 msgid "# of slides to scroll (Medium window)"
 msgstr "スクロールするスライド数（ミディアムウインドウ）"
 
-#: block/slider/edit.js:272 block/spider-contents-slider/edit.js:374
+#: block/slider/edit.js:272 block/spider-contents-slider/edit.js:386
 #: block/spider-slider/edit.js:450
 msgid "# of slides to show (Small window)"
 msgstr "表示するスライド数（スモールウインドウ）"
@@ -1595,45 +1599,45 @@ msgstr "表示するスライド数（スモールウインドウ）"
 msgid "# of slides to scroll (Small window)"
 msgstr "スクロールするスライド数（スモールウインドウ）"
 
-#: block/spider-contents-slider/edit.js:254 block/spider-slider/edit.js:317
+#: block/spider-contents-slider/edit.js:266 block/spider-slider/edit.js:317
 msgid "Margin size between slides"
 msgstr "スライド間の余白サイズ"
 
-#: block/spider-contents-slider/edit.js:275
+#: block/spider-contents-slider/edit.js:287
 #: block/spider-pickup-slider/edit.js:112 block/spider-slider/edit.js:349
 msgid "Fade"
 msgstr "フェード"
 
-#: block/spider-contents-slider/edit.js:283 block/spider-slider/edit.js:357
+#: block/spider-contents-slider/edit.js:295 block/spider-slider/edit.js:357
 msgid "Shifting the slider"
 msgstr "スライダーをずらす"
 
-#: block/spider-contents-slider/edit.js:295 block/spider-slider/edit.js:369
+#: block/spider-contents-slider/edit.js:307 block/spider-slider/edit.js:369
 msgid "It must be full width (.alignfull) or wide width (.alignwide)."
 msgstr "全幅 (.alignfull) または幅広 (.alignwide) でなければなりません。"
 
-#: block/spider-contents-slider/edit.js:323 block/spider-slider/edit.js:403
+#: block/spider-contents-slider/edit.js:335 block/spider-slider/edit.js:403
 msgid "Animation Speed in seconds"
 msgstr "アニメーションの速さ（秒）"
 
-#: block/spider-contents-slider/edit.js:327 block/spider-slider/edit.js:407
+#: block/spider-contents-slider/edit.js:339 block/spider-slider/edit.js:407
 msgid "If \"0\", default animation speed."
 msgstr "「0」の場合、デフォルトの速さが使用されます。"
 
-#: block/spider-contents-slider/index.js:18
-#: block/spider-pickup-slider/index.js:20 block/spider-slider/index.js:19
+#: block/spider-contents-slider/index.js:19
+#: block/spider-pickup-slider/index.js:20 block/spider-slider/index.js:20
 msgid "Carousel"
 msgstr "カルーセル"
 
-#: block/spider-contents-slider/item/edit.js:206
+#: block/spider-contents-slider/item/edit.js:208
 msgid "Change content position"
 msgstr "コンテンツの位置を変更"
 
-#: block/spider-contents-slider/item/index.js:23
+#: block/spider-contents-slider/item/index.js:25
 msgid "Full height"
 msgstr "高さ100%"
 
-#: block/spider-contents-slider/item/index.js:33
+#: block/spider-contents-slider/item/index.js:35
 msgid "Alignmentable"
 msgstr "配置可能"
 
@@ -2305,7 +2309,7 @@ msgstr "FAQ %1$s"
 msgid "(no title)"
 msgstr "(タイトルなし)"
 
-#: block/child-pages/view.php:78
+#: block/child-pages/view.php:80
 msgid "No pages found."
 msgstr "ページが見つかりませんでした。"
 

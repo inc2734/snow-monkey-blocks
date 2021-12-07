@@ -1,3 +1,5 @@
+import { __ } from '@wordpress/i18n';
+
 import blockConfig from '@smb/config/block';
 import metadata from './block.json';
 import icon from './icon';
@@ -19,4 +21,19 @@ export const settings = {
 	save,
 	deprecated,
 	example,
+	styles: [
+		{
+			name: 'default',
+			label: __( 'Default', 'snow-monkey-blocks' ),
+			isDefault: true,
+		},
+		{
+			name: 'boundary-line',
+			label: __( 'Boundary line', 'snow-monkey-blocks' ),
+		},
+		{
+			name: 'border',
+			label: __( 'Border', 'snow-monkey-blocks' ),
+		},
+	],
 };
