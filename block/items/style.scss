@@ -152,9 +152,11 @@
       }
     }
 
-    &--contents,
-    &--standard,
-    &--wide {
+    // &--contents,
+    // &--standard,
+    // &--wide,
+    // &--vstandard,
+    // &--vwide {
       .smb-items__banner__figure {
         @include _position(absolute, 0, 0, 0, 0);
 
@@ -172,7 +174,7 @@
           }
         }
       }
-    }
+    // }
 
     &--contents {
       .smb-items__banner__body {
@@ -181,7 +183,9 @@
     }
 
     &--standard,
-    &--wide {
+    &--wide,
+    &--vstandard,
+    &--vwide {
       position: relative;
 
       &::before {
@@ -199,6 +203,18 @@
     &--wide {
       &::before {
         padding: 56.25% 0 0;
+      }
+    }
+
+    &--vstandard {
+      &::before {
+        padding: 133.33333% 0 0;
+      }
+    }
+
+    &--vwide {
+      &::before {
+        padding: 177.77777% 0 0;
       }
     }
 

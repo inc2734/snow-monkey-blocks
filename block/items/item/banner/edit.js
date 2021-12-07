@@ -282,6 +282,14 @@ export default function ( {
 								value: 'wide',
 								label: __( '16:9', 'snow-monkey-blocks' ),
 							},
+							{
+								value: 'vstandard',
+								label: __( '3:4', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'vwide',
+								label: __( '9:16', 'snow-monkey-blocks' ),
+							},
 						] }
 						onChange={ onChangeImageSize }
 					/>
