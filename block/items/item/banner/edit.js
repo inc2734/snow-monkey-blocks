@@ -21,6 +21,7 @@ import {
 	PanelColorSettings,
 	RichText,
 	useBlockProps,
+	__experimentalBlockAlignmentMatrixControl as BlockAlignmentMatrixControl,
 	__experimentalColorGradientControl as ColorGradientControl,
 } from '@wordpress/block-editor';
 
@@ -53,7 +54,8 @@ export default function ( {
 		imageWidth,
 		imageHeight,
 		imageSizeSlug,
-		align,
+		contentsAlignment,
+		contentPosition,
 	} = attributes;
 
 	const [ isLinkUIOpen, setIsLinkUIOpen ] = useState( false );
@@ -94,7 +96,7 @@ export default function ( {
 		`smb-items__banner--${ imageSize }`,
 		{
 			'smb-items__banner--blur': blur,
-			[ `has-text-align-${ align }` ]: align,
+			[ `smb-items__banner--${ contentsAlignment }` ]: !! contentsAlignment,
 		}
 	);
 
@@ -227,9 +229,9 @@ export default function ( {
 		} );
 	};
 
-	const onChangeAlign = ( value ) =>
+	const onChangeContentsAlignment = ( value ) =>
 		setAttributes( {
-			align: value,
+			contentsAlignment: value,
 		} );
 
 	return (
@@ -368,37 +370,68 @@ export default function ( {
 					{ ( ! RichText.isEmpty( title ) ||
 						! RichText.isEmpty( lede ) ||
 						isSelected ) && (
-						<div className="smb-items__banner__body">
-							{ ( ! RichText.isEmpty( title ) || isSelected ) && (
-								<RichText
-									className="smb-items__banner__title"
-									placeholder={ __(
-										'Write title…',
-										'snow-monkey-blocks'
-									) }
-									value={ title }
-									onChange={ onChangeTitle }
-								/>
-							) }
+						<div
+							className="smb-items__banner__body"
+							data-content-position={
+								( 'contents' !== imageSize &&
+									contentPosition?.replace( ' ', '-' ) ) ||
+								undefined
+							}
+						>
+							<div className="smb-items__banner__body-inner">
+								{ ( ! RichText.isEmpty( title ) ||
+									isSelected ) && (
+									<RichText
+										className="smb-items__banner__title"
+										placeholder={ __(
+											'Write title…',
+											'snow-monkey-blocks'
+										) }
+										value={ title }
+										onChange={ onChangeTitle }
+									/>
+								) }
 
-							{ ( ! RichText.isEmpty( lede ) || isSelected ) && (
-								<RichText
-									className="smb-items__banner__lede"
-									placeholder={ __(
-										'Write lede…',
-										'snow-monkey-blocks'
-									) }
-									value={ lede }
-									onChange={ onChangeLede }
-								/>
-							) }
+								{ ( ! RichText.isEmpty( lede ) ||
+									isSelected ) && (
+									<RichText
+										className="smb-items__banner__lede"
+										placeholder={ __(
+											'Write lede…',
+											'snow-monkey-blocks'
+										) }
+										value={ lede }
+										onChange={ onChangeLede }
+									/>
+								) }
+							</div>
 						</div>
 					) }
 				</div>
 			</div>
 
+			{ 'contents' !== imageSize && (
+				<BlockControls group="block">
+					<BlockAlignmentMatrixControl
+						label={ __(
+							'Change content position',
+							'snow-monkey-blocks'
+						) }
+						value={ contentPosition }
+						onChange={ ( nextPosition ) => {
+							setAttributes( {
+								contentPosition: nextPosition,
+							} );
+						} }
+					/>
+				</BlockControls>
+			) }
+
 			<BlockControls group="block">
-				<AlignmentToolbar value={ align } onChange={ onChangeAlign } />
+				<AlignmentToolbar
+					value={ contentsAlignment }
+					onChange={ onChangeContentsAlignment }
+				/>
 
 				{ ! urlIsSet && (
 					<ToolbarButton

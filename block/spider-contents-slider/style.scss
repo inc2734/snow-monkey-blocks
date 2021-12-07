@@ -15,54 +15,9 @@
         border: 0 solid transparent;
 
         &[data-content-position] {
-          display: flex;
-
           > .smb-spider-contents-slider__item {
-            flex: 0 1 auto;
-            margin-right: 0;
-            margin-left: 0;
             height: auto;
           }
-        }
-
-        // Position: Top
-        &[data-content-position="top-left"] {
-          align-items: flex-start;
-          justify-content: flex-start;
-        }
-        &[data-content-position="top-center"] {
-          align-items: flex-start;
-          justify-content: center;
-        }
-        &[data-content-position="top-right"] {
-          align-items: flex-start;
-          justify-content: flex-end;
-        }
-        // Position: Center
-        &[data-content-position="center-left"] {
-          align-items: center;
-          justify-content: flex-start;
-        }
-        &[data-content-position="center-center"] {
-          align-items: center;
-          justify-content: center;
-        }
-        &[data-content-position="center-right"] {
-          align-items: center;
-          justify-content: flex-end;
-        }
-        // Position: Bottom
-        &[data-content-position="bottom-left"] {
-          align-items: flex-end;
-          justify-content: flex-start;
-        }
-        &[data-content-position="bottom-center"] {
-          align-items: flex-end;
-          justify-content: center;
-        }
-        &[data-content-position="bottom-right"] {
-          align-items: flex-end;
-          justify-content: flex-end;
         }
       }
     }

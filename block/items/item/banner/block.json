@@ -84,9 +84,13 @@
       "type": "string",
       "default": "large"
     },
-		"align": {
-			"type": "string"
-		}
+    "contentsAlignment": {
+      "type": "string"
+    },
+    "contentPosition": {
+      "type": "string",
+      "default": "center-left"
+    }
   },
   "supports": {
     "html": false

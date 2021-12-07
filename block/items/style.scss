@@ -118,167 +118,192 @@
       }
     }
   }
+}
 
-  &__banner {
-    position: relative;
-    overflow: hidden;
-    background-color: $_color-white; // For IE11
-    background-color: _var-color-white();
-    color: $_color-white; // For IE11
-    color: _var-color-white();
+.smb-items__banner {
+  position: relative;
+  overflow: hidden;
+  background-color: $_color-white; // For IE11
+  background-color: _var-color-white();
+  color: $_color-white; // For IE11
+  color: _var-color-white();
 
-    @include _hover(lg) {
-      .smb-items__banner__figure {
-        filter: brightness(80%);
+  @include _hover(lg) {
+    .smb-items__banner__figure {
+      filter: brightness(80%);
+    }
+  }
+
+  // @deprecated start
+  &[class*="has-text-align-"] {
+    text-align: initial;
+
+    .smb-items__banner__body {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  &.has-text-align-left .smb-items__banner__body { align-items: flex-start; }
+  &.has-text-align-center .smb-items__banner__body { align-items: center; }
+  &.has-text-align-right .smb-items__banner__body { align-items: flex-end; }
+  // @deprecated end
+
+  &--left {
+    .smb-items__banner__body-inner {
+      text-align: left;
+    }
+  }
+
+  &--center {
+    .smb-items__banner__body-inner {
+      text-align: center;
+    }
+  }
+
+  &--right {
+    .smb-items__banner__body-inner {
+      text-align: right;
+    }
+  }
+
+  &--blur {
+    .smb-items__banner__figure > img {
+      filter: blur(3px);
+      height: calc(100% + 6px);
+      width: calc(100% + 6px);
+      max-height: none;
+      max-width: none;
+      margin: -3px;
+      transform: translateZ(0);
+    }
+  }
+
+  &--contents,
+  &--wide,
+  &--vstandard,
+  &--vwide {
+    .smb-items__banner__figure {
+      @include _position(absolute, 0, 0, 0, 0);
+
+      > img {
+        @supports (object-fit: cover) {
+          object-fit: cover;
+        }
       }
-    }
 
-    &[class*="has-text-align-"] {
-      text-align: initial;
-    }
-    &.has-text-align-left .smb-items__banner__body { align-items: flex-start; }
-    &.has-text-align-center .smb-items__banner__body { align-items: center; }
-    &.has-text-align-right .smb-items__banner__body { align-items: flex-end; }
-
-    &--blur {
-      .smb-items__banner__figure > img {
-        filter: blur(3px);
-        height: calc(100% + 6px);
-        width: calc(100% + 6px);
-        max-height: none;
-        max-width: none;
-        margin: -3px;
-        transform: translateZ(0);
-      }
-    }
-
-    // &--contents,
-    // &--standard,
-    // &--wide,
-    // &--vstandard,
-    // &--vwide {
-      .smb-items__banner__figure {
+      &__dummy {
         @include _position(absolute, 0, 0, 0, 0);
 
-        > img {
-          @supports (object-fit: cover) {
-            object-fit: cover;
-          }
+        &::before {
+          display: none;
         }
-
-        &__dummy {
-          @include _position(absolute, 0, 0, 0, 0);
-
-          &::before {
-            display: none;
-          }
-        }
-      }
-    // }
-
-    &--contents {
-      .smb-items__banner__body {
-        position: relative;
       }
     }
+  }
 
-    &--standard,
-    &--wide,
-    &--vstandard,
-    &--vwide {
+  &--contents {
+    .smb-items__banner__body {
       position: relative;
+    }
+  }
+
+  &--standard,
+  &--wide,
+  &--vstandard,
+  &--vwide {
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+    }
+  }
+
+  &--standard {
+    &::before {
+      padding: 75% 0 0;
+    }
+  }
+
+  &--wide {
+    &::before {
+      padding: 56.25% 0 0;
+    }
+  }
+
+  &--vstandard {
+    max-height: 100vh;
+
+    &::before {
+      padding: 133.33333% 0 0;
+    }
+  }
+
+  &--vwide {
+    max-height: 100vh;
+
+    &::before {
+      padding: 177.77777% 0 0;
+    }
+  }
+
+  &__figure {
+    @include _transition(filter);
+
+    > img {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+      object-position: 50% 50%;
+    }
+
+    &__dummy {
+      position: relative;
+      background-color: $_color-gray; // For IE11
+      background-color: _var-color-gray();
 
       &::before {
         content: '';
         display: block;
-      }
-    }
-
-    &--standard {
-      &::before {
-        padding: 75% 0 0;
-      }
-    }
-
-    &--wide {
-      &::before {
         padding: 56.25% 0 0;
       }
     }
 
-    &--vstandard {
-      &::before {
-        padding: 133.33333% 0 0;
-      }
-    }
-
-    &--vwide {
-      &::before {
-        padding: 177.77777% 0 0;
-      }
-    }
-
-    &__figure {
-      @include _transition(filter);
-
-      > img {
-        position: relative;
-        height: 100%;
-        width: 100%;
-        object-fit: contain;
-        object-position: 50% 50%;
-      }
-
-      &__dummy {
-        position: relative;
-        background-color: $_color-gray; // For IE11
-        background-color: _var-color-gray();
-
-        &::before {
-          content: '';
-          display: block;
-          padding: 56.25% 0 0;
-        }
-      }
-
-      &__mask {
-        @include _position(absolute, 0, 0, 0, 0);
-        background-color: $_color-black; // For IE11
-        background-color: _var-color-black();
-      }
-    }
-
-    &__body {
+    &__mask {
       @include _position(absolute, 0, 0, 0, 0);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      @include _padding(1);
-
-      a {
-        position: relative;
-        z-index: 1;
-      }
+      background-color: $_color-black; // For IE11
+      background-color: _var-color-black();
     }
+  }
 
-    &__title {
-      line-height: 1.4;
+  &__body {
+    @include _position(absolute, 0, 0, 0, 0);
+    @include _padding(1);
+
+    a {
+      position: relative;
+      z-index: 1;
     }
+  }
 
-    &__lede {
-      @include _margin-top(.25);
-      @include _font-size($_base-font-size-px - 4);
-      line-height: 1.4;
-    }
+  &__title {
+    line-height: 1.4;
+  }
 
-    &__action {
-      font-size: 0 !important;
+  &__lede {
+    @include _margin-top(.25);
+    @include _font-size($_base-font-size-px - 4);
+    line-height: 1.4;
+  }
 
-      > a::after {
-        content: '';
-        @include _position(absolute, 0, 0, 0, 0);
-      }
+  &__action {
+    font-size: 0 !important;
+
+    > a::after {
+      content: '';
+      @include _position(absolute, 0, 0, 0, 0);
     }
   }
 }

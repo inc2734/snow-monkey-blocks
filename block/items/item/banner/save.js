@@ -20,7 +20,8 @@ export default function ( { attributes, className } ) {
 		imageAlt,
 		imageWidth,
 		imageHeight,
-		align,
+		contentsAlignment,
+		contentPosition,
 	} = attributes;
 
 	const classes = classnames( 'c-row__col', className );
@@ -29,7 +30,7 @@ export default function ( { attributes, className } ) {
 		`smb-items__banner--${ imageSize }`,
 		{
 			'smb-items__banner--blur': blur,
-			[ `has-text-align-${ align }` ]: align,
+			[ `smb-items__banner--${ contentsAlignment }` ]: !! contentsAlignment,
 		}
 	);
 
@@ -74,18 +75,27 @@ export default function ( { attributes, className } ) {
 
 				{ ( ! RichText.isEmpty( title ) ||
 					! RichText.isEmpty( lede ) ) && (
-					<div className="smb-items__banner__body">
-						{ ! RichText.isEmpty( title ) && (
-							<div className="smb-items__banner__title">
-								<RichText.Content value={ title } />
-							</div>
-						) }
+					<div
+						className="smb-items__banner__body"
+						data-content-position={
+							( 'contents' !== imageSize &&
+								contentPosition?.replace( ' ', '-' ) ) ||
+							undefined
+						}
+					>
+						<div className="smb-items__banner__body-inner">
+							{ ! RichText.isEmpty( title ) && (
+								<div className="smb-items__banner__title">
+									<RichText.Content value={ title } />
+								</div>
+							) }
 
-						{ ! RichText.isEmpty( lede ) && (
-							<div className="smb-items__banner__lede">
-								<RichText.Content value={ lede } />
-							</div>
-						) }
+							{ ! RichText.isEmpty( lede ) && (
+								<div className="smb-items__banner__lede">
+									<RichText.Content value={ lede } />
+								</div>
+							) }
+						</div>
 					</div>
 				) }
 
