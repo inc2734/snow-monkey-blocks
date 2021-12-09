@@ -114,8 +114,6 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 * [Items:banner] Add new settings: "3:4" and "9:16" into "Image aspect ratio".
 * [Items:banner] Add new feature: Content alignment setting.
 
-【項目】バナーに配置の設定を追加
-
 = 13.6.0 =
 * [Contents slider] Improved display in the editor.
 * [Contents slider] Fixed bug that caused a validation error when saving a slide with the background color set.
