@@ -14,20 +14,21 @@
   }
 
   &--fill {
-    .wp-block-snow-monkey-blocks-items--item--standard,
-    .wp-block-snow-monkey-blocks-items--item--block-link {
-      display: flex;
-      flex-direction: column;
-
-      .smb-items__item,
-      .smb-items__item__body {
-        flex: 1 1 0%;
+    > .#{ $_prefix }c-row {
+      > .#{ $_prefix }c-row__col {
         display: flex;
         flex-direction: column;
-      }
 
-      .smb-items__item__content {
-        margin-bottom: auto;
+        .smb-items__item,
+        .smb-items__item__body {
+          flex: 1 1 0%;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .smb-items__item__content {
+          margin-bottom: auto;
+        }
       }
     }
   }
