@@ -337,10 +337,11 @@
   overflow: hidden; // Remove the border of the leftmost/bottommost item.
 
   > .c-row {
-    margin-bottom: -1px;
-    margin-right: -1px;
-
     &--margin {
+      margin-right: -1px;
+      margin-bottom: -1px;
+      margin-left: 0;
+
       > .c-row__col {
         @include _padding(1);
       }
