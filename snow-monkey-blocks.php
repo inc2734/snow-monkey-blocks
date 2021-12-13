@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin name: Snow Monkey Blocks
- * Version: 13.7.1
+ * Version: 13.7.2
  * Description: Gutenberg blocks collection made by MonkeyWrench.
  * Author: inc2734
  * Author URI: https://2inc.org
