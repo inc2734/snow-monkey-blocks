@@ -4,7 +4,7 @@
 
 .smb-media-text {
   &--mobile-text {
-    .c-row__col:first-child {
+    > .c-row__col:first-child {
       @include _media-max(md) {
         order: 0 !important;
       }
@@ -12,7 +12,7 @@
   }
 
   &--mobile-image {
-    .c-row__col:first-child {
+    > .c-row__col:first-child {
       @include _media-max(md) {
         order: 1 !important;
       }
