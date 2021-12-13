@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 13.7.2
+Stable tag: 13.7.3
 Requires at least: 5.8
 Tested up to: 5.8
 Requires PHP: 5.6
@@ -109,8 +109,11 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 
 == Changelog ==
 
+= 13.7.3 =
+* [Media text] Fixed "Sort by mobile" bug.
+
 = 13.7.2 =
-* [Media text] Fixed bug that when "Mobile Order" was set, InnerBlocks with `.c-row` would also be affected.
+* [Media text] Fixed bug that when "Sort by mobile" was set, InnerBlocks with `.c-row` would also be affected.
 
 = 13.7.1 =
 * [Items] Fix "Border" block style bug.
