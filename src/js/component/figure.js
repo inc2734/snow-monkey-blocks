@@ -171,6 +171,7 @@ export default function ( props ) {
 		<Figure
 			{ ...props }
 			accept={ accept }
+			allowedTypes={ allowedTypes }
 			mediaType={ mediaTypeFallback }
 		/>
 	);
