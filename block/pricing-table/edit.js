@@ -6,7 +6,7 @@ import {
 	InnerBlocks,
 	InspectorControls,
 	useBlockProps,
-	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
 import { useEffect } from '@wordpress/element';
@@ -72,7 +72,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 			templateLock: false,
 			orientation: 'horizontal',
 			renderAppender: hasInnerBlocks
-				? undefined
+				? InnerBlocks.DefaultBlockAppender
 				: InnerBlocks.ButtonBlockAppender,
 		}
 	);

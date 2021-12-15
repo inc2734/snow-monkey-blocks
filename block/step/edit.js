@@ -3,9 +3,10 @@ import classnames from 'classnames';
 import {
 	InnerBlocks,
 	useBlockProps,
-	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
+import { useSelect } from '@wordpress/data';
 import { useMigrateDoubleHyphenToSingleHyphen } from '@smb/hooks';
 
 const ALLOWED_BLOCKS = [
@@ -23,6 +24,13 @@ export default function ( { className, clientId } ) {
 		},
 	] );
 
+	const hasInnerBlocks = useSelect(
+		( select ) =>
+			!! select( 'core/block-editor' ).getBlock( clientId )?.innerBlocks
+				?.length,
+		[ clientId ]
+	);
+
 	const classes = classnames( 'smb-step', className );
 
 	const blockProps = useBlockProps( {
@@ -37,7 +45,9 @@ export default function ( { className, clientId } ) {
 			allowedBlocks: ALLOWED_BLOCKS,
 			template: TEMPLATE,
 			templateLock: false,
-			renderAppender: InnerBlocks.ButtonBlockAppender,
+			renderAppender: hasInnerBlocks
+				? InnerBlocks.DefaultBlockAppender
+				: InnerBlocks.ButtonBlockAppender,
 		}
 	);
 

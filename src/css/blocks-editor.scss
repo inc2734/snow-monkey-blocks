@@ -4,8 +4,6 @@
 
 .editor-styles-wrapper,
 .customize-control-sidebar_block_editor {
-  //@include related-components();
-
   .#{$_prefix}c-row[data-columns],
   .#{$_prefix}c-row--margin {
     > .block-list-appender {
@@ -39,6 +37,10 @@
 [data-type^="snow-monkey-blocks"] {
   .components-placeholder__label .dashicon {
       margin-right: .25em;
+  }
+
+  &.has-child-selected .block-editor-block-list__layout > .block-list-appender .components-button {
+    display: flex;
   }
 
   .block-list-appender:empty {

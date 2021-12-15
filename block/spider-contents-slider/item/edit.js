@@ -7,7 +7,7 @@ import {
 	InspectorControls,
 	useBlockProps,
 	__experimentalBlockAlignmentMatrixControl as BlockAlignmentMatrixControl,
-	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
 import { PanelBody, SelectControl } from '@wordpress/components';
@@ -39,8 +39,8 @@ export default function ( {
 
 	const hasInnerBlocks = useSelect(
 		( select ) =>
-			select( 'core/block-editor' ).getBlock( clientId ).innerBlocks
-				.length > 0,
+			!! select( 'core/block-editor' ).getBlock( clientId )?.innerBlocks
+				?.length,
 		[ clientId ]
 	);
 
@@ -85,7 +85,7 @@ export default function ( {
 		},
 		{
 			renderAppender: hasInnerBlocks
-				? undefined
+				? InnerBlocks.DefaultBlockAppender
 				: InnerBlocks.ButtonBlockAppender,
 		}
 	);

@@ -3,21 +3,22 @@ import hexToRgba from 'hex-to-rgba';
 
 import {
 	ContrastChecker,
+	InnerBlocks,
 	InspectorControls,
 	useBlockProps,
-	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	useInnerBlocksProps,
 	__experimentalColorGradientControl as ColorGradientControl,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 } from '@wordpress/block-editor';
 
 import { PanelBody, RangeControl, SelectControl } from '@wordpress/components';
-
+import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
 import PanelBoxShadowSettings from '@smb/component/panel-box-shadow-settings';
 import { toNumber } from '@smb/helper';
 
-export default function ( { attributes, setAttributes, className } ) {
+export default function ( { attributes, setAttributes, className, clientId } ) {
 	const {
 		backgroundColor,
 		backgroundGradientColor,
@@ -29,6 +30,13 @@ export default function ( { attributes, setAttributes, className } ) {
 		contentPadding,
 		boxShadow,
 	} = attributes;
+
+	const hasInnerBlocks = useSelect(
+		( select ) =>
+			!! select( 'core/block-editor' ).getBlock( clientId )?.innerBlocks
+				?.length,
+		[ clientId ]
+	);
 
 	const boxStyles = {
 		color: textColor || undefined,
@@ -61,9 +69,16 @@ export default function ( { attributes, setAttributes, className } ) {
 		style: boxStyles,
 	} );
 
-	const innerBlocksProps = useInnerBlocksProps( {
-		className: 'smb-box__body',
-	} );
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: 'smb-box__body',
+		},
+		{
+			renderAppender: hasInnerBlocks
+				? InnerBlocks.DefaultBlockAppender
+				: InnerBlocks.ButtonBlockAppender,
+		}
+	);
 
 	const onChangeBorderWidth = ( value ) =>
 		setAttributes( {

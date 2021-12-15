@@ -3,8 +3,10 @@ import classnames from 'classnames';
 import {
 	InnerBlocks,
 	useBlockProps,
-	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	useInnerBlocksProps,
 } from '@wordpress/block-editor';
+
+import { useSelect } from '@wordpress/data';
 
 import { useMigrateDoubleHyphenToSingleHyphen } from '@smb/hooks';
 
@@ -27,6 +29,13 @@ export default function ( { className, clientId } ) {
 		},
 	] );
 
+	const hasInnerBlocks = useSelect(
+		( select ) =>
+			!! select( 'core/block-editor' ).getBlock( clientId )?.innerBlocks
+				?.length,
+		[ clientId ]
+	);
+
 	const classes = classnames( 'smb-directory-structure', className );
 
 	const blockProps = useBlockProps( {
@@ -36,7 +45,9 @@ export default function ( { className, clientId } ) {
 	const innerBlocksProps = useInnerBlocksProps( blockProps, {
 		allowedBlocks: ALLOWED_BLOCKS,
 		templateLock: false,
-		renderAppender: InnerBlocks.ButtonBlockAppender,
+		renderAppender: hasInnerBlocks
+			? InnerBlocks.DefaultBlockAppender
+			: InnerBlocks.ButtonBlockAppender,
 	} );
 
 	return <div { ...innerBlocksProps } />;

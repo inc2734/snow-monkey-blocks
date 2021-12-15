@@ -1,23 +1,37 @@
 import classnames from 'classnames';
 
-import { getColumnSize } from '@smb/helper';
-
 import {
+	InnerBlocks,
 	RichText,
 	useBlockProps,
-	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
+import { useSelect } from '@wordpress/data';
 import { useEffect } from '@wordpress/element';
-
 import { __ } from '@wordpress/i18n';
 
-export default function ( { attributes, setAttributes, className, context } ) {
+import { getColumnSize } from '@smb/helper';
+
+export default function ( {
+	attributes,
+	setAttributes,
+	className,
+	clientId,
+	context,
+} ) {
 	const { label } = attributes;
 	const {
 		'snow-monkey-blocks/labelColumnSize': labelColumnSize,
 		'snow-monkey-blocks/smIsSplitColumn': smIsSplitColumn,
 	} = context;
+
+	const hasInnerBlocks = useSelect(
+		( select ) =>
+			!! select( 'core/block-editor' ).getBlock( clientId )?.innerBlocks
+				?.length,
+		[ clientId ]
+	);
 
 	useEffect( () => {
 		setAttributes( {
@@ -47,9 +61,16 @@ export default function ( { attributes, setAttributes, className, context } ) {
 		className: classes,
 	} );
 
-	const innerBlocksProps = useInnerBlocksProps( {
-		className: 'smb-information__item__body',
-	} );
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: 'smb-information__item__body',
+		},
+		{
+			renderAppender: hasInnerBlocks
+				? InnerBlocks.DefaultBlockAppender
+				: InnerBlocks.ButtonBlockAppender,
+		}
+	);
 
 	const onChangeLabel = ( value ) =>
 		setAttributes( {

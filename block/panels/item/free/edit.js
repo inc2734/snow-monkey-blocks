@@ -1,11 +1,21 @@
 import classnames from 'classnames';
 
 import {
+	InnerBlocks,
 	useBlockProps,
-	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
-export default function ( { className } ) {
+import { useSelect } from '@wordpress/data';
+
+export default function ( { className, clientId } ) {
+	const hasInnerBlocks = useSelect(
+		( select ) =>
+			!! select( 'core/block-editor' ).getBlock( clientId )?.innerBlocks
+				?.length,
+		[ clientId ]
+	);
+
 	const classes = classnames( 'c-row__col', className );
 
 	const itemClasses = classnames(
@@ -17,9 +27,16 @@ export default function ( { className } ) {
 		className: classes,
 	} );
 
-	const innerBlocksProps = useInnerBlocksProps( {
-		className: 'smb-panels__item__body',
-	} );
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: 'smb-panels__item__body',
+		},
+		{
+			renderAppender: hasInnerBlocks
+				? InnerBlocks.DefaultBlockAppender
+				: InnerBlocks.ButtonBlockAppender,
+		}
+	);
 
 	return (
 		<div { ...blockProps }>

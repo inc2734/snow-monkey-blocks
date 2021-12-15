@@ -1,17 +1,19 @@
 import classnames from 'classnames';
 
-import { BaseControl, PanelBody, TextControl } from '@wordpress/components';
-import { __, sprintf } from '@wordpress/i18n';
-
 import {
+	InnerBlocks,
 	InspectorControls,
 	PanelColorSettings,
 	RichText,
 	useBlockProps,
-	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
-export default function ( { attributes, setAttributes, className } ) {
+import { BaseControl, PanelBody, TextControl } from '@wordpress/components';
+import { useSelect } from '@wordpress/data';
+import { __, sprintf } from '@wordpress/i18n';
+
+export default function ( { attributes, setAttributes, className, clientId } ) {
 	const {
 		question,
 		questionColor,
@@ -19,6 +21,13 @@ export default function ( { attributes, setAttributes, className } ) {
 		questionLabel,
 		answerLabel,
 	} = attributes;
+
+	const hasInnerBlocks = useSelect(
+		( select ) =>
+			!! select( 'core/block-editor' ).getBlock( clientId )?.innerBlocks
+				?.length,
+		[ clientId ]
+	);
 
 	const classes = classnames( 'smb-faq__item', className );
 
@@ -34,9 +43,16 @@ export default function ( { attributes, setAttributes, className } ) {
 		className: classes,
 	} );
 
-	const innerBlocksProps = useInnerBlocksProps( {
-		className: 'smb-faq__item__answer__body',
-	} );
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: 'smb-faq__item__answer__body',
+		},
+		{
+			renderAppender: hasInnerBlocks
+				? InnerBlocks.DefaultBlockAppender
+				: InnerBlocks.ButtonBlockAppender,
+		}
+	);
 
 	const onChangeQuestionLabel = ( value ) =>
 		setAttributes( {

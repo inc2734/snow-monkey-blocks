@@ -4,7 +4,7 @@ import {
 	InspectorControls,
 	RichText,
 	useBlockProps,
-	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
 import {
@@ -243,6 +243,10 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					data-has-tabs={ 1 < tabs.length ? 'true' : 'false' }
 				>
 					{ tabs.map( ( tab, index ) => {
+						const targetClientId = getBlockOrder( clientId )[
+							index
+						];
+
 						const onClickTab = () => {
 							setCurrentTabPanelId( tab.tabPanelId );
 						};
@@ -254,7 +258,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 
 						const onClickRemoveTabButton = () => {
 							removeBlocks(
-								getBlockOrder( clientId )[ index ],
+								!! targetClientId ? [ targetClientId ] : [],
 								false
 							);
 
@@ -266,7 +270,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 
 						const onClickUpTabButton = () => {
 							moveBlocksUp(
-								getBlockOrder( clientId )[ index ],
+								!! targetClientId ? [ targetClientId ] : [],
 								clientId
 							);
 
@@ -282,7 +286,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 
 						const onClickDownTabButton = () => {
 							moveBlocksDown(
-								getBlockOrder( clientId )[ index ],
+								!! targetClientId ? [ targetClientId ] : [],
 								clientId
 							);
 

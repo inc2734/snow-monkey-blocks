@@ -4,7 +4,7 @@ import {
 	InnerBlocks,
 	InspectorControls,
 	useBlockProps,
-	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
 import { PanelBody, ToggleControl, BaseControl } from '@wordpress/components';
@@ -46,7 +46,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		},
 		{
 			renderAppender: hasInnerBlocks
-				? undefined
+				? InnerBlocks.DefaultBlockAppender
 				: InnerBlocks.ButtonBlockAppender,
 		}
 	);

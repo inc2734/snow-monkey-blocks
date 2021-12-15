@@ -3,8 +3,10 @@ import classnames from 'classnames';
 import {
 	InnerBlocks,
 	useBlockProps,
-	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	useInnerBlocksProps,
 } from '@wordpress/block-editor';
+
+import { useSelect } from '@wordpress/data';
 
 import { useMigrateDoubleHyphenToSingleHyphen } from '@smb/hooks';
 
@@ -19,6 +21,13 @@ export default function ( { className, clientId } ) {
 		},
 	] );
 
+	const hasInnerBlocks = useSelect(
+		( select ) =>
+			!! select( 'core/block-editor' ).getBlock( clientId )?.innerBlocks
+				?.length,
+		[ clientId ]
+	);
+
 	const classes = classnames( 'smb-accordion', className );
 
 	const blockProps = useBlockProps( {
@@ -29,7 +38,9 @@ export default function ( { className, clientId } ) {
 		allowedBlocks: ALLOWED_BLOCKS,
 		template: TEMPLATE,
 		templateLock: false,
-		renderAppender: InnerBlocks.ButtonBlockAppender,
+		renderAppender: hasInnerBlocks
+			? InnerBlocks.DefaultBlockAppender
+			: InnerBlocks.ButtonBlockAppender,
 	} );
 
 	return <div { ...innerBlocksProps } />;

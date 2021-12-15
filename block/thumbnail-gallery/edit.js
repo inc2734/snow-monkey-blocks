@@ -1,14 +1,14 @@
 import classnames from 'classnames';
 
-import { PanelBody, RangeControl, ToggleControl } from '@wordpress/components';
-
 import {
 	InnerBlocks,
 	InspectorControls,
 	useBlockProps,
-	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
+import { PanelBody, RangeControl, ToggleControl } from '@wordpress/components';
+import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
 import { toNumber } from '@smb/helper';
@@ -27,6 +27,13 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 
 	const { arrows, speed, autoplaySpeed } = attributes;
 
+	const hasInnerBlocks = useSelect(
+		( select ) =>
+			!! select( 'core/block-editor' ).getBlock( clientId )?.innerBlocks
+				?.length,
+		[ clientId ]
+	);
+
 	const classes = classnames( 'smb-thumbnail-gallery', className );
 
 	const blockProps = useBlockProps( {
@@ -41,7 +48,9 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 			allowedBlocks: ALLOWED_BLOCKS,
 			template: TEMPLATE,
 			templateLock: false,
-			renderAppender: InnerBlocks.ButtonBlockAppender,
+			renderAppender: hasInnerBlocks
+				? InnerBlocks.DefaultBlockAppender
+				: InnerBlocks.ButtonBlockAppender,
 		}
 	);
 

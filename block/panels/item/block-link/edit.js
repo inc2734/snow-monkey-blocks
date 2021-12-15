@@ -2,12 +2,14 @@ import classnames from 'classnames';
 
 import {
 	BlockControls,
+	InnerBlocks,
 	useBlockProps,
-	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
 import { Popover, ToolbarButton } from '@wordpress/components';
 import { useState, useRef } from '@wordpress/element';
+import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
 
@@ -18,6 +20,7 @@ export default function ( {
 	setAttributes,
 	isSelected,
 	className,
+	clientId,
 } ) {
 	const { linkURL, linkTarget } = attributes;
 
@@ -26,6 +29,13 @@ export default function ( {
 	const urlIsSetandSelected = urlIsSet && isSelected;
 	const toggleLinkUI = () => setIsLinkUIOpen( ! isLinkUIOpen );
 	const closeLinkUI = () => setIsLinkUIOpen( false );
+
+	const hasInnerBlocks = useSelect(
+		( select ) =>
+			!! select( 'core/block-editor' ).getBlock( clientId )?.innerBlocks
+				?.length,
+		[ clientId ]
+	);
 
 	const classes = classnames( 'c-row__col', className );
 
@@ -45,9 +55,16 @@ export default function ( {
 		className: classes,
 	} );
 
-	const innerBlocksProps = useInnerBlocksProps( {
-		className: 'smb-panels__item__body',
-	} );
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: 'smb-panels__item__body',
+		},
+		{
+			renderAppender: hasInnerBlocks
+				? InnerBlocks.DefaultBlockAppender
+				: InnerBlocks.ButtonBlockAppender,
+		}
+	);
 
 	const onChangeLinkUrl = ( { url: newUrl, opensInNewTab } ) =>
 		setAttributes( {

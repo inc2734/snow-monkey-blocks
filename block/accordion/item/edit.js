@@ -7,7 +7,7 @@ import {
 	InspectorControls,
 	RichText,
 	useBlockProps,
-	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
 export default function ( { attributes, setAttributes, className } ) {
