@@ -306,7 +306,7 @@
     "test:lint:js": "wp-scripts lint-js block src/js",
     "test:lint:php": "wp-env start && wp-env run composer run-script lint",
     "test:lint": "run-s test:lint:*",
-    "test:unit:php": "wp-env run phpunit 'phpunit -c /var/www/html/wp-content/plugins/snow-monkey-blocks/.phpunit.xml.dist --verbose'",
+    "test:unit:php": "wp-env start && wp-env run phpunit 'phpunit -c /var/www/html/wp-content/plugins/snow-monkey-blocks/.phpunit.xml.dist --verbose'",
     "test:unit": "run-s test:unit:*",
     "test": "run-s test:*",
     "format:js": "wp-scripts format block src/js",

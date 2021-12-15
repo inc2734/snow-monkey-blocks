@@ -1,6 +1,10 @@
 import classnames from 'classnames';
 
-import { InnerBlocks, RichText, useBlockProps } from '@wordpress/block-editor';
+import {
+	RichText,
+	useBlockProps,
+	useInnerBlocksProps,
+} from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
 	const {
@@ -36,24 +40,28 @@ export default function ( { attributes, className } ) {
 								className="smb-tabs__tab-wrapper"
 								key={ index }
 							>
-								<button
+								<RichText.Content
+									tagName="button"
+									value={ tab.title }
 									className="smb-tabs__tab"
 									role="tab"
 									aria-controls={ tab.tabPanelId }
 									aria-selected={
 										0 === index ? 'true' : 'false'
 									}
-								>
-									<RichText.Content value={ tab.title } />
-								</button>
+								/>
 							</div>
 						);
 					} ) }
 				</div>
 			) }
-			<div className="smb-tabs__body">
-				<InnerBlocks.Content />
-			</div>
+
+			<div
+				{ ...useInnerBlocksProps.save( {
+					className: 'smb-tabs__body',
+				} ) }
+			/>
+
 			{ dataMatchHeightBoolean && (
 				<style>
 					{ tabs.map(

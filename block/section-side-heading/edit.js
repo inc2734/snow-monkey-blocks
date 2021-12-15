@@ -143,6 +143,11 @@ export default function ( {
 		`c-row__col--md-${ textColumnWidth }`
 	);
 
+	const bodyClasses = classnames(
+		'smb-section__body',
+		'smb-section-side-heading__body'
+	);
+
 	const sectionStyles = {};
 	if ( textColor ) {
 		sectionStyles.color = textColor;
@@ -159,10 +164,7 @@ export default function ( {
 
 	const innerBlocksProps = useInnerBlocksProps(
 		{
-			className: [
-				'smb-section__body',
-				'smb-section-side-heading__body',
-			],
+			className: bodyClasses,
 		},
 		{
 			renderAppender: hasInnerBlocks

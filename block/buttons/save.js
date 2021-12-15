@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
 export default function save( { attributes, className } ) {
 	const { contentJustification } = attributes;
@@ -10,8 +10,10 @@ export default function save( { attributes, className } ) {
 	} );
 
 	return (
-		<div { ...useBlockProps.save( { className: classes } ) }>
-			<InnerBlocks.Content />
-		</div>
+		<div
+			{ ...useInnerBlocksProps.save(
+				useBlockProps.save( { className: classes } )
+			) }
+		/>
 	);
 }

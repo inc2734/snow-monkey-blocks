@@ -220,6 +220,11 @@ export default function ( {
 			contentPadding && removeContentOutsidePadding,
 	} );
 
+	const bodyClasses = classnames(
+		'smb-section__body',
+		'smb-section-break-the-grid__body'
+	);
+
 	const shadowClasses = classnames( 'smb-section-break-the-grid__shadow' );
 
 	const maskClasses = classnames( 'smb-section-break-the-grid__mask' );
@@ -261,10 +266,7 @@ export default function ( {
 
 	const innerBlocksProps = useInnerBlocksProps(
 		{
-			className: [
-				'smb-section__body',
-				'smb-section-break-the-grid__body',
-			],
+			className: bodyClasses,
 		},
 		{
 			renderAppender: hasInnerBlocks

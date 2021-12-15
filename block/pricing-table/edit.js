@@ -58,13 +58,15 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		[ className ]: !! className,
 	} );
 
+	const rowClasses = classnames( 'c-row', 'c-row--md-nowrap' );
+
 	const blockProps = useBlockProps( {
 		className: classes,
 	} );
 
 	const innerBlocksProps = useInnerBlocksProps(
 		{
-			className: [ 'c-row', 'c-row--md-nowrap' ],
+			className: rowClasses,
 		},
 		{
 			allowedBlocks: ALLOWED_BLOCKS,

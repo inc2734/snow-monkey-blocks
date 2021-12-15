@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
 export default function ( { className } ) {
 	const classes = classnames( 'c-row__col', className );
@@ -13,9 +13,11 @@ export default function ( { className } ) {
 	return (
 		<div { ...useBlockProps.save( { className: classes } ) }>
 			<div className={ itemClasses }>
-				<div className="smb-panels__item__body">
-					<InnerBlocks.Content />
-				</div>
+				<div
+					{ ...useInnerBlocksProps.save( {
+						className: 'smb-panels__item__body',
+					} ) }
+				/>
 			</div>
 		</div>
 	);

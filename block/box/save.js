@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import hexToRgba from 'hex-to-rgba';
 
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
 	const {
@@ -50,9 +50,11 @@ export default function ( { attributes, className } ) {
 			} ) }
 		>
 			<div className="smb-box__background" style={ backgroundStyles } />
-			<div className="smb-box__body">
-				<InnerBlocks.Content />
-			</div>
+			<div
+				{ ...useInnerBlocksProps.save( {
+					className: 'smb-box__body',
+				} ) }
+			/>
 		</div>
 	);
 }

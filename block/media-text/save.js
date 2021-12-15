@@ -1,7 +1,11 @@
 import { isEmpty } from 'lodash';
 import classnames from 'classnames';
 
-import { RichText, InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import {
+	RichText,
+	useBlockProps,
+	useInnerBlocksProps,
+} from '@wordpress/block-editor';
 
 import { getColumnSize } from '@smb/helper';
 
@@ -105,18 +109,22 @@ export default function ( { attributes, className } ) {
 							/>
 						) }
 
-					<div className="smb-media-text__body">
-						<InnerBlocks.Content />
-					</div>
+					<div
+						{ ...useInnerBlocksProps.save( {
+							className: 'smb-media-text__body',
+						} ) }
+					/>
 				</div>
 
 				<div className={ imageColumnClasses }>
 					<div className="smb-media-text__figure">{ figure }</div>
 
 					{ ! RichText.isEmpty( caption ) && (
-						<div className="smb-media-text__caption">
-							<RichText.Content value={ caption } />
-						</div>
+						<RichText.Content
+							tagName="div"
+							className="smb-media-text__caption"
+							value={ caption }
+						/>
 					) }
 				</div>
 			</div>

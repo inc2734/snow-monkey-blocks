@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
 	const { contentsMaxWidth, isSlim } = attributes;
@@ -17,9 +17,12 @@ export default function ( { attributes, className } ) {
 
 	return (
 		<div { ...useBlockProps.save( { className: classes } ) }>
-			<div className={ bodyClasses } style={ bodyStyles }>
-				<InnerBlocks.Content />
-			</div>
+			<div
+				{ ...useInnerBlocksProps.save( {
+					className: bodyClasses,
+					style: bodyStyles,
+				} ) }
+			/>
 		</div>
 	);
 }

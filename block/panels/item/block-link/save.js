@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 
 export default function ( { attributes, className } ) {
@@ -21,9 +21,11 @@ export default function ( { attributes, className } ) {
 	return (
 		<div { ...useBlockProps.save( { className: classes } ) }>
 			<div className={ itemClasses }>
-				<div className="smb-panels__item__body">
-					<InnerBlocks.Content />
-				</div>
+				<div
+					{ ...useInnerBlocksProps.save( {
+						className: 'smb-panels__item__body',
+					} ) }
+				/>
 
 				{ !! linkURL && (
 					<div className={ actionClasses }>

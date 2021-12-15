@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
 import { getColumnSize } from '@smb/helper';
 
@@ -100,6 +100,11 @@ export default function ( { attributes, className } ) {
 		`c-row__col--md-${ textColumnWidth }`
 	);
 
+	const bodyClasses = classnames(
+		'smb-section__body',
+		'smb-section-side-heading__body'
+	);
+
 	const sectionStyles = {};
 	if ( textColor ) {
 		sectionStyles.color = textColor;
@@ -159,9 +164,11 @@ export default function ( { attributes, className } ) {
 								/>
 							</div>
 							<div className={ contentColClasses }>
-								<div className="smb-section__body smb-section-side-heading__body">
-									<InnerBlocks.Content />
-								</div>
+								<div
+									{ ...useInnerBlocksProps.save( {
+										className: bodyClasses,
+									} ) }
+								/>
 							</div>
 						</div>
 					</div>

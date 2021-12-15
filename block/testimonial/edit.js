@@ -36,6 +36,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 	);
 
 	const classes = classnames( 'smb-testimonial', className );
+	const rowClasses = classnames( 'c-row', 'c-row--margin' );
 
 	const blockProps = useBlockProps( {
 		className: classes,
@@ -43,7 +44,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 
 	const innerBlocksProps = useInnerBlocksProps(
 		{
-			className: [ 'c-row', 'c-row--margin' ],
+			className: rowClasses,
 		},
 		{
 			allowedBlocks: ALLOWED_BLOCKS,

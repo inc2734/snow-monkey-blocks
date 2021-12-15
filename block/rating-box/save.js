@@ -1,15 +1,17 @@
 import classnames from 'classnames';
 
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
 export default function ( { className } ) {
 	const classes = classnames( 'smb-rating-box', className );
 
 	return (
 		<div { ...useBlockProps.save( { className: classes } ) }>
-			<div className="smb-rating-box__body">
-				<InnerBlocks.Content />
-			</div>
+			<div
+				{ ...useInnerBlocksProps.save( {
+					className: 'smb-rating-box__body',
+				} ) }
+			/>
 		</div>
 	);
 }

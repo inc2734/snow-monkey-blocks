@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
 import { generateConfig } from './utils';
 
@@ -47,12 +47,12 @@ export default function ( { attributes, className } ) {
 	return (
 		<div { ...useBlockProps.save( { className: classes } ) }>
 			<div
-				className="smb-slider__canvas"
+				{ ...useInnerBlocksProps.save( {
+					className: 'smb-slider__canvas',
+				} ) }
 				dir={ dir }
 				data-smb-slider={ JSON.stringify( config ) }
-			>
-				<InnerBlocks.Content />
-			</div>
+			/>
 		</div>
 	);
 }

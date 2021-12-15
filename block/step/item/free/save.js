@@ -1,6 +1,10 @@
 import classnames from 'classnames';
 
-import { RichText, InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import {
+	RichText,
+	useBlockProps,
+	useInnerBlocksProps,
+} from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
 	const { title, numberColor } = attributes;
@@ -18,15 +22,15 @@ export default function ( { attributes, className } ) {
 					className="smb-step__item__number"
 					style={ itemNumberStyles }
 				/>
-				<span>
-					<RichText.Content value={ title } />
-				</span>
+				<RichText.Content tagName="span" value={ title } />
 			</div>
 
 			<div className="smb-step__item__body">
-				<div className="smb-step__item__summary">
-					<InnerBlocks.Content />
-				</div>
+				<div
+					{ ...useInnerBlocksProps.save( {
+						className: 'smb-step__item__summary',
+					} ) }
+				/>
 			</div>
 		</div>
 	);

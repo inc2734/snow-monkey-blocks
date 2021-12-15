@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
 import { getVideoId } from './utils';
 
@@ -180,9 +180,11 @@ export default function ( { attributes, className } ) {
 							} }
 						/>
 
-						<div className="smb-section__body">
-							<InnerBlocks.Content />
-						</div>
+						<div
+							{ ...useInnerBlocksProps.save( {
+								className: 'smb-section__body',
+							} ) }
+						/>
 					</div>
 				</div>
 			</div>

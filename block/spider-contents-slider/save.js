@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
 	const {
@@ -61,9 +61,12 @@ export default function ( { attributes, className } ) {
 						<div className="spider__reference" />
 					</div>
 				) }
-				<div className="spider__canvas" style={ canvasStyles }>
-					<InnerBlocks.Content />
-				</div>
+				<div
+					{ ...useInnerBlocksProps.save( {
+						className: 'spider__canvas',
+						style: canvasStyles,
+					} ) }
+				/>
 
 				{ arrows && (
 					<div className="spider__arrows">

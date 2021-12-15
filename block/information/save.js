@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
 	const { labelAlign, labelVerticalAlign, smIsSplitColumn } = attributes;
@@ -14,9 +14,11 @@ export default function ( { attributes, className } ) {
 			data-label-align={ labelAlign || 'left' }
 			data-label-vertical-align={ labelVerticalAlign || 'top' }
 		>
-			<div className="smb-information__body">
-				<InnerBlocks.Content />
-			</div>
+			<div
+				{ ...useInnerBlocksProps.save( {
+					className: 'smb-information__body',
+				} ) }
+			/>
 		</div>
 	);
 }

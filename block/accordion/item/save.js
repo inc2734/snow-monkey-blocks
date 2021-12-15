@@ -1,6 +1,10 @@
 import classnames from 'classnames';
 
-import { RichText, InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import {
+	RichText,
+	useBlockProps,
+	useInnerBlocksProps,
+} from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
 	const { title, initialState } = attributes;
@@ -14,16 +18,20 @@ export default function ( { attributes, className } ) {
 				checked={ initialState }
 			/>
 			<div className="smb-accordion__item__title">
-				<span className="smb-accordion__item__title__label">
-					<RichText.Content value={ title } />
-				</span>
+				<RichText.Content
+					tagName="span"
+					className="smb-accordion__item__title__label"
+					value={ title }
+				/>
 				<div className="smb-accordion__item__title__icon">
 					<i className="fas fa-angle-down"></i>
 				</div>
 			</div>
-			<div className="smb-accordion__item__body">
-				<InnerBlocks.Content />
-			</div>
+			<div
+				{ ...useInnerBlocksProps.save( {
+					className: 'smb-accordion__item__body',
+				} ) }
+			/>
 		</div>
 	);
 }

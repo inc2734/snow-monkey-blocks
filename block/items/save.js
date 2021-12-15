@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
 	const {
@@ -33,13 +33,13 @@ export default function ( { attributes, className } ) {
 	return (
 		<div { ...useBlockProps.save( { className: classes } ) }>
 			<div
-				className={ rowClasses }
+				{ ...useInnerBlocksProps.save( {
+					className: rowClasses,
+				} ) }
 				data-columns={ sm }
 				data-md-columns={ md }
 				data-lg-columns={ lg }
-			>
-				<InnerBlocks.Content />
-			</div>
+			/>
 		</div>
 	);
 }

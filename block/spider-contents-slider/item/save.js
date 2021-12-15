@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import hexToRgba from 'hex-to-rgba';
 
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
 	const {
@@ -43,9 +43,11 @@ export default function ( { attributes, className } ) {
 			}
 			style={ styles }
 		>
-			<div className={ itemClasses }>
-				<InnerBlocks.Content />
-			</div>
+			<div
+				{ ...useInnerBlocksProps.save( {
+					className: itemClasses,
+				} ) }
+			/>
 		</div>
 	);
 }

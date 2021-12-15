@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
 	const { tabPanelId, ariaHidden } = attributes;
@@ -14,9 +14,11 @@ export default function ( { attributes, className } ) {
 			aria-hidden={ ariaHidden }
 			role="tabpanel"
 		>
-			<div className="smb-tab-panel__body">
-				<InnerBlocks.Content />
-			</div>
+			<div
+				{ ...useInnerBlocksProps.save( {
+					className: 'smb-tab-panel__body',
+				} ) }
+			/>
 		</div>
 	);
 }

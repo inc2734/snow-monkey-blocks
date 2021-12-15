@@ -2,7 +2,11 @@ import classnames from 'classnames';
 
 import { getColumnSize } from '@smb/helper';
 
-import { InnerBlocks, RichText, useBlockProps } from '@wordpress/block-editor';
+import {
+	RichText,
+	useBlockProps,
+	useInnerBlocksProps,
+} from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
 	const { label, labelColumnSize, smIsSplitColumn } = attributes;
@@ -28,14 +32,18 @@ export default function ( { attributes, className } ) {
 		<div { ...useBlockProps.save( { className: classes } ) }>
 			<div className="c-row">
 				<div className={ labelColumnClasses }>
-					<div className="smb-information__item__label">
-						<RichText.Content value={ label } />
-					</div>
+					<RichText.Content
+						tagName="div"
+						className="smb-information__item__label"
+						value={ label }
+					/>
 				</div>
 				<div className={ bodyColumnClasses }>
-					<div className="smb-information__item__body">
-						<InnerBlocks.Content />
-					</div>
+					<div
+						{ ...useInnerBlocksProps.save( {
+							className: 'smb-information__item__body',
+						} ) }
+					/>
 				</div>
 			</div>
 		</div>

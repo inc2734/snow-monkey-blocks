@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
 	const { sm, md, lg, imagePadding, contentJustification } = attributes;
@@ -22,13 +22,13 @@ export default function ( { attributes, className } ) {
 			data-image-padding={ imagePadding }
 		>
 			<div
-				className={ rowClasses }
+				{ ...useInnerBlocksProps.save( {
+					className: rowClasses,
+				} ) }
 				data-columns={ sm }
 				data-md-columns={ md }
 				data-lg-columns={ lg }
-			>
-				<InnerBlocks.Content />
-			</div>
+			/>
 		</div>
 	);
 }
