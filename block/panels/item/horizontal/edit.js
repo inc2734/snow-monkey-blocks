@@ -109,11 +109,6 @@ export default function ( {
 		ref,
 	} );
 
-	const onChangeImagePosition = ( value ) =>
-		setAttributes( {
-			imagePosition: value,
-		} );
-
 	const onSelectImage = ( media ) => {
 		const newImageURL =
 			!! media.sizes && !! media.sizes[ imageSizeSlug ]

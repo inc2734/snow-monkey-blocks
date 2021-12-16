@@ -24,8 +24,8 @@ import { __ } from '@wordpress/i18n';
 import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
 
 import Figure from '@smb/component/figure';
-import LinkControl from '@smb/component/link-control';
 import ImageSizeSelectControl from '@smb/component/image-size-select-control';
+import LinkControl from '@smb/component/link-control';
 import { getResizedImages } from '@smb/helper';
 import { useMultipleOriginColorsAndGradients } from '@smb/hooks';
 
@@ -241,6 +241,17 @@ export default function ( {
 	return (
 		<>
 			<InspectorControls>
+				<PanelBody
+					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
+				>
+					<ImageSizeSelectControl
+						label={ __( 'Images size', 'snow-monkey-blocks' ) }
+						id={ imageID }
+						slug={ imageSizeSlug }
+						onChange={ onChangeImageSizeSlug }
+					/>
+				</PanelBody>
+
 				<PanelBody
 					title={ __( 'Button settings', 'snow-monkey-blocks' ) }
 				>
