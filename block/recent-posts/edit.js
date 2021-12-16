@@ -133,10 +133,10 @@ export default function ( { attributes, setAttributes } ) {
 		<>
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
 					<SelectControl
-						label={ __( 'Post Type', 'snow-monkey-blocks' ) }
+						label={ __( 'Post type', 'snow-monkey-blocks' ) }
 						value={ postType }
 						onChange={ onChangePostType }
 						options={ postTypes.map( ( _postType ) => ( {
@@ -238,7 +238,7 @@ export default function ( { attributes, setAttributes } ) {
 
 					<BaseControl
 						label={ __(
-							'Title Tag of each items',
+							'Title tag of each items',
 							'snow-monkey-blocks'
 						) }
 						id="snow-monkey-blocks/recent-posts/item-title-tag-name"

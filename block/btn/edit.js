@@ -13,7 +13,7 @@ import {
 	BlockControls,
 	ContrastChecker,
 	InspectorControls,
-	PanelColorSettings,
+	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	RichText,
 	useBlockProps,
 } from '@wordpress/block-editor';
@@ -130,8 +130,35 @@ export default function ( {
 	return (
 		<>
 			<InspectorControls>
+				<PanelColorGradientSettings
+					title={ __( 'Color', 'snow-monkey-blocks' ) }
+					initialOpen={ false }
+					settings={ [
+						{
+							colorValue: backgroundColor,
+							onColorChange: onChangeBackgroundColor,
+							label: __(
+								'Background color',
+								'snow-monkey-blocks'
+							),
+						},
+						{
+							colorValue: textColor,
+							onColorChange: onChangeTextColor,
+							label: __( 'Text color', 'snow-monkey-blocks' ),
+						},
+					] }
+					__experimentalHasMultipleOrigins={ true }
+					__experimentalIsRenderedInSidebar={ true }
+				>
+					<ContrastChecker
+						backgroundColor={ backgroundColor }
+						textColor={ textColor }
+					/>
+				</PanelColorGradientSettings>
+
 				<PanelBody
-					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
 					<SelectControl
 						label={ __( 'Button size', 'snow-monkey-blocks' ) }
@@ -187,31 +214,6 @@ export default function ( {
 						onChange={ onChangeWrap }
 					/>
 				</PanelBody>
-
-				<PanelColorSettings
-					title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
-					colorSettings={ [
-						{
-							value: backgroundColor,
-							onChange: onChangeBackgroundColor,
-							label: __(
-								'Background Color',
-								'snow-monkey-blocks'
-							),
-						},
-						{
-							value: textColor,
-							onChange: onChangeTextColor,
-							label: __( 'Text Color', 'snow-monkey-blocks' ),
-						},
-					] }
-				>
-					<ContrastChecker
-						backgroundColor={ backgroundColor }
-						textColor={ textColor }
-					/>
-				</PanelColorSettings>
 			</InspectorControls>
 
 			<div { ...blockProps }>

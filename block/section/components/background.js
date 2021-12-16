@@ -18,6 +18,7 @@ import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 import { divider } from '@smb/helper';
+import { useMultipleOriginColorsAndGradients } from '@smb/hooks';
 import SpacingControl from '@smb/component/spacing-control';
 
 const textureOptions = [
@@ -68,12 +69,11 @@ export const PanelSectionMovableBackgroundSettings = ( {
 	hasTexture,
 	settings,
 } ) => {
+	const multipleOriginColorsAndGradients = useMultipleOriginColorsAndGradients();
+
 	return (
 		<PanelBody
-			title={ __(
-				'Background (Movable) Settings',
-				'snow-monkey-blocks'
-			) }
+			title={ __( 'Background (Movable) ', 'snow-monkey-blocks' ) }
 			initialOpen={ false }
 		>
 			{ settings.map( ( setting, index ) => {
@@ -91,6 +91,9 @@ export const PanelSectionMovableBackgroundSettings = ( {
 							gradientValue={ setting.gradientValue }
 							onColorChange={ setting.onColorChange }
 							onGradientChange={ setting.onGradientChange }
+							{ ...multipleOriginColorsAndGradients }
+							__experimentalHasMultipleOrigins={ true }
+							__experimentalIsRenderedInSidebar={ true }
 						/>
 					);
 				}
@@ -104,7 +107,7 @@ export const PanelSectionMovableBackgroundSettings = ( {
 							<RangeControl
 								key={ index }
 								label={ __(
-									'Background Position (Left / Right)',
+									'Background position (Left / Right)',
 									'snow-monkey-blocks'
 								) }
 								value={ setting.horizontalPositionValue }
@@ -176,7 +179,7 @@ export const PanelSectionMovableBackgroundSettings = ( {
 							<RangeControl
 								key={ index }
 								label={ __(
-									'Texture Opacity',
+									'Texture opacity',
 									'snow-monkey-blocks'
 								) }
 								value={ Number(
@@ -201,9 +204,11 @@ export const PanelSectionFixedBackgroundSettings = ( {
 	hasTexture,
 	settings,
 } ) => {
+	const multipleOriginColorsAndGradients = useMultipleOriginColorsAndGradients();
+
 	return (
 		<PanelBody
-			title={ __( 'Background (Fixed) Settings', 'snow-monkey-blocks' ) }
+			title={ __( 'Background (Fixed) ', 'snow-monkey-blocks' ) }
 			initialOpen={ false }
 		>
 			{ settings.map( ( setting, index ) => {
@@ -221,6 +226,9 @@ export const PanelSectionFixedBackgroundSettings = ( {
 							gradientValue={ setting.gradientValue }
 							onColorChange={ setting.onColorChange }
 							onGradientChange={ setting.onGradientChange }
+							{ ...multipleOriginColorsAndGradients }
+							__experimentalHasMultipleOrigins={ true }
+							__experimentalIsRenderedInSidebar={ true }
 						/>
 					);
 				}
@@ -249,7 +257,7 @@ export const PanelSectionFixedBackgroundSettings = ( {
 						<RangeControl
 							key={ index }
 							label={ __(
-								'Texture Opacity',
+								'Texture opacity',
 								'snow-monkey-blocks'
 							) }
 							value={ Number(
@@ -270,9 +278,11 @@ export const PanelSectionFixedBackgroundSettings = ( {
 };
 
 export const PanelSectionTopDividerSettings = ( { settings } ) => {
+	const multipleOriginColorsAndGradients = useMultipleOriginColorsAndGradients();
+
 	return (
 		<PanelBody
-			title={ __( 'Top divider Settings', 'snow-monkey-blocks' ) }
+			title={ __( 'Top divider', 'snow-monkey-blocks' ) }
 			initialOpen={ false }
 		>
 			{ settings.map( ( setting, index ) => {
@@ -317,6 +327,9 @@ export const PanelSectionTopDividerSettings = ( { settings } ) => {
 							label={ __( 'Color', 'snow-monkey-blocks' ) }
 							colorValue={ setting.colorValue }
 							onColorChange={ setting.onColorChange }
+							{ ...multipleOriginColorsAndGradients }
+							__experimentalHasMultipleOrigins={ true }
+							__experimentalIsRenderedInSidebar={ true }
 						/>
 					);
 				}
@@ -347,9 +360,11 @@ export const PanelSectionTopDividerSettings = ( { settings } ) => {
 };
 
 export const PanelSectionBottomDividerSettings = ( { settings } ) => {
+	const multipleOriginColorsAndGradients = useMultipleOriginColorsAndGradients();
+
 	return (
 		<PanelBody
-			title={ __( 'Bottom divider Settings', 'snow-monkey-blocks' ) }
+			title={ __( 'Bottom divider', 'snow-monkey-blocks' ) }
 			initialOpen={ false }
 		>
 			{ settings.map( ( setting, index ) => {
@@ -394,6 +409,9 @@ export const PanelSectionBottomDividerSettings = ( { settings } ) => {
 							label={ __( 'Color', 'snow-monkey-blocks' ) }
 							colorValue={ setting.colorValue }
 							onColorChange={ setting.onColorChange }
+							{ ...multipleOriginColorsAndGradients }
+							__experimentalHasMultipleOrigins={ true }
+							__experimentalIsRenderedInSidebar={ true }
 						/>
 					);
 				}
@@ -424,9 +442,11 @@ export const PanelSectionBottomDividerSettings = ( { settings } ) => {
 };
 
 export const PanelSectionBackgroundTextSettings = ( { settings } ) => {
+	const multipleOriginColorsAndGradients = useMultipleOriginColorsAndGradients();
+
 	return (
 		<PanelBody
-			title={ __( 'Background Text Settings', 'snow-monkey-blocks' ) }
+			title={ __( 'Background text', 'snow-monkey-blocks' ) }
 			initialOpen={ false }
 		>
 			{ settings.map( ( setting, index ) => {
@@ -478,6 +498,23 @@ export const PanelSectionBackgroundTextSettings = ( { settings } ) => {
 				}
 
 				if (
+					setting.hasOwnProperty( 'colorValue' ) &&
+					setting.hasOwnProperty( 'onColorChange' )
+				) {
+					return (
+						<ColorGradientControl
+							key={ index }
+							label={ __( 'Color', 'snow-monkey-blocks' ) }
+							colorValue={ setting.colorValue }
+							onColorChange={ setting.onColorChange }
+							{ ...multipleOriginColorsAndGradients }
+							__experimentalHasMultipleOrigins={ true }
+							__experimentalIsRenderedInSidebar={ true }
+						/>
+					);
+				}
+
+				if (
 					setting.hasOwnProperty( 'opacityValue' ) &&
 					setting.hasOwnProperty( 'onOpacityChange' )
 				) {
@@ -492,20 +529,6 @@ export const PanelSectionBackgroundTextSettings = ( { settings } ) => {
 							min={ 0.1 }
 							max={ 1 }
 							step={ 0.1 }
-						/>
-					);
-				}
-
-				if (
-					setting.hasOwnProperty( 'colorValue' ) &&
-					setting.hasOwnProperty( 'onColorChange' )
-				) {
-					return (
-						<ColorGradientControl
-							key={ index }
-							label={ __( 'Color', 'snow-monkey-blocks' ) }
-							colorValue={ setting.colorValue }
-							onColorChange={ setting.onColorChange }
 						/>
 					);
 				}

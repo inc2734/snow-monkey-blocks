@@ -5,8 +5,8 @@ import { __ } from '@wordpress/i18n';
 import {
 	InnerBlocks,
 	InspectorControls,
-	PanelColorSettings,
 	RichText,
+	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	useBlockProps,
 	useInnerBlocksProps,
 } from '@wordpress/block-editor';
@@ -57,17 +57,19 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelColorSettings
-					title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
+				<PanelColorGradientSettings
+					title={ __( 'Color', 'snow-monkey-blocks' ) }
 					initialOpen={ false }
-					colorSettings={ [
+					settings={ [
 						{
-							value: numberColor,
-							onChange: onChangeNumberColor,
-							label: __( 'Number Color', 'snow-monkey-blocks' ),
+							colorValue: numberColor,
+							onColorChange: onChangeNumberColor,
+							label: __( 'Number color', 'snow-monkey-blocks' ),
 						},
 					] }
-				></PanelColorSettings>
+					__experimentalHasMultipleOrigins={ true }
+					__experimentalIsRenderedInSidebar={ true }
+				></PanelColorGradientSettings>
 			</InspectorControls>
 
 			<div { ...blockProps }>

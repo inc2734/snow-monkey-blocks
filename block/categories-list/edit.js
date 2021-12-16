@@ -42,7 +42,7 @@ export default function ( { attributes, setAttributes, className } ) {
 					label={ __( 'Categories list', 'snow-monkey-blocks' ) }
 				>
 					<Spinner />
-					{ __( 'Loading Setting Data', 'snow-monkey-blocks' ) }
+					{ __( 'Loading setting data', 'snow-monkey-blocks' ) }
 				</Placeholder>
 			</div>
 		);
@@ -98,7 +98,7 @@ export default function ( { attributes, setAttributes, className } ) {
 		return (
 			<PanelBody
 				title={ __(
-					'Exclusion Categories Settings',
+					'Exclusion categories settings',
 					'snow-monkey-blocks'
 				) }
 			>
@@ -198,11 +198,11 @@ export default function ( { attributes, setAttributes, className } ) {
 		<>
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
 					<RangeControl
 						label={ __(
-							'Categories List Articles',
+							'Categories list articles',
 							'snow-monkey-blocks'
 						) }
 						value={ articles }

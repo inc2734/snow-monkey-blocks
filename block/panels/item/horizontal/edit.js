@@ -13,14 +13,19 @@ import {
 	Button,
 	PanelBody,
 	Popover,
-	SelectControl,
 	ToolbarButton,
+	ToolbarGroup,
 } from '@wordpress/components';
 
 import { useState, useRef } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
-import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
+import {
+	link as linkIcon,
+	linkOff as linkOffIcon,
+	pullLeft,
+	pullRight,
+} from '@wordpress/icons';
 
 import Figure from '@smb/component/figure';
 import LinkControl from '@smb/component/link-control';
@@ -202,10 +207,10 @@ export default function ( {
 		<>
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
 					<BaseControl
-						label={ __( 'Title Tag', 'snow-monkey-blocks' ) }
+						label={ __( 'Title tag', 'snow-monkey-blocks' ) }
 						id="snow-monkey-blocks/panels-item-horizontal/title-tag-name"
 					>
 						<div className="smb-list-icon-selector">
@@ -231,22 +236,6 @@ export default function ( {
 						</div>
 					</BaseControl>
 
-					<SelectControl
-						label={ __( 'Image Position', 'snow-monkey-blocks' ) }
-						value={ imagePosition }
-						options={ [
-							{
-								value: 'right',
-								label: __( 'Right side', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'left',
-								label: __( 'Left side', 'snow-monkey-blocks' ),
-							},
-						] }
-						onChange={ onChangeImagePosition }
-					/>
-
 					<ImageSizeSelectControl
 						label={ __( 'Images size', 'snow-monkey-blocks' ) }
 						id={ imageID }
@@ -255,6 +244,31 @@ export default function ( {
 					/>
 				</PanelBody>
 			</InspectorControls>
+
+			<BlockControls gruop="block">
+				<ToolbarGroup>
+					<ToolbarButton
+						icon={ pullLeft }
+						title={ __( 'Image position', 'snow-monkey-blocks' ) }
+						isActive={ 'left' === imagePosition }
+						onClick={ () =>
+							setAttributes( { imagePosition: 'left' } )
+						}
+					/>
+
+					<ToolbarButton
+						icon={ pullRight }
+						title={ __(
+							'Show avatar on right',
+							'snow-monkey-blocks'
+						) }
+						isActive={ 'right' === imagePosition }
+						onClick={ () =>
+							setAttributes( { imagePosition: 'right' } )
+						}
+					/>
+				</ToolbarGroup>
+			</BlockControls>
 
 			<div { ...blockProps }>
 				<div className={ itemClasses }>

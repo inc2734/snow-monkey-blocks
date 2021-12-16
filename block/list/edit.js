@@ -5,8 +5,8 @@ import { BaseControl, Button, PanelBody } from '@wordpress/components';
 
 import {
 	InspectorControls,
-	PanelColorSettings,
 	RichText,
+	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	useBlockProps,
 } from '@wordpress/block-editor';
 
@@ -73,8 +73,22 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 	return (
 		<>
 			<InspectorControls>
+				<PanelColorGradientSettings
+					title={ __( 'Color', 'snow-monkey-blocks' ) }
+					initialOpen={ false }
+					settings={ [
+						{
+							colorValue: iconColor,
+							onColorChange: onChangeIconColor,
+							label: __( 'Icon color', 'snow-monkey-blocks' ),
+						},
+					] }
+					__experimentalHasMultipleOrigins={ true }
+					__experimentalIsRenderedInSidebar={ true }
+				></PanelColorGradientSettings>
+
 				<PanelBody
-					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
 					<BaseControl
 						label={ __( 'Icon', 'snow-monkey-blocks' ) }
@@ -106,18 +120,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						</div>
 					</BaseControl>
 				</PanelBody>
-
-				<PanelColorSettings
-					title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
-					colorSettings={ [
-						{
-							value: iconColor,
-							onChange: onChangeIconColor,
-							label: __( 'Icon Color', 'snow-monkey-blocks' ),
-						},
-					] }
-				></PanelColorSettings>
 			</InspectorControls>
 
 			<div

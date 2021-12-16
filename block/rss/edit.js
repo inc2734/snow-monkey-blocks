@@ -124,7 +124,7 @@ export default function ( { attributes, setAttributes } ) {
 
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
 					<RangeControl
 						label={ __( 'Number of posts', 'snow-monkey-blocks' ) }
@@ -219,7 +219,7 @@ export default function ( { attributes, setAttributes } ) {
 
 					<BaseControl
 						label={ __(
-							'Title Tag of each items',
+							'Title tag of each items',
 							'snow-monkey-blocks'
 						) }
 						id="snow-monkey-blocks/rss/item-title-tag-name"

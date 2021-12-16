@@ -96,7 +96,7 @@ export default function ( { attributes, setAttributes } ) {
 		<>
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
 					<TextControl
 						label={ __( 'Title', 'snow-monkey-blocks' ) }
@@ -192,7 +192,7 @@ export default function ( { attributes, setAttributes } ) {
 					) }
 
 					<BaseControl
-						label={ __( 'Title Tag', 'snow-monkey-blocks' ) }
+						label={ __( 'Title tag', 'snow-monkey-blocks' ) }
 						id="snow-monkey-blocks/child-pages/item-title-tag-name"
 					>
 						<div className="smb-list-icon-selector">

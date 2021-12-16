@@ -187,10 +187,10 @@ export default function ( {
 		<>
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
 					<BaseControl
-						label={ __( 'Title Tag', 'snow-monkey-blocks' ) }
+						label={ __( 'Title tag', 'snow-monkey-blocks' ) }
 						id="snow-monkey-blocks/panels-item/title-tag-name"
 					>
 						<div className="smb-list-icon-selector">

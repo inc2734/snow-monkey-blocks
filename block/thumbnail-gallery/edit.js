@@ -78,10 +78,10 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		<>
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
 					<ToggleControl
-						label={ __( 'Prev/Next Arrows', 'snow-monkey-blocks' ) }
+						label={ __( 'Prev/Next arrows', 'snow-monkey-blocks' ) }
 						checked={ arrows }
 						onChange={ onChangeArrows }
 					/>

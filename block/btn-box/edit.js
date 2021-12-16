@@ -13,15 +13,17 @@ import {
 	BlockControls,
 	ContrastChecker,
 	InspectorControls,
-	PanelColorSettings,
 	RichText,
-	useBlockProps,
 	__experimentalColorGradientControl as ColorGradientControl,
+	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
+	useBlockProps,
 } from '@wordpress/block-editor';
 
 import { useState, useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
+
+import { useMultipleOriginColorsAndGradients } from '@smb/hooks';
 
 import LinkControl from '@smb/component/link-control';
 
@@ -139,8 +141,25 @@ export default function ( {
 	return (
 		<>
 			<InspectorControls>
+				<PanelColorGradientSettings
+					title={ __( 'Color', 'snow-monkey-blocks' ) }
+					initialOpen={ false }
+					settings={ [
+						{
+							colorValue: backgroundColor,
+							onColorChange: onChangeBackgroundColor,
+							label: __(
+								'Background color',
+								'snow-monkey-blocks'
+							),
+						},
+					] }
+					__experimentalHasMultipleOrigins={ true }
+					__experimentalIsRenderedInSidebar={ true }
+				></PanelColorGradientSettings>
+
 				<PanelBody
-					title={ __( 'Button Settings', 'snow-monkey-blocks' ) }
+					title={ __( 'Button settings', 'snow-monkey-blocks' ) }
 				>
 					<SelectControl
 						label={ __( 'Button size', 'snow-monkey-blocks' ) }
@@ -193,15 +212,21 @@ export default function ( {
 					/>
 
 					<ColorGradientControl
-						label={ __( 'Background Color', 'snow-monkey-blocks' ) }
+						label={ __( 'Background color', 'snow-monkey-blocks' ) }
 						colorValue={ btnBackgroundColor }
 						onColorChange={ onChangeBtnBackgroundColor }
+						{ ...useMultipleOriginColorsAndGradients() }
+						__experimentalHasMultipleOrigins={ true }
+						__experimentalIsRenderedInSidebar={ true }
 					/>
 
 					<ColorGradientControl
-						label={ __( 'Text Color', 'snow-monkey-blocks' ) }
+						label={ __( 'Text color', 'snow-monkey-blocks' ) }
 						colorValue={ btnTextColor }
 						onColorChange={ onChangeBtnTextColor }
+						{ ...useMultipleOriginColorsAndGradients() }
+						__experimentalHasMultipleOrigins={ true }
+						__experimentalIsRenderedInSidebar={ true }
 					/>
 
 					<ContrastChecker
@@ -209,21 +234,6 @@ export default function ( {
 						textColor={ btnTextColor }
 					/>
 				</PanelBody>
-
-				<PanelColorSettings
-					title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
-					colorSettings={ [
-						{
-							value: backgroundColor,
-							onChange: onChangeBackgroundColor,
-							label: __(
-								'Background Color',
-								'snow-monkey-blocks'
-							),
-						},
-					] }
-				></PanelColorSettings>
 			</InspectorControls>
 
 			<div { ...blockProps }>

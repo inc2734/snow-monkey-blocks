@@ -4,8 +4,8 @@ import { PanelBody, RangeControl } from '@wordpress/components';
 
 import {
 	InspectorControls,
-	PanelColorSettings,
 	RichText,
+	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	useBlockProps,
 } from '@wordpress/block-editor';
 
@@ -45,8 +45,22 @@ export default function ( { attributes, setAttributes, className } ) {
 	return (
 		<>
 			<InspectorControls>
+				<PanelColorGradientSettings
+					title={ __( 'Color', 'snow-monkey-blocks' ) }
+					initialOpen={ false }
+					settings={ [
+						{
+							colorValue: color,
+							onColorChange: onChangeColor,
+							label: __( 'Bar color', 'snow-monkey-blocks' ),
+						},
+					] }
+					__experimentalHasMultipleOrigins={ true }
+					__experimentalIsRenderedInSidebar={ true }
+				></PanelColorGradientSettings>
+
 				<PanelBody
-					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
 					<RangeControl
 						label={ __( 'Rating', 'snow-monkey-blocks' ) }
@@ -56,18 +70,6 @@ export default function ( { attributes, setAttributes, className } ) {
 						max="10"
 					/>
 				</PanelBody>
-
-				<PanelColorSettings
-					title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
-					colorSettings={ [
-						{
-							value: color,
-							onChange: onChangeColor,
-							label: __( 'Bar Color', 'snow-monkey-blocks' ),
-						},
-					] }
-				></PanelColorSettings>
 			</InspectorControls>
 
 			<div { ...blockProps }>

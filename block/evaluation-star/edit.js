@@ -2,11 +2,10 @@ import classnames from 'classnames';
 
 import {
 	InspectorControls,
-	PanelColorSettings,
 	RichText,
+	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	useBlockProps,
 } from '@wordpress/block-editor';
-import { __, sprintf } from '@wordpress/i18n';
 
 import {
 	PanelBody,
@@ -14,6 +13,8 @@ import {
 	SelectControl,
 	ToggleControl,
 } from '@wordpress/components';
+
+import { __, sprintf } from '@wordpress/i18n';
 
 import FontAwesome from '@smb/component/font-awesome';
 import { toNumber } from '@smb/helper';
@@ -118,8 +119,27 @@ export default function ( {
 	return (
 		<>
 			<InspectorControls>
+				<PanelColorGradientSettings
+					title={ __( 'Color', 'snow-monkey-blocks' ) }
+					initialOpen={ false }
+					settings={ [
+						{
+							colorValue: iconColor,
+							onColorChange: onChangeIconColor,
+							label: __( 'Icon color', 'snow-monkey-blocks' ),
+						},
+						{
+							colorValue: numericColor,
+							onColorChange: onChangeNumericColor,
+							label: __( 'Numeric color', 'snow-monkey-blocks' ),
+						},
+					] }
+					__experimentalHasMultipleOrigins={ true }
+					__experimentalIsRenderedInSidebar={ true }
+				></PanelColorGradientSettings>
+
 				<PanelBody
-					title={ __( 'Evaluation Settings', 'snow-monkey-blocks' ) }
+					title={ __( 'Evaluation settings', 'snow-monkey-blocks' ) }
 				>
 					<RangeControl
 						label={ __( 'Evaluation', 'snow-monkey-blocks' ) }
@@ -158,7 +178,7 @@ export default function ( {
 				</PanelBody>
 
 				<PanelBody
-					title={ __( 'Numeric Settings', 'snow-monkey-blocks' ) }
+					title={ __( 'Numeric settings', 'snow-monkey-blocks' ) }
 					initialOpen={ false }
 				>
 					<ToggleControl
@@ -189,23 +209,6 @@ export default function ( {
 						] }
 					/>
 				</PanelBody>
-
-				<PanelColorSettings
-					title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
-					colorSettings={ [
-						{
-							value: iconColor,
-							onChange: onChangeIconColor,
-							label: __( 'Icon color', 'snow-monkey-blocks' ),
-						},
-						{
-							value: numericColor,
-							onChange: onChangeNumericColor,
-							label: __( 'Numeric color', 'snow-monkey-blocks' ),
-						},
-					] }
-				></PanelColorSettings>
 			</InspectorControls>
 
 			<div { ...blockProps }>

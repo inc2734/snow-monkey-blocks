@@ -104,7 +104,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		<>
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
 					<BaseControl
 						label={ __( 'Start datetime', 'snow-monkey-blocks' ) }

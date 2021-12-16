@@ -4,10 +4,12 @@ import { __experimentalColorGradientControl as ColorGradientControl } from '@wor
 import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
+import { useMultipleOriginColorsAndGradients } from '@smb/hooks';
+
 export default function ( { settings } ) {
 	return (
 		<PanelBody
-			title={ __( 'Border Settings', 'snow-monkey-blocks' ) }
+			title={ __( 'Border', 'snow-monkey-blocks' ) }
 			initialOpen={ false }
 		>
 			<BaseControl>
@@ -23,6 +25,9 @@ export default function ( { settings } ) {
 								disableAlpha={ false }
 								colorValue={ setting.colorValue }
 								onColorChange={ setting.onColorChange }
+								{ ...useMultipleOriginColorsAndGradients() }
+								__experimentalHasMultipleOrigins={ true }
+								__experimentalIsRenderedInSidebar={ true }
 							/>
 						);
 					}

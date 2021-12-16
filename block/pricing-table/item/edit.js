@@ -27,6 +27,7 @@ import Figure from '@smb/component/figure';
 import LinkControl from '@smb/component/link-control';
 import ImageSizeSelectControl from '@smb/component/image-size-select-control';
 import { getResizedImages } from '@smb/helper';
+import { useMultipleOriginColorsAndGradients } from '@smb/hooks';
 
 export default function ( {
 	attributes,
@@ -241,18 +242,7 @@ export default function ( {
 		<>
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
-				>
-					<ImageSizeSelectControl
-						label={ __( 'Images size', 'snow-monkey-blocks' ) }
-						id={ imageID }
-						slug={ imageSizeSlug }
-						onChange={ onChangeImageSizeSlug }
-					/>
-				</PanelBody>
-
-				<PanelBody
-					title={ __( 'Button Settings', 'snow-monkey-blocks' ) }
+					title={ __( 'Button settings', 'snow-monkey-blocks' ) }
 				>
 					<SelectControl
 						label={ __( 'Button size', 'snow-monkey-blocks' ) }
@@ -305,15 +295,21 @@ export default function ( {
 					/>
 
 					<ColorGradientControl
-						label={ __( 'Background Color', 'snow-monkey-blocks' ) }
+						label={ __( 'Background color', 'snow-monkey-blocks' ) }
 						colorValue={ btnBackgroundColor }
 						onColorChange={ onChangeBtnBackgroundColor }
+						{ ...useMultipleOriginColorsAndGradients() }
+						__experimentalHasMultipleOrigins={ true }
+						__experimentalIsRenderedInSidebar={ true }
 					/>
 
 					<ColorGradientControl
-						label={ __( 'Text Color', 'snow-monkey-blocks' ) }
+						label={ __( 'Text color', 'snow-monkey-blocks' ) }
 						colorValue={ btnTextColor }
 						onColorChange={ onChangeBtnTextColor }
+						{ ...useMultipleOriginColorsAndGradients() }
+						__experimentalHasMultipleOrigins={ true }
+						__experimentalIsRenderedInSidebar={ true }
 					/>
 
 					<ContrastChecker

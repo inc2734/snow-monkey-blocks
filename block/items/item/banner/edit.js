@@ -18,11 +18,11 @@ import {
 	AlignmentToolbar,
 	BlockControls,
 	InspectorControls,
-	PanelColorSettings,
 	RichText,
-	useBlockProps,
 	__experimentalBlockAlignmentMatrixControl as BlockAlignmentMatrixControl,
 	__experimentalColorGradientControl as ColorGradientControl,
+	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
+	useBlockProps,
 } from '@wordpress/block-editor';
 
 import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
@@ -31,6 +31,7 @@ import Figure from '@smb/component/figure';
 import LinkControl from '@smb/component/link-control';
 import ImageSizeSelectControl from '@smb/component/image-size-select-control';
 import { toNumber, getResizedImages } from '@smb/helper';
+import { useMultipleOriginColorsAndGradients } from '@smb/hooks';
 
 export default function ( {
 	attributes,
@@ -237,8 +238,22 @@ export default function ( {
 	return (
 		<>
 			<InspectorControls>
+				<PanelColorGradientSettings
+					title={ __( 'Color', 'snow-monkey-blocks' ) }
+					initialOpen={ false }
+					settings={ [
+						{
+							colorValue: textColor,
+							onColorChange: onChangeTextColor,
+							label: __( 'Text color', 'snow-monkey-blocks' ),
+						},
+					] }
+					__experimentalHasMultipleOrigins={ true }
+					__experimentalIsRenderedInSidebar={ true }
+				></PanelColorGradientSettings>
+
 				<PanelBody
-					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
 					<BaseControl
 						label={ __( 'Image', 'snow-monkey-blocks' ) }
@@ -311,13 +326,16 @@ export default function ( {
 				</PanelBody>
 
 				<PanelBody
-					title={ __( 'Mask Settings', 'snow-monkey-blocks' ) }
+					title={ __( 'Mask', 'snow-monkey-blocks' ) }
 					initialOpen={ false }
 				>
 					<ColorGradientControl
 						label={ __( 'Color', 'snow-monkey-blocks' ) }
 						colorValue={ maskColor }
 						onColorChange={ onChangeMaskColor }
+						{ ...useMultipleOriginColorsAndGradients() }
+						__experimentalHasMultipleOrigins={ true }
+						__experimentalIsRenderedInSidebar={ true }
 					/>
 
 					<RangeControl
@@ -329,18 +347,6 @@ export default function ( {
 						step={ 0.1 }
 					/>
 				</PanelBody>
-
-				<PanelColorSettings
-					title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
-					colorSettings={ [
-						{
-							value: textColor,
-							onChange: onChangeTextColor,
-							label: __( 'Text Color', 'snow-monkey-blocks' ),
-						},
-					] }
-				></PanelColorSettings>
 			</InspectorControls>
 
 			<div { ...blockProps }>

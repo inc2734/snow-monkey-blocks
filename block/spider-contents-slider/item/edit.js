@@ -112,35 +112,6 @@ export default function ( {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody
-					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
-					initialOpen={ true }
-				>
-					<SelectControl
-						label={ __( 'Content Padding', 'snow-monkey-blocks' ) }
-						value={ contentPadding }
-						options={ [
-							{
-								value: '',
-								label: __( 'None', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 's',
-								label: __( 'S', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'm',
-								label: __( 'M', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'l',
-								label: __( 'L', 'snow-monkey-blocks' ),
-							},
-						] }
-						onChange={ onChangeContentPadding }
-					/>
-				</PanelBody>
-
 				<PanelBorderSettings
 					settings={ [
 						{
@@ -169,6 +140,35 @@ export default function ( {
 						},
 					] }
 				/>
+
+				<PanelBody
+					title={ __( 'Dimensions', 'snow-monkey-blocks' ) }
+					initialOpen={ false }
+				>
+					<SelectControl
+						label={ __( 'Padding', 'snow-monkey-blocks' ) }
+						value={ contentPadding }
+						options={ [
+							{
+								value: '',
+								label: __( 'None', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 's',
+								label: __( 'S', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'm',
+								label: __( 'M', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'l',
+								label: __( 'L', 'snow-monkey-blocks' ),
+							},
+						] }
+						onChange={ onChangeContentPadding }
+					/>
+				</PanelBody>
 
 				<PanelBoxShadowSettings
 					settings={ [

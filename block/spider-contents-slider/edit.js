@@ -265,18 +265,20 @@ export default function ( {
 		<>
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+					title={ __( 'Dimensions', 'snow-monkey-blocks' ) }
+					initialOpen={ false }
 				>
 					<SelectControl
-						label={ __(
-							'Margin size between slides',
-							'snow-monkey-blocks'
-						) }
+						label={ __( 'Block spacing', 'snow-monkey-blocks' ) }
 						value={ gutter }
 						onChange={ onChangeGutter }
 						options={ gutterOptions }
 					/>
+				</PanelBody>
 
+				<PanelBody
+					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
+				>
 					<ToggleControl
 						label={ __( 'Display arrows', 'snow-monkey-blocks' ) }
 						checked={ arrows }
@@ -338,7 +340,7 @@ export default function ( {
 
 					<RangeControl
 						label={ __(
-							'Animation Speed in seconds',
+							'Animation speed in seconds',
 							'snow-monkey-blocks'
 						) }
 						help={ __(

@@ -84,7 +84,7 @@ export default function ( {
 		<>
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
 					<SelectControl
 						label={ __( 'Type', 'snow-monkey-blocks' ) }

@@ -4,8 +4,8 @@ import {
 	BlockControls,
 	InnerBlocks,
 	InspectorControls,
-	PanelColorSettings,
 	RichText,
+	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	useBlockProps,
 	useInnerBlocksProps,
 } from '@wordpress/block-editor';
@@ -223,11 +223,30 @@ export default function ( {
 	return (
 		<>
 			<InspectorControls>
+				<PanelColorGradientSettings
+					title={ __( 'Color', 'snow-monkey-blocks' ) }
+					initialOpen={ false }
+					settings={ [
+						{
+							colorValue: numberColor,
+							onColorChange: onChangeNumberColor,
+							label: __( 'Number color', 'snow-monkey-blocks' ),
+						},
+						{
+							colorValue: linkColor,
+							onColorChange: onChangeLinkColor,
+							label: __( 'Link color', 'snow-monkey-blocks' ),
+						},
+					] }
+					__experimentalHasMultipleOrigins={ true }
+					__experimentalIsRenderedInSidebar={ true }
+				></PanelColorGradientSettings>
+
 				<PanelBody
-					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
 					<SelectControl
-						label={ __( 'Image Position', 'snow-monkey-blocks' ) }
+						label={ __( 'Image position', 'snow-monkey-blocks' ) }
 						value={ imagePosition }
 						onChange={ onChangeImagePosition }
 						options={ [
@@ -253,23 +272,6 @@ export default function ( {
 						onChange={ onChangeImageSizeSlug }
 					/>
 				</PanelBody>
-
-				<PanelColorSettings
-					title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
-					colorSettings={ [
-						{
-							value: numberColor,
-							onChange: onChangeNumberColor,
-							label: __( 'Number Color', 'snow-monkey-blocks' ),
-						},
-						{
-							value: linkColor,
-							onChange: onChangeLinkColor,
-							label: __( 'Link Color', 'snow-monkey-blocks' ),
-						},
-					] }
-				></PanelColorSettings>
 			</InspectorControls>
 
 			<div { ...blockProps }>

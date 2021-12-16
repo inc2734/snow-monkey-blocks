@@ -7,7 +7,7 @@ import {
 	AlignmentToolbar,
 	BlockControls,
 	InspectorControls,
-	PanelColorSettings,
+	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	useBlockProps,
 } from '@wordpress/block-editor';
 
@@ -63,30 +63,33 @@ export default function ( { attributes, setAttributes, className } ) {
 				/>
 			</BlockControls>
 			<InspectorControls>
+				<PanelColorGradientSettings
+					title={ __( 'Color', 'snow-monkey-blocks' ) }
+					initialOpen={ false }
+					settings={ [
+						{
+							colorValue: numericColor,
+							onColorChange: onChangeNumericColor,
+							label: __( 'Numeric color', 'snow-monkey-blocks' ),
+						},
+						{
+							colorValue: clockColor,
+							onColorChange: onChangeClockColor,
+							label: __( 'Clock color', 'snow-monkey-blocks' ),
+						},
+					] }
+					__experimentalHasMultipleOrigins={ true }
+					__experimentalIsRenderedInSidebar={ true }
+				></PanelColorGradientSettings>
+
 				<PanelBody
-					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
 					<DateTimePicker
 						currentDate={ countdownTime }
 						onChange={ onChangeCountdownTime }
 					/>
 				</PanelBody>
-				<PanelColorSettings
-					title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
-					colorSettings={ [
-						{
-							value: numericColor,
-							onChange: onChangeNumericColor,
-							label: __( 'Numeric Color', 'snow-monkey-blocks' ),
-						},
-						{
-							value: clockColor,
-							onChange: onChangeClockColor,
-							label: __( 'Clock Color', 'snow-monkey-blocks' ),
-						},
-					] }
-				></PanelColorSettings>
 			</InspectorControls>
 
 			<div { ...blockProps }>

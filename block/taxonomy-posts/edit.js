@@ -147,7 +147,7 @@ export default function ( { attributes, setAttributes } ) {
 		<>
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
 					{ ! taxonomiesTerms.length && (
 						<BaseControl
@@ -282,7 +282,7 @@ export default function ( { attributes, setAttributes } ) {
 
 					<BaseControl
 						label={ __(
-							'Title Tag of each items',
+							'Title tag of each items',
 							'snow-monkey-blocks'
 						) }
 						id="snow-monkey-blocks/taxonomy-posts/item-title-tag-name"

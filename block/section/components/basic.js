@@ -26,7 +26,7 @@ export const PanelBasicSettings = ( {
 	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
 
 	return (
-		<PanelBody title={ __( 'Block Settings', 'snow-monkey-blocks' ) }>
+		<PanelBody title={ __( 'Block settings', 'snow-monkey-blocks' ) }>
 			{ settings.map( ( setting, index ) => {
 				if (
 					setting.hasOwnProperty( 'wrapperTagNameValue' ) &&
@@ -35,7 +35,7 @@ export const PanelBasicSettings = ( {
 					return (
 						<BaseControl
 							key={ index }
-							label={ __( 'Wrapper Tag', 'snow-monkey-blocks' ) }
+							label={ __( 'Wrapper tag', 'snow-monkey-blocks' ) }
 							id="snow-monkey-blocks/section/wrapper-tag-name"
 						>
 							<div className="smb-list-icon-selector">
@@ -81,7 +81,7 @@ export const PanelBasicSettings = ( {
 					return (
 						<BaseControl
 							key={ index }
-							label={ __( 'Title Tag', 'snow-monkey-blocks' ) }
+							label={ __( 'Title tag', 'snow-monkey-blocks' ) }
 							id="snow-monkey-blocks/section/title-tag-name"
 						>
 							<div className="smb-list-icon-selector">

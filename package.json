@@ -329,7 +329,7 @@
     "zip": "npm run clean:zip && npm run zip:pack && npm run zip:archive",
     "po2json:snow-monkey-blocks-editor": "po2json languages/snow-monkey-blocks-ja.po languages/snow-monkey-blocks-ja-snow-monkey-blocks-editor.json -f jed",
     "po2json": "run-p po2json:*",
-    "translation:metadata": "npm run cli 'php wp-content/plugins/snow-monkey-blocks/bin/translation.php'",
+    "translation:metadata": "wp-env start && npm run cli 'php wp-content/plugins/snow-monkey-blocks/bin/translation.php'",
     "translation": "npm run clean:translation && run-p translation:*",
     "img": "npm run clean:img && cpy '**' '../../dist/img' --cwd=src/img --parents"
   },

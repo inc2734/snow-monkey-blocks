@@ -83,10 +83,10 @@ export default function ( {
 		<>
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
 					<BaseControl
-						label={ __( 'Title Tag', 'snow-monkey-blocks' ) }
+						label={ __( 'Title tag', 'snow-monkey-blocks' ) }
 						id="snow-monkey-blocks/items-item/title-tag-name"
 					>
 						<div className="smb-list-icon-selector">
@@ -127,7 +127,7 @@ export default function ( {
 				</PanelBody>
 
 				<PanelColorSettings
-					title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
+					title={ __( 'Color', 'snow-monkey-blocks' ) }
 					initialOpen={ false }
 					colorSettings={ [
 						{
@@ -135,7 +135,7 @@ export default function ( {
 							onChange: ( value ) =>
 								setAttributes( { btnBackgroundColor: value } ),
 							label: __(
-								'Background Color of Button',
+								'Background color of button',
 								'snow-monkey-blocks'
 							),
 						},
@@ -144,7 +144,7 @@ export default function ( {
 							onChange: ( value ) =>
 								setAttributes( { btnTextColor: value } ),
 							label: __(
-								'Text Color of Button',
+								'Text color of button',
 								'snow-monkey-blocks'
 							),
 						},

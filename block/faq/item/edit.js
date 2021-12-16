@@ -3,8 +3,8 @@ import classnames from 'classnames';
 import {
 	InnerBlocks,
 	InspectorControls,
-	PanelColorSettings,
 	RichText,
+	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	useBlockProps,
 	useInnerBlocksProps,
 } from '@wordpress/block-editor';
@@ -82,11 +82,30 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 	return (
 		<>
 			<InspectorControls>
+				<PanelColorGradientSettings
+					title={ __( 'Color', 'snow-monkey-blocks' ) }
+					initialOpen={ false }
+					settings={ [
+						{
+							colorValue: questionColor,
+							onColorChange: onChangeQuestionColor,
+							label: __( 'Question color', 'snow-monkey-blocks' ),
+						},
+						{
+							colorValue: answerColor,
+							onColorChange: onChangeAnswerColor,
+							label: __( 'Answer color', 'snow-monkey-blocks' ),
+						},
+					] }
+					__experimentalHasMultipleOrigins={ true }
+					__experimentalIsRenderedInSidebar={ true }
+				></PanelColorGradientSettings>
+
 				<PanelBody
-					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
+					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
 					<BaseControl
-						label={ __( 'Question Label', 'snow-monkey-blocks' ) }
+						label={ __( 'Question label', 'snow-monkey-blocks' ) }
 						id="snow-monkey-blocks/faq-item/question-label"
 					>
 						<TextControl
@@ -104,7 +123,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						/>
 					</BaseControl>
 					<BaseControl
-						label={ __( 'Answer Label', 'snow-monkey-blocks' ) }
+						label={ __( 'Answer label', 'snow-monkey-blocks' ) }
 						id="snow-monkey-blocks/faq-item/answer-label"
 					>
 						<TextControl
@@ -122,21 +141,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						/>
 					</BaseControl>
 				</PanelBody>
-				<PanelColorSettings
-					title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
-					colorSettings={ [
-						{
-							value: questionColor,
-							onChange: onChangeQuestionColor,
-							label: __( 'Question Color', 'snow-monkey-blocks' ),
-						},
-						{
-							value: answerColor,
-							onChange: onChangeAnswerColor,
-							label: __( 'Answer Color', 'snow-monkey-blocks' ),
-						},
-					] }
-				></PanelColorSettings>
 			</InspectorControls>
 
 			<div { ...blockProps }>

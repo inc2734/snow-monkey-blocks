@@ -17,6 +17,7 @@ import { __ } from '@wordpress/i18n';
 
 import PanelBoxShadowSettings from '@smb/component/panel-box-shadow-settings';
 import { toNumber } from '@smb/helper';
+import { useMultipleOriginColorsAndGradients } from '@smb/hooks';
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
 	const {
@@ -123,61 +124,36 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody
-					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
-					initialOpen={ true }
-				>
-					<SelectControl
-						label={ __( 'Content Padding', 'snow-monkey-blocks' ) }
-						value={ contentPadding }
-						options={ [
-							{
-								value: 's',
-								label: __( 'S', 'snow-monkey-blocks' ),
-							},
-							{
-								value: '',
-								label: __( 'M', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'l',
-								label: __( 'L', 'snow-monkey-blocks' ),
-							},
-						] }
-						onChange={ onChangeContentPadding }
-					/>
-				</PanelBody>
-
-				<PanelBody
-					title={ __( 'Background Settings', 'snow-monkey-blocks' ) }
+				<PanelColorGradientSettings
+					title={ __( 'Color', 'snow-monkey-blocks' ) }
 					initialOpen={ false }
+					settings={ [
+						{
+							colorValue: textColor,
+							onColorChange: onChangeTextColor,
+							label: __( 'Text color', 'snow-monkey-blocks' ),
+						},
+					] }
+					__experimentalHasMultipleOrigins={ true }
+					__experimentalIsRenderedInSidebar={ true }
 				>
-					<ColorGradientControl
-						label={ __( 'Color', 'snow-monkey-blocks' ) }
-						colorValue={ backgroundColor }
-						gradientValue={ backgroundGradientColor }
-						onColorChange={ onChangeBackgroundColor }
-						onGradientChange={ onChangeBackgroundGradientColor }
+					<ContrastChecker
+						backgroundColor={ backgroundColor }
+						textColor={ textColor }
 					/>
-
-					<RangeControl
-						label={ __( 'Opacity', 'snow-monkey-blocks' ) }
-						value={ opacity }
-						onChange={ onChangeOpacity }
-						min={ 0 }
-						max={ 1 }
-						step={ 0.1 }
-					/>
-				</PanelBody>
+				</PanelColorGradientSettings>
 
 				<PanelBody
-					title={ __( 'Border Settings', 'snow-monkey-blocks' ) }
+					title={ __( 'Border', 'snow-monkey-blocks' ) }
 					initialOpen={ false }
 				>
 					<ColorGradientControl
 						label={ __( 'Color', 'snow-monkey-blocks' ) }
 						colorValue={ borderColor }
 						onColorChange={ onChangeBorderColor }
+						{ ...useMultipleOriginColorsAndGradients() }
+						__experimentalHasMultipleOrigins={ true }
+						__experimentalIsRenderedInSidebar={ true }
 					/>
 
 					<RangeControl
@@ -200,6 +176,56 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						max="50"
 						initialPosition="-1"
 						allowReset
+					/>
+				</PanelBody>
+
+				<PanelBody
+					title={ __( 'Dimensions', 'snow-monkey-blocks' ) }
+					initialOpen={ false }
+				>
+					<SelectControl
+						label={ __( 'Padding', 'snow-monkey-blocks' ) }
+						value={ contentPadding }
+						options={ [
+							{
+								value: 's',
+								label: __( 'S', 'snow-monkey-blocks' ),
+							},
+							{
+								value: '',
+								label: __( 'M', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'l',
+								label: __( 'L', 'snow-monkey-blocks' ),
+							},
+						] }
+						onChange={ onChangeContentPadding }
+					/>
+				</PanelBody>
+
+				<PanelBody
+					title={ __( 'Background', 'snow-monkey-blocks' ) }
+					initialOpen={ false }
+				>
+					<ColorGradientControl
+						label={ __( 'Color', 'snow-monkey-blocks' ) }
+						colorValue={ backgroundColor }
+						gradientValue={ backgroundGradientColor }
+						onColorChange={ onChangeBackgroundColor }
+						onGradientChange={ onChangeBackgroundGradientColor }
+						{ ...useMultipleOriginColorsAndGradients() }
+						__experimentalHasMultipleOrigins={ true }
+						__experimentalIsRenderedInSidebar={ true }
+					/>
+
+					<RangeControl
+						label={ __( 'Opacity', 'snow-monkey-blocks' ) }
+						value={ opacity }
+						onChange={ onChangeOpacity }
+						min={ 0 }
+						max={ 1 }
+						step={ 0.1 }
 					/>
 				</PanelBody>
 
@@ -247,23 +273,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						},
 					] }
 				/>
-
-				<PanelColorGradientSettings
-					title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
-					settings={ [
-						{
-							colorValue: textColor,
-							onColorChange: onChangeTextColor,
-							label: __( 'Text Color', 'snow-monkey-blocks' ),
-						},
-					] }
-				>
-					<ContrastChecker
-						backgroundColor={ backgroundColor }
-						textColor={ textColor }
-					/>
-				</PanelColorGradientSettings>
 			</InspectorControls>
 
 			<div { ...blockProps }>

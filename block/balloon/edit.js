@@ -1,16 +1,19 @@
 import classnames from 'classnames';
 
-import { Button, PanelBody, SelectControl } from '@wordpress/components';
-import { __ } from '@wordpress/i18n';
-
 import {
+	BlockControls,
 	ContrastChecker,
 	InspectorControls,
 	MediaUpload,
-	PanelColorSettings,
 	RichText,
+	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	useBlockProps,
 } from '@wordpress/block-editor';
+
+import { Button, ToolbarButton, ToolbarGroup } from '@wordpress/components';
+
+import { pullLeft, pullRight } from '@wordpress/icons';
+import { __ } from '@wordpress/i18n';
 
 export default function ( { attributes, setAttributes, className } ) {
 	const {
@@ -60,11 +63,6 @@ export default function ( { attributes, setAttributes, className } ) {
 		className: classes,
 	} );
 
-	const onChangeModifier = ( value ) =>
-		setAttributes( {
-			modifier: value,
-		} );
-
 	const onChangeAvatarBorderColor = ( value ) =>
 		setAttributes( {
 			avatarBorderColor: value,
@@ -105,65 +103,67 @@ export default function ( { attributes, setAttributes, className } ) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody
-					title={ __( 'Block Settings', 'snow-monkey-blocks' ) }
-				>
-					<SelectControl
-						label={ __( 'Type', 'snow-monkey-blocks' ) }
-						value={ modifier }
-						onChange={ onChangeModifier }
-						options={ [
-							{
-								value: '',
-								label: __(
-									'Normal Balloon',
-									'snow-monkey-blocks'
-								),
-							},
-							{
-								value: 'reverse',
-								label: __(
-									'Reverse Balloon',
-									'snow-monkey-blocks'
-								),
-							},
-						] }
-					/>
-				</PanelBody>
-
-				<PanelColorSettings
-					title={ __( 'Color Settings', 'snow-monkey-blocks' ) }
+				<PanelColorGradientSettings
+					title={ __( 'Color', 'snow-monkey-blocks' ) }
 					initialOpen={ false }
-					colorSettings={ [
+					settings={ [
 						{
-							value: avatarBorderColor,
-							onChange: onChangeAvatarBorderColor,
+							colorValue: avatarBorderColor,
+							onColorChange: onChangeAvatarBorderColor,
 							label: __(
-								'Avatar Border Color',
+								'Avatar border color',
 								'snow-monkey-blocks'
 							),
 						},
 						{
-							value: textColor,
-							onChange: onChangeTextColor,
-							label: __( 'Text Color', 'snow-monkey-blocks' ),
+							colorValue: textColor,
+							onColorChange: onChangeTextColor,
+							label: __( 'Text color', 'snow-monkey-blocks' ),
 						},
 						{
-							value: backgroundColor,
-							onChange: onChangeBackgroundColor,
+							colorValue: backgroundColor,
+							onColorChange: onChangeBackgroundColor,
 							label: __(
-								'Background Color',
+								'Background color',
 								'snow-monkey-blocks'
 							),
 						},
 					] }
+					__experimentalHasMultipleOrigins={ true }
+					__experimentalIsRenderedInSidebar={ true }
 				>
 					<ContrastChecker
 						backgroundColor={ backgroundColor }
 						textColor={ textColor }
 					/>
-				</PanelColorSettings>
+				</PanelColorGradientSettings>
 			</InspectorControls>
+
+			<BlockControls gruop="block">
+				<ToolbarGroup>
+					<ToolbarButton
+						icon={ pullLeft }
+						title={ __(
+							'Show avatar on left',
+							'snow-monkey-blocks'
+						) }
+						isActive={ '' === modifier }
+						onClick={ () => setAttributes( { modifier: '' } ) }
+					/>
+
+					<ToolbarButton
+						icon={ pullRight }
+						title={ __(
+							'Show avatar on right',
+							'snow-monkey-blocks'
+						) }
+						isActive={ 'reverse' === modifier }
+						onClick={ () =>
+							setAttributes( { modifier: 'reverse' } )
+						}
+					/>
+				</ToolbarGroup>
+			</BlockControls>
 
 			<div { ...blockProps }>
 				<div className="smb-balloon__person">
