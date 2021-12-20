@@ -324,7 +324,7 @@
     "packages:slick-carousel": "cpy 'slick/**' '../../dist/packages' --cwd=node_modules/slick-carousel --parents",
     "packages:spider": "cpy 'spider/**' '../../dist/packages' --cwd=node_modules/@inc2734 --parents",
     "packages": "npm run clean:packages && npm-run-all packages:*",
-    "zip:pack": "rsync -a --exclude='/bin' --exclude='/vendor' --exclude='/node_modules' --exclude='.*' --exclude='*.ruleset.xml' --exclude='*.config.js' --exclude='*.xml.dist' --exclude='/sql' --exclude='/tests' --exclude='package*.json' --exclude='src/img' . snow-monkey-blocks && wp-env start && wp-env run composer install --no-dev -d snow-monkey-blocks ",
+    "zip:pack": "rsync -a --exclude='/bin' --exclude='/vendor' --exclude='/node_modules' --exclude='.*' --exclude='*.ruleset.xml' --exclude='*.config.js' --exclude='*.xml.dist' --exclude='/sql' --exclude='/tests' --exclude='package*.json' --exclude='src/img' . snow-monkey-blocks && wp-env start && wp-env run composer 'install --no-dev -d snow-monkey-blocks'",
     "zip:archive": "zip -9 -qmr snow-monkey-blocks.zip snow-monkey-blocks",
     "zip": "npm run clean:zip && npm run zip:pack && npm run zip:archive",
     "po2json:snow-monkey-blocks-editor": "po2json languages/snow-monkey-blocks-ja.po languages/snow-monkey-blocks-ja-snow-monkey-blocks-editor.json -f jed",
