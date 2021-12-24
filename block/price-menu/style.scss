@@ -3,9 +3,7 @@
 @import '../../src/css/core/block';
 
 .smb-price-menu {
-  border-top: 1px solid transparent;
-  border-top-color: _lighter($_color-gray); // For IE11
-  border-top-color: _var-lighter-color-gray();
+  border-top: 1px solid _var-lighter-color-gray();
 
   > .smb-price-menu__item {
     margin-top: 0;
@@ -13,9 +11,7 @@
   }
 
   &__item {
-    border-bottom: 1px solid transparent;
-    border-bottom-color: _lighter($_color-gray); // For IE11
-    border-bottom-color: _var-lighter-color-gray();
+    border-bottom: 1px solid _var-lighter-color-gray();
     @include _padding(.5, 0);
 
     @include _media-min(md) {

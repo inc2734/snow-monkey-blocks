@@ -15,9 +15,7 @@
           top: 8px;
           left: -1.3em;
           @include _circle(10px);
-          border: 2px solid transparent;
-          border-color: $_color-text; // For IE11
-          border-color: _var-color-text();
+          border: 2px solid _var-color-text();
         }
 
         > .smb-list__icon {

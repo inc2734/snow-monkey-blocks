@@ -29,7 +29,7 @@
             &::after {
               left: auto;
               right: 100%;
-              @include _triangle-left(8px, 16px, [_lighter($_color-gray), _var-lighter-color-gray()]);
+              @include _triangle-left(8px, 16px, _var-lighter-color-gray());
             }
           }
         }
@@ -39,9 +39,7 @@
 
   &__item {
     right: 0; // Masonry width 100% hack
-    border: 1px solid transparent;
-    border-color: _lighter($_color-gray); // For IE11
-    border-color: _var-lighter-color-gray();
+    border: 1px solid _var-lighter-color-gray();
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -56,9 +54,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background-color: _lighter($_color-gray); // For IE11
       background-color: _var-lighter-color-gray();
-      color: $_color-text; // For IE11
       color: _var-color-text();
       @include _padding(.5);
       text-align: center;
@@ -75,7 +71,7 @@
         position: absolute;
         left: 100%;
         content: '';
-        @include _triangle-right(8px, 16px, [_lighter($_color-gray), _var-lighter-color-gray()]);
+        @include _triangle-right(8px, 16px, _var-lighter-color-gray());
       }
 
       span {
@@ -107,7 +103,6 @@
         display: block;
         content: "";
         height: 1px;
-        background-color: $_color-text; // For IE11
         background-color: _var-color-text();
         flex: 1 0 0%;
         min-width: 20px;

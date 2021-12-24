@@ -3,9 +3,7 @@
 @import '../../src/css/core/block';
 
 .smb-directory-structure {
-  background-color: _lightest($_color-gray); // For IE11
   background-color: _var-lightest-color-gray();
-  color: $_color-text; // For IE11
   color: _var-color-text();
   @include _padding(.75, 1);
   overflow-x: auto;

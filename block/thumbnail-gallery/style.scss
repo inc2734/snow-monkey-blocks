@@ -43,7 +43,6 @@
       display: flex;
       justify-content: center;
       flex-direction: row;
-      color: $_color-gray; // For IE11
       color: _var-color-gray();
       @include _font-size-line-height($_base-font-size-px - 2);
     }

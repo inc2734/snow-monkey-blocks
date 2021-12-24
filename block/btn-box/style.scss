@@ -17,7 +17,6 @@
 
   &__note {
     @include _margin-top(.5);
-    color: $_color-gray; // For IE11
     color: _var-color-gray();
     text-align: center;
   }

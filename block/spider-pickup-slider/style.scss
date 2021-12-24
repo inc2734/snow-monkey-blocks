@@ -6,7 +6,6 @@
   .spider__slide {
     position: relative;
     overflow: hidden;
-    background-color: $_color-black; // For IE11
     background-color: _var-color-black();
     max-height: 80vh;
 
@@ -34,19 +33,10 @@
 
     .spider__figure {
       position: absolute;
-      top: 50%; // For IE11
-      left: 50%; // For IE11
-      transform: translate(-50%, -50%); // For IE11
+      height: 100%;
       width: 100%;
-
-      @supports (object-fit: cover) {
-        top: 0;
-        left: 0;
-        transform: initial;
-        height: 100%;
-        object-fit: cover;
-        object-position: 50% 50%;
-      }
+      object-fit: cover;
+      object-position: 50% 50%;
     }
   }
 
@@ -82,7 +72,6 @@
             right: 0;
             bottom: 0;
             left: 0;
-            background-color: _lighter($_color-gray); // For IE11
             background-color: _var-lighter-color-gray();
           }
         }
@@ -105,7 +94,6 @@
     flex-direction: column;
     align-items: center;
     @include _container-padding(false);
-    color: $_color-white; // For IE11
     color: _var-color-white();
     text-shadow: rgba($_color-text, .3) 1px 1px 3px;
 
@@ -128,7 +116,6 @@
     &__title {
       font-weight: bold;
       @include _font-size-line-height(1.5);
-      max-width: 100%; // For IE11
 
       @include _media-min(md) {
         @include _font-size-line-height(2);
@@ -154,7 +141,6 @@
     }
 
     &__meta {
-      color: $_color-white; // For IE11
       color: _var-color-white();
       @include _font-size-line-height($_base-font-size-px - 2);
 

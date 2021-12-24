@@ -7,7 +7,6 @@
   @include _alert();
   background-color: $alert-color;
   border: 1px solid darken($alert-color, 5%);
-  border-radius: $_border-radius; //for IE11
   border-radius: _var-border-radius();
   color: darken(desaturate($alert-color, 60%), 70%);
   @include _padding(1);
@@ -37,15 +36,11 @@
   }
 
   &--remark {
-    background-color: _lightest($_color-gray); // For IE11
     background-color: _var-lightest-color-gray();
-    border-color: _lighter($_color-gray); // For IE11
     border-color: _var-lighter-color-gray();
-    color: $_color-text; // For IE11
     color: _var-color-text();
 
     .svg-inline--fa {
-      color: $_color-gray; // For IE11
       color: _var-color-gray();
     }
   }

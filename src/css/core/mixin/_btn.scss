@@ -5,9 +5,7 @@
   justify-content: center;
   background-color: $color-accent;
   border: none;
-  border-radius: $_border-radius; // For IE11
   border-radius: _var-border-radius();
-  color: $_color-white; // For IE11
   color: _var-color-white();
   @include _padding(.35, 1.25);
   max-width: 100%;

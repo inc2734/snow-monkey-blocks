@@ -38,9 +38,7 @@
     flex: 0 0 60px;
     @include _circle(60px);
     max-width: 60px;
-    border: 3px solid transparent;
-    border-color: _lighter($_color-gray); // For IE11
-    border-color: _var-lighter-color-gray();
+    border: 3px solid _var-lighter-color-gray();
 
     > img {
       height: 100%;
@@ -59,18 +57,14 @@
   &__body {
     position: relative;
     flex: 1 1 auto;
-    border-radius: $_border-radius; //for IE11
     border-radius: _var-border-radius();
-    color: $_color-text; // For IE11
     color: _var-color-text();
     overflow-wrap: break-word;
     @include _padding(1);
     max-width: 100%;
     width: 100%;
 
-    background-color: _lightest($_color-gray); // For IE11
     background-color: _var-lightest-color-gray();
-    border-color: _lightest($_color-gray); // For IE11
     border-color: _var-lightest-color-gray();
 
     @include _media-min(md) {

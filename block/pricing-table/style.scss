@@ -3,11 +3,8 @@
 @import '../../src/css/core/block';
 
 .smb-pricing-table {
-  background-color: transparent; // for IE11
   background-color: _var-background-color();
-  border: 1px solid transparent;
-  border-color: _lighter($_color-gray); // for IE11
-  border-color: _var-lighter-color-gray();
+  border: 1px solid _var-lighter-color-gray();
 
   @include _media-min(md) {
     overflow: auto;
@@ -84,15 +81,11 @@
       flex: 1 1 100%;
 
       &:not(:first-child) {
-        border-top: 1px solid transparent;
-        border-top-color: _lighter($_color-gray); // For IE11
-        border-top-color: _var-lighter-color-gray();
+        border-top: 1px solid _var-lighter-color-gray();
 
         @include _media-min(lg) {
           border-top: none;
-          border-left: 1px solid transparent;
-          border-left-color: _lighter($_color-gray); // For IE11
-          border-left-color: _var-lighter-color-gray();
+          border-left: 1px solid _var-lighter-color-gray();
         }
       }
     }
@@ -122,7 +115,6 @@
     }
 
     &__lede {
-      color: $_color-gray; // For IE11
       color: _var-color-gray();
       @include _font-size-line-height($_base-font-size-px - 2);
       text-align: center;
@@ -131,15 +123,11 @@
     ul {
       @include _list-unstyled();
       @include _margin-top(.5);
-      border-top: 1px solid transparent;
-      border-top-color: _lighter($_color-gray); // For IE11
-      border-top-color: _var-lighter-color-gray();
+      border-top: 1px solid _var-lighter-color-gray();
       text-align: center;
 
       > li {
-        border-bottom: 1px solid transparent;
-        border-bottom-color: _lighter($_color-gray); // For IE11
-        border-bottom-color: _var-lighter-color-gray();
+        border-bottom: 1px solid _var-lighter-color-gray();
         @include _padding(.5, 0);
       }
     }

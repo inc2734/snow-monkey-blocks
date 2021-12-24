@@ -2,13 +2,11 @@
   display: inline-flex;
   align-items: center;
   height: $_base-line-height;
-  color: $_color-white; // For IE11
   color: _var-color-white();
   padding: 0 .5em;
   vertical-align: middle;
   font-size: calc(1em - 2px);
   line-height: 1;
-  border-radius: $_border-radius !important; // For IE11
   border-radius: _var-border-radius() !important;
   font-weight: bold;
   transform: translateY(-2px);
@@ -17,7 +15,6 @@
   &,
   &[data-rich-text-format-boundary],
   .rich-text:focus &[data-rich-text-format-boundary] {
-    background-color: $_color-text; // For IE11
     background-color: _var-color-text();
   }
 }

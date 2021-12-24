@@ -28,18 +28,15 @@
     }
 
     &[aria-selected="true"] {
-      background-color: #fff; // for IE11
       background-color: _var-color-white();
-      border-color: _light($_color-gray); // for IE11
       border-color: _var-light-color-gray();
     }
   }
 }
 
 .smb-tab-panel {
-  background-color: #fff; // for IE11
   background-color: _var-color-white();
-  border: 1px solid _light($_color-gray);
+  border: 1px solid _var-light-color-gray();
   @include _padding(1);
   pointer-events: none !important;
 
@@ -69,9 +66,7 @@
       white-space: nowrap;
 
       &[aria-selected="true"] {
-        border-top-left-radius: $_border-radius; // for IE11
         border-top-left-radius: _var-border-radius();
-        border-top-right-radius: $_border-radius; // for IE11
         border-top-right-radius: _var-border-radius();
         border-bottom-color: transparent;
       }
@@ -190,7 +185,6 @@
       content: '';
       position: absolute;
       display: block;
-      background-color: _light($_color-gray); // for IE11
       background-color: _var-light-color-gray();
     }
 
@@ -204,7 +198,6 @@
         position: absolute;
         z-index: 1;
         display: block;
-        background-color: $_color-black; // for IE11
         background-color: _var-color-black();
       }
     }

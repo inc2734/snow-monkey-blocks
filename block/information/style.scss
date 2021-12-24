@@ -77,9 +77,7 @@
     .smb-information__item {
       margin-top: 0;
       margin-bottom: 0;
-      border: 1px solid transparent;
-      border-color: _lighter($_color-gray); // For IE11
-      border-color: _var-lighter-color-gray();
+      border: 1px solid _var-lighter-color-gray();
 
       &:not(:first-child) {
         margin-top: -1px;
@@ -99,15 +97,11 @@
       .smb-information__item {
         > .#{ $_prefix }c-row {
           > .#{ $_prefix }c-row__col:last-child {
-            border-top: 1px solid transparent;
-            border-top-color: _lighter($_color-gray); // For IE11
-            border-top-color: _var-lighter-color-gray();
+            border-top: 1px solid _var-lighter-color-gray();
 
             @include _media-min(md) {
               border-top: none;
-              border-left: 1px solid transparent;
-              border-left-color: _lighter($_color-gray); // For IE11
-              border-left-color: _var-lighter-color-gray();
+              border-left: 1px solid _var-lighter-color-gray();
             }
           }
         }
@@ -126,9 +120,7 @@
       .smb-information__item {
         > .#{ $_prefix }c-row {
           > .#{ $_prefix }c-row__col:last-child {
-            border-left: 1px solid transparent;
-            border-left-color: _lighter($_color-gray); // For IE11
-            border-left-color: _var-lighter-color-gray();
+            border-left: 1px solid _var-lighter-color-gray();
           }
         }
 

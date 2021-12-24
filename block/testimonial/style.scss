@@ -39,7 +39,6 @@
     }
 
     &__lede {
-      color: $_color-gray; // For IE11
       color: _var-color-gray();
       @include _font-size($_base-font-size-px - 6);
       line-height: 1.6;
@@ -59,7 +58,6 @@
         display: block;
         height: 1px;
         width: 2rem;
-        background-color: $_color-text; // For IE11
         background-color: _var-color-text();
       }
     }
