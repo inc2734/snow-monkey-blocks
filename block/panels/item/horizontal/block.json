@@ -1,7 +1,7 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/panels-item-horizontal",
-	"title": "Item (Horizontal layout)",
+	"title": "Panel (Horizontal layout)",
 	"description": "It is a child block of the panels block.",
   "category": "smb",
   "parent": [ "snow-monkey-blocks/panels" ],

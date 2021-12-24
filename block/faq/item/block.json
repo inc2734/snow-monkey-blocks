@@ -1,7 +1,7 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/faq-item",
-	"title": "Item",
+	"title": "FAQ",
 	"description": "It is a child block of the FAQ block.",
   "category": "smb",
   "parent": [ "snow-monkey-blocks/faq" ],

@@ -1,6 +1,8 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/thumbnail-gallery-item",
+	"title": "Slide (Deprecated)",
+  "description": "It is a child block of the thumbnail gallery block.",
   "category": "smb-deprecated",
   "parent": [ "snow-monkey-blocks/thumbnail-gallery" ],
   "attributes": {

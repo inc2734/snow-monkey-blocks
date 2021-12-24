@@ -1,7 +1,7 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/pricing-table-item",
-	"title": "Item",
+	"title": "Plan",
 	"description": "It is a child block of the pricing table block.",
   "category": "smb",
   "parent": [ "snow-monkey-blocks/pricing-table" ],

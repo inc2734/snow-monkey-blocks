@@ -1,7 +1,7 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/panels-item-free",
-	"title": "Item (Free input)",
+	"title": "Panel (Free input)",
 	"description": "It is a child block of the panels block.",
   "category": "smb",
   "parent": [ "snow-monkey-blocks/panels" ],

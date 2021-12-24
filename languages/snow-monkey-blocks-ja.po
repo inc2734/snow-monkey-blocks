@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
-"POT-Creation-Date: 2021-12-16 13:46+0900\n"
-"PO-Revision-Date: 2021-12-16 13:48+0900\n"
+"POT-Creation-Date: 2021-12-24 15:35+0900\n"
+"PO-Revision-Date: 2021-12-24 15:36+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -36,90 +36,107 @@ msgstr ""
 #: block/items/item/item/edit.js:86 block/items/item/standard/edit.js:245
 #: block/like-me-box/edit.js:18 block/limited-datetime/edit.js:107
 #: block/list/edit.js:91 block/media-text/edit.js:282 block/panels/edit.js:115
-#: block/panels/item/horizontal/edit.js:210
+#: block/panels/item/horizontal/edit.js:205
 #: block/panels/item/vertical/edit.js:190 block/pickup-slider/edit.js:32
-#: block/pricing-table/edit.js:91 block/rating-box/item/edit.js:63
-#: block/recent-posts/edit.js:136 block/rss/edit.js:127
-#: block/section/components/basic.js:29 block/slider/edit.js:167
-#: block/slider/item/edit.js:203 block/spider-contents-slider/edit.js:280
+#: block/pricing-table/edit.js:91 block/pricing-table/item/edit.js:245
+#: block/rating-box/item/edit.js:63 block/recent-posts/edit.js:136
+#: block/rss/edit.js:127 block/section/components/basic.js:29
+#: block/slider/edit.js:167 block/slider/item/edit.js:203
+#: block/spider-contents-slider/edit.js:280
 #: block/spider-pickup-slider/edit.js:62 block/spider-slider/edit.js:311
 #: block/step/item/standard/edit.js:246 block/tabs/edit.js:158
 #: block/taxonomy-posts/edit.js:150 block/taxonomy-terms/edit.js:61
 #: block/testimonial/edit.js:74 block/thumbnail-gallery/edit.js:81
 #: block/thumbnail-gallery/item/edit.js:141
+#: snow-monkey-blocks/block/accordion/item/edit.js:40
+#: snow-monkey-blocks/block/alert/edit.js:87
+#: snow-monkey-blocks/block/btn/edit.js:161
+#: snow-monkey-blocks/block/categories-list/edit.js:201
+#: snow-monkey-blocks/block/child-pages/edit.js:99
+#: snow-monkey-blocks/block/container/edit.js:71
+#: snow-monkey-blocks/block/contents-outline/edit.js:71
 msgid "Block settings"
 msgstr "ブロック設定"
 
 #: block/accordion/item/edit.js:44
+#: snow-monkey-blocks/block/accordion/item/edit.js:44
 msgid "Display in open state"
 msgstr "開いた状態で表示"
 
 #: block/accordion/item/edit.js:60
+#: snow-monkey-blocks/block/accordion/item/edit.js:60
 msgid "Enter title here"
 msgstr "タイトルを入力"
 
-#: block/alert/edit.js:31
+#: block/alert/edit.js:31 snow-monkey-blocks/block/alert/edit.js:31
 msgid "exclamation-circle"
 msgstr "exclamation-circle"
 
 #: block/alert/edit.js:35 block/list/edit.js:37
+#: snow-monkey-blocks/block/alert/edit.js:35
 msgid "check"
 msgstr "check"
 
 #: block/alert/edit.js:39 block/list/edit.js:41
+#: snow-monkey-blocks/block/alert/edit.js:39
 msgid "check-circle"
 msgstr "check-circle"
 
 #: block/alert/edit.js:43 block/list/edit.js:45
+#: snow-monkey-blocks/block/alert/edit.js:43
 msgid "check-square"
 msgstr "check-square"
 
 #: block/alert/edit.js:47 block/list/edit.js:53
+#: snow-monkey-blocks/block/alert/edit.js:47
 msgid "hand-point-right"
 msgstr "hand-point-right"
 
-#: block/alert/edit.js:51
+#: block/alert/edit.js:51 snow-monkey-blocks/block/alert/edit.js:51
 msgid "edit"
 msgstr "edit"
 
-#: block/alert/edit.js:55
+#: block/alert/edit.js:55 snow-monkey-blocks/block/alert/edit.js:55
 msgid "lightbulb"
 msgstr "lightbulb"
 
 #: block/alert/edit.js:90 block/section/components/background.js:296
 #: block/section/components/background.js:378
+#: snow-monkey-blocks/block/alert/edit.js:90
 msgid "Type"
 msgstr "タイプ"
 
-#: block/alert/edit.js:97
+#: block/alert/edit.js:97 snow-monkey-blocks/block/alert/edit.js:97
 msgid "Normal alert"
 msgstr "ノーマルアラート"
 
-#: block/alert/edit.js:104
+#: block/alert/edit.js:104 snow-monkey-blocks/block/alert/edit.js:104
 msgid "Warning alert"
 msgstr "ワーニングアラート"
 
-#: block/alert/edit.js:111
+#: block/alert/edit.js:111 snow-monkey-blocks/block/alert/edit.js:111
 msgid "Success alert"
 msgstr "サクセスアラート"
 
-#: block/alert/edit.js:118
+#: block/alert/edit.js:118 snow-monkey-blocks/block/alert/edit.js:118
 msgid "Remark alert"
 msgstr "リマークアラート"
 
 #: block/alert/edit.js:126 block/directory-structure/item/directory/edit.js:136
 #: block/directory-structure/item/file/edit.js:81 block/list/edit.js:94
+#: snow-monkey-blocks/block/alert/edit.js:126
 msgid "Icon"
 msgstr "アイコン"
 
 #: block/alert/edit.js:166 block/evaluation-star/edit.js:220
 #: block/items/item/banner/edit.js:393 block/items/item/block-link/edit.js:384
 #: block/items/item/item/edit.js:204 block/items/item/standard/edit.js:382
-#: block/media-text/edit.js:430 block/panels/item/horizontal/edit.js:296
+#: block/media-text/edit.js:430 block/panels/item/horizontal/edit.js:291
 #: block/panels/item/vertical/edit.js:251 block/price-menu/item/edit.js:30
-#: block/pricing-table/item/edit.js:341 block/rating-box/item/edit.js:78
+#: block/pricing-table/item/edit.js:352 block/rating-box/item/edit.js:78
 #: block/section/components/header.js:129 block/step/item/free/edit.js:85
 #: block/step/item/standard/edit.js:287
+#: snow-monkey-blocks/block/alert/edit.js:166
 msgid "Write title…"
 msgstr "タイトルを書く…"
 
@@ -145,6 +162,11 @@ msgstr "タイトルを書く…"
 #: block/section/components/background.js:409
 #: block/section/components/background.js:507 block/section/edit.js:337
 #: block/step/item/free/edit.js:61 block/step/item/standard/edit.js:227
+#: snow-monkey-blocks/block/box/edit.js:128
+#: snow-monkey-blocks/block/box/edit.js:151
+#: snow-monkey-blocks/block/box/edit.js:212
+#: snow-monkey-blocks/block/btn-box/edit.js:145
+#: snow-monkey-blocks/block/btn/edit.js:134
 #: src/js/component/panel-border-settings.js:24
 #: src/js/component/panel-box-shadow-settings.js:29
 msgid "Color"
@@ -157,19 +179,25 @@ msgstr "アバターの枠線の色"
 #: block/balloon/edit.js:121 block/box/edit.js:134 block/btn-box/edit.js:224
 #: block/btn/edit.js:148 block/items/item/banner/edit.js:248
 #: block/items/item/block-link/edit.js:347
-#: block/items/item/standard/edit.js:345 block/pricing-table/item/edit.js:307
+#: block/items/item/standard/edit.js:345 block/pricing-table/item/edit.js:318
 #: block/section-break-the-grid/edit.js:637
 #: block/section-side-heading/edit.js:346
 #: block/section-with-bgimage/edit.js:606
 #: block/section-with-bgvideo/edit.js:285 block/section/edit.js:343
+#: snow-monkey-blocks/block/box/edit.js:134
+#: snow-monkey-blocks/block/btn-box/edit.js:224
+#: snow-monkey-blocks/block/btn/edit.js:148
 msgid "Text color"
 msgstr "テキストカラー"
 
 #: block/balloon/edit.js:127 block/btn-box/edit.js:152
 #: block/btn-box/edit.js:215 block/btn/edit.js:141
 #: block/items/item/block-link/edit.js:338
-#: block/items/item/standard/edit.js:336 block/pricing-table/item/edit.js:298
+#: block/items/item/standard/edit.js:336 block/pricing-table/item/edit.js:309
 #: block/section-break-the-grid/edit.js:960
+#: snow-monkey-blocks/block/btn-box/edit.js:152
+#: snow-monkey-blocks/block/btn-box/edit.js:215
+#: snow-monkey-blocks/block/btn/edit.js:141
 msgid "Background color"
 msgstr "背景色"
 
@@ -177,7 +205,7 @@ msgstr "背景色"
 msgid "Show avatar on left"
 msgstr "アバターを左に表示"
 
-#: block/balloon/edit.js:157 block/panels/item/horizontal/edit.js:262
+#: block/balloon/edit.js:157 block/panels/item/horizontal/edit.js:257
 msgid "Show avatar on right"
 msgstr "アバターを右に表示"
 
@@ -186,58 +214,66 @@ msgid "Name"
 msgstr "名前"
 
 #: block/box/edit.js:147 block/information/index.js:28 block/items/index.js:36
+#: snow-monkey-blocks/block/box/edit.js:147
 #: src/js/component/panel-border-settings.js:12
 msgid "Border"
 msgstr "枠線"
 
-#: block/box/edit.js:160 src/js/component/panel-border-settings.js:42
+#: block/box/edit.js:160 snow-monkey-blocks/block/box/edit.js:160
+#: src/js/component/panel-border-settings.js:42
 msgid "Width"
 msgstr "幅"
 
 #: block/box/edit.js:168 block/btn-box/edit.js:199 block/btn/edit.js:198
 #: block/items/item/block-link/edit.js:322
-#: block/items/item/standard/edit.js:320 block/pricing-table/item/edit.js:282
+#: block/items/item/standard/edit.js:320 block/pricing-table/item/edit.js:293
+#: snow-monkey-blocks/block/box/edit.js:168
+#: snow-monkey-blocks/block/btn-box/edit.js:199
+#: snow-monkey-blocks/block/btn/edit.js:198
 msgid "Border radius"
 msgstr "角丸半径"
 
 #: block/box/edit.js:170 block/btn/edit.js:200
+#: snow-monkey-blocks/block/box/edit.js:170
+#: snow-monkey-blocks/block/btn/edit.js:200
 msgid "-If set to -1, the default border radius will be applied."
 msgstr "-1 に設定するとデフォルトの角丸半径が適用されます。"
 
 #: block/box/edit.js:183 block/spider-contents-slider/edit.js:268
-#: block/spider-contents-slider/item/edit.js:145
-#: block/spider-slider/edit.js:299
+#: block/spider-contents-slider/item/edit.js:147
+#: block/spider-slider/edit.js:299 snow-monkey-blocks/block/box/edit.js:183
 msgid "Dimensions"
 msgstr "寸法"
 
 #: block/box/edit.js:187 block/section-break-the-grid/edit.js:985
 #: block/section/components/basic.js:269
-#: block/spider-contents-slider/item/edit.js:149
+#: block/spider-contents-slider/item/edit.js:151
+#: snow-monkey-blocks/block/box/edit.js:187
 msgid "Padding"
 msgstr "パディング"
 
 #: block/box/edit.js:192 block/section-break-the-grid/edit.js:994
 #: block/spider-contents-slider/edit.js:190
-#: block/spider-contents-slider/item/edit.js:158
-#: block/spider-slider/edit.js:194
+#: block/spider-contents-slider/item/edit.js:160
+#: block/spider-slider/edit.js:194 snow-monkey-blocks/block/box/edit.js:192
 msgid "S"
 msgstr "S"
 
 #: block/box/edit.js:196 block/section-break-the-grid/edit.js:998
 #: block/spider-contents-slider/edit.js:194
-#: block/spider-contents-slider/item/edit.js:162
-#: block/spider-slider/edit.js:198
+#: block/spider-contents-slider/item/edit.js:164
+#: block/spider-slider/edit.js:198 snow-monkey-blocks/block/box/edit.js:196
 msgid "M"
 msgstr "M"
 
 #: block/box/edit.js:200 block/section-break-the-grid/edit.js:1002
 #: block/spider-contents-slider/edit.js:198
-#: block/spider-contents-slider/item/edit.js:166
-#: block/spider-slider/edit.js:202
+#: block/spider-contents-slider/item/edit.js:168
+#: block/spider-slider/edit.js:202 snow-monkey-blocks/block/box/edit.js:200
 msgid "L"
 msgstr "L"
 
-#: block/box/edit.js:208
+#: block/box/edit.js:208 snow-monkey-blocks/block/box/edit.js:208
 msgid "Background"
 msgstr "背景"
 
@@ -246,72 +282,90 @@ msgstr "背景"
 #: block/section-with-bgimage/edit.js:843
 #: block/section-with-bgvideo/edit.js:377
 #: block/section/components/background.js:524
+#: snow-monkey-blocks/block/box/edit.js:223
 #: src/js/component/panel-box-shadow-settings.js:47
 msgid "Opacity"
 msgstr "不透明度"
 
 #: block/btn-box/edit.js:162 block/items/item/block-link/edit.js:285
-#: block/items/item/standard/edit.js:283 block/pricing-table/item/edit.js:245
+#: block/items/item/standard/edit.js:283 block/pricing-table/item/edit.js:256
+#: snow-monkey-blocks/block/btn-box/edit.js:162
 msgid "Button settings"
 msgstr "ボタン設定"
 
 #: block/btn-box/edit.js:165 block/btn/edit.js:164
 #: block/items/item/block-link/edit.js:288
-#: block/items/item/standard/edit.js:286 block/pricing-table/item/edit.js:248
+#: block/items/item/standard/edit.js:286 block/pricing-table/item/edit.js:259
+#: snow-monkey-blocks/block/btn-box/edit.js:165
+#: snow-monkey-blocks/block/btn/edit.js:164
 msgid "Button size"
 msgstr "ボタンサイズ"
 
 #: block/btn-box/edit.js:172 block/btn/edit.js:171
 #: block/items/item/block-link/edit.js:295
-#: block/items/item/standard/edit.js:293 block/pricing-table/item/edit.js:255
+#: block/items/item/standard/edit.js:293 block/pricing-table/item/edit.js:266
+#: snow-monkey-blocks/block/btn-box/edit.js:172
+#: snow-monkey-blocks/block/btn/edit.js:171
 msgid "Normal size"
 msgstr "ノーマルサイズ"
 
 #: block/btn-box/edit.js:179 block/btn/edit.js:178
 #: block/items/item/block-link/edit.js:302
-#: block/items/item/standard/edit.js:300 block/pricing-table/item/edit.js:262
+#: block/items/item/standard/edit.js:300 block/pricing-table/item/edit.js:273
+#: snow-monkey-blocks/block/btn-box/edit.js:179
+#: snow-monkey-blocks/block/btn/edit.js:178
 msgid "Litle wider"
 msgstr "少し広め"
 
 #: block/btn-box/edit.js:185 block/btn/edit.js:184
 #: block/items/item/block-link/edit.js:308
-#: block/items/item/standard/edit.js:306 block/pricing-table/item/edit.js:268
+#: block/items/item/standard/edit.js:306 block/pricing-table/item/edit.js:279
+#: snow-monkey-blocks/block/btn-box/edit.js:185
+#: snow-monkey-blocks/block/btn/edit.js:184
 msgid "Wider"
 msgstr "広め"
 
 #: block/btn-box/edit.js:189 block/btn/edit.js:188
 #: block/items/item/block-link/edit.js:312
-#: block/items/item/standard/edit.js:310 block/pricing-table/item/edit.js:272
+#: block/items/item/standard/edit.js:310 block/pricing-table/item/edit.js:283
+#: snow-monkey-blocks/block/btn-box/edit.js:189
+#: snow-monkey-blocks/block/btn/edit.js:188
 msgid "More wider"
 msgstr "もっと広め"
 
 #: block/btn-box/edit.js:193 block/btn/edit.js:192
 #: block/items/item/block-link/edit.js:316
-#: block/items/item/standard/edit.js:314 block/pricing-table/item/edit.js:276
+#: block/items/item/standard/edit.js:314 block/pricing-table/item/edit.js:287
+#: snow-monkey-blocks/block/btn-box/edit.js:193
+#: snow-monkey-blocks/block/btn/edit.js:192
 msgid "Full size"
 msgstr "フルサイズ"
 
 #: block/btn-box/edit.js:209 block/btn/edit.js:212
 #: block/items/item/block-link/edit.js:332
-#: block/items/item/standard/edit.js:330 block/pricing-table/item/edit.js:292
+#: block/items/item/standard/edit.js:330 block/pricing-table/item/edit.js:303
+#: snow-monkey-blocks/block/btn-box/edit.js:209
+#: snow-monkey-blocks/block/btn/edit.js:212
 msgid "Wrap"
 msgstr "折り返す"
 
 #: block/btn-box/edit.js:247 block/items/item/banner/edit.js:406
 #: block/items/item/block-link/edit.js:396 block/items/item/item/edit.js:218
-#: block/items/item/standard/edit.js:394 block/pricing-table/item/edit.js:364
+#: block/items/item/standard/edit.js:394 block/pricing-table/item/edit.js:375
 #: block/section/components/header.js:148 block/testimonial/item/edit.js:106
+#: snow-monkey-blocks/block/btn-box/edit.js:247
 msgid "Write lede…"
 msgstr "リード文を書く…"
 
 #: block/btn-box/edit.js:271 block/btn/edit.js:232
 #: block/items/item/block-link/edit.js:427 block/items/item/item/edit.js:264
-#: block/items/item/standard/edit.js:434 block/pricing-table/item/edit.js:401
-#: .translation/translation.php:12
+#: block/items/item/standard/edit.js:434 block/pricing-table/item/edit.js:412
+#: snow-monkey-blocks/block/btn-box/edit.js:271
+#: snow-monkey-blocks/block/btn/edit.js:232 .translation/translation.php:12
 msgid "Button"
 msgstr "ボタン"
 
-#: block/btn-box/edit.js:287
+#: block/btn-box/edit.js:287 snow-monkey-blocks/block/btn-box/edit.js:287
 msgid "Write note…"
 msgstr "注釈を書く…"
 
@@ -321,11 +375,13 @@ msgstr "注釈を書く…"
 #: block/panels/item/block-link/edit.js:84
 #: block/panels/item/block-link/edit.js:109
 #: block/panels/item/block-link/save.js:44
-#: block/panels/item/horizontal/edit.js:326
-#: block/panels/item/horizontal/edit.js:356
+#: block/panels/item/horizontal/edit.js:321
+#: block/panels/item/horizontal/edit.js:351
 #: block/panels/item/vertical/edit.js:281
-#: block/panels/item/vertical/edit.js:311 block/pricing-table/item/edit.js:431
+#: block/panels/item/vertical/edit.js:311 block/pricing-table/item/edit.js:442
 #: block/slider/item/edit.js:220 block/step/item/standard/edit.js:362
+#: snow-monkey-blocks/block/btn-box/edit.js:299
+#: snow-monkey-blocks/block/btn/edit.js:244
 msgid "Link"
 msgstr "リンク"
 
@@ -333,9 +389,11 @@ msgstr "リンク"
 #: block/items/item/banner/edit.js:454 block/items/item/block-link/edit.js:468
 #: block/items/item/item/edit.js:291 block/items/item/standard/edit.js:474
 #: block/panels/item/block-link/edit.js:118
-#: block/panels/item/horizontal/edit.js:365
-#: block/panels/item/vertical/edit.js:320 block/pricing-table/item/edit.js:440
+#: block/panels/item/horizontal/edit.js:360
+#: block/panels/item/vertical/edit.js:320 block/pricing-table/item/edit.js:451
 #: block/slider/item/edit.js:229 block/step/item/standard/edit.js:371
+#: snow-monkey-blocks/block/btn-box/edit.js:308
+#: snow-monkey-blocks/block/btn/edit.js:253
 msgid "Unlink"
 msgstr "リンクを解除"
 
@@ -347,110 +405,144 @@ msgstr "リンクを解除"
 #: block/section/components/basic.js:157 block/slider/edit.js:81
 #: block/spider-slider/edit.js:175 block/tabs/index.js:23
 #: block/taxonomy-posts/edit.js:363 block/taxonomy-terms/index.js:28
+#: snow-monkey-blocks/block/btn-box/index.js:22
+#: snow-monkey-blocks/block/btn/index.js:24
+#: snow-monkey-blocks/block/child-pages/edit.js:242
 msgid "Default"
 msgstr "デフォルト"
 
 #: block/btn-box/index.js:25 block/btn/index.js:27
+#: snow-monkey-blocks/block/btn-box/index.js:25
+#: snow-monkey-blocks/block/btn/index.js:27
 msgid "Ghost"
 msgstr "ゴースト"
 
 #: block/btn/index.js:28 block/child-pages/edit.js:126
 #: block/recent-posts/edit.js:171 block/rss/edit.js:152
 #: block/section/components/background.js:460 block/taxonomy-posts/edit.js:215
+#: snow-monkey-blocks/block/btn/index.js:28
+#: snow-monkey-blocks/block/child-pages/edit.js:126
 msgid "Text"
 msgstr "テキスト"
 
-#: block/categories-list/edit.js:42 .translation/translation.php:16
+#: block/categories-list/edit.js:42
+#: snow-monkey-blocks/block/categories-list/edit.js:42
+#: .translation/translation.php:16
 msgid "Categories list"
 msgstr "カテゴリー一覧"
 
 #: block/categories-list/edit.js:45
+#: snow-monkey-blocks/block/categories-list/edit.js:45
 msgid "Loading setting data"
 msgstr "設定をロード中"
 
 #: block/categories-list/edit.js:101
+#: snow-monkey-blocks/block/categories-list/edit.js:101
 msgid "Exclusion categories settings"
 msgstr "除外カテゴリー設定"
 
 #: block/categories-list/edit.js:107
+#: snow-monkey-blocks/block/categories-list/edit.js:107
 msgid ""
 "Categories with a post count of 0 are not displayed even if they are not "
 "excluded"
 msgstr "投稿数が0のカテゴリは、除外されていない場合でも表示されません"
 
-#: block/categories-list/edit.js:137 block/categories-list/view.php:44
+#: block/categories-list/edit.js:137
+#: snow-monkey-blocks/block/categories-list/edit.js:137
+#: block/categories-list/view.php:44
+#: snow-monkey-blocks/block/categories-list/view.php:44
 msgid "articles"
 msgstr "記事"
 
 #: block/categories-list/edit.js:151 block/recent-posts/edit.js:365
-#: block/taxonomy-posts/index.js:21 .translation/translation.php:54
-#: block/categories-list/view.php:62
+#: block/taxonomy-posts/index.js:21
+#: snow-monkey-blocks/block/categories-list/edit.js:151
+#: .translation/translation.php:54 block/categories-list/view.php:62
+#: snow-monkey-blocks/block/categories-list/view.php:62
 msgid "Recent posts"
 msgstr "最近の投稿"
 
 #: block/categories-list/edit.js:158
+#: snow-monkey-blocks/block/categories-list/edit.js:158
 msgid "Only the actual contribution screen is displayed"
 msgstr "通常の投稿画面のみ表示されます"
 
 #: block/categories-list/edit.js:205
+#: snow-monkey-blocks/block/categories-list/edit.js:205
 msgid "Categories list articles"
 msgstr "カテゴリーリストの記事数"
 
 #: block/categories-list/edit.js:219
+#: snow-monkey-blocks/block/categories-list/edit.js:219
 msgid "Display order settings"
 msgstr "表示順の設定"
 
 #: block/categories-list/edit.js:225
+#: snow-monkey-blocks/block/categories-list/edit.js:225
 msgid ""
 "The display order you set is valid only on the actual contribution screen"
 msgstr "設定した表示順は実際の投稿画面でのみ有効です"
 
 #: block/categories-list/edit.js:230 block/taxonomy-terms/edit.js:83
+#: snow-monkey-blocks/block/categories-list/edit.js:230
 msgid "orderby"
 msgstr "並べ替えの基準"
 
 #: block/categories-list/edit.js:235 block/taxonomy-terms/edit.js:88
+#: snow-monkey-blocks/block/categories-list/edit.js:235
 msgid "category id"
 msgstr "カテゴリーID"
 
 #: block/categories-list/edit.js:242 block/taxonomy-terms/edit.js:95
+#: snow-monkey-blocks/block/categories-list/edit.js:242
 msgid "category name"
 msgstr "カテゴリー名"
 
 #: block/categories-list/edit.js:249 block/taxonomy-terms/edit.js:102
+#: snow-monkey-blocks/block/categories-list/edit.js:249
 msgid "category slug"
 msgstr "カテゴリースラッグ"
 
 #: block/categories-list/edit.js:256 block/taxonomy-terms/edit.js:109
+#: snow-monkey-blocks/block/categories-list/edit.js:256
 msgid "category post count"
 msgstr "記事数"
 
 #: block/categories-list/edit.js:262
+#: snow-monkey-blocks/block/categories-list/edit.js:262
 msgid "term_group"
 msgstr "タームグループ"
 
 #: block/categories-list/edit.js:269 block/taxonomy-terms/edit.js:119
+#: snow-monkey-blocks/block/categories-list/edit.js:269
 msgid "order"
 msgstr "並べ替えの種別"
 
 #: block/categories-list/edit.js:273 block/taxonomy-terms/edit.js:123
+#: snow-monkey-blocks/block/categories-list/edit.js:273
 msgid "asc"
 msgstr "昇順"
 
 #: block/categories-list/edit.js:277 block/taxonomy-terms/edit.js:127
+#: snow-monkey-blocks/block/categories-list/edit.js:277
 msgid "desc"
 msgstr "降順"
 
 #: block/child-pages/edit.js:102
+#: snow-monkey-blocks/block/child-pages/edit.js:102
 msgid "Title"
 msgstr "タイトル"
 
-#: block/child-pages/edit.js:105 .translation/translation.php:18
+#: block/child-pages/edit.js:105
+#: snow-monkey-blocks/block/child-pages/edit.js:105
+#: .translation/translation.php:18
 msgid "Child pages"
 msgstr "このページの子ページ"
 
 #: block/child-pages/edit.js:112 block/recent-posts/edit.js:157
 #: block/rss/edit.js:138 block/taxonomy-posts/edit.js:201
+#: snow-monkey-blocks/block/child-pages/edit.js:112
 msgid "Layout"
 msgstr "レイアウト"
 
@@ -458,33 +550,40 @@ msgstr "レイアウト"
 #: block/recent-posts/edit.js:163 block/recent-posts/edit.js:189
 #: block/rss/edit.js:144 block/rss/edit.js:170 block/taxonomy-posts/edit.js:207
 #: block/taxonomy-posts/edit.js:233
+#: snow-monkey-blocks/block/child-pages/edit.js:118
+#: snow-monkey-blocks/block/child-pages/edit.js:144
 msgid "Rich media"
 msgstr "リッチメディア"
 
 #: block/child-pages/edit.js:122 block/recent-posts/edit.js:167
 #: block/rss/edit.js:148 block/tabs/index.js:28
 #: block/taxonomy-posts/edit.js:211
+#: snow-monkey-blocks/block/child-pages/edit.js:122
 msgid "Simple"
 msgstr "シンプル"
 
 #: block/child-pages/edit.js:130 block/recent-posts/edit.js:175
 #: block/rss/edit.js:156 block/taxonomy-posts/edit.js:219
+#: snow-monkey-blocks/block/child-pages/edit.js:130
 msgid "Text 2"
 msgstr "テキスト2"
 
 #: block/child-pages/edit.js:134 block/recent-posts/edit.js:179
 #: block/rss/edit.js:160 block/taxonomy-posts/edit.js:223
+#: snow-monkey-blocks/block/child-pages/edit.js:134
 #: .translation/translation.php:44
 msgid "Panels"
 msgstr "パネル"
 
 #: block/child-pages/edit.js:141 block/recent-posts/edit.js:186
 #: block/rss/edit.js:167 block/taxonomy-posts/edit.js:230
+#: snow-monkey-blocks/block/child-pages/edit.js:141
 msgid "Carousel (%1$s)"
 msgstr "カルーセル（%1$s）"
 
 #: block/child-pages/edit.js:150 block/recent-posts/edit.js:195
 #: block/rss/edit.js:176 block/taxonomy-posts/edit.js:239
+#: snow-monkey-blocks/block/child-pages/edit.js:150
 msgid "Large image"
 msgstr "大きな画像"
 
@@ -492,6 +591,7 @@ msgstr "大きな画像"
 #: block/rss/edit.js:187 block/spider-contents-slider/edit.js:283
 #: block/spider-pickup-slider/edit.js:89 block/spider-slider/edit.js:328
 #: block/taxonomy-posts/edit.js:250
+#: snow-monkey-blocks/block/child-pages/edit.js:161
 msgid "Display arrows"
 msgstr "矢印を表示"
 
@@ -499,6 +599,7 @@ msgstr "矢印を表示"
 #: block/rss/edit.js:196 block/spider-contents-slider/edit.js:289
 #: block/spider-pickup-slider/edit.js:95 block/spider-slider/edit.js:334
 #: block/taxonomy-posts/edit.js:259
+#: snow-monkey-blocks/block/child-pages/edit.js:170
 msgid "Display dots"
 msgstr "ドットを表示"
 
@@ -507,6 +608,7 @@ msgstr "ドットを表示"
 #: block/spider-contents-slider/edit.js:328
 #: block/spider-pickup-slider/edit.js:119 block/spider-slider/edit.js:390
 #: block/taxonomy-posts/edit.js:268 block/thumbnail-gallery/edit.js:101
+#: snow-monkey-blocks/block/child-pages/edit.js:179
 msgid "Autoplay Speed in seconds"
 msgstr "自動再生の間隔（秒）"
 
@@ -514,90 +616,109 @@ msgstr "自動再生の間隔（秒）"
 #: block/rss/edit.js:209 block/spider-contents-slider/edit.js:332
 #: block/spider-pickup-slider/edit.js:123 block/spider-slider/edit.js:394
 #: block/taxonomy-posts/edit.js:272
+#: snow-monkey-blocks/block/child-pages/edit.js:183
 msgid "If \"0\", no scroll."
 msgstr "「0」の場合、スクロールしません。"
 
 #: block/child-pages/edit.js:195 block/items/item/block-link/edit.js:249
 #: block/items/item/item/edit.js:89 block/items/item/standard/edit.js:248
-#: block/media-text/edit.js:342 block/panels/item/horizontal/edit.js:213
+#: block/media-text/edit.js:342 block/panels/item/horizontal/edit.js:208
 #: block/panels/item/vertical/edit.js:193 block/section/components/basic.js:84
+#: snow-monkey-blocks/block/child-pages/edit.js:195
 msgid "Title tag"
 msgstr "タイトルタグ"
 
 #: block/child-pages/edit.js:224 block/items/item/banner/edit.js:315
 #: block/items/item/block-link/edit.js:277
 #: block/items/item/standard/edit.js:275 block/media-text/edit.js:311
-#: block/panels/item/horizontal/edit.js:240
-#: block/panels/item/vertical/edit.js:220
+#: block/panels/item/horizontal/edit.js:235
+#: block/panels/item/vertical/edit.js:220 block/pricing-table/item/edit.js:248
 #: block/section-break-the-grid/edit.js:674
 #: block/section-with-bgimage/edit.js:703
 #: block/section-with-bgimage/edit.js:752
 #: block/section-with-bgimage/edit.js:801 block/slider/item/edit.js:206
 #: block/spider-slider/edit.js:314 block/step/item/standard/edit.js:269
 #: block/thumbnail-gallery/item/edit.js:144
+#: snow-monkey-blocks/block/child-pages/edit.js:224
 msgid "Images size"
 msgstr "画像サイズ"
 
 #: block/child-pages/edit.js:233 block/recent-posts/edit.js:310
 #: block/rss/edit.js:255 block/taxonomy-posts/edit.js:354
+#: snow-monkey-blocks/block/child-pages/edit.js:233
 msgid "Number of columns displayed on mobile device"
 msgstr "モバイル端末時の表示カラム数"
 
 #: block/child-pages/edit.js:249 block/recent-posts/edit.js:326
 #: block/rss/edit.js:271 block/taxonomy-posts/edit.js:370
+#: snow-monkey-blocks/block/child-pages/edit.js:249
 msgid "1 column"
 msgstr "1カラム"
 
 #: block/child-pages/edit.js:256 block/recent-posts/edit.js:333
 #: block/rss/edit.js:278 block/taxonomy-posts/edit.js:377
+#: snow-monkey-blocks/block/child-pages/edit.js:256
 msgid "2 columns"
 msgstr "2カラム"
 
 #: block/child-pages/edit.js:266
+#: snow-monkey-blocks/block/child-pages/edit.js:266
 msgid "Specify the parent page"
 msgstr "親ページを指定する"
 
 #: block/child-pages/edit.js:272
+#: snow-monkey-blocks/block/child-pages/edit.js:272
 msgid "Search"
 msgstr "検索"
 
 #: block/container/edit.js:76 block/section/components/basic.js:231
+#: snow-monkey-blocks/block/container/edit.js:76
 msgid "Max width of the contents"
 msgstr "コンテンツの最大幅"
 
 #: block/container/edit.js:91 block/section/components/basic.js:253
+#: snow-monkey-blocks/block/container/edit.js:91
 msgid "Make the contents width slim"
 msgstr "コンテンツの幅をスリム幅にする"
 
 #: block/contents-outline/edit.js:76
+#: snow-monkey-blocks/block/contents-outline/edit.js:76
 msgid "Show h2"
 msgstr "h2 を表示"
 
 #: block/contents-outline/edit.js:86
+#: snow-monkey-blocks/block/contents-outline/edit.js:86
 msgid "Show h3"
 msgstr "h3 を表示"
 
 #: block/contents-outline/edit.js:96
+#: snow-monkey-blocks/block/contents-outline/edit.js:96
 msgid "Show h4"
 msgstr "h4 を表示"
 
 #: block/contents-outline/edit.js:106
+#: snow-monkey-blocks/block/contents-outline/edit.js:106
 msgid "Show section block titles"
 msgstr "セクションのタイトルを表示"
 
 #: block/contents-outline/edit.js:116
+#: snow-monkey-blocks/block/contents-outline/edit.js:116
 msgid "Show heading blocks in section blocks"
 msgstr "セクション内の見出しを表示"
 
 #: block/contents-outline/edit.js:125
+#: snow-monkey-blocks/block/contents-outline/edit.js:125
 msgid "Move to before 1st heading"
 msgstr "最初の見出しの前に移動"
 
-#: block/contents-outline/edit.js:137 .translation/translation.php:22
+#: block/contents-outline/edit.js:137
+#: snow-monkey-blocks/block/contents-outline/edit.js:137
+#: .translation/translation.php:22
 msgid "Contents outline"
 msgstr "目次"
 
 #: block/contents-outline/edit.js:143
+#: snow-monkey-blocks/block/contents-outline/edit.js:143
 msgid "In the actual screen, it is displayed when headings exists on the page."
 msgstr "実際の画面では、見出しがページに存在する場合に表示されます。"
 
@@ -862,13 +983,13 @@ msgid "Mask"
 msgstr "マスク"
 
 #: block/items/item/banner/edit.js:423
-#: block/spider-contents-slider/item/edit.js:208
+#: block/spider-contents-slider/item/edit.js:210
 msgid "Change content position"
 msgstr "コンテンツの位置を変更"
 
 #: block/items/item/block-link/edit.js:408 block/items/item/item/edit.js:232
 #: block/items/item/standard/edit.js:406
-#: block/panels/item/horizontal/edit.js:308
+#: block/panels/item/horizontal/edit.js:303
 #: block/panels/item/vertical/edit.js:263 block/testimonial/item/edit.js:84
 msgid "Write content…"
 msgstr "内容を書く…"
@@ -1001,7 +1122,7 @@ msgstr "メディアと文章"
 msgid "Set padding around images"
 msgstr "画像の周りに余白を設定"
 
-#: block/panels/item/horizontal/edit.js:252
+#: block/panels/item/horizontal/edit.js:247
 #: block/step/item/standard/edit.js:249
 msgid "Image position"
 msgstr "画像の位置"
@@ -1039,7 +1160,7 @@ msgstr "ピックアップスライダー"
 msgid "Posts with \"pickup\" tag are displayed as sliders."
 msgstr "「pickup」タグが付与された記事をスライダーとして表示します。"
 
-#: block/price-menu/item/edit.js:37 block/pricing-table/item/edit.js:352
+#: block/price-menu/item/edit.js:37 block/pricing-table/item/edit.js:363
 msgid "Write price…"
 msgstr "価格を書く…"
 
@@ -1065,7 +1186,7 @@ msgstr "100%"
 msgid "Bar color"
 msgstr "バーの色"
 
-#: block/rating-box/item/edit.js:66
+#: block/rating-box/item/edit.js:66 .translation/translation.php:97
 msgid "Rating"
 msgstr "レーティング"
 
@@ -1284,7 +1405,7 @@ msgstr "背景の不透明度"
 #: block/section-break-the-grid/edit.js:990
 #: block/section/components/background.js:27
 #: block/spider-contents-slider/edit.js:186
-#: block/spider-contents-slider/item/edit.js:154
+#: block/spider-contents-slider/item/edit.js:156
 #: block/spider-slider/edit.js:190
 msgid "None"
 msgstr "なし"
@@ -1765,18 +1886,6 @@ msgstr "スラッシュ"
 msgid "Write name…"
 msgstr "名前を書く…"
 
-#: block/thumbnail-gallery/item/index.js:16 .translation/translation.php:34
-msgid "Items"
-msgstr "項目"
-
-#: block/thumbnail-gallery/item/index.js:18
-msgid "(Deprecated)"
-msgstr "（非推奨）"
-
-#: block/thumbnail-gallery/item/index.js:20
-msgid "It is a child block of the thumbnail gallery block."
-msgstr "サムネイルギャラリーブロックの子ブロックです。"
-
 #: src/js/component/date-time-picker.js:30
 msgid "Clear"
 msgstr "クリア"
@@ -1910,8 +2019,8 @@ msgstr "星評価"
 msgid "Evaluate with star icons"
 msgstr "星アイコンで評価します"
 
-#: .translation/translation.php:30 App/Setup/BlockPatterns.php:50
-msgid "FAQ"
+#: .translation/translation.php:30
+msgid "FAQs"
 msgstr "FAQ"
 
 #: .translation/translation.php:31
@@ -1925,6 +2034,10 @@ msgstr "情報"
 #: .translation/translation.php:33
 msgid "You can post an information table."
 msgstr "情報テーブルを掲載できます。"
+
+#: .translation/translation.php:34
+msgid "Items"
+msgstr "項目"
 
 #: .translation/translation.php:35
 msgid "Let's line up the contents."
@@ -2075,7 +2188,7 @@ msgid "Show attractive images as beautiful sliders."
 msgstr "魅力的な画像を美しいスライダーとして表示します。"
 
 #: .translation/translation.php:76
-msgid "Step"
+msgid "Steps"
 msgstr "ステップ"
 
 #: .translation/translation.php:77
@@ -2099,7 +2212,7 @@ msgid "You can display terms linked to any taxonomy."
 msgstr "任意のタクソノミーに紐付いたタームの一覧を表示できます。"
 
 #: .translation/translation.php:84
-msgid "Testimonial"
+msgid "Testimonials"
 msgstr "お客様の声"
 
 #: .translation/translation.php:85
@@ -2120,24 +2233,38 @@ msgstr ""
 "に保持されており、使用することはお勧めできません。使用するとページの表示速度"
 "を遅くすることがあります。"
 
-#: .translation/translation.php:88 .translation/translation.php:89
-#: .translation/translation.php:91 .translation/translation.php:93
-#: .translation/translation.php:95 .translation/translation.php:97
-#: .translation/translation.php:105 .translation/translation.php:130
-msgid "Item"
-msgstr "項目"
+#: .translation/translation.php:88
+msgid "Panel"
+msgstr "パネル"
+
+#: .translation/translation.php:89 App/Setup/BlockPatterns.php:50
+#: snow-monkey-blocks/App/Setup/BlockPatterns.php:50
+msgid "FAQ"
+msgstr "FAQ"
 
 #: .translation/translation.php:90
 msgid "It is a child block of the FAQ block."
 msgstr "FAQブロックの子ブロックです。"
 
+#: .translation/translation.php:91
+msgid "Row"
+msgstr "行"
+
 #: .translation/translation.php:92
 msgid "It is a child block of the information block."
 msgstr "情報ブロックの子ブロックです。"
 
+#: .translation/translation.php:93
+msgid "Menu"
+msgstr "メニュー"
+
 #: .translation/translation.php:94
 msgid "It is a child block of the price menu block."
 msgstr "価格メニューブロックの子ブロックです。"
+
+#: .translation/translation.php:95
+msgid "Plan"
+msgstr "プラン"
 
 #: .translation/translation.php:96
 msgid "It is a child block of the pricing table block."
@@ -2147,9 +2274,9 @@ msgstr "価格表ブロックの子ブロックです。"
 msgid "It is a child block of the rating box block."
 msgstr "レーティングボックスブロックの子ブロックです。"
 
-#: .translation/translation.php:99
-msgid "Items (Deprecated)"
-msgstr "項目（非推奨）"
+#: .translation/translation.php:99 .translation/translation.php:107
+msgid "Slide (Deprecated)"
+msgstr "スライド（非推奨）"
 
 #: .translation/translation.php:100
 msgid "It is a child block of the slider block."
@@ -2171,105 +2298,136 @@ msgstr "タブパネル"
 msgid "This is tab panel block."
 msgstr "これはタブパネルブロックです。"
 
+#: .translation/translation.php:105
+msgid "Testimonial"
+msgstr "お客様の声"
+
 #: .translation/translation.php:106
 msgid "It is a child block of the testimonial block."
 msgstr "お客様の声ブロックの子ブロックです。"
 
-#: .translation/translation.php:107
-msgid "Directory item"
-msgstr "ディレクトリ項目"
-
 #: .translation/translation.php:108
+msgid "It is a child block of the thumbnail gallery block."
+msgstr "サムネイルギャラリーブロックの子ブロックです。"
+
+#: .translation/translation.php:109
+msgid "Directory"
+msgstr "ディレクトリ"
+
+#: .translation/translation.php:110
 msgid "Display a directory item"
 msgstr "ディレクトリ項目を表示する"
 
-#: .translation/translation.php:109
-msgid "File item"
-msgstr "ファイル項目"
+#: .translation/translation.php:111
+msgid "File"
+msgstr "ファイル"
 
-#: .translation/translation.php:110
+#: .translation/translation.php:112
 msgid "Display a file item"
 msgstr "ファイル項目を表示する"
 
-#: .translation/translation.php:111
+#: .translation/translation.php:113
 msgid "Banner"
 msgstr "バナー"
 
-#: .translation/translation.php:112 .translation/translation.php:114
-#: .translation/translation.php:116 .translation/translation.php:119
+#: .translation/translation.php:114 .translation/translation.php:116
+#: .translation/translation.php:118 .translation/translation.php:121
 msgid "It is a child block of the items block."
 msgstr "項目ブロックの子ブロックです。"
 
-#: .translation/translation.php:113
+#: .translation/translation.php:115
 msgid "Item (Block Link)"
 msgstr "項目（ブロックリンク）"
 
-#: .translation/translation.php:115 .translation/translation.php:122
-#: .translation/translation.php:128
+#: .translation/translation.php:117
 msgid "Item (Free input)"
 msgstr "項目（自由入力）"
 
-#: .translation/translation.php:117
+#: .translation/translation.php:119
 msgid "Item (Deprecated)"
 msgstr "項目（非推奨）"
 
-#: .translation/translation.php:118
+#: .translation/translation.php:120
 msgid "Item (Standard)"
 msgstr "項目（スタンダード）"
 
-#: .translation/translation.php:120
-msgid "Item (Free input / Block link)"
-msgstr "項目（自由入力 / ブロックリンク）"
+#: .translation/translation.php:122
+msgid "Panel (Free input / Block link)"
+msgstr "パネル（自由入力 / ブロックリンク）"
 
-#: .translation/translation.php:121 .translation/translation.php:123
-#: .translation/translation.php:125 .translation/translation.php:127
+#: .translation/translation.php:123 .translation/translation.php:125
+#: .translation/translation.php:127 .translation/translation.php:129
 msgid "It is a child block of the panels block."
 msgstr "パネルブロックの子ブロックです。"
 
 #: .translation/translation.php:124
-msgid "Item (Horizontal layout)"
-msgstr "項目（水平レイアウト）"
+msgid "Panel (Free input)"
+msgstr "パネル（自由入力）"
 
 #: .translation/translation.php:126
-msgid "Item (Vertical layout)"
-msgstr "項目（垂直レイアウト）"
+msgid "Panel (Horizontal layout)"
+msgstr "パネル（水平レイアウト）"
 
-#: .translation/translation.php:129 .translation/translation.php:131
+#: .translation/translation.php:128
+msgid "Panel (Vertical layout)"
+msgstr "パネル（垂直レイアウト）"
+
+#: .translation/translation.php:130
+msgid "Step (Free input)"
+msgstr "ステップ（自由入力）"
+
+#: .translation/translation.php:131 .translation/translation.php:133
 msgid "It is a child block of the step block."
 msgstr "ステップブロックの子ブロックです。"
+
+#: .translation/translation.php:132
+msgid "Step (Standard)"
+msgstr "ステップ（スタンダード）"
 
 #: App/Controller/Manager.php:47 App/Controller/Manager.php:48
 #: App/Controller/Manager.php:54 snow-monkey-blocks.php:59
 #: snow-monkey-blocks.php:68 snow-monkey-blocks.php:77
+#: snow-monkey-blocks/App/Controller/Manager.php:47
+#: snow-monkey-blocks/App/Controller/Manager.php:48
+#: snow-monkey-blocks/App/Controller/Manager.php:54
 msgid "Snow Monkey Blocks"
 msgstr "Snow Monkey Blocks"
 
 #: App/Controller/Manager.php:68
+#: snow-monkey-blocks/App/Controller/Manager.php:68
 msgid "Reset available blocks settings"
 msgstr "利用可能なブロックの設定をリセット"
 
 #: App/Controller/Manager.php:117
+#: snow-monkey-blocks/App/Controller/Manager.php:117
 msgid "Available blocks"
 msgstr "利用可能なブロック"
 
 #: App/Setup/BlockPatterns.php:34
+#: snow-monkey-blocks/App/Setup/BlockPatterns.php:34
 msgid "Headers"
 msgstr "ヘッダー"
 
 #: App/Setup/BlockPatterns.php:38
+#: snow-monkey-blocks/App/Setup/BlockPatterns.php:38
 msgid "Features"
 msgstr "特徴"
 
 #: App/Setup/BlockPatterns.php:42
+#: snow-monkey-blocks/App/Setup/BlockPatterns.php:42
 msgid "Text with image"
 msgstr "テキストと画像"
 
 #: App/Setup/BlockPatterns.php:46
+#: snow-monkey-blocks/App/Setup/BlockPatterns.php:46
 msgid "Pricing"
 msgstr "価格"
 
 #: App/Setup/BlockPatterns.php:67 App/Setup/BlockPatterns.php:77
 #: App/Setup/BlockPatterns.php:87
+#: snow-monkey-blocks/App/Setup/BlockPatterns.php:67
+#: snow-monkey-blocks/App/Setup/BlockPatterns.php:77
+#: snow-monkey-blocks/App/Setup/BlockPatterns.php:87
 #, php-format
 msgid "Header %1$s"
 msgstr "ヘッダー %1$s"
@@ -2277,31 +2435,45 @@ msgstr "ヘッダー %1$s"
 #: App/Setup/BlockPatterns.php:97 App/Setup/BlockPatterns.php:107
 #: App/Setup/BlockPatterns.php:117 App/Setup/BlockPatterns.php:127
 #: App/Setup/BlockPatterns.php:137 App/Setup/BlockPatterns.php:147
+#: snow-monkey-blocks/App/Setup/BlockPatterns.php:97
+#: snow-monkey-blocks/App/Setup/BlockPatterns.php:107
+#: snow-monkey-blocks/App/Setup/BlockPatterns.php:117
+#: snow-monkey-blocks/App/Setup/BlockPatterns.php:127
+#: snow-monkey-blocks/App/Setup/BlockPatterns.php:137
+#: snow-monkey-blocks/App/Setup/BlockPatterns.php:147
 #, php-format
 msgid "Feature %1$s"
 msgstr "特徴 %1$s"
 
 #: App/Setup/BlockPatterns.php:157 App/Setup/BlockPatterns.php:167
 #: App/Setup/BlockPatterns.php:177
+#: snow-monkey-blocks/App/Setup/BlockPatterns.php:157
+#: snow-monkey-blocks/App/Setup/BlockPatterns.php:167
+#: snow-monkey-blocks/App/Setup/BlockPatterns.php:177
 #, php-format
 msgid "Text with image %1$s"
 msgstr "テキストと画像 %1$s"
 
 #: App/Setup/BlockPatterns.php:187
+#: snow-monkey-blocks/App/Setup/BlockPatterns.php:187
 #, php-format
 msgid "Pricing %1$s"
 msgstr "価格 %1$s"
 
 #: App/Setup/BlockPatterns.php:197 App/Setup/BlockPatterns.php:207
+#: snow-monkey-blocks/App/Setup/BlockPatterns.php:197
+#: snow-monkey-blocks/App/Setup/BlockPatterns.php:207
 #, php-format
 msgid "FAQ %1$s"
 msgstr "FAQ %1$s"
 
 #: block/categories-list/view.php:82
+#: snow-monkey-blocks/block/categories-list/view.php:82
 msgid "(no title)"
 msgstr "(タイトルなし)"
 
 #: block/child-pages/view.php:80
+#: snow-monkey-blocks/block/child-pages/view.php:80
 msgid "No pages found."
 msgstr "ページが見つかりませんでした。"
 
@@ -2339,3 +2511,12 @@ msgid ""
 msgstr ""
 "%1$sSnow Monkey%2$s テーマと一緒に使用すると、最も美しいバランスで表示され、"
 "フロントスクリーンと同じデザインで編集画面に表示されます。"
+
+#~ msgid "(Deprecated)"
+#~ msgstr "（非推奨）"
+
+#~ msgid "Item"
+#~ msgstr "項目"
+
+#~ msgid "Items (Deprecated)"
+#~ msgstr "項目（非推奨）"

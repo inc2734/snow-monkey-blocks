@@ -1,7 +1,7 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/information-item",
-	"title": "Item",
+	"title": "Row",
 	"description": "It is a child block of the information block.",
   "category": "smb",
   "parent": [ "snow-monkey-blocks/information" ],

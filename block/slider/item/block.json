@@ -1,7 +1,7 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/slider-item",
-	"title": "Items (Deprecated)",
+	"title": "Slide (Deprecated)",
   "description": "It is a child block of the slider block.",
   "category": "smb-deprecated",
   "parent": [ "snow-monkey-blocks/slider" ],
