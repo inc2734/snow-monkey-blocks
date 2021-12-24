@@ -91,8 +91,10 @@ export default function ( {
 	);
 
 	const styles = {
-		background:
+		backgroundColor:
 			( ! backgroundColor && style?.color?.background ) || undefined,
+		background:
+			( ! backgroundColor && style?.color?.gradient ) || undefined,
 		borderColor: border.color || undefined,
 		borderWidth: ( border.color && border.width ) || undefined,
 		borderRadius: border.radius || undefined,
