@@ -12,9 +12,8 @@
     &__figure {
       @include _margin-top($_half-leading * 1rem);
       @include _margin-right(.5);
-      flex: 0 0 48px;
+      flex: 0 0 auto;
       @include _circle(48px);
-      max-width: 48px;
 
       img {
         height: 100%;

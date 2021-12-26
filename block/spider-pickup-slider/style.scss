@@ -98,11 +98,11 @@
     text-shadow: rgba($_color-text, .3) 1px 1px 3px;
 
     @include _media-min(md) {
-      max-width: _strip-unit(map-get($_sizes, md)) * 1rem;
+      max-width: _px2rem(map-get($_sizes, md));
     }
 
     @include _media-min(lg) {
-      max-width: _strip-unit(map-get($_sizes, lg)) * 1rem;
+      max-width: _px2rem(map-get($_sizes, lg));
     }
 
     > *:not(:first-child) {
