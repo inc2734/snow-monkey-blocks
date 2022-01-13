@@ -92,7 +92,8 @@ export default function ( { attributes, className } ) {
 				!! mobileOrder && isAvailableVerticalAlignment,
 			[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
 			[ className ]: !! className,
-			[ `smb-section-break-the-grid--match-height` ]: imageMatchHeight,
+			[ `smb-section-break-the-grid--match-height` ]:
+				imageMatchHeight && isAvailableVerticalAlignment,
 		}
 	);
 
