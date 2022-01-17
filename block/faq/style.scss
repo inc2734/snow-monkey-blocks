@@ -3,9 +3,14 @@
 @import '../../src/css/core/block';
 
 .smb-faq {
+  &__body {
+    > * + * {
+      @include _margin-top(1);
+    }
+  }
+
   &__item {
     border-bottom: 1px solid _var-lighter-color-gray();
-    @include _margin-top(1);
     @include _padding-bottom(1);
 
     &:first-child {

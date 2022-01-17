@@ -2,11 +2,6 @@
 
 @import '../../src/css/core/block';
 
-.editor-styles-wrapper,
-.customize-control-sidebar_block_editor {
-  @import 'style';
-}
-
 [data-align="full"] > .smb-section-break-the-grid--right {
   > .smb-section__inner {
     > .#{ $_prefix }c-container:not(.#{ $_prefix }c-container--no-padding) {

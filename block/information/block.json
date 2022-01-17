@@ -58,5 +58,9 @@
         ]
       }
     ]
-  }
+  },
+  "version": "14.0.0",
+  "style": "file:../../dist/block/information/style.css",
+  "editorStyle": "file:../../dist/block/information/editor.css",
+  "editorScript": "file:../../dist/block/information/editor.js"
 }

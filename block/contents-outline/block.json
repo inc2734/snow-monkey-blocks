@@ -29,5 +29,7 @@
   "supports": {
     "anchor": true,
     "customClassName": false
-  }
+  },
+  "version": "14.0.0",
+  "editorScript": "file:../../dist/block/contents-outline/editor.js"
 }

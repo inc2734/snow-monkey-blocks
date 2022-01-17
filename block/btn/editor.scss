@@ -1,16 +1,11 @@
 @charset 'utf-8';
 
-.editor-styles-wrapper,
-.customize-control-sidebar_block_editor {
-  @import 'style';
+[data-align="center"] .smb-btn-wrapper {
+  text-align: center;
+}
 
-  [data-align="center"] .smb-btn-wrapper {
-    text-align: center;
-  }
-
-  .smb-btn {
-    &__label {
-      white-space: inherit !important;
-    }
+.smb-btn {
+  &__label {
+    white-space: inherit !important;
   }
 }

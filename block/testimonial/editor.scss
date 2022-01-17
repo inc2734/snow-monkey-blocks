@@ -2,26 +2,21 @@
 
 @import '../../src/css/core/block';
 
-.editor-styles-wrapper,
-.customize-control-sidebar_block_editor {
-  @import 'style';
+.smb-testimonial {
+  &__item__figure {
+    > .components-button {
+      height: 100%;
+      width: 100%;
 
-  .smb-testimonial {
-    &__item__figure {
-      > .components-button {
+      > img {
         height: 100%;
-        width: 100%;
-
-        > img {
-          height: 100%;
-        }
       }
     }
+  }
 
-    &__body {
-      > .c-row--margin {
-        margin-bottom: 0;
-      }
+  &__body {
+    > .c-row--margin {
+      margin-bottom: 0;
     }
   }
 }

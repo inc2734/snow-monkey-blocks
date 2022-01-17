@@ -8,22 +8,10 @@
 use Snow_Monkey\Plugin\Blocks;
 use Snow_Monkey\Plugin\Blocks\App\DynamicBlocks;
 
-/**
- * editor_script
- */
-$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/child-pages/editor.asset.php' );
-wp_register_script(
-	'snow-monkey-blocks/child-pages/editor',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/child-pages/editor.js',
-	array_merge( $asset['dependencies'], [ 'snow-monkey-blocks-editor' ] ),
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/child-pages/editor.js' ),
-	true
-);
-
 register_block_type(
 	__DIR__,
 	[
-		'editor_script'   => 'snow-monkey-blocks/child-pages/editor',
+		// 'editor_script'   => 'snow-monkey-blocks/child-pages/editor',
 		'render_callback' => function( $attributes, $content ) {
 			return DynamicBlocks::render( 'child-pages', $attributes, $content );
 		},

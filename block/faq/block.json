@@ -38,5 +38,8 @@
         ]
       }
     ]
-  }
+  },
+  "version": "14.0.0",
+  "style": "file:../../dist/block/faq/style.css",
+  "editorScript": "file:../../dist/block/faq/editor.js"
 }

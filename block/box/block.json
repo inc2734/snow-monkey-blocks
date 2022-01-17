@@ -57,5 +57,8 @@
         }
       }
     ]
-  }
+  },
+  "version": "14.0.0",
+  "style": "file:../../dist/block/box/style.css",
+  "editorScript": "file:../../dist/block/box/editor.js"
 }

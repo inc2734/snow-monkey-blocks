@@ -31,5 +31,8 @@
         }
       }
     ]
-  }
+  },
+  "version": "14.0.0",
+  "style": "file:../../dist/block/rating-box/style.css",
+  "editorScript": "file:../../dist/block/rating-box/editor.js"
 }

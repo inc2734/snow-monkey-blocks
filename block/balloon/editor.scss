@@ -1,18 +1,13 @@
 @charset 'utf-8';
 
-.editor-styles-wrapper,
-.customize-control-sidebar_block_editor {
-  @import 'style';
+.smb-balloon {
+  &__figure {
+    > .components-button {
+      height: 100%;
+      width: 100%;
 
-  .smb-balloon {
-    &__figure {
-      > .components-button {
+      > img {
         height: 100%;
-        width: 100%;
-
-        > img {
-          height: 100%;
-        }
       }
     }
   }

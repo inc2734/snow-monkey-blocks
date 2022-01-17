@@ -17,6 +17,7 @@ class TextDomain {
 	public function __construct() {
 		add_filter( 'load_textdomain_mofile', [ $this, '_load_textdomain_mofile' ], 10, 2 );
 		load_plugin_textdomain( 'snow-monkey-blocks', false, basename( SNOW_MONKEY_BLOCKS_DIR_PATH ) . '/languages' );
+		add_action( 'enqueue_block_editor_assets', [ $this, '_enqueue_block_editor_assets' ], 1 );
 	}
 
 	/**
@@ -35,5 +36,35 @@ class TextDomain {
 			}
 		}
 		return $mofile;
+	}
+
+	/**
+	 * Enqueue block script for editor.
+	 */
+	public function _enqueue_block_editor_assets() {
+		$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/blocks.asset.php' );
+		wp_enqueue_script(
+			'snow-monkey-blocks-editor',
+			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/blocks.js',
+			$asset['dependencies'],
+			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/blocks.js' ),
+			false
+		);
+
+		wp_set_script_translations(
+			'snow-monkey-blocks-editor',
+			'snow-monkey-blocks',
+			SNOW_MONKEY_BLOCKS_DIR_PATH . '/languages'
+		);
+
+		wp_localize_script(
+			'snow-monkey-blocks-editor',
+			'smb',
+			[
+				'pluginUrl' => SNOW_MONKEY_BLOCKS_DIR_URL,
+				'pluginDir' => SNOW_MONKEY_BLOCKS_DIR_PATH,
+				'isPro'     => Blocks\is_pro(),
+			]
+		);
 	}
 }

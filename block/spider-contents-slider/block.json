@@ -59,5 +59,11 @@
   },
   "supports": {
     "align": [ "wide", "full" ]
-  }
+  },
+  "version": "14.0.0",
+  "style": [
+    "spider",
+    "file:../../dist/block/spider-contents-slider/style.css"
+  ],
+  "editorScript": "file:../../dist/block/spider-contents-slider/editor.js"
 }

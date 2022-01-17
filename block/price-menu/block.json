@@ -24,5 +24,9 @@
         }
       }
     ]
-  }
+  },
+  "version": "14.0.0",
+  "style": "file:../../dist/block/price-menu/style.css",
+  "editorScript": "file:../../dist/block/price-menu/editor.js",
+  "editorStyle": "file:../../dist/block/price-menu/editor.css"
 }

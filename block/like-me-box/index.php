@@ -8,22 +8,9 @@
 use Snow_Monkey\Plugin\Blocks;
 use Snow_Monkey\Plugin\Blocks\App\DynamicBlocks;
 
-/**
- * editor_script
- */
-$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/like-me-box/editor.asset.php' );
-wp_register_script(
-	'snow-monkey-blocks/like-me-box/editor',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/like-me-box/editor.js',
-	array_merge( $asset['dependencies'], [ 'snow-monkey-blocks-editor' ] ),
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/like-me-box/editor.js' ),
-	true
-);
-
 register_block_type(
 	__DIR__,
 	[
-		'editor_script'   => 'snow-monkey-blocks/like-me-box/editor',
 		'render_callback' => function( $attributes ) {
 			return DynamicBlocks::render( 'like-me-box', $attributes );
 		},

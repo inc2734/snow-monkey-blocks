@@ -31,5 +31,8 @@
   },
   "supports": {
     "html": false
-  }
+  },
+  "version": "14.0.0",
+  "style": "file:../../dist/block/panels/style.css",
+  "editorScript": "file:../../dist/block/panels/editor.js"
 }

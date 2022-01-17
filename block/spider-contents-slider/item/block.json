@@ -52,5 +52,7 @@
       "text": true,
       "gradients": true
     }
-  }
+  },
+  "version": "14.0.0",
+  "editorScript": "file:../../../dist/block/spider-contents-slider/item/editor.js"
 }

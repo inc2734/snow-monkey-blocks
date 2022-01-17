@@ -2,29 +2,30 @@
 
 @import '../../src/css/core/block';
 
-.editor-styles-wrapper,
-.customize-control-sidebar_block_editor {
-  .smb-limited-datetime-placeholder {
-    min-height: auto;
+.smb-limited-datetime {
+  @include _content();
+}
 
-    > .components-placeholder__fieldset {
-      max-width: none;
+.smb-limited-datetime-placeholder {
+  min-height: auto;
 
-      > * {
-        flex: 1 1 auto;
-      }
+  > .components-placeholder__fieldset {
+    max-width: none;
+
+    > * {
+      flex: 1 1 auto;
     }
+  }
 
-    dl {
-      display: flex;
+  dl {
+    display: flex;
 
-      > dt {
-        @include _margin-right(.25);
-      }
+    > dt {
+      @include _margin-right(.25);
     }
+  }
 
-    & + * {
-      margin-top: 1em;
-    }
+  & + * {
+    margin-top: 1em;
   }
 }

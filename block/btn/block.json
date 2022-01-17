@@ -57,5 +57,9 @@
       "content": "button",
       "url": "https://2inc.org"
     }
-  }
+  },
+  "version": "14.0.0",
+  "style": "file:../../dist/block/btn/style.css",
+  "editor": "file:../../dist/block/btn/editor.css",
+  "editorScript": "file:../../dist/block/btn/editor.js"
 }

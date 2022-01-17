@@ -24,5 +24,8 @@
     "attributes": {
       "taxonomy": "category"
     }
-  }
+  },
+  "version": "14.0.0",
+  "style": "file:../../dist/block/taxonomy-terms/style.css",
+  "editorScript": "file:../../dist/block/taxonomy-terms/editor.js"
 }

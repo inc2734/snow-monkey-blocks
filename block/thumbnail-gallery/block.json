@@ -24,5 +24,8 @@
   },
   "supports": {
     "align": [ "wide", "full" ]
-  }
+  },
+  "version": "14.0.0",
+  "style": "file:../../dist/block/thumbnail-gallery/style.css",
+  "editorScript": "file:../../dist/block/thumbnail-gallery/editor.js"
 }

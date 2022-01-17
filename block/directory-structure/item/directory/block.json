@@ -26,5 +26,7 @@
   },
   "supports": {
     "html": false
-  }
+  },
+  "version": "14.0.0",
+  "editorScript": "file:../../../../dist/block/directory-structure/item/directory/editor.js"
 }

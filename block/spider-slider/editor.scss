@@ -1,13 +1,8 @@
 @charset 'utf-8';
 
-.editor-styles-wrapper,
-.customize-control-sidebar_block_editor {
-  @import 'style';
-
-  .smb-spider-slider[data-fade="true"] {
-    .spider__slide:first-child {
-      opacity: 1;
-      visibility: visible;
-    }
+.smb-spider-slider[data-fade="true"] {
+  .spider__slide:first-child {
+    opacity: 1;
+    visibility: visible;
   }
 }

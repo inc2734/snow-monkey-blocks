@@ -8,22 +8,9 @@
 use Snow_Monkey\Plugin\Blocks;
 use Snow_Monkey\Plugin\Blocks\App\DynamicBlocks;
 
-/**
- * editor_script
- */
-$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/contents-outline/editor.asset.php' );
-wp_register_script(
-	'snow-monkey-blocks/contents-outline/editor',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/contents-outline/editor.js',
-	array_merge( $asset['dependencies'], [ 'snow-monkey-blocks-editor' ] ),
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/contents-outline/editor.js' ),
-	true
-);
-
 register_block_type(
 	__DIR__,
 	[
-		'editor_script'   => 'snow-monkey-blocks/contents-outline/editor',
 		'render_callback' => function( $attributes, $content ) {
 			return DynamicBlocks::render( 'contents-outline', $attributes, $content );
 		},

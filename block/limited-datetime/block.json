@@ -36,5 +36,8 @@
         }
       }
     ]
-  }
+  },
+  "version": "14.0.0",
+  "editorStyle": "file:../../dist/block/limited-datetime/editor.css",
+  "editorScript": "file:../../dist/block/limited-datetime/editor.js"
 }

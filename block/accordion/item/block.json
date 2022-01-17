@@ -21,5 +21,7 @@
   "supports": {
     "html": false,
     "className": true
-  }
+  },
+  "version": "14.0.0",
+  "editorScript": "file:../../../dist/block/accordion/item/editor.js"
 }

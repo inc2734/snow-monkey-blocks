@@ -20,5 +20,8 @@
   },
   "supports": {
     "html": false
-  }
+  },
+  "version": "14.0.0",
+  "style": "file:../../dist/block/countdown/style.css",
+  "editorScript": "file:../../dist/block/countdown/editor.js"
 }

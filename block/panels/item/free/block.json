@@ -7,5 +7,7 @@
   "parent": [ "snow-monkey-blocks/panels" ],
   "supports": {
     "html": false
-  }
+  },
+  "version": "14.0.0",
+  "editorScript": "file:../../../../dist/block/panels/item/free/editor.js"
 }

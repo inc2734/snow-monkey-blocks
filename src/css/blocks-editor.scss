@@ -2,8 +2,7 @@
 
 @import 'core/block';
 
-.editor-styles-wrapper,
-.customize-control-sidebar_block_editor {
+html :where(.editor-styles-wrapper, .customize-control-sidebar_block_editor) {
   .#{$_prefix}c-row[data-columns],
   .#{$_prefix}c-row--margin {
     > .block-list-appender {
@@ -24,14 +23,12 @@
   }
 }
 
-.block-editor-block-list__block.#{ $_prefix }c-row__col {
+html :where(.block-editor-block-list__block.#{ $_prefix }c-row__col) {
   margin-top: 0;
 }
 
-&.#{$_prefix}c-row--margin {
-  > [data-type^="snow-monkey-blocks"] {
-    @include _row__col--margin(1);
-  }
+html :where(.#{ $_prefix }c-row--margin > [data-type^="snow-monkey-blocks"]) {
+  @include _row__col--margin(1);
 }
 
 [data-type^="snow-monkey-blocks"] {

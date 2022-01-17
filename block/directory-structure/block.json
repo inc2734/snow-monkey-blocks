@@ -1,7 +1,6 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/directory-structure",
-
 	"title": "Directory structure",
 	"description": "Display a list of directories and files",
   "category": "smb",
@@ -51,5 +50,8 @@
         ]
       }
     ]
-  }
+  },
+  "version": "14.0.0",
+  "style": "file:../../dist/block/directory-structure/style.css",
+  "editorScript": "file:../../dist/block/directory-structure/editor.js"
 }

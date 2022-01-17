@@ -25,5 +25,8 @@
         }
       }
     ]
-  }
+  },
+  "version": "14.0.0",
+  "style": "file:../../dist/block/container/style.css",
+  "editorScript": "file:../../dist/block/container/editor.js"
 }

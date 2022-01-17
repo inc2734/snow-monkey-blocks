@@ -38,5 +38,9 @@
         }
       }
     ]
-  }
+  },
+  "version": "14.0.0",
+  "style": "file:../../dist/block/testimonial/style.css",
+  "editorScript": "file:../../dist/block/testimonial/editor.js",
+  "editorStyle": "file:../../dist/block/testimonial/editor.css"
 }

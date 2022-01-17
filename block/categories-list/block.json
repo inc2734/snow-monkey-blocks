@@ -1,7 +1,6 @@
 {
   "apiVersion": 2,
   "name": "snow-monkey-blocks/categories-list",
-
 	"title": "Categories list",
 	"description": "This is a block that displays a list of categories",
   "category": "smb",
@@ -25,5 +24,8 @@
   },
   "supports": {
     "html": false
-  }
+  },
+  "version": "14.0.0",
+  "style": "file:../../dist/block/categories-list/style.css",
+  "editorScript": "file:../../dist/block/categories-list/editor.js"
 }

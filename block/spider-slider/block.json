@@ -107,5 +107,9 @@
   },
   "supports": {
     "align": [ "wide", "full" ]
-  }
+  },
+  "version": "14.0.0",
+  "style": "file:../../dist/block/spider-slider/style.css",
+  "editorScript": "file:../../dist/block/spider-slider/editor.js",
+  "editorStyle": "file:../../dist/block/spider-slider/editor.css"
 }

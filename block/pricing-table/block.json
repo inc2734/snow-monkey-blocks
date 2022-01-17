@@ -15,5 +15,8 @@
   },
   "supports": {
     "html": false
-  }
+  },
+  "version": "14.0.0",
+  "style": "file:../../dist/block/pricing-table/style.css",
+  "editorScript": "file:../../dist/block/pricing-table/editor.js"
 }

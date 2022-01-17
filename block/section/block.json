@@ -172,5 +172,8 @@
         }
       }
     ]
-  }
+  },
+  "version": "14.0.0",
+  "style": "file:../../dist/block/section/style.css",
+  "editorScript": "file:../../dist/block/section/editor.js"
 }

@@ -100,15 +100,6 @@ class Assets {
 	 * @return void
 	 */
 	public function _enqueue_block_editor_assets() {
-		$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/blocks.asset.php' );
-		wp_enqueue_script(
-			'snow-monkey-blocks-editor',
-			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/blocks.js',
-			$asset['dependencies'],
-			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/blocks.js' ),
-			true
-		);
-
 		wp_enqueue_style(
 			'snow-monkey-blocks-editor-wrapper',
 			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/css/blocks-editor-wrapper.css',
@@ -122,22 +113,6 @@ class Assets {
 			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/css/blocks-editor.css',
 			$editor_style_dependencies,
 			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/blocks-editor.css' )
-		);
-
-		wp_set_script_translations(
-			'snow-monkey-blocks-editor',
-			'snow-monkey-blocks',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/languages'
-		);
-
-		wp_localize_script(
-			'snow-monkey-blocks-editor',
-			'smb',
-			[
-				'pluginUrl' => SNOW_MONKEY_BLOCKS_DIR_URL,
-				'pluginDir' => SNOW_MONKEY_BLOCKS_DIR_PATH,
-				'isPro'     => Blocks\is_pro(),
-			]
 		);
 	}
 

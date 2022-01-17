@@ -23,5 +23,10 @@
   },
   "supports": {
     "anchor": true
-  }
+  },
+  "version": "14.0.0",
+  "style": [
+    "slick-carousel-theme"
+  ],
+  "editorScript": "file:../../dist/block/pickup-slider/editor.js"
 }

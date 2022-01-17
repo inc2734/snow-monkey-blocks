@@ -107,5 +107,12 @@
   "supports": {
     "align": [ "wide", "full" ],
     "anchor": true
-  }
+  },
+  "version": "14.0.0",
+  "style": [
+    "snow-monkey-blocks/section",
+    "file:../../dist/block/section-with-bgvideo/style.css"
+  ],
+  "editorScript": "file:../../dist/block/section-with-bgvideo/editor.js",
+  "editorStyle": "file:../../dist/block/section-with-bgvideo/editor.css"
 }
