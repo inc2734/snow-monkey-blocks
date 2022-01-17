@@ -60,6 +60,6 @@
   },
   "version": "14.0.0",
   "style": "file:../../dist/block/btn/style.css",
-  "editor": "file:../../dist/block/btn/editor.css",
+  "editorStyle": "file:../../dist/block/btn/editor.css",
   "editorScript": "file:../../dist/block/btn/editor.js"
 }

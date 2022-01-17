@@ -65,5 +65,6 @@
     "spider",
     "file:../../dist/block/spider-contents-slider/style.css"
   ],
-  "editorScript": "file:../../dist/block/spider-contents-slider/editor.js"
+  "editorScript": "file:../../dist/block/spider-contents-slider/editor.js",
+  "editorStyle": "file:../../dist/block/spider-contents-slider/editor.css"
 }

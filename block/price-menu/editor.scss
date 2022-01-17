@@ -1,16 +1,5 @@
 @charset 'utf-8';
 
-// .editor-styles-wrapper,
-// .customize-control-sidebar_block_editor {
-//   @import 'style';
-
-//   .smb-price-menu {
-//     &__item:not(:first-child) {
-//       margin-top: 2px; // Required to show the appender between items
-//     }
-//   }
-// }
-
 .smb-price-menu {
   &__item:not(:first-child) {
     margin-top: 2px; // Required to show the appender between items
