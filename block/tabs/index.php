@@ -7,9 +7,20 @@
 
 use Snow_Monkey\Plugin\Blocks;
 
-/**
- * script
- */
+wp_register_style(
+	'snow-monkey-blocks/tabs',
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/tabs/style.css',
+	[],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/tabs/style.css' )
+);
+
+wp_register_style(
+	'snow-monkey-blocks/tabs/editor',
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/tabs/editor.css',
+	[ 'snow-monkey-blocks/tabs' ],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/tabs/editor.css' )
+);
+
 wp_register_script(
 	'snow-monkey-blocks/tabs',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/tabs/script.js',

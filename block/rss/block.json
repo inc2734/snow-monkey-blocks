@@ -48,6 +48,5 @@
   "supports": {
     "anchor": true
   },
-  "version": "14.0.0",
   "editorScript": "file:../../dist/block/rss/editor.js"
 }

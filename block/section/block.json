@@ -173,7 +173,6 @@
       }
     ]
   },
-  "version": "14.0.0",
-  "style": "file:../../dist/block/section/style.css",
+  "style": "snow-monkey-blocks/section",
   "editorScript": "file:../../dist/block/section/editor.js"
 }

@@ -20,6 +20,8 @@
     }
 
     > img {
+      height: 100%;
+
       @include _media-min(lg) {
         display: none;
       }

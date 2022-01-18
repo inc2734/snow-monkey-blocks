@@ -108,7 +108,6 @@
   "supports": {
     "anchor": true
   },
-  "version": "14.0.0",
-  "style": "file:../../dist/block/media-text/style.css",
+  "style": "snow-monkey-blocks/media-text",
   "editorScript": "file:../../dist/block/media-text/editor.js"
 }

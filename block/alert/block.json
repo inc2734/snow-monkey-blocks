@@ -36,7 +36,6 @@
       "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>"
     }
   },
-  "version": "14.0.0",
-  "style": "file:../../dist/block/alert/style.css",
+  "style": "snow-monkey-blocks/alert",
   "editorScript": "file:../../dist/block/alert/editor.js"
 }

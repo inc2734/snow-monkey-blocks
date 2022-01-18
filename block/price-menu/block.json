@@ -25,8 +25,7 @@
       }
     ]
   },
-  "version": "14.0.0",
-  "style": "file:../../dist/block/price-menu/style.css",
-  "editorScript": "file:../../dist/block/price-menu/editor.js",
-  "editorStyle": "file:../../dist/block/price-menu/editor.css"
+  "style": "snow-monkey-blocks/price-menu",
+  "editorStyle": "snow-monkey-blocks/price-menu/editor",
+  "editorScript": "file:../../dist/block/price-menu/editor.js"
 }

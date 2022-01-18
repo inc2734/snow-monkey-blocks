@@ -36,7 +36,6 @@
   "supports": {
     "html": false
   },
-  "version": "14.0.0",
-  "style": "file:../../dist/block/items/style.css",
+  "style": "snow-monkey-blocks/items",
   "editorScript": "file:../../dist/block/items/editor.js"
 }

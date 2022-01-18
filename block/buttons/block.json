@@ -32,7 +32,6 @@
       }
     ]
   },
-  "version": "14.0.0",
-  "style": "file:../../dist/block/buttons/style.css",
+  "style": "snow-monkey-blocks/buttons",
   "editorScript": "file:../../dist/block/buttons/editor.js"
 }

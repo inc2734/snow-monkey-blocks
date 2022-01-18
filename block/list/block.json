@@ -28,8 +28,7 @@
       "content": "<li>Lorem ipsum dolor sit amet</li><li>consectetur adipiscing elit</li><li>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</li>"
     }
   },
-  "version": "14.0.0",
-  "style": "file:../../dist/block/list/style.css",
-  "editorStyle": "file:../../dist/block/list/editor.css",
+  "style": "snow-monkey-blocks/list",
+  "editorStyle": "snow-monkey-blocks/list/editor",
   "editorScript": "file:../../dist/block/list/editor.js"
 }

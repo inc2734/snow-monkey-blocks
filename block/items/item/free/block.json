@@ -8,6 +8,5 @@
   "supports": {
     "html": false
   },
-  "version": "14.0.0",
   "editorScript": "file:../../../../dist/block/items/item/free/editor.js"
 }

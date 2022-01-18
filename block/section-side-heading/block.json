@@ -153,10 +153,6 @@
       }
     ]
   },
-  "version": "14.0.0",
-  "style": [
-    "snow-monkey-blocks/section",
-    "file:../../dist/block/section-side-heading/style.css"
-  ],
+  "style": "snow-monkey-blocks/section-side-heading",
   "editorScript": "file:../../dist/block/section-side-heading/editor.js"
 }

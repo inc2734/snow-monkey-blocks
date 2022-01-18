@@ -39,7 +39,6 @@
       }
     ]
   },
-  "version": "14.0.0",
-  "style": "file:../../dist/block/faq/style.css",
+  "style": "snow-monkey-blocks/faq",
   "editorScript": "file:../../dist/block/faq/editor.js"
 }

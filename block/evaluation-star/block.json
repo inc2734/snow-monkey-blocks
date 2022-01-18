@@ -40,7 +40,6 @@
       "isDisplayNumeric": true
     }
   },
-  "version": "14.0.0",
-  "style": "file:../../dist/block/evaluation-star/style.css",
+  "style": "snow-monkey-blocks/evaluation-star",
   "editorScript": "file:../../dist/block/evaluation-star/editor.js"
 }

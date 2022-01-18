@@ -43,8 +43,7 @@
       }
     ]
   },
-  "version": "14.0.0",
-  "style": "file:../../dist/block/accordion/style.css",
-  "editorStyle": "file:../../dist/block/accordion/editor.css",
+  "style": "snow-monkey-blocks/accordion",
+  "editorStyle": "snow-monkey-blocks/accordion/editor",
   "editorScript": "file:../../dist/block/accordion/editor.js"
 }

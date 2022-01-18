@@ -75,6 +75,5 @@
       "termId": 0
     }
   },
-  "version": "14.0.0",
   "editorScript": "file:../../dist/block/taxonomy-posts/editor.js"
 }

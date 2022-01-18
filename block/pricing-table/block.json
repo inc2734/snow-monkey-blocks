@@ -16,7 +16,6 @@
   "supports": {
     "html": false
   },
-  "version": "14.0.0",
-  "style": "file:../../dist/block/pricing-table/style.css",
+  "style": "snow-monkey-blocks/pricing-table",
   "editorScript": "file:../../dist/block/pricing-table/editor.js"
 }

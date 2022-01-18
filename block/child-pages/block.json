@@ -45,6 +45,5 @@
   "supports": {
     "html": false
   },
-  "version": "14.0.0",
   "editorScript": "file:../../dist/block/child-pages/editor.js"
 }

@@ -51,7 +51,6 @@
       }
     ]
   },
-  "version": "14.0.0",
-  "style": "file:../../dist/block/directory-structure/style.css",
+  "style": "snow-monkey-blocks/directory-structure",
   "editorScript": "file:../../dist/block/directory-structure/editor.js"
 }

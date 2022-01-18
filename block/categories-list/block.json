@@ -25,7 +25,6 @@
   "supports": {
     "html": false
   },
-  "version": "14.0.0",
-  "style": "file:../../dist/block/categories-list/style.css",
+  "style": "snow-monkey-blocks/categories-list",
   "editorScript": "file:../../dist/block/categories-list/editor.js"
 }

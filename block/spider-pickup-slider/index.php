@@ -7,9 +7,13 @@
 
 use Snow_Monkey\Plugin\Blocks\App\DynamicBlocks;
 
-/**
- * script
- */
+wp_register_style(
+	'snow-monkey-blocks/spider-pickup-slider',
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/spider-pickup-slider/style.css',
+	[ 'spider' ],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/spider-pickup-slider/style.css' )
+);
+
 wp_register_script(
 	'snow-monkey-blocks/spider-pickup-slider',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/spider-pickup-slider/script.js',

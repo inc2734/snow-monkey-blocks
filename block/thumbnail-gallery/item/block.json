@@ -52,6 +52,5 @@
   "supports": {
     "html": false
   },
-  "version": "14.0.0",
   "editorScript": "file:../../../dist/block/thumbnail-gallery/item/editor.js"
 }

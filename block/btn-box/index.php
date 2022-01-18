@@ -5,6 +5,13 @@
  * @license GPL-2.0+
  */
 
+wp_register_style(
+	'snow-monkey-blocks/btn-box',
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/btn-box/style.css',
+	[ 'snow-monkey-blocks/btn' ],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/btn-box/style.css' )
+);
+
 register_block_type(
 	__DIR__
 );

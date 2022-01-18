@@ -26,7 +26,6 @@
       }
     ]
   },
-  "version": "14.0.0",
-  "style": "file:../../dist/block/container/style.css",
+  "style": "snow-monkey-blocks/container",
   "editorScript": "file:../../dist/block/container/editor.js"
 }

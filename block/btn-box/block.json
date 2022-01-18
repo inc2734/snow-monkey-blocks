@@ -69,7 +69,6 @@
       "btnURL": "https://2inc.org"
     }
   },
-  "version": "14.0.0",
-  "style": "file:../../dist/block/btn-box/style.css",
+  "style": "snow-monkey-blocks/btn-box",
   "editorScript": "file:../../dist/block/btn-box/editor.js"
 }

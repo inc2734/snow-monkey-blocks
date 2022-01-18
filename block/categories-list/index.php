@@ -7,9 +7,13 @@
 
 use Snow_Monkey\Plugin\Blocks\App\DynamicBlocks;
 
-/**
- * script
- */
+wp_register_style(
+	'snow-monkey-blocks/categories-list',
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/categories-list/style.css',
+	[],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/categories-list/style.css' )
+);
+
 wp_register_script(
 	'snow-monkey-blocks/categories-list',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/categories-list/script.js',

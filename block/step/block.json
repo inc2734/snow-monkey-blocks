@@ -39,7 +39,6 @@
       }
     ]
   },
-  "version": "14.0.0",
-  "style": "file:../../dist/block/step/style.css",
+  "style": "snow-monkey-blocks/step",
   "editorScript": "file:../../dist/block/step/editor.js"
 }

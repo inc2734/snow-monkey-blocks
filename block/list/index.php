@@ -5,9 +5,20 @@
  * @license GPL-2.0+
  */
 
-/**
- * script
- */
+wp_register_style(
+	'snow-monkey-blocks/list',
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/list/style.css',
+	[],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/list/style.css' )
+);
+
+wp_register_style(
+	'snow-monkey-blocks/list/editor',
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/list/editor.css',
+	[],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/list/editor.css' )
+);
+
 wp_register_script(
 	'snow-monkey-blocks/list',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/list/script.js',

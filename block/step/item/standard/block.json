@@ -83,6 +83,5 @@
     "anchor": true,
     "inserter": false
   },
-  "version": "14.0.0",
   "editorScript": "file:../../../../dist/block/step/item/standard/editor.js"
 }

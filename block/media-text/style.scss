@@ -59,4 +59,8 @@
       }
     }
   }
+
+  &__body {
+    @include _content();
+  }
 }

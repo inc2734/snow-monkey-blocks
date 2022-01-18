@@ -24,7 +24,6 @@
   "supports": {
     "anchor": true
   },
-  "version": "14.0.0",
   "style": [
     "slick-carousel-theme"
   ],

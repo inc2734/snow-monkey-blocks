@@ -29,6 +29,5 @@
   },
   "example": {
   },
-  "version": "14.0.0",
   "editorScript": "file:../../../dist/block/tabs/tab-panel/editor.js"
 }

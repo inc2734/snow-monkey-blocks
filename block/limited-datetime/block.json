@@ -37,7 +37,6 @@
       }
     ]
   },
-  "version": "14.0.0",
-  "editorStyle": "file:../../dist/block/limited-datetime/editor.css",
+  "editorStyle": "snow-monkey-blocks/limited-datetime/editor",
   "editorScript": "file:../../dist/block/limited-datetime/editor.js"
 }

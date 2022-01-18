@@ -32,7 +32,6 @@
   "supports": {
     "html": false
   },
-  "version": "14.0.0",
-  "style": "file:../../dist/block/panels/style.css",
+  "style": "snow-monkey-blocks/panels",
   "editorScript": "file:../../dist/block/panels/editor.js"
 }

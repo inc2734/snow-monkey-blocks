@@ -65,10 +65,6 @@
   "supports": {
     "align": [ "wide", "full" ]
   },
-  "version": "14.0.0",
-  "style": [
-    "slick-carousel-theme",
-    "file:../../dist/block/slider/style.css"
-  ],
+  "style": "snow-monkey-blocks/slider",
   "editorScript": "file:../../dist/block/slider/editor.js"
 }

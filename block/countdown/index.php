@@ -5,9 +5,13 @@
  * @license GPL-2.0+
  */
 
-/**
- * script
- */
+wp_register_style(
+	'snow-monkey-blocks/countdown',
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/countdown/style.css',
+	[],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/countdown/style.css' )
+);
+
 wp_register_script(
 	'snow-monkey-blocks/countdown',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/countdown/script.js',

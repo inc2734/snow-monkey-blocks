@@ -7,6 +7,18 @@
 
 use Snow_Monkey\Plugin\Blocks;
 
+wp_register_style(
+	'snow-monkey-blocks/section-break-the-grid',
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-break-the-grid/style.css',
+	[ 'snow-monkey-blocks/section' ]
+);
+
+wp_register_style(
+	'snow-monkey-blocks/section-break-the-grid/editor',
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-break-the-grid/editor.css',
+	[ 'snow-monkey-blocks/section-break-the-grid' ]
+);
+
 register_block_type(
 	__DIR__
 );

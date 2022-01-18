@@ -8,6 +8,13 @@
 use Snow_Monkey\Plugin\Blocks;
 use Snow_Monkey\Plugin\Blocks\App\DynamicBlocks;
 
+wp_register_style(
+	'snow-monkey-blocks/taxonomy-terms',
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/taxonomy-terms/style.css',
+	[],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/taxonomy-terms/style.css' )
+);
+
 register_block_type(
 	__DIR__,
 	[

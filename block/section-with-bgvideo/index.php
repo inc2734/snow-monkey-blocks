@@ -7,9 +7,20 @@
 
 use Snow_Monkey\Plugin\Blocks;
 
-/**
- * script
- */
+wp_register_style(
+	'snow-monkey-blocks/section-with-bgvideo',
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-with-bgvideo/style.css',
+	[ 'snow-monkey-blocks/section', 'snow-monkey-blocks/section-with-bgimage' ],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-with-bgvideo/style.css' )
+);
+
+wp_register_style(
+	'snow-monkey-blocks/section-with-bgvideo/editor',
+	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-with-bgvideo/editor.css',
+	[ 'snow-monkey-blocks/section-with-bgvideo' ],
+	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/block/section-with-bgvideo/editor.css' )
+);
+
 wp_register_script(
 	'snow-monkey-blocks/section-with-bgvideo',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/block/section-with-bgvideo/script.js',

@@ -240,11 +240,7 @@
     "align": [ "wide", "full" ],
     "anchor": true
   },
-  "version": "14.0.0",
-  "style": [
-    "snow-monkey-blocks/section",
-    "file:../../dist/block/section-break-the-grid/style.css"
-  ],
-  "editorScript": "file:../../dist/block/section-break-the-grid/editor.js",
-  "editorStyle": "file:../../dist/block/section-break-the-grid/editor.css"
+  "style": "snow-monkey-blocks/section-break-the-grid",
+  "editorStyle": "snow-monkey-blocks/section-break-the-grid/editor",
+  "editorScript": "file:../../dist/block/section-break-the-grid/editor.js"
 }

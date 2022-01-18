@@ -32,7 +32,6 @@
       }
     ]
   },
-  "version": "14.0.0",
-  "style": "file:../../dist/block/rating-box/style.css",
+  "style": "snow-monkey-blocks/rating-box",
   "editorScript": "file:../../dist/block/rating-box/editor.js"
 }
