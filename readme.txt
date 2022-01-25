@@ -2,9 +2,9 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 14.0.0-beta2
-Requires at least: 5.9-RC3
-Tested up to: 5.9-RC3
+Stable tag: 14.0.0
+Requires at least: 5.9
+Tested up to: 5.9
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -108,6 +108,19 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 24. Tabs block (The number of tab can be increased or decreased freely)
 
 == Changelog ==
+
+= 14.0.0 =
+* Requires WordPress 5.9 or later.
+* End of support for ie11.
+* Changes due to changes in WordPress 5.9.
+* Renamed and order of the settings panel for each block.
+* Renamed the child blocks of each block.
+* [Balloon] Moved avatar position settings to the block toolbar.
+* [Panel] Moved image position settings to the block toolbar.
+* [Items:banner] Fixed a bug that images were not being used as `cover`.
+* [Items:banner] Fixed a bug where an unwanted margin would appear at the top of the image when the image size was 4:3.
+* [Contents slider] Fixed a bug where the background color was not reflected when set to a gradient.
+* [Section (Break the grid)] Fixed a bug where the image would disappear when the media was moved to the top or bottom after "Adjust the height of the media to the height of the block." was enabled.
 
 = 13.7.3 =
 * [Media text] Fixed "Sort by mobile" bug.
