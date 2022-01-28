@@ -58,14 +58,4 @@ html :where(.#{ $_prefix }c-row--margin > [data-type^="snow-monkey-blocks"]) {
       margin-bottom: 0;
     }
   }
-
-  &.is-selected {
-    .block-editor-default-block-appender {
-      outline: 1px dashed rgba(145, 151, 162, .25);
-
-      @include _hover(lg) {
-        outline: 1px dashed #007cba;
-      }
-    }
-  }
 }
