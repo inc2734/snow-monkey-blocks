@@ -11,6 +11,7 @@ if ( ! shortcode_exists( 'wp_contents_outline' ) ) {
 
 $selectors = [
 	'.c-entry__content',
+	'.c-entry__content .wp-block-group',
 	'.c-entry__content .wp-block-group__inner-container',
 ];
 
