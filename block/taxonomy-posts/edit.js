@@ -1,6 +1,7 @@
 import { find, times } from 'lodash';
 
 import { useSelect } from '@wordpress/data';
+import { useMemo } from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
 import ServerSideRender from '@wordpress/server-side-render';
 
@@ -35,6 +36,7 @@ export default function ( { attributes, setAttributes } ) {
 		itemThumbnailSizeSlug,
 		forceDisplayItemMeta,
 		forceDisplayItemTerms,
+		categoryLabelTaxonomy,
 		arrows,
 		dots,
 		interval,
@@ -81,6 +83,23 @@ export default function ( { attributes, setAttributes } ) {
 		} );
 	}, [] );
 
+	const categoryLabelTaxonomyOptions = useMemo( () => {
+		const _categoryLabelTaxonomyOptions = taxonomies.map( ( _taxonomy ) => {
+			return {
+				value: _taxonomy.slug,
+				label: _taxonomy.name,
+			};
+		} );
+		_categoryLabelTaxonomyOptions.unshift( {
+			value: '',
+			label: __(
+				'Default (Taxonomy selected in this block)',
+				'snow-monkey-blocks'
+			),
+		} );
+		return _categoryLabelTaxonomyOptions;
+	}, [ taxonomies ] );
+
 	const terms = find( taxonomiesTerms, { taxonomy } );
 	const selectedTerm = !! terms
 		? find( terms.terms, [ 'id', toNumber( termId ) ] )
@@ -121,6 +140,11 @@ export default function ( { attributes, setAttributes } ) {
 	const onChangeForceDisplayItemTerms = ( value ) =>
 		setAttributes( {
 			forceDisplayItemTerms: value,
+		} );
+
+	const onChangeCategoryLabelTaxonomy = ( value ) =>
+		setAttributes( {
+			categoryLabelTaxonomy: value,
 		} );
 
 	const onChangeNoPostsText = ( value ) =>
@@ -346,6 +370,20 @@ export default function ( { attributes, setAttributes } ) {
 						) }
 						checked={ forceDisplayItemTerms }
 						onChange={ onChangeForceDisplayItemTerms }
+					/>
+
+					<SelectControl
+						label={ __(
+							'Taxonomy to use for the category label',
+							'snow-monkey-blocks'
+						) }
+						help={ __(
+							'If no category labels are displayed, this setting will be ignored.',
+							'snow-monkey-blocks'
+						) }
+						value={ categoryLabelTaxonomy }
+						options={ categoryLabelTaxonomyOptions }
+						onChange={ onChangeCategoryLabelTaxonomy }
 					/>
 
 					{ ( 'rich-media' === layout || 'panel' === layout ) && (

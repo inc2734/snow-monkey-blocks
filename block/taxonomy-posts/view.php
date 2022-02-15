@@ -23,21 +23,22 @@ if ( in_array( $attributes['layout'], [ 'rich-media', 'panel' ], true ) ) {
 }
 
 $instance = [
-	'title'               => null,
-	'taxonomy'            => $attributes['taxonomy'] . '@' . $attributes['termId'],
-	'posts-per-page'      => $attributes['postsPerPage'],
-	'layout'              => $attributes['layout'],
-	'ignore-sticky-posts' => $attributes['ignoreStickyPosts'],
-	'force-sm-1col'       => $force_sm_1col,
-	'item-title-tag'      => $attributes['itemTitleTagName'],
-	'item-thumbnail-size' => $attributes['itemThumbnailSizeSlug'],
-	'display-item-meta'   => $attributes['forceDisplayItemMeta'] ? true : null,
-	'display-item-terms'  => $attributes['forceDisplayItemTerms'] ? true : null,
-	'link-text'           => null,
-	'link-url'            => null,
-	'arrows'              => $attributes['arrows'],
-	'dots'                => $attributes['dots'],
-	'interval'            => $attributes['interval'],
+	'title'                   => null,
+	'taxonomy'                => $attributes['taxonomy'] . '@' . $attributes['termId'],
+	'posts-per-page'          => $attributes['postsPerPage'],
+	'layout'                  => $attributes['layout'],
+	'ignore-sticky-posts'     => $attributes['ignoreStickyPosts'],
+	'force-sm-1col'           => $force_sm_1col,
+	'item-title-tag'          => $attributes['itemTitleTagName'],
+	'item-thumbnail-size'     => $attributes['itemThumbnailSizeSlug'],
+	'display-item-meta'       => $attributes['forceDisplayItemMeta'] ? true : null,
+	'display-item-terms'      => $attributes['forceDisplayItemTerms'] ? true : null,
+	'category-label-taxonomy' => $attributes['categoryLabelTaxonomy'],
+	'link-text'               => null,
+	'link-url'                => null,
+	'arrows'                  => $attributes['arrows'],
+	'dots'                    => $attributes['dots'],
+	'interval'                => $attributes['interval'],
 ];
 
 $anchor = ! empty( $attributes['myAnchor'] ) ? $attributes['myAnchor'] : null; // Backward compatible

@@ -48,6 +48,10 @@
       "type": "boolean",
       "default": false
     },
+    "categoryLabelTaxonomy": {
+      "type": "string",
+      "default": ""
+    },
     "arrows": {
       "type": "boolean",
       "default": false
