@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 14.0.1
+Stable tag: 14.1.0
 Requires at least: 5.9
 Tested up to: 5.9
 Requires PHP: 5.6
@@ -108,6 +108,10 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 24. Tabs block (The number of tab can be increased or decreased freely)
 
 == Changelog ==
+
+= 14.1.0 =
+* [Slider] Fixed a bug where images were not width:100%.
+* [Taxonomy posts] Added the ability to select the taxonomy to be used for category labels.
 
 = 14.0.1 =
 * [Contents outline] Fixed a bug that headings in group blocks are not targeted in WordPress 5.9.
