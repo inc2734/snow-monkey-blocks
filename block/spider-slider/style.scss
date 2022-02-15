@@ -68,6 +68,11 @@
       @include _padding(0, .25, .5);
     }
   }
+
+  .spider__figure {
+    max-width: none;
+    width: 100%;
+  }
 }
 
 .smb-spider-slider {
