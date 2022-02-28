@@ -24,7 +24,7 @@
   .smb-tabs__down-tab {
     opacity: 0.3;
 
-    @include _hover(lg) {
+    @include _hover() {
       opacity: 1;
     }
   }

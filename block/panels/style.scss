@@ -19,7 +19,7 @@
     box-shadow: 0 0 35px 0 rgba(#000, .1);
     @include _transition(all);
 
-    @include _hover(lg) {
+    @include _hover() {
       box-shadow: 0 7px 35px 0 rgba(#000, .15);
     }
 

@@ -38,7 +38,7 @@
     text-decoration: none;
     @include _transition(opacity);
 
-    @include _hover(lg) {
+    @include _hover() {
       opacity: .8;
     }
   }
@@ -79,7 +79,7 @@
     &--block-link {
       @include _transition(filter);
 
-      @include _hover(lg) {
+      @include _hover() {
         filter: brightness(90%);
       }
 
@@ -125,7 +125,7 @@
   background-color: _var-color-white();
   color: _var-color-white();
 
-  @include _hover(lg) {
+  @include _hover() {
     .smb-items__banner__figure {
       filter: brightness(80%);
     }
