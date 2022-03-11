@@ -2,8 +2,6 @@ import classnames from 'classnames';
 
 import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
-import { getVideoId } from './utils';
-
 import { SectionBackground } from '../section/components/background';
 import { Save as Header } from '../section/components/header';
 
@@ -11,9 +9,6 @@ export default function ( { attributes, className } ) {
 	const {
 		align,
 
-		videoURL,
-		videoWidth,
-		videoHeight,
 		contentsAlignment,
 		maskColor,
 		maskGradientColor,
@@ -126,30 +121,7 @@ export default function ( { attributes, className } ) {
 				className="smb-section-with-bgimage__mask"
 				style={ maskStyles }
 			/>
-			<div className={ bgvideoClasses } style={ bgvideoStyles }>
-				{ videoURL && (
-					<>
-						<iframe
-							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-							src={ `https://www.youtube.com/embed/${ getVideoId(
-								videoURL
-							) }?controls=0&autoplay=1&showinfo=0&rel=0&disablekb=1&iv_load_policy=3&loop=1&playlist=${ getVideoId(
-								videoURL
-							) }&playsinline=1&modestbranding=1&mute=1` }
-							width={ videoWidth }
-							height={ videoHeight }
-							frameBorder="0"
-							title={ videoURL }
-						/>
-						<img
-							src={ `https://i.ytimg.com/vi/${ getVideoId(
-								videoURL
-							) }/maxresdefault.jpg` }
-							alt=""
-						/>
-					</>
-				) }
-			</div>
+			<div className={ bgvideoClasses } style={ bgvideoStyles }></div>
 
 			<SectionBackground
 				{ ...{

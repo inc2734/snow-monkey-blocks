@@ -4,27 +4,8 @@
 
 .smb-section-with-bgvideo {
   > .smb-section-with-bgimage__bgimage {
-    > iframe {
-      max-height: none;
-      max-width: none;
-      min-height: auto;
-      min-width: auto;
-      display: none;
-
-      @include _media-min(lg) {
-        display: block;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-    }
-
-    > img {
-      height: 100%;
-
-      @include _media-min(lg) {
-        display: none;
-      }
+    > * {
+      display: none !important;
     }
   }
 }

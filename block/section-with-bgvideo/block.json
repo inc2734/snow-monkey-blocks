@@ -4,6 +4,7 @@
 	"title": "Section (with background YouTube video)",
 	"description": "It is a section with a background YouTube video.",
   "category": "smb-section",
+  "parent": [ "DEPRECATED" ],
   "attributes": {
     "videoURL": {
       "type": "string",

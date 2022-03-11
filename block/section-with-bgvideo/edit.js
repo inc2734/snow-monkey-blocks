@@ -26,7 +26,6 @@ import { __ } from '@wordpress/i18n';
 
 import { toNumber } from '@smb/helper';
 import { useMultipleOriginColorsAndGradients } from '@smb/hooks';
-import { getVideoId } from './utils';
 
 import { PanelBasicSettings } from '../section/components/basic';
 import { Edit as Header } from '../section/components/header';
@@ -497,16 +496,7 @@ export default function ( {
 					className="smb-section-with-bgimage__mask"
 					style={ maskStyles }
 				/>
-				<div className={ bgvideoClasses } style={ bgvideoStyles }>
-					{ videoURL && (
-						<img
-							src={ `https://i.ytimg.com/vi/${ getVideoId(
-								videoURL
-							) }/maxresdefault.jpg` }
-							alt=""
-						/>
-					) }
-				</div>
+				<div className={ bgvideoClasses } style={ bgvideoStyles }></div>
 
 				<SectionBackground
 					{ ...{
