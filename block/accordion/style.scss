@@ -52,6 +52,10 @@
       width: 100% !important;
       opacity: 0 !important;
       outline: none !important;
+      &:focus-visible {
+        opacity: 1!important;
+        outline: 1px solid !important;
+      }
     }
 
     &__body {
