@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 15.0.0
+Stable tag: 15.0.1
 Requires at least: 5.9
 Tested up to: 5.9
 Requires PHP: 5.6
@@ -107,6 +107,15 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 24. Tabs block (The number of tab can be increased or decreased freely)
 
 == Changelog ==
+
+= 15.0.1 =
+* [Contents slider] Fixed a bug where scrolling down the page after sliding an item could cause the slide to go back to the first one.
+* [Section] Fixed a bug where the bottom of the background text could not be set correctly.
+* [Section (Break the grid)] Fixed a bug where the bottom of the background text could not be set correctly.
+* [Section (Side heading)] Fixed a bug where the bottom of the background text could not be set correctly.
+* [Section (Background image/video)] Fixed a bug where the bottom of the background text could not be set correctly.
+
+【セクション】【セクション（ブロークングリッド）】【セクション（サイド見出し）】【セクション（背景画像/動画）】背景テキストの下基準位置がおかしい
 
 = 15.0.0 =
 * [Section (YouTube)] Abolition.
