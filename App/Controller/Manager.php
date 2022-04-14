@@ -80,7 +80,7 @@ class Manager {
 	 * Initialize available blocks settings.
 	 */
 	public function _init_available_blocks_settings() {
-		if ( ! $this->_is_option_page() ) {
+		if ( ! $this->_is_option_page() && ! $this->_is_options_page() ) {
 			return;
 		}
 
@@ -196,6 +196,7 @@ class Manager {
 				'parent' => ! empty( $data->parent ) ? $data->parent : [],
 			];
 		}
+		ksort( $blocks );
 
 		return array_filter(
 			$blocks,
@@ -234,6 +235,21 @@ class Manager {
 			get_site_url(),
 			'',
 			admin_url( '/options-general.php?page=' . static::MENU_SLUG )
+		);
+
+		return 0 === strpos( $_SERVER['REQUEST_URI'], $option_page_slug );
+	}
+
+	/**
+	 * Return true is options page.
+	 *
+	 * @return boolean
+	 */
+	protected function _is_options_page() {
+		$option_page_slug = str_replace(
+			get_site_url(),
+			'',
+			admin_url( '/options.php' )
 		);
 
 		return $_SERVER['REQUEST_URI'] === $option_page_slug;

@@ -225,16 +225,6 @@ class Assets {
 			[],
 			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/admin.css' )
 		);
-
-		wp_localize_script(
-			'snow-monkey-blocks-admin',
-			'smb',
-			[
-				'pluginUrl' => SNOW_MONKEY_BLOCKS_DIR_URL,
-				'pluginDir' => SNOW_MONKEY_BLOCKS_DIR_PATH,
-				'isPro'     => Blocks\is_pro(),
-			]
-		);
 	}
 
 	/**
@@ -246,7 +236,7 @@ class Assets {
 var smb = {
 	pluginUrl: '<?php echo esc_attr( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>',
 	pluginDir: '<?php echo esc_attr( SNOW_MONKEY_BLOCKS_DIR_PATH ); ?>',
-	isPro: <?php echo esc_attr( Blocks\is_pro() ); ?>,
+	isPro: <?php echo esc_attr( Blocks\is_pro() ? 'true' : 'false' ); ?>,
 };
 </script>
 			<?php
