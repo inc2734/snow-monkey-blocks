@@ -80,6 +80,10 @@ class Manager {
 	 * Initialize available blocks settings.
 	 */
 	public function _init_available_blocks_settings() {
+		if ( ! $this->_is_option_page() ) {
+			return;
+		}
+
 		$blocks = $this->get_blocks();
 
 		if ( ! get_option( self::AVAILABLE_BLOCKS_NAME ) ) {
@@ -148,13 +152,7 @@ class Manager {
 	 * unregister_block_type() on front-end and post edit page.
 	 */
 	public function _unregister_block_type() {
-		$option_page_slug = str_replace(
-			get_site_url(),
-			'',
-			admin_url( '/options-general.php?page=' . static::MENU_SLUG )
-		);
-
-		if ( $_SERVER['REQUEST_URI'] === $option_page_slug ) {
+		if ( $this->_is_option_page() ) {
 			return;
 		}
 
@@ -179,7 +177,26 @@ class Manager {
 	 * @return array
 	 */
 	protected function get_blocks() {
-		$blocks = WP_Block_Type_Registry::get_instance()->get_all_registered();
+		$iterator = new \RecursiveDirectoryIterator( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block', \FilesystemIterator::SKIP_DOTS );
+		$iterator = new \RecursiveIteratorIterator( $iterator );
+		$blocks   = [];
+		foreach ( $iterator as $file ) {
+			if ( ! $file->isFile() ) {
+				continue;
+			}
+
+			if ( 'block.json' !== $file->getBasename() ) {
+				continue;
+			}
+
+			$data                  = json_decode( file_get_contents( realpath( $file->getPathname() ) ) );
+			$blocks[ $data->name ] = (object) [
+				'name'   => $data->name,
+				'title'  => $data->title,
+				'parent' => ! empty( $data->parent ) ? $data->parent : [],
+			];
+		}
+
 		return array_filter(
 			$blocks,
 			function( $block_type ) {
@@ -205,5 +222,20 @@ class Manager {
 		}
 
 		return isset( $option[ $key ] ) ? (int) $option[ $key ] : false;
+	}
+
+	/**
+	 * Return true is option page.
+	 *
+	 * @return boolean
+	 */
+	protected function _is_option_page() {
+		$option_page_slug = str_replace(
+			get_site_url(),
+			'',
+			admin_url( '/options-general.php?page=' . static::MENU_SLUG )
+		);
+
+		return $_SERVER['REQUEST_URI'] === $option_page_slug;
 	}
 }
