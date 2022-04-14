@@ -56,15 +56,5 @@ class TextDomain {
 			'snow-monkey-blocks',
 			SNOW_MONKEY_BLOCKS_DIR_PATH . '/languages'
 		);
-
-		wp_localize_script(
-			'snow-monkey-blocks-editor',
-			'smb',
-			[
-				'pluginUrl' => SNOW_MONKEY_BLOCKS_DIR_URL,
-				'pluginDir' => SNOW_MONKEY_BLOCKS_DIR_PATH,
-				'isPro'     => Blocks\is_pro(),
-			]
-		);
 	}
 }

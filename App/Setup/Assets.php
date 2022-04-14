@@ -21,6 +21,7 @@ class Assets {
 		add_action( 'enqueue_block_assets', [ $this, '_enqueue_block_assets' ] );
 		add_filter( 'render_block', [ $this, '_enqueue_block_scripts' ], 10, 2 );
 		add_action( 'admin_enqueue_scripts', [ $this, '_admin_enqueue_scripts' ] );
+		add_action( 'admin_print_scripts', [ $this, '_admin_print_scripts' ] );
 	}
 
 	/**
@@ -224,5 +225,30 @@ class Assets {
 			[],
 			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/admin.css' )
 		);
+
+		wp_localize_script(
+			'snow-monkey-blocks-admin',
+			'smb',
+			[
+				'pluginUrl' => SNOW_MONKEY_BLOCKS_DIR_URL,
+				'pluginDir' => SNOW_MONKEY_BLOCKS_DIR_PATH,
+				'isPro'     => Blocks\is_pro(),
+			]
+		);
+	}
+
+	/**
+	 * Add JavaScript global variables.
+	 */
+	public function _admin_print_scripts() {
+		?>
+<script>
+var smb = {
+	pluginUrl: '<?php echo esc_attr( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>',
+	pluginDir: '<?php echo esc_attr( SNOW_MONKEY_BLOCKS_DIR_PATH ); ?>',
+	isPro: <?php echo esc_attr( Blocks\is_pro() ); ?>,
+};
+</script>
+			<?php
 	}
 }
