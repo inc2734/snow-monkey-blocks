@@ -232,7 +232,7 @@ class Manager {
 	 */
 	protected function _is_option_page() {
 		$option_page_slug = str_replace(
-			get_site_url(),
+			get_home_url(),
 			'',
 			admin_url( '/options-general.php?page=' . static::MENU_SLUG )
 		);
@@ -247,7 +247,7 @@ class Manager {
 	 */
 	protected function _is_options_page() {
 		$option_page_slug = str_replace(
-			get_site_url(),
+			get_home_url(),
 			'',
 			admin_url( '/options.php' )
 		);
