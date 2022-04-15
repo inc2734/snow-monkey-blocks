@@ -231,13 +231,11 @@ class Manager {
 	 * @return boolean
 	 */
 	protected function _is_option_page() {
-		$option_page_slug = str_replace(
-			get_home_url(),
-			'',
-			admin_url( '/options-general.php?page=' . static::MENU_SLUG )
-		);
-
-		return 0 === strpos( $_SERVER['REQUEST_URI'], $option_page_slug );
+		$current_url = admin_url( '/options-general.php?page=' . static::MENU_SLUG );
+		$current_url = preg_replace( '|^(.+)?(/wp-admin/.*?)$|','$2', $current_url );
+		$request_uri = $_SERVER['REQUEST_URI'];
+		$request_uri = preg_replace( '|^(.+)?(/wp-admin/.*?)$|','$2', $request_uri );
+		return false !== strpos( $request_uri, $current_url );
 	}
 
 	/**
@@ -246,12 +244,10 @@ class Manager {
 	 * @return boolean
 	 */
 	protected function _is_options_page() {
-		$option_page_slug = str_replace(
-			get_home_url(),
-			'',
-			admin_url( '/options.php' )
-		);
-
-		return $_SERVER['REQUEST_URI'] === $option_page_slug;
+		$current_url = admin_url( '/options.php' );
+		$current_url = preg_replace( '|^(.+)?(/wp-admin/.*?)$|','$2', $current_url );
+		$request_uri = $_SERVER['REQUEST_URI'];
+		$request_uri = preg_replace( '|^(.+)?(/wp-admin/.*?)$|','$2', $request_uri );
+		return false !== strpos( $request_uri, $current_url );
 	}
 }
