@@ -90,7 +90,7 @@ export default function ( {
 		}
 	);
 
-	const styles = {
+	const newStyles = {
 		backgroundColor:
 			( ! backgroundColor && style?.color?.background ) || undefined,
 		background:
@@ -227,7 +227,7 @@ export default function ( {
 				data-content-position={
 					contentPosition?.replace( ' ', '-' ) || undefined
 				}
-				style={ styles }
+				style={ newStyles }
 			>
 				<div { ...innerBlocksProps } ref={ ref } />
 			</div>

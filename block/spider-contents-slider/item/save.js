@@ -20,9 +20,11 @@ export default function ( { attributes, className } ) {
 		[ `smb-spider-contents-slider__item--p-${ contentPadding }` ]: !! contentPadding,
 	} );
 
-	const styles = {
-		background:
+	const newStyles = {
+		backgroundColor:
 			( ! backgroundColor && style?.color?.background ) || undefined,
+		background:
+			( ! backgroundColor && style?.color?.gradient ) || undefined,
 		borderColor: border.color || undefined,
 		borderWidth: ( border.color && border.width ) || undefined,
 		borderRadius: border.radius || undefined,
@@ -41,7 +43,7 @@ export default function ( { attributes, className } ) {
 			data-content-position={
 				contentPosition?.replace( ' ', '-' ) || undefined
 			}
-			style={ styles }
+			style={ newStyles }
 		>
 			<div
 				{ ...useInnerBlocksProps.save( {

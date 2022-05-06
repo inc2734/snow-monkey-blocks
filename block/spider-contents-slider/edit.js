@@ -468,9 +468,7 @@ export default function ( {
 				) }
 
 				{ ( isSelected || !! selectedSlide ) && (
-					<div
-						className="smb-slider-pagination"
-					>
+					<div className="smb-slider-pagination">
 						{ sliderClientIds.map( ( sliderClientId, index ) => {
 							const isActive =
 								currentSliderClientId === sliderClientId ||
