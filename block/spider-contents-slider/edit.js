@@ -469,11 +469,7 @@ export default function ( {
 
 				{ ( isSelected || !! selectedSlide ) && (
 					<div
-						style={ {
-							display: 'flex',
-							gap: '3px',
-							marginTop: '1rem',
-						} }
+						className="smb-slider-pagination"
 					>
 						{ sliderClientIds.map( ( sliderClientId, index ) => {
 							const isActive =
@@ -491,7 +487,7 @@ export default function ( {
 									} }
 									key={ index }
 								>
-									{ index + 1 }
+									<span>{ index + 1 }</span>
 								</Button>
 							);
 						} ) }

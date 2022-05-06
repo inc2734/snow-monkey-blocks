@@ -129,3 +129,23 @@
     }
   }
 }
+
+.smb-slider-pagination {
+  display: flex;
+  gap: 3px;
+  margin-top: 1rem;
+
+  > .components-button {
+    padding: 12px;
+    height: auto;
+
+    > span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 24px;
+      width: 24px;
+      overflow: hidden;
+    }
+  }
+}

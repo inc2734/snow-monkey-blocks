@@ -24,19 +24,11 @@ export const settings = {
 			name: 'full-height',
 			title: __( 'Full height', 'snow-monkey-blocks' ),
 			isDefault: true,
-			icon: {
-				foreground: blockConfig.blockIconColor,
-				src: icon,
-			},
 			scope: [ 'inserter', 'transform' ],
 		},
 		{
 			name: 'alignmentable',
 			title: __( 'Alignmentable', 'snow-monkey-blocks' ),
-			icon: {
-				foreground: blockConfig.blockIconColor,
-				src: icon,
-			},
 			attributes: { contentPosition: 'center-center' },
 			scope: [ 'inserter', 'transform' ],
 		},
