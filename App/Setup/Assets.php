@@ -197,7 +197,7 @@ class Assets {
 
 		if ( apply_filters( 'snow_monkey_blocks_enqueue_fontawesome', true ) ) {
 			wp_enqueue_script(
-				'fontawesome5',
+				'fontawesome6',
 				SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/packages/fontawesome-free/js/all.min.js',
 				[],
 				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/fontawesome-free/js/all.min.js' ),
