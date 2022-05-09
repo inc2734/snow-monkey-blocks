@@ -35,11 +35,11 @@ export default function ( {
 			label: __( 'check', 'snow-monkey-blocks' ),
 		},
 		{
-			value: 'check-circle',
+			value: 'circle-check',
 			label: __( 'check-circle', 'snow-monkey-blocks' ),
 		},
 		{
-			value: 'check-square',
+			value: 'square-check',
 			label: __( 'check-square', 'snow-monkey-blocks' ),
 		},
 		{
@@ -47,7 +47,7 @@ export default function ( {
 			label: __( 'hand-point-right', 'snow-monkey-blocks' ),
 		},
 		{
-			value: 'edit',
+			value: 'pen-to-square',
 			label: __( 'edit', 'snow-monkey-blocks' ),
 		},
 		{
@@ -142,7 +142,7 @@ export default function ( {
 										key={ index }
 									>
 										<i
-											className={ `fas fa-${ iconList[ index ].value }` }
+											className={ `fa-solid fa-${ iconList[ index ].value }` }
 											title={ iconList[ index ].label }
 										/>
 									</Button>

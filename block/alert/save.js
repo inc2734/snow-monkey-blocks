@@ -14,7 +14,7 @@ export default function ( { attributes, className } ) {
 		<div { ...useBlockProps.save( { className: classes } ) }>
 			{ ! RichText.isEmpty( title ) && (
 				<div className="smb-alert__title">
-					<i className={ `fas fa-${ icon }` } />
+					<i className={ `fa-solid fa-${ icon }` } />
 					<strong>
 						<RichText.Content value={ title } />
 					</strong>

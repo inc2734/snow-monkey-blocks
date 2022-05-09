@@ -21,12 +21,12 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 			label: __( 'angle-right', 'snow-monkey-blocks' ),
 		},
 		{
-			value: 'angle-double-right',
-			label: __( 'angle-double-right', 'snow-monkey-blocks' ),
+			value: 'angles-right',
+			label: __( 'angles-right', 'snow-monkey-blocks' ),
 		},
 		{
-			value: 'arrow-alt-circle-right',
-			label: __( 'arrow-alt-circle-right', 'snow-monkey-blocks' ),
+			value: 'circle-right',
+			label: __( 'circle-right', 'snow-monkey-blocks' ),
 		},
 		{
 			value: 'arrow-right',
@@ -37,16 +37,16 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 			label: __( 'check', 'snow-monkey-blocks' ),
 		},
 		{
-			value: 'check-circle',
-			label: __( 'check-circle', 'snow-monkey-blocks' ),
+			value: 'circle-check',
+			label: __( 'circle-check', 'snow-monkey-blocks' ),
 		},
 		{
-			value: 'check-square',
-			label: __( 'check-square', 'snow-monkey-blocks' ),
+			value: 'square-check',
+			label: __( 'square-check', 'snow-monkey-blocks' ),
 		},
 		{
-			value: 'chevron-circle-right',
-			label: __( 'chevron-circle-right', 'snow-monkey-blocks' ),
+			value: 'circle-chevron-right',
+			label: __( 'circle-chevron-right', 'snow-monkey-blocks' ),
 		},
 		{
 			value: 'hand-point-right',
@@ -111,7 +111,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 										key={ index }
 									>
 										<i
-											className={ `fas fa-${ iconList[ index ].value }` }
+											className={ `fa-solid fa-${ iconList[ index ].value }` }
 											title={ iconList[ index ].label }
 										/>
 									</Button>

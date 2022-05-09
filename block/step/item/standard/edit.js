@@ -324,7 +324,7 @@ export default function ( {
 									: 'noopener noreferrer'
 							}
 						>
-							<i className="fas fa-arrow-circle-right" />
+							<i className="fas fa-circle-arrow-right" />
 							<RichText
 								className="smb-step__item__link__label"
 								placeholder={ __(

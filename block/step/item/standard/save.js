@@ -79,7 +79,7 @@ export default function ( { attributes, className } ) {
 								: 'noopener noreferrer'
 						}
 					>
-						<i className="fas fa-arrow-circle-right" />
+						<i className="fa-solid fa-circle-arrow-right" />
 						<RichText.Content
 							tagName="span"
 							className="smb-step__item__link__label"

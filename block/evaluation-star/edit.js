@@ -47,7 +47,7 @@ export default function ( {
 		}
 
 		if ( halfIconCount !== 0 ) {
-			icons.push( <FontAwesome icon="star-half-alt" key="half1" /> );
+			icons.push( <FontAwesome icon="star-half-stroke" key="half1" /> );
 		}
 
 		for ( let j = 0; j < emptyIconCount; j++ ) {

@@ -24,15 +24,21 @@ export default function ( { attributes, className } ) {
 		const halfIconCount = fillIconCount + emptyIconCount === 5 ? 0 : 1;
 
 		for ( let i = 0; i < fillIconCount; i++ ) {
-			icons.push( <i className="fas fa-star" key={ `fill${ i }` } /> );
+			icons.push(
+				<i className="fa-solid fa-star" key={ `fill${ i }` } />
+			);
 		}
 
 		if ( halfIconCount !== 0 ) {
-			icons.push( <i className="fas fa-star-half-alt" key="half1" /> );
+			icons.push(
+				<i className="fa-solid fa-star-half-stroke" key="half1" />
+			);
 		}
 
 		for ( let j = 0; j < emptyIconCount; j++ ) {
-			icons.push( <i className="far fa-star" key={ `empty${ j }` } /> );
+			icons.push(
+				<i className="fa-regular fa-star" key={ `empty${ j }` } />
+			);
 		}
 
 		return icons;

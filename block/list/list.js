@@ -1,5 +1,3 @@
-'use strict';
-
 import forEachHtmlNodes from '@inc2734/for-each-html-nodes';
 
 export function apply( list ) {
@@ -9,7 +7,7 @@ export function apply( list ) {
 	const iconHtml = document.createElement( 'i' );
 
 	iconWrapperHtml.classList.add( 'smb-list__icon' );
-	iconHtml.classList.add( 'fas' );
+	iconHtml.classList.add( 'fa-solid' );
 	iconHtml.classList.add( `fa-${ icon }` );
 
 	if ( !! iconColor ) {

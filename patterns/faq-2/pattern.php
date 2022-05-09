@@ -26,7 +26,7 @@
 							<input type="checkbox" class="smb-accordion__item__control"/>
 							<div class="smb-accordion__item__title">
 								<span class="smb-accordion__item__title__label">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
-								<div class="smb-accordion__item__title__icon"><i class="fas fa-angle-down"></i></div>
+								<div class="smb-accordion__item__title__icon"><i class="fa-solid fa-angle-down"></i></div>
 							</div>
 							<div class="smb-accordion__item__body">
 								<!-- wp:paragraph -->
@@ -40,7 +40,7 @@
 							<input type="checkbox" class="smb-accordion__item__control"/>
 							<div class="smb-accordion__item__title">
 								<span class="smb-accordion__item__title__label">sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</span>
-								<div class="smb-accordion__item__title__icon"><i class="fas fa-angle-down"></i></div>
+								<div class="smb-accordion__item__title__icon"><i class="fa-solid fa-angle-down"></i></div>
 							</div>
 							<div class="smb-accordion__item__body">
 								<!-- wp:paragraph -->

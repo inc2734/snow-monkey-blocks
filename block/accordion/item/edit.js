@@ -62,7 +62,7 @@ export default function ( { attributes, setAttributes, className } ) {
 						) }
 					/>
 					<div className="smb-accordion__item__title__icon">
-						<i className="fas fa-angle-down"></i>
+						<i className="fa-solid fa-angle-down"></i>
 					</div>
 				</div>
 
