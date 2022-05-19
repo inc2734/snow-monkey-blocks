@@ -41,7 +41,8 @@
   pointer-events: none !important;
 
   &[aria-hidden="true"] {
-    display: none;
+    visibility: hidden;
+    height: 0;
   }
 
   &__body {
