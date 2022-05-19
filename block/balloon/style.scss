@@ -60,6 +60,7 @@
     color: _var-color-text();
     overflow-wrap: break-word;
     @include _padding(1);
+    @include _content();
 
     background-color: _var-lightest-color-gray();
     border-color: _var-lightest-color-gray();
