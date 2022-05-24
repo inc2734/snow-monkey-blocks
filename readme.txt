@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 15.0.6
+Stable tag: 16.0.0
 Requires at least: 6.0
 Tested up to: 6.0
 Requires PHP: 5.6
@@ -107,6 +107,15 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 24. Tabs block (The number of tab can be increased or decreased freely)
 
 == Changelog ==
+
+= 16.0.0 =
+* Requires WordPress 6.0 or later.
+* Changes due to changes in WordPress 6.0.
+* Update FontAwesome 5 to 6.
+* [Balloon] Changed to apply margins between elements.
+* [Contents slider] Fixed a bug that blocks could be broken when selecting slides.
+* [Contents slider] Fixed a bug that sometimes prevented the correct background color from being applied to slides.
+* [Tabs] Fixed a bug that slider blocks were sometimes not displayed when they were inserted inside a slider block.
 
 = 15.0.6 =
 * Fixed a bug that prevented the block manager from working if WordPress was installed in the sub directory.
