@@ -42,7 +42,6 @@
 
   &[aria-hidden="true"] {
     visibility: hidden;
-    height: 0;
   }
 
   &__body {
@@ -118,6 +117,17 @@
   }
 }
 
+.smb-tabs[data-match-height="false"] {
+  > .smb-tabs__body {
+    > .smb-tab-panel {
+      &[aria-hidden="true"] {
+        position: absolute;
+        // height: 0;
+      }
+    }
+  }
+}
+
 .smb-tabs[data-match-height="true"] {
   > .smb-tabs__body {
     display: flex;
@@ -127,11 +137,6 @@
       position: relative;
       flex: 1 0 100%;
       max-width: 100%;
-
-      &[aria-hidden="true"] {
-        display: block;
-        visibility: hidden;
-      }
     }
   }
 }
