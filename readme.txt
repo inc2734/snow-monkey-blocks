@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 16.0.1
+Stable tag: 16.0.2
 Requires at least: 6.0
 Tested up to: 6.0
 Requires PHP: 5.6
@@ -107,6 +107,11 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 24. Tabs block (The number of tab can be increased or decreased freely)
 
 == Changelog ==
+
+= 16.0.2 =
+* [Tabs] Fixed an issue where unnecessary space was sometimes created at the bottom of tab blocks depending on the content of the hidden block.
+* [Slider] Changed so that when the next/prev button is clicked, it loops if the user is in the first/last position.
+* [Contents slider] Changed so that when the next/prev button is clicked, it loops if the user is in the first/last position.
 
 = 16.0.1 =
 * [Tabs] Fixed a bug that the second and subsequent tabs were displayed out of alignment when "Align the height of each tab panel" was not checked.
