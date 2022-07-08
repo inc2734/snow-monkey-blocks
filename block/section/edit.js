@@ -99,7 +99,8 @@ export default function ( {
 	} );
 
 	const innerClasses = classnames( 'smb-section__inner', {
-		[ `is-content-justification-${ contentJustification }` ]: !! contentJustification,
+		[ `is-content-justification-${ contentJustification }` ]:
+			!! contentJustification,
 	} );
 
 	const containerClasses = classnames( 'c-container', {
@@ -133,7 +134,8 @@ export default function ( {
 	const contentsWrapperClasses = classnames(
 		'smb-section__contents-wrapper',
 		{
-			[ `smb-section__contents-wrapper--${ contentsAlignment }` ]: !! contentsAlignment,
+			[ `smb-section__contents-wrapper--${ contentsAlignment }` ]:
+				!! contentsAlignment,
 			'u-slim-width': isSlim && ! contentsMaxWidth,
 		}
 	);
@@ -375,8 +377,10 @@ export default function ( {
 							onContainerAlignChange: onChangeContainerAlign,
 						},
 						{
-							disableContainerPaddingValue: disableContainerPadding,
-							onDisableContainerPaddingChange: onChangeDisableContainerPadding,
+							disableContainerPaddingValue:
+								disableContainerPadding,
+							onDisableContainerPaddingChange:
+								onChangeDisableContainerPadding,
 						},
 						{
 							contentsMaxWidthValue: contentsMaxWidth,
@@ -404,12 +408,15 @@ export default function ( {
 							onGradientChange: onChangeBackgroundGradientColor,
 						},
 						{
-							horizontalPositionValue: backgroundHorizontalPosition,
-							onHorizontalPositionChange: onChangeBackgroundHorizontalPosition,
+							horizontalPositionValue:
+								backgroundHorizontalPosition,
+							onHorizontalPositionChange:
+								onChangeBackgroundHorizontalPosition,
 						},
 						{
 							verticalPositionValue: backgroundVerticalPosition,
-							onVerticalPositionChange: onChangeBackgroundVerticalPosition,
+							onVerticalPositionChange:
+								onChangeBackgroundVerticalPosition,
 						},
 						{
 							isNoOverValue: isBackgroundNoOver,
@@ -421,7 +428,8 @@ export default function ( {
 						},
 						{
 							textureOpacityValue: backgroundTextureOpacity,
-							onTextureOpacityChange: onChangeBackgroundTextureOpacity,
+							onTextureOpacityChange:
+								onChangeBackgroundTextureOpacity,
 						},
 					] }
 				/>
@@ -433,7 +441,8 @@ export default function ( {
 							colorValue: fixedBackgroundColor,
 							gradientValue: fixedBackgroundGradientColor,
 							onColorChange: onChangeFixedBackgroundColor,
-							onGradientChange: onChangeFixedBackgroundGradientColor,
+							onGradientChange:
+								onChangeFixedBackgroundGradientColor,
 						},
 						{
 							textureValue: fixedBackgroundTexture,
@@ -441,7 +450,8 @@ export default function ( {
 						},
 						{
 							textureOpacityValue: fixedBackgroundTextureOpacity,
-							onTextureOpacityChange: onChangeFixedBackgroundTextureOpacity,
+							onTextureOpacityChange:
+								onChangeFixedBackgroundTextureOpacity,
 						},
 					] }
 				/>
@@ -550,7 +560,8 @@ export default function ( {
 						},
 						{
 							verticalPosition: topDividerVerticalPosition,
-							onVerticalPositionChange: onChangeTopDividerVerticalPosition,
+							onVerticalPositionChange:
+								onChangeTopDividerVerticalPosition,
 						},
 					] }
 				/>
@@ -571,7 +582,8 @@ export default function ( {
 						},
 						{
 							verticalPosition: bottomDividerVerticalPosition,
-							onVerticalPositionChange: onChangeBottomDividerVerticalPosition,
+							onVerticalPositionChange:
+								onChangeBottomDividerVerticalPosition,
 						},
 					] }
 				/>

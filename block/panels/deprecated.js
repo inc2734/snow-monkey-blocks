@@ -154,14 +154,8 @@ export default [
 		},
 
 		save( { attributes } ) {
-			const {
-				sm,
-				md,
-				lg,
-				imagePadding,
-				itemTitleTagName,
-				items,
-			} = attributes;
+			const { sm, md, lg, imagePadding, itemTitleTagName, items } =
+				attributes;
 			const length =
 				'undefined' === typeof attributes.items
 					? 0

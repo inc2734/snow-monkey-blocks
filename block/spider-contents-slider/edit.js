@@ -57,13 +57,11 @@ export default function ( {
 	const referenceRef = useRef();
 	const canvasRef = useRef();
 
-	const [ currentSliderClientId, setCurrentSliderClientId ] = useState(
-		undefined
-	);
+	const [ currentSliderClientId, setCurrentSliderClientId ] =
+		useState( undefined );
 
-	const { updateBlockAttributes, selectBlock } = useDispatch(
-		'core/block-editor'
-	);
+	const { updateBlockAttributes, selectBlock } =
+		useDispatch( 'core/block-editor' );
 
 	const nowSliderClientIds = useSelect(
 		( select ) => {
@@ -74,8 +72,8 @@ export default function ( {
 
 	const maxBlur = useSelect(
 		( select ) => {
-			const slides = select( 'core/block-editor' ).getBlock( clientId )
-				.innerBlocks;
+			const slides =
+				select( 'core/block-editor' ).getBlock( clientId ).innerBlocks;
 
 			const maxBlurSlide = slides.reduce( ( prevSlide, currentSlide ) => {
 				const prevBlur =
@@ -106,8 +104,8 @@ export default function ( {
 
 	const selectedSlide = useSelect(
 		( select ) => {
-			const slides = select( 'core/block-editor' ).getBlock( clientId )
-				.innerBlocks;
+			const slides =
+				select( 'core/block-editor' ).getBlock( clientId ).innerBlocks;
 
 			const selectedSlideClientIds = slides.filter(
 				( slide ) =>

@@ -1,38 +1,38 @@
 {
-  "apiVersion": 2,
-  "name": "snow-monkey-blocks/faq-item",
+	"apiVersion": 2,
+	"name": "snow-monkey-blocks/faq-item",
 	"title": "FAQ",
 	"description": "It is a child block of the FAQ block.",
-  "category": "smb",
-  "parent": [ "snow-monkey-blocks/faq" ],
-  "attributes": {
-    "question": {
-      "type": "string",
-      "source": "html",
-      "selector": ".smb-faq__item__question__body",
-      "default": ""
-    },
-    "questionColor": {
-      "type": "string"
-    },
-    "answerColor": {
-      "type": "string"
-    },
-    "questionLabel": {
-      "type": "string",
-      "source": "html",
-      "selector": ".smb-faq__item__question__label",
-      "default": "Q"
-    },
-    "answerLabel": {
-      "type": "string",
-      "source": "html",
-      "selector": ".smb-faq__item__answer__label",
-      "default": "A"
-    }
-  },
-  "supports": {
-    "anchor": true
-  },
-  "editorScript": "file:../../../dist/block/faq/item/editor.js"
+	"category": "smb",
+	"parent": [ "snow-monkey-blocks/faq" ],
+	"attributes": {
+		"question": {
+			"type": "string",
+			"source": "html",
+			"selector": ".smb-faq__item__question__body",
+			"default": ""
+		},
+		"questionColor": {
+			"type": "string"
+		},
+		"answerColor": {
+			"type": "string"
+		},
+		"questionLabel": {
+			"type": "string",
+			"source": "html",
+			"selector": ".smb-faq__item__question__label",
+			"default": "Q"
+		},
+		"answerLabel": {
+			"type": "string",
+			"source": "html",
+			"selector": ".smb-faq__item__answer__label",
+			"default": "A"
+		}
+	},
+	"supports": {
+		"anchor": true
+	},
+	"editorScript": "file:../../../dist/block/faq/item/editor.js"
 }

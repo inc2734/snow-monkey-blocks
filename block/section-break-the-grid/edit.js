@@ -211,14 +211,19 @@ export default function ( {
 	} );
 
 	const figureClasses = classnames( 'smb-section-break-the-grid__figure', {
-		[ `smb-section-break-the-grid__figure--w-${ imageSize }` ]: !! imageSize,
+		[ `smb-section-break-the-grid__figure--w-${ imageSize }` ]:
+			!! imageSize,
 	} );
 
 	const contentClasses = classnames( 'smb-section-break-the-grid__content', {
-		[ `smb-section-break-the-grid__content--w-${ contentSize }` ]: !! contentSize,
-		[ `smb-section-break-the-grid__content--p-${ contentPadding }` ]: !! contentPadding,
-		[ `smb-section-break-the-grid__content--horizontal-${ contentHorizontalPosition }` ]: !! contentHorizontalPosition,
-		[ `smb-section-break-the-grid__content--${ contentsAlignment }` ]: !! contentsAlignment,
+		[ `smb-section-break-the-grid__content--w-${ contentSize }` ]:
+			!! contentSize,
+		[ `smb-section-break-the-grid__content--p-${ contentPadding }` ]:
+			!! contentPadding,
+		[ `smb-section-break-the-grid__content--horizontal-${ contentHorizontalPosition }` ]:
+			!! contentHorizontalPosition,
+		[ `smb-section-break-the-grid__content--${ contentsAlignment }` ]:
+			!! contentsAlignment,
 		'smb-section-break-the-grid__content--remove-outside-p':
 			contentPadding && removeContentOutsidePadding,
 	} );
@@ -1097,12 +1102,15 @@ export default function ( {
 							onGradientChange: onChangeBackgroundGradientColor,
 						},
 						{
-							horizontalPositionValue: backgroundHorizontalPosition,
-							onHorizontalPositionChange: onChangeBackgroundHorizontalPosition,
+							horizontalPositionValue:
+								backgroundHorizontalPosition,
+							onHorizontalPositionChange:
+								onChangeBackgroundHorizontalPosition,
 						},
 						{
 							verticalPositionValue: backgroundVerticalPosition,
-							onVerticalPositionChange: onChangeBackgroundVerticalPosition,
+							onVerticalPositionChange:
+								onChangeBackgroundVerticalPosition,
 						},
 						{
 							isNoOverValue: isBackgroundNoOver,
@@ -1114,7 +1122,8 @@ export default function ( {
 						},
 						{
 							textureOpacityValue: backgroundTextureOpacity,
-							onTextureOpacityChange: onChangeBackgroundTextureOpacity,
+							onTextureOpacityChange:
+								onChangeBackgroundTextureOpacity,
 						},
 					] }
 				/>
@@ -1126,7 +1135,8 @@ export default function ( {
 							colorValue: fixedBackgroundColor,
 							gradientValue: fixedBackgroundGradientColor,
 							onColorChange: onChangeFixedBackgroundColor,
-							onGradientChange: onChangeFixedBackgroundGradientColor,
+							onGradientChange:
+								onChangeFixedBackgroundGradientColor,
 						},
 						{
 							textureValue: fixedBackgroundTexture,
@@ -1134,7 +1144,8 @@ export default function ( {
 						},
 						{
 							textureOpacityValue: fixedBackgroundTextureOpacity,
-							onTextureOpacityChange: onChangeFixedBackgroundTextureOpacity,
+							onTextureOpacityChange:
+								onChangeFixedBackgroundTextureOpacity,
 						},
 					] }
 				/>
@@ -1243,7 +1254,8 @@ export default function ( {
 						},
 						{
 							verticalPosition: topDividerVerticalPosition,
-							onVerticalPositionChange: onChangeTopDividerVerticalPosition,
+							onVerticalPositionChange:
+								onChangeTopDividerVerticalPosition,
 						},
 					] }
 				/>
@@ -1264,7 +1276,8 @@ export default function ( {
 						},
 						{
 							verticalPosition: bottomDividerVerticalPosition,
-							onVerticalPositionChange: onChangeBottomDividerVerticalPosition,
+							onVerticalPositionChange:
+								onChangeBottomDividerVerticalPosition,
 						},
 					] }
 				/>
@@ -1378,12 +1391,15 @@ export default function ( {
 											settings={ [
 												{
 													subtitleValue: subtitle,
-													onSubtitleChange: onChangeSubtitle,
+													onSubtitleChange:
+														onChangeSubtitle,
 												},
 												{
-													titleTagNameValue: titleTagName,
+													titleTagNameValue:
+														titleTagName,
 													titleValue: title,
-													onTitleChange: onChangeTitle,
+													onTitleChange:
+														onChangeTitle,
 												},
 												{
 													ledeValue: lede,

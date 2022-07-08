@@ -1,34 +1,34 @@
 {
-  "apiVersion": 2,
-  "name": "snow-monkey-blocks/list",
+	"apiVersion": 2,
+	"name": "snow-monkey-blocks/list",
 	"title": "Icon list",
 	"description": "Icons are displayed only on the actual screen.",
-  "category": "smb",
-  "attributes": {
-    "content": {
-      "type": "string",
-      "source": "html",
-      "selector": "ul",
-      "multiline": "li",
-      "default": ""
-    },
-    "icon": {
-      "type": "string",
-      "default": "angle-right"
-    },
-    "iconColor": {
-      "type": "string"
-    }
-  },
-  "supports": {
-    "html": false
-  },
-  "example": {
-    "attributes": {
-      "content": "<li>Lorem ipsum dolor sit amet</li><li>consectetur adipiscing elit</li><li>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</li>"
-    }
-  },
-  "style": "snow-monkey-blocks/list",
-  "editorStyle": "snow-monkey-blocks/list/editor",
-  "editorScript": "file:../../dist/block/list/editor.js"
+	"category": "smb",
+	"attributes": {
+		"content": {
+			"type": "string",
+			"source": "html",
+			"selector": "ul",
+			"multiline": "li",
+			"default": ""
+		},
+		"icon": {
+			"type": "string",
+			"default": "angle-right"
+		},
+		"iconColor": {
+			"type": "string"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"attributes": {
+			"content": "<li>Lorem ipsum dolor sit amet</li><li>consectetur adipiscing elit</li><li>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</li>"
+		}
+	},
+	"style": "snow-monkey-blocks/list",
+	"editorStyle": "snow-monkey-blocks/list/editor",
+	"editorScript": "file:../../dist/block/list/editor.js"
 }

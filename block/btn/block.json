@@ -1,64 +1,62 @@
 {
-  "apiVersion": 2,
-  "name": "snow-monkey-blocks/btn",
+	"apiVersion": 2,
+	"name": "snow-monkey-blocks/btn",
 	"title": "Button",
 	"description": "Prompt visitors to take action with a button-style link.",
-  "category": "smb",
-  "parent": [
-   "snow-monkey-blocks/buttons"
-  ],
-  "attributes": {
-    "content": {
-      "type": "string",
-      "source": "html",
-      "selector": ".smb-btn__label",
-      "default": ""
-    },
-    "url": {
-      "type": "string",
-      "source": "attribute",
-      "selector": ".smb-btn-wrapper a",
-      "attribute": "href",
-      "default": ""
-    },
-    "target": {
-      "type": "string",
-      "source": "attribute",
-      "selector": ".smb-btn-wrapper a",
-      "attribute": "target",
-      "default": "_self"
-    },
-    "modifier": {
-      "type": "string",
-      "default": ""
-    },
-    "borderRadius": {
-      "type": "number"
-    },
-    "backgroundColor": {
-      "type": "string"
-    },
-    "textColor": {
-      "type": "string"
-    },
-    "wrap": {
-      "type": "boolean",
-      "default": false
-    },
-  	"linkDestination": {
+	"category": "smb",
+	"parent": [ "snow-monkey-blocks/buttons" ],
+	"attributes": {
+		"content": {
+			"type": "string",
+			"source": "html",
+			"selector": ".smb-btn__label",
+			"default": ""
+		},
+		"url": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-btn-wrapper a",
+			"attribute": "href",
+			"default": ""
+		},
+		"target": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-btn-wrapper a",
+			"attribute": "target",
+			"default": "_self"
+		},
+		"modifier": {
+			"type": "string",
+			"default": ""
+		},
+		"borderRadius": {
+			"type": "number"
+		},
+		"backgroundColor": {
+			"type": "string"
+		},
+		"textColor": {
+			"type": "string"
+		},
+		"wrap": {
+			"type": "boolean",
+			"default": false
+		},
+		"linkDestination": {
 			"type": "string"
 		}
-  },
-  "supports": {
-    "align": [ "left", "center", "right" ]
-  },
-  "example": {
-    "attributes": {
-      "content": "button",
-      "url": "https://2inc.org"
-    }
-  },
-  "style": "snow-monkey-blocks/btn",
-  "editorStyle": "snow-monkey-blocks/btn/editor",
-  "editorScript": "file:../../dist/block/btn/editor.js"
+	},
+	"supports": {
+		"align": [ "left", "center", "right" ]
+	},
+	"example": {
+		"attributes": {
+			"content": "button",
+			"url": "https://2inc.org"
+		}
+	},
+	"style": "snow-monkey-blocks/btn",
+	"editorStyle": "snow-monkey-blocks/btn/editor",
+	"editorScript": "file:../../dist/block/btn/editor.js"
 }

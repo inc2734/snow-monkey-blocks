@@ -178,35 +178,36 @@ export default [
 			};
 
 			const PanelsItem = () => {
-				return ( !! linkURL
-					? () => {
-							return (
-								<a
-									className="smb-panels__item"
-									href={ linkURL }
-									target={
-										'_self' === linkTarget
-											? undefined
-											: linkTarget
-									}
-									rel={
-										'_self' === linkTarget
-											? undefined
-											: 'noopener noreferrer'
-									}
-								>
-									<PanelsItemContent />
-								</a>
-							);
-					  }
-					: () => {
-							return (
-								<div className="smb-panels__item">
-									<PanelsItemContent />
-								</div>
-							);
-					  }
-				).call( this );
+				return (
+					!! linkURL
+						? () => {
+								return (
+									<a
+										className="smb-panels__item"
+										href={ linkURL }
+										target={
+											'_self' === linkTarget
+												? undefined
+												: linkTarget
+										}
+										rel={
+											'_self' === linkTarget
+												? undefined
+												: 'noopener noreferrer'
+										}
+									>
+										<PanelsItemContent />
+									</a>
+								);
+						  }
+						: () => {
+								return (
+									<div className="smb-panels__item">
+										<PanelsItemContent />
+									</div>
+								);
+						  }
+				 ).call( this );
 			};
 
 			return (

@@ -27,7 +27,8 @@ export default [
 			const itemClasses = classnames(
 				'smb-spider-contents-slider__item',
 				{
-					[ `smb-spider-contents-slider__item--p-${ contentPadding }` ]: !! contentPadding,
+					[ `smb-spider-contents-slider__item--p-${ contentPadding }` ]:
+						!! contentPadding,
 				}
 			);
 

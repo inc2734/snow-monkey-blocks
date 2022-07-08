@@ -1,49 +1,47 @@
 {
-  "apiVersion": 2,
-  "name": "snow-monkey-blocks/accordion",
+	"apiVersion": 2,
+	"name": "snow-monkey-blocks/accordion",
 	"title": "Accordion",
 	"description": "You can set up a content area that expands and contracts like the accordion.",
-  "category": "smb",
-  "supports": {
-    "html": false
-  },
-  "example": {
-    "innerBlocks": [
-      {
-        "name": "snow-monkey-blocks/accordion-item",
-        "attributes": {
-          "title": "Lorem ipsum dolor sit amet",
-          "initialState": true
-        },
-        "innerBlocks": [
-          {
-            "name": "core/paragraph",
-            "attributes": {
-              "content":
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillu"
-            }
-          }
-        ]
-      },
-      {
-        "name": "snow-monkey-blocks/accordion-item",
-        "attributes": {
-          "title": "consectetur adipiscing elit",
-          "initialState": false
-        },
-        "innerBlocks": [
-          {
-            "name": "core/paragraph",
-            "attributes": {
-              "content":
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillu"
-            }
-          }
-        ]
-      }
-    ]
-  },
-  "style": "snow-monkey-blocks/accordion",
-  "editorStyle": "snow-monkey-blocks/accordion/editor",
-  "editorScript": "file:../../dist/block/accordion/editor.js"
+	"category": "smb",
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"innerBlocks": [
+			{
+				"name": "snow-monkey-blocks/accordion-item",
+				"attributes": {
+					"title": "Lorem ipsum dolor sit amet",
+					"initialState": true
+				},
+				"innerBlocks": [
+					{
+						"name": "core/paragraph",
+						"attributes": {
+							"content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillu"
+						}
+					}
+				]
+			},
+			{
+				"name": "snow-monkey-blocks/accordion-item",
+				"attributes": {
+					"title": "consectetur adipiscing elit",
+					"initialState": false
+				},
+				"innerBlocks": [
+					{
+						"name": "core/paragraph",
+						"attributes": {
+							"content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillu"
+						}
+					}
+				]
+			}
+		]
+	},
+	"style": "snow-monkey-blocks/accordion",
+	"editorStyle": "snow-monkey-blocks/accordion/editor",
+	"editorScript": "file:../../dist/block/accordion/editor.js"
 }

@@ -7,13 +7,8 @@ import {
 } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
-	const {
-		question,
-		questionColor,
-		answerColor,
-		questionLabel,
-		answerLabel,
-	} = attributes;
+	const { question, questionColor, answerColor, questionLabel, answerLabel } =
+		attributes;
 
 	const classes = classnames( 'smb-faq__item', className );
 

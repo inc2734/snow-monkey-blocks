@@ -186,8 +186,10 @@ export default [
 						contentVerticalPosition &&
 						verticalAlignment &&
 						'middle' !== verticalAlignment,
-					[ `smb-section-break-the-grid--mobile-${ mobileOrder }` ]: !! mobileOrder,
-					[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
+					[ `smb-section-break-the-grid--mobile-${ mobileOrder }` ]:
+						!! mobileOrder,
+					[ `smb-section--${ contentsAlignment }` ]:
+						!! contentsAlignment,
 					[ className ]: !! className,
 				}
 			);
@@ -212,16 +214,20 @@ export default [
 			const figureClasses = classnames(
 				'smb-section-break-the-grid__figure',
 				{
-					[ `smb-section-break-the-grid__figure--w-${ imageSize }` ]: !! imageSize,
+					[ `smb-section-break-the-grid__figure--w-${ imageSize }` ]:
+						!! imageSize,
 				}
 			);
 
 			const contentClasses = classnames(
 				'smb-section-break-the-grid__content',
 				{
-					[ `smb-section-break-the-grid__content--w-${ contentSize }` ]: !! contentSize,
-					[ `smb-section-break-the-grid__content--p-${ contentPadding }` ]: !! contentPadding,
-					[ `smb-section-break-the-grid__content--horizontal-${ contentHorizontalPosition }` ]: !! contentHorizontalPosition,
+					[ `smb-section-break-the-grid__content--w-${ contentSize }` ]:
+						!! contentSize,
+					[ `smb-section-break-the-grid__content--p-${ contentPadding }` ]:
+						!! contentPadding,
+					[ `smb-section-break-the-grid__content--horizontal-${ contentHorizontalPosition }` ]:
+						!! contentHorizontalPosition,
 					'smb-section-break-the-grid__content--remove-outside-p':
 						contentPadding && removeContentOutsidePadding,
 				}
@@ -433,7 +439,8 @@ export default [
 						contentVerticalPosition &&
 						verticalAlignment &&
 						'middle' !== verticalAlignment,
-					[ `smb-section-break-the-grid--mobile-${ mobileOrder }` ]: !! mobileOrder,
+					[ `smb-section-break-the-grid--mobile-${ mobileOrder }` ]:
+						!! mobileOrder,
 					[ className ]: !! className,
 				}
 			);
@@ -458,16 +465,20 @@ export default [
 			const figureClasses = classnames(
 				'smb-section-break-the-grid__figure',
 				{
-					[ `smb-section-break-the-grid__figure--w-${ imageSize }` ]: !! imageSize,
+					[ `smb-section-break-the-grid__figure--w-${ imageSize }` ]:
+						!! imageSize,
 				}
 			);
 
 			const contentClasses = classnames(
 				'smb-section-break-the-grid__content',
 				{
-					[ `smb-section-break-the-grid__content--w-${ contentSize }` ]: !! contentSize,
-					[ `smb-section-break-the-grid__content--p-${ contentPadding }` ]: !! contentPadding,
-					[ `smb-section-break-the-grid__content--horizontal-${ contentHorizontalPosition }` ]: !! contentHorizontalPosition,
+					[ `smb-section-break-the-grid__content--w-${ contentSize }` ]:
+						!! contentSize,
+					[ `smb-section-break-the-grid__content--p-${ contentPadding }` ]:
+						!! contentPadding,
+					[ `smb-section-break-the-grid__content--horizontal-${ contentHorizontalPosition }` ]:
+						!! contentHorizontalPosition,
 					'smb-section-break-the-grid__content--remove-outside-p':
 						contentPadding && removeContentOutsidePadding,
 				}
@@ -685,7 +696,8 @@ export default [
 						contentVerticalPosition &&
 						verticalAlignment &&
 						'middle' !== verticalAlignment,
-					[ `smb-section-break-the-grid--mobile-${ mobileOrder }` ]: !! mobileOrder,
+					[ `smb-section-break-the-grid--mobile-${ mobileOrder }` ]:
+						!! mobileOrder,
 					[ className ]: !! className,
 				}
 			);
@@ -708,16 +720,20 @@ export default [
 			const figureClasses = classnames(
 				'smb-section-break-the-grid__figure',
 				{
-					[ `smb-section-break-the-grid__figure--w-${ imageSize }` ]: !! imageSize,
+					[ `smb-section-break-the-grid__figure--w-${ imageSize }` ]:
+						!! imageSize,
 				}
 			);
 
 			const contentClasses = classnames(
 				'smb-section-break-the-grid__content',
 				{
-					[ `smb-section-break-the-grid__content--w-${ contentSize }` ]: !! contentSize,
-					[ `smb-section-break-the-grid__content--p-${ contentPadding }` ]: !! contentPadding,
-					[ `smb-section-break-the-grid__content--horizontal-${ contentHorizontalPosition }` ]: !! contentHorizontalPosition,
+					[ `smb-section-break-the-grid__content--w-${ contentSize }` ]:
+						!! contentSize,
+					[ `smb-section-break-the-grid__content--p-${ contentPadding }` ]:
+						!! contentPadding,
+					[ `smb-section-break-the-grid__content--horizontal-${ contentHorizontalPosition }` ]:
+						!! contentHorizontalPosition,
 					'smb-section-break-the-grid__content--remove-outside-p':
 						contentPadding && removeContentOutsidePadding,
 				}

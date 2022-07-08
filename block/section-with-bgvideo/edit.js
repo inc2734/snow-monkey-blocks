@@ -99,7 +99,8 @@ export default function ( {
 	const bgvideoClasses = classnames( 'smb-section-with-bgimage__bgimage' );
 
 	const innerClasses = classnames( 'smb-section__inner', {
-		[ `is-content-justification-${ contentJustification }` ]: !! contentJustification,
+		[ `is-content-justification-${ contentJustification }` ]:
+			!! contentJustification,
 	} );
 
 	const containerClasses = classnames( 'c-container', {
@@ -133,7 +134,8 @@ export default function ( {
 	const contentsWrapperClasses = classnames(
 		'smb-section__contents-wrapper',
 		{
-			[ `smb-section__contents-wrapper--${ contentsAlignment }` ]: !! contentsAlignment,
+			[ `smb-section__contents-wrapper--${ contentsAlignment }` ]:
+				!! contentsAlignment,
 			'u-slim-width': isSlim && ! contentsMaxWidth,
 		}
 	);
@@ -312,8 +314,10 @@ export default function ( {
 							onContainerAlignChange: onChangeContainerAlign,
 						},
 						{
-							disableContainerPaddingValue: disableContainerPadding,
-							onDisableContainerPaddingChange: onChangeDisableContainerPadding,
+							disableContainerPaddingValue:
+								disableContainerPadding,
+							onDisableContainerPaddingChange:
+								onChangeDisableContainerPadding,
 						},
 						{
 							contentsMaxWidthValue: contentsMaxWidth,

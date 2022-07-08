@@ -1,26 +1,24 @@
 {
-  "apiVersion": 2,
-  "name": "snow-monkey-blocks/accordion-item",
+	"apiVersion": 2,
+	"name": "snow-monkey-blocks/accordion-item",
 	"title": "Panel",
-  "category": "smb",
-  "parent": [
-    "snow-monkey-blocks/accordion"
-  ],
-  "attributes": {
-    "title": {
-      "type": "string",
-      "source": "html",
-      "selector": ".smb-accordion__item__title__label",
-      "default": ""
-    },
-    "initialState": {
-      "type": "boolean",
-      "default": false
-    }
-  },
-  "supports": {
-    "html": false,
-    "className": true
-  },
-  "editorScript": "file:../../../dist/block/accordion/item/editor.js"
+	"category": "smb",
+	"parent": [ "snow-monkey-blocks/accordion" ],
+	"attributes": {
+		"title": {
+			"type": "string",
+			"source": "html",
+			"selector": ".smb-accordion__item__title__label",
+			"default": ""
+		},
+		"initialState": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"supports": {
+		"html": false,
+		"className": true
+	},
+	"editorScript": "file:../../../dist/block/accordion/item/editor.js"
 }

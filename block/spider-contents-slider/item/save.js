@@ -17,7 +17,8 @@ export default function ( { attributes, className } ) {
 	const classes = classnames( 'spider__slide', className );
 
 	const itemClasses = classnames( 'smb-spider-contents-slider__item', {
-		[ `smb-spider-contents-slider__item--p-${ contentPadding }` ]: !! contentPadding,
+		[ `smb-spider-contents-slider__item--p-${ contentPadding }` ]:
+			!! contentPadding,
 	} );
 
 	const newStyles = {

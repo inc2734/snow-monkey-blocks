@@ -243,9 +243,8 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					data-has-tabs={ 1 < tabs.length ? 'true' : 'false' }
 				>
 					{ tabs.map( ( tab, index ) => {
-						const targetClientId = getBlockOrder( clientId )[
-							index
-						];
+						const targetClientId =
+							getBlockOrder( clientId )[ index ];
 
 						const onClickTab = () => {
 							setCurrentTabPanelId( tab.tabPanelId );

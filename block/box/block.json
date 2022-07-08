@@ -1,63 +1,63 @@
 {
-  "apiVersion": 2,
-  "name": "snow-monkey-blocks/box",
+	"apiVersion": 2,
+	"name": "snow-monkey-blocks/box",
 	"title": "Box",
 	"description": "It is a box.",
-  "category": "smb",
-  "attributes": {
-    "backgroundColor": {
-      "type": "string"
-    },
-    "backgroundGradientColor": {
-      "type": "string"
-    },
-    "borderColor": {
-      "type": "string"
-    },
-    "textColor": {
-      "type": "string"
-    },
-    "borderWidth": {
-      "type": "number",
-      "default": 1
-    },
-    "borderRadius": {
-      "type": "number"
-    },
-    "opacity": {
-      "type": "number",
-      "default": 1
-    },
-    "contentPadding": {
-      "type": "string",
-      "default": ""
-    },
-    "boxShadow": {
-      "type": "object",
-      "default": {
-        "color": "",
-        "opacity": 0.1,
-        "horizontal": 0,
-        "vertical": 0,
-        "blur": 10,
-        "spread": 0,
-        "position": ""
-      }
-    }
-  },
-  "supports": {
-    "html": false
-  },
-  "example": {
-    "innerBlocks": [
-      {
-        "name": "core/paragraph",
-        "attributes": {
-          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-        }
-      }
-    ]
-  },
-  "style": "snow-monkey-blocks/box",
-  "editorScript": "file:../../dist/block/box/editor.js"
+	"category": "smb",
+	"attributes": {
+		"backgroundColor": {
+			"type": "string"
+		},
+		"backgroundGradientColor": {
+			"type": "string"
+		},
+		"borderColor": {
+			"type": "string"
+		},
+		"textColor": {
+			"type": "string"
+		},
+		"borderWidth": {
+			"type": "number",
+			"default": 1
+		},
+		"borderRadius": {
+			"type": "number"
+		},
+		"opacity": {
+			"type": "number",
+			"default": 1
+		},
+		"contentPadding": {
+			"type": "string",
+			"default": ""
+		},
+		"boxShadow": {
+			"type": "object",
+			"default": {
+				"color": "",
+				"opacity": 0.1,
+				"horizontal": 0,
+				"vertical": 0,
+				"blur": 10,
+				"spread": 0,
+				"position": ""
+			}
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"innerBlocks": [
+			{
+				"name": "core/paragraph",
+				"attributes": {
+					"content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+				}
+			}
+		]
+	},
+	"style": "snow-monkey-blocks/box",
+	"editorScript": "file:../../dist/block/box/editor.js"
 }

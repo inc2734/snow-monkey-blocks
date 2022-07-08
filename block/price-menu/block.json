@@ -1,31 +1,31 @@
 {
-  "apiVersion": 2,
-  "name": "snow-monkey-blocks/price-menu",
+	"apiVersion": 2,
+	"name": "snow-monkey-blocks/price-menu",
 	"title": "Price menu",
 	"description": "Display the menu name and the price.",
-  "category": "smb",
-  "supports": {
-    "html": false
-  },
-  "example": {
-    "innerBlocks": [
-      {
-        "name": "snow-monkey-blocks/price-menu-item",
-        "attributes": {
-          "title": "Lorem ipsum",
-          "price": "$100"
-        }
-      },
-      {
-        "name": "snow-monkey-blocks/price-menu-item",
-        "attributes": {
-          "title": "dolor sit amet",
-          "price": "$200"
-        }
-      }
-    ]
-  },
-  "style": "snow-monkey-blocks/price-menu",
-  "editorStyle": "snow-monkey-blocks/price-menu/editor",
-  "editorScript": "file:../../dist/block/price-menu/editor.js"
+	"category": "smb",
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"innerBlocks": [
+			{
+				"name": "snow-monkey-blocks/price-menu-item",
+				"attributes": {
+					"title": "Lorem ipsum",
+					"price": "$100"
+				}
+			},
+			{
+				"name": "snow-monkey-blocks/price-menu-item",
+				"attributes": {
+					"title": "dolor sit amet",
+					"price": "$200"
+				}
+			}
+		]
+	},
+	"style": "snow-monkey-blocks/price-menu",
+	"editorStyle": "snow-monkey-blocks/price-menu/editor",
+	"editorScript": "file:../../dist/block/price-menu/editor.js"
 }

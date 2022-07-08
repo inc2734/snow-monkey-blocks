@@ -1,113 +1,113 @@
 {
-  "apiVersion": 2,
-  "name": "snow-monkey-blocks/media-text",
-  "title": "Media & text",
-  "description": "Set media and words side-by-side for a richer layout.",
-  "category": "smb",
-  "attributes": {
-    "titleTagName": {
-      "type": "string",
-      "default": "h2"
-    },
-    "title": {
-      "type": "string",
-      "source": "html",
-      "selector": ".smb-media-text__title",
-      "default": ""
-    },
-    "mediaId": {
-      "type": "number",
-      "default": 0
-    },
-    "mediaUrl": {
-      "type": "string",
-      "source": "attribute",
-      "selector": ".smb-media-text__figure img, .smb-media-text__figure video",
-      "attribute": "src",
-      "default": ""
-    },
-    "mediaLink": {
-      "type": "string"
-    },
-    "mediaAlt": {
-      "type": "string",
-      "source": "attribute",
-      "selector": ".smb-media-text__figure img",
-      "attribute": "alt",
-      "default": ""
-    },
-    "mediaWidth": {
-      "type": "string",
-      "source": "attribute",
-      "selector": ".smb-media-text__figure img, .smb-media-text__figure video",
-      "attribute": "width",
-      "default": ""
-    },
-    "mediaHeight": {
-      "type": "string",
-      "source": "attribute",
-      "selector": ".smb-media-text__figure img, .smb-media-text__figure video",
-      "attribute": "height",
-      "default": ""
-    },
-    "mediaSizeSlug": {
-      "type": "string",
-      "default": "large"
-    },
-    "mediaType": {
-      "type": "string"
-    },
-    "caption": {
-      "type": "string",
-      "source": "html",
-      "selector": ".smb-media-text__caption",
-      "default": ""
-    },
-    "mediaPosition": {
-      "type": "string",
-      "default": "right"
-    },
-    "verticalAlignment": {
-      "type": "string",
-      "default": "center"
-    },
-    "mediaColumnSize": {
-      "type": "string",
-      "default": 66
-    },
-    "mobileOrder": {
-      "type": "string"
-    },
-    "href": {
-      "type": "string",
-      "default": ""
-    },
-    "rel": {
-      "type": "string",
-      "source": "attribute",
-      "selector": ".smb-media-text__figure > a",
-      "attribute": "rel"
-    },
-    "linkClass": {
-      "type": "string",
-      "source": "attribute",
-      "selector": ".smb-media-text__figure > a",
-      "attribute": "class"
-    },
-    "linkDestination": {
-      "type": "string"
-    },
-    "linkTarget": {
-      "type": "string",
-      "source": "attribute",
-      "selector": ".smb-media-text__figure > a",
-      "attribute": "target",
-      "default": "_self"
-    }
-  },
-  "supports": {
-    "anchor": true
-  },
-  "style": "snow-monkey-blocks/media-text",
-  "editorScript": "file:../../dist/block/media-text/editor.js"
+	"apiVersion": 2,
+	"name": "snow-monkey-blocks/media-text",
+	"title": "Media & text",
+	"description": "Set media and words side-by-side for a richer layout.",
+	"category": "smb",
+	"attributes": {
+		"titleTagName": {
+			"type": "string",
+			"default": "h2"
+		},
+		"title": {
+			"type": "string",
+			"source": "html",
+			"selector": ".smb-media-text__title",
+			"default": ""
+		},
+		"mediaId": {
+			"type": "number",
+			"default": 0
+		},
+		"mediaUrl": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-media-text__figure img, .smb-media-text__figure video",
+			"attribute": "src",
+			"default": ""
+		},
+		"mediaLink": {
+			"type": "string"
+		},
+		"mediaAlt": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-media-text__figure img",
+			"attribute": "alt",
+			"default": ""
+		},
+		"mediaWidth": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-media-text__figure img, .smb-media-text__figure video",
+			"attribute": "width",
+			"default": ""
+		},
+		"mediaHeight": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-media-text__figure img, .smb-media-text__figure video",
+			"attribute": "height",
+			"default": ""
+		},
+		"mediaSizeSlug": {
+			"type": "string",
+			"default": "large"
+		},
+		"mediaType": {
+			"type": "string"
+		},
+		"caption": {
+			"type": "string",
+			"source": "html",
+			"selector": ".smb-media-text__caption",
+			"default": ""
+		},
+		"mediaPosition": {
+			"type": "string",
+			"default": "right"
+		},
+		"verticalAlignment": {
+			"type": "string",
+			"default": "center"
+		},
+		"mediaColumnSize": {
+			"type": "string",
+			"default": 66
+		},
+		"mobileOrder": {
+			"type": "string"
+		},
+		"href": {
+			"type": "string",
+			"default": ""
+		},
+		"rel": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-media-text__figure > a",
+			"attribute": "rel"
+		},
+		"linkClass": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-media-text__figure > a",
+			"attribute": "class"
+		},
+		"linkDestination": {
+			"type": "string"
+		},
+		"linkTarget": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-media-text__figure > a",
+			"attribute": "target",
+			"default": "_self"
+		}
+	},
+	"supports": {
+		"anchor": true
+	},
+	"style": "snow-monkey-blocks/media-text",
+	"editorScript": "file:../../dist/block/media-text/editor.js"
 }

@@ -32,9 +32,8 @@ export default function ( { attributes, className } ) {
 
 	const newRel = isEmpty( rel ) ? undefined : rel;
 
-	const { textColumnWidth, mediaColumnWidth } = getColumnSize(
-		mediaColumnSize
-	);
+	const { textColumnWidth, mediaColumnWidth } =
+		getColumnSize( mediaColumnSize );
 
 	const classes = classnames( 'smb-media-text', className, {
 		[ `smb-media-text--mobile-${ mobileOrder }` ]: !! mobileOrder,

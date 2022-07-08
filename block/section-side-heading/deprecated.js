@@ -62,9 +62,8 @@ export default [
 				bottomDividerVerticalPosition,
 			} = attributes;
 
-			const { textColumnWidth, imageColumnWidth } = getColumnSize(
-				headingColumnSize
-			);
+			const { textColumnWidth, imageColumnWidth } =
+				getColumnSize( headingColumnSize );
 
 			const isItemsAlignmentable = 'fit' !== height;
 
@@ -82,7 +81,8 @@ export default [
 			);
 
 			const innerClasses = classnames( 'smb-section__inner', {
-				[ `is-content-justification-${ contentJustification }` ]: !! contentJustification,
+				[ `is-content-justification-${ contentJustification }` ]:
+					!! contentJustification,
 			} );
 
 			const containerClasses = classnames( 'c-container', {
@@ -229,9 +229,8 @@ export default [
 				bottomDividerVerticalPosition,
 			} = attributes;
 
-			const { textColumnWidth, imageColumnWidth } = getColumnSize(
-				headingColumnSize
-			);
+			const { textColumnWidth, imageColumnWidth } =
+				getColumnSize( headingColumnSize );
 
 			const TagName = wrapperTagName;
 
@@ -502,9 +501,8 @@ export default [
 				bottomDividerColor,
 			} = attributes;
 
-			const { textColumnWidth, imageColumnWidth } = getColumnSize(
-				headingColumnSize
-			);
+			const { textColumnWidth, imageColumnWidth } =
+				getColumnSize( headingColumnSize );
 
 			const TagName = wrapperTagName;
 
@@ -685,9 +683,8 @@ export default [
 				bottomDividerColor,
 			} = attributes;
 
-			const { textColumnWidth, imageColumnWidth } = getColumnSize(
-				headingColumnSize
-			);
+			const { textColumnWidth, imageColumnWidth } =
+				getColumnSize( headingColumnSize );
 
 			const TagName = wrapperTagName;
 
@@ -851,9 +848,8 @@ export default [
 				bottomDividerColor,
 			} = attributes;
 
-			const { textColumnWidth, imageColumnWidth } = getColumnSize(
-				headingColumnSize
-			);
+			const { textColumnWidth, imageColumnWidth } =
+				getColumnSize( headingColumnSize );
 
 			const Wrapper = wrapperTagName;
 

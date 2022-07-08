@@ -1,45 +1,45 @@
 {
-  "apiVersion": 2,
-  "name": "snow-monkey-blocks/evaluation-star",
+	"apiVersion": 2,
+	"name": "snow-monkey-blocks/evaluation-star",
 	"title": "Evaluation star",
 	"description": "Evaluate with star icons",
-  "category": "smb",
-  "attributes": {
-    "evaluationValue": {
-      "type": "number",
-      "default": 3
-    },
-    "iconColor": {
-      "type": "string"
-    },
-    "isDisplayNumeric": {
-      "type": "boolean",
-      "default": true
-    },
-    "numericAlign": {
-      "type": "string",
-      "default": "left"
-    },
-    "numericColor": {
-      "type": "string"
-    },
-    "title": {
-      "type": "string"
-    },
-    "titleAlign": {
-      "type": "string",
-      "default": "left"
-    }
-  },
-  "supports": {
-    "html": false
-  },
-  "example": {
-    "attributes": {
-      "evaluationValue": 3,
-      "isDisplayNumeric": true
-    }
-  },
-  "style": "snow-monkey-blocks/evaluation-star",
-  "editorScript": "file:../../dist/block/evaluation-star/editor.js"
+	"category": "smb",
+	"attributes": {
+		"evaluationValue": {
+			"type": "number",
+			"default": 3
+		},
+		"iconColor": {
+			"type": "string"
+		},
+		"isDisplayNumeric": {
+			"type": "boolean",
+			"default": true
+		},
+		"numericAlign": {
+			"type": "string",
+			"default": "left"
+		},
+		"numericColor": {
+			"type": "string"
+		},
+		"title": {
+			"type": "string"
+		},
+		"titleAlign": {
+			"type": "string",
+			"default": "left"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"attributes": {
+			"evaluationValue": 3,
+			"isDisplayNumeric": true
+		}
+	},
+	"style": "snow-monkey-blocks/evaluation-star",
+	"editorScript": "file:../../dist/block/evaluation-star/editor.js"
 }

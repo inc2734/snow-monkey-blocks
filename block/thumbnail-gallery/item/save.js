@@ -3,14 +3,8 @@ import classnames from 'classnames';
 import { RichText, useBlockProps } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
-	const {
-		imageID,
-		imageURL,
-		imageAlt,
-		imageWidth,
-		imageHeight,
-		caption,
-	} = attributes;
+	const { imageID, imageURL, imageAlt, imageWidth, imageHeight, caption } =
+		attributes;
 
 	const classes = classnames( 'smb-thumbnail-gallery__item', className );
 

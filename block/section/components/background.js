@@ -69,7 +69,8 @@ export const PanelSectionMovableBackgroundSettings = ( {
 	hasTexture,
 	settings,
 } ) => {
-	const multipleOriginColorsAndGradients = useMultipleOriginColorsAndGradients();
+	const multipleOriginColorsAndGradients =
+		useMultipleOriginColorsAndGradients();
 
 	return (
 		<PanelBody
@@ -204,7 +205,8 @@ export const PanelSectionFixedBackgroundSettings = ( {
 	hasTexture,
 	settings,
 } ) => {
-	const multipleOriginColorsAndGradients = useMultipleOriginColorsAndGradients();
+	const multipleOriginColorsAndGradients =
+		useMultipleOriginColorsAndGradients();
 
 	return (
 		<PanelBody
@@ -278,7 +280,8 @@ export const PanelSectionFixedBackgroundSettings = ( {
 };
 
 export const PanelSectionTopDividerSettings = ( { settings } ) => {
-	const multipleOriginColorsAndGradients = useMultipleOriginColorsAndGradients();
+	const multipleOriginColorsAndGradients =
+		useMultipleOriginColorsAndGradients();
 
 	return (
 		<PanelBody
@@ -360,7 +363,8 @@ export const PanelSectionTopDividerSettings = ( { settings } ) => {
 };
 
 export const PanelSectionBottomDividerSettings = ( { settings } ) => {
-	const multipleOriginColorsAndGradients = useMultipleOriginColorsAndGradients();
+	const multipleOriginColorsAndGradients =
+		useMultipleOriginColorsAndGradients();
 
 	return (
 		<PanelBody
@@ -442,7 +446,8 @@ export const PanelSectionBottomDividerSettings = ( { settings } ) => {
 };
 
 export const PanelSectionBackgroundTextSettings = ( { settings } ) => {
-	const multipleOriginColorsAndGradients = useMultipleOriginColorsAndGradients();
+	const multipleOriginColorsAndGradients =
+		useMultipleOriginColorsAndGradients();
 
 	return (
 		<PanelBody
@@ -741,7 +746,8 @@ export const SectionBackground = ( {
 										className={ classnames(
 											'smb-section__background-text__text',
 											{
-												[ `has-${ backgroundText?.fontSizeSlug }-font-size` ]: !! backgroundText?.fontSizeSlug,
+												[ `has-${ backgroundText?.fontSizeSlug }-font-size` ]:
+													!! backgroundText?.fontSizeSlug,
 											}
 										) }
 										style={ backgroundTextStyles }

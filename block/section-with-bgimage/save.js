@@ -73,7 +73,8 @@ export default function ( { attributes, className } ) {
 	} );
 
 	const innerClasses = classnames( 'smb-section__inner', {
-		[ `is-content-justification-${ contentJustification }` ]: !! contentJustification,
+		[ `is-content-justification-${ contentJustification }` ]:
+			!! contentJustification,
 	} );
 
 	const containerClasses = classnames( 'c-container', {
@@ -107,7 +108,8 @@ export default function ( { attributes, className } ) {
 	const contentsWrapperClasses = classnames(
 		'smb-section__contents-wrapper',
 		{
-			[ `smb-section__contents-wrapper--${ contentsAlignment }` ]: !! contentsAlignment,
+			[ `smb-section__contents-wrapper--${ contentsAlignment }` ]:
+				!! contentsAlignment,
 			'u-slim-width': isSlim && ! contentsMaxWidth,
 		}
 	);

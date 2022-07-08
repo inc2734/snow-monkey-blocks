@@ -34,7 +34,8 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 	);
 
 	const classes = classnames( 'smb-buttons', className, {
-		[ `is-content-justification-${ contentJustification }` ]: contentJustification,
+		[ `is-content-justification-${ contentJustification }` ]:
+			contentJustification,
 	} );
 
 	const blockProps = useBlockProps( {

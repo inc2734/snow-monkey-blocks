@@ -1,56 +1,56 @@
 {
-  "apiVersion": 2,
-  "name": "snow-monkey-blocks/directory-structure",
+	"apiVersion": 2,
+	"name": "snow-monkey-blocks/directory-structure",
 	"title": "Directory structure",
 	"description": "Display a list of directories and files",
-  "category": "smb",
-  "supports": {
-    "html": false
-  },
-  "example": {
-    "innerBlocks": [
-      {
-        "name": "snow-monkey-blocks/directory-structure-item-directory",
-        "attributes": {
-          "name": "Lorem ipsum dolor sit amet"
-        },
-        "innerBlocks": [
-          {
-            "name": "snow-monkey-blocks/directory-structure-item-file",
-            "attributes": {
-              "name": "Lorem ipsum dolor sit amet"
-            }
-          },
-          {
-            "name": "snow-monkey-blocks/directory-structure-item-file",
-            "attributes": {
-              "name": "Lorem ipsum dolor sit amet"
-            }
-          }
-        ]
-      },
-      {
-        "name": "snow-monkey-blocks/directory-structure-item-directory",
-        "attributes": {
-          "name": "Lorem ipsum dolor sit amet"
-        },
-        "innerBlocks": [
-          {
-            "name": "snow-monkey-blocks/directory-structure-item-file",
-            "attributes": {
-              "name": "Lorem ipsum dolor sit amet"
-            }
-          },
-          {
-            "name": "snow-monkey-blocks/directory-structure-item-file",
-            "attributes": {
-              "name": "Lorem ipsum dolor sit amet"
-            }
-          }
-        ]
-      }
-    ]
-  },
-  "style": "snow-monkey-blocks/directory-structure",
-  "editorScript": "file:../../dist/block/directory-structure/editor.js"
+	"category": "smb",
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"innerBlocks": [
+			{
+				"name": "snow-monkey-blocks/directory-structure-item-directory",
+				"attributes": {
+					"name": "Lorem ipsum dolor sit amet"
+				},
+				"innerBlocks": [
+					{
+						"name": "snow-monkey-blocks/directory-structure-item-file",
+						"attributes": {
+							"name": "Lorem ipsum dolor sit amet"
+						}
+					},
+					{
+						"name": "snow-monkey-blocks/directory-structure-item-file",
+						"attributes": {
+							"name": "Lorem ipsum dolor sit amet"
+						}
+					}
+				]
+			},
+			{
+				"name": "snow-monkey-blocks/directory-structure-item-directory",
+				"attributes": {
+					"name": "Lorem ipsum dolor sit amet"
+				},
+				"innerBlocks": [
+					{
+						"name": "snow-monkey-blocks/directory-structure-item-file",
+						"attributes": {
+							"name": "Lorem ipsum dolor sit amet"
+						}
+					},
+					{
+						"name": "snow-monkey-blocks/directory-structure-item-file",
+						"attributes": {
+							"name": "Lorem ipsum dolor sit amet"
+						}
+					}
+				]
+			}
+		]
+	},
+	"style": "snow-monkey-blocks/directory-structure",
+	"editorScript": "file:../../dist/block/directory-structure/editor.js"
 }

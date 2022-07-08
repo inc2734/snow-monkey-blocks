@@ -105,9 +105,8 @@ export default function ( {
 	);
 
 	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
-	const { textColumnWidth, mediaColumnWidth } = getColumnSize(
-		mediaColumnSize
-	);
+	const { textColumnWidth, mediaColumnWidth } =
+		getColumnSize( mediaColumnSize );
 
 	const classes = classnames( 'smb-media-text', className, {
 		[ `smb-media-text--mobile-${ mobileOrder }` ]: !! mobileOrder,

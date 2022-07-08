@@ -1,246 +1,246 @@
 {
-  "apiVersion": 2,
-  "name": "snow-monkey-blocks/section-break-the-grid",
+	"apiVersion": 2,
+	"name": "snow-monkey-blocks/section-break-the-grid",
 	"title": "Section (Break the grid)",
 	"description": "It is a break the grid section.",
-  "category": "smb-section",
-  "attributes": {
-    "imageID": {
-      "type": "number",
-      "default": 0
-    },
-    "imageURL": {
-      "type": "string",
-      "source": "attribute",
-      "selector": ".smb-section-break-the-grid__figure > img, .smb-section-break-the-grid__figure > video",
-      "attribute": "src",
-      "default": ""
-    },
-    "imageAlt": {
-      "type": "string",
-      "source": "attribute",
-      "selector": ".smb-section-break-the-grid__figure > img",
-      "attribute": "alt",
-      "default": ""
-    },
-    "imageWidth": {
-      "type": "string",
-      "source": "attribute",
-      "selector": ".smb-section-break-the-grid__figure > img, .smb-section-break-the-grid__figure > video",
-      "attribute": "width",
-      "default": ""
-    },
-    "imageHeight": {
-      "type": "string",
-      "source": "attribute",
-      "selector": ".smb-section-break-the-grid__figure > img, .smb-section-break-the-grid__figure > video",
-      "attribute": "height",
-      "default": ""
-    },
-    "imageMediaType": {
-      "type": "string"
-    },
-    "textColor": {
-      "type": "string"
-    },
-    "imagePosition": {
-      "type": "string",
-      "default": "right"
-    },
-    "imageSize": {
-      "type": "string",
-      "default": "40"
-    },
-    "imageMatchHeight": {
-      "type": "boolean",
-      "default": false
-    },
-    "imageSizeSlug": {
-      "type": "string",
-      "default": "large"
-    },
-    "verticalAlignment": {
-      "type": "string",
-      "default": "center"
-    },
-    "contentSize": {
-      "type": "string",
-      "default": "-20"
-    },
-    "contentHorizontalPosition": {
-      "type": "string",
-      "default": "10"
-    },
-    "contentVerticalPosition": {
-      "type": "string"
-    },
-    "contentBackgroundColor": {
-      "type": "string"
-    },
-    "contentBackgroundOpacity": {
-      "type": "number",
-      "default": 0.98
-    },
-    "contentPadding": {
-      "type": "string"
-    },
-    "removeContentOutsidePadding": {
-      "type": "boolean",
-      "default": false
-    },
-    "shadowColor": {
-      "type": "string"
-    },
-    "shadowHorizontalPosition": {
-      "type": "number",
-      "default": 5
-    },
-    "shadowVerticalPosition": {
-      "type": "number",
-      "default": 5
-    },
-    "maskColor": {
-      "type": "string"
-    },
-    "maskOpacity": {
-      "type": "number",
-      "default": 1
-    },
-    "mobileOrder": {
-      "type": "string"
-    },
-    "contentsAlignment": {
-      "type": "string"
-    },
+	"category": "smb-section",
+	"attributes": {
+		"imageID": {
+			"type": "number",
+			"default": 0
+		},
+		"imageURL": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-section-break-the-grid__figure > img, .smb-section-break-the-grid__figure > video",
+			"attribute": "src",
+			"default": ""
+		},
+		"imageAlt": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-section-break-the-grid__figure > img",
+			"attribute": "alt",
+			"default": ""
+		},
+		"imageWidth": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-section-break-the-grid__figure > img, .smb-section-break-the-grid__figure > video",
+			"attribute": "width",
+			"default": ""
+		},
+		"imageHeight": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-section-break-the-grid__figure > img, .smb-section-break-the-grid__figure > video",
+			"attribute": "height",
+			"default": ""
+		},
+		"imageMediaType": {
+			"type": "string"
+		},
+		"textColor": {
+			"type": "string"
+		},
+		"imagePosition": {
+			"type": "string",
+			"default": "right"
+		},
+		"imageSize": {
+			"type": "string",
+			"default": "40"
+		},
+		"imageMatchHeight": {
+			"type": "boolean",
+			"default": false
+		},
+		"imageSizeSlug": {
+			"type": "string",
+			"default": "large"
+		},
+		"verticalAlignment": {
+			"type": "string",
+			"default": "center"
+		},
+		"contentSize": {
+			"type": "string",
+			"default": "-20"
+		},
+		"contentHorizontalPosition": {
+			"type": "string",
+			"default": "10"
+		},
+		"contentVerticalPosition": {
+			"type": "string"
+		},
+		"contentBackgroundColor": {
+			"type": "string"
+		},
+		"contentBackgroundOpacity": {
+			"type": "number",
+			"default": 0.98
+		},
+		"contentPadding": {
+			"type": "string"
+		},
+		"removeContentOutsidePadding": {
+			"type": "boolean",
+			"default": false
+		},
+		"shadowColor": {
+			"type": "string"
+		},
+		"shadowHorizontalPosition": {
+			"type": "number",
+			"default": 5
+		},
+		"shadowVerticalPosition": {
+			"type": "number",
+			"default": 5
+		},
+		"maskColor": {
+			"type": "string"
+		},
+		"maskOpacity": {
+			"type": "number",
+			"default": 1
+		},
+		"mobileOrder": {
+			"type": "string"
+		},
+		"contentsAlignment": {
+			"type": "string"
+		},
 
-    "title": {
-      "type": "string",
-      "source": "html",
-      "selector": ".smb-section__title",
-      "default": ""
-    },
-    "subtitle": {
-      "type": "string",
-      "source": "html",
-      "selector": ".smb-section__subtitle",
-      "default": ""
-    },
-    "lede": {
-      "type": "string",
-      "source": "html",
-      "selector": ".smb-section__lede",
-      "default": ""
-    },
+		"title": {
+			"type": "string",
+			"source": "html",
+			"selector": ".smb-section__title",
+			"default": ""
+		},
+		"subtitle": {
+			"type": "string",
+			"source": "html",
+			"selector": ".smb-section__subtitle",
+			"default": ""
+		},
+		"lede": {
+			"type": "string",
+			"source": "html",
+			"selector": ".smb-section__lede",
+			"default": ""
+		},
 
-    "wrapperTagName": {
-      "type": "string",
-      "default": "div"
-    },
-    "titleTagName": {
-      "type": "string",
-      "default": "h2"
-    },
-    "containerAlign": {
-      "type": "string"
-    },
-    "padding": {
-      "type": "object",
-      "default": {}
-    },
+		"wrapperTagName": {
+			"type": "string",
+			"default": "div"
+		},
+		"titleTagName": {
+			"type": "string",
+			"default": "h2"
+		},
+		"containerAlign": {
+			"type": "string"
+		},
+		"padding": {
+			"type": "object",
+			"default": {}
+		},
 
-    "backgroundHorizontalPosition": {
-      "type": "number",
-      "default": 0
-    },
-    "backgroundVerticalPosition": {
-      "type": "number",
-      "default": 0
-    },
-    "isBackgroundNoOver": {
-      "type": "boolean",
-      "default": false
-    },
-    "backgroundColor": {
-      "type": "string"
-    },
-    "backgroundGradientColor": {
-      "type": "string"
-    },
-    "backgroundTexture": {
-      "type": "string"
-    },
-    "backgroundTextureOpacity": {
-      "type": "number",
-      "default": 1
-    },
-    "fixedBackgroundColor": {
-      "type": "string"
-    },
-    "fixedBackgroundGradientColor": {
-      "type": "string"
-    },
-    "fixedBackgroundTexture": {
-      "type": "string"
-    },
-    "fixedBackgroundTextureOpacity": {
-      "type": "number",
-      "default": 1
-    },
-    "topDividerType": {
-      "type": "string",
-      "default": "tilt"
-    },
-    "topDividerLevel": {
-      "type": "number",
-      "default": 0
-    },
-    "topDividerColor": {
-      "type": "string",
-      "default": "#fff"
-    },
-    "topDividerVerticalPosition": {
-      "type": "number",
-      "default": 0
-    },
-    "bottomDividerType": {
-      "type": "string",
-      "default": "tilt"
-    },
-    "bottomDividerLevel": {
-      "type": "number",
-      "default": 0
-    },
-    "bottomDividerColor": {
-      "type": "string",
-      "default": "#fff"
-    },
-    "bottomDividerVerticalPosition": {
-      "type": "number",
-      "default": 0
-    },
-    "backgroundText": {
-      "type": "object",
-      "default": {
-        "text": "",
-        "color": "",
-        "fontSize": "",
-        "fontSizeSlug": "",
-        "lineHeight": "",
-        "opacity": 0.2,
-        "position": {
-          "top": null,
-          "right": null,
-          "bottom": null,
-          "left": null
-        }
-      }
-    }
-  },
-  "supports": {
-    "align": [ "wide", "full" ],
-    "anchor": true
-  },
-  "style": "snow-monkey-blocks/section-break-the-grid",
-  "editorStyle": "snow-monkey-blocks/section-break-the-grid/editor",
-  "editorScript": "file:../../dist/block/section-break-the-grid/editor.js"
+		"backgroundHorizontalPosition": {
+			"type": "number",
+			"default": 0
+		},
+		"backgroundVerticalPosition": {
+			"type": "number",
+			"default": 0
+		},
+		"isBackgroundNoOver": {
+			"type": "boolean",
+			"default": false
+		},
+		"backgroundColor": {
+			"type": "string"
+		},
+		"backgroundGradientColor": {
+			"type": "string"
+		},
+		"backgroundTexture": {
+			"type": "string"
+		},
+		"backgroundTextureOpacity": {
+			"type": "number",
+			"default": 1
+		},
+		"fixedBackgroundColor": {
+			"type": "string"
+		},
+		"fixedBackgroundGradientColor": {
+			"type": "string"
+		},
+		"fixedBackgroundTexture": {
+			"type": "string"
+		},
+		"fixedBackgroundTextureOpacity": {
+			"type": "number",
+			"default": 1
+		},
+		"topDividerType": {
+			"type": "string",
+			"default": "tilt"
+		},
+		"topDividerLevel": {
+			"type": "number",
+			"default": 0
+		},
+		"topDividerColor": {
+			"type": "string",
+			"default": "#fff"
+		},
+		"topDividerVerticalPosition": {
+			"type": "number",
+			"default": 0
+		},
+		"bottomDividerType": {
+			"type": "string",
+			"default": "tilt"
+		},
+		"bottomDividerLevel": {
+			"type": "number",
+			"default": 0
+		},
+		"bottomDividerColor": {
+			"type": "string",
+			"default": "#fff"
+		},
+		"bottomDividerVerticalPosition": {
+			"type": "number",
+			"default": 0
+		},
+		"backgroundText": {
+			"type": "object",
+			"default": {
+				"text": "",
+				"color": "",
+				"fontSize": "",
+				"fontSizeSlug": "",
+				"lineHeight": "",
+				"opacity": 0.2,
+				"position": {
+					"top": null,
+					"right": null,
+					"bottom": null,
+					"left": null
+				}
+			}
+		}
+	},
+	"supports": {
+		"align": [ "wide", "full" ],
+		"anchor": true
+	},
+	"style": "snow-monkey-blocks/section-break-the-grid",
+	"editorStyle": "snow-monkey-blocks/section-break-the-grid/editor",
+	"editorScript": "file:../../dist/block/section-break-the-grid/editor.js"
 }

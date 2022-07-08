@@ -1,31 +1,31 @@
 {
-  "apiVersion": 2,
-  "name": "snow-monkey-blocks/directory-structure-item-directory",
+	"apiVersion": 2,
+	"name": "snow-monkey-blocks/directory-structure-item-directory",
 	"title": "Directory",
 	"description": "Display a directory item",
-  "category": "smb",
-  "parent": [ "snow-monkey-blocks/directory-structure" ],
-  "attributes": {
-    "name": {
-      "type": "string",
-      "source": "html",
-      "selector": ".smb-directory-structure__item__name",
-      "default": ""
-    },
-    "iconVendor": {
-      "type": "string",
-      "default": "fas"
-    },
-    "iconClass": {
-      "type": "string",
-      "default": "folder"
-    },
-    "iconColor": {
-      "type": "string"
-    }
-  },
-  "supports": {
-    "html": false
-  },
-  "editorScript": "file:../../../../dist/block/directory-structure/item/directory/editor.js"
+	"category": "smb",
+	"parent": [ "snow-monkey-blocks/directory-structure" ],
+	"attributes": {
+		"name": {
+			"type": "string",
+			"source": "html",
+			"selector": ".smb-directory-structure__item__name",
+			"default": ""
+		},
+		"iconVendor": {
+			"type": "string",
+			"default": "fas"
+		},
+		"iconClass": {
+			"type": "string",
+			"default": "folder"
+		},
+		"iconColor": {
+			"type": "string"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"editorScript": "file:../../../../dist/block/directory-structure/item/directory/editor.js"
 }

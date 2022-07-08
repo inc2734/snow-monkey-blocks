@@ -1,56 +1,56 @@
 {
-  "apiVersion": 2,
-  "name": "snow-monkey-blocks/thumbnail-gallery-item",
+	"apiVersion": 2,
+	"name": "snow-monkey-blocks/thumbnail-gallery-item",
 	"title": "Slide (Deprecated)",
-  "description": "It is a child block of the thumbnail gallery block.",
-  "category": "smb-deprecated",
-  "parent": [ "snow-monkey-blocks/thumbnail-gallery" ],
-  "attributes": {
-    "imageID": {
-      "type": "number",
-      "default": 0
-    },
-    "imageURL": {
-      "type": "string",
-      "source": "attribute",
-      "selector": ".smb-thumbnail-gallery__item__figure > img",
-      "attribute": "src",
-      "default": ""
-    },
-    "imageAlt": {
-      "type": "string",
-      "source": "attribute",
-      "selector": ".smb-thumbnail-gallery__item__figure > img",
-      "attribute": "alt",
-      "default": ""
-    },
-    "imageWidth": {
-      "type": "string",
-      "source": "attribute",
-      "selector": ".smb-thumbnail-gallery__item__figure > img",
-      "attribute": "width",
-      "default": ""
-    },
-    "imageHeight": {
-      "type": "string",
-      "source": "attribute",
-      "selector": ".smb-thumbnail-gallery__item__figure > img",
-      "attribute": "height",
-      "default": ""
-    },
-    "imageSizeSlug": {
-      "type": "string",
-      "default": "large"
-    },
-    "caption": {
-      "type": "string",
-      "source": "html",
-      "selector": ".smb-thumbnail-gallery__item__caption",
-      "default": ""
-    }
-  },
-  "supports": {
-    "html": false
-  },
-  "editorScript": "file:../../../dist/block/thumbnail-gallery/item/editor.js"
+	"description": "It is a child block of the thumbnail gallery block.",
+	"category": "smb-deprecated",
+	"parent": [ "snow-monkey-blocks/thumbnail-gallery" ],
+	"attributes": {
+		"imageID": {
+			"type": "number",
+			"default": 0
+		},
+		"imageURL": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-thumbnail-gallery__item__figure > img",
+			"attribute": "src",
+			"default": ""
+		},
+		"imageAlt": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-thumbnail-gallery__item__figure > img",
+			"attribute": "alt",
+			"default": ""
+		},
+		"imageWidth": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-thumbnail-gallery__item__figure > img",
+			"attribute": "width",
+			"default": ""
+		},
+		"imageHeight": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-thumbnail-gallery__item__figure > img",
+			"attribute": "height",
+			"default": ""
+		},
+		"imageSizeSlug": {
+			"type": "string",
+			"default": "large"
+		},
+		"caption": {
+			"type": "string",
+			"source": "html",
+			"selector": ".smb-thumbnail-gallery__item__caption",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"editorScript": "file:../../../dist/block/thumbnail-gallery/item/editor.js"
 }

@@ -69,7 +69,8 @@ export default [
 				'smb-section-with-bgimage',
 				className,
 				{
-					[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
+					[ `smb-section--${ contentsAlignment }` ]:
+						!! contentsAlignment,
 					[ `smb-section--${ height }` ]: !! height,
 					[ `is-items-alignment-${ itemsAlignment }` ]:
 						!! itemsAlignment && isItemsAlignmentable,
@@ -85,7 +86,8 @@ export default [
 			);
 
 			const innerClasses = classnames( 'smb-section__inner', {
-				[ `is-content-justification-${ contentJustification }` ]: !! contentJustification,
+				[ `is-content-justification-${ contentJustification }` ]:
+					!! contentJustification,
 			} );
 
 			const containerClasses = classnames( 'c-container', {
@@ -96,7 +98,8 @@ export default [
 			const contentsWrapperClasses = classnames(
 				'smb-section__contents-wrapper',
 				{
-					[ `smb-section__contents-wrapper--${ contentsAlignment }` ]: !! contentsAlignment,
+					[ `smb-section__contents-wrapper--${ contentsAlignment }` ]:
+						!! contentsAlignment,
 					'u-slim-width': isSlim && ! contentsMaxWidth,
 				}
 			);
@@ -450,9 +453,11 @@ export default [
 				'smb-section-with-bgimage',
 				className,
 				{
-					[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
+					[ `smb-section--${ contentsAlignment }` ]:
+						!! contentsAlignment,
 					[ `smb-section--${ height }` ]: !! height,
-					[ `is-content-justification-${ contentJustification }` ]: !! contentJustification,
+					[ `is-content-justification-${ contentJustification }` ]:
+						!! contentJustification,
 					[ `is-items-alignment-${ itemsAlignment }` ]:
 						!! itemsAlignment && isItemsAlignmentable,
 					'js-bg-parallax': !! parallax,

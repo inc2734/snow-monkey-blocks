@@ -1,114 +1,114 @@
 {
-  "apiVersion": 2,
-  "name": "snow-monkey-blocks/spider-slider",
+	"apiVersion": 2,
+	"name": "snow-monkey-blocks/spider-slider",
 	"title": "Slider",
 	"description": "Show attractive images as beautiful sliders.",
-  "category": "smb",
-  "attributes": {
-    "images": {
-      "type": "array",
-      "default": [],
-      "source": "query",
-      "selector": ".smb-spider-slider .spider__slide",
-      "query": {
-        "url": {
-          "type": "string",
-          "source": "attribute",
-          "selector": ".spider__figure",
-          "attribute": "src"
-        },
-        "alt": {
-          "type": "string",
-          "source": "attribute",
-          "selector": ".spider__figure",
-          "attribute": "alt"
-        },
-        "id": {
-          "type": "string",
-          "source": "attribute",
-          "selector": ".spider__figure",
-          "attribute": "data-image-id"
-        },
-        "width": {
-          "type": "number",
-          "source": "attribute",
-          "selector": ".spider__figure",
-          "attribute": "width"
-        },
-        "height": {
-          "type": "number",
-          "source": "attribute",
-          "selector": ".spider__figure",
-          "attribute": "height"
-        },
-        "caption": {
-          "type": "string",
-          "source": "html",
-          "selector": ".smb-spider-slider__item__caption",
-          "default": ""
-        }
-      }
-    },
-    "sizeSlug": {
-      "type": "string",
-      "default": "large"
-    },
-    "dots": {
-      "type": "boolean",
-      "default": false
-    },
-    "dotsToThumbnail": {
-      "type": "boolean",
-      "default": false
-    },
-    "arrows": {
-      "type": "boolean",
-      "default": false
-    },
-    "fade": {
-      "type": "boolean",
-      "default": false
-    },
-    "shifted": {
-      "type": "boolean",
-      "default": false
-    },
-    "gutter": {
-      "type": "string"
-    },
-    "aspectRatio": {
-      "type": "string",
-      "default": ""
-    },
-    "displayCaption": {
-      "type": "boolean",
-      "default": false
-    },
-    "interval": {
-      "type": "number",
-      "default": 0
-    },
-    "duration": {
-      "type": "number",
-      "default": 0
-    },
-    "lgSlidesToShow": {
-      "type": "number",
-      "default": 1
-    },
-    "mdSlidesToShow": {
-      "type": "number",
-      "default": 1
-    },
-    "smSlidesToShow": {
-      "type": "number",
-      "default": 1
-    }
-  },
-  "supports": {
-    "align": [ "wide", "full" ]
-  },
-  "style": "snow-monkey-blocks/spider-slider",
-  "editorStyle": "snow-monkey-blocks/spider-slider/editor",
-  "editorScript": "file:../../dist/block/spider-slider/editor.js"
+	"category": "smb",
+	"attributes": {
+		"images": {
+			"type": "array",
+			"default": [],
+			"source": "query",
+			"selector": ".smb-spider-slider .spider__slide",
+			"query": {
+				"url": {
+					"type": "string",
+					"source": "attribute",
+					"selector": ".spider__figure",
+					"attribute": "src"
+				},
+				"alt": {
+					"type": "string",
+					"source": "attribute",
+					"selector": ".spider__figure",
+					"attribute": "alt"
+				},
+				"id": {
+					"type": "string",
+					"source": "attribute",
+					"selector": ".spider__figure",
+					"attribute": "data-image-id"
+				},
+				"width": {
+					"type": "number",
+					"source": "attribute",
+					"selector": ".spider__figure",
+					"attribute": "width"
+				},
+				"height": {
+					"type": "number",
+					"source": "attribute",
+					"selector": ".spider__figure",
+					"attribute": "height"
+				},
+				"caption": {
+					"type": "string",
+					"source": "html",
+					"selector": ".smb-spider-slider__item__caption",
+					"default": ""
+				}
+			}
+		},
+		"sizeSlug": {
+			"type": "string",
+			"default": "large"
+		},
+		"dots": {
+			"type": "boolean",
+			"default": false
+		},
+		"dotsToThumbnail": {
+			"type": "boolean",
+			"default": false
+		},
+		"arrows": {
+			"type": "boolean",
+			"default": false
+		},
+		"fade": {
+			"type": "boolean",
+			"default": false
+		},
+		"shifted": {
+			"type": "boolean",
+			"default": false
+		},
+		"gutter": {
+			"type": "string"
+		},
+		"aspectRatio": {
+			"type": "string",
+			"default": ""
+		},
+		"displayCaption": {
+			"type": "boolean",
+			"default": false
+		},
+		"interval": {
+			"type": "number",
+			"default": 0
+		},
+		"duration": {
+			"type": "number",
+			"default": 0
+		},
+		"lgSlidesToShow": {
+			"type": "number",
+			"default": 1
+		},
+		"mdSlidesToShow": {
+			"type": "number",
+			"default": 1
+		},
+		"smSlidesToShow": {
+			"type": "number",
+			"default": 1
+		}
+	},
+	"supports": {
+		"align": [ "wide", "full" ]
+	},
+	"style": "snow-monkey-blocks/spider-slider",
+	"editorStyle": "snow-monkey-blocks/spider-slider/editor",
+	"editorScript": "file:../../dist/block/spider-slider/editor.js"
 }

@@ -1,27 +1,27 @@
 {
-  "apiVersion": 2,
-  "name": "snow-monkey-blocks/rating-box-item",
+	"apiVersion": 2,
+	"name": "snow-monkey-blocks/rating-box-item",
 	"title": "Rating",
 	"description": "It is a child block of the rating box block.",
-  "category": "smb",
-  "parent": [ "snow-monkey-blocks/rating-box" ],
-  "attributes": {
-    "title": {
-      "type": "string",
-      "source": "html",
-      "selector": ".smb-rating-box__item__title",
-      "default": ""
-    },
-    "rating": {
-      "type": "number",
-      "default": 0
-    },
-    "color": {
-      "type": "string"
-    }
-  },
-  "supports": {
-    "html": false
-  },
-  "editorScript": "file:../../../dist/block/rating-box/item/editor.js"
+	"category": "smb",
+	"parent": [ "snow-monkey-blocks/rating-box" ],
+	"attributes": {
+		"title": {
+			"type": "string",
+			"source": "html",
+			"selector": ".smb-rating-box__item__title",
+			"default": ""
+		},
+		"rating": {
+			"type": "number",
+			"default": 0
+		},
+		"color": {
+			"type": "string"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"editorScript": "file:../../../dist/block/rating-box/item/editor.js"
 }

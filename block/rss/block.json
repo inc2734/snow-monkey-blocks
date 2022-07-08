@@ -1,52 +1,52 @@
 {
-  "name": "snow-monkey-blocks/rss",
+	"name": "snow-monkey-blocks/rss",
 	"title": "RSS",
 	"description": "Display entries from any RSS or Atom feed.",
-  "category": "smb",
-  "attributes": {
-    "feedURL": {
-      "type": "string",
-      "default": ""
-    },
-    "postsPerPage": {
-       "type": "number",
-       "default": 6
-    },
-    "layout": {
-       "type": "string",
-       "default": "rich-media"
-    },
-    "smCols": {
-      "type": "number",
-      "default": 0
-    },
-    "noPostsText": {
-       "type": "string",
-       "default": ""
-    },
-    "itemTitleTagName": {
-      "type": "string",
-      "default": "h3"
-    },
-    "arrows": {
-      "type": "boolean",
-      "default": false
-    },
-    "dots": {
-      "type": "boolean",
-      "default": true
-    },
-    "interval": {
-      "type": "number",
-      "default": 0
-    },
-    "anchor": {
-      "type": "string",
-      "default": ""
-    }
-  },
-  "supports": {
-    "anchor": true
-  },
-  "editorScript": "file:../../dist/block/rss/editor.js"
+	"category": "smb",
+	"attributes": {
+		"feedURL": {
+			"type": "string",
+			"default": ""
+		},
+		"postsPerPage": {
+			"type": "number",
+			"default": 6
+		},
+		"layout": {
+			"type": "string",
+			"default": "rich-media"
+		},
+		"smCols": {
+			"type": "number",
+			"default": 0
+		},
+		"noPostsText": {
+			"type": "string",
+			"default": ""
+		},
+		"itemTitleTagName": {
+			"type": "string",
+			"default": "h3"
+		},
+		"arrows": {
+			"type": "boolean",
+			"default": false
+		},
+		"dots": {
+			"type": "boolean",
+			"default": true
+		},
+		"interval": {
+			"type": "number",
+			"default": 0
+		},
+		"anchor": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"anchor": true
+	},
+	"editorScript": "file:../../dist/block/rss/editor.js"
 }

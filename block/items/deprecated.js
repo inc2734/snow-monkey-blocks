@@ -319,7 +319,8 @@ export default [
 														href={ btnURL }
 														target={ btnTarget }
 														style={ {
-															backgroundColor: btnBackgroundColor,
+															backgroundColor:
+																btnBackgroundColor,
 														} }
 														data-background-color={
 															btnBackgroundColor
@@ -553,7 +554,8 @@ export default [
 														href={ btnURL }
 														target={ btnTarget }
 														style={ {
-															backgroundColor: btnBackgroundColor,
+															backgroundColor:
+																btnBackgroundColor,
 														} }
 														data-background-color={
 															btnBackgroundColor
@@ -785,7 +787,8 @@ export default [
 														href={ btnURL }
 														target={ btnTarget }
 														style={ {
-															backgroundColor: btnBackgroundColor,
+															backgroundColor:
+																btnBackgroundColor,
 														} }
 														data-background-color={
 															btnBackgroundColor

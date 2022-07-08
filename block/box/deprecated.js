@@ -13,12 +13,8 @@ export default [
 		},
 
 		save( { attributes, className } ) {
-			const {
-				backgroundColor,
-				borderColor,
-				textColor,
-				borderWidth,
-			} = attributes;
+			const { backgroundColor, borderColor, textColor, borderWidth } =
+				attributes;
 
 			const boxStyles = {
 				backgroundColor: backgroundColor || undefined,
@@ -44,12 +40,8 @@ export default [
 		},
 
 		save( { attributes } ) {
-			const {
-				backgroundColor,
-				borderColor,
-				textColor,
-				borderWidth,
-			} = attributes;
+			const { backgroundColor, borderColor, textColor, borderWidth } =
+				attributes;
 
 			return (
 				<div

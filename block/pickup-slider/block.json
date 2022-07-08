@@ -1,31 +1,29 @@
 {
-  "name": "snow-monkey-blocks/pickup-slider",
+	"name": "snow-monkey-blocks/pickup-slider",
 	"title": "Pickup slider (Deprecated)",
-  "description": "Display posts with pickup tags as a slider. This block is being retained for backwards compatibility and is not recommended for use. Its use may slow down the page display.",
-  "category": "smb-deprecated",
-  "attributes": {
-    "random": {
-      "type": "boolean",
-      "default": false
-    },
-    "linkType": {
-      "type": "string",
-      "default": "button"
-    },
-    "postsPerPage": {
-      "type": "number",
-      "default": 0
-    },
-    "anchor": {
-      "type": "string",
-      "default": ""
-    }
-  },
-  "supports": {
-    "anchor": true
-  },
-  "style": [
-    "slick-carousel-theme"
-  ],
-  "editorScript": "file:../../dist/block/pickup-slider/editor.js"
+	"description": "Display posts with pickup tags as a slider. This block is being retained for backwards compatibility and is not recommended for use. Its use may slow down the page display.",
+	"category": "smb-deprecated",
+	"attributes": {
+		"random": {
+			"type": "boolean",
+			"default": false
+		},
+		"linkType": {
+			"type": "string",
+			"default": "button"
+		},
+		"postsPerPage": {
+			"type": "number",
+			"default": 0
+		},
+		"anchor": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"anchor": true
+	},
+	"style": [ "slick-carousel-theme" ],
+	"editorScript": "file:../../dist/block/pickup-slider/editor.js"
 }

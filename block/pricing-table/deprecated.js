@@ -18,7 +18,8 @@ export default [
 			const { columnSize } = attributes;
 
 			const classes = classnames( 'smb-pricing-table', {
-				[ `smb-pricing-table--col-size-${ columnSize }` ]: !! columnSize,
+				[ `smb-pricing-table--col-size-${ columnSize }` ]:
+					!! columnSize,
 				[ className ]: !! className,
 			} );
 
@@ -310,7 +311,8 @@ export default [
 													href={ btnURL }
 													target={ btnTarget }
 													style={ {
-														backgroundColor: btnBackgroundColor,
+														backgroundColor:
+															btnBackgroundColor,
 													} }
 													data-background-color={
 														btnBackgroundColor
@@ -518,7 +520,8 @@ export default [
 													href={ btnURL }
 													target={ btnTarget }
 													style={ {
-														backgroundColor: btnBackgroundColor,
+														backgroundColor:
+															btnBackgroundColor,
 													} }
 													data-background-color={
 														btnBackgroundColor

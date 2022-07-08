@@ -14,13 +14,8 @@ import { useSelect } from '@wordpress/data';
 import { __, sprintf } from '@wordpress/i18n';
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
-	const {
-		question,
-		questionColor,
-		answerColor,
-		questionLabel,
-		answerLabel,
-	} = attributes;
+	const { question, questionColor, answerColor, questionLabel, answerLabel } =
+		attributes;
 
 	const hasInnerBlocks = useSelect(
 		( select ) =>

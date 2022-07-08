@@ -1,57 +1,57 @@
 {
-  "apiVersion": 2,
-  "name": "snow-monkey-blocks/spider-contents-slider-item",
+	"apiVersion": 2,
+	"name": "snow-monkey-blocks/spider-contents-slider-item",
 	"title": "Slide",
 	"description": "It is a child block of the contents slider block.",
-  "category": "smb",
-  "parent": [ "snow-monkey-blocks/spider-contents-slider" ],
-  "attributes": {
-    "sliderId": {
-      "type": "string",
-      "source": "attribute",
-      "selector": ".spider__slide",
-      "attribute": "data-id",
-      "default": ""
-    },
-    "contentPosition": {
-      "type": "string",
-      "default": ""
-    },
-    "contentPadding": {
-      "type": "string"
-    },
-    "border": {
-      "type": "object",
-      "default": {
-        "color": "",
-        "width": 1,
-        "radius": 0
-      }
-    },
-    "boxShadow": {
-      "type": "object",
-      "default": {
-        "color": "",
-        "opacity": 0.1,
-        "blur": 10,
-        "position": ""
-      }
-    },
-    "style": {
-      "type": "object",
-      "default": {
-        "color": {
-          "background": "#eeeeee"
-        }
-      }
-    }
-  },
-  "supports": {
-    "html": false,
-    "color": {
-      "text": true,
-      "gradients": true
-    }
-  },
-  "editorScript": "file:../../../dist/block/spider-contents-slider/item/editor.js"
+	"category": "smb",
+	"parent": [ "snow-monkey-blocks/spider-contents-slider" ],
+	"attributes": {
+		"sliderId": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".spider__slide",
+			"attribute": "data-id",
+			"default": ""
+		},
+		"contentPosition": {
+			"type": "string",
+			"default": ""
+		},
+		"contentPadding": {
+			"type": "string"
+		},
+		"border": {
+			"type": "object",
+			"default": {
+				"color": "",
+				"width": 1,
+				"radius": 0
+			}
+		},
+		"boxShadow": {
+			"type": "object",
+			"default": {
+				"color": "",
+				"opacity": 0.1,
+				"blur": 10,
+				"position": ""
+			}
+		},
+		"style": {
+			"type": "object",
+			"default": {
+				"color": {
+					"background": "#eeeeee"
+				}
+			}
+		}
+	},
+	"supports": {
+		"html": false,
+		"color": {
+			"text": true,
+			"gradients": true
+		}
+	},
+	"editorScript": "file:../../../dist/block/spider-contents-slider/item/editor.js"
 }

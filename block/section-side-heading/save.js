@@ -49,9 +49,8 @@ export default function ( { attributes, className } ) {
 		bottomDividerVerticalPosition,
 	} = attributes;
 
-	const { textColumnWidth, imageColumnWidth } = getColumnSize(
-		headingColumnSize
-	);
+	const { textColumnWidth, imageColumnWidth } =
+		getColumnSize( headingColumnSize );
 
 	const isItemsAlignmentable = 'fit' !== height;
 
@@ -69,7 +68,8 @@ export default function ( { attributes, className } ) {
 	);
 
 	const innerClasses = classnames( 'smb-section__inner', {
-		[ `is-content-justification-${ contentJustification }` ]: !! contentJustification,
+		[ `is-content-justification-${ contentJustification }` ]:
+			!! contentJustification,
 	} );
 
 	const containerClasses = classnames( 'c-container', {

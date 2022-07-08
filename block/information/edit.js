@@ -31,12 +31,8 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		[ clientId ]
 	);
 
-	const {
-		labelColumnSize,
-		labelAlign,
-		labelVerticalAlign,
-		smIsSplitColumn,
-	} = attributes;
+	const { labelColumnSize, labelAlign, labelVerticalAlign, smIsSplitColumn } =
+		attributes;
 
 	const classes = classnames( 'smb-information', className );
 

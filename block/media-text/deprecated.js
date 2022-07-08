@@ -107,9 +107,8 @@ export default [
 				target,
 			} = attributes;
 
-			const { textColumnWidth, imageColumnWidth } = getColumnSize(
-				imageColumnSize
-			);
+			const { textColumnWidth, imageColumnWidth } =
+				getColumnSize( imageColumnSize );
 
 			const classes = classnames( 'smb-media-text', className, {
 				[ `smb-media-text--mobile-${ mobileOrder }` ]: !! mobileOrder,
@@ -281,17 +280,11 @@ export default [
 		},
 
 		save( { attributes } ) {
-			const {
-				title,
-				imageID,
-				imageURL,
-				imagePosition,
-				imageColumnSize,
-			} = attributes;
+			const { title, imageID, imageURL, imagePosition, imageColumnSize } =
+				attributes;
 
-			const { textColumnWidth, imageColumnWidth } = getColumnSize(
-				imageColumnSize
-			);
+			const { textColumnWidth, imageColumnWidth } =
+				getColumnSize( imageColumnSize );
 
 			return (
 				<div className="smb-media-text">
@@ -397,16 +390,11 @@ export default [
 		},
 
 		save( { attributes } ) {
-			const {
-				title,
-				imageURL,
-				imagePosition,
-				imageColumnSize,
-			} = attributes;
+			const { title, imageURL, imagePosition, imageColumnSize } =
+				attributes;
 
-			const { textColumnWidth, imageColumnWidth } = getColumnSize(
-				imageColumnSize
-			);
+			const { textColumnWidth, imageColumnWidth } =
+				getColumnSize( imageColumnSize );
 
 			return (
 				<div className="smb-media-text">

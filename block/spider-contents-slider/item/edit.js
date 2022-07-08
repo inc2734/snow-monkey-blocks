@@ -72,7 +72,8 @@ export default function ( {
 	const classes = classnames( 'spider__slide', className );
 
 	const itemClasses = classnames( 'smb-spider-contents-slider__item', {
-		[ `smb-spider-contents-slider__item--p-${ contentPadding }` ]: !! contentPadding,
+		[ `smb-spider-contents-slider__item--p-${ contentPadding }` ]:
+			!! contentPadding,
 	} );
 
 	const blockProps = useBlockProps( {

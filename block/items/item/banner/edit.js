@@ -97,7 +97,8 @@ export default function ( {
 		`smb-items__banner--${ imageSize }`,
 		{
 			'smb-items__banner--blur': blur,
-			[ `smb-items__banner--${ contentsAlignment }` ]: !! contentsAlignment,
+			[ `smb-items__banner--${ contentsAlignment }` ]:
+				!! contentsAlignment,
 		}
 	);
 
