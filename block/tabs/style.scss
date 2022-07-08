@@ -121,8 +121,7 @@
   > .smb-tabs__body {
     > .smb-tab-panel {
       &[aria-hidden="true"] {
-        position: absolute;
-        // height: 0;
+        position: fixed;
       }
     }
   }
