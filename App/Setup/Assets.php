@@ -235,7 +235,7 @@ class Assets {
 <script>
 var smb = {
 	pluginUrl: '<?php echo esc_attr( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>',
-	pluginDir: '<?php echo esc_attr( SNOW_MONKEY_BLOCKS_DIR_PATH ); ?>',
+	pluginDir: '<?php echo esc_attr( str_replace( '\\', '\\\\', SNOW_MONKEY_BLOCKS_DIR_PATH ) ); ?>',
 	isPro: <?php echo esc_attr( Blocks\is_pro() ? 'true' : 'false' ); ?>,
 };
 </script>
