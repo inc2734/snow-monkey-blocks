@@ -183,7 +183,8 @@
 }
 
 .smb-tabs.is-style-line {
-  > .smb-tabs__tabs {
+  > .smb-tabs__tabs,
+  > .smb-tabs__tabs > .smb-tabs__tab-wrapper {
     position: relative;
 
     &::after {
@@ -192,7 +193,9 @@
       display: block;
       background-color: _var-light-color-gray();
     }
+  }
 
+  > .smb-tabs__tabs {
     .smb-tabs__tab {
       position: relative;
       background-color: transparent;
@@ -216,15 +219,18 @@
   }
 
   &[data-orientation="horizontal"] {
-    > .smb-tabs__tabs {
-      @include _margin-bottom(1);
-
+    > .smb-tabs__tabs,
+    > .smb-tabs__tabs > .smb-tabs__tab-wrapper {
       &::after {
         bottom: 0;
         right: 0;
         left: 0;
         height: 1px;
       }
+    }
+
+    > .smb-tabs__tabs {
+      @include _margin-bottom(1);
 
       .smb-tabs__tab {
         &[aria-selected="true"] {
