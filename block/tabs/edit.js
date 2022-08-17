@@ -76,7 +76,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						: 'true',
 			} );
 		} );
-	}, [ tabs.length ] );
+	}, [ tabs ] );
 
 	// For duplicate blcok.
 	useEffect( () => {
