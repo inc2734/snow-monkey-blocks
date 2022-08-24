@@ -93,6 +93,9 @@
 			"type": "number",
 			"default": 1
 		},
+		"backgroundTextureUrl": {
+			"type": "string"
+		},
 		"fixedBackgroundColor": {
 			"type": "string"
 		},
@@ -105,6 +108,9 @@
 		"fixedBackgroundTextureOpacity": {
 			"type": "number",
 			"default": 1
+		},
+		"fixedBackgroundTextureUrl": {
+			"type": "string"
 		},
 		"topDividerType": {
 			"type": "string",

@@ -108,10 +108,12 @@ export default function ( {
 		backgroundGradientColor,
 		backgroundTexture,
 		backgroundTextureOpacity,
+		backgroundTextureUrl,
 		fixedBackgroundColor,
 		fixedBackgroundGradientColor,
 		fixedBackgroundTexture,
 		fixedBackgroundTextureOpacity,
+		fixedBackgroundTextureUrl,
 		topDividerType,
 		topDividerLevel,
 		topDividerColor,
@@ -511,6 +513,9 @@ export default function ( {
 	const onChangeBackgroundTexture = ( value ) =>
 		setAttributes( {
 			backgroundTexture: value,
+			backgroundTextureUrl: !! value
+				? `${ smb.pluginUrl }/dist/block/section/img/${ value }.png`
+				: undefined,
 		} );
 
 	const onChangeBackgroundTextureOpacity = ( value ) =>
@@ -531,6 +536,9 @@ export default function ( {
 	const onChangeFixedBackgroundTexture = ( value ) =>
 		setAttributes( {
 			fixedBackgroundTexture: value,
+			fixedBackgroundTextureUrl: !! value
+				? `${ smb.pluginUrl }/dist/block/section/img/${ value }.png`
+				: undefined,
 		} );
 
 	const onChangeFixedBackgroundTextureOpacity = ( value ) =>
@@ -1359,10 +1367,12 @@ export default function ( {
 						backgroundGradientColor,
 						backgroundTexture,
 						backgroundTextureOpacity,
+						backgroundTextureUrl,
 						fixedBackgroundColor,
 						fixedBackgroundGradientColor,
 						fixedBackgroundTexture,
 						fixedBackgroundTextureOpacity,
+						fixedBackgroundTextureUrl,
 						topDividerType,
 						topDividerLevel,
 						topDividerColor,

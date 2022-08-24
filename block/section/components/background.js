@@ -566,10 +566,12 @@ export const SectionBackground = ( {
 	backgroundGradientColor,
 	backgroundTexture,
 	backgroundTextureOpacity,
+	backgroundTextureUrl,
 	fixedBackgroundColor,
 	fixedBackgroundGradientColor,
 	fixedBackgroundTexture,
 	fixedBackgroundTextureOpacity,
+	fixedBackgroundTextureUrl,
 	topDividerType,
 	topDividerLevel,
 	topDividerColor,
@@ -637,8 +639,11 @@ export const SectionBackground = ( {
 	}
 
 	const backgroundTextureStyles = {
+		// eslint-disable-next-line no-nested-ternary
 		backgroundImage: hasBackgroundTexture
-			? `url(${ smb.pluginUrl }/dist/block/section/img/${ backgroundTexture }.png)`
+			? !! backgroundTextureUrl
+				? `url(${ backgroundTextureUrl })`
+				: `url(${ smb.pluginUrl }/dist/block/section/img/${ backgroundTexture }.png)`
 			: undefined,
 		opacity: !! backgroundTextureOpacity
 			? backgroundTextureOpacity
@@ -659,8 +664,11 @@ export const SectionBackground = ( {
 	};
 
 	const fixedBackgroundTextureStyles = {
+		// eslint-disable-next-line no-nested-ternary
 		backgroundImage: hasFixedBackgroundTexture
-			? `url(${ smb.pluginUrl }/dist/block/section/img/${ fixedBackgroundTexture }.png)`
+			? !! fixedBackgroundTextureUrl
+				? `url(${ fixedBackgroundTextureUrl })`
+				: `url(${ smb.pluginUrl }/dist/block/section/img/${ fixedBackgroundTexture }.png)`
 			: undefined,
 		opacity: !! fixedBackgroundTextureOpacity
 			? fixedBackgroundTextureOpacity
