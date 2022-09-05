@@ -70,27 +70,27 @@ export default function ( {
 		[ clientId ]
 	);
 
-	const maxBlur = useSelect(
-		( select ) => {
-			const slides =
-				select( 'core/block-editor' ).getBlock( clientId ).innerBlocks;
+	const maxBlur = useSelect( ( select ) => {
+		const slides =
+			select( 'core/block-editor' ).getBlock( clientId ).innerBlocks;
 
-			const maxBlurSlide = slides.reduce( ( prevSlide, currentSlide ) => {
-				const prevBlur =
-					( !! prevSlide?.attributes?.boxShadow?.color &&
-						prevSlide?.attributes?.boxShadow?.blur ) ||
-					0;
-				const currentBlur =
-					( !! currentSlide?.attributes?.boxShadow?.color &&
-						currentSlide?.attributes?.boxShadow?.blur ) ||
-					0;
-				return prevBlur < currentBlur ? currentSlide : prevSlide;
-			} );
+		const maxBlurSlide = slides.reduce( ( prevSlide, currentSlide ) => {
+			const prevBlur =
+				( !! prevSlide?.attributes?.boxShadow?.color &&
+					0 < prevSlide?.attributes?.boxShadow?.blur ) ||
+				0;
+			const currentBlur =
+				( !! currentSlide?.attributes?.boxShadow?.color &&
+					0 < currentSlide?.attributes?.boxShadow?.blur ) ||
+				0;
+			return prevBlur < currentBlur ? currentSlide : prevSlide;
+		} );
 
-			return maxBlurSlide?.attributes?.boxShadow?.blur;
-		},
-		[ clientId ]
-	);
+		return !! maxBlurSlide?.attributes?.boxShadow?.color &&
+			0 < maxBlurSlide?.attributes?.boxShadow?.blur
+			? maxBlurSlide?.attributes?.boxShadow?.blur
+			: undefined;
+	} );
 
 	useEffect( () => {
 		setAttributes( {
