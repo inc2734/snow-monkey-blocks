@@ -3,6 +3,8 @@
 @import '../../src/css/core/block';
 
 .smb-tabs {
+  overflow: hidden;
+
   &__tabs {
     position: relative;
     z-index: 1;
@@ -121,7 +123,7 @@
   > .smb-tabs__body {
     > .smb-tab-panel {
       &[aria-hidden="true"] {
-        position: fixed;
+        position: absolute;
       }
     }
   }
