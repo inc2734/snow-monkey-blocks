@@ -49,6 +49,7 @@
   &__body {
     @include content();
     pointer-events: auto;
+    position: relative;
   }
 }
 
@@ -124,6 +125,8 @@
     > .smb-tab-panel {
       &[aria-hidden="true"] {
         position: absolute;
+        right: 0;
+        left: 0;
       }
     }
   }
