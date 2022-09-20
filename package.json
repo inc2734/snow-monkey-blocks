@@ -50,6 +50,7 @@
     "stop": "npm run export && wp-env stop",
     "cli": "wp-env run cli",
     "wp": "wp-env run cli wp",
+    "composer": "wp-env run composer",
     "browsersync": "browser-sync start -p 'localhost:8888' 'dist/**'",
     "block:accordion:clean": "rimraf dist/block/accordion && mkdir -p dist/block/accordion",
     "block:accordion:js": "wp-scripts build block/accordion/editor --output-path=dist/block/accordion",

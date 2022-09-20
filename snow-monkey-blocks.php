@@ -36,6 +36,7 @@ class Bootstrap {
 		new App\Setup\TextDomain();
 		new App\Setup\Assets();
 		new App\Setup\BlockPatterns();
+		new App\Setup\JsonLd();
 		new App\Controller\Manager();
 
 		add_filter( 'block_categories_all', [ $this, '_block_categories_all' ] );
