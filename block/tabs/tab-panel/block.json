@@ -25,7 +25,8 @@
 		"customClassName": false,
 		"reusable": false,
 		"html": false,
-		"__experimentalToolbar": false
+		"__experimentalToolbar": false,
+		"inserter": false
 	},
 	"example": {},
 	"editorScript": "file:../../../dist/block/tabs/tab-panel/editor.js"

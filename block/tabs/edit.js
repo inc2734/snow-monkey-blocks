@@ -1,4 +1,5 @@
 import classnames from 'classnames';
+import { find, reject } from 'lodash';
 
 import {
 	InspectorControls,
@@ -97,6 +98,45 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 
 		setCurrentTabPanelId( tabs[ 0 ].tabPanelId );
 	}, [ clientId ] );
+
+	// For duplicate/Remove tabPanel blcoks.
+	useEffect( () => {
+		const blockOrder = getBlockOrder( clientId );
+		if ( blockOrder.length === tabs.length ) {
+			return;
+		}
+
+		let tabsCopy = { ...tabs };
+
+		const newTabs = [];
+		blockOrder.forEach( ( tabPanelClientId, index ) => {
+			const tab = getBlock( tabPanelClientId );
+			const matchTab = find( tabsCopy, {
+				tabPanelId: tab.attributes.tabPanelId,
+			} );
+			if ( matchTab ) {
+				newTabs[ index ] = matchTab;
+				tabsCopy = reject( tabsCopy, {
+					tabPanelId: tab.attributes.tabPanelId,
+				} );
+			} else {
+				const _matchTab = find( tabs, {
+					tabPanelId: tab.attributes.tabPanelId,
+				} );
+
+				const tabPanelId = `block-${ tabPanelClientId }`;
+				updateBlockAttributes( tabPanelClientId, { tabPanelId } );
+				newTabs[ index ] = { tabPanelId, title: _matchTab.title };
+			}
+		} );
+
+		// When a tab is deleted, focus on the first tab. When a tab is duplicated, the focus remains on the current tab.
+		if ( tabs.length > newTabs.length ) {
+			setCurrentTabPanelId( newTabs[ 0 ].tabPanelId );
+		}
+
+		setAttributes( { tabs: JSON.stringify( newTabs ) } );
+	}, [ getBlock( clientId ).innerBlocks ] );
 
 	const dataMatchHeightBoolean =
 		'vertical' === orientation ||
