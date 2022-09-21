@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unknown-property */
+
 import classnames from 'classnames';
 import hexToRgba from 'hex-to-rgba';
 import { omit, without } from 'lodash';
