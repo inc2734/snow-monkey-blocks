@@ -970,6 +970,7 @@ export default function ( {
 						) }
 
 					<ColorGradientControl
+						className="smb-inpanel-color-gradient-control"
 						label={ __( 'Background color', 'snow-monkey-blocks' ) }
 						colorValue={ contentBackgroundColor }
 						onColorChange={ onChangeContentBackgroundColor }
@@ -1035,6 +1036,7 @@ export default function ( {
 					initialOpen={ false }
 				>
 					<ColorGradientControl
+						className="smb-inpanel-color-gradient-control"
 						label={ __( 'Color', 'snow-monkey-blocks' ) }
 						colorValue={ shadowColor }
 						onColorChange={ onChangeShadowColor }
@@ -1075,6 +1077,7 @@ export default function ( {
 					initialOpen={ false }
 				>
 					<ColorGradientControl
+						className="smb-inpanel-color-gradient-control"
 						label={ __( 'Color', 'snow-monkey-blocks' ) }
 						colorValue={ maskColor }
 						onColorChange={ onChangeMaskColor }

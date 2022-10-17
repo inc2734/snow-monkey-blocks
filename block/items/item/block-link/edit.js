@@ -335,6 +335,7 @@ export default function ( {
 					/>
 
 					<ColorGradientControl
+						className="smb-inpanel-color-gradient-control"
 						label={ __( 'Background color', 'snow-monkey-blocks' ) }
 						colorValue={ btnBackgroundColor }
 						onColorChange={ onChangeBtnBackgroundColor }
@@ -344,6 +345,7 @@ export default function ( {
 					/>
 
 					<ColorGradientControl
+						className="smb-inpanel-color-gradient-control"
 						label={ __( 'Text color', 'snow-monkey-blocks' ) }
 						colorValue={ btnTextColor }
 						onColorChange={ onChangeBtnTextColor }

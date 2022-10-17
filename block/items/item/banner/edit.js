@@ -331,6 +331,7 @@ export default function ( {
 					initialOpen={ false }
 				>
 					<ColorGradientControl
+						className="smb-inpanel-color-gradient-control"
 						label={ __( 'Color', 'snow-monkey-blocks' ) }
 						colorValue={ maskColor }
 						onColorChange={ onChangeMaskColor }

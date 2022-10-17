@@ -21,6 +21,7 @@ export default function ( { settings } ) {
 						return (
 							<ColorGradientControl
 								key={ index }
+								className="smb-inpanel-color-gradient-control"
 								label={ __( 'Color', 'snow-monkey-blocks' ) }
 								disableAlpha={ false }
 								colorValue={ setting.colorValue }

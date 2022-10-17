@@ -149,3 +149,18 @@
     }
   }
 }
+
+.smb-inpanel-color-gradient-control {
+  .block-editor-color-gradient-control__fieldset {
+    padding: 0;
+  }
+
+  .block-editor-color-gradient-control__color-indicator {
+    margin-bottom: 0;
+  }
+
+  .block-editor-color-gradient-control__panel {
+    border: 1px solid #e0e0e0;
+    padding: .75em .75em .625em;
+  }
+}

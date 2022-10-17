@@ -87,6 +87,7 @@ export const PanelSectionMovableBackgroundSettings = ( {
 					return (
 						<ColorGradientControl
 							key={ index }
+							className="smb-inpanel-color-gradient-control"
 							label={ __( 'Color', 'snow-monkey-blocks' ) }
 							colorValue={ setting.colorValue }
 							gradientValue={ setting.gradientValue }
@@ -223,6 +224,7 @@ export const PanelSectionFixedBackgroundSettings = ( {
 					return (
 						<ColorGradientControl
 							key={ index }
+							className="smb-inpanel-color-gradient-control"
 							label={ __( 'Color', 'snow-monkey-blocks' ) }
 							colorValue={ setting.colorValue }
 							gradientValue={ setting.gradientValue }
@@ -327,6 +329,7 @@ export const PanelSectionTopDividerSettings = ( { settings } ) => {
 					return (
 						<ColorGradientControl
 							key={ index }
+							className="smb-inpanel-color-gradient-control"
 							label={ __( 'Color', 'snow-monkey-blocks' ) }
 							colorValue={ setting.colorValue }
 							onColorChange={ setting.onColorChange }
@@ -410,6 +413,7 @@ export const PanelSectionBottomDividerSettings = ( { settings } ) => {
 					return (
 						<ColorGradientControl
 							key={ index }
+							className="smb-inpanel-color-gradient-control"
 							label={ __( 'Color', 'snow-monkey-blocks' ) }
 							colorValue={ setting.colorValue }
 							onColorChange={ setting.onColorChange }
@@ -509,6 +513,7 @@ export const PanelSectionBackgroundTextSettings = ( { settings } ) => {
 					return (
 						<ColorGradientControl
 							key={ index }
+							className="smb-inpanel-color-gradient-control"
 							label={ __( 'Color', 'snow-monkey-blocks' ) }
 							colorValue={ setting.colorValue }
 							onColorChange={ setting.onColorChange }

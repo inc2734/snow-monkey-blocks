@@ -148,6 +148,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					initialOpen={ false }
 				>
 					<ColorGradientControl
+						className="smb-inpanel-color-gradient-control"
 						label={ __( 'Color', 'snow-monkey-blocks' ) }
 						colorValue={ borderColor }
 						onColorChange={ onChangeBorderColor }
@@ -209,6 +210,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					initialOpen={ false }
 				>
 					<ColorGradientControl
+						className="smb-inpanel-color-gradient-control"
 						label={ __( 'Color', 'snow-monkey-blocks' ) }
 						colorValue={ backgroundColor }
 						gradientValue={ backgroundGradientColor }
