@@ -90,6 +90,9 @@
 		"btnBackgroundColor": {
 			"type": "string"
 		},
+		"btnBackgroundGradientColor": {
+			"type": "string"
+		},
 		"btnTextColor": {
 			"type": "string"
 		},

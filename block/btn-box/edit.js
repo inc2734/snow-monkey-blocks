@@ -41,6 +41,7 @@ export default function ( {
 		btnURL,
 		btnTarget,
 		btnBackgroundColor,
+		btnBackgroundGradientColor,
 		btnTextColor,
 		btnSize,
 		btnBorderRadius,
@@ -66,6 +67,7 @@ export default function ( {
 
 	const btnBoxBtnStyles = {
 		backgroundColor: btnBackgroundColor || undefined,
+		backgroundImage: btnBackgroundGradientColor || undefined,
 		borderRadius:
 			'undefined' !== typeof btnBorderRadius
 				? `${ btnBorderRadius }px`
@@ -99,6 +101,11 @@ export default function ( {
 	const onChangeBtnBackgroundColor = ( value ) =>
 		setAttributes( {
 			btnBackgroundColor: value,
+		} );
+
+	const onChangeBtnBackgroundGradientColor = ( value ) =>
+		setAttributes( {
+			btnBackgroundGradientColor: value,
 		} );
 
 	const onChangeBtnTextColor = ( value ) =>
@@ -216,6 +223,8 @@ export default function ( {
 						label={ __( 'Background color', 'snow-monkey-blocks' ) }
 						colorValue={ btnBackgroundColor }
 						onColorChange={ onChangeBtnBackgroundColor }
+						gradientValue={ btnBackgroundGradientColor }
+						onGradientChange={ onChangeBtnBackgroundGradientColor }
 						{ ...useMultipleOriginColorsAndGradients() }
 						__experimentalHasMultipleOrigins={ true }
 						__experimentalIsRenderedInSidebar={ true }

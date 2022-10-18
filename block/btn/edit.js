@@ -37,6 +37,7 @@ export default function ( {
 		modifier,
 		borderRadius,
 		backgroundColor,
+		backgroundGradientColor,
 		textColor,
 		wrap,
 	} = attributes;
@@ -67,6 +68,7 @@ export default function ( {
 
 	const btnStyles = {
 		backgroundColor: backgroundColor || undefined,
+		backgroundImage: backgroundGradientColor || undefined,
 		borderRadius:
 			!! borderRadius || 0 <= borderRadius
 				? `${ borderRadius }px`
@@ -105,6 +107,11 @@ export default function ( {
 			backgroundColor: value,
 		} );
 
+	const onChangeBackgroundGradientColor = ( value ) =>
+		setAttributes( {
+			backgroundGradientColor: value,
+		} );
+
 	const onChangeTextColor = ( value ) =>
 		setAttributes( {
 			textColor: value,
@@ -137,6 +144,8 @@ export default function ( {
 						{
 							colorValue: backgroundColor,
 							onColorChange: onChangeBackgroundColor,
+							gradientValue: backgroundGradientColor,
+							onGradientChange: onChangeBackgroundGradientColor,
 							label: __(
 								'Background color',
 								'snow-monkey-blocks'

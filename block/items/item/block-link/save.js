@@ -17,6 +17,7 @@ export default function ( { attributes, className } ) {
 		imageHeight,
 		btnLabel,
 		btnBackgroundColor,
+		btnBackgroundGradientColor,
 		btnTextColor,
 		btnSize,
 		btnBorderRadius,
@@ -36,6 +37,7 @@ export default function ( { attributes, className } ) {
 
 	const itemBtnStyles = {
 		backgroundColor: btnBackgroundColor || undefined,
+		backgroundImage: btnBackgroundGradientColor || undefined,
 		borderRadius:
 			'undefined' !== typeof btnBorderRadius
 				? `${ btnBorderRadius }px`

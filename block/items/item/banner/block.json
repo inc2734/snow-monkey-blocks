@@ -41,6 +41,9 @@
 		"maskColor": {
 			"type": "string"
 		},
+		"maskGradientColor": {
+			"type": "string"
+		},
 		"maskOpacity": {
 			"type": "number",
 			"default": 1

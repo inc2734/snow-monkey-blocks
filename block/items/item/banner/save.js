@@ -13,6 +13,7 @@ export default function ( { attributes, className } ) {
 		blur,
 		textColor,
 		maskColor,
+		maskGradientColor,
 		maskOpacity,
 		imageSize,
 		imageID,
@@ -45,6 +46,7 @@ export default function ( { attributes, className } ) {
 
 	const maskStyles = {
 		backgroundColor: maskColor || undefined,
+		backgroundImage: maskGradientColor || undefined,
 	};
 
 	return (

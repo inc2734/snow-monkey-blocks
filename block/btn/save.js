@@ -11,6 +11,7 @@ export default function ( props ) {
 		modifier,
 		borderRadius,
 		backgroundColor,
+		backgroundGradientColor,
 		textColor,
 		wrap,
 	} = attributes;
@@ -26,6 +27,7 @@ export default function ( props ) {
 
 	const btnStyles = {
 		backgroundColor: backgroundColor || undefined,
+		backgroundImage: backgroundGradientColor || undefined,
 		borderRadius:
 			!! borderRadius || 0 <= borderRadius
 				? `${ borderRadius }px`

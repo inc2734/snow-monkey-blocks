@@ -36,6 +36,9 @@
 		"backgroundColor": {
 			"type": "string"
 		},
+		"backgroundGradientColor": {
+			"type": "string"
+		},
 		"textColor": {
 			"type": "string"
 		},

@@ -47,6 +47,7 @@ export default function ( {
 		blur,
 		textColor,
 		maskColor,
+		maskGradientColor,
 		maskOpacity,
 		imageSize,
 		imageID,
@@ -112,6 +113,7 @@ export default function ( {
 
 	const maskStyles = {
 		backgroundColor: maskColor || undefined,
+		backgroundImage: maskGradientColor || undefined,
 	};
 
 	const ref = useRef();
@@ -183,6 +185,11 @@ export default function ( {
 	const onChangeMaskColor = ( value ) =>
 		setAttributes( {
 			maskColor: value,
+		} );
+
+	const onChangeMaskGradientColor = ( value ) =>
+		setAttributes( {
+			maskGradientColor: value,
 		} );
 
 	const onChangeTextColor = ( value ) =>
@@ -335,6 +342,8 @@ export default function ( {
 						label={ __( 'Color', 'snow-monkey-blocks' ) }
 						colorValue={ maskColor }
 						onColorChange={ onChangeMaskColor }
+						gradientValue={ maskGradientColor }
+						onGradientChange={ onChangeMaskGradientColor }
 						{ ...useMultipleOriginColorsAndGradients() }
 						__experimentalHasMultipleOrigins={ true }
 						__experimentalIsRenderedInSidebar={ true }
