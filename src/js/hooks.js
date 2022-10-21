@@ -16,7 +16,7 @@ export const useMigrateDoubleHyphenToSingleHyphen = (
 	clientId,
 	migrateBlocks
 ) => {
-	const { replaceBlock } = useDispatch( 'core/block-editor' );
+	const { replaceInnerBlocks } = useDispatch( 'core/block-editor' );
 
 	const { getBlockOrder, getBlock } = useSelect( ( select ) => {
 		return {
@@ -30,37 +30,46 @@ export const useMigrateDoubleHyphenToSingleHyphen = (
 	};
 
 	useEffect( () => {
-		getBlockOrder( clientId ).forEach( ( itemClientId ) => {
-			const item = getBlock( itemClientId );
-			migrateBlocks.forEach( ( migrateBlock ) => {
-				if (
-					'core/missing' === item.name ||
-					migrateBlock.oldBlockName === item.name
-				) {
-					const newBlock = parse(
-						item.originalContent
-							.replace(
-								migrateBlock.oldBlockName,
-								migrateBlock.newBlockName
-							)
-							.replace(
-								blockNameToDefaultClassName(
-									migrateBlock.oldBlockName
-								),
-								blockNameToDefaultClassName(
-									migrateBlock.oldBlockName
-								) +
-									' ' +
-									blockNameToDefaultClassName(
+		const newInnerBlocks = getBlockOrder( clientId )
+			.map( ( itemClientId ) => {
+				const item = getBlock( itemClientId );
+				return migrateBlocks
+					.map( ( migrateBlock ) => {
+						if (
+							'core/missing' === item.name ||
+							migrateBlock.oldBlockName === item.name
+						) {
+							const newBlock = parse(
+								item.originalContent
+									.replace(
+										migrateBlock.oldBlockName,
 										migrateBlock.newBlockName
 									)
-							)
-					)[ 0 ];
-					replaceBlock( item.clientId, newBlock );
-				}
-			} );
-		} );
-	}, [] );
+									.replace(
+										blockNameToDefaultClassName(
+											migrateBlock.oldBlockName
+										),
+										blockNameToDefaultClassName(
+											migrateBlock.oldBlockName
+										) +
+											' ' +
+											blockNameToDefaultClassName(
+												migrateBlock.newBlockName
+											)
+									)
+							)[ 0 ];
+							return newBlock;
+						}
+						return undefined;
+					} )
+					.filter( Boolean )?.[ 0 ];
+			} )
+			.filter( Boolean );
+
+		if ( 1 < newInnerBlocks.length ) {
+			replaceInnerBlocks( clientId, newInnerBlocks );
+		}
+	}, [ clientId ] );
 };
 
 /**
