@@ -11,6 +11,7 @@ import { _x } from '@wordpress/i18n';
  * @param { Array }  migrateBlocks
  *
  * @see https://github.com/inc2734/snow-monkey-blocks/issues/529
+ * @see https://github.com/WordPress/gutenberg/blob/trunk/packages/blocks/src/api/parser/index.js#L288-L317
  */
 export const useMigrateDoubleHyphenToSingleHyphen = (
 	clientId,
@@ -30,43 +31,53 @@ export const useMigrateDoubleHyphenToSingleHyphen = (
 	};
 
 	useEffect( () => {
-		const newInnerBlocks = getBlockOrder( clientId )
-			.map( ( itemClientId ) => {
+		const newInnerBlocks = getBlockOrder( clientId ).map(
+			( itemClientId ) => {
 				const item = getBlock( itemClientId );
-				return migrateBlocks
-					.map( ( migrateBlock ) => {
-						if (
-							'core/missing' === item.name ||
-							migrateBlock.oldBlockName === item.name
-						) {
-							const newBlock = parse(
-								item.originalContent
-									.replace(
-										migrateBlock.oldBlockName,
+
+				let migratedBlock;
+
+				migrateBlocks.some( ( migrateBlock ) => {
+					if (
+						'core/missing' !== item.name &&
+						migrateBlock.oldBlockName !== item.name
+					) {
+						return false;
+					}
+
+					const newBlock = parse(
+						item.originalContent
+							.replace(
+								migrateBlock.oldBlockName,
+								migrateBlock.newBlockName
+							)
+							.replace(
+								blockNameToDefaultClassName(
+									migrateBlock.oldBlockName
+								),
+								blockNameToDefaultClassName(
+									migrateBlock.oldBlockName
+								) +
+									' ' +
+									blockNameToDefaultClassName(
 										migrateBlock.newBlockName
 									)
-									.replace(
-										blockNameToDefaultClassName(
-											migrateBlock.oldBlockName
-										),
-										blockNameToDefaultClassName(
-											migrateBlock.oldBlockName
-										) +
-											' ' +
-											blockNameToDefaultClassName(
-												migrateBlock.newBlockName
-											)
-									)
-							)[ 0 ];
-							return newBlock;
-						}
-						return undefined;
-					} )
-					.filter( Boolean )?.[ 0 ];
-			} )
-			.filter( Boolean );
+							)
+					)[ 0 ];
 
-		if ( 1 < newInnerBlocks.length ) {
+					if ( 'core/missing' !== newBlock.name ) {
+						migratedBlock = newBlock;
+						return true;
+					}
+
+					return false;
+				} );
+
+				return !! migratedBlock ? migratedBlock : item;
+			}
+		);
+
+		if ( 0 < newInnerBlocks.length ) {
 			replaceInnerBlocks( clientId, newInnerBlocks );
 		}
 	}, [ clientId ] );
