@@ -506,11 +506,17 @@ export default function ( {
 									>
 										<div className="smb-spider-slider__figure-wrapper">
 											<img
-												className="spider__figure"
+												className={ `spider__figure wp-image-${ img.id }` }
 												src={ img.url }
 												alt={ img.alt }
-												width={ img.width }
-												height={ img.height }
+												width={
+													img.width ||
+													img.sizes?.full?.width
+												}
+												height={
+													img.height ||
+													img.sizes?.full?.height
+												}
 												data-image-id={ img.id }
 											/>
 										</div>
@@ -561,11 +567,17 @@ export default function ( {
 									>
 										{ dotsToThumbnail ? (
 											<img
-												className="spider__figure"
+												className={ `spider__figure wp-image-${ img.id }` }
 												src={ img.url }
 												alt={ img.alt }
-												width={ img.width }
-												height={ img.height }
+												width={
+													img.width ||
+													img.sizes?.full?.width
+												}
+												height={
+													img.height ||
+													img.sizes?.full?.height
+												}
 											/>
 										) : (
 											<>{ index }</>
