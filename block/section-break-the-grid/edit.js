@@ -12,6 +12,7 @@ import {
 	useInnerBlocksProps,
 	__experimentalColorGradientControl as ColorGradientControl,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
+	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 } from '@wordpress/block-editor';
 
 import {
@@ -36,8 +37,6 @@ import {
 	generateSpacingProperties,
 } from '@smb/helper';
 
-import { useMultipleOriginColorsAndGradients } from '@smb/hooks';
-
 import Figure from '@smb/component/figure';
 import ImageSizeSelectControl from '@smb/component/image-size-select-control';
 
@@ -52,6 +51,15 @@ import {
 	PanelSectionBottomDividerSettings,
 	SectionBackground,
 } from '../section/components/background';
+
+// @todo For WordPress 6.0
+import { useMultipleOriginColorsAndGradientsFallback } from '@smb/hooks';
+
+// @todo For WordPress 6.0
+if ( undefined === useMultipleOriginColorsAndGradients ) {
+	useMultipleOriginColorsAndGradients =
+		useMultipleOriginColorsAndGradientsFallback;
+}
 
 const ALLOWED_TYPES = [ 'image', 'video' ];
 

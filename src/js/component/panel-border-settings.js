@@ -1,10 +1,21 @@
 import { BaseControl, PanelBody, RangeControl } from '@wordpress/components';
 
-import { __experimentalColorGradientControl as ColorGradientControl } from '@wordpress/block-editor';
+import {
+	__experimentalColorGradientControl as ColorGradientControl,
+	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
+} from '@wordpress/block-editor';
+
 import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
-import { useMultipleOriginColorsAndGradients } from '@smb/hooks';
+// @todo For WordPress 6.0
+import { useMultipleOriginColorsAndGradientsFallback } from '@smb/hooks';
+
+// @todo For WordPress 6.0
+if ( undefined === useMultipleOriginColorsAndGradients ) {
+	useMultipleOriginColorsAndGradients =
+		useMultipleOriginColorsAndGradientsFallback;
+}
 
 export default function ( { settings } ) {
 	return (

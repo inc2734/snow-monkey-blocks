@@ -7,11 +7,12 @@ import {
 	InnerBlocks,
 	InspectorControls,
 	JustifyToolbar,
-	__experimentalColorGradientControl as ColorGradientControl,
-	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	useInnerBlocksProps,
 	useBlockProps,
 	useSetting,
+	__experimentalColorGradientControl as ColorGradientControl,
+	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
+	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 } from '@wordpress/block-editor';
 
 import {
@@ -25,7 +26,6 @@ import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
 import { toNumber } from '@smb/helper';
-import { useMultipleOriginColorsAndGradients } from '@smb/hooks';
 
 import { PanelBasicSettings } from '../section/components/basic';
 import { Edit as Header } from '../section/components/header';
@@ -34,6 +34,15 @@ import {
 	PanelSectionBackgroundTextSettings,
 	SectionBackground,
 } from '../section/components/background';
+
+// @todo For WordPress 6.0
+import { useMultipleOriginColorsAndGradientsFallback } from '@smb/hooks';
+
+// @todo For WordPress 6.0
+if ( undefined === useMultipleOriginColorsAndGradients ) {
+	useMultipleOriginColorsAndGradients =
+		useMultipleOriginColorsAndGradientsFallback;
+}
 
 const HORIZONTAL_JUSTIFY_CONTROLS = [ 'left', 'center', 'right' ];
 

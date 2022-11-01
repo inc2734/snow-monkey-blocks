@@ -14,18 +14,25 @@ import {
 	ContrastChecker,
 	InspectorControls,
 	RichText,
+	useBlockProps,
 	__experimentalColorGradientControl as ColorGradientControl,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
-	useBlockProps,
+	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 } from '@wordpress/block-editor';
 
 import { useState, useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
-
-import { useMultipleOriginColorsAndGradients } from '@smb/hooks';
-
 import LinkControl from '@smb/component/link-control';
+
+// @todo For WordPress 6.0
+import { useMultipleOriginColorsAndGradientsFallback } from '@smb/hooks';
+
+// @todo For WordPress 6.0
+if ( undefined === useMultipleOriginColorsAndGradients ) {
+	useMultipleOriginColorsAndGradients =
+		useMultipleOriginColorsAndGradientsFallback;
+}
 
 export default function ( {
 	attributes,

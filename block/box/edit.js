@@ -9,6 +9,7 @@ import {
 	useInnerBlocksProps,
 	__experimentalColorGradientControl as ColorGradientControl,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
+	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 } from '@wordpress/block-editor';
 
 import { PanelBody, RangeControl, SelectControl } from '@wordpress/components';
@@ -17,7 +18,15 @@ import { __ } from '@wordpress/i18n';
 
 import PanelBoxShadowSettings from '@smb/component/panel-box-shadow-settings';
 import { toNumber } from '@smb/helper';
-import { useMultipleOriginColorsAndGradients } from '@smb/hooks';
+
+// @todo For WordPress 6.0
+import { useMultipleOriginColorsAndGradientsFallback } from '@smb/hooks';
+
+// @todo For WordPress 6.0
+if ( undefined === useMultipleOriginColorsAndGradients ) {
+	useMultipleOriginColorsAndGradients =
+		useMultipleOriginColorsAndGradientsFallback;
+}
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
 	const {

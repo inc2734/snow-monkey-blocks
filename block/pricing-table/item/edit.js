@@ -16,6 +16,7 @@ import {
 	RichText,
 	useBlockProps,
 	__experimentalColorGradientControl as ColorGradientControl,
+	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 } from '@wordpress/block-editor';
 
 import { useState, useRef } from '@wordpress/element';
@@ -27,7 +28,15 @@ import Figure from '@smb/component/figure';
 import ImageSizeSelectControl from '@smb/component/image-size-select-control';
 import LinkControl from '@smb/component/link-control';
 import { getResizedImages } from '@smb/helper';
-import { useMultipleOriginColorsAndGradients } from '@smb/hooks';
+
+// @todo For WordPress 6.0
+import { useMultipleOriginColorsAndGradientsFallback } from '@smb/hooks';
+
+// @todo For WordPress 6.0
+if ( undefined === useMultipleOriginColorsAndGradients ) {
+	useMultipleOriginColorsAndGradients =
+		useMultipleOriginColorsAndGradientsFallback;
+}
 
 export default function ( {
 	attributes,

@@ -19,10 +19,11 @@ import {
 	BlockControls,
 	InspectorControls,
 	RichText,
+	useBlockProps,
 	__experimentalBlockAlignmentMatrixControl as BlockAlignmentMatrixControl,
 	__experimentalColorGradientControl as ColorGradientControl,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
-	useBlockProps,
+	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 } from '@wordpress/block-editor';
 
 import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
@@ -31,7 +32,15 @@ import Figure from '@smb/component/figure';
 import LinkControl from '@smb/component/link-control';
 import ImageSizeSelectControl from '@smb/component/image-size-select-control';
 import { toNumber, getResizedImages } from '@smb/helper';
-import { useMultipleOriginColorsAndGradients } from '@smb/hooks';
+
+// @todo For WordPress 6.0
+import { useMultipleOriginColorsAndGradientsFallback } from '@smb/hooks';
+
+// @todo For WordPress 6.0
+if ( undefined === useMultipleOriginColorsAndGradients ) {
+	useMultipleOriginColorsAndGradients =
+		useMultipleOriginColorsAndGradientsFallback;
+}
 
 export default function ( {
 	attributes,

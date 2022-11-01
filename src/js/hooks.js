@@ -107,7 +107,7 @@ export function useCommonSingleMultipleSelects() {
  *
  * @see https://github.com/WordPress/gutenberg/blob/df38b3d43a172773070a166fbaabcb184646cd11/packages/block-editor/src/components/colors-gradients/use-multiple-origin-colors-and-gradients.js
  */
-export function useMultipleOriginColorsAndGradients() {
+export function useMultipleOriginColorsAndGradientsFallback() {
 	const colorGradientSettings = useCommonSingleMultipleSelects();
 	const customColors = useSetting( 'color.palette.custom' );
 	const themeColors = useSetting( 'color.palette.theme' );

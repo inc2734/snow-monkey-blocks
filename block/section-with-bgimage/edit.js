@@ -7,11 +7,12 @@ import {
 	InnerBlocks,
 	InspectorControls,
 	JustifyToolbar,
-	__experimentalColorGradientControl as ColorGradientControl,
-	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	useInnerBlocksProps,
 	useBlockProps,
 	useSetting,
+	__experimentalColorGradientControl as ColorGradientControl,
+	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
+	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 } from '@wordpress/block-editor';
 
 import {
@@ -29,8 +30,6 @@ import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
 import Figure from '@smb/component/figure';
 import ImageSizeSelectControl from '@smb/component/image-size-select-control';
 
-import { useMultipleOriginColorsAndGradients } from '@smb/hooks';
-
 import {
 	toNumber,
 	getMediaType,
@@ -45,6 +44,15 @@ import {
 	PanelSectionBackgroundTextSettings,
 	SectionBackground,
 } from '../section/components/background';
+
+// @todo For WordPress 6.0
+import { useMultipleOriginColorsAndGradientsFallback } from '@smb/hooks';
+
+// @todo For WordPress 6.0
+if ( undefined === useMultipleOriginColorsAndGradients ) {
+	useMultipleOriginColorsAndGradients =
+		useMultipleOriginColorsAndGradientsFallback;
+}
 
 const IMAGE_ALLOWED_TYPES = [ 'image', 'video' ];
 const HORIZONTAL_JUSTIFY_CONTROLS = [ 'left', 'center', 'right' ];

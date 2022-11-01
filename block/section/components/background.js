@@ -1,9 +1,10 @@
 import classnames from 'classnames';
 
 import {
-	__experimentalColorGradientControl as ColorGradientControl,
 	FontSizePicker,
 	RichText,
+	__experimentalColorGradientControl as ColorGradientControl,
+	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 } from '@wordpress/block-editor';
 
 import {
@@ -18,8 +19,16 @@ import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 import { divider } from '@smb/helper';
-import { useMultipleOriginColorsAndGradients } from '@smb/hooks';
 import SpacingControl from '@smb/component/spacing-control';
+
+// @todo For WordPress 6.0
+import { useMultipleOriginColorsAndGradientsFallback } from '@smb/hooks';
+
+// @todo For WordPress 6.0
+if ( undefined === useMultipleOriginColorsAndGradients ) {
+	useMultipleOriginColorsAndGradients =
+		useMultipleOriginColorsAndGradientsFallback;
+}
 
 const textureOptions = [
 	{
