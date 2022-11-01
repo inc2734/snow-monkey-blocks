@@ -1,0 +1,43 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"textdomain": "snow-monkey-blocks",
+	"name": "snow-monkey-blocks/items",
+	"title": "Items",
+	"description": "Let's line up the contents.",
+	"category": "smb",
+	"attributes": {
+		"sm": {
+			"type": "number",
+			"default": 1
+		},
+		"md": {
+			"type": "number",
+			"default": 1
+		},
+		"lg": {
+			"type": "number",
+			"default": 2
+		},
+		"isGlue": {
+			"type": "boolean",
+			"default": false
+		},
+		"isFill": {
+			"type": "boolean",
+			"default": false
+		},
+		"verticalAlignment": {
+			"type": "string",
+			"default": "top"
+		},
+		"contentJustification": {
+			"type": "string"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"style": "snow-monkey-blocks/items",
+	"editorScript": "file:./index.js"
+}

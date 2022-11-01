@@ -1,0 +1,4120 @@
+# Copyright (C) 2022 inc2734
+# This file is distributed under the GPL2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Snow Monkey Blocks 16.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-blocks\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2022-11-01T15:28:23+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.7.1\n"
+"X-Domain: snow-monkey-blocks\n"
+
+#. Plugin Name of the plugin
+#: App/Controller/Manager.php:47
+#: App/Controller/Manager.php:48
+#: App/Controller/Manager.php:54
+#: snow-monkey-blocks.php:60
+#: snow-monkey-blocks.php:69
+#: snow-monkey-blocks.php:78
+msgid "Snow Monkey Blocks"
+msgstr ""
+
+#. Description of the plugin
+msgid "Gutenberg blocks collection made by MonkeyWrench."
+msgstr ""
+
+#. Author of the plugin
+msgid "inc2734"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://2inc.org"
+msgstr ""
+
+#: App/Controller/Manager.php:68
+msgid "Reset available blocks settings"
+msgstr ""
+
+#: App/Controller/Manager.php:121
+msgid "Available blocks"
+msgstr ""
+
+#: App/Setup/BlockPatterns.php:34
+msgid "Headers"
+msgstr ""
+
+#: App/Setup/BlockPatterns.php:38
+msgid "Features"
+msgstr ""
+
+#: App/Setup/BlockPatterns.php:42
+msgid "Text with image"
+msgstr ""
+
+#: App/Setup/BlockPatterns.php:46
+msgid "Pricing"
+msgstr ""
+
+#: App/Setup/BlockPatterns.php:50
+msgid "FAQ"
+msgstr ""
+
+#. translators: $1: number
+#: App/Setup/BlockPatterns.php:67
+#: App/Setup/BlockPatterns.php:77
+#: App/Setup/BlockPatterns.php:87
+msgid "Header %1$s"
+msgstr ""
+
+#. translators: $1: number
+#: App/Setup/BlockPatterns.php:97
+#: App/Setup/BlockPatterns.php:107
+#: App/Setup/BlockPatterns.php:117
+#: App/Setup/BlockPatterns.php:127
+#: App/Setup/BlockPatterns.php:137
+#: App/Setup/BlockPatterns.php:147
+msgid "Feature %1$s"
+msgstr ""
+
+#. translators: $1: number
+#: App/Setup/BlockPatterns.php:157
+#: App/Setup/BlockPatterns.php:167
+#: App/Setup/BlockPatterns.php:177
+msgid "Text with image %1$s"
+msgstr ""
+
+#. translators: $1: number
+#: App/Setup/BlockPatterns.php:187
+msgid "Pricing %1$s"
+msgstr ""
+
+#. translators: $1: number
+#: App/Setup/BlockPatterns.php:197
+#: App/Setup/BlockPatterns.php:207
+msgid "FAQ %1$s"
+msgstr ""
+
+#: dist/blocks/categories-list/view.php:44
+#: src/blocks/categories-list/view.php:44
+#: dist/blocks/categories-list/index.js:1
+#: src/blocks/categories-list/edit.js:137
+msgid "articles"
+msgstr ""
+
+#: dist/blocks/categories-list/view.php:62
+#: src/blocks/categories-list/view.php:62
+#: dist/blocks/categories-list/index.js:1
+#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/taxonomy-posts/index.js:1
+#: src/blocks/categories-list/edit.js:150
+#: src/blocks/recent-posts/edit.js:365
+#: src/blocks/taxonomy-posts/index.js:19
+msgid "Recent posts"
+msgstr ""
+
+#: dist/blocks/categories-list/view.php:82
+#: src/blocks/categories-list/view.php:82
+msgid "(no title)"
+msgstr ""
+
+#: dist/blocks/child-pages/view.php:80
+#: src/blocks/child-pages/view.php:80
+msgid "No pages found."
+msgstr ""
+
+#: snow-monkey-blocks.php:62
+msgid "[Common blocks]"
+msgstr ""
+
+#: snow-monkey-blocks.php:71
+msgid "[Sections]"
+msgstr ""
+
+#: snow-monkey-blocks.php:80
+msgid "[Deprecated]"
+msgstr ""
+
+#: snow-monkey-blocks.php:119
+msgid "[ PR ] Premium WordPress Theme Snow Monkey"
+msgstr ""
+
+#. translators: %1$s: Start a tag, %2$s: End a tag
+#: snow-monkey-blocks.php:137
+msgid "Snow Monkey Blocks is optimized for the %1$sSnow Monkey%2$s theme, but it can also be used with other themes."
+msgstr ""
+
+#. translators: %1$s: Start a tag, %2$s: End a tag
+#: snow-monkey-blocks.php:143
+msgid "When used together with the %1$sSnow Monkey%2$s theme, it can be displayed with the most beautiful balance, and it is displayed on the edit screen with the same design as the front screen."
+msgstr ""
+
+#: dist/blocks/accordion/item/index.js:1
+#: dist/blocks/alert/index.js:1
+#: dist/blocks/btn/index.js:1
+#: dist/blocks/categories-list/index.js:1
+#: dist/blocks/child-pages/index.js:1
+#: dist/blocks/container/index.js:1
+#: dist/blocks/contents-outline/index.js:1
+#: dist/blocks/countdown/index.js:1
+#: dist/blocks/directory-structure/item/directory/index.js:1
+#: dist/blocks/directory-structure/item/file/index.js:1
+#: dist/blocks/faq/item/index.js:1
+#: dist/blocks/information/index.js:1
+#: dist/blocks/items/index.js:1
+#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/item/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/like-me-box/index.js:1
+#: dist/blocks/limited-datetime/index.js:1
+#: dist/blocks/list/index.js:1
+#: dist/blocks/media-text/index.js:1
+#: dist/blocks/panels/index.js:1
+#: dist/blocks/panels/item/horizontal/index.js:1
+#: dist/blocks/panels/item/vertical/index.js:1
+#: dist/blocks/pickup-slider/index.js:1
+#: dist/blocks/pricing-table/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/rating-box/item/index.js:1
+#: dist/blocks/recent-posts/index.js:1
+#: dist/blocks/rss/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: dist/blocks/slider/index.js:1
+#: dist/blocks/slider/item/index.js:1
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-pickup-slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+#: dist/blocks/step/item/standard/index.js:1
+#: dist/blocks/tabs/index.js:1
+#: dist/blocks/taxonomy-posts/index.js:1
+#: dist/blocks/taxonomy-terms/index.js:1
+#: dist/blocks/testimonial/index.js:1
+#: dist/blocks/thumbnail-gallery/index.js:1
+#: dist/blocks/thumbnail-gallery/item/index.js:1
+#: src/blocks/accordion/item/edit.js:40
+#: src/blocks/alert/edit.js:88
+#: src/blocks/btn/edit.js:170
+#: src/blocks/categories-list/edit.js:201
+#: src/blocks/child-pages/edit.js:99
+#: src/blocks/container/edit.js:71
+#: src/blocks/contents-outline/edit.js:70
+#: src/blocks/countdown/edit.js:86
+#: src/blocks/directory-structure/item/directory/edit.js:133
+#: src/blocks/directory-structure/item/file/edit.js:77
+#: src/blocks/faq/item/edit.js:100
+#: src/blocks/information/edit.js:81
+#: src/blocks/items/edit.js:148
+#: src/blocks/items/item/banner/edit.js:272
+#: src/blocks/items/item/block-link/edit.js:261
+#: src/blocks/items/item/item/edit.js:86
+#: src/blocks/items/item/standard/edit.js:261
+#: src/blocks/like-me-box/edit.js:19
+#: src/blocks/limited-datetime/edit.js:106
+#: src/blocks/list/edit.js:90
+#: src/blocks/media-text/edit.js:281
+#: src/blocks/panels/edit.js:115
+#: src/blocks/panels/item/horizontal/edit.js:206
+#: src/blocks/panels/item/vertical/edit.js:190
+#: src/blocks/pickup-slider/edit.js:31
+#: src/blocks/pricing-table/edit.js:90
+#: src/blocks/pricing-table/item/edit.js:261
+#: src/blocks/rating-box/item/edit.js:62
+#: src/blocks/recent-posts/edit.js:136
+#: src/blocks/rss/edit.js:126
+#: src/blocks/section/components/basic.js:29
+#: src/blocks/slider/edit.js:167
+#: src/blocks/slider/item/edit.js:202
+#: src/blocks/spider-contents-slider/edit.js:278
+#: src/blocks/spider-pickup-slider/edit.js:63
+#: src/blocks/spider-slider/edit.js:311
+#: src/blocks/step/item/standard/edit.js:246
+#: src/blocks/tabs/edit.js:198
+#: src/blocks/taxonomy-posts/edit.js:174
+#: src/blocks/taxonomy-terms/edit.js:61
+#: src/blocks/testimonial/edit.js:74
+#: src/blocks/thumbnail-gallery/edit.js:81
+#: src/blocks/thumbnail-gallery/item/edit.js:142
+msgid "Block settings"
+msgstr ""
+
+#: dist/blocks/accordion/item/index.js:1
+#: src/blocks/accordion/item/edit.js:43
+msgid "Display in open state"
+msgstr ""
+
+#: dist/blocks/accordion/item/index.js:1
+#: src/blocks/accordion/item/edit.js:59
+msgid "Enter title here"
+msgstr ""
+
+#: dist/blocks/alert/index.js:1
+#: src/blocks/alert/edit.js:32
+msgid "exclamation-circle"
+msgstr ""
+
+#: dist/blocks/alert/index.js:1
+#: dist/blocks/list/index.js:1
+#: src/blocks/alert/edit.js:36
+#: src/blocks/list/edit.js:36
+msgid "check"
+msgstr ""
+
+#: dist/blocks/alert/index.js:1
+#: src/blocks/alert/edit.js:40
+msgid "check-circle"
+msgstr ""
+
+#: dist/blocks/alert/index.js:1
+#: src/blocks/alert/edit.js:44
+msgid "check-square"
+msgstr ""
+
+#: dist/blocks/alert/index.js:1
+#: dist/blocks/list/index.js:1
+#: src/blocks/alert/edit.js:48
+#: src/blocks/list/edit.js:52
+msgid "hand-point-right"
+msgstr ""
+
+#: dist/blocks/alert/index.js:1
+#: src/blocks/alert/edit.js:52
+msgid "edit"
+msgstr ""
+
+#: dist/blocks/alert/index.js:1
+#: src/blocks/alert/edit.js:56
+msgid "lightbulb"
+msgstr ""
+
+#: dist/blocks/alert/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/alert/edit.js:91
+#: src/blocks/section/components/background.js:310
+#: src/blocks/section/components/background.js:394
+msgid "Type"
+msgstr ""
+
+#: dist/blocks/alert/index.js:1
+#: src/blocks/alert/edit.js:97
+msgid "Normal alert"
+msgstr ""
+
+#: dist/blocks/alert/index.js:1
+#: src/blocks/alert/edit.js:104
+msgid "Warning alert"
+msgstr ""
+
+#: dist/blocks/alert/index.js:1
+#: src/blocks/alert/edit.js:111
+msgid "Success alert"
+msgstr ""
+
+#: dist/blocks/alert/index.js:1
+#: src/blocks/alert/edit.js:118
+msgid "Remark alert"
+msgstr ""
+
+#: dist/blocks/alert/index.js:1
+#: dist/blocks/directory-structure/item/directory/index.js:1
+#: dist/blocks/directory-structure/item/file/index.js:1
+#: dist/blocks/list/index.js:1
+#: src/blocks/alert/edit.js:127
+#: src/blocks/directory-structure/item/directory/edit.js:136
+#: src/blocks/directory-structure/item/file/edit.js:80
+#: src/blocks/list/edit.js:93
+msgid "Icon"
+msgstr ""
+
+#: dist/blocks/alert/index.js:1
+#: dist/blocks/evaluation-star/index.js:1
+#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/item/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/media-text/index.js:1
+#: dist/blocks/panels/item/horizontal/index.js:1
+#: dist/blocks/panels/item/vertical/index.js:1
+#: dist/blocks/price-menu/item/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/rating-box/item/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: dist/blocks/step/item/free/index.js:1
+#: dist/blocks/step/item/standard/index.js:1
+#: src/blocks/alert/edit.js:166
+#: src/blocks/evaluation-star/edit.js:219
+#: src/blocks/items/item/banner/edit.js:411
+#: src/blocks/items/item/block-link/edit.js:402
+#: src/blocks/items/item/item/edit.js:203
+#: src/blocks/items/item/standard/edit.js:401
+#: src/blocks/media-text/edit.js:428
+#: src/blocks/panels/item/horizontal/edit.js:291
+#: src/blocks/panels/item/vertical/edit.js:250
+#: src/blocks/price-menu/item/edit.js:29
+#: src/blocks/pricing-table/item/edit.js:371
+#: src/blocks/rating-box/item/edit.js:77
+#: src/blocks/section/components/header.js:128
+#: src/blocks/step/item/free/edit.js:83
+#: src/blocks/step/item/standard/edit.js:286
+msgid "Write title…"
+msgstr ""
+
+#: dist/blocks/balloon/index.js:1
+#: dist/blocks/box/index.js:1
+#: dist/blocks/btn-box/index.js:1
+#: dist/blocks/btn/index.js:1
+#: dist/blocks/countdown/index.js:1
+#: dist/blocks/directory-structure/item/directory/index.js:1
+#: dist/blocks/directory-structure/item/file/index.js:1
+#: dist/blocks/evaluation-star/index.js:1
+#: dist/blocks/faq/item/index.js:1
+#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/items/item/item/index.js:1
+#: dist/blocks/list/index.js:1
+#: dist/blocks/rating-box/item/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:17
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: dist/blocks/step/item/free/index.js:1
+#: dist/blocks/step/item/standard/index.js:1
+#: src/blocks/balloon/edit.js:107
+#: src/blocks/box/edit.js:137
+#: src/blocks/box/edit.js:161
+#: src/blocks/box/edit.js:223
+#: src/blocks/btn-box/edit.js:159
+#: src/blocks/btn/edit.js:141
+#: src/blocks/countdown/edit.js:67
+#: src/blocks/directory-structure/item/directory/edit.js:119
+#: src/blocks/directory-structure/item/file/edit.js:63
+#: src/blocks/evaluation-star/edit.js:123
+#: src/blocks/faq/item/edit.js:81
+#: src/blocks/items/item/banner/edit.js:258
+#: src/blocks/items/item/banner/edit.js:350
+#: src/blocks/items/item/item/edit.js:130
+#: src/blocks/list/edit.js:76
+#: src/blocks/rating-box/item/edit.js:48
+#: src/blocks/section-break-the-grid/edit.js:652
+#: src/blocks/section-break-the-grid/edit.js:1048
+#: src/blocks/section-break-the-grid/edit.js:1089
+#: src/blocks/section-side-heading/edit.js:348
+#: src/blocks/section-with-bgimage/edit.js:609
+#: src/blocks/section-with-bgimage/edit.js:844
+#: src/blocks/section-with-bgvideo/edit.js:289
+#: src/blocks/section-with-bgvideo/edit.js:379
+#: src/blocks/section/components/background.js:100
+#: src/blocks/section/components/background.js:237
+#: src/blocks/section/components/background.js:342
+#: src/blocks/section/components/background.js:426
+#: src/blocks/section/components/background.js:526
+#: src/blocks/section/edit.js:347
+#: src/blocks/step/item/free/edit.js:60
+#: src/blocks/step/item/standard/edit.js:227
+#: src/js/component/panel-border-settings.js:36
+#: src/js/component/panel-box-shadow-settings.js:41
+msgid "Color"
+msgstr ""
+
+#: dist/blocks/balloon/index.js:1
+#: src/blocks/balloon/edit.js:113
+msgid "Avatar border color"
+msgstr ""
+
+#: dist/blocks/balloon/index.js:1
+#: dist/blocks/box/index.js:1
+#: dist/blocks/btn-box/index.js:1
+#: dist/blocks/btn/index.js:1
+#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/balloon/edit.js:121
+#: src/blocks/box/edit.js:143
+#: src/blocks/btn-box/edit.js:242
+#: src/blocks/btn/edit.js:157
+#: src/blocks/items/item/banner/edit.js:264
+#: src/blocks/items/item/block-link/edit.js:366
+#: src/blocks/items/item/standard/edit.js:365
+#: src/blocks/pricing-table/item/edit.js:338
+#: src/blocks/section-break-the-grid/edit.js:658
+#: src/blocks/section-side-heading/edit.js:354
+#: src/blocks/section-with-bgimage/edit.js:615
+#: src/blocks/section-with-bgvideo/edit.js:295
+#: src/blocks/section/edit.js:353
+msgid "Text color"
+msgstr ""
+
+#: dist/blocks/balloon/index.js:1
+#: dist/blocks/btn-box/index.js:1
+#: dist/blocks/btn/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:17
+#: src/blocks/balloon/edit.js:126
+#: src/blocks/btn-box/edit.js:165
+#: src/blocks/btn-box/edit.js:230
+#: src/blocks/btn/edit.js:149
+#: src/blocks/items/item/block-link/edit.js:354
+#: src/blocks/items/item/standard/edit.js:353
+#: src/blocks/pricing-table/item/edit.js:326
+#: src/blocks/section-break-the-grid/edit.js:982
+msgid "Background color"
+msgstr ""
+
+#: dist/blocks/balloon/index.js:1
+#: src/blocks/balloon/edit.js:146
+msgid "Show avatar on left"
+msgstr ""
+
+#: dist/blocks/balloon/index.js:1
+#: dist/blocks/panels/item/horizontal/index.js:1
+#: src/blocks/balloon/edit.js:156
+#: src/blocks/panels/item/horizontal/edit.js:257
+msgid "Show avatar on right"
+msgstr ""
+
+#: dist/blocks/balloon/index.js:1
+#: src/blocks/balloon/edit.js:186
+msgid "Name"
+msgstr ""
+
+#: dist/blocks/box/index.js:1
+#: dist/blocks/btn-box/index.js:1
+#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: src/js/hooks.js:121
+#: src/js/hooks.js:166
+msgctxt "Indicates this palette comes from the theme."
+msgid "Theme"
+msgstr ""
+
+#: dist/blocks/box/index.js:1
+#: dist/blocks/btn-box/index.js:1
+#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: src/js/hooks.js:135
+#: src/js/hooks.js:180
+msgctxt "Indicates this palette comes from WordPress."
+msgid "Default"
+msgstr ""
+
+#: dist/blocks/box/index.js:1
+#: dist/blocks/btn-box/index.js:1
+#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: src/js/hooks.js:145
+msgctxt "Indicates this palette comes from the theme."
+msgid "Custom"
+msgstr ""
+
+#: dist/blocks/box/index.js:1
+#: dist/blocks/btn-box/index.js:1
+#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: src/js/hooks.js:190
+msgctxt "Indicates this palette is created by the user."
+msgid "Custom"
+msgstr ""
+
+#: dist/blocks/box/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: src/js/component/panel-box-shadow-settings.js:28
+msgid "Box Shadow"
+msgstr ""
+
+#: dist/blocks/box/index.js:1
+#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:17
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: src/blocks/box/edit.js:234
+#: src/blocks/items/item/banner/edit.js:361
+#: src/blocks/section-break-the-grid/edit.js:1099
+#: src/blocks/section-with-bgimage/edit.js:855
+#: src/blocks/section-with-bgvideo/edit.js:390
+#: src/blocks/section/components/background.js:543
+#: src/js/component/panel-box-shadow-settings.js:59
+msgid "Opacity"
+msgstr ""
+
+#: dist/blocks/box/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: dist/blocks/tabs/index.js:1
+#: src/blocks/tabs/edit.js:207
+#: src/js/component/panel-box-shadow-settings.js:78
+msgid "Horizontal"
+msgstr ""
+
+#: dist/blocks/box/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: dist/blocks/tabs/index.js:1
+#: src/blocks/tabs/edit.js:211
+#: src/js/component/panel-box-shadow-settings.js:97
+msgid "Vertical"
+msgstr ""
+
+#: dist/blocks/box/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: src/js/component/panel-box-shadow-settings.js:113
+msgid "Blur"
+msgstr ""
+
+#: dist/blocks/box/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: src/js/component/panel-box-shadow-settings.js:129
+msgid "Spread"
+msgstr ""
+
+#: dist/blocks/box/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: src/blocks/section/components/background.js:562
+#: src/js/component/panel-box-shadow-settings.js:145
+msgid "Position"
+msgstr ""
+
+#: dist/blocks/box/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: src/js/component/panel-box-shadow-settings.js:151
+msgid "Outline"
+msgstr ""
+
+#: dist/blocks/box/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: src/js/component/panel-box-shadow-settings.js:158
+msgid "Inset"
+msgstr ""
+
+#: dist/blocks/box/index.js:1
+#: dist/blocks/information/index.js:1
+#: dist/blocks/items/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: src/blocks/box/edit.js:156
+#: src/blocks/information/index.js:26
+#: src/blocks/items/index.js:34
+#: src/js/component/panel-border-settings.js:23
+msgid "Border"
+msgstr ""
+
+#: dist/blocks/box/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: src/blocks/box/edit.js:170
+#: src/js/component/panel-border-settings.js:54
+msgid "Width"
+msgstr ""
+
+#: dist/blocks/box/index.js:1
+#: dist/blocks/btn-box/index.js:1
+#: dist/blocks/btn/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: src/blocks/box/edit.js:178
+#: src/blocks/btn-box/edit.js:213
+#: src/blocks/btn/edit.js:207
+#: src/blocks/items/item/block-link/edit.js:337
+#: src/blocks/items/item/standard/edit.js:336
+#: src/blocks/pricing-table/item/edit.js:309
+msgid "Border radius"
+msgstr ""
+
+#: dist/blocks/box/index.js:1
+#: dist/blocks/btn/index.js:1
+#: src/blocks/box/edit.js:179
+#: src/blocks/btn/edit.js:208
+msgid "-If set to -1, the default border radius will be applied."
+msgstr ""
+
+#: dist/blocks/box/index.js:1
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+#: src/blocks/box/edit.js:193
+#: src/blocks/spider-contents-slider/edit.js:266
+#: src/blocks/spider-contents-slider/item/edit.js:148
+#: src/blocks/spider-slider/edit.js:299
+msgid "Dimensions"
+msgstr ""
+
+#: dist/blocks/box/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:17
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: src/blocks/box/edit.js:197
+#: src/blocks/section-break-the-grid/edit.js:1007
+#: src/blocks/section/components/basic.js:269
+#: src/blocks/spider-contents-slider/item/edit.js:152
+msgid "Padding"
+msgstr ""
+
+#: dist/blocks/box/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:17
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+#: src/blocks/box/edit.js:202
+#: src/blocks/section-break-the-grid/edit.js:1016
+#: src/blocks/spider-contents-slider/edit.js:188
+#: src/blocks/spider-contents-slider/item/edit.js:161
+#: src/blocks/spider-slider/edit.js:194
+msgid "S"
+msgstr ""
+
+#: dist/blocks/box/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:17
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+#: src/blocks/box/edit.js:206
+#: src/blocks/section-break-the-grid/edit.js:1020
+#: src/blocks/spider-contents-slider/edit.js:192
+#: src/blocks/spider-contents-slider/item/edit.js:165
+#: src/blocks/spider-slider/edit.js:198
+msgid "M"
+msgstr ""
+
+#: dist/blocks/box/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:17
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+#: src/blocks/box/edit.js:210
+#: src/blocks/section-break-the-grid/edit.js:1024
+#: src/blocks/spider-contents-slider/edit.js:196
+#: src/blocks/spider-contents-slider/item/edit.js:169
+#: src/blocks/spider-slider/edit.js:202
+msgid "L"
+msgstr ""
+
+#: dist/blocks/box/index.js:1
+#: src/blocks/box/edit.js:218
+msgid "Background"
+msgstr ""
+
+#: dist/blocks/btn-box/index.js:1
+#: dist/blocks/btn/index.js:1
+#: dist/blocks/child-pages/index.js:3
+#: dist/blocks/countdown/index.js:1
+#: dist/blocks/information/index.js:1
+#: dist/blocks/items/index.js:1
+#: dist/blocks/media-text/index.js:1
+#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/rss/index.js:3
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: dist/blocks/slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+#: dist/blocks/tabs/index.js:1
+#: dist/blocks/taxonomy-posts/index.js:3
+#: dist/blocks/taxonomy-terms/index.js:1
+#: src/blocks/btn-box/index.js:20
+#: src/blocks/btn/index.js:22
+#: src/blocks/child-pages/edit.js:241
+#: src/blocks/countdown/index.js:19
+#: src/blocks/information/index.js:21
+#: src/blocks/items/index.js:25
+#: src/blocks/media-text/edit.js:321
+#: src/blocks/recent-posts/edit.js:318
+#: src/blocks/rss/edit.js:262
+#: src/blocks/section-break-the-grid/edit.js:711
+#: src/blocks/section/components/basic.js:157
+#: src/blocks/slider/edit.js:81
+#: src/blocks/spider-slider/edit.js:175
+#: src/blocks/tabs/index.js:21
+#: src/blocks/taxonomy-posts/edit.js:400
+#: src/blocks/taxonomy-terms/index.js:26
+msgid "Default"
+msgstr ""
+
+#: dist/blocks/btn-box/index.js:1
+#: dist/blocks/btn/index.js:1
+#: src/blocks/btn-box/index.js:23
+#: src/blocks/btn/index.js:25
+msgid "Ghost"
+msgstr ""
+
+#: dist/blocks/btn-box/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: src/blocks/btn-box/edit.js:176
+#: src/blocks/items/item/block-link/edit.js:300
+#: src/blocks/items/item/standard/edit.js:299
+#: src/blocks/pricing-table/item/edit.js:272
+msgid "Button settings"
+msgstr ""
+
+#: dist/blocks/btn-box/index.js:1
+#: dist/blocks/btn/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: src/blocks/btn-box/edit.js:179
+#: src/blocks/btn/edit.js:173
+#: src/blocks/items/item/block-link/edit.js:303
+#: src/blocks/items/item/standard/edit.js:302
+#: src/blocks/pricing-table/item/edit.js:275
+msgid "Button size"
+msgstr ""
+
+#: dist/blocks/btn-box/index.js:1
+#: dist/blocks/btn/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: src/blocks/btn-box/edit.js:185
+#: src/blocks/btn/edit.js:179
+#: src/blocks/items/item/block-link/edit.js:309
+#: src/blocks/items/item/standard/edit.js:308
+#: src/blocks/pricing-table/item/edit.js:281
+msgid "Normal size"
+msgstr ""
+
+#: dist/blocks/btn-box/index.js:1
+#: dist/blocks/btn/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: src/blocks/btn-box/edit.js:192
+#: src/blocks/btn/edit.js:186
+#: src/blocks/items/item/block-link/edit.js:316
+#: src/blocks/items/item/standard/edit.js:315
+#: src/blocks/pricing-table/item/edit.js:288
+msgid "Litle wider"
+msgstr ""
+
+#: dist/blocks/btn-box/index.js:1
+#: dist/blocks/btn/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: src/blocks/btn-box/edit.js:199
+#: src/blocks/btn/edit.js:193
+#: src/blocks/items/item/block-link/edit.js:323
+#: src/blocks/items/item/standard/edit.js:322
+#: src/blocks/pricing-table/item/edit.js:295
+msgid "Wider"
+msgstr ""
+
+#: dist/blocks/btn-box/index.js:1
+#: dist/blocks/btn/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: src/blocks/btn-box/edit.js:203
+#: src/blocks/btn/edit.js:197
+#: src/blocks/items/item/block-link/edit.js:327
+#: src/blocks/items/item/standard/edit.js:326
+#: src/blocks/pricing-table/item/edit.js:299
+msgid "More wider"
+msgstr ""
+
+#: dist/blocks/btn-box/index.js:1
+#: dist/blocks/btn/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: src/blocks/btn-box/edit.js:207
+#: src/blocks/btn/edit.js:201
+#: src/blocks/items/item/block-link/edit.js:331
+#: src/blocks/items/item/standard/edit.js:330
+#: src/blocks/pricing-table/item/edit.js:303
+msgid "Full size"
+msgstr ""
+
+#: dist/blocks/btn-box/index.js:1
+#: dist/blocks/btn/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: src/blocks/btn-box/edit.js:223
+#: src/blocks/btn/edit.js:221
+#: src/blocks/items/item/block-link/edit.js:347
+#: src/blocks/items/item/standard/edit.js:346
+#: src/blocks/pricing-table/item/edit.js:319
+msgid "Wrap"
+msgstr ""
+
+#: dist/blocks/btn-box/index.js:1
+#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/item/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: dist/blocks/testimonial/item/index.js:1
+#: src/blocks/btn-box/edit.js:264
+#: src/blocks/items/item/banner/edit.js:424
+#: src/blocks/items/item/block-link/edit.js:414
+#: src/blocks/items/item/item/edit.js:217
+#: src/blocks/items/item/standard/edit.js:413
+#: src/blocks/pricing-table/item/edit.js:394
+#: src/blocks/section/components/header.js:147
+#: src/blocks/testimonial/item/edit.js:103
+msgid "Write lede…"
+msgstr ""
+
+#: dist/blocks/btn-box/index.js:1
+#: dist/blocks/btn/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/item/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: src/blocks/btn-box/edit.js:288
+#: src/blocks/btn/edit.js:241
+#: src/blocks/items/item/block-link/edit.js:445
+#: src/blocks/items/item/item/edit.js:263
+#: src/blocks/items/item/standard/edit.js:453
+#: src/blocks/pricing-table/item/edit.js:431
+msgid "Button"
+msgstr ""
+
+#: dist/blocks/btn-box/index.js:1
+#: src/blocks/btn-box/edit.js:304
+msgid "Write note…"
+msgstr ""
+
+#: dist/blocks/btn-box/index.js:1
+#: dist/blocks/btn/index.js:1
+#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/item/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/panels/item/block-link/index.js:1
+#: dist/blocks/panels/item/horizontal/index.js:1
+#: dist/blocks/panels/item/vertical/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/slider/item/index.js:1
+#: dist/blocks/step/item/standard/index.js:1
+#: src/blocks/btn-box/edit.js:317
+#: src/blocks/btn/edit.js:253
+#: src/blocks/items/item/banner/edit.js:464
+#: src/blocks/items/item/block-link/edit.js:478
+#: src/blocks/items/item/item/edit.js:282
+#: src/blocks/items/item/standard/edit.js:485
+#: src/blocks/panels/item/block-link/edit.js:84
+#: src/blocks/panels/item/block-link/edit.js:109
+#: src/blocks/panels/item/block-link/save.js:44
+#: src/blocks/panels/item/horizontal/edit.js:321
+#: src/blocks/panels/item/horizontal/edit.js:352
+#: src/blocks/panels/item/vertical/edit.js:280
+#: src/blocks/panels/item/vertical/edit.js:311
+#: src/blocks/pricing-table/item/edit.js:462
+#: src/blocks/slider/item/edit.js:219
+#: src/blocks/step/item/standard/edit.js:362
+msgid "Link"
+msgstr ""
+
+#: dist/blocks/btn-box/index.js:1
+#: dist/blocks/btn/index.js:1
+#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/item/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/panels/item/block-link/index.js:1
+#: dist/blocks/panels/item/horizontal/index.js:1
+#: dist/blocks/panels/item/vertical/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/slider/item/index.js:1
+#: dist/blocks/step/item/standard/index.js:1
+#: src/blocks/btn-box/edit.js:326
+#: src/blocks/btn/edit.js:262
+#: src/blocks/items/item/banner/edit.js:473
+#: src/blocks/items/item/block-link/edit.js:487
+#: src/blocks/items/item/item/edit.js:291
+#: src/blocks/items/item/standard/edit.js:494
+#: src/blocks/panels/item/block-link/edit.js:118
+#: src/blocks/panels/item/horizontal/edit.js:361
+#: src/blocks/panels/item/vertical/edit.js:320
+#: src/blocks/pricing-table/item/edit.js:471
+#: src/blocks/slider/item/edit.js:228
+#: src/blocks/step/item/standard/edit.js:371
+msgid "Unlink"
+msgstr ""
+
+#: dist/blocks/btn/index.js:1
+#: dist/blocks/child-pages/index.js:1
+#: dist/blocks/recent-posts/index.js:1
+#: dist/blocks/rss/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: dist/blocks/taxonomy-posts/index.js:1
+#: src/blocks/btn/index.js:26
+#: src/blocks/child-pages/edit.js:126
+#: src/blocks/recent-posts/edit.js:171
+#: src/blocks/rss/edit.js:151
+#: src/blocks/section/components/background.js:478
+#: src/blocks/taxonomy-posts/edit.js:239
+msgid "Text"
+msgstr ""
+
+#: dist/blocks/categories-list/index.js:1
+#: src/blocks/categories-list/edit.js:42
+msgid "Categories list"
+msgstr ""
+
+#: dist/blocks/categories-list/index.js:1
+#: src/blocks/categories-list/edit.js:45
+msgid "Loading setting data"
+msgstr ""
+
+#: dist/blocks/categories-list/index.js:1
+#: src/blocks/categories-list/edit.js:204
+msgid "Categories list articles"
+msgstr ""
+
+#: dist/blocks/categories-list/index.js:1
+#: src/blocks/categories-list/edit.js:100
+msgid "Exclusion categories settings"
+msgstr ""
+
+#: dist/blocks/categories-list/index.js:1
+#: src/blocks/categories-list/edit.js:106
+msgid "Categories with a post count of 0 are not displayed even if they are not excluded"
+msgstr ""
+
+#: dist/blocks/categories-list/index.js:1
+#: src/blocks/categories-list/edit.js:218
+msgid "Display order settings"
+msgstr ""
+
+#: dist/blocks/categories-list/index.js:1
+#: src/blocks/categories-list/edit.js:224
+msgid "The display order you set is valid only on the actual contribution screen"
+msgstr ""
+
+#: dist/blocks/categories-list/index.js:1
+#: dist/blocks/taxonomy-terms/index.js:1
+#: src/blocks/categories-list/edit.js:230
+#: src/blocks/taxonomy-terms/edit.js:83
+msgid "orderby"
+msgstr ""
+
+#: dist/blocks/categories-list/index.js:1
+#: dist/blocks/taxonomy-terms/index.js:1
+#: src/blocks/categories-list/edit.js:234
+#: src/blocks/taxonomy-terms/edit.js:87
+msgid "category id"
+msgstr ""
+
+#: dist/blocks/categories-list/index.js:1
+#: dist/blocks/taxonomy-terms/index.js:1
+#: src/blocks/categories-list/edit.js:241
+#: src/blocks/taxonomy-terms/edit.js:94
+msgid "category name"
+msgstr ""
+
+#: dist/blocks/categories-list/index.js:1
+#: dist/blocks/taxonomy-terms/index.js:1
+#: src/blocks/categories-list/edit.js:248
+#: src/blocks/taxonomy-terms/edit.js:101
+msgid "category slug"
+msgstr ""
+
+#: dist/blocks/categories-list/index.js:1
+#: dist/blocks/taxonomy-terms/index.js:1
+#: src/blocks/categories-list/edit.js:255
+#: src/blocks/taxonomy-terms/edit.js:108
+msgid "category post count"
+msgstr ""
+
+#: dist/blocks/categories-list/index.js:1
+#: src/blocks/categories-list/edit.js:262
+msgid "term_group"
+msgstr ""
+
+#: dist/blocks/categories-list/index.js:1
+#: dist/blocks/taxonomy-terms/index.js:1
+#: src/blocks/categories-list/edit.js:269
+#: src/blocks/taxonomy-terms/edit.js:119
+msgid "order"
+msgstr ""
+
+#: dist/blocks/categories-list/index.js:1
+#: dist/blocks/taxonomy-terms/index.js:1
+#: src/blocks/categories-list/edit.js:273
+#: src/blocks/taxonomy-terms/edit.js:123
+msgid "asc"
+msgstr ""
+
+#: dist/blocks/categories-list/index.js:1
+#: dist/blocks/taxonomy-terms/index.js:1
+#: src/blocks/categories-list/edit.js:277
+#: src/blocks/taxonomy-terms/edit.js:127
+msgid "desc"
+msgstr ""
+
+#: dist/blocks/categories-list/index.js:1
+#: src/blocks/categories-list/edit.js:157
+msgid "Only the actual contribution screen is displayed"
+msgstr ""
+
+#: dist/blocks/child-pages/index.js:1
+#: src/blocks/child-pages/edit.js:102
+msgid "Title"
+msgstr ""
+
+#: dist/blocks/child-pages/index.js:1
+#: src/blocks/child-pages/edit.js:104
+msgid "Child pages"
+msgstr ""
+
+#: dist/blocks/child-pages/index.js:1
+#: dist/blocks/recent-posts/index.js:1
+#: dist/blocks/rss/index.js:1
+#: dist/blocks/taxonomy-posts/index.js:1
+#: src/blocks/child-pages/edit.js:112
+#: src/blocks/recent-posts/edit.js:157
+#: src/blocks/rss/edit.js:137
+#: src/blocks/taxonomy-posts/edit.js:225
+msgid "Layout"
+msgstr ""
+
+#: dist/blocks/child-pages/index.js:1
+#: dist/blocks/child-pages/index.js:3
+#: dist/blocks/recent-posts/index.js:1
+#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/rss/index.js:1
+#: dist/blocks/rss/index.js:3
+#: dist/blocks/taxonomy-posts/index.js:1
+#: dist/blocks/taxonomy-posts/index.js:3
+#: src/blocks/child-pages/edit.js:118
+#: src/blocks/child-pages/edit.js:144
+#: src/blocks/recent-posts/edit.js:163
+#: src/blocks/recent-posts/edit.js:189
+#: src/blocks/rss/edit.js:143
+#: src/blocks/rss/edit.js:169
+#: src/blocks/taxonomy-posts/edit.js:231
+#: src/blocks/taxonomy-posts/edit.js:257
+msgid "Rich media"
+msgstr ""
+
+#: dist/blocks/child-pages/index.js:1
+#: dist/blocks/recent-posts/index.js:1
+#: dist/blocks/rss/index.js:1
+#: dist/blocks/tabs/index.js:1
+#: dist/blocks/taxonomy-posts/index.js:1
+#: src/blocks/child-pages/edit.js:122
+#: src/blocks/recent-posts/edit.js:167
+#: src/blocks/rss/edit.js:147
+#: src/blocks/tabs/index.js:26
+#: src/blocks/taxonomy-posts/edit.js:235
+msgid "Simple"
+msgstr ""
+
+#: dist/blocks/child-pages/index.js:1
+#: dist/blocks/recent-posts/index.js:1
+#: dist/blocks/rss/index.js:1
+#: dist/blocks/taxonomy-posts/index.js:1
+#: src/blocks/child-pages/edit.js:130
+#: src/blocks/recent-posts/edit.js:175
+#: src/blocks/rss/edit.js:155
+#: src/blocks/taxonomy-posts/edit.js:243
+msgid "Text 2"
+msgstr ""
+
+#: dist/blocks/child-pages/index.js:1
+#: dist/blocks/recent-posts/index.js:1
+#: dist/blocks/rss/index.js:1
+#: dist/blocks/taxonomy-posts/index.js:1
+#: src/blocks/child-pages/edit.js:134
+#: src/blocks/recent-posts/edit.js:179
+#: src/blocks/rss/edit.js:159
+#: src/blocks/taxonomy-posts/edit.js:247
+msgid "Panels"
+msgstr ""
+
+#. translators: %1$s: Layout
+#: dist/blocks/child-pages/index.js:3
+#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/rss/index.js:3
+#: dist/blocks/taxonomy-posts/index.js:3
+#: src/blocks/child-pages/edit.js:140
+#: src/blocks/recent-posts/edit.js:185
+#: src/blocks/rss/edit.js:165
+#: src/blocks/taxonomy-posts/edit.js:253
+msgid "Carousel (%1$s)"
+msgstr ""
+
+#: dist/blocks/child-pages/index.js:3
+#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/rss/index.js:3
+#: dist/blocks/taxonomy-posts/index.js:3
+#: src/blocks/child-pages/edit.js:149
+#: src/blocks/recent-posts/edit.js:194
+#: src/blocks/rss/edit.js:174
+#: src/blocks/taxonomy-posts/edit.js:262
+msgid "Large image"
+msgstr ""
+
+#: dist/blocks/child-pages/index.js:3
+#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/rss/index.js:3
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-pickup-slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+#: dist/blocks/taxonomy-posts/index.js:3
+#: src/blocks/child-pages/edit.js:160
+#: src/blocks/recent-posts/edit.js:205
+#: src/blocks/rss/edit.js:185
+#: src/blocks/spider-contents-slider/edit.js:281
+#: src/blocks/spider-pickup-slider/edit.js:90
+#: src/blocks/spider-slider/edit.js:328
+#: src/blocks/taxonomy-posts/edit.js:273
+msgid "Display arrows"
+msgstr ""
+
+#: dist/blocks/child-pages/index.js:3
+#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/rss/index.js:3
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-pickup-slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+#: dist/blocks/taxonomy-posts/index.js:3
+#: src/blocks/child-pages/edit.js:169
+#: src/blocks/recent-posts/edit.js:214
+#: src/blocks/rss/edit.js:194
+#: src/blocks/spider-contents-slider/edit.js:287
+#: src/blocks/spider-pickup-slider/edit.js:96
+#: src/blocks/spider-slider/edit.js:334
+#: src/blocks/taxonomy-posts/edit.js:282
+msgid "Display dots"
+msgstr ""
+
+#: dist/blocks/child-pages/index.js:3
+#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/rss/index.js:3
+#: dist/blocks/slider/index.js:1
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-pickup-slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+#: dist/blocks/taxonomy-posts/index.js:3
+#: dist/blocks/thumbnail-gallery/index.js:1
+#: src/blocks/child-pages/edit.js:178
+#: src/blocks/recent-posts/edit.js:223
+#: src/blocks/rss/edit.js:203
+#: src/blocks/slider/edit.js:197
+#: src/blocks/spider-contents-slider/edit.js:325
+#: src/blocks/spider-pickup-slider/edit.js:119
+#: src/blocks/spider-slider/edit.js:389
+#: src/blocks/taxonomy-posts/edit.js:291
+#: src/blocks/thumbnail-gallery/edit.js:100
+msgid "Autoplay Speed in seconds"
+msgstr ""
+
+#: dist/blocks/child-pages/index.js:3
+#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/rss/index.js:3
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-pickup-slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+#: dist/blocks/taxonomy-posts/index.js:3
+#: src/blocks/child-pages/edit.js:182
+#: src/blocks/recent-posts/edit.js:227
+#: src/blocks/rss/edit.js:207
+#: src/blocks/spider-contents-slider/edit.js:329
+#: src/blocks/spider-pickup-slider/edit.js:123
+#: src/blocks/spider-slider/edit.js:393
+#: src/blocks/taxonomy-posts/edit.js:295
+msgid "If \"0\", no scroll."
+msgstr ""
+
+#: dist/blocks/child-pages/index.js:3
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/item/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/media-text/index.js:1
+#: dist/blocks/panels/item/horizontal/index.js:1
+#: dist/blocks/panels/item/vertical/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/child-pages/edit.js:195
+#: src/blocks/items/item/block-link/edit.js:264
+#: src/blocks/items/item/item/edit.js:89
+#: src/blocks/items/item/standard/edit.js:264
+#: src/blocks/media-text/edit.js:341
+#: src/blocks/panels/item/horizontal/edit.js:209
+#: src/blocks/panels/item/vertical/edit.js:193
+#: src/blocks/section/components/basic.js:84
+msgid "Title tag"
+msgstr ""
+
+#: dist/blocks/child-pages/index.js:3
+#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/media-text/index.js:1
+#: dist/blocks/panels/item/horizontal/index.js:1
+#: dist/blocks/panels/item/vertical/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/slider/item/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+#: dist/blocks/step/item/standard/index.js:1
+#: dist/blocks/thumbnail-gallery/item/index.js:1
+#: src/blocks/child-pages/edit.js:224
+#: src/blocks/items/item/banner/edit.js:331
+#: src/blocks/items/item/block-link/edit.js:292
+#: src/blocks/items/item/standard/edit.js:291
+#: src/blocks/media-text/edit.js:310
+#: src/blocks/panels/item/horizontal/edit.js:236
+#: src/blocks/panels/item/vertical/edit.js:220
+#: src/blocks/pricing-table/item/edit.js:264
+#: src/blocks/section-break-the-grid/edit.js:695
+#: src/blocks/section-with-bgimage/edit.js:713
+#: src/blocks/section-with-bgimage/edit.js:762
+#: src/blocks/section-with-bgimage/edit.js:811
+#: src/blocks/slider/item/edit.js:205
+#: src/blocks/spider-slider/edit.js:314
+#: src/blocks/step/item/standard/edit.js:269
+#: src/blocks/thumbnail-gallery/item/edit.js:145
+msgid "Images size"
+msgstr ""
+
+#: dist/blocks/child-pages/index.js:3
+#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/rss/index.js:3
+#: dist/blocks/taxonomy-posts/index.js:3
+#: src/blocks/child-pages/edit.js:232
+#: src/blocks/recent-posts/edit.js:309
+#: src/blocks/rss/edit.js:253
+#: src/blocks/taxonomy-posts/edit.js:391
+msgid "Number of columns displayed on mobile device"
+msgstr ""
+
+#: dist/blocks/child-pages/index.js:3
+#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/rss/index.js:3
+#: dist/blocks/taxonomy-posts/index.js:3
+#: src/blocks/child-pages/edit.js:248
+#: src/blocks/recent-posts/edit.js:325
+#: src/blocks/rss/edit.js:269
+#: src/blocks/taxonomy-posts/edit.js:407
+msgid "1 column"
+msgstr ""
+
+#: dist/blocks/child-pages/index.js:3
+#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/rss/index.js:3
+#: dist/blocks/taxonomy-posts/index.js:3
+#: src/blocks/child-pages/edit.js:255
+#: src/blocks/recent-posts/edit.js:332
+#: src/blocks/rss/edit.js:276
+#: src/blocks/taxonomy-posts/edit.js:414
+msgid "2 columns"
+msgstr ""
+
+#: dist/blocks/child-pages/index.js:3
+#: src/blocks/child-pages/edit.js:265
+msgid "Specify the parent page"
+msgstr ""
+
+#: dist/blocks/child-pages/index.js:3
+#: src/blocks/child-pages/edit.js:271
+msgid "Search"
+msgstr ""
+
+#: dist/blocks/container/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/container/edit.js:75
+#: src/blocks/section/components/basic.js:230
+msgid "Max width of the contents"
+msgstr ""
+
+#: dist/blocks/container/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/container/edit.js:90
+#: src/blocks/section/components/basic.js:252
+msgid "Make the contents width slim"
+msgstr ""
+
+#: dist/blocks/contents-outline/index.js:1
+#: src/blocks/contents-outline/edit.js:75
+msgid "Show h2"
+msgstr ""
+
+#: dist/blocks/contents-outline/index.js:1
+#: src/blocks/contents-outline/edit.js:85
+msgid "Show h3"
+msgstr ""
+
+#: dist/blocks/contents-outline/index.js:1
+#: src/blocks/contents-outline/edit.js:95
+msgid "Show h4"
+msgstr ""
+
+#: dist/blocks/contents-outline/index.js:1
+#: src/blocks/contents-outline/edit.js:104
+msgid "Show section block titles"
+msgstr ""
+
+#: dist/blocks/contents-outline/index.js:1
+#: src/blocks/contents-outline/edit.js:114
+msgid "Show heading blocks in section blocks"
+msgstr ""
+
+#: dist/blocks/contents-outline/index.js:1
+#: src/blocks/contents-outline/edit.js:123
+msgid "Move to before 1st heading"
+msgstr ""
+
+#: dist/blocks/contents-outline/index.js:1
+#: src/blocks/contents-outline/edit.js:136
+msgid "Contents outline"
+msgstr ""
+
+#: dist/blocks/contents-outline/index.js:1
+#: src/blocks/contents-outline/edit.js:141
+msgid "In the actual screen, it is displayed when headings exists on the page."
+msgstr ""
+
+#: dist/blocks/countdown/index.js:1
+#: src/blocks/countdown/index.js:24
+msgid "Inline"
+msgstr ""
+
+#: dist/blocks/countdown/index.js:1
+#: src/blocks/countdown/index.js:27
+msgid "Countdown"
+msgstr ""
+
+#: dist/blocks/countdown/index.js:1
+#: dist/blocks/evaluation-star/index.js:1
+#: src/blocks/countdown/edit.js:73
+#: src/blocks/evaluation-star/edit.js:134
+msgid "Numeric color"
+msgstr ""
+
+#: dist/blocks/countdown/index.js:1
+#: src/blocks/countdown/edit.js:78
+msgid "Clock color"
+msgstr ""
+
+#: dist/blocks/countdown/index.js:1
+#: src/blocks/countdown/edit.js:108
+#: src/blocks/countdown/save.js:38
+msgid "Days"
+msgstr ""
+
+#: dist/blocks/countdown/index.js:1
+#: src/blocks/countdown/edit.js:122
+#: src/blocks/countdown/save.js:52
+msgid "Hours"
+msgstr ""
+
+#: dist/blocks/countdown/index.js:1
+#: src/blocks/countdown/edit.js:136
+#: src/blocks/countdown/save.js:66
+msgid "Minutes"
+msgstr ""
+
+#: dist/blocks/countdown/index.js:1
+#: src/blocks/countdown/edit.js:150
+#: src/blocks/countdown/save.js:80
+msgid "Seconds"
+msgstr ""
+
+#: dist/blocks/directory-structure/item/directory/index.js:1
+#: src/blocks/directory-structure/item/directory/edit.js:80
+msgid "folder - Solid"
+msgstr ""
+
+#: dist/blocks/directory-structure/item/directory/index.js:1
+#: src/blocks/directory-structure/item/directory/edit.js:86
+msgid "folder-open - Solid"
+msgstr ""
+
+#: dist/blocks/directory-structure/item/directory/index.js:1
+#: src/blocks/directory-structure/item/directory/edit.js:92
+msgid "folder-open - Regular"
+msgstr ""
+
+#: dist/blocks/directory-structure/item/directory/index.js:1
+#: src/blocks/directory-structure/item/directory/edit.js:98
+msgid "folder - Regular"
+msgstr ""
+
+#: dist/blocks/directory-structure/item/directory/index.js:1
+#: dist/blocks/directory-structure/item/file/index.js:1
+#: dist/blocks/evaluation-star/index.js:1
+#: dist/blocks/list/index.js:1
+#: src/blocks/directory-structure/item/directory/edit.js:125
+#: src/blocks/directory-structure/item/file/edit.js:69
+#: src/blocks/evaluation-star/edit.js:129
+#: src/blocks/list/edit.js:82
+msgid "Icon color"
+msgstr ""
+
+#: dist/blocks/directory-structure/item/directory/index.js:1
+#: src/blocks/directory-structure/item/directory/edit.js:182
+msgid "Write directory name…"
+msgstr ""
+
+#: dist/blocks/directory-structure/item/file/index.js:1
+#: src/blocks/directory-structure/item/file/edit.js:36
+msgid "file - Solid"
+msgstr ""
+
+#: dist/blocks/directory-structure/item/file/index.js:1
+#: src/blocks/directory-structure/item/file/edit.js:42
+msgid "file - Regular"
+msgstr ""
+
+#: dist/blocks/directory-structure/item/file/index.js:1
+#: src/blocks/directory-structure/item/file/edit.js:126
+msgid "Write file name…"
+msgstr ""
+
+#: dist/blocks/evaluation-star/index.js:1
+#: src/blocks/evaluation-star/edit.js:142
+msgid "Evaluation settings"
+msgstr ""
+
+#: dist/blocks/evaluation-star/index.js:1
+#: src/blocks/evaluation-star/edit.js:145
+msgid "Evaluation"
+msgstr ""
+
+#: dist/blocks/evaluation-star/index.js:1
+#: src/blocks/evaluation-star/edit.js:146
+msgid "Five-grade evaluation"
+msgstr ""
+
+#: dist/blocks/evaluation-star/index.js:1
+#: src/blocks/evaluation-star/edit.js:158
+msgid "Title position"
+msgstr ""
+
+#: dist/blocks/evaluation-star/index.js:1
+#: src/blocks/evaluation-star/edit.js:164
+#: src/blocks/evaluation-star/edit.js:197
+msgid "Position left"
+msgstr ""
+
+#: dist/blocks/evaluation-star/index.js:1
+#: src/blocks/evaluation-star/edit.js:171
+#: src/blocks/evaluation-star/edit.js:204
+msgid "Position right"
+msgstr ""
+
+#: dist/blocks/evaluation-star/index.js:1
+#: src/blocks/evaluation-star/edit.js:181
+msgid "Numeric settings"
+msgstr ""
+
+#: dist/blocks/evaluation-star/index.js:1
+#: src/blocks/evaluation-star/edit.js:185
+msgid "Show numeric"
+msgstr ""
+
+#: dist/blocks/evaluation-star/index.js:1
+#: src/blocks/evaluation-star/edit.js:191
+msgid "Numeric position"
+msgstr ""
+
+#: dist/blocks/faq/item/index.js:1
+#: src/blocks/faq/item/edit.js:87
+msgid "Question color"
+msgstr ""
+
+#: dist/blocks/faq/item/index.js:1
+#: src/blocks/faq/item/edit.js:92
+msgid "Answer color"
+msgstr ""
+
+#: dist/blocks/faq/item/index.js:1
+#: src/blocks/faq/item/edit.js:103
+msgid "Question label"
+msgstr ""
+
+#: dist/blocks/faq/item/index.js:1
+#: src/blocks/faq/item/edit.js:108
+msgid "Q"
+msgstr ""
+
+#. translators: %d: Length
+#: dist/blocks/faq/item/index.js:3
+#: dist/blocks/faq/item/index.js:5
+#: src/blocks/faq/item/edit.js:112
+#: src/blocks/faq/item/edit.js:130
+msgid "Recommend length up to %d"
+msgstr ""
+
+#: dist/blocks/faq/item/index.js:3
+#: src/blocks/faq/item/edit.js:121
+msgid "Answer label"
+msgstr ""
+
+#: dist/blocks/faq/item/index.js:3
+#: src/blocks/faq/item/edit.js:126
+msgid "A"
+msgstr ""
+
+#: dist/blocks/faq/item/index.js:5
+#: src/blocks/faq/item/edit.js:151
+msgid "Write question…"
+msgstr ""
+
+#: dist/blocks/information/index.js:1
+#: src/blocks/information/edit.js:84
+msgid "Label column size"
+msgstr ""
+
+#: dist/blocks/information/index.js:1
+#: dist/blocks/media-text/index.js:1
+#: dist/blocks/pricing-table/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: src/blocks/information/edit.js:92
+#: src/blocks/media-text/edit.js:300
+#: src/blocks/pricing-table/edit.js:113
+#: src/blocks/section-side-heading/edit.js:411
+msgid "33%"
+msgstr ""
+
+#: dist/blocks/information/index.js:1
+#: dist/blocks/media-text/index.js:1
+#: dist/blocks/pricing-table/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: src/blocks/information/edit.js:96
+#: src/blocks/media-text/edit.js:304
+#: src/blocks/pricing-table/edit.js:109
+#: src/blocks/section-side-heading/edit.js:415
+msgid "25%"
+msgstr ""
+
+#: dist/blocks/information/index.js:1
+#: src/blocks/information/edit.js:103
+msgid "Label horizontal alignment"
+msgstr ""
+
+#: dist/blocks/information/index.js:1
+#: dist/blocks/step/item/standard/index.js:1
+#: src/blocks/information/edit.js:111
+#: src/blocks/step/item/standard/edit.js:255
+msgid "Left side"
+msgstr ""
+
+#: dist/blocks/information/index.js:1
+#: dist/blocks/step/item/standard/index.js:1
+#: src/blocks/information/edit.js:115
+#: src/blocks/step/item/standard/edit.js:263
+msgid "Right side"
+msgstr ""
+
+#: dist/blocks/information/index.js:1
+#: src/blocks/information/edit.js:122
+msgid "Label vertical alignment"
+msgstr ""
+
+#: dist/blocks/information/index.js:1
+#: src/blocks/information/edit.js:130
+msgid "Top"
+msgstr ""
+
+#: dist/blocks/information/index.js:1
+#: src/blocks/information/edit.js:134
+msgid "Middle"
+msgstr ""
+
+#: dist/blocks/information/index.js:1
+#: src/blocks/information/edit.js:141
+msgid "Don't split the column in a smartphone"
+msgstr ""
+
+#: dist/blocks/information/item/index.js:1
+#: src/blocks/information/item/edit.js:87
+msgid "Write label…"
+msgstr ""
+
+#: dist/blocks/items/index.js:1
+#: src/blocks/items/edit.js:151
+msgid "Glue each item together"
+msgstr ""
+
+#: dist/blocks/items/index.js:1
+#: src/blocks/items/edit.js:160
+msgid "Align the bottom of the button of each items (standard, block link item only)."
+msgstr ""
+
+#: dist/blocks/items/index.js:1
+#: dist/blocks/panels/index.js:1
+#: dist/blocks/testimonial/index.js:1
+#: src/blocks/items/edit.js:171
+#: src/blocks/panels/edit.js:121
+#: src/blocks/testimonial/edit.js:80
+msgid "Columns per row (Large window)"
+msgstr ""
+
+#: dist/blocks/items/index.js:1
+#: dist/blocks/panels/index.js:1
+#: dist/blocks/testimonial/index.js:1
+#: src/blocks/items/edit.js:183
+#: src/blocks/panels/edit.js:135
+#: src/blocks/testimonial/edit.js:94
+msgid "Columns per row (Medium window)"
+msgstr ""
+
+#: dist/blocks/items/index.js:1
+#: dist/blocks/panels/index.js:1
+#: src/blocks/items/edit.js:195
+#: src/blocks/panels/edit.js:149
+msgid "Columns per row (Small window)"
+msgstr ""
+
+#: dist/blocks/items/index.js:1
+#: src/blocks/items/index.js:30
+msgid "Boundary line"
+msgstr ""
+
+#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/item/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/media-text/index.js:1
+#: dist/blocks/panels/item/horizontal/index.js:1
+#: dist/blocks/panels/item/vertical/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/slider/item/index.js:1
+#: dist/blocks/step/item/standard/index.js:1
+#: dist/blocks/thumbnail-gallery/item/index.js:1
+#: src/js/component/figure.js:36
+msgid "Release"
+msgstr ""
+
+#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/item/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/media-text/index.js:1
+#: dist/blocks/panels/item/horizontal/index.js:1
+#: dist/blocks/panels/item/vertical/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/slider/item/index.js:1
+#: dist/blocks/step/item/standard/index.js:1
+#: dist/blocks/thumbnail-gallery/item/index.js:1
+#: src/js/component/figure.js:140
+msgid "Media"
+msgstr ""
+
+#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/item/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/media-text/index.js:1
+#: dist/blocks/panels/item/horizontal/index.js:1
+#: dist/blocks/panels/item/vertical/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/slider/item/index.js:1
+#: dist/blocks/step/item/standard/index.js:1
+#: dist/blocks/thumbnail-gallery/item/index.js:1
+#: src/blocks/items/item/banner/edit.js:275
+#: src/blocks/media-text/index.js:19
+#: src/blocks/section-with-bgimage/index.js:23
+#: src/js/component/figure.js:143
+msgid "Image"
+msgstr ""
+
+#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/item/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/media-text/index.js:1
+#: dist/blocks/panels/item/horizontal/index.js:1
+#: dist/blocks/panels/item/vertical/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/slider/item/index.js:1
+#: dist/blocks/step/item/standard/index.js:1
+#: dist/blocks/thumbnail-gallery/item/index.js:1
+#: src/blocks/media-text/index.js:20
+#: src/blocks/section-with-bgvideo/index.js:23
+#: src/js/component/figure.js:145
+msgid "Video"
+msgstr ""
+
+#: dist/blocks/items/item/banner/index.js:1
+#: src/blocks/items/item/banner/edit.js:290
+msgid "Image aspect ratio"
+msgstr ""
+
+#: dist/blocks/items/item/banner/index.js:1
+#: src/blocks/items/item/banner/edit.js:298
+msgid "Fit to the image"
+msgstr ""
+
+#: dist/blocks/items/item/banner/index.js:1
+#: src/blocks/items/item/banner/edit.js:305
+msgid "Fit to the contents"
+msgstr ""
+
+#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+#: src/blocks/items/item/banner/edit.js:312
+#: src/blocks/slider/edit.js:89
+#: src/blocks/spider-slider/edit.js:183
+msgid "4:3"
+msgstr ""
+
+#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+#: src/blocks/items/item/banner/edit.js:316
+#: src/blocks/slider/edit.js:85
+#: src/blocks/spider-slider/edit.js:179
+msgid "16:9"
+msgstr ""
+
+#: dist/blocks/items/item/banner/index.js:1
+#: src/blocks/items/item/banner/edit.js:320
+msgid "3:4"
+msgstr ""
+
+#: dist/blocks/items/item/banner/index.js:1
+#: src/blocks/items/item/banner/edit.js:324
+msgid "9:16"
+msgstr ""
+
+#: dist/blocks/items/item/banner/index.js:1
+#: src/blocks/items/item/banner/edit.js:338
+msgid "Shade off"
+msgstr ""
+
+#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:17
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: src/blocks/items/item/banner/edit.js:345
+#: src/blocks/section-break-the-grid/edit.js:1084
+#: src/blocks/section-with-bgimage/edit.js:839
+#: src/blocks/section-with-bgvideo/edit.js:374
+msgid "Mask"
+msgstr ""
+
+#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: src/blocks/items/item/banner/edit.js:441
+#: src/blocks/spider-contents-slider/item/edit.js:210
+msgid "Change content position"
+msgstr ""
+
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/item/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/panels/item/horizontal/index.js:1
+#: dist/blocks/panels/item/vertical/index.js:1
+#: dist/blocks/testimonial/item/index.js:1
+#: src/blocks/items/item/block-link/edit.js:426
+#: src/blocks/items/item/item/edit.js:231
+#: src/blocks/items/item/standard/edit.js:425
+#: src/blocks/panels/item/horizontal/edit.js:303
+#: src/blocks/panels/item/vertical/edit.js:262
+#: src/blocks/testimonial/item/edit.js:81
+msgid "Write content…"
+msgstr ""
+
+#: dist/blocks/items/item/item/index.js:1
+#: src/blocks/items/item/item/edit.js:117
+msgid "Block link"
+msgstr ""
+
+#: dist/blocks/items/item/item/index.js:1
+#: src/blocks/items/item/item/edit.js:118
+msgid "Link is made not only to the button but to the whole block."
+msgstr ""
+
+#: dist/blocks/items/item/item/index.js:1
+#: src/blocks/items/item/item/edit.js:137
+msgid "Background color of button"
+msgstr ""
+
+#: dist/blocks/items/item/item/index.js:1
+#: src/blocks/items/item/item/edit.js:146
+msgid "Text color of button"
+msgstr ""
+
+#: dist/blocks/like-me-box/index.js:1
+#: src/blocks/like-me-box/edit.js:22
+msgid "Facebook page name"
+msgstr ""
+
+#: dist/blocks/like-me-box/index.js:1
+#: src/blocks/like-me-box/edit.js:35
+msgid "Like me box"
+msgstr ""
+
+#: dist/blocks/like-me-box/index.js:1
+#: src/blocks/like-me-box/edit.js:37
+msgid "Please input \"Facebook page name\""
+msgstr ""
+
+#: dist/blocks/limited-datetime/index.js:1
+#: src/blocks/limited-datetime/edit.js:50
+#: src/blocks/limited-datetime/edit.js:64
+msgid "Not been set."
+msgstr ""
+
+#: dist/blocks/limited-datetime/index.js:1
+#: src/blocks/limited-datetime/edit.js:57
+#: src/blocks/limited-datetime/edit.js:71
+msgid "Not initialized properly."
+msgstr ""
+
+#: dist/blocks/limited-datetime/index.js:1
+#: src/blocks/limited-datetime/edit.js:109
+#: src/blocks/limited-datetime/edit.js:160
+msgid "Start datetime"
+msgstr ""
+
+#: dist/blocks/limited-datetime/index.js:1
+#: src/blocks/limited-datetime/edit.js:113
+msgid "Use start datetime"
+msgstr ""
+
+#: dist/blocks/limited-datetime/index.js:1
+#: src/blocks/limited-datetime/edit.js:127
+#: src/blocks/limited-datetime/edit.js:171
+msgid "End datetime"
+msgstr ""
+
+#: dist/blocks/limited-datetime/index.js:1
+#: src/blocks/limited-datetime/edit.js:131
+msgid "Use end datetime"
+msgstr ""
+
+#: dist/blocks/limited-datetime/index.js:1
+#: src/blocks/limited-datetime/edit.js:151
+msgid "Only the set period is displayed"
+msgstr ""
+
+#: dist/blocks/list/index.js:1
+#: src/blocks/list/edit.js:20
+msgid "angle-right"
+msgstr ""
+
+#: dist/blocks/list/index.js:1
+#: src/blocks/list/edit.js:24
+msgid "angles-right"
+msgstr ""
+
+#: dist/blocks/list/index.js:1
+#: src/blocks/list/edit.js:28
+msgid "circle-right"
+msgstr ""
+
+#: dist/blocks/list/index.js:1
+#: src/blocks/list/edit.js:32
+msgid "arrow-right"
+msgstr ""
+
+#: dist/blocks/list/index.js:1
+#: src/blocks/list/edit.js:40
+msgid "circle-check"
+msgstr ""
+
+#: dist/blocks/list/index.js:1
+#: src/blocks/list/edit.js:44
+msgid "square-check"
+msgstr ""
+
+#: dist/blocks/list/index.js:1
+#: src/blocks/list/edit.js:48
+msgid "circle-chevron-right"
+msgstr ""
+
+#: dist/blocks/media-text/index.js:1
+#: src/blocks/media-text/index.js:21
+msgid "Media & sentence"
+msgstr ""
+
+#: dist/blocks/media-text/index.js:1
+#: src/blocks/media-text/edit.js:284
+msgid "Image column size"
+msgstr ""
+
+#: dist/blocks/media-text/index.js:1
+#: src/blocks/media-text/edit.js:292
+msgid "66%"
+msgstr ""
+
+#: dist/blocks/media-text/index.js:1
+#: dist/blocks/pricing-table/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: src/blocks/media-text/edit.js:296
+#: src/blocks/pricing-table/edit.js:117
+#: src/blocks/section-break-the-grid/edit.js:864
+#: src/blocks/section-side-heading/edit.js:407
+msgid "50%"
+msgstr ""
+
+#: dist/blocks/media-text/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/media-text/edit.js:316
+#: src/blocks/section-break-the-grid/edit.js:703
+msgid "Sort by mobile"
+msgstr ""
+
+#: dist/blocks/media-text/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/media-text/edit.js:325
+#: src/blocks/section-break-the-grid/edit.js:718
+msgid "Text > Image"
+msgstr ""
+
+#: dist/blocks/media-text/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/media-text/edit.js:332
+#: src/blocks/section-break-the-grid/edit.js:725
+msgid "Image > Text"
+msgstr ""
+
+#: dist/blocks/media-text/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:17
+#: src/blocks/media-text/edit.js:378
+#: src/blocks/section-break-the-grid/edit.js:1321
+msgid "Show media on left"
+msgstr ""
+
+#: dist/blocks/media-text/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:17
+#: src/blocks/media-text/edit.js:390
+#: src/blocks/section-break-the-grid/edit.js:1333
+msgid "Show media on right"
+msgstr ""
+
+#: dist/blocks/media-text/index.js:1
+#: dist/blocks/slider/item/index.js:1
+#: dist/blocks/thumbnail-gallery/item/index.js:1
+#: src/blocks/media-text/edit.js:459
+#: src/blocks/slider/item/edit.js:190
+#: src/blocks/thumbnail-gallery/item/edit.js:166
+msgid "Write caption…"
+msgstr ""
+
+#: dist/blocks/panels/index.js:1
+#: src/blocks/panels/edit.js:163
+msgid "Set padding around images"
+msgstr ""
+
+#: dist/blocks/panels/item/horizontal/index.js:1
+#: dist/blocks/step/item/standard/index.js:1
+#: src/blocks/panels/item/horizontal/edit.js:248
+#: src/blocks/step/item/standard/edit.js:249
+msgid "Image position"
+msgstr ""
+
+#: dist/blocks/pickup-slider/index.js:1
+#: dist/blocks/spider-pickup-slider/index.js:1
+#: src/blocks/pickup-slider/edit.js:34
+#: src/blocks/spider-pickup-slider/edit.js:66
+msgid "Display in random order"
+msgstr ""
+
+#: dist/blocks/pickup-slider/index.js:1
+#: src/blocks/pickup-slider/edit.js:45
+msgid "Link type"
+msgstr ""
+
+#: dist/blocks/pickup-slider/index.js:1
+#: src/blocks/pickup-slider/edit.js:51
+msgid "Button link"
+msgstr ""
+
+#: dist/blocks/pickup-slider/index.js:1
+#: src/blocks/pickup-slider/edit.js:58
+msgid "Overall link"
+msgstr ""
+
+#: dist/blocks/pickup-slider/index.js:1
+#: dist/blocks/spider-pickup-slider/index.js:1
+#: src/blocks/pickup-slider/edit.js:67
+#: src/blocks/spider-pickup-slider/edit.js:75
+msgid "Maximum number of displays"
+msgstr ""
+
+#: dist/blocks/pickup-slider/index.js:1
+#: dist/blocks/spider-pickup-slider/index.js:1
+#: src/blocks/pickup-slider/edit.js:71
+#: src/blocks/spider-pickup-slider/edit.js:79
+msgid "If \"0\", all items are displayed."
+msgstr ""
+
+#: dist/blocks/pickup-slider/index.js:1
+#: dist/blocks/spider-pickup-slider/index.js:1
+#: src/blocks/pickup-slider/edit.js:85
+#: src/blocks/spider-pickup-slider/edit.js:137
+msgid "Pickup slider"
+msgstr ""
+
+#: dist/blocks/pickup-slider/index.js:1
+#: dist/blocks/spider-pickup-slider/index.js:1
+#: src/blocks/pickup-slider/edit.js:87
+#: src/blocks/spider-pickup-slider/edit.js:139
+msgid "Posts with \"pickup\" tag are displayed as sliders."
+msgstr ""
+
+#: dist/blocks/price-menu/item/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: src/blocks/price-menu/item/edit.js:36
+#: src/blocks/pricing-table/item/edit.js:382
+msgid "Write price…"
+msgstr ""
+
+#: dist/blocks/pricing-table/index.js:1
+#: src/blocks/pricing-table/edit.js:93
+msgid "Column size"
+msgstr ""
+
+#: dist/blocks/pricing-table/index.js:1
+#: src/blocks/pricing-table/edit.js:94
+msgid "If the text of each item is long, it is recommended to select other than \"Auto\"."
+msgstr ""
+
+#: dist/blocks/pricing-table/index.js:1
+#: src/blocks/pricing-table/edit.js:105
+msgid "Auto"
+msgstr ""
+
+#: dist/blocks/pricing-table/index.js:1
+#: src/blocks/pricing-table/edit.js:121
+msgid "100%"
+msgstr ""
+
+#: dist/blocks/rating-box/item/index.js:1
+#: src/blocks/rating-box/item/edit.js:54
+msgid "Bar color"
+msgstr ""
+
+#: dist/blocks/rating-box/item/index.js:1
+#: src/blocks/rating-box/item/edit.js:65
+msgid "Rating"
+msgstr ""
+
+#: dist/blocks/recent-posts/index.js:1
+#: dist/blocks/taxonomy-posts/index.js:1
+#: src/blocks/recent-posts/index.js:18
+#: src/blocks/taxonomy-posts/index.js:18
+msgid "Posts list"
+msgstr ""
+
+#: dist/blocks/recent-posts/index.js:1
+#: dist/blocks/taxonomy-posts/index.js:1
+#: src/blocks/recent-posts/index.js:19
+#: src/blocks/taxonomy-posts/index.js:20
+msgid "Latest posts"
+msgstr ""
+
+#: dist/blocks/recent-posts/index.js:1
+#: src/blocks/recent-posts/edit.js:139
+msgid "Post type"
+msgstr ""
+
+#: dist/blocks/recent-posts/index.js:1
+#: dist/blocks/rss/index.js:1
+#: dist/blocks/taxonomy-posts/index.js:1
+#: src/blocks/recent-posts/edit.js:149
+#: src/blocks/rss/edit.js:129
+#: src/blocks/taxonomy-posts/edit.js:217
+msgid "Number of posts"
+msgstr ""
+
+#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/rss/index.js:3
+#: dist/blocks/taxonomy-posts/index.js:3
+#: src/blocks/recent-posts/edit.js:240
+#: src/blocks/rss/edit.js:220
+#: src/blocks/taxonomy-posts/edit.js:308
+msgid "Title tag of each items"
+msgstr ""
+
+#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/taxonomy-posts/index.js:3
+#: src/blocks/recent-posts/edit.js:272
+#: src/blocks/taxonomy-posts/edit.js:340
+msgid "Images size of each items"
+msgstr ""
+
+#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/taxonomy-posts/index.js:3
+#: src/blocks/recent-posts/edit.js:282
+#: src/blocks/taxonomy-posts/edit.js:350
+msgid "Force display meta of each items"
+msgstr ""
+
+#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/taxonomy-posts/index.js:3
+#: src/blocks/recent-posts/edit.js:286
+#: src/blocks/recent-posts/edit.js:299
+#: src/blocks/taxonomy-posts/edit.js:354
+#: src/blocks/taxonomy-posts/edit.js:367
+msgid "If it's already displayed, this setting will be ignored."
+msgstr ""
+
+#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/taxonomy-posts/index.js:3
+#: src/blocks/recent-posts/edit.js:295
+#: src/blocks/taxonomy-posts/edit.js:363
+msgid "Force display category label of each items"
+msgstr ""
+
+#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/taxonomy-posts/index.js:3
+#: src/blocks/recent-posts/edit.js:342
+#: src/blocks/taxonomy-posts/edit.js:424
+msgid "Ignore sticky posts"
+msgstr ""
+
+#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/rss/index.js:3
+#: dist/blocks/taxonomy-posts/index.js:3
+#: src/blocks/recent-posts/edit.js:351
+#: src/blocks/rss/edit.js:286
+#: src/blocks/taxonomy-posts/edit.js:433
+msgid "Text if no posts matched"
+msgstr ""
+
+#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/rss/index.js:3
+#: dist/blocks/taxonomy-posts/index.js:3
+#: src/blocks/recent-posts/edit.js:355
+#: src/blocks/rss/edit.js:290
+#: src/blocks/taxonomy-posts/edit.js:437
+msgid "Allow HTML"
+msgstr ""
+
+#: dist/blocks/rss/index.js:1
+#: src/blocks/rss/edit.js:98
+msgid "Enter URL here…"
+msgstr ""
+
+#: dist/blocks/rss/index.js:1
+#: src/blocks/rss/edit.js:107
+msgid "Use URL"
+msgstr ""
+
+#: dist/blocks/rss/index.js:1
+#: src/blocks/rss/edit.js:119
+msgid "Edit RSS URL"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/basic.js:38
+msgid "Wrapper tag"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/basic.js:128
+msgid "Height"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/basic.js:133
+msgid "Fit"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/basic.js:137
+msgid "Wide"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/basic.js:141
+msgid "Full"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/basic.js:161
+msgid "Wide width"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/basic.js:165
+msgid "Full width"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/basic.js:175
+msgid "Wide width (Only contents)"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/basic.js:182
+msgid "Full width (Only contents)"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/basic.js:193
+msgid "Container alignment"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/basic.js:212
+msgid "Remove container padding of the contents"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/header.js:108
+msgid "Write subtitle…"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:17
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:1012
+#: src/blocks/section/components/background.js:36
+#: src/blocks/spider-contents-slider/edit.js:184
+#: src/blocks/spider-contents-slider/item/edit.js:157
+#: src/blocks/spider-slider/edit.js:190
+msgid "None"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/background.js:40
+msgid "Stripe"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/background.js:44
+msgid "Noise"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/background.js:48
+msgid "Dots"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/background.js:52
+msgid "Dots 2"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/background.js:59
+msgid "Tilt"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/background.js:63
+msgid "Curve"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/background.js:67
+msgid "Wave"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/background.js:71
+msgid "Triangle"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/background.js:86
+msgid "Background (Movable) "
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/background.js:120
+msgid "Background position (Left / Right)"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/background.js:139
+msgid "Background Position (Top / Bottom)"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/background.js:159
+msgid "Make sure the background doesn't overflow to the outside"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/background.js:176
+#: src/blocks/section/components/background.js:256
+msgid "Texture"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/background.js:192
+#: src/blocks/section/components/background.js:272
+msgid "Texture opacity"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/background.js:223
+msgid "Background (Fixed) "
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/background.js:299
+msgid "Top divider"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/background.js:325
+#: src/blocks/section/components/background.js:409
+msgid "Level"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/background.js:359
+#: src/blocks/section/components/background.js:443
+msgid "Position (Top / Bottom)"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/background.js:383
+msgid "Bottom divider"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/background.js:467
+msgid "Background text"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: src/blocks/section/components/background.js:506
+msgid "Line height"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: src/blocks/section-break-the-grid/index.js:19
+#: src/blocks/section-side-heading/index.js:18
+#: src/blocks/section-with-bgimage/index.js:19
+#: src/blocks/section-with-bgvideo/index.js:19
+msgid "Outer"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: src/blocks/section-break-the-grid/index.js:20
+#: src/blocks/section-side-heading/index.js:19
+#: src/blocks/section-with-bgimage/index.js:20
+#: src/blocks/section-with-bgvideo/index.js:20
+msgid "Wrapper"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: src/blocks/section-break-the-grid/index.js:21
+#: src/blocks/section-side-heading/index.js:20
+#: src/blocks/section-with-bgimage/index.js:21
+#: src/blocks/section-with-bgvideo/index.js:21
+msgid "Container"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:600
+msgid "-50%"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:604
+msgid "-40%"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:608
+msgid "-30%"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:612
+msgid "-20%"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:616
+msgid "-10%"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:620
+#: src/blocks/section-break-the-grid/edit.js:751
+#: src/blocks/section-break-the-grid/edit.js:832
+#: src/blocks/section-break-the-grid/edit.js:882
+msgid "+-0%"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:627
+#: src/blocks/section-break-the-grid/edit.js:755
+msgid "+10%"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:631
+#: src/blocks/section-break-the-grid/edit.js:759
+msgid "+20%"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:635
+#: src/blocks/section-break-the-grid/edit.js:763
+msgid "+30%"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:639
+#: src/blocks/section-break-the-grid/edit.js:767
+msgid "+40%"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:643
+#: src/blocks/section-break-the-grid/edit.js:771
+msgid "+50%"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:691
+#: src/blocks/section-with-bgimage/edit.js:667
+msgid "Media settings"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:732
+msgid "No wrap"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:743
+msgid "Image Size Adjustment"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:775
+msgid "+60%"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:779
+msgid "+70%"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:783
+msgid "+80%"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:787
+msgid "+90%"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:791
+msgid "+100%"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:799
+msgid "Adjust the height of the media to the height of the block."
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:810
+msgid "Contents settings"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:814
+msgid "Content size adjustment"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:824
+msgid "Degree of overlap of content to image"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:840
+msgid "10%"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:848
+msgid "20%"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:856
+msgid "30%"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:860
+msgid "40%"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:874
+msgid "Vertical position of content"
+msgstr ""
+
+#. translators: %1$s: px
+#: dist/blocks/section-break-the-grid/index.js:3
+#: dist/blocks/section-break-the-grid/index.js:5
+#: dist/blocks/section-break-the-grid/index.js:7
+#: dist/blocks/section-break-the-grid/index.js:9
+#: src/blocks/section-break-the-grid/edit.js:891
+#: src/blocks/section-break-the-grid/edit.js:902
+#: src/blocks/section-break-the-grid/edit.js:913
+#: src/blocks/section-break-the-grid/edit.js:924
+msgid "Move %1$s up"
+msgstr ""
+
+#. translators: %1$s: px
+#: dist/blocks/section-break-the-grid/index.js:11
+#: dist/blocks/section-break-the-grid/index.js:13
+#: dist/blocks/section-break-the-grid/index.js:15
+#: dist/blocks/section-break-the-grid/index.js:17
+#: src/blocks/section-break-the-grid/edit.js:935
+#: src/blocks/section-break-the-grid/edit.js:946
+#: src/blocks/section-break-the-grid/edit.js:957
+#: src/blocks/section-break-the-grid/edit.js:968
+msgid "Move %1$s down"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:17
+#: src/blocks/section-break-the-grid/edit.js:992
+msgid "Background opacity"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:17
+#: src/blocks/section-break-the-grid/edit.js:1032
+msgid "Remove outside padding"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:17
+#: src/blocks/section-break-the-grid/edit.js:1043
+msgid "Shadow settings"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:17
+#: src/blocks/section-break-the-grid/edit.js:1058
+msgid "Horizontal position"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:17
+#: src/blocks/section-break-the-grid/edit.js:1071
+msgid "Vertical position"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:17
+#: src/blocks/section-break-the-grid/edit.js:1345
+msgid "Show media on top"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:17
+#: src/blocks/section-break-the-grid/edit.js:1358
+msgid "Show media on bottom"
+msgstr ""
+
+#: dist/blocks/section-side-heading/index.js:1
+#: src/blocks/section-side-heading/edit.js:394
+msgid "Columns settings"
+msgstr ""
+
+#: dist/blocks/section-side-heading/index.js:1
+#: src/blocks/section-side-heading/edit.js:398
+msgid "Heading column size"
+msgstr ""
+
+#: dist/blocks/section-side-heading/index.js:1
+#: src/blocks/section-side-heading/edit.js:546
+msgid "Show heading on left"
+msgstr ""
+
+#: dist/blocks/section-side-heading/index.js:1
+#: src/blocks/section-side-heading/edit.js:558
+msgid "Show heading on right"
+msgstr ""
+
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: src/blocks/section-with-bgimage/index.js:22
+#: src/blocks/section-with-bgvideo/index.js:22
+msgid "Main visual"
+msgstr ""
+
+#: dist/blocks/section-with-bgimage/index.js:1
+#: src/blocks/section-with-bgimage/index.js:24
+msgid "Header image"
+msgstr ""
+
+#: dist/blocks/section-with-bgimage/index.js:1
+#: src/blocks/section-with-bgimage/edit.js:674
+msgid "Parallax (Deprecated)"
+msgstr ""
+
+#: dist/blocks/section-with-bgimage/index.js:1
+#: src/blocks/section-with-bgimage/edit.js:680
+msgid "This setting is being retained for backwards compatibility and is not recommended for use. Its use may slow down the page display."
+msgstr ""
+
+#: dist/blocks/section-with-bgimage/index.js:1
+#: src/blocks/section-with-bgimage/edit.js:704
+#: src/blocks/section-with-bgimage/edit.js:753
+#: src/blocks/section-with-bgimage/edit.js:802
+msgid "Repeat images"
+msgstr ""
+
+#: dist/blocks/section-with-bgimage/index.js:1
+#: src/blocks/section-with-bgimage/edit.js:726
+#: src/blocks/section-with-bgimage/edit.js:775
+#: src/blocks/section-with-bgimage/edit.js:824
+msgid "Focal point picker"
+msgstr ""
+
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: src/blocks/section-with-bgvideo/index.js:24
+msgid "Header video"
+msgstr ""
+
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: src/blocks/section-with-bgvideo/edit.js:343
+msgid "Video settings"
+msgstr ""
+
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: src/blocks/section-with-bgvideo/edit.js:347
+msgid "YouTube URL"
+msgstr ""
+
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: src/blocks/section-with-bgvideo/edit.js:357
+msgid "Video width"
+msgstr ""
+
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: src/blocks/section-with-bgvideo/edit.js:365
+msgid "Video height"
+msgstr ""
+
+#: dist/blocks/slider/index.js:1
+#: src/blocks/slider/edit.js:170
+msgid "Show dot indicators"
+msgstr ""
+
+#: dist/blocks/slider/index.js:1
+#: dist/blocks/thumbnail-gallery/index.js:1
+#: src/blocks/slider/edit.js:179
+#: src/blocks/thumbnail-gallery/edit.js:84
+msgid "Prev/Next arrows"
+msgstr ""
+
+#: dist/blocks/slider/index.js:1
+#: dist/blocks/thumbnail-gallery/index.js:1
+#: src/blocks/slider/edit.js:185
+#: src/blocks/thumbnail-gallery/edit.js:89
+msgid "Slide animation speed in milliseconds"
+msgstr ""
+
+#: dist/blocks/slider/index.js:1
+#: src/blocks/slider/edit.js:208
+msgid "Enable fade"
+msgstr ""
+
+#: dist/blocks/slider/index.js:1
+#: src/blocks/slider/edit.js:214
+msgid "Change the slider's direction to become right-to-left"
+msgstr ""
+
+#: dist/blocks/slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+#: src/blocks/slider/edit.js:223
+#: src/blocks/spider-slider/edit.js:321
+msgid "Aspect ratio"
+msgstr ""
+
+#: dist/blocks/slider/index.js:1
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+#: src/blocks/slider/edit.js:233
+#: src/blocks/spider-contents-slider/edit.js:359
+#: src/blocks/spider-slider/edit.js:423
+msgid "# of slides to show (Large window)"
+msgstr ""
+
+#: dist/blocks/slider/index.js:1
+#: src/blocks/slider/edit.js:243
+msgid "# of slides to scroll (Large window)"
+msgstr ""
+
+#: dist/blocks/slider/index.js:1
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+#: src/blocks/slider/edit.js:257
+#: src/blocks/spider-contents-slider/edit.js:375
+#: src/blocks/spider-slider/edit.js:437
+msgid "# of slides to show (Medium window)"
+msgstr ""
+
+#: dist/blocks/slider/index.js:1
+#: src/blocks/slider/edit.js:267
+msgid "# of slides to scroll (Medium window)"
+msgstr ""
+
+#: dist/blocks/slider/index.js:1
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+#: src/blocks/slider/edit.js:281
+#: src/blocks/spider-contents-slider/edit.js:391
+#: src/blocks/spider-slider/edit.js:451
+msgid "# of slides to show (Small window)"
+msgstr ""
+
+#: dist/blocks/slider/index.js:1
+#: src/blocks/slider/edit.js:291
+msgid "# of slides to scroll (Small window)"
+msgstr ""
+
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-pickup-slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+#: src/blocks/spider-contents-slider/index.js:17
+#: src/blocks/spider-pickup-slider/index.js:18
+#: src/blocks/spider-slider/index.js:18
+msgid "Carousel"
+msgstr ""
+
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+#: src/blocks/spider-contents-slider/edit.js:270
+#: src/blocks/spider-slider/edit.js:303
+msgid "Block spacing"
+msgstr ""
+
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-pickup-slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+#: src/blocks/spider-contents-slider/edit.js:293
+#: src/blocks/spider-pickup-slider/edit.js:113
+#: src/blocks/spider-slider/edit.js:351
+msgid "Fade"
+msgstr ""
+
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+#: src/blocks/spider-contents-slider/edit.js:300
+#: src/blocks/spider-slider/edit.js:358
+msgid "Shifting the slider"
+msgstr ""
+
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+#: src/blocks/spider-contents-slider/edit.js:312
+#: src/blocks/spider-slider/edit.js:370
+msgid "It must be full width (.alignfull) or wide width (.alignwide)."
+msgstr ""
+
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+#: src/blocks/spider-contents-slider/edit.js:340
+#: src/blocks/spider-slider/edit.js:404
+msgid "Animation speed in seconds"
+msgstr ""
+
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+#: src/blocks/spider-contents-slider/edit.js:344
+#: src/blocks/spider-slider/edit.js:408
+msgid "If \"0\", default animation speed."
+msgstr ""
+
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: src/js/component/panel-border-settings.js:72
+msgid "Radius"
+msgstr ""
+
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: src/blocks/spider-contents-slider/item/index.js:23
+msgid "Full height"
+msgstr ""
+
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: src/blocks/spider-contents-slider/item/index.js:29
+msgid "Alignmentable"
+msgstr ""
+
+#: dist/blocks/spider-pickup-slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+#: src/blocks/spider-pickup-slider/index.js:17
+#: src/blocks/spider-slider/edit.js:279
+msgid "Slider"
+msgstr ""
+
+#: dist/blocks/spider-pickup-slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+#: src/blocks/spider-pickup-slider/edit.js:103
+#: src/blocks/spider-slider/edit.js:341
+msgid "Change dots to thumbnails"
+msgstr ""
+
+#: dist/blocks/spider-slider/index.js:1
+#: src/blocks/spider-slider/edit.js:282
+msgid "Drag images, upload new ones or select files from your library."
+msgstr ""
+
+#: dist/blocks/spider-slider/index.js:1
+#: src/blocks/spider-slider/edit.js:383
+msgid "Display caption"
+msgstr ""
+
+#: dist/blocks/step/item/free/index.js:1
+#: dist/blocks/step/item/standard/index.js:1
+#: src/blocks/step/item/free/edit.js:66
+#: src/blocks/step/item/standard/edit.js:233
+msgid "Number color"
+msgstr ""
+
+#: dist/blocks/step/item/standard/index.js:1
+#: src/blocks/step/item/standard/edit.js:238
+msgid "Link color"
+msgstr ""
+
+#: dist/blocks/step/item/standard/index.js:1
+#: dist/blocks/tabs/index.js:1
+#: src/blocks/step/item/standard/edit.js:259
+#: src/blocks/tabs/edit.js:243
+msgid "Center"
+msgstr ""
+
+#: dist/blocks/step/item/standard/index.js:1
+#: src/blocks/step/item/standard/edit.js:330
+msgid "Link text"
+msgstr ""
+
+#: dist/blocks/tabs/index.js:1
+#: src/blocks/tabs/edit.js:201
+msgid "Tabs orientation"
+msgstr ""
+
+#: dist/blocks/tabs/index.js:1
+#: src/blocks/tabs/edit.js:219
+msgid "Align the height of each tab panels"
+msgstr ""
+
+#: dist/blocks/tabs/index.js:1
+#: src/blocks/tabs/edit.js:228
+msgid "Tabs justification"
+msgstr ""
+
+#: dist/blocks/tabs/index.js:1
+#: src/blocks/tabs/edit.js:236
+msgid "Left"
+msgstr ""
+
+#: dist/blocks/tabs/index.js:1
+#: src/blocks/tabs/edit.js:250
+msgid "Right"
+msgstr ""
+
+#: dist/blocks/tabs/index.js:1
+#: src/blocks/tabs/edit.js:257
+msgid "Stretch"
+msgstr ""
+
+#: dist/blocks/tabs/index.js:1
+#: src/blocks/tabs/edit.js:358
+msgid "Move to left"
+msgstr ""
+
+#: dist/blocks/tabs/index.js:1
+#: src/blocks/tabs/edit.js:362
+msgid "Move to up"
+msgstr ""
+
+#: dist/blocks/tabs/index.js:1
+#: src/blocks/tabs/edit.js:382
+msgid "Remove this tab"
+msgstr ""
+
+#: dist/blocks/tabs/index.js:1
+#: src/blocks/tabs/edit.js:397
+msgid "Move to right"
+msgstr ""
+
+#: dist/blocks/tabs/index.js:1
+#: src/blocks/tabs/edit.js:401
+msgid "Move to down"
+msgstr ""
+
+#: dist/blocks/tabs/index.js:1
+#: src/blocks/tabs/edit.js:431
+msgid "Tab"
+msgstr ""
+
+#: dist/blocks/tabs/index.js:1
+#: src/blocks/tabs/index.js:30
+msgid "Line"
+msgstr ""
+
+#: dist/blocks/taxonomy-posts/index.js:1
+#: src/blocks/taxonomy-posts/edit.js:95
+msgid "Default (Taxonomy selected in this block)"
+msgstr ""
+
+#: dist/blocks/taxonomy-posts/index.js:1
+#: dist/blocks/taxonomy-terms/index.js:1
+#: src/blocks/taxonomy-posts/edit.js:178
+#: src/blocks/taxonomy-terms/edit.js:65
+msgid "Loading taxonomies…"
+msgstr ""
+
+#: dist/blocks/taxonomy-posts/index.js:3
+#: src/blocks/taxonomy-posts/edit.js:376
+msgid "Taxonomy to use for the category label"
+msgstr ""
+
+#: dist/blocks/taxonomy-posts/index.js:3
+#: src/blocks/taxonomy-posts/edit.js:380
+msgid "If no category labels are displayed, this setting will be ignored."
+msgstr ""
+
+#: dist/blocks/taxonomy-posts/index.js:3
+#: src/blocks/taxonomy-posts/edit.js:447
+msgid "Taxonomy posts"
+msgstr ""
+
+#: dist/blocks/taxonomy-terms/index.js:1
+#: src/blocks/taxonomy-terms/index.js:17
+msgid "Categories"
+msgstr ""
+
+#: dist/blocks/taxonomy-terms/index.js:1
+#: src/blocks/taxonomy-terms/index.js:18
+msgid "Tags"
+msgstr ""
+
+#: dist/blocks/taxonomy-terms/index.js:1
+#: src/blocks/taxonomy-terms/index.js:19
+msgid "Taxonomies"
+msgstr ""
+
+#: dist/blocks/taxonomy-terms/index.js:1
+#: src/blocks/taxonomy-terms/edit.js:75
+#: src/blocks/taxonomy-terms/edit.js:139
+msgid "Taxonomy"
+msgstr ""
+
+#: dist/blocks/taxonomy-terms/index.js:1
+#: src/blocks/taxonomy-terms/index.js:31
+msgid "Tag"
+msgstr ""
+
+#: dist/blocks/taxonomy-terms/index.js:1
+#: src/blocks/taxonomy-terms/index.js:35
+msgid "Slash"
+msgstr ""
+
+#: dist/blocks/testimonial/item/index.js:1
+#: src/blocks/testimonial/item/edit.js:92
+msgid "Write name…"
+msgstr ""
+
+#: dist/blocks/accordion/block.json
+#: dist/js/blocks/accordion/block.json
+#: src/blocks/accordion/block.json
+msgctxt "block title"
+msgid "Accordion"
+msgstr ""
+
+#: dist/blocks/accordion/block.json
+#: dist/js/blocks/accordion/block.json
+#: src/blocks/accordion/block.json
+msgctxt "block description"
+msgid "You can set up a content area that expands and contracts like the accordion."
+msgstr ""
+
+#: dist/blocks/accordion/item/block.json
+#: dist/js/blocks/accordion/item/block.json
+#: src/blocks/accordion/item/block.json
+msgctxt "block title"
+msgid "Panel"
+msgstr ""
+
+#: dist/blocks/alert/block.json
+#: dist/js/blocks/alert/block.json
+#: src/blocks/alert/block.json
+msgctxt "block title"
+msgid "Alert"
+msgstr ""
+
+#: dist/blocks/alert/block.json
+#: dist/js/blocks/alert/block.json
+#: src/blocks/alert/block.json
+msgctxt "block description"
+msgid "It is a block that warns visitors."
+msgstr ""
+
+#: dist/blocks/balloon/block.json
+#: dist/js/blocks/balloon/block.json
+#: src/blocks/balloon/block.json
+msgctxt "block title"
+msgid "Balloon"
+msgstr ""
+
+#: dist/blocks/balloon/block.json
+#: dist/js/blocks/balloon/block.json
+#: src/blocks/balloon/block.json
+msgctxt "block description"
+msgid "It is a block that can express a conversation."
+msgstr ""
+
+#: dist/blocks/box/block.json
+#: dist/js/blocks/box/block.json
+#: src/blocks/box/block.json
+msgctxt "block title"
+msgid "Box"
+msgstr ""
+
+#: dist/blocks/box/block.json
+#: dist/js/blocks/box/block.json
+#: src/blocks/box/block.json
+msgctxt "block description"
+msgid "It is a box."
+msgstr ""
+
+#: dist/blocks/btn-box/block.json
+#: dist/js/blocks/btn-box/block.json
+#: src/blocks/btn-box/block.json
+msgctxt "block title"
+msgid "Button box"
+msgstr ""
+
+#: dist/blocks/btn-box/block.json
+#: dist/js/blocks/btn-box/block.json
+#: src/blocks/btn-box/block.json
+msgctxt "block description"
+msgid "It is a button with micro copy."
+msgstr ""
+
+#: dist/blocks/btn/block.json
+#: dist/js/blocks/btn/block.json
+#: src/blocks/btn/block.json
+msgctxt "block title"
+msgid "Button"
+msgstr ""
+
+#: dist/blocks/btn/block.json
+#: dist/js/blocks/btn/block.json
+#: src/blocks/btn/block.json
+msgctxt "block description"
+msgid "Prompt visitors to take action with a button-style link."
+msgstr ""
+
+#: dist/blocks/buttons/block.json
+#: dist/js/blocks/buttons/block.json
+#: src/blocks/buttons/block.json
+msgctxt "block title"
+msgid "Buttons"
+msgstr ""
+
+#: dist/blocks/buttons/block.json
+#: dist/js/blocks/buttons/block.json
+#: src/blocks/buttons/block.json
+msgctxt "block description"
+msgid "Prompt visitors to take action with a group of button-style links."
+msgstr ""
+
+#: dist/blocks/categories-list/block.json
+#: dist/js/blocks/categories-list/block.json
+#: src/blocks/categories-list/block.json
+msgctxt "block title"
+msgid "Categories list"
+msgstr ""
+
+#: dist/blocks/categories-list/block.json
+#: dist/js/blocks/categories-list/block.json
+#: src/blocks/categories-list/block.json
+msgctxt "block description"
+msgid "This is a block that displays a list of categories"
+msgstr ""
+
+#: dist/blocks/child-pages/block.json
+#: dist/js/blocks/child-pages/block.json
+#: src/blocks/child-pages/block.json
+msgctxt "block title"
+msgid "Child pages"
+msgstr ""
+
+#: dist/blocks/child-pages/block.json
+#: dist/js/blocks/child-pages/block.json
+#: src/blocks/child-pages/block.json
+msgctxt "block description"
+msgid "You can display child pages of this page."
+msgstr ""
+
+#: dist/blocks/container/block.json
+#: dist/js/blocks/container/block.json
+#: src/blocks/container/block.json
+msgctxt "block title"
+msgid "Container"
+msgstr ""
+
+#: dist/blocks/container/block.json
+#: dist/js/blocks/container/block.json
+#: src/blocks/container/block.json
+msgctxt "block description"
+msgid "Container blocks keep content within a certain width."
+msgstr ""
+
+#: dist/blocks/contents-outline/block.json
+#: dist/js/blocks/contents-outline/block.json
+#: src/blocks/contents-outline/block.json
+msgctxt "block title"
+msgid "Contents outline"
+msgstr ""
+
+#: dist/blocks/contents-outline/block.json
+#: dist/js/blocks/contents-outline/block.json
+#: src/blocks/contents-outline/block.json
+msgctxt "block description"
+msgid "Display the table of contents above the first heading."
+msgstr ""
+
+#: dist/blocks/countdown/block.json
+#: dist/js/blocks/countdown/block.json
+#: src/blocks/countdown/block.json
+msgctxt "block title"
+msgid "Countdown Timer"
+msgstr ""
+
+#: dist/blocks/countdown/block.json
+#: dist/js/blocks/countdown/block.json
+#: src/blocks/countdown/block.json
+msgctxt "block description"
+msgid "Display the countdown until the set date and time (Front-end only)"
+msgstr ""
+
+#: dist/blocks/directory-structure/block.json
+#: dist/js/blocks/directory-structure/block.json
+#: src/blocks/directory-structure/block.json
+msgctxt "block title"
+msgid "Directory structure"
+msgstr ""
+
+#: dist/blocks/directory-structure/block.json
+#: dist/js/blocks/directory-structure/block.json
+#: src/blocks/directory-structure/block.json
+msgctxt "block description"
+msgid "Display a list of directories and files"
+msgstr ""
+
+#: dist/blocks/directory-structure/item/directory/block.json
+#: dist/js/blocks/directory-structure/item/directory/block.json
+#: src/blocks/directory-structure/item/directory/block.json
+msgctxt "block title"
+msgid "Directory"
+msgstr ""
+
+#: dist/blocks/directory-structure/item/directory/block.json
+#: dist/js/blocks/directory-structure/item/directory/block.json
+#: src/blocks/directory-structure/item/directory/block.json
+msgctxt "block description"
+msgid "Display a directory item"
+msgstr ""
+
+#: dist/blocks/directory-structure/item/file/block.json
+#: dist/js/blocks/directory-structure/item/file/block.json
+#: src/blocks/directory-structure/item/file/block.json
+msgctxt "block title"
+msgid "File"
+msgstr ""
+
+#: dist/blocks/directory-structure/item/file/block.json
+#: dist/js/blocks/directory-structure/item/file/block.json
+#: src/blocks/directory-structure/item/file/block.json
+msgctxt "block description"
+msgid "Display a file item"
+msgstr ""
+
+#: dist/blocks/evaluation-star/block.json
+#: dist/js/blocks/evaluation-star/block.json
+#: src/blocks/evaluation-star/block.json
+msgctxt "block title"
+msgid "Evaluation star"
+msgstr ""
+
+#: dist/blocks/evaluation-star/block.json
+#: dist/js/blocks/evaluation-star/block.json
+#: src/blocks/evaluation-star/block.json
+msgctxt "block description"
+msgid "Evaluate with star icons"
+msgstr ""
+
+#: dist/blocks/faq/block.json
+#: dist/js/blocks/faq/block.json
+#: src/blocks/faq/block.json
+msgctxt "block title"
+msgid "FAQs"
+msgstr ""
+
+#: dist/blocks/faq/block.json
+#: dist/js/blocks/faq/block.json
+#: src/blocks/faq/block.json
+msgctxt "block description"
+msgid "You can list the FAQs."
+msgstr ""
+
+#: dist/blocks/faq/item/block.json
+#: dist/js/blocks/faq/item/block.json
+#: src/blocks/faq/item/block.json
+msgctxt "block title"
+msgid "FAQ"
+msgstr ""
+
+#: dist/blocks/faq/item/block.json
+#: dist/js/blocks/faq/item/block.json
+#: src/blocks/faq/item/block.json
+msgctxt "block description"
+msgid "It is a child block of the FAQ block."
+msgstr ""
+
+#: dist/blocks/information/block.json
+#: dist/js/blocks/information/block.json
+#: src/blocks/information/block.json
+msgctxt "block title"
+msgid "Information"
+msgstr ""
+
+#: dist/blocks/information/block.json
+#: dist/js/blocks/information/block.json
+#: src/blocks/information/block.json
+msgctxt "block description"
+msgid "You can post an information table."
+msgstr ""
+
+#: dist/blocks/information/item/block.json
+#: dist/js/blocks/information/item/block.json
+#: src/blocks/information/item/block.json
+msgctxt "block title"
+msgid "Row"
+msgstr ""
+
+#: dist/blocks/information/item/block.json
+#: dist/js/blocks/information/item/block.json
+#: src/blocks/information/item/block.json
+msgctxt "block description"
+msgid "It is a child block of the information block."
+msgstr ""
+
+#: dist/blocks/items/block.json
+#: dist/js/blocks/items/block.json
+#: src/blocks/items/block.json
+msgctxt "block title"
+msgid "Items"
+msgstr ""
+
+#: dist/blocks/items/block.json
+#: dist/js/blocks/items/block.json
+#: src/blocks/items/block.json
+msgctxt "block description"
+msgid "Let's line up the contents."
+msgstr ""
+
+#: dist/blocks/items/item/banner/block.json
+#: dist/js/blocks/items/item/banner/block.json
+#: src/blocks/items/item/banner/block.json
+msgctxt "block title"
+msgid "Banner"
+msgstr ""
+
+#: dist/blocks/items/item/banner/block.json
+#: dist/blocks/items/item/block-link/block.json
+#: dist/blocks/items/item/free/block.json
+#: dist/blocks/items/item/standard/block.json
+#: dist/js/blocks/items/item/banner/block.json
+#: dist/js/blocks/items/item/block-link/block.json
+#: dist/js/blocks/items/item/free/block.json
+#: dist/js/blocks/items/item/standard/block.json
+#: src/blocks/items/item/banner/block.json
+#: src/blocks/items/item/block-link/block.json
+#: src/blocks/items/item/free/block.json
+#: src/blocks/items/item/standard/block.json
+msgctxt "block description"
+msgid "It is a child block of the items block."
+msgstr ""
+
+#: dist/blocks/items/item/block-link/block.json
+#: dist/js/blocks/items/item/block-link/block.json
+#: src/blocks/items/item/block-link/block.json
+msgctxt "block title"
+msgid "Item (Block Link)"
+msgstr ""
+
+#: dist/blocks/items/item/free/block.json
+#: dist/js/blocks/items/item/free/block.json
+#: src/blocks/items/item/free/block.json
+msgctxt "block title"
+msgid "Item (Free input)"
+msgstr ""
+
+#: dist/blocks/items/item/item/block.json
+#: dist/js/blocks/items/item/item/block.json
+#: src/blocks/items/item/item/block.json
+msgctxt "block title"
+msgid "Item (Deprecated)"
+msgstr ""
+
+#: dist/blocks/items/item/standard/block.json
+#: dist/js/blocks/items/item/standard/block.json
+#: src/blocks/items/item/standard/block.json
+msgctxt "block title"
+msgid "Item (Standard)"
+msgstr ""
+
+#: dist/blocks/like-me-box/block.json
+#: dist/js/blocks/like-me-box/block.json
+#: src/blocks/like-me-box/block.json
+msgctxt "block title"
+msgid "Like me box"
+msgstr ""
+
+#: dist/blocks/like-me-box/block.json
+#: dist/js/blocks/like-me-box/block.json
+#: src/blocks/like-me-box/block.json
+msgctxt "block description"
+msgid "You can display like me box."
+msgstr ""
+
+#: dist/blocks/limited-datetime/block.json
+#: dist/js/blocks/limited-datetime/block.json
+#: src/blocks/limited-datetime/block.json
+msgctxt "block title"
+msgid "Limited DateTime"
+msgstr ""
+
+#: dist/blocks/limited-datetime/block.json
+#: dist/js/blocks/limited-datetime/block.json
+#: src/blocks/limited-datetime/block.json
+msgctxt "block description"
+msgid "Only the set period is displayed"
+msgstr ""
+
+#: dist/blocks/list/block.json
+#: dist/js/blocks/list/block.json
+#: src/blocks/list/block.json
+msgctxt "block title"
+msgid "Icon list"
+msgstr ""
+
+#: dist/blocks/list/block.json
+#: dist/js/blocks/list/block.json
+#: src/blocks/list/block.json
+msgctxt "block description"
+msgid "Icons are displayed only on the actual screen."
+msgstr ""
+
+#: dist/blocks/media-text/block.json
+#: dist/js/blocks/media-text/block.json
+#: src/blocks/media-text/block.json
+msgctxt "block title"
+msgid "Media & text"
+msgstr ""
+
+#: dist/blocks/media-text/block.json
+#: dist/js/blocks/media-text/block.json
+#: src/blocks/media-text/block.json
+msgctxt "block description"
+msgid "Set media and words side-by-side for a richer layout."
+msgstr ""
+
+#: dist/blocks/panels/block.json
+#: dist/js/blocks/panels/block.json
+#: src/blocks/panels/block.json
+msgctxt "block title"
+msgid "Panels"
+msgstr ""
+
+#: dist/blocks/panels/block.json
+#: dist/js/blocks/panels/block.json
+#: src/blocks/panels/block.json
+msgctxt "block description"
+msgid "Let's line up the contents like the panel."
+msgstr ""
+
+#: dist/blocks/panels/item/block-link/block.json
+#: dist/js/blocks/panels/item/block-link/block.json
+#: src/blocks/panels/item/block-link/block.json
+msgctxt "block title"
+msgid "Panel (Free input / Block link)"
+msgstr ""
+
+#: dist/blocks/panels/item/block-link/block.json
+#: dist/blocks/panels/item/free/block.json
+#: dist/blocks/panels/item/horizontal/block.json
+#: dist/blocks/panels/item/vertical/block.json
+#: dist/js/blocks/panels/item/block-link/block.json
+#: dist/js/blocks/panels/item/free/block.json
+#: dist/js/blocks/panels/item/horizontal/block.json
+#: dist/js/blocks/panels/item/vertical/block.json
+#: src/blocks/panels/item/block-link/block.json
+#: src/blocks/panels/item/free/block.json
+#: src/blocks/panels/item/horizontal/block.json
+#: src/blocks/panels/item/vertical/block.json
+msgctxt "block description"
+msgid "It is a child block of the panels block."
+msgstr ""
+
+#: dist/blocks/panels/item/free/block.json
+#: dist/js/blocks/panels/item/free/block.json
+#: src/blocks/panels/item/free/block.json
+msgctxt "block title"
+msgid "Panel (Free input)"
+msgstr ""
+
+#: dist/blocks/panels/item/horizontal/block.json
+#: dist/js/blocks/panels/item/horizontal/block.json
+#: src/blocks/panels/item/horizontal/block.json
+msgctxt "block title"
+msgid "Panel (Horizontal layout)"
+msgstr ""
+
+#: dist/blocks/panels/item/vertical/block.json
+#: dist/js/blocks/panels/item/vertical/block.json
+#: src/blocks/panels/item/vertical/block.json
+msgctxt "block title"
+msgid "Panel (Vertical layout)"
+msgstr ""
+
+#: dist/blocks/pickup-slider/block.json
+#: dist/js/blocks/pickup-slider/block.json
+#: src/blocks/pickup-slider/block.json
+msgctxt "block title"
+msgid "Pickup slider (Deprecated)"
+msgstr ""
+
+#: dist/blocks/pickup-slider/block.json
+#: dist/js/blocks/pickup-slider/block.json
+#: src/blocks/pickup-slider/block.json
+msgctxt "block description"
+msgid "Display posts with pickup tags as a slider. This block is being retained for backwards compatibility and is not recommended for use. Its use may slow down the page display."
+msgstr ""
+
+#: dist/blocks/price-menu/block.json
+#: dist/js/blocks/price-menu/block.json
+#: src/blocks/price-menu/block.json
+msgctxt "block title"
+msgid "Price menu"
+msgstr ""
+
+#: dist/blocks/price-menu/block.json
+#: dist/js/blocks/price-menu/block.json
+#: src/blocks/price-menu/block.json
+msgctxt "block description"
+msgid "Display the menu name and the price."
+msgstr ""
+
+#: dist/blocks/price-menu/item/block.json
+#: dist/js/blocks/price-menu/item/block.json
+#: src/blocks/price-menu/item/block.json
+msgctxt "block title"
+msgid "Menu"
+msgstr ""
+
+#: dist/blocks/price-menu/item/block.json
+#: dist/js/blocks/price-menu/item/block.json
+#: src/blocks/price-menu/item/block.json
+msgctxt "block description"
+msgid "It is a child block of the price menu block."
+msgstr ""
+
+#: dist/blocks/pricing-table/block.json
+#: dist/js/blocks/pricing-table/block.json
+#: src/blocks/pricing-table/block.json
+msgctxt "block title"
+msgid "Pricing table"
+msgstr ""
+
+#: dist/blocks/pricing-table/block.json
+#: dist/js/blocks/pricing-table/block.json
+#: src/blocks/pricing-table/block.json
+msgctxt "block description"
+msgid "Let's present the rate plan in an easy-to-understand manner."
+msgstr ""
+
+#: dist/blocks/pricing-table/item/block.json
+#: dist/js/blocks/pricing-table/item/block.json
+#: src/blocks/pricing-table/item/block.json
+msgctxt "block title"
+msgid "Plan"
+msgstr ""
+
+#: dist/blocks/pricing-table/item/block.json
+#: dist/js/blocks/pricing-table/item/block.json
+#: src/blocks/pricing-table/item/block.json
+msgctxt "block description"
+msgid "It is a child block of the pricing table block."
+msgstr ""
+
+#: dist/blocks/rating-box/block.json
+#: dist/js/blocks/rating-box/block.json
+#: src/blocks/rating-box/block.json
+msgctxt "block title"
+msgid "Rating box"
+msgstr ""
+
+#: dist/blocks/rating-box/block.json
+#: dist/js/blocks/rating-box/block.json
+#: src/blocks/rating-box/block.json
+msgctxt "block description"
+msgid "Evaluate with bars."
+msgstr ""
+
+#: dist/blocks/rating-box/item/block.json
+#: dist/js/blocks/rating-box/item/block.json
+#: src/blocks/rating-box/item/block.json
+msgctxt "block title"
+msgid "Rating"
+msgstr ""
+
+#: dist/blocks/rating-box/item/block.json
+#: dist/js/blocks/rating-box/item/block.json
+#: src/blocks/rating-box/item/block.json
+msgctxt "block description"
+msgid "It is a child block of the rating box block."
+msgstr ""
+
+#: dist/blocks/recent-posts/block.json
+#: dist/js/blocks/recent-posts/block.json
+#: src/blocks/recent-posts/block.json
+msgctxt "block title"
+msgid "Recent posts"
+msgstr ""
+
+#: dist/blocks/recent-posts/block.json
+#: dist/js/blocks/recent-posts/block.json
+#: src/blocks/recent-posts/block.json
+msgctxt "block description"
+msgid "You can display recent posts with richer."
+msgstr ""
+
+#: dist/blocks/rss/block.json
+#: dist/js/blocks/rss/block.json
+#: src/blocks/rss/block.json
+msgctxt "block title"
+msgid "RSS"
+msgstr ""
+
+#: dist/blocks/rss/block.json
+#: dist/js/blocks/rss/block.json
+#: src/blocks/rss/block.json
+msgctxt "block description"
+msgid "Display entries from any RSS or Atom feed."
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/block.json
+#: dist/js/blocks/section-break-the-grid/block.json
+#: src/blocks/section-break-the-grid/block.json
+msgctxt "block title"
+msgid "Section (Break the grid)"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/block.json
+#: dist/js/blocks/section-break-the-grid/block.json
+#: src/blocks/section-break-the-grid/block.json
+msgctxt "block description"
+msgid "It is a break the grid section."
+msgstr ""
+
+#: dist/blocks/section-side-heading/block.json
+#: dist/js/blocks/section-side-heading/block.json
+#: src/blocks/section-side-heading/block.json
+msgctxt "block title"
+msgid "Section (Side heading)"
+msgstr ""
+
+#: dist/blocks/section-side-heading/block.json
+#: dist/blocks/section/block.json
+#: dist/js/blocks/section-side-heading/block.json
+#: dist/js/blocks/section/block.json
+#: src/blocks/section-side-heading/block.json
+#: src/blocks/section/block.json
+msgctxt "block description"
+msgid "Contents can be separated by appropriate margins."
+msgstr ""
+
+#: dist/blocks/section-with-bgimage/block.json
+#: dist/js/blocks/section-with-bgimage/block.json
+#: src/blocks/section-with-bgimage/block.json
+msgctxt "block title"
+msgid "Section (with background image/video)"
+msgstr ""
+
+#: dist/blocks/section-with-bgimage/block.json
+#: dist/js/blocks/section-with-bgimage/block.json
+#: src/blocks/section-with-bgimage/block.json
+msgctxt "block description"
+msgid "It is a section with a background image/video."
+msgstr ""
+
+#: dist/blocks/section-with-bgvideo/block.json
+#: dist/js/blocks/section-with-bgvideo/block.json
+#: src/blocks/section-with-bgvideo/block.json
+msgctxt "block title"
+msgid "Section (with background YouTube video)"
+msgstr ""
+
+#: dist/blocks/section-with-bgvideo/block.json
+#: dist/js/blocks/section-with-bgvideo/block.json
+#: src/blocks/section-with-bgvideo/block.json
+msgctxt "block description"
+msgid "It is a section with a background YouTube video."
+msgstr ""
+
+#: dist/blocks/section/block.json
+#: dist/js/blocks/section/block.json
+#: src/blocks/section/block.json
+msgctxt "block title"
+msgid "Section"
+msgstr ""
+
+#: dist/blocks/slider/block.json
+#: dist/js/blocks/slider/block.json
+#: src/blocks/slider/block.json
+msgctxt "block title"
+msgid "Slider (Deprecated)"
+msgstr ""
+
+#: dist/blocks/slider/block.json
+#: dist/js/blocks/slider/block.json
+#: src/blocks/slider/block.json
+msgctxt "block description"
+msgid "Show attractive images as beautiful sliders. This block is being retained for backwards compatibility and is not recommended for use. Its use may slow down the page display."
+msgstr ""
+
+#: dist/blocks/slider/item/block.json
+#: dist/blocks/thumbnail-gallery/item/block.json
+#: dist/js/blocks/slider/item/block.json
+#: dist/js/blocks/thumbnail-gallery/item/block.json
+#: src/blocks/slider/item/block.json
+#: src/blocks/thumbnail-gallery/item/block.json
+msgctxt "block title"
+msgid "Slide (Deprecated)"
+msgstr ""
+
+#: dist/blocks/slider/item/block.json
+#: dist/js/blocks/slider/item/block.json
+#: src/blocks/slider/item/block.json
+msgctxt "block description"
+msgid "It is a child block of the slider block."
+msgstr ""
+
+#: dist/blocks/spider-contents-slider/block.json
+#: dist/js/blocks/spider-contents-slider/block.json
+#: src/blocks/spider-contents-slider/block.json
+msgctxt "block title"
+msgid "Contents slider"
+msgstr ""
+
+#: dist/blocks/spider-contents-slider/block.json
+#: dist/js/blocks/spider-contents-slider/block.json
+#: src/blocks/spider-contents-slider/block.json
+msgctxt "block description"
+msgid "Show contents as beautiful sliders."
+msgstr ""
+
+#: dist/blocks/spider-contents-slider/item/block.json
+#: dist/js/blocks/spider-contents-slider/item/block.json
+#: src/blocks/spider-contents-slider/item/block.json
+msgctxt "block title"
+msgid "Slide"
+msgstr ""
+
+#: dist/blocks/spider-contents-slider/item/block.json
+#: dist/js/blocks/spider-contents-slider/item/block.json
+#: src/blocks/spider-contents-slider/item/block.json
+msgctxt "block description"
+msgid "It is a child block of the contents slider block."
+msgstr ""
+
+#: dist/blocks/spider-pickup-slider/block.json
+#: dist/js/blocks/spider-pickup-slider/block.json
+#: src/blocks/spider-pickup-slider/block.json
+msgctxt "block title"
+msgid "Pickup slider"
+msgstr ""
+
+#: dist/blocks/spider-pickup-slider/block.json
+#: dist/js/blocks/spider-pickup-slider/block.json
+#: src/blocks/spider-pickup-slider/block.json
+msgctxt "block description"
+msgid "Display posts with pickup tags as a slider."
+msgstr ""
+
+#: dist/blocks/spider-slider/block.json
+#: dist/js/blocks/spider-slider/block.json
+#: src/blocks/spider-slider/block.json
+msgctxt "block title"
+msgid "Slider"
+msgstr ""
+
+#: dist/blocks/spider-slider/block.json
+#: dist/js/blocks/spider-slider/block.json
+#: src/blocks/spider-slider/block.json
+msgctxt "block description"
+msgid "Show attractive images as beautiful sliders."
+msgstr ""
+
+#: dist/blocks/step/block.json
+#: dist/js/blocks/step/block.json
+#: src/blocks/step/block.json
+msgctxt "block title"
+msgid "Steps"
+msgstr ""
+
+#: dist/blocks/step/block.json
+#: dist/js/blocks/step/block.json
+#: src/blocks/step/block.json
+msgctxt "block description"
+msgid "Express the steps in an easy-to-understand manner."
+msgstr ""
+
+#: dist/blocks/step/item/free/block.json
+#: dist/js/blocks/step/item/free/block.json
+#: src/blocks/step/item/free/block.json
+msgctxt "block title"
+msgid "Step (Free input)"
+msgstr ""
+
+#: dist/blocks/step/item/free/block.json
+#: dist/blocks/step/item/standard/block.json
+#: dist/js/blocks/step/item/free/block.json
+#: dist/js/blocks/step/item/standard/block.json
+#: src/blocks/step/item/free/block.json
+#: src/blocks/step/item/standard/block.json
+msgctxt "block description"
+msgid "It is a child block of the step block."
+msgstr ""
+
+#: dist/blocks/step/item/standard/block.json
+#: dist/js/blocks/step/item/standard/block.json
+#: src/blocks/step/item/standard/block.json
+msgctxt "block title"
+msgid "Step (Standard)"
+msgstr ""
+
+#: dist/blocks/tabs/block.json
+#: dist/js/blocks/tabs/block.json
+#: src/blocks/tabs/block.json
+msgctxt "block title"
+msgid "Tabs"
+msgstr ""
+
+#: dist/blocks/tabs/block.json
+#: dist/js/blocks/tabs/block.json
+#: src/blocks/tabs/block.json
+msgctxt "block description"
+msgid "This is tabs block."
+msgstr ""
+
+#: dist/blocks/tabs/tab-panel/block.json
+#: dist/js/blocks/tabs/tab-panel/block.json
+#: src/blocks/tabs/tab-panel/block.json
+msgctxt "block title"
+msgid "Tab panel"
+msgstr ""
+
+#: dist/blocks/tabs/tab-panel/block.json
+#: dist/js/blocks/tabs/tab-panel/block.json
+#: src/blocks/tabs/tab-panel/block.json
+msgctxt "block description"
+msgid "This is tab panel block."
+msgstr ""
+
+#: dist/blocks/taxonomy-posts/block.json
+#: dist/js/blocks/taxonomy-posts/block.json
+#: src/blocks/taxonomy-posts/block.json
+msgctxt "block title"
+msgid "Taxonomy posts"
+msgstr ""
+
+#: dist/blocks/taxonomy-posts/block.json
+#: dist/js/blocks/taxonomy-posts/block.json
+#: src/blocks/taxonomy-posts/block.json
+msgctxt "block description"
+msgid "You can display recent posts linked to any taxonomy."
+msgstr ""
+
+#: dist/blocks/taxonomy-terms/block.json
+#: dist/js/blocks/taxonomy-terms/block.json
+#: src/blocks/taxonomy-terms/block.json
+msgctxt "block title"
+msgid "Taxonomy"
+msgstr ""
+
+#: dist/blocks/taxonomy-terms/block.json
+#: dist/js/blocks/taxonomy-terms/block.json
+#: src/blocks/taxonomy-terms/block.json
+msgctxt "block description"
+msgid "You can display terms linked to any taxonomy."
+msgstr ""
+
+#: dist/blocks/testimonial/block.json
+#: dist/js/blocks/testimonial/block.json
+#: src/blocks/testimonial/block.json
+msgctxt "block title"
+msgid "Testimonials"
+msgstr ""
+
+#: dist/blocks/testimonial/block.json
+#: dist/js/blocks/testimonial/block.json
+#: src/blocks/testimonial/block.json
+msgctxt "block description"
+msgid "Let's arrange the voice of the customer."
+msgstr ""
+
+#: dist/blocks/testimonial/item/block.json
+#: dist/js/blocks/testimonial/item/block.json
+#: src/blocks/testimonial/item/block.json
+msgctxt "block title"
+msgid "Testimonial"
+msgstr ""
+
+#: dist/blocks/testimonial/item/block.json
+#: dist/js/blocks/testimonial/item/block.json
+#: src/blocks/testimonial/item/block.json
+msgctxt "block description"
+msgid "It is a child block of the testimonial block."
+msgstr ""
+
+#: dist/blocks/thumbnail-gallery/block.json
+#: dist/js/blocks/thumbnail-gallery/block.json
+#: src/blocks/thumbnail-gallery/block.json
+msgctxt "block title"
+msgid "Thumbnail gallery (Deprecated)"
+msgstr ""
+
+#: dist/blocks/thumbnail-gallery/block.json
+#: dist/js/blocks/thumbnail-gallery/block.json
+#: src/blocks/thumbnail-gallery/block.json
+msgctxt "block description"
+msgid "You can display a slide show with thumbnails. This block is being retained for backwards compatibility and is not recommended for use. Its use may slow down the page display."
+msgstr ""
+
+#: dist/blocks/thumbnail-gallery/item/block.json
+#: dist/js/blocks/thumbnail-gallery/item/block.json
+#: src/blocks/thumbnail-gallery/item/block.json
+msgctxt "block description"
+msgid "It is a child block of the thumbnail gallery block."
+msgstr ""

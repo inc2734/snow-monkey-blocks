@@ -15,7 +15,7 @@ class JsonLd {
 	 * Constructor.
 	 */
 	public function __construct() {
-		add_action( 'wp_footer', [ $this, '_output' ] );
+		add_action( 'wp_footer', array( $this, '_output' ) );
 	}
 
 	/**

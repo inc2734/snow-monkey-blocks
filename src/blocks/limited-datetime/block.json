@@ -1,0 +1,44 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"textdomain": "snow-monkey-blocks",
+	"name": "snow-monkey-blocks/limited-datetime",
+	"title": "Limited DateTime",
+	"description": "Only the set period is displayed",
+	"category": "smb",
+	"attributes": {
+		"isUseStartDate": {
+			"type": "boolean",
+			"default": false
+		},
+		"startDate": {
+			"type": "string",
+			"default": null
+		},
+		"isUseEndDate": {
+			"type": "boolean",
+			"default": false
+		},
+		"endDate": {
+			"type": "string",
+			"default": null
+		}
+	},
+	"supports": {
+		"alignWide": false,
+		"customClassName": false,
+		"className": false
+	},
+	"example": {
+		"innerBlocks": [
+			{
+				"name": "core/paragraph",
+				"attributes": {
+					"content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+				}
+			}
+		]
+	},
+	"editorStyle": "snow-monkey-blocks/limited-datetime/editor",
+	"editorScript": "file:./index.js"
+}

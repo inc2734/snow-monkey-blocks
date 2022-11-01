@@ -1,0 +1,32 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"textdomain": "snow-monkey-blocks",
+	"name": "snow-monkey-blocks/thumbnail-gallery",
+	"title": "Thumbnail gallery (Deprecated)",
+	"description": "You can display a slide show with thumbnails. This block is being retained for backwards compatibility and is not recommended for use. Its use may slow down the page display.",
+	"category": "smb-deprecated",
+	"attributes": {
+		"arrows": {
+			"type": "boolean",
+			"default": false
+		},
+		"speed": {
+			"type": "number",
+			"default": 300
+		},
+		"autoplay": {
+			"type": "boolean",
+			"default": false
+		},
+		"autoplaySpeed": {
+			"type": "number",
+			"default": 0
+		}
+	},
+	"supports": {
+		"align": [ "wide", "full" ]
+	},
+	"style": "snow-monkey-blocks/thumbnail-gallery",
+	"editorScript": "file:./index.js"
+}

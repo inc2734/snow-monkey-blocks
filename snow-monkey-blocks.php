@@ -26,7 +26,7 @@ class Bootstrap {
 	 * constructor
 	 */
 	public function __construct() {
-		add_action( 'plugins_loaded', [ $this, '_bootstrap' ] );
+		add_action( 'plugins_loaded', array( $this, '_bootstrap' ) );
 	}
 
 	/**
@@ -39,10 +39,10 @@ class Bootstrap {
 		new App\Setup\JsonLd();
 		new App\Controller\Manager();
 
-		add_filter( 'block_categories_all', [ $this, '_block_categories_all' ] );
-		add_action( 'init', [ $this, '_register_blocks' ] );
-		add_action( 'add_meta_boxes', [ $this, '_add_pr_meta_box' ] );
-		add_filter( 'the_content', [ $this, '_the_content_for_slider' ], 11 );
+		add_filter( 'block_categories_all', array( $this, '_block_categories_all' ) );
+		add_action( 'init', array( $this, '_register_blocks' ) );
+		add_action( 'add_meta_boxes', array( $this, '_add_pr_meta_box' ) );
+		add_filter( 'the_content', array( $this, '_the_content_for_slider' ), 11 );
 	}
 
 	/**
@@ -55,30 +55,30 @@ class Bootstrap {
 		$slugs = array_column( $categories, 'slug' );
 
 		if ( ! in_array( 'smb', $slugs, true ) ) {
-			$categories[] = [
+			$categories[] = array(
 				'slug'  => 'smb',
 				'title' => __( 'Snow Monkey Blocks', 'snow-monkey-blocks' )
 									. ' '
 									. __( '[Common blocks]', 'snow-monkey-blocks' ),
-			];
+			);
 		}
 
 		if ( ! in_array( 'smb-section', $slugs, true ) ) {
-			$categories[] = [
+			$categories[] = array(
 				'slug'  => 'smb-section',
 				'title' => __( 'Snow Monkey Blocks', 'snow-monkey-blocks' )
 									. ' '
 									. __( '[Sections]', 'snow-monkey-blocks' ),
-			];
+			);
 		}
 
 		if ( ! in_array( 'smb-deprecated', $slugs, true ) ) {
-			$categories[] = [
+			$categories[] = array(
 				'slug'  => 'smb-deprecated',
 				'title' => __( 'Snow Monkey Blocks', 'snow-monkey-blocks' )
 									. ' '
 									. __( '[Deprecated]', 'snow-monkey-blocks' ),
-			];
+			);
 		}
 
 		return $categories;
@@ -88,7 +88,7 @@ class Bootstrap {
 	 * Register blocks.
 	 */
 	public function _register_blocks() {
-		$iterator = new RecursiveDirectoryIterator( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block', FilesystemIterator::SKIP_DOTS );
+		$iterator = new RecursiveDirectoryIterator( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/blocks', FilesystemIterator::SKIP_DOTS );
 		$iterator = new RecursiveIteratorIterator( $iterator );
 		foreach ( $iterator as $file ) {
 			if ( ! $file->isFile() ) {
@@ -117,7 +117,7 @@ class Bootstrap {
 		add_meta_box(
 			'snow-monkey-pr',
 			__( '[ PR ] Premium WordPress Theme Snow Monkey', 'snow-monkey-blocks' ),
-			[ $this, '_pr_meta_box_html' ],
+			array( $this, '_pr_meta_box_html' ),
 			$post_type,
 			'normal'
 		);

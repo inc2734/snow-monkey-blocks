@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"textdomain": "snow-monkey-blocks",
+	"name": "snow-monkey-blocks/panels",
+	"title": "Panels",
+	"description": "Let's line up the contents like the panel.",
+	"category": "smb",
+	"attributes": {
+		"sm": {
+			"type": "number",
+			"default": 1
+		},
+		"md": {
+			"type": "number",
+			"default": 1
+		},
+		"lg": {
+			"type": "number",
+			"default": 2
+		},
+		"imagePadding": {
+			"type": "boolean",
+			"default": false
+		},
+		"itemTitleTagName": {
+			"type": "string",
+			"default": "div"
+		},
+		"contentJustification": {
+			"type": "string"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"style": "snow-monkey-blocks/panels",
+	"editorScript": "file:./index.js"
+}

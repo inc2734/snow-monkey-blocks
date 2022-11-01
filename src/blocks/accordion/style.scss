@@ -1,0 +1,76 @@
+@import '../../css/core/block';
+
+.smb-accordion {
+  > .smb-accordion__item {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &__item {
+    position: relative;
+
+    &:not(:first-child) {
+      @include _margin-top(.5);
+    }
+
+    &:not(:last-child) {
+      .smb-accordion__item__body {
+        @include _padding-bottom(1);
+      }
+    }
+
+    &__title {
+      display: flex;
+      align-items: center;
+      background-color: _var-lighter-color-gray();
+      color: _var-color-text();
+      @include _padding(.25, .5);
+
+      &__label {
+        flex: 1 1 auto;
+      }
+
+      &__icon {
+        @include _transition(transform);
+        flex: 0 0 auto;
+      }
+    }
+
+    &__control {
+      position: absolute !important;
+      top: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      z-index: 1 !important;
+      appearance: none !important;
+      display: block !important;
+      cursor: pointer !important;
+      height: 100% !important;
+      width: 100% !important;
+      opacity: 0 !important;
+      outline: none !important;
+      &:focus-visible {
+        opacity: 1!important;
+        outline: 1px solid !important;
+      }
+    }
+
+    &__body {
+      position: relative;
+      z-index: 2;
+      display: none;
+      @include _padding(1, .5, 0);
+      @include _content();
+    }
+  }
+
+  .smb-accordion__item__control:checked + .smb-accordion__item__body,
+  .smb-accordion__item__control:checked + .smb-accordion__item__title + .smb-accordion__item__body {
+    display: block;
+  }
+
+  .smb-accordion__item__control:checked + .smb-accordion__item__title > .smb-accordion__item__title__icon {
+    transform: rotate(180deg);
+  }
+}

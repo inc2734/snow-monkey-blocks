@@ -21,7 +21,7 @@ class JsonLd {
 	 *
 	 * @var array
 	 */
-	protected $data = [];
+	protected $data = array();
 
 	/**
 	 * Constructor.
@@ -58,7 +58,7 @@ class JsonLd {
 	 */
 	public static function generate() {
 		$data    = static::$singleton->data;
-		$newdata = [];
+		$newdata = array();
 
 		foreach ( $data as $type => $dataset ) {
 			$newdata[ $type ]['@context'] = 'https://schema.org';

@@ -1,0 +1,9 @@
+.aligncenter .smb-btn-wrapper {
+  text-align: center;
+}
+
+.smb-btn {
+  &__label {
+    white-space: inherit !important;
+  }
+}

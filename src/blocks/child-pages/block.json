@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"textdomain": "snow-monkey-blocks",
+	"name": "snow-monkey-blocks/child-pages",
+	"title": "Child pages",
+	"description": "You can display child pages of this page.",
+	"category": "smb",
+	"attributes": {
+		"parent": {
+			"type": "object",
+			"default": {}
+		},
+		"title": {
+			"type": "string",
+			"default": ""
+		},
+		"layout": {
+			"type": "string",
+			"default": "rich-media"
+		},
+		"smCols": {
+			"type": "number",
+			"default": 0
+		},
+		"itemTitleTagName": {
+			"type": "string",
+			"default": "h3"
+		},
+		"itemThumbnailSizeSlug": {
+			"type": "string",
+			"default": "large"
+		},
+		"arrows": {
+			"type": "boolean",
+			"default": false
+		},
+		"dots": {
+			"type": "boolean",
+			"default": true
+		},
+		"interval": {
+			"type": "number",
+			"default": 0
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"editorScript": "file:./index.js"
+}

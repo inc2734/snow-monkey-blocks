@@ -1,0 +1,5 @@
+.smb-price-menu {
+  &__item:not(:first-child) {
+    margin-top: 2px; // Required to show the appender between items
+  }
+}

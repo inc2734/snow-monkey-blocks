@@ -1,0 +1,345 @@
+@import '../../css/core/block';
+
+.smb-items {
+  &--glue {
+    > .#{ $_prefix }c-row {
+      @include _margin-bottom(-1);
+
+      > .#{ $_prefix }c-row__col {
+        @include _margin-bottom(1);
+      }
+    }
+  }
+
+  &--fill {
+    > .#{ $_prefix }c-row {
+      > .#{ $_prefix }c-row__col {
+        display: flex;
+        flex-direction: column;
+
+        .smb-items__item,
+        .smb-items__item__body {
+          flex: 1 1 0%;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .smb-items__item__content {
+          margin-bottom: auto;
+        }
+      }
+    }
+  }
+
+  a.smb-items__item {
+    color: _var-color-text();
+    text-decoration: none;
+    @include _transition(opacity);
+
+    @include _hover() {
+      opacity: .8;
+    }
+  }
+
+  &__item {
+    display: block;
+    position: relative;
+
+    &__figure {
+      @include _margin-bottom(.5);
+      text-align: center;
+    }
+
+    &__title {
+      margin: 0;
+      @include _font-size-line-height(1);
+      font-weight: bold;
+    }
+
+    &__lede {
+      color: _var-color-gray();
+      @include _font-size-line-height($_base-font-size-px - 2);
+
+      > a {
+        color: inherit;
+      }
+    }
+
+    &__content {
+      @include _margin-top(.25);
+    }
+
+    &__action {
+      @include _margin-top(.5);
+      text-align: center;
+    }
+
+    &--block-link {
+      @include _transition(filter);
+
+      @include _hover() {
+        filter: brightness(90%);
+      }
+
+      :not(.smb-items__item__action) a {
+        position: relative;
+        z-index: 1;
+      }
+
+      .smb-items__item__action {
+        a {
+          filter: none !important; // Patch to blink
+
+          // Fallback
+          &::after {
+            content: '';
+            @include _position(absolute, 0, 0, 0, 0);
+          }
+        }
+      }
+    }
+
+    a.smb-items__item--block-link {
+      display: block;
+      color: inherit;
+    }
+
+    &--free {
+      .smb-items__item__body {
+        > * {
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+
+        @include _content();
+      }
+    }
+  }
+}
+
+.smb-items__banner {
+  position: relative;
+  overflow: hidden;
+  background-color: _var-color-white();
+  color: _var-color-white();
+
+  @include _hover() {
+    .smb-items__banner__figure {
+      filter: brightness(80%);
+    }
+  }
+
+  // @deprecated start
+  &[class*="has-text-align-"] {
+    text-align: initial;
+
+    .smb-items__banner__body {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  &.has-text-align-left .smb-items__banner__body { align-items: flex-start; }
+  &.has-text-align-center .smb-items__banner__body { align-items: center; }
+  &.has-text-align-right .smb-items__banner__body { align-items: flex-end; }
+  // @deprecated end
+
+  &--left {
+    .smb-items__banner__body-inner {
+      text-align: left;
+    }
+  }
+
+  &--center {
+    .smb-items__banner__body-inner {
+      text-align: center;
+    }
+  }
+
+  &--right {
+    .smb-items__banner__body-inner {
+      text-align: right;
+    }
+  }
+
+  &--blur {
+    .smb-items__banner__figure > img {
+      filter: blur(3px);
+      height: calc(100% + 6px);
+      width: calc(100% + 6px);
+      max-height: none;
+      max-width: none;
+      margin: -3px;
+      transform: translateZ(0);
+    }
+  }
+
+  &--standard,
+  &--contents,
+  &--wide,
+  &--vstandard,
+  &--vwide {
+    .smb-items__banner__figure {
+      @include _position(absolute, 0, 0, 0, 0);
+
+      > img {
+        object-fit: cover;
+      }
+
+      &__dummy {
+        @include _position(absolute, 0, 0, 0, 0);
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &--contents {
+    .smb-items__banner__body {
+      position: relative;
+    }
+  }
+
+  &--standard,
+  &--wide,
+  &--vstandard,
+  &--vwide {
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+    }
+  }
+
+  &--standard {
+    &::before {
+      padding: 75% 0 0;
+    }
+  }
+
+  &--wide {
+    &::before {
+      padding: 56.25% 0 0;
+    }
+  }
+
+  &--vstandard {
+    max-height: 100vh;
+
+    &::before {
+      padding: 133.33333% 0 0;
+    }
+  }
+
+  &--vwide {
+    max-height: 100vh;
+
+    &::before {
+      padding: 177.77777% 0 0;
+    }
+  }
+
+  &__figure {
+    @include _transition(filter);
+
+    > img {
+      position: relative;
+      height: 100% !important;
+      width: 100% !important;
+      object-fit: cover;
+      object-position: 50% 50%;
+    }
+
+    &__dummy {
+      position: relative;
+      background-color: _var-color-gray();
+
+      &::before {
+        content: '';
+        display: block;
+        padding: 56.25% 0 0;
+      }
+    }
+
+    &__mask {
+      @include _position(absolute, 0, 0, 0, 0);
+      background-color: _var-color-black();
+    }
+  }
+
+  &__body {
+    @include _position(absolute, 0, 0, 0, 0);
+    @include _padding(1);
+
+    a {
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  &__title {
+    line-height: 1.4;
+  }
+
+  &__lede {
+    @include _margin-top(.25);
+    @include _font-size($_base-font-size-px - 4);
+    line-height: 1.4;
+  }
+
+  &__action {
+    font-size: 0 !important;
+
+    > a::after {
+      content: '';
+      @include _position(absolute, 0, 0, 0, 0);
+    }
+  }
+}
+
+.is-style-boundary-line.smb-items {
+  overflow: hidden; // Remove the border of the leftmost item.
+
+  > .c-row {
+    margin-left: -1px;
+
+    &--margin {
+      @include _row--margin(2);
+
+      > .c-row__col {
+        @include _row__col--margin(2);
+      }
+    }
+
+    > .c-row__col {
+      border-left: 1px solid _var-lighter-color-gray();
+    }
+  }
+}
+
+.is-style-border.smb-items {
+  border: 1px solid _var-lighter-color-gray();
+  overflow: hidden; // Remove the border of the leftmost/bottommost item.
+
+  > .c-row {
+    &--margin {
+      margin-right: -1px;
+      margin-bottom: -1px;
+      margin-left: 0;
+
+      > .c-row__col {
+        @include _padding(1);
+      }
+    }
+
+    > .c-row__col {
+      margin-top: -1px;
+      margin-bottom: 0;
+      border-bottom: 1px solid _var-lighter-color-gray();
+      border-right: 1px solid _var-lighter-color-gray();
+    }
+  }
+}

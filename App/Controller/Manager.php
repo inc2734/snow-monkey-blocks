@@ -29,13 +29,13 @@ class Manager {
 	 * constructor
 	 */
 	public function __construct() {
-		add_action( 'admin_menu', [ $this, '_admin_menu' ] );
-		add_action( 'admin_init', [ $this, '_init_available_blocks_settings' ] );
-		add_action( 'init', [ $this, '_unregister_block_type' ], 10000 );
+		add_action( 'admin_menu', array( $this, '_admin_menu' ) );
+		add_action( 'admin_init', array( $this, '_init_available_blocks_settings' ) );
+		add_action( 'init', array( $this, '_unregister_block_type' ), 10000 );
 
 		register_uninstall_hook(
 			__FILE__,
-			[ '\Snow_Monkey\Plugin\Blocks\App\Controller\Manager', '_uninstall' ]
+			array( '\Snow_Monkey\Plugin\Blocks\App\Controller\Manager', '_uninstall' )
 		);
 	}
 
@@ -87,7 +87,7 @@ class Manager {
 		$blocks = $this->get_blocks();
 
 		if ( ! get_option( self::AVAILABLE_BLOCKS_NAME ) ) {
-			$initial_option = [];
+			$initial_option = array();
 			foreach ( $blocks as $block ) {
 				$initial_option[ $block->name ] = 1;
 			}
@@ -99,15 +99,15 @@ class Manager {
 			self::AVAILABLE_BLOCKS_NAME,
 			function( $option ) use ( $blocks ) {
 				if ( isset( $option['reset'] ) && '1' === $option['reset'] ) {
-					return [];
+					return array();
 				}
 
-				$default_option = [];
+				$default_option = array();
 				foreach ( $blocks as $block ) {
 					$default_option[ $block->name ] = false;
 				}
 
-				$new_option = [];
+				$new_option = array();
 				foreach ( $default_option as $key => $value ) {
 					$new_option[ $key ] = ! empty( $option[ $key ] ) ? 1 : $value;
 				}
@@ -156,7 +156,7 @@ class Manager {
 			return;
 		}
 
-		$available_blocks = (array) get_option( self::AVAILABLE_BLOCKS_NAME, [] );
+		$available_blocks = (array) get_option( self::AVAILABLE_BLOCKS_NAME, array() );
 		foreach ( $available_blocks as $block_name => $available ) {
 			if ( ! $available && WP_Block_Type_Registry::get_instance()->is_registered( $block_name ) ) {
 				unregister_block_type( $block_name );
@@ -179,7 +179,7 @@ class Manager {
 	protected function get_blocks() {
 		$iterator = new \RecursiveDirectoryIterator( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block', \FilesystemIterator::SKIP_DOTS );
 		$iterator = new \RecursiveIteratorIterator( $iterator );
-		$blocks   = [];
+		$blocks   = array();
 		foreach ( $iterator as $file ) {
 			if ( ! $file->isFile() ) {
 				continue;
@@ -190,11 +190,11 @@ class Manager {
 			}
 
 			$data                  = json_decode( file_get_contents( realpath( $file->getPathname() ) ) );
-			$blocks[ $data->name ] = (object) [
+			$blocks[ $data->name ] = (object) array(
 				'name'   => $data->name,
 				'title'  => $data->title,
-				'parent' => ! empty( $data->parent ) ? $data->parent : [],
-			];
+				'parent' => ! empty( $data->parent ) ? $data->parent : array(),
+			);
 		}
 		ksort( $blocks );
 

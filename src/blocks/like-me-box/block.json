@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"textdomain": "snow-monkey-blocks",
+	"name": "snow-monkey-blocks/like-me-box",
+	"title": "Like me box",
+	"description": "You can display like me box.",
+	"category": "smb",
+	"attributes": {
+		"pageName": {
+			"type": "string",
+			"default": "inc2734.monkey.wrench"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"attributes": {
+			"pageName": "inc2734.monkey.wrench"
+		}
+	},
+	"editorScript": "file:./index.js"
+}

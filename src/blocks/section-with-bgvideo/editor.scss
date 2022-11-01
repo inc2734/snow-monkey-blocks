@@ -1,0 +1,7 @@
+.smb-section-with-bgvideo {
+  > .smb-section-with-bgimage__bgimage {
+    > img {
+      display: block !important;
+    }
+  }
+}

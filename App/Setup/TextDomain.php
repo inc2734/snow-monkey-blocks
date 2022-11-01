@@ -15,9 +15,9 @@ class TextDomain {
 	 * Constructor
 	 */
 	public function __construct() {
-		add_filter( 'load_textdomain_mofile', [ $this, '_load_textdomain_mofile' ], 10, 2 );
+		add_filter( 'load_textdomain_mofile', array( $this, '_load_textdomain_mofile' ), 10, 2 );
 		load_plugin_textdomain( 'snow-monkey-blocks', false, basename( SNOW_MONKEY_BLOCKS_DIR_PATH ) . '/languages' );
-		add_action( 'enqueue_block_editor_assets', [ $this, '_enqueue_block_editor_assets' ], 1 );
+		add_action( 'enqueue_block_editor_assets', array( $this, '_enqueue_block_editor_assets' ), 1 );
 	}
 
 	/**
@@ -42,19 +42,11 @@ class TextDomain {
 	 * Enqueue block script for editor.
 	 */
 	public function _enqueue_block_editor_assets() {
-		$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/blocks.asset.php' );
-		wp_enqueue_script(
-			'snow-monkey-blocks-editor',
-			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/blocks.js',
-			$asset['dependencies'],
-			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/blocks.js' ),
-			false
-		);
-
-		wp_set_script_translations(
-			'snow-monkey-blocks-editor',
-			'snow-monkey-blocks',
-			SNOW_MONKEY_BLOCKS_DIR_PATH . '/languages'
-		);
+		foreach ( \WP_Block_Type_Registry::get_instance()->get_all_registered() as $block_type => $block ) {
+			if ( 0 === strpos( $block_type, 'snow-monkey-blocks/' ) ) {
+				$handle = str_replace( '/', '-', $block_type ) . '-editor-script';
+				wp_set_script_translations( $handle, 'snow-monkey-blocks', SNOW_MONKEY_BLOCKS_DIR_PATH . '/languages' );
+			}
+		}
 	}
 }

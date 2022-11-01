@@ -3,7 +3,7 @@ const path = require( 'path' );
 
 const plugins = [ ...defaultConfig.plugins ];
 plugins.shift(); //delete plugins.CleanWebpackPlugin
-plugins.shift(); //delete plugins.CopyWebpackPlugin
+// plugins.shift(); //delete plugins.CopyWebpackPlugin
 
 module.exports = {
 	...defaultConfig,

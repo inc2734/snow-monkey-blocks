@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"textdomain": "snow-monkey-blocks",
+	"name": "snow-monkey-blocks/categories-list",
+	"title": "Categories list",
+	"description": "This is a block that displays a list of categories",
+	"category": "smb",
+	"attributes": {
+		"articles": {
+			"type": "number",
+			"default": 5
+		},
+		"exclusionCategories": {
+			"type": "string",
+			"default": ""
+		},
+		"orderby": {
+			"type": "string",
+			"default": ""
+		},
+		"order": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"style": "snow-monkey-blocks/categories-list",
+	"editorScript": "file:./index.js",
+	"viewScript": "file:./script.js"
+}

@@ -27,7 +27,7 @@ class DynamicBlocks {
 		// phpcs:enable
 	) {
 		ob_start();
-		include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block/' . $slug . '/view.php' );
+		include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/blocks/' . $slug . '/view.php' );
 		return ob_get_clean();
 	}
 }

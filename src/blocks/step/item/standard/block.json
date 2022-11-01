@@ -1,0 +1,89 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"textdomain": "snow-monkey-blocks",
+	"name": "snow-monkey-blocks/step--item",
+	"title": "Step (Standard)",
+	"description": "It is a child block of the step block.",
+	"category": "smb",
+	"parent": [ "snow-monkey-blocks/step" ],
+	"attributes": {
+		"title": {
+			"type": "string",
+			"source": "html",
+			"selector": ".smb-step__item__title > span",
+			"default": ""
+		},
+		"numberColor": {
+			"type": "string"
+		},
+		"imagePosition": {
+			"type": "string",
+			"default": "center"
+		},
+		"imageID": {
+			"type": "number",
+			"default": 0
+		},
+		"imageURL": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-step__item__figure > img",
+			"attribute": "src",
+			"default": ""
+		},
+		"imageAlt": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-step__item__figure > img",
+			"attribute": "alt",
+			"default": ""
+		},
+		"imageWidth": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-step__item__figure > img",
+			"attribute": "width",
+			"default": ""
+		},
+		"imageHeight": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-step__item__figure > img",
+			"attribute": "height",
+			"default": ""
+		},
+		"imageSizeSlug": {
+			"type": "string",
+			"default": "large"
+		},
+		"linkLabel": {
+			"type": "string",
+			"source": "html",
+			"selector": ".smb-step__item__link__label",
+			"default": ""
+		},
+		"linkURL": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-step__item__link",
+			"attribute": "href",
+			"default": ""
+		},
+		"linkTarget": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-step__item__link",
+			"attribute": "target",
+			"default": "_self"
+		},
+		"linkColor": {
+			"type": "string"
+		}
+	},
+	"supports": {
+		"anchor": true,
+		"inserter": false
+	},
+	"editorScript": "file:./index.js"
+}

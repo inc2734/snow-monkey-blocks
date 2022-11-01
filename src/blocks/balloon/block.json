@@ -1,0 +1,65 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"textdomain": "snow-monkey-blocks",
+	"name": "snow-monkey-blocks/balloon",
+	"title": "Balloon",
+	"description": "It is a block that can express a conversation.",
+	"category": "smb",
+	"attributes": {
+		"avatarID": {
+			"type": "number",
+			"default": 0
+		},
+		"avatarURL": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "img",
+			"attribute": "src",
+			"default": "https://0.gravatar.com/avatar/00000000000000000000000000000000?s=128&d=mp&r=g"
+		},
+		"avatarAlt": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "img",
+			"attribute": "alt",
+			"default": ""
+		},
+		"avatarBorderColor": {
+			"type": "string"
+		},
+		"backgroundColor": {
+			"type": "string"
+		},
+		"textColor": {
+			"type": "string"
+		},
+		"balloonName": {
+			"type": "string",
+			"default": ""
+		},
+		"balloonBody": {
+			"type": "string",
+			"source": "html",
+			"selector": ".smb-balloon__body",
+			"multiline": "p",
+			"default": ""
+		},
+		"modifier": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"attributes": {
+			"balloonName": "Lorem",
+			"balloonBody": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>"
+		}
+	},
+	"style": "snow-monkey-blocks/balloon",
+	"editorStyle": "snow-monkey-blocks/balloon/editor",
+	"editorScript": "file:./index.js"
+}

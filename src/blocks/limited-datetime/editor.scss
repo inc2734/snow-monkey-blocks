@@ -1,0 +1,29 @@
+@import '../../css/core/block';
+
+.smb-limited-datetime {
+  @include _content();
+}
+
+.smb-limited-datetime-placeholder {
+  min-height: auto;
+
+  > .components-placeholder__fieldset {
+    max-width: none;
+
+    > * {
+      flex: 1 1 auto;
+    }
+  }
+
+  dl {
+    display: flex;
+
+    > dt {
+      @include _margin-right(.25);
+    }
+  }
+
+  & + * {
+    margin-top: 1em;
+  }
+}

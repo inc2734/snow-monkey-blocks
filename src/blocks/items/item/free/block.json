@@ -1,0 +1,14 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"textdomain": "snow-monkey-blocks",
+	"name": "snow-monkey-blocks/items-item-free",
+	"title": "Item (Free input)",
+	"description": "It is a child block of the items block.",
+	"category": "smb",
+	"parent": [ "snow-monkey-blocks/items" ],
+	"supports": {
+		"html": false
+	},
+	"editorScript": "file:./index.js"
+}

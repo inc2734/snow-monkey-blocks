@@ -1,0 +1,35 @@
+@import '../../css/core/block';
+
+.smb-box {
+  $contentPaddings: (
+    0.5: 's',
+    1.5: 'l',
+  );
+
+  position: relative;
+  border-radius: _var-border-radius();
+  @include _padding(1);
+  overflow: visible;
+
+  @each $key, $value in $contentPaddings {
+    &--p-#{ $value } {
+      @include _padding($key / 2);
+
+      @include _media-min(md) {
+        @include _padding($key);
+      }
+    }
+  }
+
+  &__background {
+    @include _alert();
+    @include _position(absolute, 0, 0, 0, 0);
+    border: 0 solid _var-lighter-color-gray();
+    border-radius: _var-border-radius();
+  }
+
+  &__body {
+    position: relative;
+    @include _content();
+  }
+}
