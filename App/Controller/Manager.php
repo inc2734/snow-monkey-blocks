@@ -84,6 +84,10 @@ class Manager {
 			return;
 		}
 
+		if ( $this->_is_options_page() && self::MENU_SLUG !== filter_input( INPUT_POST, 'option_page' ) ) {
+			return;
+		}
+
 		$blocks = $this->get_blocks();
 
 		if ( ! get_option( self::AVAILABLE_BLOCKS_NAME ) ) {
@@ -177,7 +181,7 @@ class Manager {
 	 * @return array
 	 */
 	protected function get_blocks() {
-		$iterator = new \RecursiveDirectoryIterator( SNOW_MONKEY_BLOCKS_DIR_PATH . '/block', \FilesystemIterator::SKIP_DOTS );
+		$iterator = new \RecursiveDirectoryIterator( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/blocks', \FilesystemIterator::SKIP_DOTS );
 		$iterator = new \RecursiveIteratorIterator( $iterator );
 		$blocks   = array();
 		foreach ( $iterator as $file ) {
