@@ -14,7 +14,7 @@ import {
 	TreeSelect,
 } from '@wordpress/components';
 
-import { InspectorControls } from '@wordpress/block-editor';
+import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
 import { useMemo } from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
@@ -441,21 +441,23 @@ export default function ( { attributes, setAttributes } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			{ ! selectedTerm || ! terms ? (
-				<Placeholder
-					icon="editor-ul"
-					label={ __( 'Taxonomy posts', 'snow-monkey-blocks' ) }
-				>
-					<Spinner />
-				</Placeholder>
-			) : (
-				<Disabled>
-					<ServerSideRender
-						block="snow-monkey-blocks/taxonomy-posts"
-						attributes={ attributes }
-					/>
-				</Disabled>
-			) }
+			<div { ...useBlockProps() }>
+				{ ! selectedTerm || ! terms ? (
+					<Placeholder
+						icon="editor-ul"
+						label={ __( 'Taxonomy posts', 'snow-monkey-blocks' ) }
+					>
+						<Spinner />
+					</Placeholder>
+				) : (
+					<Disabled>
+						<ServerSideRender
+							block="snow-monkey-blocks/taxonomy-posts"
+							attributes={ attributes }
+						/>
+					</Disabled>
+				) }
+			</div>
 		</>
 	);
 }

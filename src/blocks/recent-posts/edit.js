@@ -13,10 +13,10 @@ import {
 	ToggleControl,
 } from '@wordpress/components';
 
+import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
 import { useMemo } from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
-import { InspectorControls } from '@wordpress/block-editor';
 
 import ServerSideRender from '@wordpress/server-side-render';
 
@@ -359,21 +359,23 @@ export default function ( { attributes, setAttributes } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			{ ! allPostTypes ? (
-				<Placeholder
-					icon="editor-ul"
-					label={ __( 'Recent posts', 'snow-monkey-blocks' ) }
-				>
-					<Spinner />
-				</Placeholder>
-			) : (
-				<Disabled>
-					<ServerSideRender
-						block="snow-monkey-blocks/recent-posts"
-						attributes={ attributes }
-					/>
-				</Disabled>
-			) }
+			<div { ...useBlockProps() }>
+				{ ! allPostTypes ? (
+					<Placeholder
+						icon="editor-ul"
+						label={ __( 'Recent posts', 'snow-monkey-blocks' ) }
+					>
+						<Spinner />
+					</Placeholder>
+				) : (
+					<Disabled>
+						<ServerSideRender
+							block="snow-monkey-blocks/recent-posts"
+							attributes={ attributes }
+						/>
+					</Disabled>
+				) }
+			</div>
 		</>
 	);
 }

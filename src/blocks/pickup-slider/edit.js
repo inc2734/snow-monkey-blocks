@@ -6,7 +6,7 @@ import {
 	Placeholder,
 } from '@wordpress/components';
 
-import { InspectorControls } from '@wordpress/block-editor';
+import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 
 import { toNumber } from '@smb/helper';
@@ -80,15 +80,17 @@ export default function ( { attributes, setAttributes } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<Placeholder
-				icon="format-gallery"
-				label={ __( 'Pickup slider', 'snow-monkey-blocks' ) }
-			>
-				{ __(
-					'Posts with "pickup" tag are displayed as sliders.',
-					'snow-monkey-blocks'
-				) }
-			</Placeholder>
+			<div { ...useBlockProps() }>
+				<Placeholder
+					icon="format-gallery"
+					label={ __( 'Pickup slider', 'snow-monkey-blocks' ) }
+				>
+					{ __(
+						'Posts with "pickup" tag are displayed as sliders.',
+						'snow-monkey-blocks'
+					) }
+				</Placeholder>
+			</div>
 		</>
 	);
 }

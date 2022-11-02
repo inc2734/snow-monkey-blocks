@@ -1,6 +1,12 @@
 import { times } from 'lodash';
 
 import {
+	InspectorControls,
+	BlockControls,
+	useBlockProps,
+} from '@wordpress/block-editor';
+
+import {
 	BaseControl,
 	Button,
 	Disabled,
@@ -14,7 +20,6 @@ import {
 	ToolbarButton,
 } from '@wordpress/components';
 
-import { InspectorControls, BlockControls } from '@wordpress/block-editor';
 import { useState } from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
 
@@ -294,12 +299,14 @@ export default function ( { attributes, setAttributes } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<Disabled>
-				<ServerSideRender
-					block="snow-monkey-blocks/rss"
-					attributes={ attributes }
-				/>
-			</Disabled>
+			<div { ...useBlockProps() }>
+				<Disabled>
+					<ServerSideRender
+						block="snow-monkey-blocks/rss"
+						attributes={ attributes }
+					/>
+				</Disabled>
+			</div>
 		</>
 	);
 }

@@ -7,7 +7,7 @@ import {
 	Spinner,
 } from '@wordpress/components';
 
-import { InspectorControls } from '@wordpress/block-editor';
+import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
@@ -133,21 +133,23 @@ export default function ( { attributes, setAttributes } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			{ ! taxonomies.length ? (
-				<Placeholder
-					icon="tag"
-					label={ __( 'Taxonomy', 'snow-monkey-blocks' ) }
-				>
-					<Spinner />
-				</Placeholder>
-			) : (
-				<Disabled>
-					<ServerSideRender
-						block="snow-monkey-blocks/taxonomy-terms"
-						attributes={ attributes }
-					/>
-				</Disabled>
-			) }
+			<div { ...useBlockProps() }>
+				{ ! taxonomies.length ? (
+					<Placeholder
+						icon="tag"
+						label={ __( 'Taxonomy', 'snow-monkey-blocks' ) }
+					>
+						<Spinner />
+					</Placeholder>
+				) : (
+					<Disabled>
+						<ServerSideRender
+							block="snow-monkey-blocks/taxonomy-terms"
+							attributes={ attributes }
+						/>
+					</Disabled>
+				) }
+			</div>
 		</>
 	);
 }
