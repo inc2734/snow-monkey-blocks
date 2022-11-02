@@ -132,7 +132,7 @@ class Manager {
 			add_settings_field(
 				'available-' . $block->name,
 				// phpcs:disable WordPress.WP.I18n.NonSingularStringLiteralText
-				'<label for="available-' . $block->name . '">' . esc_html__( $block->title ? $block->title : $block->name, 'snow-monkey-blocks' ) . '</label>',
+				'<label for="available-' . $block->name . '">' . esc_html_x( $block->title ? $block->title : $block->name, 'block title', 'snow-monkey-blocks' ) . '</label>',
 				// phpcs:enable
 				function() use ( $block ) {
 					?>
