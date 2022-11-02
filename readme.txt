@@ -2,9 +2,9 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 16.1.0
-Requires at least: 6.0
-Tested up to: 6.0
+Stable tag: 17.0.0
+Requires at least: 6.1
+Tested up to: 6.1
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -107,6 +107,15 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 24. Tabs block (The number of tab can be increased or decreased freely)
 
 == Changelog ==
+
+= 17.0.0 =
+* Requires WordPress 6.1 or later.
+* [Panels] Fixed a bug that images were not included in the clickable area of links in horizontal layouts.
+* [Buttons] Added background gradient settings.
+* [Button box] Added background gradient settings.
+* [Items] Added background gradient settings.
+* [Pricing table] Added background gradient settings.
+* [Slider] Fixed a bug that images sometimes did not reflect width and height.
 
 = 16.1.0 =
 * [FAQ] Add structured data.
