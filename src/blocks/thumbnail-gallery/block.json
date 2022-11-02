@@ -28,5 +28,6 @@
 		"align": [ "wide", "full" ]
 	},
 	"style": "snow-monkey-blocks/thumbnail-gallery",
-	"editorScript": "file:./index.js"
+	"editorScript": "file:./index.js",
+	"viewScript": [ "slick-carousel", "file:./script.js" ]
 }

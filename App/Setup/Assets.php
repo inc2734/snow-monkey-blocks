@@ -16,6 +16,7 @@ class Assets {
 	 */
 	public function __construct() {
 		add_action( 'enqueue_block_editor_assets', array( $this, '_enqueue_block_editor_assets' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, '_wp_enqueue_scripts' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, '_wp_enqueue_pro_scripts' ) );
 		add_action( 'enqueue_block_assets', array( $this, '_enqueue_block_nopro_assets' ) );
 		add_action( 'enqueue_block_assets', array( $this, '_enqueue_block_assets' ) );
@@ -25,80 +26,7 @@ class Assets {
 	}
 
 	/**
-	 * Process script to be enqueued at block displaying.
-	 *
-	 * @param string $block_content The block content about to be appended.
-	 * @param string $block The full block, including name and attributes.
-	 * @return string
-	 */
-	public function _enqueue_block_scripts( $block_content, $block ) {
-		if ( is_admin() ) {
-			return $block_content;
-		}
-
-		// Parallax assets for the section with background image/video block
-		if ( 'snow-monkey-blocks/section-with-bgimage' === $block['blockName'] ) {
-			if ( isset( $block['attrs']['parallax'] ) && true === $block['attrs']['parallax'] ) {
-				if ( ! wp_script_is( 'snow-monkey-blocks/background-parallax', 'registered' ) ) {
-					wp_enqueue_script(
-						'snow-monkey-blocks/background-parallax',
-						SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/background-parallax.js',
-						array(),
-						filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/background-parallax.js' ),
-						true
-					);
-				}
-			}
-		}
-
-		// The slider block or the thumbnail gallery block
-		if ( 'snow-monkey-blocks/slider' === $block['blockName']
-			|| 'snow-monkey-blocks/thumbnail-gallery' === $block['blockName']
-		) {
-			if ( ! wp_script_is( 'slick-carousel', 'registered' ) ) {
-				wp_enqueue_script(
-					'slick-carousel',
-					SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/packages/slick/slick.min.js',
-					array( 'jquery' ),
-					filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/slick/slick.min.js' ),
-					true
-				);
-			}
-		}
-
-		// The slider block
-		if ( 'snow-monkey-blocks/slider' === $block['blockName'] ) {
-			if ( ! wp_script_is( 'snow-monkey-blocks/slider', 'registered' ) ) {
-				wp_enqueue_script(
-					'snow-monkey-blocks/slider',
-					SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/blocks/slider/script.js',
-					array( 'slick-carousel' ),
-					filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/blocks/slider/script.js' ),
-					true
-				);
-			}
-		}
-
-		// The thumbnail gallery block
-		if ( 'snow-monkey-blocks/thumbnail-gallery' === $block['blockName'] ) {
-			if ( ! wp_script_is( 'snow-monkey-blocks/thumbnail-gallery', 'registered' ) ) {
-				wp_enqueue_script(
-					'snow-monkey-blocks/thumbnail-gallery',
-					SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/blocks/thumbnail-gallery/script.js',
-					array( 'slick-carousel' ),
-					filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/blocks/thumbnail-gallery/script.js' ),
-					true
-				);
-			}
-		}
-
-		return $block_content;
-	}
-
-	/**
 	 * Enqueue block script for editor.
-	 *
-	 * @return void
 	 */
 	public function _enqueue_block_editor_assets() {
 		wp_enqueue_style(
@@ -118,10 +46,23 @@ class Assets {
 	}
 
 	/**
+	 * Add slick carousel.
+	 */
+	public function _wp_enqueue_scripts() {
+		if ( ! wp_script_is( 'slick-carousel', 'registered' ) ) {
+			wp_register_script(
+				'slick-carousel',
+				SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/packages/slick/slick.min.js',
+				array( 'jquery' ),
+				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/slick/slick.min.js' ),
+				true
+			);
+		}
+	}
+
+	/**
 	 * Enqueue pro assets
 	 * The parallax effect for section with bgimage block
-	 *
-	 * @return void
 	 */
 	public function _wp_enqueue_pro_scripts() {
 		if ( ! Blocks\is_pro() ) {
@@ -134,6 +75,25 @@ class Assets {
 			array( 'snow-monkey-blocks' ),
 			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/background-parallax.css' )
 		);
+	}
+
+	/**
+	 * Enqueue assets for block
+	 */
+	public function _enqueue_block_nopro_assets() {
+		if ( Blocks\is_pro() ) {
+			return;
+		}
+
+		if ( apply_filters( 'snow_monkey_blocks_enqueue_fontawesome', true ) ) {
+			wp_enqueue_script(
+				'fontawesome6',
+				SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/packages/fontawesome-free/js/all.min.js',
+				array(),
+				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/fontawesome-free/js/all.min.js' ),
+				true
+			);
+		}
 	}
 
 	/**
@@ -183,27 +143,6 @@ class Assets {
 			array(),
 			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/blocks.css' )
 		);
-	}
-
-	/**
-	 * Enqueue assets for block
-	 *
-	 * @return void
-	 */
-	public function _enqueue_block_nopro_assets() {
-		if ( Blocks\is_pro() ) {
-			return;
-		}
-
-		if ( apply_filters( 'snow_monkey_blocks_enqueue_fontawesome', true ) ) {
-			wp_enqueue_script(
-				'fontawesome6',
-				SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/packages/fontawesome-free/js/all.min.js',
-				array(),
-				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/fontawesome-free/js/all.min.js' ),
-				true
-			);
-		}
 
 		if ( apply_filters( 'snow_monkey_blocks_enqueue_fallback_style', true ) ) {
 			wp_enqueue_style(
@@ -213,6 +152,36 @@ class Assets {
 				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/fallback.css' )
 			);
 		}
+	}
+
+	/**
+	 * Process script to be enqueued at block displaying.
+	 *
+	 * @param string $block_content The block content about to be appended.
+	 * @param string $block The full block, including name and attributes.
+	 * @return string
+	 */
+	public function _enqueue_block_scripts( $block_content, $block ) {
+		if ( is_admin() ) {
+			return $block_content;
+		}
+
+		// Parallax assets for the section with background image/video block
+		if ( 'snow-monkey-blocks/section-with-bgimage' === $block['blockName'] ) {
+			if ( isset( $block['attrs']['parallax'] ) && true === $block['attrs']['parallax'] ) {
+				if ( ! wp_script_is( 'snow-monkey-blocks/background-parallax', 'registered' ) ) {
+					wp_enqueue_script(
+						'snow-monkey-blocks/background-parallax',
+						SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/background-parallax.js',
+						array(),
+						filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/background-parallax.js' ),
+						true
+					);
+				}
+			}
+		}
+
+		return $block_content;
 	}
 
 	/**
