@@ -144,7 +144,7 @@ class Assets {
 			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/blocks.css' )
 		);
 
-		if ( apply_filters( 'snow_monkey_blocks_enqueue_fallback_style', true ) ) {
+		if ( apply_filters( 'snow_monkey_blocks_enqueue_fallback_style', ! Blocks\is_pro() ) ) {
 			wp_enqueue_style(
 				'snow-monkey-blocks-fallback',
 				SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/css/fallback.css',
