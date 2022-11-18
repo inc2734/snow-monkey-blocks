@@ -9,9 +9,9 @@ if ( ! shortcode_exists( 'wp_contents_outline' ) ) {
 	return;
 }
 
-$move_to = [
+$move_to = array(
 	'.c-entry__content',
-];
+);
 
 $selectors = array(
 	'.c-entry__content',
