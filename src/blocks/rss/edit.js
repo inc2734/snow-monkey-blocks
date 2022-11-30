@@ -92,30 +92,6 @@ export default function ( { attributes, setAttributes } ) {
 			interval: toNumber( value, 0, 10 ),
 		} );
 
-	if ( isEditing ) {
-		return (
-			<Placeholder icon="rss" label="RSS">
-				<form
-					onSubmit={ onSubmitFeedURL }
-					className="wp-block-rss__placeholder-form"
-				>
-					<TextControl
-						placeholder={ __(
-							'Enter URL here…',
-							'snow-monkey-blocks'
-						) }
-						value={ feedURL }
-						onChange={ onChangeFeedURL }
-						className="wp-block-rss__placeholder-input"
-					/>
-					<Button isPrimary type="submit">
-						{ __( 'Use URL', 'snow-monkey-blocks' ) }
-					</Button>
-				</form>
-			</Placeholder>
-		);
-	}
-
 	return (
 		<>
 			<BlockControls group="block">
@@ -300,12 +276,34 @@ export default function ( { attributes, setAttributes } ) {
 			</InspectorControls>
 
 			<div { ...useBlockProps() }>
-				<Disabled>
-					<ServerSideRender
-						block="snow-monkey-blocks/rss"
-						attributes={ attributes }
-					/>
-				</Disabled>
+				{ isEditing ? (
+					<Placeholder icon="rss" label="RSS">
+						<form
+							onSubmit={ onSubmitFeedURL }
+							className="wp-block-rss__placeholder-form"
+						>
+							<TextControl
+								placeholder={ __(
+									'Enter URL here…',
+									'snow-monkey-blocks'
+								) }
+								value={ feedURL }
+								onChange={ onChangeFeedURL }
+								className="wp-block-rss__placeholder-input"
+							/>
+							<Button isPrimary type="submit">
+								{ __( 'Use URL', 'snow-monkey-blocks' ) }
+							</Button>
+						</form>
+					</Placeholder>
+				) : (
+					<Disabled>
+						<ServerSideRender
+							block="snow-monkey-blocks/rss"
+							attributes={ attributes }
+						/>
+					</Disabled>
+				) }
 			</div>
 		</>
 	);
