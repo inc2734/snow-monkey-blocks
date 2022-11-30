@@ -53,7 +53,12 @@
 		}
 	},
 	"supports": {
-		"align": [ "left", "center", "right" ]
+		"align": [ "left", "center", "right" ],
+		"snowmonkeyeditor": {
+			"blockPresets": {
+				"ignore": [ "content", "url", "target", "linkDestination" ]
+			}
+		}
 	},
 	"example": {
 		"attributes": {

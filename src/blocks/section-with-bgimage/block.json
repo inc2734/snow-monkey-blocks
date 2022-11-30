@@ -218,7 +218,41 @@
 	},
 	"supports": {
 		"align": [ "wide", "full" ],
-		"anchor": true
+		"anchor": true,
+		"snowmonkeyeditor": {
+			"blockPresets": {
+				"ignore": [
+					"title",
+					"subtitle",
+					"lede",
+					"backgroundText",
+					"imageID",
+					"imageURL",
+					"imageAlt",
+					"lgImageID",
+					"lgImageURL",
+					"lgImageAlt",
+					"lgImageMediaType",
+					"lgImageRepeat",
+					"lgFocalPoint",
+					"lgImageSizeSlug",
+					"mdImageID",
+					"mdImageURL",
+					"mdImageAlt",
+					"mdImageMediaType",
+					"mdImageRepeat",
+					"mdFocalPoint",
+					"mdImageSizeSlug",
+					"smImageID",
+					"smImageURL",
+					"smImageAlt",
+					"smImageMediaType",
+					"smImageRepeat",
+					"smFocalPoint",
+					"smImageSizeSlug"
+				]
+			}
+		}
 	},
 	"style": "snow-monkey-blocks/section-with-bgimage",
 	"editorScript": "file:./index.js"

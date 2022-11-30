@@ -30,7 +30,12 @@
 		}
 	},
 	"supports": {
-		"html": false
+		"html": false,
+		"snowmonkeyeditor": {
+			"blockPresets": {
+				"ignore": [ "title", "content" ]
+			}
+		}
 	},
 	"example": {
 		"attributes": {

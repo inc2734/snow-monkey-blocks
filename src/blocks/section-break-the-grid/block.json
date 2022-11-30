@@ -246,7 +246,23 @@
 	},
 	"supports": {
 		"align": [ "wide", "full" ],
-		"anchor": true
+		"anchor": true,
+		"snowmonkeyeditor": {
+			"blockPresets": {
+				"ignore": [
+					"title",
+					"subtitle",
+					"lede",
+					"backgroundText",
+					"imageID",
+					"imageURL",
+					"imageAlt",
+					"imageWidth",
+					"imageHeight",
+					"imageMediaType"
+				]
+			}
+		}
 	},
 	"style": "snow-monkey-blocks/section-break-the-grid",
 	"editorStyle": "snow-monkey-blocks/section-break-the-grid/editor",

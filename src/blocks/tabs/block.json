@@ -41,7 +41,12 @@
 		}
 	},
 	"supports": {
-		"html": false
+		"html": false,
+		"snowmonkeyeditor": {
+			"blockPresets": {
+				"ignore": [ "tabs", "tabsId" ]
+			}
+		}
 	},
 	"example": {
 		"attributes": {

@@ -48,7 +48,12 @@
 		}
 	},
 	"supports": {
-		"html": false
+		"html": false,
+		"snowmonkeyeditor": {
+			"blockPresets": {
+				"ignore": true
+			}
+		}
 	},
 	"example": {
 		"innerBlocks": [

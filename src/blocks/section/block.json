@@ -166,7 +166,12 @@
 	},
 	"supports": {
 		"align": [ "wide", "full" ],
-		"anchor": true
+		"anchor": true,
+		"snowmonkeyeditor": {
+			"blockPresets": {
+				"ignore": [ "title", "subtitle", "lede", "backgroundText" ]
+			}
+		}
 	},
 	"example": {
 		"attributes": {

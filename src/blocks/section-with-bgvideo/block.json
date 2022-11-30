@@ -109,7 +109,20 @@
 	},
 	"supports": {
 		"align": [ "wide", "full" ],
-		"anchor": true
+		"anchor": true,
+		"snowmonkeyeditor": {
+			"blockPresets": {
+				"ignore": [
+					"title",
+					"subtitle",
+					"lede",
+					"backgroundText",
+					"videoURL",
+					"videoWidth",
+					"videoHeight"
+				]
+			}
+		}
 	},
 	"style": "snow-monkey-blocks/section-with-bgvideo",
 	"editorStyle": "snow-monkey-blocks/section-with-bgvideo/editor",

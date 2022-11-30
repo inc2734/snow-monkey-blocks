@@ -34,7 +34,12 @@
 		}
 	},
 	"supports": {
-		"html": false
+		"html": false,
+		"snowmonkeyeditor": {
+			"blockPresets": {
+				"ignore": [ "evaluationValue", "title" ]
+			}
+		}
 	},
 	"example": {
 		"attributes": {

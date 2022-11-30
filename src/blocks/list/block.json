@@ -23,7 +23,12 @@
 		}
 	},
 	"supports": {
-		"html": false
+		"html": false,
+		"snowmonkeyeditor": {
+			"blockPresets": {
+				"ignore": [ "content" ]
+			}
+		}
 	},
 	"example": {
 		"attributes": {

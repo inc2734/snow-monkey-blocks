@@ -64,7 +64,12 @@
 		}
 	},
 	"supports": {
-		"html": false
+		"html": false,
+		"snowmonkeyeditor": {
+			"blockPresets": {
+				"ignore": [ "lede", "note", "btnLabel", "btnURL", "btnTarget" ]
+			}
+		}
 	},
 	"example": {
 		"attributes": {
