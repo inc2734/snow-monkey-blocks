@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 17.2.0
+Stable tag: 17.2.1
 Requires at least: 6.1
 Tested up to: 6.1
 Requires PHP: 5.6
@@ -108,9 +108,12 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 
 == Changelog ==
 
+= 17.2.1 =
+* [Child pages] Fixed a bug that prevented blocks from being selected on the editor.
+
 = 17.2.0 =
 * Support block presets feature of Snow Monkey Editor plugin.
-*[RSS] Fixed a bug that caused a block error when trying to enter a feed URL.
+* [RSS] Fixed a bug that caused a block error when trying to enter a feed URL.
 
 = 17.1.0 =
 * Added support for move_to attribute in table of contents block.
