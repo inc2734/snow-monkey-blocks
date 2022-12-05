@@ -11,8 +11,7 @@ import {
 	ToggleControl,
 } from '@wordpress/components';
 
-import { InspectorControls } from '@wordpress/block-editor';
-
+import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
 import { __, sprintf } from '@wordpress/i18n';
 import ServerSideRender from '@wordpress/server-side-render';
@@ -282,12 +281,14 @@ export default function ( { attributes, setAttributes } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<Disabled>
-				<ServerSideRender
-					block="snow-monkey-blocks/child-pages"
-					attributes={ attributes }
-				/>
-			</Disabled>
+			<div { ...useBlockProps() }>
+				<Disabled>
+					<ServerSideRender
+						block="snow-monkey-blocks/child-pages"
+						attributes={ attributes }
+					/>
+				</Disabled>
+			</div>
 		</>
 	);
 }
