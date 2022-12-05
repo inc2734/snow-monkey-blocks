@@ -58,7 +58,7 @@ if ( class_exists( '\Framework\Helper' ) ) {
 	);
 } else {
 	get_template_part(
-		'template-parts/child-pages',
+		'template-parts/content/child-pages',
 		null,
 		array(
 			'_context'             => 'snow-monkey-blocks/child-pages',
