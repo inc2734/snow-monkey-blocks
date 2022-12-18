@@ -1,44 +1,42 @@
 @import '../../css/core/block';
 
 .smb-spider-contents-slider {
-  $contentPaddings: (
-    1: 's',
-    2: 'm',
-    3: 'l',
-  );
+	overflow: hidden;
 
-  > .spider {
-    > .spider__canvas {
-      > .spider__slide {
-        border: 0 solid transparent;
+	> .spider {
+		> .spider__canvas {
+			> .spider__slide {
+				border: 0 solid transparent;
 
-        &[data-content-position] {
-          > .smb-spider-contents-slider__item {
-            height: auto;
-          }
-        }
-      }
-    }
-  }
+				&[data-content-position] {
+					> .smb-spider-contents-slider__item {
+						height: auto;
+					}
+				}
+			}
+		}
+	}
 
-  &__item {
-    flex: 1 1 100%;
-    height: 100%;
-    max-width: 100%;
-    @include _content();
+	&__item {
+		flex: 1 1 100%;
+		height: 100%;
+		max-width: 100%;
+		// @include _content();
 
-    @each $key, $value in $contentPaddings {
-      &--p-#{ $value } {
-        @include _padding($key / 2);
+		&--p-s {
+			padding: var(--_padding-1);
+		}
 
-        @include _media-min(md) {
-          @include _padding($key);
-        }
-      }
-    }
+		&--p-m {
+			padding: var(--_padding1);
+		}
 
-    > .smb-section {
-      height: 100%;
-    }
-  }
+		&--p-l {
+			padding: var(--_padding2);
+		}
+
+		> .smb-section {
+			height: 100%;
+		}
+	}
 }

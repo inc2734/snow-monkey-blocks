@@ -1,9 +1,9 @@
 @import '../../css/core/block';
 
 .smb-section-with-bgvideo {
-  > .smb-section-with-bgimage__bgimage {
-    > * {
-      display: none !important;
-    }
-  }
+	> .smb-section-with-bgimage__bgimage {
+		> * {
+			display: none !important;
+		}
+	}
 }

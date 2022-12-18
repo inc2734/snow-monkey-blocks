@@ -1,61 +1,6 @@
-@charset 'UTF-8';
-
 @import 'core/variable/variable';
 @import '../../node_modules/sass-basis/src/css/basis-core';
-
-.#{$_prefix}c-container {
-  @include _container();
-  width: 100%;
-}
-
-.#{$_prefix}u-slim-width {
-  margin-right: auto;
-  margin-left: auto;
-  max-width: 46rem !important;
-}
-
-.#{$_prefix}c-row {
-  @include _row();
-
-  &--reverse {
-    flex-direction: row-reverse;
-  }
-
-  @each $size, $screen-min in $_sizes {
-    @include _media-min($screen-min) {
-      $prefix: _size-prefix($size);
-
-      &#{$prefix}-middle {
-        align-items: center;
-      }
-
-      &#{$prefix}-margin {
-        @include _row--margin(1);
-
-        > .#{$_prefix}c-row__col {
-          margin-right: 0;
-          margin-left: 0;
-          @include _row__col--margin(1);
-        }
-      }
-    }
-  }
-
-  &__col {
-    @include _row__col(null, null);
-
-    @each $size, $screen-min in $_sizes {
-      @include _media-min($screen-min) {
-        $prefix: _size-prefix($size);
-
-        @for $max_columns from 1 through $_max-columns {
-          @for $i from 1 through $max_columns {
-            &#{$prefix}-#{$i}-#{$max_columns} {
-              @include _row__col($i, $max_columns);
-            }
-          }
-        }
-      }
-    }
-  }
-}
+@import '../../node_modules/sass-basis/src/css/foundation/settings';
+@import '../../node_modules/sass-basis/src/css/foundation/base';
+@import '../../node_modules/sass-basis/src/css/object/component/component';
+@import '../../node_modules/sass-basis/src/css/object/utility/utility';

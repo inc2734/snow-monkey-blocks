@@ -1,61 +1,64 @@
-@charset 'UTF-8';
+// @todo 全部見直し
+// @import 'core/block';
 
-@import 'core/block';
-
-html :where(.editor-styles-wrapper, .customize-control-sidebar_block_editor) {
-  .#{$_prefix}c-row[data-columns],
-  .#{$_prefix}c-row--margin {
-    > .block-list-appender {
-      @include _row__col--width(100%);
-    }
-  }
-
-  .#{$_prefix}c-row--margin {
-    > .block-list-appender {
-      @include _margin-right(.5);
-      @include _margin-left(.5);
-    }
-  }
-
-  .spider__slide {
-    opacity: 1;
-    visibility: visible;
-  }
+html :where(.wp-block-post-content,.wp-block-widget-area__inner-blocks) {
+	/**
+	 * Slider
+	 */
+	.spider__slide {
+		opacity: 1;
+		visibility: visible;
+	}
 }
 
-html :where(.block-editor-block-list__block.#{ $_prefix }c-row__col) {
-  margin-top: 0;
-}
+// html :where(.wp-block-post-content,.wp-block-widget-area__inner-blocks) {
+// 	.#{ $_prefix }c-row[data-columns],
+// 	.#{ $_prefix }c-row--margin {
+// 		> .block-list-appender {
+// 			@include _row__col--width(100%);
+// 		}
+// 	}
 
-html :where(.#{ $_prefix }c-row--margin > [data-type^="snow-monkey-blocks"]) {
-  @include _row__col--margin(1);
-}
+// 	.#{ $_prefix }c-row--margin {
+// 		> .block-list-appender {
+// 			@include _margin-right(.5);
+// 			@include _margin-left(.5);
+// 		}
+// 	}
 
-[data-type^="snow-monkey-blocks"] {
-  .components-placeholder__label .dashicon {
-      margin-right: .25em;
-  }
+// html :where(.block-editor-block-list__block.#{ $_prefix }c-row__col) {
+// 	margin-top: 0;
+// }
 
-  &.has-child-selected .block-editor-block-list__layout > .block-list-appender .components-button {
-    display: flex;
-  }
+// html :where(.#{ $_prefix }c-row--margin > [data-type^="snow-monkey-blocks"]) {
+// 	@include _row__col--margin(1);
+// }
 
-  .block-list-appender:empty {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
+// [data-type^="snow-monkey-blocks"] {
+// 	.components-placeholder__label .dashicon {
+// 			margin-right: .25em;
+// 	}
 
-  .block-list-appender:first-child {
-    .block-editor-default-block-appender {
-      .block-editor-default-block-appender__content {
-        margin-top: 0;
-      }
-    }
-  }
+// 	&.has-child-selected .block-editor-block-list__layout > .block-list-appender .components-button {
+// 		display: flex;
+// 	}
 
-  .block-editor-default-block-appender {
-    .block-editor-default-block-appender__content {
-      margin-bottom: 0;
-    }
-  }
-}
+// 	.block-list-appender:empty {
+// 		margin-top: 0;
+// 		margin-bottom: 0;
+// 	}
+
+// 	.block-list-appender:first-child {
+// 		.block-editor-default-block-appender {
+// 			.block-editor-default-block-appender__content {
+// 				margin-top: 0;
+// 			}
+// 		}
+// 	}
+
+// 	.block-editor-default-block-appender {
+// 		.block-editor-default-block-appender__content {
+// 			margin-bottom: 0;
+// 		}
+// 	}
+// }

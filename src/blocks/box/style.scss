@@ -1,35 +1,36 @@
 @import '../../css/core/block';
 
 .smb-box {
-  $contentPaddings: (
-    0.5: 's',
-    1.5: 'l',
-  );
+	--smb-box--border-radius: var(--_border-radius);
+	--smb-box--padding: var(--_padding1);
+	--smb-box--border-color: var(--_lighter-color-gray);
 
-  position: relative;
-  border-radius: _var-border-radius();
-  @include _padding(1);
-  overflow: visible;
+	position: relative;
+	border-radius: var(--smb-box--border-radius);
+	padding: var(--smb-box--padding);
+	overflow: visible;
 
-  @each $key, $value in $contentPaddings {
-    &--p-#{ $value } {
-      @include _padding($key / 2);
+	&--p-s {
+		--smb-box--padding: var(--_padding-1);
+	}
 
-      @include _media-min(md) {
-        @include _padding($key);
-      }
-    }
-  }
+	&--p-l {
+		--smb-box--padding: var(--_padding2);
+	}
 
-  &__background {
-    @include _alert();
-    @include _position(absolute, 0, 0, 0, 0);
-    border: 0 solid _var-lighter-color-gray();
-    border-radius: _var-border-radius();
-  }
+	&__background {
+		@include _alert();
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		border: 0 solid var(--smb-box--border-color);
+		border-radius: var(--smb-box--border-radius);
+	}
 
-  &__body {
-    position: relative;
-    @include _content();
-  }
+	&__body {
+		position: relative;
+		// @include _content();
+	}
 }

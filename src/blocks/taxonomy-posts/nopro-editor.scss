@@ -1,9 +1,9 @@
 @import '../../css/core/block';
 
 .block-editor-block-types-list__item.editor-block-list-item-snow-monkey-blocks-taxonomy-posts {
-  position: relative;
+	position: relative;
 
-  &::after {
-    @include pro-badge();
-  }
+	&::after {
+		@include pro-badge();
+	}
 }

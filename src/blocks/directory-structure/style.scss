@@ -1,39 +1,40 @@
 @import '../../css/core/block';
 
 .smb-directory-structure {
-  background-color: _var-lightest-color-gray();
-  color: _var-color-text();
-  @include _padding(.75, 1);
-  overflow-x: auto;
-  overflow-y: hidden;
+	--smb-directory-structure--background-color: var(--_lightest-color-gray);
 
-  > *:not(:first-child) {
-    @include _margin-top(.25);
-  }
+	background-color: var(--smb-directory-structure--background-color);
+	padding: var(--_padding1);
+	overflow-x: auto;
+	overflow-y: hidden;
 
-  &__item {
-    p {
-      display: flex;
-      flex-wrap: nowrap;
-      align-items: flex-start;
-    }
-  }
+	> * + * {
+		margin-top: var(--_margin-2);
+	}
 
-  .fa-fw {
-    width: auto;
-  }
+	&__item {
+		p {
+			display: flex;
+			flex-wrap: nowrap;
+			align-items: flex-start;
+		}
+	}
 
-  &__item__name {
-    margin-left: .5rem;
-    @include _padding-right(1);
-    white-space: nowrap;
-  }
+	.fa-fw {
+		width: auto;
+	}
 
-  &__item__list {
-    margin-left: 1.5rem;
+	&__item__name {
+		margin-left: .5em;
+		padding-right: var(--_padding1);
+		white-space: nowrap;
+	}
 
-    > * {
-      @include _margin-top(.25);
-    }
-  }
+	&__item__list {
+		margin-left: 1.5em;
+
+		> * {
+			margin-top: var(--_margin-2);
+		}
+	}
 }

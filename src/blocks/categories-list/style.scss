@@ -1,146 +1,149 @@
 @import '../../css/core/block';
 
 .smb-categories-list {
-  &__list {
-    @include _list-unstyled();
+	--smb-categories-list--count-background-color: var(--_lighter-color-gray);
+	--smb-categories-list--count-color: inherit;
+	--smb-categories-list--gap: var(--_margin-2);
 
-    &.masonry-active {
-      .smb-categories-list__item {
-        @include _media-min(md) {
-          width: calc(50% - #{_space(.25)});
+	&__list {
+		@include _list-unstyled();
 
-          &:nth-child(2) {
-            margin-top: 0;
-          }
+		&.masonry-active {
+			.smb-categories-list__item {
+				@include _media-min(md) {
+					width: calc((100% - var(--smb-categories-list--gap)) / 2);
 
-          &:nth-child(2n) {
-            transform: translateX(_space(.5));
-          }
-        }
-      }
+					&:nth-child(2) {
+						margin-top: 0;
+					}
 
-      .smb-categories-list__item:nth-child(2n - 1) {
-        .smb-categories-list__item__count {
-          @include _media-min(md) {
-            order: 1;
+					&:nth-child(2n) {
+						transform: translateX(var(--smb-categories-list--gap));
+					}
+				}
+			}
 
-            &::after {
-              left: auto;
-              right: 100%;
-              @include _triangle-left(8px, 16px, _var-lighter-color-gray());
-            }
-          }
-        }
-      }
-    }
-  }
+			.smb-categories-list__item:nth-child(2n - 1) {
+				.smb-categories-list__item__count {
+					@include _media-min(md) {
+						order: 1;
 
-  &__item {
-    right: 0; // Masonry width 100% hack
-    border: 1px solid _var-lighter-color-gray();
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
+						&::after {
+							left: auto;
+							right: 100%;
+							@include _triangle-left(8px, 16px, var(--smb-categories-list--count-background-color));
+						}
+					}
+				}
+			}
+		}
+	}
 
-    &:not(:first-child) {
-      @include _margin-top(.5);
-    }
+	&__item {
+		right: 0; // Masonry width 100% hack
+		border: 1px solid var(--smb-categories-list--count-background-color);
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: row;
 
-    &__count {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background-color: _var-lighter-color-gray();
-      color: _var-color-text();
-      @include _padding(.5);
-      text-align: center;
+		&:not(:first-child) {
+			margin-top: var(--smb-categories-list--gap);
+		}
 
-      > span {
-        white-space: nowrap;
-      }
+		&__count {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			background-color: var(--smb-categories-list--count-background-color);
+			color: var(--smb-categories-list--count-color);
+			padding: var(--_padding1);
+			text-align: center;
 
-      @include _media-min(lg) {
-        @include _padding(1);
-      }
+			> span {
+				white-space: nowrap;
+			}
 
-      &::after {
-        position: absolute;
-        left: 100%;
-        content: '';
-        @include _triangle-right(8px, 16px, _var-lighter-color-gray());
-      }
+			&::after {
+				position: absolute;
+				left: 100%;
+				content: '';
+				@include _triangle-right(8px, 16px, var(--smb-categories-list--count-background-color));
+			}
 
-      span {
-        @include _font-size-line-height($_base-font-size-px - 2);
-      }
-    }
+			span {
+				@include _set-font-size-level(-1);
+			}
+		}
 
-    &__category-name {
-      @include _margin-bottom(.25);
-      font-weight: bold;
-    }
+		&__category-name {
+			margin-bottom: var(--_margin-2);
+			font-weight: bold;
+		}
 
-    &__category-description {
-      @include _margin-bottom(.25);
-      @include _font-size-line-height($_base-font-size-px - 2);
-    }
+		&__category-description {
+			margin-bottom: var(--_margin-2);
+			@include _set-font-size-level(-1);
+		}
 
-    &__recent-label {
-      @include _margin-top(.5);
-      @include _margin-bottom(.25);
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      @include _font-size-line-height($_base-font-size-px - 2);
-      font-weight: bold;
+		&__recent-label {
+			margin-top: var(--_margin-1);
+			margin-bottom: var(--_margin-2);
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			@include _set-font-size-level(-1);
+			font-weight: bold;
 
-      &:before, &:after {
-        display: block;
-        content: "";
-        height: 1px;
-        background-color: _var-color-text();
-        flex: 1 0 0%;
-        min-width: 20px;
-      }
+			&:before,
+			&:after {
+				display: block;
+				content: "";
+				height: 1px;
+				background-color: currentColor;
+				flex: 1 0 0%;
+				min-width: 20px;
+			}
 
-      &:before {
-        margin-right: .5em;
-      }
+			&:before {
+				margin-right: .5em;
+			}
 
-      &:after {
-        margin-left: .5em;
-      }
-    }
+			&:after {
+				margin-left: .5em;
+			}
+		}
 
-    &__list {
-      @include _list-unstyled();
-      @include _font-size-line-height($_base-font-size-px - 2);
-      @include _content(.25);
-      word-break: break-word;
-    }
+		&__list {
+			@include _list-unstyled();
+			@include _set-font-size-level(-1);
+			word-break: break-word;
 
-    &__detail {
-      flex-grow: 1;
-      @include _padding(1, 1, 1, 1.25);
+			> * + * {
+				margin-top: var(--_margin-2);
+			}
+		}
 
-      @include _media-min(md) {
-        .smb-categories-list__item:nth-child(2n - 1) & {
-          @include _padding-left(1);
-          @include _padding-right(1.25);
-        }
-      }
+		&__detail {
+			flex-grow: 1;
+			padding: var(--_padding1) var(--_padding1) var(--_padding1) var(--_padding2);
 
-      a {
-        color: inherit;
-        text-decoration: none;
+			@include _media-min(md) {
+				.smb-categories-list__item:nth-child(2n - 1) & {
+					padding: var(--_padding1) var(--_padding2) var(--_padding1) var(--_padding1);
+				}
+			}
 
-        @include _hover() {
-          text-decoration: underline;
-        }
-      }
-    }
-  }
+			a {
+				color: inherit;
+				text-decoration: none;
+
+				@include _hover() {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
 }

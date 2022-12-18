@@ -1,64 +1,59 @@
 @import '../../css/core/block';
 
 .smb-media-text {
-  &--mobile-text {
-    > .c-row {
-      > .c-row__col:first-child {
-        @include _media-max(md) {
-          order: 0 !important;
-        }
-      }
-    }
-  }
+	&--mobile-text {
+		> .c-row {
+			> .c-row__col:first-child {
+				@include _media-max(md) {
+					order: 0 !important;
+				}
+			}
+		}
+	}
 
-  &--mobile-image {
-    > .c-row {
-      > .c-row__col:first-child {
-        @include _media-max(md) {
-          order: 1 !important;
-        }
-      }
-    }
-  }
+	&--mobile-image {
+		> .c-row {
+			> .c-row__col:first-child {
+				@include _media-max(md) {
+					order: 1 !important;
+				}
+			}
+		}
+	}
 
-  &__title {
-    @include _font-size-line-height($_h2-font-size-scale / 1.25);
+	&__title {
+		@include _set-font-size-level(4);
+	}
 
-    @include _media-min(lg) {
-      @include _font-size-line-height($_h2-font-size-scale);
-    }
-  }
+	&__title,
+	.block-editor-rich-text {
+		& + .smb-media-text__body {
+			margin-top: var(--_margin1);
+		}
+	}
 
-  &__title,
-  .block-editor-rich-text {
-    & + .smb-media-text__body {
-      @include _margin-top(.75);
-    }
-  }
+	&__figure {
+		> img,
+		> video {
+			height: auto;
+			width: 100%;
+		}
+	}
 
-  &__figure {
-    > img,
-    > video {
-      height: auto;
-      width: 100%;
-    }
-  }
+	&__caption {
+		margin-top: var(--_margin-2);
+		@include _set-font-size-level(-1);
+	}
 
-  &__caption {
-    @include _margin-top(.25);
-    color: _var-color-gray();
-    @include _font-size-line-height($_base-font-size-px - 2);
-  }
+	> .c-row--reverse {
+		> .c-row__col:first-child {
+			@include _media-max(md) {
+				order: 1;
+			}
+		}
+	}
 
-  > .c-row--reverse {
-    > .c-row__col:first-child {
-      @include _media-max(md) {
-        order: 1;
-      }
-    }
-  }
-
-  &__body {
-    @include _content();
-  }
+	&__body {
+		// @include _content();
+	}
 }

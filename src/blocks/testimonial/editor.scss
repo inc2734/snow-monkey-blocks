@@ -1,20 +1,20 @@
 @import '../../css/core/block';
 
 .smb-testimonial {
-  &__item__figure {
-    > .components-button {
-      height: 100%;
-      width: 100%;
+	&__item__figure {
+		> .components-button {
+			height: 100%;
+			width: 100%;
 
-      > img {
-        height: 100%;
-      }
-    }
-  }
+			> img {
+				height: 100%;
+			}
+		}
+	}
 
-  &__body {
-    > .c-row--margin {
-      margin-bottom: 0;
-    }
-  }
+	&__body {
+		> .c-row--margin {
+			margin-bottom: 0;
+		}
+	}
 }

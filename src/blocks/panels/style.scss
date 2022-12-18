@@ -1,168 +1,159 @@
 @import '../../css/core/block';
 
 .smb-panels {
-  > .#{ $_prefix }c-row {
-    &__col {
-      margin-top: 0;
-      margin-bottom: 0;
-    }
-  }
+	--smb-panels--background-color: var(--wp--preset--color--white);
 
-  &__item {
-    position: relative;
-    display: block;
-    background-color: _var-color-white();
-    color: _var-color-text();
-    text-decoration: none;
-    box-shadow: 0 0 35px 0 rgba(#000, .1);
-    @include _transition(all);
+	> .#{ $_prefix }c-row {
+		&__col {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
 
-    @include _hover() {
-      box-shadow: 0 7px 35px 0 rgba(#000, .15);
-    }
+	&__item {
+		position: relative;
+		display: block;
+		background-color: var(---smb-panels--background-color);
+		text-decoration: none;
+		box-shadow: 0 0 35px 0 rgba(#000, .1);
+		@include _transition(all);
 
-    &__figure {
-      > img {
-        width: 100%;
-      }
-    }
+		@include _hover() {
+			box-shadow: 0 7px 35px 0 rgba(#000, .15);
+		}
 
-    &__body {
-      @include _padding(1);
+		&__figure {
+			> img {
+				width: 100%;
+			}
+		}
 
-      a {
-        position: relative;
-        z-index: 1;
-      }
-    }
+		&__body {
+			padding: var(--_padding1);
 
-    &__title {
-      margin: 0;
-      @include _font-size-line-height(1);
-      font-weight: bold;
-    }
+			a {
+				position: relative;
+				z-index: 1;
+			}
+		}
 
-    &__content {
-      @include _margin-top(.25);
-      @include _font-size-line-height($_base-font-size-px - 2);
-    }
+		&__title {
+			margin: 0;
+			@include _set-font-size-level(2);
+			font-weight: bold;
+		}
 
-    &__action {
-      @include _margin-top(.5);
+		&__content {
+			margin-top: var(--_margin-1);
+		}
 
-      &--nolabel {
-        margin-top: 0;
-      }
+		&__action {
+			margin-top: var(--_margin-1);
 
-      > a {
-        position: initial;
-        z-index: initial;
-        text-decoration: none;
+			&--nolabel {
+				margin-top: 0;
+			}
 
-        &::after {
-          content: '';
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          z-index: 1;
-        }
-      }
-    }
+			> a {
+				position: initial;
+				z-index: initial;
+				text-decoration: none;
 
-    &__link {
-      color: $color-accent;
-      @include _font-size-line-height($_base-font-size-px - 2);
-    }
-  }
+				&::after {
+					content: '';
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+					z-index: 1;
+				}
+			}
+		}
+	}
 }
 
 .smb-panels__item:not([class*="smb-panels__item--"]) {
-  text-align: center;
+	text-align: center;
 }
 
 .smb-panels__item--horizontal {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
 
-  @include _media-min(md) {
-    flex-direction: row;
-    text-align: left;
+	@include _media-min(md) {
+		flex-direction: row;
+		text-align: left;
 
-    > .smb-panels__item__body {
-      flex: 1 1 auto;
-    }
+		> .smb-panels__item__body {
+			flex: 1 1 auto;
+		}
 
-    > .smb-panels__item__figure {
-      position: relative;
-      max-width: 50%;
-      flex: 0 0 50%;
-      overflow: hidden;
+		> .smb-panels__item__figure {
+			position: relative;
+			max-width: 50%;
+			flex: 0 0 50%;
+			overflow: hidden;
 
-      img {
-        position: relative;
-        top: 50%;
-        max-height: none;
-        max-width: none;
-        height: auto;
-        width: 100%;
-        transform: translateY(-50%);
-      }
-    }
+			img {
+				position: relative;
+				top: 50%;
+				max-height: none;
+				max-width: none;
+				height: auto;
+				width: 100%;
+				transform: translateY(-50%);
+			}
+		}
 
-    > .smb-panels__item__body {
-      align-self: center;
-    }
-  }
+		> .smb-panels__item__body {
+			align-self: center;
+		}
+	}
 
-  &.smb-panels__item--reverse {
-    > .smb-panels__item__figure {
-      order: 1;
-    }
-  }
+	&.smb-panels__item--reverse {
+		> .smb-panels__item__figure {
+			order: 1;
+		}
+	}
 }
 
 .smb-panels__item--free,
 .smb-panels__item--block-link {
-  > .smb-panels__item__body {
-    > * {
-      margin-top: 0;
-      margin-bottom: 0;
-    }
+	> .smb-panels__item__body {
+		> * {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
 
-    @include _content();
-  }
+		// @include _content();
+	}
 }
 
 .smb-panels__item--block-link {
 }
 
 .smb-panels[data-image-padding="true"] {
-  .smb-panels__item__figure {
-    @include _padding(.5, .5, 0);
+	.smb-panels__item__figure {
+		padding: var(--_padding-1) var(--_padding-1) 0;
+	}
 
-    @include _media-min(md) {
-      @include _padding(.5, .5, 0);
-    }
-  }
+	.smb-panels__item--horizontal {
+		> .smb-panels__item__figure {
+			@include _media-min(md) {
+				padding: var(--_padding-1) 0 var(--_padding-1) var(--_padding-1);
+			}
+		}
 
-  .smb-panels__item--horizontal {
-    > .smb-panels__item__figure {
-      @include _media-min(md) {
-        @include _padding(.5, 0, .5, .5);
-      }
-    }
+		&.smb-panels__item--reverse {
+			> .smb-panels__item__figure {
+				padding: 0 var(--_padding-1) var(--_padding-1) var(--_padding-1);
 
-    &.smb-panels__item--reverse {
-      > .smb-panels__item__figure {
-        @include _padding(0, .5, .5, .5);
-
-        @include _media-min(md) {
-          @include _padding(.5, .5, .5, 0);
-        }
-      }
-    }
-  }
+				@include _media-min(md) {
+					padding: var(--_padding-1) var(--_padding-1) var(--_padding-1) 0;
+				}
+			}
+		}
+	}
 }

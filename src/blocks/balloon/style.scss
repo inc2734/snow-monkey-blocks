@@ -1,129 +1,131 @@
 @import '../../css/core/block';
 
 .smb-balloon {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+	--smb-balloon--avatar-border-color: var(--_lighter-color-gray);
+	--smb-balloon--background-color: var(--_lightest-color-gray);
+	--smb-balloon--border-color: var(--_lightest-color-gray);
 
-  @include _media-min(md) {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-  }
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 
-  &__person {
-    margin: 0 0 20px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+	@include _media-min(md) {
+		flex-direction: row;
+		flex-wrap: nowrap;
+		align-items: center;
+	}
 
-    @include _media-min(md) {
-      margin: 0 20px 0 0;
-      flex-direction: column;
-    }
+	&__person {
+		margin: 0 0 20px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
 
-    .smb-balloon__name {
-      margin: 0 0 0 5px;
+		@include _media-min(md) {
+			margin: 0 20px 0 0;
+			flex-direction: column;
+		}
 
-      @include _media-min(md) {
-        margin: 5px 0 0 0;
-      }
-    }
-  }
+		.smb-balloon__name {
+			margin: 0 0 0 5px;
 
-  &__figure {
-    position: relative;
-    flex: 0 0 auto;
-    @include _circle(60px);
-    border: 3px solid _var-lighter-color-gray();
+			@include _media-min(md) {
+				margin: 5px 0 0 0;
+			}
+		}
+	}
 
-    > img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-      object-position: 50% 50%;
-    }
-  }
+	&__figure {
+		position: relative;
+		flex: 0 0 auto;
+		@include _circle(60px);
+		border: 3px solid var(--smb-balloon--avatar-border-color);
 
-  &__name {
-    font-size: 12px;
-    line-height: 1;
-    white-space: nowrap;
-  }
+		> img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+			object-position: 50% 50%;
+		}
+	}
 
-  &__body {
-    position: relative;
-    flex: 1 1 auto;
-    border-radius: _var-border-radius();
-    color: _var-color-text();
-    overflow-wrap: break-word;
-    @include _padding(1);
-    @include _content();
+	&__name {
+		@include _set-font-size-level(-2);
+		white-space: nowrap;
+	}
 
-    background-color: _var-lightest-color-gray();
-    border-color: _var-lightest-color-gray();
+	&__body {
+		position: relative;
+		flex: 1 1 auto;
+		border-radius: var(--_border-radius);
+		overflow-wrap: break-word;
+		padding: var(--_padding1);
+		// @include _content();
 
-    &::after {
-      content: "";
-      display: block;
-      position: absolute;
-      top: -10px;
-      left: 24px;
-      margin-left: 0;
-      height: 0;
-      width: 0;
-      border-color: transparent;
-      border-bottom-color: inherit;
-      border-style: solid;
-      border-width: 0 5px 10px;
+		background-color: var(--smb-balloon--background-color);
+		border-color: var(--smb-balloon--border-color);
 
-      @include _media-min(md) {
-        top: 50%;
-        left: -10px;
-        margin-top: -5px;
-        border-color: transparent;
-        border-right-color: inherit;
-        border-width: 5px 10px 5px 0;
-      }
-    }
-  }
+		&::after {
+			content: "";
+			display: block;
+			position: absolute;
+			top: -10px;
+			left: 24px;
+			margin-left: 0;
+			height: 0;
+			width: 0;
+			border-color: transparent;
+			border-bottom-color: inherit;
+			border-style: solid;
+			border-width: 0 5px 10px;
 
-  &--reverse {
-    align-items: flex-end;
+			@include _media-min(md) {
+				top: 50%;
+				left: -10px;
+				margin-top: -5px;
+				border-color: transparent;
+				border-right-color: inherit;
+				border-width: 5px 10px 5px 0;
+			}
+		}
+	}
 
-    @include _media-min(md) {
-      flex-direction: row-reverse;
-      align-items: center;
-    }
+	&--reverse {
+		align-items: flex-end;
 
-    .smb-balloon__person {
-      @include _media-min(md) {
-        margin: 0 0 0 20px;
-      }
+		@include _media-min(md) {
+			flex-direction: row-reverse;
+			align-items: center;
+		}
 
-      .smb-balloon__name {
-        margin-right: 5px;
-        order: -1;
+		.smb-balloon__person {
+			@include _media-min(md) {
+				margin: 0 0 0 20px;
+			}
 
-        @include _media-min(md) {
-          margin-right: 0;
-          order: initial;
-        }
-      }
-    }
+			.smb-balloon__name {
+				margin-right: 5px;
+				order: -1;
 
-    .smb-balloon__body {
-      &::after {
-        left: auto;
-        right: 24px;
+				@include _media-min(md) {
+					margin-right: 0;
+					order: initial;
+				}
+			}
+		}
 
-        @include _media-min(md) {
-          right: -10px;
-          border-color: transparent;
-          border-left-color: inherit;
-          border-width: 5px 0 5px 10px;
-        }
-      }
-    }
-  }
+		.smb-balloon__body {
+			&::after {
+				left: auto;
+				right: 24px;
+
+				@include _media-min(md) {
+					right: -10px;
+					border-color: transparent;
+					border-left-color: inherit;
+					border-width: 5px 0 5px 10px;
+				}
+			}
+		}
+	}
 }

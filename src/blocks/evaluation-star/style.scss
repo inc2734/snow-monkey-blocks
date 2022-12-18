@@ -1,43 +1,44 @@
 @import '../../css/core/block';
 
 .smb-evaluation-star {
-  display: flex;
-  align-items: center;
+	--smb-evaluation-star--icon-color: #f9bb2d;
 
-  &__title {
-    @include _margin-right(.25);
-    margin-left: 0;
-  }
+	display: flex;
+	align-items: center;
 
-  &--title-right {
-    .smb-evaluation-star__title {
-      order: 1;
-      margin-right: 0;
-      @include _margin-left(.25);
-    }
-  }
+	&__title {
+		margin-right: var(--_margin-2);
+		margin-left: 0;
+	}
 
-  &__body {
-    display: inline-block;
-  }
+	&--title-right {
+		.smb-evaluation-star__title {
+			order: 1;
+			margin-right: 0;
+			margin-left: var(--_margin-2);
+		}
+	}
 
-  &__numeric {
-    font-weight: bold;
-    color: _var-color-gray();
+	&__body {
+		display: inline-block;
+	}
 
-    &--left {
-      float: left;
-      @include _margin-right(.25);
-    }
+	&__numeric {
+		font-weight: bold;
 
-    &--right {
-      float: right;
-      @include _margin-left(.25);
-    }
-  }
+		&--left {
+			float: left;
+			margin-right: var(--_margin-2);
+		}
 
-  &__icon {
-    display: inline-block;
-    color: #f9bb2d;
-  }
+		&--right {
+			float: right;
+			margin-left: var(--_margin-2);
+		}
+	}
+
+	&__icon {
+		display: inline-block;
+		color: var(--smb-evaluation-star--icon-color);
+	}
 }

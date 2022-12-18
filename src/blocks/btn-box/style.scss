@@ -1,33 +1,30 @@
 @import '../../css/core/block';
 
 .smb-btn-box {
-  @include _padding(1.5, 0);
+	padding-top: var(--_padding2);
+	padding-bottom: var(--_padding2);
 
-  &__lede {
-    @include _margin-bottom(.5);
-    font-weight: bold;
-    text-align: center;
-  }
+	&__lede {
+		margin-bottom: var(--_margin-1);
+		font-weight: bold;
+		text-align: center;
+	}
 
-  &__btn-wrapper {
-    text-align: center;
-  }
+	&__btn-wrapper {
+		text-align: center;
+	}
 
-  &__note {
-    @include _margin-top(.5);
-    color: _var-color-gray();
-    text-align: center;
-  }
-
-  .#{ $_prefix }c-container {
-    @include _container-padding(false);
-  }
+	&__note {
+		margin-top: var(--_margin-1);
+		text-align: center;
+	}
 }
 
 .smb-btn-box.is-style-ghost {
-  .smb-btn {
-    background-color: transparent !important;
-    border: 1px solid $color-accent;
-    color: $color-accent;
-  }
+	.smb-btn {
+		--smb-btn--background-color: transparent;
+		--smb-btn--color: var(--smb-btn--style--ghost--color);
+
+		border: 1px solid var(--smb-btn--style--ghost--border-color);
+	}
 }

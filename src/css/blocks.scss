@@ -1,87 +1,85 @@
-@charset 'UTF-8';
-
 @import 'core/block';
 
 @import '../../format/highlighter/format';
 @import '../../format/badge/format';
 
-.#{$_prefix}c-row {
-  @each $size, $screen-min in $_sizes {
-    @include _media-min($screen-min) {
-      $prefix: '';
-      @if $size != 'sm' {
-        $prefix: -#{ $size };
-      }
+.#{ $_prefix }c-row {
+	@each $size, $screen-min in $_sizes {
+		@include _media-min($screen-min) {
+			$prefix: '';
+			@if $size != 'sm' {
+				$prefix: -#{ $size };
+			}
 
-      @for $i from 1 through 6 {
-        &[data#{ $prefix }-columns="#{ $i }"] {
-          > .#{ $_prefix }c-row__col {
-            margin-right: 0;
-            margin-left: 0;
-            @include _row__col--width(1 / $i * 100%);
-          }
-        }
-      }
-    }
-  }
+			@for $i from 1 through 6 {
+				&[data#{ $prefix }-columns="#{ $i }"] {
+					> .#{ $_prefix }c-row__col {
+						margin-right: 0;
+						margin-left: 0;
+						@include _row__col--width(1 / $i * 100%);
+					}
+				}
+			}
+		}
+	}
 }
 
-.#{$_prefix}c-container--no-padding {
-  padding-right: 0 !important;
-  padding-left: 0 !important;
+.#{ $_prefix }c-container--no-padding {
+	padding-right: 0 !important;
+	padding-left: 0 !important;
 }
 
 [data-content-position] {
-  display: flex;
+	display: flex;
 
-  > * {
-    flex: 0 1 auto !important;
-    margin-right: 0;
-    margin-left: 0;
-  }
+	> * {
+		flex: 0 1 auto !important;
+		margin-right: 0;
+		margin-left: 0;
+	}
 }
 // Position: Top
 [data-content-position="top-left"] {
-  align-items: flex-start !important;
-  justify-content: flex-start !important;
+	align-items: flex-start !important;
+	justify-content: flex-start !important;
 }
 [data-content-position="top-center"] {
-  align-items: flex-start !important;
-  justify-content: center !important;
+	align-items: flex-start !important;
+	justify-content: center !important;
 }
 [data-content-position="top-right"] {
-  align-items: flex-start !important;
-  justify-content: flex-end !important;
+	align-items: flex-start !important;
+	justify-content: flex-end !important;
 }
 // Position: Center
 [data-content-position="center-left"] {
-  align-items: center !important;
-  justify-content: flex-start !important;
+	align-items: center !important;
+	justify-content: flex-start !important;
 }
 [data-content-position="center-center"] {
-  align-items: center !important;
-  justify-content: center !important;
+	align-items: center !important;
+	justify-content: center !important;
 }
 [data-content-position="center-right"] {
-  align-items: center !important;
-  justify-content: flex-end !important;
+	align-items: center !important;
+	justify-content: flex-end !important;
 }
 // Position: Bottom
 [data-content-position="bottom-left"] {
-  align-items: flex-end !important;
-  justify-content: flex-start !important;
+	align-items: flex-end !important;
+	justify-content: flex-start !important;
 }
 [data-content-position="bottom-center"] {
-  align-items: flex-end !important;
-  justify-content: center !important;
+	align-items: flex-end !important;
+	justify-content: center !important;
 }
 [data-content-position="bottom-right"] {
-  align-items: flex-end !important;
-  justify-content: flex-end !important;
+	align-items: flex-end !important;
+	justify-content: flex-end !important;
 }
 
 // @todo WordPress 5.9 iframed content hack.
 // https://github.com/WordPress/gutenberg/blob/f2161e246b9fdd9a2a56e7552b0b28050f1a5302/packages/block-editor/src/components/iframe/index.js#L70-L74
 html :where(.editor-styles-wrapper) {
-  display: block;
+	display: block;
 }

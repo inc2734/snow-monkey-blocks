@@ -1,63 +1,75 @@
 @import '../../css/core/block';
-@import 'settings';
+
+$alert-color: #fff9e6 !default;
 
 .smb-alert {
-  @include _alert();
-  background-color: $alert-color;
-  border: 1px solid darken($alert-color, 5%);
-  border-radius: _var-border-radius();
-  color: darken(desaturate($alert-color, 60%), 70%);
-  @include _padding(1);
+	--smb-alert--background-color: #{ $alert-color };
+	--smb-alert--border-color: #{ darken($alert-color, 5%) };
+	--smb-alert--color: #{ darken(desaturate($alert-color, 60%), 70%) };
+	--smb-alert--icon-color: #{ darken($alert-color, 40%) };
 
-  .svg-inline--fa {
-    color: darken($alert-color, 40%);
-  }
+	--smb-alert--warning-background-color: #{ adjust-hue($alert-color, -30deg) };
+	--smb-alert--warning-border-color: #{ adjust-hue(darken($alert-color, 5%), -30deg) };
+	--smb-alert--warning-color: #{ adjust-hue(darken(desaturate($alert-color, 60%), 80%), -30deg) };
+	--smb-alert--warning-icon-color: #{ adjust-hue(darken($alert-color, 40%), -30deg) };
 
-  &--warning {
-    background-color: adjust-hue($alert-color, -30deg);
-    border-color: adjust-hue(darken($alert-color, 5%), -30deg);
-    color: adjust-hue(darken(desaturate($alert-color, 60%), 80%), -30deg);
+	--smb-alert--success-background-color: #{ adjust-hue($alert-color, 40deg) };
+	--smb-alert--success-border-color: #{ adjust-hue(darken($alert-color, 10%), 40deg) };
+	--smb-alert--success-color: #{ adjust-hue(darken(desaturate($alert-color, 70%), 80%), 40deg) };
+	--smb-alert--success-icon-color: #{ adjust-hue(darken($alert-color, 50%), 40deg) };
 
-    .svg-inline--fa {
-      color: adjust-hue(darken($alert-color, 40%), -30deg);
-    }
-  }
+	--smb-alert--remark-background-color: var(--_lightest-color-gray);
+	--smb-alert--remark-border-color: var(--_lighter-color-gray);
+	--smb-alert--remark-color: var(--_color-text);
+	--smb-alert--remark-icon-color: var(--_color-gray);
 
-  &--success {
-    background-color: adjust-hue($alert-color, 40deg);
-    border-color: adjust-hue(darken($alert-color, 10%), 40deg);
-    color: adjust-hue(darken(desaturate($alert-color, 70%), 80%), 40deg);
+	@include _alert();
+	background-color: var(--smb-alert--background-color);
+	border: 1px solid var(--smb-alert--border-color);
+	border-radius: var(--_border-radius);
+	color: var(--smb-alert--color);
+	padding: var(--_padding1);
 
-    .svg-inline--fa {
-      color: adjust-hue(darken($alert-color, 50%), 40deg);
-    }
-  }
+	.svg-inline--fa {
+		color: var(--smb-alert--icon-color);
+	}
 
-  &--remark {
-    background-color: _var-lightest-color-gray();
-    border-color: _var-lighter-color-gray();
-    color: _var-color-text();
+	&--warning {
+		--smb-alert--background-color: var(--smb-alert--warning-background-color);
+		--smb-alert--border-color: var(--smb-alert--warning-border-color);
+		--smb-alert--color: var(--smb-alert--warning-color);
+		--smb-alert--icon-color: var(--smb-alert--warning-icon-color);
+	}
 
-    .svg-inline--fa {
-      color: _var-color-gray();
-    }
-  }
+	&--success {
+		--smb-alert--background-color: var(--smb-alert--success-background-color);
+		--smb-alert--border-color: var(--smb-alert--success-border-color);
+		--smb-alert--color: var(--smb-alert--success-color);
+		--smb-alert--icon-color: var(--smb-alert--success-icon-color);
+	}
 
-  &__body {
-  }
+	&--remark {
+		--smb-alert--background-color: var(--smb-alert--remark-background-color);
+		--smb-alert--border-color: var(--smb-alert--remark-border-color);
+		--smb-alert--color: var(--smb-alert--remark-color);
+		--smb-alert--icon-color: var(--smb-alert--remark-icon-color);
+	}
 
-  &__title {
-    position: relative;
-    display: flex;
-    align-items: center;
-    @include _margin-bottom(.25);
+	&__body {
+	}
 
-    .svg-inline--fa {
-      flex: 0 0 0%;
-      position: relative;
-      top: -1px;
-      @include _margin-right(.25);
-      @include _font-size-line-height(1.5);
-    }
-  }
+	&__title {
+		position: relative;
+		display: flex;
+		align-items: center;
+		margin-bottom: var(--_margin-2);
+
+		.svg-inline--fa {
+			flex: 0 0 auto;
+			position: relative;
+			top: -1px;
+			margin-right: var(--_margin-2);
+			@include _set-font-size-level(3);
+		}
+	}
 }

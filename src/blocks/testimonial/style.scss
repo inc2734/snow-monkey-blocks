@@ -1,62 +1,59 @@
 @import '../../css/core/block';
 
 .smb-testimonial {
-  &__item {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
+	&__item {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: center;
 
-    &__figure {
-      @include _margin-top($_half-leading * 1rem);
-      @include _margin-right(.5);
-      flex: 0 0 auto;
-      @include _circle(48px);
+		&__figure {
+			flex: 0 0 auto;
+			margin-top: calc(var(--_half-leading) * 1rem);
+			margin-right: var(--_margin-1);
+			@include _circle(48px);
 
-      img {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-        object-position: 50% 50%;
-      }
-    }
+			img {
+				height: 100%;
+				width: 100%;
+				object-fit: cover;
+				object-position: 50% 50%;
+			}
+		}
 
-    &__body {
-      flex: 1 1 auto;
-      max-width: 100%;
-    }
+		&__body {
+			flex: 1 1 auto;
+			max-width: 100%;
+		}
 
-    &__name {
-      @include _font-size($_base-font-size-px - 4);
-      line-height: 1.2;
+		&__name {
+			@include _set-font-size-level(-2);
 
-      a {
-        color: inherit;
-      }
-    }
+			a {
+				color: inherit;
+			}
+		}
 
-    &__lede {
-      color: _var-color-gray();
-      @include _font-size($_base-font-size-px - 6);
-      line-height: 1.6;
+		&__lede {
+			@include _set-font-size-level(-2);
 
-      a {
-        color: inherit;
-      }
-    }
+			a {
+				color: inherit;
+			}
+		}
 
-    &__content {
-      margin-bottom: 16px;
-      @include _font-size-line-height($_base-font-size-px - 2);
+		&__content {
+			margin-bottom: var(--_margin-1);
+			@include _set-font-size-level(-1);
 
-      &::after {
-        margin-top: 14px;
-        content: '';
-        display: block;
-        height: 1px;
-        width: 2rem;
-        background-color: _var-color-text();
-      }
-    }
-  }
+			&::after {
+				margin-top: var(--_margin-1);
+				content: '';
+				display: block;
+				height: 1px;
+				width: 2rem;
+				background-color: currentColor;
+			}
+		}
+	}
 }

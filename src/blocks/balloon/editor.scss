@@ -1,12 +1,12 @@
 .smb-balloon {
-  &__figure {
-    > .components-button {
-      height: 100%;
-      width: 100%;
+	&__figure {
+		> .components-button {
+			height: 100%;
+			width: 100%;
 
-      > img {
-        height: 100%;
-      }
-    }
-  }
+			> img {
+				height: 100%;
+			}
+		}
+	}
 }

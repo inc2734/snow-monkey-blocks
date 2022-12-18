@@ -1,22 +1,20 @@
 @import '../../css/core/block';
 
 .smb-list {
-  ul {
-    list-style: none !important;
+	ul {
+		list-style: none !important;
 
-    > li {
-      position: relative;
+		> li {
+			position: relative;
 
-      & + li {
-        @include _margin-top(.25);
-      }
+			& + li {
+				margin-top: var(--_margin-2);
+			}
 
-      .smb-list__icon {
-        position: absolute;
-        top: 6px;
-        left: -1.3em;
-        line-height: 1;
-      }
-    }
-  }
+			.smb-list__icon {
+				position: absolute;
+				left: -1.5em;
+			}
+		}
+	}
 }

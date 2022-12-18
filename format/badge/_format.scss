@@ -1,20 +1,18 @@
 .smb-badge {
-  display: inline-flex;
-  align-items: center;
-  height: $_base-line-height;
-  color: _var-color-white();
-  padding: 0 .5em;
-  vertical-align: middle;
-  font-size: calc(1em - 2px);
-  line-height: 1;
-  border-radius: _var-border-radius() !important;
-  font-weight: bold;
-  transform: translateY(-2px);
-  white-space: nowrap;
+	display: inline-flex;
+	align-items: center;
+	color: var(--wp--preset--color--white);
+	padding: 0 .5em;
+	vertical-align: middle;
+	font-size: calc(1em - 2px);
+	border-radius: var(--_border-radius) !important;
+	font-weight: bold;
+	transform: translateY(-2px);
+	white-space: nowrap;
 
-  &,
-  &[data-rich-text-format-boundary],
-  .rich-text:focus &[data-rich-text-format-boundary] {
-    background-color: _var-color-text();
-  }
+	&,
+	&[data-rich-text-format-boundary],
+	.rich-text:focus &[data-rich-text-format-boundary] {
+		background-color: var(--_color-text);
+	}
 }

@@ -1,46 +1,48 @@
 @import '../../css/core/block';
 
 .smb-faq {
-  &__body {
-    > * + * {
-      @include _margin-top(1);
-    }
-  }
+	--smb-faq--border-color: var(--_lighter-color-gray);
+	--smb-faq--label-color: initial;
 
-  &__item {
-    border-bottom: 1px solid _var-lighter-color-gray();
-    @include _padding-bottom(1);
+	&__body {
+		> * + * {
+			margin-top: var(--_margin1);
+		}
+	}
 
-    &:first-child {
-      border-top: 1px solid _var-lighter-color-gray();
-      @include _padding-top(1);
-    }
+	&__item {
+		border-bottom: 1px solid var(--smb-faq--border-color);
+		padding-bottom: var(--_padding1);
 
-    &__question,
-    &__answer {
-      display: flex;
-      flex-wrap: nowrap;
-      flex-direction: row;
+		&:first-child {
+			border-top: 1px solid var(--smb-faq--border-color);
+			padding-top: var(--_padding1);
+		}
 
-      &__label {
-        flex: 0 0 0%;
-        @include _margin-right(1);
-        @include _font-size(1.5);
-        line-height: 1;
-        font-weight: normal;
-        color: $color-accent;
-        min-width: .8em;
-      }
+		&__question,
+		&__answer {
+			display: flex;
+			flex-wrap: nowrap;
+			flex-direction: row;
 
-      &__body {
-        flex: 1 1 auto;
-        @include content();
-      }
-    }
+			&__label {
+				flex: 0 0 0%;
+				margin-right: var(--_margin1);
+				@include _set-font-size-level(3);
+				font-weight: normal;
+				color: var(--smb-faq--label-color);
+				min-width: .8em;
+			}
 
-    &__question {
-      @include _margin(0, 0, 1);
-      font-weight: bold;
-    }
-  }
+			&__body {
+				flex: 1 1 auto;
+				// @include content();
+			}
+		}
+
+		&__question {
+			margin: 0 0 var(--_margin1);
+			font-weight: bold;
+		}
+	}
 }

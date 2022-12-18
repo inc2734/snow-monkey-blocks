@@ -1,19 +1,19 @@
 .smb-section-side-heading {
-  // @deprecated
-  &__subtitle,
-  &__title {
-    text-align: left;
-  }
+	// @deprecated
+	&__subtitle,
+	&__title {
+		text-align: left;
+	}
 
-  &__header {
-    text-align: left;
+	&__header {
+		text-align: left;
 
-    > * {
-      text-align: inherit;
-    }
-  }
+		> * {
+			text-align: inherit;
+		}
+	}
 
-  &__lede-wrapper {
-    justify-content: flex-start;
-  }
+	&__lede-wrapper {
+		justify-content: flex-start;
+	}
 }

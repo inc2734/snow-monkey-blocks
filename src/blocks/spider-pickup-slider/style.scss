@@ -1,163 +1,175 @@
 @import '../../css/core/block';
 
 .smb-spider-pickup-slider {
-  .spider__slide {
-    position: relative;
-    overflow: hidden;
-    background-color: _var-color-black();
-    max-height: 80vh;
+	--smb-spider-pickup-slider--dots-gap: var(--_margin-2);
 
-    @include _media-min(lg) {
-      max-height: 75vh;
-      min-height: 650px;
-    }
+	.spider__slide {
+		position: relative;
+		overflow: hidden;
+		background-color: var(--wp--preset--color--black);
+		max-height: 80vh;
 
-    &::before {
-      content: '';
-      display: block;
-      padding: 56.25% 0 0;
-    }
+		@include _media-min(lg) {
+			max-height: 75vh;
+			min-height: 650px;
+		}
 
-    &::after {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background-color: rgba(0, 0, 0, .15);
-    }
+		&::before {
+			content: '';
+			display: block;
+			padding: 56.25% 0 0;
+		}
 
-    .spider__figure {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-      object-position: 50% 50%;
-    }
-  }
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background-color: rgba(0, 0, 0, .15);
+		}
 
-  .spider__dots[data-thumbnails="true"] {
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    @include _margin(.5, -.25, -.5);
+		.spider__figure {
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+			object-position: 50% 50%;
+		}
+	}
 
-    @supports (gap: 1px) {
-      margin-right: 0;
-      margin-bottom: 0;
-      margin-left: 0;
-      gap: _space(.5, true, true);
-    }
+	.spider__dots {
+		margin: var(--_margin-1) 0 0;
+		gap: var(--smb-spider-pickup-slider--dots-gap);
 
-    .spider__dot {
-      position: relative;
-      margin: 0;
-      flex: 0 0 25%;
-      max-width: 25%;
-      @include _padding(0, .25, .5);
+		.spider__dot {
+			margin: 0;
+		}
+	}
 
-      @supports (gap: 1px) {
-        padding: 0;
-      }
+	.spider__dots[data-thumbnails="true"] {
+		--smb-spider-pickup-slider--dots-gap: var(--_margin-1);
 
-      &[data-has-thumbnail="false"] {
-        @supports (gap: 1px) {
-          &::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background-color: _var-lighter-color-gray();
-          }
-        }
-      }
+		flex-wrap: wrap;
+		justify-content: flex-start;
 
-      img {
-        position: relative;
-      }
-    }
-  }
+		.spider__dot {
+			flex: 0 0 auto;
+			width: calc((100% - var(--smb-spider-pickup-slider--dots-gap) * 3) / 4);
 
-  &__item {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 1;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    @include _container-padding(false);
-    color: _var-color-white();
-    text-shadow: rgba($_color-text, .3) 1px 1px 3px;
+			&[data-has-thumbnail="false"] {
+				position: relative;
 
-    @include _media-min(md) {
-      max-width: _px2rem(map-get($_sizes, md));
-    }
+				&::before {
+					content: '';
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+					background-color: var(--_lighter-color-gray);
+				}
+			}
+		}
+	}
 
-    @include _media-min(lg) {
-      max-width: _px2rem(map-get($_sizes, lg));
-    }
+	// .spider__dots[data-thumbnails="true"] {
+	// 	flex-wrap: wrap;
+	// 	justify-content: flex-start;
+	// 	gap: var(--_margin-1);
 
-    > *:not(:first-child) {
-      @include _margin-top(.5);
+	// 	.spider__dot {
+	// 		position: relative;
+	// 		margin: 0;
+	// 		flex: 0 0 25%;
+	// 		max-width: 25%;
 
-      @include _media-min(lg) {
-        @include _margin-top(1);
-      }
-    }
+	// 		&[data-has-thumbnail="false"] {
+	// 			&::before {
+	// 				content: '';
+	// 				position: absolute;
+	// 				top: 0;
+	// 				right: 0;
+	// 				bottom: 0;
+	// 				left: 0;
+	// 				background-color: var(--_lighter-color-gray);
+	// 			}
+	// 		}
 
-    &__title {
-      font-weight: bold;
-      @include _font-size-line-height(1.5);
+	// 		img {
+	// 			position: relative;
+	// 		}
+	// 	}
+	// }
 
-      @include _media-min(md) {
-        @include _font-size-line-height(2);
-      }
+	&__item {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		z-index: 1;
+		transform: translate(-50%, -50%);
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding-right: var(--_container-margin);
+		padding-left: var(--_container-margin);
+		color: var(--wp--preset--color--white);
 
-      @include _media-min(lg) {
-        @include _font-size-line-height(3);
-      }
+		@include _media-min(md) {
+			max-width: _px2rem(map-get($_sizes, md));
+		}
 
-      a {
-        color: inherit;
-        text-decoration: none;
+		@include _media-min(lg) {
+			max-width: _px2rem(map-get($_sizes, lg));
+		}
 
-        &::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-        }
-      }
-    }
+		> * + * {
+			margin-top: var(--_margin1);
+		}
 
-    &__meta {
-      color: _var-color-white();
-      @include _font-size-line-height($_base-font-size-px - 2);
+		&__title {
+			font-weight: bold;
+			@include _set-font-size-level(4);
 
-      img {
-        display: inline-block !important;
-      }
-    }
-  }
+			a {
+				color: inherit;
+				text-decoration: none;
+
+				&::before {
+					content: '';
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+				}
+			}
+		}
+
+		&__meta {
+			color: var(--wp--preset--color--white);
+			@include _set-font-size-level(-1);
+
+			img {
+				display: inline-block !important;
+			}
+		}
+	}
 }
 
 .smb-section + .smb-spider-pickup-slider.alignfull {
-  margin-top: 0;
+	margin-top: 0;
 }
 
 .alignwide,
 .alignfull {
-  &.smb-spider-pickup-slider {
-    &__item {
-      @include _container-padding();
-    }
-  }
+	&.smb-spider-pickup-slider {
+		&__item {
+			padding-right: var(--_container-margin);
+			padding-left: var(--_container-margin);
+		}
+	}
 }

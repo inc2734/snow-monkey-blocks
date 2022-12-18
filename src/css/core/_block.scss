@@ -2,25 +2,25 @@
 @import '../../../node_modules/sass-basis/src/css/basis-core';
 @import 'mixin/mixin';
 
-@mixin content($coefficient: 1) {
-  > * {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
+// @mixin content($coefficient: 1) {
+// 	> * {
+// 		margin-top: 0;
+// 		margin-bottom: 0;
+// 	}
 
-  @include _content($coefficient);
-}
+// 	@include _content($coefficient);
+// }
 
 @mixin pro-badge() {
-  position: absolute;
-  top: 0;
-  right: 0;
-  content: 'Pro';
-  display: inline-block;
-  font-size: 10px;
-  line-height: 1;
-  color: _var-color-white();
-  background-color: #cd3034;
-  border-radius: 2px;
-  padding: 3px 4px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	content: 'Pro';
+	display: inline-block;
+	font-size: 10px;
+	line-height: 1;
+	color: var(--wp--preset--color--white);
+	background-color: #cd3034;
+	border-radius: 2px;
+	padding: 3px 4px;
 }
