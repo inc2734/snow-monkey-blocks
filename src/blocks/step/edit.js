@@ -10,7 +10,7 @@ import { useSelect } from '@wordpress/data';
 import { useMigrateDoubleHyphenToSingleHyphen } from '@smb/hooks';
 
 const ALLOWED_BLOCKS = [
-	'snow-monkey-blocks/step--item',
+	// 'snow-monkey-blocks/step--item',
 	'snow-monkey-blocks/step-item-free',
 ];
 

@@ -106,16 +106,13 @@ export default function ( {
 	} );
 
 	const btnStyles = {
-		backgroundColor: btnBackgroundColor || undefined,
-		backgroundImage: btnBackgroundGradientColor || undefined,
-		borderRadius:
+		'--smb-btn--background-color': btnBackgroundColor || undefined,
+		'--smb-btn--background-image': btnBackgroundGradientColor || undefined,
+		'--smb-btn--border-radius':
 			'undefined' !== typeof btnBorderRadius
 				? `${ btnBorderRadius }px`
 				: undefined,
-	};
-
-	const btnLabelStyles = {
-		color: btnTextColor || undefined,
+		'--smb-btn--color': btnTextColor || undefined,
 	};
 
 	const ref = useRef();
@@ -426,7 +423,6 @@ export default function ( {
 							>
 								<RichText
 									className="smb-btn__label"
-									style={ btnLabelStyles }
 									value={ btnLabel }
 									placeholder={ __(
 										'Button',

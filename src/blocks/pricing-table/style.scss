@@ -28,28 +28,27 @@
 		}
 	}
 
-	&[data-has-items] .c-row__col {
+	&[data-has-items] .c-row {
 		@include _media-min(md) {
-			flex: 1 0 auto;
-			max-width: 30%;
+			--_item-width: 30%;
 		}
 	}
 
-	&[data-has-items="1"] .c-row__col {
+	&[data-has-items="1"] .c-row {
 		@include _media-min(md) {
-			max-width: 100%;
+			--_item-width: 100%;
 		}
 	}
 
-	&[data-has-items="2"] .c-row__col {
+	&[data-has-items="2"] .c-row {
 		@include _media-min(md) {
-			max-width: 50%;
+			--_item-width: 50%;
 		}
 	}
 
-	&[data-has-items="3"] .c-row__col {
+	&[data-has-items="3"] .c-row {
 		@include _media-min(md) {
-		max-width: 33.3333%;
+			--_item-width: 33.3333%;
 		}
 	}
 
@@ -65,11 +64,8 @@
 			@include _media-min(md) {
 				white-space: normal;
 
-				.#{ $_prefix }c-row .#{ $_prefix }c-row__col {
-					flex: 1 0 auto;
-					max-width: 1% * $key;
-					margin-right: 0;
-					margin-left: 0;
+				.#{ $_prefix }c-row {
+					--_item-width: #{ 1% * $key };
 				}
 			}
 		}
@@ -77,8 +73,6 @@
 
 	.#{ $_prefix }c-row {
 		&__col {
-			flex: 1 1 100%;
-
 			&:not(:first-child) {
 				border-top: 1px solid var(--smb-pricing-table--border-color);
 

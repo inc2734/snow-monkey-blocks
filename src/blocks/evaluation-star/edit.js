@@ -63,22 +63,23 @@ export default function ( {
 		[ `smb-evaluation-star--title-${ titleAlign }` ]: 'left' !== titleAlign,
 	} );
 
+	const styles = {
+		'--smb-evaluation-star--icon-color': iconColor || undefined,
+		'--smb-evaluation-star--numeric-color': numericColor || undefined,
+	};
+
 	const bodyClasses = classnames(
 		'smb-evaluation-star__numeric',
 		`smb-evaluation-star__numeric--${ numericAlign }`
 	);
 
 	const evaluationStarBodyStyles = {
-		color: numericColor || undefined,
 		display: isDisplayNumeric ? 'inline' : 'none',
-	};
-
-	const evaluationStarIconStyles = {
-		color: iconColor || undefined,
 	};
 
 	const blockProps = useBlockProps( {
 		className: classes,
+		style: styles,
 	} );
 
 	const onChangeEvaluationValue = ( value ) =>
@@ -232,10 +233,7 @@ export default function ( {
 					>
 						{ sprintf( '%.1f', Number( evaluationValue ) ) }
 					</span>
-					<div
-						className="smb-evaluation-star__icon"
-						style={ evaluationStarIconStyles }
-					>
+					<div className="smb-evaluation-star__icon">
 						<span>{ generateIcons() }</span>
 					</div>
 				</div>

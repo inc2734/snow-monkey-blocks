@@ -1,12 +1,21 @@
 @import '../../css/core/block';
 
 .smb-box {
-	--smb-box--border-radius: var(--_border-radius);
-	--smb-box--padding: var(--_padding1);
+	--smb-box--background-color: transparent;
+	--smb-box--background-image: initial;
+	--smb-box--background-opacity: 1;
 	--smb-box--border-color: var(--_lighter-color-gray);
+	--smb-box--border-width: 1px;
+	--smb-box--border-radius: var(--_global--border-radius);
+	--smb-box--box-shadow: initial;
+	--smb-box--color: inherit;
+	--smb-box--padding: var(--_padding1);
 
 	position: relative;
+	border-width: 0; // @todo For /wp-includes/css/dist/block-library/common.css
 	border-radius: var(--smb-box--border-radius);
+	box-shadow: var(--smb-box--box-shadow);
+	color: var(--smb-box--color);
 	padding: var(--smb-box--padding);
 	overflow: visible;
 
@@ -25,8 +34,11 @@
 		right: 0;
 		bottom: 0;
 		left: 0;
-		border: 0 solid var(--smb-box--border-color);
+		background-color: var(--smb-box--background-color);
+		background-image: var(--smb-box--background-image);
+		border: var(--smb-box--border-width) solid var(--smb-box--border-color);
 		border-radius: var(--smb-box--border-radius);
+		opacity: var(--smb-box--background-opacity);
 	}
 
 	&__body {

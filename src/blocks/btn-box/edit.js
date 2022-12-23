@@ -68,30 +68,32 @@ export default function ( {
 		'smb-btn--wrap': btnWrap,
 	} );
 
-	const btnBoxStyle = {
-		backgroundColor: backgroundColor || undefined,
+	const styles = {
+		'--smb-btn-box--background-color': backgroundColor || undefined,
 	};
 
-	const btnBoxBtnStyles = {
-		backgroundColor: btnBackgroundColor || undefined,
-		backgroundImage: btnBackgroundGradientColor || undefined,
-		borderRadius:
-			'undefined' !== typeof btnBorderRadius
+	const btnStyles = {
+		'--smb-btn--background-color': btnBackgroundColor || undefined,
+		'--smb-btn--background-image': btnBackgroundGradientColor || undefined,
+		'--smb-btn--border-radius':
+			!! btnBorderRadius || 0 <= btnBorderRadius
 				? `${ btnBorderRadius }px`
 				: undefined,
+		'--smb-btn--color': btnTextColor || undefined,
 	};
 	if (
 		!! attributes.className &&
 		attributes.className.split( ' ' ).includes( 'is-style-ghost' )
 	) {
-		btnBoxBtnStyles.borderColor = btnBackgroundColor || undefined;
+		btnStyles[ '--smb-btn--style--ghost--border-color' ] =
+			btnBackgroundColor || undefined;
 	}
 
 	const ref = useRef();
 
 	const blockProps = useBlockProps( {
 		className: classes,
-		style: btnBoxStyle,
+		style: styles,
 		ref,
 	} );
 
@@ -272,7 +274,7 @@ export default function ( {
 						<span
 							className={ btnClasses }
 							href={ btnURL }
-							style={ btnBoxBtnStyles }
+							style={ btnStyles }
 							target={
 								'_self' === btnTarget ? undefined : btnTarget
 							}
@@ -290,7 +292,6 @@ export default function ( {
 									'snow-monkey-blocks'
 								) }
 								onChange={ onChangeBtnLabel }
-								style={ { color: btnTextColor } }
 								withoutInteractiveFormatting={ true }
 							/>
 						</span>

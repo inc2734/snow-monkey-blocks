@@ -31,17 +31,14 @@ export default function ( { attributes, className } ) {
 		'smb-btn--wrap': btnWrap,
 	} );
 
-	const itemBtnLabelStyles = {
-		color: btnTextColor || undefined,
-	};
-
-	const itemBtnStyles = {
-		backgroundColor: btnBackgroundColor || undefined,
-		backgroundImage: btnBackgroundGradientColor || undefined,
-		borderRadius:
+	const btnStyles = {
+		'--smb-btn--background-color': btnBackgroundColor || undefined,
+		'--smb-btn--background-image': btnBackgroundGradientColor || undefined,
+		'--smb-btn--border-radius':
 			'undefined' !== typeof btnBorderRadius
 				? `${ btnBorderRadius }px`
 				: undefined,
+		'--smb-btn--color': btnTextColor || undefined,
 	};
 
 	return (
@@ -90,7 +87,7 @@ export default function ( { attributes, className } ) {
 							<span
 								className={ btnClasses }
 								href={ url }
-								style={ itemBtnStyles }
+								style={ btnStyles }
 								target={
 									'_self' === target ? undefined : target
 								}
@@ -100,10 +97,7 @@ export default function ( { attributes, className } ) {
 										: 'noopener noreferrer'
 								}
 							>
-								<span
-									className="smb-btn__label"
-									style={ itemBtnLabelStyles }
-								>
+								<span className="smb-btn__label">
 									<RichText.Content value={ btnLabel } />
 								</span>
 							</span>

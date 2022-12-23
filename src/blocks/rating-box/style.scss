@@ -1,11 +1,14 @@
 @import '../../css/core/block';
 
 .smb-rating-box {
+	--smb-rating-box--gap: var(--_margin-1);
+	--smb-rating-box--bar-border-radius: var(--_global--border-radius);
 	--smb-rating-box--bar-background-color: var(--_lighter-color-gray);
+	--smb-rating-box--rating-background-color: #f9bb2d;
 
 	&__body {
 		> * + * {
-			margin-top: var(--_margin-1);
+			margin-top: var(--smb-rating-box--gap);
 		}
 	}
 
@@ -18,7 +21,7 @@
 			&__bar,
 			&__rating {
 				height: 1rem;
-				border-radius: var(--_border-radius);
+				border-radius: var(--smb-rating-box--bar-border-radius);
 			}
 
 			&__bar {
@@ -30,7 +33,7 @@
 				position: absolute;
 				top: 0;
 				left: 0;
-				background-color: #f9bb2d;
+				background-color: var(--smb-rating-box--rating-background-color);
 			}
 
 			&__numeric {

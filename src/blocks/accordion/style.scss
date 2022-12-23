@@ -1,26 +1,21 @@
 @import '../../css/core/block';
 
 .smb-accordion {
+	--smb-accordion--gap: var(--_margin-1);
 	--smb-accordion--title-background-color: var(--_lighter-color-gray);
+
+	> * + * {
+		margin-top: var(--smb-accordion--gap);
+	}
 
 	&__item {
 		position: relative;
-
-		&:not(:first-child) {
-			margin-top: var(--_margin-1);
-		}
-
-		&:not(:last-child) {
-			.smb-accordion__item__body {
-				margin-bottom: var(--_margin-1);
-			}
-		}
 
 		&__title {
 			display: flex;
 			align-items: center;
 			background-color: var(--smb-accordion--title-background-color);
-			padding: var(--_padding-2) var(--_padding-1);
+			padding: calc(var(--_padding-1) * .5) var(--_padding-1);
 
 			&__label {
 				flex: 1 1 auto;

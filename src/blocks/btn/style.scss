@@ -2,24 +2,40 @@
 
 .smb-btn {
 	--smb-btn--background-color: var(--wp--preset--color--black);
+	--smb-btn--background-image: initial;
+	--smb-btn--border-radius: var(--_global--border-radius);
 	--smb-btn--color: var(--wp--preset--color--white);
-	--smb-btn--style--ghost--border-color: currentColor;
-	--smb-btn--style--ghost--color: currentColor;
-	--smb-btn--style--text--color: currentColor;
+	--smb-btn--padding: var(--_padding1);
+	--smb-btn--padding-vertical: calc(var(--smb-btn--padding) * .5);
+	--smb-btn--padding-horizontal: var(--smb-btn--padding);
+	--smb-btn--style--ghost--border-color: var(--smb-btn--color, currentColor);
 
+	@include _btn();
 	margin: 0;
-	@include btn();
+	display: inline-flex;
+	justify-content: center;
 	background-color: var(--smb-btn--background-color);
-	color: var(--smb-btn--color);
+	background-image: var(--smb-btn--background-image);
+	border: none;
+	border-radius: var(--smb-btn--border-radius);
+	padding: var(--smb-btn--padding-vertical) var(--smb-btn--padding-horizontal);
+	max-width: 100%;
+	@include _transition(all);
+
+	@include _hover() {
+		filter: brightness(90%);
+	}
+
+	&__label {
+		color: var(--smb-btn--color);
+	}
 
 	&--little-wider {
-		padding-right: var(--_padding2);
-		padding-left: var(--_padding2);
+		--smb-btn--padding-horizontal: var(--_padding2);
 	}
 
 	&--wider {
-		padding-right: var(--_padding3);
-		padding-left: var(--_padding3);
+		--smb-btn--padding-horizontal: var(--_padding3);
 	}
 
 	&--more-wider {
@@ -27,10 +43,10 @@
 		display: block;
 
 		@include _media-min(md) {
+			--smb-btn--padding-horizontal: var(--_padding4);
+
 			width: auto;
 			display: inline-block;
-			padding-right: var(--_padding4);
-			padding-left: var(--_padding4);
 		}
 	}
 
@@ -47,7 +63,6 @@
 .smb-btn-wrapper.is-style-ghost {
 	.smb-btn {
 		--smb-btn--background-color: transparent;
-		--smb-btn--color: var(--smb-btn--style--ghost--color);
 
 		border: 1px solid var(--smb-btn--style--ghost--border-color);
 	}
@@ -56,7 +71,6 @@
 .smb-btn-wrapper.is-style-text {
 	.smb-btn {
 		--smb-btn--background-color: transparent;
-		--smb-btn--color: var(--smb-btn--style--text--color);
 
 		border: none !important;
 	}

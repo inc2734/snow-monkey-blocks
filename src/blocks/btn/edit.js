@@ -66,24 +66,23 @@ export default function ( {
 		'smb-btn--wrap': wrap,
 	} );
 
-	const btnStyles = {
-		backgroundColor: backgroundColor || undefined,
-		backgroundImage: backgroundGradientColor || undefined,
-		borderRadius:
+	const styles = {
+		'--smb-btn--background-color': backgroundColor || undefined,
+		'--smb-btn--background-image': backgroundGradientColor || undefined,
+		'--smb-btn--border-radius':
 			!! borderRadius || 0 <= borderRadius
 				? `${ borderRadius }px`
 				: undefined,
+		'--smb-btn--color': textColor || undefined,
 	};
+
 	if (
 		!! attributes.className &&
 		attributes.className.split( ' ' ).includes( 'is-style-ghost' )
 	) {
-		btnStyles.borderColor = backgroundColor || undefined;
+		styles[ '--smb-btn--style--ghost--border-color' ] =
+			backgroundColor || undefined;
 	}
-
-	const btnLabelStyles = {
-		color: textColor || undefined,
-	};
 
 	const ref = useRef();
 
@@ -229,7 +228,7 @@ export default function ( {
 				<span
 					className={ classes }
 					href={ url }
-					style={ btnStyles }
+					style={ styles }
 					target={ '_self' === target ? undefined : target }
 					rel={
 						'_self' === target ? undefined : 'noopener noreferrer'
@@ -240,7 +239,6 @@ export default function ( {
 						value={ content }
 						placeholder={ __( 'Button', 'snow-monkey-blocks' ) }
 						onChange={ onChangeContent }
-						style={ btnLabelStyles }
 						withoutInteractiveFormatting={ true }
 					/>
 				</span>

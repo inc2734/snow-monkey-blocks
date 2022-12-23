@@ -1,8 +1,12 @@
 @import '../../css/core/block';
 
 .smb-btn-box {
-	padding-top: var(--_padding2);
-	padding-bottom: var(--_padding2);
+	--smb-btn-box--background-color: transparent;
+	--smb-btn-box--padding: var(--_padding2);
+
+	background-color: var(--smb-btn-box--background-color);
+	padding-top: var(--smb-btn-box--padding);
+	padding-bottom: var(--smb-btn-box--padding);
 
 	&__lede {
 		margin-bottom: var(--_margin-1);
@@ -23,7 +27,7 @@
 .smb-btn-box.is-style-ghost {
 	.smb-btn {
 		--smb-btn--background-color: transparent;
-		--smb-btn--color: var(--smb-btn--style--ghost--color);
+		// --smb-btn--color: var(--smb-btn--style--ghost--color);
 
 		border: 1px solid var(--smb-btn--style--ghost--border-color);
 	}

@@ -5,6 +5,7 @@ import { registerBlockType } from '@wordpress/blocks';
 import metadata from './block.json';
 import edit from './edit';
 import save from './save';
+import deprecated from './deprecated';
 import transforms from './transforms';
 
 const icon = (
@@ -28,5 +29,6 @@ registerBlockType( metadata.name, {
 	},
 	edit,
 	save,
+	deprecated,
 	transforms,
 } );

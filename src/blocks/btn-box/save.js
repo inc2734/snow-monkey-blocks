@@ -25,30 +25,32 @@ export default function ( { attributes, className } ) {
 		'smb-btn--wrap': btnWrap,
 	} );
 
-	const btnBoxStyle = {
-		backgroundColor: backgroundColor || undefined,
+	const styles = {
+		'--smb-btn-box--background-color': backgroundColor || undefined,
 	};
 
-	const btnBoxBtnStyles = {
-		backgroundColor: btnBackgroundColor || undefined,
-		backgroundImage: btnBackgroundGradientColor || undefined,
-		borderRadius:
-			'undefined' !== typeof btnBorderRadius
+	const btnStyles = {
+		'--smb-btn--background-color': btnBackgroundColor || undefined,
+		'--smb-btn--background-image': btnBackgroundGradientColor || undefined,
+		'--smb-btn--border-radius':
+			!! btnBorderRadius || 0 <= btnBorderRadius
 				? `${ btnBorderRadius }px`
 				: undefined,
+		'--smb-btn--color': btnTextColor || undefined,
 	};
 	if (
 		!! attributes.className &&
 		attributes.className.split( ' ' ).includes( 'is-style-ghost' )
 	) {
-		btnBoxBtnStyles.borderColor = btnBackgroundColor || undefined;
+		btnStyles[ '--smb-btn--style--ghost--border-color' ] =
+			btnBackgroundColor || undefined;
 	}
 
 	return (
 		<div
 			{ ...useBlockProps.save( {
 				className: classes,
-				style: btnBoxStyle,
+				style: styles,
 			} ) }
 		>
 			<div className="c-container">
@@ -62,7 +64,7 @@ export default function ( { attributes, className } ) {
 					<a
 						className={ btnClasses }
 						href={ btnURL }
-						style={ btnBoxBtnStyles }
+						style={ btnStyles }
 						target={ '_self' === btnTarget ? undefined : btnTarget }
 						rel={
 							'_self' === btnTarget
@@ -70,10 +72,7 @@ export default function ( { attributes, className } ) {
 								: 'noopener noreferrer'
 						}
 					>
-						<span
-							className="smb-btn__label"
-							style={ { color: btnTextColor } }
-						>
+						<span className="smb-btn__label">
 							<RichText.Content value={ btnLabel } />
 						</span>
 					</a>

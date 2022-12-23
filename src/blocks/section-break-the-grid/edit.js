@@ -49,6 +49,7 @@ import {
 	PanelSectionBackgroundTextSettings,
 	PanelSectionTopDividerSettings,
 	PanelSectionBottomDividerSettings,
+	generateStylesForSectionBackground,
 	SectionBackground,
 } from '../section/components/background';
 
@@ -247,39 +248,46 @@ export default function ( {
 
 	const maskClasses = classnames( 'smb-section-break-the-grid__mask' );
 
-	const sectionStyles = {
-		color: textColor || undefined,
-		...generateSpacingProperties( padding ),
-	};
-
-	const shadowStyles = {};
-	if ( shadowColor ) {
-		shadowStyles.backgroundColor = shadowColor;
-	}
-	if ( shadowHorizontalPosition || shadowVerticalPosition ) {
-		shadowStyles.transform = `translate(${
-			shadowHorizontalPosition || 0
-		}%, ${ shadowVerticalPosition || 0 }%)`;
-	}
-
-	const contentStyles = {
-		backgroundColor:
+	const styles = {
+		'--smb-section--color': textColor || undefined,
+		'--smb-section-break-the-grid--shadow-color': shadowColor || undefined,
+		'--smb-section-break-the-grid--shadow-transform':
+			!! shadowHorizontalPosition && !! shadowVerticalPosition
+				? `translate(${ shadowHorizontalPosition || 0 }%, ${
+						shadowVerticalPosition || 0
+				  }%)`
+				: undefined,
+		'--smb-section-break-the-grid--content-background-color':
 			contentBackgroundColor &&
 			hexToRgba( contentBackgroundColor, contentBackgroundOpacity ),
-	};
-
-	const maskStyles = {};
-	if ( maskColor ) {
-		maskStyles.backgroundColor = maskColor;
-	}
-
-	const figureStyles = {
-		opacity: !! maskColor ? maskOpacity : undefined,
+		'--smb-section-break-the-grid--mask-color': maskColor && undefined,
+		'--smb-section-break-the-grid--mask-opacity': !! maskColor
+			? maskOpacity
+			: undefined,
+		...generateSpacingProperties( padding ),
+		...generateStylesForSectionBackground( {
+			backgroundHorizontalPosition,
+			backgroundVerticalPosition,
+			isBackgroundNoOver,
+			backgroundColor,
+			backgroundGradientColor,
+			backgroundTexture,
+			backgroundTextureOpacity,
+			backgroundTextureUrl,
+			fixedBackgroundColor,
+			fixedBackgroundGradientColor,
+			fixedBackgroundTexture,
+			fixedBackgroundTextureOpacity,
+			fixedBackgroundTextureUrl,
+			topDividerVerticalPosition,
+			bottomDividerVerticalPosition,
+			backgroundText,
+		} ),
 	};
 
 	const blockProps = useBlockProps( {
 		className: classes,
-		style: sectionStyles,
+		style: styles,
 	} );
 
 	const innerBlocksProps = useInnerBlocksProps(
@@ -1402,10 +1410,7 @@ export default function ( {
 						<div className="smb-section__contents-wrapper smb-section-break-the-grid__contents-wrapper">
 							<div className={ rowClasses }>
 								<div className={ textColumnClasses }>
-									<div
-										className={ contentClasses }
-										style={ contentStyles }
-									>
+									<div className={ contentClasses }>
 										<Header
 											isSelected={ isSelected }
 											className="smb-section-break-the-grid"
@@ -1435,20 +1440,14 @@ export default function ( {
 								<div className={ imageColumnClasses }>
 									<div className={ figureClasses }>
 										{ shadowColor && (
-											<div
-												className={ shadowClasses }
-												style={ shadowStyles }
-											/>
+											<div className={ shadowClasses } />
 										) }
 
 										{ 0 <
 											Number(
 												( 1 - maskOpacity ).toFixed( 1 )
 											) && (
-											<div
-												className={ maskClasses }
-												style={ maskStyles }
-											/>
+											<div className={ maskClasses } />
 										) }
 
 										<Figure
@@ -1460,7 +1459,6 @@ export default function ( {
 											onRemove={ onRemoveImage }
 											mediaType={ imageMediaType }
 											allowedTypes={ ALLOWED_TYPES }
-											style={ figureStyles }
 										/>
 									</div>
 								</div>

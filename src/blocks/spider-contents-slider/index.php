@@ -8,7 +8,7 @@
 wp_register_style(
 	'snow-monkey-blocks/spider-contents-slider',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/blocks/spider-contents-slider/style.css',
-	array( 'spider' ),
+	array( 'snow-monkey-blocks/spider-slider' ),
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/blocks/spider-contents-slider/style.css' )
 );
 

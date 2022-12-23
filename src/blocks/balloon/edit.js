@@ -44,14 +44,11 @@ export default function ( { attributes, setAttributes, className } ) {
 		);
 	};
 
-	const balloonFigureStyles = {
-		borderColor: avatarBorderColor || undefined,
-	};
-
-	const bodyStyles = {
-		backgroundColor: backgroundColor || undefined,
-		borderColor: backgroundColor || undefined,
-		color: textColor || undefined,
+	const styles = {
+		'--smb-balloon--background-color': backgroundColor || undefined,
+		'--smb-balloon--border-color': backgroundColor || undefined,
+		'--smb-balloon--color': textColor || undefined,
+		'--smb-balloon--avatar-border-color': avatarBorderColor || undefined,
 	};
 
 	const classes = classnames( 'smb-balloon', {
@@ -61,6 +58,7 @@ export default function ( { attributes, setAttributes, className } ) {
 
 	const blockProps = useBlockProps( {
 		className: classes,
+		style: styles,
 	} );
 
 	const onChangeAvatarBorderColor = ( value ) =>
@@ -167,10 +165,7 @@ export default function ( { attributes, setAttributes, className } ) {
 
 			<div { ...blockProps }>
 				<div className="smb-balloon__person">
-					<div
-						className="smb-balloon__figure"
-						style={ balloonFigureStyles }
-					>
+					<div className="smb-balloon__figure">
 						<MediaUpload
 							onSelect={ onSelectImage }
 							type="image"
@@ -192,7 +187,6 @@ export default function ( { attributes, setAttributes, className } ) {
 					multiline="p"
 					value={ balloonBody }
 					onChange={ onChangeBalloonBody }
-					style={ bodyStyles }
 				/>
 			</div>
 		</>

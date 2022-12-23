@@ -2,6 +2,7 @@
 
 .smb-price-menu {
 	--smb-price-menu--border-color: var(--_lighter-color-gray);
+	--smb-price-menu--item-padding: var(--_padding-1);
 
 	border-top: 1px solid var(--smb-price-menu--border-color);
 
@@ -12,7 +13,7 @@
 
 	&__item {
 		border-bottom: 1px solid var(--smb-price-menu--border-color);
-		padding: var(--_padding-1) 0;
+		padding: var(--smb-price-menu--item-padding) 0;
 
 		@include _media-min(md) {
 			display: flex;

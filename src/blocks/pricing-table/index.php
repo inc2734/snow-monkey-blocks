@@ -8,7 +8,7 @@
 wp_register_style(
 	'snow-monkey-blocks/pricing-table',
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/blocks/pricing-table/style.css',
-	array(),
+	array( 'snow-monkey-blocks/btn' ),
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/blocks/pricing-table/style.css' )
 );
 

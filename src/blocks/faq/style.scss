@@ -3,21 +3,15 @@
 .smb-faq {
 	--smb-faq--border-color: var(--_lighter-color-gray);
 	--smb-faq--label-color: initial;
+	--smb-faq--item-gap: var(--_margin1);
+	--smb-faq--item-question-label-color: currentColor;
+	--smb-faq--item-answer-label-color: currentColor;
 
-	&__body {
-		> * + * {
-			margin-top: var(--_margin1);
-		}
-	}
+	border-top: 1px solid var(--smb-faq--border-color);
 
 	&__item {
 		border-bottom: 1px solid var(--smb-faq--border-color);
-		padding-bottom: var(--_padding1);
-
-		&:first-child {
-			border-top: 1px solid var(--smb-faq--border-color);
-			padding-top: var(--_padding1);
-		}
+		padding: var(--_padding1) 0;
 
 		&__question,
 		&__answer {
@@ -27,10 +21,9 @@
 
 			&__label {
 				flex: 0 0 0%;
-				margin-right: var(--_margin1);
+				margin-right: var(--smb-faq--item-gap);
 				@include _set-font-size-level(3);
 				font-weight: normal;
-				color: var(--smb-faq--label-color);
 				min-width: .8em;
 			}
 
@@ -41,8 +34,18 @@
 		}
 
 		&__question {
-			margin: 0 0 var(--_margin1);
+			margin: 0 0 var(--smb-faq--item-gap);
 			font-weight: bold;
+
+			&__label {
+				color: var(--smb-faq--item-question-label-color);
+			}
+		}
+
+		&__answer {
+			&__label {
+				color: var(--smb-faq--item-answer-label-color);
+			}
 		}
 	}
 }

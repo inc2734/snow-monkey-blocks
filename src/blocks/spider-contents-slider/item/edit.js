@@ -25,15 +25,8 @@ export default function ( {
 	isSelected,
 	clientId,
 } ) {
-	const {
-		sliderId,
-		contentPosition,
-		contentPadding,
-		border,
-		boxShadow,
-		style,
-		backgroundColor,
-	} = attributes;
+	const { sliderId, contentPosition, contentPadding, border, boxShadow } =
+		attributes;
 
 	const ref = useRef();
 
@@ -76,8 +69,24 @@ export default function ( {
 			!! contentPadding,
 	} );
 
+	const styles = {
+		'--smb-spider-contents-slider--slide-border-width':
+			( border.color && border.width ) || undefined,
+		'--smb-spider-contents-slider--slide-border-color':
+			border.color || undefined,
+		'--smb-spider-contents-slider--slide-border-radius':
+			border.radius || undefined,
+		'--smb-spider-contents-slider--slide-box-shadow': !! boxShadow.color
+			? `0 0 ${ boxShadow.blur }px ${ hexToRgba(
+					boxShadow.color,
+					boxShadow.opacity
+			  ) }`
+			: undefined,
+	};
+
 	const blockProps = useBlockProps( {
 		className: classes,
+		style: styles,
 	} );
 
 	const innerBlocksProps = useInnerBlocksProps(
@@ -90,22 +99,6 @@ export default function ( {
 				: InnerBlocks.ButtonBlockAppender,
 		}
 	);
-
-	const newStyles = {
-		backgroundColor:
-			( ! backgroundColor && style?.color?.background ) || undefined,
-		background:
-			( ! backgroundColor && style?.color?.gradient ) || undefined,
-		borderColor: border.color || undefined,
-		borderWidth: ( border.color && border.width ) || undefined,
-		borderRadius: border.radius || undefined,
-		boxShadow: !! boxShadow.color
-			? `0 0 ${ boxShadow.blur }px ${ hexToRgba(
-					boxShadow.color,
-					boxShadow.opacity
-			  ) }`
-			: undefined,
-	};
 
 	const onChangeContentPadding = ( value ) =>
 		setAttributes( {
@@ -228,7 +221,6 @@ export default function ( {
 				data-content-position={
 					contentPosition?.replace( ' ', '-' ) || undefined
 				}
-				style={ newStyles }
 			>
 				<div { ...innerBlocksProps } ref={ ref } />
 			</div>

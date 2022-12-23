@@ -48,21 +48,18 @@ export default function ( { attributes, className } ) {
 		[ `smb-evaluation-star--title-${ titleAlign }` ]: 'left' !== titleAlign,
 	} );
 
+	const styles = {
+		'--smb-evaluation-star--icon-color': iconColor || undefined,
+		'--smb-evaluation-star--numeric-color': numericColor || undefined,
+	};
+
 	const bodyClasses = classnames(
 		'smb-evaluation-star__numeric',
 		`smb-evaluation-star__numeric--${ numericAlign }`
 	);
 
-	const evaluationStarBodyStyles = {
-		color: numericColor || undefined,
-	};
-
-	const evaluationStarIconStyles = {
-		color: iconColor || undefined,
-	};
-
 	return (
-		<div { ...useBlockProps.save( { className: classes } ) }>
+		<div { ...useBlockProps.save( { className: classes, style: styles } ) }>
 			{ ! RichText.isEmpty( title ) && (
 				<RichText.Content
 					tagName="span"
@@ -73,17 +70,11 @@ export default function ( { attributes, className } ) {
 
 			<div className="smb-evaluation-star__body">
 				{ isDisplayNumeric && (
-					<span
-						className={ bodyClasses }
-						style={ evaluationStarBodyStyles }
-					>
+					<span className={ bodyClasses }>
 						{ sprintf( '%.1f', Number( evaluationValue ) ) }
 					</span>
 				) }
-				<div
-					className="smb-evaluation-star__icon"
-					style={ evaluationStarIconStyles }
-				>
+				<div className="smb-evaluation-star__icon">
 					{ generateIcons() }
 				</div>
 			</div>

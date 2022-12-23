@@ -1,15 +1,17 @@
 @import '../../css/core/block';
 
 .smb-list {
+	--smb-list--gap: var(--_margin-2);
+
 	ul {
 		list-style: none !important;
 
+		> * + * {
+			margin-top: var(--smb-list--gap);
+		}
+
 		> li {
 			position: relative;
-
-			& + li {
-				margin-top: var(--_margin-2);
-			}
 
 			.smb-list__icon {
 				position: absolute;

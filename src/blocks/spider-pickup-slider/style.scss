@@ -1,12 +1,14 @@
 @import '../../css/core/block';
 
 .smb-spider-pickup-slider {
+	--smb-spider-pickup-slider--background-color: var(--wp--preset--color--black);
+	--smb-spider-pickup-slider--mask-color: rgba(0, 0, 0, .15);
 	--smb-spider-pickup-slider--dots-gap: var(--_margin-2);
 
 	.spider__slide {
 		position: relative;
 		overflow: hidden;
-		background-color: var(--wp--preset--color--black);
+		background-color: var(--smb-spider-pickup-slider--background-color);
 		max-height: 80vh;
 
 		@include _media-min(lg) {
@@ -28,7 +30,7 @@
 			right: 0;
 			bottom: 0;
 			left: 0;
-			background-color: rgba(0, 0, 0, .15);
+			background-color: var(--smb-spider-pickup-slider--mask-color);
 		}
 
 		.spider__figure {
@@ -74,35 +76,6 @@
 			}
 		}
 	}
-
-	// .spider__dots[data-thumbnails="true"] {
-	// 	flex-wrap: wrap;
-	// 	justify-content: flex-start;
-	// 	gap: var(--_margin-1);
-
-	// 	.spider__dot {
-	// 		position: relative;
-	// 		margin: 0;
-	// 		flex: 0 0 25%;
-	// 		max-width: 25%;
-
-	// 		&[data-has-thumbnail="false"] {
-	// 			&::before {
-	// 				content: '';
-	// 				position: absolute;
-	// 				top: 0;
-	// 				right: 0;
-	// 				bottom: 0;
-	// 				left: 0;
-	// 				background-color: var(--_lighter-color-gray);
-	// 			}
-	// 		}
-
-	// 		img {
-	// 			position: relative;
-	// 		}
-	// 	}
-	// }
 
 	&__item {
 		position: absolute;

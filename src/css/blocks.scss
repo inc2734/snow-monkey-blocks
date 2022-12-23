@@ -13,11 +13,7 @@
 
 			@for $i from 1 through 6 {
 				&[data#{ $prefix }-columns="#{ $i }"] {
-					> .#{ $_prefix }c-row__col {
-						margin-right: 0;
-						margin-left: 0;
-						@include _row__col--width(1 / $i * 100%);
-					}
+					--_item-width: #{ 1 / $i * 100% };
 				}
 			}
 		}

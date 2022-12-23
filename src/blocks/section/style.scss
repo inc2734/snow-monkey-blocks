@@ -1,15 +1,41 @@
 @import '../../css/core/block';
 
 .smb-section {
+	--smb-section--color: currentColor;
+	--smb-section--padding: var(--_padding3);
 	--smb-section--subtitle-color: inherit;
+	--smb-section--contents-wrapper-width: auto;
+	--smb-section--background-color: transparent;
+	--smb-section--background-image: initial;
+	--smb-section--background-transform: initial;
+	--smb-section--background-top: 0;
+	--smb-section--background-right: 0;
+	--smb-section--background-bottom: 0;
+	--smb-section--background-left: 0;
+	--smb-section--background-texture-image: initial;
+	--smb-section--background-texture-opacity: 1
+	--smb-section--fixed-background-color: transparent;
+	--smb-section--fixed-background-image: initial;
+	--smb-section--fixed-background-texture-image: initial;
+	--smb-section--fixed-background-texture-opacity: 1;
+	--smb-section--dividers-top: 0%;
+	--smb-section--dividers-bottom: 0%;
+	--smb-section--background-text-color: inherit;
+	--smb-section--background-text-opacity: 0.2;
+	--smb-section--background-text-font-size: inherit;
+	--smb-section--background-text-line-height: inherit;
+	--smb-section--background-text-top: initial;
+	--smb-section--background-text-right: initial;
+	--smb-section--background-text-bottom: initial;
+	--smb-section--background-text-left: initial;
 
 	position: relative;
 	display: flex;
 	align-items: center;
-	padding: var(--_padding3) 0;
+	color: var(--smb-section--color);
+	padding: var(--smb-section--padding) 0;
 	overflow: hidden;
 
-	&__background,
 	&__fixed-background,
 	&__background-text {
 		position: absolute;
@@ -31,6 +57,32 @@
 		}
 	}
 
+	&__background {
+		position: absolute;
+		top: var(--smb-section--background-top);
+		right: var(--smb-section--background-right);
+		bottom: var(--smb-section--background-bottom);
+		left: var(--smb-section--background-left);
+		background-color: var(--smb-section--background-color);
+		background-image: var(--smb-section--background-image);
+		transform: var(--smb-section--background-transform);
+	}
+
+	&__background__texture {
+		background-image: var(--smb-section--background-texture-image);
+		opacity: var(--smb-section--background-texture-opacity);
+	}
+
+	&__fixed-background {
+		background-color: var(--smb-section--fixed-background-color);
+		background-image: var(--smb-section--fixed-background-image);
+	}
+
+	&__fixed-background__texture {
+		background-image: var(--smb-section--fixed-background-texture-image);
+		opacity: var(--smb-section--fixed-background-texture-opacity);
+	}
+
 	&__background-text {
 		overflow: hidden;
 		position: relative;
@@ -40,14 +92,22 @@
 			position: absolute;
 			font-weight: bold;
 			max-width: 100%;
+			color: var(--smb-section--background-text-color);
+			opacity: var(--smb-section--background-text-opacity);
+			font-size: var(--smb-section--background-text-font-size);
+			line-height: var(--smb-section--background-text-line-height);
+			top: var(--smb-section--background-text-top);
+			right: var(--smb-section--background-text-right);
+			bottom: var(--smb-section--background-text-bottom);
+			left: var(--smb-section--background-text-left);
 		}
 	}
 
 	&__dividers {
 		position: absolute;
-		top: 0;
+		top: var(--smb-section--dividers-top);
 		right: 0;
-		bottom: 0;
+		bottom: var(--smb-section--dividers-bottom);
 		left: 0;
 		overflow: hidden;
 	}
@@ -105,9 +165,7 @@
 			position: relative;
 		}
 
-		&.is-content-justification-left,
-		&.is-content-justification-center,
-		&.is-content-justification-right {
+		&[class*="is-content-justification-"] {
 			> .#{ $_prefix }c-container {
 				display: flex;
 
@@ -117,7 +175,6 @@
 				}
 			}
 		}
-
 
 		&.is-content-justification-left {
 			> .#{ $_prefix }c-container {
@@ -142,6 +199,11 @@
 		margin-right: auto;
 		margin-left: auto;
 		max-width: 100%;
+		width: var(--smb-section--contents-wrapper-width);
+
+		> * + * {
+			margin-top: var(--_margin2);
+		}
 
 		&--left,
 		&--center,
@@ -186,13 +248,18 @@
 			text-align: inherit;
 		}
 
-		& + .smb-section__body {
-			margin-top: var(--_margin2);
+		> * + *,
+		> .#{ $_prefix }c-container > * + * {
+			margin-top: var(--_margin-2);
+		}
+
+		> * + .smb-section__lede-wrapper,
+		> * + .smb-section__lede {
+			margin-top: var(--_margin1);
 		}
 	}
 
 	&__subtitle {
-		margin-bottom: var(--_margin-2);
 		color: var(--smb-section--subtitle-color);
 		@include _set-font-size-level(-2);
 		font-weight: bold;
@@ -200,11 +267,6 @@
 
 	&__title {
 		@include _set-font-size-level(4);
-
-		& + .smb-section__lede-wrapper,
-		& + .smb-section__lede {
-			margin-top: var(--_margin1);
-		}
 	}
 
 	&__lede-wrapper {

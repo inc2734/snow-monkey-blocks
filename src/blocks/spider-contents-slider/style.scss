@@ -1,12 +1,26 @@
 @import '../../css/core/block';
 
 .smb-spider-contents-slider {
+	--smb-spider-contents-slider--slide-background-color: transparent;
+	--smb-spider-contents-slider--slide-background-image: initial;
+	--smb-spider-contents-slider--slide-color: currentColor;
+	--smb-spider-contents-slider--slide-border-width: 0px;
+	--smb-spider-contents-slider--slide-border-type: solid;
+	--smb-spider-contents-slider--slide-border-color: transparent;
+	--smb-spider-contents-slider--slide-border-radius: 0px;
+	--smb-spider-contents-slider--slide-box-shadow: none;
+
 	overflow: hidden;
 
 	> .spider {
 		> .spider__canvas {
 			> .spider__slide {
-				border: 0 solid transparent;
+				background-color: var(--smb-spider-contents-slider--slide-background-color);
+				background-image: var(--smb-spider-contents-slider--slide-background-image);
+				border: var(--smb-spider-contents-slider--slide-border-width) var(--smb-spider-contents-slider--slide-border-type) var(--smb-spider-contents-slider--slide-border-color);
+				border-radius: var(--smb-spider-contents-slider--slide-border-radius);
+				box-shadow: var(--smb-spider-contents-slider--slide-box-shadow);
+				color: var(--smb-spider-contents-slider--slide-color);
 
 				&[data-content-position] {
 					> .smb-spider-contents-slider__item {

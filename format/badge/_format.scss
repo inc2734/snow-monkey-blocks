@@ -1,11 +1,13 @@
 .smb-badge {
+	--smb-badge--border-radius: var(--_global--border-radius);
+
 	display: inline-flex;
 	align-items: center;
 	color: var(--wp--preset--color--white);
 	padding: 0 .5em;
 	vertical-align: middle;
 	font-size: calc(1em - 2px);
-	border-radius: var(--_border-radius) !important;
+	border-radius: var(--smb-badge--border-radius) !important;
 	font-weight: bold;
 	transform: translateY(-2px);
 	white-space: nowrap;

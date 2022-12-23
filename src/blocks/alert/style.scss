@@ -3,9 +3,11 @@
 $alert-color: #fff9e6 !default;
 
 .smb-alert {
+  --smb-alert--border-radius: var(--_global--border-radius);
 	--smb-alert--background-color: #{ $alert-color };
 	--smb-alert--border-color: #{ darken($alert-color, 5%) };
 	--smb-alert--color: #{ darken(desaturate($alert-color, 60%), 70%) };
+	--smb-alert--padding: var(--_padding1);
 	--smb-alert--icon-color: #{ darken($alert-color, 40%) };
 
 	--smb-alert--warning-background-color: #{ adjust-hue($alert-color, -30deg) };
@@ -26,9 +28,9 @@ $alert-color: #fff9e6 !default;
 	@include _alert();
 	background-color: var(--smb-alert--background-color);
 	border: 1px solid var(--smb-alert--border-color);
-	border-radius: var(--_border-radius);
+	border-radius: var(--smb-alert--border-radius);
 	color: var(--smb-alert--color);
-	padding: var(--_padding1);
+	padding: var(--smb-alert--padding);
 
 	.svg-inline--fa {
 		color: var(--smb-alert--icon-color);

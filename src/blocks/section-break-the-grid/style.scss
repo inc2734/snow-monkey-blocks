@@ -1,8 +1,6 @@
 @import '../../css/core/block';
 
 .smb-section-break-the-grid {
-	position: relative;
-
 	// @deprecated
 	$deprecatedImageSizes: (
 		140: 'l',
@@ -92,6 +90,22 @@
 		80: 'b80',
 		100: 'b100',
 	);
+
+	--smb-section-break-the-grid--shadow-color: transparent;
+	--smb-section-break-the-grid--shadow-transform: translate(5%, 5%);
+	--smb-section-break-the-grid--content-background-color: transparent;
+	--smb-section-break-the-grid--mask-color: transparent;
+	--smb-section-break-the-grid--mask-opacity: 1;
+
+	position: relative;
+
+	&__content {
+		background-color: var(--smb-section-break-the-grid--content-background-color);
+
+		> * + * {
+			margin-top: var(--_margin2);
+		}
+	}
 
 	@include _media-min(lg) {
 		// deprecated
@@ -334,6 +348,7 @@
 		right: 0;
 		bottom: 0;
 		left: 0;
+		background-color: var(--smb-section-break-the-grid--mask-color);
 	}
 
 	&__figure {
@@ -342,6 +357,11 @@
 		> img {
 			position: relative;
 			width: 100%;
+		}
+
+		> img,
+		> video {
+			opacity: var(--smb-section-break-the-grid--mask-opacity);
 		}
 	}
 
@@ -360,16 +380,6 @@
 		&--p-l {
 			padding: var(--_padding2);
 		}
-
-		// @each $key, $value in $contentPaddings {
-		// 	&--p-#{ $value } {
-		// 		@include _padding($key / 2);
-
-		// 		@include _media-min(md) {
-		// 			@include _padding($key);
-		// 		}
-		// 	}
-		// }
 
 		// deprecated
 		@each $key, $value in $deprecatedContentSizes {
@@ -437,6 +447,8 @@
 		right: 0;
 		bottom: 0;
 		left: 0;
+		background-color: var(--smb-section-break-the-grid--shadow-color);
+		transform: var(--smb-section-break-the-grid--shadow-transform);
 	}
 
 	&--right,
@@ -649,22 +661,12 @@
 								@each $key, $value in $deprecatedContentHorizontalPositions {
 									&--horizontal-#{ $value } {
 										margin-bottom: calc(-1 * var(--_margin2) * #{ $key } / 10);
-										// @include _margin-bottom(-1.5 * $key / 10);
-
-										// @include _media-min(md) {
-										// 	@include _margin-bottom(-2 * $key / 10);
-										// }
 									}
 								}
 
 								@each $key, $value in $contentHorizontalPositions {
 									&--horizontal-#{ $value } {
 										margin-bottom: calc(-1 * var(--_margin2) * #{ $key } / 10);
-										// @include _margin-bottom(-1.5 * $key / 10);
-
-										// @include _media-min(md) {
-										// 	@include _margin-bottom(-2 * $key / 10);
-										// }
 									}
 								}
 							}
@@ -688,22 +690,12 @@
 								@each $key, $value in $deprecatedContentHorizontalPositions {
 									&--horizontal-#{ $value } {
 										margin-top: calc(-1 * var(--_margin2) * #{ $key } / 10);
-										// @include _margin-top(-1.5 * $key / 10);
-
-										// @include _media-min(md) {
-										// 	@include _margin-top(-2 * $key / 10);
-										// }
 									}
 								}
 
 								@each $key, $value in $contentHorizontalPositions {
 									&--horizontal-#{ $value } {
 										margin-top: calc(-1 * var(--_margin2) * #{ $key } / 10);
-										// @include _margin-top(-1.5 * $key / 10);
-
-										// @include _media-min(md) {
-										// 	@include _margin-top(-2 * $key / 10);
-										// }
 									}
 								}
 							}

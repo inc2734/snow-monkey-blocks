@@ -4,12 +4,32 @@
 	--smb-items--style--boundary-line--border-color: var(--_lighter-color-gray);
 	--smb-items--style--border--border-color: var(--_lighter-color-gray);
 
+	--smb-items--banner--color: var(--wp--preset--color--white);
+	--smb-items--banner--mask-color: var(--wp--preset--color-black);
+	--smb-items--banner--mask-image: initial;
+	--smb-items--banner--mask-opacity: 1;
+
+	/*
+	## Block link
+
+	## Standard
+
+	"btnBackgroundColor":
+	"btnBackgroundGradientColor":
+	"btnTextColor":
+	"btnBorderRadius":
+	*/
+
 	&--glue {
 		> .#{ $_prefix }c-row {
-			margin-bottom: var(--_margin1);
+			--_gap: var(--_margin1);
+
+			margin-right: 0;
+			margin-left: 0;
 
 			> .#{ $_prefix }c-row__col {
-				margin-bottom: var(--_margin1);
+				padding-right: 0;
+				padding-left: 0;
 			}
 		}
 	}
@@ -126,7 +146,7 @@
 .smb-items__banner {
 	position: relative;
 	overflow: hidden;
-	color: var(--wp--preset--color--white);
+	color: var(--smb-items--banner--color);
 
 	@include _hover() {
 		.smb-items__banner__figure {
@@ -265,11 +285,13 @@
 			width: 100% !important;
 			object-fit: cover;
 			object-position: 50% 50%;
+			opacity: var(--smb-items--banner--mask-opacity);
 		}
 
 		&__dummy {
 			position: relative;
 			background-color: var(--_color-gray);
+			opacity: var(--smb-items--banner--mask-opacity);
 
 			&::before {
 				content: '';
@@ -284,7 +306,8 @@
 			right: 0;
 			bottom: 0;
 			left: 0;
-			background-color: var(--wp--preset--color-black);
+			background-color: var(--smb-items--banner--mask-color);
+			background-image: var(--smb-items--banner--mask-image);
 		}
 	}
 
@@ -329,17 +352,13 @@
 	overflow: hidden; // Remove the border of the leftmost item.
 
 	> .c-row {
-		margin-left: -1px;
-
 		&--margin {
-			margin-bottom: calc(-1 * var(--_margin2));
-			margin-right: calc(-1 * var(--_margin2) * .5);
-			margin-left: calc(-1 * var(--_margin2) * .5);
+			margin-right: calc(-1 * var(--_gap));
+			margin-left: calc(-1 * var(--_gap));
 
 			> .c-row__col {
-				margin-bottom: var(--_margin2);
-				padding-right: calc(var(--_margin2) * .5);
-				padding-left: calc(var(--_margin2) * .5);
+				padding-right: var(--_gap);
+				padding-left: var(--_gap);
 			}
 		}
 
@@ -354,13 +373,15 @@
 	overflow: hidden; // Remove the border of the leftmost/bottommost item.
 
 	> .c-row {
+		margin: 0;
+
 		&--margin {
 			margin-right: -1px;
 			margin-bottom: -1px;
 			margin-left: 0;
 
 			> .c-row__col {
-				padding: var(--_padding1);
+				padding: var(--_gap);
 			}
 		}
 

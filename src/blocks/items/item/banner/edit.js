@@ -112,16 +112,10 @@ export default function ( {
 	);
 
 	const styles = {
-		color: textColor || undefined,
-	};
-
-	const imgStyles = {
-		opacity: maskOpacity,
-	};
-
-	const maskStyles = {
-		backgroundColor: maskColor || undefined,
-		backgroundImage: maskGradientColor || undefined,
+		'--smb-items--banner--color': textColor || undefined,
+		'--smb-items--banner--mask-color': maskColor || undefined,
+		'--smb-items--banner--mask-image': maskGradientColor || undefined,
+		'--smb-items--banner--mask-opacity': String( maskOpacity ),
 	};
 
 	const ref = useRef();
@@ -372,23 +366,16 @@ export default function ( {
 				<div className={ bannerClasses } style={ styles }>
 					<div className="smb-items__banner__figure">
 						{ 1 > maskOpacity && (
-							<div
-								className="smb-items__banner__figure__mask"
-								style={ maskStyles }
-							/>
+							<div className="smb-items__banner__figure__mask" />
 						) }
 						{ !! imageURL ? (
 							<img
 								src={ imageURL }
 								alt={ imageAlt }
 								className={ `wp-image-${ imageID }` }
-								style={ imgStyles }
 							/>
 						) : (
-							<div
-								className="smb-items__banner__figure__dummy"
-								style={ imgStyles }
-							/>
+							<div className="smb-items__banner__figure__dummy" />
 						) }
 					</div>
 

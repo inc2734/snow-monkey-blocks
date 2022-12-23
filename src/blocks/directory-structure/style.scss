@@ -2,17 +2,22 @@
 
 .smb-directory-structure {
 	--smb-directory-structure--background-color: var(--_lightest-color-gray);
+	--smb-directory-structure--padding: var(--_padding1);
+	--smb-directory-structure--gap: var(--_margin-2);
+	--smb-directory-structure--icon-color: currentColor;
 
 	background-color: var(--smb-directory-structure--background-color);
-	padding: var(--_padding1);
+	padding: var(--smb-directory-structure--padding);
 	overflow-x: auto;
 	overflow-y: hidden;
 
 	> * + * {
-		margin-top: var(--_margin-2);
+		margin-top: var(--smb-directory-structure--gap);
 	}
 
 	&__item {
+		--smb-directory-structure--icon-color: currentColor;
+
 		p {
 			display: flex;
 			flex-wrap: nowrap;
@@ -21,12 +26,12 @@
 	}
 
 	.fa-fw {
+		color: var(--smb-directory-structure--icon-color);
 		width: auto;
 	}
 
 	&__item__name {
 		margin-left: .5em;
-		padding-right: var(--_padding1);
 		white-space: nowrap;
 	}
 
@@ -34,7 +39,7 @@
 		margin-left: 1.5em;
 
 		> * {
-			margin-top: var(--_margin-2);
+			margin-top: var(--smb-directory-structure--gap);
 		}
 	}
 }

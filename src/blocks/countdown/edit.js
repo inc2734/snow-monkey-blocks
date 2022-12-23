@@ -22,16 +22,14 @@ export default function ( { attributes, setAttributes, className } ) {
 		[ `align-${ alignment }` ]: !! alignment,
 	} );
 
-	const numericStyles = {
-		color: numericColor || undefined,
-	};
-
-	const clockStyles = {
-		color: clockColor || undefined,
+	const styles = {
+		'--smb-countdown--numeric-color': numericColor || undefined,
+		'--smb-countdown--clock-color': clockColor || undefined,
 	};
 
 	const blockProps = useBlockProps( {
 		className: classes,
+		style: styles,
 	} );
 
 	const onChangeAlignment = ( value ) =>
@@ -95,58 +93,34 @@ export default function ( { attributes, setAttributes, className } ) {
 			<div { ...blockProps }>
 				<ul className={ listClasses } data-time={ countdownTime }>
 					<li className="smb-countdown__list-item smb-countdown__list-item__days">
-						<span
-							className="smb-countdown__list-item__numeric"
-							style={ numericStyles }
-						>
+						<span className="smb-countdown__list-item__numeric">
 							-
 						</span>
-						<span
-							className="smb-countdown__list-item__clock"
-							style={ clockStyles }
-						>
+						<span className="smb-countdown__list-item__clock">
 							{ __( 'Days', 'snow-monkey-blocks' ) }
 						</span>
 					</li>
 					<li className="smb-countdown__list-item smb-countdown__list-item__hours">
-						<span
-							className="smb-countdown__list-item__numeric"
-							style={ numericStyles }
-						>
+						<span className="smb-countdown__list-item__numeric">
 							--
 						</span>
-						<span
-							className="smb-countdown__list-item__clock"
-							style={ clockStyles }
-						>
+						<span className="smb-countdown__list-item__clock">
 							{ __( 'Hours', 'snow-monkey-blocks' ) }
 						</span>
 					</li>
 					<li className="smb-countdown__list-item smb-countdown__list-item__minutes">
-						<span
-							className="smb-countdown__list-item__numeric"
-							style={ numericStyles }
-						>
+						<span className="smb-countdown__list-item__numeric">
 							--
 						</span>
-						<span
-							className="smb-countdown__list-item__clock"
-							style={ clockStyles }
-						>
+						<span className="smb-countdown__list-item__clock">
 							{ __( 'Minutes', 'snow-monkey-blocks' ) }
 						</span>
 					</li>
 					<li className="smb-countdown__list-item smb-countdown__list-item__seconds">
-						<span
-							className="smb-countdown__list-item__numeric"
-							style={ numericStyles }
-						>
+						<span className="smb-countdown__list-item__numeric">
 							--
 						</span>
-						<span
-							className="smb-countdown__list-item__clock"
-							style={ clockStyles }
-						>
+						<span className="smb-countdown__list-item__clock">
 							{ __( 'Seconds', 'snow-monkey-blocks' ) }
 						</span>
 					</li>

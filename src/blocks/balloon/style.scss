@@ -1,9 +1,12 @@
 @import '../../css/core/block';
 
 .smb-balloon {
-	--smb-balloon--avatar-border-color: var(--_lighter-color-gray);
+	--smb-balloon--border-radius: var(--_global--border-radius);
 	--smb-balloon--background-color: var(--_lightest-color-gray);
 	--smb-balloon--border-color: var(--_lightest-color-gray);
+	--smb-balloon--color: inherit;
+	--smb-balloon--avatar-border-color: var(--_lighter-color-gray);
+	--smb-balloon--gap: var(--_margin-1);
 
 	display: flex;
 	flex-direction: column;
@@ -16,13 +19,13 @@
 	}
 
 	&__person {
-		margin: 0 0 20px;
+		margin: 0 0 var(--smb-balloon--gap);
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
 
 		@include _media-min(md) {
-			margin: 0 20px 0 0;
+			margin: 0 var(--smb-balloon--gap) 0 0;
 			flex-direction: column;
 		}
 
@@ -57,13 +60,13 @@
 	&__body {
 		position: relative;
 		flex: 1 1 auto;
-		border-radius: var(--_border-radius);
+		border-radius: var(--smb-balloon--border-radius);
+		background-color: var(--smb-balloon--background-color);
+		border-color: var(--smb-balloon--border-color);
+		color: var(--smb-balloon--color);
 		overflow-wrap: break-word;
 		padding: var(--_padding1);
 		// @include _content();
-
-		background-color: var(--smb-balloon--background-color);
-		border-color: var(--smb-balloon--border-color);
 
 		&::after {
 			content: "";
@@ -100,7 +103,7 @@
 
 		.smb-balloon__person {
 			@include _media-min(md) {
-				margin: 0 0 0 20px;
+				margin: 0 0 0 var(--smb-balloon--gap);
 			}
 
 			.smb-balloon__name {

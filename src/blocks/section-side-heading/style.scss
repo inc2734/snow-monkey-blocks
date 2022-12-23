@@ -1,3 +1,5 @@
+@import '../../css/core/block';
+
 .smb-section-side-heading {
 	// @deprecated
 	&__subtitle,
@@ -15,5 +17,11 @@
 
 	&__lede-wrapper {
 		justify-content: flex-start;
+	}
+
+	:where(.smb-section__contents-wrapper > .#{ $_prefix }c-row > * + *) {
+		@include _media-max(sm) {
+			margin-top: var(--_margin2);
+		}
 	}
 }

@@ -41,6 +41,7 @@ import { Edit as Header } from '../section/components/header';
 
 import {
 	PanelSectionBackgroundTextSettings,
+	generateStylesForSectionBackground,
 	SectionBackground,
 } from '../section/components/background';
 
@@ -256,73 +257,34 @@ export default function ( {
 			? `${ smFocalPoint.x * 100 }% ${ smFocalPoint.y * 100 }%`
 			: undefined;
 
-	const sectionStyles = {
-		color: textColor || undefined,
-	};
-
-	const maskStyles = {};
-	if ( maskColor || maskGradientColor ) {
-		maskStyles.backgroundColor = maskColor;
-		maskStyles.backgroundImage = maskGradientColor;
-	}
-
-	const lgVideoStyles = {
-		opacity: maskOpacity,
-		objectPosition: lgPointValue,
-	};
-
-	const norepeatableLgImageStyles = {
-		opacity: maskOpacity,
-		objectPosition: lgPointValue,
-	};
-
-	const repeatableLgImageStyles = {
-		opacity: maskOpacity,
-		backgroundImage: `url( ${ lgImageURL } )`,
-		backgroundPosition: lgPointValue,
-	};
-
-	const mdVideoStyles = {
-		opacity: maskOpacity,
-		objectPosition: mdPointValue,
-	};
-
-	const norepeatableMdImageStyles = {
-		opacity: maskOpacity,
-		objectPosition: mdPointValue,
-	};
-
-	const repeatableMdImageStyles = {
-		opacity: maskOpacity,
-		backgroundImage: `url( ${ mdImageURL } )`,
-		backgroundPosition: mdPointValue,
-	};
-
-	const smVideoStyles = {
-		opacity: maskOpacity,
-		objectPosition: smPointValue,
-	};
-
-	const norepeatableSmImageStyles = {
-		opacity: maskOpacity,
-		objectPosition: smPointValue,
-	};
-
-	const repeatableSmImageStyles = {
-		opacity: maskOpacity,
-		backgroundImage: `url( ${ smImageURL } )`,
-		backgroundPosition: smPointValue,
-	};
-
-	const innerStyles = {};
-
-	const contentsWrapperStyles = {
-		width: !! contentsMaxWidth && ! isSlim ? contentsMaxWidth : undefined,
+	const styles = {
+		'--smb-section--color': textColor || undefined,
+		'--smb-section--contents-wrapper-width':
+			!! contentsMaxWidth && ! isSlim ? contentsMaxWidth : undefined,
+		'--smb-section-with-bgimage--mask-color': maskColor || undefined,
+		'--smb-section-with-bgimage--mask-image':
+			maskGradientColor || undefined,
+		'--smb-section-with-bgimage--mask-opacity': String( maskOpacity ),
+		'--smb-section-with-bgimage--lg-media-position': lgPointValue,
+		'--smb-section-with-bgimage--lg-repeatable-image': !! lgImageURL
+			? `url(${ lgImageURL })`
+			: undefined,
+		'--smb-section-with-bgimage--md-media-position': mdPointValue,
+		'--smb-section-with-bgimage--md-repeatable-image': !! mdImageURL
+			? `url(${ mdImageURL })`
+			: undefined,
+		'--smb-section-with-bgimage--sm-media-position': smPointValue,
+		'--smb-section-with-bgimage--sm-repeatable-image': !! smImageURL
+			? `url(${ smImageURL })`
+			: undefined,
+		...generateStylesForSectionBackground( {
+			backgroundText,
+		} ),
 	};
 
 	const blockProps = useBlockProps( {
 		className: classes,
-		style: sectionStyles,
+		style: styles,
 	} );
 
 	const innerBlocksProps = useInnerBlocksProps(
@@ -979,23 +941,16 @@ export default function ( {
 						) }
 					>
 						{ hasMask && (
-							<div
-								className="smb-section-with-bgimage__mask"
-								style={ maskStyles }
-							/>
+							<div className="smb-section-with-bgimage__mask" />
 						) }
 
 						{ isLgImage &&
 							( lgImageRepeat ? (
-								<div
-									className="smb-section-with-bgimage__repeatable-image"
-									style={ repeatableLgImageStyles }
-								>
+								<div className="smb-section-with-bgimage__repeatable-image">
 									<img
 										src={ lgImageURL }
 										alt={ lgImageAlt }
 										className={ `wp-image-${ lgImageID }` }
-										style={ norepeatableLgImageStyles }
 									/>
 								</div>
 							) : (
@@ -1003,7 +958,6 @@ export default function ( {
 									src={ lgImageURL }
 									alt={ lgImageAlt }
 									className={ `wp-image-${ lgImageID }` }
-									style={ norepeatableLgImageStyles }
 								/>
 							) ) }
 
@@ -1014,7 +968,6 @@ export default function ( {
 								autoPlay
 								muted
 								src={ lgImageURL }
-								style={ lgVideoStyles }
 							/>
 						) }
 					</div>
@@ -1028,23 +981,16 @@ export default function ( {
 						) }
 					>
 						{ hasMask && (
-							<div
-								className="smb-section-with-bgimage__mask"
-								style={ maskStyles }
-							/>
+							<div className="smb-section-with-bgimage__mask" />
 						) }
 
 						{ isMdImage &&
 							( mdImageRepeat ? (
-								<div
-									className="smb-section-with-bgimage__repeatable-image"
-									style={ repeatableMdImageStyles }
-								>
+								<div className="smb-section-with-bgimage__repeatable-image">
 									<img
 										src={ mdImageURL }
 										alt={ mdImageAlt }
 										className={ `wp-image-${ mdImageID }` }
-										style={ norepeatableMdImageStyles }
 									/>
 								</div>
 							) : (
@@ -1052,7 +998,6 @@ export default function ( {
 									src={ mdImageURL }
 									alt={ mdImageAlt }
 									className={ `wp-image-${ mdImageID }` }
-									style={ norepeatableMdImageStyles }
 								/>
 							) ) }
 
@@ -1063,7 +1008,6 @@ export default function ( {
 								autoPlay
 								muted
 								src={ mdImageURL }
-								style={ mdVideoStyles }
 							/>
 						) }
 					</div>
@@ -1077,23 +1021,16 @@ export default function ( {
 						) }
 					>
 						{ hasMask && (
-							<div
-								className="smb-section-with-bgimage__mask"
-								style={ maskStyles }
-							/>
+							<div className="smb-section-with-bgimage__mask" />
 						) }
 
 						{ isSmImage &&
 							( smImageRepeat ? (
-								<div
-									className="smb-section-with-bgimage__repeatable-image"
-									style={ repeatableSmImageStyles }
-								>
+								<div className="smb-section-with-bgimage__repeatable-image">
 									<img
 										src={ smImageURL }
 										alt={ smImageAlt }
 										className={ `wp-image-${ smImageID }` }
-										style={ norepeatableSmImageStyles }
 									/>
 								</div>
 							) : (
@@ -1101,7 +1038,6 @@ export default function ( {
 									src={ smImageURL }
 									alt={ smImageAlt }
 									className={ `wp-image-${ smImageID }` }
-									style={ norepeatableSmImageStyles }
 								/>
 							) ) }
 
@@ -1112,7 +1048,6 @@ export default function ( {
 								autoPlay
 								muted
 								src={ smImageURL }
-								style={ smVideoStyles }
 							/>
 						) }
 					</div>
@@ -1125,12 +1060,9 @@ export default function ( {
 					} }
 				/>
 
-				<div className={ innerClasses } style={ innerStyles }>
+				<div className={ innerClasses }>
 					<div className={ containerClasses }>
-						<div
-							className={ contentsWrapperClasses }
-							style={ contentsWrapperStyles }
-						>
+						<div className={ contentsWrapperClasses }>
 							<Header
 								isSelected={ isSelected }
 								hasContainer={

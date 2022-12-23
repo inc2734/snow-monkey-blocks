@@ -12,21 +12,15 @@ export default function ( { attributes, className } ) {
 
 	const classes = classnames( 'smb-faq__item', className );
 
-	const faqItemQestionLabelStyles = {
-		color: questionColor || undefined,
-	};
-
-	const faqItemAnswerLabelStyles = {
-		color: answerColor || undefined,
+	const styles = {
+		'--smb-faq--item-question-label-color': questionColor || undefined,
+		'--smb-faq--item-answer-label-color': answerColor || undefined,
 	};
 
 	return (
-		<div { ...useBlockProps.save( { className: classes } ) }>
+		<div { ...useBlockProps.save( { className: classes, style: styles } ) }>
 			<div className="smb-faq__item__question">
-				<div
-					className="smb-faq__item__question__label"
-					style={ faqItemQestionLabelStyles }
-				>
+				<div className="smb-faq__item__question__label">
 					{ questionLabel }
 				</div>
 				<RichText.Content
@@ -37,10 +31,7 @@ export default function ( { attributes, className } ) {
 			</div>
 
 			<div className="smb-faq__item__answer">
-				<div
-					className="smb-faq__item__answer__label"
-					style={ faqItemAnswerLabelStyles }
-				>
+				<div className="smb-faq__item__answer__label">
 					{ answerLabel }
 				</div>
 				<div

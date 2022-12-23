@@ -1,19 +1,12 @@
 @import '../../css/core/block';
 
 .smb-panels {
-	--smb-panels--background-color: var(--wp--preset--color--white);
-
-	> .#{ $_prefix }c-row {
-		&__col {
-			margin-top: 0;
-			margin-bottom: 0;
-		}
-	}
+	--smb-panels--item-background-color: var(--wp--preset--color--white);
 
 	&__item {
 		position: relative;
 		display: block;
-		background-color: var(---smb-panels--background-color);
+		background-color: var(---smb-panels--item-background-color);
 		text-decoration: none;
 		box-shadow: 0 0 35px 0 rgba(#000, .1);
 		@include _transition(all);

@@ -11,17 +11,14 @@ export default function ( { attributes, className } ) {
 
 	const classes = classnames( 'smb-step__item', className );
 
-	const itemNumberStyles = {
-		backgroundColor: numberColor || undefined,
+	const styles = {
+		'--smb-step--number-background-color': numberColor || undefined,
 	};
 
 	return (
-		<div { ...useBlockProps.save( { className: classes } ) }>
+		<div { ...useBlockProps.save( { className: classes, style: styles } ) }>
 			<div className="smb-step__item__title">
-				<div
-					className="smb-step__item__number"
-					style={ itemNumberStyles }
-				/>
+				<div className="smb-step__item__number" />
 				<RichText.Content tagName="span" value={ title } />
 			</div>
 

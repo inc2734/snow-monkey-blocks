@@ -108,6 +108,30 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 
 == Changelog ==
 
+= 18.0.0 =
+* Require sass-basis@18.0.0-beta5 or later.
+* Add some CSS vars.
+* [Balloon] Changed design to use CSS vars.
+* [Box] Changed design to use CSS vars.
+* [Button] Changed design to use CSS vars.
+* [Button box] Changed design to use CSS vars.
+* [Countdown] Changed design to use CSS vars.
+* [Directory structure] Changed design to use CSS vars.
+* [Evaluation star] Changed design to use CSS vars.
+* [Evaluation star] Refactoring CSS
+* [FAQ] Changed design to use CSS vars.
+* [FAQ] Refactoring CSS.
+* [Items] Changed design to use CSS vars.
+* [Pricing table] Changed design to use CSS vars.
+* [rating box] Changed design to use CSS vars.
+* [Section] Changed design to use CSS vars.
+* [Section (Break the grid)] Changed design to use CSS vars.
+* [Section (Side heading)] Changed design to use CSS vars.
+* [Section (Background image/video)] Changed design to use CSS vars.
+* [Contents slider] Changed design to use CSS vars.
+* [Slider] Changed design to use CSS vars.
+* [Step] Changed design to use CSS vars.
+
 = 17.2.1 =
 * [Child pages] Fixed a bug that prevented blocks from being selected on the editor.
 

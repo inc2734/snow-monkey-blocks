@@ -24,12 +24,13 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 
 	const classes = classnames( 'smb-step__item', className );
 
-	const itemNumberStyles = {
-		backgroundColor: numberColor || undefined,
+	const styles = {
+		'--smb-step--number-background-color': numberColor || undefined,
 	};
 
 	const blockProps = useBlockProps( {
 		className: classes,
+		style: styles,
 	} );
 
 	const innerBlocksProps = useInnerBlocksProps(
@@ -73,10 +74,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 
 			<div { ...blockProps }>
 				<div className="smb-step__item__title">
-					<div
-						className="smb-step__item__number"
-						style={ itemNumberStyles }
-					/>
+					<div className="smb-step__item__number" />
 
 					<RichText
 						tagName="span"

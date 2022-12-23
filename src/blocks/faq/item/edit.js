@@ -26,16 +26,14 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 
 	const classes = classnames( 'smb-faq__item', className );
 
-	const faqItemQestionLabelStyles = {
-		color: questionColor || undefined,
-	};
-
-	const faqItemAnswerLabelStyles = {
-		color: answerColor || undefined,
+	const styles = {
+		'--smb-faq--item-question-label-color': questionColor || undefined,
+		'--smb-faq--item-answer-label-color': answerColor || undefined,
 	};
 
 	const blockProps = useBlockProps( {
 		className: classes,
+		style: styles,
 	} );
 
 	const innerBlocksProps = useInnerBlocksProps(
@@ -140,10 +138,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 
 			<div { ...blockProps }>
 				<div className="smb-faq__item__question">
-					<div
-						className="smb-faq__item__question__label"
-						style={ faqItemQestionLabelStyles }
-					>
+					<div className="smb-faq__item__question__label">
 						{ questionLabel }
 					</div>
 					<RichText
@@ -159,10 +154,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 				</div>
 
 				<div className="smb-faq__item__answer">
-					<div
-						className="smb-faq__item__answer__label"
-						style={ faqItemAnswerLabelStyles }
-					>
+					<div className="smb-faq__item__answer__label">
 						{ answerLabel }
 					</div>
 

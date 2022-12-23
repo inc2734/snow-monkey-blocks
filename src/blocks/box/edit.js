@@ -48,10 +48,11 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		[ clientId ]
 	);
 
-	const boxStyles = {
-		color: textColor || undefined,
-		borderRadius: 0 <= borderRadius ? `${ borderRadius }px` : undefined,
-		boxShadow: !! boxShadow.color
+	const styles = {
+		'--smb-box--color': textColor || undefined,
+		'--smb-box--border-radius':
+			0 <= borderRadius ? `${ borderRadius }px` : undefined,
+		'--smb-box--box-shadow': !! boxShadow.color
 			? `${ boxShadow.horizontal }px ${ boxShadow.vertical }px ${
 					boxShadow.blur
 			  }px ${ boxShadow.spread }px ${ hexToRgba(
@@ -59,15 +60,12 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					boxShadow.opacity
 			  ) }`
 			: undefined,
-	};
-
-	const backgroundStyles = {
-		backgroundColor: backgroundColor || undefined,
-		backgroundImage: backgroundGradientColor || undefined,
-		borderColor: borderColor || undefined,
-		borderWidth: borderWidth || undefined,
-		borderRadius: 0 <= borderRadius ? `${ borderRadius }px` : undefined,
-		opacity,
+		'--smb-box--background-color': backgroundColor || undefined,
+		'--smb-box--background-image': backgroundGradientColor || undefined,
+		'--smb-box--background-opacity': opacity,
+		'--smb-box--border-color': borderColor || undefined,
+		'--smb-box--border-width':
+			0 <= borderWidth ? `${ borderWidth }px` : undefined,
 	};
 
 	const classes = classnames( 'smb-box', className, {
@@ -76,7 +74,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 
 	const blockProps = useBlockProps( {
 		className: classes,
-		style: boxStyles,
+		style: styles,
 	} );
 
 	const innerBlocksProps = useInnerBlocksProps(
@@ -287,10 +285,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 			</InspectorControls>
 
 			<div { ...blockProps }>
-				<div
-					className="smb-box__background"
-					style={ backgroundStyles }
-				/>
+				<div className="smb-box__background" />
 
 				<div { ...innerBlocksProps } />
 			</div>

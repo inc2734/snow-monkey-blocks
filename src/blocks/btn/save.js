@@ -2,8 +2,7 @@ import classnames from 'classnames';
 
 import { RichText, useBlockProps } from '@wordpress/block-editor';
 
-export default function ( props ) {
-	const { attributes, className } = props;
+export default function ( { attributes, className } ) {
 	const {
 		content,
 		url,
@@ -25,35 +24,34 @@ export default function ( props ) {
 		'smb-btn--wrap': wrap,
 	} );
 
-	const btnStyles = {
-		backgroundColor: backgroundColor || undefined,
-		backgroundImage: backgroundGradientColor || undefined,
-		borderRadius:
+	const styles = {
+		'--smb-btn--background-color': backgroundColor || undefined,
+		'--smb-btn--background-image': backgroundGradientColor || undefined,
+		'--smb-btn--border-radius':
 			!! borderRadius || 0 <= borderRadius
 				? `${ borderRadius }px`
 				: undefined,
+		'--smb-btn--color': textColor || undefined,
 	};
+
 	if (
 		!! attributes.className &&
 		attributes.className.split( ' ' ).includes( 'is-style-ghost' )
 	) {
-		btnStyles.borderColor = backgroundColor || undefined;
+		styles[ '--smb-btn--style--ghost--border-color' ] =
+			backgroundColor || undefined;
 	}
-
-	const btnLabelStyles = {
-		color: textColor || undefined,
-	};
 
 	return (
 		<div { ...useBlockProps.save( { className: wrapperClasses } ) }>
 			<a
 				className={ classes }
 				href={ url }
-				style={ btnStyles }
+				style={ styles }
 				target={ '_self' === target ? undefined : target }
 				rel={ '_self' === target ? undefined : 'noopener noreferrer' }
 			>
-				<span className="smb-btn__label" style={ btnLabelStyles }>
+				<span className="smb-btn__label">
 					<RichText.Content value={ content } />
 				</span>
 			</a>

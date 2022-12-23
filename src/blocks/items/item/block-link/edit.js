@@ -110,17 +110,14 @@ export default function ( {
 		'smb-btn--wrap': btnWrap,
 	} );
 
-	const itemBtnLabelStyles = {
-		color: btnTextColor || undefined,
-	};
-
-	const itemBtnStyles = {
-		backgroundColor: btnBackgroundColor || undefined,
-		backgroundImage: btnBackgroundGradientColor || undefined,
-		borderRadius:
+	const btnStyles = {
+		'--smb-btn--background-color': btnBackgroundColor || undefined,
+		'--smb-btn--background-image': btnBackgroundGradientColor || undefined,
+		'--smb-btn--border-radius':
 			'undefined' !== typeof btnBorderRadius
 				? `${ btnBorderRadius }px`
 				: undefined,
+		'--smb-btn--color': btnTextColor || undefined,
 	};
 
 	const ref = useRef();
@@ -436,11 +433,10 @@ export default function ( {
 							<div className="smb-items__item__action">
 								<span
 									className={ btnClasses }
-									style={ itemBtnStyles }
+									style={ btnStyles }
 								>
 									<RichText
 										className="smb-btn__label"
-										style={ itemBtnLabelStyles }
 										value={ btnLabel }
 										placeholder={ __(
 											'Button',

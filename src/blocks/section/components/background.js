@@ -572,7 +572,7 @@ export const PanelSectionBackgroundTextSettings = ( { settings } ) => {
 	);
 };
 
-export const SectionBackground = ( {
+export const generateStylesForSectionBackground = ( {
 	backgroundHorizontalPosition,
 	backgroundVerticalPosition,
 	isBackgroundNoOver,
@@ -586,14 +586,135 @@ export const SectionBackground = ( {
 	fixedBackgroundTexture,
 	fixedBackgroundTextureOpacity,
 	fixedBackgroundTextureUrl,
+	topDividerVerticalPosition,
+	bottomDividerVerticalPosition,
+	backgroundText,
+} ) => {
+	const hasBackgroundColor = !! backgroundColor || !! backgroundGradientColor;
+	const hasBackgroundTexture = !! backgroundTexture;
+	const hasFixedBackgroundTexture = !! fixedBackgroundTexture;
+
+	const styles = {};
+	if ( hasBackgroundColor ) {
+		styles[ '--smb-section--background-color' ] = backgroundColor;
+		styles[ '--smb-section--background-image' ] = backgroundGradientColor;
+
+		if ( ! isBackgroundNoOver ) {
+			if ( backgroundHorizontalPosition || backgroundVerticalPosition ) {
+				styles[ '--smb-section--background-transform' ] = `translate(${
+					backgroundHorizontalPosition || 0
+				}%, ${ backgroundVerticalPosition || 0 }%)`;
+			}
+		} else {
+			if ( 0 < backgroundHorizontalPosition ) {
+				styles[ '--smb-section--background-left' ] = `${ Math.abs(
+					backgroundHorizontalPosition
+				) }%`;
+			} else if ( 0 > backgroundHorizontalPosition ) {
+				styles[ '--smb-section--background-right' ] = `${ Math.abs(
+					backgroundHorizontalPosition
+				) }%`;
+			}
+
+			if ( 0 < backgroundVerticalPosition ) {
+				styles[ '--smb-section--background-top' ] = `${ Math.abs(
+					backgroundVerticalPosition
+				) }%`;
+			} else if ( 0 > backgroundVerticalPosition ) {
+				styles[ '--smb-section--background-bottom' ] = `${ Math.abs(
+					backgroundVerticalPosition
+				) }%`;
+			}
+		}
+	}
+
+	/* eslint-disable no-nested-ternary */
+	styles[ '--smb-section--background-texture-image' ] = hasBackgroundTexture
+		? !! backgroundTextureUrl
+			? `url(${ backgroundTextureUrl })`
+			: `url(${ smb.pluginUrl }/dist/blocks/section/img/${ backgroundTexture }.png)`
+		: undefined;
+	/* eslint-enable */
+	styles[ '--smb-section--background-texture-opacity' ] =
+		!! backgroundTextureOpacity
+			? String( backgroundTextureOpacity )
+			: undefined;
+
+	styles[ '--smb-section--fixed-background-color' ] = !! fixedBackgroundColor
+		? fixedBackgroundColor
+		: undefined;
+	styles[ '--smb-section--fixed-background-image' ] =
+		!! fixedBackgroundGradientColor
+			? fixedBackgroundGradientColor
+			: undefined;
+
+	/* eslint-disable no-nested-ternary */
+	styles[ '--smb-section--fixed-background-texture-image' ] =
+		hasFixedBackgroundTexture
+			? !! fixedBackgroundTextureUrl
+				? `url(${ fixedBackgroundTextureUrl })`
+				: `url(${ smb.pluginUrl }/dist/blocks/section/img/${ fixedBackgroundTexture }.png)`
+			: undefined;
+	/* eslint-enable */
+	styles[ '--smb-section--fixed-background-texture-opacity' ] =
+		!! fixedBackgroundTextureOpacity
+			? String( fixedBackgroundTextureOpacity )
+			: undefined;
+
+	styles[ '--smb-section--dividers-top' ] = !! topDividerVerticalPosition
+		? `${ topDividerVerticalPosition }%`
+		: undefined;
+	styles[ '--smb-section--dividers-bottom' ] =
+		!! bottomDividerVerticalPosition
+			? `${ bottomDividerVerticalPosition }%`
+			: undefined;
+
+	styles[ '--smb-section--background-text-color' ] = !! backgroundText?.color
+		? backgroundText.color
+		: undefined;
+	styles[ '--smb-section--background-text-opacity' ] =
+		!! backgroundText?.opacity && 1 > backgroundText.opacity
+			? String( backgroundText.opacity )
+			: undefined;
+	styles[ '--smb-section--background-text-font-size' ] =
+		!! backgroundText?.fontSize && ! backgroundText?.fontSizeSlug
+			? backgroundText.fontSize
+			: undefined;
+	styles[ '--smb-section--background-line-height' ] =
+		!! backgroundText?.lineHeight ? backgroundText.lineHeight : undefined;
+	styles[ '--smb-section--background-text-top' ] = !! backgroundText?.position
+		?.top
+		? backgroundText.position.top
+		: undefined;
+	styles[ '--smb-section--background-text-right' ] = !! backgroundText
+		?.position?.right
+		? backgroundText.position.right
+		: undefined;
+	styles[ '--smb-section--background-text-bottom' ] = !! backgroundText
+		?.position?.bottom
+		? backgroundText.position.bottom
+		: undefined;
+	styles[ '--smb-section--background-text-left' ] = !! backgroundText
+		?.position?.left
+		? backgroundText.position.left
+		: undefined;
+
+	return styles;
+};
+
+export const SectionBackground = ( {
+	backgroundColor,
+	backgroundGradientColor,
+	backgroundTexture,
+	fixedBackgroundColor,
+	fixedBackgroundGradientColor,
+	fixedBackgroundTexture,
 	topDividerType,
 	topDividerLevel,
 	topDividerColor,
-	topDividerVerticalPosition,
 	bottomDividerType,
 	bottomDividerLevel,
 	bottomDividerColor,
-	bottomDividerVerticalPosition,
 	backgroundText,
 	containerClasses,
 } ) => {
@@ -618,112 +739,12 @@ export const SectionBackground = ( {
 		`smb-section__divider--${ bottomDividerType }`
 	);
 
-	const backgroundStyles = {};
-	if ( hasBackgroundColor ) {
-		backgroundStyles.backgroundColor = backgroundColor;
-		backgroundStyles.backgroundImage = backgroundGradientColor;
-
-		if ( ! isBackgroundNoOver ) {
-			if ( backgroundHorizontalPosition || backgroundVerticalPosition ) {
-				backgroundStyles.transform = `translate(${
-					backgroundHorizontalPosition || 0
-				}%, ${ backgroundVerticalPosition || 0 }%)`;
-			}
-		} else {
-			if ( 0 < backgroundHorizontalPosition ) {
-				backgroundStyles.left = `${ Math.abs(
-					backgroundHorizontalPosition
-				) }%`;
-			} else if ( 0 > backgroundHorizontalPosition ) {
-				backgroundStyles.right = `${ Math.abs(
-					backgroundHorizontalPosition
-				) }%`;
-			}
-
-			if ( 0 < backgroundVerticalPosition ) {
-				backgroundStyles.top = `${ Math.abs(
-					backgroundVerticalPosition
-				) }%`;
-			} else if ( 0 > backgroundVerticalPosition ) {
-				backgroundStyles.bottom = `${ Math.abs(
-					backgroundVerticalPosition
-				) }%`;
-			}
-		}
-	}
-
-	const backgroundTextureStyles = {
-		// eslint-disable-next-line no-nested-ternary
-		backgroundImage: hasBackgroundTexture
-			? !! backgroundTextureUrl
-				? `url(${ backgroundTextureUrl })`
-				: `url(${ smb.pluginUrl }/dist/blocks/section/img/${ backgroundTexture }.png)`
-			: undefined,
-		opacity: !! backgroundTextureOpacity
-			? backgroundTextureOpacity
-			: undefined,
-	};
-
 	const fixedBackgroundStyles = {
 		paddingTop: !! topDividerLevel ? Math.abs( topDividerLevel ) : 0,
 		paddingBottom: !! bottomDividerLevel
 			? Math.abs( bottomDividerLevel )
 			: 0,
-		backgroundColor: !! fixedBackgroundColor
-			? fixedBackgroundColor
-			: undefined,
-		backgroundImage: !! fixedBackgroundGradientColor
-			? fixedBackgroundGradientColor
-			: undefined,
 	};
-
-	const fixedBackgroundTextureStyles = {
-		// eslint-disable-next-line no-nested-ternary
-		backgroundImage: hasFixedBackgroundTexture
-			? !! fixedBackgroundTextureUrl
-				? `url(${ fixedBackgroundTextureUrl })`
-				: `url(${ smb.pluginUrl }/dist/blocks/section/img/${ fixedBackgroundTexture }.png)`
-			: undefined,
-		opacity: !! fixedBackgroundTextureOpacity
-			? fixedBackgroundTextureOpacity
-			: undefined,
-	};
-
-	const dividersStyles = {};
-	if ( topDividerVerticalPosition ) {
-		dividersStyles.top = `${ topDividerVerticalPosition }%`;
-	}
-	if ( bottomDividerVerticalPosition ) {
-		dividersStyles.bottom = `${ bottomDividerVerticalPosition }%`;
-	}
-
-	const backgroundTextStyles = {};
-	backgroundTextStyles.color = !! backgroundText?.color
-		? backgroundText.color
-		: undefined;
-	backgroundTextStyles.opacity =
-		!! backgroundText?.opacity && 1 > backgroundText.opacity
-			? backgroundText.opacity
-			: undefined;
-	backgroundTextStyles.fontSize =
-		!! backgroundText?.fontSize && ! backgroundText?.fontSizeSlug
-			? backgroundText.fontSize
-			: undefined;
-	backgroundTextStyles.lineHeight = !! backgroundText?.lineHeight
-		? backgroundText.lineHeight
-		: undefined;
-	backgroundTextStyles.top = !! backgroundText?.position?.top
-		? backgroundText.position.top
-		: undefined;
-	backgroundTextStyles.right = !! backgroundText?.position?.right
-		? backgroundText.position.right
-		: undefined;
-	backgroundTextStyles.bottom = !! backgroundText?.position?.bottom
-		? backgroundText.position.bottom
-		: undefined;
-	backgroundTextStyles.left = !! backgroundText?.position?.left
-		? backgroundText.position.left
-		: undefined;
 
 	return (
 		<>
@@ -739,21 +760,12 @@ export const SectionBackground = ( {
 					style={ fixedBackgroundStyles }
 				>
 					{ hasFixedBackgroundTexture && (
-						<div
-							className="smb-section__fixed-background__texture"
-							style={ fixedBackgroundTextureStyles }
-						/>
+						<div className="smb-section__fixed-background__texture" />
 					) }
 					{ ( hasBackgroundColor || hasBackgroundTexture ) && (
-						<div
-							className="smb-section__background"
-							style={ backgroundStyles }
-						>
+						<div className="smb-section__background">
 							{ hasBackgroundTexture && (
-								<div
-									className="smb-section__background__texture"
-									style={ backgroundTextureStyles }
-								/>
+								<div className="smb-section__background__texture" />
 							) }
 						</div>
 					) }
@@ -772,7 +784,6 @@ export const SectionBackground = ( {
 													!! backgroundText?.fontSizeSlug,
 											}
 										) }
-										style={ backgroundTextStyles }
 									>
 										<RichText.Content
 											value={ backgroundText.text?.replace(
@@ -786,10 +797,7 @@ export const SectionBackground = ( {
 						</div>
 					) }
 					{ ( hasTopDivider || hasBottomDivider ) && (
-						<div
-							className="smb-section__dividers"
-							style={ dividersStyles }
-						>
+						<div className="smb-section__dividers">
 							{ hasTopDivider && (
 								<div className={ topDividerClasses }>
 									{ divider(

@@ -1,9 +1,11 @@
 @import '../../css/core/block';
 
 .smb-buttons {
+	--smb-buttons--gap: var(--_margin-1);
+
 	display: flex;
 	flex-wrap: wrap;
-	gap: var(--_margin-1);
+	gap: var(--smb-buttons--gap);
 
 	&.has-text-align-left,
 	&.is-content-justification-left {

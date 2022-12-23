@@ -2,7 +2,10 @@ import classnames from 'classnames';
 
 import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
-import { SectionBackground } from './components/background';
+import {
+	generateStylesForSectionBackground,
+	SectionBackground,
+} from './components/background';
 import { Save as Header } from './components/header';
 
 export default function ( { attributes, className } ) {
@@ -103,45 +106,51 @@ export default function ( { attributes, className } ) {
 		}
 	);
 
-	const sectionStyles = {};
-	if ( textColor ) {
-		sectionStyles.color = textColor;
-	}
-
-	const contentsWrapperStyles = {
-		width: !! contentsMaxWidth && ! isSlim ? contentsMaxWidth : undefined,
+	const styles = {
+		'--smb-section--color': textColor || undefined,
+		'--smb-section--contents-wrapper-width':
+			!! contentsMaxWidth && ! isSlim ? contentsMaxWidth : undefined,
+		...generateStylesForSectionBackground( {
+			backgroundHorizontalPosition,
+			backgroundVerticalPosition,
+			isBackgroundNoOver,
+			backgroundColor,
+			backgroundGradientColor,
+			backgroundTexture,
+			backgroundTextureOpacity,
+			backgroundTextureUrl,
+			fixedBackgroundColor,
+			fixedBackgroundGradientColor,
+			fixedBackgroundTexture,
+			fixedBackgroundTextureOpacity,
+			fixedBackgroundTextureUrl,
+			topDividerVerticalPosition,
+			bottomDividerVerticalPosition,
+			backgroundText,
+		} ),
 	};
 
 	return (
 		<TagName
 			{ ...useBlockProps.save( {
 				className: classes,
-				style: sectionStyles,
+				style: styles,
 			} ) }
 		>
 			<SectionBackground
 				{ ...{
-					backgroundHorizontalPosition,
-					backgroundVerticalPosition,
-					isBackgroundNoOver,
 					backgroundColor,
 					backgroundGradientColor,
 					backgroundTexture,
-					backgroundTextureOpacity,
-					backgroundTextureUrl,
 					fixedBackgroundColor,
 					fixedBackgroundGradientColor,
 					fixedBackgroundTexture,
-					fixedBackgroundTextureOpacity,
-					fixedBackgroundTextureUrl,
 					topDividerType,
 					topDividerLevel,
 					topDividerColor,
-					topDividerVerticalPosition,
 					bottomDividerType,
 					bottomDividerLevel,
 					bottomDividerColor,
-					bottomDividerVerticalPosition,
 					backgroundText,
 					containerClasses,
 				} }
@@ -149,10 +158,7 @@ export default function ( { attributes, className } ) {
 
 			<div className={ innerClasses }>
 				<div className={ containerClasses }>
-					<div
-						className={ contentsWrapperClasses }
-						style={ contentsWrapperStyles }
-					>
+					<div className={ contentsWrapperClasses }>
 						<Header
 							{ ...{
 								title,

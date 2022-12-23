@@ -17,13 +17,17 @@ export default function ( { attributes, setAttributes, className } ) {
 
 	const classes = classnames( 'smb-rating-box__item', className );
 
+	const styles = {
+		'--smb-rating-box--rating-background-color': color || undefined,
+	};
+
 	const itemEvaluationRatingStyles = {
 		width: `${ rating * 10 }%`,
-		backgroundColor: color || undefined,
 	};
 
 	const blockProps = useBlockProps( {
 		className: classes,
+		style: styles,
 	} );
 
 	const onChangeRating = ( value ) =>

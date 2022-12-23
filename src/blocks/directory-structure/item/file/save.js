@@ -11,14 +11,15 @@ export default function ( { attributes, className } ) {
 
 	const itemNameClasses = 'smb-directory-structure__item__name';
 
-	const iconStyles = {
-		color: attributes.iconColor || undefined,
+	const styles = {
+		'--smb-directory-structure--icon-color':
+			attributes.iconColor || undefined,
 	};
 
 	return (
-		<div { ...useBlockProps.save( { className: classes } ) }>
+		<div { ...useBlockProps.save( { className: classes, style: styles } ) }>
 			<p>
-				<span className="fa-fw" style={ iconStyles }>
+				<span className="fa-fw">
 					<i
 						className={ `${ attributes.iconVendor } fa-${ attributes.iconClass }` }
 					/>

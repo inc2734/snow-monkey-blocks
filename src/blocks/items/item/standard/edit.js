@@ -110,17 +110,14 @@ export default function ( {
 		'smb-btn--wrap': btnWrap,
 	} );
 
-	const itemBtnLabelStyles = {
-		color: btnTextColor || undefined,
-	};
-
-	const itemBtnStyles = {
-		backgroundColor: btnBackgroundColor || undefined,
-		backgroundImage: btnBackgroundGradientColor || undefined,
-		borderRadius:
+	const btnStyles = {
+		'--smb-btn--background-color': btnBackgroundColor || undefined,
+		'--smb-btn--background-image': btnBackgroundGradientColor || undefined,
+		'--smb-btn--border-radius':
 			'undefined' !== typeof btnBorderRadius
 				? `${ btnBorderRadius }px`
 				: undefined,
+		'--smb-btn--color': btnTextColor || undefined,
 	};
 
 	const ref = useRef();
@@ -436,7 +433,7 @@ export default function ( {
 								<span
 									className={ btnClasses }
 									href={ url }
-									style={ itemBtnStyles }
+									style={ btnStyles }
 									target={
 										'_self' === target ? undefined : target
 									}
@@ -448,7 +445,6 @@ export default function ( {
 								>
 									<RichText
 										className="smb-btn__label"
-										style={ itemBtnLabelStyles }
 										value={ btnLabel }
 										placeholder={ __(
 											'Button',

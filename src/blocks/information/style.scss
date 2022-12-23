@@ -1,6 +1,8 @@
 @import '../../css/core/block';
 
 .smb-information {
+	--smb-information--gap: var(--_margin1);
+	--smb-information--item-padding: var(--_padding1);
 	--smb-information--style--border--border-color: var(--_lighter-color-gray);
 
 	&__item {
@@ -17,7 +19,7 @@
 
 	&__body {
 		> * + * {
-			margin-top: var(--_margin1);
+			margin-top: var(--smb-information--gap);
 		}
 	}
 
@@ -74,18 +76,18 @@
 	}
 
 	&.is-style-border {
+		> * + * {
+			margin-top: -1px;
+		}
+
 		.smb-information__item {
 			margin-top: 0;
 			margin-bottom: 0;
 			border: 1px solid var(--smb-information--style--border--border-color);
 
-			& + * {
-				margin-top: -1px;
-			}
-
 			&__body {
 				margin-top: 0;
-				padding: var(--_padding1);
+				padding: var(--smb-information--item-padding)
 			}
 		}
 
@@ -103,11 +105,10 @@
 				}
 
 				&__label {
-					padding: var(--_padding-1) var(--_padding1);
+					padding: calc(var(--smb-information--item-padding) * .5) var(--smb-information--item-padding);
 
 					@include _media-min(md) {
-						padding-top: var(--_padding1);
-						padding-bottom: var(--_padding1);
+						padding: var(--smb-information--item-padding);
 					}
 				}
 			}
@@ -122,7 +123,7 @@
 				}
 
 				&__label {
-					padding: var(--_padding1);
+					padding: var(--smb-information--item-padding);
 				}
 			}
 		}

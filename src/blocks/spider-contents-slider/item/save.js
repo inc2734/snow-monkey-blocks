@@ -4,15 +4,8 @@ import hexToRgba from 'hex-to-rgba';
 import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
-	const {
-		sliderId,
-		contentPosition,
-		contentPadding,
-		border,
-		boxShadow,
-		style,
-		backgroundColor,
-	} = attributes;
+	const { sliderId, contentPosition, contentPadding, border, boxShadow } =
+		attributes;
 
 	const classes = classnames( 'spider__slide', className );
 
@@ -21,15 +14,14 @@ export default function ( { attributes, className } ) {
 			!! contentPadding,
 	} );
 
-	const newStyles = {
-		backgroundColor:
-			( ! backgroundColor && style?.color?.background ) || undefined,
-		background:
-			( ! backgroundColor && style?.color?.gradient ) || undefined,
-		borderColor: border.color || undefined,
-		borderWidth: ( border.color && border.width ) || undefined,
-		borderRadius: border.radius || undefined,
-		boxShadow: !! boxShadow.color
+	const styles = {
+		'--smb-spider-contents-slider--slide-border-width':
+			( border.color && border.width ) || undefined,
+		'--smb-spider-contents-slider--slide-border-color':
+			border.color || undefined,
+		'--smb-spider-contents-slider--slide-border-radius':
+			border.radius || undefined,
+		'--smb-spider-contents-slider--slide-box-shadow': !! boxShadow.color
 			? `0 0 ${ boxShadow.blur }px ${ hexToRgba(
 					boxShadow.color,
 					boxShadow.opacity
@@ -39,12 +31,11 @@ export default function ( { attributes, className } ) {
 
 	return (
 		<div
-			{ ...useBlockProps.save( { className: classes } ) }
+			{ ...useBlockProps.save( { className: classes, style: styles } ) }
 			data-id={ sliderId }
 			data-content-position={
 				contentPosition?.replace( ' ', '-' ) || undefined
 			}
-			style={ newStyles }
 		>
 			<div
 				{ ...useInnerBlocksProps.save( {

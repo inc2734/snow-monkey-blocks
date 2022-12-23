@@ -23,12 +23,13 @@ export default function ( { attributes, setAttributes, className } ) {
 
 	const itemNameClasses = 'smb-directory-structure__item__name';
 
-	const iconStyles = {
-		color: iconColor || undefined,
+	const styles = {
+		'--smb-directory-structure--icon-color': iconColor || undefined,
 	};
 
 	const blockProps = useBlockProps( {
 		className: classes,
+		style: styles,
 	} );
 
 	const iconList = [
@@ -116,7 +117,7 @@ export default function ( { attributes, setAttributes, className } ) {
 
 			<div { ...blockProps }>
 				<p>
-					<span className="fa-fw" style={ iconStyles }>
+					<span className="fa-fw">
 						<FontAwesome icon={ [ iconVendor, iconClass ] } />
 					</span>
 

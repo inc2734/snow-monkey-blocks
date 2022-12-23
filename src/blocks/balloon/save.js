@@ -15,14 +15,11 @@ export default function ( { attributes, className } ) {
 		modifier,
 	} = attributes;
 
-	const balloonFigureStyles = {
-		borderColor: avatarBorderColor || undefined,
-	};
-
-	const bodyStyles = {
-		backgroundColor: backgroundColor || undefined,
-		borderColor: backgroundColor || undefined,
-		color: textColor || undefined,
+	const styles = {
+		'--smb-balloon--background-color': backgroundColor || undefined,
+		'--smb-balloon--border-color': backgroundColor || undefined,
+		'--smb-balloon--color': textColor || undefined,
+		'--smb-balloon--avatar-border-color': avatarBorderColor || undefined,
 	};
 
 	const classes = classnames( 'smb-balloon', {
@@ -31,12 +28,9 @@ export default function ( { attributes, className } ) {
 	} );
 
 	return (
-		<div { ...useBlockProps.save( { className: classes } ) }>
+		<div { ...useBlockProps.save( { className: classes, style: styles } ) }>
 			<div className="smb-balloon__person">
-				<div
-					className="smb-balloon__figure"
-					style={ balloonFigureStyles }
-				>
+				<div className="smb-balloon__figure">
 					<img
 						src={ avatarURL }
 						alt={ avatarAlt }
@@ -47,7 +41,7 @@ export default function ( { attributes, className } ) {
 					<RichText.Content value={ balloonName } />
 				</div>
 			</div>
-			<div className="smb-balloon__body" style={ bodyStyles }>
+			<div className="smb-balloon__body">
 				<RichText.Content value={ balloonBody } />
 			</div>
 		</div>

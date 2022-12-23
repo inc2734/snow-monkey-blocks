@@ -3,7 +3,10 @@ import hexToRgba from 'hex-to-rgba';
 
 import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
-import { SectionBackground } from '../section/components/background';
+import {
+	generateStylesForSectionBackground,
+	SectionBackground,
+} from '../section/components/background';
 import { Save as Header } from '../section/components/header';
 
 import { generateSpacingProperties } from '@smb/helper';
@@ -153,34 +156,41 @@ export default function ( { attributes, className } ) {
 
 	const maskClasses = classnames( 'smb-section-break-the-grid__mask' );
 
-	const sectionStyles = {
-		color: textColor || undefined,
-		...generateSpacingProperties( padding ),
-	};
-
-	const shadowStyles = {};
-	if ( shadowColor ) {
-		shadowStyles.backgroundColor = shadowColor;
-	}
-	if ( shadowHorizontalPosition || shadowVerticalPosition ) {
-		shadowStyles.transform = `translate(${
-			shadowHorizontalPosition || 0
-		}%, ${ shadowVerticalPosition || 0 }%)`;
-	}
-
-	const contentStyles = {
-		backgroundColor:
+	const styles = {
+		'--smb-section--color': textColor || undefined,
+		'--smb-section-break-the-grid--shadow-color': shadowColor || undefined,
+		'--smb-section-break-the-grid--shadow-transform':
+			!! shadowHorizontalPosition && !! shadowVerticalPosition
+				? `translate(${ shadowHorizontalPosition || 0 }%, ${
+						shadowVerticalPosition || 0
+				  }%)`
+				: undefined,
+		'--smb-section-break-the-grid--content-background-color':
 			contentBackgroundColor &&
 			hexToRgba( contentBackgroundColor, contentBackgroundOpacity ),
-	};
-
-	const maskStyles = {};
-	if ( maskColor ) {
-		maskStyles.backgroundColor = maskColor;
-	}
-
-	const figureStyles = {
-		opacity: !! maskColor ? maskOpacity : undefined,
+		'--smb-section-break-the-grid--mask-color': maskColor && undefined,
+		'--smb-section-break-the-grid--mask-opacity': !! maskColor
+			? maskOpacity
+			: undefined,
+		...generateSpacingProperties( padding ),
+		...generateStylesForSectionBackground( {
+			backgroundHorizontalPosition,
+			backgroundVerticalPosition,
+			isBackgroundNoOver,
+			backgroundColor,
+			backgroundGradientColor,
+			backgroundTexture,
+			backgroundTextureOpacity,
+			backgroundTextureUrl,
+			fixedBackgroundColor,
+			fixedBackgroundGradientColor,
+			fixedBackgroundTexture,
+			fixedBackgroundTextureOpacity,
+			fixedBackgroundTextureUrl,
+			topDividerVerticalPosition,
+			bottomDividerVerticalPosition,
+			backgroundText,
+		} ),
 	};
 
 	const image = (
@@ -190,7 +200,6 @@ export default function ( { attributes, className } ) {
 			width={ !! imageWidth && imageWidth }
 			height={ !! imageHeight && imageHeight }
 			className={ `wp-image-${ imageID }` }
-			style={ figureStyles }
 		/>
 	);
 
@@ -200,7 +209,6 @@ export default function ( { attributes, className } ) {
 			src={ imageURL }
 			width={ !! imageWidth && imageWidth }
 			height={ !! imageHeight && imageHeight }
-			style={ figureStyles }
 		/>
 	);
 
@@ -217,32 +225,23 @@ export default function ( { attributes, className } ) {
 		<TagName
 			{ ...useBlockProps.save( {
 				className: classes,
-				style: sectionStyles,
+				style: styles,
 			} ) }
 		>
 			<SectionBackground
 				{ ...{
-					backgroundHorizontalPosition,
-					backgroundVerticalPosition,
-					isBackgroundNoOver,
 					backgroundColor,
 					backgroundGradientColor,
 					backgroundTexture,
-					backgroundTextureOpacity,
-					backgroundTextureUrl,
 					fixedBackgroundColor,
 					fixedBackgroundGradientColor,
 					fixedBackgroundTexture,
-					fixedBackgroundTextureOpacity,
-					fixedBackgroundTextureUrl,
 					topDividerType,
 					topDividerLevel,
 					topDividerColor,
-					topDividerVerticalPosition,
 					bottomDividerType,
 					bottomDividerLevel,
 					bottomDividerColor,
-					bottomDividerVerticalPosition,
 					backgroundText,
 					containerClasses,
 				} }
@@ -253,10 +252,7 @@ export default function ( { attributes, className } ) {
 					<div className="smb-section__contents-wrapper smb-section-break-the-grid__contents-wrapper">
 						<div className={ rowClasses }>
 							<div className={ textColumnClasses }>
-								<div
-									className={ contentClasses }
-									style={ contentStyles }
-								>
+								<div className={ contentClasses }>
 									<Header
 										{ ...{
 											title,
@@ -277,21 +273,13 @@ export default function ( { attributes, className } ) {
 							<div className={ imageColumnClasses }>
 								<div className={ figureClasses }>
 									{ shadowColor && (
-										<div
-											className={ shadowClasses }
-											style={ shadowStyles }
-										/>
+										<div className={ shadowClasses } />
 									) }
 
 									{ 0 <
 										Number(
 											( 1 - maskOpacity ).toFixed( 1 )
-										) && (
-										<div
-											className={ maskClasses }
-											style={ maskStyles }
-										/>
-									) }
+										) && <div className={ maskClasses } /> }
 
 									{ figure }
 								</div>
