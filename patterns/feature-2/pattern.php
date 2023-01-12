@@ -35,6 +35,7 @@
 								</div>
 							</div>
 							<!-- /wp:snow-monkey-blocks/panels-item -->
+
 							<!-- wp:snow-monkey-blocks/panels-item -->
 							<div class="wp-block-snow-monkey-blocks-panels-item c-row__col">
 								<div class="smb-panels__item">
@@ -48,6 +49,7 @@
 								</div>
 							</div>
 							<!-- /wp:snow-monkey-blocks/panels-item -->
+
 							<!-- wp:snow-monkey-blocks/panels-item -->
 							<div class="wp-block-snow-monkey-blocks-panels-item c-row__col">
 								<div class="smb-panels__item">

@@ -76,13 +76,11 @@
 	}
 
 	&.is-style-border {
-		> * + * {
+		> .smb-information__body > * + * {
 			margin-top: -1px;
 		}
 
 		.smb-information__item {
-			margin-top: 0;
-			margin-bottom: 0;
 			border: 1px solid var(--smb-information--style--border--border-color);
 
 			&__body {

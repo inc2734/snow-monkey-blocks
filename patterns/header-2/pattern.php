@@ -6,11 +6,11 @@
  */
 ?>
 
-<!-- wp:snow-monkey-blocks/section-with-bgimage {"titleTagName":"none","height":"wide","maskOpacity":0.6,"textColor":"#fff","align":"full"} -->
-<div class="wp-block-snow-monkey-blocks-section-with-bgimage alignfull smb-section smb-section-with-bgimage smb-section--wide" style="color:#fff">
+<!-- wp:snow-monkey-blocks/section-with-bgimage {"maskColor":"#000000","maskOpacity":0.6,"textColor":"#fff","titleTagName":"none","height":"wide","align":"full"} -->
+<div class="wp-block-snow-monkey-blocks-section-with-bgimage alignfull smb-section smb-section-with-bgimage smb-section--wide" style="--smb-section--color:#fff;--smb-section-with-bgimage--mask-color:#000000;--smb-section-with-bgimage--mask-opacity:0.6">
 	<div class="smb-section-with-bgimage__bgimage smb-section-with-bgimage__bgimage--lg">
 		<div class="smb-section-with-bgimage__mask"></div>
-		<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/stocksnap_ydxj69toal.jpg" alt="" class="wp-image-0" style="opacity:0.6"/>
+		<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/stocksnap_ydxj69toal.jpg" alt="" class="wp-image-0"/>
 	</div>
 	<div class="smb-section__inner">
 		<div class="c-container">
@@ -29,7 +29,9 @@
 									<!-- wp:buttons -->
 									<div class="wp-block-buttons">
 										<!-- wp:button -->
-										<div class="wp-block-button"><a class="wp-block-button__link" href="https://example.com">Button</a></div>
+										<div class="wp-block-button">
+											<a class="wp-block-button__link wp-element-button" href="#">Button</a>
+										</div>
 										<!-- /wp:button -->
 									</div>
 									<!-- /wp:buttons -->

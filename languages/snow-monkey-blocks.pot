@@ -1,15 +1,15 @@
-# Copyright (C) 2022 inc2734
+# Copyright (C) 2023 inc2734
 # This file is distributed under the GPL2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Snow Monkey Blocks 16.1.0\n"
+"Project-Id-Version: Snow Monkey Blocks 17.2.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-blocks\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-11-01T15:28:23+00:00\n"
+"POT-Creation-Date: 2023-01-12T05:59:01+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: snow-monkey-blocks\n"
@@ -40,7 +40,7 @@ msgstr ""
 msgid "Reset available blocks settings"
 msgstr ""
 
-#: App/Controller/Manager.php:121
+#: App/Controller/Manager.php:125
 msgid "Available blocks"
 msgstr ""
 
@@ -112,7 +112,7 @@ msgstr ""
 #: dist/blocks/recent-posts/index.js:3
 #: dist/blocks/taxonomy-posts/index.js:1
 #: src/blocks/categories-list/edit.js:150
-#: src/blocks/recent-posts/edit.js:365
+#: src/blocks/recent-posts/edit.js:366
 #: src/blocks/taxonomy-posts/index.js:19
 msgid "Recent posts"
 msgstr ""
@@ -202,21 +202,21 @@ msgstr ""
 #: dist/blocks/thumbnail-gallery/item/index.js:1
 #: src/blocks/accordion/item/edit.js:40
 #: src/blocks/alert/edit.js:88
-#: src/blocks/btn/edit.js:170
+#: src/blocks/btn/edit.js:169
 #: src/blocks/categories-list/edit.js:201
-#: src/blocks/child-pages/edit.js:99
+#: src/blocks/child-pages/edit.js:98
 #: src/blocks/container/edit.js:71
 #: src/blocks/contents-outline/edit.js:70
-#: src/blocks/countdown/edit.js:86
-#: src/blocks/directory-structure/item/directory/edit.js:133
-#: src/blocks/directory-structure/item/file/edit.js:77
-#: src/blocks/faq/item/edit.js:100
+#: src/blocks/countdown/edit.js:84
+#: src/blocks/directory-structure/item/directory/edit.js:134
+#: src/blocks/directory-structure/item/file/edit.js:78
+#: src/blocks/faq/item/edit.js:98
 #: src/blocks/information/edit.js:81
 #: src/blocks/items/edit.js:148
-#: src/blocks/items/item/banner/edit.js:272
-#: src/blocks/items/item/block-link/edit.js:261
+#: src/blocks/items/item/banner/edit.js:266
+#: src/blocks/items/item/block-link/edit.js:258
 #: src/blocks/items/item/item/edit.js:86
-#: src/blocks/items/item/standard/edit.js:261
+#: src/blocks/items/item/standard/edit.js:258
 #: src/blocks/like-me-box/edit.js:19
 #: src/blocks/limited-datetime/edit.js:106
 #: src/blocks/list/edit.js:90
@@ -226,10 +226,10 @@ msgstr ""
 #: src/blocks/panels/item/vertical/edit.js:190
 #: src/blocks/pickup-slider/edit.js:31
 #: src/blocks/pricing-table/edit.js:90
-#: src/blocks/pricing-table/item/edit.js:261
-#: src/blocks/rating-box/item/edit.js:62
+#: src/blocks/pricing-table/item/edit.js:258
+#: src/blocks/rating-box/item/edit.js:66
 #: src/blocks/recent-posts/edit.js:136
-#: src/blocks/rss/edit.js:126
+#: src/blocks/rss/edit.js:107
 #: src/blocks/section/components/basic.js:29
 #: src/blocks/slider/edit.js:167
 #: src/blocks/slider/item/edit.js:202
@@ -330,8 +330,8 @@ msgstr ""
 #: dist/blocks/directory-structure/item/file/index.js:1
 #: dist/blocks/list/index.js:1
 #: src/blocks/alert/edit.js:127
-#: src/blocks/directory-structure/item/directory/edit.js:136
-#: src/blocks/directory-structure/item/file/edit.js:80
+#: src/blocks/directory-structure/item/directory/edit.js:137
+#: src/blocks/directory-structure/item/file/edit.js:81
 #: src/blocks/list/edit.js:93
 msgid "Icon"
 msgstr ""
@@ -356,19 +356,19 @@ msgstr ""
 #: dist/blocks/step/item/free/index.js:1
 #: dist/blocks/step/item/standard/index.js:1
 #: src/blocks/alert/edit.js:166
-#: src/blocks/evaluation-star/edit.js:219
-#: src/blocks/items/item/banner/edit.js:411
-#: src/blocks/items/item/block-link/edit.js:402
+#: src/blocks/evaluation-star/edit.js:220
+#: src/blocks/items/item/banner/edit.js:398
+#: src/blocks/items/item/block-link/edit.js:399
 #: src/blocks/items/item/item/edit.js:203
-#: src/blocks/items/item/standard/edit.js:401
+#: src/blocks/items/item/standard/edit.js:398
 #: src/blocks/media-text/edit.js:428
 #: src/blocks/panels/item/horizontal/edit.js:291
 #: src/blocks/panels/item/vertical/edit.js:250
 #: src/blocks/price-menu/item/edit.js:29
-#: src/blocks/pricing-table/item/edit.js:371
-#: src/blocks/rating-box/item/edit.js:77
+#: src/blocks/pricing-table/item/edit.js:368
+#: src/blocks/rating-box/item/edit.js:81
 #: src/blocks/section/components/header.js:128
-#: src/blocks/step/item/free/edit.js:83
+#: src/blocks/step/item/free/edit.js:81
 #: src/blocks/step/item/standard/edit.js:286
 msgid "Write title…"
 msgstr ""
@@ -395,28 +395,28 @@ msgstr ""
 #: dist/blocks/spider-contents-slider/item/index.js:1
 #: dist/blocks/step/item/free/index.js:1
 #: dist/blocks/step/item/standard/index.js:1
-#: src/blocks/balloon/edit.js:107
-#: src/blocks/box/edit.js:137
-#: src/blocks/box/edit.js:161
-#: src/blocks/box/edit.js:223
-#: src/blocks/btn-box/edit.js:159
-#: src/blocks/btn/edit.js:141
-#: src/blocks/countdown/edit.js:67
-#: src/blocks/directory-structure/item/directory/edit.js:119
-#: src/blocks/directory-structure/item/file/edit.js:63
-#: src/blocks/evaluation-star/edit.js:123
-#: src/blocks/faq/item/edit.js:81
-#: src/blocks/items/item/banner/edit.js:258
-#: src/blocks/items/item/banner/edit.js:350
+#: src/blocks/balloon/edit.js:105
+#: src/blocks/box/edit.js:135
+#: src/blocks/box/edit.js:159
+#: src/blocks/box/edit.js:221
+#: src/blocks/btn-box/edit.js:161
+#: src/blocks/btn/edit.js:140
+#: src/blocks/countdown/edit.js:65
+#: src/blocks/directory-structure/item/directory/edit.js:120
+#: src/blocks/directory-structure/item/file/edit.js:64
+#: src/blocks/evaluation-star/edit.js:124
+#: src/blocks/faq/item/edit.js:79
+#: src/blocks/items/item/banner/edit.js:252
+#: src/blocks/items/item/banner/edit.js:344
 #: src/blocks/items/item/item/edit.js:130
 #: src/blocks/list/edit.js:76
-#: src/blocks/rating-box/item/edit.js:48
-#: src/blocks/section-break-the-grid/edit.js:652
-#: src/blocks/section-break-the-grid/edit.js:1048
-#: src/blocks/section-break-the-grid/edit.js:1089
-#: src/blocks/section-side-heading/edit.js:348
-#: src/blocks/section-with-bgimage/edit.js:609
-#: src/blocks/section-with-bgimage/edit.js:844
+#: src/blocks/rating-box/item/edit.js:52
+#: src/blocks/section-break-the-grid/edit.js:660
+#: src/blocks/section-break-the-grid/edit.js:1056
+#: src/blocks/section-break-the-grid/edit.js:1097
+#: src/blocks/section-side-heading/edit.js:373
+#: src/blocks/section-with-bgimage/edit.js:568
+#: src/blocks/section-with-bgimage/edit.js:803
 #: src/blocks/section-with-bgvideo/edit.js:289
 #: src/blocks/section-with-bgvideo/edit.js:379
 #: src/blocks/section/components/background.js:100
@@ -424,8 +424,8 @@ msgstr ""
 #: src/blocks/section/components/background.js:342
 #: src/blocks/section/components/background.js:426
 #: src/blocks/section/components/background.js:526
-#: src/blocks/section/edit.js:347
-#: src/blocks/step/item/free/edit.js:60
+#: src/blocks/section/edit.js:363
+#: src/blocks/step/item/free/edit.js:61
 #: src/blocks/step/item/standard/edit.js:227
 #: src/js/component/panel-border-settings.js:36
 #: src/js/component/panel-box-shadow-settings.js:41
@@ -433,7 +433,7 @@ msgid "Color"
 msgstr ""
 
 #: dist/blocks/balloon/index.js:1
-#: src/blocks/balloon/edit.js:113
+#: src/blocks/balloon/edit.js:111
 msgid "Avatar border color"
 msgstr ""
 
@@ -450,19 +450,19 @@ msgstr ""
 #: dist/blocks/section-with-bgimage/index.js:1
 #: dist/blocks/section-with-bgvideo/index.js:1
 #: dist/blocks/section/index.js:1
-#: src/blocks/balloon/edit.js:121
-#: src/blocks/box/edit.js:143
-#: src/blocks/btn-box/edit.js:242
-#: src/blocks/btn/edit.js:157
-#: src/blocks/items/item/banner/edit.js:264
-#: src/blocks/items/item/block-link/edit.js:366
-#: src/blocks/items/item/standard/edit.js:365
-#: src/blocks/pricing-table/item/edit.js:338
-#: src/blocks/section-break-the-grid/edit.js:658
-#: src/blocks/section-side-heading/edit.js:354
-#: src/blocks/section-with-bgimage/edit.js:615
+#: src/blocks/balloon/edit.js:119
+#: src/blocks/box/edit.js:141
+#: src/blocks/btn-box/edit.js:244
+#: src/blocks/btn/edit.js:156
+#: src/blocks/items/item/banner/edit.js:258
+#: src/blocks/items/item/block-link/edit.js:363
+#: src/blocks/items/item/standard/edit.js:362
+#: src/blocks/pricing-table/item/edit.js:335
+#: src/blocks/section-break-the-grid/edit.js:666
+#: src/blocks/section-side-heading/edit.js:379
+#: src/blocks/section-with-bgimage/edit.js:574
 #: src/blocks/section-with-bgvideo/edit.js:295
-#: src/blocks/section/edit.js:353
+#: src/blocks/section/edit.js:369
 msgid "Text color"
 msgstr ""
 
@@ -473,31 +473,31 @@ msgstr ""
 #: dist/blocks/items/item/standard/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:17
-#: src/blocks/balloon/edit.js:126
-#: src/blocks/btn-box/edit.js:165
-#: src/blocks/btn-box/edit.js:230
-#: src/blocks/btn/edit.js:149
-#: src/blocks/items/item/block-link/edit.js:354
-#: src/blocks/items/item/standard/edit.js:353
-#: src/blocks/pricing-table/item/edit.js:326
-#: src/blocks/section-break-the-grid/edit.js:982
+#: src/blocks/balloon/edit.js:124
+#: src/blocks/btn-box/edit.js:167
+#: src/blocks/btn-box/edit.js:232
+#: src/blocks/btn/edit.js:148
+#: src/blocks/items/item/block-link/edit.js:351
+#: src/blocks/items/item/standard/edit.js:350
+#: src/blocks/pricing-table/item/edit.js:323
+#: src/blocks/section-break-the-grid/edit.js:990
 msgid "Background color"
 msgstr ""
 
 #: dist/blocks/balloon/index.js:1
-#: src/blocks/balloon/edit.js:146
+#: src/blocks/balloon/edit.js:144
 msgid "Show avatar on left"
 msgstr ""
 
 #: dist/blocks/balloon/index.js:1
 #: dist/blocks/panels/item/horizontal/index.js:1
-#: src/blocks/balloon/edit.js:156
+#: src/blocks/balloon/edit.js:154
 #: src/blocks/panels/item/horizontal/edit.js:257
 msgid "Show avatar on right"
 msgstr ""
 
 #: dist/blocks/balloon/index.js:1
-#: src/blocks/balloon/edit.js:186
+#: src/blocks/balloon/edit.js:181
 msgid "Name"
 msgstr ""
 
@@ -585,10 +585,10 @@ msgstr ""
 #: dist/blocks/section-with-bgvideo/index.js:1
 #: dist/blocks/section/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
-#: src/blocks/box/edit.js:234
-#: src/blocks/items/item/banner/edit.js:361
-#: src/blocks/section-break-the-grid/edit.js:1099
-#: src/blocks/section-with-bgimage/edit.js:855
+#: src/blocks/box/edit.js:232
+#: src/blocks/items/item/banner/edit.js:355
+#: src/blocks/section-break-the-grid/edit.js:1107
+#: src/blocks/section-with-bgimage/edit.js:814
 #: src/blocks/section-with-bgvideo/edit.js:390
 #: src/blocks/section/components/background.js:543
 #: src/js/component/panel-box-shadow-settings.js:59
@@ -650,7 +650,7 @@ msgstr ""
 #: dist/blocks/information/index.js:1
 #: dist/blocks/items/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
-#: src/blocks/box/edit.js:156
+#: src/blocks/box/edit.js:154
 #: src/blocks/information/index.js:26
 #: src/blocks/items/index.js:34
 #: src/js/component/panel-border-settings.js:23
@@ -659,7 +659,7 @@ msgstr ""
 
 #: dist/blocks/box/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
-#: src/blocks/box/edit.js:170
+#: src/blocks/box/edit.js:168
 #: src/js/component/panel-border-settings.js:54
 msgid "Width"
 msgstr ""
@@ -670,19 +670,19 @@ msgstr ""
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
-#: src/blocks/box/edit.js:178
-#: src/blocks/btn-box/edit.js:213
-#: src/blocks/btn/edit.js:207
-#: src/blocks/items/item/block-link/edit.js:337
-#: src/blocks/items/item/standard/edit.js:336
-#: src/blocks/pricing-table/item/edit.js:309
+#: src/blocks/box/edit.js:176
+#: src/blocks/btn-box/edit.js:215
+#: src/blocks/btn/edit.js:206
+#: src/blocks/items/item/block-link/edit.js:334
+#: src/blocks/items/item/standard/edit.js:333
+#: src/blocks/pricing-table/item/edit.js:306
 msgid "Border radius"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
 #: dist/blocks/btn/index.js:1
-#: src/blocks/box/edit.js:179
-#: src/blocks/btn/edit.js:208
+#: src/blocks/box/edit.js:177
+#: src/blocks/btn/edit.js:207
 msgid "-If set to -1, the default border radius will be applied."
 msgstr ""
 
@@ -690,9 +690,9 @@ msgstr ""
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
 #: dist/blocks/spider-slider/index.js:1
-#: src/blocks/box/edit.js:193
+#: src/blocks/box/edit.js:191
 #: src/blocks/spider-contents-slider/edit.js:266
-#: src/blocks/spider-contents-slider/item/edit.js:148
+#: src/blocks/spider-contents-slider/item/edit.js:141
 #: src/blocks/spider-slider/edit.js:299
 msgid "Dimensions"
 msgstr ""
@@ -705,10 +705,10 @@ msgstr ""
 #: dist/blocks/section-with-bgvideo/index.js:1
 #: dist/blocks/section/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
-#: src/blocks/box/edit.js:197
-#: src/blocks/section-break-the-grid/edit.js:1007
+#: src/blocks/box/edit.js:195
+#: src/blocks/section-break-the-grid/edit.js:1015
 #: src/blocks/section/components/basic.js:269
-#: src/blocks/spider-contents-slider/item/edit.js:152
+#: src/blocks/spider-contents-slider/item/edit.js:145
 msgid "Padding"
 msgstr ""
 
@@ -717,10 +717,10 @@ msgstr ""
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
 #: dist/blocks/spider-slider/index.js:1
-#: src/blocks/box/edit.js:202
-#: src/blocks/section-break-the-grid/edit.js:1016
+#: src/blocks/box/edit.js:200
+#: src/blocks/section-break-the-grid/edit.js:1024
 #: src/blocks/spider-contents-slider/edit.js:188
-#: src/blocks/spider-contents-slider/item/edit.js:161
+#: src/blocks/spider-contents-slider/item/edit.js:154
 #: src/blocks/spider-slider/edit.js:194
 msgid "S"
 msgstr ""
@@ -730,10 +730,10 @@ msgstr ""
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
 #: dist/blocks/spider-slider/index.js:1
-#: src/blocks/box/edit.js:206
-#: src/blocks/section-break-the-grid/edit.js:1020
+#: src/blocks/box/edit.js:204
+#: src/blocks/section-break-the-grid/edit.js:1028
 #: src/blocks/spider-contents-slider/edit.js:192
-#: src/blocks/spider-contents-slider/item/edit.js:165
+#: src/blocks/spider-contents-slider/item/edit.js:158
 #: src/blocks/spider-slider/edit.js:198
 msgid "M"
 msgstr ""
@@ -743,16 +743,16 @@ msgstr ""
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
 #: dist/blocks/spider-slider/index.js:1
-#: src/blocks/box/edit.js:210
-#: src/blocks/section-break-the-grid/edit.js:1024
+#: src/blocks/box/edit.js:208
+#: src/blocks/section-break-the-grid/edit.js:1032
 #: src/blocks/spider-contents-slider/edit.js:196
-#: src/blocks/spider-contents-slider/item/edit.js:169
+#: src/blocks/spider-contents-slider/item/edit.js:162
 #: src/blocks/spider-slider/edit.js:202
 msgid "L"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
-#: src/blocks/box/edit.js:218
+#: src/blocks/box/edit.js:216
 msgid "Background"
 msgstr ""
 
@@ -777,14 +777,14 @@ msgstr ""
 #: dist/blocks/taxonomy-terms/index.js:1
 #: src/blocks/btn-box/index.js:20
 #: src/blocks/btn/index.js:22
-#: src/blocks/child-pages/edit.js:241
-#: src/blocks/countdown/index.js:19
+#: src/blocks/child-pages/edit.js:240
+#: src/blocks/countdown/index.js:20
 #: src/blocks/information/index.js:21
 #: src/blocks/items/index.js:25
 #: src/blocks/media-text/edit.js:321
 #: src/blocks/recent-posts/edit.js:318
-#: src/blocks/rss/edit.js:262
-#: src/blocks/section-break-the-grid/edit.js:711
+#: src/blocks/rss/edit.js:243
+#: src/blocks/section-break-the-grid/edit.js:719
 #: src/blocks/section/components/basic.js:157
 #: src/blocks/slider/edit.js:81
 #: src/blocks/spider-slider/edit.js:175
@@ -805,10 +805,10 @@ msgstr ""
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
-#: src/blocks/btn-box/edit.js:176
-#: src/blocks/items/item/block-link/edit.js:300
-#: src/blocks/items/item/standard/edit.js:299
-#: src/blocks/pricing-table/item/edit.js:272
+#: src/blocks/btn-box/edit.js:178
+#: src/blocks/items/item/block-link/edit.js:297
+#: src/blocks/items/item/standard/edit.js:296
+#: src/blocks/pricing-table/item/edit.js:269
 msgid "Button settings"
 msgstr ""
 
@@ -817,11 +817,11 @@ msgstr ""
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
-#: src/blocks/btn-box/edit.js:179
-#: src/blocks/btn/edit.js:173
-#: src/blocks/items/item/block-link/edit.js:303
-#: src/blocks/items/item/standard/edit.js:302
-#: src/blocks/pricing-table/item/edit.js:275
+#: src/blocks/btn-box/edit.js:181
+#: src/blocks/btn/edit.js:172
+#: src/blocks/items/item/block-link/edit.js:300
+#: src/blocks/items/item/standard/edit.js:299
+#: src/blocks/pricing-table/item/edit.js:272
 msgid "Button size"
 msgstr ""
 
@@ -830,11 +830,11 @@ msgstr ""
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
-#: src/blocks/btn-box/edit.js:185
-#: src/blocks/btn/edit.js:179
-#: src/blocks/items/item/block-link/edit.js:309
-#: src/blocks/items/item/standard/edit.js:308
-#: src/blocks/pricing-table/item/edit.js:281
+#: src/blocks/btn-box/edit.js:187
+#: src/blocks/btn/edit.js:178
+#: src/blocks/items/item/block-link/edit.js:306
+#: src/blocks/items/item/standard/edit.js:305
+#: src/blocks/pricing-table/item/edit.js:278
 msgid "Normal size"
 msgstr ""
 
@@ -843,11 +843,11 @@ msgstr ""
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
-#: src/blocks/btn-box/edit.js:192
-#: src/blocks/btn/edit.js:186
-#: src/blocks/items/item/block-link/edit.js:316
-#: src/blocks/items/item/standard/edit.js:315
-#: src/blocks/pricing-table/item/edit.js:288
+#: src/blocks/btn-box/edit.js:194
+#: src/blocks/btn/edit.js:185
+#: src/blocks/items/item/block-link/edit.js:313
+#: src/blocks/items/item/standard/edit.js:312
+#: src/blocks/pricing-table/item/edit.js:285
 msgid "Litle wider"
 msgstr ""
 
@@ -856,11 +856,11 @@ msgstr ""
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
-#: src/blocks/btn-box/edit.js:199
-#: src/blocks/btn/edit.js:193
-#: src/blocks/items/item/block-link/edit.js:323
-#: src/blocks/items/item/standard/edit.js:322
-#: src/blocks/pricing-table/item/edit.js:295
+#: src/blocks/btn-box/edit.js:201
+#: src/blocks/btn/edit.js:192
+#: src/blocks/items/item/block-link/edit.js:320
+#: src/blocks/items/item/standard/edit.js:319
+#: src/blocks/pricing-table/item/edit.js:292
 msgid "Wider"
 msgstr ""
 
@@ -869,11 +869,11 @@ msgstr ""
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
-#: src/blocks/btn-box/edit.js:203
-#: src/blocks/btn/edit.js:197
-#: src/blocks/items/item/block-link/edit.js:327
-#: src/blocks/items/item/standard/edit.js:326
-#: src/blocks/pricing-table/item/edit.js:299
+#: src/blocks/btn-box/edit.js:205
+#: src/blocks/btn/edit.js:196
+#: src/blocks/items/item/block-link/edit.js:324
+#: src/blocks/items/item/standard/edit.js:323
+#: src/blocks/pricing-table/item/edit.js:296
 msgid "More wider"
 msgstr ""
 
@@ -882,11 +882,11 @@ msgstr ""
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
-#: src/blocks/btn-box/edit.js:207
-#: src/blocks/btn/edit.js:201
-#: src/blocks/items/item/block-link/edit.js:331
-#: src/blocks/items/item/standard/edit.js:330
-#: src/blocks/pricing-table/item/edit.js:303
+#: src/blocks/btn-box/edit.js:209
+#: src/blocks/btn/edit.js:200
+#: src/blocks/items/item/block-link/edit.js:328
+#: src/blocks/items/item/standard/edit.js:327
+#: src/blocks/pricing-table/item/edit.js:300
 msgid "Full size"
 msgstr ""
 
@@ -895,11 +895,11 @@ msgstr ""
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
-#: src/blocks/btn-box/edit.js:223
-#: src/blocks/btn/edit.js:221
-#: src/blocks/items/item/block-link/edit.js:347
-#: src/blocks/items/item/standard/edit.js:346
-#: src/blocks/pricing-table/item/edit.js:319
+#: src/blocks/btn-box/edit.js:225
+#: src/blocks/btn/edit.js:220
+#: src/blocks/items/item/block-link/edit.js:344
+#: src/blocks/items/item/standard/edit.js:343
+#: src/blocks/pricing-table/item/edit.js:316
 msgid "Wrap"
 msgstr ""
 
@@ -915,12 +915,12 @@ msgstr ""
 #: dist/blocks/section-with-bgvideo/index.js:1
 #: dist/blocks/section/index.js:1
 #: dist/blocks/testimonial/item/index.js:1
-#: src/blocks/btn-box/edit.js:264
-#: src/blocks/items/item/banner/edit.js:424
-#: src/blocks/items/item/block-link/edit.js:414
+#: src/blocks/btn-box/edit.js:266
+#: src/blocks/items/item/banner/edit.js:411
+#: src/blocks/items/item/block-link/edit.js:411
 #: src/blocks/items/item/item/edit.js:217
-#: src/blocks/items/item/standard/edit.js:413
-#: src/blocks/pricing-table/item/edit.js:394
+#: src/blocks/items/item/standard/edit.js:410
+#: src/blocks/pricing-table/item/edit.js:391
 #: src/blocks/section/components/header.js:147
 #: src/blocks/testimonial/item/edit.js:103
 msgid "Write lede…"
@@ -932,17 +932,17 @@ msgstr ""
 #: dist/blocks/items/item/item/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
-#: src/blocks/btn-box/edit.js:288
-#: src/blocks/btn/edit.js:241
-#: src/blocks/items/item/block-link/edit.js:445
+#: src/blocks/btn-box/edit.js:290
+#: src/blocks/btn/edit.js:240
+#: src/blocks/items/item/block-link/edit.js:441
 #: src/blocks/items/item/item/edit.js:263
-#: src/blocks/items/item/standard/edit.js:453
-#: src/blocks/pricing-table/item/edit.js:431
+#: src/blocks/items/item/standard/edit.js:449
+#: src/blocks/pricing-table/item/edit.js:427
 msgid "Button"
 msgstr ""
 
 #: dist/blocks/btn-box/index.js:1
-#: src/blocks/btn-box/edit.js:304
+#: src/blocks/btn-box/edit.js:305
 msgid "Write note…"
 msgstr ""
 
@@ -958,12 +958,12 @@ msgstr ""
 #: dist/blocks/pricing-table/item/index.js:1
 #: dist/blocks/slider/item/index.js:1
 #: dist/blocks/step/item/standard/index.js:1
-#: src/blocks/btn-box/edit.js:317
-#: src/blocks/btn/edit.js:253
-#: src/blocks/items/item/banner/edit.js:464
-#: src/blocks/items/item/block-link/edit.js:478
+#: src/blocks/btn-box/edit.js:318
+#: src/blocks/btn/edit.js:251
+#: src/blocks/items/item/banner/edit.js:451
+#: src/blocks/items/item/block-link/edit.js:474
 #: src/blocks/items/item/item/edit.js:282
-#: src/blocks/items/item/standard/edit.js:485
+#: src/blocks/items/item/standard/edit.js:481
 #: src/blocks/panels/item/block-link/edit.js:84
 #: src/blocks/panels/item/block-link/edit.js:109
 #: src/blocks/panels/item/block-link/save.js:44
@@ -971,7 +971,7 @@ msgstr ""
 #: src/blocks/panels/item/horizontal/edit.js:352
 #: src/blocks/panels/item/vertical/edit.js:280
 #: src/blocks/panels/item/vertical/edit.js:311
-#: src/blocks/pricing-table/item/edit.js:462
+#: src/blocks/pricing-table/item/edit.js:458
 #: src/blocks/slider/item/edit.js:219
 #: src/blocks/step/item/standard/edit.js:362
 msgid "Link"
@@ -989,16 +989,16 @@ msgstr ""
 #: dist/blocks/pricing-table/item/index.js:1
 #: dist/blocks/slider/item/index.js:1
 #: dist/blocks/step/item/standard/index.js:1
-#: src/blocks/btn-box/edit.js:326
-#: src/blocks/btn/edit.js:262
-#: src/blocks/items/item/banner/edit.js:473
-#: src/blocks/items/item/block-link/edit.js:487
+#: src/blocks/btn-box/edit.js:327
+#: src/blocks/btn/edit.js:260
+#: src/blocks/items/item/banner/edit.js:460
+#: src/blocks/items/item/block-link/edit.js:483
 #: src/blocks/items/item/item/edit.js:291
-#: src/blocks/items/item/standard/edit.js:494
+#: src/blocks/items/item/standard/edit.js:490
 #: src/blocks/panels/item/block-link/edit.js:118
 #: src/blocks/panels/item/horizontal/edit.js:361
 #: src/blocks/panels/item/vertical/edit.js:320
-#: src/blocks/pricing-table/item/edit.js:471
+#: src/blocks/pricing-table/item/edit.js:467
 #: src/blocks/slider/item/edit.js:228
 #: src/blocks/step/item/standard/edit.js:371
 msgid "Unlink"
@@ -1014,9 +1014,9 @@ msgstr ""
 #: dist/blocks/section/index.js:1
 #: dist/blocks/taxonomy-posts/index.js:1
 #: src/blocks/btn/index.js:26
-#: src/blocks/child-pages/edit.js:126
+#: src/blocks/child-pages/edit.js:125
 #: src/blocks/recent-posts/edit.js:171
-#: src/blocks/rss/edit.js:151
+#: src/blocks/rss/edit.js:132
 #: src/blocks/section/components/background.js:478
 #: src/blocks/taxonomy-posts/edit.js:239
 msgid "Text"
@@ -1124,12 +1124,12 @@ msgid "Only the actual contribution screen is displayed"
 msgstr ""
 
 #: dist/blocks/child-pages/index.js:1
-#: src/blocks/child-pages/edit.js:102
+#: src/blocks/child-pages/edit.js:101
 msgid "Title"
 msgstr ""
 
 #: dist/blocks/child-pages/index.js:1
-#: src/blocks/child-pages/edit.js:104
+#: src/blocks/child-pages/edit.js:103
 msgid "Child pages"
 msgstr ""
 
@@ -1137,9 +1137,9 @@ msgstr ""
 #: dist/blocks/recent-posts/index.js:1
 #: dist/blocks/rss/index.js:1
 #: dist/blocks/taxonomy-posts/index.js:1
-#: src/blocks/child-pages/edit.js:112
+#: src/blocks/child-pages/edit.js:111
 #: src/blocks/recent-posts/edit.js:157
-#: src/blocks/rss/edit.js:137
+#: src/blocks/rss/edit.js:118
 #: src/blocks/taxonomy-posts/edit.js:225
 msgid "Layout"
 msgstr ""
@@ -1152,12 +1152,12 @@ msgstr ""
 #: dist/blocks/rss/index.js:3
 #: dist/blocks/taxonomy-posts/index.js:1
 #: dist/blocks/taxonomy-posts/index.js:3
-#: src/blocks/child-pages/edit.js:118
-#: src/blocks/child-pages/edit.js:144
+#: src/blocks/child-pages/edit.js:117
+#: src/blocks/child-pages/edit.js:143
 #: src/blocks/recent-posts/edit.js:163
 #: src/blocks/recent-posts/edit.js:189
-#: src/blocks/rss/edit.js:143
-#: src/blocks/rss/edit.js:169
+#: src/blocks/rss/edit.js:124
+#: src/blocks/rss/edit.js:150
 #: src/blocks/taxonomy-posts/edit.js:231
 #: src/blocks/taxonomy-posts/edit.js:257
 msgid "Rich media"
@@ -1168,9 +1168,9 @@ msgstr ""
 #: dist/blocks/rss/index.js:1
 #: dist/blocks/tabs/index.js:1
 #: dist/blocks/taxonomy-posts/index.js:1
-#: src/blocks/child-pages/edit.js:122
+#: src/blocks/child-pages/edit.js:121
 #: src/blocks/recent-posts/edit.js:167
-#: src/blocks/rss/edit.js:147
+#: src/blocks/rss/edit.js:128
 #: src/blocks/tabs/index.js:26
 #: src/blocks/taxonomy-posts/edit.js:235
 msgid "Simple"
@@ -1180,9 +1180,9 @@ msgstr ""
 #: dist/blocks/recent-posts/index.js:1
 #: dist/blocks/rss/index.js:1
 #: dist/blocks/taxonomy-posts/index.js:1
-#: src/blocks/child-pages/edit.js:130
+#: src/blocks/child-pages/edit.js:129
 #: src/blocks/recent-posts/edit.js:175
-#: src/blocks/rss/edit.js:155
+#: src/blocks/rss/edit.js:136
 #: src/blocks/taxonomy-posts/edit.js:243
 msgid "Text 2"
 msgstr ""
@@ -1191,9 +1191,9 @@ msgstr ""
 #: dist/blocks/recent-posts/index.js:1
 #: dist/blocks/rss/index.js:1
 #: dist/blocks/taxonomy-posts/index.js:1
-#: src/blocks/child-pages/edit.js:134
+#: src/blocks/child-pages/edit.js:133
 #: src/blocks/recent-posts/edit.js:179
-#: src/blocks/rss/edit.js:159
+#: src/blocks/rss/edit.js:140
 #: src/blocks/taxonomy-posts/edit.js:247
 msgid "Panels"
 msgstr ""
@@ -1203,9 +1203,9 @@ msgstr ""
 #: dist/blocks/recent-posts/index.js:3
 #: dist/blocks/rss/index.js:3
 #: dist/blocks/taxonomy-posts/index.js:3
-#: src/blocks/child-pages/edit.js:140
+#: src/blocks/child-pages/edit.js:139
 #: src/blocks/recent-posts/edit.js:185
-#: src/blocks/rss/edit.js:165
+#: src/blocks/rss/edit.js:146
 #: src/blocks/taxonomy-posts/edit.js:253
 msgid "Carousel (%1$s)"
 msgstr ""
@@ -1214,9 +1214,9 @@ msgstr ""
 #: dist/blocks/recent-posts/index.js:3
 #: dist/blocks/rss/index.js:3
 #: dist/blocks/taxonomy-posts/index.js:3
-#: src/blocks/child-pages/edit.js:149
+#: src/blocks/child-pages/edit.js:148
 #: src/blocks/recent-posts/edit.js:194
-#: src/blocks/rss/edit.js:174
+#: src/blocks/rss/edit.js:155
 #: src/blocks/taxonomy-posts/edit.js:262
 msgid "Large image"
 msgstr ""
@@ -1228,9 +1228,9 @@ msgstr ""
 #: dist/blocks/spider-pickup-slider/index.js:1
 #: dist/blocks/spider-slider/index.js:1
 #: dist/blocks/taxonomy-posts/index.js:3
-#: src/blocks/child-pages/edit.js:160
+#: src/blocks/child-pages/edit.js:159
 #: src/blocks/recent-posts/edit.js:205
-#: src/blocks/rss/edit.js:185
+#: src/blocks/rss/edit.js:166
 #: src/blocks/spider-contents-slider/edit.js:281
 #: src/blocks/spider-pickup-slider/edit.js:90
 #: src/blocks/spider-slider/edit.js:328
@@ -1245,9 +1245,9 @@ msgstr ""
 #: dist/blocks/spider-pickup-slider/index.js:1
 #: dist/blocks/spider-slider/index.js:1
 #: dist/blocks/taxonomy-posts/index.js:3
-#: src/blocks/child-pages/edit.js:169
+#: src/blocks/child-pages/edit.js:168
 #: src/blocks/recent-posts/edit.js:214
-#: src/blocks/rss/edit.js:194
+#: src/blocks/rss/edit.js:175
 #: src/blocks/spider-contents-slider/edit.js:287
 #: src/blocks/spider-pickup-slider/edit.js:96
 #: src/blocks/spider-slider/edit.js:334
@@ -1264,9 +1264,9 @@ msgstr ""
 #: dist/blocks/spider-slider/index.js:1
 #: dist/blocks/taxonomy-posts/index.js:3
 #: dist/blocks/thumbnail-gallery/index.js:1
-#: src/blocks/child-pages/edit.js:178
+#: src/blocks/child-pages/edit.js:177
 #: src/blocks/recent-posts/edit.js:223
-#: src/blocks/rss/edit.js:203
+#: src/blocks/rss/edit.js:184
 #: src/blocks/slider/edit.js:197
 #: src/blocks/spider-contents-slider/edit.js:325
 #: src/blocks/spider-pickup-slider/edit.js:119
@@ -1283,9 +1283,9 @@ msgstr ""
 #: dist/blocks/spider-pickup-slider/index.js:1
 #: dist/blocks/spider-slider/index.js:1
 #: dist/blocks/taxonomy-posts/index.js:3
-#: src/blocks/child-pages/edit.js:182
+#: src/blocks/child-pages/edit.js:181
 #: src/blocks/recent-posts/edit.js:227
-#: src/blocks/rss/edit.js:207
+#: src/blocks/rss/edit.js:188
 #: src/blocks/spider-contents-slider/edit.js:329
 #: src/blocks/spider-pickup-slider/edit.js:123
 #: src/blocks/spider-slider/edit.js:393
@@ -1305,10 +1305,10 @@ msgstr ""
 #: dist/blocks/section-with-bgimage/index.js:1
 #: dist/blocks/section-with-bgvideo/index.js:1
 #: dist/blocks/section/index.js:1
-#: src/blocks/child-pages/edit.js:195
-#: src/blocks/items/item/block-link/edit.js:264
+#: src/blocks/child-pages/edit.js:194
+#: src/blocks/items/item/block-link/edit.js:261
 #: src/blocks/items/item/item/edit.js:89
-#: src/blocks/items/item/standard/edit.js:264
+#: src/blocks/items/item/standard/edit.js:261
 #: src/blocks/media-text/edit.js:341
 #: src/blocks/panels/item/horizontal/edit.js:209
 #: src/blocks/panels/item/vertical/edit.js:193
@@ -1330,18 +1330,18 @@ msgstr ""
 #: dist/blocks/spider-slider/index.js:1
 #: dist/blocks/step/item/standard/index.js:1
 #: dist/blocks/thumbnail-gallery/item/index.js:1
-#: src/blocks/child-pages/edit.js:224
-#: src/blocks/items/item/banner/edit.js:331
-#: src/blocks/items/item/block-link/edit.js:292
-#: src/blocks/items/item/standard/edit.js:291
+#: src/blocks/child-pages/edit.js:223
+#: src/blocks/items/item/banner/edit.js:325
+#: src/blocks/items/item/block-link/edit.js:289
+#: src/blocks/items/item/standard/edit.js:288
 #: src/blocks/media-text/edit.js:310
 #: src/blocks/panels/item/horizontal/edit.js:236
 #: src/blocks/panels/item/vertical/edit.js:220
-#: src/blocks/pricing-table/item/edit.js:264
-#: src/blocks/section-break-the-grid/edit.js:695
-#: src/blocks/section-with-bgimage/edit.js:713
-#: src/blocks/section-with-bgimage/edit.js:762
-#: src/blocks/section-with-bgimage/edit.js:811
+#: src/blocks/pricing-table/item/edit.js:261
+#: src/blocks/section-break-the-grid/edit.js:703
+#: src/blocks/section-with-bgimage/edit.js:672
+#: src/blocks/section-with-bgimage/edit.js:721
+#: src/blocks/section-with-bgimage/edit.js:770
 #: src/blocks/slider/item/edit.js:205
 #: src/blocks/spider-slider/edit.js:314
 #: src/blocks/step/item/standard/edit.js:269
@@ -1353,9 +1353,9 @@ msgstr ""
 #: dist/blocks/recent-posts/index.js:3
 #: dist/blocks/rss/index.js:3
 #: dist/blocks/taxonomy-posts/index.js:3
-#: src/blocks/child-pages/edit.js:232
+#: src/blocks/child-pages/edit.js:231
 #: src/blocks/recent-posts/edit.js:309
-#: src/blocks/rss/edit.js:253
+#: src/blocks/rss/edit.js:234
 #: src/blocks/taxonomy-posts/edit.js:391
 msgid "Number of columns displayed on mobile device"
 msgstr ""
@@ -1364,9 +1364,9 @@ msgstr ""
 #: dist/blocks/recent-posts/index.js:3
 #: dist/blocks/rss/index.js:3
 #: dist/blocks/taxonomy-posts/index.js:3
-#: src/blocks/child-pages/edit.js:248
+#: src/blocks/child-pages/edit.js:247
 #: src/blocks/recent-posts/edit.js:325
-#: src/blocks/rss/edit.js:269
+#: src/blocks/rss/edit.js:250
 #: src/blocks/taxonomy-posts/edit.js:407
 msgid "1 column"
 msgstr ""
@@ -1375,20 +1375,20 @@ msgstr ""
 #: dist/blocks/recent-posts/index.js:3
 #: dist/blocks/rss/index.js:3
 #: dist/blocks/taxonomy-posts/index.js:3
-#: src/blocks/child-pages/edit.js:255
+#: src/blocks/child-pages/edit.js:254
 #: src/blocks/recent-posts/edit.js:332
-#: src/blocks/rss/edit.js:276
+#: src/blocks/rss/edit.js:257
 #: src/blocks/taxonomy-posts/edit.js:414
 msgid "2 columns"
 msgstr ""
 
 #: dist/blocks/child-pages/index.js:3
-#: src/blocks/child-pages/edit.js:265
+#: src/blocks/child-pages/edit.js:264
 msgid "Specify the parent page"
 msgstr ""
 
 #: dist/blocks/child-pages/index.js:3
-#: src/blocks/child-pages/edit.js:271
+#: src/blocks/child-pages/edit.js:270
 msgid "Search"
 msgstr ""
 
@@ -1455,68 +1455,72 @@ msgid "In the actual screen, it is displayed when headings exists on the page."
 msgstr ""
 
 #: dist/blocks/countdown/index.js:1
-#: src/blocks/countdown/index.js:24
+#: src/blocks/countdown/deprecated.js:53
+#: src/blocks/countdown/edit.js:100
+#: src/blocks/countdown/save.js:26
+msgid "Days"
+msgstr ""
+
+#: dist/blocks/countdown/index.js:1
+#: src/blocks/countdown/deprecated.js:67
+#: src/blocks/countdown/edit.js:108
+#: src/blocks/countdown/save.js:34
+msgid "Hours"
+msgstr ""
+
+#: dist/blocks/countdown/index.js:1
+#: src/blocks/countdown/deprecated.js:81
+#: src/blocks/countdown/edit.js:116
+#: src/blocks/countdown/save.js:42
+msgid "Minutes"
+msgstr ""
+
+#: dist/blocks/countdown/index.js:1
+#: src/blocks/countdown/deprecated.js:95
+#: src/blocks/countdown/edit.js:124
+#: src/blocks/countdown/save.js:50
+msgid "Seconds"
+msgstr ""
+
+#: dist/blocks/countdown/index.js:1
+#: src/blocks/countdown/index.js:25
 msgid "Inline"
 msgstr ""
 
 #: dist/blocks/countdown/index.js:1
-#: src/blocks/countdown/index.js:27
+#: src/blocks/countdown/index.js:28
 msgid "Countdown"
 msgstr ""
 
 #: dist/blocks/countdown/index.js:1
 #: dist/blocks/evaluation-star/index.js:1
-#: src/blocks/countdown/edit.js:73
-#: src/blocks/evaluation-star/edit.js:134
+#: src/blocks/countdown/edit.js:71
+#: src/blocks/evaluation-star/edit.js:135
 msgid "Numeric color"
 msgstr ""
 
 #: dist/blocks/countdown/index.js:1
-#: src/blocks/countdown/edit.js:78
+#: src/blocks/countdown/edit.js:76
 msgid "Clock color"
 msgstr ""
 
-#: dist/blocks/countdown/index.js:1
-#: src/blocks/countdown/edit.js:108
-#: src/blocks/countdown/save.js:38
-msgid "Days"
-msgstr ""
-
-#: dist/blocks/countdown/index.js:1
-#: src/blocks/countdown/edit.js:122
-#: src/blocks/countdown/save.js:52
-msgid "Hours"
-msgstr ""
-
-#: dist/blocks/countdown/index.js:1
-#: src/blocks/countdown/edit.js:136
-#: src/blocks/countdown/save.js:66
-msgid "Minutes"
-msgstr ""
-
-#: dist/blocks/countdown/index.js:1
-#: src/blocks/countdown/edit.js:150
-#: src/blocks/countdown/save.js:80
-msgid "Seconds"
-msgstr ""
-
 #: dist/blocks/directory-structure/item/directory/index.js:1
-#: src/blocks/directory-structure/item/directory/edit.js:80
+#: src/blocks/directory-structure/item/directory/edit.js:81
 msgid "folder - Solid"
 msgstr ""
 
 #: dist/blocks/directory-structure/item/directory/index.js:1
-#: src/blocks/directory-structure/item/directory/edit.js:86
+#: src/blocks/directory-structure/item/directory/edit.js:87
 msgid "folder-open - Solid"
 msgstr ""
 
 #: dist/blocks/directory-structure/item/directory/index.js:1
-#: src/blocks/directory-structure/item/directory/edit.js:92
+#: src/blocks/directory-structure/item/directory/edit.js:93
 msgid "folder-open - Regular"
 msgstr ""
 
 #: dist/blocks/directory-structure/item/directory/index.js:1
-#: src/blocks/directory-structure/item/directory/edit.js:98
+#: src/blocks/directory-structure/item/directory/edit.js:99
 msgid "folder - Regular"
 msgstr ""
 
@@ -1524,120 +1528,120 @@ msgstr ""
 #: dist/blocks/directory-structure/item/file/index.js:1
 #: dist/blocks/evaluation-star/index.js:1
 #: dist/blocks/list/index.js:1
-#: src/blocks/directory-structure/item/directory/edit.js:125
-#: src/blocks/directory-structure/item/file/edit.js:69
-#: src/blocks/evaluation-star/edit.js:129
+#: src/blocks/directory-structure/item/directory/edit.js:126
+#: src/blocks/directory-structure/item/file/edit.js:70
+#: src/blocks/evaluation-star/edit.js:130
 #: src/blocks/list/edit.js:82
 msgid "Icon color"
 msgstr ""
 
 #: dist/blocks/directory-structure/item/directory/index.js:1
-#: src/blocks/directory-structure/item/directory/edit.js:182
+#: src/blocks/directory-structure/item/directory/edit.js:183
 msgid "Write directory name…"
 msgstr ""
 
 #: dist/blocks/directory-structure/item/file/index.js:1
-#: src/blocks/directory-structure/item/file/edit.js:36
+#: src/blocks/directory-structure/item/file/edit.js:37
 msgid "file - Solid"
 msgstr ""
 
 #: dist/blocks/directory-structure/item/file/index.js:1
-#: src/blocks/directory-structure/item/file/edit.js:42
+#: src/blocks/directory-structure/item/file/edit.js:43
 msgid "file - Regular"
 msgstr ""
 
 #: dist/blocks/directory-structure/item/file/index.js:1
-#: src/blocks/directory-structure/item/file/edit.js:126
+#: src/blocks/directory-structure/item/file/edit.js:127
 msgid "Write file name…"
 msgstr ""
 
 #: dist/blocks/evaluation-star/index.js:1
-#: src/blocks/evaluation-star/edit.js:142
+#: src/blocks/evaluation-star/edit.js:143
 msgid "Evaluation settings"
 msgstr ""
 
 #: dist/blocks/evaluation-star/index.js:1
-#: src/blocks/evaluation-star/edit.js:145
+#: src/blocks/evaluation-star/edit.js:146
 msgid "Evaluation"
 msgstr ""
 
 #: dist/blocks/evaluation-star/index.js:1
-#: src/blocks/evaluation-star/edit.js:146
+#: src/blocks/evaluation-star/edit.js:147
 msgid "Five-grade evaluation"
 msgstr ""
 
 #: dist/blocks/evaluation-star/index.js:1
-#: src/blocks/evaluation-star/edit.js:158
+#: src/blocks/evaluation-star/edit.js:159
 msgid "Title position"
 msgstr ""
 
 #: dist/blocks/evaluation-star/index.js:1
-#: src/blocks/evaluation-star/edit.js:164
-#: src/blocks/evaluation-star/edit.js:197
+#: src/blocks/evaluation-star/edit.js:165
+#: src/blocks/evaluation-star/edit.js:198
 msgid "Position left"
 msgstr ""
 
 #: dist/blocks/evaluation-star/index.js:1
-#: src/blocks/evaluation-star/edit.js:171
-#: src/blocks/evaluation-star/edit.js:204
+#: src/blocks/evaluation-star/edit.js:172
+#: src/blocks/evaluation-star/edit.js:205
 msgid "Position right"
 msgstr ""
 
 #: dist/blocks/evaluation-star/index.js:1
-#: src/blocks/evaluation-star/edit.js:181
+#: src/blocks/evaluation-star/edit.js:182
 msgid "Numeric settings"
 msgstr ""
 
 #: dist/blocks/evaluation-star/index.js:1
-#: src/blocks/evaluation-star/edit.js:185
+#: src/blocks/evaluation-star/edit.js:186
 msgid "Show numeric"
 msgstr ""
 
 #: dist/blocks/evaluation-star/index.js:1
-#: src/blocks/evaluation-star/edit.js:191
+#: src/blocks/evaluation-star/edit.js:192
 msgid "Numeric position"
 msgstr ""
 
 #: dist/blocks/faq/item/index.js:1
-#: src/blocks/faq/item/edit.js:87
+#: src/blocks/faq/item/edit.js:85
 msgid "Question color"
 msgstr ""
 
 #: dist/blocks/faq/item/index.js:1
-#: src/blocks/faq/item/edit.js:92
+#: src/blocks/faq/item/edit.js:90
 msgid "Answer color"
 msgstr ""
 
 #: dist/blocks/faq/item/index.js:1
-#: src/blocks/faq/item/edit.js:103
+#: src/blocks/faq/item/edit.js:101
 msgid "Question label"
 msgstr ""
 
 #: dist/blocks/faq/item/index.js:1
-#: src/blocks/faq/item/edit.js:108
+#: src/blocks/faq/item/edit.js:106
 msgid "Q"
 msgstr ""
 
 #. translators: %d: Length
 #: dist/blocks/faq/item/index.js:3
 #: dist/blocks/faq/item/index.js:5
-#: src/blocks/faq/item/edit.js:112
-#: src/blocks/faq/item/edit.js:130
+#: src/blocks/faq/item/edit.js:110
+#: src/blocks/faq/item/edit.js:128
 msgid "Recommend length up to %d"
 msgstr ""
 
 #: dist/blocks/faq/item/index.js:3
-#: src/blocks/faq/item/edit.js:121
+#: src/blocks/faq/item/edit.js:119
 msgid "Answer label"
 msgstr ""
 
 #: dist/blocks/faq/item/index.js:3
-#: src/blocks/faq/item/edit.js:126
+#: src/blocks/faq/item/edit.js:124
 msgid "A"
 msgstr ""
 
 #: dist/blocks/faq/item/index.js:5
-#: src/blocks/faq/item/edit.js:151
+#: src/blocks/faq/item/edit.js:146
 msgid "Write question…"
 msgstr ""
 
@@ -1653,7 +1657,7 @@ msgstr ""
 #: src/blocks/information/edit.js:92
 #: src/blocks/media-text/edit.js:300
 #: src/blocks/pricing-table/edit.js:113
-#: src/blocks/section-side-heading/edit.js:411
+#: src/blocks/section-side-heading/edit.js:436
 msgid "33%"
 msgstr ""
 
@@ -1664,7 +1668,7 @@ msgstr ""
 #: src/blocks/information/edit.js:96
 #: src/blocks/media-text/edit.js:304
 #: src/blocks/pricing-table/edit.js:109
-#: src/blocks/section-side-heading/edit.js:415
+#: src/blocks/section-side-heading/edit.js:440
 msgid "25%"
 msgstr ""
 
@@ -1799,7 +1803,7 @@ msgstr ""
 #: dist/blocks/slider/item/index.js:1
 #: dist/blocks/step/item/standard/index.js:1
 #: dist/blocks/thumbnail-gallery/item/index.js:1
-#: src/blocks/items/item/banner/edit.js:275
+#: src/blocks/items/item/banner/edit.js:269
 #: src/blocks/media-text/index.js:19
 #: src/blocks/section-with-bgimage/index.js:23
 #: src/js/component/figure.js:143
@@ -1827,24 +1831,24 @@ msgid "Video"
 msgstr ""
 
 #: dist/blocks/items/item/banner/index.js:1
-#: src/blocks/items/item/banner/edit.js:290
+#: src/blocks/items/item/banner/edit.js:284
 msgid "Image aspect ratio"
 msgstr ""
 
 #: dist/blocks/items/item/banner/index.js:1
-#: src/blocks/items/item/banner/edit.js:298
+#: src/blocks/items/item/banner/edit.js:292
 msgid "Fit to the image"
 msgstr ""
 
 #: dist/blocks/items/item/banner/index.js:1
-#: src/blocks/items/item/banner/edit.js:305
+#: src/blocks/items/item/banner/edit.js:299
 msgid "Fit to the contents"
 msgstr ""
 
 #: dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/slider/index.js:1
 #: dist/blocks/spider-slider/index.js:1
-#: src/blocks/items/item/banner/edit.js:312
+#: src/blocks/items/item/banner/edit.js:306
 #: src/blocks/slider/edit.js:89
 #: src/blocks/spider-slider/edit.js:183
 msgid "4:3"
@@ -1853,24 +1857,24 @@ msgstr ""
 #: dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/slider/index.js:1
 #: dist/blocks/spider-slider/index.js:1
-#: src/blocks/items/item/banner/edit.js:316
+#: src/blocks/items/item/banner/edit.js:310
 #: src/blocks/slider/edit.js:85
 #: src/blocks/spider-slider/edit.js:179
 msgid "16:9"
 msgstr ""
 
 #: dist/blocks/items/item/banner/index.js:1
-#: src/blocks/items/item/banner/edit.js:320
+#: src/blocks/items/item/banner/edit.js:314
 msgid "3:4"
 msgstr ""
 
 #: dist/blocks/items/item/banner/index.js:1
-#: src/blocks/items/item/banner/edit.js:324
+#: src/blocks/items/item/banner/edit.js:318
 msgid "9:16"
 msgstr ""
 
 #: dist/blocks/items/item/banner/index.js:1
-#: src/blocks/items/item/banner/edit.js:338
+#: src/blocks/items/item/banner/edit.js:332
 msgid "Shade off"
 msgstr ""
 
@@ -1878,17 +1882,17 @@ msgstr ""
 #: dist/blocks/section-break-the-grid/index.js:17
 #: dist/blocks/section-with-bgimage/index.js:1
 #: dist/blocks/section-with-bgvideo/index.js:1
-#: src/blocks/items/item/banner/edit.js:345
-#: src/blocks/section-break-the-grid/edit.js:1084
-#: src/blocks/section-with-bgimage/edit.js:839
+#: src/blocks/items/item/banner/edit.js:339
+#: src/blocks/section-break-the-grid/edit.js:1092
+#: src/blocks/section-with-bgimage/edit.js:798
 #: src/blocks/section-with-bgvideo/edit.js:374
 msgid "Mask"
 msgstr ""
 
 #: dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
-#: src/blocks/items/item/banner/edit.js:441
-#: src/blocks/spider-contents-slider/item/edit.js:210
+#: src/blocks/items/item/banner/edit.js:428
+#: src/blocks/spider-contents-slider/item/edit.js:203
 msgid "Change content position"
 msgstr ""
 
@@ -1898,9 +1902,9 @@ msgstr ""
 #: dist/blocks/panels/item/horizontal/index.js:1
 #: dist/blocks/panels/item/vertical/index.js:1
 #: dist/blocks/testimonial/item/index.js:1
-#: src/blocks/items/item/block-link/edit.js:426
+#: src/blocks/items/item/block-link/edit.js:423
 #: src/blocks/items/item/item/edit.js:231
-#: src/blocks/items/item/standard/edit.js:425
+#: src/blocks/items/item/standard/edit.js:422
 #: src/blocks/panels/item/horizontal/edit.js:303
 #: src/blocks/panels/item/vertical/edit.js:262
 #: src/blocks/testimonial/item/edit.js:81
@@ -1933,12 +1937,12 @@ msgid "Facebook page name"
 msgstr ""
 
 #: dist/blocks/like-me-box/index.js:1
-#: src/blocks/like-me-box/edit.js:35
+#: src/blocks/like-me-box/edit.js:36
 msgid "Like me box"
 msgstr ""
 
 #: dist/blocks/like-me-box/index.js:1
-#: src/blocks/like-me-box/edit.js:37
+#: src/blocks/like-me-box/edit.js:38
 msgid "Please input \"Facebook page name\""
 msgstr ""
 
@@ -2037,43 +2041,43 @@ msgstr ""
 #: dist/blocks/section-side-heading/index.js:1
 #: src/blocks/media-text/edit.js:296
 #: src/blocks/pricing-table/edit.js:117
-#: src/blocks/section-break-the-grid/edit.js:864
-#: src/blocks/section-side-heading/edit.js:407
+#: src/blocks/section-break-the-grid/edit.js:872
+#: src/blocks/section-side-heading/edit.js:432
 msgid "50%"
 msgstr ""
 
 #: dist/blocks/media-text/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: src/blocks/media-text/edit.js:316
-#: src/blocks/section-break-the-grid/edit.js:703
+#: src/blocks/section-break-the-grid/edit.js:711
 msgid "Sort by mobile"
 msgstr ""
 
 #: dist/blocks/media-text/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: src/blocks/media-text/edit.js:325
-#: src/blocks/section-break-the-grid/edit.js:718
+#: src/blocks/section-break-the-grid/edit.js:726
 msgid "Text > Image"
 msgstr ""
 
 #: dist/blocks/media-text/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: src/blocks/media-text/edit.js:332
-#: src/blocks/section-break-the-grid/edit.js:725
+#: src/blocks/section-break-the-grid/edit.js:733
 msgid "Image > Text"
 msgstr ""
 
 #: dist/blocks/media-text/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:17
 #: src/blocks/media-text/edit.js:378
-#: src/blocks/section-break-the-grid/edit.js:1321
+#: src/blocks/section-break-the-grid/edit.js:1329
 msgid "Show media on left"
 msgstr ""
 
 #: dist/blocks/media-text/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:17
 #: src/blocks/media-text/edit.js:390
-#: src/blocks/section-break-the-grid/edit.js:1333
+#: src/blocks/section-break-the-grid/edit.js:1341
 msgid "Show media on right"
 msgstr ""
 
@@ -2136,22 +2140,22 @@ msgstr ""
 
 #: dist/blocks/pickup-slider/index.js:1
 #: dist/blocks/spider-pickup-slider/index.js:1
-#: src/blocks/pickup-slider/edit.js:85
-#: src/blocks/spider-pickup-slider/edit.js:137
+#: src/blocks/pickup-slider/edit.js:86
+#: src/blocks/spider-pickup-slider/edit.js:138
 msgid "Pickup slider"
 msgstr ""
 
 #: dist/blocks/pickup-slider/index.js:1
 #: dist/blocks/spider-pickup-slider/index.js:1
-#: src/blocks/pickup-slider/edit.js:87
-#: src/blocks/spider-pickup-slider/edit.js:139
+#: src/blocks/pickup-slider/edit.js:88
+#: src/blocks/spider-pickup-slider/edit.js:140
 msgid "Posts with \"pickup\" tag are displayed as sliders."
 msgstr ""
 
 #: dist/blocks/price-menu/item/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
 #: src/blocks/price-menu/item/edit.js:36
-#: src/blocks/pricing-table/item/edit.js:382
+#: src/blocks/pricing-table/item/edit.js:379
 msgid "Write price…"
 msgstr ""
 
@@ -2176,12 +2180,12 @@ msgid "100%"
 msgstr ""
 
 #: dist/blocks/rating-box/item/index.js:1
-#: src/blocks/rating-box/item/edit.js:54
+#: src/blocks/rating-box/item/edit.js:58
 msgid "Bar color"
 msgstr ""
 
 #: dist/blocks/rating-box/item/index.js:1
-#: src/blocks/rating-box/item/edit.js:65
+#: src/blocks/rating-box/item/edit.js:69
 msgid "Rating"
 msgstr ""
 
@@ -2208,7 +2212,7 @@ msgstr ""
 #: dist/blocks/rss/index.js:1
 #: dist/blocks/taxonomy-posts/index.js:1
 #: src/blocks/recent-posts/edit.js:149
-#: src/blocks/rss/edit.js:129
+#: src/blocks/rss/edit.js:110
 #: src/blocks/taxonomy-posts/edit.js:217
 msgid "Number of posts"
 msgstr ""
@@ -2217,7 +2221,7 @@ msgstr ""
 #: dist/blocks/rss/index.js:3
 #: dist/blocks/taxonomy-posts/index.js:3
 #: src/blocks/recent-posts/edit.js:240
-#: src/blocks/rss/edit.js:220
+#: src/blocks/rss/edit.js:201
 #: src/blocks/taxonomy-posts/edit.js:308
 msgid "Title tag of each items"
 msgstr ""
@@ -2263,7 +2267,7 @@ msgstr ""
 #: dist/blocks/rss/index.js:3
 #: dist/blocks/taxonomy-posts/index.js:3
 #: src/blocks/recent-posts/edit.js:351
-#: src/blocks/rss/edit.js:286
+#: src/blocks/rss/edit.js:267
 #: src/blocks/taxonomy-posts/edit.js:433
 msgid "Text if no posts matched"
 msgstr ""
@@ -2272,24 +2276,24 @@ msgstr ""
 #: dist/blocks/rss/index.js:3
 #: dist/blocks/taxonomy-posts/index.js:3
 #: src/blocks/recent-posts/edit.js:355
-#: src/blocks/rss/edit.js:290
+#: src/blocks/rss/edit.js:271
 #: src/blocks/taxonomy-posts/edit.js:437
 msgid "Allow HTML"
 msgstr ""
 
 #: dist/blocks/rss/index.js:1
-#: src/blocks/rss/edit.js:98
+#: src/blocks/rss/edit.js:100
+msgid "Edit RSS URL"
+msgstr ""
+
+#: dist/blocks/rss/index.js:3
+#: src/blocks/rss/edit.js:286
 msgid "Enter URL here…"
 msgstr ""
 
-#: dist/blocks/rss/index.js:1
-#: src/blocks/rss/edit.js:107
+#: dist/blocks/rss/index.js:3
+#: src/blocks/rss/edit.js:295
 msgid "Use URL"
-msgstr ""
-
-#: dist/blocks/rss/index.js:1
-#: src/blocks/rss/edit.js:119
-msgid "Edit RSS URL"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
@@ -2409,10 +2413,10 @@ msgstr ""
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
 #: dist/blocks/spider-slider/index.js:1
-#: src/blocks/section-break-the-grid/edit.js:1012
+#: src/blocks/section-break-the-grid/edit.js:1020
 #: src/blocks/section/components/background.js:36
 #: src/blocks/spider-contents-slider/edit.js:184
-#: src/blocks/spider-contents-slider/item/edit.js:157
+#: src/blocks/spider-contents-slider/item/edit.js:150
 #: src/blocks/spider-slider/edit.js:190
 msgid "None"
 msgstr ""
@@ -2620,152 +2624,152 @@ msgid "Container"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
-#: src/blocks/section-break-the-grid/edit.js:600
+#: src/blocks/section-break-the-grid/edit.js:608
 msgid "-50%"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
-#: src/blocks/section-break-the-grid/edit.js:604
+#: src/blocks/section-break-the-grid/edit.js:612
 msgid "-40%"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
-#: src/blocks/section-break-the-grid/edit.js:608
+#: src/blocks/section-break-the-grid/edit.js:616
 msgid "-30%"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
-#: src/blocks/section-break-the-grid/edit.js:612
+#: src/blocks/section-break-the-grid/edit.js:620
 msgid "-20%"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
-#: src/blocks/section-break-the-grid/edit.js:616
+#: src/blocks/section-break-the-grid/edit.js:624
 msgid "-10%"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
-#: src/blocks/section-break-the-grid/edit.js:620
-#: src/blocks/section-break-the-grid/edit.js:751
-#: src/blocks/section-break-the-grid/edit.js:832
-#: src/blocks/section-break-the-grid/edit.js:882
-msgid "+-0%"
-msgstr ""
-
-#: dist/blocks/section-break-the-grid/index.js:1
-#: src/blocks/section-break-the-grid/edit.js:627
-#: src/blocks/section-break-the-grid/edit.js:755
-msgid "+10%"
-msgstr ""
-
-#: dist/blocks/section-break-the-grid/index.js:1
-#: src/blocks/section-break-the-grid/edit.js:631
+#: src/blocks/section-break-the-grid/edit.js:628
 #: src/blocks/section-break-the-grid/edit.js:759
-msgid "+20%"
+#: src/blocks/section-break-the-grid/edit.js:840
+#: src/blocks/section-break-the-grid/edit.js:890
+msgid "+-0%"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
 #: src/blocks/section-break-the-grid/edit.js:635
 #: src/blocks/section-break-the-grid/edit.js:763
-msgid "+30%"
+msgid "+10%"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
 #: src/blocks/section-break-the-grid/edit.js:639
 #: src/blocks/section-break-the-grid/edit.js:767
-msgid "+40%"
+msgid "+20%"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
 #: src/blocks/section-break-the-grid/edit.js:643
 #: src/blocks/section-break-the-grid/edit.js:771
+msgid "+30%"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:647
+#: src/blocks/section-break-the-grid/edit.js:775
+msgid "+40%"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: src/blocks/section-break-the-grid/edit.js:651
+#: src/blocks/section-break-the-grid/edit.js:779
 msgid "+50%"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-with-bgimage/index.js:1
-#: src/blocks/section-break-the-grid/edit.js:691
-#: src/blocks/section-with-bgimage/edit.js:667
+#: src/blocks/section-break-the-grid/edit.js:699
+#: src/blocks/section-with-bgimage/edit.js:626
 msgid "Media settings"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
-#: src/blocks/section-break-the-grid/edit.js:732
+#: src/blocks/section-break-the-grid/edit.js:740
 msgid "No wrap"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
-#: src/blocks/section-break-the-grid/edit.js:743
+#: src/blocks/section-break-the-grid/edit.js:751
 msgid "Image Size Adjustment"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
-#: src/blocks/section-break-the-grid/edit.js:775
+#: src/blocks/section-break-the-grid/edit.js:783
 msgid "+60%"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
-#: src/blocks/section-break-the-grid/edit.js:779
+#: src/blocks/section-break-the-grid/edit.js:787
 msgid "+70%"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
-#: src/blocks/section-break-the-grid/edit.js:783
+#: src/blocks/section-break-the-grid/edit.js:791
 msgid "+80%"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
-#: src/blocks/section-break-the-grid/edit.js:787
+#: src/blocks/section-break-the-grid/edit.js:795
 msgid "+90%"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
-#: src/blocks/section-break-the-grid/edit.js:791
+#: src/blocks/section-break-the-grid/edit.js:799
 msgid "+100%"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
-#: src/blocks/section-break-the-grid/edit.js:799
+#: src/blocks/section-break-the-grid/edit.js:807
 msgid "Adjust the height of the media to the height of the block."
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
-#: src/blocks/section-break-the-grid/edit.js:810
+#: src/blocks/section-break-the-grid/edit.js:818
 msgid "Contents settings"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
-#: src/blocks/section-break-the-grid/edit.js:814
+#: src/blocks/section-break-the-grid/edit.js:822
 msgid "Content size adjustment"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
-#: src/blocks/section-break-the-grid/edit.js:824
+#: src/blocks/section-break-the-grid/edit.js:832
 msgid "Degree of overlap of content to image"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
-#: src/blocks/section-break-the-grid/edit.js:840
+#: src/blocks/section-break-the-grid/edit.js:848
 msgid "10%"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
-#: src/blocks/section-break-the-grid/edit.js:848
+#: src/blocks/section-break-the-grid/edit.js:856
 msgid "20%"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
-#: src/blocks/section-break-the-grid/edit.js:856
+#: src/blocks/section-break-the-grid/edit.js:864
 msgid "30%"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
-#: src/blocks/section-break-the-grid/edit.js:860
+#: src/blocks/section-break-the-grid/edit.js:868
 msgid "40%"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
-#: src/blocks/section-break-the-grid/edit.js:874
+#: src/blocks/section-break-the-grid/edit.js:882
 msgid "Vertical position of content"
 msgstr ""
 
@@ -2774,10 +2778,10 @@ msgstr ""
 #: dist/blocks/section-break-the-grid/index.js:5
 #: dist/blocks/section-break-the-grid/index.js:7
 #: dist/blocks/section-break-the-grid/index.js:9
-#: src/blocks/section-break-the-grid/edit.js:891
-#: src/blocks/section-break-the-grid/edit.js:902
-#: src/blocks/section-break-the-grid/edit.js:913
-#: src/blocks/section-break-the-grid/edit.js:924
+#: src/blocks/section-break-the-grid/edit.js:899
+#: src/blocks/section-break-the-grid/edit.js:910
+#: src/blocks/section-break-the-grid/edit.js:921
+#: src/blocks/section-break-the-grid/edit.js:932
 msgid "Move %1$s up"
 msgstr ""
 
@@ -2786,65 +2790,65 @@ msgstr ""
 #: dist/blocks/section-break-the-grid/index.js:13
 #: dist/blocks/section-break-the-grid/index.js:15
 #: dist/blocks/section-break-the-grid/index.js:17
-#: src/blocks/section-break-the-grid/edit.js:935
-#: src/blocks/section-break-the-grid/edit.js:946
-#: src/blocks/section-break-the-grid/edit.js:957
-#: src/blocks/section-break-the-grid/edit.js:968
+#: src/blocks/section-break-the-grid/edit.js:943
+#: src/blocks/section-break-the-grid/edit.js:954
+#: src/blocks/section-break-the-grid/edit.js:965
+#: src/blocks/section-break-the-grid/edit.js:976
 msgid "Move %1$s down"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:17
-#: src/blocks/section-break-the-grid/edit.js:992
+#: src/blocks/section-break-the-grid/edit.js:1000
 msgid "Background opacity"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:17
-#: src/blocks/section-break-the-grid/edit.js:1032
+#: src/blocks/section-break-the-grid/edit.js:1040
 msgid "Remove outside padding"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:17
-#: src/blocks/section-break-the-grid/edit.js:1043
+#: src/blocks/section-break-the-grid/edit.js:1051
 msgid "Shadow settings"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:17
-#: src/blocks/section-break-the-grid/edit.js:1058
+#: src/blocks/section-break-the-grid/edit.js:1066
 msgid "Horizontal position"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:17
-#: src/blocks/section-break-the-grid/edit.js:1071
+#: src/blocks/section-break-the-grid/edit.js:1079
 msgid "Vertical position"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:17
-#: src/blocks/section-break-the-grid/edit.js:1345
+#: src/blocks/section-break-the-grid/edit.js:1353
 msgid "Show media on top"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:17
-#: src/blocks/section-break-the-grid/edit.js:1358
+#: src/blocks/section-break-the-grid/edit.js:1366
 msgid "Show media on bottom"
 msgstr ""
 
 #: dist/blocks/section-side-heading/index.js:1
-#: src/blocks/section-side-heading/edit.js:394
+#: src/blocks/section-side-heading/edit.js:419
 msgid "Columns settings"
 msgstr ""
 
 #: dist/blocks/section-side-heading/index.js:1
-#: src/blocks/section-side-heading/edit.js:398
+#: src/blocks/section-side-heading/edit.js:423
 msgid "Heading column size"
 msgstr ""
 
 #: dist/blocks/section-side-heading/index.js:1
-#: src/blocks/section-side-heading/edit.js:546
+#: src/blocks/section-side-heading/edit.js:571
 msgid "Show heading on left"
 msgstr ""
 
 #: dist/blocks/section-side-heading/index.js:1
-#: src/blocks/section-side-heading/edit.js:558
+#: src/blocks/section-side-heading/edit.js:583
 msgid "Show heading on right"
 msgstr ""
 
@@ -2861,26 +2865,26 @@ msgid "Header image"
 msgstr ""
 
 #: dist/blocks/section-with-bgimage/index.js:1
-#: src/blocks/section-with-bgimage/edit.js:674
+#: src/blocks/section-with-bgimage/edit.js:633
 msgid "Parallax (Deprecated)"
 msgstr ""
 
 #: dist/blocks/section-with-bgimage/index.js:1
-#: src/blocks/section-with-bgimage/edit.js:680
+#: src/blocks/section-with-bgimage/edit.js:639
 msgid "This setting is being retained for backwards compatibility and is not recommended for use. Its use may slow down the page display."
 msgstr ""
 
 #: dist/blocks/section-with-bgimage/index.js:1
-#: src/blocks/section-with-bgimage/edit.js:704
-#: src/blocks/section-with-bgimage/edit.js:753
-#: src/blocks/section-with-bgimage/edit.js:802
+#: src/blocks/section-with-bgimage/edit.js:663
+#: src/blocks/section-with-bgimage/edit.js:712
+#: src/blocks/section-with-bgimage/edit.js:761
 msgid "Repeat images"
 msgstr ""
 
 #: dist/blocks/section-with-bgimage/index.js:1
-#: src/blocks/section-with-bgimage/edit.js:726
-#: src/blocks/section-with-bgimage/edit.js:775
-#: src/blocks/section-with-bgimage/edit.js:824
+#: src/blocks/section-with-bgimage/edit.js:685
+#: src/blocks/section-with-bgimage/edit.js:734
+#: src/blocks/section-with-bgimage/edit.js:783
 msgid "Focal point picker"
 msgstr ""
 
@@ -3081,7 +3085,7 @@ msgstr ""
 
 #: dist/blocks/step/item/free/index.js:1
 #: dist/blocks/step/item/standard/index.js:1
-#: src/blocks/step/item/free/edit.js:66
+#: src/blocks/step/item/free/edit.js:67
 #: src/blocks/step/item/standard/edit.js:233
 msgid "Number color"
 msgstr ""
@@ -3191,7 +3195,7 @@ msgid "If no category labels are displayed, this setting will be ignored."
 msgstr ""
 
 #: dist/blocks/taxonomy-posts/index.js:3
-#: src/blocks/taxonomy-posts/edit.js:447
+#: src/blocks/taxonomy-posts/edit.js:448
 msgid "Taxonomy posts"
 msgstr ""
 
@@ -3212,7 +3216,7 @@ msgstr ""
 
 #: dist/blocks/taxonomy-terms/index.js:1
 #: src/blocks/taxonomy-terms/edit.js:75
-#: src/blocks/taxonomy-terms/edit.js:139
+#: src/blocks/taxonomy-terms/edit.js:140
 msgid "Taxonomy"
 msgstr ""
 
@@ -3232,308 +3236,264 @@ msgid "Write name…"
 msgstr ""
 
 #: dist/blocks/accordion/block.json
-#: dist/js/blocks/accordion/block.json
 #: src/blocks/accordion/block.json
 msgctxt "block title"
 msgid "Accordion"
 msgstr ""
 
 #: dist/blocks/accordion/block.json
-#: dist/js/blocks/accordion/block.json
 #: src/blocks/accordion/block.json
 msgctxt "block description"
 msgid "You can set up a content area that expands and contracts like the accordion."
 msgstr ""
 
 #: dist/blocks/accordion/item/block.json
-#: dist/js/blocks/accordion/item/block.json
 #: src/blocks/accordion/item/block.json
 msgctxt "block title"
 msgid "Panel"
 msgstr ""
 
 #: dist/blocks/alert/block.json
-#: dist/js/blocks/alert/block.json
 #: src/blocks/alert/block.json
 msgctxt "block title"
 msgid "Alert"
 msgstr ""
 
 #: dist/blocks/alert/block.json
-#: dist/js/blocks/alert/block.json
 #: src/blocks/alert/block.json
 msgctxt "block description"
 msgid "It is a block that warns visitors."
 msgstr ""
 
 #: dist/blocks/balloon/block.json
-#: dist/js/blocks/balloon/block.json
 #: src/blocks/balloon/block.json
 msgctxt "block title"
 msgid "Balloon"
 msgstr ""
 
 #: dist/blocks/balloon/block.json
-#: dist/js/blocks/balloon/block.json
 #: src/blocks/balloon/block.json
 msgctxt "block description"
 msgid "It is a block that can express a conversation."
 msgstr ""
 
 #: dist/blocks/box/block.json
-#: dist/js/blocks/box/block.json
 #: src/blocks/box/block.json
 msgctxt "block title"
 msgid "Box"
 msgstr ""
 
 #: dist/blocks/box/block.json
-#: dist/js/blocks/box/block.json
 #: src/blocks/box/block.json
 msgctxt "block description"
 msgid "It is a box."
 msgstr ""
 
 #: dist/blocks/btn-box/block.json
-#: dist/js/blocks/btn-box/block.json
 #: src/blocks/btn-box/block.json
 msgctxt "block title"
 msgid "Button box"
 msgstr ""
 
 #: dist/blocks/btn-box/block.json
-#: dist/js/blocks/btn-box/block.json
 #: src/blocks/btn-box/block.json
 msgctxt "block description"
 msgid "It is a button with micro copy."
 msgstr ""
 
 #: dist/blocks/btn/block.json
-#: dist/js/blocks/btn/block.json
 #: src/blocks/btn/block.json
 msgctxt "block title"
 msgid "Button"
 msgstr ""
 
 #: dist/blocks/btn/block.json
-#: dist/js/blocks/btn/block.json
 #: src/blocks/btn/block.json
 msgctxt "block description"
 msgid "Prompt visitors to take action with a button-style link."
 msgstr ""
 
 #: dist/blocks/buttons/block.json
-#: dist/js/blocks/buttons/block.json
 #: src/blocks/buttons/block.json
 msgctxt "block title"
 msgid "Buttons"
 msgstr ""
 
 #: dist/blocks/buttons/block.json
-#: dist/js/blocks/buttons/block.json
 #: src/blocks/buttons/block.json
 msgctxt "block description"
 msgid "Prompt visitors to take action with a group of button-style links."
 msgstr ""
 
 #: dist/blocks/categories-list/block.json
-#: dist/js/blocks/categories-list/block.json
 #: src/blocks/categories-list/block.json
 msgctxt "block title"
 msgid "Categories list"
 msgstr ""
 
 #: dist/blocks/categories-list/block.json
-#: dist/js/blocks/categories-list/block.json
 #: src/blocks/categories-list/block.json
 msgctxt "block description"
 msgid "This is a block that displays a list of categories"
 msgstr ""
 
 #: dist/blocks/child-pages/block.json
-#: dist/js/blocks/child-pages/block.json
 #: src/blocks/child-pages/block.json
 msgctxt "block title"
 msgid "Child pages"
 msgstr ""
 
 #: dist/blocks/child-pages/block.json
-#: dist/js/blocks/child-pages/block.json
 #: src/blocks/child-pages/block.json
 msgctxt "block description"
 msgid "You can display child pages of this page."
 msgstr ""
 
 #: dist/blocks/container/block.json
-#: dist/js/blocks/container/block.json
 #: src/blocks/container/block.json
 msgctxt "block title"
 msgid "Container"
 msgstr ""
 
 #: dist/blocks/container/block.json
-#: dist/js/blocks/container/block.json
 #: src/blocks/container/block.json
 msgctxt "block description"
 msgid "Container blocks keep content within a certain width."
 msgstr ""
 
 #: dist/blocks/contents-outline/block.json
-#: dist/js/blocks/contents-outline/block.json
 #: src/blocks/contents-outline/block.json
 msgctxt "block title"
 msgid "Contents outline"
 msgstr ""
 
 #: dist/blocks/contents-outline/block.json
-#: dist/js/blocks/contents-outline/block.json
 #: src/blocks/contents-outline/block.json
 msgctxt "block description"
 msgid "Display the table of contents above the first heading."
 msgstr ""
 
 #: dist/blocks/countdown/block.json
-#: dist/js/blocks/countdown/block.json
 #: src/blocks/countdown/block.json
 msgctxt "block title"
 msgid "Countdown Timer"
 msgstr ""
 
 #: dist/blocks/countdown/block.json
-#: dist/js/blocks/countdown/block.json
 #: src/blocks/countdown/block.json
 msgctxt "block description"
 msgid "Display the countdown until the set date and time (Front-end only)"
 msgstr ""
 
 #: dist/blocks/directory-structure/block.json
-#: dist/js/blocks/directory-structure/block.json
 #: src/blocks/directory-structure/block.json
 msgctxt "block title"
 msgid "Directory structure"
 msgstr ""
 
 #: dist/blocks/directory-structure/block.json
-#: dist/js/blocks/directory-structure/block.json
 #: src/blocks/directory-structure/block.json
 msgctxt "block description"
 msgid "Display a list of directories and files"
 msgstr ""
 
 #: dist/blocks/directory-structure/item/directory/block.json
-#: dist/js/blocks/directory-structure/item/directory/block.json
 #: src/blocks/directory-structure/item/directory/block.json
 msgctxt "block title"
 msgid "Directory"
 msgstr ""
 
 #: dist/blocks/directory-structure/item/directory/block.json
-#: dist/js/blocks/directory-structure/item/directory/block.json
 #: src/blocks/directory-structure/item/directory/block.json
 msgctxt "block description"
 msgid "Display a directory item"
 msgstr ""
 
 #: dist/blocks/directory-structure/item/file/block.json
-#: dist/js/blocks/directory-structure/item/file/block.json
 #: src/blocks/directory-structure/item/file/block.json
 msgctxt "block title"
 msgid "File"
 msgstr ""
 
 #: dist/blocks/directory-structure/item/file/block.json
-#: dist/js/blocks/directory-structure/item/file/block.json
 #: src/blocks/directory-structure/item/file/block.json
 msgctxt "block description"
 msgid "Display a file item"
 msgstr ""
 
 #: dist/blocks/evaluation-star/block.json
-#: dist/js/blocks/evaluation-star/block.json
 #: src/blocks/evaluation-star/block.json
 msgctxt "block title"
 msgid "Evaluation star"
 msgstr ""
 
 #: dist/blocks/evaluation-star/block.json
-#: dist/js/blocks/evaluation-star/block.json
 #: src/blocks/evaluation-star/block.json
 msgctxt "block description"
 msgid "Evaluate with star icons"
 msgstr ""
 
 #: dist/blocks/faq/block.json
-#: dist/js/blocks/faq/block.json
 #: src/blocks/faq/block.json
 msgctxt "block title"
 msgid "FAQs"
 msgstr ""
 
 #: dist/blocks/faq/block.json
-#: dist/js/blocks/faq/block.json
 #: src/blocks/faq/block.json
 msgctxt "block description"
 msgid "You can list the FAQs."
 msgstr ""
 
 #: dist/blocks/faq/item/block.json
-#: dist/js/blocks/faq/item/block.json
 #: src/blocks/faq/item/block.json
 msgctxt "block title"
 msgid "FAQ"
 msgstr ""
 
 #: dist/blocks/faq/item/block.json
-#: dist/js/blocks/faq/item/block.json
 #: src/blocks/faq/item/block.json
 msgctxt "block description"
 msgid "It is a child block of the FAQ block."
 msgstr ""
 
 #: dist/blocks/information/block.json
-#: dist/js/blocks/information/block.json
 #: src/blocks/information/block.json
 msgctxt "block title"
 msgid "Information"
 msgstr ""
 
 #: dist/blocks/information/block.json
-#: dist/js/blocks/information/block.json
 #: src/blocks/information/block.json
 msgctxt "block description"
 msgid "You can post an information table."
 msgstr ""
 
 #: dist/blocks/information/item/block.json
-#: dist/js/blocks/information/item/block.json
 #: src/blocks/information/item/block.json
 msgctxt "block title"
 msgid "Row"
 msgstr ""
 
 #: dist/blocks/information/item/block.json
-#: dist/js/blocks/information/item/block.json
 #: src/blocks/information/item/block.json
 msgctxt "block description"
 msgid "It is a child block of the information block."
 msgstr ""
 
 #: dist/blocks/items/block.json
-#: dist/js/blocks/items/block.json
 #: src/blocks/items/block.json
 msgctxt "block title"
 msgid "Items"
 msgstr ""
 
 #: dist/blocks/items/block.json
-#: dist/js/blocks/items/block.json
 #: src/blocks/items/block.json
 msgctxt "block description"
 msgid "Let's line up the contents."
 msgstr ""
 
 #: dist/blocks/items/item/banner/block.json
-#: dist/js/blocks/items/item/banner/block.json
 #: src/blocks/items/item/banner/block.json
 msgctxt "block title"
 msgid "Banner"
@@ -3543,10 +3503,6 @@ msgstr ""
 #: dist/blocks/items/item/block-link/block.json
 #: dist/blocks/items/item/free/block.json
 #: dist/blocks/items/item/standard/block.json
-#: dist/js/blocks/items/item/banner/block.json
-#: dist/js/blocks/items/item/block-link/block.json
-#: dist/js/blocks/items/item/free/block.json
-#: dist/js/blocks/items/item/standard/block.json
 #: src/blocks/items/item/banner/block.json
 #: src/blocks/items/item/block-link/block.json
 #: src/blocks/items/item/free/block.json
@@ -3556,105 +3512,90 @@ msgid "It is a child block of the items block."
 msgstr ""
 
 #: dist/blocks/items/item/block-link/block.json
-#: dist/js/blocks/items/item/block-link/block.json
 #: src/blocks/items/item/block-link/block.json
 msgctxt "block title"
 msgid "Item (Block Link)"
 msgstr ""
 
 #: dist/blocks/items/item/free/block.json
-#: dist/js/blocks/items/item/free/block.json
 #: src/blocks/items/item/free/block.json
 msgctxt "block title"
 msgid "Item (Free input)"
 msgstr ""
 
 #: dist/blocks/items/item/item/block.json
-#: dist/js/blocks/items/item/item/block.json
 #: src/blocks/items/item/item/block.json
 msgctxt "block title"
 msgid "Item (Deprecated)"
 msgstr ""
 
 #: dist/blocks/items/item/standard/block.json
-#: dist/js/blocks/items/item/standard/block.json
 #: src/blocks/items/item/standard/block.json
 msgctxt "block title"
 msgid "Item (Standard)"
 msgstr ""
 
 #: dist/blocks/like-me-box/block.json
-#: dist/js/blocks/like-me-box/block.json
 #: src/blocks/like-me-box/block.json
 msgctxt "block title"
 msgid "Like me box"
 msgstr ""
 
 #: dist/blocks/like-me-box/block.json
-#: dist/js/blocks/like-me-box/block.json
 #: src/blocks/like-me-box/block.json
 msgctxt "block description"
 msgid "You can display like me box."
 msgstr ""
 
 #: dist/blocks/limited-datetime/block.json
-#: dist/js/blocks/limited-datetime/block.json
 #: src/blocks/limited-datetime/block.json
 msgctxt "block title"
 msgid "Limited DateTime"
 msgstr ""
 
 #: dist/blocks/limited-datetime/block.json
-#: dist/js/blocks/limited-datetime/block.json
 #: src/blocks/limited-datetime/block.json
 msgctxt "block description"
 msgid "Only the set period is displayed"
 msgstr ""
 
 #: dist/blocks/list/block.json
-#: dist/js/blocks/list/block.json
 #: src/blocks/list/block.json
 msgctxt "block title"
 msgid "Icon list"
 msgstr ""
 
 #: dist/blocks/list/block.json
-#: dist/js/blocks/list/block.json
 #: src/blocks/list/block.json
 msgctxt "block description"
 msgid "Icons are displayed only on the actual screen."
 msgstr ""
 
 #: dist/blocks/media-text/block.json
-#: dist/js/blocks/media-text/block.json
 #: src/blocks/media-text/block.json
 msgctxt "block title"
 msgid "Media & text"
 msgstr ""
 
 #: dist/blocks/media-text/block.json
-#: dist/js/blocks/media-text/block.json
 #: src/blocks/media-text/block.json
 msgctxt "block description"
 msgid "Set media and words side-by-side for a richer layout."
 msgstr ""
 
 #: dist/blocks/panels/block.json
-#: dist/js/blocks/panels/block.json
 #: src/blocks/panels/block.json
 msgctxt "block title"
 msgid "Panels"
 msgstr ""
 
 #: dist/blocks/panels/block.json
-#: dist/js/blocks/panels/block.json
 #: src/blocks/panels/block.json
 msgctxt "block description"
 msgid "Let's line up the contents like the panel."
 msgstr ""
 
 #: dist/blocks/panels/item/block-link/block.json
-#: dist/js/blocks/panels/item/block-link/block.json
 #: src/blocks/panels/item/block-link/block.json
 msgctxt "block title"
 msgid "Panel (Free input / Block link)"
@@ -3664,10 +3605,6 @@ msgstr ""
 #: dist/blocks/panels/item/free/block.json
 #: dist/blocks/panels/item/horizontal/block.json
 #: dist/blocks/panels/item/vertical/block.json
-#: dist/js/blocks/panels/item/block-link/block.json
-#: dist/js/blocks/panels/item/free/block.json
-#: dist/js/blocks/panels/item/horizontal/block.json
-#: dist/js/blocks/panels/item/vertical/block.json
 #: src/blocks/panels/item/block-link/block.json
 #: src/blocks/panels/item/free/block.json
 #: src/blocks/panels/item/horizontal/block.json
@@ -3677,168 +3614,144 @@ msgid "It is a child block of the panels block."
 msgstr ""
 
 #: dist/blocks/panels/item/free/block.json
-#: dist/js/blocks/panels/item/free/block.json
 #: src/blocks/panels/item/free/block.json
 msgctxt "block title"
 msgid "Panel (Free input)"
 msgstr ""
 
 #: dist/blocks/panels/item/horizontal/block.json
-#: dist/js/blocks/panels/item/horizontal/block.json
 #: src/blocks/panels/item/horizontal/block.json
 msgctxt "block title"
 msgid "Panel (Horizontal layout)"
 msgstr ""
 
 #: dist/blocks/panels/item/vertical/block.json
-#: dist/js/blocks/panels/item/vertical/block.json
 #: src/blocks/panels/item/vertical/block.json
 msgctxt "block title"
 msgid "Panel (Vertical layout)"
 msgstr ""
 
 #: dist/blocks/pickup-slider/block.json
-#: dist/js/blocks/pickup-slider/block.json
 #: src/blocks/pickup-slider/block.json
 msgctxt "block title"
 msgid "Pickup slider (Deprecated)"
 msgstr ""
 
 #: dist/blocks/pickup-slider/block.json
-#: dist/js/blocks/pickup-slider/block.json
 #: src/blocks/pickup-slider/block.json
 msgctxt "block description"
 msgid "Display posts with pickup tags as a slider. This block is being retained for backwards compatibility and is not recommended for use. Its use may slow down the page display."
 msgstr ""
 
 #: dist/blocks/price-menu/block.json
-#: dist/js/blocks/price-menu/block.json
 #: src/blocks/price-menu/block.json
 msgctxt "block title"
 msgid "Price menu"
 msgstr ""
 
 #: dist/blocks/price-menu/block.json
-#: dist/js/blocks/price-menu/block.json
 #: src/blocks/price-menu/block.json
 msgctxt "block description"
 msgid "Display the menu name and the price."
 msgstr ""
 
 #: dist/blocks/price-menu/item/block.json
-#: dist/js/blocks/price-menu/item/block.json
 #: src/blocks/price-menu/item/block.json
 msgctxt "block title"
 msgid "Menu"
 msgstr ""
 
 #: dist/blocks/price-menu/item/block.json
-#: dist/js/blocks/price-menu/item/block.json
 #: src/blocks/price-menu/item/block.json
 msgctxt "block description"
 msgid "It is a child block of the price menu block."
 msgstr ""
 
 #: dist/blocks/pricing-table/block.json
-#: dist/js/blocks/pricing-table/block.json
 #: src/blocks/pricing-table/block.json
 msgctxt "block title"
 msgid "Pricing table"
 msgstr ""
 
 #: dist/blocks/pricing-table/block.json
-#: dist/js/blocks/pricing-table/block.json
 #: src/blocks/pricing-table/block.json
 msgctxt "block description"
 msgid "Let's present the rate plan in an easy-to-understand manner."
 msgstr ""
 
 #: dist/blocks/pricing-table/item/block.json
-#: dist/js/blocks/pricing-table/item/block.json
 #: src/blocks/pricing-table/item/block.json
 msgctxt "block title"
 msgid "Plan"
 msgstr ""
 
 #: dist/blocks/pricing-table/item/block.json
-#: dist/js/blocks/pricing-table/item/block.json
 #: src/blocks/pricing-table/item/block.json
 msgctxt "block description"
 msgid "It is a child block of the pricing table block."
 msgstr ""
 
 #: dist/blocks/rating-box/block.json
-#: dist/js/blocks/rating-box/block.json
 #: src/blocks/rating-box/block.json
 msgctxt "block title"
 msgid "Rating box"
 msgstr ""
 
 #: dist/blocks/rating-box/block.json
-#: dist/js/blocks/rating-box/block.json
 #: src/blocks/rating-box/block.json
 msgctxt "block description"
 msgid "Evaluate with bars."
 msgstr ""
 
 #: dist/blocks/rating-box/item/block.json
-#: dist/js/blocks/rating-box/item/block.json
 #: src/blocks/rating-box/item/block.json
 msgctxt "block title"
 msgid "Rating"
 msgstr ""
 
 #: dist/blocks/rating-box/item/block.json
-#: dist/js/blocks/rating-box/item/block.json
 #: src/blocks/rating-box/item/block.json
 msgctxt "block description"
 msgid "It is a child block of the rating box block."
 msgstr ""
 
 #: dist/blocks/recent-posts/block.json
-#: dist/js/blocks/recent-posts/block.json
 #: src/blocks/recent-posts/block.json
 msgctxt "block title"
 msgid "Recent posts"
 msgstr ""
 
 #: dist/blocks/recent-posts/block.json
-#: dist/js/blocks/recent-posts/block.json
 #: src/blocks/recent-posts/block.json
 msgctxt "block description"
 msgid "You can display recent posts with richer."
 msgstr ""
 
 #: dist/blocks/rss/block.json
-#: dist/js/blocks/rss/block.json
 #: src/blocks/rss/block.json
 msgctxt "block title"
 msgid "RSS"
 msgstr ""
 
 #: dist/blocks/rss/block.json
-#: dist/js/blocks/rss/block.json
 #: src/blocks/rss/block.json
 msgctxt "block description"
 msgid "Display entries from any RSS or Atom feed."
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/block.json
-#: dist/js/blocks/section-break-the-grid/block.json
 #: src/blocks/section-break-the-grid/block.json
 msgctxt "block title"
 msgid "Section (Break the grid)"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/block.json
-#: dist/js/blocks/section-break-the-grid/block.json
 #: src/blocks/section-break-the-grid/block.json
 msgctxt "block description"
 msgid "It is a break the grid section."
 msgstr ""
 
 #: dist/blocks/section-side-heading/block.json
-#: dist/js/blocks/section-side-heading/block.json
 #: src/blocks/section-side-heading/block.json
 msgctxt "block title"
 msgid "Section (Side heading)"
@@ -3846,8 +3759,6 @@ msgstr ""
 
 #: dist/blocks/section-side-heading/block.json
 #: dist/blocks/section/block.json
-#: dist/js/blocks/section-side-heading/block.json
-#: dist/js/blocks/section/block.json
 #: src/blocks/section-side-heading/block.json
 #: src/blocks/section/block.json
 msgctxt "block description"
@@ -3855,49 +3766,42 @@ msgid "Contents can be separated by appropriate margins."
 msgstr ""
 
 #: dist/blocks/section-with-bgimage/block.json
-#: dist/js/blocks/section-with-bgimage/block.json
 #: src/blocks/section-with-bgimage/block.json
 msgctxt "block title"
 msgid "Section (with background image/video)"
 msgstr ""
 
 #: dist/blocks/section-with-bgimage/block.json
-#: dist/js/blocks/section-with-bgimage/block.json
 #: src/blocks/section-with-bgimage/block.json
 msgctxt "block description"
 msgid "It is a section with a background image/video."
 msgstr ""
 
 #: dist/blocks/section-with-bgvideo/block.json
-#: dist/js/blocks/section-with-bgvideo/block.json
 #: src/blocks/section-with-bgvideo/block.json
 msgctxt "block title"
 msgid "Section (with background YouTube video)"
 msgstr ""
 
 #: dist/blocks/section-with-bgvideo/block.json
-#: dist/js/blocks/section-with-bgvideo/block.json
 #: src/blocks/section-with-bgvideo/block.json
 msgctxt "block description"
 msgid "It is a section with a background YouTube video."
 msgstr ""
 
 #: dist/blocks/section/block.json
-#: dist/js/blocks/section/block.json
 #: src/blocks/section/block.json
 msgctxt "block title"
 msgid "Section"
 msgstr ""
 
 #: dist/blocks/slider/block.json
-#: dist/js/blocks/slider/block.json
 #: src/blocks/slider/block.json
 msgctxt "block title"
 msgid "Slider (Deprecated)"
 msgstr ""
 
 #: dist/blocks/slider/block.json
-#: dist/js/blocks/slider/block.json
 #: src/blocks/slider/block.json
 msgctxt "block description"
 msgid "Show attractive images as beautiful sliders. This block is being retained for backwards compatibility and is not recommended for use. Its use may slow down the page display."
@@ -3905,8 +3809,6 @@ msgstr ""
 
 #: dist/blocks/slider/item/block.json
 #: dist/blocks/thumbnail-gallery/item/block.json
-#: dist/js/blocks/slider/item/block.json
-#: dist/js/blocks/thumbnail-gallery/item/block.json
 #: src/blocks/slider/item/block.json
 #: src/blocks/thumbnail-gallery/item/block.json
 msgctxt "block title"
@@ -3914,84 +3816,72 @@ msgid "Slide (Deprecated)"
 msgstr ""
 
 #: dist/blocks/slider/item/block.json
-#: dist/js/blocks/slider/item/block.json
 #: src/blocks/slider/item/block.json
 msgctxt "block description"
 msgid "It is a child block of the slider block."
 msgstr ""
 
 #: dist/blocks/spider-contents-slider/block.json
-#: dist/js/blocks/spider-contents-slider/block.json
 #: src/blocks/spider-contents-slider/block.json
 msgctxt "block title"
 msgid "Contents slider"
 msgstr ""
 
 #: dist/blocks/spider-contents-slider/block.json
-#: dist/js/blocks/spider-contents-slider/block.json
 #: src/blocks/spider-contents-slider/block.json
 msgctxt "block description"
 msgid "Show contents as beautiful sliders."
 msgstr ""
 
 #: dist/blocks/spider-contents-slider/item/block.json
-#: dist/js/blocks/spider-contents-slider/item/block.json
 #: src/blocks/spider-contents-slider/item/block.json
 msgctxt "block title"
 msgid "Slide"
 msgstr ""
 
 #: dist/blocks/spider-contents-slider/item/block.json
-#: dist/js/blocks/spider-contents-slider/item/block.json
 #: src/blocks/spider-contents-slider/item/block.json
 msgctxt "block description"
 msgid "It is a child block of the contents slider block."
 msgstr ""
 
 #: dist/blocks/spider-pickup-slider/block.json
-#: dist/js/blocks/spider-pickup-slider/block.json
 #: src/blocks/spider-pickup-slider/block.json
 msgctxt "block title"
 msgid "Pickup slider"
 msgstr ""
 
 #: dist/blocks/spider-pickup-slider/block.json
-#: dist/js/blocks/spider-pickup-slider/block.json
 #: src/blocks/spider-pickup-slider/block.json
 msgctxt "block description"
 msgid "Display posts with pickup tags as a slider."
 msgstr ""
 
 #: dist/blocks/spider-slider/block.json
-#: dist/js/blocks/spider-slider/block.json
 #: src/blocks/spider-slider/block.json
 msgctxt "block title"
 msgid "Slider"
 msgstr ""
 
 #: dist/blocks/spider-slider/block.json
-#: dist/js/blocks/spider-slider/block.json
 #: src/blocks/spider-slider/block.json
 msgctxt "block description"
 msgid "Show attractive images as beautiful sliders."
 msgstr ""
 
 #: dist/blocks/step/block.json
-#: dist/js/blocks/step/block.json
 #: src/blocks/step/block.json
 msgctxt "block title"
 msgid "Steps"
 msgstr ""
 
 #: dist/blocks/step/block.json
-#: dist/js/blocks/step/block.json
 #: src/blocks/step/block.json
 msgctxt "block description"
 msgid "Express the steps in an easy-to-understand manner."
 msgstr ""
 
 #: dist/blocks/step/item/free/block.json
-#: dist/js/blocks/step/item/free/block.json
 #: src/blocks/step/item/free/block.json
 msgctxt "block title"
 msgid "Step (Free input)"
@@ -3999,8 +3889,6 @@ msgstr ""
 
 #: dist/blocks/step/item/free/block.json
 #: dist/blocks/step/item/standard/block.json
-#: dist/js/blocks/step/item/free/block.json
-#: dist/js/blocks/step/item/standard/block.json
 #: src/blocks/step/item/free/block.json
 #: src/blocks/step/item/standard/block.json
 msgctxt "block description"
@@ -4008,112 +3896,96 @@ msgid "It is a child block of the step block."
 msgstr ""
 
 #: dist/blocks/step/item/standard/block.json
-#: dist/js/blocks/step/item/standard/block.json
 #: src/blocks/step/item/standard/block.json
 msgctxt "block title"
 msgid "Step (Standard)"
 msgstr ""
 
 #: dist/blocks/tabs/block.json
-#: dist/js/blocks/tabs/block.json
 #: src/blocks/tabs/block.json
 msgctxt "block title"
 msgid "Tabs"
 msgstr ""
 
 #: dist/blocks/tabs/block.json
-#: dist/js/blocks/tabs/block.json
 #: src/blocks/tabs/block.json
 msgctxt "block description"
 msgid "This is tabs block."
 msgstr ""
 
 #: dist/blocks/tabs/tab-panel/block.json
-#: dist/js/blocks/tabs/tab-panel/block.json
 #: src/blocks/tabs/tab-panel/block.json
 msgctxt "block title"
 msgid "Tab panel"
 msgstr ""
 
 #: dist/blocks/tabs/tab-panel/block.json
-#: dist/js/blocks/tabs/tab-panel/block.json
 #: src/blocks/tabs/tab-panel/block.json
 msgctxt "block description"
 msgid "This is tab panel block."
 msgstr ""
 
 #: dist/blocks/taxonomy-posts/block.json
-#: dist/js/blocks/taxonomy-posts/block.json
 #: src/blocks/taxonomy-posts/block.json
 msgctxt "block title"
 msgid "Taxonomy posts"
 msgstr ""
 
 #: dist/blocks/taxonomy-posts/block.json
-#: dist/js/blocks/taxonomy-posts/block.json
 #: src/blocks/taxonomy-posts/block.json
 msgctxt "block description"
 msgid "You can display recent posts linked to any taxonomy."
 msgstr ""
 
 #: dist/blocks/taxonomy-terms/block.json
-#: dist/js/blocks/taxonomy-terms/block.json
 #: src/blocks/taxonomy-terms/block.json
 msgctxt "block title"
 msgid "Taxonomy"
 msgstr ""
 
 #: dist/blocks/taxonomy-terms/block.json
-#: dist/js/blocks/taxonomy-terms/block.json
 #: src/blocks/taxonomy-terms/block.json
 msgctxt "block description"
 msgid "You can display terms linked to any taxonomy."
 msgstr ""
 
 #: dist/blocks/testimonial/block.json
-#: dist/js/blocks/testimonial/block.json
 #: src/blocks/testimonial/block.json
 msgctxt "block title"
 msgid "Testimonials"
 msgstr ""
 
 #: dist/blocks/testimonial/block.json
-#: dist/js/blocks/testimonial/block.json
 #: src/blocks/testimonial/block.json
 msgctxt "block description"
 msgid "Let's arrange the voice of the customer."
 msgstr ""
 
 #: dist/blocks/testimonial/item/block.json
-#: dist/js/blocks/testimonial/item/block.json
 #: src/blocks/testimonial/item/block.json
 msgctxt "block title"
 msgid "Testimonial"
 msgstr ""
 
 #: dist/blocks/testimonial/item/block.json
-#: dist/js/blocks/testimonial/item/block.json
 #: src/blocks/testimonial/item/block.json
 msgctxt "block description"
 msgid "It is a child block of the testimonial block."
 msgstr ""
 
 #: dist/blocks/thumbnail-gallery/block.json
-#: dist/js/blocks/thumbnail-gallery/block.json
 #: src/blocks/thumbnail-gallery/block.json
 msgctxt "block title"
 msgid "Thumbnail gallery (Deprecated)"
 msgstr ""
 
 #: dist/blocks/thumbnail-gallery/block.json
-#: dist/js/blocks/thumbnail-gallery/block.json
 #: src/blocks/thumbnail-gallery/block.json
 msgctxt "block description"
 msgid "You can display a slide show with thumbnails. This block is being retained for backwards compatibility and is not recommended for use. Its use may slow down the page display."
 msgstr ""
 
 #: dist/blocks/thumbnail-gallery/item/block.json
-#: dist/js/blocks/thumbnail-gallery/item/block.json
 #: src/blocks/thumbnail-gallery/item/block.json
 msgctxt "block description"
 msgid "It is a child block of the thumbnail gallery block."

@@ -35,6 +35,7 @@
 								</div>
 							</div>
 							<!-- /wp:snow-monkey-blocks/panels-item-horizontal -->
+
 							<!-- wp:snow-monkey-blocks/panels-item-horizontal -->
 							<div class="wp-block-snow-monkey-blocks-panels-item-horizontal c-row__col">
 								<div class="smb-panels__item smb-panels__item--horizontal smb-panels__item--reverse">
@@ -48,6 +49,7 @@
 								</div>
 							</div>
 							<!-- /wp:snow-monkey-blocks/panels-item-horizontal -->
+
 							<!-- wp:snow-monkey-blocks/panels-item-horizontal -->
 							<div class="wp-block-snow-monkey-blocks-panels-item-horizontal c-row__col">
 								<div class="smb-panels__item smb-panels__item--horizontal smb-panels__item--reverse">
@@ -61,6 +63,7 @@
 								</div>
 							</div>
 							<!-- /wp:snow-monkey-blocks/panels-item-horizontal -->
+
 							<!-- wp:snow-monkey-blocks/panels-item-horizontal -->
 							<div class="wp-block-snow-monkey-blocks-panels-item-horizontal c-row__col">
 								<div class="smb-panels__item smb-panels__item--horizontal smb-panels__item--reverse">

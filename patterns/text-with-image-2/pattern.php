@@ -6,14 +6,14 @@
  */
 ?>
 
-<!-- wp:snow-monkey-blocks/section-break-the-grid {"mobileOrder":"nowrap","textColor":"#fff","imageSize":"80","contentHorizontalPosition":"5","contentBackgroundColor":"#000","contentPadding":"s","align":"full"} -->
-<div class="wp-block-snow-monkey-blocks-section-break-the-grid alignfull smb-section smb-section-break-the-grid smb-section-break-the-grid--right smb-section-break-the-grid--mobile-nowrap" style="color:#fff">
+<!-- wp:snow-monkey-blocks/section-break-the-grid {"textColor":"#fff","imageSize":"80","contentHorizontalPosition":"5","contentBackgroundColor":"#000","contentPadding":"s","mobileOrder":"nowrap","align":"full"} -->
+<div class="wp-block-snow-monkey-blocks-section-break-the-grid alignfull smb-section smb-section-break-the-grid smb-section-break-the-grid--right smb-section-break-the-grid--mobile-nowrap" style="--smb-section--color:#fff;--smb-section-break-the-grid--shadow-transform:translate(5%, 5%);--smb-section-break-the-grid--content-background-color:rgba(0, 0, 0, 0.98)">
 	<div class="smb-section__inner">
 		<div class="c-container">
 			<div class="smb-section__contents-wrapper smb-section-break-the-grid__contents-wrapper">
 				<div class="c-row c-row--lg-middle">
 					<div class="c-row__col c-row__col--1-2">
-						<div class="smb-section-break-the-grid__content smb-section-break-the-grid__content--w--20 smb-section-break-the-grid__content--p-s smb-section-break-the-grid__content--horizontal-5" style="background-color:rgba(0, 0, 0, 0.98)">
+						<div class="smb-section-break-the-grid__content smb-section-break-the-grid__content--w--20 smb-section-break-the-grid__content--p-s smb-section-break-the-grid__content--horizontal-5">
 							<div class="smb-section__header smb-section-break-the-grid__header">
 								<h2 class="smb-section__title smb-section-break-the-grid__title">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
 							</div>

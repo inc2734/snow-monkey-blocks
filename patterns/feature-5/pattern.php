@@ -34,6 +34,7 @@
 						</div>
 					</div>
 					<!-- /wp:snow-monkey-blocks/media-text -->
+
 					<!-- wp:snow-monkey-blocks/media-text {"mediaPosition":"left","mediaColumnSize":"33"} -->
 					<div class="wp-block-snow-monkey-blocks-media-text smb-media-text">
 						<div class="c-row c-row--margin c-row--reverse c-row--middle">

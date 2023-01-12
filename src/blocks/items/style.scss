@@ -5,20 +5,9 @@
 	--smb-items--style--border--border-color: var(--_lighter-color-gray);
 
 	--smb-items--banner--color: var(--wp--preset--color--white);
-	--smb-items--banner--mask-color: var(--wp--preset--color-black);
+	--smb-items--banner--mask-color: var(--wp--preset--color--black);
 	--smb-items--banner--mask-image: initial;
 	--smb-items--banner--mask-opacity: 1;
-
-	/*
-	## Block link
-
-	## Standard
-
-	"btnBackgroundColor":
-	"btnBackgroundGradientColor":
-	"btnTextColor":
-	"btnBorderRadius":
-	*/
 
 	&--glue {
 		> .#{ $_prefix }c-row {
@@ -97,12 +86,6 @@
 		}
 
 		&--block-link {
-			@include _transition(filter);
-
-			@include _hover() {
-				filter: brightness(90%);
-			}
-
 			:not(.smb-items__item__action) a {
 				position: relative;
 				z-index: 1;

@@ -6,8 +6,8 @@
  */
 ?>
 
-<!-- wp:snow-monkey-blocks/section-break-the-grid {"mobileOrder":"nowrap","shadowColor":"#f7f7f7","align":"full"} -->
-<div class="wp-block-snow-monkey-blocks-section-break-the-grid alignfull smb-section smb-section-break-the-grid smb-section-break-the-grid--right smb-section-break-the-grid--mobile-nowrap">
+<!-- wp:snow-monkey-blocks/section-break-the-grid {"shadowColor":"#f7f7f7","mobileOrder":"nowrap","align":"full"} -->
+<div class="wp-block-snow-monkey-blocks-section-break-the-grid alignfull smb-section smb-section-break-the-grid smb-section-break-the-grid--right smb-section-break-the-grid--mobile-nowrap" style="--smb-section-break-the-grid--shadow-color:#f7f7f7;--smb-section-break-the-grid--shadow-transform:translate(5%, 5%)">
 	<div class="smb-section__inner">
 		<div class="c-container">
 			<div class="smb-section__contents-wrapper smb-section-break-the-grid__contents-wrapper">
@@ -26,7 +26,7 @@
 					</div>
 					<div class="c-row__col c-row__col--1-2">
 						<div class="smb-section-break-the-grid__figure smb-section-break-the-grid__figure--w-40">
-							<div class="smb-section-break-the-grid__shadow" style="background-color:#f7f7f7;transform:translate(5%, 5%)"></div>
+							<div class="smb-section-break-the-grid__shadow"></div>
 							<img src="<?php echo esc_url( SNOW_MONKEY_BLOCKS_DIR_URL ); ?>/dist/img/photos/0135_xlarge.jpg" alt="" class="wp-image-0"/>
 						</div>
 					</div>

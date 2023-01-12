@@ -3,6 +3,8 @@
 .smb-btn-box {
 	--smb-btn-box--background-color: transparent;
 	--smb-btn-box--padding: var(--_padding2);
+	--smb-btn--style--ghost--border-color: currentColor;
+	--smb-btn--style--ghost--color: var(--smb-btn--color, currentColor);
 
 	background-color: var(--smb-btn-box--background-color);
 	padding-top: var(--smb-btn-box--padding);
@@ -27,7 +29,7 @@
 .smb-btn-box.is-style-ghost {
 	.smb-btn {
 		--smb-btn--background-color: transparent;
-		// --smb-btn--color: var(--smb-btn--style--ghost--color);
+		--smb-btn--color: var(--smb-btn--style--ghost--color);
 
 		border: 1px solid var(--smb-btn--style--ghost--border-color);
 	}

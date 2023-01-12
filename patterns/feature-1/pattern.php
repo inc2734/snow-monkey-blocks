@@ -36,6 +36,7 @@
 								</div>
 							</div>
 							<!-- /wp:snow-monkey-blocks/items-item-standard -->
+
 							<!-- wp:snow-monkey-blocks/items-item-standard -->
 							<div class="wp-block-snow-monkey-blocks-items-item-standard c-row__col">
 								<div class="smb-items__item">
@@ -50,6 +51,7 @@
 								</div>
 							</div>
 							<!-- /wp:snow-monkey-blocks/items-item-standard -->
+
 							<!-- wp:snow-monkey-blocks/items-item-standard -->
 							<div class="wp-block-snow-monkey-blocks-items-item-standard c-row__col">
 								<div class="smb-items__item">

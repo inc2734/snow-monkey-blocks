@@ -30,7 +30,7 @@ export default function ( { attributes, className } ) {
 			: undefined,
 		'--smb-box--background-color': backgroundColor || undefined,
 		'--smb-box--background-image': backgroundGradientColor || undefined,
-		'--smb-box--background-opacity': opacity,
+		'--smb-box--background-opacity': String( opacity ),
 		'--smb-box--border-color': borderColor || undefined,
 		'--smb-box--border-width':
 			0 <= borderWidth ? `${ borderWidth }px` : undefined,

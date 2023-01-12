@@ -266,17 +266,14 @@ export default function ( {
 			maskGradientColor || undefined,
 		'--smb-section-with-bgimage--mask-opacity': String( maskOpacity ),
 		'--smb-section-with-bgimage--lg-media-position': lgPointValue,
-		'--smb-section-with-bgimage--lg-repeatable-image': !! lgImageURL
-			? `url(${ lgImageURL })`
-			: undefined,
+		'--smb-section-with-bgimage--lg-repeatable-image':
+			lgImageRepeat && !! lgImageURL ? `url(${ lgImageURL })` : undefined,
 		'--smb-section-with-bgimage--md-media-position': mdPointValue,
-		'--smb-section-with-bgimage--md-repeatable-image': !! mdImageURL
-			? `url(${ mdImageURL })`
-			: undefined,
+		'--smb-section-with-bgimage--md-repeatable-image':
+			mdImageRepeat && !! mdImageURL ? `url(${ mdImageURL })` : undefined,
 		'--smb-section-with-bgimage--sm-media-position': smPointValue,
-		'--smb-section-with-bgimage--sm-repeatable-image': !! smImageURL
-			? `url(${ smImageURL })`
-			: undefined,
+		'--smb-section-with-bgimage--sm-repeatable-image':
+			smImageRepeat && !! smImageURL ? `url(${ smImageURL })` : undefined,
 		...generateStylesForSectionBackground( {
 			backgroundText,
 		} ),

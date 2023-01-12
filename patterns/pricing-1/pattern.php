@@ -34,11 +34,12 @@
 										<li>Duis a nisl non efficitur</li>
 									</ul>
 									<div class="smb-pricing-table__item__action">
-										<a class="smb-btn smb-pricing-table__item__btn" href="https://example.com"><span class="smb-btn__label">Get Started</span></a>
+										<a class="smb-btn smb-pricing-table__item__btn" href="#"><span class="smb-btn__label">Get Started</span></a>
 									</div>
 								</div>
 							</div>
 							<!-- /wp:snow-monkey-blocks/pricing-table-item -->
+
 							<!-- wp:snow-monkey-blocks/pricing-table-item -->
 							<div class="wp-block-snow-monkey-blocks-pricing-table-item c-row__col">
 								<div class="smb-pricing-table__item">
@@ -51,24 +52,25 @@
 										<li>Duis a nisl non efficitur</li>
 									</ul>
 									<div class="smb-pricing-table__item__action">
-										<a class="smb-btn smb-pricing-table__item__btn" href="https://example.com"><span class="smb-btn__label">Get Started</span></a>
+										<a class="smb-btn smb-pricing-table__item__btn" href="#"><span class="smb-btn__label">Get Started</span></a>
 									</div>
 								</div>
 							</div>
 							<!-- /wp:snow-monkey-blocks/pricing-table-item -->
+
 							<!-- wp:snow-monkey-blocks/pricing-table-item -->
 							<div class="wp-block-snow-monkey-blocks-pricing-table-item c-row__col">
 								<div class="smb-pricing-table__item">
 									<div class="smb-pricing-table__item__title">PRO</div>
 									<div class="smb-pricing-table__item__price">$100</div>
-									<div class="smb-pricing-table__item__lede">	/month</div>
+									<div class="smb-pricing-table__item__lede">/month</div>
 									<ul>
 										<li>Lorem ipsum dolor sit amet</li>
 										<li>Etiam pretium pellentesque</li>
 										<li>Duis a nisl non efficitur</li>
 									</ul>
 									<div class="smb-pricing-table__item__action">
-										<a class="smb-btn smb-pricing-table__item__btn" href="https://example.com"><span class="smb-btn__label">Get Started</span></a>
+										<a class="smb-btn smb-pricing-table__item__btn" href="#"><span class="smb-btn__label">Get Started</span></a>
 									</div>
 								</div>
 							</div>

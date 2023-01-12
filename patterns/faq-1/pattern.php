@@ -15,7 +15,7 @@
 					<h2 class="smb-section__title">Lorem ipsum dolor sit amet</h2>
 				</div>
 				<div class="smb-section__body">
-					<!-- wp:paragraph -->
+					<!-- wp:paragraph {"className":"has-text-align-center"} -->
 					<p class="has-text-align-center">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 					<!-- /wp:paragraph -->
 
@@ -38,6 +38,7 @@
 								</div>
 							</div>
 							<!-- /wp:snow-monkey-blocks/faq-item -->
+
 							<!-- wp:snow-monkey-blocks/faq-item -->
 							<div class="wp-block-snow-monkey-blocks-faq-item smb-faq__item">
 								<div class="smb-faq__item__question">

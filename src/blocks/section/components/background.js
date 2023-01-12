@@ -628,17 +628,20 @@ export const generateStylesForSectionBackground = ( {
 		}
 	}
 
-	/* eslint-disable no-nested-ternary */
-	styles[ '--smb-section--background-texture-image' ] = hasBackgroundTexture
-		? !! backgroundTextureUrl
-			? `url(${ backgroundTextureUrl })`
-			: `url(${ smb.pluginUrl }/dist/blocks/section/img/${ backgroundTexture }.png)`
-		: undefined;
-	/* eslint-enable */
-	styles[ '--smb-section--background-texture-opacity' ] =
-		!! backgroundTextureOpacity
-			? String( backgroundTextureOpacity )
-			: undefined;
+	if ( !! backgroundTextureUrl ) {
+		/* eslint-disable no-nested-ternary */
+		styles[ '--smb-section--background-texture-image' ] =
+			hasBackgroundTexture
+				? !! backgroundTextureUrl
+					? `url(${ backgroundTextureUrl })`
+					: `url(${ smb.pluginUrl }/dist/blocks/section/img/${ backgroundTexture }.png)`
+				: undefined;
+		/* eslint-enable */
+		styles[ '--smb-section--background-texture-opacity' ] =
+			!! backgroundTextureOpacity
+				? String( backgroundTextureOpacity )
+				: undefined;
+	}
 
 	styles[ '--smb-section--fixed-background-color' ] = !! fixedBackgroundColor
 		? fixedBackgroundColor
@@ -648,18 +651,20 @@ export const generateStylesForSectionBackground = ( {
 			? fixedBackgroundGradientColor
 			: undefined;
 
-	/* eslint-disable no-nested-ternary */
-	styles[ '--smb-section--fixed-background-texture-image' ] =
-		hasFixedBackgroundTexture
-			? !! fixedBackgroundTextureUrl
-				? `url(${ fixedBackgroundTextureUrl })`
-				: `url(${ smb.pluginUrl }/dist/blocks/section/img/${ fixedBackgroundTexture }.png)`
-			: undefined;
-	/* eslint-enable */
-	styles[ '--smb-section--fixed-background-texture-opacity' ] =
-		!! fixedBackgroundTextureOpacity
-			? String( fixedBackgroundTextureOpacity )
-			: undefined;
+	if ( !! fixedBackgroundTextureUrl ) {
+		/* eslint-disable no-nested-ternary */
+		styles[ '--smb-section--fixed-background-texture-image' ] =
+			hasFixedBackgroundTexture
+				? !! fixedBackgroundTextureUrl
+					? `url(${ fixedBackgroundTextureUrl })`
+					: `url(${ smb.pluginUrl }/dist/blocks/section/img/${ fixedBackgroundTexture }.png)`
+				: undefined;
+		/* eslint-enable */
+		styles[ '--smb-section--fixed-background-texture-opacity' ] =
+			!! fixedBackgroundTextureOpacity
+				? String( fixedBackgroundTextureOpacity )
+				: undefined;
+	}
 
 	styles[ '--smb-section--dividers-top' ] = !! topDividerVerticalPosition
 		? `${ topDividerVerticalPosition }%`
@@ -669,35 +674,38 @@ export const generateStylesForSectionBackground = ( {
 			? `${ bottomDividerVerticalPosition }%`
 			: undefined;
 
-	styles[ '--smb-section--background-text-color' ] = !! backgroundText?.color
-		? backgroundText.color
-		: undefined;
-	styles[ '--smb-section--background-text-opacity' ] =
-		!! backgroundText?.opacity && 1 > backgroundText.opacity
-			? String( backgroundText.opacity )
+	if ( !! backgroundText?.text ) {
+		styles[ '--smb-section--background-text-color' ] =
+			!! backgroundText?.color ? backgroundText.color : undefined;
+		styles[ '--smb-section--background-text-opacity' ] =
+			!! backgroundText?.opacity && 1 > backgroundText.opacity
+				? String( backgroundText.opacity )
+				: undefined;
+		styles[ '--smb-section--background-text-font-size' ] =
+			!! backgroundText?.fontSize && ! backgroundText?.fontSizeSlug
+				? backgroundText.fontSize
+				: undefined;
+		styles[ '--smb-section--background-line-height' ] =
+			!! backgroundText?.lineHeight
+				? backgroundText.lineHeight
+				: undefined;
+		styles[ '--smb-section--background-text-top' ] = !! backgroundText
+			?.position?.top
+			? backgroundText.position.top
 			: undefined;
-	styles[ '--smb-section--background-text-font-size' ] =
-		!! backgroundText?.fontSize && ! backgroundText?.fontSizeSlug
-			? backgroundText.fontSize
+		styles[ '--smb-section--background-text-right' ] = !! backgroundText
+			?.position?.right
+			? backgroundText.position.right
 			: undefined;
-	styles[ '--smb-section--background-line-height' ] =
-		!! backgroundText?.lineHeight ? backgroundText.lineHeight : undefined;
-	styles[ '--smb-section--background-text-top' ] = !! backgroundText?.position
-		?.top
-		? backgroundText.position.top
-		: undefined;
-	styles[ '--smb-section--background-text-right' ] = !! backgroundText
-		?.position?.right
-		? backgroundText.position.right
-		: undefined;
-	styles[ '--smb-section--background-text-bottom' ] = !! backgroundText
-		?.position?.bottom
-		? backgroundText.position.bottom
-		: undefined;
-	styles[ '--smb-section--background-text-left' ] = !! backgroundText
-		?.position?.left
-		? backgroundText.position.left
-		: undefined;
+		styles[ '--smb-section--background-text-bottom' ] = !! backgroundText
+			?.position?.bottom
+			? backgroundText.position.bottom
+			: undefined;
+		styles[ '--smb-section--background-text-left' ] = !! backgroundText
+			?.position?.left
+			? backgroundText.position.left
+			: undefined;
+	}
 
 	return styles;
 };
@@ -780,7 +788,10 @@ export const SectionBackground = ( {
 										className={ classnames(
 											'smb-section__background-text__text',
 											{
-												[ `has-${ backgroundText?.fontSizeSlug }-font-size` ]:
+												[ `has-${ backgroundText?.fontSizeSlug.replace(
+													/(\d+?)([^-])/,
+													'$1-$2'
+												) }-font-size` ]:
 													!! backgroundText?.fontSizeSlug,
 											}
 										) }

@@ -26,7 +26,9 @@
 							<input type="checkbox" class="smb-accordion__item__control"/>
 							<div class="smb-accordion__item__title">
 								<span class="smb-accordion__item__title__label">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
-								<div class="smb-accordion__item__title__icon"><i class="fa-solid fa-angle-down"></i></div>
+								<div class="smb-accordion__item__title__icon">
+									<i class="fa-solid fa-angle-down"></i>
+								</div>
 							</div>
 							<div class="smb-accordion__item__body">
 								<!-- wp:paragraph -->
@@ -35,12 +37,15 @@
 							</div>
 						</div>
 						<!-- /wp:snow-monkey-blocks/accordion-item -->
+
 						<!-- wp:snow-monkey-blocks/accordion-item -->
 						<div class="wp-block-snow-monkey-blocks-accordion-item smb-accordion__item">
 							<input type="checkbox" class="smb-accordion__item__control"/>
 							<div class="smb-accordion__item__title">
 								<span class="smb-accordion__item__title__label">sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</span>
-								<div class="smb-accordion__item__title__icon"><i class="fa-solid fa-angle-down"></i></div>
+								<div class="smb-accordion__item__title__icon">
+									<i class="fa-solid fa-angle-down"></i>
+								</div>
 							</div>
 							<div class="smb-accordion__item__body">
 								<!-- wp:paragraph -->

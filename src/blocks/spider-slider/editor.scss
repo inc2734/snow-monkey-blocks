@@ -4,3 +4,10 @@
 		visibility: visible;
 	}
 }
+
+.smb-spider-slider[data-fade="false"] {
+	.spider__slide {
+		opacity: 1 !important;
+		visibility: visible !important;
+	}
+}
