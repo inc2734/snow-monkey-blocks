@@ -27,6 +27,7 @@
     "postcss-cli": "^10.1.0",
     "prettier": "npm:wp-prettier@2.6.2",
     "react-image": "4.0.3",
+    "remove-accents": "^0.4.4",
     "rimraf": "^3.0.2",
     "sass-basis": "^18.0.0-beta6",
     "slick-carousel": "^1.8.1",

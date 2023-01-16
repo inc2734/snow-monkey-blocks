@@ -56,6 +56,7 @@ https://www.youtube.com/watch?v=uD6omb4TLdA&t=283s
 * RSS (Can be used only with Snow Monkey)
 * Information
 * Tabs
+* Insert pattern (Beta)
 
 = Section blocks =
 
@@ -111,6 +112,7 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 = 18.0.0 =
 * Require sass-basis@18.0.0-beta6 or later.
 * Add some CSS vars.
+* New block: Insert pattern (Beta)
 * [Balloon] Changed design to use CSS vars.
 * [Box] Changed design to use CSS vars.
 * [Button] Changed design to use CSS vars.

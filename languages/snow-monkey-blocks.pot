@@ -2,14 +2,14 @@
 # This file is distributed under the GPL2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Snow Monkey Blocks 17.2.1\n"
+"Project-Id-Version: Snow Monkey Blocks 18.0.0-beta1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-blocks\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-01-12T05:59:01+00:00\n"
+"POT-Creation-Date: 2023-01-16T04:37:21+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: snow-monkey-blocks\n"
@@ -2102,6 +2102,22 @@ msgstr ""
 msgid "Image position"
 msgstr ""
 
+#. translators: %d: number of results.
+#: dist/blocks/pattern-inserter/index.js:6
+#: src/blocks/pattern-inserter/edit.js:91
+msgid "Insert Pattern (Beta)"
+msgstr ""
+
+#: dist/blocks/pattern-inserter/index.js:6
+#: src/blocks/pattern-inserter/edit.js:97
+msgid "Click on the button below to see all available patterns. Click on any pattern you wish to insert, and that pattern will be inserted into the article."
+msgstr ""
+
+#: dist/blocks/pattern-inserter/index.js:6
+#: src/blocks/pattern-inserter/edit.js:114
+msgid "Remove this placeholder"
+msgstr ""
+
 #: dist/blocks/pickup-slider/index.js:1
 #: dist/blocks/spider-pickup-slider/index.js:1
 #: src/blocks/pickup-slider/edit.js:34
@@ -3629,6 +3645,18 @@ msgstr ""
 #: src/blocks/panels/item/vertical/block.json
 msgctxt "block title"
 msgid "Panel (Vertical layout)"
+msgstr ""
+
+#: dist/blocks/pattern-inserter/block.json
+#: src/blocks/pattern-inserter/block.json
+msgctxt "block title"
+msgid "Insert pattern (Beta)"
+msgstr ""
+
+#: dist/blocks/pattern-inserter/block.json
+#: src/blocks/pattern-inserter/block.json
+msgctxt "block description"
+msgid "Insert a pattern (Only root). This block is beta version. This block may be significantly modified or discontinued in the future. In that case, however, the inserted patterns will not be affected."
 msgstr ""
 
 #: dist/blocks/pickup-slider/block.json

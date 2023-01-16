@@ -1,0 +1,16 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"textdomain": "snow-monkey-blocks",
+	"name": "snow-monkey-blocks/pattern-inserter",
+	"title": "Insert pattern (Beta)",
+	"description": "Insert a pattern (Only root). This block is beta version. This block may be significantly modified or discontinued in the future. In that case, however, the inserted patterns will not be affected.",
+	"category": "smb",
+	"parent": [ "core/post-content" ],
+	"editorScript": "file:./index.js",
+	"supports": {
+		"customClassName": false,
+		"html": false,
+		"reusable": false
+	}
+}
