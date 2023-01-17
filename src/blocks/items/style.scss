@@ -318,7 +318,12 @@
 	}
 
 	&__action {
+		position: static !important;
 		font-size: 0 !important;
+
+		> a {
+			position: static !important;
+		}
 
 		> a::after {
 			content: '';
