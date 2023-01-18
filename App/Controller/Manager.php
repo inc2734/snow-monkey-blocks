@@ -90,6 +90,8 @@ class Manager {
 
 		$blocks = $this->get_blocks();
 
+		// Initial update.
+		// Default available is true.
 		if ( ! get_option( self::AVAILABLE_BLOCKS_NAME ) ) {
 			$initial_option = array();
 			foreach ( $blocks as $block ) {
@@ -106,14 +108,11 @@ class Manager {
 					return array();
 				}
 
-				$default_option = array();
-				foreach ( $blocks as $block ) {
-					$default_option[ $block->name ] = false;
-				}
-
 				$new_option = array();
-				foreach ( $default_option as $key => $value ) {
-					$new_option[ $key ] = ! empty( $option[ $key ] ) ? 1 : $value;
+				foreach ( $option as $key => $value ) {
+					if ( false !== strpos( $key, 'snow-monkey-blocks/' ) ) {
+						$new_option[ $key ] = $value;
+					}
 				}
 
 				return $new_option;
@@ -135,13 +134,19 @@ class Manager {
 				'<label for="available-' . $block->name . '">' . esc_html_x( $block->title ? $block->title : $block->name, 'block title', 'snow-monkey-blocks' ) . '</label>',
 				// phpcs:enable
 				function() use ( $block ) {
+					$checked = 0 !== $this->_get_option( $block->name, self::AVAILABLE_BLOCKS_NAME );
 					?>
+					<input
+						type="hidden"
+						name="<?php echo esc_attr( self::AVAILABLE_BLOCKS_NAME ); ?>[<?php echo esc_attr( $block->name ); ?>]"
+						value="0"
+					>
 					<input
 						type="checkbox"
 						id="available-<?php echo esc_attr( $block->name ); ?>"
 						name="<?php echo esc_attr( self::AVAILABLE_BLOCKS_NAME ); ?>[<?php echo esc_attr( $block->name ); ?>]"
 						value="1"
-						<?php checked( 1, $this->_get_option( $block->name, self::AVAILABLE_BLOCKS_NAME ) ); ?>
+						<?php checked( true, $checked ); ?>
 					>
 					<span class="smb-available-block-toggle"></span>
 					<?php
@@ -160,7 +165,16 @@ class Manager {
 			return;
 		}
 
-		$available_blocks = (array) get_option( self::AVAILABLE_BLOCKS_NAME, array() );
+		$available_blocks = (array) get_option( self::AVAILABLE_BLOCKS_NAME );
+		$blocks           = $this->get_blocks();
+
+		// Set 1 when the block is added, since the block will be valueless.
+		foreach ( $blocks as $block ) {
+			if ( ! isset( $block->name, $available_blocks ) ) {
+				$available_blocks[ $block->name ] = 1;
+			}
+		}
+
 		foreach ( $available_blocks as $block_name => $available ) {
 			if ( ! $available && WP_Block_Type_Registry::get_instance()->is_registered( $block_name ) ) {
 				unregister_block_type( $block_name );
@@ -207,7 +221,7 @@ class Manager {
 			function( $block_type ) {
 				return false !== strpos( $block_type->name, 'snow-monkey-blocks/' )
 						&& 'snow-monkey-blocks/btn' !== $block_type->name
-						&& ! $block_type->parent
+						&& ! $block_type->parent || 'core/post-content' !== $block_type->name
 						&& false === strpos( $block_type->name, '--' );
 			}
 		);
