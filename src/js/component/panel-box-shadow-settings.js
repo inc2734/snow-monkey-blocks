@@ -34,6 +34,28 @@ export default function ( { settings } ) {
 						setting.hasOwnProperty( 'colorValue' ) &&
 						setting.hasOwnProperty( 'onColorChange' )
 					) {
+						const multipleOriginColorsAndGradients = {
+							...useMultipleOriginColorsAndGradients(),
+						};
+						multipleOriginColorsAndGradients.colors =
+							multipleOriginColorsAndGradients.colors
+								.map( ( originColorsAndGradient ) => {
+									const colors =
+										originColorsAndGradient.colors.filter(
+											( color ) => {
+												return ! color.color.match(
+													/^var\(/
+												);
+											}
+										);
+									if ( 1 > colors.length ) {
+										return false;
+									}
+									originColorsAndGradient.colors = colors;
+									return originColorsAndGradient;
+								} )
+								.filter( Boolean );
+
 						return (
 							<ColorGradientControl
 								key={ index }
@@ -42,7 +64,7 @@ export default function ( { settings } ) {
 								disableAlpha={ false }
 								colorValue={ setting.colorValue }
 								onColorChange={ setting.onColorChange }
-								{ ...useMultipleOriginColorsAndGradients() }
+								{ ...multipleOriginColorsAndGradients }
 								__experimentalHasMultipleOrigins={ true }
 								__experimentalIsRenderedInSidebar={ true }
 							/>

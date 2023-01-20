@@ -66,7 +66,7 @@
     "test": "run-s test:*",
     "format:js": "wp-scripts format src/blocks src/js",
     "format": "run-p format:*",
-    "build": "run-s css js packages img blocks",
+    "build": "run-s format css js packages img blocks",
     "clean:css": "rimraf dist/css",
     "clean:js": "rimraf dist/js",
     "clean:packages": "rimraf dist/packages",
@@ -81,7 +81,7 @@
     "zip:pack": "rsync -a --exclude='/bin' --exclude='/vendor' --exclude='/node_modules' --exclude='.*' --exclude='*.ruleset.xml' --exclude='*.config.js' --exclude='*.xml.dist' --exclude='/sql' --exclude='/tests' --exclude='package*.json' --exclude='src/img' . snow-monkey-blocks && wp-env start && wp-env run composer 'install --no-dev -d snow-monkey-blocks'",
     "zip:archive": "zip -9 -qmr snow-monkey-blocks.zip snow-monkey-blocks",
     "zip": "npm run clean:zip && npm run zip:pack && npm run zip:archive",
-    "make-pot": "npm run wp 'i18n make-pot wp-content/plugins/snow-monkey-blocks wp-content/plugins/snow-monkey-blocks/languages/snow-monkey-blocks.pot'",
+    "make-pot": "npm run wp 'i18n make-pot wp-content/plugins/snow-monkey-blocks wp-content/plugins/snow-monkey-blocks/languages/snow-monkey-blocks.pot --exclude=src'",
     "make-json": "rimraf languages/*.json && npm run wp 'i18n make-json wp-content/plugins/snow-monkey-blocks/languages/snow-monkey-blocks-ja.po --no-purge'",
     "img": "npm run clean:img && cpy '.' '../../dist/img' --cwd=src/img --parents"
   },
