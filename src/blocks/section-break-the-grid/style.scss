@@ -207,7 +207,7 @@
 						> .#{ $_prefix }c-row__col {
 							&:first-child {
 								@include _media-max(md) {
-									order: 1 !important;
+									order: 1;
 								}
 							}
 
@@ -246,7 +246,7 @@
 						> .#{ $_prefix }c-row__col {
 							&:first-child {
 								@include _media-max(md) {
-									order: 0 !important;
+									order: 0;
 								}
 							}
 
@@ -494,8 +494,8 @@
 									}
 
 									&--remove-outside-p {
-										padding-top: 0 !important;
-										padding-left: 0 !important;
+										padding-top: 0;
+										padding-left: 0;
 									}
 								}
 							}
@@ -574,8 +574,8 @@
 									}
 
 									&--remove-outside-p {
-										padding-top: 0 !important;
-										padding-right: 0 !important;
+										padding-top: 0;
+										padding-right: 0;
 									}
 								}
 							}
@@ -622,8 +622,8 @@
 
 							> .smb-section-break-the-grid__content {
 								&--remove-outside-p {
-									padding-top: 0 !important;
-									padding-bottom: 0 !important;
+									padding-top: 0;
+									padding-bottom: 0;
 								}
 							}
 
@@ -721,7 +721,7 @@
 									position: absolute;
 									top: 0;
 									bottom: 0;
-									margin: 0 !important;
+									margin: 0;
 
 									img,
 									video {
@@ -748,7 +748,7 @@
 								> .smb-section-break-the-grid__figure {
 									@include _media-min(lg) {
 										left: 50%;
-										right: 0 !important;
+										right: 0;
 
 										@each $key, $value in $imageSizes {
 											&.smb-section-break-the-grid__figure--w-#{ $value } {
@@ -773,7 +773,7 @@
 								> .smb-section-break-the-grid__figure {
 									@include _media-min(lg) {
 										right: 50%;
-										left: 0 !important;
+										left: 0;
 
 										@each $key, $value in $imageSizes {
 											&.smb-section-break-the-grid__figure--w-#{ $value } {
