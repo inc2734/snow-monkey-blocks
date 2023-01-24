@@ -6,7 +6,7 @@
 	&__item {
 		position: relative;
 		display: block;
-		background-color: var(---smb-panels--item-background-color);
+		background-color: var(--smb-panels--item-background-color);
 		text-decoration: none;
 		box-shadow: 0 0 35px 0 rgba(#000, .1);
 		@include _transition(all);
