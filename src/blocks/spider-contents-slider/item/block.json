@@ -38,14 +38,6 @@
 				"blur": 10,
 				"position": ""
 			}
-		},
-		"style": {
-			"type": "object",
-			"default": {
-				"color": {
-					"background": "#eeeeee"
-				}
-			}
 		}
 	},
 	"supports": {
