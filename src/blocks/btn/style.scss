@@ -72,6 +72,13 @@
 	}
 }
 
+// @deprecated
+.smb-btn-wrapper.is-style-ghost {
+	.smb-btn[style*="background-color\:"] {
+		background-color: transparent !important;
+	}
+}
+
 .smb-btn-wrapper.is-style-text {
 	.smb-btn {
 		--smb-btn--background-color: transparent;
