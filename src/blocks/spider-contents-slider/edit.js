@@ -74,7 +74,7 @@ export default function ( {
 		const slides =
 			select( 'core/block-editor' ).getBlock( clientId ).innerBlocks;
 
-		let maxBlurSlide = undefined;
+		let maxBlurSlide;
 		if ( 0 < slides.length ) {
 			maxBlurSlide = slides.reduce( ( prevSlide, currentSlide ) => {
 				const prevBlur =
