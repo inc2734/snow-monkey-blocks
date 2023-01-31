@@ -65,5 +65,5 @@
 	"style": "snow-monkey-blocks/spider-contents-slider",
 	"editorStyle": "snow-monkey-blocks/spider-contents-slider/editor",
 	"editorScript": "file:./index.js",
-	"viewScript": [ "spider", "file:../spider-slider/script.js" ]
+	"viewScript": [ "spider", "file:./script.js" ]
 }

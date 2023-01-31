@@ -74,17 +74,20 @@ export default function ( {
 		const slides =
 			select( 'core/block-editor' ).getBlock( clientId ).innerBlocks;
 
-		const maxBlurSlide = slides.reduce( ( prevSlide, currentSlide ) => {
-			const prevBlur =
-				( !! prevSlide?.attributes?.boxShadow?.color &&
-					0 < prevSlide?.attributes?.boxShadow?.blur ) ||
-				0;
-			const currentBlur =
-				( !! currentSlide?.attributes?.boxShadow?.color &&
-					0 < currentSlide?.attributes?.boxShadow?.blur ) ||
-				0;
-			return prevBlur < currentBlur ? currentSlide : prevSlide;
-		} );
+		let maxBlurSlide = undefined;
+		if ( 0 < slides.length ) {
+			maxBlurSlide = slides.reduce( ( prevSlide, currentSlide ) => {
+				const prevBlur =
+					( !! prevSlide?.attributes?.boxShadow?.color &&
+						0 < prevSlide?.attributes?.boxShadow?.blur ) ||
+					0;
+				const currentBlur =
+					( !! currentSlide?.attributes?.boxShadow?.color &&
+						0 < currentSlide?.attributes?.boxShadow?.blur ) ||
+					0;
+				return prevBlur < currentBlur ? currentSlide : prevSlide;
+			} );
+		}
 
 		return !! maxBlurSlide?.attributes?.boxShadow?.color &&
 			0 < maxBlurSlide?.attributes?.boxShadow?.blur
