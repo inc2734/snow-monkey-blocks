@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 18.0.0-beta4
+Stable tag: 18.0.0-beta5
 Requires at least: 6.1
 Tested up to: 6.1
 Requires PHP: 5.6
@@ -134,6 +134,7 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 * [Slider] Changed design to use CSS vars.
 * [Step] Changed design to use CSS vars.
 * [Items (Banner)] Fix bug than in panel block, the link is not clickable.
+* Fixed a bug in which multiple slider-type blocks did not slide correctly when the arrows were clicked.
 * Update patterns.
 * Refactoring block manager.
 
