@@ -21,6 +21,7 @@
 				border-radius: var(--smb-spider-contents-slider--slide-border-radius);
 				box-shadow: var(--smb-spider-contents-slider--slide-box-shadow);
 				color: var(--smb-spider-contents-slider--slide-color);
+				padding: 0;
 
 				&[data-content-position] {
 					> .smb-spider-contents-slider__item {
@@ -35,6 +36,7 @@
 		flex: 1 1 100%;
 		height: 100%;
 		max-width: 100%;
+		padding: 0;
 		// @include _content();
 
 		&--p-s {
