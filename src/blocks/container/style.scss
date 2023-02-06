@@ -4,4 +4,10 @@
 		margin-left: auto;
 		max-width: 100%;
 	}
+
+	&--no-gutters {
+		padding-right: 0 !important;
+		padding-left: 0 !important;
+		width: unquote('min(100%, var(--_container-max-width))') !important;
+	}
 }

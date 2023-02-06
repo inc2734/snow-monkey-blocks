@@ -14,7 +14,7 @@ import { __ } from '@wordpress/i18n';
 import WidthPicker from '@smb/component/width-picker';
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
-	const { contentsMaxWidth, isSlim } = attributes;
+	const { contentsMaxWidth, isSlim, removeGutters } = attributes;
 
 	const hasInnerBlocks = useSelect(
 		( select ) => {
@@ -25,7 +25,9 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		[ clientId ]
 	);
 
-	const classes = classnames( 'smb-container', 'c-container', className );
+	const classes = classnames( 'smb-container', 'c-container', className, {
+		'smb-container--no-gutters': removeGutters,
+	} );
 
 	const bodyClasses = classnames( 'smb-container__body', {
 		'u-slim-width': isSlim && ! contentsMaxWidth,
@@ -59,6 +61,11 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 	const onChangeIsSlim = ( value ) =>
 		setAttributes( {
 			isSlim: value,
+		} );
+
+	const onChangeRemoveGutters = ( value ) =>
+		setAttributes( {
+			removeGutters: value,
 		} );
 
 	const disableIsSlim = !! contentsMaxWidth;
@@ -95,6 +102,15 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							onChange={ onChangeIsSlim }
 						/>
 					) }
+
+					<ToggleControl
+						label={ __(
+							'Remove left and right spaces',
+							'snow-monkey-blocks'
+						) }
+						checked={ removeGutters }
+						onChange={ onChangeRemoveGutters }
+					/>
 				</PanelBody>
 			</InspectorControls>
 

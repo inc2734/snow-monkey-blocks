@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-"
 "blocks\n"
-"POT-Creation-Date: 2023-01-20T06:28:09+00:00\n"
-"PO-Revision-Date: 2023-01-20 15:28+0900\n"
+"POT-Creation-Date: 2023-02-06T07:33:16+00:00\n"
+"PO-Revision-Date: 2023-02-06 16:34+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -846,6 +846,10 @@ msgstr "コンテンツの最大幅"
 #: dist/blocks/section-with-bgvideo/index.js:1 dist/blocks/section/index.js:1
 msgid "Make the contents width slim"
 msgstr "コンテンツの幅をスリム幅にする"
+
+#: dist/blocks/container/index.js:1
+msgid "Remove left and right spaces"
+msgstr "左右のスペースを削除"
 
 #: dist/blocks/contents-outline/index.js:1
 msgid "Show h2"

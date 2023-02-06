@@ -13,6 +13,10 @@
 		"isSlim": {
 			"type": "boolean",
 			"default": false
+		},
+		"removeGutters": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"supports": {
