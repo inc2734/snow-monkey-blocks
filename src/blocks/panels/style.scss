@@ -4,6 +4,7 @@
 	--smb-panels--item-background-color: var(--wp--preset--color--white);
 
 	&__item {
+		flex: 1;
 		position: relative;
 		display: block;
 		background-color: var(--smb-panels--item-background-color);
