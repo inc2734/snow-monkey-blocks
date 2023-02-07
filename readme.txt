@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 18.0.0
+Stable tag: 18.0.1
 Requires at least: 6.1
 Tested up to: 6.1
 Requires PHP: 5.6
@@ -108,6 +108,13 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 24. Tabs block (The number of tab can be increased or decreased freely)
 
 == Changelog ==
+
+= 18.0.1 =
+* [Panels] Fixed a bug that the heights of each panel were not aligned.
+* [Panels] Change the size of the title of the panel to a smaller size.
+* [Container] Added a setting to remove spaces on the left and right.
+* [Media text] Fixed a bug in that "Sort by mobile" was sometimes not reflected correctly.
+* Remove CSS from fallback.css that affects the entire page.
 
 = 18.0.0 =
 * Require sass-basis@18.0.0 or later.
