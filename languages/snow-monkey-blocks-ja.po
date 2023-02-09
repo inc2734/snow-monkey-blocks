@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-"
 "blocks\n"
 "POT-Creation-Date: 2023-02-06T07:33:16+00:00\n"
-"PO-Revision-Date: 2023-02-06 16:34+0900\n"
+"PO-Revision-Date: 2023-02-10 01:01+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -2228,7 +2228,7 @@ msgstr "閲覧者に注意を促すブロックです。"
 #: dist/blocks/balloon/block.json
 msgctxt "block title"
 msgid "Balloon"
-msgstr "バルーン"
+msgstr "吹き出し"
 
 #: dist/blocks/balloon/block.json
 msgctxt "block description"
