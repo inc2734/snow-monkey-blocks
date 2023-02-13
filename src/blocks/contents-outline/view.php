@@ -36,13 +36,14 @@ $anchor = ! empty( $attributes['anchor'] ) ? $attributes['anchor'] : $anchor;
 
 echo do_shortcode(
 	sprintf(
-		'[wp_contents_outline post_id="%1$d" selector="%2$s" headings="%3$s" move_to_before_1st_heading="%4$s" move_to="%5$s" id="%6$s" class="%7$s"]',
+		'[wp_contents_outline post_id="%1$d" selector="%2$s" headings="%3$s" move_to_before_1st_heading="%4$s" move_to="%5$s" id="%6$s" class="%7$s" title="%8$s"]',
 		get_the_ID(),
 		implode( ',', $selectors ),
 		$attributes['headings'],
 		$attributes['moveToBefore1stHeading'] ? 'true' : 'false',
 		$attributes['moveToBefore1stHeading'] ? implode( ',', $move_to ) : '',
 		$anchor,
-		'smb-contents-outline'
+		'smb-contents-outline',
+		$attributes['title']
 	)
 );

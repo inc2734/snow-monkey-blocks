@@ -7,6 +7,9 @@
 	"description": "Display the table of contents above the first heading.",
 	"category": "smb",
 	"attributes": {
+		"title": {
+			"type": "string"
+		},
 		"headings": {
 			"type": "string",
 			"default": "h2,h3,h4"

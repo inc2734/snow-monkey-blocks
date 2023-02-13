@@ -6,11 +6,16 @@ import {
 	ToggleControl,
 } from '@wordpress/components';
 
-import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
+import {
+	InspectorControls,
+	useBlockProps,
+	RichText,
+} from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 
 export default function ( { attributes, setAttributes } ) {
 	const {
+		title,
 		headings,
 		moveToBefore1stHeading,
 		includesSectionTitle,
@@ -32,6 +37,11 @@ export default function ( { attributes, setAttributes } ) {
 	const blockProps = useBlockProps( {
 		className: 'wpco-wrapper',
 	} );
+
+	const onChangeTitle = ( value ) =>
+		setAttributes( {
+			title: value,
+		} );
 
 	const onChangeHeadings2 = ( isChecked ) =>
 		setAttributes( {
@@ -132,9 +142,20 @@ export default function ( { attributes, setAttributes } ) {
 
 			<div { ...blockProps } aria-hidden="false">
 				<div className="wpco">
-					<h2 className="wpco__title">
-						{ __( 'Contents outline', 'snow-monkey-blocks' ) }
-					</h2>
+					<RichText
+						tagName="h2"
+						className="wpco__title"
+						value={
+							title ||
+							__( 'Contents outline', 'snow-monkey-blocks' )
+						}
+						placeholder={ __(
+							'Contents outline',
+							'snow-monkey-blocks'
+						) }
+						onChange={ onChangeTitle }
+						allowedFormats={ [] }
+					/>
 					<div className="contents-outline">
 						<ol>
 							<li>
