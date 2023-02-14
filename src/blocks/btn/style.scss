@@ -45,7 +45,6 @@
 
 	&--more-wider {
 		width: 100%;
-		display: block;
 
 		@include _media-min(md) {
 			--smb-btn--padding-horizontal: var(--_padding4);
@@ -57,7 +56,6 @@
 
 	&--full {
 		width: 100%;
-		display: block;
 	}
 
 	&--wrap {
