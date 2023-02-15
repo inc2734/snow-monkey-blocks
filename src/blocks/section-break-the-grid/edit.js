@@ -333,10 +333,28 @@ export default function ( {
 			contentVerticalPosition: value,
 		} );
 
-	const onChangeContentBackgroundColor = ( value ) =>
+	const onChangeContentBackgroundColor = ( value ) => {
+		let newValue = value;
+		if ( !! value ) {
+			const match = value.match( /^var\((.+)\)$/ );
+			if ( match ) {
+				newValue = window
+					.getComputedStyle( document.documentElement )
+					.getPropertyValue( match[ 1 ] )
+					.trim();
+				if ( ! newValue ) {
+					newValue = window
+						.getComputedStyle( document.body )
+						.getPropertyValue( match[ 1 ] )
+						.trim();
+				}
+			}
+		}
+
 		setAttributes( {
-			contentBackgroundColor: value,
+			contentBackgroundColor: newValue,
 		} );
+	};
 
 	const onChangeContentBackgroundOpacity = ( value ) =>
 		setAttributes( {
