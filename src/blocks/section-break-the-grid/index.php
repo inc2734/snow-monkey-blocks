@@ -32,3 +32,18 @@ add_filter(
 		);
 	}
 );
+
+/**
+ * In the case of numerical values, "px" is sometimes auto-completed, so it should be removed.
+ */
+add_filter(
+	'render_block_snow-monkey-blocks/section-break-the-grid',
+	function( $block_content ) {
+		$block_content = preg_replace(
+			'|(--smb-section-break-the-grid--mask-opacity:\d+(?:\.\d+)?)px|',
+			'$1',
+			$block_content,
+		);
+		return $block_content;
+	}
+);

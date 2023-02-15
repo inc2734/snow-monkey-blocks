@@ -260,7 +260,7 @@ export default function ( {
 		'--smb-section-break-the-grid--content-background-color':
 			contentBackgroundColor &&
 			hexToRgba( contentBackgroundColor, contentBackgroundOpacity ),
-		'--smb-section-break-the-grid--mask-color': maskColor && undefined,
+		'--smb-section-break-the-grid--mask-color': maskColor || undefined,
 		'--smb-section-break-the-grid--mask-opacity': !! maskColor
 			? maskOpacity
 			: undefined,
