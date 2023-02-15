@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue, kutsu
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 18.1.1
+Stable tag: 18.1.2
 Requires at least: 6.1
 Tested up to: 6.1
 Requires PHP: 5.6
@@ -108,6 +108,11 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 24. Tabs block (The number of tab can be increased or decreased freely)
 
 == Changelog ==
+
+= 18.1.2 =
+* [Section (Break the grid)] Fixed a bug that prevented setting the background color of content when the color selected in the color picker was CSS var.
+* [Section (Break the grid)] Fixed a bug that prevented masks from being set.
+* Update styles of .c-row > .block-list-appender.
 
 = 18.1.1 =
 * [Button] Fixed a bug that text was not centered when set to full size.
