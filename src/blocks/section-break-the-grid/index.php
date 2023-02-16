@@ -42,7 +42,7 @@ add_filter(
 		$block_content = preg_replace(
 			'|(--smb-section-break-the-grid--mask-opacity:\d+(?:\.\d+)?)px|',
 			'$1',
-			$block_content,
+			$block_content
 		);
 		return $block_content;
 	}
