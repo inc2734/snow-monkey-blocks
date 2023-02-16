@@ -202,8 +202,8 @@
 	&__contents-wrapper {
 		margin-right: auto;
 		margin-left: auto;
-		max-width: 100%;
-		width: var(--smb-section--contents-wrapper-width);
+		width: auto;
+		max-width: min(100%, var(--smb-section--contents-wrapper-width));
 
 		> * + * {
 			margin-top: var(--_margin2);

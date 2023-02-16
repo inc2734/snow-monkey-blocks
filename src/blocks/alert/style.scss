@@ -3,7 +3,7 @@
 $alert-color: #fff9e6 !default;
 
 .smb-alert {
-  --smb-alert--border-radius: var(--_global--border-radius);
+	--smb-alert--border-radius: var(--_global--border-radius);
 	--smb-alert--background-color: #{ $alert-color };
 	--smb-alert--border-color: #{ darken($alert-color, 5%) };
 	--smb-alert--color: #{ darken(desaturate($alert-color, 60%), 70%) };
