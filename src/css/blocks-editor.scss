@@ -19,6 +19,10 @@ html :where(.wp-block-post-content,.wp-block-widget-area__inner-blocks) {
 			margin-left: calc(var(--_gap) * .5);
 			flex: 1;
 		}
+
+		> .block-list-appender:first-child {
+			margin-bottom: var(--_gap);
+		}
 	}
 }
 
