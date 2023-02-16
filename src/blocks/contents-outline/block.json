@@ -8,7 +8,8 @@
 	"category": "smb",
 	"attributes": {
 		"title": {
-			"type": "string"
+			"type": "string",
+			"default": ""
 		},
 		"headings": {
 			"type": "string",
