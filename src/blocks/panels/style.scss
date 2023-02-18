@@ -2,12 +2,14 @@
 
 .smb-panels {
 	--smb-panels--item-background-color: var(--wp--preset--color--white);
+	--smb-panels--item-color: var(--wp--preset--color--sm-text);
 
 	&__item {
 		flex: 1;
 		position: relative;
 		display: block;
 		background-color: var(--smb-panels--item-background-color);
+    color: var(--smb-panels--item-color);
 		text-decoration: none;
 		box-shadow: 0 0 35px 0 rgba(#000, .1);
 		@include _transition(all);
