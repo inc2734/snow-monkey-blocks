@@ -48,9 +48,7 @@ const Image = ( { src, alt, id, style } ) => (
 	/>
 );
 
-const Video = ( { src, style } ) => (
-	<video controls src={ src } style={ style } />
-);
+const Video = ( { src, style } ) => <video src={ src } style={ style } />;
 
 const Figure = memo(
 	( {

@@ -7,6 +7,7 @@ import {
 	generateStylesForSectionBackground,
 	SectionBackground,
 } from '../section/components/background';
+
 import { Save as Header } from '../section/components/header';
 
 import { generateSpacingProperties } from '@smb/helper';
@@ -205,7 +206,10 @@ export default function ( { attributes, className } ) {
 
 	const video = (
 		<video
-			controls
+			playsInline
+			loop
+			autoPlay
+			muted
 			src={ imageURL }
 			width={ !! imageWidth && imageWidth }
 			height={ !! imageHeight && imageHeight }
