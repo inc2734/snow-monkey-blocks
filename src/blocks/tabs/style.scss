@@ -2,10 +2,12 @@
 
 .smb-tabs {
 	--smb-tabs--background-color: var(--wp--preset--color--white);
+	--smb-tabs--color: currentColor;
 	--smb-tabs--border-color: var(--_light-color-gray);
 	--smb-tabs--tab-background-color: transparent;
 	--smb-tabs--tab-border-color: transparent;
 	--smb-tabs--tab-border-radius: var(--_global--border-radius);
+	--smb-tabs--tab-color: inherit;
 	--smb-tabs--style--line--accent-color: var(--wp--preset--color--black);
 
 	overflow: hidden;
@@ -28,6 +30,7 @@
 		appearance: none;
 		background-color: var(--smb-tabs--tab-background-color);
 		border: 1px solid var(--smb-tabs--tab-border-color);
+		color: inherit;
 		cursor: pointer;
 		font-family: inherit;
 
@@ -38,6 +41,7 @@
 		&[aria-selected="true"] {
 			--smb-tabs--tab-background-color: var(--smb-tabs--background-color);
 			--smb-tabs--tab-border-color: var(--smb-tabs--border-color);
+			--smb-tabs--tab-color: var(--smb-tabs--color);
 		}
 	}
 }
@@ -45,6 +49,7 @@
 .smb-tab-panel {
 	background-color: var(--smb-tabs--background-color);
 	border: 1px solid var(--smb-tabs--border-color);
+	color: var(--smb-tabs--color);
 	padding: var(--_padding1);
 	pointer-events: none !important;
 
