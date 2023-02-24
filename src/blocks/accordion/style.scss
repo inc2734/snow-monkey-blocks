@@ -22,6 +22,7 @@
 			}
 
 			&__icon {
+				margin-left: var(--_margin-1);
 				@include _transition(transform);
 				flex: 0 0 auto;
 			}
