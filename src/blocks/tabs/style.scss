@@ -27,6 +27,7 @@
 	}
 
 	&__tab {
+		margin: 0; // for iOS
 		appearance: none;
 		background-color: var(--smb-tabs--tab-background-color);
 		border: 1px solid var(--smb-tabs--tab-border-color);
