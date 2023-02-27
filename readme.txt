@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue, kutsu
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 18.1.7
+Stable tag: 18.2.0
 Requires at least: 6.1
 Tested up to: 6.1
 Requires PHP: 5.6
@@ -108,6 +108,13 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 24. Tabs block (The number of tab can be increased or decreased freely)
 
 == Changelog ==
+
+= 18.2.0 =
+* Snow Monkey v19.2.0 or higher is required to use with the Snow Monkey theme.
+* Fluid typography applied.
+* [Accordion] Add a margin to the left of the toggle button.
+* [Tabs] Fixed an issue where the tab button position may become misaligned depending on the iOS version.
+* [FAQ] Fixed a bug in which labels and text were not aligned vertically.
 
 = 18.1.7 =
 * [Section (Break the grid)] Change video to autoplay, loop, or mute.
