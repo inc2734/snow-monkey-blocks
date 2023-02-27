@@ -22,7 +22,7 @@
 			&__label {
 				flex: 0 0 0%;
 				margin-right: var(--smb-faq--item-gap);
-				@include _set-font-size-level(3);
+				@include _set-fluid-font-size-level(3);
 				line-height: 1.05;
 				font-weight: normal;
 				min-width: .8em;

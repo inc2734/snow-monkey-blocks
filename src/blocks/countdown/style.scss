@@ -31,7 +31,7 @@
 		&__numeric {
 			display: block;
 			color: var(--smb-countdown--numeric-color);
-			@include _set-font-size-level(3);
+			@include _set-fluid-font-size-level(3);
 			font-weight: bold;
 		}
 

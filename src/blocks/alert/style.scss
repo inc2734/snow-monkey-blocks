@@ -71,7 +71,7 @@ $alert-color: #fff9e6 !default;
 			position: relative;
 			top: -1px;
 			margin-right: var(--_margin-2);
-			@include _set-font-size-level(3);
+			@include _set-fluid-font-size-level(3);
 		}
 	}
 }

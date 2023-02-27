@@ -98,7 +98,7 @@
 		}
 
 		&__price {
-			@include _set-font-size-level(3);
+			@include _set-fluid-font-size-level(3);
 			font-weight: bold;
 			text-align: center;
 		}

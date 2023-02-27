@@ -64,7 +64,7 @@
 
 		&__title {
 			margin: 0;
-			@include _set-font-size-level(2);
+			@include _set-fluid-font-size-level(2);
 			font-weight: bold;
 		}
 

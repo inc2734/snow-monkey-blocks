@@ -39,7 +39,7 @@
 	}
 
 	&__title {
-		@include _set-font-size-level(4);
+		@include _set-fluid-font-size-level(4);
 	}
 
 	&__title,
