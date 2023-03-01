@@ -14,10 +14,11 @@ import {
 	Placeholder,
 	RangeControl,
 	SelectControl,
-	TextControl,
 	TextareaControl,
 	ToggleControl,
 	ToolbarButton,
+	__experimentalHStack as HStack,
+	__experimentalInputControl as InputControl,
 } from '@wordpress/components';
 
 import { useState } from '@wordpress/element';
@@ -282,18 +283,18 @@ export default function ( { attributes, setAttributes } ) {
 							onSubmit={ onSubmitFeedURL }
 							className="wp-block-rss__placeholder-form"
 						>
-							<TextControl
-								placeholder={ __(
-									'Enter URL here…',
-									'snow-monkey-blocks'
-								) }
-								value={ feedURL }
-								onChange={ onChangeFeedURL }
-								className="wp-block-rss__placeholder-input"
-							/>
-							<Button isPrimary type="submit">
-								{ __( 'Use URL', 'snow-monkey-blocks' ) }
-							</Button>
+							<HStack wrap>
+								<InputControl
+									__next36pxDefaultSize
+									placeholder={ __( 'Enter URL here…' ) }
+									value={ feedURL }
+									onChange={ onChangeFeedURL }
+									className="wp-block-rss__placeholder-input"
+								/>
+								<Button variant="primary" type="submit">
+									{ __( 'Use URL' ) }
+								</Button>
+							</HStack>
 						</form>
 					</Placeholder>
 				) : (
