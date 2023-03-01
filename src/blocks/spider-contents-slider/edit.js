@@ -103,7 +103,9 @@ export default function ( {
 				bottom: maxBlur,
 			},
 		} );
-	}, [ maxBlur ] );
+		// Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [ maxBlur, canvasPadding ] );
 
 	const selectedSlide = useSelect(
 		( select ) => {
@@ -138,8 +140,11 @@ export default function ( {
 		nowSliderClientIds.forEach( ( sliderClientId, index ) => {
 			updateBlockAttributes( sliderClientId, { sliderId: index } );
 		} );
-	}, [ nowSliderClientIds ] );
+		// Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [ nowSliderClientIds, currentSliderClientId ] );
 
+	const useEffectDeps = !! ref.current && ref.current.offsetWidth;
 	useEffect( () => {
 		const width =
 			!! ref.current &&
@@ -164,7 +169,9 @@ export default function ( {
 				`${ referenceWidth }px`
 			);
 		}
-	}, [ !! ref.current && ref.current.offsetWidth ] );
+		// Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [ useEffectDeps, isShifted ] );
 
 	const classes = classnames(
 		'smb-spider-slider',

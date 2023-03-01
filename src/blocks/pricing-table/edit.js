@@ -50,6 +50,8 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 				childrenCount: innerBlocksCount,
 			} );
 		}
+		// Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [ innerBlocksCount ] );
 
 	const classes = classnames( 'smb-pricing-table', {

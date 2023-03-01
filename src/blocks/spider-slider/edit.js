@@ -92,6 +92,7 @@ export default function ( {
 	const ref = useRef();
 	const referenceRef = useRef();
 	const canvasRef = useRef();
+	const useEffectDeps = !! ref.current && ref.current.offsetWidth;
 	useEffect( () => {
 		const width =
 			!! ref.current &&
@@ -116,7 +117,9 @@ export default function ( {
 				`${ referenceWidth }px`
 			);
 		}
-	}, [ !! ref.current && ref.current.offsetWidth ] );
+		// Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [ useEffectDeps ] );
 
 	const classes = classnames( 'smb-spider-slider', className, {
 		[ `smb-spider-slider--${ aspectRatio }` ]: !! aspectRatio,

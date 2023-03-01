@@ -68,6 +68,8 @@ function usePatternsCategories( rootClientId ) {
 		}
 
 		return categories;
+		// Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [ allPatterns, allCategories ] );
 
 	return populatedCategories;

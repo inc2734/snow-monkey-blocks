@@ -116,6 +116,8 @@ function useInsertionPoint( {
 				onSelect( blocks );
 			}
 		},
+		// Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[
 			isAppender,
 			getSelectedBlock,

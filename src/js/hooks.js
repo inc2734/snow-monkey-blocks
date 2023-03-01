@@ -80,6 +80,8 @@ export const useMigrateDoubleHyphenToSingleHyphen = (
 		if ( 0 < newInnerBlocks.length ) {
 			replaceInnerBlocks( clientId, newInnerBlocks );
 		}
+		// Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [ clientId ] );
 };
 
@@ -151,6 +153,8 @@ export function useMultipleOriginColorsAndGradientsFallback() {
 			} );
 		}
 		return result;
+		// Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [ defaultColors, themeColors, customColors ] );
 
 	const customGradients = useSetting( 'color.gradients.custom' );
@@ -196,6 +200,8 @@ export function useMultipleOriginColorsAndGradientsFallback() {
 			} );
 		}
 		return result;
+		// Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [ customGradients, themeGradients, defaultGradients ] );
 
 	return colorGradientSettings;

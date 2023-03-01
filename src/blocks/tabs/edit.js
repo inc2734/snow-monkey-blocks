@@ -61,6 +61,8 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		if ( ! tabsId ) {
 			setAttributes( { tabsId: clientId } );
 		}
+		// Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [] );
 
 	useEffect( () => {
@@ -77,7 +79,9 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						: 'true',
 			} );
 		} );
-	}, [ tabs ] );
+		// Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [ clientId, tabs, tabsId ] );
 
 	// For duplicate blcok.
 	useEffect( () => {
@@ -97,9 +101,12 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		setAttributes( { tabsId: clientId, tabs: JSON.stringify( tabs ) } );
 
 		setCurrentTabPanelId( tabs[ 0 ].tabPanelId );
-	}, [ clientId ] );
+		// Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [ clientId, tabs, tabsId ] );
 
 	// For duplicate/Remove tabPanel blcoks.
+	const innerBlocks = getBlock( clientId ).innerBlocks;
 	useEffect( () => {
 		const blockOrder = getBlockOrder( clientId );
 		if ( blockOrder.length === tabs.length ) {
@@ -136,7 +143,9 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		}
 
 		setAttributes( { tabs: JSON.stringify( newTabs ) } );
-	}, [ getBlock( clientId ).innerBlocks ] );
+		// Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [ innerBlocks, clientId, tabs ] );
 
 	const dataMatchHeightBoolean =
 		'vertical' === orientation ||

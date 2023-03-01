@@ -54,6 +54,8 @@ const usePatternsState = ( onInsert, rootClientId ) => {
 				type: 'snackbar',
 			}
 		);
+		// Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [] );
 
 	return [ patterns, patternCategories, onClickPattern ];

@@ -38,6 +38,8 @@ export default function ( {
 			labelColumnSize,
 			smIsSplitColumn,
 		} );
+		// Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [ labelColumnSize, smIsSplitColumn ] );
 
 	const {

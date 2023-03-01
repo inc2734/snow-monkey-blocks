@@ -80,6 +80,8 @@ function PatternList( { filterValue, selectedCategory, patternCategories } ) {
 			);
 		}
 		return searchItems( allPatterns, filterValue );
+		// Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [ filterValue, selectedCategory, allPatterns ] );
 
 	// Announce search results on change.
@@ -94,6 +96,8 @@ function PatternList( { filterValue, selectedCategory, patternCategories } ) {
 			count
 		);
 		debouncedSpeak( resultsFoundMessage );
+		// Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [ filterValue, debouncedSpeak ] );
 
 	const currentShownPatterns = useAsyncList( filteredBlockPatterns, {
