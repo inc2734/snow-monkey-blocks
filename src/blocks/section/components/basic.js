@@ -50,14 +50,17 @@ export const PanelBasicSettings = ( {
 											);
 										};
 
-										const isPrimary =
-											setting.wrapperTagNameValue ===
-											wrapperTagNames[ wrapperTagName ];
 										return (
 											<Button
 												key={ wrapperTagName }
-												isPrimary={ isPrimary }
-												isSecondary={ ! isPrimary }
+												variant={
+													setting.wrapperTagNameValue ===
+													wrapperTagNames[
+														wrapperTagName
+													]
+														? 'primary'
+														: 'secondary'
+												}
 												onClick={ onClickButton }
 											>
 												{
@@ -94,13 +97,16 @@ export const PanelBasicSettings = ( {
 											);
 										};
 
-										const isPrimary =
-											setting.titleTagNameValue ===
-											titleTagNames[ titleTagName ];
 										return (
 											<Button
-												isPrimary={ isPrimary }
-												isSecondary={ ! isPrimary }
+												variant={
+													setting.titleTagNameValue ===
+													titleTagNames[
+														titleTagName
+													]
+														? 'primary'
+														: 'secondary'
+												}
 												onClick={ onClickButton }
 												key={ titleTagName }
 											>

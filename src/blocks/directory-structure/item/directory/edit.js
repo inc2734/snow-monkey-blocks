@@ -139,23 +139,20 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					>
 						<div className="smb-list-icon-selector">
 							{ iconList.map( ( iconData ) => {
-								const selected =
-									iconVendor === iconData.vendor &&
-									iconClass === iconData.value;
-
 								const onClickIcon = () => {
 									setAttributes( {
 										iconVendor: iconData.vendor,
-									} );
-									setAttributes( {
 										iconClass: iconData.value,
 									} );
 								};
 
 								return (
 									<Button
-										isPrimary={ selected }
-										aria-pressed={ selected }
+										variant={
+											iconVendor === iconData.vendor &&
+											iconClass === iconData.value &&
+											'primary'
+										}
 										onClick={ onClickIcon }
 										key={ `icon_${ iconData.key }` }
 									>

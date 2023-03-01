@@ -134,11 +134,12 @@ export default function ( {
 										icon: iconList[ index ].value,
 									} );
 
-								const isPrimary =
-									icon === iconList[ index ].value;
 								return (
 									<Button
-										isPrimary={ isPrimary }
+										variant={
+											icon === iconList[ index ].value &&
+											'primary'
+										}
 										onClick={ onClickIcon }
 										key={ index }
 									>

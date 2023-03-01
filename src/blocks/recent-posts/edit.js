@@ -251,13 +251,14 @@ export default function ( { attributes, setAttributes } ) {
 											itemTitleTagNames[ index ],
 									} );
 
-								const isPrimary =
-									itemTitleTagName ===
-									itemTitleTagNames[ index ];
 								return (
 									<Button
-										isPrimary={ isPrimary }
-										isSecondary={ ! isPrimary }
+										variant={
+											itemTitleTagName ===
+											itemTitleTagNames[ index ]
+												? 'primary'
+												: 'secondary'
+										}
 										onClick={ onClickItemTitleTagName }
 										key={ index }
 									>

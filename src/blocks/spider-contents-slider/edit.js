@@ -471,13 +471,16 @@ export default function ( {
 				{ ( isSelected || !! selectedSlide ) && (
 					<div className="smb-slider-pagination">
 						{ sliderClientIds.map( ( sliderClientId, index ) => {
-							const isActive =
-								currentSliderClientId === sliderClientId ||
-								selectedSlide?.clientId === sliderClientId;
 							return (
 								<Button
-									isPrimary={ isActive }
-									isSecondary={ ! isActive }
+									variant={
+										currentSliderClientId ===
+											sliderClientId ||
+										selectedSlide?.clientId ===
+											sliderClientId
+											? 'primary'
+											: 'secondary'
+									}
 									onClick={ () => {
 										setCurrentSliderClientId(
 											sliderClientId

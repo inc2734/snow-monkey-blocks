@@ -102,10 +102,9 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 										icon: value,
 									} );
 
-								const isPrimary = icon === value;
 								return (
 									<Button
-										isPrimary={ isPrimary }
+										variant={ icon === value && 'primary' }
 										onClick={ onClickIcon }
 										key={ index }
 									>

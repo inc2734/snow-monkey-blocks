@@ -109,12 +109,14 @@ export default function ( {
 									} );
 								};
 
-								const isPrimary =
-									titleTagName === titleTagNames[ index ];
 								return (
 									<Button
-										isPrimary={ isPrimary }
-										isSecondary={ ! isPrimary }
+										variant={
+											titleTagName ===
+											titleTagNames[ index ]
+												? 'primary'
+												: 'secondary'
+										}
 										onClick={ onClickTitleTagName }
 										key={ index }
 									>
