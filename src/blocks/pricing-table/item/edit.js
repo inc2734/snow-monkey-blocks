@@ -17,8 +17,10 @@ import {
 	useBlockProps,
 	__experimentalColorGradientControl as ColorGradientControl,
 	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
+	__experimentalLinkControl as LinkControl,
 } from '@wordpress/block-editor';
 
+import { useMergeRefs } from '@wordpress/compose';
 import { useState, useRef } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
@@ -26,7 +28,6 @@ import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
 
 import Figure from '@smb/component/figure';
 import ImageSizeSelectControl from '@smb/component/image-size-select-control';
-import LinkControl from '@smb/component/link-control';
 import { getResizedImages } from '@smb/helper';
 
 // @todo For WordPress 6.0
@@ -66,11 +67,13 @@ export default function ( {
 		btnWrap,
 	} = attributes;
 
-	const [ isLinkUIOpen, setIsLinkUIOpen ] = useState( false );
-	const urlIsSet = !! btnURL;
-	const urlIsSetandSelected = urlIsSet && isSelected;
-	const toggleLinkUI = () => setIsLinkUIOpen( ! isLinkUIOpen );
-	const closeLinkUI = () => setIsLinkUIOpen( false );
+	const [ isEditingURL, setIsEditingURL ] = useState( false );
+	const isURLSet = !! btnURL;
+	const opensInNewTab = btnTarget === '_blank';
+
+	// Use internal state instead of a ref to make sure that the component
+	// re-renders when the popover's anchor updates.
+	const [ popoverAnchor, setPopoverAnchor ] = useState( null );
 
 	const { resizedImages } = useSelect(
 		( select ) => {
@@ -116,10 +119,10 @@ export default function ( {
 	};
 
 	const ref = useRef();
+	const richTextRef = useRef();
 
 	const blockProps = useBlockProps( {
 		className: classes,
-		ref,
 	} );
 
 	const onSelectImage = ( media ) => {
@@ -191,10 +194,13 @@ export default function ( {
 			btnLabel: value,
 		} );
 
-	const onChangeBtnUrl = ( { url: newUrl, opensInNewTab } ) =>
+	const onChangeBtnUrl = ( {
+		url: newUrl,
+		opensInNewTab: newOpensInNewTab,
+	} ) =>
 		setAttributes( {
 			btnURL: newUrl,
-			btnTarget: ! opensInNewTab ? '_self' : '_blank',
+			btnTarget: ! newOpensInNewTab ? '_self' : '_blank',
 		} );
 
 	const onChangeBtnBackgroundColor = ( value ) =>
@@ -249,6 +255,14 @@ export default function ( {
 			imageHeight: newImageHeight,
 			imageSizeSlug: value,
 		} );
+	};
+
+	const unlink = () => {
+		setAttributes( {
+			btnURL: undefined,
+			btnTarget: undefined,
+		} );
+		setIsEditingURL( false );
 	};
 
 	return (
@@ -407,6 +421,10 @@ export default function ( {
 					{ ( ! RichText.isEmpty( btnLabel ) || isSelected ) && (
 						<div className="smb-pricing-table__item__action">
 							<span
+								ref={ useMergeRefs( [
+									setPopoverAnchor,
+									ref,
+								] ) }
 								className={ btnClasses }
 								href={ btnURL }
 								style={ btnStyles }
@@ -430,18 +448,30 @@ export default function ( {
 									) }
 									onChange={ onChangeBtnLabel }
 									withoutInteractiveFormatting={ true }
+									ref={ richTextRef }
 								/>
 
-								{ ( isLinkUIOpen || urlIsSetandSelected ) && (
+								{ isSelected && ( isEditingURL || isURLSet ) && (
 									<Popover
-										position="bottom center"
-										anchorRef={ ref.current }
-										onClose={ closeLinkUI }
+										placement="bottom"
+										anchor={ popoverAnchor }
+										onClose={ () => {
+											setIsEditingURL( false );
+											richTextRef.current?.focus();
+										} }
 									>
 										<LinkControl
-											url={ btnURL }
-											target={ btnTarget }
+											className="wp-block-navigation-link__inline-link-input"
+											value={ {
+												url: btnURL,
+												opensInNewTab,
+											} }
 											onChange={ onChangeBtnUrl }
+											onRemove={ () => {
+												unlink();
+												richTextRef.current?.focus();
+											} }
+											forceIsEditingLink={ isEditingURL }
 										/>
 									</Popover>
 								) }
@@ -452,20 +482,24 @@ export default function ( {
 			</div>
 
 			<BlockControls group="block">
-				{ ! urlIsSet && (
+				{ ! isURLSet && (
 					<ToolbarButton
+						name="link"
 						icon={ linkIcon }
-						label={ __( 'Link', 'snow-monkey-blocks' ) }
-						aria-expanded={ isLinkUIOpen }
-						onClick={ toggleLinkUI }
+						title={ __( 'Link', 'snow-monkey-blocks' ) }
+						onClick={ ( event ) => {
+							event.preventDefault();
+							setIsEditingURL( true );
+						} }
 					/>
 				) }
-				{ urlIsSetandSelected && (
+				{ isURLSet && (
 					<ToolbarButton
-						isPressed
+						name="link"
 						icon={ linkOffIcon }
-						label={ __( 'Unlink', 'snow-monkey-blocks' ) }
-						onClick={ () => onChangeBtnUrl( '', false ) }
+						title={ __( 'Unlink', 'snow-monkey-blocks' ) }
+						onClick={ unlink }
+						isActive={ true }
 					/>
 				) }
 			</BlockControls>

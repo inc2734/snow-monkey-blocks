@@ -5,15 +5,15 @@ import {
 	InnerBlocks,
 	useBlockProps,
 	useInnerBlocksProps,
+	__experimentalLinkControl as LinkControl,
 } from '@wordpress/block-editor';
 
+import { useMergeRefs } from '@wordpress/compose';
 import { Popover, ToolbarButton } from '@wordpress/components';
 import { useState, useRef } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
-
-import LinkControl from '@smb/component/link-control';
 
 export default function ( {
 	attributes,
@@ -24,11 +24,13 @@ export default function ( {
 } ) {
 	const { linkURL, linkTarget } = attributes;
 
-	const [ isLinkUIOpen, setIsLinkUIOpen ] = useState( false );
-	const urlIsSet = !! linkURL;
-	const urlIsSetandSelected = urlIsSet && isSelected;
-	const toggleLinkUI = () => setIsLinkUIOpen( ! isLinkUIOpen );
-	const closeLinkUI = () => setIsLinkUIOpen( false );
+	const [ isEditingURL, setIsEditingURL ] = useState( false );
+	const isURLSet = !! linkURL;
+	const opensInNewTab = linkTarget === '_blank';
+
+	// Use internal state instead of a ref to make sure that the component
+	// re-renders when the popover's anchor updates.
+	const [ popoverAnchor, setPopoverAnchor ] = useState( null );
 
 	const hasInnerBlocks = useSelect(
 		( select ) =>
@@ -53,6 +55,7 @@ export default function ( {
 
 	const blockProps = useBlockProps( {
 		className: classes,
+		ref: useMergeRefs( [ setPopoverAnchor, ref ] ),
 	} );
 
 	const innerBlocksProps = useInnerBlocksProps(
@@ -66,11 +69,22 @@ export default function ( {
 		}
 	);
 
-	const onChangeLinkUrl = ( { url: newUrl, opensInNewTab } ) =>
+	const onChangeLinkUrl = ( {
+		url: newUrl,
+		opensInNewTab: newOpensInNewTab,
+	} ) =>
 		setAttributes( {
 			linkURL: newUrl,
-			linkTarget: ! opensInNewTab ? '_self' : '_blank',
+			linkTarget: ! newOpensInNewTab ? '_self' : '_blank',
 		} );
+
+	const unlink = () => {
+		setAttributes( {
+			linkURL: undefined,
+			linkTarget: undefined,
+		} );
+		setIsEditingURL( false );
+	};
 
 	return (
 		<>
@@ -86,16 +100,22 @@ export default function ( {
 						</div>
 					) }
 
-					{ ( isLinkUIOpen || urlIsSetandSelected ) && (
+					{ isSelected && ( isEditingURL || isURLSet ) && (
 						<Popover
-							position="bottom center"
-							anchorRef={ ref.current }
-							onClose={ closeLinkUI }
+							placement="bottom"
+							anchor={ popoverAnchor }
+							onClose={ () => {
+								setIsEditingURL( false );
+							} }
 						>
 							<LinkControl
-								url={ linkURL }
-								target={ linkTarget }
+								className="wp-block-navigation-link__inline-link-input"
+								value={ { url: linkURL, opensInNewTab } }
 								onChange={ onChangeLinkUrl }
+								onRemove={ () => {
+									unlink();
+								} }
+								forceIsEditingLink={ isEditingURL }
 							/>
 						</Popover>
 					) }
@@ -103,20 +123,24 @@ export default function ( {
 			</div>
 
 			<BlockControls group="block">
-				{ ! urlIsSet && (
+				{ ! isURLSet && (
 					<ToolbarButton
+						name="link"
 						icon={ linkIcon }
-						label={ __( 'Link', 'snow-monkey-blocks' ) }
-						aria-expanded={ isLinkUIOpen }
-						onClick={ toggleLinkUI }
+						title={ __( 'Link', 'snow-monkey-blocks' ) }
+						onClick={ ( event ) => {
+							event.preventDefault();
+							setIsEditingURL( true );
+						} }
 					/>
 				) }
-				{ urlIsSetandSelected && (
+				{ isURLSet && (
 					<ToolbarButton
-						isPressed
+						name="link"
 						icon={ linkOffIcon }
-						label={ __( 'Unlink', 'snow-monkey-blocks' ) }
-						onClick={ () => onChangeLinkUrl( '', false ) }
+						title={ __( 'Unlink', 'snow-monkey-blocks' ) }
+						onClick={ unlink }
+						isActive={ true }
 					/>
 				) }
 			</BlockControls>

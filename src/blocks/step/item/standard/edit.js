@@ -8,6 +8,7 @@ import {
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	useBlockProps,
 	useInnerBlocksProps,
+	__experimentalLinkControl as LinkControl,
 } from '@wordpress/block-editor';
 
 import {
@@ -17,13 +18,13 @@ import {
 	ToolbarButton,
 } from '@wordpress/components';
 
+import { useMergeRefs } from '@wordpress/compose';
 import { useSelect } from '@wordpress/data';
 import { useState, useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
 
 import Figure from '@smb/component/figure';
-import LinkControl from '@smb/component/link-control';
 import ImageSizeSelectControl from '@smb/component/image-size-select-control';
 import { getResizedImages } from '@smb/helper';
 
@@ -50,18 +51,20 @@ export default function ( {
 		linkColor,
 	} = attributes;
 
+	const [ isEditingURL, setIsEditingURL ] = useState( false );
+	const isURLSet = !! linkURL;
+	const opensInNewTab = linkTarget === '_blank';
+
+	// Use internal state instead of a ref to make sure that the component
+	// re-renders when the popover's anchor updates.
+	const [ popoverAnchor, setPopoverAnchor ] = useState( null );
+
 	const hasInnerBlocks = useSelect(
 		( select ) =>
 			!! select( 'core/block-editor' ).getBlock( clientId )?.innerBlocks
 				?.length,
 		[ clientId ]
 	);
-
-	const [ isLinkUIOpen, setIsLinkUIOpen ] = useState( false );
-	const urlIsSet = !! linkURL;
-	const urlIsSetandSelected = urlIsSet && isSelected;
-	const toggleLinkUI = () => setIsLinkUIOpen( ! isLinkUIOpen );
-	const closeLinkUI = () => setIsLinkUIOpen( false );
 
 	const { resizedImages } = useSelect(
 		( select ) => {
@@ -104,10 +107,10 @@ export default function ( {
 	};
 
 	const ref = useRef();
+	const richTextRef = useRef();
 
 	const blockProps = useBlockProps( {
 		className: classes,
-		ref,
 	} );
 
 	const innerBlocksProps = useInnerBlocksProps(
@@ -190,10 +193,13 @@ export default function ( {
 			linkLabel: value,
 		} );
 
-	const onChangeLinkUrl = ( { url: newUrl, opensInNewTab } ) =>
+	const onChangeLinkUrl = ( {
+		url: newUrl,
+		opensInNewTab: newOpensInNewTab,
+	} ) =>
 		setAttributes( {
 			linkURL: newUrl,
-			linkTarget: ! opensInNewTab ? '_self' : '_blank',
+			linkTarget: ! newOpensInNewTab ? '_self' : '_blank',
 		} );
 
 	const onChangeImageSizeSlug = ( value ) => {
@@ -218,6 +224,14 @@ export default function ( {
 			imageHeight: newImageHeight,
 			imageSizeSlug: value,
 		} );
+	};
+
+	const unlink = () => {
+		setAttributes( {
+			linkURL: undefined,
+			linkTarget: undefined,
+		} );
+		setIsEditingURL( false );
 	};
 
 	return (
@@ -310,66 +324,78 @@ export default function ( {
 
 					<div { ...innerBlocksProps } />
 
-					{ ( ! RichText.isEmpty( linkLabel ) || isSelected ) && (
-						<span
-							className="smb-step__item__link"
-							href={ linkURL }
-							style={ itemLinkStyles }
-							target={
-								'_self' === linkTarget ? undefined : linkTarget
-							}
-							rel={
-								'_self' === linkTarget
-									? undefined
-									: 'noopener noreferrer'
-							}
-						>
-							<i className="fas fa-circle-arrow-right" />
-							<RichText
-								className="smb-step__item__link__label"
-								placeholder={ __(
-									'Link text',
-									'snow-monkey-blocks'
-								) }
-								value={ linkLabel }
-								multiline={ false }
-								onChange={ onChangeLinkLabel }
-								withoutInteractiveFormatting={ true }
-							/>
-
-							{ ( isLinkUIOpen || urlIsSetandSelected ) && (
-								<Popover
-									position="bottom left"
-									anchorRef={ ref.current }
-									onClose={ closeLinkUI }
-								>
-									<LinkControl
-										url={ linkURL }
-										target={ linkTarget }
-										onChange={ onChangeLinkUrl }
-									/>
-								</Popover>
+					<span
+						ref={ useMergeRefs( [ setPopoverAnchor, ref ] ) }
+						className="smb-step__item__link"
+						href={ linkURL }
+						style={ itemLinkStyles }
+						target={
+							'_self' === linkTarget ? undefined : linkTarget
+						}
+						rel={
+							'_self' === linkTarget
+								? undefined
+								: 'noopener noreferrer'
+						}
+					>
+						<i className="fas fa-circle-arrow-right" />
+						<RichText
+							className="smb-step__item__link__label"
+							placeholder={ __(
+								'Link text',
+								'snow-monkey-blocks'
 							) }
-						</span>
-					) }
+							value={ linkLabel }
+							multiline={ false }
+							onChange={ onChangeLinkLabel }
+							withoutInteractiveFormatting={ true }
+							ref={ richTextRef }
+						/>
+
+						{ isSelected && ( isEditingURL || isURLSet ) && (
+							<Popover
+								placement="bottom"
+								anchor={ popoverAnchor }
+								onClose={ () => {
+									setIsEditingURL( false );
+									richTextRef.current?.focus();
+								} }
+							>
+								<LinkControl
+									className="wp-block-navigation-link__inline-link-input"
+									value={ { ur: linkURL, opensInNewTab } }
+									onChange={ onChangeLinkUrl }
+									onRemove={ () => {
+										unlink();
+										richTextRef.current?.focus();
+									} }
+									forceIsEditingLink={ isEditingURL }
+								/>
+							</Popover>
+						) }
+					</span>
 				</div>
 			</div>
 
 			<BlockControls group="block">
-				{ ! urlIsSet && (
+				{ ! isURLSet && (
 					<ToolbarButton
+						name="link"
 						icon={ linkIcon }
-						label={ __( 'Link', 'snow-monkey-blocks' ) }
-						aria-expanded={ isLinkUIOpen }
-						onClick={ toggleLinkUI }
+						title={ __( 'Link', 'snow-monkey-blocks' ) }
+						onClick={ ( event ) => {
+							event.preventDefault();
+							setIsEditingURL( true );
+						} }
 					/>
 				) }
-				{ urlIsSetandSelected && (
+				{ isURLSet && (
 					<ToolbarButton
-						isPressed
+						name="link"
 						icon={ linkOffIcon }
-						label={ __( 'Unlink', 'snow-monkey-blocks' ) }
-						onClick={ () => onChangeLinkUrl( '', false ) }
+						title={ __( 'Unlink', 'snow-monkey-blocks' ) }
+						onClick={ unlink }
+						isActive={ true }
 					/>
 				) }
 			</BlockControls>

@@ -5,8 +5,10 @@ import {
 	InspectorControls,
 	RichText,
 	useBlockProps,
+	__experimentalLinkControl as LinkControl,
 } from '@wordpress/block-editor';
 
+import { useMergeRefs } from '@wordpress/compose';
 import { PanelBody, Popover, ToolbarButton } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import { useState, useRef } from '@wordpress/element';
@@ -14,7 +16,6 @@ import { __ } from '@wordpress/i18n';
 import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
 
 import Figure from '@smb/component/figure';
-import LinkControl from '@smb/component/link-control';
 import ImageSizeSelectControl from '@smb/component/image-size-select-control';
 import { getResizedImages } from '@smb/helper';
 
@@ -36,11 +37,13 @@ export default function ( {
 		target,
 	} = attributes;
 
-	const [ isLinkUIOpen, setIsLinkUIOpen ] = useState( false );
-	const urlIsSet = !! url;
-	const urlIsSetandSelected = urlIsSet && isSelected;
-	const toggleLinkUI = () => setIsLinkUIOpen( ! isLinkUIOpen );
-	const closeLinkUI = () => setIsLinkUIOpen( false );
+	const [ isEditingURL, setIsEditingURL ] = useState( false );
+	const isURLSet = !! url;
+	const opensInNewTab = target === '_blank';
+
+	// Use internal state instead of a ref to make sure that the component
+	// re-renders when the popover's anchor updates.
+	const [ popoverAnchor, setPopoverAnchor ] = useState( null );
 
 	const { resizedImages } = useSelect(
 		( select ) => {
@@ -74,7 +77,7 @@ export default function ( {
 
 	const blockProps = useBlockProps( {
 		className: classes,
-		ref,
+		ref: useMergeRefs( [ setPopoverAnchor, ref ] ),
 	} );
 
 	const onSelectImage = ( media ) => {
@@ -126,11 +129,15 @@ export default function ( {
 			caption: value,
 		} );
 
-	const onChangeUrl = ( { url: newUrl, opensInNewTab } ) =>
+	const onChangeUrl = ( {
+		url: newUrl,
+		opensInNewTab: newOpensInNewTab,
+	} ) => {
 		setAttributes( {
 			url: newUrl,
-			target: ! opensInNewTab ? '_self' : '_blank',
+			target: ! newOpensInNewTab ? '_self' : '_blank',
 		} );
+	};
 
 	const onChangeImageSizeSlug = ( value ) => {
 		let newImageURL = imageURL;
@@ -156,6 +163,14 @@ export default function ( {
 		} );
 	};
 
+	const unlink = () => {
+		setAttributes( {
+			url: undefined,
+			target: undefined,
+		} );
+		setIsEditingURL( false );
+	};
+
 	const item = (
 		<>
 			<div className="smb-slider__item__figure">
@@ -169,16 +184,22 @@ export default function ( {
 					isSelected={ isSelected }
 				/>
 
-				{ ( isLinkUIOpen || urlIsSetandSelected ) && (
+				{ isSelected && ( isEditingURL || isURLSet ) && (
 					<Popover
-						position="bottom center"
-						anchorRef={ ref.current }
-						onClose={ closeLinkUI }
+						placement="bottom"
+						anchor={ popoverAnchor }
+						onClose={ () => {
+							setIsEditingURL( false );
+						} }
 					>
 						<LinkControl
-							url={ url }
-							target={ target }
+							className="wp-block-navigation-link__inline-link-input"
+							value={ { url, opensInNewTab } }
 							onChange={ onChangeUrl }
+							onRemove={ () => {
+								unlink();
+							} }
+							forceIsEditingLink={ isEditingURL }
 						/>
 					</Popover>
 				) }
@@ -213,20 +234,24 @@ export default function ( {
 			<div { ...blockProps }>{ item }</div>
 
 			<BlockControls group="block">
-				{ ! urlIsSet && (
+				{ ! isURLSet && (
 					<ToolbarButton
+						name="link"
 						icon={ linkIcon }
-						label={ __( 'Link', 'snow-monkey-blocks' ) }
-						aria-expanded={ isLinkUIOpen }
-						onClick={ toggleLinkUI }
+						title={ __( 'Link', 'snow-monkey-blocks' ) }
+						onClick={ ( event ) => {
+							event.preventDefault();
+							setIsEditingURL( true );
+						} }
 					/>
 				) }
-				{ urlIsSetandSelected && (
+				{ isURLSet && (
 					<ToolbarButton
-						isPressed
+						name="link"
 						icon={ linkOffIcon }
-						label={ __( 'Unlink', 'snow-monkey-blocks' ) }
-						onClick={ () => onChangeUrl( '', false ) }
+						title={ __( 'Unlink', 'snow-monkey-blocks' ) }
+						onClick={ unlink }
+						isActive={ true }
 					/>
 				) }
 			</BlockControls>

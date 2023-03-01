@@ -17,14 +17,15 @@ import {
 	PanelColorSettings,
 	RichText,
 	useBlockProps,
+	__experimentalLinkControl as LinkControl,
 } from '@wordpress/block-editor';
 
+import { useMergeRefs } from '@wordpress/compose';
 import { useState, useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
 
 import Figure from '@smb/component/figure';
-import LinkControl from '@smb/component/link-control';
 
 export default function ( {
 	attributes,
@@ -48,11 +49,13 @@ export default function ( {
 		isBlockLink,
 	} = attributes;
 
-	const [ isLinkUIOpen, setIsLinkUIOpen ] = useState( false );
-	const urlIsSet = !! btnURL;
-	const urlIsSetandSelected = urlIsSet && isSelected;
-	const toggleLinkUI = () => setIsLinkUIOpen( ! isLinkUIOpen );
-	const closeLinkUI = () => setIsLinkUIOpen( false );
+	const [ isEditingURL, setIsEditingURL ] = useState( false );
+	const isURLSet = !! btnURL;
+	const opensInNewTab = btnTarget === '_blank';
+
+	// Use internal state instead of a ref to make sure that the component
+	// re-renders when the popover's anchor updates.
+	const [ popoverAnchor, setPopoverAnchor ] = useState( null );
 
 	const titleTagNames = [ 'div', 'h2', 'h3', 'none' ];
 
@@ -67,17 +70,26 @@ export default function ( {
 	};
 
 	const ref = useRef();
+	const richTextRef = useRef();
 
 	const blockProps = useBlockProps( {
 		className: classes,
-		ref,
+		// ref,
 	} );
 
-	const onChangeUrl = ( { url: newUrl, opensInNewTab } ) =>
+	const onChangeUrl = ( { url: newUrl, opensInNewTab: newOpensInNewTab } ) =>
 		setAttributes( {
 			btnURL: newUrl,
-			btnTarget: ! opensInNewTab ? '_self' : '_blank',
+			btnTarget: ! newOpensInNewTab ? '_self' : '_blank',
 		} );
+
+	const unlink = () => {
+		setAttributes( {
+			btnURL: undefined,
+			btnTarget: undefined,
+		} );
+		setIsEditingURL( false );
+	};
 
 	return (
 		<>
@@ -242,6 +254,10 @@ export default function ( {
 					{ ( ! RichText.isEmpty( btnLabel ) || isSelected ) && (
 						<div className="smb-items__item__action">
 							<span
+								ref={ useMergeRefs( [
+									setPopoverAnchor,
+									ref,
+								] ) }
 								className="smb-items__item__btn smb-btn"
 								href={ btnURL }
 								style={ itemBtnStyles }
@@ -268,6 +284,7 @@ export default function ( {
 										setAttributes( { btnLabel: value } )
 									}
 									withoutInteractiveFormatting={ true }
+									ref={ richTextRef }
 								/>
 							</span>
 						</div>
@@ -276,34 +293,46 @@ export default function ( {
 			</div>
 
 			<BlockControls group="block">
-				{ ! urlIsSet && (
+				{ ! isURLSet && (
 					<ToolbarButton
+						name="link"
 						icon={ linkIcon }
-						label={ __( 'Link', 'snow-monkey-blocks' ) }
-						aria-expanded={ isLinkUIOpen }
-						onClick={ toggleLinkUI }
+						title={ __( 'Link', 'snow-monkey-blocks' ) }
+						onClick={ ( event ) => {
+							event.preventDefault();
+							setIsEditingURL( true );
+						} }
 					/>
 				) }
-				{ urlIsSetandSelected && (
+				{ isURLSet && (
 					<ToolbarButton
-						isPressed
+						name="link"
 						icon={ linkOffIcon }
-						label={ __( 'Unlink', 'snow-monkey-blocks' ) }
-						onClick={ onChangeUrl( '', false ) }
+						title={ __( 'Unlink', 'snow-monkey-blocks' ) }
+						onClick={ unlink }
+						isActive={ true }
 					/>
 				) }
 			</BlockControls>
 
-			{ ( isLinkUIOpen || urlIsSetandSelected ) && (
+			{ isSelected && ( isEditingURL || isURLSet ) && (
 				<Popover
-					position="bottom center"
-					anchorRef={ ref.current }
-					onClose={ closeLinkUI }
+					placement="bottom"
+					anchor={ popoverAnchor }
+					onClose={ () => {
+						setIsEditingURL( false );
+						richTextRef.current?.focus();
+					} }
 				>
 					<LinkControl
-						url={ btnURL }
-						target={ btnTarget }
+						className="wp-block-navigation-link__inline-link-input"
+						value={ { url: btnURL, opensInNewTab } }
 						onChange={ onChangeUrl }
+						onRemove={ () => {
+							unlink();
+							richTextRef.current?.focus();
+						} }
+						forceIsEditingLink={ isEditingURL }
 					/>
 				</Popover>
 			) }

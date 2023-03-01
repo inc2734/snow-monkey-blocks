@@ -13,7 +13,7 @@
     "@wordpress/icons": "^9.18.0",
     "@wordpress/scripts": "^25.4.0",
     "autoprefixer": "^10.4.13",
-    "browser-sync": "^2.27.12",
+    "browser-sync": "^2.28.1",
     "classnames": "^2.3.2",
     "cpy-cli": "^4.2.0",
     "css-mqpacker": "^7.0.0",

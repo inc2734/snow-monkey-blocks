@@ -6,6 +6,7 @@ import {
 	InspectorControls,
 	RichText,
 	useBlockProps,
+	__experimentalLinkControl as LinkControl,
 } from '@wordpress/block-editor';
 
 import {
@@ -16,13 +17,13 @@ import {
 	ToolbarButton,
 } from '@wordpress/components';
 
+import { useMergeRefs } from '@wordpress/compose';
 import { useState, useRef } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
 
 import Figure from '@smb/component/figure';
-import LinkControl from '@smb/component/link-control';
 import ImageSizeSelectControl from '@smb/component/image-size-select-control';
 import { getResizedImages, stringToInnerText } from '@smb/helper';
 
@@ -47,11 +48,13 @@ export default function ( {
 		imageSizeSlug,
 	} = attributes;
 
-	const [ isLinkUIOpen, setIsLinkUIOpen ] = useState( false );
-	const urlIsSet = !! linkURL;
-	const urlIsSetandSelected = urlIsSet && isSelected;
-	const toggleLinkUI = () => setIsLinkUIOpen( ! isLinkUIOpen );
-	const closeLinkUI = () => setIsLinkUIOpen( false );
+	const [ isEditingURL, setIsEditingURL ] = useState( false );
+	const isURLSet = !! linkURL;
+	const opensInNewTab = linkTarget === '_blank';
+
+	// Use internal state instead of a ref to make sure that the component
+	// re-renders when the popover's anchor updates.
+	const [ popoverAnchor, setPopoverAnchor ] = useState( null );
 
 	const { resizedImages } = useSelect(
 		( select ) => {
@@ -88,10 +91,11 @@ export default function ( {
 	} );
 
 	const ref = useRef();
+	const richTextRef = useRef();
 
 	const blockProps = useBlockProps( {
 		className: classes,
-		ref,
+		ref: useMergeRefs( [ setPopoverAnchor, ref ] ),
 	} );
 
 	const onSelectImage = ( media ) => {
@@ -153,10 +157,13 @@ export default function ( {
 			linkLabel: stringToInnerText( value ),
 		} );
 
-	const onChangeLinkUrl = ( { url: newUrl, opensInNewTab } ) =>
+	const onChangeLinkUrl = ( {
+		url: newUrl,
+		opensInNewTab: newOpensInNewTab,
+	} ) =>
 		setAttributes( {
 			linkURL: newUrl,
-			linkTarget: ! opensInNewTab ? '_self' : '_blank',
+			linkTarget: ! newOpensInNewTab ? '_self' : '_blank',
 		} );
 
 	const onChangeImageSizeSlug = ( value ) => {
@@ -181,6 +188,14 @@ export default function ( {
 			imageHeight: newImageHeight,
 			imageSizeSlug: value,
 		} );
+	};
+
+	const unlink = () => {
+		setAttributes( {
+			linkURL: undefined,
+			linkTarget: undefined,
+		} );
+		setIsEditingURL( false );
 	};
 
 	return (
@@ -282,21 +297,29 @@ export default function ( {
 											'snow-monkey-blocks'
 										) }
 										onChange={ onChangeLinkLabel }
+										ref={ richTextRef }
 									/>
 								) }
 							</div>
 						) }
 
-						{ ( isLinkUIOpen || urlIsSetandSelected ) && (
+						{ isSelected && ( isEditingURL || isURLSet ) && (
 							<Popover
-								position="bottom center"
-								anchorRef={ ref.current }
-								onClose={ closeLinkUI }
+								placement="bottom"
+								anchor={ popoverAnchor }
+								onClose={ () => {
+									setIsEditingURL( false );
+									richTextRef.current?.focus();
+								} }
 							>
 								<LinkControl
-									url={ linkURL }
-									target={ linkTarget }
+									className="wp-block-navigation-link__inline-link-input"
+									value={ { url: linkURL, opensInNewTab } }
 									onChange={ onChangeLinkUrl }
+									onRemove={ () => {
+										unlink();
+									} }
+									forceIsEditingLink={ isEditingURL }
 								/>
 							</Popover>
 						) }
@@ -305,20 +328,24 @@ export default function ( {
 			</div>
 
 			<BlockControls>
-				{ ! urlIsSet && (
+				{ ! isURLSet && (
 					<ToolbarButton
+						name="link"
 						icon={ linkIcon }
-						label={ __( 'Link', 'snow-monkey-blocks' ) }
-						aria-expanded={ isLinkUIOpen }
-						onClick={ toggleLinkUI }
+						title={ __( 'Link', 'snow-monkey-blocks' ) }
+						onClick={ ( event ) => {
+							event.preventDefault();
+							setIsEditingURL( true );
+						} }
 					/>
 				) }
-				{ urlIsSetandSelected && (
+				{ isURLSet && (
 					<ToolbarButton
-						isPressed
+						name="link"
 						icon={ linkOffIcon }
-						label={ __( 'Unlink', 'snow-monkey-blocks' ) }
-						onClick={ () => onChangeLinkUrl( '', false ) }
+						title={ __( 'Unlink', 'snow-monkey-blocks' ) }
+						onClick={ unlink }
+						isActive={ true }
 					/>
 				) }
 			</BlockControls>

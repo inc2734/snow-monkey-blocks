@@ -20,15 +20,16 @@ import {
 	__experimentalColorGradientControl as ColorGradientControl,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
+	__experimentalLinkControl as LinkControl,
 } from '@wordpress/block-editor';
 
+import { useMergeRefs } from '@wordpress/compose';
 import { useState, useRef } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
 
 import Figure from '@smb/component/figure';
-import LinkControl from '@smb/component/link-control';
 import ImageSizeSelectControl from '@smb/component/image-size-select-control';
 import { toNumber, getResizedImages } from '@smb/helper';
 
@@ -68,11 +69,13 @@ export default function ( {
 		contentPosition,
 	} = attributes;
 
-	const [ isLinkUIOpen, setIsLinkUIOpen ] = useState( false );
-	const urlIsSet = !! url;
-	const urlIsSetandSelected = urlIsSet && isSelected;
-	const toggleLinkUI = () => setIsLinkUIOpen( ! isLinkUIOpen );
-	const closeLinkUI = () => setIsLinkUIOpen( false );
+	const [ isEditingURL, setIsEditingURL ] = useState( false );
+	const isURLSet = !! url;
+	const opensInNewTab = target === '_blank';
+
+	// Use internal state instead of a ref to make sure that the component
+	// re-renders when the popover's anchor updates.
+	const [ popoverAnchor, setPopoverAnchor ] = useState( null );
 
 	const { resizedImages } = useSelect(
 		( select ) => {
@@ -119,10 +122,11 @@ export default function ( {
 	};
 
 	const ref = useRef();
+	const richTextRef = useRef();
 
 	const blockProps = useBlockProps( {
 		className: classes,
-		ref,
+		ref: useMergeRefs( [ setPopoverAnchor, ref ] ),
 	} );
 
 	const onSelectImage = ( media ) => {
@@ -209,10 +213,13 @@ export default function ( {
 			lede: value,
 		} );
 
-	const onChangeUrl = ( { url: newUrl, opensInNewTab } ) => {
+	const onChangeUrl = ( {
+		url: newUrl,
+		opensInNewTab: newOpensInNewTab,
+	} ) => {
 		setAttributes( {
 			url: newUrl,
-			target: ! opensInNewTab ? '_self' : '_blank',
+			target: ! newOpensInNewTab ? '_self' : '_blank',
 		} );
 	};
 
@@ -244,6 +251,14 @@ export default function ( {
 		setAttributes( {
 			contentsAlignment: value,
 		} );
+
+	const unlink = () => {
+		setAttributes( {
+			url: undefined,
+			target: undefined,
+		} );
+		setIsEditingURL( false );
+	};
 
 	return (
 		<>
@@ -401,6 +416,7 @@ export default function ( {
 										) }
 										value={ title }
 										onChange={ onChangeTitle }
+										ref={ richTextRef }
 									/>
 								) }
 
@@ -445,34 +461,46 @@ export default function ( {
 					onChange={ onChangeContentsAlignment }
 				/>
 
-				{ ! urlIsSet && (
+				{ ! isURLSet && (
 					<ToolbarButton
+						name="link"
 						icon={ linkIcon }
-						label={ __( 'Link', 'snow-monkey-blocks' ) }
-						aria-expanded={ isLinkUIOpen }
-						onClick={ toggleLinkUI }
+						title={ __( 'Link', 'snow-monkey-blocks' ) }
+						onClick={ ( event ) => {
+							event.preventDefault();
+							setIsEditingURL( true );
+						} }
 					/>
 				) }
-				{ urlIsSetandSelected && (
+				{ isURLSet && (
 					<ToolbarButton
-						isPressed
+						name="link"
 						icon={ linkOffIcon }
-						label={ __( 'Unlink', 'snow-monkey-blocks' ) }
-						onClick={ () => onChangeUrl( '', false ) }
+						title={ __( 'Unlink', 'snow-monkey-blocks' ) }
+						onClick={ unlink }
+						isActive={ true }
 					/>
 				) }
 			</BlockControls>
 
-			{ ( isLinkUIOpen || urlIsSetandSelected ) && (
+			{ isSelected && ( isEditingURL || isURLSet ) && (
 				<Popover
-					position="bottom center"
-					anchorRef={ ref.current }
-					onClose={ closeLinkUI }
+					placement="bottom"
+					anchor={ popoverAnchor }
+					onClose={ () => {
+						setIsEditingURL( false );
+						richTextRef.current?.focus();
+					} }
 				>
 					<LinkControl
-						url={ url }
-						target={ target }
+						className="wp-block-navigation-link__inline-link-input"
+						value={ { url, opensInNewTab } }
 						onChange={ onChangeUrl }
+						onRemove={ () => {
+							unlink();
+							richTextRef.current?.focus();
+						} }
+						forceIsEditingLink={ isEditingURL }
 					/>
 				</Popover>
 			) }
