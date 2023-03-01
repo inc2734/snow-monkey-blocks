@@ -73,6 +73,13 @@
 		}
 	}
 
+	.components-datetime__time-field > *,
+	.components-datetime__time-field > * > *,
+	.components-datetime__time-wrapper > *,
+	.components-datetime__time-wrapper > * > * {
+		margin-bottom: 0 !important;
+	}
+
 	[aria-label="Calendar"] {
 		position: relative;
 		left: 50%;
