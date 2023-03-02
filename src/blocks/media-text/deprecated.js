@@ -20,7 +20,7 @@ export default [
 			},
 			imageSizeSlug: {
 				type: 'string',
-				default: 'large',
+				default: 'full',
 			},
 			imagePosition: {
 				type: 'string',
@@ -228,7 +228,7 @@ export default [
 			},
 			imageSizeSlug: {
 				type: 'string',
-				default: 'large',
+				default: 'full',
 			},
 			imagePosition: {
 				type: 'string',
@@ -338,7 +338,7 @@ export default [
 			},
 			imageSizeSlug: {
 				type: 'string',
-				default: 'large',
+				default: 'full',
 			},
 			imagePosition: {
 				type: 'string',

@@ -67,7 +67,7 @@
 		},
 		"imageSizeSlug": {
 			"type": "string",
-			"default": "large"
+			"default": "full"
 		},
 		"btnLabel": {
 			"type": "string",

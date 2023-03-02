@@ -13,6 +13,7 @@ import {
 	__experimentalColorGradientControl as ColorGradientControl,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
+	__experimentalImageSizeControl as ImageSizeControl,
 } from '@wordpress/block-editor';
 
 import {
@@ -32,13 +33,11 @@ import { pullLeft, pullRight } from '@wordpress/icons';
 import {
 	toNumber,
 	getMediaType,
-	getResizedImages,
 	isVideoType,
 	generateSpacingProperties,
 } from '@smb/helper';
 
 import Figure from '@smb/component/figure';
-import ImageSizeSelectControl from '@smb/component/image-size-select-control';
 
 import { PanelBasicSettings } from '../section/components/basic';
 import { Edit as Header } from '../section/components/header';
@@ -63,6 +62,7 @@ if ( undefined === useMultipleOriginColorsAndGradients ) {
 }
 
 const ALLOWED_TYPES = [ 'image', 'video' ];
+const DEFAULT_MEDIA_SIZE_SLUG = 'full';
 
 export default function ( {
 	attributes,
@@ -141,31 +141,28 @@ export default function ( {
 		[ clientId ]
 	);
 
-	const { resizedImages } = useSelect(
+	const { imageSizes, image } = useSelect(
 		( select ) => {
-			if ( ! imageID ) {
-				return {
-					resizedImages: {},
-				};
-			}
-
-			const { getMedia } = select( 'core' );
-			const media = getMedia( imageID );
-			if ( ! media ) {
-				return {
-					resizedImages: {},
-				};
-			}
-
 			const { getSettings } = select( 'core/block-editor' );
-			const { imageSizes } = getSettings();
-
 			return {
-				resizedImages: getResizedImages( imageSizes, media ),
+				image:
+					imageID && isSelected
+						? select( 'core' ).getMedia( imageID, {
+								context: 'view',
+						  } )
+						: null,
+				imageSizes: getSettings()?.imageSizes,
 			};
 		},
-		[ imageID ]
+
+		[ isSelected, imageID, clientId ]
 	);
+
+	const imageSizeOptions = imageSizes
+		.filter(
+			( { slug } ) => image?.media_details?.sizes?.[ slug ]?.source_url
+		)
+		.map( ( { name, slug } ) => ( { value: slug, label: name } ) );
 
 	const isAvailableVerticalAlignment = [ 'right', 'left' ].includes(
 		imagePosition
@@ -427,20 +424,12 @@ export default function ( {
 		} );
 
 	const onSelectImage = ( media ) => {
-		const newImageURL =
-			!! media.sizes && !! media.sizes[ imageSizeSlug ]
-				? media.sizes[ imageSizeSlug ].url
-				: media.url;
-
-		const newImageWidth =
-			!! media.sizes && !! media.sizes[ imageSizeSlug ]
-				? media.sizes[ imageSizeSlug ].width
-				: media.width;
-
-		const newImageHeight =
-			!! media.sizes && !! media.sizes[ imageSizeSlug ]
-				? media.sizes[ imageSizeSlug ].height
-				: media.height;
+		const newImageSizeSlug = !! media?.sizes[ imageSizeSlug ]
+			? imageSizeSlug
+			: DEFAULT_MEDIA_SIZE_SLUG;
+		const newImageURL = media?.sizes[ newImageSizeSlug ]?.url;
+		const newImageWidth = media?.sizes[ newImageSizeSlug ]?.width;
+		const newImageHeight = media?.sizes[ newImageSizeSlug ]?.height;
 
 		setAttributes( {
 			imageURL: newImageURL,
@@ -449,17 +438,18 @@ export default function ( {
 			imageWidth: newImageWidth,
 			imageHeight: newImageHeight,
 			imageMediaType: getMediaType( media ),
+			mediaSizeSlug: newImageSizeSlug,
 		} );
 	};
 
-	const onSelectImageURL = ( newURL ) => {
-		if ( newURL !== imageURL ) {
+	const onSelectImageURL = ( newImageURL ) => {
+		if ( newImageURL !== imageURL ) {
 			setAttributes( {
-				imageURL: newURL,
+				imageURL: newImageURL,
 				imageID: 0,
-				imageSizeSlug: 'large',
+				mediaSizeSlug: DEFAULT_MEDIA_SIZE_SLUG,
 				mediaType: getMediaType( {
-					media_type: isVideoType( newURL ) ? 'video' : 'image',
+					media_type: isVideoType( newImageURL ) ? 'video' : 'image',
 				} ),
 			} );
 		}
@@ -476,20 +466,9 @@ export default function ( {
 		} );
 
 	const onChangeImageSizeSlug = ( value ) => {
-		let newImageURL = imageURL;
-		if ( !! resizedImages[ value ] && !! resizedImages[ value ].url ) {
-			newImageURL = resizedImages[ value ].url;
-		}
-
-		let newImageWidth = imageWidth;
-		if ( !! resizedImages[ value ] && !! resizedImages[ value ].width ) {
-			newImageWidth = resizedImages[ value ].width;
-		}
-
-		let newImageHeight = imageHeight;
-		if ( !! resizedImages[ value ] && !! resizedImages[ value ].height ) {
-			newImageHeight = resizedImages[ value ].height;
-		}
+		const newImageURL = image?.media_details?.sizes?.[ value ]?.source_url;
+		const newImageWidth = image?.media_details?.sizes?.[ value ]?.width;
+		const newImageHeight = image?.media_details?.sizes?.[ value ]?.height;
 
 		setAttributes( {
 			imageURL: newImageURL,
@@ -717,11 +696,14 @@ export default function ( {
 					title={ __( 'Media settings', 'snow-monkey-blocks' ) }
 					initialOpen={ true }
 				>
-					<ImageSizeSelectControl
-						label={ __( 'Images size', 'snow-monkey-blocks' ) }
-						id={ imageID }
+					<ImageSizeControl
+						onChangeImage={ onChangeImageSizeSlug }
 						slug={ imageSizeSlug }
-						onChange={ onChangeImageSizeSlug }
+						imageSizeOptions={ imageSizeOptions }
+						isResizable={ false }
+						imageSizeHelp={ __(
+							'Select which image size to load.'
+						) }
 					/>
 
 					{ isAvailableVerticalAlignment && (
@@ -1472,6 +1454,8 @@ export default function ( {
 											src={ imageURL }
 											id={ imageID }
 											alt={ imageAlt }
+											width={ imageWidth }
+											height={ imageHeight }
 											onSelect={ onSelectImage }
 											onSelectURL={ onSelectImageURL }
 											onRemove={ onRemoveImage }

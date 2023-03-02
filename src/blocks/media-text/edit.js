@@ -19,25 +19,21 @@ import {
 	useBlockProps,
 	__experimentalImageURLInputUI as ImageURLInputUI,
 	useInnerBlocksProps,
+	__experimentalImageSizeControl as ImageSizeControl,
 } from '@wordpress/block-editor';
 
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 import { pullLeft, pullRight } from '@wordpress/icons';
 
-import {
-	getColumnSize,
-	getMediaType,
-	getResizedImages,
-	isVideoType,
-} from '@smb/helper';
+import { getColumnSize, getMediaType, isVideoType } from '@smb/helper';
 
 import Figure from '@smb/component/figure';
-import ImageSizeSelectControl from '@smb/component/image-size-select-control';
 
 const ALLOWED_TYPES = [ 'image', 'video' ];
 const LINK_DESTINATION_MEDIA = 'media';
 const LINK_DESTINATION_ATTACHMENT = 'attachment';
+const DEFAULT_MEDIA_SIZE_SLUG = 'full';
 
 export default function ( {
 	attributes,
@@ -68,33 +64,6 @@ export default function ( {
 		mediaType,
 	} = attributes;
 
-	const { resizedImages, image } = useSelect(
-		( select ) => {
-			if ( ! mediaId ) {
-				return {
-					resizedImages: {},
-				};
-			}
-
-			const { getMedia } = select( 'core' );
-			const media = getMedia( mediaId );
-			if ( ! media ) {
-				return {
-					resizedImages: {},
-				};
-			}
-
-			const { getSettings } = select( 'core/block-editor' );
-			const { imageSizes } = getSettings();
-
-			return {
-				image: media,
-				resizedImages: getResizedImages( imageSizes, media ),
-			};
-		},
-		[ mediaId ]
-	);
-
 	const hasInnerBlocks = useSelect(
 		( select ) => {
 			const { getBlock } = select( 'core/block-editor' );
@@ -103,6 +72,29 @@ export default function ( {
 		},
 		[ clientId ]
 	);
+
+	const { imageSizes, image } = useSelect(
+		( select ) => {
+			const { getSettings } = select( 'core/block-editor' );
+			return {
+				image:
+					mediaId && isSelected
+						? select( 'core' ).getMedia( mediaId, {
+								context: 'view',
+						  } )
+						: null,
+				imageSizes: getSettings()?.imageSizes,
+			};
+		},
+
+		[ isSelected, mediaId, clientId ]
+	);
+
+	const imageSizeOptions = imageSizes
+		.filter(
+			( { slug } ) => image?.media_details?.sizes?.[ slug ]?.source_url
+		)
+		.map( ( { name, slug } ) => ( { value: slug, label: name } ) );
 
 	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
 	const { textColumnWidth, mediaColumnWidth } =
@@ -158,20 +150,12 @@ export default function ( {
 		} );
 
 	const onSelectImage = ( media ) => {
-		const newMediaUrl =
-			!! media.sizes && !! media.sizes[ mediaSizeSlug ]
-				? media.sizes[ mediaSizeSlug ].url
-				: media.url;
-
-		const newMediaWidth =
-			!! media.sizes && !! media.sizes[ mediaSizeSlug ]
-				? media.sizes[ mediaSizeSlug ].width
-				: media.width;
-
-		const newMediaHeight =
-			!! media.sizes && !! media.sizes[ mediaSizeSlug ]
-				? media.sizes[ mediaSizeSlug ].height
-				: media.height;
+		const newMediaSizeSlug = !! media?.sizes[ mediaSizeSlug ]
+			? mediaSizeSlug
+			: DEFAULT_MEDIA_SIZE_SLUG;
+		const newMediaUrl = media?.sizes[ newMediaSizeSlug ]?.url;
+		const newMediaWidth = media?.sizes[ newMediaSizeSlug ]?.width;
+		const newMediaHeight = media?.sizes[ newMediaSizeSlug ]?.height;
 
 		let newHref = href;
 		if ( linkDestination === LINK_DESTINATION_MEDIA ) {
@@ -193,6 +177,7 @@ export default function ( {
 			mediaAlt: media.alt,
 			mediaWidth: newMediaWidth,
 			mediaHeight: newMediaHeight,
+			mediaSizeSlug: newMediaSizeSlug,
 			href: newHref,
 		} );
 	};
@@ -214,7 +199,7 @@ export default function ( {
 			setAttributes( {
 				mediaUrl: newMediaUrl,
 				mediaId: 0,
-				mediaSizeSlug: 'large',
+				mediaSizeSlug: DEFAULT_MEDIA_SIZE_SLUG,
 				mediaType: getMediaType( {
 					media_type: isVideoType( newMediaUrl ) ? 'video' : 'image',
 				} ),
@@ -241,20 +226,9 @@ export default function ( {
 	};
 
 	const onChangeMediaSizeSlug = ( value ) => {
-		let newMediaUrl = mediaUrl;
-		if ( !! resizedImages[ value ] && !! resizedImages[ value ].url ) {
-			newMediaUrl = resizedImages[ value ].url;
-		}
-
-		let newMediaWidth = mediaWidth;
-		if ( !! resizedImages[ value ] && !! resizedImages[ value ].width ) {
-			newMediaWidth = resizedImages[ value ].width;
-		}
-
-		let newMediaHeight = mediaHeight;
-		if ( !! resizedImages[ value ] && !! resizedImages[ value ].height ) {
-			newMediaHeight = resizedImages[ value ].height;
-		}
+		const newMediaUrl = image?.media_details?.sizes?.[ value ]?.source_url;
+		const newMediaWidth = image?.media_details?.sizes?.[ value ]?.width;
+		const newMediaHeight = image?.media_details?.sizes?.[ value ]?.height;
 
 		setAttributes( {
 			mediaUrl: newMediaUrl,
@@ -306,12 +280,17 @@ export default function ( {
 						] }
 						onChange={ onChangeMediaColumnSize }
 					/>
-					<ImageSizeSelectControl
-						label={ __( 'Images size', 'snow-monkey-blocks' ) }
-						id={ mediaId }
+
+					<ImageSizeControl
+						onChangeImage={ onChangeMediaSizeSlug }
 						slug={ mediaSizeSlug }
-						onChange={ onChangeMediaSizeSlug }
+						imageSizeOptions={ imageSizeOptions }
+						isResizable={ false }
+						imageSizeHelp={ __(
+							'Select which image size to load.'
+						) }
 					/>
+
 					<SelectControl
 						label={ __( 'Sort by mobile', 'snow-monkey-blocks' ) }
 						value={ mobileOrder }
@@ -444,6 +423,8 @@ export default function ( {
 								id={ mediaId }
 								alt={ mediaAlt }
 								url={ href }
+								width={ mediaWidth }
+								height={ mediaHeight }
 								target={ linkTarget }
 								onSelect={ onSelectImage }
 								onSelectURL={ onSelectMediaUrl }

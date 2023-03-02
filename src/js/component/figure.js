@@ -39,16 +39,20 @@ const ToolbarEditButton = ( {
 	</BlockControls>
 );
 
-const Image = ( { src, alt, id, style } ) => (
+const Image = ( { src, alt, id, style, width, height } ) => (
 	<img
 		src={ src }
 		alt={ alt }
 		className={ `wp-image-${ id }` }
 		style={ style }
+		width={ width }
+		height={ height }
 	/>
 );
 
-const Video = ( { src, style } ) => <video src={ src } style={ style } />;
+const Video = ( { src, style, width, height } ) => (
+	<video src={ src } style={ style } width={ width } height={ height } />
+);
 
 const Figure = memo(
 	( {
@@ -56,6 +60,8 @@ const Figure = memo(
 		src,
 		alt,
 		url,
+		width,
+		height,
 		target,
 		allowedTypes,
 		accept,
@@ -69,7 +75,16 @@ const Figure = memo(
 	} ) => {
 		let media;
 		if ( 'image' === mediaType ) {
-			media = <Image src={ src } alt={ alt } id={ id } style={ style } />;
+			media = (
+				<Image
+					src={ src }
+					alt={ alt }
+					id={ id }
+					style={ style }
+					width={ width }
+					height={ height }
+				/>
+			);
 
 			let newRel;
 			if ( !! rel ) {
@@ -94,7 +109,14 @@ const Figure = memo(
 				);
 			}
 		} else if ( 'video' === mediaType ) {
-			media = <Video src={ src } style={ style } />;
+			media = (
+				<Video
+					src={ src }
+					style={ style }
+					width={ width }
+					height={ height }
+				/>
+			);
 		}
 
 		return (
@@ -133,7 +155,7 @@ export default function ( props ) {
 		allowedTypes = [ 'image' ],
 	} = props;
 
-	const mediaTypeFallback = ! mediaType && src ? 'image' : mediaType;
+	const mediaTypeFallback = ! mediaType && !! src ? 'image' : mediaType;
 
 	let title = __( 'Media', 'snow-monkey-blocks' );
 	if ( allowedTypes.length === 1 ) {

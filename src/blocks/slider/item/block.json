@@ -42,7 +42,7 @@
 		},
 		"imageSizeSlug": {
 			"type": "string",
-			"default": "large"
+			"default": "full"
 		},
 		"caption": {
 			"type": "string",

@@ -13,6 +13,7 @@ import {
 	__experimentalColorGradientControl as ColorGradientControl,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
+	__experimentalImageSizeControl as ImageSizeControl,
 } from '@wordpress/block-editor';
 
 import {
@@ -27,14 +28,8 @@ import { __ } from '@wordpress/i18n';
 
 import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
 import Figure from '@smb/component/figure';
-import ImageSizeSelectControl from '@smb/component/image-size-select-control';
 
-import {
-	toNumber,
-	getMediaType,
-	getResizedImages,
-	isVideoType,
-} from '@smb/helper';
+import { toNumber, getMediaType, isVideoType } from '@smb/helper';
 
 import { PanelBasicSettings } from '../section/components/basic';
 import { Edit as Header } from '../section/components/header';
@@ -54,7 +49,8 @@ if ( undefined === useMultipleOriginColorsAndGradients ) {
 		useMultipleOriginColorsAndGradientsFallback;
 }
 
-const IMAGE_ALLOWED_TYPES = [ 'image', 'video' ];
+const ALLOWED_TYPES = [ 'image', 'video' ];
+const DEFAULT_MEDIA_SIZE_SLUG = 'full';
 const HORIZONTAL_JUSTIFY_CONTROLS = [ 'left', 'center', 'right' ];
 
 export default function ( {
@@ -70,6 +66,8 @@ export default function ( {
 		lgImageID,
 		lgImageURL,
 		lgImageAlt,
+		lgImageWidth,
+		lgImageHeight,
 		lgImageMediaType,
 		lgImageRepeat,
 		lgFocalPoint,
@@ -77,6 +75,8 @@ export default function ( {
 		mdImageID,
 		mdImageURL,
 		mdImageAlt,
+		mdImageWidth,
+		mdImageHeight,
 		mdImageMediaType,
 		mdImageRepeat,
 		mdFocalPoint,
@@ -84,6 +84,8 @@ export default function ( {
 		smImageID,
 		smImageURL,
 		smImageAlt,
+		smImageWidth,
+		smImageHeight,
 		smImageMediaType,
 		smImageRepeat,
 		smFocalPoint,
@@ -119,45 +121,51 @@ export default function ( {
 		[ clientId ]
 	);
 
-	const { lgResizedImages, mdResizedImages, smResizedImages } = useSelect(
+	const { imageSizes, lgImage, mdImage, smImage } = useSelect(
 		( select ) => {
-			let _lgResizedImages = {};
-			let _mdResizedImages = {};
-			let _smResizedImages = {};
-
-			const { getMedia } = select( 'core' );
 			const { getSettings } = select( 'core/block-editor' );
-			const { imageSizes } = getSettings();
-
-			if ( !! lgImageID ) {
-				const media = getMedia( lgImageID );
-				if ( !! media ) {
-					_lgResizedImages = getResizedImages( imageSizes, media );
-				}
-			}
-
-			if ( !! mdImageID ) {
-				const media = getMedia( mdImageID );
-				if ( !! media ) {
-					_mdResizedImages = getResizedImages( imageSizes, media );
-				}
-			}
-
-			if ( !! smImageID ) {
-				const media = getMedia( smImageID );
-				if ( !! media ) {
-					_smResizedImages = getResizedImages( imageSizes, media );
-				}
-			}
-
 			return {
-				lgResizedImages: _lgResizedImages,
-				mdResizedImages: _mdResizedImages,
-				smResizedImages: _smResizedImages,
+				lgImage:
+					lgImageID && isSelected
+						? select( 'core' ).getMedia( lgImageID, {
+								context: 'view',
+						  } )
+						: null,
+				mdImage:
+					mdImageID && isSelected
+						? select( 'core' ).getMedia( mdImageID, {
+								context: 'view',
+						  } )
+						: null,
+				smImage:
+					smImageID && isSelected
+						? select( 'core' ).getMedia( smImageID, {
+								context: 'view',
+						  } )
+						: null,
+				imageSizes: getSettings()?.imageSizes,
 			};
 		},
-		[ lgImageID, mdImageID, smImageID ]
+		[ isSelected, lgImageID, mdImageID, smImageID, clientId ]
 	);
+
+	const lgImageSizeOptions = imageSizes
+		.filter(
+			( { slug } ) => lgImage?.media_details?.sizes?.[ slug ]?.source_url
+		)
+		.map( ( { name, slug } ) => ( { value: slug, label: name } ) );
+
+	const mdImageSizeOptions = imageSizes
+		.filter(
+			( { slug } ) => mdImage?.media_details?.sizes?.[ slug ]?.source_url
+		)
+		.map( ( { name, slug } ) => ( { value: slug, label: name } ) );
+
+	const smImageSizeOptions = imageSizes
+		.filter(
+			( { slug } ) => smImage?.media_details?.sizes?.[ slug ]?.source_url
+		)
+		.map( ( { name, slug } ) => ( { value: slug, label: name } ) );
 
 	const TagName = wrapperTagName;
 
@@ -308,40 +316,50 @@ export default function ( {
 		} );
 
 	const onSelectLgImage = ( media ) => {
-		const newImageURL =
-			!! media.sizes && !! media.sizes[ lgImageSizeSlug ]
-				? media.sizes[ lgImageSizeSlug ].url
-				: media.url;
+		const newLgImageSizeSlug = !! media?.sizes[ lgImageSizeSlug ]
+			? lgImageSizeSlug
+			: DEFAULT_MEDIA_SIZE_SLUG;
+		const newLgImageURL = media?.sizes[ newLgImageSizeSlug ]?.url;
+		const newLgImageWidth = media?.sizes[ newLgImageSizeSlug ]?.width;
+		const newLgImageHeight = media?.sizes[ newLgImageSizeSlug ]?.height;
 
 		setAttributes( {
-			lgImageURL: newImageURL,
+			lgImageURL: newLgImageURL,
 			lgImageID: media.id,
 			lgImageAlt: media.alt,
+			lgImageWidth: newLgImageWidth,
+			lgImageHeight: newLgImageHeight,
 			lgImageMediaType: getMediaType( media ),
+			lgImageSizeSlug: newLgImageSizeSlug,
 		} );
 	};
 
-	const onSelectLgImageURL = ( newURL ) => {
-		if ( newURL !== lgImageURL ) {
+	const onSelectLgImageURL = ( newLgImageURL ) => {
+		if ( newLgImageURL !== lgImageURL ) {
 			setAttributes( {
-				lgImageURL: newURL,
+				lgImageURL: newLgImageURL,
 				lgImageID: 0,
-				lgImageSizeSlug: 'large',
+				lgImageSizeSlug: DEFAULT_MEDIA_SIZE_SLUG,
 				lgImageMediaType: getMediaType( {
-					media_type: isVideoType( newURL ) ? 'video' : 'image',
+					media_type: isVideoType( newLgImageURL )
+						? 'video'
+						: 'image',
 				} ),
 			} );
 		}
 	};
 
 	const onChangeLgImageSizeSlug = ( value ) => {
-		let newImageURL = lgImageURL;
-		if ( !! lgResizedImages[ value ] && !! lgResizedImages[ value ].url ) {
-			newImageURL = lgResizedImages[ value ].url;
-		}
+		const newLgImageURL =
+			lgImage?.media_details?.sizes?.[ value ]?.source_url;
+		const newLgImageWidth = lgImage?.media_details?.sizes?.[ value ]?.width;
+		const newLgImageHeight =
+			lgImage?.media_details?.sizes?.[ value ]?.height;
 
 		setAttributes( {
-			lgImageURL: newImageURL,
+			lgImageURL: newLgImageURL,
+			lgImageWidth: newLgImageWidth,
+			lgImageHeight: newLgImageHeight,
 			lgImageSizeSlug: value,
 		} );
 	};
@@ -350,6 +368,8 @@ export default function ( {
 		setAttributes( {
 			lgImageURL: '',
 			lgImageAlt: '',
+			lgImageWidth: '',
+			lgImageHeight: '',
 			lgImageID: 0,
 			lgImageMediaType: undefined,
 		} );
@@ -366,40 +386,50 @@ export default function ( {
 	};
 
 	const onSelectMdImage = ( media ) => {
-		const newImageURL =
-			!! media.sizes && !! media.sizes[ mdImageSizeSlug ]
-				? media.sizes[ mdImageSizeSlug ].url
-				: media.url;
+		const newMdImageSizeSlug = !! media?.sizes[ mdImageSizeSlug ]
+			? mdImageSizeSlug
+			: DEFAULT_MEDIA_SIZE_SLUG;
+		const newMdImageURL = media?.sizes[ newMdImageSizeSlug ]?.url;
+		const newMdImageWidth = media?.sizes[ newMdImageSizeSlug ]?.width;
+		const newMdImageHeight = media?.sizes[ newMdImageSizeSlug ]?.height;
 
 		setAttributes( {
-			mdImageURL: newImageURL,
+			mdImageURL: newMdImageURL,
 			mdImageID: media.id,
 			mdImageAlt: media.alt,
+			mdImageWidth: newMdImageWidth,
+			mdImageHeight: newMdImageHeight,
 			mdImageMediaType: getMediaType( media ),
+			mdImageSizeSlug: newMdImageSizeSlug,
 		} );
 	};
 
-	const onSelectMdImageURL = ( newURL ) => {
-		if ( newURL !== mdImageURL ) {
+	const onSelectMdImageURL = ( newMdImageURL ) => {
+		if ( newMdImageURL !== mdImageURL ) {
 			setAttributes( {
-				mdImageURL: newURL,
+				mdImageURL: newMdImageURL,
 				mdImageID: 0,
-				lgImageSizeSlug: 'large',
+				mdImageSizeSlug: DEFAULT_MEDIA_SIZE_SLUG,
 				mdImageMediaType: getMediaType( {
-					media_type: isVideoType( newURL ) ? 'video' : 'image',
+					media_type: isVideoType( newMdImageURL )
+						? 'video'
+						: 'image',
 				} ),
 			} );
 		}
 	};
 
 	const onChangeMdImageSizeSlug = ( value ) => {
-		let newImageURL = mdImageURL;
-		if ( !! mdResizedImages[ value ] && !! mdResizedImages[ value ].url ) {
-			newImageURL = mdResizedImages[ value ].url;
-		}
+		const newMdImageURL =
+			mdImage?.media_details?.sizes?.[ value ]?.source_url;
+		const newMdImageWidth = mdImage?.media_details?.sizes?.[ value ]?.width;
+		const newMdImageHeight =
+			mdImage?.media_details?.sizes?.[ value ]?.height;
 
 		setAttributes( {
-			mdImageURL: newImageURL,
+			mdImageURL: newMdImageURL,
+			mdImageWidth: newMdImageWidth,
+			mdImageHeight: newMdImageHeight,
 			mdImageSizeSlug: value,
 		} );
 	};
@@ -408,6 +438,8 @@ export default function ( {
 		setAttributes( {
 			mdImageURL: '',
 			mdImageAlt: '',
+			mdImageWidth: '',
+			mdImageHeight: '',
 			mdImageID: 0,
 			mdImageMediaType: undefined,
 		} );
@@ -424,40 +456,50 @@ export default function ( {
 	};
 
 	const onSelectSmImage = ( media ) => {
-		const newImageURL =
-			!! media.sizes && !! media.sizes[ smImageSizeSlug ]
-				? media.sizes[ smImageSizeSlug ].url
-				: media.url;
+		const newSmImageSizeSlug = !! media?.sizes[ smImageSizeSlug ]
+			? smImageSizeSlug
+			: DEFAULT_MEDIA_SIZE_SLUG;
+		const newSmImageURL = media?.sizes[ newSmImageSizeSlug ]?.url;
+		const newSmImageWidth = media?.sizes[ newSmImageSizeSlug ]?.width;
+		const newSmImageHeight = media?.sizes[ newSmImageSizeSlug ]?.height;
 
 		setAttributes( {
-			smImageURL: newImageURL,
+			smImageURL: newSmImageURL,
 			smImageID: media.id,
 			smImageAlt: media.alt,
+			smImageWidth: newSmImageWidth,
+			smImageHeight: newSmImageHeight,
 			smImageMediaType: getMediaType( media ),
+			smImageSizeSlug: newSmImageSizeSlug,
 		} );
 	};
 
-	const onSelectSmImageURL = ( newURL ) => {
-		if ( newURL !== smImageURL ) {
+	const onSelectSmImageURL = ( newSmImageURL ) => {
+		if ( newSmImageURL !== smImageURL ) {
 			setAttributes( {
-				smImageURL: newURL,
+				smImageURL: newSmImageURL,
 				smImageID: 0,
-				smImageSizeSlug: 'large',
+				smImageSizeSlug: DEFAULT_MEDIA_SIZE_SLUG,
 				smImageMediaType: getMediaType( {
-					media_type: isVideoType( newURL ) ? 'video' : 'image',
+					media_type: isVideoType( newSmImageURL )
+						? 'video'
+						: 'image',
 				} ),
 			} );
 		}
 	};
 
 	const onChangeSmImageSizeSlug = ( value ) => {
-		let newImageURL = smImageURL;
-		if ( !! smResizedImages[ value ] && !! smResizedImages[ value ].url ) {
-			newImageURL = smResizedImages[ value ].url;
-		}
+		const newSmImageURL =
+			smImage?.media_details?.sizes?.[ value ]?.source_url;
+		const newSmImageWidth = smImage?.media_details?.sizes?.[ value ]?.width;
+		const newSmImageHeight =
+			smImage?.media_details?.sizes?.[ value ]?.height;
 
 		setAttributes( {
-			smImageURL: newImageURL,
+			smImageURL: newSmImageURL,
+			smImageWidth: newSmImageWidth,
+			smImageHeight: newSmImageHeight,
 			smImageSizeSlug: value,
 		} );
 	};
@@ -466,6 +508,8 @@ export default function ( {
 		setAttributes( {
 			smImageURL: '',
 			smImageAlt: '',
+			smImageWidth: '',
+			smImageHeight: '',
 			smImageID: 0,
 			smImageMediaType: undefined,
 		} );
@@ -650,11 +694,13 @@ export default function ( {
 									src={ lgImageURL }
 									id={ lgImageID }
 									alt={ lgImageAlt }
+									width={ lgImageWidth }
+									height={ lgImageHeight }
 									onSelect={ onSelectLgImage }
 									onSelectURL={ onSelectLgImageURL }
 									onRemove={ onRemoveLgImage }
 									mediaType={ lgImageMediaType }
-									allowedTypes={ IMAGE_ALLOWED_TYPES }
+									allowedTypes={ ALLOWED_TYPES }
 								/>
 
 								{ hasLgBackground && isLgImage && (
@@ -668,14 +714,18 @@ export default function ( {
 											onChange={ onChangeLgImageRepeat }
 										/>
 
-										<ImageSizeSelectControl
-											label={ __(
-												'Images size',
-												'snow-monkey-blocks'
-											) }
-											id={ lgImageID }
+										<ImageSizeControl
+											onChangeImage={
+												onChangeLgImageSizeSlug
+											}
 											slug={ lgImageSizeSlug }
-											onChange={ onChangeLgImageSizeSlug }
+											imageSizeOptions={
+												lgImageSizeOptions
+											}
+											isResizable={ false }
+											imageSizeHelp={ __(
+												'Select which image size to load.'
+											) }
 										/>
 									</>
 								) }
@@ -699,11 +749,13 @@ export default function ( {
 									src={ mdImageURL }
 									id={ mdImageID }
 									alt={ mdImageAlt }
+									width={ mdImageWidth }
+									height={ mdImageHeight }
 									onSelect={ onSelectMdImage }
 									onSelectURL={ onSelectMdImageURL }
 									onRemove={ onRemoveMdImage }
 									mediaType={ mdImageMediaType }
-									allowedTypes={ IMAGE_ALLOWED_TYPES }
+									allowedTypes={ ALLOWED_TYPES }
 								/>
 
 								{ hasMdBackground && isMdImage && (
@@ -717,14 +769,18 @@ export default function ( {
 											onChange={ onChangeMdImageRepeat }
 										/>
 
-										<ImageSizeSelectControl
-											label={ __(
-												'Images size',
-												'snow-monkey-blocks'
-											) }
-											id={ mdImageID }
+										<ImageSizeControl
+											onChangeImage={
+												onChangeMdImageSizeSlug
+											}
 											slug={ mdImageSizeSlug }
-											onChange={ onChangeMdImageSizeSlug }
+											imageSizeOptions={
+												mdImageSizeOptions
+											}
+											isResizable={ false }
+											imageSizeHelp={ __(
+												'Select which image size to load.'
+											) }
 										/>
 									</>
 								) }
@@ -748,11 +804,13 @@ export default function ( {
 									src={ smImageURL }
 									id={ smImageID }
 									alt={ smImageAlt }
+									width={ smImageWidth }
+									height={ smImageHeight }
 									onSelect={ onSelectSmImage }
 									onSelectURL={ onSelectSmImageURL }
 									onRemove={ onRemoveSmImage }
 									mediaType={ smImageMediaType }
-									allowedTypes={ IMAGE_ALLOWED_TYPES }
+									allowedTypes={ ALLOWED_TYPES }
 								/>
 
 								{ hasSmBackground && isSmImage && (
@@ -766,14 +824,18 @@ export default function ( {
 											onChange={ onChangeSmImageRepeat }
 										/>
 
-										<ImageSizeSelectControl
-											label={ __(
-												'Images size',
-												'snow-monkey-blocks'
-											) }
-											id={ smImageID }
+										<ImageSizeControl
+											onChangeImage={
+												onChangeSmImageSizeSlug
+											}
 											slug={ smImageSizeSlug }
-											onChange={ onChangeSmImageSizeSlug }
+											imageSizeOptions={
+												smImageSizeOptions
+											}
+											isResizable={ false }
+											imageSizeHelp={ __(
+												'Select which image size to load.'
+											) }
 										/>
 									</>
 								) }
@@ -947,6 +1009,8 @@ export default function ( {
 									<img
 										src={ lgImageURL }
 										alt={ lgImageAlt }
+										width={ lgImageWidth }
+										height={ lgImageHeight }
 										className={ `wp-image-${ lgImageID }` }
 									/>
 								</div>
@@ -954,6 +1018,8 @@ export default function ( {
 								<img
 									src={ lgImageURL }
 									alt={ lgImageAlt }
+									width={ lgImageWidth }
+									height={ lgImageHeight }
 									className={ `wp-image-${ lgImageID }` }
 								/>
 							) ) }
@@ -965,6 +1031,8 @@ export default function ( {
 								autoPlay
 								muted
 								src={ lgImageURL }
+								width={ lgImageWidth }
+								height={ lgImageHeight }
 							/>
 						) }
 					</div>
@@ -987,6 +1055,8 @@ export default function ( {
 									<img
 										src={ mdImageURL }
 										alt={ mdImageAlt }
+										width={ mdImageWidth }
+										height={ mdImageHeight }
 										className={ `wp-image-${ mdImageID }` }
 									/>
 								</div>
@@ -994,6 +1064,8 @@ export default function ( {
 								<img
 									src={ mdImageURL }
 									alt={ mdImageAlt }
+									width={ mdImageWidth }
+									height={ mdImageHeight }
 									className={ `wp-image-${ mdImageID }` }
 								/>
 							) ) }
@@ -1005,6 +1077,8 @@ export default function ( {
 								autoPlay
 								muted
 								src={ mdImageURL }
+								width={ mdImageWidth }
+								height={ mdImageHeight }
 							/>
 						) }
 					</div>
@@ -1027,6 +1101,8 @@ export default function ( {
 									<img
 										src={ smImageURL }
 										alt={ smImageAlt }
+										width={ smImageWidth }
+										height={ smImageHeight }
 										className={ `wp-image-${ smImageID }` }
 									/>
 								</div>
@@ -1034,6 +1110,8 @@ export default function ( {
 								<img
 									src={ smImageURL }
 									alt={ smImageAlt }
+									width={ smImageWidth }
+									height={ smImageHeight }
 									className={ `wp-image-${ smImageID }` }
 								/>
 							) ) }
@@ -1045,6 +1123,8 @@ export default function ( {
 								autoPlay
 								muted
 								src={ smImageURL }
+								width={ smImageWidth }
+								height={ smImageHeight }
 							/>
 						) }
 					</div>

@@ -43,6 +43,20 @@
 			"attribute": "alt",
 			"default": ""
 		},
+		"lgImageWidth": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-section-with-bgimage__bgimage--lg img, .smb-section-with-bgimage__bgimage--lg video",
+			"attribute": "width",
+			"default": ""
+		},
+		"lgImageHeight": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-section-with-bgimage__bgimage--lg img, .smb-section-with-bgimage__bgimage--lg video",
+			"attribute": "height",
+			"default": ""
+		},
 		"lgImageMediaType": {
 			"type": "string"
 		},
@@ -55,7 +69,7 @@
 		},
 		"lgImageSizeSlug": {
 			"type": "string",
-			"default": "large"
+			"default": "full"
 		},
 		"mdImageID": {
 			"type": "number",
@@ -75,6 +89,20 @@
 			"attribute": "alt",
 			"default": ""
 		},
+		"mdImageWidth": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-section-with-bgimage__bgimage--md img, .smb-section-with-bgimage__bgimage--md video",
+			"attribute": "width",
+			"default": ""
+		},
+		"mdImageHeight": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-section-with-bgimage__bgimage--md img, .smb-section-with-bgimage__bgimage--md video",
+			"attribute": "height",
+			"default": ""
+		},
 		"mdImageMediaType": {
 			"type": "string"
 		},
@@ -87,7 +115,7 @@
 		},
 		"mdImageSizeSlug": {
 			"type": "string",
-			"default": "large"
+			"default": "full"
 		},
 		"smImageID": {
 			"type": "number",
@@ -107,6 +135,20 @@
 			"attribute": "alt",
 			"default": ""
 		},
+		"smImageWidth": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-section-with-bgimage__bgimage--sm img, .smb-section-with-bgimage__bgimage--sm video",
+			"attribute": "width",
+			"default": ""
+		},
+		"smImageHeight": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-section-with-bgimage__bgimage--sm img, .smb-section-with-bgimage__bgimage--sm video",
+			"attribute": "height",
+			"default": ""
+		},
 		"smImageMediaType": {
 			"type": "string"
 		},
@@ -119,7 +161,7 @@
 		},
 		"smImageSizeSlug": {
 			"type": "string",
-			"default": "large"
+			"default": "full"
 		},
 		"contentsAlignment": {
 			"type": "string"

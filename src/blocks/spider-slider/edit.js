@@ -1,5 +1,4 @@
 import classnames from 'classnames';
-import { get } from 'lodash';
 
 import {
 	InspectorControls,
@@ -20,15 +19,19 @@ import { Icon, warning } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
 
 import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
-import { getResizedImages, toNumber } from '@smb/helper';
+import { toNumber } from '@smb/helper';
+
+import useImageSizes from './use-image-sizes';
 
 const ALLOWED_TYPES = [ 'image' ];
+const DEFAULT_MEDIA_SIZE_SLUG = 'full';
 
 export default function ( {
 	attributes,
 	setAttributes,
 	className,
 	isSelected,
+	clientId,
 } ) {
 	const {
 		images,
@@ -47,41 +50,31 @@ export default function ( {
 		mdSlidesToShow,
 		smSlidesToShow,
 	} = attributes;
+
 	const hasImages = !! images.length;
 
-	const { resizedImages, imageSizes } = useSelect(
+	const { getSettings } = useSelect( ( select ) => {
+		return {
+			getSettings: select( 'core/block-editor' ).getSettings,
+		};
+	}, [] );
+
+	const { resizedImages } = useSelect(
 		( select ) => {
-			const newResizedImages = [];
-
-			if ( ! hasImages ) {
-				return {
-					resizedImages: newResizedImages,
-					imageSizes: [],
-				};
-			}
-
-			const { getSettings } = select( 'core/block-editor' );
-			const settings = getSettings();
-
-			images.forEach( ( image ) => {
-				const { getMedia } = select( 'core' );
-				const media = getMedia( image.id );
-				if ( ! media ) {
-					return;
-				}
-
-				newResizedImages[ image.id ] = getResizedImages(
-					settings.imageSizes,
-					media
-				);
-			} );
-
 			return {
-				resizedImages: newResizedImages,
-				imageSizes: settings.imageSizes || [],
+				resizedImages: images
+					.map( ( image ) => {
+						return image.id && isSelected
+							? select( 'core' ).getMedia( image.id, {
+									context: 'view',
+							  } )
+							: null;
+					} )
+					.filter( Boolean ),
 			};
 		},
-		[ images ]
+
+		[ isSelected, images, clientId ]
 	);
 
 	const isAlignwide = 'wide' === attributes.align;
@@ -127,33 +120,57 @@ export default function ( {
 		[ `smb-spider-slider--gutter-${ gutter }` ]: !! gutter,
 	} );
 
-	const onSelectImages = ( newImages ) => {
+	const onSelectImages = ( selectedImages ) => {
+		const newImages = selectedImages.map( ( image ) => {
+			if ( ! image.id ) {
+				return image;
+			}
+
+			const newSizeSlug = !! image?.sizes[ sizeSlug ]
+				? sizeSlug
+				: DEFAULT_MEDIA_SIZE_SLUG;
+			const newUrl = image?.sizes[ newSizeSlug ]?.url;
+			const newWidth = image?.sizes[ newSizeSlug ]?.width;
+			const newHeight = image?.sizes[ newSizeSlug ]?.height;
+
+			return {
+				url: newUrl,
+				alt: image.alt,
+				id: image.id,
+				width: newWidth,
+				height: newHeight,
+				caption: image.caption,
+			};
+		} );
+
 		setAttributes( {
 			images: newImages,
 		} );
 	};
 
 	const onChangeSizeSlug = ( value ) => {
-		const newImages = images.map( ( image ) => {
+		const newImages = resizedImages.map( ( image ) => {
 			if ( ! image.id ) {
 				return image;
 			}
 
+			const newSizeSlug = !! image?.media_details?.sizes?.[ value ]
+				? value
+				: DEFAULT_MEDIA_SIZE_SLUG;
 			const newUrl =
-				get( resizedImages, [ image.id, value, 'url' ] ) ||
-				get( resizedImages, [ image.id, 'full', 'url' ] );
+				image?.media_details?.sizes?.[ newSizeSlug ]?.source_url;
 			const newWidth =
-				get( resizedImages, [ image.id, value, 'width' ] ) ||
-				get( resizedImages, [ image.id, 'full', 'width' ] );
+				image?.media_details?.sizes?.[ newSizeSlug ]?.width;
 			const newHeight =
-				get( resizedImages, [ image.id, value, 'height' ] ) ||
-				get( resizedImages, [ image.id, 'full', 'height' ] );
+				image?.media_details?.sizes?.[ newSizeSlug ]?.height;
 
 			return {
-				...image,
-				...( newUrl && { url: newUrl } ),
-				...( newWidth && { width: newWidth } ),
-				...( newHeight && { height: newHeight } ),
+				url: newUrl,
+				alt: image.alt,
+				id: image.id,
+				width: newWidth,
+				height: newHeight,
+				caption: image.caption.rendered,
 			};
 		} );
 
@@ -163,14 +180,11 @@ export default function ( {
 		} );
 	};
 
-	const sizeSlugOptions = hasImages
-		? imageSizes.map( ( imageSize ) => {
-				return {
-					value: imageSize.slug,
-					label: imageSize.name,
-				};
-		  } )
-		: [];
+	const sizeSlugOptions = useImageSizes(
+		resizedImages,
+		isSelected,
+		getSettings
+	);
 
 	const aspectRatioOptions = [
 		{
@@ -318,6 +332,7 @@ export default function ( {
 						value={ sizeSlug }
 						options={ sizeSlugOptions }
 						onChange={ onChangeSizeSlug }
+						help={ __( 'Select which image size to load.' ) }
 					/>
 
 					<SelectControl

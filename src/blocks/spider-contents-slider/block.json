@@ -9,7 +9,7 @@
 	"attributes": {
 		"sizeSlug": {
 			"type": "string",
-			"default": "large"
+			"default": "full"
 		},
 		"dots": {
 			"type": "boolean",

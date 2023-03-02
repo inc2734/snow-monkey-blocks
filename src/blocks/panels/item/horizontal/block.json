@@ -82,7 +82,7 @@
 		},
 		"imageSizeSlug": {
 			"type": "string",
-			"default": "large"
+			"default": "full"
 		}
 	},
 	"supports": {

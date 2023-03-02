@@ -59,7 +59,7 @@
 		},
 		"imageSizeSlug": {
 			"type": "string",
-			"default": "large"
+			"default": "full"
 		},
 		"verticalAlignment": {
 			"type": "string",

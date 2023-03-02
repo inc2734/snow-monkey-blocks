@@ -45,7 +45,7 @@
 		},
 		"itemThumbnailSizeSlug": {
 			"type": "string",
-			"default": "large"
+			"default": "full"
 		},
 		"arrows": {
 			"type": "boolean",

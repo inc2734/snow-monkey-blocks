@@ -15,18 +15,24 @@ export default function ( { attributes, className } ) {
 		lgImageID,
 		lgImageURL,
 		lgImageAlt,
+		lgImageWidth,
+		lgImageHeight,
 		lgImageMediaType,
 		lgImageRepeat,
 		lgFocalPoint,
 		mdImageID,
 		mdImageURL,
 		mdImageAlt,
+		mdImageWidth,
+		mdImageHeight,
 		mdImageMediaType,
 		mdImageRepeat,
 		mdFocalPoint,
 		smImageID,
 		smImageURL,
 		smImageAlt,
+		smImageWidth,
+		smImageHeight,
 		smImageMediaType,
 		smImageRepeat,
 		smFocalPoint,
@@ -192,6 +198,8 @@ export default function ( { attributes, className } ) {
 								<img
 									src={ lgImageURL }
 									alt={ lgImageAlt }
+									width={ lgImageWidth }
+									height={ lgImageHeight }
 									className={ `wp-image-${ lgImageID }` }
 								/>
 							</div>
@@ -199,6 +207,8 @@ export default function ( { attributes, className } ) {
 							<img
 								src={ lgImageURL }
 								alt={ lgImageAlt }
+								width={ lgImageWidth }
+								height={ lgImageHeight }
 								className={ `wp-image-${ lgImageID }` }
 							/>
 						) ) }
@@ -210,6 +220,8 @@ export default function ( { attributes, className } ) {
 							autoPlay
 							muted
 							src={ lgImageURL }
+							width={ lgImageWidth }
+							height={ lgImageHeight }
 						/>
 					) }
 				</div>
@@ -232,6 +244,8 @@ export default function ( { attributes, className } ) {
 								<img
 									src={ mdImageURL }
 									alt={ mdImageAlt }
+									width={ mdImageWidth }
+									height={ mdImageHeight }
 									className={ `wp-image-${ mdImageID }` }
 								/>
 							</div>
@@ -239,6 +253,8 @@ export default function ( { attributes, className } ) {
 							<img
 								src={ mdImageURL }
 								alt={ mdImageAlt }
+								width={ mdImageWidth }
+								height={ mdImageHeight }
 								className={ `wp-image-${ mdImageID }` }
 							/>
 						) ) }
@@ -250,6 +266,8 @@ export default function ( { attributes, className } ) {
 							autoPlay
 							muted
 							src={ mdImageURL }
+							width={ mdImageWidth }
+							height={ mdImageHeight }
 						/>
 					) }
 				</div>
@@ -272,6 +290,8 @@ export default function ( { attributes, className } ) {
 								<img
 									src={ smImageURL }
 									alt={ smImageAlt }
+									width={ smImageWidth }
+									height={ smImageHeight }
 									className={ `wp-image-${ smImageID }` }
 								/>
 							</div>
@@ -279,6 +299,8 @@ export default function ( { attributes, className } ) {
 							<img
 								src={ smImageURL }
 								alt={ smImageAlt }
+								width={ smImageWidth }
+								height={ smImageHeight }
 								className={ `wp-image-${ smImageID }` }
 							/>
 						) ) }
@@ -290,6 +312,8 @@ export default function ( { attributes, className } ) {
 							autoPlay
 							muted
 							src={ smImageURL }
+							width={ smImageWidth }
+							height={ smImageHeight }
 						/>
 					) }
 				</div>

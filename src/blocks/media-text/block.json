@@ -54,7 +54,7 @@
 		},
 		"mediaSizeSlug": {
 			"type": "string",
-			"default": "large"
+			"default": "full"
 		},
 		"mediaType": {
 			"type": "string"

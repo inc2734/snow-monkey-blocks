@@ -1,14 +1,4 @@
-import { groupBy, reduce, get } from 'lodash';
-import { registerFormatType } from '@wordpress/rich-text';
-
-export const registerFormat = ( format ) => {
-	if ( ! format ) {
-		return;
-	}
-
-	const { name, settings } = format;
-	registerFormatType( name, settings );
-};
+import { groupBy } from 'lodash';
 
 export const toNumber = ( value, min = 0, max = null ) => {
 	value = Number( value );
@@ -203,62 +193,6 @@ export const getMediaType = ( media ) => {
 	}
 
 	return media.type;
-};
-
-/**
- * Return resized image list
- *
- * @param {Array}  imageSizes
- * @param {Object} media      from getMedia()
- * @return {Object} list of url, width, height
- */
-export const getResizedImages = ( imageSizes, media ) => {
-	if ( ! media ) {
-		return {};
-	}
-
-	return reduce(
-		imageSizes,
-		( currentSizes, size ) => {
-			const defaultUrl = get( media, [ 'sizes', size.slug, 'url' ] );
-			const mediaDetailsUrl = get( media, [
-				'media_details',
-				'sizes',
-				size.slug,
-				'source_url',
-			] );
-
-			const defaultWidth = get( media, [ 'sizes', size.slug, 'width' ] );
-			const mediaDetailsWidth = get( media, [
-				'media_details',
-				'sizes',
-				size.slug,
-				'width',
-			] );
-
-			const defaultHeight = get( media, [
-				'sizes',
-				size.slug,
-				'height',
-			] );
-			const mediaDetailsHeight = get( media, [
-				'media_details',
-				'sizes',
-				size.slug,
-				'height',
-			] );
-
-			return {
-				...currentSizes,
-				[ size.slug ]: {
-					url: defaultUrl || mediaDetailsUrl,
-					width: defaultWidth || mediaDetailsWidth,
-					height: defaultHeight || mediaDetailsHeight,
-				},
-			};
-		},
-		{}
-	);
 };
 
 /**

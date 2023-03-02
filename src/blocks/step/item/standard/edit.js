@@ -9,6 +9,7 @@ import {
 	useBlockProps,
 	useInnerBlocksProps,
 	__experimentalLinkControl as LinkControl,
+	__experimentalImageSizeControl as ImageSizeControl,
 } from '@wordpress/block-editor';
 
 import {
@@ -25,8 +26,9 @@ import { __ } from '@wordpress/i18n';
 import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
 
 import Figure from '@smb/component/figure';
-import ImageSizeSelectControl from '@smb/component/image-size-select-control';
-import { getResizedImages } from '@smb/helper';
+
+const ALLOWED_TYPES = [ 'image' ];
+const DEFAULT_MEDIA_SIZE_SLUG = 'full';
 
 export default function ( {
 	attributes,
@@ -66,31 +68,28 @@ export default function ( {
 		[ clientId ]
 	);
 
-	const { resizedImages } = useSelect(
+	const { imageSizes, image } = useSelect(
 		( select ) => {
-			if ( ! imageID ) {
-				return {
-					resizedImages: {},
-				};
-			}
-
-			const { getMedia } = select( 'core' );
-			const media = getMedia( imageID );
-			if ( ! media ) {
-				return {
-					resizedImages: {},
-				};
-			}
-
 			const { getSettings } = select( 'core/block-editor' );
-			const { imageSizes } = getSettings();
-
 			return {
-				resizedImages: getResizedImages( imageSizes, media ),
+				image:
+					imageID && isSelected
+						? select( 'core' ).getMedia( imageID, {
+								context: 'view',
+						  } )
+						: null,
+				imageSizes: getSettings()?.imageSizes,
 			};
 		},
-		[ imageID ]
+
+		[ isSelected, imageID, clientId ]
 	);
+
+	const imageSizeOptions = imageSizes
+		.filter(
+			( { slug } ) => image?.media_details?.sizes?.[ slug ]?.source_url
+		)
+		.map( ( { name, slug } ) => ( { value: slug, label: name } ) );
 
 	const classes = classnames(
 		'smb-step__item',
@@ -145,27 +144,20 @@ export default function ( {
 		} );
 
 	const onSelectImage = ( media ) => {
-		const newImageURL =
-			!! media.sizes && !! media.sizes[ imageSizeSlug ]
-				? media.sizes[ imageSizeSlug ].url
-				: media.url;
-
-		const newImageWidth =
-			!! media.sizes && !! media.sizes[ imageSizeSlug ]
-				? media.sizes[ imageSizeSlug ].width
-				: media.width;
-
-		const newImageHeight =
-			!! media.sizes && !! media.sizes[ imageSizeSlug ]
-				? media.sizes[ imageSizeSlug ].height
-				: media.height;
+		const newImageSizeSlug = !! media?.sizes[ imageSizeSlug ]
+			? imageSizeSlug
+			: DEFAULT_MEDIA_SIZE_SLUG;
+		const newImageUrl = media?.sizes[ newImageSizeSlug ]?.url;
+		const newImageWidth = media?.sizes[ newImageSizeSlug ]?.width;
+		const newImageHeight = media?.sizes[ newImageSizeSlug ]?.height;
 
 		setAttributes( {
-			imageURL: newImageURL,
+			imageURL: newImageUrl,
 			imageID: media.id,
 			imageAlt: media.alt,
 			imageWidth: newImageWidth,
 			imageHeight: newImageHeight,
+			imageSizeSlug: newImageSizeSlug,
 		} );
 	};
 
@@ -174,7 +166,7 @@ export default function ( {
 			setAttributes( {
 				imageURL: newURL,
 				imageID: 0,
-				imageSizeSlug: 'large',
+				mediaSizeSlug: DEFAULT_MEDIA_SIZE_SLUG,
 			} );
 		}
 	};
@@ -203,23 +195,12 @@ export default function ( {
 		} );
 
 	const onChangeImageSizeSlug = ( value ) => {
-		let newImageURL = imageURL;
-		if ( !! resizedImages[ value ] && !! resizedImages[ value ].url ) {
-			newImageURL = resizedImages[ value ].url;
-		}
-
-		let newImageWidth = imageWidth;
-		if ( !! resizedImages[ value ] && !! resizedImages[ value ].width ) {
-			newImageWidth = resizedImages[ value ].width;
-		}
-
-		let newImageHeight = imageHeight;
-		if ( !! resizedImages[ value ] && !! resizedImages[ value ].height ) {
-			newImageHeight = resizedImages[ value ].height;
-		}
+		const newImageUrl = image?.media_details?.sizes?.[ value ]?.source_url;
+		const newImageWidth = image?.media_details?.sizes?.[ value ]?.width;
+		const newImageHeight = image?.media_details?.sizes?.[ value ]?.height;
 
 		setAttributes( {
-			imageURL: newImageURL,
+			imageURL: newImageUrl,
 			imageWidth: newImageWidth,
 			imageHeight: newImageHeight,
 			imageSizeSlug: value,
@@ -279,11 +260,14 @@ export default function ( {
 						] }
 					/>
 
-					<ImageSizeSelectControl
-						label={ __( 'Images size', 'snow-monkey-blocks' ) }
-						id={ imageID }
+					<ImageSizeControl
+						onChangeImage={ onChangeImageSizeSlug }
 						slug={ imageSizeSlug }
-						onChange={ onChangeImageSizeSlug }
+						imageSizeOptions={ imageSizeOptions }
+						isResizable={ false }
+						imageSizeHelp={ __(
+							'Select which image size to load.'
+						) }
 					/>
 				</PanelBody>
 			</InspectorControls>
@@ -314,10 +298,12 @@ export default function ( {
 								src={ imageURL }
 								id={ imageID }
 								alt={ imageAlt }
+								width={ imageWidth }
+								height={ imageHeight }
 								onSelect={ onSelectImage }
 								onSelectURL={ onSelectImageURL }
 								onRemove={ onRemoveImage }
-								isSelected={ isSelected }
+								allowedTypes={ ALLOWED_TYPES }
 							/>
 						</div>
 					) }
