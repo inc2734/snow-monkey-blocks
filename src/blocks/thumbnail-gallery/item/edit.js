@@ -7,7 +7,11 @@ import {
 	__experimentalImageSizeControl as ImageSizeControl,
 } from '@wordpress/block-editor';
 
-import { PanelBody } from '@wordpress/components';
+import {
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
+} from '@wordpress/components';
+
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
@@ -15,6 +19,8 @@ import Figure from '@smb/component/figure';
 
 const ALLOWED_TYPES = [ 'image' ];
 const DEFAULT_MEDIA_SIZE_SLUG = 'full';
+
+import metadata from './block.json';
 
 export default function ( {
 	attributes,
@@ -62,77 +68,57 @@ export default function ( {
 		className: classes,
 	} );
 
-	const onSelectImage = ( media ) => {
-		const newImageSizeSlug = !! media?.sizes[ imageSizeSlug ]
-			? imageSizeSlug
-			: DEFAULT_MEDIA_SIZE_SLUG;
-		const newImageUrl = media?.sizes[ newImageSizeSlug ]?.url;
-		const newImageWidth = media?.sizes[ newImageSizeSlug ]?.width;
-		const newImageHeight = media?.sizes[ newImageSizeSlug ]?.height;
-
-		setAttributes( {
-			imageURL: newImageUrl,
-			imageID: media.id,
-			imageAlt: media.alt,
-			imageWidth: newImageWidth,
-			imageHeight: newImageHeight,
-			imageSizeSlug: newImageSizeSlug,
-		} );
-	};
-
-	const onSelectImageURL = ( newURL ) => {
-		if ( newURL !== imageURL ) {
-			setAttributes( {
-				imageURL: newURL,
-				imageID: 0,
-				mediaSizeSlug: DEFAULT_MEDIA_SIZE_SLUG,
-			} );
-		}
-	};
-
-	const onRemoveImage = () =>
-		setAttributes( {
-			imageURL: '',
-			imageAlt: '',
-			imageWidth: '',
-			imageHeight: '',
-			imageID: 0,
-		} );
-
-	const onChangeCaption = ( value ) =>
-		setAttributes( {
-			caption: value,
-		} );
-
-	const onChangeImageSizeSlug = ( value ) => {
-		const newImageUrl = image?.media_details?.sizes?.[ value ]?.source_url;
-		const newImageWidth = image?.media_details?.sizes?.[ value ]?.width;
-		const newImageHeight = image?.media_details?.sizes?.[ value ]?.height;
-
-		setAttributes( {
-			imageURL: newImageUrl,
-			imageWidth: newImageWidth,
-			imageHeight: newImageHeight,
-			imageSizeSlug: value,
-		} );
-	};
-
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody
-					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
-				>
-					<ImageSizeControl
-						onChangeImage={ onChangeImageSizeSlug }
-						slug={ imageSizeSlug }
-						imageSizeOptions={ imageSizeOptions }
-						isResizable={ false }
-						imageSizeHelp={ __(
-							'Select which image size to load.'
-						) }
-					/>
-				</PanelBody>
+				{ 0 < imageSizeOptions.length && (
+					<ToolsPanel
+						label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					>
+						<ToolsPanelItem
+							hasValue={ () =>
+								imageSizeSlug !==
+								metadata.attributes.imageSizeSlug.default
+							}
+							isShownByDefault
+							label={ __( 'Image size', 'snow-monkey-blocks' ) }
+							onDeselect={ () =>
+								setAttributes( {
+									imageSizeSlug:
+										metadata.attributes.imageSizeSlug
+											.default,
+								} )
+							}
+						>
+							<ImageSizeControl
+								slug={ imageSizeSlug }
+								imageSizeOptions={ imageSizeOptions }
+								isResizable={ false }
+								imageSizeHelp={ __(
+									'Select which image size to load.'
+								) }
+								onChangeImage={ ( value ) => {
+									const newImageUrl =
+										image?.media_details?.sizes?.[ value ]
+											?.source_url;
+									const newImageWidth =
+										image?.media_details?.sizes?.[ value ]
+											?.width;
+									const newImageHeight =
+										image?.media_details?.sizes?.[ value ]
+											?.height;
+
+									setAttributes( {
+										imageURL: newImageUrl,
+										imageWidth: newImageWidth,
+										imageHeight: newImageHeight,
+										imageSizeSlug: value,
+									} );
+								} }
+							/>
+						</ToolsPanelItem>
+					</ToolsPanel>
+				) }
 			</InspectorControls>
 
 			<div { ...blockProps }>
@@ -142,9 +128,47 @@ export default function ( {
 					alt={ imageAlt }
 					width={ imageWidth }
 					height={ imageHeight }
-					onSelect={ onSelectImage }
-					onSelectURL={ onSelectImageURL }
-					onRemove={ onRemoveImage }
+					onSelect={ ( media ) => {
+						const newImageSizeSlug = !! media?.sizes[
+							imageSizeSlug
+						]
+							? imageSizeSlug
+							: DEFAULT_MEDIA_SIZE_SLUG;
+						const newImageUrl =
+							media?.sizes[ newImageSizeSlug ]?.url;
+						const newImageWidth =
+							media?.sizes[ newImageSizeSlug ]?.width;
+						const newImageHeight =
+							media?.sizes[ newImageSizeSlug ]?.height;
+
+						setAttributes( {
+							imageURL: newImageUrl,
+							imageID: media.id,
+							imageAlt: media.alt,
+							imageWidth: newImageWidth,
+							imageHeight: newImageHeight,
+							imageSizeSlug: newImageSizeSlug,
+						} );
+					} }
+					onSelectURL={ ( newURL ) => {
+						if ( newURL !== imageURL ) {
+							setAttributes( {
+								imageURL: newURL,
+								imageID: 0,
+								mediaSizeSlug: DEFAULT_MEDIA_SIZE_SLUG,
+							} );
+						}
+					} }
+					onRemove={ () =>
+						setAttributes( {
+							imageURL: metadata.attributes.imageURL.default,
+							imageAlt: metadata.attributes.imageAlt.default,
+							imageWidth: metadata.attributes.imageWidth.default,
+							imageHeight:
+								metadata.attributes.imageHeight.default,
+							imageID: metadata.attributes.imageID.default,
+						} )
+					}
 					allowedTypes={ ALLOWED_TYPES }
 				/>
 
@@ -155,7 +179,11 @@ export default function ( {
 							'snow-monkey-blocks'
 						) }
 						value={ caption }
-						onChange={ onChangeCaption }
+						onChange={ ( value ) =>
+							setAttributes( {
+								caption: value,
+							} )
+						}
 					/>
 				) }
 			</div>

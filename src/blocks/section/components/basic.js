@@ -4,9 +4,10 @@ import {
 	BaseControl,
 	Button,
 	CheckboxControl,
-	PanelBody,
 	SelectControl,
 	ToggleControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
 
 import { Fragment } from '@wordpress/element';
@@ -26,136 +27,197 @@ export const PanelBasicSettings = ( {
 	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
 
 	return (
-		<PanelBody title={ __( 'Block settings', 'snow-monkey-blocks' ) }>
+		<ToolsPanel label={ __( 'Block settings', 'snow-monkey-blocks' ) }>
 			{ settings.map( ( setting, index ) => {
 				if (
 					setting.hasOwnProperty( 'wrapperTagNameValue' ) &&
-					setting.hasOwnProperty( 'onWrapperTagNameChange' )
+					setting.hasOwnProperty( 'onWrapperTagNameChange' ) &&
+					setting.hasOwnProperty( 'defaultValue' )
 				) {
 					return (
-						<BaseControl
+						<ToolsPanelItem
 							key={ index }
+							hasValue={ () =>
+								setting.wrapperTagNameValue !==
+								setting.defaultValue
+							}
+							isShownByDefault
 							label={ __( 'Wrapper tag', 'snow-monkey-blocks' ) }
-							id="snow-monkey-blocks/section/wrapper-tag-name"
+							onDeselect={ () =>
+								setting.onWrapperTagNameChange(
+									setting.defaultValue
+								)
+							}
 						>
-							<div className="smb-list-icon-selector">
-								{ times(
-									wrapperTagNames.length,
-									( wrapperTagName ) => {
-										const onClickButton = () => {
-											setting.onWrapperTagNameChange(
-												wrapperTagNames[
-													wrapperTagName
-												]
-											);
-										};
-
-										return (
-											<Button
-												key={ wrapperTagName }
-												variant={
-													setting.wrapperTagNameValue ===
-													wrapperTagNames[
-														wrapperTagName
-													]
-														? 'primary'
-														: 'secondary'
-												}
-												onClick={ onClickButton }
-											>
-												{
-													wrapperTagNames[
-														wrapperTagName
-													]
-												}
-											</Button>
-										);
-									}
+							<BaseControl
+								key={ index }
+								label={ __(
+									'Wrapper tag',
+									'snow-monkey-blocks'
 								) }
-							</div>
-						</BaseControl>
+								id="snow-monkey-blocks/section/wrapper-tag-name"
+							>
+								<div className="smb-list-icon-selector">
+									{ times(
+										wrapperTagNames.length,
+										( wrapperTagName ) => {
+											const onClickButton = () => {
+												setting.onWrapperTagNameChange(
+													wrapperTagNames[
+														wrapperTagName
+													]
+												);
+											};
+
+											return (
+												<Button
+													key={ wrapperTagName }
+													variant={
+														setting.wrapperTagNameValue ===
+														wrapperTagNames[
+															wrapperTagName
+														]
+															? 'primary'
+															: 'secondary'
+													}
+													onClick={ onClickButton }
+												>
+													{
+														wrapperTagNames[
+															wrapperTagName
+														]
+													}
+												</Button>
+											);
+										}
+									) }
+								</div>
+							</BaseControl>
+						</ToolsPanelItem>
 					);
 				}
 
 				if (
 					setting.hasOwnProperty( 'titleTagNameValue' ) &&
-					setting.hasOwnProperty( 'onTitleTagNameChange' )
+					setting.hasOwnProperty( 'onTitleTagNameChange' ) &&
+					setting.hasOwnProperty( 'defaultValue' )
 				) {
 					return (
-						<BaseControl
+						<ToolsPanelItem
 							key={ index }
+							hasValue={ () =>
+								setting.titleTagNameValue !==
+								setting.defaultValue
+							}
+							isShownByDefault
 							label={ __( 'Title tag', 'snow-monkey-blocks' ) }
-							id="snow-monkey-blocks/section/title-tag-name"
+							onDeselect={ () =>
+								setting.onTitleTagNameChange(
+									setting.defaultValue
+								)
+							}
 						>
-							<div className="smb-list-icon-selector">
-								{ times(
-									titleTagNames.length,
-									( titleTagName ) => {
-										const onClickButton = () => {
-											setting.onTitleTagNameChange(
-												titleTagNames[ titleTagName ]
-											);
-										};
-
-										return (
-											<Button
-												variant={
-													setting.titleTagNameValue ===
-													titleTagNames[
-														titleTagName
-													]
-														? 'primary'
-														: 'secondary'
-												}
-												onClick={ onClickButton }
-												key={ titleTagName }
-											>
-												{
-													titleTagNames[
-														titleTagName
-													]
-												}
-											</Button>
-										);
-									}
+							<BaseControl
+								label={ __(
+									'Title tag',
+									'snow-monkey-blocks'
 								) }
-							</div>
-						</BaseControl>
+								id="snow-monkey-blocks/section/title-tag-name"
+							>
+								<div className="smb-list-icon-selector">
+									{ times(
+										titleTagNames.length,
+										( titleTagName ) => {
+											const onClickButton = () => {
+												setting.onTitleTagNameChange(
+													titleTagNames[
+														titleTagName
+													]
+												);
+											};
+
+											return (
+												<Button
+													variant={
+														setting.titleTagNameValue ===
+														titleTagNames[
+															titleTagName
+														]
+															? 'primary'
+															: 'secondary'
+													}
+													onClick={ onClickButton }
+													key={ titleTagName }
+												>
+													{
+														titleTagNames[
+															titleTagName
+														]
+													}
+												</Button>
+											);
+										}
+									) }
+								</div>
+							</BaseControl>
+						</ToolsPanelItem>
 					);
 				}
 
 				if (
 					setting.hasOwnProperty( 'heightValue' ) &&
-					setting.hasOwnProperty( 'onHeightChange' )
+					setting.hasOwnProperty( 'onHeightChange' ) &&
+					setting.hasOwnProperty( 'defaultValue' )
 				) {
 					return (
-						<SelectControl
+						<ToolsPanelItem
 							key={ index }
+							hasValue={ () =>
+								setting.heightValue !== setting.defaultValue
+							}
+							isShownByDefault
 							label={ __( 'Height', 'snow-monkey-blocks' ) }
-							value={ setting.heightValue }
-							options={ [
-								{
-									value: 'fit',
-									label: __( 'Fit', 'snow-monkey-blocks' ),
-								},
-								{
-									value: 'wide',
-									label: __( 'Wide', 'snow-monkey-blocks' ),
-								},
-								{
-									value: 'full',
-									label: __( 'Full', 'snow-monkey-blocks' ),
-								},
-							] }
-							onChange={ setting.onHeightChange }
-						/>
+							onDeselect={ () =>
+								setting.onHeightChange( setting.defaultValue )
+							}
+						>
+							<SelectControl
+								label={ __( 'Height', 'snow-monkey-blocks' ) }
+								value={ setting.heightValue }
+								options={ [
+									{
+										value: 'fit',
+										label: __(
+											'Fit',
+											'snow-monkey-blocks'
+										),
+									},
+									{
+										value: 'wide',
+										label: __(
+											'Wide',
+											'snow-monkey-blocks'
+										),
+									},
+									{
+										value: 'full',
+										label: __(
+											'Full',
+											'snow-monkey-blocks'
+										),
+									},
+								] }
+								onChange={ setting.onHeightChange }
+							/>
+						</ToolsPanelItem>
 					);
 				}
 
 				if (
 					! disableContainerAlign &&
 					setting.hasOwnProperty( 'containerAlignValue' ) &&
-					setting.hasOwnProperty( 'onContainerAlignChange' )
+					setting.hasOwnProperty( 'onContainerAlignChange' ) &&
+					setting.hasOwnProperty( 'defaultValue' )
 				) {
 					let options = [
 						{
@@ -194,96 +256,183 @@ export const PanelBasicSettings = ( {
 					}
 
 					return (
-						<SelectControl
+						<ToolsPanelItem
 							key={ index }
+							hasValue={ () =>
+								setting.containerAlignValue !==
+								setting.defaultValue
+							}
+							isShownByDefault
 							label={ __(
 								'Container alignment',
 								'snow-monkey-blocks'
 							) }
-							value={ setting.containerAlignValue }
-							onChange={ setting.onContainerAlignChange }
-							options={ options }
-						/>
+							onDeselect={ () =>
+								setting.onContainerAlignChange(
+									setting.defaultValue
+								)
+							}
+						>
+							<SelectControl
+								label={ __(
+									'Container alignment',
+									'snow-monkey-blocks'
+								) }
+								value={ setting.containerAlignValue }
+								onChange={ setting.onContainerAlignChange }
+								options={ options }
+							/>
+						</ToolsPanelItem>
 					);
 				}
 
 				if (
 					! disableDisableContainerPadding &&
 					setting.hasOwnProperty( 'disableContainerPaddingValue' ) &&
-					setting.hasOwnProperty( 'onDisableContainerPaddingChange' )
+					setting.hasOwnProperty(
+						'onDisableContainerPaddingChange'
+					) &&
+					setting.hasOwnProperty( 'defaultValue' )
 				) {
 					return (
-						<CheckboxControl
+						<ToolsPanelItem
 							key={ index }
+							hasValue={ () =>
+								setting.disableContainerPaddingValue !==
+								setting.defaultValue
+							}
+							isShownByDefault
 							label={ __(
 								'Remove container padding of the contents',
 								'snow-monkey-blocks'
 							) }
-							checked={ setting.disableContainerPaddingValue }
-							onChange={ setting.onDisableContainerPaddingChange }
-						/>
+							onDeselect={ () =>
+								setting.onDisableContainerPaddingChange(
+									setting.defaultValue
+								)
+							}
+						>
+							<CheckboxControl
+								label={ __(
+									'Remove container padding of the contents',
+									'snow-monkey-blocks'
+								) }
+								checked={ setting.disableContainerPaddingValue }
+								onChange={
+									setting.onDisableContainerPaddingChange
+								}
+							/>
+						</ToolsPanelItem>
 					);
 				}
 
 				if (
 					! disableContentsMaxWidth &&
 					setting.hasOwnProperty( 'contentsMaxWidthValue' ) &&
-					setting.hasOwnProperty( 'onContentsMaxWidthChange' )
+					setting.hasOwnProperty( 'onContentsMaxWidthChange' ) &&
+					setting.hasOwnProperty( 'defaultValue' )
 				) {
 					return (
-						<BaseControl
+						<ToolsPanelItem
 							key={ index }
+							hasValue={ () =>
+								setting.contentsMaxWidthValue !==
+								setting.defaultValue
+							}
+							isShownByDefault
 							label={ __(
 								'Max width of the contents',
 								'snow-monkey-blocks'
 							) }
-							id="snow-monkey-blocks/section/contents-max-width"
+							onDeselect={ () =>
+								setting.onContentsMaxWidthChange(
+									setting.defaultValue
+								)
+							}
 						>
-							<WidthPicker
-								value={ setting.contentsMaxWidthValue }
-								onChange={ setting.onContentsMaxWidthChange }
-							/>
-						</BaseControl>
+							<BaseControl
+								label={ __(
+									'Max width of the contents',
+									'snow-monkey-blocks'
+								) }
+								id="snow-monkey-blocks/section/contents-max-width"
+							>
+								<WidthPicker
+									value={ setting.contentsMaxWidthValue }
+									onChange={
+										setting.onContentsMaxWidthChange
+									}
+								/>
+							</BaseControl>
+						</ToolsPanelItem>
 					);
 				}
 
 				if (
 					! disableIsSlim &&
 					setting.hasOwnProperty( 'isSlimValue' ) &&
-					setting.hasOwnProperty( 'onIsSlimChange' )
+					setting.hasOwnProperty( 'onIsSlimChange' ) &&
+					setting.hasOwnProperty( 'defaultValue' )
 				) {
 					return (
-						<ToggleControl
+						<ToolsPanelItem
 							key={ index }
+							hasValue={ () =>
+								setting.isSlimValue !== setting.defaultValue
+							}
+							isShownByDefault
 							label={ __(
 								'Make the contents width slim',
 								'snow-monkey-blocks'
 							) }
-							checked={ setting.isSlimValue }
-							onChange={ setting.onIsSlimChange }
-						/>
+							onDeselect={ () =>
+								setting.onIsSlimChange( setting.defaultValue )
+							}
+						>
+							<ToggleControl
+								label={ __(
+									'Make the contents width slim',
+									'snow-monkey-blocks'
+								) }
+								checked={ setting.isSlimValue }
+								onChange={ setting.onIsSlimChange }
+							/>
+						</ToolsPanelItem>
 					);
 				}
 
 				if (
 					setting.hasOwnProperty( 'paddingValue' ) &&
-					setting.hasOwnProperty( 'onPaddingChange' )
+					setting.hasOwnProperty( 'onPaddingChange' ) &&
+					setting.hasOwnProperty( 'defaultValue' )
 				) {
 					return (
-						<SpacingControl
+						<ToolsPanelItem
 							key={ index }
-							label={ __( 'Padding', 'snow-monkey-blocks' ) }
-							sides={
-								!! setting.sides ? setting.sides : undefined
+							hasValue={ () =>
+								setting.paddingValue !== setting.defaultValue
 							}
-							values={ setting.paddingValue }
-							onChange={ setting.onPaddingChange }
-						/>
+							isShownByDefault
+							label={ __( 'Padding', 'snow-monkey-blocks' ) }
+							onDeselect={ () =>
+								setting.onPaddingChange( setting.defaultValue )
+							}
+						>
+							<SpacingControl
+								label={ __( 'Padding', 'snow-monkey-blocks' ) }
+								sides={
+									!! setting.sides ? setting.sides : undefined
+								}
+								values={ setting.paddingValue }
+								onChange={ setting.onPaddingChange }
+								allowReset={ false }
+							/>
+						</ToolsPanelItem>
 					);
 				}
 
 				return <Fragment key={ index }></Fragment>;
 			} ) }
-		</PanelBody>
+		</ToolsPanel>
 	);
 };

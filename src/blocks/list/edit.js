@@ -8,8 +8,16 @@ import {
 	useBlockProps,
 } from '@wordpress/block-editor';
 
-import { BaseControl, Button, PanelBody } from '@wordpress/components';
+import {
+	BaseControl,
+	Button,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
+} from '@wordpress/components';
+
 import { __ } from '@wordpress/i18n';
+
+import metadata from './block.json';
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
 	const { content, icon, iconColor } = attributes;
@@ -59,16 +67,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		className: classes,
 	} );
 
-	const onChangeIconColor = ( value ) =>
-		setAttributes( {
-			iconColor: value,
-		} );
-
-	const onChangeContent = ( value ) =>
-		setAttributes( {
-			content: value,
-		} );
-
 	return (
 		<>
 			<InspectorControls>
@@ -78,7 +76,10 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					settings={ [
 						{
 							colorValue: iconColor,
-							onColorChange: onChangeIconColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									iconColor: value,
+								} ),
 							label: __( 'Icon color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -86,38 +87,55 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					__experimentalIsRenderedInSidebar={ true }
 				></PanelColorGradientSettings>
 
-				<PanelBody
-					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
+				<ToolsPanel
+					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
-					<BaseControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							icon !== metadata.attributes.icon.default
+						}
+						isShownByDefault
 						label={ __( 'Icon', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/list/icon"
+						onDeselect={ () =>
+							setAttributes( {
+								icon: metadata.attributes.icon.default,
+							} )
+						}
 					>
-						<div className="smb-list-icon-selector">
-							{ times( iconList.length, ( index ) => {
-								const value = iconList[ index ].value;
+						<BaseControl
+							label={ __( 'Icon', 'snow-monkey-blocks' ) }
+							id="snow-monkey-blocks/list/icon"
+						>
+							<div className="smb-list-icon-selector">
+								{ times( iconList.length, ( index ) => {
+									const value = iconList[ index ].value;
 
-								const onClickIcon = () =>
-									setAttributes( {
-										icon: value,
-									} );
+									const onClickIcon = () =>
+										setAttributes( {
+											icon: value,
+										} );
 
-								return (
-									<Button
-										variant={ icon === value && 'primary' }
-										onClick={ onClickIcon }
-										key={ index }
-									>
-										<i
-											className={ `fa-solid fa-${ iconList[ index ].value }` }
-											title={ iconList[ index ].label }
-										/>
-									</Button>
-								);
-							} ) }
-						</div>
-					</BaseControl>
-				</PanelBody>
+									return (
+										<Button
+											variant={
+												icon === value && 'primary'
+											}
+											onClick={ onClickIcon }
+											key={ index }
+										>
+											<i
+												className={ `fa-solid fa-${ iconList[ index ].value }` }
+												title={
+													iconList[ index ].label
+												}
+											/>
+										</Button>
+									);
+								} ) }
+							</div>
+						</BaseControl>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 
 			<div
@@ -133,7 +151,11 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					tagName="ul"
 					multiline="li"
 					value={ content }
-					onChange={ onChangeContent }
+					onChange={ ( value ) =>
+						setAttributes( {
+							content: value,
+						} )
+					}
 				/>
 			</div>
 		</>

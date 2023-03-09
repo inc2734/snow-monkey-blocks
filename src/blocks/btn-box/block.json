@@ -56,7 +56,7 @@
 			"default": ""
 		},
 		"btnBorderRadius": {
-			"type": "number"
+			"type": "string"
 		},
 		"btnWrap": {
 			"type": "boolean",

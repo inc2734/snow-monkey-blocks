@@ -7,7 +7,12 @@ import {
 	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
-import { BaseControl, PanelBody, SelectControl } from '@wordpress/components';
+import {
+	SelectControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
+} from '@wordpress/components';
+
 import { useEffect } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
@@ -19,6 +24,8 @@ const TEMPLATE = [
 	[ 'snow-monkey-blocks/pricing-table-item' ],
 	[ 'snow-monkey-blocks/pricing-table-item' ],
 ];
+
+import metadata from './block.json';
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
 	useMigrateDoubleHyphenToSingleHyphen( clientId, [
@@ -80,26 +87,32 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		}
 	);
 
-	const onChangeColumnSize = ( value ) =>
-		setAttributes( {
-			columnSize: value,
-		} );
-
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody
-					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
+				<ToolsPanel
+					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
-					<BaseControl
-						label={ __( 'Column size', 'snow-monkey-blocks' ) }
-						help={ __(
-							'If the text of each item is long, it is recommended to select other than "Auto".',
-							'snow-monkey-blocks'
-						) }
-						id="snow-monkey-blocks/pricing-table/column-size"
+					<ToolsPanelItem
+						hasValue={ () =>
+							columnSize !==
+							metadata.attributes.columnSize.default
+						}
+						isShownByDefault
+						label={ __( 'Title tag', 'snow-monkey-blocks' ) }
+						onDeselect={ () =>
+							setAttributes( {
+								columnSize:
+									metadata.attributes.columnSize.default,
+							} )
+						}
 					>
 						<SelectControl
+							label={ __( 'Column size', 'snow-monkey-blocks' ) }
+							help={ __(
+								'If the text of each item is long, it is recommended to select other than "Auto".',
+								'snow-monkey-blocks'
+							) }
 							value={ columnSize }
 							options={ [
 								{
@@ -123,10 +136,14 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 									label: __( '100%', 'snow-monkey-blocks' ),
 								},
 							] }
-							onChange={ onChangeColumnSize }
+							onChange={ ( value ) =>
+								setAttributes( {
+									columnSize: value,
+								} )
+							}
 						/>
-					</BaseControl>
-				</PanelBody>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 
 			<div

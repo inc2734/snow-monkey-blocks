@@ -9,10 +9,11 @@ import {
 
 import {
 	Button,
-	PanelBody,
 	RangeControl,
 	SelectControl,
 	ToggleControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
 
 import { useDispatch, useSelect } from '@wordpress/data';
@@ -24,6 +25,8 @@ import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
 import { toNumber } from '@smb/helper';
 
 const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/spider-contents-slider-item' ];
+
+import metadata from './block.json';
 
 export default function ( {
 	attributes,
@@ -105,7 +108,7 @@ export default function ( {
 		} );
 		// Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [ maxBlur, canvasPadding ] );
+	}, [ maxBlur ] );
 
 	const selectedSlide = useSelect(
 		( select ) => {
@@ -219,202 +222,339 @@ export default function ( {
 		}
 	);
 
-	const onChangeArrows = ( value ) =>
-		setAttributes( {
-			arrows: value,
-		} );
-
-	const onChangeDots = ( value ) =>
-		setAttributes( {
-			dots: value,
-		} );
-
-	const onChangeFade = ( value ) =>
-		setAttributes( {
-			fade: value,
-		} );
-
-	const onChangeShifted = ( value ) =>
-		setAttributes( {
-			shifted: value,
-		} );
-
-	const onChangeGutter = ( value ) =>
-		setAttributes( {
-			gutter: value,
-		} );
-
-	const onChangeInterval = ( value ) =>
-		setAttributes( {
-			interval: toNumber( value, 0, 10 ),
-		} );
-
-	const onChangeDuration = ( value ) =>
-		setAttributes( {
-			duration: toNumber( value, 0, 10 ),
-		} );
-
-	const onChangeLgSlidesToShow = ( value ) =>
-		setAttributes( {
-			lgSlidesToShow: toNumber( value, 1, 6 ),
-		} );
-
-	const onChangeMdSlidesToShow = ( value ) =>
-		setAttributes( {
-			mdSlidesToShow: toNumber( value, 1, 6 ),
-		} );
-
-	const onChangeSmSlidesToShow = ( value ) =>
-		setAttributes( {
-			smSlidesToShow: toNumber( value, 1, 6 ),
-		} );
-
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody
-					title={ __( 'Dimensions', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
-				>
-					<SelectControl
+				<ToolsPanel label={ __( 'Dimensions', 'snow-monkey-blocks' ) }>
+					<ToolsPanelItem
+						hasValue={ () =>
+							gutter !== metadata.attributes.gutter.default
+						}
+						isShownByDefault
 						label={ __( 'Block spacing', 'snow-monkey-blocks' ) }
-						value={ gutter }
-						onChange={ onChangeGutter }
-						options={ gutterOptions }
-					/>
-				</PanelBody>
+						onDeselect={ () =>
+							setAttributes( {
+								gutter: metadata.attributes.gutter.default,
+							} )
+						}
+					>
+						<SelectControl
+							label={ __(
+								'Block spacing',
+								'snow-monkey-blocks'
+							) }
+							value={ gutter }
+							onChange={ ( value ) =>
+								setAttributes( {
+									gutter: value,
+								} )
+							}
+							options={ gutterOptions }
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 
-				<PanelBody
-					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
+				<ToolsPanel
+					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
-					<ToggleControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							arrows !== metadata.attributes.arrows.default
+						}
+						isShownByDefault
 						label={ __( 'Display arrows', 'snow-monkey-blocks' ) }
-						checked={ arrows }
-						onChange={ onChangeArrows }
-					/>
+						onDeselect={ () =>
+							setAttributes( {
+								arrows: metadata.attributes.arrows.default,
+							} )
+						}
+					>
+						<ToggleControl
+							label={ __(
+								'Display arrows',
+								'snow-monkey-blocks'
+							) }
+							checked={ arrows }
+							onChange={ ( value ) =>
+								setAttributes( {
+									arrows: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
 
-					<ToggleControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							dots !== metadata.attributes.dots.default
+						}
+						isShownByDefault
 						label={ __( 'Display dots', 'snow-monkey-blocks' ) }
-						checked={ dots }
-						onChange={ onChangeDots }
-					/>
+						onDeselect={ () =>
+							setAttributes( {
+								dots: metadata.attributes.dots.default,
+							} )
+						}
+					>
+						<ToggleControl
+							label={ __( 'Display dots', 'snow-monkey-blocks' ) }
+							checked={ dots }
+							onChange={ ( value ) =>
+								setAttributes( {
+									dots: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
 
-					<ToggleControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							fade !== metadata.attributes.fade.default
+						}
+						isShownByDefault
 						label={ __( 'Fade', 'snow-monkey-blocks' ) }
-						checked={ fade }
-						onChange={ onChangeFade }
-					/>
+						onDeselect={ () =>
+							setAttributes( {
+								fade: metadata.attributes.fade.default,
+							} )
+						}
+					>
+						<ToggleControl
+							label={ __( 'Fade', 'snow-monkey-blocks' ) }
+							checked={ fade }
+							onChange={ ( value ) =>
+								setAttributes( {
+									fade: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
 
 					{ isShiftable && (
-						<ToggleControl
+						<ToolsPanelItem
+							hasValue={ () =>
+								shifted !== metadata.attributes.shifted.default
+							}
+							isShownByDefault
 							label={ __(
 								'Shifting the slider',
 								'snow-monkey-blocks'
 							) }
-							help={
-								shifted &&
-								( ! isAlignfull || ! isAlignwide ) && (
-									<>
-										<Icon
-											icon={ warning }
-											style={ { fill: '#d94f4f' } }
-										/>
-										{ __(
-											'It must be full width (.alignfull) or wide width (.alignwide).',
-											'snow-monkey-blocks'
-										) }
-									</>
-								)
+							onDeselect={ () =>
+								setAttributes( {
+									shifted:
+										metadata.attributes.shifted.default,
+								} )
 							}
-							checked={ shifted }
-							onChange={ onChangeShifted }
-						/>
+						>
+							<ToggleControl
+								label={ __(
+									'Shifting the slider',
+									'snow-monkey-blocks'
+								) }
+								help={
+									shifted &&
+									( ! isAlignfull || ! isAlignwide ) && (
+										<>
+											<Icon
+												icon={ warning }
+												style={ { fill: '#d94f4f' } }
+											/>
+											{ __(
+												'It must be full width (.alignfull) or wide width (.alignwide).',
+												'snow-monkey-blocks'
+											) }
+										</>
+									)
+								}
+								checked={ shifted }
+								onChange={ ( value ) =>
+									setAttributes( {
+										shifted: value,
+									} )
+								}
+							/>
+						</ToolsPanelItem>
 					) }
 
-					<RangeControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							interval !== metadata.attributes.interval.default
+						}
+						isShownByDefault
 						label={ __(
 							'Autoplay Speed in seconds',
 							'snow-monkey-blocks'
 						) }
-						help={ __(
-							'If "0", no scroll.',
-							'snow-monkey-blocks'
-						) }
-						value={ interval }
-						onChange={ onChangeInterval }
-						min="0"
-						max="10"
-					/>
+						onDeselect={ () =>
+							setAttributes( {
+								interval: metadata.attributes.interval.default,
+							} )
+						}
+					>
+						<RangeControl
+							label={ __(
+								'Autoplay Speed in seconds',
+								'snow-monkey-blocks'
+							) }
+							help={ __(
+								'If "0", no scroll.',
+								'snow-monkey-blocks'
+							) }
+							value={ interval }
+							onChange={ ( value ) =>
+								setAttributes( {
+									interval: toNumber( value, 0, 10 ),
+								} )
+							}
+							min="0"
+							max="10"
+						/>
+					</ToolsPanelItem>
 
-					<RangeControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							duration !== metadata.attributes.duration.default
+						}
+						isShownByDefault
 						label={ __(
 							'Animation speed in seconds',
 							'snow-monkey-blocks'
 						) }
-						help={ __(
-							'If "0", default animation speed.',
-							'snow-monkey-blocks'
-						) }
-						value={ duration }
-						onChange={ onChangeDuration }
-						min="0"
-						max="5"
-						step="0.1"
-					/>
+						onDeselect={ () =>
+							setAttributes( {
+								duration: metadata.attributes.duration.default,
+							} )
+						}
+					>
+						<RangeControl
+							label={ __(
+								'Animation speed in seconds',
+								'snow-monkey-blocks'
+							) }
+							help={ __(
+								'If "0", default animation speed.',
+								'snow-monkey-blocks'
+							) }
+							value={ duration }
+							onChange={ ( value ) =>
+								setAttributes( {
+									duration: toNumber( value, 0, 10 ),
+								} )
+							}
+							min="0"
+							max="5"
+							step="0.1"
+						/>
+					</ToolsPanelItem>
 
 					{ ! fade && (
-						<ResponsiveTabPanel
-							desktop={ () => (
-								<RangeControl
-									label={ __(
-										'# of slides to show (Large window)',
-										'snow-monkey-blocks'
-									) }
-									value={ lgSlidesToShow }
-									onChange={ onChangeLgSlidesToShow }
-									min="1"
-									max={
-										6 < sliderClientIds.length
-											? 6
-											: sliderClientIds.length
-									}
-								/>
+						<ToolsPanelItem
+							hasValue={ () =>
+								lgSlidesToShow !==
+									metadata.attributes.lgSlidesToShow
+										.default ||
+								mdSlidesToShow !==
+									metadata.attributes.mdSlidesToShow
+										.default ||
+								smSlidesToShow !==
+									metadata.attributes.smSlidesToShow.default
+							}
+							isShownByDefault
+							label={ __(
+								'Slides settings',
+								'snow-monkey-blocks'
 							) }
-							tablet={ () => (
-								<RangeControl
-									label={ __(
-										'# of slides to show (Medium window)',
-										'snow-monkey-blocks'
-									) }
-									value={ mdSlidesToShow }
-									onChange={ onChangeMdSlidesToShow }
-									min="1"
-									max={
-										6 < sliderClientIds.length
-											? 6
-											: sliderClientIds.length
-									}
-								/>
-							) }
-							mobile={ () => (
-								<RangeControl
-									label={ __(
-										'# of slides to show (Small window)',
-										'snow-monkey-blocks'
-									) }
-									value={ smSlidesToShow }
-									onChange={ onChangeSmSlidesToShow }
-									min="1"
-									max={
-										6 < sliderClientIds.length
-											? 6
-											: sliderClientIds.length
-									}
-								/>
-							) }
-						/>
+							onDeselect={ () =>
+								setAttributes( {
+									lgSlidesToShow:
+										metadata.attributes.lgSlidesToShow
+											.default,
+									mdSlidesToShow:
+										metadata.attributes.mdSlidesToShow
+											.default,
+									smSlidesToShow:
+										metadata.attributes.smSlidesToShow
+											.default,
+								} )
+							}
+						>
+							<ResponsiveTabPanel
+								desktop={ () => (
+									<RangeControl
+										label={ __(
+											'# of slides to show (Large window)',
+											'snow-monkey-blocks'
+										) }
+										value={ lgSlidesToShow }
+										onChange={ ( value ) =>
+											setAttributes( {
+												lgSlidesToShow: toNumber(
+													value,
+													1,
+													6
+												),
+											} )
+										}
+										min="1"
+										max={
+											6 < sliderClientIds.length
+												? 6
+												: sliderClientIds.length
+										}
+									/>
+								) }
+								tablet={ () => (
+									<RangeControl
+										label={ __(
+											'# of slides to show (Medium window)',
+											'snow-monkey-blocks'
+										) }
+										value={ mdSlidesToShow }
+										onChange={ ( value ) =>
+											setAttributes( {
+												mdSlidesToShow: toNumber(
+													value,
+													1,
+													6
+												),
+											} )
+										}
+										min="1"
+										max={
+											6 < sliderClientIds.length
+												? 6
+												: sliderClientIds.length
+										}
+									/>
+								) }
+								mobile={ () => (
+									<RangeControl
+										label={ __(
+											'# of slides to show (Small window)',
+											'snow-monkey-blocks'
+										) }
+										value={ smSlidesToShow }
+										onChange={ ( value ) =>
+											setAttributes( {
+												smSlidesToShow: toNumber(
+													value,
+													1,
+													6
+												),
+											} )
+										}
+										min="1"
+										max={
+											6 < sliderClientIds.length
+												? 6
+												: sliderClientIds.length
+										}
+									/>
+								) }
+							/>
+						</ToolsPanelItem>
 					) }
-				</PanelBody>
+				</ToolsPanel>
 			</InspectorControls>
 
 			<div

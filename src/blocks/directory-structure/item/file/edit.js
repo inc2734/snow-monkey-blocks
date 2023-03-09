@@ -7,10 +7,18 @@ import {
 	useBlockProps,
 } from '@wordpress/block-editor';
 
-import { BaseControl, Button, PanelBody } from '@wordpress/components';
+import {
+	BaseControl,
+	Button,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
+} from '@wordpress/components';
+
 import { __ } from '@wordpress/i18n';
 
 import FontAwesome from '@smb/component/font-awesome';
+
+import metadata from './block.json';
 
 export default function ( { attributes, setAttributes, className } ) {
 	const { iconColor, iconVendor, iconClass, name } = attributes;
@@ -47,16 +55,6 @@ export default function ( { attributes, setAttributes, className } ) {
 		},
 	];
 
-	const onChangeIconColor = ( value ) =>
-		setAttributes( {
-			iconColor: value,
-		} );
-
-	const onChangeName = ( value ) =>
-		setAttributes( {
-			name: value,
-		} );
-
 	return (
 		<>
 			<InspectorControls>
@@ -66,7 +64,10 @@ export default function ( { attributes, setAttributes, className } ) {
 					settings={ [
 						{
 							colorValue: iconColor,
-							onColorChange: onChangeIconColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									iconColor: value,
+								} ),
 							label: __( 'Icon color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -74,42 +75,61 @@ export default function ( { attributes, setAttributes, className } ) {
 					__experimentalIsRenderedInSidebar={ true }
 				/>
 
-				<PanelBody
-					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
+				<ToolsPanel
+					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
-					<BaseControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							iconVendor !==
+								metadata.attributes.iconVendor.default ||
+							iconClass !== metadata.attributes.iconClass.default
+						}
+						isShownByDefault
 						label={ __( 'Icon', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/directory-structure-item-file/icon"
+						onDeselect={ () =>
+							setAttributes( {
+								iconVendor:
+									metadata.attributes.iconVendor.default,
+								iconClass:
+									metadata.attributes.iconClass.default,
+							} )
+						}
 					>
-						<div className="smb-list-icon-selector">
-							{ iconList.map( ( iconData ) => {
-								const onClickIcon = () => {
-									setAttributes( {
-										iconVendor: iconData.vendor,
-										iconClass: iconData.value,
-									} );
-								};
+						<BaseControl
+							label={ __( 'Icon', 'snow-monkey-blocks' ) }
+							id="snow-monkey-blocks/directory-structure-item-file/icon"
+						>
+							<div className="smb-list-icon-selector">
+								{ iconList.map( ( iconData ) => {
+									const onClickIcon = () => {
+										setAttributes( {
+											iconVendor: iconData.vendor,
+											iconClass: iconData.value,
+										} );
+									};
 
-								return (
-									<Button
-										variant={
-											iconVendor === iconData.vendor &&
-											iconClass === iconData.value &&
-											'primary'
-										}
-										onClick={ onClickIcon }
-										key={ `icon_${ iconData.key }` }
-									>
-										<i
-											className={ `fa-fw ${ iconData.vendor } fa-${ iconData.value }` }
-											title={ iconData.label }
-										/>
-									</Button>
-								);
-							} ) }
-						</div>
-					</BaseControl>
-				</PanelBody>
+									return (
+										<Button
+											variant={
+												iconVendor ===
+													iconData.vendor &&
+												iconClass === iconData.value &&
+												'primary'
+											}
+											onClick={ onClickIcon }
+											key={ `icon_${ iconData.key }` }
+										>
+											<i
+												className={ `fa-fw ${ iconData.vendor } fa-${ iconData.value }` }
+												title={ iconData.label }
+											/>
+										</Button>
+									);
+								} ) }
+							</div>
+						</BaseControl>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 
 			<div { ...blockProps }>
@@ -126,7 +146,11 @@ export default function ( { attributes, setAttributes, className } ) {
 							'snow-monkey-blocks'
 						) }
 						value={ name }
-						onChange={ onChangeName }
+						onChange={ ( value ) =>
+							setAttributes( {
+								name: value,
+							} )
+						}
 					/>
 				</p>
 			</div>

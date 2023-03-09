@@ -7,7 +7,12 @@ import {
 	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
-import { PanelBody, RangeControl } from '@wordpress/components';
+import {
+	RangeControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
+} from '@wordpress/components';
+
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
@@ -17,6 +22,8 @@ import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
 
 const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/testimonial-item' ];
 const TEMPLATE = [ [ 'snow-monkey-blocks/testimonial-item' ] ];
+
+import metadata from './block.json';
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
 	useMigrateDoubleHyphenToSingleHyphen( clientId, [
@@ -57,53 +64,62 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		}
 	);
 
-	const onChangeLg = ( value ) =>
-		setAttributes( {
-			lg: toNumber( value, 1, 4 ),
-		} );
-
-	const onChangeMd = ( value ) =>
-		setAttributes( {
-			md: toNumber( value, 1, 2 ),
-		} );
-
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody
-					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
+				<ToolsPanel
+					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
-					<ResponsiveTabPanel
-						desktop={ () => {
-							return (
+					<ToolsPanelItem
+						hasValue={ () =>
+							lg !== metadata.attributes.lg.default ||
+							md !== metadata.attributes.md.default
+						}
+						isShownByDefault
+						label={ __( 'Columns per row', 'snow-monkey-blocks' ) }
+						onDeselect={ () =>
+							setAttributes( {
+								lg: metadata.attributes.lg.default,
+								md: metadata.attributes.md.default,
+							} )
+						}
+					>
+						<ResponsiveTabPanel
+							desktop={ () => (
 								<RangeControl
 									label={ __(
 										'Columns per row (Large window)',
 										'snow-monkey-blocks'
 									) }
 									value={ lg }
-									onChange={ onChangeLg }
+									onChange={ ( value ) =>
+										setAttributes( {
+											lg: toNumber( value, 1, 4 ),
+										} )
+									}
 									min="1"
 									max="4"
 								/>
-							);
-						} }
-						tablet={ () => {
-							return (
+							) }
+							tablet={ () => (
 								<RangeControl
 									label={ __(
 										'Columns per row (Medium window)',
 										'snow-monkey-blocks'
 									) }
 									value={ md }
-									onChange={ onChangeMd }
+									onChange={ ( value ) =>
+										setAttributes( {
+											md: toNumber( value, 1, 2 ),
+										} )
+									}
 									min="1"
 									max="2"
 								/>
-							);
-						} }
-					/>
-				</PanelBody>
+							) }
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 
 			<div { ...blockProps }>

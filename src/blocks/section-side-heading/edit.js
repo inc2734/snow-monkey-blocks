@@ -12,10 +12,11 @@ import {
 } from '@wordpress/block-editor';
 
 import {
-	PanelBody,
 	SelectControl,
 	ToolbarButton,
 	ToolbarGroup,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
 
 import { useSelect } from '@wordpress/data';
@@ -37,6 +38,8 @@ import {
 } from '../section/components/background';
 
 const HORIZONTAL_JUSTIFY_CONTROLS = [ 'left', 'center', 'right' ];
+
+import metadata from './block.json';
 
 export default function ( {
 	attributes,
@@ -171,18 +174,8 @@ export default function ( {
 			fixedBackgroundTextureUrl,
 			topDividerVerticalPosition,
 			bottomDividerVerticalPosition,
-			// backgroundText,
 		} ),
 	};
-
-	// const sectionStyles = {};
-	// if ( textColor ) {
-	// 	sectionStyles.color = textColor;
-	// }
-
-	// const contentsWrapperStyles = {
-	// 	width: !! contentsMaxWidth && ! isSlim ? contentsMaxWidth : undefined,
-	// };
 
 	const blockProps = useBlockProps( {
 		className: classes,
@@ -200,172 +193,6 @@ export default function ( {
 		}
 	);
 
-	const onChangeHeadingColumnSize = ( value ) =>
-		setAttributes( {
-			headingColumnSize: value,
-		} );
-
-	const onChangeTextColor = ( value ) =>
-		setAttributes( {
-			textColor: value,
-		} );
-
-	const onChangeContentJustification = ( value ) =>
-		setAttributes( {
-			contentJustification: value,
-		} );
-
-	const onChangeItemsAlignment = ( value ) =>
-		setAttributes( {
-			itemsAlignment: value,
-		} );
-
-	const onChangeSubtitle = ( value ) =>
-		setAttributes( {
-			subtitle: value,
-		} );
-
-	const onChangeTitle = ( value ) =>
-		setAttributes( {
-			title: value,
-		} );
-
-	const onChangeLede = ( value ) =>
-		setAttributes( {
-			lede: value,
-		} );
-
-	const onChangeWrapperTagName = ( value ) =>
-		setAttributes( {
-			wrapperTagName: value,
-		} );
-
-	const onChangeTitleTagName = ( value ) =>
-		setAttributes( {
-			titleTagName: value,
-		} );
-
-	const onChangeHeight = ( value ) =>
-		setAttributes( {
-			height: value,
-		} );
-
-	const onChangeContainerAlign = ( value ) =>
-		setAttributes( {
-			containerAlign: value,
-		} );
-
-	const onChangeContentsMaxWidth = ( value ) =>
-		setAttributes( {
-			contentsMaxWidth: value,
-		} );
-
-	const onChangeIsSlim = ( value ) =>
-		setAttributes( {
-			isSlim: value,
-		} );
-
-	const onChangeBackgroundColor = ( value ) =>
-		setAttributes( {
-			backgroundColor: value,
-		} );
-
-	const onChangeBackgroundGradientColor = ( value ) =>
-		setAttributes( {
-			backgroundGradientColor: value,
-		} );
-
-	const onChangeBackgroundHorizontalPosition = ( value ) =>
-		setAttributes( {
-			backgroundHorizontalPosition: toNumber( value, -90, 90 ),
-		} );
-
-	const onChangeBackgroundVerticalPosition = ( value ) =>
-		setAttributes( {
-			backgroundVerticalPosition: toNumber( value, -90, 90 ),
-		} );
-
-	const onChangeIsBackgroundNoOver = ( value ) =>
-		setAttributes( {
-			isBackgroundNoOver: value,
-		} );
-
-	const onChangeBackgroundTexture = ( value ) =>
-		setAttributes( {
-			backgroundTexture: value,
-			backgroundTextureUrl: !! value
-				? `${ smb.pluginUrl }/dist/blocks/section/img/${ value }.png`
-				: undefined,
-		} );
-
-	const onChangeBackgroundTextureOpacity = ( value ) =>
-		setAttributes( {
-			backgroundTextureOpacity: toNumber( value, 0.1, 1 ),
-		} );
-
-	const onChangeFixedBackgroundColor = ( value ) =>
-		setAttributes( {
-			fixedBackgroundColor: value,
-		} );
-
-	const onChangeFixedBackgroundGradientColor = ( value ) =>
-		setAttributes( {
-			fixedBackgroundGradientColor: value,
-		} );
-
-	const onChangeFixedBackgroundTexture = ( value ) =>
-		setAttributes( {
-			fixedBackgroundTexture: value,
-			fixedBackgroundTextureUrl: !! value
-				? `${ smb.pluginUrl }/dist/blocks/section/img/${ value }.png`
-				: undefined,
-		} );
-
-	const onChangeFixedBackgroundTextureOpacity = ( value ) =>
-		setAttributes( {
-			fixedBackgroundTextureOpacity: toNumber( value, 0.1, 1 ),
-		} );
-
-	const onChangeTopDividerType = ( value ) =>
-		setAttributes( {
-			topDividerType: value,
-		} );
-
-	const onChangeTopDividerLevel = ( value ) =>
-		setAttributes( {
-			topDividerLevel: toNumber( value, -100, 100 ),
-		} );
-
-	const onChangeTopDividerColor = ( value ) =>
-		setAttributes( {
-			topDividerColor: value,
-		} );
-
-	const onChangeTopDividerVerticalPosition = ( value ) =>
-		setAttributes( {
-			topDividerVerticalPosition: value,
-		} );
-
-	const onChangeBottomDividerType = ( value ) =>
-		setAttributes( {
-			bottomDividerType: value,
-		} );
-
-	const onChangeBottomDividerLevel = ( value ) =>
-		setAttributes( {
-			bottomDividerLevel: toNumber( value, -100, 100 ),
-		} );
-
-	const onChangeBottomDividerColor = ( value ) =>
-		setAttributes( {
-			bottomDividerColor: value,
-		} );
-
-	const onChangeBottomDividerVerticalPosition = ( value ) =>
-		setAttributes( {
-			bottomDividerVerticalPosition: value,
-		} );
-
 	return (
 		<>
 			<InspectorControls>
@@ -375,7 +202,10 @@ export default function ( {
 					settings={ [
 						{
 							colorValue: textColor,
-							onColorChange: onChangeTextColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									textColor: value,
+								} ),
 							label: __( 'Text color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -390,58 +220,108 @@ export default function ( {
 					settings={ [
 						{
 							wrapperTagNameValue: wrapperTagName,
-							onWrapperTagNameChange: onChangeWrapperTagName,
+							onWrapperTagNameChange: ( value ) =>
+								setAttributes( {
+									wrapperTagName: value,
+								} ),
+							defaultValue:
+								metadata.attributes.wrapperTagName.default,
 						},
 						{
 							titleTagNameValue: titleTagName,
-							onTitleTagNameChange: onChangeTitleTagName,
+							onTitleTagNameChange: ( value ) =>
+								setAttributes( {
+									titleTagName: value,
+								} ),
+							defaultValue:
+								metadata.attributes.titleTagName.default,
 						},
 						{
 							heightValue: height,
-							onHeightChange: onChangeHeight,
+							onHeightChange: ( value ) =>
+								setAttributes( {
+									height: value,
+								} ),
+							defaultValue: metadata.attributes.height.default,
 						},
 						{
 							containerAlignValue: containerAlign,
-							onContainerAlignChange: onChangeContainerAlign,
+							onContainerAlignChange: ( value ) =>
+								setAttributes( {
+									containerAlign: value,
+								} ),
+							defaultValue:
+								metadata.attributes.containerAlign.default,
 						},
 						{
 							contentsMaxWidthValue: contentsMaxWidth,
-							onContentsMaxWidthChange: onChangeContentsMaxWidth,
+							onContentsMaxWidthChange: ( value ) =>
+								setAttributes( {
+									contentsMaxWidth: value,
+								} ),
+							defaultValue:
+								metadata.attributes.contentsMaxWidth.default,
 						},
 						{
 							isSlimValue: isSlim,
-							onIsSlimChange: onChangeIsSlim,
+							onIsSlimChange: ( value ) =>
+								setAttributes( {
+									isSlim: value,
+								} ),
+							defaultValue: metadata.attributes.isSlim.default,
 						},
 					] }
 				/>
 
-				<PanelBody
-					title={ __( 'Columns settings', 'snow-monkey-blocks' ) }
-					initialOpen={ true }
+				<ToolsPanel
+					label={ __( 'Columns settings', 'snow-monkey-blocks' ) }
 				>
-					<SelectControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							headingColumnSize !==
+							metadata.attributes.headingColumnSize.default
+						}
+						isShownByDefault
 						label={ __(
 							'Heading column size',
 							'snow-monkey-blocks'
 						) }
-						value={ headingColumnSize }
-						onChange={ onChangeHeadingColumnSize }
-						options={ [
-							{
-								value: 50,
-								label: __( '50%', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 33,
-								label: __( '33%', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 25,
-								label: __( '25%', 'snow-monkey-blocks' ),
-							},
-						] }
-					/>
-				</PanelBody>
+						onDeselect={ () =>
+							setAttributes( {
+								headingColumnSize:
+									metadata.attributes.headingColumnSize
+										.default,
+							} )
+						}
+					>
+						<SelectControl
+							label={ __(
+								'Heading column size',
+								'snow-monkey-blocks'
+							) }
+							value={ headingColumnSize }
+							onChange={ ( value ) =>
+								setAttributes( {
+									headingColumnSize: value,
+								} )
+							}
+							options={ [
+								{
+									value: 50,
+									label: __( '50%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 33,
+									label: __( '33%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 25,
+									label: __( '25%', 'snow-monkey-blocks' ),
+								},
+							] }
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 
 				<PanelSectionMovableBackgroundSettings
 					hasColor={ backgroundColor || backgroundGradientColor }
@@ -454,32 +334,83 @@ export default function ( {
 						{
 							colorValue: backgroundColor,
 							gradientValue: backgroundGradientColor,
-							onColorChange: onChangeBackgroundColor,
-							onGradientChange: onChangeBackgroundGradientColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									backgroundColor: value,
+								} ),
+							onGradientChange: ( value ) =>
+								setAttributes( {
+									backgroundGradientColor: value,
+								} ),
+							defaultColorValue:
+								metadata.attributes.backgroundColor.default,
+							defaultGradientValue:
+								metadata.attributes.backgroundGradientColor
+									.default,
 						},
 						{
 							horizontalPositionValue:
 								backgroundHorizontalPosition,
-							onHorizontalPositionChange:
-								onChangeBackgroundHorizontalPosition,
+							onHorizontalPositionChange: ( value ) =>
+								setAttributes( {
+									backgroundHorizontalPosition: toNumber(
+										value,
+										-90,
+										90
+									),
+								} ),
+							defaultValue:
+								metadata.attributes.backgroundHorizontalPosition
+									.default,
 						},
 						{
 							verticalPositionValue: backgroundVerticalPosition,
-							onVerticalPositionChange:
-								onChangeBackgroundVerticalPosition,
+							onVerticalPositionChange: ( value ) =>
+								setAttributes( {
+									backgroundVerticalPosition: toNumber(
+										value,
+										-90,
+										90
+									),
+								} ),
+							defaultValue:
+								metadata.attributes.backgroundVerticalPosition
+									.default,
 						},
 						{
 							isNoOverValue: isBackgroundNoOver,
-							onIsNoOverChange: onChangeIsBackgroundNoOver,
+							onIsNoOverChange: ( value ) =>
+								setAttributes( {
+									isBackgroundNoOver: value,
+								} ),
+							defaultValue:
+								metadata.attributes.isBackgroundNoOver.default,
 						},
 						{
 							textureValue: backgroundTexture,
-							onTextureChange: onChangeBackgroundTexture,
+							onTextureChange: ( value ) =>
+								setAttributes( {
+									backgroundTexture: value,
+									backgroundTextureUrl: !! value
+										? `${ smb.pluginUrl }/dist/blocks/section/img/${ value }.png`
+										: undefined,
+								} ),
+							defaultValue:
+								metadata.attributes.backgroundTexture.default,
 						},
 						{
 							textureOpacityValue: backgroundTextureOpacity,
-							onTextureOpacityChange:
-								onChangeBackgroundTextureOpacity,
+							onTextureOpacityChange: ( value ) =>
+								setAttributes( {
+									backgroundTextureOpacity: toNumber(
+										value,
+										0.1,
+										1
+									),
+								} ),
+							defaultValue:
+								metadata.attributes.backgroundTextureOpacity
+									.default,
 						},
 					] }
 				/>
@@ -490,18 +421,47 @@ export default function ( {
 						{
 							colorValue: fixedBackgroundColor,
 							gradientValue: fixedBackgroundGradientColor,
-							onColorChange: onChangeFixedBackgroundColor,
-							onGradientChange:
-								onChangeFixedBackgroundGradientColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									fixedBackgroundColor: value,
+								} ),
+							onGradientChange: ( value ) =>
+								setAttributes( {
+									fixedBackgroundGradientColor: value,
+								} ),
+							defaultColorValue:
+								metadata.attributes.fixedBackgroundColor
+									.default,
+							defaultGradientValue:
+								metadata.attributes.fixedBackgroundGradientColor
+									.default,
 						},
 						{
 							textureValue: fixedBackgroundTexture,
-							onTextureChange: onChangeFixedBackgroundTexture,
+							onTextureChange: ( value ) =>
+								setAttributes( {
+									fixedBackgroundTexture: value,
+									fixedBackgroundTextureUrl: !! value
+										? `${ smb.pluginUrl }/dist/blocks/section/img/${ value }.png`
+										: undefined,
+								} ),
+							defaultValue:
+								metadata.attributes.fixedBackgroundTexture
+									.default,
 						},
 						{
 							textureOpacityValue: fixedBackgroundTextureOpacity,
-							onTextureOpacityChange:
-								onChangeFixedBackgroundTextureOpacity,
+							onTextureOpacityChange: ( value ) =>
+								setAttributes( {
+									fixedBackgroundTextureOpacity: toNumber(
+										value,
+										0.1,
+										1
+									),
+								} ),
+							defaultValue:
+								metadata.attributes
+									.fixedBackgroundTextureOpacity.default,
 						},
 					] }
 				/>
@@ -510,20 +470,44 @@ export default function ( {
 					settings={ [
 						{
 							typeValue: topDividerType,
-							onTypeChange: onChangeTopDividerType,
+							onTypeChange: ( value ) =>
+								setAttributes( {
+									topDividerType: value,
+								} ),
+							defaultValue:
+								metadata.attributes.topDividerType.default,
 						},
 						{
 							levelValue: topDividerLevel,
-							onLevelChange: onChangeTopDividerLevel,
+							onLevelChange: ( value ) =>
+								setAttributes( {
+									topDividerLevel: toNumber(
+										value,
+										-100,
+										100
+									),
+								} ),
+							defaultValue:
+								metadata.attributes.topDividerLevel.default,
 						},
 						{
 							colorValue: topDividerColor,
-							onColorChange: onChangeTopDividerColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									topDividerColor: value,
+								} ),
+							defaultColorValue:
+								metadata.attributes.topDividerColor.default,
 						},
 						{
 							verticalPosition: topDividerVerticalPosition,
-							onVerticalPositionChange:
-								onChangeTopDividerVerticalPosition,
+							onVerticalPositionChange: ( value ) =>
+								setAttributes( {
+									topDividerVerticalPosition: value,
+								} ),
+							defaultValue:
+								metadata.attributes.topDividerVerticalPosition
+									.default,
 						},
 					] }
 				/>
@@ -532,20 +516,44 @@ export default function ( {
 					settings={ [
 						{
 							typeValue: bottomDividerType,
-							onTypeChange: onChangeBottomDividerType,
+							onTypeChange: ( value ) =>
+								setAttributes( {
+									bottomDividerType: value,
+								} ),
+							defaultValue:
+								metadata.attributes.bottomDividerType.default,
 						},
 						{
 							levelValue: bottomDividerLevel,
-							onLevelChange: onChangeBottomDividerLevel,
+							onLevelChange: ( value ) =>
+								setAttributes( {
+									bottomDividerLevel: toNumber(
+										value,
+										-100,
+										100
+									),
+								} ),
+							defaultValue:
+								metadata.attributes.bottomDividerLevel.default,
 						},
 						{
 							colorValue: bottomDividerColor,
-							onColorChange: onChangeBottomDividerColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									bottomDividerColor: value,
+								} ),
+							defaultColorValue:
+								metadata.attributes.bottomDividerColor.default,
 						},
 						{
 							verticalPosition: bottomDividerVerticalPosition,
-							onVerticalPositionChange:
-								onChangeBottomDividerVerticalPosition,
+							onVerticalPositionChange: ( value ) =>
+								setAttributes( {
+									bottomDividerVerticalPosition: value,
+								} ),
+							defaultValue:
+								metadata.attributes
+									.bottomDividerVerticalPosition.default,
 						},
 					] }
 				/>
@@ -554,14 +562,22 @@ export default function ( {
 			<BlockControls gruop="block">
 				{ isItemsAlignmentable && (
 					<BlockVerticalAlignmentToolbar
-						onChange={ onChangeItemsAlignment }
+						onChange={ ( value ) =>
+							setAttributes( {
+								itemsAlignment: value,
+							} )
+						}
 						value={ itemsAlignment }
 					/>
 				) }
 
 				<JustifyToolbar
 					allowedControls={ HORIZONTAL_JUSTIFY_CONTROLS }
-					onChange={ onChangeContentJustification }
+					onChange={ ( value ) =>
+						setAttributes( {
+							contentJustification: value,
+						} )
+					}
 					value={ contentJustification }
 				/>
 
@@ -623,17 +639,25 @@ export default function ( {
 										settings={ [
 											{
 												subtitleValue: subtitle,
-												onSubtitleChange:
-													onChangeSubtitle,
+												onSubtitleChange: ( value ) =>
+													setAttributes( {
+														subtitle: value,
+													} ),
 											},
 											{
 												titleTagNameValue: titleTagName,
 												titleValue: title,
-												onTitleChange: onChangeTitle,
+												onTitleChange: ( value ) =>
+													setAttributes( {
+														title: value,
+													} ),
 											},
 											{
 												ledeValue: lede,
-												onLedeChange: onChangeLede,
+												onLedeChange: ( value ) =>
+													setAttributes( {
+														lede: value,
+													} ),
 											},
 										] }
 									/>

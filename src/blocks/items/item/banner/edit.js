@@ -2,12 +2,13 @@ import classnames from 'classnames';
 
 import {
 	BaseControl,
-	PanelBody,
 	Popover,
 	RangeControl,
 	SelectControl,
 	ToggleControl,
 	ToolbarButton,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
 
 import {
@@ -17,11 +18,11 @@ import {
 	RichText,
 	useBlockProps,
 	__experimentalBlockAlignmentMatrixControl as BlockAlignmentMatrixControl,
-	__experimentalColorGradientControl as ColorGradientControl,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 	__experimentalLinkControl as LinkControl,
 	__experimentalImageSizeControl as ImageSizeControl,
+	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
 } from '@wordpress/block-editor';
 
 import { useMergeRefs } from '@wordpress/compose';
@@ -44,6 +45,8 @@ if ( undefined === useMultipleOriginColorsAndGradients ) {
 
 const ALLOWED_TYPES = [ 'image' ];
 const DEFAULT_MEDIA_SIZE_SLUG = 'full';
+
+import metadata from './block.json';
 
 export default function ( {
 	attributes,
@@ -130,111 +133,6 @@ export default function ( {
 		ref: useMergeRefs( [ setPopoverAnchor, ref ] ),
 	} );
 
-	const onSelectImage = ( media ) => {
-		const newImageSizeSlug = !! media?.sizes[ imageSizeSlug ]
-			? imageSizeSlug
-			: DEFAULT_MEDIA_SIZE_SLUG;
-		const newImageUrl = media?.sizes[ newImageSizeSlug ]?.url;
-		const newImageWidth = media?.sizes[ newImageSizeSlug ]?.width;
-		const newImageHeight = media?.sizes[ newImageSizeSlug ]?.height;
-
-		setAttributes( {
-			imageURL: newImageUrl,
-			imageID: media.id,
-			imageAlt: media.alt,
-			imageWidth: newImageWidth,
-			imageHeight: newImageHeight,
-			imageSizeSlug: newImageSizeSlug,
-		} );
-	};
-
-	const onSelectImageURL = ( newURL ) => {
-		if ( newURL !== imageURL ) {
-			setAttributes( {
-				imageURL: newURL,
-				imageID: 0,
-				mediaSizeSlug: DEFAULT_MEDIA_SIZE_SLUG,
-			} );
-		}
-	};
-
-	const onRemoveImage = () =>
-		setAttributes( {
-			imageURL: '',
-			imageAlt: '',
-			imageWidth: '',
-			imageHeight: '',
-			imageID: 0,
-		} );
-
-	const onChangeImageSize = ( value ) =>
-		setAttributes( {
-			imageSize: value,
-		} );
-
-	const onChangeBlur = ( value ) =>
-		setAttributes( {
-			blur: value,
-		} );
-
-	const onChangeMaskOpacity = ( value ) =>
-		setAttributes( {
-			maskOpacity: toNumber( ( 1 - value ).toFixed( 1 ), 0, 1 ),
-		} );
-
-	const onChangeMaskColor = ( value ) =>
-		setAttributes( {
-			maskColor: value,
-		} );
-
-	const onChangeMaskGradientColor = ( value ) =>
-		setAttributes( {
-			maskGradientColor: value,
-		} );
-
-	const onChangeTextColor = ( value ) =>
-		setAttributes( {
-			textColor: value,
-		} );
-
-	const onChangeTitle = ( value ) =>
-		setAttributes( {
-			title: value,
-		} );
-
-	const onChangeLede = ( value ) =>
-		setAttributes( {
-			lede: value,
-		} );
-
-	const onChangeUrl = ( {
-		url: newUrl,
-		opensInNewTab: newOpensInNewTab,
-	} ) => {
-		setAttributes( {
-			url: newUrl,
-			target: ! newOpensInNewTab ? '_self' : '_blank',
-		} );
-	};
-
-	const onChangeImageSizeSlug = ( value ) => {
-		const newImageUrl = image?.media_details?.sizes?.[ value ]?.source_url;
-		const newImageWidth = image?.media_details?.sizes?.[ value ]?.width;
-		const newImageHeight = image?.media_details?.sizes?.[ value ]?.height;
-
-		setAttributes( {
-			imageURL: newImageUrl,
-			imageWidth: newImageWidth,
-			imageHeight: newImageHeight,
-			imageSizeSlug: value,
-		} );
-	};
-
-	const onChangeContentsAlignment = ( value ) =>
-		setAttributes( {
-			contentsAlignment: value,
-		} );
-
 	const unlink = () => {
 		setAttributes( {
 			url: undefined,
@@ -252,7 +150,10 @@ export default function ( {
 					settings={ [
 						{
 							colorValue: textColor,
-							onColorChange: onChangeTextColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									textColor: value,
+								} ),
 							label: __( 'Text color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -260,109 +161,287 @@ export default function ( {
 					__experimentalIsRenderedInSidebar={ true }
 				></PanelColorGradientSettings>
 
-				<PanelBody
-					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
+				<ToolsPanel
+					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
-					<BaseControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							imageURL !== metadata.attributes.imageURL.default
+						}
+						isShownByDefault
 						label={ __( 'Image', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/items-banner/image"
+						onDeselect={ () =>
+							setAttributes( {
+								imageID: metadata.attributes.imageID.default,
+								imageURL: metadata.attributes.imageURL.default,
+								imageAlt: metadata.attributes.imageAlt.default,
+								imageWidth:
+									metadata.attributes.imageWidth.default,
+								imageHeight:
+									metadata.attributes.imageHeight.default,
+							} )
+						}
 					>
-						<Figure
-							src={ imageURL }
-							id={ imageID }
-							alt={ imageAlt }
-							width={ imageWidth }
-							height={ imageHeight }
-							onSelect={ onSelectImage }
-							onSelectURL={ onSelectImageURL }
-							onRemove={ onRemoveImage }
-							allowedTypes={ ALLOWED_TYPES }
-						/>
-					</BaseControl>
+						<BaseControl
+							label={ __( 'Image', 'snow-monkey-blocks' ) }
+							id="snow-monkey-blocks/items-banner/image"
+						>
+							<Figure
+								src={ imageURL }
+								id={ imageID }
+								alt={ imageAlt }
+								width={ imageWidth }
+								height={ imageHeight }
+								onSelect={ ( media ) => {
+									const newImageSizeSlug = !! media?.sizes[
+										imageSizeSlug
+									]
+										? imageSizeSlug
+										: DEFAULT_MEDIA_SIZE_SLUG;
+									const newImageUrl =
+										media?.sizes[ newImageSizeSlug ]?.url;
+									const newImageWidth =
+										media?.sizes[ newImageSizeSlug ]?.width;
+									const newImageHeight =
+										media?.sizes[ newImageSizeSlug ]
+											?.height;
 
-					<SelectControl
+									setAttributes( {
+										imageURL: newImageUrl,
+										imageID: media.id,
+										imageAlt: media.alt,
+										imageWidth: newImageWidth,
+										imageHeight: newImageHeight,
+										imageSizeSlug: newImageSizeSlug,
+									} );
+								} }
+								onSelectURL={ ( newURL ) => {
+									if ( newURL !== imageURL ) {
+										setAttributes( {
+											imageURL: newURL,
+											imageID: 0,
+											mediaSizeSlug:
+												DEFAULT_MEDIA_SIZE_SLUG,
+										} );
+									}
+								} }
+								onRemove={ () =>
+									setAttributes( {
+										imageID:
+											metadata.attributes.imageID.default,
+										imageURL:
+											metadata.attributes.imageURL
+												.default,
+										imageAlt:
+											metadata.attributes.imageAlt
+												.default,
+										imageWidth:
+											metadata.attributes.imageWidth
+												.default,
+										imageHeight:
+											metadata.attributes.imageHeight
+												.default,
+									} )
+								}
+								allowedTypes={ ALLOWED_TYPES }
+							/>
+						</BaseControl>
+					</ToolsPanelItem>
+
+					<ToolsPanelItem
+						hasValue={ () =>
+							imageSize !== metadata.attributes.imageSize.default
+						}
+						isShownByDefault
 						label={ __(
 							'Image aspect ratio',
 							'snow-monkey-blocks'
 						) }
-						value={ imageSize }
-						options={ [
-							{
-								value: 'default',
-								label: __(
-									'Fit to the image',
-									'snow-monkey-blocks'
-								),
-							},
-							{
-								value: 'contents',
-								label: __(
-									'Fit to the contents',
-									'snow-monkey-blocks'
-								),
-							},
-							{
-								value: 'standard',
-								label: __( '4:3', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'wide',
-								label: __( '16:9', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'vstandard',
-								label: __( '3:4', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'vwide',
-								label: __( '9:16', 'snow-monkey-blocks' ),
-							},
-						] }
-						onChange={ onChangeImageSize }
-					/>
+						onDeselect={ () =>
+							setAttributes( {
+								imageSize:
+									metadata.attributes.imageSize.default,
+							} )
+						}
+					>
+						<SelectControl
+							label={ __(
+								'Image aspect ratio',
+								'snow-monkey-blocks'
+							) }
+							value={ imageSize }
+							options={ [
+								{
+									value: 'default',
+									label: __(
+										'Fit to the image',
+										'snow-monkey-blocks'
+									),
+								},
+								{
+									value: 'contents',
+									label: __(
+										'Fit to the contents',
+										'snow-monkey-blocks'
+									),
+								},
+								{
+									value: 'standard',
+									label: __( '4:3', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'wide',
+									label: __( '16:9', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'vstandard',
+									label: __( '3:4', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'vwide',
+									label: __( '9:16', 'snow-monkey-blocks' ),
+								},
+							] }
+							onChange={ ( value ) =>
+								setAttributes( {
+									imageSize: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
 
-					<ImageSizeControl
-						onChangeImage={ onChangeImageSizeSlug }
-						slug={ imageSizeSlug }
-						imageSizeOptions={ imageSizeOptions }
-						isResizable={ false }
-						imageSizeHelp={ __(
-							'Select which image size to load.'
+					{ 0 < imageSizeOptions.length && (
+						<ToolsPanelItem
+							hasValue={ () =>
+								imageSizeSlug !==
+								metadata.attributes.imageSizeSlug.default
+							}
+							isShownByDefault
+							label={ __( 'Image size', 'snow-monkey-blocks' ) }
+							onDeselect={ () =>
+								setAttributes( {
+									imageSizeSlug:
+										metadata.attributes.imageSizeSlug
+											.default,
+								} )
+							}
+						>
+							<ImageSizeControl
+								slug={ imageSizeSlug }
+								imageSizeOptions={ imageSizeOptions }
+								isResizable={ false }
+								imageSizeHelp={ __(
+									'Select which image size to load.'
+								) }
+								onChangeImage={ ( value ) => {
+									const newImageUrl =
+										image?.media_details?.sizes?.[ value ]
+											?.source_url;
+									const newImageWidth =
+										image?.media_details?.sizes?.[ value ]
+											?.width;
+									const newImageHeight =
+										image?.media_details?.sizes?.[ value ]
+											?.height;
+
+									setAttributes( {
+										imageURL: newImageUrl,
+										imageWidth: newImageWidth,
+										imageHeight: newImageHeight,
+										imageSizeSlug: value,
+									} );
+								} }
+							/>
+						</ToolsPanelItem>
+					) }
+
+					<ToolsPanelItem
+						hasValue={ () =>
+							blur !== metadata.attributes.blur.default
+						}
+						isShownByDefault
+						label={ __(
+							'Image aspect ratio',
+							'snow-monkey-blocks'
 						) }
-					/>
+						onDeselect={ () =>
+							setAttributes( {
+								blur: metadata.attributes.blur.default,
+							} )
+						}
+					>
+						<ToggleControl
+							label={ __( 'Shade off', 'snow-monkey-blocks' ) }
+							checked={ blur }
+							onChange={ ( value ) =>
+								setAttributes( {
+									blur: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 
-					<ToggleControl
-						label={ __( 'Shade off', 'snow-monkey-blocks' ) }
-						checked={ blur }
-						onChange={ onChangeBlur }
-					/>
-				</PanelBody>
+				<ToolsPanel label={ __( 'Mask', 'snow-monkey-blocks' ) }>
+					<div className="smb-color-gradient-settings-dropdown">
+						<ColorGradientSettingsDropdown
+							settings={ [
+								{
+									label: __( 'Color', 'snow-monkey-blocks' ),
+									colorValue: maskColor,
+									onColorChange: ( value ) =>
+										setAttributes( {
+											maskColor: value,
+										} ),
+									gradientValue: maskGradientColor,
+									onGradientChange: ( value ) =>
+										setAttributes( {
+											maskGradientColor: value,
+										} ),
+								},
+							] }
+							__experimentalIsItemGroup={ false }
+							__experimentalHasMultipleOrigins
+							__experimentalIsRenderedInSidebar
+							{ ...useMultipleOriginColorsAndGradients() }
+						/>
+					</div>
 
-				<PanelBody
-					title={ __( 'Mask', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
-				>
-					<ColorGradientControl
-						className="smb-inpanel-color-gradient-control"
-						label={ __( 'Color', 'snow-monkey-blocks' ) }
-						colorValue={ maskColor }
-						onColorChange={ onChangeMaskColor }
-						gradientValue={ maskGradientColor }
-						onGradientChange={ onChangeMaskGradientColor }
-						{ ...useMultipleOriginColorsAndGradients() }
-						__experimentalHasMultipleOrigins={ true }
-						__experimentalIsRenderedInSidebar={ true }
-					/>
-
-					<RangeControl
-						label={ __( 'Opacity', 'snow-monkey-blocks' ) }
-						value={ Number( ( 1 - maskOpacity ).toFixed( 1 ) ) }
-						onChange={ onChangeMaskOpacity }
-						min={ 0 }
-						max={ 1 }
-						step={ 0.1 }
-					/>
-				</PanelBody>
+					<ToolsPanelItem
+						hasValue={ () =>
+							maskOpacity !==
+							metadata.attributes.maskOpacity.default
+						}
+						isShownByDefault
+						label={ __(
+							'Image aspect ratio',
+							'snow-monkey-blocks'
+						) }
+						onDeselect={ () =>
+							setAttributes( {
+								maskOpacity:
+									metadata.attributes.maskOpacity.default,
+							} )
+						}
+					>
+						<RangeControl
+							label={ __( 'Opacity', 'snow-monkey-blocks' ) }
+							value={ Number( ( 1 - maskOpacity ).toFixed( 1 ) ) }
+							onChange={ ( value ) =>
+								setAttributes( {
+									maskOpacity: toNumber(
+										( 1 - value ).toFixed( 1 ),
+										0,
+										1
+									),
+								} )
+							}
+							min={ 0 }
+							max={ 1 }
+							step={ 0.1 }
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 
 			<div { ...blockProps }>
@@ -405,7 +484,11 @@ export default function ( {
 											'snow-monkey-blocks'
 										) }
 										value={ title }
-										onChange={ onChangeTitle }
+										onChange={ ( value ) =>
+											setAttributes( {
+												title: value,
+											} )
+										}
 										ref={ richTextRef }
 									/>
 								) }
@@ -419,7 +502,11 @@ export default function ( {
 											'snow-monkey-blocks'
 										) }
 										value={ lede }
-										onChange={ onChangeLede }
+										onChange={ ( value ) =>
+											setAttributes( {
+												lede: value,
+											} )
+										}
 									/>
 								) }
 							</div>
@@ -448,7 +535,11 @@ export default function ( {
 			<BlockControls group="block">
 				<AlignmentToolbar
 					value={ contentsAlignment }
-					onChange={ onChangeContentsAlignment }
+					onChange={ ( value ) =>
+						setAttributes( {
+							contentsAlignment: value,
+						} )
+					}
 				/>
 
 				{ ! isURLSet && (
@@ -485,7 +576,15 @@ export default function ( {
 					<LinkControl
 						className="wp-block-navigation-link__inline-link-input"
 						value={ { url, opensInNewTab } }
-						onChange={ onChangeUrl }
+						onChange={ ( {
+							url: newUrl,
+							opensInNewTab: newOpensInNewTab,
+						} ) => {
+							setAttributes( {
+								url: newUrl,
+								target: ! newOpensInNewTab ? '_self' : '_blank',
+							} );
+						} }
 						onRemove={ () => {
 							unlink();
 							richTextRef.current?.focus();

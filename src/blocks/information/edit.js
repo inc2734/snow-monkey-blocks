@@ -7,7 +7,13 @@ import {
 	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
-import { PanelBody, SelectControl, ToggleControl } from '@wordpress/components';
+import {
+	SelectControl,
+	ToggleControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
+} from '@wordpress/components';
+
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
@@ -15,6 +21,8 @@ import { useMigrateDoubleHyphenToSingleHyphen } from '@smb/hooks';
 
 const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/information-item' ];
 const TEMPLATE = [ [ 'snow-monkey-blocks/information-item' ] ];
+
+import metadata from './block.json';
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
 	useMigrateDoubleHyphenToSingleHyphen( clientId, [
@@ -54,98 +62,173 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		}
 	);
 
-	const onChangeLabelColumnSize = ( value ) =>
-		setAttributes( {
-			labelColumnSize: parseInt( value ),
-		} );
-
-	const onChangeLabelAlign = ( value ) =>
-		setAttributes( {
-			labelAlign: value,
-		} );
-
-	const onChangeLabelVerticalAlign = ( value ) =>
-		setAttributes( {
-			labelVerticalAlign: value,
-		} );
-
-	const onChangeSmIsSplitColumn = ( value ) =>
-		setAttributes( {
-			smIsSplitColumn: ! value,
-		} );
-
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody
-					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
+				<ToolsPanel
+					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
-					<SelectControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							labelColumnSize !==
+							metadata.attributes.labelColumnSize.default
+						}
+						isShownByDefault
 						label={ __(
 							'Label column size',
 							'snow-monkey-blocks'
 						) }
-						value={ labelColumnSize }
-						options={ [
-							{
-								value: 33,
-								label: __( '33%', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 25,
-								label: __( '25%', 'snow-monkey-blocks' ),
-							},
-						] }
-						onChange={ onChangeLabelColumnSize }
-					/>
+						onDeselect={ () =>
+							setAttributes( {
+								labelColumnSize:
+									metadata.attributes.labelColumnSize.default,
+							} )
+						}
+					>
+						<SelectControl
+							label={ __(
+								'Label column size',
+								'snow-monkey-blocks'
+							) }
+							value={ labelColumnSize }
+							options={ [
+								{
+									value: 33,
+									label: __( '33%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 25,
+									label: __( '25%', 'snow-monkey-blocks' ),
+								},
+							] }
+							onChange={ ( value ) =>
+								setAttributes( {
+									labelColumnSize: parseInt( value ),
+								} )
+							}
+						/>
+					</ToolsPanelItem>
 
-					<SelectControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							labelAlign !==
+							metadata.attributes.labelAlign.default
+						}
+						isShownByDefault
 						label={ __(
 							'Label horizontal alignment',
 							'snow-monkey-blocks'
 						) }
-						value={ labelAlign }
-						options={ [
-							{
-								value: '',
-								label: __( 'Left side', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'right',
-								label: __( 'Right side', 'snow-monkey-blocks' ),
-							},
-						] }
-						onChange={ onChangeLabelAlign }
-					/>
+						onDeselect={ () =>
+							setAttributes( {
+								labelAlign:
+									metadata.attributes.labelAlign.default,
+							} )
+						}
+					>
+						<SelectControl
+							label={ __(
+								'Label horizontal alignment',
+								'snow-monkey-blocks'
+							) }
+							value={ labelAlign }
+							options={ [
+								{
+									value: '',
+									label: __(
+										'Left side',
+										'snow-monkey-blocks'
+									),
+								},
+								{
+									value: 'right',
+									label: __(
+										'Right side',
+										'snow-monkey-blocks'
+									),
+								},
+							] }
+							onChange={ ( value ) =>
+								setAttributes( {
+									labelAlign: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
 
-					<SelectControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							labelVerticalAlign !==
+							metadata.attributes.labelVerticalAlign.default
+						}
+						isShownByDefault
 						label={ __(
 							'Label vertical alignment',
 							'snow-monkey-blocks'
 						) }
-						value={ labelVerticalAlign }
-						options={ [
-							{
-								value: '',
-								label: __( 'Top', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'middle',
-								label: __( 'Middle', 'snow-monkey-blocks' ),
-							},
-						] }
-						onChange={ onChangeLabelVerticalAlign }
-					/>
+						onDeselect={ () =>
+							setAttributes( {
+								labelVerticalAlign:
+									metadata.attributes.labelVerticalAlign
+										.default,
+							} )
+						}
+					>
+						<SelectControl
+							label={ __(
+								'Label vertical alignment',
+								'snow-monkey-blocks'
+							) }
+							value={ labelVerticalAlign }
+							options={ [
+								{
+									value: '',
+									label: __( 'Top', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'middle',
+									label: __( 'Middle', 'snow-monkey-blocks' ),
+								},
+							] }
+							onChange={ ( value ) =>
+								setAttributes( {
+									labelVerticalAlign: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
 
-					<ToggleControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							smIsSplitColumn !==
+							metadata.attributes.smIsSplitColumn.default
+						}
+						isShownByDefault
 						label={ __(
 							"Don't split the column in a smartphone",
 							'snow-monkey-blocks'
 						) }
-						checked={ ! smIsSplitColumn }
-						onChange={ onChangeSmIsSplitColumn }
-					/>
-				</PanelBody>
+						onDeselect={ () =>
+							setAttributes( {
+								smIsSplitColumn:
+									metadata.attributes.smIsSplitColumn.default,
+							} )
+						}
+					>
+						<ToggleControl
+							label={ __(
+								"Don't split the column in a smartphone",
+								'snow-monkey-blocks'
+							) }
+							checked={ ! smIsSplitColumn }
+							onChange={ ( value ) =>
+								setAttributes( {
+									smIsSplitColumn: ! value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 
 			<div

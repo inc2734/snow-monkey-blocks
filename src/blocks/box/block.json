@@ -20,11 +20,11 @@
 			"type": "string"
 		},
 		"borderWidth": {
-			"type": "number",
+			"type": "string",
 			"default": 1
 		},
 		"borderRadius": {
-			"type": "number"
+			"type": "string"
 		},
 		"opacity": {
 			"type": "number",

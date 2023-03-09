@@ -9,7 +9,13 @@ import {
 	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
-import { PanelBody, RangeControl, ToggleControl } from '@wordpress/components';
+import {
+	RangeControl,
+	ToggleControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
+} from '@wordpress/components';
+
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
@@ -30,6 +36,8 @@ const HORIZONTAL_JUSTIFY_CONTROLS = [
 	'right',
 	'space-between',
 ];
+
+import metadata from './block.json';
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
 	useMigrateDoubleHyphenToSingleHyphen( clientId, [
@@ -85,96 +93,126 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		}
 	);
 
-	const onChangeLg = ( value ) =>
-		setAttributes( {
-			lg: toNumber( value, 1, 6 ),
-		} );
-
-	const onChangeMd = ( value ) =>
-		setAttributes( {
-			md: toNumber( value, 1, 6 ),
-		} );
-
-	const onChangeSm = ( value ) =>
-		setAttributes( {
-			sm: toNumber( value, 1, 6 ),
-		} );
-
-	const onChangeImagePadding = ( value ) =>
-		setAttributes( {
-			imagePadding: value,
-		} );
-
-	const onChangeContentJustification = ( value ) =>
-		setAttributes( { contentJustification: value } );
-
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody
-					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
+				<ToolsPanel
+					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
-					<ResponsiveTabPanel
-						desktop={ () => {
-							return (
-								<RangeControl
-									label={ __(
-										'Columns per row (Large window)',
-										'snow-monkey-blocks'
-									) }
-									value={ lg }
-									onChange={ onChangeLg }
-									min="1"
-									max="6"
-								/>
-							);
-						} }
-						tablet={ () => {
-							return (
-								<RangeControl
-									label={ __(
-										'Columns per row (Medium window)',
-										'snow-monkey-blocks'
-									) }
-									value={ md }
-									onChange={ onChangeMd }
-									min="1"
-									max="6"
-								/>
-							);
-						} }
-						mobile={ () => {
-							return (
-								<RangeControl
-									label={ __(
-										'Columns per row (Small window)',
-										'snow-monkey-blocks'
-									) }
-									value={ sm }
-									onChange={ onChangeSm }
-									min="1"
-									max="6"
-								/>
-							);
-						} }
-					/>
+					<ToolsPanelItem
+						hasValue={ () =>
+							lg !== metadata.attributes.lg.default ||
+							md !== metadata.attributes.md.default ||
+							sm !== metadata.attributes.sm.default
+						}
+						isShownByDefault
+						label={ __( 'Columns per row', 'snow-monkey-blocks' ) }
+						onDeselect={ () =>
+							setAttributes( {
+								lg: metadata.attributes.lg.default,
+								md: metadata.attributes.md.default,
+								sm: metadata.attributes.sm.default,
+							} )
+						}
+					>
+						<ResponsiveTabPanel
+							desktop={ () => {
+								return (
+									<RangeControl
+										label={ __(
+											'Columns per row (Large window)',
+											'snow-monkey-blocks'
+										) }
+										value={ lg }
+										onChange={ ( value ) =>
+											setAttributes( {
+												lg: toNumber( value, 1, 6 ),
+											} )
+										}
+										min="1"
+										max="6"
+									/>
+								);
+							} }
+							tablet={ () => {
+								return (
+									<RangeControl
+										label={ __(
+											'Columns per row (Medium window)',
+											'snow-monkey-blocks'
+										) }
+										value={ md }
+										onChange={ ( value ) =>
+											setAttributes( {
+												md: toNumber( value, 1, 6 ),
+											} )
+										}
+										min="1"
+										max="6"
+									/>
+								);
+							} }
+							mobile={ () => {
+								return (
+									<RangeControl
+										label={ __(
+											'Columns per row (Small window)',
+											'snow-monkey-blocks'
+										) }
+										value={ sm }
+										onChange={ ( value ) =>
+											setAttributes( {
+												sm: toNumber( value, 1, 6 ),
+											} )
+										}
+										min="1"
+										max="6"
+									/>
+								);
+							} }
+						/>
+					</ToolsPanelItem>
 
-					<ToggleControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							imagePadding !==
+							metadata.attributes.imagePadding.default
+						}
+						isShownByDefault
 						label={ __(
 							'Set padding around images',
 							'snow-monkey-blocks'
 						) }
-						checked={ imagePadding }
-						onChange={ onChangeImagePadding }
-					/>
-				</PanelBody>
+						onDeselect={ () =>
+							setAttributes( {
+								imagePadding:
+									metadata.attributes.imagePadding.default,
+							} )
+						}
+					>
+						<ToggleControl
+							label={ __(
+								'Set padding around images',
+								'snow-monkey-blocks'
+							) }
+							checked={ imagePadding }
+							onChange={ ( value ) =>
+								setAttributes( {
+									imagePadding: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 
 			<BlockControls group="block">
 				<JustifyToolbar
 					allowedControls={ HORIZONTAL_JUSTIFY_CONTROLS }
 					value={ contentJustification }
-					onChange={ onChangeContentJustification }
+					onChange={ ( value ) =>
+						setAttributes( { contentJustification: value } )
+					}
 				/>
 			</BlockControls>
 

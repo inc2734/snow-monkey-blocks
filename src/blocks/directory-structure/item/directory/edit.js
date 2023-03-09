@@ -9,7 +9,13 @@ import {
 	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
-import { BaseControl, Button, PanelBody } from '@wordpress/components';
+import {
+	BaseControl,
+	Button,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
+} from '@wordpress/components';
+
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
@@ -20,6 +26,8 @@ const ALLOWED_BLOCKS = [
 	'snow-monkey-blocks/directory-structure-item-directory',
 	'snow-monkey-blocks/directory-structure-item-file',
 ];
+
+import metadata from './block.json';
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
 	useMigrateDoubleHyphenToSingleHyphen( clientId, [
@@ -103,16 +111,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		},
 	];
 
-	const onChangeIconColor = ( value ) =>
-		setAttributes( {
-			iconColor: value,
-		} );
-
-	const onChangeName = ( value ) =>
-		setAttributes( {
-			name: value,
-		} );
-
 	return (
 		<>
 			<InspectorControls>
@@ -122,7 +120,10 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					settings={ [
 						{
 							colorValue: iconColor,
-							onColorChange: onChangeIconColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									iconColor: value,
+								} ),
 							label: __( 'Icon color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -130,42 +131,61 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					__experimentalIsRenderedInSidebar={ true }
 				/>
 
-				<PanelBody
-					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
+				<ToolsPanel
+					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
-					<BaseControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							iconVendor !==
+								metadata.attributes.iconVendor.default ||
+							iconClass !== metadata.attributes.iconClass.default
+						}
+						isShownByDefault
 						label={ __( 'Icon', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/directory-structure-item-directory/icon"
+						onDeselect={ () =>
+							setAttributes( {
+								iconVendor:
+									metadata.attributes.iconVendor.default,
+								iconClass:
+									metadata.attributes.iconClass.default,
+							} )
+						}
 					>
-						<div className="smb-list-icon-selector">
-							{ iconList.map( ( iconData ) => {
-								const onClickIcon = () => {
-									setAttributes( {
-										iconVendor: iconData.vendor,
-										iconClass: iconData.value,
-									} );
-								};
+						<BaseControl
+							label={ __( 'Icon', 'snow-monkey-blocks' ) }
+							id="snow-monkey-blocks/directory-structure-item-directory/icon"
+						>
+							<div className="smb-list-icon-selector">
+								{ iconList.map( ( iconData ) => {
+									const onClickIcon = () => {
+										setAttributes( {
+											iconVendor: iconData.vendor,
+											iconClass: iconData.value,
+										} );
+									};
 
-								return (
-									<Button
-										variant={
-											iconVendor === iconData.vendor &&
-											iconClass === iconData.value &&
-											'primary'
-										}
-										onClick={ onClickIcon }
-										key={ `icon_${ iconData.key }` }
-									>
-										<i
-											className={ `fa-fw ${ iconData.vendor } fa-${ iconData.value }` }
-											title={ iconData.label }
-										/>
-									</Button>
-								);
-							} ) }
-						</div>
-					</BaseControl>
-				</PanelBody>
+									return (
+										<Button
+											variant={
+												iconVendor ===
+													iconData.vendor &&
+												iconClass === iconData.value &&
+												'primary'
+											}
+											onClick={ onClickIcon }
+											key={ `icon_${ iconData.key }` }
+										>
+											<i
+												className={ `fa-fw ${ iconData.vendor } fa-${ iconData.value }` }
+												title={ iconData.label }
+											/>
+										</Button>
+									);
+								} ) }
+							</div>
+						</BaseControl>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 
 			<div { ...blockProps }>
@@ -182,7 +202,11 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							'snow-monkey-blocks'
 						) }
 						value={ name }
-						onChange={ onChangeName }
+						onChange={ ( value ) =>
+							setAttributes( {
+								name: value,
+							} )
+						}
 					/>
 				</p>
 

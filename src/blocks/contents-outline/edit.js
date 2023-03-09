@@ -1,9 +1,10 @@
-import { compact, indexOf, remove, union } from 'lodash';
+import { indexOf } from 'lodash';
 
 import {
 	CheckboxControl,
-	PanelBody,
 	ToggleControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
 
 import {
@@ -11,7 +12,10 @@ import {
 	useBlockProps,
 	RichText,
 } from '@wordpress/block-editor';
+
 import { __ } from '@wordpress/i18n';
+
+import metadata from './block.json';
 
 export default function ( { attributes, setAttributes } ) {
 	const {
@@ -28,116 +32,185 @@ export default function ( { attributes, setAttributes } ) {
 		if ( isChecked ) {
 			newHeadings.push( heading );
 		} else {
-			newHeadings = remove( newHeadings, ( value ) => heading !== value );
+			newHeadings = newHeadings.filter( ( value ) => heading !== value );
 		}
 
-		return compact( union( newHeadings ) ).join( ',' );
+		return newHeadings.filter( Boolean ).join( ',' );
 	};
 
 	const blockProps = useBlockProps( {
 		className: 'wpco-wrapper',
 	} );
 
-	const onChangeTitle = ( value ) =>
-		setAttributes( {
-			title: value,
-		} );
-
-	const onChangeHeadings2 = ( isChecked ) =>
-		setAttributes( {
-			headings: _generateNewHeadings( isChecked, 'h2' ),
-		} );
-
-	const onChangeHeadings3 = ( isChecked ) =>
-		setAttributes( {
-			headings: _generateNewHeadings( isChecked, 'h3' ),
-		} );
-
-	const onChangeHeadings4 = ( isChecked ) =>
-		setAttributes( {
-			headings: _generateNewHeadings( isChecked, 'h4' ),
-		} );
-
-	const onChangeIncludesSectionTitle = ( value ) =>
-		setAttributes( {
-			includesSectionTitle: value,
-		} );
-
-	const onChangeIncludesSectionHeadings = ( value ) =>
-		setAttributes( {
-			includesSectionHeadings: value,
-		} );
-
-	const onChangeMoveToBefore1stHeading = ( value ) =>
-		setAttributes( {
-			moveToBefore1stHeading: value,
-		} );
-
+	// 全部はずして全てリセットをすると h2 だけリセットされない
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody
-					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
+				<ToolsPanel
+					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
-					<CheckboxControl
-						name="headings[]"
-						value="h2"
-						label={ __( 'Show h2', 'snow-monkey-blocks' ) }
-						checked={
-							-1 !== indexOf( headings.split( ',' ), 'h2' )
+					<ToolsPanelItem
+						hasValue={ () =>
+							headings !== metadata.attributes.headings.default
 						}
-						onChange={ onChangeHeadings2 }
-					/>
-
-					<CheckboxControl
-						name="headings[]"
-						value="h3"
-						label={ __( 'Show h3', 'snow-monkey-blocks' ) }
-						checked={
-							-1 !== indexOf( headings.split( ',' ), 'h3' )
+						isShownByDefault
+						label={ __( 'Headings', 'snow-monkey-blocks' ) }
+						onDeselect={ () =>
+							setAttributes( {
+								headings: metadata.attributes.headings.default,
+							} )
 						}
-						onChange={ onChangeHeadings3 }
-					/>
+					>
+						<CheckboxControl
+							name="headings[]"
+							value="h2"
+							label={ __( 'Show h2', 'snow-monkey-blocks' ) }
+							checked={
+								-1 !== indexOf( headings.split( ',' ), 'h2' )
+							}
+							onChange={ ( isChecked ) =>
+								setAttributes( {
+									headings: _generateNewHeadings(
+										isChecked,
+										'h2'
+									),
+								} )
+							}
+						/>
 
-					<CheckboxControl
-						name="headings[]"
-						value="h4"
-						label={ __( 'Show h4', 'snow-monkey-blocks' ) }
-						checked={
-							-1 !== indexOf( headings.split( ',' ), 'h4' )
+						<CheckboxControl
+							name="headings[]"
+							value="h3"
+							label={ __( 'Show h3', 'snow-monkey-blocks' ) }
+							checked={
+								-1 !== indexOf( headings.split( ',' ), 'h3' )
+							}
+							onChange={ ( isChecked ) =>
+								setAttributes( {
+									headings: _generateNewHeadings(
+										isChecked,
+										'h3'
+									),
+								} )
+							}
+						/>
+
+						<CheckboxControl
+							name="headings[]"
+							value="h4"
+							label={ __( 'Show h4', 'snow-monkey-blocks' ) }
+							checked={
+								-1 !== indexOf( headings.split( ',' ), 'h4' )
+							}
+							onChange={ ( isChecked ) =>
+								setAttributes( {
+									headings: _generateNewHeadings(
+										isChecked,
+										'h4'
+									),
+								} )
+							}
+						/>
+					</ToolsPanelItem>
+
+					<ToolsPanelItem
+						hasValue={ () =>
+							includesSectionTitle !==
+							metadata.attributes.includesSectionTitle.default
 						}
-						onChange={ onChangeHeadings4 }
-					/>
-
-					<CheckboxControl
-						value={ true }
+						isShownByDefault
 						label={ __(
 							'Show section block titles',
 							'snow-monkey-blocks'
 						) }
-						checked={ includesSectionTitle }
-						onChange={ onChangeIncludesSectionTitle }
-					/>
+						onDeselect={ () =>
+							setAttributes( {
+								includesSectionTitle:
+									metadata.attributes.includesSectionTitle
+										.default,
+							} )
+						}
+					>
+						<CheckboxControl
+							value={ true }
+							label={ __(
+								'Show section block titles',
+								'snow-monkey-blocks'
+							) }
+							checked={ includesSectionTitle }
+							onChange={ ( value ) =>
+								setAttributes( {
+									includesSectionTitle: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
 
-					<CheckboxControl
-						value={ true }
+					<ToolsPanelItem
+						hasValue={ () =>
+							includesSectionHeadings !==
+							metadata.attributes.includesSectionHeadings.default
+						}
+						isShownByDefault
 						label={ __(
 							'Show heading blocks in section blocks',
 							'snow-monkey-blocks'
 						) }
-						checked={ includesSectionHeadings }
-						onChange={ onChangeIncludesSectionHeadings }
-					/>
+						onDeselect={ () =>
+							setAttributes( {
+								includesSectionHeadings:
+									metadata.attributes.includesSectionHeadings
+										.default,
+							} )
+						}
+					>
+						<CheckboxControl
+							value={ true }
+							label={ __(
+								'Show heading blocks in section blocks',
+								'snow-monkey-blocks'
+							) }
+							checked={ includesSectionHeadings }
+							onChange={ ( value ) =>
+								setAttributes( {
+									includesSectionHeadings: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
 
-					<ToggleControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							moveToBefore1stHeading !==
+							metadata.attributes.moveToBefore1stHeading.default
+						}
+						isShownByDefault
 						label={ __(
 							'Move to before 1st heading',
 							'snow-monkey-blocks'
 						) }
-						checked={ moveToBefore1stHeading }
-						onChange={ onChangeMoveToBefore1stHeading }
-					/>
-				</PanelBody>
+						onDeselect={ () =>
+							setAttributes( {
+								moveToBefore1stHeading:
+									metadata.attributes.moveToBefore1stHeading
+										.default,
+							} )
+						}
+					>
+						<ToggleControl
+							label={ __(
+								'Move to before 1st heading',
+								'snow-monkey-blocks'
+							) }
+							checked={ moveToBefore1stHeading }
+							onChange={ ( value ) =>
+								setAttributes( {
+									moveToBefore1stHeading: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 
 			<div { ...blockProps } aria-hidden="false">
@@ -153,7 +226,11 @@ export default function ( { attributes, setAttributes } ) {
 							'Contents outline',
 							'snow-monkey-blocks'
 						) }
-						onChange={ onChangeTitle }
+						onChange={ ( value ) =>
+							setAttributes( {
+								title: value,
+							} )
+						}
 						allowedFormats={ [] }
 					/>
 					<div className="contents-outline">

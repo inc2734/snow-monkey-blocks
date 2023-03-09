@@ -9,9 +9,16 @@ import {
 	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
-import { BaseControl, PanelBody, TextControl } from '@wordpress/components';
+import {
+	TextControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
+} from '@wordpress/components';
+
 import { useSelect } from '@wordpress/data';
 import { __, sprintf } from '@wordpress/i18n';
+
+import metadata from './block.json';
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
 	const { question, questionColor, answerColor, questionLabel, answerLabel } =
@@ -47,31 +54,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		}
 	);
 
-	const onChangeQuestionLabel = ( value ) =>
-		setAttributes( {
-			questionLabel: value,
-		} );
-
-	const onChangeAnswerLabel = ( value ) =>
-		setAttributes( {
-			answerLabel: value,
-		} );
-
-	const onChangeQuestionColor = ( value ) =>
-		setAttributes( {
-			questionColor: value,
-		} );
-
-	const onChangeAnswerColor = ( value ) =>
-		setAttributes( {
-			answerColor: value,
-		} );
-
-	const onChangeQuestion = ( value ) =>
-		setAttributes( {
-			question: value,
-		} );
-
 	return (
 		<>
 			<InspectorControls>
@@ -81,12 +63,18 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					settings={ [
 						{
 							colorValue: questionColor,
-							onColorChange: onChangeQuestionColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									questionColor: value,
+								} ),
 							label: __( 'Question color', 'snow-monkey-blocks' ),
 						},
 						{
 							colorValue: answerColor,
-							onColorChange: onChangeAnswerColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									answerColor: value,
+								} ),
 							label: __( 'Answer color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -94,17 +82,35 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					__experimentalIsRenderedInSidebar={ true }
 				></PanelColorGradientSettings>
 
-				<PanelBody
-					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
+				<ToolsPanel
+					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
-					<BaseControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							questionLabel !==
+							metadata.attributes.questionLabel.default
+						}
+						isShownByDefault
 						label={ __( 'Question label', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/faq-item/question-label"
+						onDeselect={ () =>
+							setAttributes( {
+								questionLabel:
+									metadata.attributes.questionLabel.default,
+							} )
+						}
 					>
 						<TextControl
+							label={ __(
+								'Question label',
+								'snow-monkey-blocks'
+							) }
 							value={ questionLabel }
 							placeholder={ __( 'Q', 'snow-monkey-blocks' ) }
-							onChange={ onChangeQuestionLabel }
+							onChange={ ( value ) =>
+								setAttributes( {
+									questionLabel: value,
+								} )
+							}
 							help={ sprintf(
 								// translators: %d: Length
 								__(
@@ -114,15 +120,31 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 								Number( 2 )
 							) }
 						/>
-					</BaseControl>
-					<BaseControl
+					</ToolsPanelItem>
+
+					<ToolsPanelItem
+						hasValue={ () =>
+							answerLabel !==
+							metadata.attributes.answerLabel.default
+						}
+						isShownByDefault
 						label={ __( 'Answer label', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/faq-item/answer-label"
+						onDeselect={ () =>
+							setAttributes( {
+								answerLabel:
+									metadata.attributes.answerLabel.default,
+							} )
+						}
 					>
 						<TextControl
+							label={ __( 'Answer label', 'snow-monkey-blocks' ) }
 							value={ answerLabel }
 							placeholder={ __( 'A', 'snow-monkey-blocks' ) }
-							onChange={ onChangeAnswerLabel }
+							onChange={ ( value ) =>
+								setAttributes( {
+									answerLabel: value,
+								} )
+							}
 							help={ sprintf(
 								// translators: %d: Length
 								__(
@@ -132,8 +154,8 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 								Number( 2 )
 							) }
 						/>
-					</BaseControl>
-				</PanelBody>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 
 			<div { ...blockProps }>
@@ -149,7 +171,11 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						) }
 						value={ question }
 						multiline={ false }
-						onChange={ onChangeQuestion }
+						onChange={ ( value ) =>
+							setAttributes( {
+								question: value,
+							} )
+						}
 					/>
 				</div>
 

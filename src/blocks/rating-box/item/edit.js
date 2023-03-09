@@ -7,10 +7,17 @@ import {
 	useBlockProps,
 } from '@wordpress/block-editor';
 
-import { PanelBody, RangeControl } from '@wordpress/components';
+import {
+	RangeControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
+} from '@wordpress/components';
+
 import { __ } from '@wordpress/i18n';
 
 import { toNumber } from '@smb/helper';
+
+import metadata from './block.json';
 
 export default function ( { attributes, setAttributes, className } ) {
 	const { title, rating, color } = attributes;
@@ -30,21 +37,6 @@ export default function ( { attributes, setAttributes, className } ) {
 		style: styles,
 	} );
 
-	const onChangeRating = ( value ) =>
-		setAttributes( {
-			rating: toNumber( value, 0, 10 ),
-		} );
-
-	const onChangeColor = ( value ) =>
-		setAttributes( {
-			color: value,
-		} );
-
-	const onChangeTitle = ( value ) =>
-		setAttributes( {
-			title: value,
-		} );
-
 	return (
 		<>
 			<InspectorControls>
@@ -54,7 +46,10 @@ export default function ( { attributes, setAttributes, className } ) {
 					settings={ [
 						{
 							colorValue: color,
-							onColorChange: onChangeColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									color: value,
+								} ),
 							label: __( 'Bar color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -62,17 +57,34 @@ export default function ( { attributes, setAttributes, className } ) {
 					__experimentalIsRenderedInSidebar={ true }
 				></PanelColorGradientSettings>
 
-				<PanelBody
-					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
+				<ToolsPanel
+					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
-					<RangeControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							rating !== metadata.attributes.rating.default
+						}
+						isShownByDefault
 						label={ __( 'Rating', 'snow-monkey-blocks' ) }
-						value={ rating }
-						onChange={ onChangeRating }
-						min="1"
-						max="10"
-					/>
-				</PanelBody>
+						onDeselect={ () =>
+							setAttributes( {
+								rating: metadata.attributes.rating.default,
+							} )
+						}
+					>
+						<RangeControl
+							label={ __( 'Rating', 'snow-monkey-blocks' ) }
+							value={ rating }
+							onChange={ ( value ) =>
+								setAttributes( {
+									rating: toNumber( value, 0, 10 ),
+								} )
+							}
+							min="1"
+							max="10"
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 
 			<div { ...blockProps }>
@@ -81,7 +93,11 @@ export default function ( { attributes, setAttributes, className } ) {
 					placeholder={ __( 'Write title…', 'snow-monkey-blocks' ) }
 					value={ title }
 					multiline={ false }
-					onChange={ onChangeTitle }
+					onChange={ ( value ) =>
+						setAttributes( {
+							title: value,
+						} )
+					}
 				/>
 
 				<div className="smb-rating-box__item__evaluation">

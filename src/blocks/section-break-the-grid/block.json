@@ -104,12 +104,16 @@
 		"maskColor": {
 			"type": "string"
 		},
+		"maskGradientColor": {
+			"type": "string"
+		},
 		"maskOpacity": {
 			"type": "number",
 			"default": 1
 		},
 		"mobileOrder": {
-			"type": "string"
+			"type": "string",
+			"default": ""
 		},
 		"contentsAlignment": {
 			"type": "string"

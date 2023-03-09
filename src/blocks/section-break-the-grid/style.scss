@@ -95,6 +95,7 @@
 	--smb-section-break-the-grid--shadow-transform: translate(5%, 5%);
 	--smb-section-break-the-grid--content-background-color: transparent;
 	--smb-section-break-the-grid--mask-color: transparent;
+	--smb-section-break-the-grid--mask-image: initial;
 	--smb-section-break-the-grid--mask-opacity: 1;
 
 	position: relative;
@@ -349,6 +350,7 @@
 		bottom: 0;
 		left: 0;
 		background-color: var(--smb-section-break-the-grid--mask-color);
+		background-image: var(--smb-section-break-the-grid--mask-image);
 	}
 
 	&__figure {

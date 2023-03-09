@@ -7,12 +7,20 @@ import {
 	InspectorControls,
 	useBlockProps,
 	useInnerBlocksProps,
-	__experimentalColorGradientControl as ColorGradientControl,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
+	__experimentalBorderRadiusControl as BorderRadiusControl,
+	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
 } from '@wordpress/block-editor';
 
-import { PanelBody, RangeControl, SelectControl } from '@wordpress/components';
+import {
+	RangeControl,
+	SelectControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
+	__experimentalBorderControl as BorderControl,
+} from '@wordpress/components';
+
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
@@ -27,6 +35,8 @@ if ( undefined === useMultipleOriginColorsAndGradients ) {
 	useMultipleOriginColorsAndGradients =
 		useMultipleOriginColorsAndGradientsFallback;
 }
+
+import metadata from './block.json';
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
 	const {
@@ -50,8 +60,9 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 
 	const styles = {
 		'--smb-box--color': textColor || undefined,
-		'--smb-box--border-radius':
-			0 <= borderRadius ? `${ borderRadius }px` : undefined,
+		'--smb-box--border-radius': String( borderRadius ).match( /^\d+$/ )
+			? `${ borderRadius }px`
+			: borderRadius,
 		'--smb-box--box-shadow': !! boxShadow.color
 			? `${ boxShadow.horizontal }px ${ boxShadow.vertical }px ${
 					boxShadow.blur
@@ -64,8 +75,9 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		'--smb-box--background-image': backgroundGradientColor || undefined,
 		'--smb-box--background-opacity': String( opacity ),
 		'--smb-box--border-color': borderColor || undefined,
-		'--smb-box--border-width':
-			0 <= borderWidth ? `${ borderWidth }px` : undefined,
+		'--smb-box--border-width': String( borderWidth ).match( /^\d+$/ )
+			? `${ borderWidth }px`
+			: borderWidth,
 	};
 
 	const classes = classnames( 'smb-box', className, {
@@ -88,46 +100,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		}
 	);
 
-	const onChangeBorderWidth = ( value ) =>
-		setAttributes( {
-			borderWidth: toNumber( value, 0, 5 ),
-		} );
-
-	const onChangeBorderRadius = ( value ) =>
-		setAttributes( {
-			borderRadius: !! value || 0 <= value ? value : undefined,
-		} );
-
-	const onChangeOpacity = ( value ) =>
-		setAttributes( {
-			opacity: toNumber( value, 0, 1 ),
-		} );
-
-	const onChangeBackgroundColor = ( value ) =>
-		setAttributes( {
-			backgroundColor: value,
-		} );
-
-	const onChangeBackgroundGradientColor = ( value ) =>
-		setAttributes( {
-			backgroundGradientColor: value,
-		} );
-
-	const onChangeBorderColor = ( value ) =>
-		setAttributes( {
-			borderColor: value,
-		} );
-
-	const onChangeTextColor = ( value ) =>
-		setAttributes( {
-			textColor: value,
-		} );
-
-	const onChangeContentPadding = ( value ) =>
-		setAttributes( {
-			contentPadding: value,
-		} );
-
 	return (
 		<>
 			<InspectorControls>
@@ -137,7 +109,10 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					settings={ [
 						{
 							colorValue: textColor,
-							onColorChange: onChangeTextColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									textColor: value,
+								} ),
 							label: __( 'Text color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -150,135 +125,217 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					/>
 				</PanelColorGradientSettings>
 
-				<PanelBody
-					title={ __( 'Border', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
-				>
-					<ColorGradientControl
-						className="smb-inpanel-color-gradient-control"
-						label={ __( 'Color', 'snow-monkey-blocks' ) }
-						colorValue={ borderColor }
-						onColorChange={ onChangeBorderColor }
-						{ ...useMultipleOriginColorsAndGradients() }
-						__experimentalHasMultipleOrigins={ true }
-						__experimentalIsRenderedInSidebar={ true }
-					/>
+				<ToolsPanel label={ __( 'Border', 'snow-monkey-blocks' ) }>
+					<ToolsPanelItem
+						hasValue={ () =>
+							borderColor !==
+								metadata.attributes.borderColor.default ||
+							borderWidth !==
+								metadata.attributes.borderWidth.default
+						}
+						isShownByDefault
+						label={ __( 'Border', 'snow-monkey-blocks' ) }
+						onDeselect={ () =>
+							setAttributes( {
+								borderColor:
+									metadata.attributes.borderColor.default,
+								borderWidth:
+									metadata.attributes.borderWidth.default,
+							} )
+						}
+					>
+						<BorderControl
+							withSlider
+							onChange={ ( value ) => {
+								setAttributes( {
+									borderColor: value.color,
+									borderWidth: value.width,
+								} );
+							} }
+							value={ {
+								color: borderColor,
+								width: borderWidth,
+							} }
+							enableStyle={ false }
+							{ ...useMultipleOriginColorsAndGradients() }
+						/>
+					</ToolsPanelItem>
 
-					<RangeControl
-						label={ __( 'Width', 'snow-monkey-blocks' ) }
-						value={ borderWidth }
-						onChange={ onChangeBorderWidth }
-						min="0"
-						max="5"
-					/>
-
-					<RangeControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							borderRadius !==
+							metadata.attributes.borderRadius.default
+						}
+						isShownByDefault
 						label={ __( 'Border radius', 'snow-monkey-blocks' ) }
-						help={ __(
-							'-If set to -1, the default border radius will be applied.',
-							'snow-monkey-blocks'
-						) }
-						value={ borderRadius }
-						onChange={ onChangeBorderRadius }
-						min="-1"
-						max="50"
-						initialPosition="-1"
-						allowReset
-					/>
-				</PanelBody>
+						onDeselect={ () =>
+							setAttributes( {
+								borderRadius:
+									metadata.attributes.borderRadius.default,
+							} )
+						}
+					>
+						<div className="smb-border-radius-control">
+							<BorderRadiusControl
+								values={ borderRadius }
+								onChange={ ( value ) => {
+									setAttributes( { borderRadius: value } );
+								} }
+							/>
+						</div>
+					</ToolsPanelItem>
+				</ToolsPanel>
 
-				<PanelBody
-					title={ __( 'Dimensions', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
-				>
-					<SelectControl
+				<ToolsPanel label={ __( 'Dimensions', 'snow-monkey-blocks' ) }>
+					<ToolsPanelItem
+						hasValue={ () =>
+							contentPadding !==
+							metadata.attributes.contentPadding.default
+						}
+						isShownByDefault
 						label={ __( 'Padding', 'snow-monkey-blocks' ) }
-						value={ contentPadding }
-						options={ [
-							{
-								value: 's',
-								label: __( 'S', 'snow-monkey-blocks' ),
-							},
-							{
-								value: '',
-								label: __( 'M', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'l',
-								label: __( 'L', 'snow-monkey-blocks' ),
-							},
-						] }
-						onChange={ onChangeContentPadding }
-					/>
-				</PanelBody>
+						onDeselect={ () =>
+							setAttributes( {
+								contentPadding:
+									metadata.attributes.contentPadding.default,
+							} )
+						}
+					>
+						<SelectControl
+							label={ __( 'Padding', 'snow-monkey-blocks' ) }
+							value={ contentPadding }
+							options={ [
+								{
+									value: 's',
+									label: __( 'S', 'snow-monkey-blocks' ),
+								},
+								{
+									value: '',
+									label: __( 'M', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'l',
+									label: __( 'L', 'snow-monkey-blocks' ),
+								},
+							] }
+							onChange={ ( value ) =>
+								setAttributes( {
+									contentPadding: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 
-				<PanelBody
-					title={ __( 'Background', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
-				>
-					<ColorGradientControl
-						className="smb-inpanel-color-gradient-control"
-						label={ __( 'Color', 'snow-monkey-blocks' ) }
-						colorValue={ backgroundColor }
-						gradientValue={ backgroundGradientColor }
-						onColorChange={ onChangeBackgroundColor }
-						onGradientChange={ onChangeBackgroundGradientColor }
-						{ ...useMultipleOriginColorsAndGradients() }
-						__experimentalHasMultipleOrigins={ true }
-						__experimentalIsRenderedInSidebar={ true }
-					/>
+				<ToolsPanel label={ __( 'Background', 'snow-monkey-blocks' ) }>
+					<div className="smb-color-gradient-settings-dropdown">
+						<ColorGradientSettingsDropdown
+							settings={ [
+								{
+									label: __( 'Color', 'snow-monkey-blocks' ),
+									colorValue: backgroundColor,
+									gradientValue: backgroundGradientColor,
+									onColorChange: ( value ) =>
+										setAttributes( {
+											backgroundColor: value,
+										} ),
+									onGradientChange: ( value ) =>
+										setAttributes( {
+											backgroundGradientColor: value,
+										} ),
+								},
+							] }
+							__experimentalIsItemGroup={ false }
+							__experimentalHasMultipleOrigins
+							__experimentalIsRenderedInSidebar
+							{ ...useMultipleOriginColorsAndGradients() }
+						/>
+					</div>
 
-					<RangeControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							opacity !== metadata.attributes.opacity.default
+						}
+						isShownByDefault
 						label={ __( 'Opacity', 'snow-monkey-blocks' ) }
-						value={ opacity }
-						onChange={ onChangeOpacity }
-						min={ 0 }
-						max={ 1 }
-						step={ 0.1 }
-					/>
-				</PanelBody>
+						onDeselect={ () =>
+							setAttributes( {
+								opacity: metadata.attributes.opacity.default,
+							} )
+						}
+					>
+						<RangeControl
+							label={ __( 'Opacity', 'snow-monkey-blocks' ) }
+							value={ opacity }
+							onChange={ ( value ) =>
+								setAttributes( {
+									opacity: toNumber( value, 0, 1 ),
+								} )
+							}
+							min={ 0 }
+							max={ 1 }
+							step={ 0.1 }
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 
 				<PanelBoxShadowSettings
 					settings={ [
 						{
-							colorValue: boxShadow.color,
+							colorValue: boxShadow.color || '',
 							onColorChange: ( value ) => {
-								const newBoxShadow = { ...boxShadow };
-								newBoxShadow.color = value;
-								setAttributes( { boxShadow: newBoxShadow } );
+								boxShadow.color = value;
+								setAttributes( {
+									boxShadow: { ...boxShadow },
+								} );
 							},
+							defaultValue:
+								metadata.attributes.boxShadow.default.color,
 						},
 						{
 							opacityValue: boxShadow.opacity,
 							onOpacityChange: ( value ) => {
-								const newBoxShadow = { ...boxShadow };
-								newBoxShadow.opacity = value;
-								setAttributes( { boxShadow: newBoxShadow } );
+								boxShadow.opacity = value;
+								setAttributes( {
+									boxShadow: { ...boxShadow },
+								} );
 							},
+							defaultValue:
+								metadata.attributes.boxShadow.default.opacity,
 						},
 						{
 							horizontalValue: boxShadow.horizontal,
 							onHorizontalChange: ( value ) => {
-								const newBoxShadow = { ...boxShadow };
-								newBoxShadow.horizontal = value;
-								setAttributes( { boxShadow: newBoxShadow } );
+								boxShadow.horizontal = value;
+								setAttributes( {
+									boxShadow: { ...boxShadow },
+								} );
 							},
+							defaultValue:
+								metadata.attributes.boxShadow.default
+									.horizontal,
 						},
 						{
 							blurValue: boxShadow.blur,
 							onBlurChange: ( value ) => {
-								const newBoxShadow = { ...boxShadow };
-								newBoxShadow.blur = value;
-								setAttributes( { boxShadow: newBoxShadow } );
+								boxShadow.blur = value;
+								setAttributes( {
+									boxShadow: { ...boxShadow },
+								} );
 							},
+							defaultValue:
+								metadata.attributes.boxShadow.default.blur,
 						},
 						{
 							spreadValue: boxShadow.spread,
 							onSpreadChange: ( value ) => {
-								const newBoxShadow = { ...boxShadow };
-								newBoxShadow.spread = value;
-								setAttributes( { boxShadow: newBoxShadow } );
+								boxShadow.spread = value;
+								setAttributes( {
+									boxShadow: { ...boxShadow },
+								} );
 							},
+							defaultValue:
+								metadata.attributes.boxShadow.default.spread,
 						},
 					] }
 				/>

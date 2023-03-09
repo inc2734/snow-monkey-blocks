@@ -3,16 +3,17 @@ import classnames from 'classnames';
 import {
 	FontSizePicker,
 	RichText,
-	__experimentalColorGradientControl as ColorGradientControl,
 	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
+	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
 } from '@wordpress/block-editor';
 
 import {
-	PanelBody,
 	RangeControl,
 	SelectControl,
 	ToggleControl,
 	TextareaControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
 
 import { Fragment } from '@wordpress/element';
@@ -82,95 +83,307 @@ export const PanelSectionMovableBackgroundSettings = ( {
 		useMultipleOriginColorsAndGradients();
 
 	return (
-		<PanelBody
-			title={ __( 'Background (Movable) ', 'snow-monkey-blocks' ) }
-			initialOpen={ false }
+		<ToolsPanel
+			label={ __( 'Background (Movable) ', 'snow-monkey-blocks' ) }
 		>
 			{ settings.map( ( setting, index ) => {
 				if (
 					setting.hasOwnProperty( 'colorValue' ) &&
 					setting.hasOwnProperty( 'gradientValue' ) &&
 					setting.hasOwnProperty( 'onColorChange' ) &&
-					setting.hasOwnProperty( 'onGradientChange' )
+					setting.hasOwnProperty( 'onGradientChange' ) &&
+					setting.hasOwnProperty( 'defaultColorValue' ) &&
+					setting.hasOwnProperty( 'defaultGradientValue' )
 				) {
 					return (
-						<ColorGradientControl
+						<div
+							className="smb-color-gradient-settings-dropdown"
 							key={ index }
-							className="smb-inpanel-color-gradient-control"
-							label={ __( 'Color', 'snow-monkey-blocks' ) }
-							colorValue={ setting.colorValue }
-							gradientValue={ setting.gradientValue }
-							onColorChange={ setting.onColorChange }
-							onGradientChange={ setting.onGradientChange }
-							{ ...multipleOriginColorsAndGradients }
-							__experimentalHasMultipleOrigins={ true }
-							__experimentalIsRenderedInSidebar={ true }
-						/>
+						>
+							<ColorGradientSettingsDropdown
+								settings={ [
+									{
+										label: __(
+											'Color',
+											'snow-monkey-blocks'
+										),
+										colorValue: setting.colorValue,
+										gradientValue: setting.gradientValue,
+										onColorChange: setting.onColorChange,
+										onGradientChange:
+											setting.onGradientChange,
+									},
+								] }
+								__experimentalIsItemGroup={ false }
+								__experimentalHasMultipleOrigins
+								__experimentalIsRenderedInSidebar
+								{ ...multipleOriginColorsAndGradients }
+							/>
+						</div>
 					);
 				}
 
 				if ( hasColor ) {
 					if (
 						setting.hasOwnProperty( 'horizontalPositionValue' ) &&
-						setting.hasOwnProperty( 'onHorizontalPositionChange' )
+						setting.hasOwnProperty(
+							'onHorizontalPositionChange'
+						) &&
+						setting.hasOwnProperty( 'defaultValue' )
 					) {
 						return (
-							<RangeControl
+							<ToolsPanelItem
 								key={ index }
+								hasValue={ () =>
+									setting.horizontalPositionValue !==
+									setting.defaultValue
+								}
+								isShownByDefault
 								label={ __(
 									'Background position (Left / Right)',
 									'snow-monkey-blocks'
 								) }
-								value={ setting.horizontalPositionValue }
-								onChange={ setting.onHorizontalPositionChange }
-								min="-90"
-								max="90"
-							/>
+								onDeselect={ () =>
+									setting.onHorizontalPositionChange(
+										setting.defaultValue
+									)
+								}
+							>
+								<RangeControl
+									label={ __(
+										'Background position (Left / Right)',
+										'snow-monkey-blocks'
+									) }
+									value={ setting.horizontalPositionValue }
+									onChange={
+										setting.onHorizontalPositionChange
+									}
+									min="-90"
+									max="90"
+								/>
+							</ToolsPanelItem>
 						);
 					}
 
 					if (
 						setting.hasOwnProperty( 'verticalPositionValue' ) &&
-						setting.hasOwnProperty( 'onVerticalPositionChange' )
+						setting.hasOwnProperty( 'onVerticalPositionChange' ) &&
+						setting.hasOwnProperty( 'defaultValue' )
 					) {
 						return (
-							<RangeControl
+							<ToolsPanelItem
 								key={ index }
+								hasValue={ () =>
+									setting.verticalPositionValue !==
+									setting.defaultValue
+								}
+								isShownByDefault
 								label={ __(
 									'Background Position (Top / Bottom)',
 									'snow-monkey-blocks'
 								) }
-								value={ setting.verticalPositionValue }
-								onChange={ setting.onVerticalPositionChange }
-								min="-90"
-								max="90"
-							/>
+								onDeselect={ () =>
+									setting.onVerticalPositionChange(
+										setting.defaultValue
+									)
+								}
+							>
+								<RangeControl
+									label={ __(
+										'Background Position (Top / Bottom)',
+										'snow-monkey-blocks'
+									) }
+									value={ setting.verticalPositionValue }
+									onChange={
+										setting.onVerticalPositionChange
+									}
+									min="-90"
+									max="90"
+								/>
+							</ToolsPanelItem>
 						);
 					}
 
 					if (
 						! disableNoOver &&
 						setting.hasOwnProperty( 'isNoOverValue' ) &&
-						setting.hasOwnProperty( 'onIsNoOverChange' )
+						setting.hasOwnProperty( 'onIsNoOverChange' ) &&
+						setting.hasOwnProperty( 'defaultValue' )
 					) {
 						return (
-							<ToggleControl
+							<ToolsPanelItem
 								key={ index }
+								hasValue={ () =>
+									setting.isNoOverValue !==
+									setting.defaultValue
+								}
+								isShownByDefault
 								label={ __(
 									"Make sure the background doesn't overflow to the outside",
 									'snow-monkey-blocks'
 								) }
-								checked={ setting.isNoOverValue }
-								onChange={ setting.onIsNoOverChange }
-							/>
+								onDeselect={ () =>
+									setting.onIsNoOverChange(
+										setting.defaultValue
+									)
+								}
+							>
+								<ToggleControl
+									label={ __(
+										"Make sure the background doesn't overflow to the outside",
+										'snow-monkey-blocks'
+									) }
+									checked={ setting.isNoOverValue }
+									onChange={ setting.onIsNoOverChange }
+								/>
+							</ToolsPanelItem>
 						);
 					}
 
 					if (
 						setting.hasOwnProperty( 'textureValue' ) &&
-						setting.hasOwnProperty( 'onTextureChange' )
+						setting.hasOwnProperty( 'onTextureChange' ) &&
+						setting.hasOwnProperty( 'defaultValue' )
 					) {
 						return (
+							<ToolsPanelItem
+								key={ index }
+								hasValue={ () =>
+									setting.textureValue !==
+									setting.defaultValue
+								}
+								isShownByDefault
+								label={ __( 'Texture', 'snow-monkey-blocks' ) }
+								onDeselect={ () =>
+									setting.onTextureChange(
+										setting.defaultValue
+									)
+								}
+							>
+								<SelectControl
+									label={ __(
+										'Texture',
+										'snow-monkey-blocks'
+									) }
+									value={ setting.textureValue }
+									onChange={ setting.onTextureChange }
+									options={ textureOptions }
+								/>
+							</ToolsPanelItem>
+						);
+					}
+
+					if (
+						hasTexture &&
+						setting.hasOwnProperty( 'textureOpacityValue' ) &&
+						setting.hasOwnProperty( 'onTextureOpacityChange' ) &&
+						setting.hasOwnProperty( 'defaultValue' )
+					) {
+						return (
+							<ToolsPanelItem
+								key={ index }
+								hasValue={ () =>
+									setting.textureOpacityValue !==
+									setting.defaultValue
+								}
+								isShownByDefault
+								label={ __(
+									'Texture opacity',
+									'snow-monkey-blocks'
+								) }
+								onDeselect={ () =>
+									setting.onTextureOpacityChange(
+										setting.defaultValue
+									)
+								}
+							>
+								<RangeControl
+									label={ __(
+										'Texture opacity',
+										'snow-monkey-blocks'
+									) }
+									value={ Number(
+										setting.textureOpacityValue.toFixed( 1 )
+									) }
+									onChange={ setting.onTextureOpacityChange }
+									min={ 0.1 }
+									max={ 1 }
+									step={ 0.1 }
+								/>
+							</ToolsPanelItem>
+						);
+					}
+				}
+
+				return <Fragment key={ index }></Fragment>;
+			} ) }
+		</ToolsPanel>
+	);
+};
+
+export const PanelSectionFixedBackgroundSettings = ( {
+	hasTexture,
+	settings,
+} ) => {
+	const multipleOriginColorsAndGradients =
+		useMultipleOriginColorsAndGradients();
+
+	return (
+		<ToolsPanel label={ __( 'Background (Fixed) ', 'snow-monkey-blocks' ) }>
+			{ settings.map( ( setting, index ) => {
+				if (
+					setting.hasOwnProperty( 'colorValue' ) &&
+					setting.hasOwnProperty( 'gradientValue' ) &&
+					setting.hasOwnProperty( 'onColorChange' ) &&
+					setting.hasOwnProperty( 'onGradientChange' ) &&
+					setting.hasOwnProperty( 'defaultColorValue' ) &&
+					setting.hasOwnProperty( 'defaultGradientValue' )
+				) {
+					return (
+						<div
+							className="smb-color-gradient-settings-dropdown"
+							key={ index }
+						>
+							<ColorGradientSettingsDropdown
+								settings={ [
+									{
+										label: __(
+											'Color',
+											'snow-monkey-blocks'
+										),
+										colorValue: setting.colorValue,
+										gradientValue: setting.gradientValue,
+										onColorChange: setting.onColorChange,
+										onGradientChange:
+											setting.onGradientChange,
+									},
+								] }
+								__experimentalIsItemGroup={ false }
+								__experimentalHasMultipleOrigins
+								__experimentalIsRenderedInSidebar
+								{ ...multipleOriginColorsAndGradients }
+							/>
+						</div>
+					);
+				}
+
+				if (
+					setting.hasOwnProperty( 'textureValue' ) &&
+					setting.hasOwnProperty( 'onTextureChange' ) &&
+					setting.hasOwnProperty( 'defaultValue' )
+				) {
+					return (
+						<ToolsPanelItem
+							key={ index }
+							hasValue={ () =>
+								setting.textureValue !== setting.defaultValue
+							}
+							isShownByDefault
+							label={ __( 'Texture', 'snow-monkey-blocks' ) }
+							onDeselect={ () =>
+								setting.onTextureChange( setting.defaultValue )
+							}
+						>
 							<SelectControl
 								key={ index }
 								label={ __( 'Texture', 'snow-monkey-blocks' ) }
@@ -178,15 +391,34 @@ export const PanelSectionMovableBackgroundSettings = ( {
 								onChange={ setting.onTextureChange }
 								options={ textureOptions }
 							/>
-						);
-					}
+						</ToolsPanelItem>
+					);
+				}
 
-					if (
-						hasTexture &&
-						setting.hasOwnProperty( 'textureOpacityValue' ) &&
-						setting.hasOwnProperty( 'onTextureOpacityChange' )
-					) {
-						return (
+				if (
+					hasTexture &&
+					setting.hasOwnProperty( 'textureOpacityValue' ) &&
+					setting.hasOwnProperty( 'onTextureOpacityChange' ) &&
+					setting.hasOwnProperty( 'defaultValue' )
+				) {
+					return (
+						<ToolsPanelItem
+							key={ index }
+							hasValue={ () =>
+								setting.textureOpacityValue !==
+								setting.defaultValue
+							}
+							isShownByDefault
+							label={ __(
+								'Texture opacity',
+								'snow-monkey-blocks'
+							) }
+							onDeselect={ () =>
+								setting.onTextureOpacityChange(
+									setting.defaultValue
+								)
+							}
+						>
 							<RangeControl
 								key={ index }
 								label={ __(
@@ -201,92 +433,13 @@ export const PanelSectionMovableBackgroundSettings = ( {
 								max={ 1 }
 								step={ 0.1 }
 							/>
-						);
-					}
-				}
-
-				return <Fragment key={ index }></Fragment>;
-			} ) }
-		</PanelBody>
-	);
-};
-
-export const PanelSectionFixedBackgroundSettings = ( {
-	hasTexture,
-	settings,
-} ) => {
-	const multipleOriginColorsAndGradients =
-		useMultipleOriginColorsAndGradients();
-
-	return (
-		<PanelBody
-			title={ __( 'Background (Fixed) ', 'snow-monkey-blocks' ) }
-			initialOpen={ false }
-		>
-			{ settings.map( ( setting, index ) => {
-				if (
-					setting.hasOwnProperty( 'colorValue' ) &&
-					setting.hasOwnProperty( 'gradientValue' ) &&
-					setting.hasOwnProperty( 'onColorChange' ) &&
-					setting.hasOwnProperty( 'onGradientChange' )
-				) {
-					return (
-						<ColorGradientControl
-							key={ index }
-							className="smb-inpanel-color-gradient-control"
-							label={ __( 'Color', 'snow-monkey-blocks' ) }
-							colorValue={ setting.colorValue }
-							gradientValue={ setting.gradientValue }
-							onColorChange={ setting.onColorChange }
-							onGradientChange={ setting.onGradientChange }
-							{ ...multipleOriginColorsAndGradients }
-							__experimentalHasMultipleOrigins={ true }
-							__experimentalIsRenderedInSidebar={ true }
-						/>
-					);
-				}
-
-				if (
-					setting.hasOwnProperty( 'textureValue' ) &&
-					setting.hasOwnProperty( 'onTextureChange' )
-				) {
-					return (
-						<SelectControl
-							key={ index }
-							label={ __( 'Texture', 'snow-monkey-blocks' ) }
-							value={ setting.textureValue }
-							onChange={ setting.onTextureChange }
-							options={ textureOptions }
-						/>
-					);
-				}
-
-				if (
-					hasTexture &&
-					setting.hasOwnProperty( 'textureOpacityValue' ) &&
-					setting.hasOwnProperty( 'onTextureOpacityChange' )
-				) {
-					return (
-						<RangeControl
-							key={ index }
-							label={ __(
-								'Texture opacity',
-								'snow-monkey-blocks'
-							) }
-							value={ Number(
-								setting.textureOpacityValue.toFixed( 1 )
-							) }
-							onChange={ setting.onTextureOpacityChange }
-							min={ 0.1 }
-							max={ 1 }
-							step={ 0.1 }
-						/>
+						</ToolsPanelItem>
 					);
 				}
 
 				return <Fragment key={ index }></Fragment>;
 			} ) }
-		</PanelBody>
+		</ToolsPanel>
 	);
 };
 
@@ -295,82 +448,133 @@ export const PanelSectionTopDividerSettings = ( { settings } ) => {
 		useMultipleOriginColorsAndGradients();
 
 	return (
-		<PanelBody
-			title={ __( 'Top divider', 'snow-monkey-blocks' ) }
-			initialOpen={ false }
-		>
+		<ToolsPanel label={ __( 'Top divider', 'snow-monkey-blocks' ) }>
 			{ settings.map( ( setting, index ) => {
 				if (
 					setting.hasOwnProperty( 'typeValue' ) &&
-					setting.hasOwnProperty( 'onTypeChange' )
+					setting.hasOwnProperty( 'onTypeChange' ) &&
+					setting.hasOwnProperty( 'defaultValue' )
 				) {
 					return (
-						<SelectControl
+						<ToolsPanelItem
 							key={ index }
+							hasValue={ () =>
+								setting.typeValue !== setting.defaultValue
+							}
+							isShownByDefault
 							label={ __( 'Type', 'snow-monkey-blocks' ) }
-							value={ setting.typeValue }
-							onChange={ setting.onTypeChange }
-							options={ dividerTypeOptions }
-						/>
+							onDeselect={ () =>
+								setting.onTypeChange( setting.defaultValue )
+							}
+						>
+							<SelectControl
+								label={ __( 'Type', 'snow-monkey-blocks' ) }
+								value={ setting.typeValue }
+								onChange={ setting.onTypeChange }
+								options={ dividerTypeOptions }
+							/>
+						</ToolsPanelItem>
 					);
 				}
 
 				if (
 					setting.hasOwnProperty( 'levelValue' ) &&
-					setting.hasOwnProperty( 'onLevelChange' )
+					setting.hasOwnProperty( 'onLevelChange' ) &&
+					setting.hasOwnProperty( 'defaultValue' )
 				) {
 					return (
-						<RangeControl
+						<ToolsPanelItem
 							key={ index }
+							hasValue={ () =>
+								setting.levelValue !== setting.defaultValue
+							}
+							isShownByDefault
 							label={ __( 'Level', 'snow-monkey-blocks' ) }
-							value={ setting.levelValue }
-							onChange={ setting.onLevelChange }
-							min="-100"
-							max="100"
-						/>
+							onDeselect={ () =>
+								setting.onLevelChange( setting.defaultValue )
+							}
+						>
+							<RangeControl
+								label={ __( 'Level', 'snow-monkey-blocks' ) }
+								value={ setting.levelValue }
+								onChange={ setting.onLevelChange }
+								min="-100"
+								max="100"
+							/>
+						</ToolsPanelItem>
 					);
 				}
 
 				if (
 					setting.hasOwnProperty( 'colorValue' ) &&
-					setting.hasOwnProperty( 'onColorChange' )
+					setting.hasOwnProperty( 'onColorChange' ) &&
+					setting.hasOwnProperty( 'defaultColorValue' )
 				) {
 					return (
-						<ColorGradientControl
+						<div
+							className="smb-color-gradient-settings-dropdown"
 							key={ index }
-							className="smb-inpanel-color-gradient-control"
-							label={ __( 'Color', 'snow-monkey-blocks' ) }
-							colorValue={ setting.colorValue }
-							onColorChange={ setting.onColorChange }
-							{ ...multipleOriginColorsAndGradients }
-							__experimentalHasMultipleOrigins={ true }
-							__experimentalIsRenderedInSidebar={ true }
-						/>
+						>
+							<ColorGradientSettingsDropdown
+								settings={ [
+									{
+										label: __(
+											'Color',
+											'snow-monkey-blocks'
+										),
+										colorValue: setting.colorValue,
+										onColorChange: setting.onColorChange,
+									},
+								] }
+								__experimentalIsItemGroup={ false }
+								__experimentalHasMultipleOrigins
+								__experimentalIsRenderedInSidebar
+								{ ...multipleOriginColorsAndGradients }
+							/>
+						</div>
 					);
 				}
 
 				if (
-					setting.hasOwnProperty( 'verticalPosition' ) &&
-					setting.hasOwnProperty( 'onVerticalPositionChange' )
+					setting.hasOwnProperty( 'verticalPositionValue' ) &&
+					setting.hasOwnProperty( 'onVerticalPositionChange' ) &&
+					setting.hasOwnProperty( 'defaultColorValue' )
 				) {
 					return (
-						<RangeControl
+						<ToolsPanelItem
 							key={ index }
+							hasValue={ () =>
+								setting.verticalPositionValue !==
+								setting.defaultValue
+							}
+							isShownByDefault
 							label={ __(
 								'Position (Top / Bottom)',
 								'snow-monkey-blocks'
 							) }
-							value={ setting.verticalPosition }
-							onChange={ setting.onVerticalPositionChange }
-							min="-90"
-							max="90"
-						/>
+							onDeselect={ () =>
+								setting.onVerticalPositionChange(
+									setting.defaultValue
+								)
+							}
+						>
+							<RangeControl
+								label={ __(
+									'Position (Top / Bottom)',
+									'snow-monkey-blocks'
+								) }
+								value={ setting.verticalPositionValue }
+								onChange={ setting.onVerticalPositionChange }
+								min="-90"
+								max="90"
+							/>
+						</ToolsPanelItem>
 					);
 				}
 
 				return <Fragment key={ index }></Fragment>;
 			} ) }
-		</PanelBody>
+		</ToolsPanel>
 	);
 };
 
@@ -379,82 +583,133 @@ export const PanelSectionBottomDividerSettings = ( { settings } ) => {
 		useMultipleOriginColorsAndGradients();
 
 	return (
-		<PanelBody
-			title={ __( 'Bottom divider', 'snow-monkey-blocks' ) }
-			initialOpen={ false }
-		>
+		<ToolsPanel label={ __( 'Bottom divider', 'snow-monkey-blocks' ) }>
 			{ settings.map( ( setting, index ) => {
 				if (
 					setting.hasOwnProperty( 'typeValue' ) &&
-					setting.hasOwnProperty( 'onTypeChange' )
+					setting.hasOwnProperty( 'onTypeChange' ) &&
+					setting.hasOwnProperty( 'defaultValue' )
 				) {
 					return (
-						<SelectControl
+						<ToolsPanelItem
 							key={ index }
+							hasValue={ () =>
+								setting.typeValue !== setting.defaultValue
+							}
+							isShownByDefault
 							label={ __( 'Type', 'snow-monkey-blocks' ) }
-							value={ setting.typeValue }
-							onChange={ setting.onTypeChange }
-							options={ dividerTypeOptions }
-						/>
+							onDeselect={ () =>
+								setting.onTypeChange( setting.defaultValue )
+							}
+						>
+							<SelectControl
+								label={ __( 'Type', 'snow-monkey-blocks' ) }
+								value={ setting.typeValue }
+								onChange={ setting.onTypeChange }
+								options={ dividerTypeOptions }
+							/>
+						</ToolsPanelItem>
 					);
 				}
 
 				if (
 					setting.hasOwnProperty( 'levelValue' ) &&
-					setting.hasOwnProperty( 'onLevelChange' )
+					setting.hasOwnProperty( 'onLevelChange' ) &&
+					setting.hasOwnProperty( 'defaultValue' )
 				) {
 					return (
-						<RangeControl
+						<ToolsPanelItem
 							key={ index }
+							hasValue={ () =>
+								setting.levelValue !== setting.defaultValue
+							}
+							isShownByDefault
 							label={ __( 'Level', 'snow-monkey-blocks' ) }
-							value={ setting.levelValue }
-							onChange={ setting.onLevelChange }
-							min="-100"
-							max="100"
-						/>
+							onDeselect={ () =>
+								setting.onLevelChange( setting.defaultValue )
+							}
+						>
+							<RangeControl
+								label={ __( 'Level', 'snow-monkey-blocks' ) }
+								value={ setting.levelValue }
+								onChange={ setting.onLevelChange }
+								min="-100"
+								max="100"
+							/>
+						</ToolsPanelItem>
 					);
 				}
 
 				if (
 					setting.hasOwnProperty( 'colorValue' ) &&
-					setting.hasOwnProperty( 'onColorChange' )
+					setting.hasOwnProperty( 'onColorChange' ) &&
+					setting.hasOwnProperty( 'defaultColorValue' )
 				) {
 					return (
-						<ColorGradientControl
+						<div
+							className="smb-color-gradient-settings-dropdown"
 							key={ index }
-							className="smb-inpanel-color-gradient-control"
-							label={ __( 'Color', 'snow-monkey-blocks' ) }
-							colorValue={ setting.colorValue }
-							onColorChange={ setting.onColorChange }
-							{ ...multipleOriginColorsAndGradients }
-							__experimentalHasMultipleOrigins={ true }
-							__experimentalIsRenderedInSidebar={ true }
-						/>
+						>
+							<ColorGradientSettingsDropdown
+								settings={ [
+									{
+										label: __(
+											'Color',
+											'snow-monkey-blocks'
+										),
+										colorValue: setting.colorValue,
+										onColorChange: setting.onColorChange,
+									},
+								] }
+								__experimentalIsItemGroup={ false }
+								__experimentalHasMultipleOrigins
+								__experimentalIsRenderedInSidebar
+								{ ...multipleOriginColorsAndGradients }
+							/>
+						</div>
 					);
 				}
 
 				if (
 					setting.hasOwnProperty( 'verticalPositionValue' ) &&
-					setting.hasOwnProperty( 'onVerticalPositionChange' )
+					setting.hasOwnProperty( 'onVerticalPositionChange' ) &&
+					setting.hasOwnProperty( 'defaultColorValue' )
 				) {
 					return (
-						<RangeControl
+						<ToolsPanelItem
 							key={ index }
+							hasValue={ () =>
+								setting.verticalPositionValue !==
+								setting.defaultValue
+							}
+							isShownByDefault
 							label={ __(
 								'Position (Top / Bottom)',
 								'snow-monkey-blocks'
 							) }
-							value={ setting.verticalPositionValue }
-							onChange={ setting.onVerticalPositionChange }
-							min="-90"
-							max="90"
-						/>
+							onDeselect={ () =>
+								setting.onVerticalPositionChange(
+									setting.defaultValue
+								)
+							}
+						>
+							<RangeControl
+								label={ __(
+									'Position (Top / Bottom)',
+									'snow-monkey-blocks'
+								) }
+								value={ setting.verticalPositionValue }
+								onChange={ setting.onVerticalPositionChange }
+								min="-90"
+								max="90"
+							/>
+						</ToolsPanelItem>
 					);
 				}
 
 				return <Fragment key={ index }></Fragment>;
 			} ) }
-		</PanelBody>
+		</ToolsPanel>
 	);
 };
 
@@ -463,112 +718,189 @@ export const PanelSectionBackgroundTextSettings = ( { settings } ) => {
 		useMultipleOriginColorsAndGradients();
 
 	return (
-		<PanelBody
-			title={ __( 'Background text', 'snow-monkey-blocks' ) }
-			initialOpen={ false }
-		>
+		<ToolsPanel label={ __( 'Background text', 'snow-monkey-blocks' ) }>
 			{ settings.map( ( setting, index ) => {
 				if (
 					setting.hasOwnProperty( 'textValue' ) &&
-					setting.hasOwnProperty( 'onTextChange' )
+					setting.hasOwnProperty( 'onTextChange' ) &&
+					setting.hasOwnProperty( 'defaultValue' )
 				) {
 					return (
-						<TextareaControl
+						<ToolsPanelItem
 							key={ index }
+							hasValue={ () =>
+								setting.textValue !== setting.defaultValue
+							}
+							isShownByDefault
 							label={ __( 'Text', 'snow-monkey-blocks' ) }
-							value={ setting.textValue }
-							onChange={ setting.onTextChange }
-						/>
+							onDeselect={ () =>
+								setting.onTextChange( setting.defaultValue )
+							}
+						>
+							<TextareaControl
+								label={ __( 'Text', 'snow-monkey-blocks' ) }
+								value={ setting.textValue }
+								onChange={ setting.onTextChange }
+							/>
+						</ToolsPanelItem>
 					);
 				}
 
 				if (
 					setting.hasOwnProperty( 'fontSizeValue' ) &&
-					setting.hasOwnProperty( 'onFontSizeChange' )
+					setting.hasOwnProperty( 'onFontSizeChange' ) &&
+					setting.hasOwnProperty( 'defaultValue' )
 				) {
 					return (
-						<FontSizePicker
+						<ToolsPanelItem
 							key={ index }
-							value={ setting.fontSizeValue }
-							onChange={ setting.onFontSizeChange }
-							withReset={ false }
-						/>
+							hasValue={ () =>
+								setting.fontSizeValue !== setting.defaultValue
+							}
+							isShownByDefault
+							label={ __( 'Size', 'snow-monkey-blocks' ) }
+							onDeselect={ () =>
+								setting.onFontSizeChange( setting.defaultValue )
+							}
+						>
+							<FontSizePicker
+								value={ setting.fontSizeValue }
+								onChange={ setting.onFontSizeChange }
+								withReset={ false }
+							/>
+						</ToolsPanelItem>
 					);
 				}
 
 				if (
 					setting.hasOwnProperty( 'lineHeightValue' ) &&
-					setting.hasOwnProperty( 'onLineHeightChange' )
+					setting.hasOwnProperty( 'onLineHeightChange' ) &&
+					setting.hasOwnProperty( 'defaultValue' )
 				) {
 					return (
-						<RangeControl
+						<ToolsPanelItem
 							key={ index }
+							hasValue={ () =>
+								setting.lineHeightValue !== setting.defaultValue
+							}
+							isShownByDefault
 							label={ __( 'Line height', 'snow-monkey-blocks' ) }
-							value={ setting.lineHeightValue }
-							onChange={ setting.onLineHeightChange }
-							min="0"
-							max="5"
-							step="0.1"
-							initialPosition={ undefined }
-							allowReset
-						/>
+							onDeselect={ () =>
+								setting.onLineHeightChange(
+									setting.defaultValue
+								)
+							}
+						>
+							<RangeControl
+								label={ __(
+									'Line height',
+									'snow-monkey-blocks'
+								) }
+								value={ setting.lineHeightValue }
+								onChange={ setting.onLineHeightChange }
+								min="0"
+								max="5"
+								step="0.1"
+								initialPosition={ undefined }
+								allowReset
+							/>
+						</ToolsPanelItem>
 					);
 				}
 
 				if (
 					setting.hasOwnProperty( 'colorValue' ) &&
-					setting.hasOwnProperty( 'onColorChange' )
+					setting.hasOwnProperty( 'onColorChange' ) &&
+					setting.hasOwnProperty( 'defaultValue' )
 				) {
 					return (
-						<ColorGradientControl
+						<div
+							className="smb-color-gradient-settings-dropdown"
 							key={ index }
-							className="smb-inpanel-color-gradient-control"
-							label={ __( 'Color', 'snow-monkey-blocks' ) }
-							colorValue={ setting.colorValue }
-							onColorChange={ setting.onColorChange }
-							{ ...multipleOriginColorsAndGradients }
-							__experimentalHasMultipleOrigins={ true }
-							__experimentalIsRenderedInSidebar={ true }
-						/>
+						>
+							<ColorGradientSettingsDropdown
+								settings={ [
+									{
+										label: __(
+											'Color',
+											'snow-monkey-blocks'
+										),
+										colorValue: setting.colorValue,
+										gradientValue: setting.gradientValue,
+										onColorChange: setting.onColorChange,
+										onGradientChange:
+											setting.onGradientChange,
+									},
+								] }
+								__experimentalIsItemGroup={ false }
+								__experimentalHasMultipleOrigins
+								__experimentalIsRenderedInSidebar
+								{ ...multipleOriginColorsAndGradients }
+							/>
+						</div>
 					);
 				}
 
 				if (
 					setting.hasOwnProperty( 'opacityValue' ) &&
-					setting.hasOwnProperty( 'onOpacityChange' )
+					setting.hasOwnProperty( 'onOpacityChange' ) &&
+					setting.hasOwnProperty( 'defaultValue' )
 				) {
 					return (
-						<RangeControl
+						<ToolsPanelItem
 							key={ index }
+							hasValue={ () =>
+								setting.opacityValue !== setting.defaultValue
+							}
+							isShownByDefault
 							label={ __( 'Opacity', 'snow-monkey-blocks' ) }
-							value={ Number(
-								setting.opacityValue.toFixed( 1 )
-							) }
-							onChange={ setting.onOpacityChange }
-							min={ 0.1 }
-							max={ 1 }
-							step={ 0.1 }
-						/>
+							onDeselect={ () =>
+								setting.onOpacityChange( setting.defaultValue )
+							}
+						>
+							<RangeControl
+								label={ __( 'Opacity', 'snow-monkey-blocks' ) }
+								value={ Number(
+									setting.opacityValue.toFixed( 1 )
+								) }
+								onChange={ setting.onOpacityChange }
+								min={ 0.1 }
+								max={ 1 }
+								step={ 0.1 }
+							/>
+						</ToolsPanelItem>
 					);
 				}
 
 				if (
 					setting.hasOwnProperty( 'positionValue' ) &&
-					setting.hasOwnProperty( 'onPositionChange' )
+					setting.hasOwnProperty( 'onPositionChange' ) &&
+					setting.hasOwnProperty( 'defaultValue' )
 				) {
 					return (
-						<SpacingControl
+						<ToolsPanelItem
 							key={ index }
+							hasValue={ () =>
+								setting.positionValue !== setting.defaultValue
+							}
+							isShownByDefault
 							label={ __( 'Position', 'snow-monkey-blocks' ) }
-							values={ setting.positionValue }
-							onChange={ setting.onPositionChange }
-						/>
+							onDeselect={ () =>
+								setting.onPositionChange( setting.defaultValue )
+							}
+						>
+							<SpacingControl
+								label={ __( 'Position', 'snow-monkey-blocks' ) }
+								values={ setting.positionValue }
+								onChange={ setting.onPositionChange }
+							/>
+						</ToolsPanelItem>
 					);
 				}
 
 				return <Fragment key={ index }></Fragment>;
 			} ) }
-		</PanelBody>
+		</ToolsPanel>
 	);
 };
 

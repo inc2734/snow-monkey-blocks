@@ -35,6 +35,10 @@
 
 	.components-tab-panel__tab-content {
 		padding: 16px 0 0;
+
+		> * + * {
+			margin-top: 16px;
+		}
 	}
 }
 
@@ -169,5 +173,38 @@
 	.block-editor-color-gradient-control__panel {
 		border: 1px solid #e0e0e0;
 		padding: .75em .75em .625em;
+	}
+}
+
+.smb-border-radius-control {
+	.components-border-radius-control__wrapper > :last-child {
+		display: none;
+	}
+}
+
+.smb-color-gradient-settings-dropdown {
+	grid-column: 1 / -1;
+
+	.block-editor-tools-panel-color-gradient-settings__item:first-child,
+	:not(.block-editor-tools-panel-color-gradient-settings__item) + .block-editor-tools-panel-color-gradient-settings__item {
+		border-top: 1px solid rgba(0, 0, 0, .1);
+	}
+
+	.block-editor-contrast-checker {
+		margin-top: 16px;
+	}
+}
+
+.smb-box-shadow-tools-panel {
+	> .components-tools-panel-item {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0px, 1fr));
+		gap: calc(16px) calc(8px);
+	}
+}
+
+.components-tools-panel-item {
+	> .components-base-control.components-base-control:not(:last-child) {
+		margin-bottom: 16px;
 	}
 }

@@ -8,16 +8,19 @@ import {
 } from '@wordpress/block-editor';
 
 import {
-	PanelBody,
 	RangeControl,
 	SelectControl,
 	ToggleControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
 
 import { __, sprintf } from '@wordpress/i18n';
 
 import FontAwesome from '@smb/component/font-awesome';
 import { toNumber } from '@smb/helper';
+
+import metadata from './block.json';
 
 export default function ( {
 	attributes,
@@ -82,41 +85,6 @@ export default function ( {
 		style: styles,
 	} );
 
-	const onChangeEvaluationValue = ( value ) =>
-		setAttributes( {
-			evaluationValue: toNumber( value, 0, 5 ),
-		} );
-
-	const onChangeIsDisplayNumeric = ( value ) =>
-		setAttributes( {
-			isDisplayNumeric: value,
-		} );
-
-	const onChangeNumericAlign = ( value ) =>
-		setAttributes( {
-			numericAlign: value,
-		} );
-
-	const onChangeIconColor = ( value ) =>
-		setAttributes( {
-			iconColor: value,
-		} );
-
-	const onChangeNumericColor = ( value ) =>
-		setAttributes( {
-			numericColor: value,
-		} );
-
-	const onChangeTitle = ( value ) =>
-		setAttributes( {
-			title: value,
-		} );
-
-	const onChangeTitleAlign = ( value ) =>
-		setAttributes( {
-			titleAlign: value,
-		} );
-
 	return (
 		<>
 			<InspectorControls>
@@ -126,12 +94,18 @@ export default function ( {
 					settings={ [
 						{
 							colorValue: iconColor,
-							onColorChange: onChangeIconColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									iconColor: value,
+								} ),
 							label: __( 'Icon color', 'snow-monkey-blocks' ),
 						},
 						{
 							colorValue: numericColor,
-							onColorChange: onChangeNumericColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									numericColor: value,
+								} ),
 							label: __( 'Numeric color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -139,77 +113,155 @@ export default function ( {
 					__experimentalIsRenderedInSidebar={ true }
 				></PanelColorGradientSettings>
 
-				<PanelBody
-					title={ __( 'Evaluation settings', 'snow-monkey-blocks' ) }
+				<ToolsPanel
+					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
-					<RangeControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							evaluationValue !==
+							metadata.attributes.evaluationValue.default
+						}
+						isShownByDefault
 						label={ __( 'Evaluation', 'snow-monkey-blocks' ) }
-						help={ __(
-							'Five-grade evaluation',
-							'snow-monkey-blocks'
-						) }
-						value={ evaluationValue }
-						onChange={ onChangeEvaluationValue }
-						min={ 0 }
-						max={ 5 }
-						step={ 0.1 }
-					/>
+						onDeselect={ () =>
+							setAttributes( {
+								evaluationValue:
+									metadata.attributes.evaluationValue.default,
+							} )
+						}
+					>
+						<RangeControl
+							label={ __( 'Evaluation', 'snow-monkey-blocks' ) }
+							help={ __(
+								'Five-grade evaluation',
+								'snow-monkey-blocks'
+							) }
+							value={ evaluationValue }
+							onChange={ ( value ) =>
+								setAttributes( {
+									evaluationValue: toNumber( value, 0, 5 ),
+								} )
+							}
+							min={ 0 }
+							max={ 5 }
+							step={ 0.1 }
+						/>
+					</ToolsPanelItem>
 
-					<SelectControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							titleAlign !==
+							metadata.attributes.titleAlign.default
+						}
+						isShownByDefault
 						label={ __( 'Title position', 'snow-monkey-blocks' ) }
-						value={ titleAlign }
-						onChange={ onChangeTitleAlign }
-						options={ [
-							{
-								value: 'left',
-								label: __(
-									'Position left',
-									'snow-monkey-blocks'
-								),
-							},
-							{
-								value: 'right',
-								label: __(
-									'Position right',
-									'snow-monkey-blocks'
-								),
-							},
-						] }
-					/>
-				</PanelBody>
+						onDeselect={ () =>
+							setAttributes( {
+								titleAlign:
+									metadata.attributes.titleAlign.default,
+							} )
+						}
+					>
+						<SelectControl
+							label={ __(
+								'Title position',
+								'snow-monkey-blocks'
+							) }
+							value={ titleAlign }
+							onChange={ ( value ) =>
+								setAttributes( {
+									titleAlign: value,
+								} )
+							}
+							options={ [
+								{
+									value: 'left',
+									label: __(
+										'Position left',
+										'snow-monkey-blocks'
+									),
+								},
+								{
+									value: 'right',
+									label: __(
+										'Position right',
+										'snow-monkey-blocks'
+									),
+								},
+							] }
+						/>
+					</ToolsPanelItem>
 
-				<PanelBody
-					title={ __( 'Numeric settings', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
-				>
-					<ToggleControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							isDisplayNumeric !==
+							metadata.attributes.isDisplayNumeric.default
+						}
+						isShownByDefault
 						label={ __( 'Show numeric', 'snow-monkey-blocks' ) }
-						checked={ isDisplayNumeric }
-						onChange={ onChangeIsDisplayNumeric }
-					/>
+						onDeselect={ () =>
+							setAttributes( {
+								isDisplayNumeric:
+									metadata.attributes.isDisplayNumeric
+										.default,
+							} )
+						}
+					>
+						<ToggleControl
+							label={ __( 'Show numeric', 'snow-monkey-blocks' ) }
+							checked={ isDisplayNumeric }
+							onChange={ ( value ) =>
+								setAttributes( {
+									isDisplayNumeric: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
 
-					<SelectControl
-						label={ __( 'Numeric position', 'snow-monkey-blocks' ) }
-						value={ numericAlign }
-						onChange={ onChangeNumericAlign }
-						options={ [
-							{
-								value: 'left',
-								label: __(
-									'Position left',
-									'snow-monkey-blocks'
-								),
-							},
-							{
-								value: 'right',
-								label: __(
-									'Position right',
-									'snow-monkey-blocks'
-								),
-							},
-						] }
-					/>
-				</PanelBody>
+					<ToolsPanelItem
+						hasValue={ () =>
+							numericAlign !==
+							metadata.attributes.numericAlign.default
+						}
+						isShownByDefault
+						label={ __( 'Show numeric', 'snow-monkey-blocks' ) }
+						onDeselect={ () =>
+							setAttributes( {
+								numericAlign:
+									metadata.attributes.numericAlign.default,
+							} )
+						}
+					>
+						<SelectControl
+							label={ __(
+								'Numeric position',
+								'snow-monkey-blocks'
+							) }
+							value={ numericAlign }
+							onChange={ ( value ) =>
+								setAttributes( {
+									numericAlign: value,
+								} )
+							}
+							options={ [
+								{
+									value: 'left',
+									label: __(
+										'Position left',
+										'snow-monkey-blocks'
+									),
+								},
+								{
+									value: 'right',
+									label: __(
+										'Position right',
+										'snow-monkey-blocks'
+									),
+								},
+							] }
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 
 			<div { ...blockProps }>
@@ -222,7 +274,11 @@ export default function ( {
 							'snow-monkey-blocks'
 						) }
 						value={ title }
-						onChange={ onChangeTitle }
+						onChange={ ( value ) =>
+							setAttributes( {
+								title: value,
+							} )
+						}
 					/>
 				) }
 

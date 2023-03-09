@@ -14,13 +14,21 @@ export default function ( { attributes, className } ) {
 			!! contentPadding,
 	} );
 
+	const borderWidth = String( border.width ).match( /^\d+$/ )
+		? `${ border.width }px`
+		: border.width;
+
+	const borderRadius = String( border.radius ).match( /^\d+$/ )
+		? `${ border.radius }px`
+		: border.radius;
+
 	const styles = {
 		'--smb-spider-contents-slider--slide-border-width':
-			( border.color && border.width ) || undefined,
+			( !! border.color && borderWidth ) || undefined,
 		'--smb-spider-contents-slider--slide-border-color':
 			border.color || undefined,
 		'--smb-spider-contents-slider--slide-border-radius':
-			border.radius || undefined,
+			borderRadius || undefined,
 		'--smb-spider-contents-slider--slide-box-shadow': !! boxShadow.color
 			? `0 0 ${ boxShadow.blur }px ${ hexToRgba(
 					boxShadow.color,

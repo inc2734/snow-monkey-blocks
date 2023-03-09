@@ -10,16 +10,16 @@ import {
 	useInnerBlocksProps,
 	useBlockProps,
 	useSetting,
-	__experimentalColorGradientControl as ColorGradientControl,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
+	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
 } from '@wordpress/block-editor';
 
 import {
-	BaseControl,
-	PanelBody,
 	RangeControl,
 	TextControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
 
 import { useSelect } from '@wordpress/data';
@@ -45,6 +45,8 @@ if ( undefined === useMultipleOriginColorsAndGradients ) {
 }
 
 const HORIZONTAL_JUSTIFY_CONTROLS = [ 'left', 'center', 'right' ];
+
+import metadata from './block.json';
 
 export default function ( {
 	attributes,
@@ -186,101 +188,7 @@ export default function ( {
 	);
 
 	const fontSizes = useSetting( 'typography.fontSizes' ) || [];
-
-	const onChangeVideoUrl = ( value ) =>
-		setAttributes( {
-			videoURL: value,
-		} );
-
-	const onChangeVideoWidth = ( value ) =>
-		setAttributes( {
-			videoWidth: toNumber( value, 1, 960 ),
-		} );
-
-	const onChangeVideoHeight = ( value ) =>
-		setAttributes( {
-			videoHeight: toNumber( value, 1, 960 ),
-		} );
-
-	const onChangeContentsAlignment = ( value ) =>
-		setAttributes( {
-			contentsAlignment: value,
-		} );
-
-	const onChangeMaskColor = ( value ) =>
-		setAttributes( {
-			maskColor: value,
-		} );
-
-	const onChangeMaskGradientColor = ( value ) =>
-		setAttributes( {
-			maskGradientColor: value,
-		} );
-
-	const onChangeTextColor = ( value ) =>
-		setAttributes( {
-			textColor: value,
-		} );
-
-	const onChangeMaskOpacity = ( value ) =>
-		setAttributes( {
-			maskOpacity: toNumber( ( 1 - value ).toFixed( 1 ), 0, 1 ),
-		} );
-
-	const onChangeContentJustification = ( value ) =>
-		setAttributes( {
-			contentJustification: value,
-		} );
-
-	const onChangeItemsAlignment = ( value ) =>
-		setAttributes( {
-			itemsAlignment: value,
-		} );
-
-	const onChangeTitle = ( value ) =>
-		setAttributes( {
-			title: value,
-		} );
-
-	const onChangeLede = ( value ) =>
-		setAttributes( {
-			lede: value,
-		} );
-
-	const onChangeSubtitle = ( value ) =>
-		setAttributes( {
-			subtitle: value,
-		} );
-
-	const onChangeTitleTagName = ( value ) =>
-		setAttributes( {
-			titleTagName: value,
-		} );
-
-	const onChangeHeight = ( value ) =>
-		setAttributes( {
-			height: value,
-		} );
-
-	const onChangeContainerAlign = ( value ) =>
-		setAttributes( {
-			containerAlign: value,
-		} );
-
-	const onChangeDisableContainerPadding = ( value ) =>
-		setAttributes( {
-			disableContainerPadding: value,
-		} );
-
-	const onChangeContentsMaxWidth = ( value ) =>
-		setAttributes( {
-			contentsMaxWidth: value,
-		} );
-
-	const onChangeIsSlim = ( value ) =>
-		setAttributes( {
-			isSlim: value,
-		} );
+	const newBackgroundText = { ...backgroundText };
 
 	return (
 		<>
@@ -291,7 +199,10 @@ export default function ( {
 					settings={ [
 						{
 							colorValue: textColor,
-							onColorChange: onChangeTextColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									textColor: value,
+								} ),
 							label: __( 'Text color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -311,103 +222,216 @@ export default function ( {
 					settings={ [
 						{
 							titleTagNameValue: titleTagName,
-							onTitleTagNameChange: onChangeTitleTagName,
+							onTitleTagNameChange: ( value ) =>
+								setAttributes( {
+									titleTagName: value,
+								} ),
+							defaultValue:
+								metadata.attributes.titleTagName.default,
 						},
 						{
 							heightValue: height,
-							onHeightChange: onChangeHeight,
+							onHeightChange: ( value ) =>
+								setAttributes( {
+									height: value,
+								} ),
+							defaultValue: metadata.attributes.height.default,
 						},
 						{
 							contentsContainerControl: true,
 							containerAlignValue: containerAlign,
-							onContainerAlignChange: onChangeContainerAlign,
+							onContainerAlignChange: ( value ) =>
+								setAttributes( {
+									containerAlign: value,
+								} ),
+							defaultValue:
+								metadata.attributes.containerAlign.default,
 						},
 						{
 							disableContainerPaddingValue:
 								disableContainerPadding,
-							onDisableContainerPaddingChange:
-								onChangeDisableContainerPadding,
+							onDisableContainerPaddingChange: ( value ) =>
+								setAttributes( {
+									disableContainerPadding: value,
+								} ),
+							defaultValue:
+								metadata.attributes.disableContainerPadding
+									.default,
 						},
 						{
 							contentsMaxWidthValue: contentsMaxWidth,
-							onContentsMaxWidthChange: onChangeContentsMaxWidth,
+							onContentsMaxWidthChange: ( value ) =>
+								setAttributes( {
+									contentsMaxWidth: value,
+								} ),
+							defaultValue:
+								metadata.attributes.contentsMaxWidth.default,
 						},
 						{
 							isSlimValue: isSlim,
-							onIsSlimChange: onChangeIsSlim,
+							onIsSlimChange: ( value ) =>
+								setAttributes( {
+									isSlim: value,
+								} ),
+							defaultValue: metadata.attributes.isSlim.default,
 						},
 					] }
 				/>
 
-				<PanelBody
-					title={ __( 'Video settings', 'snow-monkey-blocks' ) }
-					initialOpen={ true }
+				<ToolsPanel
+					label={ __( 'Video settings', 'snow-monkey-blocks' ) }
 				>
-					<BaseControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							videoURL !== metadata.attributes.videoURL.default
+						}
+						isShownByDefault
 						label={ __( 'YouTube URL', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/section-with-bgvideo/video-url"
+						onDeselect={ () =>
+							setAttributes( {
+								videoURL: metadata.attributes.videoURL.default,
+							} )
+						}
 					>
 						<TextControl
+							label={ __( 'YouTube URL', 'snow-monkey-blocks' ) }
 							value={ videoURL }
-							onChange={ onChangeVideoUrl }
+							onChange={ ( value ) =>
+								setAttributes( {
+									videoURL: value,
+								} )
+							}
 						/>
-					</BaseControl>
+					</ToolsPanelItem>
 
-					<RangeControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							videoWidth !==
+							metadata.attributes.videoWidth.default
+						}
+						isShownByDefault
 						label={ __( 'Video width', 'snow-monkey-blocks' ) }
-						value={ videoWidth }
-						onChange={ onChangeVideoWidth }
-						min="1"
-						max="960"
-					/>
+						onDeselect={ () =>
+							setAttributes( {
+								videoWidth:
+									metadata.attributes.videoWidth.default,
+							} )
+						}
+					>
+						<RangeControl
+							label={ __( 'Video width', 'snow-monkey-blocks' ) }
+							value={ videoWidth }
+							onChange={ ( value ) =>
+								setAttributes( {
+									videoWidth: toNumber( value, 1, 960 ),
+								} )
+							}
+							min="1"
+							max="960"
+						/>
+					</ToolsPanelItem>
 
-					<RangeControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							videoHeight !==
+							metadata.attributes.videoHeight.default
+						}
+						isShownByDefault
 						label={ __( 'Video height', 'snow-monkey-blocks' ) }
-						value={ videoHeight }
-						onChange={ onChangeVideoHeight }
-						min="1"
-						max="960"
-					/>
-				</PanelBody>
+						onDeselect={ () =>
+							setAttributes( {
+								videoHeight:
+									metadata.attributes.videoHeight.default,
+							} )
+						}
+					>
+						<RangeControl
+							label={ __( 'Video height', 'snow-monkey-blocks' ) }
+							value={ videoHeight }
+							onChange={ ( value ) =>
+								setAttributes( {
+									videoHeight: toNumber( value, 1, 960 ),
+								} )
+							}
+							min="1"
+							max="960"
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 
-				<PanelBody
-					title={ __( 'Mask', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
-				>
-					<ColorGradientControl
-						className="smb-inpanel-color-gradient-control"
-						label={ __( 'Color', 'snow-monkey-blocks' ) }
-						colorValue={ maskColor }
-						gradientValue={ maskGradientColor }
-						onColorChange={ onChangeMaskColor }
-						onGradientChange={ onChangeMaskGradientColor }
-						{ ...useMultipleOriginColorsAndGradients() }
-						__experimentalHasMultipleOrigins={ true }
-						__experimentalIsRenderedInSidebar={ true }
-					/>
+				<ToolsPanel label={ __( 'Mask', 'snow-monkey-blocks' ) }>
+					<div className="smb-color-gradient-settings-dropdown">
+						<ColorGradientSettingsDropdown
+							settings={ [
+								{
+									label: __( 'Color', 'snow-monkey-blocks' ),
+									colorValue: maskColor,
+									gradientValue: maskGradientColor,
+									onColorChange: ( value ) =>
+										setAttributes( {
+											maskColor: value,
+										} ),
+									onGradientChange: ( value ) =>
+										setAttributes( {
+											maskGradientColor: value,
+										} ),
+								},
+							] }
+							__experimentalIsItemGroup={ false }
+							__experimentalHasMultipleOrigins
+							__experimentalIsRenderedInSidebar
+							{ ...useMultipleOriginColorsAndGradients() }
+						/>
+					</div>
 
-					<RangeControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							maskOpacity !==
+							metadata.attributes.maskOpacity.default
+						}
+						isShownByDefault
 						label={ __( 'Opacity', 'snow-monkey-blocks' ) }
-						value={ Number( ( 1 - maskOpacity ).toFixed( 1 ) ) }
-						onChange={ onChangeMaskOpacity }
-						min={ 0 }
-						max={ 1 }
-						step={ 0.1 }
-					/>
-				</PanelBody>
+						onDeselect={ () =>
+							setAttributes( {
+								maskOpacity:
+									metadata.attributes.maskOpacity.default,
+							} )
+						}
+					>
+						<RangeControl
+							label={ __( 'Opacity', 'snow-monkey-blocks' ) }
+							value={ Number( ( 1 - maskOpacity ).toFixed( 1 ) ) }
+							onChange={ ( value ) =>
+								setAttributes( {
+									maskOpacity: toNumber(
+										( 1 - value ).toFixed( 1 ),
+										0,
+										1
+									),
+								} )
+							}
+							min={ 0 }
+							max={ 1 }
+							step={ 0.1 }
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 
 				<PanelSectionBackgroundTextSettings
 					settings={ [
 						{
 							textValue: backgroundText.text,
 							onTextChange: ( value ) => {
+								newBackgroundText.text = value;
+
 								setAttributes( {
 									backgroundText: {
-										...backgroundText,
-										...{ text: value },
+										...newBackgroundText,
 									},
 								} );
 							},
+							defaultValue:
+								metadata.attributes.backgroundText.default.text,
 						},
 						{
 							fontSizeValue: backgroundText.fontSize,
@@ -421,65 +445,82 @@ export default function ( {
 									}
 								);
 
+								newBackgroundText.fontSize = value;
+								newBackgroundText.fontSizeSlug =
+									0 < filteredFontSizes.length &&
+									!! filteredFontSizes[ 0 ]?.slug
+										? filteredFontSizes[ 0 ].slug
+										: '';
+
 								setAttributes( {
 									backgroundText: {
-										...backgroundText,
-										...{
-											fontSize: value,
-											fontSizeSlug:
-												0 < filteredFontSizes.length &&
-												!! filteredFontSizes[ 0 ]?.slug
-													? filteredFontSizes[ 0 ]
-															.slug
-													: '',
-										},
+										...newBackgroundText,
 									},
 								} );
 							},
+							defaultValue:
+								metadata.attributes.backgroundText.default
+									.fontSize,
 						},
 						{
 							lineHeightValue: backgroundText.lineHeight,
 							onLineHeightChange: ( value ) => {
+								newBackgroundText.lineHeight = value;
+
 								setAttributes( {
 									backgroundText: {
-										...backgroundText,
-										...{ lineHeight: value },
+										...newBackgroundText,
 									},
 								} );
 							},
+							defaultValue:
+								metadata.attributes.backgroundText.default
+									.lineHeight,
 						},
 						{
 							colorValue: backgroundText.color,
 							onColorChange: ( value ) => {
+								newBackgroundText.color = value;
+
 								setAttributes( {
 									backgroundText: {
-										...backgroundText,
-										...{ color: value },
+										...newBackgroundText,
 									},
 								} );
 							},
+							defaultValue:
+								metadata.attributes.backgroundText.default
+									.color,
 						},
 						{
 							opacityValue: backgroundText.opacity,
 							onOpacityChange: ( value ) => {
+								newBackgroundText.opacity = value;
+
 								setAttributes( {
 									backgroundText: {
-										...backgroundText,
-										...{ opacity: value },
+										...newBackgroundText,
 									},
 								} );
 							},
+							defaultValue:
+								metadata.attributes.backgroundText.default
+									.opacity,
 						},
 						{
 							positionValue: backgroundText.position,
 							onPositionChange: ( value ) => {
+								newBackgroundText.position = value;
+
 								setAttributes( {
 									backgroundText: {
-										...backgroundText,
-										...{ position: value },
+										...newBackgroundText,
 									},
 								} );
 							},
+							defaultValue:
+								metadata.attributes.backgroundText.default
+									.position,
 						},
 					] }
 				/>
@@ -488,20 +529,32 @@ export default function ( {
 			<BlockControls gruop="block">
 				{ isItemsAlignmentable && (
 					<BlockVerticalAlignmentToolbar
-						onChange={ onChangeItemsAlignment }
+						onChange={ ( value ) =>
+							setAttributes( {
+								itemsAlignment: value,
+							} )
+						}
 						value={ itemsAlignment }
 					/>
 				) }
 
 				<JustifyToolbar
 					allowedControls={ HORIZONTAL_JUSTIFY_CONTROLS }
-					onChange={ onChangeContentJustification }
+					onChange={ ( value ) =>
+						setAttributes( {
+							contentJustification: value,
+						} )
+					}
 					value={ contentJustification }
 				/>
 
 				<AlignmentToolbar
 					value={ contentsAlignment }
-					onChange={ onChangeContentsAlignment }
+					onChange={ ( value ) =>
+						setAttributes( {
+							contentsAlignment: value,
+						} )
+					}
 				/>
 			</BlockControls>
 
@@ -538,16 +591,25 @@ export default function ( {
 								settings={ [
 									{
 										subtitleValue: subtitle,
-										onSubtitleChange: onChangeSubtitle,
+										onSubtitleChange: ( value ) =>
+											setAttributes( {
+												subtitle: value,
+											} ),
 									},
 									{
 										titleTagNameValue: titleTagName,
 										titleValue: title,
-										onTitleChange: onChangeTitle,
+										onTitleChange: ( value ) =>
+											setAttributes( {
+												title: value,
+											} ),
 									},
 									{
 										ledeValue: lede,
-										onLedeChange: onChangeLede,
+										onLedeChange: ( value ) =>
+											setAttributes( {
+												lede: value,
+											} ),
 									},
 								] }
 							/>

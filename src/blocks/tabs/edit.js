@@ -9,6 +9,13 @@ import {
 } from '@wordpress/block-editor';
 
 import {
+	SelectControl,
+	ToggleControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
+} from '@wordpress/components';
+
+import {
 	Icon,
 	plus,
 	chevronLeft,
@@ -19,12 +26,13 @@ import {
 } from '@wordpress/icons';
 
 import { createBlock } from '@wordpress/blocks';
-import { PanelBody, SelectControl, ToggleControl } from '@wordpress/components';
 import { useDispatch, useSelect } from '@wordpress/data';
 import { useEffect, useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/tab-panel' ];
+
+import metadata from './block.json';
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
 	const {
@@ -151,38 +159,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		'vertical' === orientation ||
 		( 'horizontal' === orientation && 'true' === matchHeight );
 
-	const onClickAddTabButton = () => {
-		const tabPanel = createBlock( 'snow-monkey-blocks/tab-panel' );
-		const tabPanelId = `block-${ tabPanel.clientId }`;
-
-		tabPanel.attributes.tabPanelId = tabPanelId;
-		insertBlocks( tabPanel, tabs.length, clientId, false );
-
-		tabs.push( {
-			tabPanelId,
-		} );
-		setAttributes( {
-			tabs: JSON.stringify( tabs ),
-		} );
-
-		setCurrentTabPanelId( tabPanelId );
-	};
-
-	const onChangeOrientation = ( value ) =>
-		setAttributes( {
-			orientation: value,
-		} );
-
-	const onChangeMatchHeight = ( value ) =>
-		setAttributes( {
-			matchHeight: value ? 'true' : 'false',
-		} );
-
-	const onChangeTabsJustification = ( value ) =>
-		setAttributes( {
-			tabsJustification: value,
-		} );
-
 	const classes = classnames( 'smb-tabs', className );
 
 	const blockProps = useBlockProps( {
@@ -203,77 +179,154 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody
-					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
+				<ToolsPanel
+					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
-					<SelectControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							orientation !==
+							metadata.attributes.orientation.default
+						}
+						isShownByDefault
 						label={ __( 'Tabs orientation', 'snow-monkey-blocks' ) }
-						value={ orientation }
-						onChange={ onChangeOrientation }
-						options={ [
-							{
-								value: 'horizontal',
-								label: __( 'Horizontal', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'vertical',
-								label: __( 'Vertical', 'snow-monkey-blocks' ),
-							},
-						] }
-					/>
+						onDeselect={ () =>
+							setAttributes( {
+								orientation:
+									metadata.attributes.orientation.default,
+							} )
+						}
+					>
+						<SelectControl
+							label={ __(
+								'Tabs orientation',
+								'snow-monkey-blocks'
+							) }
+							value={ orientation }
+							onChange={ ( value ) =>
+								setAttributes( {
+									orientation: value,
+								} )
+							}
+							options={ [
+								{
+									value: 'horizontal',
+									label: __(
+										'Horizontal',
+										'snow-monkey-blocks'
+									),
+								},
+								{
+									value: 'vertical',
+									label: __(
+										'Vertical',
+										'snow-monkey-blocks'
+									),
+								},
+							] }
+						/>
+					</ToolsPanelItem>
 
 					{ 'horizontal' === orientation && (
 						<>
-							<ToggleControl
+							<ToolsPanelItem
+								hasValue={ () =>
+									matchHeight !==
+									metadata.attributes.matchHeight.default
+								}
+								isShownByDefault
 								label={ __(
 									'Align the height of each tab panels',
 									'snow-monkey-blocks'
 								) }
-								checked={ 'true' === matchHeight }
-								onChange={ onChangeMatchHeight }
-							/>
+								onDeselect={ () =>
+									setAttributes( {
+										matchHeight:
+											metadata.attributes.matchHeight
+												.default,
+									} )
+								}
+							>
+								<ToggleControl
+									label={ __(
+										'Align the height of each tab panels',
+										'snow-monkey-blocks'
+									) }
+									checked={ 'true' === matchHeight }
+									onChange={ ( value ) =>
+										setAttributes( {
+											matchHeight: value
+												? 'true'
+												: 'false',
+										} )
+									}
+								/>
+							</ToolsPanelItem>
 
-							<SelectControl
+							<ToolsPanelItem
+								hasValue={ () =>
+									tabsJustification !==
+									metadata.attributes.tabsJustification
+										.default
+								}
+								isShownByDefault
 								label={ __(
 									'Tabs justification',
 									'snow-monkey-blocks'
 								) }
-								value={ tabsJustification }
-								onChange={ onChangeTabsJustification }
-								options={ [
-									{
-										label: __(
-											'Left',
-											'snow-monkey-blocks'
-										),
-										value: 'flex-start',
-									},
-									{
-										label: __(
-											'Center',
-											'snow-monkey-blocks'
-										),
-										value: 'center',
-									},
-									{
-										label: __(
-											'Right',
-											'snow-monkey-blocks'
-										),
-										value: 'flex-end',
-									},
-									{
-										label: __(
-											'Stretch',
-											'snow-monkey-blocks'
-										),
-										value: 'stretch',
-									},
-								] }
-							/>
+								onDeselect={ () =>
+									setAttributes( {
+										tabsJustification:
+											metadata.attributes
+												.tabsJustification.default,
+									} )
+								}
+							>
+								<SelectControl
+									label={ __(
+										'Tabs justification',
+										'snow-monkey-blocks'
+									) }
+									value={ tabsJustification }
+									onChange={ ( value ) =>
+										setAttributes( {
+											tabsJustification: value,
+										} )
+									}
+									options={ [
+										{
+											label: __(
+												'Left',
+												'snow-monkey-blocks'
+											),
+											value: 'flex-start',
+										},
+										{
+											label: __(
+												'Center',
+												'snow-monkey-blocks'
+											),
+											value: 'center',
+										},
+										{
+											label: __(
+												'Right',
+												'snow-monkey-blocks'
+											),
+											value: 'flex-end',
+										},
+										{
+											label: __(
+												'Stretch',
+												'snow-monkey-blocks'
+											),
+											value: 'stretch',
+										},
+									] }
+								/>
+							</ToolsPanelItem>
 						</>
 					) }
-				</PanelBody>
+				</ToolsPanel>
 			</InspectorControls>
 
 			<div
@@ -449,7 +502,29 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					<div className="smb-tabs__tab-wrapper">
 						<button
 							className="smb-tabs__tab smb-tabs__add-tab"
-							onClick={ onClickAddTabButton }
+							onClick={ () => {
+								const tabPanel = createBlock(
+									'snow-monkey-blocks/tab-panel'
+								);
+								const tabPanelId = `block-${ tabPanel.clientId }`;
+
+								tabPanel.attributes.tabPanelId = tabPanelId;
+								insertBlocks(
+									tabPanel,
+									tabs.length,
+									clientId,
+									false
+								);
+
+								tabs.push( {
+									tabPanelId,
+								} );
+								setAttributes( {
+									tabs: JSON.stringify( tabs ),
+								} );
+
+								setCurrentTabPanelId( tabPanelId );
+							} }
 						>
 							<Icon icon={ plus } />
 						</button>

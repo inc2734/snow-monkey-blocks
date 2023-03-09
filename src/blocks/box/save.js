@@ -15,11 +15,11 @@ export default function ( { attributes, className } ) {
 		contentPadding,
 		boxShadow,
 	} = attributes;
-
 	const styles = {
 		'--smb-box--color': textColor || undefined,
-		'--smb-box--border-radius':
-			0 <= borderRadius ? `${ borderRadius }px` : undefined,
+		'--smb-box--border-radius': String( borderRadius ).match( /^\d+$/ )
+			? `${ borderRadius }px`
+			: borderRadius,
 		'--smb-box--box-shadow': !! boxShadow.color
 			? `${ boxShadow.horizontal }px ${ boxShadow.vertical }px ${
 					boxShadow.blur
@@ -32,8 +32,9 @@ export default function ( { attributes, className } ) {
 		'--smb-box--background-image': backgroundGradientColor || undefined,
 		'--smb-box--background-opacity': String( opacity ),
 		'--smb-box--border-color': borderColor || undefined,
-		'--smb-box--border-width':
-			0 <= borderWidth ? `${ borderWidth }px` : undefined,
+		'--smb-box--border-width': String( borderWidth ).match( /^\d+$/ )
+			? `${ borderWidth }px`
+			: borderWidth,
 	};
 
 	const classes = classnames( 'smb-box', className, {

@@ -9,16 +9,18 @@ import {
 } from '@wordpress/block-editor';
 
 import {
-	BaseControl,
 	CheckboxControl,
-	PanelBody,
 	Placeholder,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
 
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
 import DateTimePicker from '@smb/component/date-time-picker';
+
+import metadata from './block.json';
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
 	const { isUseStartDate, startDate, isUseEndDate, endDate } = attributes;
@@ -75,39 +77,27 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		}
 	}
 
-	const onChangeIsUseStartDate = ( value ) =>
-		setAttributes( {
-			isUseStartDate: value,
-		} );
-
-	const onChangeStartDate = ( value ) =>
-		setAttributes( {
-			startDate: value,
-		} );
-
-	const onResetStartDate = () => setAttributes( { startDate: null } );
-
-	const onChangeIsUseEndDate = ( value ) =>
-		setAttributes( {
-			isUseEndDate: value,
-		} );
-
-	const onChangeEndDate = ( value ) =>
-		setAttributes( {
-			endDate: value,
-		} );
-
-	const onResetEndDate = () => setAttributes( { startDate: null } );
-
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody
-					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
+				<ToolsPanel
+					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
-					<BaseControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							isUseStartDate !==
+							metadata.attributes.isUseStartDate.default
+						}
+						isShownByDefault
 						label={ __( 'Start datetime', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/limited-datetime/is-use-start-date"
+						onDeselect={ () =>
+							setAttributes( {
+								isUseStartDate:
+									metadata.attributes.isUseStartDate.default,
+								startDate:
+									metadata.attributes.startDate.default,
+							} )
+						}
 					>
 						<CheckboxControl
 							label={ __(
@@ -115,17 +105,46 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 								'snow-monkey-blocks'
 							) }
 							checked={ isUseStartDate }
-							onChange={ onChangeIsUseStartDate }
+							onChange={ ( value ) =>
+								setAttributes( {
+									isUseStartDate: value,
+								} )
+							}
 						/>
-						<DateTimePicker
-							currentDate={ startDate }
-							onChange={ onChangeStartDate }
-							onReset={ onResetStartDate }
-						/>
-					</BaseControl>
-					<BaseControl
+
+						{ isUseStartDate && (
+							<DateTimePicker
+								currentDate={ startDate }
+								onChange={ ( value ) =>
+									setAttributes( {
+										startDate: value,
+									} )
+								}
+								onReset={ () =>
+									setAttributes( {
+										startDate:
+											metadata.attributes.startDate
+												.default,
+									} )
+								}
+							/>
+						) }
+					</ToolsPanelItem>
+
+					<ToolsPanelItem
+						hasValue={ () =>
+							isUseEndDate !==
+							metadata.attributes.isUseEndDate.default
+						}
+						isShownByDefault
 						label={ __( 'End datetime', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/limited-datetime/is-use-end-date"
+						onDeselect={ () =>
+							setAttributes( {
+								isUseEndDate:
+									metadata.attributes.isUseEndDate.default,
+								endDate: metadata.attributes.endDate.default,
+							} )
+						}
 					>
 						<CheckboxControl
 							label={ __(
@@ -133,15 +152,30 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 								'snow-monkey-blocks'
 							) }
 							checked={ isUseEndDate }
-							onChange={ onChangeIsUseEndDate }
+							onChange={ ( value ) =>
+								setAttributes( {
+									isUseEndDate: value,
+								} )
+							}
 						/>
-						<DateTimePicker
-							currentDate={ endDate }
-							onChange={ onChangeEndDate }
-							onReset={ onResetEndDate }
-						/>
-					</BaseControl>
-				</PanelBody>
+						{ isUseEndDate && (
+							<DateTimePicker
+								currentDate={ endDate }
+								onChange={ ( value ) =>
+									setAttributes( {
+										endDate: value,
+									} )
+								}
+								onReset={ () =>
+									setAttributes( {
+										endDate:
+											metadata.attributes.endDate.default,
+									} )
+								}
+							/>
+						) }
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 
 			<div { ...blockProps }>

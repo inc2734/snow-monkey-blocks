@@ -1,25 +1,26 @@
 import classnames from 'classnames';
 
 import {
-	CheckboxControl,
-	PanelBody,
-	Popover,
-	RangeControl,
-	SelectControl,
-	ToolbarButton,
-} from '@wordpress/components';
-
-import {
 	BlockControls,
 	ContrastChecker,
 	InspectorControls,
 	RichText,
 	useBlockProps,
-	__experimentalColorGradientControl as ColorGradientControl,
 	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 	__experimentalLinkControl as LinkControl,
 	__experimentalImageSizeControl as ImageSizeControl,
+	__experimentalBorderRadiusControl as BorderRadiusControl,
+	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
 } from '@wordpress/block-editor';
+
+import {
+	CheckboxControl,
+	Popover,
+	SelectControl,
+	ToolbarButton,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
+} from '@wordpress/components';
 
 import { useMergeRefs } from '@wordpress/compose';
 import { useState, useRef } from '@wordpress/element';
@@ -40,6 +41,8 @@ if ( undefined === useMultipleOriginColorsAndGradients ) {
 
 const ALLOWED_TYPES = [ 'image' ];
 const DEFAULT_MEDIA_SIZE_SLUG = 'full';
+
+import metadata from './block.json';
 
 export default function ( {
 	attributes,
@@ -111,10 +114,9 @@ export default function ( {
 	const btnStyles = {
 		'--smb-btn--background-color': btnBackgroundColor || undefined,
 		'--smb-btn--background-image': btnBackgroundGradientColor || undefined,
-		'--smb-btn--border-radius':
-			'undefined' !== typeof btnBorderRadius
-				? `${ btnBorderRadius }px`
-				: undefined,
+		'--smb-btn--border-radius': String( btnBorderRadius ).match( /^\d+$/ )
+			? `${ btnBorderRadius }px`
+			: btnBorderRadius,
 		'--smb-btn--color': btnTextColor || undefined,
 	};
 
@@ -124,120 +126,6 @@ export default function ( {
 	const blockProps = useBlockProps( {
 		className: classes,
 	} );
-
-	const onSelectImage = ( media ) => {
-		const newImageSizeSlug = !! media?.sizes[ imageSizeSlug ]
-			? imageSizeSlug
-			: DEFAULT_MEDIA_SIZE_SLUG;
-		const newImageUrl = media?.sizes[ newImageSizeSlug ]?.url;
-		const newImageWidth = media?.sizes[ newImageSizeSlug ]?.width;
-		const newImageHeight = media?.sizes[ newImageSizeSlug ]?.height;
-
-		setAttributes( {
-			imageURL: newImageUrl,
-			imageID: media.id,
-			imageAlt: media.alt,
-			imageWidth: newImageWidth,
-			imageHeight: newImageHeight,
-			imageSizeSlug: newImageSizeSlug,
-		} );
-	};
-
-	const onSelectImageURL = ( newURL ) => {
-		if ( newURL !== imageURL ) {
-			setAttributes( {
-				imageURL: newURL,
-				imageID: 0,
-				mediaSizeSlug: DEFAULT_MEDIA_SIZE_SLUG,
-			} );
-		}
-	};
-
-	const onRemoveImage = () =>
-		setAttributes( {
-			imageURL: '',
-			imageAlt: '',
-			imageWidth: '',
-			imageHeight: '',
-			imageID: 0,
-		} );
-
-	const onChangeTitle = ( value ) =>
-		setAttributes( {
-			title: value,
-		} );
-
-	const onChangePrice = ( value ) =>
-		setAttributes( {
-			price: value,
-		} );
-
-	const onChangeLede = ( value ) =>
-		setAttributes( {
-			lede: value,
-		} );
-
-	const onChangeList = ( value ) =>
-		setAttributes( {
-			list: value,
-		} );
-
-	const onChangeBtnLabel = ( value ) =>
-		setAttributes( {
-			btnLabel: value,
-		} );
-
-	const onChangeBtnUrl = ( {
-		url: newUrl,
-		opensInNewTab: newOpensInNewTab,
-	} ) =>
-		setAttributes( {
-			btnURL: newUrl,
-			btnTarget: ! newOpensInNewTab ? '_self' : '_blank',
-		} );
-
-	const onChangeBtnBackgroundColor = ( value ) =>
-		setAttributes( {
-			btnBackgroundColor: value,
-		} );
-
-	const onChangeBtnBackgroundGradientColor = ( value ) =>
-		setAttributes( {
-			btnBackgroundGradientColor: value,
-		} );
-
-	const onChangeBtnTextColor = ( value ) =>
-		setAttributes( {
-			btnTextColor: value,
-		} );
-
-	const onChangeBtnSize = ( value ) =>
-		setAttributes( {
-			btnSize: value,
-		} );
-
-	const onChangeBtnBorderRadius = ( value ) =>
-		setAttributes( {
-			btnBorderRadius: value,
-		} );
-
-	const onChangeBtnWrap = ( value ) =>
-		setAttributes( {
-			btnWrap: value,
-		} );
-
-	const onChangeImageSizeSlug = ( value ) => {
-		const newImageUrl = image?.media_details?.sizes?.[ value ]?.source_url;
-		const newImageWidth = image?.media_details?.sizes?.[ value ]?.width;
-		const newImageHeight = image?.media_details?.sizes?.[ value ]?.height;
-
-		setAttributes( {
-			imageURL: newImageUrl,
-			imageWidth: newImageWidth,
-			imageHeight: newImageHeight,
-			imageSizeSlug: value,
-		} );
-	};
 
 	const unlink = () => {
 		setAttributes( {
@@ -250,100 +138,216 @@ export default function ( {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody
-					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
-				>
-					<ImageSizeControl
-						onChangeImage={ onChangeImageSizeSlug }
-						slug={ imageSizeSlug }
-						imageSizeOptions={ imageSizeOptions }
-						isResizable={ false }
-						imageSizeHelp={ __(
-							'Select which image size to load.'
-						) }
-					/>
-				</PanelBody>
+				{ 0 < imageSizeOptions.length && (
+					<ToolsPanel
+						label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					>
+						<ToolsPanelItem
+							hasValue={ () =>
+								imageSizeSlug !==
+								metadata.attributes.imageSizeSlug.default
+							}
+							isShownByDefault
+							label={ __( 'Image size', 'snow-monkey-blocks' ) }
+							onDeselect={ () =>
+								setAttributes( {
+									imageSizeSlug:
+										metadata.attributes.imageSizeSlug
+											.default,
+								} )
+							}
+						>
+							<ImageSizeControl
+								slug={ imageSizeSlug }
+								imageSizeOptions={ imageSizeOptions }
+								isResizable={ false }
+								imageSizeHelp={ __(
+									'Select which image size to load.'
+								) }
+								onChangeImage={ ( value ) => {
+									const newImageUrl =
+										image?.media_details?.sizes?.[ value ]
+											?.source_url;
+									const newImageWidth =
+										image?.media_details?.sizes?.[ value ]
+											?.width;
+									const newImageHeight =
+										image?.media_details?.sizes?.[ value ]
+											?.height;
 
-				<PanelBody
-					title={ __( 'Button settings', 'snow-monkey-blocks' ) }
+									setAttributes( {
+										imageURL: newImageUrl,
+										imageWidth: newImageWidth,
+										imageHeight: newImageHeight,
+										imageSizeSlug: value,
+									} );
+								} }
+							/>
+						</ToolsPanelItem>
+					</ToolsPanel>
+				) }
+
+				<ToolsPanel
+					label={ __( 'Button settings', 'snow-monkey-blocks' ) }
 				>
-					<SelectControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							btnSize !== metadata.attributes.btnSize.default
+						}
+						isShownByDefault
 						label={ __( 'Button size', 'snow-monkey-blocks' ) }
-						value={ btnSize }
-						onChange={ onChangeBtnSize }
-						options={ [
-							{
-								value: '',
-								label: __(
-									'Normal size',
-									'snow-monkey-blocks'
-								),
-							},
-							{
-								value: 'little-wider',
-								label: __(
-									'Litle wider',
-									'snow-monkey-blocks'
-								),
-							},
-							{
-								value: 'wider',
-								label: __( 'Wider', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'more-wider',
-								label: __( 'More wider', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'full',
-								label: __( 'Full size', 'snow-monkey-blocks' ),
-							},
-						] }
-					/>
+						onDeselect={ () =>
+							setAttributes( {
+								btnSize: metadata.attributes.btnSize.default,
+							} )
+						}
+					>
+						<SelectControl
+							label={ __( 'Button size', 'snow-monkey-blocks' ) }
+							value={ btnSize }
+							onChange={ ( value ) =>
+								setAttributes( {
+									btnSize: value,
+								} )
+							}
+							options={ [
+								{
+									value: '',
+									label: __(
+										'Normal size',
+										'snow-monkey-blocks'
+									),
+								},
+								{
+									value: 'little-wider',
+									label: __(
+										'Litle wider',
+										'snow-monkey-blocks'
+									),
+								},
+								{
+									value: 'wider',
+									label: __( 'Wider', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'more-wider',
+									label: __(
+										'More wider',
+										'snow-monkey-blocks'
+									),
+								},
+								{
+									value: 'full',
+									label: __(
+										'Full size',
+										'snow-monkey-blocks'
+									),
+								},
+							] }
+						/>
+					</ToolsPanelItem>
 
-					<RangeControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							btnBorderRadius !==
+							metadata.attributes.btnBorderRadius.default
+						}
+						isShownByDefault
 						label={ __( 'Border radius', 'snow-monkey-blocks' ) }
-						value={ btnBorderRadius }
-						onChange={ onChangeBtnBorderRadius }
-						min="0"
-						max="50"
-						initialPosition="6"
-						allowReset
-					/>
+						onDeselect={ () =>
+							setAttributes( {
+								btnBorderRadius:
+									metadata.attributes.btnBorderRadius.default,
+							} )
+						}
+					>
+						<div className="smb-border-radius-control">
+							<BorderRadiusControl
+								values={ btnBorderRadius }
+								onChange={ ( value ) =>
+									setAttributes( {
+										btnBorderRadius: value,
+									} )
+								}
+							/>
+						</div>
+					</ToolsPanelItem>
 
-					<CheckboxControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							btnWrap !== metadata.attributes.btnWrap.default
+						}
+						isShownByDefault
 						label={ __( 'Wrap', 'snow-monkey-blocks' ) }
-						checked={ btnWrap }
-						onChange={ onChangeBtnWrap }
-					/>
+						onDeselect={ () =>
+							setAttributes( {
+								btnWrap: metadata.attributes.btnWrap.default,
+							} )
+						}
+					>
+						<CheckboxControl
+							label={ __( 'Wrap', 'snow-monkey-blocks' ) }
+							checked={ btnWrap }
+							onChange={ ( value ) =>
+								setAttributes( {
+									btnWrap: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
 
-					<ColorGradientControl
-						className="smb-inpanel-color-gradient-control"
-						label={ __( 'Background color', 'snow-monkey-blocks' ) }
-						colorValue={ btnBackgroundColor }
-						onColorChange={ onChangeBtnBackgroundColor }
-						gradientValue={ btnBackgroundGradientColor }
-						onGradientChange={ onChangeBtnBackgroundGradientColor }
-						{ ...useMultipleOriginColorsAndGradients() }
-						__experimentalHasMultipleOrigins={ true }
-						__experimentalIsRenderedInSidebar={ true }
-					/>
+					<div className="smb-color-gradient-settings-dropdown">
+						<ColorGradientSettingsDropdown
+							settings={ [
+								{
+									label: __(
+										'Background color',
+										'snow-monkey-blocks'
+									),
+									colorValue: btnBackgroundColor,
+									gradientValue: btnBackgroundGradientColor,
+									onColorChange: ( value ) =>
+										setAttributes( {
+											btnBackgroundColor: value,
+										} ),
+									onGradientChange: ( value ) =>
+										setAttributes( {
+											btnBackgroundGradientColor: value,
+										} ),
+								},
+							] }
+							__experimentalIsItemGroup={ false }
+							__experimentalHasMultipleOrigins
+							__experimentalIsRenderedInSidebar
+							{ ...useMultipleOriginColorsAndGradients() }
+						/>
 
-					<ColorGradientControl
-						className="smb-inpanel-color-gradient-control"
-						label={ __( 'Text color', 'snow-monkey-blocks' ) }
-						colorValue={ btnTextColor }
-						onColorChange={ onChangeBtnTextColor }
-						{ ...useMultipleOriginColorsAndGradients() }
-						__experimentalHasMultipleOrigins={ true }
-						__experimentalIsRenderedInSidebar={ true }
-					/>
+						<ColorGradientSettingsDropdown
+							settings={ [
+								{
+									label: __(
+										'Text color',
+										'snow-monkey-blocks'
+									),
+									colorValue: btnTextColor,
+									onColorChange: ( value ) =>
+										setAttributes( {
+											btnTextColor: value,
+										} ),
+								},
+							] }
+							__experimentalIsItemGroup={ false }
+							__experimentalHasMultipleOrigins
+							__experimentalIsRenderedInSidebar
+							{ ...useMultipleOriginColorsAndGradients() }
+						/>
 
-					<ContrastChecker
-						backgroundColor={ btnBackgroundColor }
-						textColor={ btnTextColor }
-					/>
-				</PanelBody>
+						<ContrastChecker
+							backgroundColor={ btnBackgroundColor }
+							textColor={ btnTextColor }
+						/>
+					</div>
+				</ToolsPanel>
 			</InspectorControls>
 
 			<div { ...blockProps }>
@@ -356,9 +360,57 @@ export default function ( {
 								alt={ imageAlt }
 								width={ imageWidth }
 								height={ imageHeight }
-								onSelect={ onSelectImage }
-								onSelectURL={ onSelectImageURL }
-								onRemove={ onRemoveImage }
+								onSelect={ ( media ) => {
+									const newImageSizeSlug = !! media?.sizes[
+										imageSizeSlug
+									]
+										? imageSizeSlug
+										: DEFAULT_MEDIA_SIZE_SLUG;
+									const newImageUrl =
+										media?.sizes[ newImageSizeSlug ]?.url;
+									const newImageWidth =
+										media?.sizes[ newImageSizeSlug ]?.width;
+									const newImageHeight =
+										media?.sizes[ newImageSizeSlug ]
+											?.height;
+
+									setAttributes( {
+										imageURL: newImageUrl,
+										imageID: media.id,
+										imageAlt: media.alt,
+										imageWidth: newImageWidth,
+										imageHeight: newImageHeight,
+										imageSizeSlug: newImageSizeSlug,
+									} );
+								} }
+								onSelectURL={ ( newURL ) => {
+									if ( newURL !== imageURL ) {
+										setAttributes( {
+											imageURL: newURL,
+											imageID: 0,
+											mediaSizeSlug:
+												DEFAULT_MEDIA_SIZE_SLUG,
+										} );
+									}
+								} }
+								onRemove={ () =>
+									setAttributes( {
+										imageURL:
+											metadata.attributes.imageURL
+												.default,
+										imageAlt:
+											metadata.attributes.imageAlt
+												.default,
+										imageWidth:
+											metadata.attributes.imageWidth
+												.default,
+										imageHeight:
+											metadata.attributes.imageHeight
+												.default,
+										imageID:
+											metadata.attributes.imageID.default,
+									} )
+								}
 								allowedTypes={ ALLOWED_TYPES }
 							/>
 						</div>
@@ -371,7 +423,11 @@ export default function ( {
 							'snow-monkey-blocks'
 						) }
 						value={ title }
-						onChange={ onChangeTitle }
+						onChange={ ( value ) =>
+							setAttributes( {
+								title: value,
+							} )
+						}
 					/>
 
 					{ ( ! RichText.isEmpty( price ) || isSelected ) && (
@@ -382,7 +438,11 @@ export default function ( {
 								'snow-monkey-blocks'
 							) }
 							value={ price }
-							onChange={ onChangePrice }
+							onChange={ ( value ) =>
+								setAttributes( {
+									price: value,
+								} )
+							}
 						/>
 					) }
 
@@ -394,7 +454,11 @@ export default function ( {
 								'snow-monkey-blocks'
 							) }
 							value={ lede }
-							onChange={ onChangeLede }
+							onChange={ ( value ) =>
+								setAttributes( {
+									lede: value,
+								} )
+							}
 						/>
 					) }
 
@@ -402,7 +466,11 @@ export default function ( {
 						tagName="ul"
 						multiline="li"
 						value={ list }
-						onChange={ onChangeList }
+						onChange={ ( value ) =>
+							setAttributes( {
+								list: value,
+							} )
+						}
 					/>
 
 					{ ( ! RichText.isEmpty( btnLabel ) || isSelected ) && (
@@ -433,7 +501,11 @@ export default function ( {
 										'Button',
 										'snow-monkey-blocks'
 									) }
-									onChange={ onChangeBtnLabel }
+									onChange={ ( value ) =>
+										setAttributes( {
+											btnLabel: value,
+										} )
+									}
 									withoutInteractiveFormatting={ true }
 									ref={ richTextRef }
 								/>
@@ -453,7 +525,18 @@ export default function ( {
 												url: btnURL,
 												opensInNewTab,
 											} }
-											onChange={ onChangeBtnUrl }
+											onChange={ ( {
+												url: newUrl,
+												opensInNewTab: newOpensInNewTab,
+											} ) =>
+												setAttributes( {
+													btnURL: newUrl,
+													btnTarget:
+														! newOpensInNewTab
+															? '_self'
+															: '_blank',
+												} )
+											}
 											onRemove={ () => {
 												unlink();
 												richTextRef.current?.focus();

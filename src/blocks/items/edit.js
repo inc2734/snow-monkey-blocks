@@ -10,7 +10,13 @@ import {
 	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
-import { PanelBody, RangeControl, ToggleControl } from '@wordpress/components';
+import {
+	RangeControl,
+	ToggleControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
+} from '@wordpress/components';
+
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
@@ -31,6 +37,8 @@ const HORIZONTAL_JUSTIFY_CONTROLS = [
 	'right',
 	'space-between',
 ];
+
+import metadata from './block.json';
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
 	useMigrateDoubleHyphenToSingleHyphen( clientId, [
@@ -108,114 +116,156 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		}
 	);
 
-	const onChangeIsGlue = ( value ) =>
-		setAttributes( {
-			isGlue: value,
-		} );
-
-	const onChangeIsFill = ( value ) =>
-		setAttributes( {
-			isFill: value,
-		} );
-
-	const onChangeLg = ( value ) =>
-		setAttributes( {
-			lg: toNumber( value, 1, 6 ),
-		} );
-
-	const onChangeMd = ( value ) =>
-		setAttributes( {
-			md: toNumber( value, 1, 6 ),
-		} );
-
-	const onChangeSm = ( value ) =>
-		setAttributes( {
-			sm: toNumber( value, 1, 6 ),
-		} );
-
-	const onChangeVerticalAlignment = ( value ) =>
-		setAttributes( {
-			verticalAlignment: value,
-		} );
-
-	const onChangeContentJustification = ( value ) =>
-		setAttributes( { contentJustification: value } );
-
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody
-					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
+				<ToolsPanel
+					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
-					<ToggleControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							isGlue !== metadata.attributes.isGlue.default
+						}
+						isShownByDefault
 						label={ __(
 							'Glue each item together',
 							'snow-monkey-blocks'
 						) }
-						checked={ isGlue }
-						onChange={ onChangeIsGlue }
-					/>
+						onDeselect={ () =>
+							setAttributes( {
+								isGlue: metadata.attributes.isGlue.default,
+							} )
+						}
+					>
+						<ToggleControl
+							label={ __(
+								'Glue each item together',
+								'snow-monkey-blocks'
+							) }
+							checked={ isGlue }
+							onChange={ ( value ) =>
+								setAttributes( {
+									isGlue: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
 
-					<ToggleControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							isFill !== metadata.attributes.isFill.default
+						}
+						isShownByDefault
 						label={ __(
 							'Align the bottom of the button of each items (standard, block link item only).',
 							'snow-monkey-blocks'
 						) }
-						checked={ isFill }
-						onChange={ onChangeIsFill }
-					/>
+						onDeselect={ () =>
+							setAttributes( {
+								isFill: metadata.attributes.isFill.default,
+							} )
+						}
+					>
+						<ToggleControl
+							label={ __(
+								'Align the bottom of the button of each items (standard, block link item only).',
+								'snow-monkey-blocks'
+							) }
+							checked={ isFill }
+							onChange={ ( value ) =>
+								setAttributes( {
+									isFill: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
 
-					<ResponsiveTabPanel
-						desktop={ () => (
-							<RangeControl
-								label={ __(
-									'Columns per row (Large window)',
-									'snow-monkey-blocks'
-								) }
-								value={ lg }
-								onChange={ onChangeLg }
-								min="1"
-								max="6"
-							/>
-						) }
-						tablet={ () => (
-							<RangeControl
-								label={ __(
-									'Columns per row (Medium window)',
-									'snow-monkey-blocks'
-								) }
-								value={ md }
-								onChange={ onChangeMd }
-								min="1"
-								max="6"
-							/>
-						) }
-						mobile={ () => (
-							<RangeControl
-								label={ __(
-									'Columns per row (Small window)',
-									'snow-monkey-blocks'
-								) }
-								value={ sm }
-								onChange={ onChangeSm }
-								min="1"
-								max="6"
-							/>
-						) }
-					/>
-				</PanelBody>
+					<ToolsPanelItem
+						hasValue={ () =>
+							lg !== metadata.attributes.lg.default ||
+							md !== metadata.attributes.md.default ||
+							sm !== metadata.attributes.sm.default
+						}
+						isShownByDefault
+						label={ __( 'Columns per row', 'snow-monkey-blocks' ) }
+						onDeselect={ () =>
+							setAttributes( {
+								lg: metadata.attributes.lg.default,
+								md: metadata.attributes.md.default,
+								sm: metadata.attributes.sm.default,
+							} )
+						}
+					>
+						<ResponsiveTabPanel
+							desktop={ () => (
+								<RangeControl
+									label={ __(
+										'Columns per row (Large window)',
+										'snow-monkey-blocks'
+									) }
+									value={ lg }
+									onChange={ ( value ) =>
+										setAttributes( {
+											lg: toNumber( value, 1, 6 ),
+										} )
+									}
+									min="1"
+									max="6"
+								/>
+							) }
+							tablet={ () => (
+								<RangeControl
+									label={ __(
+										'Columns per row (Medium window)',
+										'snow-monkey-blocks'
+									) }
+									value={ md }
+									onChange={ ( value ) =>
+										setAttributes( {
+											md: toNumber( value, 1, 6 ),
+										} )
+									}
+									min="1"
+									max="6"
+								/>
+							) }
+							mobile={ () => (
+								<RangeControl
+									label={ __(
+										'Columns per row (Small window)',
+										'snow-monkey-blocks'
+									) }
+									value={ sm }
+									onChange={ ( value ) =>
+										setAttributes( {
+											sm: toNumber( value, 1, 6 ),
+										} )
+									}
+									min="1"
+									max="6"
+								/>
+							) }
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 
 			<BlockControls group="block">
 				<BlockVerticalAlignmentToolbar
-					onChange={ onChangeVerticalAlignment }
+					onChange={ ( value ) =>
+						setAttributes( {
+							verticalAlignment: value,
+						} )
+					}
 					value={ verticalAlignment }
 				/>
 
 				<JustifyToolbar
 					allowedControls={ HORIZONTAL_JUSTIFY_CONTROLS }
 					value={ contentJustification }
-					onChange={ onChangeContentJustification }
+					onChange={ ( value ) =>
+						setAttributes( { contentJustification: value } )
+					}
 				/>
 			</BlockControls>
 

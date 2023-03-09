@@ -8,10 +8,16 @@ import {
 	useBlockProps,
 } from '@wordpress/block-editor';
 
-import { PanelBody } from '@wordpress/components';
+import {
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
+} from '@wordpress/components';
+
 import { __ } from '@wordpress/i18n';
 
 import DateTimePicker from '@smb/component/date-time-picker';
+
+import metadata from './block.json';
 
 export default function ( { attributes, setAttributes, className } ) {
 	const { alignment, numericColor, clockColor, countdownTime } = attributes;
@@ -32,34 +38,19 @@ export default function ( { attributes, setAttributes, className } ) {
 		style: styles,
 	} );
 
-	const onChangeAlignment = ( value ) =>
-		setAttributes( {
-			alignment: value,
-		} );
-
-	const onChangeCountdownTime = ( value ) =>
-		setAttributes( {
-			countdownTime: value,
-		} );
-
-	const onChangeNumericColor = ( value ) =>
-		setAttributes( {
-			numericColor: value,
-		} );
-
-	const onChangeClockColor = ( value ) =>
-		setAttributes( {
-			clockColor: value,
-		} );
-
 	return (
 		<>
 			<BlockControls group="block">
 				<AlignmentToolbar
 					value={ alignment }
-					onChange={ onChangeAlignment }
+					onChange={ ( value ) =>
+						setAttributes( {
+							alignment: value,
+						} )
+					}
 				/>
 			</BlockControls>
+
 			<InspectorControls>
 				<PanelColorGradientSettings
 					title={ __( 'Color', 'snow-monkey-blocks' ) }
@@ -67,12 +58,18 @@ export default function ( { attributes, setAttributes, className } ) {
 					settings={ [
 						{
 							colorValue: numericColor,
-							onColorChange: onChangeNumericColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									numericColor: value,
+								} ),
 							label: __( 'Numeric color', 'snow-monkey-blocks' ),
 						},
 						{
 							colorValue: clockColor,
-							onColorChange: onChangeClockColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									clockColor: value,
+								} ),
 							label: __( 'Clock color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -80,14 +77,33 @@ export default function ( { attributes, setAttributes, className } ) {
 					__experimentalIsRenderedInSidebar={ true }
 				></PanelColorGradientSettings>
 
-				<PanelBody
-					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
+				<ToolsPanel
+					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
-					<DateTimePicker
-						currentDate={ countdownTime }
-						onChange={ onChangeCountdownTime }
-					/>
-				</PanelBody>
+					<ToolsPanelItem
+						hasValue={ () =>
+							countdownTime !==
+							metadata.attributes.countdownTime.default
+						}
+						isShownByDefault
+						label={ __( 'Date time', 'snow-monkey-blocks' ) }
+						onDeselect={ () =>
+							setAttributes( {
+								countdownTime:
+									metadata.attributes.countdownTime.default,
+							} )
+						}
+					>
+						<DateTimePicker
+							currentDate={ countdownTime }
+							onChange={ ( value ) =>
+								setAttributes( {
+									countdownTime: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 
 			<div { ...blockProps }>

@@ -27,10 +27,9 @@ export default function ( { attributes, className } ) {
 	const styles = {
 		'--smb-btn--background-color': backgroundColor || undefined,
 		'--smb-btn--background-image': backgroundGradientColor || undefined,
-		'--smb-btn--border-radius':
-			!! borderRadius || 0 <= borderRadius
-				? `${ borderRadius }px`
-				: undefined,
+		'--smb-btn--border-radius': String( borderRadius ).match( /^\d+$/ )
+			? `${ borderRadius }px`
+			: borderRadius,
 		'--smb-btn--color': textColor || undefined,
 	};
 

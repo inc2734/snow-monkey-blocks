@@ -7,11 +7,19 @@ import {
 	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
-import { PanelBody, ToggleControl, BaseControl } from '@wordpress/components';
+import {
+	ToggleControl,
+	BaseControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
+} from '@wordpress/components';
+
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
 import WidthPicker from '@smb/component/width-picker';
+
+import metadata from './block.json';
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
 	const { contentsMaxWidth, isSlim, removeGutters } = attributes;
@@ -53,65 +61,116 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		}
 	);
 
-	const onChangeContentsMaxWidth = ( value ) =>
-		setAttributes( {
-			contentsMaxWidth: value,
-		} );
-
-	const onChangeIsSlim = ( value ) =>
-		setAttributes( {
-			isSlim: value,
-		} );
-
-	const onChangeRemoveGutters = ( value ) =>
-		setAttributes( {
-			removeGutters: value,
-		} );
-
 	const disableIsSlim = !! contentsMaxWidth;
 	const disableContentsMaxWidth = isSlim;
 
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody
-					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
+				<ToolsPanel
+					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
 					{ ! disableContentsMaxWidth && (
-						<BaseControl
+						<ToolsPanelItem
+							hasValue={ () =>
+								contentsMaxWidth !==
+								metadata.attributes.contentsMaxWidth.default
+							}
+							isShownByDefault
 							label={ __(
 								'Max width of the contents',
 								'snow-monkey-blocks'
 							) }
-							id="snow-monkey-blocks/container/contents-max-width"
+							onDeselect={ () =>
+								setAttributes( {
+									contentsMaxWidth:
+										metadata.attributes.contentsMaxWidth
+											.default,
+								} )
+							}
 						>
-							<WidthPicker
-								value={ contentsMaxWidth }
-								onChange={ onChangeContentsMaxWidth }
-							/>
-						</BaseControl>
+							<BaseControl
+								label={ __(
+									'Max width of the contents',
+									'snow-monkey-blocks'
+								) }
+								id="snow-monkey-blocks/container/contents-max-width"
+							>
+								<WidthPicker
+									value={ contentsMaxWidth }
+									onChange={ ( value ) =>
+										setAttributes( {
+											contentsMaxWidth: value,
+										} )
+									}
+									withReset={ false }
+								/>
+							</BaseControl>
+						</ToolsPanelItem>
 					) }
 
 					{ ! disableIsSlim && (
-						<ToggleControl
+						<ToolsPanelItem
+							hasValue={ () =>
+								isSlim !== metadata.attributes.isSlim.default
+							}
+							isShownByDefault
 							label={ __(
 								'Make the contents width slim',
 								'snow-monkey-blocks'
 							) }
-							checked={ isSlim }
-							onChange={ onChangeIsSlim }
-						/>
+							onDeselect={ () =>
+								setAttributes( {
+									isSlim: metadata.attributes.isSlim.default,
+								} )
+							}
+						>
+							<ToggleControl
+								label={ __(
+									'Make the contents width slim',
+									'snow-monkey-blocks'
+								) }
+								checked={ isSlim }
+								onChange={ ( value ) =>
+									setAttributes( {
+										isSlim: value,
+									} )
+								}
+							/>
+						</ToolsPanelItem>
 					) }
 
-					<ToggleControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							removeGutters !==
+							metadata.attributes.removeGutters.default
+						}
+						isShownByDefault
 						label={ __(
 							'Remove left and right spaces',
 							'snow-monkey-blocks'
 						) }
-						checked={ removeGutters }
-						onChange={ onChangeRemoveGutters }
-					/>
-				</PanelBody>
+						onDeselect={ () =>
+							setAttributes( {
+								removeGutters:
+									metadata.attributes.removeGutters.default,
+							} )
+						}
+					>
+						<ToggleControl
+							label={ __(
+								'Remove left and right spaces',
+								'snow-monkey-blocks'
+							) }
+							checked={ removeGutters }
+							onChange={ ( value ) =>
+								setAttributes( {
+									removeGutters: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 
 			<div { ...blockProps }>

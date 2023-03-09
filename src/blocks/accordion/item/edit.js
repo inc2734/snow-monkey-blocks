@@ -1,14 +1,21 @@
 import classnames from 'classnames';
 
-import { PanelBody, CheckboxControl } from '@wordpress/components';
-import { __ } from '@wordpress/i18n';
-
 import {
 	InspectorControls,
 	RichText,
 	useBlockProps,
 	useInnerBlocksProps,
 } from '@wordpress/block-editor';
+
+import {
+	CheckboxControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
+} from '@wordpress/components';
+
+import { __ } from '@wordpress/i18n';
+
+import metadata from './block.json';
 
 export default function ( { attributes, setAttributes, className } ) {
 	const { title, initialState } = attributes;
@@ -23,31 +30,43 @@ export default function ( { attributes, setAttributes, className } ) {
 		className: 'smb-accordion__item__body',
 	} );
 
-	const onChangeInitialState = ( value ) =>
-		setAttributes( {
-			initialState: value,
-		} );
-
-	const onChangeTitle = ( value ) =>
-		setAttributes( {
-			title: value,
-		} );
-
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody
-					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
+				<ToolsPanel
+					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
-					<CheckboxControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							initialState !==
+							metadata.attributes.initialState.default
+						}
+						isShownByDefault
 						label={ __(
 							'Display in open state',
 							'snow-monkey-blocks'
 						) }
-						checked={ initialState }
-						onChange={ onChangeInitialState }
-					/>
-				</PanelBody>
+						onDeselect={ () =>
+							setAttributes( {
+								initialState:
+									metadata.attributes.initialState.default,
+							} )
+						}
+					>
+						<CheckboxControl
+							label={ __(
+								'Display in open state',
+								'snow-monkey-blocks'
+							) }
+							checked={ initialState }
+							onChange={ ( value ) =>
+								setAttributes( {
+									initialState: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 
 			<div { ...blockProps }>
@@ -55,7 +74,11 @@ export default function ( { attributes, setAttributes, className } ) {
 					<RichText
 						className="smb-accordion__item__title__label"
 						value={ title }
-						onChange={ onChangeTitle }
+						onChange={ ( value ) =>
+							setAttributes( {
+								title: value,
+							} )
+						}
 						placeholder={ __(
 							'Enter title here',
 							'snow-monkey-blocks'

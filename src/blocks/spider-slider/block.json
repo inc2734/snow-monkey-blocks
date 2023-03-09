@@ -76,7 +76,8 @@
 			"default": false
 		},
 		"gutter": {
-			"type": "string"
+			"type": "string",
+			"default": ""
 		},
 		"aspectRatio": {
 			"type": "string",

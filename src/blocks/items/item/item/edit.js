@@ -4,10 +4,11 @@ import { times } from 'lodash';
 import {
 	BaseControl,
 	Button,
-	PanelBody,
 	Popover,
 	ToggleControl,
 	ToolbarButton,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
 
 import {
@@ -26,6 +27,8 @@ import { __ } from '@wordpress/i18n';
 import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
 
 import Figure from '@smb/component/figure';
+
+import metadata from './block.json';
 
 export default function ( {
 	attributes,
@@ -77,12 +80,6 @@ export default function ( {
 		// ref,
 	} );
 
-	const onChangeUrl = ( { url: newUrl, opensInNewTab: newOpensInNewTab } ) =>
-		setAttributes( {
-			btnURL: newUrl,
-			btnTarget: ! newOpensInNewTab ? '_self' : '_blank',
-		} );
-
 	const unlink = () => {
 		setAttributes( {
 			btnURL: undefined,
@@ -94,51 +91,82 @@ export default function ( {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody
-					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
+				<ToolsPanel
+					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
-					<BaseControl
-						label={ __( 'Title tag', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/items-item/title-tag-name"
-					>
-						<div className="smb-list-icon-selector">
-							{ times( titleTagNames.length, ( index ) => {
-								const onClickTitleTagName = () => {
-									setAttributes( {
-										titleTagName: titleTagNames[ index ],
-									} );
-								};
-
-								return (
-									<Button
-										variant={
-											titleTagName ===
-											titleTagNames[ index ]
-												? 'primary'
-												: 'secondary'
-										}
-										onClick={ onClickTitleTagName }
-										key={ index }
-									>
-										{ titleTagNames[ index ] }
-									</Button>
-								);
-							} ) }
-						</div>
-					</BaseControl>
-
-					<ToggleControl
-						label={ __( 'Block link', 'snow-monkey-blocks' ) }
-						description={ __(
-							'Link is made not only to the button but to the whole block.',
-							'snow-monkey-blocks'
-						) }
-						checked={ isBlockLink }
-						onChange={ ( value ) =>
-							setAttributes( { isBlockLink: value } )
+					<ToolsPanelItem
+						hasValue={ () =>
+							titleTagName !==
+							metadata.attributes.titleTagName.default
 						}
-					/>
-				</PanelBody>
+						isShownByDefault
+						label={ __( 'Title tag', 'snow-monkey-blocks' ) }
+						onDeselect={ () =>
+							setAttributes( {
+								titleTagName:
+									metadata.attributes.titleTagName.default,
+							} )
+						}
+					>
+						<BaseControl
+							label={ __( 'Title tag', 'snow-monkey-blocks' ) }
+							id="snow-monkey-blocks/items-item/title-tag-name"
+						>
+							<div className="smb-list-icon-selector">
+								{ times( titleTagNames.length, ( index ) => {
+									const onClickTitleTagName = () => {
+										setAttributes( {
+											titleTagName:
+												titleTagNames[ index ],
+										} );
+									};
+
+									return (
+										<Button
+											variant={
+												titleTagName ===
+												titleTagNames[ index ]
+													? 'primary'
+													: 'secondary'
+											}
+											onClick={ onClickTitleTagName }
+											key={ index }
+										>
+											{ titleTagNames[ index ] }
+										</Button>
+									);
+								} ) }
+							</div>
+						</BaseControl>
+					</ToolsPanelItem>
+
+					<ToolsPanelItem
+						hasValue={ () =>
+							isBlockLink !==
+							metadata.attributes.isBlockLink.default
+						}
+						isShownByDefault
+						label={ __( 'Block link', 'snow-monkey-blocks' ) }
+						onDeselect={ () =>
+							setAttributes( {
+								isBlockLink:
+									metadata.attributes.isBlockLink.default,
+							} )
+						}
+					>
+						<ToggleControl
+							label={ __( 'Block link', 'snow-monkey-blocks' ) }
+							description={ __(
+								'Link is made not only to the button but to the whole block.',
+								'snow-monkey-blocks'
+							) }
+							checked={ isBlockLink }
+							onChange={ ( value ) =>
+								setAttributes( { isBlockLink: value } )
+							}
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 
 				<PanelColorSettings
 					title={ __( 'Color', 'snow-monkey-blocks' ) }
@@ -329,7 +357,17 @@ export default function ( {
 					<LinkControl
 						className="wp-block-navigation-link__inline-link-input"
 						value={ { url: btnURL, opensInNewTab } }
-						onChange={ onChangeUrl }
+						onChange={ ( {
+							url: newUrl,
+							opensInNewTab: newOpensInNewTab,
+						} ) =>
+							setAttributes( {
+								btnURL: newUrl,
+								btnTarget: ! newOpensInNewTab
+									? '_self'
+									: '_blank',
+							} )
+						}
 						onRemove={ () => {
 							unlink();
 							richTextRef.current?.focus();

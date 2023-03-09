@@ -11,7 +11,7 @@ import { useSetting } from '@wordpress/block-editor';
  * @see https://github.com/WordPress/gutenberg/blob/99ef4c346fb804772328af9ae8d3cc3e86ee5305/packages/block-editor/src/hooks/padding.js
  */
 export default function ( props ) {
-	const { label, sides, values, onChange } = props;
+	const { label, sides, values, onChange, allowReset } = props;
 
 	const units = useCustomUnits( {
 		availableUnits: useSetting( 'spacing.units' ) || [
@@ -30,7 +30,7 @@ export default function ( props ) {
 			label={ label }
 			sides={ sides }
 			units={ units }
-			allowReset={ true }
+			allowReset={ allowReset }
 		/>
 	);
 }

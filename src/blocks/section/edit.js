@@ -33,6 +33,8 @@ import {
 
 const HORIZONTAL_JUSTIFY_CONTROLS = [ 'left', 'center', 'right' ];
 
+import metadata from './block.json';
+
 export default function ( {
 	attributes,
 	setAttributes,
@@ -184,177 +186,7 @@ export default function ( {
 	);
 
 	const fontSizes = useSetting( 'typography.fontSizes' ) || [];
-
-	const onChangeContentsAlignment = ( value ) =>
-		setAttributes( {
-			contentsAlignment: value,
-		} );
-
-	const onChangeTextColor = ( value ) =>
-		setAttributes( {
-			textColor: value,
-		} );
-
-	const onChangeContentJustification = ( value ) =>
-		setAttributes( {
-			contentJustification: value,
-		} );
-
-	const onChangeItemsAlignment = ( value ) =>
-		setAttributes( {
-			itemsAlignment: value,
-		} );
-
-	const onChangeTitle = ( value ) =>
-		setAttributes( {
-			title: value,
-		} );
-
-	const onChangeSubtitle = ( value ) =>
-		setAttributes( {
-			subtitle: value,
-		} );
-
-	const onChangeLede = ( value ) =>
-		setAttributes( {
-			lede: value,
-		} );
-
-	const onChangeWrapperTagName = ( value ) =>
-		setAttributes( {
-			wrapperTagName: value,
-		} );
-
-	const onChangeTitleTagName = ( value ) =>
-		setAttributes( {
-			titleTagName: value,
-		} );
-
-	const onChangeHeight = ( value ) =>
-		setAttributes( {
-			height: value,
-		} );
-
-	const onChangeContainerAlign = ( value ) =>
-		setAttributes( {
-			containerAlign: value,
-		} );
-
-	const onChangeDisableContainerPadding = ( value ) =>
-		setAttributes( {
-			disableContainerPadding: value,
-		} );
-
-	const onChangeContentsMaxWidth = ( value ) =>
-		setAttributes( {
-			contentsMaxWidth: value,
-		} );
-
-	const onChangeIsSlim = ( value ) =>
-		setAttributes( {
-			isSlim: value,
-		} );
-
-	const onChangeBackgroundHorizontalPosition = ( value ) =>
-		setAttributes( {
-			backgroundHorizontalPosition: toNumber( value, -90, 90 ),
-		} );
-
-	const onChangeBackgroundVerticalPosition = ( value ) =>
-		setAttributes( {
-			backgroundVerticalPosition: toNumber( value, -90, 90 ),
-		} );
-
-	const onChangeIsBackgroundNoOver = ( value ) =>
-		setAttributes( {
-			isBackgroundNoOver: value,
-		} );
-
-	const onChangeBackgroundColor = ( value ) =>
-		setAttributes( {
-			backgroundColor: value,
-		} );
-
-	const onChangeBackgroundGradientColor = ( value ) =>
-		setAttributes( {
-			backgroundGradientColor: value,
-		} );
-
-	const onChangeBackgroundTexture = ( value ) =>
-		setAttributes( {
-			backgroundTexture: value,
-			backgroundTextureUrl: !! value
-				? `${ smb.pluginUrl }/dist/blocks/section/img/${ value }.png`
-				: undefined,
-		} );
-
-	const onChangeBackgroundTextureOpacity = ( value ) =>
-		setAttributes( {
-			backgroundTextureOpacity: toNumber( value, 0.1, 1 ),
-		} );
-
-	const onChangeFixedBackgroundColor = ( value ) =>
-		setAttributes( {
-			fixedBackgroundColor: value,
-		} );
-
-	const onChangeFixedBackgroundGradientColor = ( value ) =>
-		setAttributes( {
-			fixedBackgroundGradientColor: value,
-		} );
-
-	const onChangeFixedBackgroundTexture = ( value ) =>
-		setAttributes( {
-			fixedBackgroundTexture: value,
-			fixedBackgroundTextureUrl: !! value
-				? `${ smb.pluginUrl }/dist/blocks/section/img/${ value }.png`
-				: undefined,
-		} );
-
-	const onChangeFixedBackgroundTextureOpacity = ( value ) =>
-		setAttributes( {
-			fixedBackgroundTextureOpacity: toNumber( value, 0.1, 1 ),
-		} );
-
-	const onChangeTopDividerType = ( value ) =>
-		setAttributes( {
-			topDividerType: value,
-		} );
-
-	const onChangeTopDividerLevel = ( value ) =>
-		setAttributes( {
-			topDividerLevel: toNumber( value, -100, 100 ),
-		} );
-
-	const onChangeTopDividerColor = ( value ) =>
-		setAttributes( {
-			topDividerColor: value,
-		} );
-
-	const onChangeTopDividerVerticalPosition = ( value ) =>
-		setAttributes( {
-			topDividerVerticalPosition: value,
-		} );
-
-	const onChangeBottomDividerType = ( value ) =>
-		setAttributes( {
-			bottomDividerType: value,
-		} );
-
-	const onChangeBottomDividerLevel = ( value ) =>
-		setAttributes( {
-			bottomDividerLevel: toNumber( value, -100, 100 ),
-		} );
-
-	const onChangeBottomDividerColor = ( value ) =>
-		setAttributes( {
-			bottomDividerColor: value,
-		} );
-
-	const onChangeBottomDividerVerticalPosition = ( value ) =>
-		setAttributes( {
-			bottomDividerVerticalPosition: value,
-		} );
+	const newBackgroundText = { ...backgroundText };
 
 	return (
 		<>
@@ -365,7 +197,10 @@ export default function ( {
 					settings={ [
 						{
 							colorValue: textColor,
-							onColorChange: onChangeTextColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									textColor: value,
+								} ),
 							label: __( 'Text color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -385,34 +220,67 @@ export default function ( {
 					settings={ [
 						{
 							wrapperTagNameValue: wrapperTagName,
-							onWrapperTagNameChange: onChangeWrapperTagName,
+							onWrapperTagNameChange: ( value ) =>
+								setAttributes( {
+									wrapperTagName: value,
+								} ),
+							defaultValue:
+								metadata.attributes.wrapperTagName.default,
 						},
 						{
 							titleTagNameValue: titleTagName,
-							onTitleTagNameChange: onChangeTitleTagName,
+							onTitleTagNameChange: ( value ) =>
+								setAttributes( {
+									titleTagName: value,
+								} ),
+							defaultValue:
+								metadata.attributes.titleTagName.default,
 						},
 						{
 							heightValue: height,
-							onHeightChange: onChangeHeight,
+							onHeightChange: ( value ) =>
+								setAttributes( {
+									height: value,
+								} ),
+							defaultValue: metadata.attributes.height.default,
 						},
 						{
 							contentsContainerControl: true,
 							containerAlignValue: containerAlign,
-							onContainerAlignChange: onChangeContainerAlign,
+							onContainerAlignChange: ( value ) =>
+								setAttributes( {
+									containerAlign: value,
+								} ),
+							defaultValue:
+								metadata.attributes.containerAlign.default,
 						},
 						{
 							disableContainerPaddingValue:
 								disableContainerPadding,
-							onDisableContainerPaddingChange:
-								onChangeDisableContainerPadding,
+							onDisableContainerPaddingChange: ( value ) =>
+								setAttributes( {
+									disableContainerPadding: value,
+								} ),
+							defaultValue:
+								metadata.attributes.disableContainerPadding
+									.default,
 						},
 						{
 							contentsMaxWidthValue: contentsMaxWidth,
-							onContentsMaxWidthChange: onChangeContentsMaxWidth,
+							onContentsMaxWidthChange: ( value ) =>
+								setAttributes( {
+									contentsMaxWidth: value,
+								} ),
+							defaultValue:
+								metadata.attributes.contentsMaxWidth.default,
 						},
 						{
 							isSlimValue: isSlim,
-							onIsSlimChange: onChangeIsSlim,
+							onIsSlimChange: ( value ) =>
+								setAttributes( {
+									isSlim: value,
+								} ),
+							defaultValue: metadata.attributes.isSlim.default,
 						},
 					] }
 				/>
@@ -428,32 +296,83 @@ export default function ( {
 						{
 							colorValue: backgroundColor,
 							gradientValue: backgroundGradientColor,
-							onColorChange: onChangeBackgroundColor,
-							onGradientChange: onChangeBackgroundGradientColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									backgroundColor: value,
+								} ),
+							onGradientChange: ( value ) =>
+								setAttributes( {
+									backgroundGradientColor: value,
+								} ),
+							defaultColorValue:
+								metadata.attributes.backgroundColor.default,
+							defaultGradientValue:
+								metadata.attributes.backgroundGradientColor
+									.default,
 						},
 						{
 							horizontalPositionValue:
 								backgroundHorizontalPosition,
-							onHorizontalPositionChange:
-								onChangeBackgroundHorizontalPosition,
+							onHorizontalPositionChange: ( value ) =>
+								setAttributes( {
+									backgroundHorizontalPosition: toNumber(
+										value,
+										-90,
+										90
+									),
+								} ),
+							defaultValue:
+								metadata.attributes.backgroundHorizontalPosition
+									.default,
 						},
 						{
 							verticalPositionValue: backgroundVerticalPosition,
-							onVerticalPositionChange:
-								onChangeBackgroundVerticalPosition,
+							onVerticalPositionChange: ( value ) =>
+								setAttributes( {
+									backgroundVerticalPosition: toNumber(
+										value,
+										-90,
+										90
+									),
+								} ),
+							defaultValue:
+								metadata.attributes.backgroundVerticalPosition
+									.default,
 						},
 						{
 							isNoOverValue: isBackgroundNoOver,
-							onIsNoOverChange: onChangeIsBackgroundNoOver,
+							onIsNoOverChange: ( value ) =>
+								setAttributes( {
+									isBackgroundNoOver: value,
+								} ),
+							defaultValue:
+								metadata.attributes.isBackgroundNoOver.default,
 						},
 						{
 							textureValue: backgroundTexture,
-							onTextureChange: onChangeBackgroundTexture,
+							onTextureChange: ( value ) =>
+								setAttributes( {
+									backgroundTexture: value,
+									backgroundTextureUrl: !! value
+										? `${ smb.pluginUrl }/dist/blocks/section/img/${ value }.png`
+										: undefined,
+								} ),
+							defaultValue:
+								metadata.attributes.backgroundTexture.default,
 						},
 						{
 							textureOpacityValue: backgroundTextureOpacity,
-							onTextureOpacityChange:
-								onChangeBackgroundTextureOpacity,
+							onTextureOpacityChange: ( value ) =>
+								setAttributes( {
+									backgroundTextureOpacity: toNumber(
+										value,
+										0.1,
+										1
+									),
+								} ),
+							defaultValue:
+								metadata.attributes.backgroundTextureOpacity
+									.default,
 						},
 					] }
 				/>
@@ -464,18 +383,47 @@ export default function ( {
 						{
 							colorValue: fixedBackgroundColor,
 							gradientValue: fixedBackgroundGradientColor,
-							onColorChange: onChangeFixedBackgroundColor,
-							onGradientChange:
-								onChangeFixedBackgroundGradientColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									fixedBackgroundColor: value,
+								} ),
+							onGradientChange: ( value ) =>
+								setAttributes( {
+									fixedBackgroundGradientColor: value,
+								} ),
+							defaultColorValue:
+								metadata.attributes.fixedBackgroundColor
+									.default,
+							defaultGradientValue:
+								metadata.attributes.fixedBackgroundGradientColor
+									.default,
 						},
 						{
 							textureValue: fixedBackgroundTexture,
-							onTextureChange: onChangeFixedBackgroundTexture,
+							onTextureChange: ( value ) =>
+								setAttributes( {
+									fixedBackgroundTexture: value,
+									fixedBackgroundTextureUrl: !! value
+										? `${ smb.pluginUrl }/dist/blocks/section/img/${ value }.png`
+										: undefined,
+								} ),
+							defaultValue:
+								metadata.attributes.fixedBackgroundTexture
+									.default,
 						},
 						{
 							textureOpacityValue: fixedBackgroundTextureOpacity,
-							onTextureOpacityChange:
-								onChangeFixedBackgroundTextureOpacity,
+							onTextureOpacityChange: ( value ) =>
+								setAttributes( {
+									fixedBackgroundTextureOpacity: toNumber(
+										value,
+										0.1,
+										1
+									),
+								} ),
+							defaultValue:
+								metadata.attributes
+									.fixedBackgroundTextureOpacity.default,
 						},
 					] }
 				/>
@@ -485,13 +433,16 @@ export default function ( {
 						{
 							textValue: backgroundText.text,
 							onTextChange: ( value ) => {
+								newBackgroundText.text = value;
+
 								setAttributes( {
 									backgroundText: {
-										...backgroundText,
-										...{ text: value },
+										...newBackgroundText,
 									},
 								} );
 							},
+							defaultValue:
+								metadata.attributes.backgroundText.default.text,
 						},
 						{
 							fontSizeValue: backgroundText.fontSize,
@@ -505,65 +456,82 @@ export default function ( {
 									}
 								);
 
+								newBackgroundText.fontSize = value;
+								newBackgroundText.fontSizeSlug =
+									0 < filteredFontSizes.length &&
+									!! filteredFontSizes[ 0 ]?.slug
+										? filteredFontSizes[ 0 ].slug
+										: '';
+
 								setAttributes( {
 									backgroundText: {
-										...backgroundText,
-										...{
-											fontSize: value,
-											fontSizeSlug:
-												0 < filteredFontSizes.length &&
-												!! filteredFontSizes[ 0 ]?.slug
-													? filteredFontSizes[ 0 ]
-															.slug
-													: '',
-										},
+										...newBackgroundText,
 									},
 								} );
 							},
+							defaultValue:
+								metadata.attributes.backgroundText.default
+									.fontSize,
 						},
 						{
 							lineHeightValue: backgroundText.lineHeight,
 							onLineHeightChange: ( value ) => {
+								newBackgroundText.lineHeight = value;
+
 								setAttributes( {
 									backgroundText: {
-										...backgroundText,
-										...{ lineHeight: value },
+										...newBackgroundText,
 									},
 								} );
 							},
+							defaultValue:
+								metadata.attributes.backgroundText.default
+									.lineHeight,
 						},
 						{
 							opacityValue: backgroundText.opacity,
 							onOpacityChange: ( value ) => {
+								newBackgroundText.opacity = value;
+
 								setAttributes( {
 									backgroundText: {
-										...backgroundText,
-										...{ opacity: value },
+										...newBackgroundText,
 									},
 								} );
 							},
+							defaultValue:
+								metadata.attributes.backgroundText.default
+									.opacity,
 						},
 						{
 							colorValue: backgroundText.color,
 							onColorChange: ( value ) => {
+								newBackgroundText.color = value;
+
 								setAttributes( {
 									backgroundText: {
-										...backgroundText,
-										...{ color: value },
+										...newBackgroundText,
 									},
 								} );
 							},
+							defaultValue:
+								metadata.attributes.backgroundText.default
+									.color,
 						},
 						{
 							positionValue: backgroundText.position,
 							onPositionChange: ( value ) => {
+								newBackgroundText.position = value;
+
 								setAttributes( {
 									backgroundText: {
-										...backgroundText,
-										...{ position: value },
+										...newBackgroundText,
 									},
 								} );
 							},
+							defaultValue:
+								metadata.attributes.backgroundText.default
+									.position,
 						},
 					] }
 				/>
@@ -572,20 +540,44 @@ export default function ( {
 					settings={ [
 						{
 							typeValue: topDividerType,
-							onTypeChange: onChangeTopDividerType,
+							onTypeChange: ( value ) =>
+								setAttributes( {
+									topDividerType: value,
+								} ),
+							defaultValue:
+								metadata.attributes.topDividerType.default,
 						},
 						{
 							levelValue: topDividerLevel,
-							onLevelChange: onChangeTopDividerLevel,
+							onLevelChange: ( value ) =>
+								setAttributes( {
+									topDividerLevel: toNumber(
+										value,
+										-100,
+										100
+									),
+								} ),
+							defaultValue:
+								metadata.attributes.topDividerLevel.default,
 						},
 						{
 							colorValue: topDividerColor,
-							onColorChange: onChangeTopDividerColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									topDividerColor: value,
+								} ),
+							defaultColorValue:
+								metadata.attributes.topDividerColor.default,
 						},
 						{
-							verticalPosition: topDividerVerticalPosition,
-							onVerticalPositionChange:
-								onChangeTopDividerVerticalPosition,
+							verticalPositionValue: topDividerVerticalPosition,
+							onVerticalPositionChange: ( value ) =>
+								setAttributes( {
+									topDividerVerticalPosition: value,
+								} ),
+							defaultValue:
+								metadata.attributes.topDividerVerticalPosition
+									.default,
 						},
 					] }
 				/>
@@ -594,20 +586,45 @@ export default function ( {
 					settings={ [
 						{
 							typeValue: bottomDividerType,
-							onTypeChange: onChangeBottomDividerType,
+							onTypeChange: ( value ) =>
+								setAttributes( {
+									bottomDividerType: value,
+								} ),
+							defaultValue:
+								metadata.attributes.bottomDividerType.default,
 						},
 						{
 							levelValue: bottomDividerLevel,
-							onLevelChange: onChangeBottomDividerLevel,
+							onLevelChange: ( value ) =>
+								setAttributes( {
+									bottomDividerLevel: toNumber(
+										value,
+										-100,
+										100
+									),
+								} ),
+							defaultValue:
+								metadata.attributes.bottomDividerLevel.default,
 						},
 						{
 							colorValue: bottomDividerColor,
-							onColorChange: onChangeBottomDividerColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									bottomDividerColor: value,
+								} ),
+							defaultColorValue:
+								metadata.attributes.bottomDividerColor.default,
 						},
 						{
-							verticalPosition: bottomDividerVerticalPosition,
-							onVerticalPositionChange:
-								onChangeBottomDividerVerticalPosition,
+							verticalPositionValue:
+								bottomDividerVerticalPosition,
+							onVerticalPositionChange: ( value ) =>
+								setAttributes( {
+									bottomDividerVerticalPosition: value,
+								} ),
+							defaultValue:
+								metadata.attributes
+									.bottomDividerVerticalPosition.default,
 						},
 					] }
 				/>
@@ -616,20 +633,32 @@ export default function ( {
 			<BlockControls gruop="block">
 				{ isItemsAlignmentable && (
 					<BlockVerticalAlignmentToolbar
-						onChange={ onChangeItemsAlignment }
+						onChange={ ( value ) =>
+							setAttributes( {
+								itemsAlignment: value,
+							} )
+						}
 						value={ itemsAlignment }
 					/>
 				) }
 
 				<JustifyToolbar
 					allowedControls={ HORIZONTAL_JUSTIFY_CONTROLS }
-					onChange={ onChangeContentJustification }
+					onChange={ ( value ) =>
+						setAttributes( {
+							contentJustification: value,
+						} )
+					}
 					value={ contentJustification }
 				/>
 
 				<AlignmentToolbar
 					value={ contentsAlignment }
-					onChange={ onChangeContentsAlignment }
+					onChange={ ( value ) =>
+						setAttributes( {
+							contentsAlignment: value,
+						} )
+					}
 				/>
 			</BlockControls>
 
@@ -669,16 +698,25 @@ export default function ( {
 								settings={ [
 									{
 										subtitleValue: subtitle,
-										onSubtitleChange: onChangeSubtitle,
+										onSubtitleChange: ( value ) =>
+											setAttributes( {
+												subtitle: value,
+											} ),
 									},
 									{
 										titleTagNameValue: titleTagName,
 										titleValue: title,
-										onTitleChange: onChangeTitle,
+										onTitleChange: ( value ) =>
+											setAttributes( {
+												title: value,
+											} ),
 									},
 									{
 										ledeValue: lede,
-										onLedeChange: onChangeLede,
+										onLedeChange: ( value ) =>
+											setAttributes( {
+												lede: value,
+											} ),
 									},
 								] }
 							/>

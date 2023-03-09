@@ -12,10 +12,12 @@
 			"default": 25
 		},
 		"labelAlign": {
-			"type": "string"
+			"type": "string",
+			"default": "left"
 		},
 		"labelVerticalAlign": {
-			"type": "string"
+			"type": "string",
+			"default": "top"
 		},
 		"smIsSplitColumn": {
 			"type": "boolean",

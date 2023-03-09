@@ -34,10 +34,9 @@ export default function ( { attributes, className } ) {
 	const btnStyles = {
 		'--smb-btn--background-color': btnBackgroundColor || undefined,
 		'--smb-btn--background-image': btnBackgroundGradientColor || undefined,
-		'--smb-btn--border-radius':
-			'undefined' !== typeof btnBorderRadius
-				? `${ btnBorderRadius }px`
-				: undefined,
+		'--smb-btn--border-radius': String( btnBorderRadius ).match( /^\d+$/ )
+			? `${ btnBorderRadius }px`
+			: btnBorderRadius,
 		'--smb-btn--color': btnTextColor || undefined,
 	};
 

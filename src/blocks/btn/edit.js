@@ -2,11 +2,11 @@ import classnames from 'classnames';
 
 import {
 	CheckboxControl,
-	PanelBody,
 	Popover,
-	RangeControl,
 	SelectControl,
 	ToolbarButton,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
 
 import {
@@ -17,12 +17,15 @@ import {
 	useBlockProps,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	__experimentalLinkControl as LinkControl,
+	__experimentalBorderRadiusControl as BorderRadiusControl,
 } from '@wordpress/block-editor';
 
 import { useMergeRefs } from '@wordpress/compose';
 import { useState, useEffect, useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
+
+import metadata from './block.json';
 
 export default function ( {
 	attributes,
@@ -72,10 +75,9 @@ export default function ( {
 	const styles = {
 		'--smb-btn--background-color': backgroundColor || undefined,
 		'--smb-btn--background-image': backgroundGradientColor || undefined,
-		'--smb-btn--border-radius':
-			!! borderRadius || 0 <= borderRadius
-				? `${ borderRadius }px`
-				: undefined,
+		'--smb-btn--border-radius': String( borderRadius ).match( /^\d+$/ )
+			? `${ borderRadius }px`
+			: borderRadius,
 		'--smb-btn--color': textColor || undefined,
 	};
 
@@ -95,51 +97,6 @@ export default function ( {
 		ref: useMergeRefs( [ setPopoverAnchor, ref ] ),
 	} );
 
-	const onChangeModifier = ( value ) =>
-		setAttributes( {
-			modifier: value,
-		} );
-
-	const onChangeBorderRadius = ( value ) =>
-		setAttributes( {
-			borderRadius: !! value || 0 <= value ? value : undefined,
-		} );
-
-	const onChangeBackgroundColor = ( value ) =>
-		setAttributes( {
-			backgroundColor: value,
-		} );
-
-	const onChangeBackgroundGradientColor = ( value ) =>
-		setAttributes( {
-			backgroundGradientColor: value,
-		} );
-
-	const onChangeTextColor = ( value ) =>
-		setAttributes( {
-			textColor: value,
-		} );
-
-	const onChangeContent = ( value ) =>
-		setAttributes( {
-			content: value,
-		} );
-
-	const onChangeUrl = ( {
-		url: newUrl,
-		opensInNewTab: newOpensInNewTab,
-	} ) => {
-		setAttributes( {
-			url: newUrl,
-			target: ! newOpensInNewTab ? '_self' : '_blank',
-		} );
-	};
-
-	const onChangeWrap = ( value ) =>
-		setAttributes( {
-			wrap: value,
-		} );
-
 	const unlink = () => {
 		setAttributes( {
 			url: undefined,
@@ -157,9 +114,15 @@ export default function ( {
 					settings={ [
 						{
 							colorValue: backgroundColor,
-							onColorChange: onChangeBackgroundColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									backgroundColor: value,
+								} ),
 							gradientValue: backgroundGradientColor,
-							onGradientChange: onChangeBackgroundGradientColor,
+							onGradientChange: ( value ) =>
+								setAttributes( {
+									backgroundGradientColor: value,
+								} ),
 							label: __(
 								'Background color',
 								'snow-monkey-blocks'
@@ -167,7 +130,10 @@ export default function ( {
 						},
 						{
 							colorValue: textColor,
-							onColorChange: onChangeTextColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									textColor: value,
+								} ),
 							label: __( 'Text color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -180,63 +146,113 @@ export default function ( {
 					/>
 				</PanelColorGradientSettings>
 
-				<PanelBody
-					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
+				<ToolsPanel
+					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
-					<SelectControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							modifier !== metadata.attributes.modifier.default
+						}
+						isShownByDefault
 						label={ __( 'Button size', 'snow-monkey-blocks' ) }
-						value={ modifier }
-						onChange={ onChangeModifier }
-						options={ [
-							{
-								value: '',
-								label: __(
-									'Normal size',
-									'snow-monkey-blocks'
-								),
-							},
-							{
-								value: 'little-wider',
-								label: __(
-									'Litle wider',
-									'snow-monkey-blocks'
-								),
-							},
-							{
-								value: 'wider',
-								label: __( 'Wider', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'more-wider',
-								label: __( 'More wider', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'full',
-								label: __( 'Full size', 'snow-monkey-blocks' ),
-							},
-						] }
-					/>
+						onDeselect={ () =>
+							setAttributes( {
+								modifier: metadata.attributes.modifier.default,
+							} )
+						}
+					>
+						<SelectControl
+							label={ __( 'Button size', 'snow-monkey-blocks' ) }
+							value={ modifier }
+							onChange={ ( value ) =>
+								setAttributes( {
+									modifier: value,
+								} )
+							}
+							options={ [
+								{
+									value: '',
+									label: __(
+										'Normal size',
+										'snow-monkey-blocks'
+									),
+								},
+								{
+									value: 'little-wider',
+									label: __(
+										'Litle wider',
+										'snow-monkey-blocks'
+									),
+								},
+								{
+									value: 'wider',
+									label: __( 'Wider', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'more-wider',
+									label: __(
+										'More wider',
+										'snow-monkey-blocks'
+									),
+								},
+								{
+									value: 'full',
+									label: __(
+										'Full size',
+										'snow-monkey-blocks'
+									),
+								},
+							] }
+						/>
+					</ToolsPanelItem>
 
-					<RangeControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							borderRadius !==
+							metadata.attributes.borderRadius.default
+						}
+						isShownByDefault
 						label={ __( 'Border radius', 'snow-monkey-blocks' ) }
-						help={ __(
-							'-If set to -1, the default border radius will be applied.',
-							'snow-monkey-blocks'
-						) }
-						value={ borderRadius }
-						onChange={ onChangeBorderRadius }
-						min="-1"
-						max="50"
-						initialPosition="-1"
-						allowReset
-					/>
+						onDeselect={ () =>
+							setAttributes( {
+								borderRadius:
+									metadata.attributes.borderRadius.default,
+							} )
+						}
+					>
+						<div className="smb-border-radius-control">
+							<BorderRadiusControl
+								values={ borderRadius }
+								onChange={ ( value ) => {
+									setAttributes( { borderRadius: value } );
+								} }
+							/>
+						</div>
+					</ToolsPanelItem>
 
-					<CheckboxControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							wrap !== metadata.attributes.wrap.default
+						}
+						isShownByDefault
 						label={ __( 'Wrap', 'snow-monkey-blocks' ) }
-						checked={ wrap }
-						onChange={ onChangeWrap }
-					/>
-				</PanelBody>
+						onDeselect={ () =>
+							setAttributes( {
+								wrap: metadata.attributes.wrap.default,
+							} )
+						}
+					>
+						<CheckboxControl
+							label={ __( 'Wrap', 'snow-monkey-blocks' ) }
+							checked={ wrap }
+							onChange={ ( value ) =>
+								setAttributes( {
+									wrap: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 
 			<div { ...blockProps }>
@@ -253,7 +269,11 @@ export default function ( {
 						className="smb-btn__label"
 						value={ content }
 						placeholder={ __( 'Button', 'snow-monkey-blocks' ) }
-						onChange={ onChangeContent }
+						onChange={ ( value ) =>
+							setAttributes( {
+								content: value,
+							} )
+						}
 						withoutInteractiveFormatting={ true }
 						ref={ richTextRef }
 					/>
@@ -295,7 +315,15 @@ export default function ( {
 					<LinkControl
 						className="wp-block-navigation-link__inline-link-input"
 						value={ { url, opensInNewTab } }
-						onChange={ onChangeUrl }
+						onChange={ ( {
+							url: newUrl,
+							opensInNewTab: newOpensInNewTab,
+						} ) => {
+							setAttributes( {
+								url: newUrl,
+								target: ! newOpensInNewTab ? '_self' : '_blank',
+							} );
+						} }
 						onRemove={ () => {
 							unlink();
 							richTextRef.current?.focus();

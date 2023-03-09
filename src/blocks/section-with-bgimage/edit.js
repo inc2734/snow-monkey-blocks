@@ -10,17 +10,18 @@ import {
 	useInnerBlocksProps,
 	useBlockProps,
 	useSetting,
-	__experimentalColorGradientControl as ColorGradientControl,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
+	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
 	__experimentalImageSizeControl as ImageSizeControl,
 } from '@wordpress/block-editor';
 
 import {
 	FocalPointPicker,
-	PanelBody,
 	RangeControl,
 	ToggleControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
 
 import { useSelect } from '@wordpress/data';
@@ -52,6 +53,8 @@ if ( undefined === useMultipleOriginColorsAndGradients ) {
 const ALLOWED_TYPES = [ 'image', 'video' ];
 const DEFAULT_MEDIA_SIZE_SLUG = 'full';
 const HORIZONTAL_JUSTIFY_CONTROLS = [ 'left', 'center', 'right' ];
+
+import metadata from './block.json';
 
 export default function ( {
 	attributes,
@@ -304,306 +307,7 @@ export default function ( {
 	);
 
 	const fontSizes = useSetting( 'typography.fontSizes' ) || [];
-
-	const onChangeContentsAlignment = ( value ) =>
-		setAttributes( {
-			contentsAlignment: value,
-		} );
-
-	const onChangeParallax = ( value ) =>
-		setAttributes( {
-			parallax: value,
-		} );
-
-	const onSelectLgImage = ( media ) => {
-		const newLgImageSizeSlug = !! media?.sizes[ lgImageSizeSlug ]
-			? lgImageSizeSlug
-			: DEFAULT_MEDIA_SIZE_SLUG;
-		const newLgImageURL = media?.sizes[ newLgImageSizeSlug ]?.url;
-		const newLgImageWidth = media?.sizes[ newLgImageSizeSlug ]?.width;
-		const newLgImageHeight = media?.sizes[ newLgImageSizeSlug ]?.height;
-
-		setAttributes( {
-			lgImageURL: newLgImageURL,
-			lgImageID: media.id,
-			lgImageAlt: media.alt,
-			lgImageWidth: newLgImageWidth,
-			lgImageHeight: newLgImageHeight,
-			lgImageMediaType: getMediaType( media ),
-			lgImageSizeSlug: newLgImageSizeSlug,
-		} );
-	};
-
-	const onSelectLgImageURL = ( newLgImageURL ) => {
-		if ( newLgImageURL !== lgImageURL ) {
-			setAttributes( {
-				lgImageURL: newLgImageURL,
-				lgImageID: 0,
-				lgImageSizeSlug: DEFAULT_MEDIA_SIZE_SLUG,
-				lgImageMediaType: getMediaType( {
-					media_type: isVideoType( newLgImageURL )
-						? 'video'
-						: 'image',
-				} ),
-			} );
-		}
-	};
-
-	const onChangeLgImageSizeSlug = ( value ) => {
-		const newLgImageURL =
-			lgImage?.media_details?.sizes?.[ value ]?.source_url;
-		const newLgImageWidth = lgImage?.media_details?.sizes?.[ value ]?.width;
-		const newLgImageHeight =
-			lgImage?.media_details?.sizes?.[ value ]?.height;
-
-		setAttributes( {
-			lgImageURL: newLgImageURL,
-			lgImageWidth: newLgImageWidth,
-			lgImageHeight: newLgImageHeight,
-			lgImageSizeSlug: value,
-		} );
-	};
-
-	const onRemoveLgImage = () =>
-		setAttributes( {
-			lgImageURL: '',
-			lgImageAlt: '',
-			lgImageWidth: '',
-			lgImageHeight: '',
-			lgImageID: 0,
-			lgImageMediaType: undefined,
-		} );
-
-	const onChangeLgImageRepeat = ( value ) =>
-		setAttributes( {
-			lgImageRepeat: value,
-		} );
-
-	const onChangeLgFocalPoint = ( value ) => {
-		setAttributes( {
-			lgFocalPoint: value,
-		} );
-	};
-
-	const onSelectMdImage = ( media ) => {
-		const newMdImageSizeSlug = !! media?.sizes[ mdImageSizeSlug ]
-			? mdImageSizeSlug
-			: DEFAULT_MEDIA_SIZE_SLUG;
-		const newMdImageURL = media?.sizes[ newMdImageSizeSlug ]?.url;
-		const newMdImageWidth = media?.sizes[ newMdImageSizeSlug ]?.width;
-		const newMdImageHeight = media?.sizes[ newMdImageSizeSlug ]?.height;
-
-		setAttributes( {
-			mdImageURL: newMdImageURL,
-			mdImageID: media.id,
-			mdImageAlt: media.alt,
-			mdImageWidth: newMdImageWidth,
-			mdImageHeight: newMdImageHeight,
-			mdImageMediaType: getMediaType( media ),
-			mdImageSizeSlug: newMdImageSizeSlug,
-		} );
-	};
-
-	const onSelectMdImageURL = ( newMdImageURL ) => {
-		if ( newMdImageURL !== mdImageURL ) {
-			setAttributes( {
-				mdImageURL: newMdImageURL,
-				mdImageID: 0,
-				mdImageSizeSlug: DEFAULT_MEDIA_SIZE_SLUG,
-				mdImageMediaType: getMediaType( {
-					media_type: isVideoType( newMdImageURL )
-						? 'video'
-						: 'image',
-				} ),
-			} );
-		}
-	};
-
-	const onChangeMdImageSizeSlug = ( value ) => {
-		const newMdImageURL =
-			mdImage?.media_details?.sizes?.[ value ]?.source_url;
-		const newMdImageWidth = mdImage?.media_details?.sizes?.[ value ]?.width;
-		const newMdImageHeight =
-			mdImage?.media_details?.sizes?.[ value ]?.height;
-
-		setAttributes( {
-			mdImageURL: newMdImageURL,
-			mdImageWidth: newMdImageWidth,
-			mdImageHeight: newMdImageHeight,
-			mdImageSizeSlug: value,
-		} );
-	};
-
-	const onRemoveMdImage = () =>
-		setAttributes( {
-			mdImageURL: '',
-			mdImageAlt: '',
-			mdImageWidth: '',
-			mdImageHeight: '',
-			mdImageID: 0,
-			mdImageMediaType: undefined,
-		} );
-
-	const onChangeMdImageRepeat = ( value ) =>
-		setAttributes( {
-			mdImageRepeat: value,
-		} );
-
-	const onChangeMdFocalPoint = ( value ) => {
-		setAttributes( {
-			lgFocalPoint: value,
-		} );
-	};
-
-	const onSelectSmImage = ( media ) => {
-		const newSmImageSizeSlug = !! media?.sizes[ smImageSizeSlug ]
-			? smImageSizeSlug
-			: DEFAULT_MEDIA_SIZE_SLUG;
-		const newSmImageURL = media?.sizes[ newSmImageSizeSlug ]?.url;
-		const newSmImageWidth = media?.sizes[ newSmImageSizeSlug ]?.width;
-		const newSmImageHeight = media?.sizes[ newSmImageSizeSlug ]?.height;
-
-		setAttributes( {
-			smImageURL: newSmImageURL,
-			smImageID: media.id,
-			smImageAlt: media.alt,
-			smImageWidth: newSmImageWidth,
-			smImageHeight: newSmImageHeight,
-			smImageMediaType: getMediaType( media ),
-			smImageSizeSlug: newSmImageSizeSlug,
-		} );
-	};
-
-	const onSelectSmImageURL = ( newSmImageURL ) => {
-		if ( newSmImageURL !== smImageURL ) {
-			setAttributes( {
-				smImageURL: newSmImageURL,
-				smImageID: 0,
-				smImageSizeSlug: DEFAULT_MEDIA_SIZE_SLUG,
-				smImageMediaType: getMediaType( {
-					media_type: isVideoType( newSmImageURL )
-						? 'video'
-						: 'image',
-				} ),
-			} );
-		}
-	};
-
-	const onChangeSmImageSizeSlug = ( value ) => {
-		const newSmImageURL =
-			smImage?.media_details?.sizes?.[ value ]?.source_url;
-		const newSmImageWidth = smImage?.media_details?.sizes?.[ value ]?.width;
-		const newSmImageHeight =
-			smImage?.media_details?.sizes?.[ value ]?.height;
-
-		setAttributes( {
-			smImageURL: newSmImageURL,
-			smImageWidth: newSmImageWidth,
-			smImageHeight: newSmImageHeight,
-			smImageSizeSlug: value,
-		} );
-	};
-
-	const onRemoveSmImage = () =>
-		setAttributes( {
-			smImageURL: '',
-			smImageAlt: '',
-			smImageWidth: '',
-			smImageHeight: '',
-			smImageID: 0,
-			smImageMediaType: undefined,
-		} );
-
-	const onChangeSmImageRepeat = ( value ) =>
-		setAttributes( {
-			smImageRepeat: value,
-		} );
-
-	const onChangeSmFocalPoint = ( value ) => {
-		setAttributes( {
-			lgFocalPoint: value,
-		} );
-	};
-
-	const onChangeMaskColor = ( value ) =>
-		setAttributes( {
-			maskColor: value,
-		} );
-
-	const onChangeMaskGradientColor = ( value ) =>
-		setAttributes( {
-			maskGradientColor: value,
-		} );
-
-	const onChangeTextColor = ( value ) =>
-		setAttributes( {
-			textColor: value,
-		} );
-
-	const onChangeMaskOpacity = ( value ) =>
-		setAttributes( {
-			maskOpacity: toNumber( ( 1 - value ).toFixed( 1 ), 0, 1 ),
-		} );
-
-	const onChangeContentJustification = ( value ) =>
-		setAttributes( {
-			contentJustification: value,
-		} );
-
-	const onChangeItemsAlignment = ( value ) =>
-		setAttributes( {
-			itemsAlignment: value,
-		} );
-
-	const onChangeTitle = ( value ) =>
-		setAttributes( {
-			title: value,
-		} );
-
-	const onChangeLede = ( value ) =>
-		setAttributes( {
-			lede: value,
-		} );
-
-	const onChangeSubtitle = ( value ) =>
-		setAttributes( {
-			subtitle: value,
-		} );
-
-	const onChangeWrapperTagName = ( value ) =>
-		setAttributes( {
-			wrapperTagName: value,
-		} );
-
-	const onChangeTitleTagName = ( value ) =>
-		setAttributes( {
-			titleTagName: value,
-		} );
-
-	const onChangeHeight = ( value ) =>
-		setAttributes( {
-			height: value,
-		} );
-
-	const onChangeContainerAlign = ( value ) =>
-		setAttributes( {
-			containerAlign: value,
-		} );
-
-	const onChangeDisableContainerPadding = ( value ) =>
-		setAttributes( {
-			disableContainerPadding: value,
-		} );
-
-	const onChangeContentsMaxWidth = ( value ) =>
-		setAttributes( {
-			contentsMaxWidth: value,
-		} );
-
-	const onChangeIsSlim = ( value ) =>
-		setAttributes( {
-			isSlim: value,
-		} );
+	const newBackgroundText = { ...backgroundText };
 
 	return (
 		<>
@@ -614,7 +318,10 @@ export default function ( {
 					settings={ [
 						{
 							colorValue: textColor,
-							onColorChange: onChangeTextColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									textColor: value,
+								} ),
 							label: __( 'Text color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -634,266 +341,706 @@ export default function ( {
 					settings={ [
 						{
 							wrapperTagNameValue: wrapperTagName,
-							onWrapperTagNameChange: onChangeWrapperTagName,
+							onWrapperTagNameChange: ( value ) =>
+								setAttributes( {
+									wrapperTagName: value,
+								} ),
+							defaultValue:
+								metadata.attributes.wrapperTagName.default,
 						},
 						{
 							titleTagNameValue: titleTagName,
-							onTitleTagNameChange: onChangeTitleTagName,
+							onTitleTagNameChange: ( value ) =>
+								setAttributes( {
+									titleTagName: value,
+								} ),
+							defaultValue:
+								metadata.attributes.titleTagName.default,
 						},
 						{
 							heightValue: height,
-							onHeightChange: onChangeHeight,
+							onHeightChange: ( value ) =>
+								setAttributes( {
+									height: value,
+								} ),
+							defaultValue: metadata.attributes.height.default,
 						},
 						{
 							contentsContainerControl: true,
 							containerAlignValue: containerAlign,
-							onContainerAlignChange: onChangeContainerAlign,
+							onContainerAlignChange: ( value ) =>
+								setAttributes( {
+									containerAlign: value,
+								} ),
+							defaultValue:
+								metadata.attributes.containerAlign.default,
 						},
 						{
 							disableContainerPaddingValue:
 								disableContainerPadding,
-							onDisableContainerPaddingChange:
-								onChangeDisableContainerPadding,
+							onDisableContainerPaddingChange: ( value ) =>
+								setAttributes( {
+									disableContainerPadding: value,
+								} ),
+							defaultValue:
+								metadata.attributes.disableContainerPadding
+									.default,
 						},
 						{
 							contentsMaxWidthValue: contentsMaxWidth,
-							onContentsMaxWidthChange: onChangeContentsMaxWidth,
+							onContentsMaxWidthChange: ( value ) =>
+								setAttributes( {
+									contentsMaxWidth: value,
+								} ),
+							defaultValue:
+								metadata.attributes.contentsMaxWidth.default,
 						},
 						{
 							isSlimValue: isSlim,
-							onIsSlimChange: onChangeIsSlim,
+							onIsSlimChange: ( value ) =>
+								setAttributes( {
+									isSlim: value,
+								} ),
+							defaultValue: metadata.attributes.isSlim.default,
 						},
 					] }
 				/>
 
-				<PanelBody
-					title={ __( 'Media settings', 'snow-monkey-blocks' ) }
-					initialOpen={ true }
+				<ToolsPanel
+					label={ __( 'Media settings', 'snow-monkey-blocks' ) }
 				>
 					{ ( hasLgBackground ||
 						hasMdBackground ||
 						hasSmBackground ) && (
-						<ToggleControl
+						<ToolsPanelItem
+							hasValue={ () =>
+								parallax !==
+								metadata.attributes.parallax.default
+							}
+							isShownByDefault
 							label={ __(
 								'Parallax (Deprecated)',
 								'snow-monkey-blocks'
 							) }
-							checked={ parallax }
-							onChange={ onChangeParallax }
-							help={ __(
-								'This setting is being retained for backwards compatibility and is not recommended for use. Its use may slow down the page display.',
-								'snow-monkey-blocks'
-							) }
-						/>
+							onDeselect={ () =>
+								setAttributes( {
+									parallax:
+										metadata.attributes.parallax.default,
+								} )
+							}
+						>
+							<ToggleControl
+								label={ __(
+									'Parallax (Deprecated)',
+									'snow-monkey-blocks'
+								) }
+								checked={ parallax }
+								onChange={ ( value ) =>
+									setAttributes( {
+										parallax: value,
+									} )
+								}
+								help={ __(
+									'This setting is being retained for backwards compatibility and is not recommended for use. Its use may slow down the page display.',
+									'snow-monkey-blocks'
+								) }
+							/>
+						</ToolsPanelItem>
 					) }
 
-					<ResponsiveTabPanel
-						desktop={ () => (
-							<>
-								<Figure
-									src={ lgImageURL }
-									id={ lgImageID }
-									alt={ lgImageAlt }
-									width={ lgImageWidth }
-									height={ lgImageHeight }
-									onSelect={ onSelectLgImage }
-									onSelectURL={ onSelectLgImageURL }
-									onRemove={ onRemoveLgImage }
-									mediaType={ lgImageMediaType }
-									allowedTypes={ ALLOWED_TYPES }
-								/>
+					<ToolsPanelItem
+						hasValue={ () =>
+							lgImageRepeat !==
+								metadata.attributes.lgImageRepeat.default ||
+							lgImageSizeSlug !==
+								metadata.attributes.lgImageSizeSlug.default ||
+							lgFocalPoint !==
+								metadata.attributes.lgFocalPoint.default ||
+							mdImageRepeat !==
+								metadata.attributes.mdImageRepeat.default ||
+							mdImageSizeSlug !==
+								metadata.attributes.mdImageSizeSlug.default ||
+							mdFocalPoint !==
+								metadata.attributes.mdFocalPoint.default ||
+							smImageRepeat !==
+								metadata.attributes.smImageRepeat.default ||
+							smImageSizeSlug !==
+								metadata.attributes.smImageSizeSlug.default ||
+							smFocalPoint !==
+								metadata.attributes.smFocalPoint.default
+						}
+						isShownByDefault
+						label={ __( 'Image settings', 'snow-monkey-blocks' ) }
+						onDeselect={ () =>
+							setAttributes( {
+								lgImageRepeat:
+									metadata.attributes.lgImageRepeat.default,
+								lgImageSizeSlug:
+									metadata.attributes.lgImageSizeSlug.default,
+								lgFocalPoint:
+									metadata.attributes.lgFocalPoint.default,
+								mdImageRepeat:
+									metadata.attributes.mdImageRepeat.default,
+								mdImageSizeSlug:
+									metadata.attributes.mdImageSizeSlug.default,
+								mdFocalPoint:
+									metadata.attributes.mdFocalPoint.default,
+								smImageRepeat:
+									metadata.attributes.smImageRepeat.default,
+								smImageSizeSlug:
+									metadata.attributes.smImageSizeSlug.default,
+								smFocalPoint:
+									metadata.attributes.smFocalPoint.default,
+							} )
+						}
+					>
+						<ResponsiveTabPanel
+							desktop={ () => (
+								<>
+									<Figure
+										src={ lgImageURL }
+										id={ lgImageID }
+										alt={ lgImageAlt }
+										width={ lgImageWidth }
+										height={ lgImageHeight }
+										onSelect={ ( media ) => {
+											const newLgImageSizeSlug = !! media
+												?.sizes[ lgImageSizeSlug ]
+												? lgImageSizeSlug
+												: DEFAULT_MEDIA_SIZE_SLUG;
+											const newLgImageURL =
+												media?.sizes[
+													newLgImageSizeSlug
+												]?.url;
+											const newLgImageWidth =
+												media?.sizes[
+													newLgImageSizeSlug
+												]?.width;
+											const newLgImageHeight =
+												media?.sizes[
+													newLgImageSizeSlug
+												]?.height;
 
-								{ hasLgBackground && isLgImage && (
-									<>
-										<ToggleControl
+											setAttributes( {
+												lgImageURL: newLgImageURL,
+												lgImageID: media.id,
+												lgImageAlt: media.alt,
+												lgImageWidth: newLgImageWidth,
+												lgImageHeight: newLgImageHeight,
+												lgImageMediaType:
+													getMediaType( media ),
+												lgImageSizeSlug:
+													newLgImageSizeSlug,
+											} );
+										} }
+										onSelectURL={ ( newLgImageURL ) => {
+											if (
+												newLgImageURL !== lgImageURL
+											) {
+												setAttributes( {
+													lgImageURL: newLgImageURL,
+													lgImageID: 0,
+													lgImageSizeSlug:
+														DEFAULT_MEDIA_SIZE_SLUG,
+													lgImageMediaType:
+														getMediaType( {
+															media_type:
+																isVideoType(
+																	newLgImageURL
+																)
+																	? 'video'
+																	: 'image',
+														} ),
+												} );
+											}
+										} }
+										onRemove={ () =>
+											setAttributes( {
+												lgImageURL:
+													metadata.attributes
+														.lgImageURL.default,
+												lgImageAlt:
+													metadata.attributes
+														.lgImageAlt.default,
+												lgImageWidth:
+													metadata.attributes
+														.lgImageWidth.default,
+												lgImageHeight:
+													metadata.attributes
+														.lgImageHeight.default,
+												lgImageID:
+													metadata.attributes
+														.lgImageID.default,
+												lgImageMediaType:
+													metadata.attributes
+														.lgImageMediaType
+														.default,
+											} )
+										}
+										mediaType={ lgImageMediaType }
+										allowedTypes={ ALLOWED_TYPES }
+									/>
+
+									{ hasLgBackground && isLgImage && (
+										<>
+											<ToggleControl
+												label={ __(
+													'Repeat images',
+													'snow-monkey-blocks'
+												) }
+												checked={ lgImageRepeat }
+												onChange={ ( value ) =>
+													setAttributes( {
+														lgImageRepeat: value,
+													} )
+												}
+											/>
+
+											<ImageSizeControl
+												onChangeImage={ ( value ) => {
+													const newLgImageURL =
+														lgImage?.media_details
+															?.sizes?.[ value ]
+															?.source_url;
+													const newLgImageWidth =
+														lgImage?.media_details
+															?.sizes?.[ value ]
+															?.width;
+													const newLgImageHeight =
+														lgImage?.media_details
+															?.sizes?.[ value ]
+															?.height;
+
+													setAttributes( {
+														lgImageURL:
+															newLgImageURL,
+														lgImageWidth:
+															newLgImageWidth,
+														lgImageHeight:
+															newLgImageHeight,
+														lgImageSizeSlug: value,
+													} );
+												} }
+												slug={ lgImageSizeSlug }
+												imageSizeOptions={
+													lgImageSizeOptions
+												}
+												isResizable={ false }
+												imageSizeHelp={ __(
+													'Select which image size to load.'
+												) }
+											/>
+										</>
+									) }
+
+									{ showLgFocalPointPicker && (
+										<FocalPointPicker
 											label={ __(
-												'Repeat images',
+												'Focal point picker',
 												'snow-monkey-blocks'
 											) }
-											checked={ lgImageRepeat }
-											onChange={ onChangeLgImageRepeat }
+											url={ lgImageURL }
+											value={ lgFocalPoint }
+											onChange={ ( value ) => {
+												setAttributes( {
+													lgFocalPoint: value,
+												} );
+											} }
 										/>
+									) }
+								</>
+							) }
+							tablet={ () => (
+								<>
+									<Figure
+										src={ mdImageURL }
+										id={ mdImageID }
+										alt={ mdImageAlt }
+										width={ mdImageWidth }
+										height={ mdImageHeight }
+										onSelect={ ( media ) => {
+											const newMdImageSizeSlug = !! media
+												?.sizes[ mdImageSizeSlug ]
+												? mdImageSizeSlug
+												: DEFAULT_MEDIA_SIZE_SLUG;
+											const newMdImageURL =
+												media?.sizes[
+													newMdImageSizeSlug
+												]?.url;
+											const newMdImageWidth =
+												media?.sizes[
+													newMdImageSizeSlug
+												]?.width;
+											const newMdImageHeight =
+												media?.sizes[
+													newMdImageSizeSlug
+												]?.height;
 
-										<ImageSizeControl
-											onChangeImage={
-												onChangeLgImageSizeSlug
+											setAttributes( {
+												mdImageURL: newMdImageURL,
+												mdImageID: media.id,
+												mdImageAlt: media.alt,
+												mdImageWidth: newMdImageWidth,
+												mdImageHeight: newMdImageHeight,
+												mdImageMediaType:
+													getMediaType( media ),
+												mdImageSizeSlug:
+													newMdImageSizeSlug,
+											} );
+										} }
+										onSelectURL={ ( newMdImageURL ) => {
+											if (
+												newMdImageURL !== mdImageURL
+											) {
+												setAttributes( {
+													mdImageURL: newMdImageURL,
+													mdImageID: 0,
+													mdImageSizeSlug:
+														DEFAULT_MEDIA_SIZE_SLUG,
+													mdImageMediaType:
+														getMediaType( {
+															media_type:
+																isVideoType(
+																	newMdImageURL
+																)
+																	? 'video'
+																	: 'image',
+														} ),
+												} );
 											}
-											slug={ lgImageSizeSlug }
-											imageSizeOptions={
-												lgImageSizeOptions
-											}
-											isResizable={ false }
-											imageSizeHelp={ __(
-												'Select which image size to load.'
-											) }
-										/>
-									</>
-								) }
-
-								{ showLgFocalPointPicker && (
-									<FocalPointPicker
-										label={ __(
-											'Focal point picker',
-											'snow-monkey-blocks'
-										) }
-										url={ lgImageURL }
-										value={ lgFocalPoint }
-										onChange={ onChangeLgFocalPoint }
+										} }
+										onRemove={ () =>
+											setAttributes( {
+												mdImageURL:
+													metadata.attributes
+														.mdImageURL.default,
+												mdImageAlt:
+													metadata.attributes
+														.mdImageAlt.default,
+												mdImageWidth:
+													metadata.attributes
+														.mdImageWidth.default,
+												mdImageHeight:
+													metadata.attributes
+														.mdImageHeight.default,
+												mdImageID:
+													metadata.attributes
+														.mdImageID.default,
+												mdImageMediaType:
+													metadata.attributes
+														.mdImageMediaType
+														.default,
+											} )
+										}
+										mediaType={ mdImageMediaType }
+										allowedTypes={ ALLOWED_TYPES }
 									/>
-								) }
-							</>
-						) }
-						tablet={ () => (
-							<>
-								<Figure
-									src={ mdImageURL }
-									id={ mdImageID }
-									alt={ mdImageAlt }
-									width={ mdImageWidth }
-									height={ mdImageHeight }
-									onSelect={ onSelectMdImage }
-									onSelectURL={ onSelectMdImageURL }
-									onRemove={ onRemoveMdImage }
-									mediaType={ mdImageMediaType }
-									allowedTypes={ ALLOWED_TYPES }
-								/>
 
-								{ hasMdBackground && isMdImage && (
-									<>
-										<ToggleControl
+									{ hasMdBackground && isMdImage && (
+										<>
+											<ToggleControl
+												label={ __(
+													'Repeat images',
+													'snow-monkey-blocks'
+												) }
+												checked={ mdImageRepeat }
+												onChange={ ( value ) =>
+													setAttributes( {
+														mdImageRepeat: value,
+													} )
+												}
+											/>
+
+											<ImageSizeControl
+												onChangeImage={ ( value ) => {
+													const newMdImageURL =
+														mdImage?.media_details
+															?.sizes?.[ value ]
+															?.source_url;
+													const newMdImageWidth =
+														mdImage?.media_details
+															?.sizes?.[ value ]
+															?.width;
+													const newMdImageHeight =
+														mdImage?.media_details
+															?.sizes?.[ value ]
+															?.height;
+
+													setAttributes( {
+														mdImageURL:
+															newMdImageURL,
+														mdImageWidth:
+															newMdImageWidth,
+														mdImageHeight:
+															newMdImageHeight,
+														mdImageSizeSlug: value,
+													} );
+												} }
+												slug={ mdImageSizeSlug }
+												imageSizeOptions={
+													mdImageSizeOptions
+												}
+												isResizable={ false }
+												imageSizeHelp={ __(
+													'Select which image size to load.'
+												) }
+											/>
+										</>
+									) }
+
+									{ showMdFocalPointPicker && (
+										<FocalPointPicker
 											label={ __(
-												'Repeat images',
+												'Focal point picker',
 												'snow-monkey-blocks'
 											) }
-											checked={ mdImageRepeat }
-											onChange={ onChangeMdImageRepeat }
+											url={ mdImageURL }
+											value={ mdFocalPoint }
+											onChange={ ( value ) => {
+												setAttributes( {
+													lgFocalPoint: value,
+												} );
+											} }
 										/>
+									) }
+								</>
+							) }
+							mobile={ () => (
+								<>
+									<Figure
+										src={ smImageURL }
+										id={ smImageID }
+										alt={ smImageAlt }
+										width={ smImageWidth }
+										height={ smImageHeight }
+										onSelect={ ( media ) => {
+											const newSmImageSizeSlug = !! media
+												?.sizes[ smImageSizeSlug ]
+												? smImageSizeSlug
+												: DEFAULT_MEDIA_SIZE_SLUG;
+											const newSmImageURL =
+												media?.sizes[
+													newSmImageSizeSlug
+												]?.url;
+											const newSmImageWidth =
+												media?.sizes[
+													newSmImageSizeSlug
+												]?.width;
+											const newSmImageHeight =
+												media?.sizes[
+													newSmImageSizeSlug
+												]?.height;
 
-										<ImageSizeControl
-											onChangeImage={
-												onChangeMdImageSizeSlug
+											setAttributes( {
+												smImageURL: newSmImageURL,
+												smImageID: media.id,
+												smImageAlt: media.alt,
+												smImageWidth: newSmImageWidth,
+												smImageHeight: newSmImageHeight,
+												smImageMediaType:
+													getMediaType( media ),
+												smImageSizeSlug:
+													newSmImageSizeSlug,
+											} );
+										} }
+										onSelectURL={ ( newSmImageURL ) => {
+											if (
+												newSmImageURL !== smImageURL
+											) {
+												setAttributes( {
+													smImageURL: newSmImageURL,
+													smImageID: 0,
+													smImageSizeSlug:
+														DEFAULT_MEDIA_SIZE_SLUG,
+													smImageMediaType:
+														getMediaType( {
+															media_type:
+																isVideoType(
+																	newSmImageURL
+																)
+																	? 'video'
+																	: 'image',
+														} ),
+												} );
 											}
-											slug={ mdImageSizeSlug }
-											imageSizeOptions={
-												mdImageSizeOptions
-											}
-											isResizable={ false }
-											imageSizeHelp={ __(
-												'Select which image size to load.'
-											) }
-										/>
-									</>
-								) }
-
-								{ showMdFocalPointPicker && (
-									<FocalPointPicker
-										label={ __(
-											'Focal point picker',
-											'snow-monkey-blocks'
-										) }
-										url={ mdImageURL }
-										value={ mdFocalPoint }
-										onChange={ onChangeMdFocalPoint }
+										} }
+										onRemove={ () =>
+											setAttributes( {
+												smImageURL:
+													metadata.attributes
+														.smImageURL.default,
+												smImageAlt:
+													metadata.attributes
+														.smImageAlt.default,
+												smImageWidth:
+													metadata.attributes
+														.smImageWidth.default,
+												smImageHeight:
+													metadata.attributes
+														.smImageHeight.default,
+												smImageID:
+													metadata.attributes
+														.smImageID.default,
+												smImageMediaType:
+													metadata.attributes
+														.smImageMediaType
+														.default,
+											} )
+										}
+										mediaType={ smImageMediaType }
+										allowedTypes={ ALLOWED_TYPES }
 									/>
-								) }
-							</>
-						) }
-						mobile={ () => (
-							<>
-								<Figure
-									src={ smImageURL }
-									id={ smImageID }
-									alt={ smImageAlt }
-									width={ smImageWidth }
-									height={ smImageHeight }
-									onSelect={ onSelectSmImage }
-									onSelectURL={ onSelectSmImageURL }
-									onRemove={ onRemoveSmImage }
-									mediaType={ smImageMediaType }
-									allowedTypes={ ALLOWED_TYPES }
-								/>
 
-								{ hasSmBackground && isSmImage && (
-									<>
-										<ToggleControl
+									{ hasSmBackground && isSmImage && (
+										<>
+											<ToggleControl
+												label={ __(
+													'Repeat images',
+													'snow-monkey-blocks'
+												) }
+												checked={ smImageRepeat }
+												onChange={ ( value ) =>
+													setAttributes( {
+														smImageRepeat: value,
+													} )
+												}
+											/>
+
+											<ImageSizeControl
+												onChangeImage={ ( value ) => {
+													const newSmImageURL =
+														smImage?.media_details
+															?.sizes?.[ value ]
+															?.source_url;
+													const newSmImageWidth =
+														smImage?.media_details
+															?.sizes?.[ value ]
+															?.width;
+													const newSmImageHeight =
+														smImage?.media_details
+															?.sizes?.[ value ]
+															?.height;
+
+													setAttributes( {
+														smImageURL:
+															newSmImageURL,
+														smImageWidth:
+															newSmImageWidth,
+														smImageHeight:
+															newSmImageHeight,
+														smImageSizeSlug: value,
+													} );
+												} }
+												slug={ smImageSizeSlug }
+												imageSizeOptions={
+													smImageSizeOptions
+												}
+												isResizable={ false }
+												imageSizeHelp={ __(
+													'Select which image size to load.'
+												) }
+											/>
+										</>
+									) }
+
+									{ showSmFocalPointPicker && (
+										<FocalPointPicker
 											label={ __(
-												'Repeat images',
+												'Focal point picker',
 												'snow-monkey-blocks'
 											) }
-											checked={ smImageRepeat }
-											onChange={ onChangeSmImageRepeat }
+											url={ smImageURL }
+											value={ smFocalPoint }
+											onChange={ ( value ) => {
+												setAttributes( {
+													lgFocalPoint: value,
+												} );
+											} }
 										/>
+									) }
+								</>
+							) }
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 
-										<ImageSizeControl
-											onChangeImage={
-												onChangeSmImageSizeSlug
-											}
-											slug={ smImageSizeSlug }
-											imageSizeOptions={
-												smImageSizeOptions
-											}
-											isResizable={ false }
-											imageSizeHelp={ __(
-												'Select which image size to load.'
-											) }
-										/>
-									</>
+				<ToolsPanel label={ __( 'Mask', 'snow-monkey-blocks' ) }>
+					<div className="smb-color-gradient-settings-dropdown">
+						<ColorGradientSettingsDropdown
+							settings={ [
+								{
+									label: __( 'Color', 'snow-monkey-blocks' ),
+									colorValue: maskColor,
+									gradientValue: maskGradientColor,
+									onColorChange: ( value ) =>
+										setAttributes( {
+											maskColor: value,
+										} ),
+									onGradientChange: ( value ) =>
+										setAttributes( {
+											maskGradientColor: value,
+										} ),
+								},
+							] }
+							__experimentalIsItemGroup={ false }
+							__experimentalHasMultipleOrigins
+							__experimentalIsRenderedInSidebar
+							{ ...useMultipleOriginColorsAndGradients() }
+						/>
+					</div>
+
+					{ ( !! maskColor || !! maskGradientColor ) && (
+						<ToolsPanelItem
+							hasValue={ () =>
+								maskOpacity !==
+								metadata.attributes.maskOpacity.default
+							}
+							isShownByDefault
+							label={ __( 'Opacity', 'snow-monkey-blocks' ) }
+							onDeselect={ () =>
+								setAttributes( {
+									maskOpacity:
+										metadata.attributes.maskOpacity.default,
+								} )
+							}
+						>
+							<RangeControl
+								label={ __( 'Opacity', 'snow-monkey-blocks' ) }
+								value={ Number(
+									( 1 - maskOpacity ).toFixed( 1 )
 								) }
-
-								{ showSmFocalPointPicker && (
-									<FocalPointPicker
-										label={ __(
-											'Focal point picker',
-											'snow-monkey-blocks'
-										) }
-										url={ smImageURL }
-										value={ smFocalPoint }
-										onChange={ onChangeSmFocalPoint }
-									/>
-								) }
-							</>
-						) }
-					/>
-				</PanelBody>
-
-				<PanelBody
-					title={ __( 'Mask', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
-				>
-					<ColorGradientControl
-						className="smb-inpanel-color-gradient-control"
-						label={ __( 'Color', 'snow-monkey-blocks' ) }
-						colorValue={ maskColor }
-						gradientValue={ maskGradientColor }
-						onColorChange={ onChangeMaskColor }
-						onGradientChange={ onChangeMaskGradientColor }
-						{ ...useMultipleOriginColorsAndGradients() }
-						__experimentalHasMultipleOrigins={ true }
-						__experimentalIsRenderedInSidebar={ true }
-					/>
-
-					<RangeControl
-						label={ __( 'Opacity', 'snow-monkey-blocks' ) }
-						value={ Number( ( 1 - maskOpacity ).toFixed( 1 ) ) }
-						onChange={ onChangeMaskOpacity }
-						min={ 0 }
-						max={ 1 }
-						step={ 0.1 }
-					/>
-				</PanelBody>
+								onChange={ ( value ) =>
+									setAttributes( {
+										maskOpacity: toNumber(
+											( 1 - value ).toFixed( 1 ),
+											0,
+											1
+										),
+									} )
+								}
+								min={ 0 }
+								max={ 1 }
+								step={ 0.1 }
+							/>
+						</ToolsPanelItem>
+					) }
+				</ToolsPanel>
 
 				<PanelSectionBackgroundTextSettings
 					settings={ [
 						{
 							textValue: backgroundText.text,
 							onTextChange: ( value ) => {
+								newBackgroundText.text = value;
+
 								setAttributes( {
 									backgroundText: {
-										...backgroundText,
-										...{ text: value },
+										...newBackgroundText,
 									},
 								} );
 							},
+							defaultValue:
+								metadata.attributes.backgroundText.default.text,
 						},
 						{
 							fontSizeValue: backgroundText.fontSize,
@@ -907,65 +1054,82 @@ export default function ( {
 									}
 								);
 
+								newBackgroundText.fontSize = value;
+								newBackgroundText.fontSizeSlug =
+									0 < filteredFontSizes.length &&
+									!! filteredFontSizes[ 0 ]?.slug
+										? filteredFontSizes[ 0 ].slug
+										: '';
+
 								setAttributes( {
 									backgroundText: {
-										...backgroundText,
-										...{
-											fontSize: value,
-											fontSizeSlug:
-												0 < filteredFontSizes.length &&
-												!! filteredFontSizes[ 0 ]?.slug
-													? filteredFontSizes[ 0 ]
-															.slug
-													: '',
-										},
+										...newBackgroundText,
 									},
 								} );
 							},
+							defaultValue:
+								metadata.attributes.backgroundText.default
+									.fontSize,
 						},
 						{
 							lineHeightValue: backgroundText.lineHeight,
 							onLineHeightChange: ( value ) => {
+								newBackgroundText.lineHeight = value;
+
 								setAttributes( {
 									backgroundText: {
-										...backgroundText,
-										...{ lineHeight: value },
+										...newBackgroundText,
 									},
 								} );
 							},
+							defaultValue:
+								metadata.attributes.backgroundText.default
+									.lineHeight,
 						},
 						{
 							colorValue: backgroundText.color,
 							onColorChange: ( value ) => {
+								newBackgroundText.color = value;
+
 								setAttributes( {
 									backgroundText: {
-										...backgroundText,
-										...{ color: value },
+										...newBackgroundText,
 									},
 								} );
 							},
+							defaultValue:
+								metadata.attributes.backgroundText.default
+									.color,
 						},
 						{
 							opacityValue: backgroundText.opacity,
 							onOpacityChange: ( value ) => {
+								newBackgroundText.opacity = value;
+
 								setAttributes( {
 									backgroundText: {
-										...backgroundText,
-										...{ opacity: value },
+										...newBackgroundText,
 									},
 								} );
 							},
+							defaultValue:
+								metadata.attributes.backgroundText.default
+									.opacity,
 						},
 						{
 							positionValue: backgroundText.position,
 							onPositionChange: ( value ) => {
+								newBackgroundText.position = value;
+
 								setAttributes( {
 									backgroundText: {
-										...backgroundText,
-										...{ position: value },
+										...newBackgroundText,
 									},
 								} );
 							},
+							defaultValue:
+								metadata.attributes.backgroundText.default
+									.position,
 						},
 					] }
 				/>
@@ -974,20 +1138,32 @@ export default function ( {
 			<BlockControls gruop="block">
 				{ isItemsAlignmentable && (
 					<BlockVerticalAlignmentToolbar
-						onChange={ onChangeItemsAlignment }
+						onChange={ ( value ) =>
+							setAttributes( {
+								itemsAlignment: value,
+							} )
+						}
 						value={ itemsAlignment }
 					/>
 				) }
 
 				<JustifyToolbar
 					allowedControls={ HORIZONTAL_JUSTIFY_CONTROLS }
-					onChange={ onChangeContentJustification }
+					onChange={ ( value ) =>
+						setAttributes( {
+							contentJustification: value,
+						} )
+					}
 					value={ contentJustification }
 				/>
 
 				<AlignmentToolbar
 					value={ contentsAlignment }
-					onChange={ onChangeContentsAlignment }
+					onChange={ ( value ) =>
+						setAttributes( {
+							contentsAlignment: value,
+						} )
+					}
 				/>
 			</BlockControls>
 
@@ -1153,16 +1329,25 @@ export default function ( {
 								settings={ [
 									{
 										subtitleValue: subtitle,
-										onSubtitleChange: onChangeSubtitle,
+										onSubtitleChange: ( value ) =>
+											setAttributes( {
+												subtitle: value,
+											} ),
 									},
 									{
 										titleTagNameValue: titleTagName,
 										titleValue: title,
-										onTitleChange: onChangeTitle,
+										onTitleChange: ( value ) =>
+											setAttributes( {
+												title: value,
+											} ),
 									},
 									{
 										ledeValue: lede,
-										onLedeChange: onChangeLede,
+										onLedeChange: ( value ) =>
+											setAttributes( {
+												lede: value,
+											} ),
 									},
 								] }
 							/>

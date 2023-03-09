@@ -8,15 +8,18 @@ import {
 } from '@wordpress/block-editor';
 
 import {
-	PanelBody,
 	SelectControl,
 	BaseControl,
 	Button,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
 
 import { __ } from '@wordpress/i18n';
 
 import FontAwesome from '@smb/component/font-awesome';
+
+import metadata from './block.json';
 
 export default function ( {
 	attributes,
@@ -66,93 +69,109 @@ export default function ( {
 		className: classes,
 	} );
 
-	const onChangeModifier = ( value ) =>
-		setAttributes( {
-			modifier: value,
-		} );
-
-	const onChangeTitle = ( value ) =>
-		setAttributes( {
-			title: value,
-		} );
-
-	const onChangeContent = ( value ) =>
-		setAttributes( {
-			content: value,
-		} );
-
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody
-					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
+				<ToolsPanel
+					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
-					<SelectControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							modifier !== metadata.attributes.modifier.default
+						}
+						isShownByDefault
 						label={ __( 'Type', 'snow-monkey-blocks' ) }
-						value={ modifier }
-						onChange={ onChangeModifier }
-						options={ [
-							{
-								value: '',
-								label: __(
-									'Normal alert',
-									'snow-monkey-blocks'
-								),
-							},
-							{
-								value: 'warning',
-								label: __(
-									'Warning alert',
-									'snow-monkey-blocks'
-								),
-							},
-							{
-								value: 'success',
-								label: __(
-									'Success alert',
-									'snow-monkey-blocks'
-								),
-							},
-							{
-								value: 'remark',
-								label: __(
-									'Remark alert',
-									'snow-monkey-blocks'
-								),
-							},
-						] }
-					/>
-
-					<BaseControl
-						label={ __( 'Icon', 'snow-monkey-blocks' ) }
-						id="snow-monkey-blocks/alert/icon"
+						onDeselect={ () =>
+							setAttributes( {
+								modifier: metadata.attributes.modifier.default,
+							} )
+						}
 					>
-						<div className="smb-list-icon-selector">
-							{ times( iconList.length, ( index ) => {
-								const onClickIcon = () =>
-									setAttributes( {
-										icon: iconList[ index ].value,
-									} );
+						<SelectControl
+							label={ __( 'Type', 'snow-monkey-blocks' ) }
+							value={ modifier }
+							onChange={ ( value ) =>
+								setAttributes( { modifier: value } )
+							}
+							options={ [
+								{
+									value: '',
+									label: __(
+										'Normal alert',
+										'snow-monkey-blocks'
+									),
+								},
+								{
+									value: 'warning',
+									label: __(
+										'Warning alert',
+										'snow-monkey-blocks'
+									),
+								},
+								{
+									value: 'success',
+									label: __(
+										'Success alert',
+										'snow-monkey-blocks'
+									),
+								},
+								{
+									value: 'remark',
+									label: __(
+										'Remark alert',
+										'snow-monkey-blocks'
+									),
+								},
+							] }
+						/>
+					</ToolsPanelItem>
 
-								return (
-									<Button
-										variant={
-											icon === iconList[ index ].value &&
-											'primary'
-										}
-										onClick={ onClickIcon }
-										key={ index }
-									>
-										<i
-											className={ `fa-solid fa-${ iconList[ index ].value }` }
-											title={ iconList[ index ].label }
-										/>
-									</Button>
-								);
-							} ) }
-						</div>
-					</BaseControl>
-				</PanelBody>
+					<ToolsPanelItem
+						hasValue={ () =>
+							icon !== metadata.attributes.icon.default
+						}
+						isShownByDefault
+						label={ __( 'Icon', 'snow-monkey-blocks' ) }
+						onDeselect={ () =>
+							setAttributes( {
+								icon: metadata.attributes.icon.default,
+							} )
+						}
+					>
+						<BaseControl
+							label={ __( 'Icon', 'snow-monkey-blocks' ) }
+							id="snow-monkey-blocks/alert/icon"
+						>
+							<div className="smb-list-icon-selector">
+								{ times( iconList.length, ( index ) => {
+									const onClickIcon = () =>
+										setAttributes( {
+											icon: iconList[ index ].value,
+										} );
+
+									return (
+										<Button
+											variant={
+												icon ===
+													iconList[ index ].value &&
+												'primary'
+											}
+											onClick={ onClickIcon }
+											key={ index }
+										>
+											<i
+												className={ `fa-solid fa-${ iconList[ index ].value }` }
+												title={
+													iconList[ index ].label
+												}
+											/>
+										</Button>
+									);
+								} ) }
+							</div>
+						</BaseControl>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 
 			<div { ...blockProps }>
@@ -168,7 +187,11 @@ export default function ( {
 								'Write title…',
 								'snow-monkey-blocks'
 							) }
-							onChange={ onChangeTitle }
+							onChange={ ( value ) =>
+								setAttributes( {
+									title: value,
+								} )
+							}
 						/>
 					</div>
 				) }
@@ -177,7 +200,11 @@ export default function ( {
 					className="smb-alert__body"
 					multiline="p"
 					value={ content }
-					onChange={ onChangeContent }
+					onChange={ ( value ) =>
+						setAttributes( {
+							content: value,
+						} )
+					}
 				/>
 			</div>
 		</>

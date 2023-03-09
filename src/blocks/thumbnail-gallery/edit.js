@@ -7,7 +7,13 @@ import {
 	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
-import { PanelBody, RangeControl, ToggleControl } from '@wordpress/components';
+import {
+	RangeControl,
+	ToggleControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
+} from '@wordpress/components';
+
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
@@ -16,6 +22,8 @@ import { useMigrateDoubleHyphenToSingleHyphen } from '@smb/hooks';
 
 const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/thumbnail-gallery-item' ];
 const TEMPLATE = [ [ 'snow-monkey-blocks/thumbnail-gallery-item' ] ];
+
+import metadata from './block.json';
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
 	useMigrateDoubleHyphenToSingleHyphen( clientId, [
@@ -54,59 +62,108 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		}
 	);
 
-	const onChangeArrows = ( value ) =>
-		setAttributes( {
-			arrows: value,
-		} );
-
-	const onChangeSpeed = ( value ) =>
-		setAttributes( {
-			speed: toNumber( value, 100, 1000 ),
-		} );
-
-	const onChangeAutoplaySpeed = ( value ) => {
-		const newValue = toNumber( value, 0, 10 );
-		setAttributes( { autoplaySpeed: newValue } );
-		if ( 0 < newValue ) {
-			setAttributes( { autoplay: true } );
-		} else {
-			setAttributes( { autoplay: false } );
-		}
-	};
-
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody
-					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
+				<ToolsPanel
+					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
-					<ToggleControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							arrows !== metadata.attributes.arrows.default
+						}
+						isShownByDefault
 						label={ __( 'Prev/Next arrows', 'snow-monkey-blocks' ) }
-						checked={ arrows }
-						onChange={ onChangeArrows }
-					/>
-					<RangeControl
+						onDeselect={ () =>
+							setAttributes( {
+								arrows: metadata.attributes.arrows.default,
+							} )
+						}
+					>
+						<ToggleControl
+							label={ __(
+								'Prev/Next arrows',
+								'snow-monkey-blocks'
+							) }
+							checked={ arrows }
+							onChange={ ( value ) =>
+								setAttributes( {
+									arrows: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
+
+					<ToolsPanelItem
+						hasValue={ () =>
+							speed !== metadata.attributes.speed.default
+						}
+						isShownByDefault
 						label={ __(
 							'Slide animation speed in milliseconds',
 							'snow-monkey-blocks'
 						) }
-						value={ speed }
-						onChange={ onChangeSpeed }
-						min="100"
-						max="1000"
-						step="100"
-					/>
-					<RangeControl
+						onDeselect={ () =>
+							setAttributes( {
+								speed: metadata.attributes.speed.default,
+							} )
+						}
+					>
+						<RangeControl
+							label={ __(
+								'Slide animation speed in milliseconds',
+								'snow-monkey-blocks'
+							) }
+							value={ speed }
+							onChange={ ( value ) =>
+								setAttributes( {
+									speed: toNumber( value, 100, 1000 ),
+								} )
+							}
+							min="100"
+							max="1000"
+							step="100"
+						/>
+					</ToolsPanelItem>
+
+					<ToolsPanelItem
+						hasValue={ () =>
+							autoplaySpeed !==
+							metadata.attributes.autoplaySpeed.default
+						}
+						isShownByDefault
 						label={ __(
 							'Autoplay Speed in seconds',
 							'snow-monkey-blocks'
 						) }
-						value={ autoplaySpeed }
-						onChange={ onChangeAutoplaySpeed }
-						min="0"
-						max="10"
-					/>
-				</PanelBody>
+						onDeselect={ () =>
+							setAttributes( {
+								autoplaySpeed:
+									metadata.attributes.autoplaySpeed.default,
+								autoplay: metadata.attributes.autoplay.default,
+							} )
+						}
+					>
+						<RangeControl
+							label={ __(
+								'Autoplay Speed in seconds',
+								'snow-monkey-blocks'
+							) }
+							value={ autoplaySpeed }
+							onChange={ ( value ) => {
+								const newValue = toNumber( value, 0, 10 );
+								setAttributes( { autoplaySpeed: newValue } );
+								if ( 0 < newValue ) {
+									setAttributes( { autoplay: true } );
+								} else {
+									setAttributes( { autoplay: false } );
+								}
+							} }
+							min="0"
+							max="10"
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 
 			<div { ...blockProps }>

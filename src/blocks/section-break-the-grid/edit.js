@@ -10,20 +10,21 @@ import {
 	useBlockProps,
 	useSetting,
 	useInnerBlocksProps,
-	__experimentalColorGradientControl as ColorGradientControl,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
+	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
 	__experimentalImageSizeControl as ImageSizeControl,
 } from '@wordpress/block-editor';
 
 import {
 	CheckboxControl,
-	PanelBody,
 	RangeControl,
 	SelectControl,
 	ToggleControl,
 	ToolbarButton,
 	ToolbarGroup,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
 
 import { useSelect } from '@wordpress/data';
@@ -52,6 +53,8 @@ import {
 	SectionBackground,
 } from '../section/components/background';
 
+import PanelBoxShadowSettings from '@smb/component/panel-box-shadow-settings';
+
 // @todo For WordPress 6.0
 import { useMultipleOriginColorsAndGradientsFallback } from '@smb/hooks';
 
@@ -63,6 +66,8 @@ if ( undefined === useMultipleOriginColorsAndGradients ) {
 
 const ALLOWED_TYPES = [ 'image', 'video' ];
 const DEFAULT_MEDIA_SIZE_SLUG = 'full';
+
+import metadata from './block.json';
 
 export default function ( {
 	attributes,
@@ -97,6 +102,7 @@ export default function ( {
 		shadowHorizontalPosition,
 		shadowVerticalPosition,
 		maskColor,
+		maskGradientColor,
 		maskOpacity,
 		mobileOrder,
 		contentsAlignment,
@@ -258,9 +264,10 @@ export default function ( {
 			contentBackgroundColor &&
 			hexToRgba( contentBackgroundColor, contentBackgroundOpacity ),
 		'--smb-section-break-the-grid--mask-color': maskColor || undefined,
-		'--smb-section-break-the-grid--mask-opacity': !! maskColor
-			? maskOpacity
-			: undefined,
+		'--smb-section-break-the-grid--mask-image':
+			maskGradientColor || undefined,
+		'--smb-section-break-the-grid--mask-opacity':
+			!! maskColor || !! maskGradientColor ? maskOpacity : undefined,
 		...generateSpacingProperties( padding ),
 		...generateStylesForSectionBackground( {
 			backgroundHorizontalPosition,
@@ -299,305 +306,7 @@ export default function ( {
 	);
 
 	const fontSizes = useSetting( 'typography.fontSizes' ) || [];
-
-	const onChangeImageSize = ( value ) =>
-		setAttributes( {
-			imageSize: value,
-		} );
-
-	const onChangeImageMatchHeight = ( value ) =>
-		setAttributes( {
-			imageMatchHeight: value,
-		} );
-
-	const onChangeVerticalAlignment = ( value ) =>
-		setAttributes( {
-			verticalAlignment: value,
-		} );
-
-	const onChangeContentSize = ( value ) =>
-		setAttributes( {
-			contentSize: value,
-		} );
-
-	const onChangeContentHorizontalPosition = ( value ) =>
-		setAttributes( {
-			contentHorizontalPosition: value,
-		} );
-
-	const onChangeContentVerticalPosition = ( value ) =>
-		setAttributes( {
-			contentVerticalPosition: value,
-		} );
-
-	const onChangeContentBackgroundColor = ( value ) => {
-		let newValue = value;
-		if ( !! value ) {
-			const match = value.match( /^var\((.+)\)$/ );
-			if ( match ) {
-				newValue = window
-					.getComputedStyle( document.documentElement )
-					.getPropertyValue( match[ 1 ] )
-					.trim();
-				if ( ! newValue ) {
-					newValue = window
-						.getComputedStyle( document.body )
-						.getPropertyValue( match[ 1 ] )
-						.trim();
-				}
-			}
-		}
-
-		setAttributes( {
-			contentBackgroundColor: newValue,
-		} );
-	};
-
-	const onChangeContentBackgroundOpacity = ( value ) =>
-		setAttributes( {
-			contentBackgroundOpacity: value,
-		} );
-
-	const onChangeContentPadding = ( value ) =>
-		setAttributes( {
-			contentPadding: value,
-		} );
-
-	const onChangeRemoveContentOutsidePadding = ( value ) =>
-		setAttributes( {
-			removeContentOutsidePadding: value,
-		} );
-
-	const onChangeShadowColor = ( value ) =>
-		setAttributes( {
-			shadowColor: value,
-		} );
-
-	const onChangeShadowHorizontalPosition = ( value ) =>
-		setAttributes( {
-			shadowHorizontalPosition: toNumber( value, -120, 120 ),
-		} );
-
-	const onChangeShadowVerticalPosition = ( value ) =>
-		setAttributes( {
-			shadowVerticalPosition: toNumber( value, -120, 120 ),
-		} );
-
-	const onChangeTextColor = ( value ) =>
-		setAttributes( {
-			textColor: value,
-		} );
-
-	const onChangeSubtitle = ( value ) =>
-		setAttributes( {
-			subtitle: value,
-		} );
-
-	const onChangeTitle = ( value ) =>
-		setAttributes( {
-			title: value,
-		} );
-
-	const onChangeLede = ( value ) =>
-		setAttributes( {
-			lede: value,
-		} );
-
-	const onChangeMaskColor = ( value ) =>
-		setAttributes( {
-			maskColor: value,
-		} );
-
-	const onChangeMaskOpacity = ( value ) =>
-		setAttributes( {
-			maskOpacity: toNumber( ( 1 - value ).toFixed( 1 ), 0, 1 ),
-		} );
-
-	const onChangeMobileOrder = ( value ) =>
-		setAttributes( {
-			mobileOrder: '' === value ? undefined : value,
-		} );
-
-	const onChangeContentsAlignment = ( value ) =>
-		setAttributes( {
-			contentsAlignment: value,
-		} );
-
-	const onSelectImage = ( media ) => {
-		const newImageSizeSlug = !! media?.sizes[ imageSizeSlug ]
-			? imageSizeSlug
-			: DEFAULT_MEDIA_SIZE_SLUG;
-		const newImageURL = media?.sizes[ newImageSizeSlug ]?.url;
-		const newImageWidth = media?.sizes[ newImageSizeSlug ]?.width;
-		const newImageHeight = media?.sizes[ newImageSizeSlug ]?.height;
-
-		setAttributes( {
-			imageURL: newImageURL,
-			imageID: media.id,
-			imageAlt: media.alt,
-			imageWidth: newImageWidth,
-			imageHeight: newImageHeight,
-			imageMediaType: getMediaType( media ),
-			mediaSizeSlug: newImageSizeSlug,
-		} );
-	};
-
-	const onSelectImageURL = ( newImageURL ) => {
-		if ( newImageURL !== imageURL ) {
-			setAttributes( {
-				imageURL: newImageURL,
-				imageID: 0,
-				mediaSizeSlug: DEFAULT_MEDIA_SIZE_SLUG,
-				mediaType: getMediaType( {
-					media_type: isVideoType( newImageURL ) ? 'video' : 'image',
-				} ),
-			} );
-		}
-	};
-
-	const onRemoveImage = () =>
-		setAttributes( {
-			imageURL: '',
-			imageAlt: '',
-			imageWidth: '',
-			imageHeight: '',
-			imageID: 0,
-			imageMediaType: undefined,
-		} );
-
-	const onChangeImageSizeSlug = ( value ) => {
-		const newImageURL = image?.media_details?.sizes?.[ value ]?.source_url;
-		const newImageWidth = image?.media_details?.sizes?.[ value ]?.width;
-		const newImageHeight = image?.media_details?.sizes?.[ value ]?.height;
-
-		setAttributes( {
-			imageURL: newImageURL,
-			imageWidth: newImageWidth,
-			imageHeight: newImageHeight,
-			imageSizeSlug: value,
-		} );
-	};
-
-	const onChangeWrapperTagName = ( value ) =>
-		setAttributes( {
-			wrapperTagName: value,
-		} );
-
-	const onChangeTitleTagName = ( value ) =>
-		setAttributes( {
-			titleTagName: value,
-		} );
-
-	const onChangeContainerAlign = ( value ) =>
-		setAttributes( {
-			containerAlign: value,
-		} );
-
-	const onChangePadding = ( value ) =>
-		setAttributes( {
-			padding: value,
-		} );
-
-	const onChangeBackgroundHorizontalPosition = ( value ) =>
-		setAttributes( {
-			backgroundHorizontalPosition: toNumber( value, -90, 90 ),
-		} );
-
-	const onChangeBackgroundVerticalPosition = ( value ) =>
-		setAttributes( {
-			backgroundVerticalPosition: toNumber( value, -90, 90 ),
-		} );
-
-	const onChangeIsBackgroundNoOver = ( value ) =>
-		setAttributes( {
-			isBackgroundNoOver: value,
-		} );
-
-	const onChangeBackgroundColor = ( value ) =>
-		setAttributes( {
-			backgroundColor: value,
-		} );
-
-	const onChangeBackgroundGradientColor = ( value ) =>
-		setAttributes( {
-			backgroundGradientColor: value,
-		} );
-
-	const onChangeBackgroundTexture = ( value ) =>
-		setAttributes( {
-			backgroundTexture: value,
-			backgroundTextureUrl: !! value
-				? `${ smb.pluginUrl }/dist/blocks/section/img/${ value }.png`
-				: undefined,
-		} );
-
-	const onChangeBackgroundTextureOpacity = ( value ) =>
-		setAttributes( {
-			backgroundTextureOpacity: toNumber( value, 0.1, 1 ),
-		} );
-
-	const onChangeFixedBackgroundColor = ( value ) =>
-		setAttributes( {
-			fixedBackgroundColor: value,
-		} );
-
-	const onChangeFixedBackgroundGradientColor = ( value ) =>
-		setAttributes( {
-			fixedBackgroundGradientColor: value,
-		} );
-
-	const onChangeFixedBackgroundTexture = ( value ) =>
-		setAttributes( {
-			fixedBackgroundTexture: value,
-			fixedBackgroundTextureUrl: !! value
-				? `${ smb.pluginUrl }/dist/blocks/section/img/${ value }.png`
-				: undefined,
-		} );
-
-	const onChangeFixedBackgroundTextureOpacity = ( value ) =>
-		setAttributes( {
-			fixedBackgroundTextureOpacity: toNumber( value, 0.1, 1 ),
-		} );
-
-	const onChangeTopDividerType = ( value ) =>
-		setAttributes( {
-			topDividerType: value,
-		} );
-
-	const onChangeTopDividerLevel = ( value ) =>
-		setAttributes( {
-			topDividerLevel: toNumber( value, -100, 100 ),
-		} );
-
-	const onChangeTopDividerColor = ( value ) =>
-		setAttributes( {
-			topDividerColor: value,
-		} );
-
-	const onChangeTopDividerVerticalPosition = ( value ) =>
-		setAttributes( {
-			topDividerVerticalPosition: value,
-		} );
-
-	const onChangeBottomDividerType = ( value ) =>
-		setAttributes( {
-			bottomDividerType: value,
-		} );
-
-	const onChangeBottomDividerLevel = ( value ) =>
-		setAttributes( {
-			bottomDividerLevel: toNumber( value, -100, 100 ),
-		} );
-
-	const onChangeBottomDividerColor = ( value ) =>
-		setAttributes( {
-			bottomDividerColor: value,
-		} );
-
-	const onChangeBottomDividerVerticalPosition = ( value ) =>
-		setAttributes( {
-			bottomDividerVerticalPosition: value,
-		} );
+	const newBackgroundText = { ...backgroundText };
 
 	let contentSizeOptions = [
 		{
@@ -659,7 +368,10 @@ export default function ( {
 					settings={ [
 						{
 							colorValue: textColor,
-							onColorChange: onChangeTextColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									textColor: value,
+								} ),
 							label: __( 'Text color', 'snow-monkey-blocks' ),
 						},
 					] }
@@ -674,445 +386,780 @@ export default function ( {
 					settings={ [
 						{
 							wrapperTagNameValue: wrapperTagName,
-							onWrapperTagNameChange: onChangeWrapperTagName,
+							onWrapperTagNameChange: ( value ) =>
+								setAttributes( {
+									wrapperTagName: value,
+								} ),
+							defaultValue:
+								metadata.attributes.wrapperTagName.default,
 						},
 						{
 							titleTagNameValue: titleTagName,
-							onTitleTagNameChange: onChangeTitleTagName,
+							onTitleTagNameChange: ( value ) =>
+								setAttributes( {
+									titleTagName: value,
+								} ),
+							defaultValue:
+								metadata.attributes.titleTagName.default,
 						},
 						{
 							containerAlignValue: containerAlign,
-							onContainerAlignChange: onChangeContainerAlign,
+							onContainerAlignChange: ( value ) =>
+								setAttributes( {
+									containerAlign: value,
+								} ),
+							defaultValue:
+								metadata.attributes.containerAlign.default,
 						},
 						{
 							sides: [ 'top', 'bottom' ],
 							paddingValue: padding,
-							onPaddingChange: onChangePadding,
+							onPaddingChange: ( value ) =>
+								setAttributes( {
+									padding: value,
+								} ),
+							defaultValue: metadata.attributes.padding.default,
 						},
 					] }
 				/>
 
-				<PanelBody
-					title={ __( 'Media settings', 'snow-monkey-blocks' ) }
-					initialOpen={ true }
+				<ToolsPanel
+					label={ __( 'Media settings', 'snow-monkey-blocks' ) }
 				>
-					<ImageSizeControl
-						onChangeImage={ onChangeImageSizeSlug }
-						slug={ imageSizeSlug }
-						imageSizeOptions={ imageSizeOptions }
-						isResizable={ false }
-						imageSizeHelp={ __(
-							'Select which image size to load.'
-						) }
-					/>
+					{ 0 < imageSizeOptions.length && (
+						<ToolsPanelItem
+							hasValue={ () =>
+								imageSizeSlug !==
+								metadata.attributes.imageSizeSlug.default
+							}
+							isShownByDefault
+							label={ __( 'Image size', 'snow-monkey-blocks' ) }
+							onDeselect={ () =>
+								setAttributes( {
+									imageSizeSlug:
+										metadata.attributes.imageSizeSlug
+											.default,
+								} )
+							}
+						>
+							<ImageSizeControl
+								slug={ imageSizeSlug }
+								imageSizeOptions={ imageSizeOptions }
+								isResizable={ false }
+								imageSizeHelp={ __(
+									'Select which image size to load.'
+								) }
+								onChangeImage={ ( value ) => {
+									const newImageURL =
+										image?.media_details?.sizes?.[ value ]
+											?.source_url;
+									const newImageWidth =
+										image?.media_details?.sizes?.[ value ]
+											?.width;
+									const newImageHeight =
+										image?.media_details?.sizes?.[ value ]
+											?.height;
+
+									setAttributes( {
+										imageURL: newImageURL,
+										imageWidth: newImageWidth,
+										imageHeight: newImageHeight,
+										imageSizeSlug: value,
+									} );
+								} }
+							/>
+						</ToolsPanelItem>
+					) }
 
 					{ isAvailableVerticalAlignment && (
-						<SelectControl
+						<ToolsPanelItem
+							hasValue={ () =>
+								mobileOrder !==
+								metadata.attributes.mobileOrder.default
+							}
+							isShownByDefault
 							label={ __(
 								'Sort by mobile',
 								'snow-monkey-blocks'
 							) }
-							value={ mobileOrder }
-							options={ [
-								{
-									value: '',
-									label: __(
-										'Default',
-										'snow-monkey-blocks'
-									),
-								},
-								{
-									value: 'text',
-									label: __(
-										'Text > Image',
-										'snow-monkey-blocks'
-									),
-								},
-								{
-									value: 'image',
-									label: __(
-										'Image > Text',
-										'snow-monkey-blocks'
-									),
-								},
-								{
-									value: 'nowrap',
-									label: __(
-										'No wrap',
-										'snow-monkey-blocks'
-									),
-								},
-							] }
-							onChange={ onChangeMobileOrder }
-						/>
-					) }
-
-					<SelectControl
-						label={ __(
-							'Image Size Adjustment',
-							'snow-monkey-blocks'
-						) }
-						value={ imageSize }
-						options={ [
-							{
-								value: '',
-								label: __( '+-0%', 'snow-monkey-blocks' ),
-							},
-							{
-								value: '10',
-								label: __( '+10%', 'snow-monkey-blocks' ),
-							},
-							{
-								value: '20',
-								label: __( '+20%', 'snow-monkey-blocks' ),
-							},
-							{
-								value: '30',
-								label: __( '+30%', 'snow-monkey-blocks' ),
-							},
-							{
-								value: '40',
-								label: __( '+40%', 'snow-monkey-blocks' ),
-							},
-							{
-								value: '50',
-								label: __( '+50%', 'snow-monkey-blocks' ),
-							},
-							{
-								value: '60',
-								label: __( '+60%', 'snow-monkey-blocks' ),
-							},
-							{
-								value: '70',
-								label: __( '+70%', 'snow-monkey-blocks' ),
-							},
-							{
-								value: '80',
-								label: __( '+80%', 'snow-monkey-blocks' ),
-							},
-							{
-								value: '90',
-								label: __( '+90%', 'snow-monkey-blocks' ),
-							},
-							{
-								value: '100',
-								label: __( '+100%', 'snow-monkey-blocks' ),
-							},
-						] }
-						onChange={ onChangeImageSize }
-					/>
-
-					{ isAvailableVerticalAlignment && (
-						<CheckboxControl
-							label={ __(
-								'Adjust the height of the media to the height of the block.',
-								'snow-monkey-blocks'
-							) }
-							checked={ imageMatchHeight }
-							onChange={ onChangeImageMatchHeight }
-						/>
-					) }
-				</PanelBody>
-
-				<PanelBody
-					title={ __( 'Contents settings', 'snow-monkey-blocks' ) }
-					initialOpen={ true }
-				>
-					<SelectControl
-						label={ __(
-							'Content size adjustment',
-							'snow-monkey-blocks'
-						) }
-						value={ contentSize }
-						options={ contentSizeOptions }
-						onChange={ onChangeContentSize }
-					/>
-
-					<SelectControl
-						label={ __(
-							'Degree of overlap of content to image',
-							'snow-monkey-blocks'
-						) }
-						value={ contentHorizontalPosition }
-						options={ [
-							{
-								value: '',
-								label: __( '+-0%', 'snow-monkey-blocks' ),
-							},
-							// {
-							// 	value: '5',
-							// 	label: __( '5%', 'snow-monkey-blocks' ),
-							// },
-							{
-								value: '10',
-								label: __( '10%', 'snow-monkey-blocks' ),
-							},
-							// {
-							// 	value: '15',
-							// 	label: __( '15%', 'snow-monkey-blocks' ),
-							// },
-							{
-								value: '20',
-								label: __( '20%', 'snow-monkey-blocks' ),
-							},
-							// {
-							// 	value: '25',
-							// 	label: __( '25%', 'snow-monkey-blocks' ),
-							// },
-							{
-								value: '30',
-								label: __( '30%', 'snow-monkey-blocks' ),
-							},
-							{
-								value: '40',
-								label: __( '40%', 'snow-monkey-blocks' ),
-							},
-							{
-								value: '50',
-								label: __( '50%', 'snow-monkey-blocks' ),
-							},
-						] }
-						onChange={ onChangeContentHorizontalPosition }
-					/>
-
-					{ !! verticalAlignment &&
-						'center' !== verticalAlignment &&
-						isAvailableVerticalAlignment && (
+							onDeselect={ () =>
+								setAttributes( {
+									mobileOrder:
+										metadata.attributes.mobileOrder.default,
+								} )
+							}
+						>
 							<SelectControl
 								label={ __(
-									'Vertical position of content',
+									'Sort by mobile',
 									'snow-monkey-blocks'
 								) }
-								value={ contentVerticalPosition }
+								value={ mobileOrder }
 								options={ [
 									{
 										value: '',
 										label: __(
-											'+-0%',
+											'Default',
 											'snow-monkey-blocks'
 										),
 									},
 									{
-										value: 't100',
-										label: sprintf(
-											// translators: %1$s: px
-											__(
-												'Move %1$s up',
-												'snow-monkey-blocks'
-											),
-											'100px'
+										value: 'text',
+										label: __(
+											'Text > Image',
+											'snow-monkey-blocks'
 										),
 									},
 									{
-										value: 't80',
-										label: sprintf(
-											// translators: %1$s: px
-											__(
-												'Move %1$s up',
-												'snow-monkey-blocks'
-											),
-											'80px'
+										value: 'image',
+										label: __(
+											'Image > Text',
+											'snow-monkey-blocks'
 										),
 									},
 									{
-										value: 't60',
-										label: sprintf(
-											// translators: %1$s: px
-											__(
-												'Move %1$s up',
-												'snow-monkey-blocks'
-											),
-											'60px'
-										),
-									},
-									{
-										value: 't40',
-										label: sprintf(
-											// translators: %1$s: px
-											__(
-												'Move %1$s up',
-												'snow-monkey-blocks'
-											),
-											'40px'
-										),
-									},
-									{
-										value: 'b40',
-										label: sprintf(
-											// translators: %1$s: px
-											__(
-												'Move %1$s down',
-												'snow-monkey-blocks'
-											),
-											'40px'
-										),
-									},
-									{
-										value: 'b60',
-										label: sprintf(
-											// translators: %1$s: px
-											__(
-												'Move %1$s down',
-												'snow-monkey-blocks'
-											),
-											'60px'
-										),
-									},
-									{
-										value: 'b80',
-										label: sprintf(
-											// translators: %1$s: px
-											__(
-												'Move %1$s down',
-												'snow-monkey-blocks'
-											),
-											'80px'
-										),
-									},
-									{
-										value: 'b100',
-										label: sprintf(
-											// translators: %1$s: px
-											__(
-												'Move %1$s down',
-												'snow-monkey-blocks'
-											),
-											'100px'
+										value: 'nowrap',
+										label: __(
+											'No wrap',
+											'snow-monkey-blocks'
 										),
 									},
 								] }
-								onChange={ onChangeContentVerticalPosition }
+								onChange={ ( value ) =>
+									setAttributes( {
+										mobileOrder:
+											'' === value ? undefined : value,
+									} )
+								}
 							/>
+						</ToolsPanelItem>
+					) }
+
+					<ToolsPanelItem
+						hasValue={ () =>
+							imageSize !== metadata.attributes.imageSize.default
+						}
+						isShownByDefault
+						label={ __(
+							'Image Size Adjustment',
+							'snow-monkey-blocks'
+						) }
+						onDeselect={ () =>
+							setAttributes( {
+								imageSize:
+									metadata.attributes.imageSize.default,
+							} )
+						}
+					>
+						<SelectControl
+							label={ __(
+								'Image Size Adjustment',
+								'snow-monkey-blocks'
+							) }
+							value={ imageSize }
+							options={ [
+								{
+									value: '',
+									label: __( '+-0%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: '10',
+									label: __( '+10%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: '20',
+									label: __( '+20%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: '30',
+									label: __( '+30%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: '40',
+									label: __( '+40%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: '50',
+									label: __( '+50%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: '60',
+									label: __( '+60%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: '70',
+									label: __( '+70%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: '80',
+									label: __( '+80%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: '90',
+									label: __( '+90%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: '100',
+									label: __( '+100%', 'snow-monkey-blocks' ),
+								},
+							] }
+							onChange={ ( value ) =>
+								setAttributes( {
+									imageSize: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
+
+					{ isAvailableVerticalAlignment && (
+						<ToolsPanelItem
+							hasValue={ () =>
+								imageMatchHeight !==
+								metadata.attributes.imageMatchHeight.default
+							}
+							isShownByDefault
+							label={ __(
+								'Adjust the height of the media to the height of the block.',
+								'snow-monkey-blocks'
+							) }
+							onDeselect={ () =>
+								setAttributes( {
+									imageMatchHeight:
+										metadata.attributes.imageMatchHeight
+											.default,
+								} )
+							}
+						>
+							<CheckboxControl
+								label={ __(
+									'Adjust the height of the media to the height of the block.',
+									'snow-monkey-blocks'
+								) }
+								checked={ imageMatchHeight }
+								onChange={ ( value ) =>
+									setAttributes( {
+										imageMatchHeight: value,
+									} )
+								}
+							/>
+						</ToolsPanelItem>
+					) }
+				</ToolsPanel>
+
+				<ToolsPanel
+					label={ __( 'Contents settings', 'snow-monkey-blocks' ) }
+				>
+					<ToolsPanelItem
+						hasValue={ () =>
+							contentSize !==
+							metadata.attributes.contentSize.default
+						}
+						isShownByDefault
+						label={ __(
+							'Content size adjustment',
+							'snow-monkey-blocks'
+						) }
+						onDeselect={ () =>
+							setAttributes( {
+								contentSize:
+									metadata.attributes.contentSize.default,
+							} )
+						}
+					>
+						<SelectControl
+							label={ __(
+								'Content size adjustment',
+								'snow-monkey-blocks'
+							) }
+							value={ contentSize }
+							options={ contentSizeOptions }
+							onChange={ ( value ) =>
+								setAttributes( {
+									contentSize: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
+
+					<ToolsPanelItem
+						hasValue={ () =>
+							contentHorizontalPosition !==
+							metadata.attributes.contentHorizontalPosition
+								.default
+						}
+						isShownByDefault
+						label={ __(
+							'Degree of overlap of content to image',
+							'snow-monkey-blocks'
+						) }
+						onDeselect={ () =>
+							setAttributes( {
+								contentHorizontalPosition:
+									metadata.attributes
+										.contentHorizontalPosition.default,
+							} )
+						}
+					>
+						<SelectControl
+							label={ __(
+								'Degree of overlap of content to image',
+								'snow-monkey-blocks'
+							) }
+							value={ contentHorizontalPosition }
+							options={ [
+								{
+									value: '',
+									label: __( '+-0%', 'snow-monkey-blocks' ),
+								},
+								// {
+								// 	value: '5',
+								// 	label: __( '5%', 'snow-monkey-blocks' ),
+								// },
+								{
+									value: '10',
+									label: __( '10%', 'snow-monkey-blocks' ),
+								},
+								// {
+								// 	value: '15',
+								// 	label: __( '15%', 'snow-monkey-blocks' ),
+								// },
+								{
+									value: '20',
+									label: __( '20%', 'snow-monkey-blocks' ),
+								},
+								// {
+								// 	value: '25',
+								// 	label: __( '25%', 'snow-monkey-blocks' ),
+								// },
+								{
+									value: '30',
+									label: __( '30%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: '40',
+									label: __( '40%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: '50',
+									label: __( '50%', 'snow-monkey-blocks' ),
+								},
+							] }
+							onChange={ ( value ) =>
+								setAttributes( {
+									contentHorizontalPosition: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
+
+					{ !! verticalAlignment &&
+						'center' !== verticalAlignment &&
+						isAvailableVerticalAlignment && (
+							<ToolsPanelItem
+								hasValue={ () =>
+									contentVerticalPosition !==
+									metadata.attributes.contentVerticalPosition
+										.default
+								}
+								isShownByDefault
+								label={ __(
+									'Vertical position of content',
+									'snow-monkey-blocks'
+								) }
+								onDeselect={ () =>
+									setAttributes( {
+										contentVerticalPosition:
+											metadata.attributes
+												.contentVerticalPosition
+												.default,
+									} )
+								}
+							>
+								<SelectControl
+									label={ __(
+										'Vertical position of content',
+										'snow-monkey-blocks'
+									) }
+									value={ contentVerticalPosition }
+									options={ [
+										{
+											value: '',
+											label: __(
+												'+-0%',
+												'snow-monkey-blocks'
+											),
+										},
+										{
+											value: 't100',
+											label: sprintf(
+												// translators: %1$s: px
+												__(
+													'Move %1$s up',
+													'snow-monkey-blocks'
+												),
+												'100px'
+											),
+										},
+										{
+											value: 't80',
+											label: sprintf(
+												// translators: %1$s: px
+												__(
+													'Move %1$s up',
+													'snow-monkey-blocks'
+												),
+												'80px'
+											),
+										},
+										{
+											value: 't60',
+											label: sprintf(
+												// translators: %1$s: px
+												__(
+													'Move %1$s up',
+													'snow-monkey-blocks'
+												),
+												'60px'
+											),
+										},
+										{
+											value: 't40',
+											label: sprintf(
+												// translators: %1$s: px
+												__(
+													'Move %1$s up',
+													'snow-monkey-blocks'
+												),
+												'40px'
+											),
+										},
+										{
+											value: 'b40',
+											label: sprintf(
+												// translators: %1$s: px
+												__(
+													'Move %1$s down',
+													'snow-monkey-blocks'
+												),
+												'40px'
+											),
+										},
+										{
+											value: 'b60',
+											label: sprintf(
+												// translators: %1$s: px
+												__(
+													'Move %1$s down',
+													'snow-monkey-blocks'
+												),
+												'60px'
+											),
+										},
+										{
+											value: 'b80',
+											label: sprintf(
+												// translators: %1$s: px
+												__(
+													'Move %1$s down',
+													'snow-monkey-blocks'
+												),
+												'80px'
+											),
+										},
+										{
+											value: 'b100',
+											label: sprintf(
+												// translators: %1$s: px
+												__(
+													'Move %1$s down',
+													'snow-monkey-blocks'
+												),
+												'100px'
+											),
+										},
+									] }
+									onChange={ ( value ) =>
+										setAttributes( {
+											contentVerticalPosition: value,
+										} )
+									}
+								/>
+							</ToolsPanelItem>
 						) }
 
-					<ColorGradientControl
-						className="smb-inpanel-color-gradient-control"
-						label={ __( 'Background color', 'snow-monkey-blocks' ) }
-						colorValue={ contentBackgroundColor }
-						onColorChange={ onChangeContentBackgroundColor }
-						{ ...useMultipleOriginColorsAndGradients() }
-						__experimentalHasMultipleOrigins={ true }
-						__experimentalIsRenderedInSidebar={ true }
-					/>
+					<div className="smb-color-gradient-settings-dropdown">
+						<ColorGradientSettingsDropdown
+							settings={ [
+								{
+									label: __(
+										'Background color',
+										'snow-monkey-blocks'
+									),
+									colorValue: contentBackgroundColor,
+									onColorChange: ( value ) => {
+										let newValue = value;
+										if ( !! value ) {
+											const match =
+												value.match( /^var\((.+)\)$/ );
+											if ( match ) {
+												newValue = window
+													.getComputedStyle(
+														document.documentElement
+													)
+													.getPropertyValue(
+														match[ 1 ]
+													)
+													.trim();
+												if ( ! newValue ) {
+													newValue = window
+														.getComputedStyle(
+															document.body
+														)
+														.getPropertyValue(
+															match[ 1 ]
+														)
+														.trim();
+												}
+											}
+										}
+
+										setAttributes( {
+											contentBackgroundColor: newValue,
+										} );
+									},
+								},
+							] }
+							__experimentalIsItemGroup={ false }
+							__experimentalHasMultipleOrigins
+							__experimentalIsRenderedInSidebar
+							{ ...useMultipleOriginColorsAndGradients() }
+						/>
+					</div>
 
 					{ !! contentBackgroundColor && (
-						<RangeControl
+						<ToolsPanelItem
+							hasValue={ () =>
+								contentBackgroundOpacity !==
+								metadata.attributes.contentBackgroundOpacity
+									.default
+							}
+							isShownByDefault
 							label={ __(
 								'Background opacity',
 								'snow-monkey-blocks'
 							) }
-							value={ Number(
-								contentBackgroundOpacity.toFixed( 1 )
-							) }
-							onChange={ onChangeContentBackgroundOpacity }
-							min={ 0 }
-							max={ 1 }
-							step={ 0.1 }
-						/>
+							onDeselect={ () =>
+								setAttributes( {
+									contentBackgroundOpacity:
+										metadata.attributes
+											.contentBackgroundOpacity.default,
+								} )
+							}
+						>
+							<RangeControl
+								label={ __(
+									'Background opacity',
+									'snow-monkey-blocks'
+								) }
+								value={ Number(
+									contentBackgroundOpacity.toFixed( 1 )
+								) }
+								onChange={ ( value ) =>
+									setAttributes( {
+										contentBackgroundOpacity: value,
+									} )
+								}
+								min={ 0 }
+								max={ 1 }
+								step={ 0.1 }
+							/>
+						</ToolsPanelItem>
 					) }
 
-					<SelectControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							contentPadding !==
+							metadata.attributes.contentPadding.default
+						}
+						isShownByDefault
 						label={ __( 'Padding', 'snow-monkey-blocks' ) }
-						value={ contentPadding }
-						options={ [
-							{
-								value: '',
-								label: __( 'None', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 's',
-								label: __( 'S', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'm',
-								label: __( 'M', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'l',
-								label: __( 'L', 'snow-monkey-blocks' ),
-							},
-						] }
-						onChange={ onChangeContentPadding }
-					/>
+						onDeselect={ () =>
+							setAttributes( {
+								contentPadding:
+									metadata.attributes.contentPadding.default,
+							} )
+						}
+					>
+						<SelectControl
+							label={ __( 'Padding', 'snow-monkey-blocks' ) }
+							value={ contentPadding }
+							options={ [
+								{
+									value: '',
+									label: __( 'None', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 's',
+									label: __( 'S', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'm',
+									label: __( 'M', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'l',
+									label: __( 'L', 'snow-monkey-blocks' ),
+								},
+							] }
+							onChange={ ( value ) =>
+								setAttributes( {
+									contentPadding: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
 
 					{ contentPadding && (
-						<ToggleControl
+						<ToolsPanelItem
+							hasValue={ () =>
+								removeContentOutsidePadding !==
+								metadata.attributes.removeContentOutsidePadding
+									.default
+							}
+							isShownByDefault
 							label={ __(
 								'Remove outside padding',
 								'snow-monkey-blocks'
 							) }
-							checked={ removeContentOutsidePadding }
-							onChange={ onChangeRemoveContentOutsidePadding }
-						/>
+							onDeselect={ () =>
+								setAttributes( {
+									removeContentOutsidePadding:
+										metadata.attributes
+											.removeContentOutsidePadding
+											.default,
+								} )
+							}
+						>
+							<ToggleControl
+								label={ __(
+									'Remove outside padding',
+									'snow-monkey-blocks'
+								) }
+								checked={ removeContentOutsidePadding }
+								onChange={ ( value ) =>
+									setAttributes( {
+										removeContentOutsidePadding: value,
+									} )
+								}
+							/>
+						</ToolsPanelItem>
 					) }
-				</PanelBody>
+				</ToolsPanel>
 
-				<PanelBody
-					title={ __( 'Shadow settings', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
-				>
-					<ColorGradientControl
-						className="smb-inpanel-color-gradient-control"
-						label={ __( 'Color', 'snow-monkey-blocks' ) }
-						colorValue={ shadowColor }
-						onColorChange={ onChangeShadowColor }
-						{ ...useMultipleOriginColorsAndGradients() }
-						__experimentalHasMultipleOrigins={ true }
-						__experimentalIsRenderedInSidebar={ true }
-					/>
+				<PanelBoxShadowSettings
+					label={ __( 'Shadow settings', 'snow-monkey-blocks' ) }
+					settings={ [
+						{
+							colorValue: shadowColor || '',
+							onColorChange: ( value ) =>
+								setAttributes( {
+									shadowColor: value,
+								} ),
+							defaultValue:
+								metadata.attributes.shadowColor.default,
+						},
+						{
+							horizontalValue: shadowHorizontalPosition,
+							onHorizontalChange: ( value ) =>
+								setAttributes( {
+									shadowHorizontalPosition: toNumber(
+										value,
+										-120,
+										120
+									),
+								} ),
+							defaultValue:
+								metadata.attributes.shadowHorizontalPosition
+									.default,
+						},
+						{
+							verticalValue: shadowVerticalPosition,
+							onVerticalChange: ( value ) =>
+								setAttributes( {
+									shadowVerticalPosition: toNumber(
+										value,
+										-120,
+										120
+									),
+								} ),
+							defaultValue:
+								metadata.attributes.shadowVerticalPosition
+									.default,
+						},
+					] }
+				/>
 
-					{ shadowColor && (
-						<RangeControl
-							label={ __(
-								'Horizontal position',
-								'snow-monkey-blocks'
-							) }
-							value={ shadowHorizontalPosition }
-							onChange={ onChangeShadowHorizontalPosition }
-							min="-120"
-							max="120"
+				<ToolsPanel label={ __( 'Mask', 'snow-monkey-blocks' ) }>
+					<div className="smb-color-gradient-settings-dropdown">
+						<ColorGradientSettingsDropdown
+							settings={ [
+								{
+									label: __( 'Color', 'snow-monkey-blocks' ),
+									colorValue: maskColor,
+									gradientValue: maskGradientColor,
+									onColorChange: ( value ) =>
+										setAttributes( {
+											maskColor: value,
+										} ),
+									onGradientChange: ( value ) =>
+										setAttributes( {
+											maskGradientColor: value,
+										} ),
+								},
+							] }
+							__experimentalIsItemGroup={ false }
+							__experimentalHasMultipleOrigins
+							__experimentalIsRenderedInSidebar
+							{ ...useMultipleOriginColorsAndGradients() }
 						/>
-					) }
+					</div>
 
-					{ shadowColor && (
-						<RangeControl
-							label={ __(
-								'Vertical position',
-								'snow-monkey-blocks'
-							) }
-							value={ shadowVerticalPosition }
-							onChange={ onChangeShadowVerticalPosition }
-							min="-120"
-							max="120"
-						/>
-					) }
-				</PanelBody>
-
-				<PanelBody
-					title={ __( 'Mask', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
-				>
-					<ColorGradientControl
-						className="smb-inpanel-color-gradient-control"
-						label={ __( 'Color', 'snow-monkey-blocks' ) }
-						colorValue={ maskColor }
-						onColorChange={ onChangeMaskColor }
-						{ ...useMultipleOriginColorsAndGradients() }
-						__experimentalHasMultipleOrigins={ true }
-						__experimentalIsRenderedInSidebar={ true }
-					/>
-
-					{ !! maskColor && (
-						<RangeControl
+					{ ( !! maskColor || !! maskGradientColor ) && (
+						<ToolsPanelItem
+							hasValue={ () =>
+								maskOpacity !==
+								metadata.attributes.maskOpacity.default
+							}
+							isShownByDefault
 							label={ __( 'Opacity', 'snow-monkey-blocks' ) }
-							value={ Number( ( 1 - maskOpacity ).toFixed( 1 ) ) }
-							onChange={ onChangeMaskOpacity }
-							min={ 0 }
-							max={ 1 }
-							step={ 0.1 }
-						/>
+							onDeselect={ () =>
+								setAttributes( {
+									maskOpacity:
+										metadata.attributes.maskOpacity.default,
+								} )
+							}
+						>
+							<RangeControl
+								label={ __( 'Opacity', 'snow-monkey-blocks' ) }
+								value={ Number(
+									( 1 - maskOpacity ).toFixed( 1 )
+								) }
+								onChange={ ( value ) =>
+									setAttributes( {
+										maskOpacity: toNumber(
+											( 1 - value ).toFixed( 1 ),
+											0,
+											1
+										),
+									} )
+								}
+								min={ 0 }
+								max={ 1 }
+								step={ 0.1 }
+							/>
+						</ToolsPanelItem>
 					) }
-				</PanelBody>
+				</ToolsPanel>
 
 				<PanelSectionMovableBackgroundSettings
 					hasColor={ backgroundColor || backgroundGradientColor }
@@ -1125,32 +1172,83 @@ export default function ( {
 						{
 							colorValue: backgroundColor,
 							gradientValue: backgroundGradientColor,
-							onColorChange: onChangeBackgroundColor,
-							onGradientChange: onChangeBackgroundGradientColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									backgroundColor: value,
+								} ),
+							onGradientChange: ( value ) =>
+								setAttributes( {
+									backgroundGradientColor: value,
+								} ),
+							defaultColorValue:
+								metadata.attributes.backgroundColor.default,
+							defaultGradientValue:
+								metadata.attributes.backgroundGradientColor
+									.default,
 						},
 						{
 							horizontalPositionValue:
 								backgroundHorizontalPosition,
-							onHorizontalPositionChange:
-								onChangeBackgroundHorizontalPosition,
+							onHorizontalPositionChange: ( value ) =>
+								setAttributes( {
+									backgroundHorizontalPosition: toNumber(
+										value,
+										-90,
+										90
+									),
+								} ),
+							defaultValue:
+								metadata.attributes.backgroundHorizontalPosition
+									.default,
 						},
 						{
 							verticalPositionValue: backgroundVerticalPosition,
-							onVerticalPositionChange:
-								onChangeBackgroundVerticalPosition,
+							onVerticalPositionChange: ( value ) =>
+								setAttributes( {
+									backgroundVerticalPosition: toNumber(
+										value,
+										-90,
+										90
+									),
+								} ),
+							defaultValue:
+								metadata.attributes.backgroundVerticalPosition
+									.default,
 						},
 						{
 							isNoOverValue: isBackgroundNoOver,
-							onIsNoOverChange: onChangeIsBackgroundNoOver,
+							onIsNoOverChange: ( value ) =>
+								setAttributes( {
+									isBackgroundNoOver: value,
+								} ),
+							defaultValue:
+								metadata.attributes.isBackgroundNoOver.default,
 						},
 						{
 							textureValue: backgroundTexture,
-							onTextureChange: onChangeBackgroundTexture,
+							onTextureChange: ( value ) =>
+								setAttributes( {
+									backgroundTexture: value,
+									backgroundTextureUrl: !! value
+										? `${ smb.pluginUrl }/dist/blocks/section/img/${ value }.png`
+										: undefined,
+								} ),
+							defaultValue:
+								metadata.attributes.backgroundTexture.default,
 						},
 						{
 							textureOpacityValue: backgroundTextureOpacity,
-							onTextureOpacityChange:
-								onChangeBackgroundTextureOpacity,
+							onTextureOpacityChange: ( value ) =>
+								setAttributes( {
+									backgroundTextureOpacity: toNumber(
+										value,
+										0.1,
+										1
+									),
+								} ),
+							defaultValue:
+								metadata.attributes.backgroundTextureOpacity
+									.default,
 						},
 					] }
 				/>
@@ -1161,18 +1259,47 @@ export default function ( {
 						{
 							colorValue: fixedBackgroundColor,
 							gradientValue: fixedBackgroundGradientColor,
-							onColorChange: onChangeFixedBackgroundColor,
-							onGradientChange:
-								onChangeFixedBackgroundGradientColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									fixedBackgroundColor: value,
+								} ),
+							onGradientChange: ( value ) =>
+								setAttributes( {
+									fixedBackgroundGradientColor: value,
+								} ),
+							defaultColorValue:
+								metadata.attributes.fixedBackgroundColor
+									.default,
+							defaultGradientValue:
+								metadata.attributes.fixedBackgroundGradientColor
+									.default,
 						},
 						{
 							textureValue: fixedBackgroundTexture,
-							onTextureChange: onChangeFixedBackgroundTexture,
+							onTextureChange: ( value ) =>
+								setAttributes( {
+									fixedBackgroundTexture: value,
+									fixedBackgroundTextureUrl: !! value
+										? `${ smb.pluginUrl }/dist/blocks/section/img/${ value }.png`
+										: undefined,
+								} ),
+							defaultValue:
+								metadata.attributes.fixedBackgroundTexture
+									.default,
 						},
 						{
 							textureOpacityValue: fixedBackgroundTextureOpacity,
-							onTextureOpacityChange:
-								onChangeFixedBackgroundTextureOpacity,
+							onTextureOpacityChange: ( value ) =>
+								setAttributes( {
+									fixedBackgroundTextureOpacity: toNumber(
+										value,
+										0.1,
+										1
+									),
+								} ),
+							defaultValue:
+								metadata.attributes
+									.fixedBackgroundTextureOpacity.default,
 						},
 					] }
 				/>
@@ -1182,13 +1309,16 @@ export default function ( {
 						{
 							textValue: backgroundText.text,
 							onTextChange: ( value ) => {
+								newBackgroundText.text = value;
+
 								setAttributes( {
 									backgroundText: {
-										...backgroundText,
-										...{ text: value },
+										...newBackgroundText,
 									},
 								} );
 							},
+							defaultValue:
+								metadata.attributes.backgroundText.default.text,
 						},
 						{
 							fontSizeValue: backgroundText.fontSize,
@@ -1202,65 +1332,82 @@ export default function ( {
 									}
 								);
 
+								newBackgroundText.fontSize = value;
+								newBackgroundText.fontSizeSlug =
+									0 < filteredFontSizes.length &&
+									!! filteredFontSizes[ 0 ]?.slug
+										? filteredFontSizes[ 0 ].slug
+										: '';
+
 								setAttributes( {
 									backgroundText: {
-										...backgroundText,
-										...{
-											fontSize: value,
-											fontSizeSlug:
-												0 < filteredFontSizes.length &&
-												!! filteredFontSizes[ 0 ]?.slug
-													? filteredFontSizes[ 0 ]
-															.slug
-													: '',
-										},
+										...newBackgroundText,
 									},
 								} );
 							},
+							defaultValue:
+								metadata.attributes.backgroundText.default
+									.fontSize,
 						},
 						{
 							lineHeightValue: backgroundText.lineHeight,
 							onLineHeightChange: ( value ) => {
+								newBackgroundText.lineHeight = value;
+
 								setAttributes( {
 									backgroundText: {
-										...backgroundText,
-										...{ lineHeight: value },
+										...newBackgroundText,
 									},
 								} );
 							},
+							defaultValue:
+								metadata.attributes.backgroundText.default
+									.lineHeight,
 						},
 						{
 							opacityValue: backgroundText.opacity,
 							onOpacityChange: ( value ) => {
+								newBackgroundText.opacity = value;
+
 								setAttributes( {
 									backgroundText: {
-										...backgroundText,
-										...{ opacity: value },
+										...newBackgroundText,
 									},
 								} );
 							},
+							defaultValue:
+								metadata.attributes.backgroundText.default
+									.opacity,
 						},
 						{
 							colorValue: backgroundText.color,
 							onColorChange: ( value ) => {
+								newBackgroundText.color = value;
+
 								setAttributes( {
 									backgroundText: {
-										...backgroundText,
-										...{ color: value },
+										...newBackgroundText,
 									},
 								} );
 							},
+							defaultValue:
+								metadata.attributes.backgroundText.default
+									.color,
 						},
 						{
 							positionValue: backgroundText.position,
 							onPositionChange: ( value ) => {
+								newBackgroundText.position = value;
+
 								setAttributes( {
 									backgroundText: {
-										...backgroundText,
-										...{ position: value },
+										...newBackgroundText,
 									},
 								} );
 							},
+							defaultValue:
+								metadata.attributes.backgroundText.default
+									.position,
 						},
 					] }
 				/>
@@ -1269,20 +1416,44 @@ export default function ( {
 					settings={ [
 						{
 							typeValue: topDividerType,
-							onTypeChange: onChangeTopDividerType,
+							onTypeChange: ( value ) =>
+								setAttributes( {
+									topDividerType: value,
+								} ),
+							defaultValue:
+								metadata.attributes.topDividerType.default,
 						},
 						{
 							levelValue: topDividerLevel,
-							onLevelChange: onChangeTopDividerLevel,
+							onLevelChange: ( value ) =>
+								setAttributes( {
+									topDividerLevel: toNumber(
+										value,
+										-100,
+										100
+									),
+								} ),
+							defaultValue:
+								metadata.attributes.topDividerLevel.default,
 						},
 						{
 							colorValue: topDividerColor,
-							onColorChange: onChangeTopDividerColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									topDividerColor: value,
+								} ),
+							defaultColorValue:
+								metadata.attributes.topDividerColor.default,
 						},
 						{
 							verticalPosition: topDividerVerticalPosition,
-							onVerticalPositionChange:
-								onChangeTopDividerVerticalPosition,
+							onVerticalPositionChange: ( value ) =>
+								setAttributes( {
+									topDividerVerticalPosition: value,
+								} ),
+							defaultValue:
+								metadata.attributes.topDividerVerticalPosition
+									.default,
 						},
 					] }
 				/>
@@ -1291,20 +1462,44 @@ export default function ( {
 					settings={ [
 						{
 							typeValue: bottomDividerType,
-							onTypeChange: onChangeBottomDividerType,
+							onTypeChange: ( value ) =>
+								setAttributes( {
+									bottomDividerType: value,
+								} ),
+							defaultValue:
+								metadata.attributes.bottomDividerType.default,
 						},
 						{
 							levelValue: bottomDividerLevel,
-							onLevelChange: onChangeBottomDividerLevel,
+							onLevelChange: ( value ) =>
+								setAttributes( {
+									bottomDividerLevel: toNumber(
+										value,
+										-100,
+										100
+									),
+								} ),
+							defaultValue:
+								metadata.attributes.bottomDividerLevel.default,
 						},
 						{
 							colorValue: bottomDividerColor,
-							onColorChange: onChangeBottomDividerColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									bottomDividerColor: value,
+								} ),
+							defaultColorValue:
+								metadata.attributes.bottomDividerColor.default,
 						},
 						{
 							verticalPosition: bottomDividerVerticalPosition,
-							onVerticalPositionChange:
-								onChangeBottomDividerVerticalPosition,
+							onVerticalPositionChange: ( value ) =>
+								setAttributes( {
+									bottomDividerVerticalPosition: value,
+								} ),
+							defaultValue:
+								metadata.attributes
+									.bottomDividerVerticalPosition.default,
 						},
 					] }
 				/>
@@ -1313,14 +1508,22 @@ export default function ( {
 			<BlockControls gruop="block">
 				{ isAvailableVerticalAlignment && (
 					<BlockVerticalAlignmentToolbar
-						onChange={ onChangeVerticalAlignment }
+						onChange={ ( value ) =>
+							setAttributes( {
+								verticalAlignment: value,
+							} )
+						}
 						value={ verticalAlignment }
 					/>
 				) }
 
 				<AlignmentToolbar
 					value={ contentsAlignment }
-					onChange={ onChangeContentsAlignment }
+					onChange={ ( value ) =>
+						setAttributes( {
+							contentsAlignment: value,
+						} )
+					}
 				/>
 
 				<ToolbarGroup>
@@ -1417,19 +1620,28 @@ export default function ( {
 											settings={ [
 												{
 													subtitleValue: subtitle,
-													onSubtitleChange:
-														onChangeSubtitle,
+													onSubtitleChange: (
+														value
+													) =>
+														setAttributes( {
+															subtitle: value,
+														} ),
 												},
 												{
 													titleTagNameValue:
 														titleTagName,
 													titleValue: title,
-													onTitleChange:
-														onChangeTitle,
+													onTitleChange: ( value ) =>
+														setAttributes( {
+															title: value,
+														} ),
 												},
 												{
 													ledeValue: lede,
-													onLedeChange: onChangeLede,
+													onLedeChange: ( value ) =>
+														setAttributes( {
+															lede: value,
+														} ),
 												},
 											] }
 										/>
@@ -1456,9 +1668,85 @@ export default function ( {
 											alt={ imageAlt }
 											width={ imageWidth }
 											height={ imageHeight }
-											onSelect={ onSelectImage }
-											onSelectURL={ onSelectImageURL }
-											onRemove={ onRemoveImage }
+											onSelect={ ( media ) => {
+												const newImageSizeSlug =
+													!! media?.sizes[
+														imageSizeSlug
+													]
+														? imageSizeSlug
+														: DEFAULT_MEDIA_SIZE_SLUG;
+												const newImageURL =
+													media?.sizes[
+														newImageSizeSlug
+													]?.url;
+												const newImageWidth =
+													media?.sizes[
+														newImageSizeSlug
+													]?.width;
+												const newImageHeight =
+													media?.sizes[
+														newImageSizeSlug
+													]?.height;
+
+												setAttributes( {
+													imageURL: newImageURL,
+													imageID: media.id,
+													imageAlt: media.alt,
+													imageWidth: newImageWidth,
+													imageHeight: newImageHeight,
+													imageMediaType:
+														getMediaType( media ),
+													mediaSizeSlug:
+														newImageSizeSlug,
+												} );
+											} }
+											onSelectURL={ ( newImageURL ) => {
+												if (
+													newImageURL !== imageURL
+												) {
+													setAttributes( {
+														imageURL: newImageURL,
+														imageID: 0,
+														mediaSizeSlug:
+															DEFAULT_MEDIA_SIZE_SLUG,
+														mediaType: getMediaType(
+															{
+																media_type:
+																	isVideoType(
+																		newImageURL
+																	)
+																		? 'video'
+																		: 'image',
+															}
+														),
+													} );
+												}
+											} }
+											onRemove={ () =>
+												setAttributes( {
+													mdImageURL:
+														metadata.attributes
+															.mdImageURL.default,
+													mdImageAlt:
+														metadata.attributes
+															.mdImageAlt.default,
+													mdImageWidth:
+														metadata.attributes
+															.mdImageWidth
+															.default,
+													mdImageHeight:
+														metadata.attributes
+															.mdImageHeight
+															.default,
+													mdImageID:
+														metadata.attributes
+															.mdImageID.default,
+													mdImageMediaType:
+														metadata.attributes
+															.mdImageMediaType
+															.default,
+												} )
+											}
 											mediaType={ imageMediaType }
 											allowedTypes={ ALLOWED_TYPES }
 										/>

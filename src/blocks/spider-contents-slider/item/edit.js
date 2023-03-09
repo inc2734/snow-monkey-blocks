@@ -8,15 +8,33 @@ import {
 	useBlockProps,
 	__experimentalBlockAlignmentMatrixControl as BlockAlignmentMatrixControl,
 	useInnerBlocksProps,
+	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
+	__experimentalBorderRadiusControl as BorderRadiusControl,
 } from '@wordpress/block-editor';
 
-import { PanelBody, SelectControl } from '@wordpress/components';
+import {
+	SelectControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
+	__experimentalBorderControl as BorderControl,
+} from '@wordpress/components';
+
 import { useSelect } from '@wordpress/data';
 import { useEffect, useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
-import PanelBorderSettings from '@smb/component/panel-border-settings';
 import PanelBoxShadowSettings from '@smb/component/panel-box-shadow-settings';
+
+// @todo For WordPress 6.0
+import { useMultipleOriginColorsAndGradientsFallback } from '@smb/hooks';
+
+// @todo For WordPress 6.0
+if ( undefined === useMultipleOriginColorsAndGradients ) {
+	useMultipleOriginColorsAndGradients =
+		useMultipleOriginColorsAndGradientsFallback;
+}
+
+import metadata from './block.json';
 
 export default function ( {
 	attributes,
@@ -69,13 +87,21 @@ export default function ( {
 			!! contentPadding,
 	} );
 
+	const borderWidth = String( border.width ).match( /^\d+$/ )
+		? `${ border.width }px`
+		: border.width;
+
+	const borderRadius = String( border.radius ).match( /^\d+$/ )
+		? `${ border.radius }px`
+		: border.radius;
+
 	const styles = {
 		'--smb-spider-contents-slider--slide-border-width':
-			( border.color && border.width ) || undefined,
+			( !! border.color && borderWidth ) || undefined,
 		'--smb-spider-contents-slider--slide-border-color':
 			border.color || undefined,
 		'--smb-spider-contents-slider--slide-border-radius':
-			border.radius || undefined,
+			borderRadius || undefined,
 		'--smb-spider-contents-slider--slide-box-shadow': !! boxShadow.color
 			? `0 0 ${ boxShadow.blur }px ${ hexToRgba(
 					boxShadow.color,
@@ -100,100 +126,147 @@ export default function ( {
 		}
 	);
 
-	const onChangeContentPadding = ( value ) =>
-		setAttributes( {
-			contentPadding: value,
-		} );
-
 	return (
 		<>
 			<InspectorControls>
-				<PanelBorderSettings
-					settings={ [
-						{
-							colorValue: border.color,
-							onColorChange: ( value ) => {
-								const newBorder = { ...border };
-								newBorder.color = value;
-								setAttributes( { border: newBorder } );
-							},
-						},
-						{
-							widthValue: border.width,
-							onWidthChange: ( value ) => {
-								const newBorder = { ...border };
-								newBorder.width = value;
-								setAttributes( { border: newBorder } );
-							},
-						},
-						{
-							radiusValue: border.radius,
-							onRadiusChange: ( value ) => {
-								const newBorder = { ...border };
-								newBorder.radius = value;
-								setAttributes( { border: newBorder } );
-							},
-						},
-					] }
-				/>
+				<ToolsPanel label={ __( 'Border', 'snow-monkey-blocks' ) }>
+					<ToolsPanelItem
+						hasValue={ () =>
+							border.color !==
+								metadata.attributes.border.default.color ||
+							border.width !==
+								metadata.attributes.border.default.width
+						}
+						isShownByDefault
+						label={ __( 'Border', 'snow-monkey-blocks' ) }
+						onDeselect={ () => {
+							border.color =
+								metadata.attributes.border.default.color;
+							border.width =
+								metadata.attributes.border.default.width;
+							setAttributes( { border: { ...border } } );
+						} }
+					>
+						<BorderControl
+							withSlider
+							onChange={ ( value ) => {
+								border.color = value.color;
+								border.width = value.width;
+								setAttributes( { border: { ...border } } );
+							} }
+							value={ {
+								color: border.color,
+								width: border.width,
+							} }
+							enableStyle={ false }
+							{ ...useMultipleOriginColorsAndGradients() }
+						/>
+					</ToolsPanelItem>
 
-				<PanelBody
-					title={ __( 'Dimensions', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
-				>
-					<SelectControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							border.radius !==
+							metadata.attributes.border.default.radius
+						}
+						isShownByDefault
+						label={ __( 'Border radius', 'snow-monkey-blocks' ) }
+						onDeselect={ () => {
+							border.radius =
+								metadata.attributes.border.default.radius;
+							setAttributes( { border: { ...border } } );
+						} }
+					>
+						<div className="smb-border-radius-control">
+							<BorderRadiusControl
+								values={ border.radius }
+								onChange={ ( value ) => {
+									border.radius = value;
+									setAttributes( { border: { ...border } } );
+								} }
+							/>
+						</div>
+					</ToolsPanelItem>
+				</ToolsPanel>
+
+				<ToolsPanel label={ __( 'Dimensions', 'snow-monkey-blocks' ) }>
+					<ToolsPanelItem
+						hasValue={ () =>
+							contentPadding !==
+							metadata.attributes.contentPadding.default
+						}
+						isShownByDefault
 						label={ __( 'Padding', 'snow-monkey-blocks' ) }
-						value={ contentPadding }
-						options={ [
-							{
-								value: '',
-								label: __( 'None', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 's',
-								label: __( 'S', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'm',
-								label: __( 'M', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'l',
-								label: __( 'L', 'snow-monkey-blocks' ),
-							},
-						] }
-						onChange={ onChangeContentPadding }
-					/>
-				</PanelBody>
+						onDeselect={ () =>
+							setAttributes( {
+								contentPadding:
+									metadata.attributes.contentPadding.default,
+							} )
+						}
+					>
+						<SelectControl
+							label={ __( 'Padding', 'snow-monkey-blocks' ) }
+							value={ contentPadding }
+							options={ [
+								{
+									value: '',
+									label: __( 'None', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 's',
+									label: __( 'S', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'm',
+									label: __( 'M', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'l',
+									label: __( 'L', 'snow-monkey-blocks' ),
+								},
+							] }
+							onChange={ ( value ) =>
+								setAttributes( {
+									contentPadding: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 
 				<PanelBoxShadowSettings
 					settings={ [
 						{
-							colorValue: boxShadow.color,
+							colorValue: boxShadow.color || '',
 							onColorChange: ( value ) => {
-								const newBoxShadow = { ...boxShadow };
-								newBoxShadow.color = value;
-								setAttributes( { boxShadow: newBoxShadow } );
+								boxShadow.color = value;
+								setAttributes( {
+									boxShadow: { ...boxShadow },
+								} );
 							},
 						},
 						{
 							opacityValue: boxShadow.opacity,
 							onOpacityChange: ( value ) => {
-								const newBoxShadow = { ...boxShadow };
-								newBoxShadow.opacity = value;
-								setAttributes( { boxShadow: newBoxShadow } );
+								boxShadow.opacity = value;
+								setAttributes( {
+									boxShadow: { ...boxShadow },
+								} );
 							},
 						},
 						{
 							blurValue: boxShadow.blur,
 							onBlurChange: ( value ) => {
-								const newBoxShadow = { ...boxShadow };
-								newBoxShadow.blur = value;
-								setAttributes( { boxShadow: newBoxShadow } );
+								boxShadow.blur = value;
+								setAttributes( {
+									boxShadow: { ...boxShadow },
+								} );
 							},
 							max: 10,
 						},
 					] }
+					defaultValues={ {
+						...metadata.attributes.boxShadow.default,
+					} }
 				/>
 			</InspectorControls>
 

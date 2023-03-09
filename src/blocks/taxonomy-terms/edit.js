@@ -1,10 +1,11 @@
 import {
 	BaseControl,
 	Disabled,
-	PanelBody,
 	Placeholder,
 	SelectControl,
 	Spinner,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
 
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
@@ -12,6 +13,8 @@ import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
 import ServerSideRender from '@wordpress/server-side-render';
+
+import metadata from './block.json';
 
 export default function ( { attributes, setAttributes } ) {
 	const { taxonomy, orderby, order } = attributes;
@@ -39,98 +42,138 @@ export default function ( { attributes, setAttributes } ) {
 		label: '-',
 	} );
 
-	const onChangeTaxonomy = ( value ) =>
-		setAttributes( {
-			taxonomy: value,
-		} );
-
-	const onChangeOrderby = ( value ) =>
-		setAttributes( {
-			orderby: value,
-		} );
-
-	const onChangeOrder = ( value ) =>
-		setAttributes( {
-			order: value,
-		} );
-
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody
-					title={ __( 'Block settings', 'snow-monkey-blocks' ) }
+				<ToolsPanel
+					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
 					{ ! taxonomies.length ? (
-						<BaseControl
-							label={ __(
-								'Loading taxonomies…',
-								'snow-monkey-blocks'
-							) }
-							id="snow-monkey-blocks/taxonomy-terms/taxonomies"
-						>
-							<Spinner />
-						</BaseControl>
+						<div style={ { gridColumn: '1/-1' } }>
+							<BaseControl
+								label={ __(
+									'Loading taxonomies…',
+									'snow-monkey-blocks'
+								) }
+								id="snow-monkey-blocks/taxonomy-terms/taxonomies"
+							>
+								<Spinner />
+							</BaseControl>
+						</div>
 					) : (
-						<SelectControl
+						<ToolsPanelItem
+							hasValue={ () =>
+								taxonomy !==
+								metadata.attributes.taxonomy.default
+							}
+							isShownByDefault
 							label={ __( 'Taxonomy', 'snow-monkey-blocks' ) }
-							value={ taxonomy }
-							onChange={ onChangeTaxonomy }
-							options={ taxonomyOptions }
-						/>
+							onDeselect={ () =>
+								setAttributes( {
+									taxonomy:
+										metadata.attributes.taxonomy.default,
+								} )
+							}
+						>
+							<SelectControl
+								label={ __( 'Taxonomy', 'snow-monkey-blocks' ) }
+								value={ taxonomy }
+								onChange={ ( value ) =>
+									setAttributes( {
+										taxonomy: value,
+									} )
+								}
+								options={ taxonomyOptions }
+							/>
+						</ToolsPanelItem>
 					) }
 
-					<SelectControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							orderby !== metadata.attributes.orderby.default
+						}
+						isShownByDefault
 						label={ __( 'orderby', 'snow-monkey-blocks' ) }
-						value={ orderby }
-						options={ [
-							{
-								label: __(
-									'category id',
-									'snow-monkey-blocks'
-								),
-								value: 'id',
-							},
-							{
-								label: __(
-									'category name',
-									'snow-monkey-blocks'
-								),
-								value: 'name',
-							},
-							{
-								label: __(
-									'category slug',
-									'snow-monkey-blocks'
-								),
-								value: 'slug',
-							},
-							{
-								label: __(
-									'category post count',
-									'snow-monkey-blocks'
-								),
-								value: 'count',
-							},
-						] }
-						onChange={ onChangeOrderby }
-					/>
+						onDeselect={ () =>
+							setAttributes( {
+								orderby: metadata.attributes.orderby.default,
+							} )
+						}
+					>
+						<SelectControl
+							label={ __( 'orderby', 'snow-monkey-blocks' ) }
+							value={ orderby }
+							options={ [
+								{
+									label: __(
+										'category id',
+										'snow-monkey-blocks'
+									),
+									value: 'id',
+								},
+								{
+									label: __(
+										'category name',
+										'snow-monkey-blocks'
+									),
+									value: 'name',
+								},
+								{
+									label: __(
+										'category slug',
+										'snow-monkey-blocks'
+									),
+									value: 'slug',
+								},
+								{
+									label: __(
+										'category post count',
+										'snow-monkey-blocks'
+									),
+									value: 'count',
+								},
+							] }
+							onChange={ ( value ) =>
+								setAttributes( {
+									orderby: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
 
-					<SelectControl
+					<ToolsPanelItem
+						hasValue={ () =>
+							order !== metadata.attributes.order.default
+						}
+						isShownByDefault
 						label={ __( 'order', 'snow-monkey-blocks' ) }
-						value={ order }
-						options={ [
-							{
-								label: __( 'asc', 'snow-monkey-blocks' ),
-								value: 'asc',
-							},
-							{
-								label: __( 'desc', 'snow-monkey-blocks' ),
-								value: 'desc',
-							},
-						] }
-						onChange={ onChangeOrder }
-					/>
-				</PanelBody>
+						onDeselect={ () =>
+							setAttributes( {
+								order: metadata.attributes.order.default,
+							} )
+						}
+					>
+						<SelectControl
+							label={ __( 'order', 'snow-monkey-blocks' ) }
+							value={ order }
+							options={ [
+								{
+									label: __( 'asc', 'snow-monkey-blocks' ),
+									value: 'asc',
+								},
+								{
+									label: __( 'desc', 'snow-monkey-blocks' ),
+									value: 'desc',
+								},
+							] }
+							onChange={ ( value ) =>
+								setAttributes( {
+									order: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 
 			<div { ...useBlockProps() }>

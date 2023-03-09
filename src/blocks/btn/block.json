@@ -33,7 +33,7 @@
 			"default": ""
 		},
 		"borderRadius": {
-			"type": "number"
+			"type": "string"
 		},
 		"backgroundColor": {
 			"type": "string"

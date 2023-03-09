@@ -38,6 +38,7 @@ export default function ( { attributes, className } ) {
 		shadowHorizontalPosition,
 		shadowVerticalPosition,
 		maskColor,
+		maskGradientColor,
 		maskOpacity,
 		mobileOrder,
 		contentsAlignment,
@@ -170,9 +171,10 @@ export default function ( { attributes, className } ) {
 			contentBackgroundColor &&
 			hexToRgba( contentBackgroundColor, contentBackgroundOpacity ),
 		'--smb-section-break-the-grid--mask-color': maskColor || undefined,
-		'--smb-section-break-the-grid--mask-opacity': !! maskColor
-			? maskOpacity
-			: undefined,
+		'--smb-section-break-the-grid--mask-image':
+			maskGradientColor || undefined,
+		'--smb-section-break-the-grid--mask-opacity':
+			!! maskColor || !! maskGradientColor ? maskOpacity : undefined,
 		...generateSpacingProperties( padding ),
 		...generateStylesForSectionBackground( {
 			backgroundHorizontalPosition,
