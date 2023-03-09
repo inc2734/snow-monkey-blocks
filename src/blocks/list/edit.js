@@ -3,8 +3,8 @@ import { times } from 'lodash';
 
 import {
 	InspectorControls,
-	RichText,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
+	useInnerBlocksProps,
 	useBlockProps,
 } from '@wordpress/block-editor';
 
@@ -19,8 +19,12 @@ import { __ } from '@wordpress/i18n';
 
 import metadata from './block.json';
 
+const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/list-item' ];
+
+const TEMPLATE = [ [ 'snow-monkey-blocks/list-item' ] ];
+
 export default function ( { attributes, setAttributes, className, clientId } ) {
-	const { content, icon, iconColor } = attributes;
+	const { icon, iconColor } = attributes;
 
 	const iconList = [
 		{
@@ -66,6 +70,15 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 	const blockProps = useBlockProps( {
 		className: classes,
 	} );
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{},
+		{
+			allowedBlocks: ALLOWED_BLOCKS,
+			template: TEMPLATE,
+			templateLock: false,
+		}
+	);
 
 	return (
 		<>
@@ -147,16 +160,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					{ `.editor-styles-wrapper [data-block="${ clientId }"] ul li::before, .customize-control-sidebar_block_editor [data-block="${ clientId }"] ul li::before { border-color: ${ iconColor } }` }
 				</style>
 
-				<RichText
-					tagName="ul"
-					multiline="li"
-					value={ content }
-					onChange={ ( value ) =>
-						setAttributes( {
-							content: value,
-						} )
-					}
-				/>
+				<ul { ...innerBlocksProps } />
 			</div>
 		</>
 	);

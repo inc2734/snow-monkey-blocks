@@ -32,7 +32,7 @@ add_filter(
 		return array_merge(
 			$allowed_blocks,
 			array(
-				'snow-monkey-blocks/lsit',
+				'snow-monkey-blocks/list',
 			)
 		);
 	}
