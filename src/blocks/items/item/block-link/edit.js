@@ -25,7 +25,6 @@ import {
 	__experimentalBorderRadiusControl as BorderRadiusControl,
 } from '@wordpress/block-editor';
 
-import { useMergeRefs } from '@wordpress/compose';
 import { useState, useRef } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
@@ -125,7 +124,6 @@ export default function ( {
 		'--smb-btn--color': btnTextColor || undefined,
 	};
 
-	const ref = useRef();
 	const richTextRef = useRef();
 
 	const blockProps = useBlockProps( {
@@ -509,10 +507,7 @@ export default function ( {
 						{ ( ! RichText.isEmpty( btnLabel ) || isSelected ) && (
 							<div className="smb-items__item__action">
 								<span
-									ref={ useMergeRefs( [
-										setPopoverAnchor,
-										ref,
-									] ) }
+									ref={ setPopoverAnchor }
 									className={ btnClasses }
 									style={ btnStyles }
 								>

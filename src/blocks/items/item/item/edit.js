@@ -21,7 +21,6 @@ import {
 	__experimentalLinkControl as LinkControl,
 } from '@wordpress/block-editor';
 
-import { useMergeRefs } from '@wordpress/compose';
 import { useState, useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
@@ -72,7 +71,6 @@ export default function ( {
 		backgroundColor: btnBackgroundColor || undefined,
 	};
 
-	const ref = useRef();
 	const richTextRef = useRef();
 
 	const blockProps = useBlockProps( {
@@ -284,10 +282,7 @@ export default function ( {
 					{ ( ! RichText.isEmpty( btnLabel ) || isSelected ) && (
 						<div className="smb-items__item__action">
 							<span
-								ref={ useMergeRefs( [
-									setPopoverAnchor,
-									ref,
-								] ) }
+								ref={ setPopoverAnchor }
 								className="smb-items__item__btn smb-btn"
 								href={ btnURL }
 								style={ itemBtnStyles }

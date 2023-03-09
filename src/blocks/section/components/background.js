@@ -538,7 +538,7 @@ export const PanelSectionTopDividerSettings = ( { settings } ) => {
 				if (
 					setting.hasOwnProperty( 'verticalPositionValue' ) &&
 					setting.hasOwnProperty( 'onVerticalPositionChange' ) &&
-					setting.hasOwnProperty( 'defaultColorValue' )
+					setting.hasOwnProperty( 'defaultValue' )
 				) {
 					return (
 						<ToolsPanelItem
@@ -673,7 +673,7 @@ export const PanelSectionBottomDividerSettings = ( { settings } ) => {
 				if (
 					setting.hasOwnProperty( 'verticalPositionValue' ) &&
 					setting.hasOwnProperty( 'onVerticalPositionChange' ) &&
-					setting.hasOwnProperty( 'defaultColorValue' )
+					setting.hasOwnProperty( 'defaultValue' )
 				) {
 					return (
 						<ToolsPanelItem

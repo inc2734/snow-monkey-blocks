@@ -20,7 +20,6 @@ import {
 	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
 
-import { useMergeRefs } from '@wordpress/compose';
 import { useSelect } from '@wordpress/data';
 import { useState, useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
@@ -108,7 +107,6 @@ export default function ( {
 		color: linkColor || undefined,
 	};
 
-	const ref = useRef();
 	const richTextRef = useRef();
 
 	const blockProps = useBlockProps( {
@@ -351,7 +349,7 @@ export default function ( {
 					<div { ...innerBlocksProps } />
 
 					<span
-						ref={ useMergeRefs( [ setPopoverAnchor, ref ] ) }
+						ref={ setPopoverAnchor }
 						className="smb-step__item__link"
 						href={ linkURL }
 						style={ itemLinkStyles }

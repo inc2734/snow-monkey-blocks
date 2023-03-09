@@ -22,7 +22,6 @@ import {
 	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
 } from '@wordpress/block-editor';
 
-import { useMergeRefs } from '@wordpress/compose';
 import { useState, useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
@@ -94,7 +93,6 @@ export default function ( {
 			btnBackgroundColor || undefined;
 	}
 
-	const ref = useRef();
 	const richTextRef = useRef();
 
 	const blockProps = useBlockProps( {
@@ -314,7 +312,7 @@ export default function ( {
 
 					<div className="smb-btn-box__btn-wrapper">
 						<span
-							ref={ useMergeRefs( [ setPopoverAnchor, ref ] ) }
+							ref={ setPopoverAnchor }
 							className={ btnClasses }
 							href={ btnURL }
 							style={ btnStyles }
