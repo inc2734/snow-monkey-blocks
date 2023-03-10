@@ -60,6 +60,7 @@ export default function ( {
 		summary,
 		url,
 		target,
+		displayImage,
 		imageID,
 		imageURL,
 		imageAlt,
@@ -193,8 +194,40 @@ export default function ( {
 							</div>
 						</BaseControl>
 					</ToolsPanelItem>
+				</ToolsPanel>
 
-					{ 0 < imageSizeOptions.length && (
+				<ToolsPanel
+					label={ __( 'Image settings', 'snow-monkey-blocks' ) }
+				>
+					<ToolsPanelItem
+						hasValue={ () =>
+							displayImage !==
+							metadata.attributes.displayImage.default
+						}
+						isShownByDefault
+						label={ __( 'Display image', 'snow-monkey-blocks' ) }
+						onDeselect={ () =>
+							setAttributes( {
+								displayImage:
+									metadata.attributes.displayImage.default,
+							} )
+						}
+					>
+						<ToggleControl
+							label={ __(
+								'Display image',
+								'snow-monkey-blocks'
+							) }
+							checked={ displayImage }
+							onChange={ ( value ) =>
+								setAttributes( {
+									displayImage: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
+
+					{ displayImage && 0 < imageSizeOptions.length && (
 						<ToolsPanelItem
 							hasValue={ () =>
 								imageSizeSlug !==
@@ -447,7 +480,7 @@ export default function ( {
 
 			<div { ...blockProps }>
 				<div className="smb-items__item smb-items__item--block-link">
-					{ ( !! imageURL || isSelected ) && (
+					{ displayImage && (
 						<div className="smb-items__item__figure">
 							<Figure
 								src={ imageURL }

@@ -44,6 +44,10 @@
 			"attribute": "target",
 			"default": "_self"
 		},
+		"displayImage": {
+			"type": "boolean",
+			"default": false
+		},
 		"imageID": {
 			"type": "number",
 			"default": 0

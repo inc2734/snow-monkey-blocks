@@ -10,6 +10,7 @@ export default function ( { attributes, className } ) {
 		summary,
 		url,
 		target,
+		displayImage,
 		imageID,
 		imageURL,
 		imageAlt,
@@ -49,7 +50,7 @@ export default function ( { attributes, className } ) {
 				target={ '_self' === target ? undefined : target }
 				rel={ '_self' === target ? undefined : 'noopener noreferrer' }
 			>
-				{ !! imageURL && (
+				{ displayImage && !! imageURL && (
 					<div className="smb-items__item__figure">
 						<img
 							src={ imageURL }
@@ -82,7 +83,7 @@ export default function ( { attributes, className } ) {
 						</div>
 					) }
 
-					{ displayBtn && (
+					{ displayBtn && ! RichText.isEmpty( btnLabel ) && !! url && (
 						<div className="smb-items__item__action">
 							<span
 								className={ btnClasses }

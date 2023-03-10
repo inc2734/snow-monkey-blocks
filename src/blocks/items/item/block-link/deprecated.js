@@ -18,10 +18,14 @@ export default [
 		},
 
 		migrate( attributes ) {
-			const { btnLabel, url } = attributes;
+			const { btnLabel, url, imageURL } = attributes;
 
 			if ( ! RichText.isEmpty( btnLabel ) && !! url ) {
 				attributes.displayBtn = true;
+			}
+
+			if ( !! imageURL ) {
+				attributes.displayImage = true;
 			}
 
 			return attributes;

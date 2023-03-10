@@ -10,6 +10,7 @@ export default function ( { attributes, className } ) {
 		summary,
 		url,
 		target,
+		displayImage,
 		imageID,
 		imageURL,
 		imageAlt,
@@ -44,7 +45,7 @@ export default function ( { attributes, className } ) {
 	return (
 		<div { ...useBlockProps.save( { className: classes } ) }>
 			<div className="smb-items__item">
-				{ !! imageURL && (
+				{ displayImage && !! imageURL && (
 					<div className="smb-items__item__figure">
 						<img
 							src={ imageURL }
@@ -77,7 +78,7 @@ export default function ( { attributes, className } ) {
 						</div>
 					) }
 
-					{ displayBtn && (
+					{ displayBtn && ! RichText.isEmpty( btnLabel ) && !! url && (
 						<div className="smb-items__item__action">
 							<a
 								className={ btnClasses }
