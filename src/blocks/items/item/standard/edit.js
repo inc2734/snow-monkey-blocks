@@ -4,10 +4,10 @@ import { times } from 'lodash';
 import {
 	BaseControl,
 	Button,
-	CheckboxControl,
 	Popover,
 	SelectControl,
 	ToolbarButton,
+	ToggleControl,
 	__experimentalToolsPanel as ToolsPanel,
 	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
@@ -66,6 +66,7 @@ export default function ( {
 		imageWidth,
 		imageHeight,
 		imageSizeSlug,
+		displayBtn,
 		btnLabel,
 		btnBackgroundColor,
 		btnBackgroundGradientColor,
@@ -105,6 +106,9 @@ export default function ( {
 			( { slug } ) => image?.media_details?.sizes?.[ slug ]?.source_url
 		)
 		.map( ( { name, slug } ) => ( { value: slug, label: name } ) );
+
+	const multipleOriginColorsAndGradients =
+		useMultipleOriginColorsAndGradients();
 
 	const titleTagNames = [ 'div', 'h2', 'h3', 'none' ];
 
@@ -240,150 +244,203 @@ export default function ( {
 				>
 					<ToolsPanelItem
 						hasValue={ () =>
-							btnSize !== metadata.attributes.btnSize.default
+							displayBtn !==
+							metadata.attributes.displayBtn.default
 						}
 						isShownByDefault
-						label={ __( 'Button size', 'snow-monkey-blocks' ) }
+						label={ __( 'Display button', 'snow-monkey-blocks' ) }
 						onDeselect={ () =>
 							setAttributes( {
-								btnSize: metadata.attributes.btnSize.default,
+								displayBtn:
+									metadata.attributes.displayBtn.default,
 							} )
 						}
 					>
-						<SelectControl
-							label={ __( 'Button size', 'snow-monkey-blocks' ) }
-							value={ btnSize }
+						<ToggleControl
+							label={ __(
+								'Display button',
+								'snow-monkey-blocks'
+							) }
+							checked={ displayBtn }
 							onChange={ ( value ) =>
 								setAttributes( {
-									btnSize: value,
+									displayBtn: value,
 								} )
 							}
-							options={ [
-								{
-									value: '',
-									label: __(
-										'Normal size',
-										'snow-monkey-blocks'
-									),
-								},
-								{
-									value: 'little-wider',
-									label: __(
-										'Litle wider',
-										'snow-monkey-blocks'
-									),
-								},
-								{
-									value: 'wider',
-									label: __( 'Wider', 'snow-monkey-blocks' ),
-								},
-								{
-									value: 'more-wider',
-									label: __(
-										'More wider',
-										'snow-monkey-blocks'
-									),
-								},
-								{
-									value: 'full',
-									label: __(
-										'Full size',
-										'snow-monkey-blocks'
-									),
-								},
-							] }
 						/>
 					</ToolsPanelItem>
 
-					<ToolsPanelItem
-						hasValue={ () =>
-							btnBorderRadius !==
-							metadata.attributes.btnBorderRadius.default
-						}
-						isShownByDefault
-						label={ __( 'Button size', 'snow-monkey-blocks' ) }
-						onDeselect={ () =>
-							setAttributes( {
-								btnBorderRadius:
-									metadata.attributes.btnBorderRadius.default,
-							} )
-						}
-					>
-						<div className="smb-border-radius-control">
-							<BorderRadiusControl
-								values={ btnBorderRadius }
-								onChange={ ( value ) => {
-									setAttributes( { btnBorderRadius: value } );
-								} }
+					{ displayBtn && (
+						<>
+							<ToolsPanelItem
+								hasValue={ () =>
+									btnSize !==
+									metadata.attributes.btnSize.default
+								}
+								isShownByDefault
+								label={ __(
+									'Button size',
+									'snow-monkey-blocks'
+								) }
+								onDeselect={ () =>
+									setAttributes( {
+										btnSize:
+											metadata.attributes.btnSize.default,
+									} )
+								}
+							>
+								<SelectControl
+									label={ __(
+										'Button size',
+										'snow-monkey-blocks'
+									) }
+									value={ btnSize }
+									onChange={ ( value ) =>
+										setAttributes( {
+											btnSize: value,
+										} )
+									}
+									options={ [
+										{
+											value: '',
+											label: __(
+												'Normal size',
+												'snow-monkey-blocks'
+											),
+										},
+										{
+											value: 'little-wider',
+											label: __(
+												'Litle wider',
+												'snow-monkey-blocks'
+											),
+										},
+										{
+											value: 'wider',
+											label: __(
+												'Wider',
+												'snow-monkey-blocks'
+											),
+										},
+										{
+											value: 'more-wider',
+											label: __(
+												'More wider',
+												'snow-monkey-blocks'
+											),
+										},
+										{
+											value: 'full',
+											label: __(
+												'Full size',
+												'snow-monkey-blocks'
+											),
+										},
+									] }
+								/>
+							</ToolsPanelItem>
+
+							<ToolsPanelItem
+								hasValue={ () =>
+									btnBorderRadius !==
+									metadata.attributes.btnBorderRadius.default
+								}
+								isShownByDefault
+								label={ __(
+									'Button size',
+									'snow-monkey-blocks'
+								) }
+								onDeselect={ () =>
+									setAttributes( {
+										btnBorderRadius:
+											metadata.attributes.btnBorderRadius
+												.default,
+									} )
+								}
+							>
+								<div className="smb-border-radius-control">
+									<BorderRadiusControl
+										values={ btnBorderRadius }
+										onChange={ ( value ) => {
+											setAttributes( {
+												btnBorderRadius: value,
+											} );
+										} }
+									/>
+								</div>
+							</ToolsPanelItem>
+
+							<ToolsPanelItem
+								hasValue={ () =>
+									btnWrap !==
+									metadata.attributes.btnWrap.default
+								}
+								isShownByDefault
+								label={ __( 'Wrap', 'snow-monkey-blocks' ) }
+								onDeselect={ () =>
+									setAttributes( {
+										btnWrap:
+											metadata.attributes.btnWrap.default,
+									} )
+								}
+							>
+								<ToggleControl
+									label={ __( 'Wrap', 'snow-monkey-blocks' ) }
+									checked={ btnWrap }
+									onChange={ ( value ) =>
+										setAttributes( {
+											btnWrap: value,
+										} )
+									}
+								/>
+							</ToolsPanelItem>
+
+							<div className="smb-color-gradient-settings-dropdown">
+								<ColorGradientSettingsDropdown
+									settings={ [
+										{
+											label: __(
+												'Background color',
+												'snow-monkey-blocks'
+											),
+											colorValue: btnBackgroundColor,
+											onColorChange: ( value ) =>
+												setAttributes( {
+													btnBackgroundColor: value,
+												} ),
+											gradientValue:
+												btnBackgroundGradientColor,
+											onGradientChange: ( value ) =>
+												setAttributes( {
+													btnBackgroundGradientColor:
+														value,
+												} ),
+										},
+										{
+											label: __(
+												'Text color',
+												'snow-monkey-blocks'
+											),
+											colorValue: btnTextColor,
+											onColorChange: ( value ) =>
+												setAttributes( {
+													btnTextColor: value,
+												} ),
+										},
+									] }
+									__experimentalIsItemGroup={ false }
+									__experimentalHasMultipleOrigins
+									__experimentalIsRenderedInSidebar
+									{ ...multipleOriginColorsAndGradients }
+								/>
+							</div>
+
+							<ContrastChecker
+								backgroundColor={ btnBackgroundColor }
+								textColor={ btnTextColor }
 							/>
-						</div>
-					</ToolsPanelItem>
-
-					<ToolsPanelItem
-						hasValue={ () =>
-							btnWrap !== metadata.attributes.btnWrap.default
-						}
-						isShownByDefault
-						label={ __( 'Wrap', 'snow-monkey-blocks' ) }
-						onDeselect={ () =>
-							setAttributes( {
-								btnWrap: metadata.attributes.btnWrap.default,
-							} )
-						}
-					>
-						<CheckboxControl
-							label={ __( 'Wrap', 'snow-monkey-blocks' ) }
-							checked={ btnWrap }
-							onChange={ ( value ) =>
-								setAttributes( {
-									btnWrap: value,
-								} )
-							}
-						/>
-					</ToolsPanelItem>
-
-					<div className="smb-color-gradient-settings-dropdown">
-						<ColorGradientSettingsDropdown
-							settings={ [
-								{
-									label: __(
-										'Background color',
-										'snow-monkey-blocks'
-									),
-									colorValue: btnBackgroundColor,
-									onColorChange: ( value ) =>
-										setAttributes( {
-											btnBackgroundColor: value,
-										} ),
-									gradientValue: btnBackgroundGradientColor,
-									onGradientChange: ( value ) =>
-										setAttributes( {
-											btnBackgroundGradientColor: value,
-										} ),
-								},
-								{
-									label: __(
-										'Text color',
-										'snow-monkey-blocks'
-									),
-									colorValue: btnTextColor,
-									onColorChange: ( value ) =>
-										setAttributes( {
-											btnTextColor: value,
-										} ),
-								},
-							] }
-							__experimentalIsItemGroup={ false }
-							__experimentalHasMultipleOrigins
-							__experimentalIsRenderedInSidebar
-							{ ...useMultipleOriginColorsAndGradients() }
-						/>
-					</div>
-
-					<ContrastChecker
-						backgroundColor={ btnBackgroundColor }
-						textColor={ btnTextColor }
-					/>
+						</>
+					) }
 				</ToolsPanel>
 			</InspectorControls>
 
@@ -503,7 +560,7 @@ export default function ( {
 							/>
 						) }
 
-						{ ( ! RichText.isEmpty( btnLabel ) || isSelected ) && (
+						{ displayBtn && (
 							<div className="smb-items__item__action">
 								<span
 									ref={ setPopoverAnchor }

@@ -2,14 +2,14 @@
 # This file is distributed under the GPL2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Snow Monkey Blocks 18.0.0\n"
+"Project-Id-Version: Snow Monkey Blocks 18.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-blocks\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-02-06T07:33:16+00:00\n"
+"POT-Creation-Date: 2023-03-10T12:29:19+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: snow-monkey-blocks\n"
@@ -155,6 +155,7 @@ msgstr ""
 #: dist/blocks/countdown/index.js:1
 #: dist/blocks/directory-structure/item/directory/index.js:1
 #: dist/blocks/directory-structure/item/file/index.js:1
+#: dist/blocks/evaluation-star/index.js:1
 #: dist/blocks/faq/item/index.js:1
 #: dist/blocks/information/index.js:1
 #: dist/blocks/items/index.js:1
@@ -418,11 +419,6 @@ msgid "Custom"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
-#: dist/blocks/spider-contents-slider/item/index.js:1
-msgid "Box Shadow"
-msgstr ""
-
-#: dist/blocks/box/index.js:1
 #: dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:17
@@ -434,23 +430,27 @@ msgid "Opacity"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
 #: dist/blocks/tabs/index.js:1
 msgid "Horizontal"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
 #: dist/blocks/tabs/index.js:1
 msgid "Vertical"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
 msgid "Blur"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
 msgid "Spread"
 msgstr ""
@@ -465,13 +465,21 @@ msgid "Position"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
 msgid "Outline"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
 msgid "Inset"
+msgstr ""
+
+#: dist/blocks/box/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+msgid "Box Shadow"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
@@ -482,22 +490,12 @@ msgid "Border"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
-#: dist/blocks/spider-contents-slider/item/index.js:1
-msgid "Width"
-msgstr ""
-
-#: dist/blocks/box/index.js:1
 #: dist/blocks/btn-box/index.js:1
 #: dist/blocks/btn/index.js:1
 #: dist/blocks/items/item/block-link/index.js:1
-#: dist/blocks/items/item/standard/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
 msgid "Border radius"
-msgstr ""
-
-#: dist/blocks/box/index.js:1
-#: dist/blocks/btn/index.js:1
-msgid "-If set to -1, the default border radius will be applied."
 msgstr ""
 
 #: dist/blocks/box/index.js:1
@@ -894,6 +892,7 @@ msgstr ""
 #: dist/blocks/media-text/index.js:1
 #: dist/blocks/panels/item/horizontal/index.js:1
 #: dist/blocks/panels/item/vertical/index.js:1
+#: dist/blocks/pricing-table/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-side-heading/index.js:1
 #: dist/blocks/section-with-bgimage/index.js:1
@@ -903,19 +902,7 @@ msgid "Title tag"
 msgstr ""
 
 #: dist/blocks/child-pages/index.js:3
-#: dist/blocks/items/item/banner/index.js:1
-#: dist/blocks/items/item/block-link/index.js:1
-#: dist/blocks/items/item/standard/index.js:1
-#: dist/blocks/media-text/index.js:1
-#: dist/blocks/panels/item/horizontal/index.js:1
-#: dist/blocks/panels/item/vertical/index.js:1
-#: dist/blocks/pricing-table/item/index.js:1
-#: dist/blocks/section-break-the-grid/index.js:1
-#: dist/blocks/section-with-bgimage/index.js:1
-#: dist/blocks/slider/item/index.js:1
 #: dist/blocks/spider-slider/index.js:1
-#: dist/blocks/step/item/standard/index.js:1
-#: dist/blocks/thumbnail-gallery/item/index.js:1
 msgid "Images size"
 msgstr ""
 
@@ -968,6 +955,10 @@ msgstr ""
 
 #: dist/blocks/container/index.js:1
 msgid "Remove left and right spaces"
+msgstr ""
+
+#: dist/blocks/contents-outline/index.js:1
+msgid "Headings"
 msgstr ""
 
 #: dist/blocks/contents-outline/index.js:1
@@ -1035,6 +1026,10 @@ msgstr ""
 msgid "Clock color"
 msgstr ""
 
+#: dist/blocks/countdown/index.js:1
+msgid "Date time"
+msgstr ""
+
 #: dist/blocks/directory-structure/item/directory/index.js:1
 msgid "folder - Solid"
 msgstr ""
@@ -1075,10 +1070,6 @@ msgid "Write file name…"
 msgstr ""
 
 #: dist/blocks/evaluation-star/index.js:1
-msgid "Evaluation settings"
-msgstr ""
-
-#: dist/blocks/evaluation-star/index.js:1
 msgid "Evaluation"
 msgstr ""
 
@@ -1096,10 +1087,6 @@ msgstr ""
 
 #: dist/blocks/evaluation-star/index.js:1
 msgid "Position right"
-msgstr ""
-
-#: dist/blocks/evaluation-star/index.js:1
-msgid "Numeric settings"
 msgstr ""
 
 #: dist/blocks/evaluation-star/index.js:1
@@ -1202,6 +1189,12 @@ msgstr ""
 
 #: dist/blocks/items/index.js:1
 msgid "Align the bottom of the button of each items (standard, block link item only)."
+msgstr ""
+
+#: dist/blocks/items/index.js:1
+#: dist/blocks/panels/index.js:1
+#: dist/blocks/testimonial/index.js:1
+msgid "Columns per row"
 msgstr ""
 
 #: dist/blocks/items/index.js:1
@@ -1323,6 +1316,20 @@ msgid "9:16"
 msgstr ""
 
 #: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/media-text/index.js:1
+#: dist/blocks/panels/item/horizontal/index.js:1
+#: dist/blocks/panels/item/vertical/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/slider/item/index.js:1
+#: dist/blocks/step/item/standard/index.js:1
+#: dist/blocks/thumbnail-gallery/item/index.js:1
+msgid "Image size"
+msgstr ""
+
+#: dist/blocks/items/item/banner/index.js:1
 msgid "Shade off"
 msgstr ""
 
@@ -1336,6 +1343,11 @@ msgstr ""
 #: dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
 msgid "Change content position"
+msgstr ""
+
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+msgid "Display button"
 msgstr ""
 
 #: dist/blocks/items/item/block-link/index.js:1
@@ -1429,6 +1441,10 @@ msgstr ""
 
 #: dist/blocks/list/index.js:1
 msgid "circle-chevron-right"
+msgstr ""
+
+#: dist/blocks/list/item/index.js:1
+msgid "List"
 msgstr ""
 
 #: dist/blocks/media-text/index.js:1
@@ -1634,14 +1650,6 @@ msgstr ""
 
 #: dist/blocks/rss/index.js:1
 msgid "Edit RSS URL"
-msgstr ""
-
-#: dist/blocks/rss/index.js:3
-msgid "Enter URL here…"
-msgstr ""
-
-#: dist/blocks/rss/index.js:3
-msgid "Use URL"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
@@ -1893,6 +1901,13 @@ msgstr ""
 #: dist/blocks/section-with-bgimage/index.js:1
 #: dist/blocks/section-with-bgvideo/index.js:1
 #: dist/blocks/section/index.js:1
+msgid "Size"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
 msgid "Line height"
 msgstr ""
 
@@ -2059,14 +2074,6 @@ msgid "Shadow settings"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:17
-msgid "Horizontal position"
-msgstr ""
-
-#: dist/blocks/section-break-the-grid/index.js:17
-msgid "Vertical position"
-msgstr ""
-
-#: dist/blocks/section-break-the-grid/index.js:17
 msgid "Show media on top"
 msgstr ""
 
@@ -2105,6 +2112,10 @@ msgstr ""
 
 #: dist/blocks/section-with-bgimage/index.js:1
 msgid "This setting is being retained for backwards compatibility and is not recommended for use. Its use may slow down the page display."
+msgstr ""
+
+#: dist/blocks/section-with-bgimage/index.js:1
+msgid "Image settings"
 msgstr ""
 
 #: dist/blocks/section-with-bgimage/index.js:1
@@ -2160,6 +2171,12 @@ msgstr ""
 #: dist/blocks/slider/index.js:1
 #: dist/blocks/spider-slider/index.js:1
 msgid "Aspect ratio"
+msgstr ""
+
+#: dist/blocks/slider/index.js:1
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+msgid "Slides settings"
 msgstr ""
 
 #: dist/blocks/slider/index.js:1
@@ -2227,10 +2244,6 @@ msgstr ""
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-slider/index.js:1
 msgid "If \"0\", default animation speed."
-msgstr ""
-
-#: dist/blocks/spider-contents-slider/item/index.js:1
-msgid "Radius"
 msgstr ""
 
 #: dist/blocks/spider-contents-slider/item/index.js:1
@@ -2335,6 +2348,11 @@ msgstr ""
 
 #: dist/blocks/taxonomy-posts/index.js:1
 #: dist/blocks/taxonomy-terms/index.js:1
+msgid "Taxonomy"
+msgstr ""
+
+#: dist/blocks/taxonomy-posts/index.js:3
+#: dist/blocks/taxonomy-terms/index.js:1
 msgid "Loading taxonomies…"
 msgstr ""
 
@@ -2360,10 +2378,6 @@ msgstr ""
 
 #: dist/blocks/taxonomy-terms/index.js:1
 msgid "Taxonomies"
-msgstr ""
-
-#: dist/blocks/taxonomy-terms/index.js:1
-msgid "Taxonomy"
 msgstr ""
 
 #: dist/blocks/taxonomy-terms/index.js:1
@@ -2652,8 +2666,14 @@ msgid "Icon list"
 msgstr ""
 
 #: dist/blocks/list/block.json
+#: dist/blocks/list/item/block.json
 msgctxt "block description"
 msgid "Icons are displayed only on the actual screen."
+msgstr ""
+
+#: dist/blocks/list/item/block.json
+msgctxt "block title"
+msgid "Icon list item"
 msgstr ""
 
 #: dist/blocks/media-text/block.json

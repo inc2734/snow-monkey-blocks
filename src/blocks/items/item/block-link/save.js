@@ -15,6 +15,7 @@ export default function ( { attributes, className } ) {
 		imageAlt,
 		imageWidth,
 		imageHeight,
+		displayBtn,
 		btnLabel,
 		btnBackgroundColor,
 		btnBackgroundGradientColor,
@@ -81,7 +82,7 @@ export default function ( { attributes, className } ) {
 						</div>
 					) }
 
-					{ ! RichText.isEmpty( btnLabel ) && !! url && (
+					{ displayBtn && (
 						<div className="smb-items__item__action">
 							<span
 								className={ btnClasses }
