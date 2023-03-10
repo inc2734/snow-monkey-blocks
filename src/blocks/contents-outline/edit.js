@@ -218,17 +218,19 @@ export default function ( { attributes, setAttributes } ) {
 					<RichText
 						tagName="h2"
 						className="wpco__title"
-						value={
-							title ||
-							__( 'Contents outline', 'snow-monkey-blocks' )
-						}
+						value={ title }
 						placeholder={ __(
 							'Contents outline',
 							'snow-monkey-blocks'
 						) }
 						onChange={ ( value ) =>
 							setAttributes( {
-								title: value,
+								title:
+									value ||
+									__(
+										'Contents outline',
+										'snow-monkey-blocks'
+									),
 							} )
 						}
 						allowedFormats={ [] }

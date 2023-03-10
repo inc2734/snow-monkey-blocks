@@ -44,6 +44,9 @@ echo do_shortcode(
 		$attributes['moveToBefore1stHeading'] ? implode( ',', $move_to ) : '',
 		$anchor,
 		'smb-contents-outline',
-		$attributes['title']
+		$attributes['title'] ? $attributes['title'] : __(
+			'Contents outline',
+			'snow-monkey-blocks'
+		)
 	)
 );
