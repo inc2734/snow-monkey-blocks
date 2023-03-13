@@ -8,7 +8,7 @@ import {
 } from '@wordpress/block-editor';
 
 import {
-	CheckboxControl,
+	ToggleControl,
 	__experimentalToolsPanel as ToolsPanel,
 	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
@@ -53,7 +53,7 @@ export default function ( { attributes, setAttributes, className } ) {
 							} )
 						}
 					>
-						<CheckboxControl
+						<ToggleControl
 							label={ __(
 								'Display in open state',
 								'snow-monkey-blocks'

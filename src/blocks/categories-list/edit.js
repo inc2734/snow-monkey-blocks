@@ -2,10 +2,10 @@ import classnames from 'classnames';
 import { compact, indexOf, remove, union } from 'lodash';
 
 import {
-	CheckboxControl,
 	Placeholder,
 	RangeControl,
 	SelectControl,
+	ToggleControl,
 	Spinner,
 	__experimentalToolsPanel as ToolsPanel,
 	__experimentalToolsPanelItem as ToolsPanelItem,
@@ -73,7 +73,7 @@ export default function ( { attributes, setAttributes, className } ) {
 	const ArticleCategoriesList = () => {
 		return articleCategories.map( ( category ) => {
 			return (
-				<CheckboxControl
+				<ToggleControl
 					key={ category.id }
 					label={ category.name }
 					value={ String( category.id ) }

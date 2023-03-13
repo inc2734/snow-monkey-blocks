@@ -17,7 +17,6 @@ import {
 } from '@wordpress/block-editor';
 
 import {
-	CheckboxControl,
 	RangeControl,
 	SelectControl,
 	ToggleControl,
@@ -630,7 +629,7 @@ export default function ( {
 								} )
 							}
 						>
-							<CheckboxControl
+							<ToggleControl
 								label={ __(
 									'Adjust the height of the media to the height of the block.',
 									'snow-monkey-blocks'

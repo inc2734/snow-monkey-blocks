@@ -3,7 +3,6 @@ import { times } from 'lodash';
 import {
 	BaseControl,
 	Button,
-	CheckboxControl,
 	SelectControl,
 	ToggleControl,
 	__experimentalToolsPanel as ToolsPanel,
@@ -312,7 +311,7 @@ export const PanelBasicSettings = ( {
 								)
 							}
 						>
-							<CheckboxControl
+							<ToggleControl
 								label={ __(
 									'Remove container padding of the contents',
 									'snow-monkey-blocks'

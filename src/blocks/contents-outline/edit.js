@@ -1,7 +1,6 @@
 import { indexOf } from 'lodash';
 
 import {
-	CheckboxControl,
 	ToggleControl,
 	__experimentalToolsPanel as ToolsPanel,
 	__experimentalToolsPanelItem as ToolsPanelItem,
@@ -61,7 +60,7 @@ export default function ( { attributes, setAttributes } ) {
 							} )
 						}
 					>
-						<CheckboxControl
+						<ToggleControl
 							name="headings[]"
 							value="h2"
 							label={ __( 'Show h2', 'snow-monkey-blocks' ) }
@@ -78,7 +77,7 @@ export default function ( { attributes, setAttributes } ) {
 							}
 						/>
 
-						<CheckboxControl
+						<ToggleControl
 							name="headings[]"
 							value="h3"
 							label={ __( 'Show h3', 'snow-monkey-blocks' ) }
@@ -95,7 +94,7 @@ export default function ( { attributes, setAttributes } ) {
 							}
 						/>
 
-						<CheckboxControl
+						<ToggleControl
 							name="headings[]"
 							value="h4"
 							label={ __( 'Show h4', 'snow-monkey-blocks' ) }
@@ -131,7 +130,7 @@ export default function ( { attributes, setAttributes } ) {
 							} )
 						}
 					>
-						<CheckboxControl
+						<ToggleControl
 							value={ true }
 							label={ __(
 								'Show section block titles',
@@ -164,7 +163,7 @@ export default function ( { attributes, setAttributes } ) {
 							} )
 						}
 					>
-						<CheckboxControl
+						<ToggleControl
 							value={ true }
 							label={ __(
 								'Show heading blocks in section blocks',

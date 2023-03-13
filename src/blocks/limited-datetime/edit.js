@@ -9,8 +9,8 @@ import {
 } from '@wordpress/block-editor';
 
 import {
-	CheckboxControl,
 	Placeholder,
+	ToggleControl,
 	__experimentalToolsPanel as ToolsPanel,
 	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
@@ -99,7 +99,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							} )
 						}
 					>
-						<CheckboxControl
+						<ToggleControl
 							label={ __(
 								'Use start datetime',
 								'snow-monkey-blocks'
@@ -146,7 +146,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							} )
 						}
 					>
-						<CheckboxControl
+						<ToggleControl
 							label={ __(
 								'Use end datetime',
 								'snow-monkey-blocks'

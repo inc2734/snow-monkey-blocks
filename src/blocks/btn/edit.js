@@ -1,9 +1,9 @@
 import classnames from 'classnames';
 
 import {
-	CheckboxControl,
 	Popover,
 	SelectControl,
+	ToggleControl,
 	ToolbarButton,
 	__experimentalToolsPanel as ToolsPanel,
 	__experimentalToolsPanelItem as ToolsPanelItem,
@@ -242,7 +242,7 @@ export default function ( {
 							} )
 						}
 					>
-						<CheckboxControl
+						<ToggleControl
 							label={ __( 'Wrap', 'snow-monkey-blocks' ) }
 							checked={ wrap }
 							onChange={ ( value ) =>
