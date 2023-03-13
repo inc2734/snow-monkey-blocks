@@ -1,7 +1,6 @@
 import blockConfig from '@smb/config/block';
 
 import { registerBlockType } from '@wordpress/blocks';
-import { __ } from '@wordpress/i18n';
 
 import metadata from './block.json';
 import icon from './icon';
@@ -15,15 +14,4 @@ registerBlockType( metadata.name, {
 	},
 	edit,
 	save,
-	styles: [
-		{
-			name: 'default',
-			label: __( 'Default', 'snow-monkey-blocks' ),
-			isDefault: true,
-		},
-		{
-			name: 'border',
-			label: __( 'Border', 'snow-monkey-blocks' ),
-		},
-	],
 } );

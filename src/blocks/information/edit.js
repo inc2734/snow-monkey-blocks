@@ -5,6 +5,8 @@ import {
 	InspectorControls,
 	useBlockProps,
 	useInnerBlocksProps,
+	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
+	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 } from '@wordpress/block-editor';
 
 import {
@@ -12,12 +14,22 @@ import {
 	ToggleControl,
 	__experimentalToolsPanel as ToolsPanel,
 	__experimentalToolsPanelItem as ToolsPanelItem,
+	__experimentalBorderControl as BorderControl,
 } from '@wordpress/components';
 
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
-import { useMigrateDoubleHyphenToSingleHyphen } from '@smb/hooks';
+import {
+	useMigrateDoubleHyphenToSingleHyphen,
+	useMultipleOriginColorsAndGradientsFallback, // @todo For WordPress 6.0
+} from '@smb/hooks';
+
+// @todo For WordPress 6.0
+if ( undefined === useMultipleOriginColorsAndGradients ) {
+	useMultipleOriginColorsAndGradients =
+		useMultipleOriginColorsAndGradientsFallback;
+}
 
 const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/information-item' ];
 const TEMPLATE = [ [ 'snow-monkey-blocks/information-item' ] ];
@@ -39,13 +51,37 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		[ clientId ]
 	);
 
-	const { labelColumnSize, labelAlign, labelVerticalAlign, smIsSplitColumn } =
-		attributes;
+	const {
+		labelColumnSize,
+		labelAlign,
+		labelVerticalAlign,
+		smIsSplitColumn,
+		columnPadding,
+		labelColumnBackgroundColor,
+		contentColumnBackgroundColor,
+		borderColor,
+		borderWidth,
+	} = attributes;
 
-	const classes = classnames( 'smb-information', className );
+	const classes = classnames( 'smb-information', className, {
+		'smb-information--has-border': !! borderWidth,
+	} );
+
+	const styles = {
+		'--smb-information--column-padding': !! columnPadding
+			? `var(--smb-information--column-padding-${ columnPadding })`
+			: undefined,
+		'--smb-information--label-column-background-color':
+			labelColumnBackgroundColor || undefined,
+		'--smb-information--content-column-background-color':
+			contentColumnBackgroundColor || undefined,
+		'--smb-information--border-color': borderColor || undefined,
+		'--smb-information--border-width': borderWidth || undefined,
+	};
 
 	const blockProps = useBlockProps( {
 		className: classes,
+		style: styles,
 	} );
 
 	const innerBlocksProps = useInnerBlocksProps(
@@ -64,6 +100,126 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 
 	return (
 		<>
+			<InspectorControls group="styles">
+				<PanelColorGradientSettings
+					title={ __( 'Color', 'snow-monkey-blocks' ) }
+					settings={ [
+						{
+							colorValue: labelColumnBackgroundColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									labelColumnBackgroundColor: value,
+								} ),
+							label: __(
+								'Label column background color',
+								'snow-monkey-blocks'
+							),
+						},
+						{
+							colorValue: contentColumnBackgroundColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									contentColumnBackgroundColor: value,
+								} ),
+							label: __(
+								'Content column background color',
+								'snow-monkey-blocks'
+							),
+						},
+					] }
+					__experimentalHasMultipleOrigins={ true }
+					__experimentalIsRenderedInSidebar={ true }
+				/>
+
+				<ToolsPanel label={ __( 'Dimensions', 'snow-monkey-blocks' ) }>
+					<ToolsPanelItem
+						hasValue={ () =>
+							columnPadding !==
+							metadata.attributes.columnPadding.default
+						}
+						isShownByDefault
+						label={ __( 'Ppadding', 'snow-monkey-blocks' ) }
+						onDeselect={ () =>
+							setAttributes( {
+								columnPadding:
+									metadata.attributes.columnPadding.default,
+							} )
+						}
+					>
+						<SelectControl
+							label={ __(
+								'Padding',
+								'snow-monkey-blocks'
+							) }
+							value={ columnPadding }
+							options={ [
+								{
+									value: '',
+									label: __(
+										'Default',
+										'snow-monkey-blocks'
+									),
+								},
+								{
+									value: 's',
+									label: __( 'S', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'm',
+									label: __( 'M', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'l',
+									label: __( 'L', 'snow-monkey-blocks' ),
+								},
+							] }
+							onChange={ ( value ) =>
+								setAttributes( {
+									columnPadding: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
+
+				<ToolsPanel label={ __( 'Border', 'snow-monkey-blocks' ) }>
+					<ToolsPanelItem
+						hasValue={ () =>
+							borderColor !==
+								metadata.attributes.borderColor.default ||
+							borderWidth !==
+								metadata.attributes.borderWidth.default
+						}
+						isShownByDefault
+						label={ __( 'Border', 'snow-monkey-blocks' ) }
+						onDeselect={ () =>
+							setAttributes( {
+								borderColor:
+									metadata.attributes.borderColor.default,
+								borderWidth:
+									metadata.attributes.borderWidth.default,
+							} )
+						}
+					>
+						<BorderControl
+							withSlider
+							onChange={ ( value ) => {
+								setAttributes( {
+									borderColor: value.color,
+									borderWidth: value.width,
+								} );
+							} }
+							value={ {
+								color: borderColor,
+								width: borderWidth,
+							} }
+							enableStyle={ false }
+							{ ...useMultipleOriginColorsAndGradients() }
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
+			</InspectorControls>
+
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }

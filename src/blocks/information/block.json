@@ -22,6 +22,22 @@
 		"smIsSplitColumn": {
 			"type": "boolean",
 			"default": false
+		},
+		"columnPadding": {
+			"type": "string",
+			"default": ""
+		},
+		"labelColumnBackgroundColor": {
+			"type": "string"
+		},
+		"contentColumnBackgroundColor": {
+			"type": "string"
+		},
+		"borderColor": {
+			"type": "string"
+		},
+		"borderWidth": {
+			"type": "string"
 		}
 	},
 	"providesContext": {
