@@ -19,6 +19,9 @@ export default [
 				multiline: 'p',
 				default: '',
 			},
+			textColor: {
+				type: 'string',
+			},
 		},
 
 		supports: {

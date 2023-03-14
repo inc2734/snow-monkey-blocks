@@ -2,7 +2,6 @@ import classnames from 'classnames';
 
 import {
 	BlockControls,
-	ContrastChecker,
 	InspectorControls,
 	MediaUpload,
 	RichText,
@@ -25,7 +24,6 @@ export default function ( { attributes, setAttributes, className } ) {
 		avatarURL,
 		avatarBorderColor,
 		backgroundColor,
-		textColor,
 		balloonName,
 		modifier,
 	} = attributes;
@@ -49,7 +47,6 @@ export default function ( { attributes, setAttributes, className } ) {
 	const styles = {
 		'--smb-balloon--background-color': backgroundColor || undefined,
 		'--smb-balloon--border-color': backgroundColor || undefined,
-		'--smb-balloon--color': textColor || undefined,
 		'--smb-balloon--avatar-border-color': avatarBorderColor || undefined,
 	};
 
@@ -71,11 +68,6 @@ export default function ( { attributes, setAttributes, className } ) {
 	const onChangeBackgroundColor = ( value ) =>
 		setAttributes( {
 			backgroundColor: value,
-		} );
-
-	const onChangeTextColor = ( value ) =>
-		setAttributes( {
-			textColor: value,
 		} );
 
 	const onSelectImage = ( media ) => {
@@ -127,20 +119,10 @@ export default function ( { attributes, setAttributes, className } ) {
 								'snow-monkey-blocks'
 							),
 						},
-						{
-							colorValue: textColor,
-							onColorChange: onChangeTextColor,
-							label: __( 'Text color', 'snow-monkey-blocks' ),
-						},
 					] }
 					__experimentalHasMultipleOrigins={ true }
 					__experimentalIsRenderedInSidebar={ true }
-				>
-					<ContrastChecker
-						backgroundColor={ backgroundColor }
-						textColor={ textColor }
-					/>
-				</PanelColorGradientSettings>
+				></PanelColorGradientSettings>
 			</InspectorControls>
 
 			<BlockControls gruop="block">

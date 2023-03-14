@@ -13,7 +13,6 @@ export default function ( { attributes, className } ) {
 		avatarURL,
 		avatarBorderColor,
 		backgroundColor,
-		textColor,
 		balloonName,
 		modifier,
 	} = attributes;
@@ -21,7 +20,6 @@ export default function ( { attributes, className } ) {
 	const styles = {
 		'--smb-balloon--background-color': backgroundColor || undefined,
 		'--smb-balloon--border-color': backgroundColor || undefined,
-		'--smb-balloon--color': textColor || undefined,
 		'--smb-balloon--avatar-border-color': avatarBorderColor || undefined,
 	};
 
