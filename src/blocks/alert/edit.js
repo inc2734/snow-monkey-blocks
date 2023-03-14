@@ -5,6 +5,7 @@ import {
 	InspectorControls,
 	RichText,
 	useBlockProps,
+	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
 import {
@@ -21,13 +22,15 @@ import FontAwesome from '@smb/component/font-awesome';
 
 import metadata from './block.json';
 
+const TEMPLATE = [ [ 'core/paragraph' ] ];
+
 export default function ( {
 	attributes,
 	setAttributes,
 	isSelected,
 	className,
 } ) {
-	const { title, content, modifier, icon } = attributes;
+	const { title, modifier, icon } = attributes;
 
 	const iconList = [
 		{
@@ -68,6 +71,15 @@ export default function ( {
 	const blockProps = useBlockProps( {
 		className: classes,
 	} );
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{},
+		{
+			// allowedBlocks: ALLOWED_BLOCKS,
+			template: TEMPLATE,
+			templateLock: false,
+		}
+	);
 
 	return (
 		<>
@@ -196,16 +208,7 @@ export default function ( {
 					</div>
 				) }
 
-				<RichText
-					className="smb-alert__body"
-					multiline="p"
-					value={ content }
-					onChange={ ( value ) =>
-						setAttributes( {
-							content: value,
-						} )
-					}
-				/>
+				<div className="smb-alert__body" { ...innerBlocksProps } />
 			</div>
 		</>
 	);

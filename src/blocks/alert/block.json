@@ -33,15 +33,28 @@
 		"html": false,
 		"snowmonkeyeditor": {
 			"blockPresets": {
-				"ignore": [ "title", "content" ]
+				"ignore": [ "title" ]
 			}
 		}
 	},
 	"example": {
 		"attributes": {
-			"title": "Lorem ipsum dolor sit amet",
-			"content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>"
-		}
+			"title": "Lorem ipsum dolor sit amet"
+		},
+		"innerBlocks": [
+			{
+				"name": "core/paragraph",
+				"attributes": {
+					"content": "Lorem ipsum dolor sit amet"
+				}
+			},
+			{
+				"name": "core/paragraph",
+				"attributes": {
+					"content": "consectetur adipiscing elit"
+				}
+			}
+		]
 	},
 	"style": "snow-monkey-blocks/alert",
 	"editorScript": "file:./index.js"

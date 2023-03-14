@@ -1,9 +1,13 @@
 import classnames from 'classnames';
 
-import { RichText, useBlockProps } from '@wordpress/block-editor';
+import {
+	RichText,
+	useBlockProps,
+	useInnerBlocksProps,
+} from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
-	const { title, content, modifier, icon } = attributes;
+	const { title, modifier, icon } = attributes;
 
 	const classes = classnames( 'smb-alert', {
 		[ className ]: !! className,
@@ -21,9 +25,10 @@ export default function ( { attributes, className } ) {
 				</div>
 			) }
 
-			<div className="smb-alert__body">
-				<RichText.Content value={ content } />
-			</div>
+			<div
+				className="smb-alert__body"
+				{ ...useInnerBlocksProps.save() }
+			/>
 		</div>
 	);
 }
