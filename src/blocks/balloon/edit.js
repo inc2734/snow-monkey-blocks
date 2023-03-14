@@ -96,7 +96,9 @@ export default function ( { attributes, setAttributes, className } ) {
 		} );
 
 	const innerBlocksProps = useInnerBlocksProps(
-		{},
+		{
+			className: 'smb-balloon__body',
+		},
 		{
 			// allowedBlocks: ALLOWED_BLOCKS,
 			template: TEMPLATE,
@@ -188,7 +190,7 @@ export default function ( { attributes, setAttributes, className } ) {
 					/>
 				</div>
 
-				<div className="smb-balloon__body" { ...innerBlocksProps } />
+				<div { ...innerBlocksProps } />
 			</div>
 		</>
 	);

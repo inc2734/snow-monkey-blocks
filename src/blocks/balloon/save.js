@@ -45,8 +45,9 @@ export default function ( { attributes, className } ) {
 				</div>
 			</div>
 			<div
-				className="smb-balloon__body"
-				{ ...useInnerBlocksProps.save() }
+				{ ...useInnerBlocksProps.save( {
+					className: 'smb-balloon__body',
+				} ) }
 			/>
 		</div>
 	);
