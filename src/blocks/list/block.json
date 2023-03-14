@@ -7,13 +7,6 @@
 	"description": "Icons are displayed only on the actual screen.",
 	"category": "smb",
 	"attributes": {
-		"content": {
-			"type": "string",
-			"source": "html",
-			"selector": "ul",
-			"multiline": "li",
-			"default": ""
-		},
 		"icon": {
 			"type": "string",
 			"default": "angle-right"
@@ -23,29 +16,24 @@
 		}
 	},
 	"supports": {
-		"html": false,
-		"snowmonkeyeditor": {
-			"blockPresets": {
-				"ignore": [ "content" ]
-			}
-		}
+		"html": false
 	},
 	"example": {
 		"innerBlocks": [
 			{
-				"name": "snow-monkey-blocks/list-item",
+				"name": "core/list-item",
 				"attributes": {
 					"content": "Lorem ipsum dolor sit amet"
 				}
 			},
 			{
-				"name": "snow-monkey-blocks/list-item",
+				"name": "core/list-item",
 				"attributes": {
 					"content": "consectetur adipiscing elit"
 				}
 			},
 			{
-				"name": "snow-monkey-blocks/list-item",
+				"name": "core/list-item",
 				"attributes": {
 					"content": "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
 				}

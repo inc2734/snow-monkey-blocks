@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 
-import { createBlock, rawHandler } from '@wordpress/blocks';
+import { rawHandler } from '@wordpress/blocks';
 import { RichText, useBlockProps } from '@wordpress/block-editor';
 
 import metadata from './block.json';
@@ -12,6 +12,13 @@ export default [
 	{
 		attributes: {
 			...blockAttributes,
+			content: {
+				type: 'string',
+				source: 'html',
+				selector: 'ul',
+				multiline: 'li',
+				default: '',
+			},
 		},
 
 		supports: {
@@ -25,13 +32,7 @@ export default [
 			list.innerHTML = content;
 			const [ listBlock ] = rawHandler( { HTML: list.outerHTML } );
 
-			const items = listBlock.innerBlocks.map( ( block ) => {
-				return createBlock( 'snow-monkey-blocks/list-item', {
-					content: block.attributes.content,
-				} );
-			} );
-
-			return [ { ...attributes }, [ ...items ] ];
+			return [ { ...attributes }, [ ...listBlock.innerBlocks ] ];
 		},
 
 		save( { attributes, className } ) {
@@ -55,6 +56,13 @@ export default [
 	{
 		attributes: {
 			...blockAttributes,
+			content: {
+				type: 'string',
+				source: 'html',
+				selector: 'ul',
+				multiline: 'li',
+				default: '',
+			},
 		},
 
 		save( { attributes } ) {

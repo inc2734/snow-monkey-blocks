@@ -19,9 +19,11 @@ import { __ } from '@wordpress/i18n';
 
 import metadata from './block.json';
 
-const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/list-item' ];
+// const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/list-item' ];
+const ALLOWED_BLOCKS = [ 'core/list-item' ];
 
-const TEMPLATE = [ [ 'snow-monkey-blocks/list-item' ] ];
+// const TEMPLATE = [ [ 'snow-monkey-blocks/list-item' ] ];
+const TEMPLATE = [ [ 'core/list-item' ] ];
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
 	const { icon, iconColor } = attributes;
