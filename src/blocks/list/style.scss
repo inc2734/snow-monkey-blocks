@@ -6,7 +6,8 @@
 	ul {
 		list-style: none !important;
 
-		> * + * {
+		li + li,
+		* > li:first-child {
 			margin-top: var(--smb-list--gap);
 		}
 

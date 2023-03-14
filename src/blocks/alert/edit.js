@@ -73,7 +73,9 @@ export default function ( {
 	} );
 
 	const innerBlocksProps = useInnerBlocksProps(
-		{},
+		{
+			className: 'smb-alert__body',
+		},
 		{
 			// allowedBlocks: ALLOWED_BLOCKS,
 			template: TEMPLATE,
@@ -208,7 +210,7 @@ export default function ( {
 					</div>
 				) }
 
-				<div className="smb-alert__body" { ...innerBlocksProps } />
+				<div { ...innerBlocksProps } />
 			</div>
 		</>
 	);

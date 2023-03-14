@@ -26,8 +26,9 @@ export default function ( { attributes, className } ) {
 			) }
 
 			<div
-				className="smb-alert__body"
-				{ ...useInnerBlocksProps.save() }
+				{ ...useInnerBlocksProps.save( {
+					className: 'smb-alert__body',
+				} ) }
 			/>
 		</div>
 	);
