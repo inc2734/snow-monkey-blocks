@@ -14,7 +14,7 @@ import {
 	ToggleControl,
 	__experimentalToolsPanel as ToolsPanel,
 	__experimentalToolsPanelItem as ToolsPanelItem,
-	__experimentalBorderControl as BorderControl,
+	__experimentalBorderBoxControl as BorderBoxControl,
 } from '@wordpress/components';
 
 import { useSelect } from '@wordpress/data';
@@ -198,20 +198,25 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							} )
 						}
 					>
-						<BorderControl
-							withSlider
+						<BorderBoxControl
+							{ ...useMultipleOriginColorsAndGradients() }
+							className="smb-border-box-control"
+							enableAlpha={ false }
+							enableStyle={ false }
 							onChange={ ( value ) => {
 								setAttributes( {
 									borderColor: value.color,
 									borderWidth: value.width,
 								} );
 							} }
+							popoverOffset={ 40 }
+							popoverPlacement="left-start"
 							value={ {
 								color: borderColor,
 								width: borderWidth,
 							} }
-							enableStyle={ false }
-							{ ...useMultipleOriginColorsAndGradients() }
+							__experimentalHasMultipleOrigins={ true }
+							__experimentalIsRenderedInSidebar={ true }
 						/>
 					</ToolsPanelItem>
 				</ToolsPanel>

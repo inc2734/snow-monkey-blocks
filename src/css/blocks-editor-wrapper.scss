@@ -208,3 +208,13 @@
 		margin-bottom: 16px;
 	}
 }
+
+.smb-border-box-control {
+	.components-border-box-control-linked-button {
+		display: none !important;
+	}
+
+	.components-border-control {
+		margin-right: 0 !important;
+	}
+}
