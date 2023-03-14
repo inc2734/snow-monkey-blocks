@@ -138,7 +138,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							metadata.attributes.columnPadding.default
 						}
 						isShownByDefault
-						label={ __( 'Ppadding', 'snow-monkey-blocks' ) }
+						label={ __( 'Padding', 'snow-monkey-blocks' ) }
 						onDeselect={ () =>
 							setAttributes( {
 								columnPadding:
@@ -147,10 +147,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<SelectControl
-							label={ __(
-								'Padding',
-								'snow-monkey-blocks'
-							) }
+							label={ __( 'Padding', 'snow-monkey-blocks' ) }
 							value={ columnPadding }
 							options={ [
 								{
