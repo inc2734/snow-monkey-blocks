@@ -84,15 +84,16 @@ export default function ( {
 			<div { ...blockProps }>
 				<div className="c-row">
 					<div className={ labelColumnClasses }>
-						<RichText
-							className="smb-information__item__label"
-							placeholder={ __(
-								'Write label…',
-								'snow-monkey-blocks'
-							) }
-							value={ label }
-							onChange={ onChangeLabel }
-						/>
+						<div className="smb-information__item__label">
+							<RichText
+								placeholder={ __(
+									'Write label…',
+									'snow-monkey-blocks'
+								) }
+								value={ label }
+								onChange={ onChangeLabel }
+							/>
+						</div>
 					</div>
 					<div className={ bodyColumnClasses }>
 						<div { ...innerBlocksProps } />
