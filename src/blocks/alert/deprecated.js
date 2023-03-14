@@ -12,6 +12,13 @@ export default [
 	{
 		attributes: {
 			...blockAttributes,
+			content: {
+				type: 'string',
+				source: 'html',
+				selector: '.smb-alert__body',
+				multiline: 'p',
+				default: '',
+			},
 		},
 
 		supports: {
@@ -59,6 +66,13 @@ export default [
 	{
 		attributes: {
 			...blockAttributes,
+			content: {
+				type: 'string',
+				source: 'html',
+				selector: '.smb-alert__body',
+				multiline: 'p',
+				default: '',
+			},
 		},
 
 		save( { attributes, className } ) {
@@ -90,6 +104,13 @@ export default [
 	{
 		attributes: {
 			...blockAttributes,
+			content: {
+				type: 'string',
+				source: 'html',
+				selector: '.smb-alert__body',
+				multiline: 'p',
+				default: '',
+			},
 		},
 
 		save( { attributes } ) {
