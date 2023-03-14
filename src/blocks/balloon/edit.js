@@ -8,12 +8,15 @@ import {
 	RichText,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	useBlockProps,
+	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
 import { Button, ToolbarButton, ToolbarGroup } from '@wordpress/components';
 
 import { pullLeft, pullRight } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
+
+const TEMPLATE = [ [ 'core/paragraph' ] ];
 
 export default function ( { attributes, setAttributes, className } ) {
 	const {
@@ -24,7 +27,6 @@ export default function ( { attributes, setAttributes, className } ) {
 		backgroundColor,
 		textColor,
 		balloonName,
-		balloonBody,
 		modifier,
 	} = attributes;
 
@@ -93,10 +95,14 @@ export default function ( { attributes, setAttributes, className } ) {
 			balloonName: value,
 		} );
 
-	const onChangeBalloonBody = ( value ) =>
-		setAttributes( {
-			balloonBody: value,
-		} );
+	const innerBlocksProps = useInnerBlocksProps(
+		{},
+		{
+			// allowedBlocks: ALLOWED_BLOCKS,
+			template: TEMPLATE,
+			templateLock: false,
+		}
+	);
 
 	return (
 		<>
@@ -114,17 +120,17 @@ export default function ( { attributes, setAttributes, className } ) {
 							),
 						},
 						{
-							colorValue: textColor,
-							onColorChange: onChangeTextColor,
-							label: __( 'Text color', 'snow-monkey-blocks' ),
-						},
-						{
 							colorValue: backgroundColor,
 							onColorChange: onChangeBackgroundColor,
 							label: __(
 								'Background color',
 								'snow-monkey-blocks'
 							),
+						},
+						{
+							colorValue: textColor,
+							onColorChange: onChangeTextColor,
+							label: __( 'Text color', 'snow-monkey-blocks' ),
 						},
 					] }
 					__experimentalHasMultipleOrigins={ true }
@@ -182,12 +188,7 @@ export default function ( { attributes, setAttributes, className } ) {
 					/>
 				</div>
 
-				<RichText
-					className="smb-balloon__body"
-					multiline="p"
-					value={ balloonBody }
-					onChange={ onChangeBalloonBody }
-				/>
+				<div className="smb-balloon__body" { ...innerBlocksProps } />
 			</div>
 		</>
 	);

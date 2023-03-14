@@ -1,6 +1,10 @@
 import classnames from 'classnames';
 
-import { RichText, useBlockProps } from '@wordpress/block-editor';
+import {
+	RichText,
+	useBlockProps,
+	useInnerBlocksProps,
+} from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
 	const {
@@ -11,7 +15,6 @@ export default function ( { attributes, className } ) {
 		backgroundColor,
 		textColor,
 		balloonName,
-		balloonBody,
 		modifier,
 	} = attributes;
 
@@ -41,9 +44,10 @@ export default function ( { attributes, className } ) {
 					<RichText.Content value={ balloonName } />
 				</div>
 			</div>
-			<div className="smb-balloon__body">
-				<RichText.Content value={ balloonBody } />
-			</div>
+			<div
+				className="smb-balloon__body"
+				{ ...useInnerBlocksProps.save() }
+			/>
 		</div>
 	);
 }

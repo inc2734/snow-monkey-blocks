@@ -38,13 +38,6 @@
 			"type": "string",
 			"default": ""
 		},
-		"balloonBody": {
-			"type": "string",
-			"source": "html",
-			"selector": ".smb-balloon__body",
-			"multiline": "p",
-			"default": ""
-		},
 		"modifier": {
 			"type": "string",
 			"default": ""
@@ -60,9 +53,16 @@
 	},
 	"example": {
 		"attributes": {
-			"balloonName": "Lorem",
-			"balloonBody": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>"
-		}
+			"balloonName": "Lorem"
+		},
+		"innerBlocks": [
+			{
+				"name": "core/paragraph",
+				"attributes": {
+					"content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+				}
+			}
+		]
 	},
 	"style": "snow-monkey-blocks/balloon",
 	"editorStyle": "snow-monkey-blocks/balloon/editor",
