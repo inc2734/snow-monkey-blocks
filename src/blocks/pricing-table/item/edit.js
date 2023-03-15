@@ -6,6 +6,7 @@ import {
 	InspectorControls,
 	RichText,
 	useBlockProps,
+	useInnerBlocksProps,
 	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 	__experimentalLinkControl as LinkControl,
 	__experimentalImageSizeControl as ImageSizeControl,
@@ -40,6 +41,13 @@ if ( undefined === useMultipleOriginColorsAndGradients ) {
 
 const ALLOWED_TYPES = [ 'image' ];
 const DEFAULT_MEDIA_SIZE_SLUG = 'full';
+const ALLOWED_BLOCKS = [ 'core/list-item' ];
+const TEMPLATE = [
+	[
+		'core/list-item',
+		{ placeholder: __( 'Write a description…', 'snow-monkey-blocks' ) },
+	],
+];
 
 import metadata from './block.json';
 
@@ -54,7 +62,6 @@ export default function ( {
 		title,
 		price,
 		lede,
-		list,
 		imageID,
 		imageURL,
 		imageAlt,
@@ -132,6 +139,15 @@ export default function ( {
 		} );
 		setIsEditingURL( false );
 	};
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{},
+		{
+			allowedBlocks: ALLOWED_BLOCKS,
+			template: TEMPLATE,
+			templateLock: false,
+		}
+	);
 
 	return (
 		<>
@@ -460,16 +476,7 @@ export default function ( {
 						/>
 					) }
 
-					<RichText
-						tagName="ul"
-						multiline="li"
-						value={ list }
-						onChange={ ( value ) =>
-							setAttributes( {
-								list: value,
-							} )
-						}
-					/>
+					<ul { ...innerBlocksProps } />
 
 					{ ( ! RichText.isEmpty( btnLabel ) || isSelected ) && (
 						<div className="smb-pricing-table__item__action">

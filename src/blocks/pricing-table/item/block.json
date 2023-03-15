@@ -26,13 +26,6 @@
 			"selector": ".smb-pricing-table__item__lede",
 			"default": ""
 		},
-		"list": {
-			"type": "string",
-			"source": "html",
-			"selector": "ul",
-			"multiline": "li",
-			"default": ""
-		},
 		"imageID": {
 			"type": "number",
 			"default": 0

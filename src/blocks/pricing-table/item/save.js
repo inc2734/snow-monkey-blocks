@@ -1,13 +1,16 @@
 import classnames from 'classnames';
 
-import { RichText, useBlockProps } from '@wordpress/block-editor';
+import {
+	RichText,
+	useBlockProps,
+	useInnerBlocksProps,
+} from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
 	const {
 		title,
 		price,
 		lede,
-		list,
 		imageID,
 		imageURL,
 		imageAlt,
@@ -71,9 +74,7 @@ export default function ( { attributes, className } ) {
 					</div>
 				) }
 
-				<ul>
-					<RichText.Content value={ list } />
-				</ul>
+				<ul { ...useInnerBlocksProps.save() } />
 
 				{ ! RichText.isEmpty( btnLabel ) && !! btnURL && (
 					<div className="smb-pricing-table__item__action">

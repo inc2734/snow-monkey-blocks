@@ -1445,6 +1445,10 @@ msgstr "「pickup」タグが付与された記事をスライダーとして表
 msgid "Write price…"
 msgstr "価格を書く…"
 
+#: dist/blocks/pricing-table/item/index.js:1
+msgid "Write a description…"
+msgstr "説明を書く…"
+
 #: dist/blocks/pricing-table/index.js:1
 msgid "Column size"
 msgstr "カラムサイズ"
