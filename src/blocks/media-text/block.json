@@ -7,6 +7,15 @@
 	"description": "Set media and words side-by-side for a richer layout.",
 	"category": "smb",
 	"attributes": {
+		"backgroundColor": {
+			"type": "string"
+		},
+		"backgroundGradientColor": {
+			"type": "string"
+		},
+		"textColor": {
+			"type": "string"
+		},
 		"titleTagName": {
 			"type": "string",
 			"default": "h2"
@@ -105,6 +114,13 @@
 			"selector": ".smb-media-text__figure > a",
 			"attribute": "target",
 			"default": "_self"
+		},
+		"imageFill": {
+			"type": "boolean",
+			"default": false
+		},
+		"focalPoint": {
+			"type": "object"
 		}
 	},
 	"supports": {

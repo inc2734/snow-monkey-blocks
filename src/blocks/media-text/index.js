@@ -24,4 +24,15 @@ registerBlockType( metadata.name, {
 	save,
 	deprecated,
 	example,
+	styles: [
+		{
+			name: 'default',
+			label: __( 'Default', 'snow-monkey-blocks' ),
+			isDefault: true,
+		},
+		{
+			name: 'border',
+			label: __( 'Border', 'snow-monkey-blocks' ),
+		},
+	],
 } );

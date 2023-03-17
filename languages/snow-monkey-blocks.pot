@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-03-17T13:05:20+00:00\n"
+"POT-Creation-Date: 2023-03-17T15:49:03+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: snow-monkey-blocks\n"
@@ -371,6 +371,7 @@ msgstr ""
 #: dist/blocks/box/index.js:1
 #: dist/blocks/information/index.js:1
 #: dist/blocks/items/index.js:1
+#: dist/blocks/media-text/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
 msgid "Border"
 msgstr ""
@@ -380,6 +381,7 @@ msgstr ""
 #: dist/blocks/btn/index.js:1
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/media-text/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:17
 msgid "Background color"
@@ -392,6 +394,7 @@ msgstr ""
 #: dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/media-text/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-side-heading/index.js:1
@@ -448,6 +451,7 @@ msgstr ""
 #: dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/items/item/item/index.js:1
 #: dist/blocks/list/index.js:1
+#: dist/blocks/media-text/index.js:1
 #: dist/blocks/rating-box/item/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:17
@@ -1519,6 +1523,15 @@ msgid "50%"
 msgstr ""
 
 #: dist/blocks/media-text/index.js:1
+msgid "Crop image to fill entire column"
+msgstr ""
+
+#: dist/blocks/media-text/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+msgid "Focal point picker"
+msgstr ""
+
+#: dist/blocks/media-text/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 msgid "Sort by mobile"
 msgstr ""
@@ -2172,10 +2185,6 @@ msgstr ""
 
 #: dist/blocks/section-with-bgimage/index.js:1
 msgid "Repeat images"
-msgstr ""
-
-#: dist/blocks/section-with-bgimage/index.js:1
-msgid "Focal point picker"
 msgstr ""
 
 #: dist/blocks/section-with-bgvideo/index.js:1

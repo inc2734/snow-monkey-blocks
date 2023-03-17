@@ -4,9 +4,11 @@ import { times } from 'lodash';
 import {
 	BaseControl,
 	Button,
+	FocalPointPicker,
 	SelectControl,
 	ToolbarGroup,
 	ToolbarButton,
+	ToggleControl,
 	__experimentalToolsPanel as ToolsPanel,
 	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
@@ -14,6 +16,7 @@ import {
 import {
 	BlockControls,
 	BlockVerticalAlignmentToolbar,
+	ContrastChecker,
 	InnerBlocks,
 	InspectorControls,
 	RichText,
@@ -21,6 +24,7 @@ import {
 	__experimentalImageURLInputUI as ImageURLInputUI,
 	useInnerBlocksProps,
 	__experimentalImageSizeControl as ImageSizeControl,
+	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 } from '@wordpress/block-editor';
 
 import { useSelect } from '@wordpress/data';
@@ -46,6 +50,9 @@ export default function ( {
 	clientId,
 } ) {
 	const {
+		backgroundColor,
+		backgroundGradientColor,
+		textColor,
 		titleTagName,
 		title,
 		mediaId,
@@ -65,6 +72,8 @@ export default function ( {
 		linkClass,
 		linkDestination,
 		mediaType,
+		imageFill,
+		focalPoint,
 	} = attributes;
 
 	const hasInnerBlocks = useSelect(
@@ -99,19 +108,25 @@ export default function ( {
 		)
 		.map( ( { name, slug } ) => ( { value: slug, label: name } ) );
 
+	const isFill = 'image' === mediaType && imageFill;
+
 	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
 	const { textColumnWidth, mediaColumnWidth } =
 		getColumnSize( mediaColumnSize );
 
 	const classes = classnames( 'smb-media-text', className, {
+		'smb-media-text--has-background':
+			!! backgroundColor || !! backgroundGradientColor,
 		[ `smb-media-text--mobile-${ mobileOrder }` ]: !! mobileOrder,
 	} );
 
-	const rowClasses = classnames( 'c-row', 'c-row--margin', {
+	const rowClasses = classnames( 'c-row', {
+		'c-row--margin': ! backgroundColor && ! backgroundGradientColor,
 		'c-row--reverse': 'left' === mediaPosition,
-		'c-row--top': 'top' === verticalAlignment,
-		'c-row--middle': 'center' === verticalAlignment,
-		'c-row--bottom': 'bottom' === verticalAlignment,
+		'c-row--top': ! isFill && 'top' === verticalAlignment,
+		'c-row--middle': ! isFill && 'center' === verticalAlignment,
+		'c-row--bottom': ! isFill && 'bottom' === verticalAlignment,
+		'c-row--fill': isFill,
 	} );
 
 	const textColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', [
@@ -124,6 +139,19 @@ export default function ( {
 
 	const blockProps = useBlockProps( {
 		className: classes,
+		style: {
+			'--smb-media-text--background-color': backgroundColor,
+			'--smb-media-text--background-image': backgroundGradientColor,
+			'--smb-media-text--color': textColor,
+			'--smb-media-text--image-position-x':
+				isFill && !! focalPoint?.x
+					? `${ focalPoint.x * 100 }%`
+					: undefined,
+			'--smb-media-text--image-position-y':
+				isFill && !! focalPoint?.y
+					? `${ focalPoint.y * 100 }%`
+					: undefined,
+		},
 	} );
 
 	const innerBlocksProps = useInnerBlocksProps(
@@ -139,6 +167,46 @@ export default function ( {
 
 	return (
 		<>
+			<InspectorControls group="styles">
+				<PanelColorGradientSettings
+					title={ __( 'Color', 'snow-monkey-blocks' ) }
+					initialOpen={ false }
+					settings={ [
+						{
+							colorValue: backgroundColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									backgroundColor: value,
+								} ),
+							gradientValue: backgroundGradientColor,
+							onGradientChange: ( value ) =>
+								setAttributes( {
+									backgroundGradientColor: value,
+								} ),
+							label: __(
+								'Background color',
+								'snow-monkey-blocks'
+							),
+						},
+						{
+							colorValue: textColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									textColor: value,
+								} ),
+							label: __( 'Text color', 'snow-monkey-blocks' ),
+						},
+					] }
+					__experimentalHasMultipleOrigins={ true }
+					__experimentalIsRenderedInSidebar={ true }
+				>
+					<ContrastChecker
+						backgroundColor={ backgroundColor }
+						textColor={ textColor }
+					/>
+				</PanelColorGradientSettings>
+			</InspectorControls>
+
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
@@ -149,7 +217,10 @@ export default function ( {
 							metadata.attributes.mediaColumnSize.default
 						}
 						isShownByDefault
-						label={ __( 'Title tag', 'snow-monkey-blocks' ) }
+						label={ __(
+							'Image column size',
+							'snow-monkey-blocks'
+						) }
 						onDeselect={ () =>
 							setAttributes( {
 								mediaColumnSize:
@@ -230,6 +301,77 @@ export default function ( {
 										mediaSizeSlug: value,
 									} );
 								} }
+							/>
+						</ToolsPanelItem>
+					) }
+
+					{ 'image' === mediaType && (
+						<ToolsPanelItem
+							hasValue={ () =>
+								imageFill !==
+								metadata.attributes.imageFill.default
+							}
+							isShownByDefault
+							label={ __(
+								'Crop image to fill entire column',
+								'snow-monkey-blocks'
+							) }
+							onDeselect={ () =>
+								setAttributes( {
+									imageFill:
+										metadata.attributes.imageFill.default,
+								} )
+							}
+						>
+							<ToggleControl
+								label={ __(
+									'Crop image to fill entire column',
+									'snow-monkey-blocks'
+								) }
+								checked={ imageFill }
+								onChange={ ( value ) =>
+									setAttributes( {
+										imageFill: value,
+									} )
+								}
+							/>
+						</ToolsPanelItem>
+					) }
+
+					{ isFill && (
+						<ToolsPanelItem
+							hasValue={ () =>
+								focalPoint !==
+								metadata.attributes.focalPoint.default
+							}
+							isShownByDefault
+							label={ __(
+								'Focal point picker',
+								'snow-monkey-blocks'
+							) }
+							onDeselect={ () =>
+								setAttributes( {
+									focalPoint:
+										metadata.attributes.focalPoint.default,
+								} )
+							}
+						>
+							<FocalPointPicker
+								label={ __(
+									'Focal point picker',
+									'snow-monkey-blocks'
+								) }
+								url={ mediaUrl }
+								value={ focalPoint }
+								onChange={ ( value ) => {
+									setAttributes( {
+										focalPoint: value,
+									} );
+								} }
+								// onDragStart={ ( value ) => setAttributes }
+								onDrag={ ( value ) =>
+									setAttributes( { focalPoint: value } )
+								}
 							/>
 						</ToolsPanelItem>
 					) }
@@ -334,14 +476,16 @@ export default function ( {
 			</InspectorControls>
 
 			<BlockControls gruop="block">
-				<BlockVerticalAlignmentToolbar
-					onChange={ ( value ) =>
-						setAttributes( {
-							verticalAlignment: value,
-						} )
-					}
-					value={ verticalAlignment }
-				/>
+				{ ! isFill && (
+					<BlockVerticalAlignmentToolbar
+						onChange={ ( value ) =>
+							setAttributes( {
+								verticalAlignment: value,
+							} )
+						}
+						value={ verticalAlignment }
+					/>
+				) }
 
 				<ToolbarGroup>
 					<ToolbarButton
@@ -391,29 +535,35 @@ export default function ( {
 			<div { ...blockProps }>
 				<div className={ rowClasses }>
 					<div className={ textColumnClasses }>
-						{ ( ! RichText.isEmpty( title ) || isSelected ) &&
-							'none' !== titleTagName && (
-								<RichText
-									className="smb-media-text__title"
-									tagName={ titleTagName }
-									value={ title }
-									onChange={ ( value ) =>
-										setAttributes( {
-											title: value,
-										} )
-									}
-									placeholder={ __(
-										'Write title…',
-										'snow-monkey-blocks'
-									) }
-								/>
-							) }
+						<div className="smb-media-text__contents-wrapper">
+							{ ( ! RichText.isEmpty( title ) || isSelected ) &&
+								'none' !== titleTagName && (
+									<RichText
+										className="smb-media-text__title"
+										tagName={ titleTagName }
+										value={ title }
+										onChange={ ( value ) =>
+											setAttributes( {
+												title: value,
+											} )
+										}
+										placeholder={ __(
+											'Write title…',
+											'snow-monkey-blocks'
+										) }
+									/>
+								) }
 
-						<div { ...innerBlocksProps } />
+							<div { ...innerBlocksProps } />
+						</div>
 					</div>
 
 					<div className={ imageColumnClasses }>
-						<div className="smb-media-text__figure">
+						<div
+							className={ classnames( 'smb-media-text__figure', {
+								'smb-media-text__figure--fill': isFill,
+							} ) }
+						>
 							<Figure
 								src={ mediaUrl }
 								id={ mediaId }

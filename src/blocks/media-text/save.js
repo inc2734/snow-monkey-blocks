@@ -11,6 +11,9 @@ import { getColumnSize } from '@smb/helper';
 
 export default function ( { attributes, className } ) {
 	const {
+		backgroundColor,
+		backgroundGradientColor,
+		textColor,
 		titleTagName,
 		title,
 		mediaId,
@@ -18,17 +21,21 @@ export default function ( { attributes, className } ) {
 		mediaAlt,
 		mediaWidth,
 		mediaHeight,
-		mediaType,
 		caption,
 		mediaPosition,
 		verticalAlignment,
 		mediaColumnSize,
 		mobileOrder,
 		href,
+		linkTarget,
 		rel,
 		linkClass,
-		linkTarget,
+		mediaType,
+		imageFill,
+		focalPoint,
 	} = attributes;
+
+	const isFill = 'image' === mediaType && imageFill;
 
 	const newRel = isEmpty( rel ) ? undefined : rel;
 
@@ -36,14 +43,18 @@ export default function ( { attributes, className } ) {
 		getColumnSize( mediaColumnSize );
 
 	const classes = classnames( 'smb-media-text', className, {
+		'smb-media-text--has-background':
+			!! backgroundColor || !! backgroundGradientColor,
 		[ `smb-media-text--mobile-${ mobileOrder }` ]: !! mobileOrder,
 	} );
 
-	const rowClasses = classnames( 'c-row', 'c-row--margin', {
+	const rowClasses = classnames( 'c-row', {
+		'c-row--margin': ! backgroundColor && ! backgroundGradientColor,
 		'c-row--reverse': 'left' === mediaPosition,
-		'c-row--top': 'top' === verticalAlignment,
-		'c-row--middle': 'center' === verticalAlignment,
-		'c-row--bottom': 'bottom' === verticalAlignment,
+		'c-row--top': ! isFill && 'top' === verticalAlignment,
+		'c-row--middle': ! isFill && 'center' === verticalAlignment,
+		'c-row--bottom': ! isFill && 'bottom' === verticalAlignment,
+		'c-row--fill': isFill,
 	} );
 
 	const textColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', [
@@ -96,27 +107,53 @@ export default function ( { attributes, className } ) {
 	}
 
 	return (
-		<div { ...useBlockProps.save( { className: classes } ) }>
+		<div
+			{ ...useBlockProps.save( {
+				className: classes,
+				style: {
+					'--smb-media-text--background-color': backgroundColor,
+					'--smb-media-text--background-image':
+						backgroundGradientColor,
+					'--smb-media-text--color': textColor,
+					'--smb-media-text--image-position-x':
+						isFill && !! focalPoint?.x
+							? `${ focalPoint.x * 100 }%`
+							: undefined,
+					'--smb-media-text--image-position-y':
+						isFill && !! focalPoint?.y
+							? `${ focalPoint.y * 100 }%`
+							: undefined,
+				},
+			} ) }
+		>
 			<div className={ rowClasses }>
 				<div className={ textColumnClasses }>
-					{ ! RichText.isEmpty( title ) &&
-						'none' !== titleTagName && (
-							<RichText.Content
-								className="smb-media-text__title"
-								tagName={ titleTagName }
-								value={ title }
-							/>
-						) }
+					<div className="smb-media-text__contents-wrapper">
+						{ ! RichText.isEmpty( title ) &&
+							'none' !== titleTagName && (
+								<RichText.Content
+									className="smb-media-text__title"
+									tagName={ titleTagName }
+									value={ title }
+								/>
+							) }
 
-					<div
-						{ ...useInnerBlocksProps.save( {
-							className: 'smb-media-text__body',
-						} ) }
-					/>
+						<div
+							{ ...useInnerBlocksProps.save( {
+								className: 'smb-media-text__body',
+							} ) }
+						/>
+					</div>
 				</div>
 
 				<div className={ imageColumnClasses }>
-					<div className="smb-media-text__figure">{ figure }</div>
+					<div
+						className={ classnames( 'smb-media-text__figure', {
+							'smb-media-text__figure--fill': isFill,
+						} ) }
+					>
+						{ figure }
+					</div>
 
 					{ ! RichText.isEmpty( caption ) && (
 						<RichText.Content

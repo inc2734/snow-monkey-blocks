@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-"
 "blocks\n"
-"POT-Creation-Date: 2023-03-17T13:05:20+00:00\n"
-"PO-Revision-Date: 2023-03-17 22:06+0900\n"
+"POT-Creation-Date: 2023-03-17T15:49:03+00:00\n"
+"PO-Revision-Date: 2023-03-18 00:49+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -344,13 +344,14 @@ msgstr "吹き出し設定"
 
 #: dist/blocks/balloon/index.js:1 dist/blocks/box/index.js:1
 #: dist/blocks/information/index.js:1 dist/blocks/items/index.js:1
+#: dist/blocks/media-text/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
 msgid "Border"
 msgstr "枠線"
 
 #: dist/blocks/balloon/index.js:1 dist/blocks/btn-box/index.js:1
 #: dist/blocks/btn/index.js:1 dist/blocks/items/item/block-link/index.js:1
-#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/items/item/standard/index.js:1 dist/blocks/media-text/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:17
 msgid "Background color"
@@ -360,7 +361,7 @@ msgstr "背景色"
 #: dist/blocks/btn-box/index.js:1 dist/blocks/btn/index.js:1
 #: dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/items/item/block-link/index.js:1
-#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/items/item/standard/index.js:1 dist/blocks/media-text/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-side-heading/index.js:1
@@ -408,7 +409,7 @@ msgstr "名前"
 #: dist/blocks/evaluation-star/index.js:1 dist/blocks/faq/item/index.js:1
 #: dist/blocks/information/index.js:1 dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/items/item/item/index.js:1 dist/blocks/list/index.js:1
-#: dist/blocks/rating-box/item/index.js:1
+#: dist/blocks/media-text/index.js:1 dist/blocks/rating-box/item/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:17
 #: dist/blocks/section-side-heading/index.js:1
@@ -1366,6 +1367,15 @@ msgid "50%"
 msgstr "50%"
 
 #: dist/blocks/media-text/index.js:1
+msgid "Crop image to fill entire column"
+msgstr "カラム全体を塗りつぶすように画像を切り抜く"
+
+#: dist/blocks/media-text/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+msgid "Focal point picker"
+msgstr "焦点ピッカー"
+
+#: dist/blocks/media-text/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 msgid "Sort by mobile"
 msgstr "モバイルの並び順"
@@ -1984,10 +1994,6 @@ msgstr ""
 #: dist/blocks/section-with-bgimage/index.js:1
 msgid "Repeat images"
 msgstr "画像を繰り返す"
-
-#: dist/blocks/section-with-bgimage/index.js:1
-msgid "Focal point picker"
-msgstr "焦点ピッカー"
 
 #: dist/blocks/section-with-bgvideo/index.js:1
 msgid "Header video"
