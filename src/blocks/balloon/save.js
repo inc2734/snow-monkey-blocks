@@ -8,11 +8,15 @@ import {
 
 export default function ( { attributes, className } ) {
 	const {
+		showAvatar,
 		avatarID,
 		avatarAlt,
 		avatarURL,
 		avatarBorderColor,
+		avatarBorderWidth,
 		backgroundColor,
+		borderColor,
+		borderWidth,
 		textColor,
 		balloonName,
 		modifier,
@@ -20,9 +24,12 @@ export default function ( { attributes, className } ) {
 
 	const styles = {
 		'--smb-balloon--background-color': backgroundColor || undefined,
-		'--smb-balloon--border-color': backgroundColor || undefined,
+		'--smb-balloon--border-color':
+			borderColor || backgroundColor || undefined,
+		'--smb-balloon--border-width': borderWidth || undefined,
 		'--smb-balloon--color': textColor || undefined,
 		'--smb-balloon--avatar-border-color': avatarBorderColor || undefined,
+		'--smb-balloon--avatar-border-width': avatarBorderWidth || undefined,
 	};
 
 	const classes = classnames( 'smb-balloon', {
@@ -32,18 +39,21 @@ export default function ( { attributes, className } ) {
 
 	return (
 		<div { ...useBlockProps.save( { className: classes, style: styles } ) }>
-			<div className="smb-balloon__person">
-				<div className="smb-balloon__figure">
-					<img
-						src={ avatarURL }
-						alt={ avatarAlt }
-						className={ `wp-image-${ avatarID }` }
-					/>
+			{ showAvatar && (
+				<div className="smb-balloon__person">
+					<div className="smb-balloon__figure">
+						<img
+							src={ avatarURL }
+							alt={ avatarAlt }
+							className={ `wp-image-${ avatarID }` }
+						/>
+					</div>
+					<div className="smb-balloon__name">
+						<RichText.Content value={ balloonName } />
+					</div>
 				</div>
-				<div className="smb-balloon__name">
-					<RichText.Content value={ balloonName } />
-				</div>
-			</div>
+			) }
+
 			<div
 				{ ...useInnerBlocksProps.save( {
 					className: 'smb-balloon__body',

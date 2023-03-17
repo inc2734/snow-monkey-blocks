@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-"
 "blocks\n"
-"POT-Creation-Date: 2023-03-17T08:52:53+00:00\n"
-"PO-Revision-Date: 2023-03-17 17:53+0900\n"
+"POT-Creation-Date: 2023-03-17T13:05:20+00:00\n"
+"PO-Revision-Date: 2023-03-17 22:06+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -279,28 +279,74 @@ msgid "Write title…"
 msgstr "タイトルを書く…"
 
 #: dist/blocks/balloon/index.js:1 dist/blocks/box/index.js:1
-#: dist/blocks/btn-box/index.js:1 dist/blocks/btn/index.js:1
-#: dist/blocks/countdown/index.js:1
-#: dist/blocks/directory-structure/item/directory/index.js:1
-#: dist/blocks/directory-structure/item/file/index.js:1
-#: dist/blocks/evaluation-star/index.js:1 dist/blocks/faq/item/index.js:1
-#: dist/blocks/information/index.js:1 dist/blocks/items/item/banner/index.js:1
-#: dist/blocks/items/item/item/index.js:1 dist/blocks/list/index.js:1
-#: dist/blocks/rating-box/item/index.js:1
+#: dist/blocks/btn-box/index.js:1 dist/blocks/information/index.js:1
+#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
-#: dist/blocks/section-break-the-grid/index.js:17
 #: dist/blocks/section-side-heading/index.js:1
 #: dist/blocks/section-with-bgimage/index.js:1
 #: dist/blocks/section-with-bgvideo/index.js:1 dist/blocks/section/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
-#: dist/blocks/step/item/free/index.js:1
-#: dist/blocks/step/item/standard/index.js:1
-msgid "Color"
-msgstr "色"
+msgctxt "Indicates this palette comes from the theme."
+msgid "Theme"
+msgstr "テーマ"
+
+#: dist/blocks/balloon/index.js:1 dist/blocks/box/index.js:1
+#: dist/blocks/btn-box/index.js:1 dist/blocks/information/index.js:1
+#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1 dist/blocks/section/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+msgctxt "Indicates this palette comes from WordPress."
+msgid "Default"
+msgstr "デフォルト"
+
+#: dist/blocks/balloon/index.js:1 dist/blocks/box/index.js:1
+#: dist/blocks/btn-box/index.js:1 dist/blocks/information/index.js:1
+#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1 dist/blocks/section/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+msgctxt "Indicates this palette comes from the theme."
+msgid "Custom"
+msgstr "カスタム"
+
+#: dist/blocks/balloon/index.js:1 dist/blocks/box/index.js:1
+#: dist/blocks/btn-box/index.js:1 dist/blocks/information/index.js:1
+#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1 dist/blocks/section/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+msgctxt "Indicates this palette is created by the user."
+msgid "Custom"
+msgstr "カスタム"
 
 #: dist/blocks/balloon/index.js:1
-msgid "Avatar border color"
-msgstr "アバターの枠線の色"
+msgid "Balloon settings"
+msgstr "吹き出し設定"
+
+#: dist/blocks/balloon/index.js:1 dist/blocks/box/index.js:1
+#: dist/blocks/information/index.js:1 dist/blocks/items/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+msgid "Border"
+msgstr "枠線"
 
 #: dist/blocks/balloon/index.js:1 dist/blocks/btn-box/index.js:1
 #: dist/blocks/btn/index.js:1 dist/blocks/items/item/block-link/index.js:1
@@ -324,6 +370,26 @@ msgid "Text color"
 msgstr "テキストカラー"
 
 #: dist/blocks/balloon/index.js:1
+msgid "Avatar settings"
+msgstr "アバター設定"
+
+#: dist/blocks/balloon/index.js:1
+msgid "Show avatar"
+msgstr "アバターを表示"
+
+#: dist/blocks/balloon/index.js:1
+msgid "Avatar position"
+msgstr "アバターの位置"
+
+#: dist/blocks/balloon/index.js:1 dist/blocks/tabs/index.js:1
+msgid "Left"
+msgstr "左"
+
+#: dist/blocks/balloon/index.js:1 dist/blocks/tabs/index.js:1
+msgid "Right"
+msgstr "右"
+
+#: dist/blocks/balloon/index.js:1
 msgid "Show avatar on left"
 msgstr "アバターを左に表示"
 
@@ -336,60 +402,23 @@ msgid "Name"
 msgstr "名前"
 
 #: dist/blocks/box/index.js:1 dist/blocks/btn-box/index.js:1
+#: dist/blocks/btn/index.js:1 dist/blocks/countdown/index.js:1
+#: dist/blocks/directory-structure/item/directory/index.js:1
+#: dist/blocks/directory-structure/item/file/index.js:1
+#: dist/blocks/evaluation-star/index.js:1 dist/blocks/faq/item/index.js:1
 #: dist/blocks/information/index.js:1 dist/blocks/items/item/banner/index.js:1
-#: dist/blocks/items/item/block-link/index.js:1
-#: dist/blocks/items/item/standard/index.js:1
-#: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/items/item/item/index.js:1 dist/blocks/list/index.js:1
+#: dist/blocks/rating-box/item/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:17
 #: dist/blocks/section-side-heading/index.js:1
 #: dist/blocks/section-with-bgimage/index.js:1
 #: dist/blocks/section-with-bgvideo/index.js:1 dist/blocks/section/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
-msgctxt "Indicates this palette comes from the theme."
-msgid "Theme"
-msgstr "テーマ"
-
-#: dist/blocks/box/index.js:1 dist/blocks/btn-box/index.js:1
-#: dist/blocks/information/index.js:1 dist/blocks/items/item/banner/index.js:1
-#: dist/blocks/items/item/block-link/index.js:1
-#: dist/blocks/items/item/standard/index.js:1
-#: dist/blocks/pricing-table/item/index.js:1
-#: dist/blocks/section-break-the-grid/index.js:1
-#: dist/blocks/section-side-heading/index.js:1
-#: dist/blocks/section-with-bgimage/index.js:1
-#: dist/blocks/section-with-bgvideo/index.js:1 dist/blocks/section/index.js:1
-#: dist/blocks/spider-contents-slider/item/index.js:1
-msgctxt "Indicates this palette comes from WordPress."
-msgid "Default"
-msgstr "デフォルト"
-
-#: dist/blocks/box/index.js:1 dist/blocks/btn-box/index.js:1
-#: dist/blocks/information/index.js:1 dist/blocks/items/item/banner/index.js:1
-#: dist/blocks/items/item/block-link/index.js:1
-#: dist/blocks/items/item/standard/index.js:1
-#: dist/blocks/pricing-table/item/index.js:1
-#: dist/blocks/section-break-the-grid/index.js:1
-#: dist/blocks/section-side-heading/index.js:1
-#: dist/blocks/section-with-bgimage/index.js:1
-#: dist/blocks/section-with-bgvideo/index.js:1 dist/blocks/section/index.js:1
-#: dist/blocks/spider-contents-slider/item/index.js:1
-msgctxt "Indicates this palette comes from the theme."
-msgid "Custom"
-msgstr "カスタム"
-
-#: dist/blocks/box/index.js:1 dist/blocks/btn-box/index.js:1
-#: dist/blocks/information/index.js:1 dist/blocks/items/item/banner/index.js:1
-#: dist/blocks/items/item/block-link/index.js:1
-#: dist/blocks/items/item/standard/index.js:1
-#: dist/blocks/pricing-table/item/index.js:1
-#: dist/blocks/section-break-the-grid/index.js:1
-#: dist/blocks/section-side-heading/index.js:1
-#: dist/blocks/section-with-bgimage/index.js:1
-#: dist/blocks/section-with-bgvideo/index.js:1 dist/blocks/section/index.js:1
-#: dist/blocks/spider-contents-slider/item/index.js:1
-msgctxt "Indicates this palette is created by the user."
-msgid "Custom"
-msgstr "カスタム"
+#: dist/blocks/step/item/free/index.js:1
+#: dist/blocks/step/item/standard/index.js:1
+msgid "Color"
+msgstr "色"
 
 #: dist/blocks/box/index.js:1 dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
@@ -443,12 +472,6 @@ msgstr "インセット"
 #: dist/blocks/spider-contents-slider/item/index.js:1
 msgid "Box Shadow"
 msgstr "ボックスシャドウ"
-
-#: dist/blocks/box/index.js:1 dist/blocks/information/index.js:1
-#: dist/blocks/items/index.js:1
-#: dist/blocks/spider-contents-slider/item/index.js:1
-msgid "Border"
-msgstr "枠線"
 
 #: dist/blocks/box/index.js:1 dist/blocks/btn-box/index.js:1
 #: dist/blocks/btn/index.js:1 dist/blocks/items/item/block-link/index.js:1
@@ -2137,14 +2160,6 @@ msgid "Tabs justification"
 msgstr "タブの配置"
 
 #: dist/blocks/tabs/index.js:1
-msgid "Left"
-msgstr "左"
-
-#: dist/blocks/tabs/index.js:1
-msgid "Right"
-msgstr "右"
-
-#: dist/blocks/tabs/index.js:1
 msgid "Stretch"
 msgstr "均等"
 
@@ -2882,6 +2897,9 @@ msgctxt "block description"
 msgid "It is a child block of the thumbnail gallery block."
 msgstr "サムネイルギャラリーブロックの子ブロックです。"
 
+#~ msgid "Avatar border color"
+#~ msgstr "アバターの枠線の色"
+
 #~ msgid "List"
 #~ msgstr "リスト"
 
@@ -2894,9 +2912,6 @@ msgstr "サムネイルギャラリーブロックの子ブロックです。"
 
 #~ msgid "-If set to -1, the default border radius will be applied."
 #~ msgstr "-1 に設定するとデフォルトの角丸半径が適用されます。"
-
-#~ msgid "Evaluation settings"
-#~ msgstr "星評価設定"
 
 #~ msgid "Enter URL here…"
 #~ msgstr "URL をここに入力…"

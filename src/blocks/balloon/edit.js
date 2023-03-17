@@ -6,29 +6,57 @@ import {
 	InspectorControls,
 	MediaUpload,
 	RichText,
-	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	useBlockProps,
 	useInnerBlocksProps,
+	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
+	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 } from '@wordpress/block-editor';
 
-import { Button, ToolbarButton, ToolbarGroup } from '@wordpress/components';
+import {
+	Button,
+	ToggleControl,
+	ToolbarButton,
+	ToolbarGroup,
+	SelectControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
+	__experimentalBorderBoxControl as BorderBoxControl,
+} from '@wordpress/components';
 
 import { pullLeft, pullRight } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
+
+// @todo For WordPress 6.0
+import { useMultipleOriginColorsAndGradientsFallback } from '@smb/hooks';
+
+// @todo For WordPress 6.0
+if ( undefined === useMultipleOriginColorsAndGradients ) {
+	useMultipleOriginColorsAndGradients =
+		useMultipleOriginColorsAndGradientsFallback;
+}
+
+import metadata from './block.json';
 
 const TEMPLATE = [ [ 'core/paragraph' ] ];
 
 export default function ( { attributes, setAttributes, className } ) {
 	const {
+		showAvatar,
 		avatarID,
 		avatarAlt,
 		avatarURL,
 		avatarBorderColor,
+		avatarBorderWidth,
 		backgroundColor,
+		borderColor,
+		borderWidth,
 		textColor,
 		balloonName,
 		modifier,
 	} = attributes;
+
+	const multipleOriginColorsAndGradients =
+		useMultipleOriginColorsAndGradients();
 
 	const renderAvatar = ( obj ) => {
 		return (
@@ -48,9 +76,12 @@ export default function ( { attributes, setAttributes, className } ) {
 
 	const styles = {
 		'--smb-balloon--background-color': backgroundColor || undefined,
-		'--smb-balloon--border-color': backgroundColor || undefined,
+		'--smb-balloon--border-color':
+			borderColor || backgroundColor || undefined,
+		'--smb-balloon--border-width': borderWidth || undefined,
 		'--smb-balloon--color': textColor || undefined,
 		'--smb-balloon--avatar-border-color': avatarBorderColor || undefined,
+		'--smb-balloon--avatar-border-width': avatarBorderWidth || undefined,
 	};
 
 	const classes = classnames( 'smb-balloon', {
@@ -62,38 +93,6 @@ export default function ( { attributes, setAttributes, className } ) {
 		className: classes,
 		style: styles,
 	} );
-
-	const onChangeAvatarBorderColor = ( value ) =>
-		setAttributes( {
-			avatarBorderColor: value,
-		} );
-
-	const onChangeBackgroundColor = ( value ) =>
-		setAttributes( {
-			backgroundColor: value,
-		} );
-
-	const onChangeTextColor = ( value ) =>
-		setAttributes( {
-			textColor: value,
-		} );
-
-	const onSelectImage = ( media ) => {
-		const newAvatarURL = !! media.sizes.thumbnail
-			? media.sizes.thumbnail.url
-			: media.url;
-
-		setAttributes( {
-			avatarURL: newAvatarURL,
-			avatarID: media.id,
-			avatarAlt: media.alt,
-		} );
-	};
-
-	const onChangeBalloonName = ( value ) =>
-		setAttributes( {
-			balloonName: value,
-		} );
 
 	const innerBlocksProps = useInnerBlocksProps(
 		{
@@ -109,86 +108,285 @@ export default function ( { attributes, setAttributes, className } ) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelColorGradientSettings
-					title={ __( 'Color', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
-					settings={ [
-						{
-							colorValue: avatarBorderColor,
-							onColorChange: onChangeAvatarBorderColor,
-							label: __(
-								'Avatar border color',
-								'snow-monkey-blocks'
-							),
-						},
-						{
-							colorValue: backgroundColor,
-							onColorChange: onChangeBackgroundColor,
-							label: __(
-								'Background color',
-								'snow-monkey-blocks'
-							),
-						},
-						{
-							colorValue: textColor,
-							onColorChange: onChangeTextColor,
-							label: __( 'Text color', 'snow-monkey-blocks' ),
-						},
-					] }
-					__experimentalHasMultipleOrigins={ true }
-					__experimentalIsRenderedInSidebar={ true }
+				<ToolsPanel
+					label={ __( 'Balloon settings', 'snow-monkey-blocks' ) }
 				>
-					<ContrastChecker
-						backgroundColor={ backgroundColor }
-						textColor={ textColor }
-					/>
-				</PanelColorGradientSettings>
-			</InspectorControls>
-
-			<BlockControls gruop="block">
-				<ToolbarGroup>
-					<ToolbarButton
-						icon={ pullLeft }
-						title={ __(
-							'Show avatar on left',
-							'snow-monkey-blocks'
-						) }
-						isActive={ '' === modifier }
-						onClick={ () => setAttributes( { modifier: '' } ) }
-					/>
-
-					<ToolbarButton
-						icon={ pullRight }
-						title={ __(
-							'Show avatar on right',
-							'snow-monkey-blocks'
-						) }
-						isActive={ 'reverse' === modifier }
-						onClick={ () =>
-							setAttributes( { modifier: 'reverse' } )
+					<ToolsPanelItem
+						hasValue={ () =>
+							borderColor !==
+								metadata.attributes.borderColor.default ||
+							borderWidth !==
+								metadata.attributes.borderWidth.default
 						}
-					/>
-				</ToolbarGroup>
-			</BlockControls>
+						isShownByDefault
+						label={ __( 'Border', 'snow-monkey-blocks' ) }
+						onDeselect={ () =>
+							setAttributes( {
+								borderColor:
+									metadata.attributes.borderColor.default,
+								borderWidth:
+									metadata.attributes.borderWidth.default,
+							} )
+						}
+					>
+						<BorderBoxControl
+							{ ...multipleOriginColorsAndGradients }
+							className="smb-border-box-control"
+							label={ __( 'Border', 'snow-monkey-blocks' ) }
+							enableAlpha={ false }
+							enableStyle={ false }
+							onChange={ ( value ) => {
+								setAttributes( {
+									borderColor: value.color,
+									borderWidth: value.width,
+								} );
+							} }
+							popoverOffset={ 40 }
+							popoverPlacement="left-start"
+							value={ {
+								color: borderColor,
+								width: borderWidth,
+							} }
+							__experimentalHasMultipleOrigins={ true }
+							__experimentalIsRenderedInSidebar={ true }
+						/>
+					</ToolsPanelItem>
 
-			<div { ...blockProps }>
-				<div className="smb-balloon__person">
-					<div className="smb-balloon__figure">
-						<MediaUpload
-							onSelect={ onSelectImage }
-							type="image"
-							value={ avatarID }
-							render={ renderAvatar }
+					<div className="smb-color-gradient-settings-dropdown">
+						<ColorGradientSettingsDropdown
+							settings={ [
+								{
+									label: __(
+										'Background color',
+										'snow-monkey-blocks'
+									),
+									colorValue: backgroundColor,
+									onColorChange: ( value ) =>
+										setAttributes( {
+											backgroundColor: value,
+										} ),
+								},
+								{
+									label: __(
+										'Text color',
+										'snow-monkey-blocks'
+									),
+									colorValue: textColor,
+									onColorChange: ( value ) =>
+										setAttributes( {
+											textColor: value,
+										} ),
+								},
+							] }
+							__experimentalIsItemGroup={ false }
+							__experimentalHasMultipleOrigins
+							__experimentalIsRenderedInSidebar
+							{ ...multipleOriginColorsAndGradients }
+						/>
+
+						<ContrastChecker
+							backgroundColor={ backgroundColor }
+							textColor={ textColor }
 						/>
 					</div>
+				</ToolsPanel>
 
-					<RichText
-						className="smb-balloon__name"
-						value={ balloonName }
-						onChange={ onChangeBalloonName }
-						placeholder={ __( 'Name', 'snow-monkey-blocks' ) }
-					/>
-				</div>
+				<ToolsPanel
+					label={ __( 'Avatar settings', 'snow-monkey-blocks' ) }
+				>
+					<ToolsPanelItem
+						hasValue={ () =>
+							showAvatar !==
+							metadata.attributes.showAvatar.default
+						}
+						isShownByDefault
+						label={ __( 'Show avatar', 'snow-monkey-blocks' ) }
+						onDeselect={ () =>
+							setAttributes( {
+								showAvatar:
+									metadata.attributes.showAvatar.default,
+							} )
+						}
+					>
+						<ToggleControl
+							label={ __( 'Show avatar', 'snow-monkey-blocks' ) }
+							checked={ showAvatar }
+							onChange={ ( value ) =>
+								setAttributes( {
+									showAvatar: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
+
+					{ showAvatar && (
+						<>
+							<ToolsPanelItem
+								hasValue={ () =>
+									modifier !==
+									metadata.attributes.modifier.default
+								}
+								isShownByDefault
+								label={ __(
+									'Avatar position',
+									'snow-monkey-blocks'
+								) }
+								onDeselect={ () =>
+									setAttributes( {
+										modifier:
+											metadata.attributes.modifier
+												.default,
+									} )
+								}
+							>
+								<SelectControl
+									label={ __(
+										'Avatar position',
+										'snow-monkey-blocks'
+									) }
+									value={ modifier }
+									onChange={ ( value ) =>
+										setAttributes( {
+											modifier:
+												'reverse' === value
+													? value
+													: '',
+										} )
+									}
+									options={ [
+										{
+											value: '',
+											label: __(
+												'Left',
+												'snow-monkey-blocks'
+											),
+										},
+										{
+											value: 'reverse',
+											label: __(
+												'Right',
+												'snow-monkey-blocks'
+											),
+										},
+									] }
+								/>
+							</ToolsPanelItem>
+
+							<ToolsPanelItem
+								hasValue={ () =>
+									avatarBorderColor !==
+										metadata.attributes.avatarBorderColor
+											.default ||
+									avatarBorderWidth !==
+										metadata.attributes.avatarBorderWidth
+											.default
+								}
+								isShownByDefault
+								label={ __( 'Border', 'snow-monkey-blocks' ) }
+								onDeselect={ () =>
+									setAttributes( {
+										avatarBorderColor:
+											metadata.attributes
+												.avatarBorderColor.default,
+										avatarBorderWidth:
+											metadata.attributes
+												.avatarBorderWidth.default,
+									} )
+								}
+							>
+								<BorderBoxControl
+									{ ...multipleOriginColorsAndGradients }
+									className="smb-border-box-control"
+									label={ __(
+										'Border',
+										'snow-monkey-blocks'
+									) }
+									enableAlpha={ false }
+									enableStyle={ false }
+									onChange={ ( value ) => {
+										setAttributes( {
+											avatarBorderColor: value.color,
+											avatarBorderWidth: value.width,
+										} );
+									} }
+									popoverOffset={ 40 }
+									popoverPlacement="left-start"
+									value={ {
+										color: avatarBorderColor,
+										width: avatarBorderWidth,
+									} }
+									__experimentalHasMultipleOrigins={ true }
+									__experimentalIsRenderedInSidebar={ true }
+								/>
+							</ToolsPanelItem>
+						</>
+					) }
+				</ToolsPanel>
+			</InspectorControls>
+
+			{ showAvatar && (
+				<BlockControls gruop="block">
+					<ToolbarGroup>
+						<ToolbarButton
+							icon={ pullLeft }
+							title={ __(
+								'Show avatar on left',
+								'snow-monkey-blocks'
+							) }
+							isActive={ '' === modifier }
+							onClick={ () => setAttributes( { modifier: '' } ) }
+						/>
+
+						<ToolbarButton
+							icon={ pullRight }
+							title={ __(
+								'Show avatar on right',
+								'snow-monkey-blocks'
+							) }
+							isActive={ 'reverse' === modifier }
+							onClick={ () =>
+								setAttributes( { modifier: 'reverse' } )
+							}
+						/>
+					</ToolbarGroup>
+				</BlockControls>
+			) }
+
+			<div { ...blockProps }>
+				{ showAvatar && (
+					<div className="smb-balloon__person">
+						<div className="smb-balloon__figure">
+							<MediaUpload
+								onSelect={ ( media ) => {
+									const newAvatarURL = !! media.sizes
+										.thumbnail
+										? media.sizes.thumbnail.url
+										: media.url;
+
+									setAttributes( {
+										avatarURL: newAvatarURL,
+										avatarID: media.id,
+										avatarAlt: media.alt,
+									} );
+								} }
+								type="image"
+								value={ avatarID }
+								render={ renderAvatar }
+							/>
+						</div>
+
+						<RichText
+							className="smb-balloon__name"
+							value={ balloonName }
+							onChange={ ( value ) =>
+								setAttributes( {
+									balloonName: value,
+								} )
+							}
+							placeholder={ __( 'Name', 'snow-monkey-blocks' ) }
+						/>
+					</div>
+				) }
 
 				<div { ...innerBlocksProps } />
 			</div>

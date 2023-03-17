@@ -28,8 +28,7 @@ export default [
 		migrate( attributes ) {
 			const { balloonBody } = attributes;
 
-			const match = balloonBody.match( /<p>(.+?)<\/p>/g );
-
+			const match = balloonBody.match( /<p>(.+?)<\/p>/g ) || [];
 			const items = match.map( ( value ) => {
 				return rawHandler( { HTML: value } )[ 0 ];
 			} );

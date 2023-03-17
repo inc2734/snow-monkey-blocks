@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-03-17T08:52:53+00:00\n"
+"POT-Creation-Date: 2023-03-17T13:05:20+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: snow-monkey-blocks\n"
@@ -294,31 +294,85 @@ msgstr ""
 #: dist/blocks/balloon/index.js:1
 #: dist/blocks/box/index.js:1
 #: dist/blocks/btn-box/index.js:1
-#: dist/blocks/btn/index.js:1
-#: dist/blocks/countdown/index.js:1
-#: dist/blocks/directory-structure/item/directory/index.js:1
-#: dist/blocks/directory-structure/item/file/index.js:1
-#: dist/blocks/evaluation-star/index.js:1
-#: dist/blocks/faq/item/index.js:1
 #: dist/blocks/information/index.js:1
 #: dist/blocks/items/item/banner/index.js:1
-#: dist/blocks/items/item/item/index.js:1
-#: dist/blocks/list/index.js:1
-#: dist/blocks/rating-box/item/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
-#: dist/blocks/section-break-the-grid/index.js:17
 #: dist/blocks/section-side-heading/index.js:1
 #: dist/blocks/section-with-bgimage/index.js:1
 #: dist/blocks/section-with-bgvideo/index.js:1
 #: dist/blocks/section/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
-#: dist/blocks/step/item/free/index.js:1
-#: dist/blocks/step/item/standard/index.js:1
-msgid "Color"
+msgctxt "Indicates this palette comes from the theme."
+msgid "Theme"
 msgstr ""
 
 #: dist/blocks/balloon/index.js:1
-msgid "Avatar border color"
+#: dist/blocks/box/index.js:1
+#: dist/blocks/btn-box/index.js:1
+#: dist/blocks/information/index.js:1
+#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+msgctxt "Indicates this palette comes from WordPress."
+msgid "Default"
+msgstr ""
+
+#: dist/blocks/balloon/index.js:1
+#: dist/blocks/box/index.js:1
+#: dist/blocks/btn-box/index.js:1
+#: dist/blocks/information/index.js:1
+#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+msgctxt "Indicates this palette comes from the theme."
+msgid "Custom"
+msgstr ""
+
+#: dist/blocks/balloon/index.js:1
+#: dist/blocks/box/index.js:1
+#: dist/blocks/btn-box/index.js:1
+#: dist/blocks/information/index.js:1
+#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+msgctxt "Indicates this palette is created by the user."
+msgid "Custom"
+msgstr ""
+
+#: dist/blocks/balloon/index.js:1
+msgid "Balloon settings"
+msgstr ""
+
+#: dist/blocks/balloon/index.js:1
+#: dist/blocks/box/index.js:1
+#: dist/blocks/information/index.js:1
+#: dist/blocks/items/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+msgid "Border"
 msgstr ""
 
 #: dist/blocks/balloon/index.js:1
@@ -348,6 +402,28 @@ msgid "Text color"
 msgstr ""
 
 #: dist/blocks/balloon/index.js:1
+msgid "Avatar settings"
+msgstr ""
+
+#: dist/blocks/balloon/index.js:1
+msgid "Show avatar"
+msgstr ""
+
+#: dist/blocks/balloon/index.js:1
+msgid "Avatar position"
+msgstr ""
+
+#: dist/blocks/balloon/index.js:1
+#: dist/blocks/tabs/index.js:1
+msgid "Left"
+msgstr ""
+
+#: dist/blocks/balloon/index.js:1
+#: dist/blocks/tabs/index.js:1
+msgid "Right"
+msgstr ""
+
+#: dist/blocks/balloon/index.js:1
 msgid "Show avatar on left"
 msgstr ""
 
@@ -362,70 +438,27 @@ msgstr ""
 
 #: dist/blocks/box/index.js:1
 #: dist/blocks/btn-box/index.js:1
+#: dist/blocks/btn/index.js:1
+#: dist/blocks/countdown/index.js:1
+#: dist/blocks/directory-structure/item/directory/index.js:1
+#: dist/blocks/directory-structure/item/file/index.js:1
+#: dist/blocks/evaluation-star/index.js:1
+#: dist/blocks/faq/item/index.js:1
 #: dist/blocks/information/index.js:1
 #: dist/blocks/items/item/banner/index.js:1
-#: dist/blocks/items/item/block-link/index.js:1
-#: dist/blocks/items/item/standard/index.js:1
-#: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/items/item/item/index.js:1
+#: dist/blocks/list/index.js:1
+#: dist/blocks/rating-box/item/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:17
 #: dist/blocks/section-side-heading/index.js:1
 #: dist/blocks/section-with-bgimage/index.js:1
 #: dist/blocks/section-with-bgvideo/index.js:1
 #: dist/blocks/section/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
-msgctxt "Indicates this palette comes from the theme."
-msgid "Theme"
-msgstr ""
-
-#: dist/blocks/box/index.js:1
-#: dist/blocks/btn-box/index.js:1
-#: dist/blocks/information/index.js:1
-#: dist/blocks/items/item/banner/index.js:1
-#: dist/blocks/items/item/block-link/index.js:1
-#: dist/blocks/items/item/standard/index.js:1
-#: dist/blocks/pricing-table/item/index.js:1
-#: dist/blocks/section-break-the-grid/index.js:1
-#: dist/blocks/section-side-heading/index.js:1
-#: dist/blocks/section-with-bgimage/index.js:1
-#: dist/blocks/section-with-bgvideo/index.js:1
-#: dist/blocks/section/index.js:1
-#: dist/blocks/spider-contents-slider/item/index.js:1
-msgctxt "Indicates this palette comes from WordPress."
-msgid "Default"
-msgstr ""
-
-#: dist/blocks/box/index.js:1
-#: dist/blocks/btn-box/index.js:1
-#: dist/blocks/information/index.js:1
-#: dist/blocks/items/item/banner/index.js:1
-#: dist/blocks/items/item/block-link/index.js:1
-#: dist/blocks/items/item/standard/index.js:1
-#: dist/blocks/pricing-table/item/index.js:1
-#: dist/blocks/section-break-the-grid/index.js:1
-#: dist/blocks/section-side-heading/index.js:1
-#: dist/blocks/section-with-bgimage/index.js:1
-#: dist/blocks/section-with-bgvideo/index.js:1
-#: dist/blocks/section/index.js:1
-#: dist/blocks/spider-contents-slider/item/index.js:1
-msgctxt "Indicates this palette comes from the theme."
-msgid "Custom"
-msgstr ""
-
-#: dist/blocks/box/index.js:1
-#: dist/blocks/btn-box/index.js:1
-#: dist/blocks/information/index.js:1
-#: dist/blocks/items/item/banner/index.js:1
-#: dist/blocks/items/item/block-link/index.js:1
-#: dist/blocks/items/item/standard/index.js:1
-#: dist/blocks/pricing-table/item/index.js:1
-#: dist/blocks/section-break-the-grid/index.js:1
-#: dist/blocks/section-side-heading/index.js:1
-#: dist/blocks/section-with-bgimage/index.js:1
-#: dist/blocks/section-with-bgvideo/index.js:1
-#: dist/blocks/section/index.js:1
-#: dist/blocks/spider-contents-slider/item/index.js:1
-msgctxt "Indicates this palette is created by the user."
-msgid "Custom"
+#: dist/blocks/step/item/free/index.js:1
+#: dist/blocks/step/item/standard/index.js:1
+msgid "Color"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
@@ -490,13 +523,6 @@ msgstr ""
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
 msgid "Box Shadow"
-msgstr ""
-
-#: dist/blocks/box/index.js:1
-#: dist/blocks/information/index.js:1
-#: dist/blocks/items/index.js:1
-#: dist/blocks/spider-contents-slider/item/index.js:1
-msgid "Border"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
@@ -2326,14 +2352,6 @@ msgstr ""
 
 #: dist/blocks/tabs/index.js:1
 msgid "Tabs justification"
-msgstr ""
-
-#: dist/blocks/tabs/index.js:1
-msgid "Left"
-msgstr ""
-
-#: dist/blocks/tabs/index.js:1
-msgid "Right"
 msgstr ""
 
 #: dist/blocks/tabs/index.js:1

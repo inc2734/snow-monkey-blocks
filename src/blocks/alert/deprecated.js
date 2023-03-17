@@ -28,8 +28,7 @@ export default [
 		migrate( attributes ) {
 			const { content } = attributes;
 
-			const match = content.match( /<p>(.+?)<\/p>/g );
-
+			const match = content.match( /<p>(.+?)<\/p>/g ) || [];
 			const items = match.map( ( value ) => {
 				return rawHandler( { HTML: value } )[ 0 ];
 			} );
