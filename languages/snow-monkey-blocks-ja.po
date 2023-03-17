@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-"
 "blocks\n"
-"POT-Creation-Date: 2023-03-13T13:53:49+00:00\n"
-"PO-Revision-Date: 2023-03-13 22:54+0900\n"
+"POT-Creation-Date: 2023-03-17T08:52:53+00:00\n"
+"PO-Revision-Date: 2023-03-17 17:53+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -302,6 +302,14 @@ msgstr "色"
 msgid "Avatar border color"
 msgstr "アバターの枠線の色"
 
+#: dist/blocks/balloon/index.js:1 dist/blocks/btn-box/index.js:1
+#: dist/blocks/btn/index.js:1 dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:17
+msgid "Background color"
+msgstr "背景色"
+
 #: dist/blocks/balloon/index.js:1 dist/blocks/box/index.js:1
 #: dist/blocks/btn-box/index.js:1 dist/blocks/btn/index.js:1
 #: dist/blocks/items/item/banner/index.js:1
@@ -314,14 +322,6 @@ msgstr "アバターの枠線の色"
 #: dist/blocks/section-with-bgvideo/index.js:1 dist/blocks/section/index.js:1
 msgid "Text color"
 msgstr "テキストカラー"
-
-#: dist/blocks/balloon/index.js:1 dist/blocks/btn-box/index.js:1
-#: dist/blocks/btn/index.js:1 dist/blocks/items/item/block-link/index.js:1
-#: dist/blocks/items/item/standard/index.js:1
-#: dist/blocks/pricing-table/item/index.js:1
-#: dist/blocks/section-break-the-grid/index.js:17
-msgid "Background color"
-msgstr "背景色"
 
 #: dist/blocks/balloon/index.js:1
 msgid "Show avatar on left"
@@ -1324,10 +1324,6 @@ msgstr "square-check"
 msgid "circle-chevron-right"
 msgstr "circle-chevron-right"
 
-#: dist/blocks/list/item/index.js:1
-msgid "List"
-msgstr "リスト"
-
 #: dist/blocks/media-text/index.js:1
 msgid "Media & sentence"
 msgstr "メディアと文章"
@@ -1462,6 +1458,10 @@ msgstr "自動"
 #: dist/blocks/pricing-table/index.js:1
 msgid "100%"
 msgstr "100%"
+
+#: dist/blocks/pricing-table/item/index.js:1
+msgid "Write a description…"
+msgstr "説明を書く…"
 
 #: dist/blocks/rating-box/item/index.js:1
 msgid "Bar color"
@@ -2498,15 +2498,10 @@ msgctxt "block title"
 msgid "Icon list"
 msgstr "アイコンリスト"
 
-#: dist/blocks/list/block.json dist/blocks/list/item/block.json
+#: dist/blocks/list/block.json
 msgctxt "block description"
 msgid "Icons are displayed only on the actual screen."
 msgstr "アイコンは実際の画面でのみ表示されます。"
-
-#: dist/blocks/list/item/block.json
-msgctxt "block title"
-msgid "Icon list item"
-msgstr "アイコンリスト項目"
 
 #: dist/blocks/media-text/block.json
 msgctxt "block title"
@@ -2886,6 +2881,13 @@ msgstr ""
 msgctxt "block description"
 msgid "It is a child block of the thumbnail gallery block."
 msgstr "サムネイルギャラリーブロックの子ブロックです。"
+
+#~ msgid "List"
+#~ msgstr "リスト"
+
+#~ msgctxt "block title"
+#~ msgid "Icon list item"
+#~ msgstr "アイコンリスト項目"
 
 #~ msgid "Width"
 #~ msgstr "幅"
