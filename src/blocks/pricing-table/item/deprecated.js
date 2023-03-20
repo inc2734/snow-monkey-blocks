@@ -12,6 +12,9 @@ export default [
 	{
 		attributes: {
 			...blockAttributes,
+			btnBorderRadius: {
+				type: 'number',
+			},
 			list: {
 				type: 'string',
 				source: 'html',
