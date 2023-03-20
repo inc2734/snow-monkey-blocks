@@ -121,6 +121,10 @@
 		},
 		"focalPoint": {
 			"type": "object"
+		},
+		"splitPoint": {
+			"type": "string",
+			"default": "lg"
 		}
 	},
 	"supports": {

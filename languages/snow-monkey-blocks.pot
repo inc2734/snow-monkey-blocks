@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-03-17T15:49:03+00:00\n"
+"POT-Creation-Date: 2023-03-20T06:31:42+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: snow-monkey-blocks\n"
@@ -1544,6 +1544,18 @@ msgstr ""
 #: dist/blocks/media-text/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 msgid "Image > Text"
+msgstr ""
+
+#: dist/blocks/media-text/index.js:1
+msgid "When to divide columns"
+msgstr ""
+
+#: dist/blocks/media-text/index.js:1
+msgid "PC"
+msgstr ""
+
+#: dist/blocks/media-text/index.js:1
+msgid "Tablet"
 msgstr ""
 
 #: dist/blocks/media-text/index.js:1

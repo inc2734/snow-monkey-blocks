@@ -33,6 +33,7 @@ export default function ( { attributes, className } ) {
 		mediaType,
 		imageFill,
 		focalPoint,
+		splitPoint,
 	} = attributes;
 
 	const isFill = 'image' === mediaType && imageFill;
@@ -58,11 +59,11 @@ export default function ( { attributes, className } ) {
 	} );
 
 	const textColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', [
-		`c-row__col--lg-${ textColumnWidth }`,
+		`c-row__col--${ splitPoint }-${ textColumnWidth }`,
 	] );
 
 	const imageColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', [
-		`c-row__col--lg-${ mediaColumnWidth }`,
+		`c-row__col--${ splitPoint }-${ mediaColumnWidth }`,
 	] );
 
 	const image = (
@@ -124,6 +125,7 @@ export default function ( { attributes, className } ) {
 							? `${ focalPoint.y * 100 }%`
 							: undefined,
 				},
+				'data-sm-split-point': splitPoint,
 			} ) }
 		>
 			<div className={ rowClasses }>

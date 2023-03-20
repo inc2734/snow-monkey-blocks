@@ -74,6 +74,7 @@ export default function ( {
 		mediaType,
 		imageFill,
 		focalPoint,
+		splitPoint,
 	} = attributes;
 
 	const hasInnerBlocks = useSelect(
@@ -130,11 +131,11 @@ export default function ( {
 	} );
 
 	const textColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', [
-		`c-row__col--lg-${ textColumnWidth }`,
+		`c-row__col--${ splitPoint }-${ textColumnWidth }`,
 	] );
 
 	const imageColumnClasses = classnames( 'c-row__col', 'c-row__col--1-1', [
-		`c-row__col--lg-${ mediaColumnWidth }`,
+		`c-row__col--${ splitPoint }-${ mediaColumnWidth }`,
 	] );
 
 	const blockProps = useBlockProps( {
@@ -152,6 +153,7 @@ export default function ( {
 					? `${ focalPoint.y * 100 }%`
 					: undefined,
 		},
+		'data-sm-split-point': splitPoint,
 	} );
 
 	const innerBlocksProps = useInnerBlocksProps(
@@ -423,6 +425,47 @@ export default function ( {
 								setAttributes( {
 									mobileOrder:
 										'' === value ? undefined : value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
+
+					<ToolsPanelItem
+						hasValue={ () =>
+							splitPoint !==
+							metadata.attributes.splitPoint.default
+						}
+						isShownByDefault
+						label={ __(
+							'When to divide columns',
+							'snow-monkey-blocks'
+						) }
+						onDeselect={ () =>
+							setAttributes( {
+								splitPoint:
+									metadata.attributes.splitPoint.default,
+							} )
+						}
+					>
+						<SelectControl
+							label={ __(
+								'When to divide columns',
+								'snow-monkey-blocks'
+							) }
+							value={ splitPoint }
+							options={ [
+								{
+									value: 'lg',
+									label: __( 'PC', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'md',
+									label: __( 'Tablet', 'snow-monkey-blocks' ),
+								},
+							] }
+							onChange={ ( value ) =>
+								setAttributes( {
+									splitPoint: value,
 								} )
 							}
 						/>

@@ -30,3 +30,19 @@ add_filter(
 		);
 	}
 );
+
+add_filter(
+	'render_block_snow-monkey-blocks/media-text',
+	function( $block_content ) {
+		$p = new \WP_HTML_Tag_Processor( $block_content );
+
+		if ( $p->next_tag() ) {
+			if ( ! $p->get_attribute( 'data-sm-split-point' ) ) {
+				$p->set_attribute( 'data-sm-split-point', 'lg' );
+				return $p->get_updated_html();
+			}
+		}
+
+		return $block_content;
+	}
+);
