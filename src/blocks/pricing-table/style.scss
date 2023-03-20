@@ -2,6 +2,7 @@
 
 .smb-pricing-table {
 	--smb-pricing-table--border-color: var(--_lighter-color-gray);
+	--smb-pricing-table--item-width: 30%;
 
 	border: 1px solid var(--smb-pricing-table--border-color);
 
@@ -30,25 +31,25 @@
 
 	&[data-has-items] .c-row {
 		@include _media-min(md) {
-			--_item-width: 30%;
+			--_item-width: var(--smb-pricing-table--item-width);
 		}
 	}
 
 	&[data-has-items="1"] .c-row {
 		@include _media-min(md) {
-			--_item-width: 100%;
+			--smb-pricing-table--item-width: 100%;
 		}
 	}
 
 	&[data-has-items="2"] .c-row {
 		@include _media-min(md) {
-			--_item-width: 50%;
+			--smb-pricing-table--item-width: 50%;
 		}
 	}
 
 	&[data-has-items="3"] .c-row {
 		@include _media-min(md) {
-			--_item-width: 33.3333%;
+			--smb-pricing-table--item-width: 33.3333%;
 		}
 	}
 
@@ -65,7 +66,7 @@
 				white-space: normal;
 
 				.#{ $_prefix }c-row {
-					--_item-width: #{ 1% * $key };
+					--smb-pricing-table--item-width: #{ 1% * $key };
 				}
 			}
 		}
