@@ -29,7 +29,7 @@ import { useMergeRefs } from '@wordpress/compose';
 import { useState, useRef } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
-import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
+import { link as linkIcon } from '@wordpress/icons';
 
 import Figure from '@smb/component/figure';
 import { toNumber } from '@smb/helper';
@@ -542,29 +542,19 @@ export default function ( {
 					}
 				/>
 
-				{ ! isURLSet && (
-					<ToolbarButton
-						name="link"
-						icon={ linkIcon }
-						title={ __( 'Link', 'snow-monkey-blocks' ) }
-						onClick={ ( event ) => {
-							event.preventDefault();
-							setIsEditingURL( true );
-						} }
-					/>
-				) }
-				{ isURLSet && (
-					<ToolbarButton
-						name="link"
-						icon={ linkOffIcon }
-						title={ __( 'Unlink', 'snow-monkey-blocks' ) }
-						onClick={ unlink }
-						isActive={ true }
-					/>
-				) }
+				<ToolbarButton
+					name="link"
+					icon={ linkIcon }
+					title={ __( 'Link', 'snow-monkey-blocks' ) }
+					onClick={ ( event ) => {
+						event.preventDefault();
+						setIsEditingURL( true );
+					} }
+					isActive={ isURLSet }
+				/>
 			</BlockControls>
 
-			{ isSelected && ( isEditingURL || isURLSet ) && (
+			{ isSelected && isEditingURL && (
 				<Popover
 					placement="bottom"
 					anchor={ popoverAnchor }
@@ -589,7 +579,7 @@ export default function ( {
 							unlink();
 							richTextRef.current?.focus();
 						} }
-						forceIsEditingLink={ isEditingURL }
+						forceIsEditingLink={ ! isURLSet }
 					/>
 				</Popover>
 			) }

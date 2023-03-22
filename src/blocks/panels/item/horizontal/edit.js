@@ -21,16 +21,10 @@ import {
 	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
 
-import {
-	link as linkIcon,
-	linkOff as linkOffIcon,
-	pullLeft,
-	pullRight,
-} from '@wordpress/icons';
-
 import { useMergeRefs } from '@wordpress/compose';
 import { useState, useRef } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
+import { link as linkIcon, pullLeft, pullRight } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
 
 import Figure from '@smb/component/figure';
@@ -414,10 +408,9 @@ export default function ( {
 							/>
 						) }
 
-						{ displayLink && (
+						{ ( isURLSet || displayLink ) && (
 							<div className={ actionClasses }>
-								{ ( ! RichText.isEmpty( linkLabel ) ||
-									isSelected ) && (
+								{ displayLink && (
 									<RichText
 										className="smb-panels__item__link"
 										value={ linkLabel }
@@ -436,63 +429,53 @@ export default function ( {
 								) }
 							</div>
 						) }
-
-						{ isSelected && ( isEditingURL || isURLSet ) && (
-							<Popover
-								placement="bottom"
-								anchor={ popoverAnchor }
-								onClose={ () => {
-									setIsEditingURL( false );
-									richTextRef.current?.focus();
-								} }
-							>
-								<LinkControl
-									className="wp-block-navigation-link__inline-link-input"
-									value={ { url: linkURL, opensInNewTab } }
-									onChange={ ( {
-										url: newUrl,
-										opensInNewTab: newOpensInNewTab,
-									} ) =>
-										setAttributes( {
-											linkURL: newUrl,
-											linkTarget: ! newOpensInNewTab
-												? '_self'
-												: '_blank',
-										} )
-									}
-									onRemove={ () => {
-										unlink();
-									} }
-									forceIsEditingLink={ isEditingURL }
-								/>
-							</Popover>
-						) }
 					</div>
 				</div>
 			</div>
 
 			<BlockControls group="block">
-				{ ! isURLSet && (
-					<ToolbarButton
-						name="link"
-						icon={ linkIcon }
-						title={ __( 'Link', 'snow-monkey-blocks' ) }
-						onClick={ ( event ) => {
-							event.preventDefault();
-							setIsEditingURL( true );
-						} }
-					/>
-				) }
-				{ isURLSet && (
-					<ToolbarButton
-						name="link"
-						icon={ linkOffIcon }
-						title={ __( 'Unlink', 'snow-monkey-blocks' ) }
-						onClick={ unlink }
-						isActive={ true }
-					/>
-				) }
+				<ToolbarButton
+					name="link"
+					icon={ linkIcon }
+					title={ __( 'Link', 'snow-monkey-blocks' ) }
+					onClick={ ( event ) => {
+						event.preventDefault();
+						setIsEditingURL( true );
+					} }
+					isActive={ isURLSet }
+				/>
 			</BlockControls>
+
+			{ isSelected && isEditingURL && (
+				<Popover
+					placement="bottom"
+					anchor={ popoverAnchor }
+					onClose={ () => {
+						setIsEditingURL( false );
+						richTextRef.current?.focus();
+					} }
+				>
+					<LinkControl
+						className="wp-block-navigation-link__inline-link-input"
+						value={ { url: linkURL, opensInNewTab } }
+						onChange={ ( {
+							url: newUrl,
+							opensInNewTab: newOpensInNewTab,
+						} ) =>
+							setAttributes( {
+								linkURL: newUrl,
+								linkTarget: ! newOpensInNewTab
+									? '_self'
+									: '_blank',
+							} )
+						}
+						onRemove={ () => {
+							unlink();
+						} }
+						forceIsEditingLink={ ! isURLSet }
+					/>
+				</Popover>
+			) }
 		</>
 	);
 }

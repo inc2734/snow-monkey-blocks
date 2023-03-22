@@ -34,12 +34,6 @@ export default function ( { attributes, className } ) {
 		'smb-panels__item__action--nolabel': ! linkLabel,
 	} );
 
-	const linkLabelHtml = ! RichText.isEmpty( linkLabel ) && (
-		<div className="smb-panels__item__link">
-			<RichText.Content value={ linkLabel } />
-		</div>
-	);
-
 	return (
 		<div { ...useBlockProps.save( { className: classes } ) }>
 			<div className={ itemClasses }>
@@ -71,7 +65,7 @@ export default function ( { attributes, className } ) {
 						</div>
 					) }
 
-					{ displayLink && (
+					{ ( !! linkURL || displayLink ) && (
 						<div className={ actionClasses }>
 							{ !! linkURL ? (
 								<a
@@ -87,10 +81,24 @@ export default function ( { attributes, className } ) {
 											: 'noopener noreferrer'
 									}
 								>
-									{ linkLabelHtml }
+									{ displayLink && (
+										<div className="smb-panels__item__link">
+											<RichText.Content
+												value={ linkLabel }
+											/>
+										</div>
+									) }
 								</a>
 							) : (
-								<>{ linkLabelHtml }</>
+								<>
+									{ displayLink && (
+										<div className="smb-panels__item__link">
+											<RichText.Content
+												value={ linkLabel }
+											/>
+										</div>
+									) }
+								</>
 							) }
 						</div>
 					) }

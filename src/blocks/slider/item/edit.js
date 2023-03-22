@@ -20,7 +20,7 @@ import { useMergeRefs } from '@wordpress/compose';
 import { useSelect } from '@wordpress/data';
 import { useState, useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
-import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
+import { link as linkIcon } from '@wordpress/icons';
 
 import Figure from '@smb/component/figure';
 
@@ -149,7 +149,7 @@ export default function ( {
 					allowedTypes={ ALLOWED_TYPES }
 				/>
 
-				{ isSelected && ( isEditingURL || isURLSet ) && (
+				{ isSelected && isEditingURL && (
 					<Popover
 						placement="bottom"
 						anchor={ popoverAnchor }
@@ -174,7 +174,7 @@ export default function ( {
 							onRemove={ () => {
 								unlink();
 							} }
-							forceIsEditingLink={ isEditingURL }
+							forceIsEditingLink={ ! isURLSet }
 						/>
 					</Popover>
 				) }
@@ -251,26 +251,16 @@ export default function ( {
 			<div { ...blockProps }>{ item }</div>
 
 			<BlockControls group="block">
-				{ ! isURLSet && (
-					<ToolbarButton
-						name="link"
-						icon={ linkIcon }
-						title={ __( 'Link', 'snow-monkey-blocks' ) }
-						onClick={ ( event ) => {
-							event.preventDefault();
-							setIsEditingURL( true );
-						} }
-					/>
-				) }
-				{ isURLSet && (
-					<ToolbarButton
-						name="link"
-						icon={ linkOffIcon }
-						title={ __( 'Unlink', 'snow-monkey-blocks' ) }
-						onClick={ unlink }
-						isActive={ true }
-					/>
-				) }
+				<ToolbarButton
+					name="link"
+					icon={ linkIcon }
+					title={ __( 'Link', 'snow-monkey-blocks' ) }
+					onClick={ ( event ) => {
+						event.preventDefault();
+						setIsEditingURL( true );
+					} }
+					isActive={ isURLSet }
+				/>
 			</BlockControls>
 		</>
 	);
