@@ -50,7 +50,6 @@ export default function ( { attributes, className } ) {
 	} );
 
 	const rowClasses = classnames( 'c-row', {
-		'c-row--margin': ! backgroundColor && ! backgroundGradientColor,
 		'c-row--reverse': 'left' === mediaPosition,
 		'c-row--top': ! isFill && 'top' === verticalAlignment,
 		'c-row--middle': ! isFill && 'center' === verticalAlignment,

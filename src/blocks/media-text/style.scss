@@ -4,6 +4,7 @@
 	--smb-media-text--background-color: transparent;
 	--smb-media-text--background-image: initial;
 	--smb-media-text--color: inherit;
+	--smb-media-text--gap: var(--_margin1);
 	--smb-media-text--image-position-x: 50%;
 	--smb-media-text--image-position-y: 50%;
 	--smb-media-text--content-padding: 0px;
@@ -21,6 +22,7 @@
 
 	&.is-style-border,
 	&--has-background {
+		--smb-media-text--gap: 0px;
 		--smb-media-text--content-padding: var(--_padding1);
 
 		.smb-media-text__caption {
@@ -33,15 +35,24 @@
 		flex-direction: var(--smb-media-text--direction);
 	}
 
+	&:where(:not(.smb-media-text--mobile-text):not(.smb-media-text--mobile-text)) > .#{ $_prefix }c-row,
 	&.smb-media-text--mobile-text > .#{ $_prefix }c-row,
 	&.smb-media-text--mobile-text > .#{ $_prefix }c-row--reverse {
 		--smb-media-text--direction: column;
+
+		.smb-media-text__contents-wrapper {
+			margin: 0 0 var(--smb-media-text--gap);
+		}
 	}
 
-	> .#{ $_prefix }c-row--reverse,
+	&:where(:not(.smb-media-text--mobile-text):not(.smb-media-text--mobile-text)) > .#{ $_prefix }c-row--reverse,
 	&.smb-media-text--mobile-image > .#{ $_prefix }c-row,
 	&.smb-media-text--mobile-image > .#{ $_prefix }c-row--reverse {
 		--smb-media-text--direction: column-reverse;
+
+		.smb-media-text__contents-wrapper {
+			margin: var(--smb-media-text--gap) 0 0;
+		}
 	}
 
 	&__title {
@@ -106,10 +117,18 @@
 
 		> .#{ $_prefix }c-row {
 			--smb-media-text--direction: row;
+
+			.smb-media-text__contents-wrapper {
+				margin: 0 var(--smb-media-text--gap) 0 0;
+			}
 		}
 
 		> .#{ $_prefix }c-row--reverse {
 			--smb-media-text--direction: row-reverse;
+
+			.smb-media-text__contents-wrapper {
+				margin: 0 0 0 var(--smb-media-text--gap);
+			}
 		}
 	}
 }
@@ -129,10 +148,18 @@
 
 		> .#{ $_prefix }c-row {
 			--smb-media-text--direction: row;
+
+			.smb-media-text__contents-wrapper {
+				margin: 0 var(--smb-media-text--gap) 0 0;
+			}
 		}
 
 		> .#{ $_prefix }c-row--reverse {
 			--smb-media-text--direction: row-reverse;
+
+			.smb-media-text__contents-wrapper {
+				margin: 0 0 0 var(--smb-media-text--gap);
+			}
 		}
 	}
 }
