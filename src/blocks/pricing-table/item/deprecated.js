@@ -29,7 +29,13 @@ export default [
 		},
 
 		migrate( attributes ) {
-			const { list } = attributes;
+			const { list, btnBorderRadius } = attributes;
+
+			attributes.btnBorderRadius = String( btnBorderRadius ).match(
+				/^\d+$/
+			)
+				? `${ btnBorderRadius }px`
+				: btnBorderRadius;
 
 			const items = document.createElement( 'ul' );
 			items.innerHTML = list;

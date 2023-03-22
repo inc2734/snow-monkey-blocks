@@ -11,6 +11,9 @@ export default [
 	{
 		attributes: {
 			...blockAttributes,
+			btnBorderRadius: {
+				type: 'number',
+			},
 		},
 
 		supports: {
@@ -18,15 +21,21 @@ export default [
 		},
 
 		migrate( attributes ) {
-			const { btnLabel, url, imageURL } = attributes;
+			const { btnLabel, url, imageURL, btnBorderRadius } = attributes;
 
-			if ( ! RichText.isEmpty( btnLabel ) && !! url ) {
+			if ( ! RichText.isEmpty( btnLabel ) || !! url ) {
 				attributes.displayBtn = true;
 			}
 
 			if ( !! imageURL ) {
 				attributes.displayImage = true;
 			}
+
+			attributes.btnBorderRadius = String( btnBorderRadius ).match(
+				/^\d+$/
+			)
+				? `${ btnBorderRadius }px`
+				: btnBorderRadius;
 
 			return attributes;
 		},

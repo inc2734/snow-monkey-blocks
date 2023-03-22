@@ -20,6 +20,16 @@ export default [
 			...blockSupports,
 		},
 
+		migrate( attributes ) {
+			const { borderRadius } = attributes;
+
+			attributes.borderRadius = String( borderRadius ).match( /^\d+$/ )
+				? `${ borderRadius }px`
+				: borderRadius;
+
+			return [ { ...attributes } ];
+		},
+
 		save( { attributes, className } ) {
 			const {
 				content,

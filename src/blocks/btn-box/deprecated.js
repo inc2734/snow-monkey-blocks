@@ -20,6 +20,18 @@ export default [
 			...blockSupports,
 		},
 
+		migrate( attributes ) {
+			const { btnBorderRadius } = attributes;
+
+			attributes.btnBorderRadius = String( btnBorderRadius ).match(
+				/^\d+$/
+			)
+				? `${ btnBorderRadius }px`
+				: btnBorderRadius;
+
+			return [ { ...attributes } ];
+		},
+
 		save( { attributes, className } ) {
 			const {
 				lede,
