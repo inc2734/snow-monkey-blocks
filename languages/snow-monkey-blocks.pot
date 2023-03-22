@@ -2,14 +2,14 @@
 # This file is distributed under the GPL2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Snow Monkey Blocks 18.2.0\n"
+"Project-Id-Version: Snow Monkey Blocks 19.0.0-rc1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-blocks\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-03-20T06:31:42+00:00\n"
+"POT-Creation-Date: 2023-03-22T06:05:17+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: snow-monkey-blocks\n"
@@ -177,7 +177,6 @@ msgstr ""
 #: dist/blocks/panels/item/vertical/index.js:1
 #: dist/blocks/pickup-slider/index.js:1
 #: dist/blocks/pricing-table/index.js:1
-#: dist/blocks/pricing-table/item/index.js:1
 #: dist/blocks/rating-box/item/index.js:1
 #: dist/blocks/recent-posts/index.js:1
 #: dist/blocks/rss/index.js:1
@@ -1396,17 +1395,24 @@ msgstr ""
 
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/panels/item/horizontal/index.js:1
+#: dist/blocks/panels/item/vertical/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
 #: dist/blocks/section-with-bgimage/index.js:1
 msgid "Image settings"
 msgstr ""
 
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/panels/item/horizontal/index.js:1
+#: dist/blocks/panels/item/vertical/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
 msgid "Display image"
 msgstr ""
 
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
+#: dist/blocks/pricing-table/item/index.js:1
 msgid "Display button"
 msgstr ""
 
@@ -1576,6 +1582,16 @@ msgstr ""
 
 #: dist/blocks/panels/index.js:1
 msgid "Set padding around images"
+msgstr ""
+
+#: dist/blocks/panels/item/horizontal/index.js:1
+#: dist/blocks/panels/item/vertical/index.js:1
+msgid "Link settings"
+msgstr ""
+
+#: dist/blocks/panels/item/horizontal/index.js:1
+#: dist/blocks/panels/item/vertical/index.js:1
+msgid "Display link"
 msgstr ""
 
 #: dist/blocks/panels/item/horizontal/index.js:1
