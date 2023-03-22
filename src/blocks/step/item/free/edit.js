@@ -56,7 +56,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 
 	return (
 		<>
-			<InspectorControls>
+			<InspectorControls group="styles">
 				<PanelColorGradientSettings
 					title={ __( 'Color', 'snow-monkey-blocks' ) }
 					initialOpen={ false }

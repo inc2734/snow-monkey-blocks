@@ -282,7 +282,7 @@ export default function ( {
 				</ToolsPanel>
 			</InspectorControls>
 
-			<BlockControls gruop="block">
+			<BlockControls group="block">
 				<ToolbarGroup>
 					<ToolbarButton
 						icon={ pullLeft }

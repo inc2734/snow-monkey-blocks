@@ -517,7 +517,7 @@ export default function ( {
 				</ToolsPanel>
 			</InspectorControls>
 
-			<BlockControls gruop="block">
+			<BlockControls group="block">
 				{ ! isFill && (
 					<BlockVerticalAlignmentToolbar
 						onChange={ ( value ) =>

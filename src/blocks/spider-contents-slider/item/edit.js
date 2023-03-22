@@ -128,7 +128,7 @@ export default function ( {
 
 	return (
 		<>
-			<InspectorControls>
+			<InspectorControls group="styles">
 				<ToolsPanel label={ __( 'Border', 'snow-monkey-blocks' ) }>
 					<ToolsPanelItem
 						hasValue={ () =>

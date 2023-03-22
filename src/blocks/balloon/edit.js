@@ -325,7 +325,7 @@ export default function ( { attributes, setAttributes, className } ) {
 			</InspectorControls>
 
 			{ showAvatar && (
-				<BlockControls gruop="block">
+				<BlockControls group="block">
 					<ToolbarGroup>
 						<ToolbarButton
 							icon={ pullLeft }

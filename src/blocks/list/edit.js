@@ -84,7 +84,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 
 	return (
 		<>
-			<InspectorControls>
+			<InspectorControls group="styles">
 				<PanelColorGradientSettings
 					title={ __( 'Color', 'snow-monkey-blocks' ) }
 					initialOpen={ false }
@@ -101,7 +101,9 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					__experimentalHasMultipleOrigins={ true }
 					__experimentalIsRenderedInSidebar={ true }
 				></PanelColorGradientSettings>
+			</InspectorControls>
 
+			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>

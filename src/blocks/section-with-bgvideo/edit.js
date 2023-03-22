@@ -192,7 +192,7 @@ export default function ( {
 
 	return (
 		<>
-			<InspectorControls>
+			<InspectorControls group="styles">
 				<PanelColorGradientSettings
 					title={ __( 'Color', 'snow-monkey-blocks' ) }
 					initialOpen={ false }
@@ -209,7 +209,9 @@ export default function ( {
 					__experimentalHasMultipleOrigins={ true }
 					__experimentalIsRenderedInSidebar={ true }
 				></PanelColorGradientSettings>
+			</InspectorControls>
 
+			<InspectorControls>
 				<PanelBasicSettings
 					disableIsSlim={ !! contentsMaxWidth }
 					disableContentsMaxWidth={ isSlim }
@@ -526,7 +528,7 @@ export default function ( {
 				/>
 			</InspectorControls>
 
-			<BlockControls gruop="block">
+			<BlockControls group="block">
 				{ isItemsAlignmentable && (
 					<BlockVerticalAlignmentToolbar
 						onChange={ ( value ) =>

@@ -224,7 +224,7 @@ export default function ( {
 
 	return (
 		<>
-			<InspectorControls>
+			<InspectorControls group="styles">
 				<ToolsPanel label={ __( 'Dimensions', 'snow-monkey-blocks' ) }>
 					<ToolsPanelItem
 						hasValue={ () =>
@@ -253,7 +253,9 @@ export default function ( {
 						/>
 					</ToolsPanelItem>
 				</ToolsPanel>
+			</InspectorControls>
 
+			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>

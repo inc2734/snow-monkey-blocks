@@ -107,7 +107,7 @@ export default function ( {
 
 	return (
 		<>
-			<InspectorControls>
+			<InspectorControls group="styles">
 				<PanelColorGradientSettings
 					title={ __( 'Color', 'snow-monkey-blocks' ) }
 					initialOpen={ false }
@@ -146,6 +146,34 @@ export default function ( {
 					/>
 				</PanelColorGradientSettings>
 
+				<ToolsPanel label={ __( 'Border', 'snow-monkey-blocks' ) }>
+					<ToolsPanelItem
+						hasValue={ () =>
+							borderRadius !==
+							metadata.attributes.borderRadius.default
+						}
+						isShownByDefault
+						label={ __( 'Border radius', 'snow-monkey-blocks' ) }
+						onDeselect={ () =>
+							setAttributes( {
+								borderRadius:
+									metadata.attributes.borderRadius.default,
+							} )
+						}
+					>
+						<div className="smb-border-radius-control">
+							<BorderRadiusControl
+								values={ borderRadius }
+								onChange={ ( value ) => {
+									setAttributes( { borderRadius: value } );
+								} }
+							/>
+						</div>
+					</ToolsPanelItem>
+				</ToolsPanel>
+			</InspectorControls>
+
+			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
@@ -204,30 +232,6 @@ export default function ( {
 								},
 							] }
 						/>
-					</ToolsPanelItem>
-
-					<ToolsPanelItem
-						hasValue={ () =>
-							borderRadius !==
-							metadata.attributes.borderRadius.default
-						}
-						isShownByDefault
-						label={ __( 'Border radius', 'snow-monkey-blocks' ) }
-						onDeselect={ () =>
-							setAttributes( {
-								borderRadius:
-									metadata.attributes.borderRadius.default,
-							} )
-						}
-					>
-						<div className="smb-border-radius-control">
-							<BorderRadiusControl
-								values={ borderRadius }
-								onChange={ ( value ) => {
-									setAttributes( { borderRadius: value } );
-								} }
-							/>
-						</div>
 					</ToolsPanelItem>
 
 					<ToolsPanelItem
