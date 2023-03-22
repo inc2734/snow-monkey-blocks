@@ -111,13 +111,20 @@
 
 		ul {
 			@include _list-unstyled();
+			text-align: center;
+		}
+
+		> ul {
 			margin-top: var(--_margin-1);
 			border-top: 1px solid var(--smb-pricing-table--border-color);
-			text-align: center;
 
 			> li {
 				border-bottom: 1px solid var(--smb-pricing-table--border-color);
 				padding: var(--_padding-1) 0;
+
+				ul {
+					font-size: .9em;
+				}
 			}
 		}
 
