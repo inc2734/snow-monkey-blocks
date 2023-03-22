@@ -29,7 +29,16 @@ export default [
 		},
 
 		migrate( attributes ) {
-			const { list, btnBorderRadius } = attributes;
+			const { btnLabel, btnURL, imageURL, list, btnBorderRadius } =
+				attributes;
+
+			if ( ! RichText.isEmpty( btnLabel ) || !! btnURL ) {
+				attributes.displayBtn = true;
+			}
+
+			if ( !! imageURL ) {
+				attributes.displayImage = true;
+			}
 
 			attributes.btnBorderRadius = String( btnBorderRadius ).match(
 				/^\d+$/

@@ -26,6 +26,10 @@
 			"selector": ".smb-pricing-table__item__lede",
 			"default": ""
 		},
+		"displayImage": {
+			"type": "boolean",
+			"default": false
+		},
 		"imageID": {
 			"type": "number",
 			"default": 0
@@ -61,6 +65,10 @@
 		"imageSizeSlug": {
 			"type": "string",
 			"default": "full"
+		},
+		"displayBtn": {
+			"type": "boolean",
+			"default": false
 		},
 		"btnLabel": {
 			"type": "string",

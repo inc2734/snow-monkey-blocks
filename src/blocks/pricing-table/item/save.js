@@ -11,11 +11,13 @@ export default function ( { attributes, className } ) {
 		title,
 		price,
 		lede,
+		displayImage,
 		imageID,
 		imageURL,
 		imageAlt,
 		imageWidth,
 		imageHeight,
+		displayBtn,
 		btnLabel,
 		btnURL,
 		btnTarget,
@@ -46,7 +48,7 @@ export default function ( { attributes, className } ) {
 	return (
 		<div { ...useBlockProps.save( { className: classes } ) }>
 			<div className="smb-pricing-table__item">
-				{ !! imageURL && (
+				{ displayImage && (
 					<div className="smb-pricing-table__item__figure">
 						<img
 							src={ imageURL }
@@ -76,7 +78,7 @@ export default function ( { attributes, className } ) {
 
 				<ul { ...useInnerBlocksProps.save() } />
 
-				{ ! RichText.isEmpty( btnLabel ) && !! btnURL && (
+				{ displayBtn && (
 					<div className="smb-pricing-table__item__action">
 						<a
 							className={ btnClasses }
