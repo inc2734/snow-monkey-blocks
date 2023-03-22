@@ -265,7 +265,8 @@
 			position: relative;
 			display: block;
 			height: 100%;
-			width: 100%;
+			width: calc(100% + 1px);
+			max-width: none;
 			object-fit: cover;
 			object-position: 50% 50%;
 			opacity: var(--smb-items--banner--mask-opacity);
