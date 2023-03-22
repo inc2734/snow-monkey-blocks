@@ -116,6 +116,17 @@ export const divider = ( type, level, color ) => {
 		);
 	};
 
+	const renderTriangleLargeDivider = () => {
+		level = Math.abs( level );
+		return (
+			<path
+				d={ `m0,100 l100,0 l-50,${ -1 * level } z` }
+				strokeWidth="0"
+				fill={ color }
+			/>
+		);
+	};
+
 	const renderPath = () => {
 		switch ( type ) {
 			case 'tilt':
@@ -126,6 +137,8 @@ export const divider = ( type, level, color ) => {
 				return renderWaveDivider();
 			case 'triangle':
 				return renderTriangleDivider();
+			case 'triangle-large':
+				return renderTriangleLargeDivider();
 		}
 	};
 

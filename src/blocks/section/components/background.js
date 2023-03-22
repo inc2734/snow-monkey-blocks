@@ -71,6 +71,10 @@ const dividerTypeOptions = [
 		value: 'triangle',
 		label: __( 'Triangle', 'snow-monkey-blocks' ),
 	},
+	{
+		value: 'triangle-large',
+		label: __( 'Triangle (Large)', 'snow-monkey-blocks' ),
+	},
 ];
 
 export const PanelSectionMovableBackgroundSettings = ( {
