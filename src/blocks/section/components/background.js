@@ -576,6 +576,38 @@ export const PanelSectionTopDividerSettings = ( { settings } ) => {
 					);
 				}
 
+				if (
+					setting.hasOwnProperty( 'overlayValue' ) &&
+					setting.hasOwnProperty( 'onOverlayChange' ) &&
+					setting.hasOwnProperty( 'defaultValue' )
+				) {
+					return (
+						<ToolsPanelItem
+							key={ index }
+							hasValue={ () =>
+								setting.overlayValue !== setting.defaultValue
+							}
+							isShownByDefault
+							label={ __(
+								'Overlap divider on content',
+								'snow-monkey-blocks'
+							) }
+							onDeselect={ () =>
+								setting.onOverlayChange( setting.defaultValue )
+							}
+						>
+							<ToggleControl
+								label={ __(
+									'Overlap divider on content',
+									'snow-monkey-blocks'
+								) }
+								checked={ setting.overlayValue }
+								onChange={ setting.onOverlayChange }
+							/>
+						</ToolsPanelItem>
+					);
+				}
+
 				return <Fragment key={ index }></Fragment>;
 			} ) }
 		</ToolsPanel>
@@ -706,6 +738,38 @@ export const PanelSectionBottomDividerSettings = ( { settings } ) => {
 								onChange={ setting.onVerticalPositionChange }
 								min="-90"
 								max="90"
+							/>
+						</ToolsPanelItem>
+					);
+				}
+
+				if (
+					setting.hasOwnProperty( 'overlayValue' ) &&
+					setting.hasOwnProperty( 'onOverlayChange' ) &&
+					setting.hasOwnProperty( 'defaultValue' )
+				) {
+					return (
+						<ToolsPanelItem
+							key={ index }
+							hasValue={ () =>
+								setting.overlayValue !== setting.defaultValue
+							}
+							isShownByDefault
+							label={ __(
+								'Overlap divider on content',
+								'snow-monkey-blocks'
+							) }
+							onDeselect={ () =>
+								setting.onOverlayChange( setting.defaultValue )
+							}
+						>
+							<ToggleControl
+								label={ __(
+									'Overlap divider on content',
+									'snow-monkey-blocks'
+								) }
+								checked={ setting.overlayValue }
+								onChange={ setting.onOverlayChange }
 							/>
 						</ToolsPanelItem>
 					);
@@ -923,7 +987,9 @@ export const generateStylesForSectionBackground = ( {
 	fixedBackgroundTextureOpacity,
 	fixedBackgroundTextureUrl,
 	topDividerVerticalPosition,
+	topDividerLevel,
 	bottomDividerVerticalPosition,
+	bottomDividerLevel,
 	backgroundText,
 } ) => {
 	const hasBackgroundColor = !! backgroundColor || !! backgroundGradientColor;
@@ -1005,10 +1071,16 @@ export const generateStylesForSectionBackground = ( {
 	styles[ '--smb-section--dividers-top' ] = !! topDividerVerticalPosition
 		? `${ topDividerVerticalPosition }%`
 		: undefined;
+	styles[ '--smb-section--top-divider-level' ] = !! topDividerLevel
+		? `${ topDividerLevel }px`
+		: undefined;
 	styles[ '--smb-section--dividers-bottom' ] =
 		!! bottomDividerVerticalPosition
 			? `${ bottomDividerVerticalPosition }%`
 			: undefined;
+	styles[ '--smb-section--bottom-divider-level' ] = !! bottomDividerLevel
+		? `${ bottomDividerLevel }px`
+		: undefined;
 
 	if ( !! backgroundText?.text ) {
 		styles[ '--smb-section--background-text-color' ] =
@@ -1083,13 +1155,6 @@ export const SectionBackground = ( {
 		`smb-section__divider--${ bottomDividerType }`
 	);
 
-	const fixedBackgroundStyles = {
-		paddingTop: !! topDividerLevel ? Math.abs( topDividerLevel ) : 0,
-		paddingBottom: !! bottomDividerLevel
-			? Math.abs( bottomDividerLevel )
-			: 0,
-	};
-
 	return (
 		<>
 			{ ( hasFixedBackgroundColor ||
@@ -1101,7 +1166,7 @@ export const SectionBackground = ( {
 				hasBackgroundText ) && (
 				<div
 					className="smb-section__fixed-background"
-					style={ fixedBackgroundStyles }
+					// style={ fixedBackgroundStyles }
 				>
 					{ hasFixedBackgroundTexture && (
 						<div className="smb-section__fixed-background__texture" />

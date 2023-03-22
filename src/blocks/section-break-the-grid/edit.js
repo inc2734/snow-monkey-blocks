@@ -132,10 +132,12 @@ export default function ( {
 		topDividerLevel,
 		topDividerColor,
 		topDividerVerticalPosition,
+		topDividerOverlay,
 		bottomDividerType,
 		bottomDividerLevel,
 		bottomDividerColor,
 		bottomDividerVerticalPosition,
+		bottomDividerOverlay,
 		backgroundText,
 	} = attributes;
 
@@ -190,6 +192,9 @@ export default function ( {
 			[ `smb-section-break-the-grid--mobile-${ mobileOrder }` ]:
 				!! mobileOrder && isAvailableVerticalAlignment,
 			[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
+			[ `smb-section--top-divider-no-overlay` ]: ! topDividerOverlay,
+			[ `smb-section--bottom-divider-no-overlay` ]:
+				! bottomDividerOverlay,
 			[ className ]: !! className,
 			[ `smb-section-break-the-grid--match-height` ]:
 				imageMatchHeight && isAvailableVerticalAlignment,
@@ -283,7 +288,9 @@ export default function ( {
 			fixedBackgroundTextureOpacity,
 			fixedBackgroundTextureUrl,
 			topDividerVerticalPosition,
+			topDividerLevel,
 			bottomDividerVerticalPosition,
+			bottomDividerLevel,
 			backgroundText,
 		} ),
 	};
@@ -1454,6 +1461,15 @@ export default function ( {
 								metadata.attributes.topDividerVerticalPosition
 									.default,
 						},
+						{
+							overlayValue: topDividerOverlay,
+							onOverlayChange: ( value ) =>
+								setAttributes( {
+									topDividerOverlay: value,
+								} ),
+							defaultValue:
+								metadata.attributes.topDividerOverlay.default,
+						},
 					] }
 				/>
 
@@ -1499,6 +1515,16 @@ export default function ( {
 							defaultValue:
 								metadata.attributes
 									.bottomDividerVerticalPosition.default,
+						},
+						{
+							overlayValue: bottomDividerOverlay,
+							onOverlayChange: ( value ) =>
+								setAttributes( {
+									bottomDividerOverlay: value,
+								} ),
+							defaultValue:
+								metadata.attributes.bottomDividerOverlay
+									.default,
 						},
 					] }
 				/>

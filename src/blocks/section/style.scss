@@ -13,13 +13,15 @@
 	--smb-section--background-bottom: 0;
 	--smb-section--background-left: 0;
 	--smb-section--background-texture-image: initial;
-	--smb-section--background-texture-opacity: 1
+	--smb-section--background-texture-opacity: 1;
 	--smb-section--fixed-background-color: transparent;
 	--smb-section--fixed-background-image: initial;
 	--smb-section--fixed-background-texture-image: initial;
 	--smb-section--fixed-background-texture-opacity: 1;
 	--smb-section--dividers-top: 0%;
 	--smb-section--dividers-bottom: 0%;
+	--smb-section--top-divider-level: 0px;
+	--smb-section--bottom-divider-level: 0px;
 	--smb-section--background-text-color: inherit;
 	--smb-section--background-text-opacity: 0.2;
 	--smb-section--background-text-font-size: inherit;
@@ -75,6 +77,8 @@
 	&__fixed-background {
 		background-color: var(--smb-section--fixed-background-color);
 		background-image: var(--smb-section--fixed-background-image);
+		padding-top: var(--smb-section--top-divider-level);
+		padding-bottom: var(--smb-section--bottom-divider-level);
 	}
 
 	&__fixed-background__texture {
@@ -349,6 +353,18 @@
 
 	&--full {
 		min-height: 100vh;
+	}
+
+	&--top-divider-no-overlay {
+		> .smb-section__inner {
+			padding-top: var(--smb-section--top-divider-level);
+		}
+	}
+
+	&--bottom-divider-no-overlay {
+		> .smb-section__inner {
+			padding-bottom: var(--smb-section--bottom-divider-level);
+		}
 	}
 
 	// @deprecated

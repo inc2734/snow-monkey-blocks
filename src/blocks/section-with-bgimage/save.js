@@ -6,6 +6,7 @@ import {
 	generateStylesForSectionBackground,
 	SectionBackground,
 } from '../section/components/background';
+
 import { Save as Header } from '../section/components/header';
 
 export default function ( { attributes, className } ) {
@@ -61,10 +62,12 @@ export default function ( { attributes, className } ) {
 		topDividerLevel,
 		topDividerColor,
 		topDividerVerticalPosition,
+		topDividerOverlay,
 		bottomDividerType,
 		bottomDividerLevel,
 		bottomDividerColor,
 		bottomDividerVerticalPosition,
+		bottomDividerOverlay,
 		backgroundText,
 	} = attributes;
 
@@ -81,6 +84,9 @@ export default function ( { attributes, className } ) {
 			[ `smb-section--${ height }` ]: !! height,
 			[ `is-items-alignment-${ itemsAlignment }` ]:
 				!! itemsAlignment && isItemsAlignmentable,
+			[ `smb-section--top-divider-no-overlay` ]: ! topDividerOverlay,
+			[ `smb-section--bottom-divider-no-overlay` ]:
+				! bottomDividerOverlay,
 			'js-bg-parallax': !! parallax,
 		}
 	);
@@ -179,7 +185,9 @@ export default function ( { attributes, className } ) {
 			smImageRepeat && !! smImageURL ? `url(${ smImageURL })` : undefined,
 		...generateStylesForSectionBackground( {
 			topDividerVerticalPosition,
+			topDividerLevel,
 			bottomDividerVerticalPosition,
+			bottomDividerLevel,
 			backgroundText,
 		} ),
 	};

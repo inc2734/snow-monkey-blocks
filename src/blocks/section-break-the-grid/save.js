@@ -69,10 +69,12 @@ export default function ( { attributes, className } ) {
 		topDividerLevel,
 		topDividerColor,
 		topDividerVerticalPosition,
+		topDividerOverlay,
 		bottomDividerType,
 		bottomDividerLevel,
 		bottomDividerColor,
 		bottomDividerVerticalPosition,
+		bottomDividerOverlay,
 		backgroundText,
 	} = attributes;
 
@@ -98,6 +100,9 @@ export default function ( { attributes, className } ) {
 			[ `smb-section-break-the-grid--mobile-${ mobileOrder }` ]:
 				!! mobileOrder && isAvailableVerticalAlignment,
 			[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
+			[ `smb-section--top-divider-no-overlay` ]: ! topDividerOverlay,
+			[ `smb-section--bottom-divider-no-overlay` ]:
+				! bottomDividerOverlay,
 			[ className ]: !! className,
 			[ `smb-section-break-the-grid--match-height` ]:
 				imageMatchHeight && isAvailableVerticalAlignment,
@@ -191,7 +196,9 @@ export default function ( { attributes, className } ) {
 			fixedBackgroundTextureOpacity,
 			fixedBackgroundTextureUrl,
 			topDividerVerticalPosition,
+			topDividerLevel,
 			bottomDividerVerticalPosition,
+			bottomDividerLevel,
 			backgroundText,
 		} ),
 	};

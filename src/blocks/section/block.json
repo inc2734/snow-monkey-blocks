@@ -130,6 +130,10 @@
 			"type": "number",
 			"default": 0
 		},
+		"topDividerOverlay": {
+			"type": "boolean",
+			"default": true
+		},
 		"bottomDividerType": {
 			"type": "string",
 			"default": "tilt"
@@ -145,6 +149,10 @@
 		"bottomDividerVerticalPosition": {
 			"type": "number",
 			"default": 0
+		},
+		"bottomDividerOverlay": {
+			"type": "boolean",
+			"default": true
 		},
 		"backgroundText": {
 			"type": "object",

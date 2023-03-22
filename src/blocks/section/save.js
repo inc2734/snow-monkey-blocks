@@ -46,10 +46,12 @@ export default function ( { attributes, className } ) {
 		topDividerLevel,
 		topDividerColor,
 		topDividerVerticalPosition,
+		topDividerOverlay,
 		bottomDividerType,
 		bottomDividerLevel,
 		bottomDividerColor,
 		bottomDividerVerticalPosition,
+		bottomDividerOverlay,
 		backgroundText,
 	} = attributes;
 
@@ -60,6 +62,8 @@ export default function ( { attributes, className } ) {
 	const classes = classnames( 'smb-section', className, {
 		[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
 		[ `smb-section--${ height }` ]: !! height,
+		[ `smb-section--top-divider-no-overlay` ]: ! topDividerOverlay,
+		[ `smb-section--bottom-divider-no-overlay` ]: ! bottomDividerOverlay,
 		[ `is-items-alignment-${ itemsAlignment }` ]:
 			!! itemsAlignment && isItemsAlignmentable,
 	} );
@@ -125,7 +129,9 @@ export default function ( { attributes, className } ) {
 			fixedBackgroundTextureOpacity,
 			fixedBackgroundTextureUrl,
 			topDividerVerticalPosition,
+			topDividerLevel,
 			bottomDividerVerticalPosition,
+			bottomDividerLevel,
 			backgroundText,
 		} ),
 	};

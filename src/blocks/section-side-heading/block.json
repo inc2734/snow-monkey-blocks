@@ -127,6 +127,10 @@
 			"type": "number",
 			"default": 0
 		},
+		"topDividerOverlay": {
+			"type": "boolean",
+			"default": true
+		},
 		"bottomDividerType": {
 			"type": "string",
 			"default": "tilt"
@@ -138,6 +142,10 @@
 		"bottomDividerColor": {
 			"type": "string",
 			"default": "#fff"
+		},
+		"bottomDividerOverlay": {
+			"type": "boolean",
+			"default": true
 		},
 		"bottomDividerVerticalPosition": {
 			"type": "number",

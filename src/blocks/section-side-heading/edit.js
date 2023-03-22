@@ -85,10 +85,12 @@ export default function ( {
 		topDividerLevel,
 		topDividerColor,
 		topDividerVerticalPosition,
+		topDividerOverlay,
 		bottomDividerType,
 		bottomDividerLevel,
 		bottomDividerColor,
 		bottomDividerVerticalPosition,
+		bottomDividerOverlay,
 	} = attributes;
 
 	const hasInnerBlocks = useSelect(
@@ -113,6 +115,9 @@ export default function ( {
 			[ `smb-section--${ height }` ]: !! height,
 			[ `is-items-alignment-${ itemsAlignment }` ]:
 				!! itemsAlignment && isItemsAlignmentable,
+			[ `smb-section--top-divider-no-overlay` ]: ! topDividerOverlay,
+			[ `smb-section--bottom-divider-no-overlay` ]:
+				! bottomDividerOverlay,
 		}
 	);
 
@@ -173,7 +178,9 @@ export default function ( {
 			fixedBackgroundTextureOpacity,
 			fixedBackgroundTextureUrl,
 			topDividerVerticalPosition,
+			topDividerLevel,
 			bottomDividerVerticalPosition,
+			bottomDividerLevel,
 		} ),
 	};
 
@@ -509,6 +516,15 @@ export default function ( {
 								metadata.attributes.topDividerVerticalPosition
 									.default,
 						},
+						{
+							overlayValue: topDividerOverlay,
+							onOverlayChange: ( value ) =>
+								setAttributes( {
+									topDividerOverlay: value,
+								} ),
+							defaultValue:
+								metadata.attributes.topDividerOverlay.default,
+						},
 					] }
 				/>
 
@@ -554,6 +570,16 @@ export default function ( {
 							defaultValue:
 								metadata.attributes
 									.bottomDividerVerticalPosition.default,
+						},
+						{
+							overlayValue: bottomDividerOverlay,
+							onOverlayChange: ( value ) =>
+								setAttributes( {
+									bottomDividerOverlay: value,
+								} ),
+							defaultValue:
+								metadata.attributes.bottomDividerOverlay
+									.default,
 						},
 					] }
 				/>
