@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-03-22T13:00:34+00:00\n"
+"POT-Creation-Date: 2023-03-22T16:22:04+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: snow-monkey-blocks\n"
@@ -241,6 +241,7 @@ msgstr ""
 #: dist/blocks/alert/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
 #: dist/blocks/section/index.js:1
 msgid "Type"
 msgstr ""
@@ -368,6 +369,7 @@ msgstr ""
 
 #: dist/blocks/balloon/index.js:1
 #: dist/blocks/box/index.js:1
+#: dist/blocks/btn/index.js:1
 #: dist/blocks/information/index.js:1
 #: dist/blocks/items/index.js:1
 #: dist/blocks/media-text/index.js:1
@@ -1962,24 +1964,35 @@ msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
 #: dist/blocks/section/index.js:1
 msgid "Top divider"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
 #: dist/blocks/section/index.js:1
 msgid "Level"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
 #: dist/blocks/section/index.js:1
 msgid "Position (Top / Bottom)"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section/index.js:1
+msgid "Overlap divider on content"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
 #: dist/blocks/section/index.js:1
 msgid "Bottom divider"
 msgstr ""
