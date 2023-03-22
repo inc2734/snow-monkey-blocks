@@ -21,9 +21,9 @@ export default [
 		},
 
 		migrate( attributes ) {
-			const { btnLabel, url, imageURL, btnBorderRadius } = attributes;
+			const { btnLabel, imageURL, btnBorderRadius } = attributes;
 
-			if ( ! RichText.isEmpty( btnLabel ) || !! url ) {
+			if ( ! RichText.isEmpty( btnLabel ) ) {
 				attributes.displayBtn = true;
 			}
 
