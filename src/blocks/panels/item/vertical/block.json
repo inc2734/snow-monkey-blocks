@@ -24,6 +24,10 @@
 			"selector": ".smb-panels__item__content",
 			"default": ""
 		},
+		"displayLink": {
+			"type": "boolean",
+			"default": false
+		},
 		"linkLabel": {
 			"type": "string",
 			"source": "text",
@@ -43,6 +47,10 @@
 			"selector": ".smb-panels__item__action > a",
 			"attribute": "target",
 			"default": "_self"
+		},
+		"displayImage": {
+			"type": "boolean",
+			"default": false
 		},
 		"imageID": {
 			"type": "number",

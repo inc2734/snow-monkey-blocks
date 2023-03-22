@@ -16,6 +16,7 @@ import {
 	Popover,
 	ToolbarButton,
 	ToolbarGroup,
+	ToggleControl,
 	__experimentalToolsPanel as ToolsPanel,
 	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
@@ -51,9 +52,11 @@ export default function ( {
 		titleTagName,
 		title,
 		summary,
+		displayLink,
 		linkLabel,
 		linkURL,
 		linkTarget,
+		displayImage,
 		imagePosition,
 		imageID,
 		imageURL,
@@ -176,8 +179,40 @@ export default function ( {
 							</div>
 						</BaseControl>
 					</ToolsPanelItem>
+				</ToolsPanel>
 
-					{ 0 < imageSizeOptions.length && (
+				<ToolsPanel
+					label={ __( 'Image settings', 'snow-monkey-blocks' ) }
+				>
+					<ToolsPanelItem
+						hasValue={ () =>
+							displayImage !==
+							metadata.attributes.displayImage.default
+						}
+						isShownByDefault
+						label={ __( 'Display image', 'snow-monkey-blocks' ) }
+						onDeselect={ () =>
+							setAttributes( {
+								displayImage:
+									metadata.attributes.displayImage.default,
+							} )
+						}
+					>
+						<ToggleControl
+							label={ __(
+								'Display image',
+								'snow-monkey-blocks'
+							) }
+							checked={ displayImage }
+							onChange={ ( value ) =>
+								setAttributes( {
+									displayImage: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
+
+					{ displayImage && 0 < imageSizeOptions.length && (
 						<ToolsPanelItem
 							hasValue={ () =>
 								imageSizeSlug !==
@@ -222,6 +257,35 @@ export default function ( {
 						</ToolsPanelItem>
 					) }
 				</ToolsPanel>
+
+				<ToolsPanel
+					label={ __( 'Link settings', 'snow-monkey-blocks' ) }
+				>
+					<ToolsPanelItem
+						hasValue={ () =>
+							displayLink !==
+							metadata.attributes.displayLink.default
+						}
+						isShownByDefault
+						label={ __( 'Display link', 'snow-monkey-blocks' ) }
+						onDeselect={ () =>
+							setAttributes( {
+								displayLink:
+									metadata.attributes.displayLink.default,
+							} )
+						}
+					>
+						<ToggleControl
+							label={ __( 'Display link', 'snow-monkey-blocks' ) }
+							checked={ displayLink }
+							onChange={ ( value ) =>
+								setAttributes( {
+									displayLink: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 
 			<BlockControls gruop="block">
@@ -251,7 +315,7 @@ export default function ( {
 
 			<div { ...blockProps }>
 				<div className={ itemClasses }>
-					{ ( !! imageURL || isSelected ) && (
+					{ displayImage && (
 						<div className="smb-panels__item__figure">
 							<Figure
 								src={ imageURL }
@@ -350,9 +414,7 @@ export default function ( {
 							/>
 						) }
 
-						{ ( ! RichText.isEmpty( linkLabel ) ||
-							!! linkURL ||
-							isSelected ) && (
+						{ displayLink && (
 							<div className={ actionClasses }>
 								{ ( ! RichText.isEmpty( linkLabel ) ||
 									isSelected ) && (

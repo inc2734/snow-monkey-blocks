@@ -45,7 +45,7 @@ export default function ( { attributes, className } ) {
 	return (
 		<div { ...useBlockProps.save( { className: classes } ) }>
 			<div className="smb-items__item">
-				{ displayImage && !! imageURL && (
+				{ displayImage && (
 					<div className="smb-items__item__figure">
 						<img
 							src={ imageURL }

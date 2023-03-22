@@ -50,7 +50,7 @@ export default function ( { attributes, className } ) {
 				target={ '_self' === target ? undefined : target }
 				rel={ '_self' === target ? undefined : 'noopener noreferrer' }
 			>
-				{ displayImage && !! imageURL && (
+				{ displayImage && (
 					<div className="smb-items__item__figure">
 						<img
 							src={ imageURL }

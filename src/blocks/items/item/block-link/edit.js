@@ -313,7 +313,7 @@ export default function ( {
 								}
 								isShownByDefault
 								label={ __(
-									'Title tag',
+									'Button size',
 									'snow-monkey-blocks'
 								) }
 								onDeselect={ () =>

@@ -7,9 +7,11 @@ export default function ( { attributes, className } ) {
 		titleTagName,
 		title,
 		summary,
+		displayLink,
 		linkLabel,
 		linkURL,
 		linkTarget,
+		displayImage,
 		imagePosition,
 		imageID,
 		imageURL,
@@ -41,7 +43,7 @@ export default function ( { attributes, className } ) {
 	return (
 		<div { ...useBlockProps.save( { className: classes } ) }>
 			<div className={ itemClasses }>
-				{ !! imageURL && (
+				{ displayImage && (
 					<div className="smb-panels__item__figure">
 						<img
 							src={ imageURL }
@@ -69,7 +71,7 @@ export default function ( { attributes, className } ) {
 						</div>
 					) }
 
-					{ ( ! RichText.isEmpty( linkLabel ) || !! linkURL ) && (
+					{ displayLink && (
 						<div className={ actionClasses }>
 							{ !! linkURL ? (
 								<a
