@@ -2,9 +2,9 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue, kutsu
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 18.2.0
-Requires at least: 6.1
-Tested up to: 6.1
+Stable tag: 19.0.0-rc1
+Requires at least: 6.2
+Tested up to: 6.2
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -108,6 +108,32 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 24. Tabs block (The number of tab can be increased or decreased freely)
 
 == Changelog ==
+
+= 19.0.0 =
+* Fixed a bug that could cause design corruption in iframe preview.
+* Change `anchorRef` to `anchor`.
+* Change `__experimentalGetSettings` to `getSettiings`.
+* Fixed a bug in WordPress 6.2 that caused `DateTimePicker` layout to break.
+* Fixed a bug in WordPress 6.2 that caused placeholder of RSS block layout to break.
+* Change `is{Variant}` to `variant="{variant}"`.
+* Change `ImageSizeSelectControl` to `ImageSizeControl`.
+* Change `CheckboxControl` to `ToggleControl`.
+* Changed to use `ToolsPanel`.
+* Changed to allow transform between each section block.
+* Changed to use BorderBoxControl for border settings.
+* [Alert] Change to use InnerBlocks for contents.
+* [Icon list] Change to use InnerBlocks for contents.
+* [Pricing table (Plan)] Change to use InnerBlocks for contents.
+* [Balloon] Change to use InnerBlocks for contents.
+* [Information (Row)] Fixed a bug that caused the label entry field to drop one line.
+* [Balloon] Add border settings and avatar visibility setting.
+* [Media text] Add fill setting, color settings, column split timing setting and block style "Border".
+* [Pricing table] Fixed a bug that prevented the column size setting from working.
+* [Item (Standard)] Add "Display button" setting.
+* [Item (Block link)] Add "Display button" setting.
+* [Item (Standard)] Add "Display image" setting.
+* [Item (Block link)] Add "Display image" setting.
+* [Contents outline] Fixed a bug that titles were not displayed when titles were not set.
 
 = 18.2.0 =
 * Snow Monkey v19.2.0 or higher is required to use with the Snow Monkey theme.
