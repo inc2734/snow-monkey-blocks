@@ -37,6 +37,8 @@ import { Edit as Header } from '../section/components/header';
 
 import {
 	PanelSectionBackgroundTextSettings,
+	PanelSectionTopDividerSettings,
+	PanelSectionBottomDividerSettings,
 	generateStylesForSectionBackground,
 	SectionBackground,
 } from '../section/components/background';
@@ -114,6 +116,14 @@ export default function ( {
 		contentsMaxWidth,
 		isSlim,
 
+		topDividerType,
+		topDividerLevel,
+		topDividerColor,
+		topDividerVerticalPosition,
+		bottomDividerType,
+		bottomDividerLevel,
+		bottomDividerColor,
+		bottomDividerVerticalPosition,
 		backgroundText,
 	} = attributes;
 
@@ -1133,6 +1143,99 @@ export default function ( {
 						},
 					] }
 				/>
+
+				<PanelSectionTopDividerSettings
+					settings={ [
+						{
+							typeValue: topDividerType,
+							onTypeChange: ( value ) =>
+								setAttributes( {
+									topDividerType: value,
+								} ),
+							defaultValue:
+								metadata.attributes.topDividerType.default,
+						},
+						{
+							levelValue: topDividerLevel,
+							onLevelChange: ( value ) =>
+								setAttributes( {
+									topDividerLevel: toNumber(
+										value,
+										-100,
+										100
+									),
+								} ),
+							defaultValue:
+								metadata.attributes.topDividerLevel.default,
+						},
+						{
+							colorValue: topDividerColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									topDividerColor: value,
+								} ),
+							defaultColorValue:
+								metadata.attributes.topDividerColor.default,
+						},
+						{
+							verticalPositionValue: topDividerVerticalPosition,
+							onVerticalPositionChange: ( value ) =>
+								setAttributes( {
+									topDividerVerticalPosition: value,
+								} ),
+							defaultValue:
+								metadata.attributes.topDividerVerticalPosition
+									.default,
+						},
+					] }
+				/>
+
+				<PanelSectionBottomDividerSettings
+					settings={ [
+						{
+							typeValue: bottomDividerType,
+							onTypeChange: ( value ) =>
+								setAttributes( {
+									bottomDividerType: value,
+								} ),
+							defaultValue:
+								metadata.attributes.bottomDividerType.default,
+						},
+						{
+							levelValue: bottomDividerLevel,
+							onLevelChange: ( value ) =>
+								setAttributes( {
+									bottomDividerLevel: toNumber(
+										value,
+										-100,
+										100
+									),
+								} ),
+							defaultValue:
+								metadata.attributes.bottomDividerLevel.default,
+						},
+						{
+							colorValue: bottomDividerColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									bottomDividerColor: value,
+								} ),
+							defaultColorValue:
+								metadata.attributes.bottomDividerColor.default,
+						},
+						{
+							verticalPositionValue:
+								bottomDividerVerticalPosition,
+							onVerticalPositionChange: ( value ) =>
+								setAttributes( {
+									bottomDividerVerticalPosition: value,
+								} ),
+							defaultValue:
+								metadata.attributes
+									.bottomDividerVerticalPosition.default,
+						},
+					] }
+				/>
 			</InspectorControls>
 
 			<BlockControls gruop="block">
@@ -1308,6 +1411,12 @@ export default function ( {
 
 				<SectionBackground
 					{ ...{
+						topDividerType,
+						topDividerLevel,
+						topDividerColor,
+						bottomDividerType,
+						bottomDividerLevel,
+						bottomDividerColor,
 						backgroundText,
 						containerClasses,
 					} }

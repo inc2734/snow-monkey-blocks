@@ -57,6 +57,14 @@ export default function ( { attributes, className } ) {
 		contentsMaxWidth,
 		isSlim,
 
+		topDividerType,
+		topDividerLevel,
+		topDividerColor,
+		topDividerVerticalPosition,
+		bottomDividerType,
+		bottomDividerLevel,
+		bottomDividerColor,
+		bottomDividerVerticalPosition,
 		backgroundText,
 	} = attributes;
 
@@ -170,6 +178,8 @@ export default function ( { attributes, className } ) {
 		'--smb-section-with-bgimage--sm-repeatable-image':
 			smImageRepeat && !! smImageURL ? `url(${ smImageURL })` : undefined,
 		...generateStylesForSectionBackground( {
+			topDividerVerticalPosition,
+			bottomDividerVerticalPosition,
 			backgroundText,
 		} ),
 	};
@@ -321,6 +331,12 @@ export default function ( { attributes, className } ) {
 
 			<SectionBackground
 				{ ...{
+					topDividerType,
+					topDividerLevel,
+					topDividerColor,
+					bottomDividerType,
+					bottomDividerLevel,
+					bottomDividerColor,
 					backgroundText,
 					containerClasses,
 				} }
