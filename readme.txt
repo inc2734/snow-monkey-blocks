@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue, kutsu
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 19.0.0-rc1
+Stable tag: 19.0.0-rc2
 Requires at least: 6.2
 Tested up to: 6.2
 Requires PHP: 5.6
@@ -110,30 +110,44 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 == Changelog ==
 
 = 19.0.0 =
-* Fixed a bug that could cause design corruption in iframe preview.
-* Change `anchorRef` to `anchor`.
-* Change `__experimentalGetSettings` to `getSettiings`.
-* Fixed a bug in WordPress 6.2 that caused `DateTimePicker` layout to break.
-* Fixed a bug in WordPress 6.2 that caused placeholder of RSS block layout to break.
-* Change `is{Variant}` to `variant="{variant}"`.
-* Change `ImageSizeSelectControl` to `ImageSizeControl`.
+* Added "Overlap divider on content" setting.
+* Added "Triangle (large)" to section divider.
 * Change `CheckboxControl` to `ToggleControl`.
-* Changed to use `ToolsPanel`.
+* Change `ImageSizeSelectControl` to `ImageSizeControl`.
+* Change `__experimentalGetSettings` to `getSettiings`.
+* Change `anchorRef` to `anchor`.
+* Change `is{Variant}` to `variant="{variant}"`.
+* Changed the link setting popover to open with a button click instead of automatically displaying when it has been set.
 * Changed to allow transform between each section block.
 * Changed to use BorderBoxControl for border settings.
+* Changed to use `ToolsPanel`.
+* Changed to use inspector style tabs on some blocks.
+* Fixed a bug in WordPress 6.2 that caused `DateTimePicker` layout to break.
+* Fixed a bug in WordPress 6.2 that caused placeholder of RSS block layout to break.
+* Fixed a bug that could cause design corruption in iframe preview.
 * [Alert] Change to use InnerBlocks for contents.
-* [Icon list] Change to use InnerBlocks for contents.
-* [Pricing table (Plan)] Change to use InnerBlocks for contents.
-* [Balloon] Change to use InnerBlocks for contents.
-* [Information (Row)] Fixed a bug that caused the label entry field to drop one line.
 * [Balloon] Add border settings and avatar visibility setting.
-* [Media text] Add fill setting, color settings, column split timing setting and block style "Border".
-* [Pricing table] Fixed a bug that prevented the column size setting from working.
-* [Item (Standard)] Add "Display button" setting.
-* [Item (Block link)] Add "Display button" setting.
-* [Item (Standard)] Add "Display image" setting.
-* [Item (Block link)] Add "Display image" setting.
+* [Balloon] Change to use InnerBlocks for contents.
 * [Contents outline] Fixed a bug that titles were not displayed when titles were not set.
+* [Icon list] Change to use InnerBlocks for contents.
+* [Information (Row)] Fixed a bug that caused the label entry field to drop one line.
+* [Item (Block link)] Add "Display button" setting.
+* [Item (Block link)] Add "Display image" setting.
+* [Item (Standard)] Add "Display button" setting.
+* [Item (Standard)] Add "Display image" setting.
+* [Items (Banner)]GFixed a bug that sometimes left gaps between each banner when "lue each item together" was enabled.
+* [Media text] Add fill setting, color settings, column split timing setting and block style "Border".
+* [Media text] Fixed a bug that the size specified in "Image column size" was not accurate.
+* [Panels (Horizontal layout)] Add "Display button" setting.
+* [Panels (Horizontal layout)] Add "Display image" setting.
+* [Panels (Vertical layout)] Add "Display button" setting.
+* [Panels (Vertical layout)] Add "Display image" setting.
+* [Pricing table (Plan)] Add "Display button" setting.
+* [Pricing table (Plan)] Add "Display image" setting.
+* [Pricing table (Plan)] Adjusted the design of nested listings.
+* [Pricing table (Plan)] Change to use InnerBlocks for contents.
+* [Pricing table] Fixed a bug that prevented the column size setting from working.
+* [Section (background image/video)] Add divider settings.
 
 = 18.2.0 =
 * Snow Monkey v19.2.0 or higher is required to use with the Snow Monkey theme.
