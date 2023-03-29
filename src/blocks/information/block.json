@@ -30,6 +30,9 @@
 		"labelColumnBackgroundColor": {
 			"type": "string"
 		},
+		"labelColumnTextColor": {
+			"type": "string"
+		},
 		"contentColumnBackgroundColor": {
 			"type": "string"
 		},
@@ -37,9 +40,6 @@
 			"type": "string"
 		},
 		"borderWidth": {
-			"type": "string"
-		},
-		"labelColumnTextColor": {
 			"type": "string"
 		}
 	},

@@ -9,10 +9,10 @@ export default function ( { attributes, className } ) {
 		smIsSplitColumn,
 		columnPadding,
 		labelColumnBackgroundColor,
+		labelColumnTextColor,
 		contentColumnBackgroundColor,
 		borderColor,
 		borderWidth,
-		labelColumnTextColor,
 	} = attributes;
 
 	const classes = classnames( 'smb-information', className, {
@@ -25,12 +25,12 @@ export default function ( { attributes, className } ) {
 			: undefined,
 		'--smb-information--label-column-background-color':
 			labelColumnBackgroundColor || undefined,
+		'--smb-information--label-column-text-color':
+			labelColumnTextColor || undefined,
 		'--smb-information--content-column-background-color':
 			contentColumnBackgroundColor || undefined,
 		'--smb-information--border-color': borderColor || undefined,
 		'--smb-information--border-width': borderWidth || undefined,
-		'--smb-information--label-column-text-color':
-			labelColumnTextColor || undefined,
 	};
 
 	return (

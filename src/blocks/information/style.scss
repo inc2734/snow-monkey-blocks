@@ -10,13 +10,13 @@
 	--smb-information--gap: var(--_margin1);
 	--smb-information--style--border--border-color: var(--_lighter-color-gray);
 	--smb-information--label-column-background-color: transparent;
+	--smb-information--label-column-text-color: var(--_color-text);
 	--smb-information--content-column-background-color: transparent;
 	--smb-information--column-padding: 0px;
 	--smb-information--label-align: left;
 	--smb-information--label-vertical-align: start;
 	--smb-information--border-color: transparent;
 	--smb-information--border-width: 0px;
-	--smb-information--label-column-text-color: var(--_color-text);
 
 	&__body {
 		> * + * {
