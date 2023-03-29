@@ -16,12 +16,15 @@ export default [
 	{
 		attributes: {
 			...blockAttributes,
+			borderWidth: {
+				type: 'number',
+			},
 			borderRadius: {
 				type: 'number',
 			},
 		},
 
-		blockSupports: {
+		supports: {
 			...blockSupports,
 		},
 
@@ -86,9 +89,12 @@ export default [
 			borderRadius: {
 				type: 'number',
 			},
+			borderWidth: {
+				type: 'number',
+			},
 		},
 
-		blockSupports: {
+		supports: {
 			...blockSupports,
 		},
 
@@ -159,6 +165,9 @@ export default [
 			borderRadius: {
 				type: 'number',
 			},
+			borderWidth: {
+				type: 'number',
+			},
 		},
 
 		save( { attributes, className } ) {
@@ -187,6 +196,9 @@ export default [
 		attributes: {
 			...blockAttributes,
 			borderRadius: {
+				type: 'number',
+			},
+			borderWidth: {
 				type: 'number',
 			},
 		},

@@ -15,6 +15,7 @@ export default function ( { attributes, className } ) {
 		contentPadding,
 		boxShadow,
 	} = attributes;
+
 	const styles = {
 		'--smb-box--color': textColor || undefined,
 		'--smb-box--border-radius': String( borderRadius ).match( /^\d+$/ )
