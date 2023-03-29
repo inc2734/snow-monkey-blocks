@@ -61,6 +61,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		contentColumnBackgroundColor,
 		borderColor,
 		borderWidth,
+		labelColumnTextColor,
 	} = attributes;
 
 	const classes = classnames( 'smb-information', className, {
@@ -77,6 +78,8 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 			contentColumnBackgroundColor || undefined,
 		'--smb-information--border-color': borderColor || undefined,
 		'--smb-information--border-width': borderWidth || undefined,
+		'--smb-information--label-column-text-color':
+			labelColumnTextColor || undefined,
 	};
 
 	const blockProps = useBlockProps( {
@@ -112,6 +115,17 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 								} ),
 							label: __(
 								'Label column background color',
+								'snow-monkey-blocks'
+							),
+						},
+						{
+							colorValue: labelColumnTextColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									labelColumnTextColor: value,
+								} ),
+							label: __(
+								'Label column text color',
 								'snow-monkey-blocks'
 							),
 						},

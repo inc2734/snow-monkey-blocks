@@ -38,6 +38,9 @@
 		},
 		"borderWidth": {
 			"type": "string"
+		},
+		"labelColumnTextColor": {
+			"type": "string"
 		}
 	},
 	"providesContext": {

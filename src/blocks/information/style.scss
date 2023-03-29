@@ -16,6 +16,7 @@
 	--smb-information--label-vertical-align: start;
 	--smb-information--border-color: transparent;
 	--smb-information--border-width: 0px;
+	--smb-information--label-column-text-color: var(--_color-text);
 
 	&__body {
 		> * + * {
@@ -53,6 +54,7 @@
 		text-align: var(--smb-information--label-align);
 		background-color: var(--smb-information--label-column-background-color);
 		border-left: var(--smb-information--border-width) solid var(--smb-information--border-color);
+		color: var(--smb-information--label-column-text-color);
 	}
 
 	.smb-information__item__body {

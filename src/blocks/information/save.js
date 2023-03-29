@@ -12,6 +12,7 @@ export default function ( { attributes, className } ) {
 		contentColumnBackgroundColor,
 		borderColor,
 		borderWidth,
+		labelColumnTextColor,
 	} = attributes;
 
 	const classes = classnames( 'smb-information', className, {
@@ -28,6 +29,8 @@ export default function ( { attributes, className } ) {
 			contentColumnBackgroundColor || undefined,
 		'--smb-information--border-color': borderColor || undefined,
 		'--smb-information--border-width': borderWidth || undefined,
+		'--smb-information--label-column-text-color':
+			labelColumnTextColor || undefined,
 	};
 
 	return (
