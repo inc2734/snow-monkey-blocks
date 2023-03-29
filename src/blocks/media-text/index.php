@@ -34,6 +34,10 @@ add_filter(
 add_filter(
 	'render_block_snow-monkey-blocks/media-text',
 	function( $block_content ) {
+		if ( ! class_exists( '\WP_HTML_Tag_Processor' ) ) {
+			return $block_content;
+		}
+
 		$p = new \WP_HTML_Tag_Processor( $block_content );
 
 		if ( $p->next_tag() ) {
