@@ -265,12 +265,16 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							value={ labelColumnSize }
 							options={ [
 								{
+									value: 25,
+									label: __( '25%', 'snow-monkey-blocks' ),
+								},
+								{
 									value: 33,
 									label: __( '33%', 'snow-monkey-blocks' ),
 								},
 								{
-									value: 25,
-									label: __( '25%', 'snow-monkey-blocks' ),
+									value: 50,
+									label: __( '50%', 'snow-monkey-blocks' ),
 								},
 							] }
 							onChange={ ( value ) =>
