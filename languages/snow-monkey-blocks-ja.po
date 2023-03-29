@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-"
 "blocks\n"
-"POT-Creation-Date: 2023-03-22T16:21:13+00:00\n"
-"PO-Revision-Date: 2023-03-23 01:21+0900\n"
+"POT-Creation-Date: 2023-03-29T14:12:05+00:00\n"
+"PO-Revision-Date: 2023-03-29 23:13+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -368,7 +368,7 @@ msgstr "背景色"
 #: dist/blocks/section-with-bgimage/index.js:1
 #: dist/blocks/section-with-bgvideo/index.js:1 dist/blocks/section/index.js:1
 msgid "Text color"
-msgstr "テキストカラー"
+msgstr "文字色"
 
 #: dist/blocks/balloon/index.js:1
 msgid "Avatar settings"
@@ -1029,6 +1029,10 @@ msgstr "質問を書く…"
 #: dist/blocks/information/index.js:1
 msgid "Label column background color"
 msgstr "ラベルカラムの背景色"
+
+#: dist/blocks/information/index.js:1
+msgid "Label column text color"
+msgstr "ラベルカラムの文字色"
 
 #: dist/blocks/information/index.js:1
 msgid "Content column background color"
