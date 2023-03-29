@@ -311,17 +311,15 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							options={ [
 								{
 									value: '',
-									label: __(
-										'Left side',
-										'snow-monkey-blocks'
-									),
+									label: __( 'Left', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'center',
+									label: __( 'Center', 'snow-monkey-blocks' ),
 								},
 								{
 									value: 'right',
-									label: __(
-										'Right side',
-										'snow-monkey-blocks'
-									),
+									label: __( 'Right', 'snow-monkey-blocks' ),
 								},
 							] }
 							onChange={ ( value ) =>

@@ -106,6 +106,16 @@
 	}
 }
 
+.smb-information:not([data-sm-split-column="true"])[data-label-align="center"] {
+	@include _media-min(md) {
+		--smb-information--label-align: center;
+	}
+}
+
+.smb-information[data-sm-split-column="true"][data-label-align="center"] {
+	--smb-information--label-align: center;
+}
+
 .smb-information:not([data-sm-split-column="true"])[data-label-align="right"] {
 	@include _media-min(md) {
 		--smb-information--label-align: right;
