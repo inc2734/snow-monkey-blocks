@@ -130,6 +130,9 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 * [Balloon] Change to use InnerBlocks for contents.
 * [Contents outline] Fixed a bug that titles were not displayed when titles were not set.
 * [Icon list] Change to use InnerBlocks for contents.
+* [Information] Add label column text color setting.
+* [Information] Add "Center" to label alignment.
+* [Information] Add "50%" to label column size.
 * [Information (Row)] Fixed a bug that caused the label entry field to drop one line.
 * [Item (Block link)] Add "Display button" setting.
 * [Item (Block link)] Add "Display image" setting.
@@ -138,10 +141,14 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 * [Items (Banner)]GFixed a bug that sometimes left gaps between each banner when "lue each item together" was enabled.
 * [Media text] Add fill setting, color settings, column split timing setting and block style "Border".
 * [Media text] Fixed a bug that the size specified in "Image column size" was not accurate.
+* [Panels (Block link)] Add color settings.
+* [Panels (Free)] Add color settings.
 * [Panels (Horizontal layout)] Add "Display button" setting.
 * [Panels (Horizontal layout)] Add "Display image" setting.
+* [Panels (Horizontal layout)] Add color settings.
 * [Panels (Vertical layout)] Add "Display button" setting.
 * [Panels (Vertical layout)] Add "Display image" setting.
+* [Panels (Vertical layout)] Add color settings.
 * [Pricing table (Plan)] Add "Display button" setting.
 * [Pricing table (Plan)] Add "Display image" setting.
 * [Pricing table (Plan)] Adjusted the design of nested listings.
