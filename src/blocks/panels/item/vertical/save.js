@@ -7,6 +7,9 @@ export default function ( { attributes, className } ) {
 		titleTagName,
 		title,
 		summary,
+		backgroundColor,
+		backgroundGradientColor,
+		textColor,
 		displayLink,
 		linkLabel,
 		linkURL,
@@ -21,9 +24,17 @@ export default function ( { attributes, className } ) {
 
 	const classes = classnames( 'c-row__col', className );
 
+	const itemClasses = 'smb-panels__item';
+
 	const actionClasses = classnames( 'smb-panels__item__action', {
 		'smb-panels__item__action--nolabel': ! linkLabel,
 	} );
+
+	const itemStyles = {
+		'--smb-panel--background-color': backgroundColor,
+		'--smb-panel--background-image': backgroundGradientColor,
+		'--smb-panel--color': textColor,
+	};
 
 	// const linkLabelHtml = ! RichText.isEmpty( linkLabel ) && (
 	// 	<div className="smb-panels__item__link">
@@ -33,7 +44,7 @@ export default function ( { attributes, className } ) {
 
 	return (
 		<div { ...useBlockProps.save( { className: classes } ) }>
-			<div className="smb-panels__item">
+			<div className={ itemClasses } style={ itemStyles }>
 				{ displayImage && (
 					<div className="smb-panels__item__figure">
 						<img

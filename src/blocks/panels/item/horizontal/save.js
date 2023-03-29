@@ -7,6 +7,9 @@ export default function ( { attributes, className } ) {
 		titleTagName,
 		title,
 		summary,
+		backgroundColor,
+		backgroundGradientColor,
+		textColor,
 		displayLink,
 		linkLabel,
 		linkURL,
@@ -34,9 +37,15 @@ export default function ( { attributes, className } ) {
 		'smb-panels__item__action--nolabel': ! linkLabel,
 	} );
 
+	const itemStyles = {
+		'--smb-panel--background-color': backgroundColor,
+		'--smb-panel--background-image': backgroundGradientColor,
+		'--smb-panel--color': textColor,
+	};
+
 	return (
 		<div { ...useBlockProps.save( { className: classes } ) }>
-			<div className={ itemClasses }>
+			<div className={ itemClasses } style={ itemStyles }>
 				{ displayImage && (
 					<div className="smb-panels__item__figure">
 						<img

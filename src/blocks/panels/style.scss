@@ -5,11 +5,16 @@
 	--smb-panels--item-color: var(--wp--preset--color--sm-text);
 
 	&__item {
+		--smb-panel--background-color: var(--smb-panels--item-background-color);
+		--smb-panel--background-image: initial;
+		--smb-panel--color: var(--smb-panels--item-color);
+
 		flex: 1;
 		position: relative;
 		display: block;
-		background-color: var(--smb-panels--item-background-color);
-    color: var(--smb-panels--item-color);
+		background-color: var(--smb-panel--background-color);
+		background-image: var(--smb-panel--background-image);
+    color: var(--smb-panel--color);
 		text-decoration: none;
 		box-shadow: 0 0 35px 0 rgba(#000, .1);
 		@include _transition(all);

@@ -2,12 +2,15 @@ import classnames from 'classnames';
 import { times } from 'lodash';
 
 import {
+	ContrastChecker,
 	BlockControls,
 	InspectorControls,
 	RichText,
 	useBlockProps,
 	__experimentalLinkControl as LinkControl,
 	__experimentalImageSizeControl as ImageSizeControl,
+	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
+	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 } from '@wordpress/block-editor';
 
 import {
@@ -33,6 +36,15 @@ import { stringToInnerText } from '@smb/helper';
 const ALLOWED_TYPES = [ 'image' ];
 const DEFAULT_MEDIA_SIZE_SLUG = 'full';
 
+// @todo For WordPress 6.0
+import { useMultipleOriginColorsAndGradientsFallback } from '@smb/hooks';
+
+// @todo For WordPress 6.0
+if ( undefined === useMultipleOriginColorsAndGradients ) {
+	useMultipleOriginColorsAndGradients =
+		useMultipleOriginColorsAndGradientsFallback;
+}
+
 import metadata from './block.json';
 
 export default function ( {
@@ -46,6 +58,9 @@ export default function ( {
 		titleTagName,
 		title,
 		summary,
+		backgroundColor,
+		backgroundGradientColor,
+		textColor,
 		displayLink,
 		linkLabel,
 		linkURL,
@@ -107,6 +122,12 @@ export default function ( {
 		'smb-panels__item__action--nolabel': ! linkLabel && ! isSelected,
 	} );
 
+	const itemStyles = {
+		'--smb-panel--background-color': backgroundColor,
+		'--smb-panel--background-image': backgroundGradientColor,
+		'--smb-panel--color': textColor,
+	};
+
 	const ref = useRef();
 	const richTextRef = useRef();
 
@@ -126,6 +147,46 @@ export default function ( {
 	return (
 		<>
 			<InspectorControls>
+				<PanelColorGradientSettings
+					title={ __( 'Color', 'snow-monkey-blocks' ) }
+					initialOpen={ false }
+					settings={ [
+						{
+							label: __(
+								'Background color',
+								'snow-monkey-blocks'
+							),
+							colorValue: backgroundColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									backgroundColor: value,
+								} ),
+							gradientValue: backgroundGradientColor,
+							onGradientChange: ( value ) =>
+								setAttributes( {
+									backgroundGradientColor: value,
+								} ),
+						},
+						{
+							label: __( 'Text color', 'snow-monkey-blocks' ),
+							colorValue: textColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									textColor: value,
+								} ),
+						},
+					] }
+					__experimentalHasMultipleOrigins={ true }
+					__experimentalIsRenderedInSidebar={ true }
+				>
+					<ContrastChecker
+						backgroundColor={
+							backgroundColor || backgroundGradientColor
+						}
+						textColor={ textColor }
+					/>
+				</PanelColorGradientSettings>
+
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
 				>
@@ -308,7 +369,7 @@ export default function ( {
 			</BlockControls>
 
 			<div { ...blockProps }>
-				<div className={ itemClasses }>
+				<div className={ itemClasses } style={ itemStyles }>
 					{ displayImage && (
 						<div className="smb-panels__item__figure">
 							<Figure

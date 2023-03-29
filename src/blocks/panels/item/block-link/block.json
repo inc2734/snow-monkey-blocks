@@ -8,6 +8,15 @@
 	"category": "smb",
 	"parent": [ "snow-monkey-blocks/panels" ],
 	"attributes": {
+		"backgroundColor": {
+			"type": "string"
+		},
+		"backgroundGradientColor": {
+			"type": "string"
+		},
+		"textColor": {
+			"type": "string"
+		},
 		"linkURL": {
 			"type": "string",
 			"source": "attribute",

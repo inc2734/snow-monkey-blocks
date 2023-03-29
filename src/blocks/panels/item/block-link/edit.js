@@ -1,11 +1,15 @@
 import classnames from 'classnames';
 
 import {
+	ContrastChecker,
 	BlockControls,
 	InnerBlocks,
+	InspectorControls,
 	useBlockProps,
 	useInnerBlocksProps,
 	__experimentalLinkControl as LinkControl,
+	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
+	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 } from '@wordpress/block-editor';
 
 import { useMergeRefs } from '@wordpress/compose';
@@ -15,6 +19,15 @@ import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 import { link as linkIcon } from '@wordpress/icons';
 
+// @todo For WordPress 6.0
+import { useMultipleOriginColorsAndGradientsFallback } from '@smb/hooks';
+
+// @todo For WordPress 6.0
+if ( undefined === useMultipleOriginColorsAndGradients ) {
+	useMultipleOriginColorsAndGradients =
+		useMultipleOriginColorsAndGradientsFallback;
+}
+
 export default function ( {
 	attributes,
 	setAttributes,
@@ -22,7 +35,13 @@ export default function ( {
 	className,
 	clientId,
 } ) {
-	const { linkURL, linkTarget } = attributes;
+	const {
+		backgroundColor,
+		backgroundGradientColor,
+		textColor,
+		linkURL,
+		linkTarget,
+	} = attributes;
 
 	const [ isEditingURL, setIsEditingURL ] = useState( false );
 	const isURLSet = !! linkURL;
@@ -51,6 +70,12 @@ export default function ( {
 		'smb-panels__item__action--nolabel'
 	);
 
+	const itemStyles = {
+		'--smb-panel--background-color': backgroundColor,
+		'--smb-panel--background-image': backgroundGradientColor,
+		'--smb-panel--color': textColor,
+	};
+
 	const ref = useRef();
 
 	const blockProps = useBlockProps( {
@@ -69,15 +94,6 @@ export default function ( {
 		}
 	);
 
-	const onChangeLinkUrl = ( {
-		url: newUrl,
-		opensInNewTab: newOpensInNewTab,
-	} ) =>
-		setAttributes( {
-			linkURL: newUrl,
-			linkTarget: ! newOpensInNewTab ? '_self' : '_blank',
-		} );
-
 	const unlink = () => {
 		setAttributes( {
 			linkURL: undefined,
@@ -88,8 +104,50 @@ export default function ( {
 
 	return (
 		<>
+			<InspectorControls>
+				<PanelColorGradientSettings
+					title={ __( 'Color', 'snow-monkey-blocks' ) }
+					initialOpen={ false }
+					settings={ [
+						{
+							label: __(
+								'Background color',
+								'snow-monkey-blocks'
+							),
+							colorValue: backgroundColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									backgroundColor: value,
+								} ),
+							gradientValue: backgroundGradientColor,
+							onGradientChange: ( value ) =>
+								setAttributes( {
+									backgroundGradientColor: value,
+								} ),
+						},
+						{
+							label: __( 'Text color', 'snow-monkey-blocks' ),
+							colorValue: textColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									textColor: value,
+								} ),
+						},
+					] }
+					__experimentalHasMultipleOrigins={ true }
+					__experimentalIsRenderedInSidebar={ true }
+				>
+					<ContrastChecker
+						backgroundColor={
+							backgroundColor || backgroundGradientColor
+						}
+						textColor={ textColor }
+					/>
+				</PanelColorGradientSettings>
+			</InspectorControls>
+
 			<div { ...blockProps }>
-				<div className={ itemClasses }>
+				<div className={ itemClasses } style={ itemStyles }>
 					<div { ...innerBlocksProps } />
 
 					{ isURLSet && (
@@ -126,7 +184,17 @@ export default function ( {
 					<LinkControl
 						className="wp-block-navigation-link__inline-link-input"
 						value={ { url: linkURL, opensInNewTab } }
-						onChange={ onChangeLinkUrl }
+						onChange={ ( {
+							url: newUrl,
+							opensInNewTab: newOpensInNewTab,
+						} ) =>
+							setAttributes( {
+								linkURL: newUrl,
+								linkTarget: ! newOpensInNewTab
+									? '_self'
+									: '_blank',
+							} )
+						}
 						onRemove={ () => {
 							unlink();
 						} }

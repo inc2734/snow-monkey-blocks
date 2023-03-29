@@ -1,14 +1,30 @@
 import classnames from 'classnames';
 
 import {
+	ContrastChecker,
 	InnerBlocks,
+	InspectorControls,
 	useBlockProps,
 	useInnerBlocksProps,
+	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
+	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 } from '@wordpress/block-editor';
 
 import { useSelect } from '@wordpress/data';
+import { __ } from '@wordpress/i18n';
 
-export default function ( { className, clientId } ) {
+// @todo For WordPress 6.0
+import { useMultipleOriginColorsAndGradientsFallback } from '@smb/hooks';
+
+// @todo For WordPress 6.0
+if ( undefined === useMultipleOriginColorsAndGradients ) {
+	useMultipleOriginColorsAndGradients =
+		useMultipleOriginColorsAndGradientsFallback;
+}
+
+export default function ( { attributes, setAttributes, className, clientId } ) {
+	const { backgroundColor, backgroundGradientColor, textColor } = attributes;
+
 	const hasInnerBlocks = useSelect(
 		( select ) =>
 			!! select( 'core/block-editor' ).getBlock( clientId )?.innerBlocks
@@ -22,6 +38,12 @@ export default function ( { className, clientId } ) {
 		'smb-panels__item',
 		'smb-panels__item--free'
 	);
+
+	const itemStyles = {
+		'--smb-panel--background-color': backgroundColor,
+		'--smb-panel--background-image': backgroundGradientColor,
+		'--smb-panel--color': textColor,
+	};
 
 	const blockProps = useBlockProps( {
 		className: classes,
@@ -39,10 +61,54 @@ export default function ( { className, clientId } ) {
 	);
 
 	return (
-		<div { ...blockProps }>
-			<div className={ itemClasses }>
-				<div { ...innerBlocksProps } />
+		<>
+			<InspectorControls>
+				<PanelColorGradientSettings
+					title={ __( 'Color', 'snow-monkey-blocks' ) }
+					initialOpen={ false }
+					settings={ [
+						{
+							label: __(
+								'Background color',
+								'snow-monkey-blocks'
+							),
+							colorValue: backgroundColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									backgroundColor: value,
+								} ),
+							gradientValue: backgroundGradientColor,
+							onGradientChange: ( value ) =>
+								setAttributes( {
+									backgroundGradientColor: value,
+								} ),
+						},
+						{
+							label: __( 'Text color', 'snow-monkey-blocks' ),
+							colorValue: textColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									textColor: value,
+								} ),
+						},
+					] }
+					__experimentalHasMultipleOrigins={ true }
+					__experimentalIsRenderedInSidebar={ true }
+				>
+					<ContrastChecker
+						backgroundColor={
+							backgroundColor || backgroundGradientColor
+						}
+						textColor={ textColor }
+					/>
+				</PanelColorGradientSettings>
+			</InspectorControls>
+
+			<div { ...blockProps }>
+				<div className={ itemClasses } style={ itemStyles }>
+					<div { ...innerBlocksProps } />
+				</div>
 			</div>
-		</div>
+		</>
 	);
 }
