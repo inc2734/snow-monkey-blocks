@@ -91,10 +91,28 @@ export default [
 	{
 		attributes: {
 			...blockAttributes,
+			balloonBody: {
+				type: 'string',
+				source: 'html',
+				selector: '.smb-balloon__body',
+				multiline: 'p',
+				default: '',
+			},
 		},
 
 		supports: {
 			...blockSupports,
+		},
+
+		migrate( attributes ) {
+			const { balloonBody } = attributes;
+
+			const match = balloonBody.match( /<p>(.+?)<\/p>/g ) || [];
+			const items = match.map( ( value ) => {
+				return rawHandler( { HTML: value } )[ 0 ];
+			} );
+
+			return [ { ...attributes }, [ ...items ] ];
 		},
 
 		save( { attributes, className } ) {
@@ -152,6 +170,28 @@ export default [
 	{
 		attributes: {
 			...blockAttributes,
+			balloonBody: {
+				type: 'string',
+				source: 'html',
+				selector: '.smb-balloon__body',
+				multiline: 'p',
+				default: '',
+			},
+		},
+
+		supports: {
+			...blockSupports,
+		},
+
+		migrate( attributes ) {
+			const { balloonBody } = attributes;
+
+			const match = balloonBody.match( /<p>(.+?)<\/p>/g ) || [];
+			const items = match.map( ( value ) => {
+				return rawHandler( { HTML: value } )[ 0 ];
+			} );
+
+			return [ { ...attributes }, [ ...items ] ];
 		},
 
 		save( { attributes } ) {
@@ -193,6 +233,28 @@ export default [
 	{
 		attributes: {
 			...blockAttributes,
+			balloonBody: {
+				type: 'string',
+				source: 'html',
+				selector: '.smb-balloon__body',
+				multiline: 'p',
+				default: '',
+			},
+		},
+
+		supports: {
+			...blockSupports,
+		},
+
+		migrate( attributes ) {
+			const { balloonBody } = attributes;
+
+			const match = balloonBody.match( /<p>(.+?)<\/p>/g ) || [];
+			const items = match.map( ( value ) => {
+				return rawHandler( { HTML: value } )[ 0 ];
+			} );
+
+			return [ { ...attributes }, [ ...items ] ];
 		},
 
 		save( { attributes } ) {

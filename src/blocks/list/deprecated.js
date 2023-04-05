@@ -65,6 +65,20 @@ export default [
 			},
 		},
 
+		supports: {
+			...blockSupprts,
+		},
+
+		migrate( attributes ) {
+			const { content } = attributes;
+
+			const list = document.createElement( 'ul' );
+			list.innerHTML = content;
+			const [ listBlock ] = rawHandler( { HTML: list.outerHTML } );
+
+			return [ { ...attributes }, [ ...listBlock.innerBlocks ] ];
+		},
+
 		save( { attributes } ) {
 			const { content, icon, iconColor } = attributes;
 

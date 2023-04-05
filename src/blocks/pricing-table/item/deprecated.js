@@ -167,10 +167,42 @@ export default [
 			btnBorderRadius: {
 				type: 'number',
 			},
+			list: {
+				type: 'string',
+				source: 'html',
+				selector: 'ul',
+				multiline: 'li',
+				default: '',
+			},
 		},
 
 		supports: {
 			...blockSupports,
+		},
+
+		migrate( attributes ) {
+			const { btnLabel, btnURL, imageURL, list, btnBorderRadius } =
+				attributes;
+
+			if ( ! RichText.isEmpty( btnLabel ) || !! btnURL ) {
+				attributes.displayBtn = true;
+			}
+
+			if ( !! imageURL ) {
+				attributes.displayImage = true;
+			}
+
+			attributes.btnBorderRadius = String( btnBorderRadius ).match(
+				/^\d+$/
+			)
+				? `${ btnBorderRadius }px`
+				: btnBorderRadius;
+
+			const items = document.createElement( 'ul' );
+			items.innerHTML = list;
+			const [ listBlock ] = rawHandler( { HTML: items.outerHTML } );
+
+			return [ { ...attributes }, [ ...listBlock.innerBlocks ] ];
 		},
 
 		save( { attributes, className } ) {
@@ -286,10 +318,42 @@ export default [
 			btnBorderRadius: {
 				type: 'number',
 			},
+			list: {
+				type: 'string',
+				source: 'html',
+				selector: 'ul',
+				multiline: 'li',
+				default: '',
+			},
 		},
 
 		supports: {
 			...blockSupports,
+		},
+
+		migrate( attributes ) {
+			const { btnLabel, btnURL, imageURL, list, btnBorderRadius } =
+				attributes;
+
+			if ( ! RichText.isEmpty( btnLabel ) || !! btnURL ) {
+				attributes.displayBtn = true;
+			}
+
+			if ( !! imageURL ) {
+				attributes.displayImage = true;
+			}
+
+			attributes.btnBorderRadius = String( btnBorderRadius ).match(
+				/^\d+$/
+			)
+				? `${ btnBorderRadius }px`
+				: btnBorderRadius;
+
+			const items = document.createElement( 'ul' );
+			items.innerHTML = list;
+			const [ listBlock ] = rawHandler( { HTML: items.outerHTML } );
+
+			return [ { ...attributes }, [ ...listBlock.innerBlocks ] ];
 		},
 
 		save( { attributes, className } ) {
@@ -410,6 +474,42 @@ export default [
 			btnBorderRadius: {
 				type: 'number',
 			},
+			list: {
+				type: 'string',
+				source: 'html',
+				selector: 'ul',
+				multiline: 'li',
+				default: '',
+			},
+		},
+
+		supports: {
+			...blockSupports,
+		},
+
+		migrate( attributes ) {
+			const { btnLabel, btnURL, imageURL, list, btnBorderRadius } =
+				attributes;
+
+			if ( ! RichText.isEmpty( btnLabel ) || !! btnURL ) {
+				attributes.displayBtn = true;
+			}
+
+			if ( !! imageURL ) {
+				attributes.displayImage = true;
+			}
+
+			attributes.btnBorderRadius = String( btnBorderRadius ).match(
+				/^\d+$/
+			)
+				? `${ btnBorderRadius }px`
+				: btnBorderRadius;
+
+			const items = document.createElement( 'ul' );
+			items.innerHTML = list;
+			const [ listBlock ] = rawHandler( { HTML: items.outerHTML } );
+
+			return [ { ...attributes }, [ ...listBlock.innerBlocks ] ];
 		},
 
 		save( { attributes } ) {
@@ -506,6 +606,42 @@ export default [
 			btnBorderRadius: {
 				type: 'number',
 			},
+			list: {
+				type: 'string',
+				source: 'html',
+				selector: 'ul',
+				multiline: 'li',
+				default: '',
+			},
+		},
+
+		supports: {
+			...blockSupports,
+		},
+
+		migrate( attributes ) {
+			const { btnLabel, btnURL, imageURL, list, btnBorderRadius } =
+				attributes;
+
+			if ( ! RichText.isEmpty( btnLabel ) || !! btnURL ) {
+				attributes.displayBtn = true;
+			}
+
+			if ( !! imageURL ) {
+				attributes.displayImage = true;
+			}
+
+			attributes.btnBorderRadius = String( btnBorderRadius ).match(
+				/^\d+$/
+			)
+				? `${ btnBorderRadius }px`
+				: btnBorderRadius;
+
+			const items = document.createElement( 'ul' );
+			items.innerHTML = list;
+			const [ listBlock ] = rawHandler( { HTML: items.outerHTML } );
+
+			return [ { ...attributes }, [ ...listBlock.innerBlocks ] ];
 		},
 
 		save( { attributes } ) {

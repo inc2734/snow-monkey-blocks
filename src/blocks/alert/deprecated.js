@@ -74,6 +74,21 @@ export default [
 			},
 		},
 
+		supports: {
+			...blockSupports,
+		},
+
+		migrate( attributes ) {
+			const { content } = attributes;
+
+			const match = content.match( /<p>(.+?)<\/p>/g ) || [];
+			const items = match.map( ( value ) => {
+				return rawHandler( { HTML: value } )[ 0 ];
+			} );
+
+			return [ { ...attributes }, [ ...items ] ];
+		},
+
 		save( { attributes, className } ) {
 			const { title, content, modifier, icon } = attributes;
 
@@ -110,6 +125,21 @@ export default [
 				multiline: 'p',
 				default: '',
 			},
+		},
+
+		supports: {
+			...blockSupports,
+		},
+
+		migrate( attributes ) {
+			const { content } = attributes;
+
+			const match = content.match( /<p>(.+?)<\/p>/g ) || [];
+			const items = match.map( ( value ) => {
+				return rawHandler( { HTML: value } )[ 0 ];
+			} );
+
+			return [ { ...attributes }, [ ...items ] ];
 		},
 
 		save( { attributes } ) {
