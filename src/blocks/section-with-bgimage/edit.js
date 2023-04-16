@@ -526,28 +526,33 @@ export default function ( {
 										height={ lgImageHeight }
 										onSelect={ ( media ) => {
 											const newLgImageSizeSlug = !! media
-												?.sizes[ lgImageSizeSlug ]
+												?.sizes?.[ lgImageSizeSlug ]
 												? lgImageSizeSlug
 												: DEFAULT_MEDIA_SIZE_SLUG;
 											const newLgImageURL =
-												media?.sizes[
+												media?.sizes?.[
 													newLgImageSizeSlug
 												]?.url;
 											const newLgImageWidth =
-												media?.sizes[
+												media?.sizes?.[
 													newLgImageSizeSlug
 												]?.width;
 											const newLgImageHeight =
-												media?.sizes[
+												media?.sizes?.[
 													newLgImageSizeSlug
 												]?.height;
 
 											setAttributes( {
-												lgImageURL: newLgImageURL,
+												lgImageURL:
+													newLgImageURL || media.url,
 												lgImageID: media.id,
 												lgImageAlt: media.alt,
-												lgImageWidth: newLgImageWidth,
-												lgImageHeight: newLgImageHeight,
+												lgImageWidth:
+													newLgImageWidth ||
+													media.width,
+												lgImageHeight:
+													newLgImageHeight ||
+													media.height,
 												lgImageMediaType:
 													getMediaType( media ),
 												lgImageSizeSlug:
@@ -681,28 +686,33 @@ export default function ( {
 										height={ mdImageHeight }
 										onSelect={ ( media ) => {
 											const newMdImageSizeSlug = !! media
-												?.sizes[ mdImageSizeSlug ]
+												?.sizes?.[ mdImageSizeSlug ]
 												? mdImageSizeSlug
 												: DEFAULT_MEDIA_SIZE_SLUG;
 											const newMdImageURL =
-												media?.sizes[
+												media?.sizes?.[
 													newMdImageSizeSlug
 												]?.url;
 											const newMdImageWidth =
-												media?.sizes[
+												media?.sizes?.[
 													newMdImageSizeSlug
 												]?.width;
 											const newMdImageHeight =
-												media?.sizes[
+												media?.sizes?.[
 													newMdImageSizeSlug
 												]?.height;
 
 											setAttributes( {
-												mdImageURL: newMdImageURL,
+												mdImageURL:
+													newMdImageURL || media.url,
 												mdImageID: media.id,
 												mdImageAlt: media.alt,
-												mdImageWidth: newMdImageWidth,
-												mdImageHeight: newMdImageHeight,
+												mdImageWidth:
+													newMdImageWidth ||
+													media.width,
+												mdImageHeight:
+													newMdImageHeight ||
+													media.height,
 												mdImageMediaType:
 													getMediaType( media ),
 												mdImageSizeSlug:
@@ -836,28 +846,33 @@ export default function ( {
 										height={ smImageHeight }
 										onSelect={ ( media ) => {
 											const newSmImageSizeSlug = !! media
-												?.sizes[ smImageSizeSlug ]
+												?.sizes?.[ smImageSizeSlug ]
 												? smImageSizeSlug
 												: DEFAULT_MEDIA_SIZE_SLUG;
 											const newSmImageURL =
-												media?.sizes[
+												media?.sizes?.[
 													newSmImageSizeSlug
 												]?.url;
 											const newSmImageWidth =
-												media?.sizes[
+												media?.sizes?.[
 													newSmImageSizeSlug
 												]?.width;
 											const newSmImageHeight =
-												media?.sizes[
+												media?.sizes?.[
 													newSmImageSizeSlug
 												]?.height;
 
 											setAttributes( {
-												smImageURL: newSmImageURL,
+												smImageURL:
+													newSmImageURL || media.url,
 												smImageID: media.id,
 												smImageAlt: media.alt,
-												smImageWidth: newSmImageWidth,
-												smImageHeight: newSmImageHeight,
+												smImageWidth:
+													newSmImageWidth ||
+													media.width,
+												smImageHeight:
+													newSmImageHeight ||
+													media.height,
 												smImageMediaType:
 													getMediaType( media ),
 												smImageSizeSlug:

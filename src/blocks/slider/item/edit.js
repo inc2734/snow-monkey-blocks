@@ -106,24 +106,24 @@ export default function ( {
 					width={ imageWidth }
 					height={ imageHeight }
 					onSelect={ ( media ) => {
-						const newImageSizeSlug = !! media?.sizes[
+						const newImageSizeSlug = !! media?.sizes?.[
 							imageSizeSlug
 						]
 							? imageSizeSlug
 							: DEFAULT_MEDIA_SIZE_SLUG;
 						const newImageUrl =
-							media?.sizes[ newImageSizeSlug ]?.url;
+							media?.sizes?.[ newImageSizeSlug ]?.url;
 						const newImageWidth =
-							media?.sizes[ newImageSizeSlug ]?.width;
+							media?.sizes?.[ newImageSizeSlug ]?.width;
 						const newImageHeight =
-							media?.sizes[ newImageSizeSlug ]?.height;
+							media?.sizes?.[ newImageSizeSlug ]?.height;
 
 						setAttributes( {
-							imageURL: newImageUrl,
+							imageURL: newImageUrl || media.url,
 							imageID: media.id,
 							imageAlt: media.alt,
-							imageWidth: newImageWidth,
-							imageHeight: newImageHeight,
+							imageWidth: newImageWidth || media.width,
+							imageHeight: newImageHeight || media.height,
 							imageSizeSlug: newImageSizeSlug,
 						} );
 					} }

@@ -1697,30 +1697,36 @@ export default function ( {
 											height={ imageHeight }
 											onSelect={ ( media ) => {
 												const newImageSizeSlug =
-													!! media?.sizes[
+													!! media?.sizes?.[
 														imageSizeSlug
 													]
 														? imageSizeSlug
 														: DEFAULT_MEDIA_SIZE_SLUG;
 												const newImageURL =
-													media?.sizes[
+													media?.sizes?.[
 														newImageSizeSlug
 													]?.url;
 												const newImageWidth =
-													media?.sizes[
+													media?.sizes?.[
 														newImageSizeSlug
 													]?.width;
 												const newImageHeight =
-													media?.sizes[
+													media?.sizes?.[
 														newImageSizeSlug
 													]?.height;
 
 												setAttributes( {
-													imageURL: newImageURL,
+													imageURL:
+														newImageURL ||
+														media.url,
 													imageID: media.id,
 													imageAlt: media.alt,
-													imageWidth: newImageWidth,
-													imageHeight: newImageHeight,
+													imageWidth:
+														newImageWidth ||
+														media.width,
+													imageHeight:
+														newImageHeight ||
+														media.height,
 													imageMediaType:
 														getMediaType( media ),
 													mediaSizeSlug:

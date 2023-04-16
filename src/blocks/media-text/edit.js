@@ -615,17 +615,18 @@ export default function ( {
 								height={ mediaHeight }
 								target={ linkTarget }
 								onSelect={ ( media ) => {
-									const newMediaSizeSlug = !! media?.sizes[
+									const newMediaSizeSlug = !! media?.sizes?.[
 										mediaSizeSlug
 									]
 										? mediaSizeSlug
 										: DEFAULT_MEDIA_SIZE_SLUG;
 									const newMediaUrl =
-										media?.sizes[ newMediaSizeSlug ]?.url;
+										media?.sizes?.[ newMediaSizeSlug ]?.url;
 									const newMediaWidth =
-										media?.sizes[ newMediaSizeSlug ]?.width;
+										media?.sizes?.[ newMediaSizeSlug ]
+											?.width;
 									const newMediaHeight =
-										media?.sizes[ newMediaSizeSlug ]
+										media?.sizes?.[ newMediaSizeSlug ]
 											?.height;
 
 									let newHref = href;
@@ -650,10 +651,12 @@ export default function ( {
 										mediaType: getMediaType( media ),
 										mediaLink: media.link || undefined,
 										mediaId: media.id,
-										mediaUrl: newMediaUrl,
+										mediaUrl: newMediaUrl || media.url,
 										mediaAlt: media.alt,
-										mediaWidth: newMediaWidth,
-										mediaHeight: newMediaHeight,
+										mediaWidth:
+											newMediaWidth || media.width,
+										mediaHeight:
+											newMediaHeight || media.height,
 										mediaSizeSlug: newMediaSizeSlug,
 										href: newHref,
 									} );
