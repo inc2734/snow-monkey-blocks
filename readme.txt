@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue, kutsu
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 19.0.1
+Stable tag: 19.1.0
 Requires at least: 6.2
 Tested up to: 6.2
 Requires PHP: 7.4
@@ -108,6 +108,16 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 24. Tabs block (The number of tab can be increased or decreased freely)
 
 == Changelog ==
+
+= 19.1.0 =
+* [Section (Break the grid)] Fixed a bug that prevented videos from being set up.
+* [Section (Background image/video)] Fixed a bug that prevented videos from being set up.
+* [Media text] Fixed a bug that prevented videos from being set up.
+* [Pricing table] Fixed a bug in which column sizes were not always reflected.
+* [Panels] Add "Glue each item together" setting.
+* [Section] Add vertical padding setting.
+* [Section (Side heading)] Add vertical padding setting.
+* [Section (Background image/video)] Add vertical padding setting.
 
 = 19.0.1 =
 * [Balloon] Fixed a bug that balloon contents may disappear after recovery.
