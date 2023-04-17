@@ -66,6 +66,10 @@
 			"type": "boolean",
 			"default": false
 		},
+		"padding": {
+			"type": "object",
+			"default": {}
+		},
 
 		"backgroundColor": {
 			"type": "string"

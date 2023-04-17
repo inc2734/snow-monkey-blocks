@@ -1,8 +1,7 @@
 import classnames from 'classnames';
 
 import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
-
-import { getColumnSize } from '@smb/helper';
+import { getColumnSize, generateSpacingProperties } from '@smb/helper';
 
 import {
 	generateStylesForSectionBackground,
@@ -31,6 +30,7 @@ export default function ( { attributes, className } ) {
 		containerAlign,
 		contentsMaxWidth,
 		isSlim,
+		padding,
 
 		backgroundHorizontalPosition,
 		backgroundVerticalPosition,
@@ -120,6 +120,7 @@ export default function ( { attributes, className } ) {
 		'--smb-section--color': textColor || undefined,
 		'--smb-section--contents-wrapper-width':
 			!! contentsMaxWidth && ! isSlim ? contentsMaxWidth : undefined,
+		...generateSpacingProperties( padding ),
 		...generateStylesForSectionBackground( {
 			backgroundHorizontalPosition,
 			backgroundVerticalPosition,

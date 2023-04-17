@@ -239,6 +239,10 @@
 			"type": "boolean",
 			"default": false
 		},
+		"padding": {
+			"type": "object",
+			"default": {}
+		},
 
 		"topDividerType": {
 			"type": "string",

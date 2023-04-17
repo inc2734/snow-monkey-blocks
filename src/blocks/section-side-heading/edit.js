@@ -23,7 +23,11 @@ import { useSelect } from '@wordpress/data';
 import { pullLeft, pullRight } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
 
-import { toNumber, getColumnSize } from '@smb/helper';
+import {
+	toNumber,
+	getColumnSize,
+	generateSpacingProperties,
+} from '@smb/helper';
 
 import { PanelBasicSettings } from '../section/components/basic';
 import { Edit as Header } from '../section/components/header';
@@ -67,6 +71,7 @@ export default function ( {
 		containerAlign,
 		contentsMaxWidth,
 		isSlim,
+		padding,
 
 		backgroundHorizontalPosition,
 		backgroundVerticalPosition,
@@ -163,6 +168,7 @@ export default function ( {
 		'--smb-section--color': textColor || undefined,
 		'--smb-section--contents-wrapper-width':
 			!! contentsMaxWidth && ! isSlim ? contentsMaxWidth : undefined,
+		...generateSpacingProperties( padding ),
 		...generateStylesForSectionBackground( {
 			backgroundHorizontalPosition,
 			backgroundVerticalPosition,
@@ -278,6 +284,15 @@ export default function ( {
 									isSlim: value,
 								} ),
 							defaultValue: metadata.attributes.isSlim.default,
+						},
+						{
+							sides: [ 'top', 'bottom' ],
+							paddingValue: padding,
+							onPaddingChange: ( value ) =>
+								setAttributes( {
+									padding: value,
+								} ),
+							defaultValue: metadata.attributes.padding.default,
 						},
 					] }
 				/>

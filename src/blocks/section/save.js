@@ -6,7 +6,10 @@ import {
 	generateStylesForSectionBackground,
 	SectionBackground,
 } from './components/background';
+
 import { Save as Header } from './components/header';
+
+import { generateSpacingProperties } from '@smb/helper';
 
 export default function ( { attributes, className } ) {
 	const {
@@ -28,6 +31,7 @@ export default function ( { attributes, className } ) {
 		disableContainerPadding,
 		contentsMaxWidth,
 		isSlim,
+		padding,
 
 		backgroundHorizontalPosition,
 		backgroundVerticalPosition,
@@ -114,6 +118,7 @@ export default function ( { attributes, className } ) {
 		'--smb-section--color': textColor || undefined,
 		'--smb-section--contents-wrapper-width':
 			!! contentsMaxWidth && ! isSlim ? contentsMaxWidth : undefined,
+		...generateSpacingProperties( padding ),
 		...generateStylesForSectionBackground( {
 			backgroundHorizontalPosition,
 			backgroundVerticalPosition,

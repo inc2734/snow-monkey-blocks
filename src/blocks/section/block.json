@@ -69,6 +69,10 @@
 			"type": "boolean",
 			"default": false
 		},
+		"padding": {
+			"type": "object",
+			"default": {}
+		},
 
 		"backgroundHorizontalPosition": {
 			"type": "number",
