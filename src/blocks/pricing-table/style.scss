@@ -29,25 +29,25 @@
 		}
 	}
 
-	&[data-has-items] .c-row {
+	&:where([data-has-items]) .c-row {
 		@include _media-min(md) {
 			--_item-width: var(--smb-pricing-table--item-width);
 		}
 	}
 
-	&[data-has-items="1"] .c-row {
+	&:where([data-has-items="1"]) .c-row {
 		@include _media-min(md) {
 			--smb-pricing-table--item-width: 100%;
 		}
 	}
 
-	&[data-has-items="2"] .c-row {
+	&:where([data-has-items="2"]) .c-row {
 		@include _media-min(md) {
 			--smb-pricing-table--item-width: 50%;
 		}
 	}
 
-	&[data-has-items="3"] .c-row {
+	&:where([data-has-items="3"]) .c-row {
 		@include _media-min(md) {
 			--smb-pricing-table--item-width: 33.3333%;
 		}
@@ -67,6 +67,18 @@
 
 				.#{ $_prefix }c-row {
 					--smb-pricing-table--item-width: #{ 1% * $key };
+				}
+
+				$max-items: 100 / $key;
+				// max-items より has-items が少ないときは border をつい以下
+				@for $i from 1 through $max-items - 1 {
+					&[data-has-items="#{ $i }"] {
+						.#{ $_prefix }c-row__col:last-child {
+							@include _media-min(lg) {
+								border-right: 1px solid var(--smb-pricing-table--border-color);
+							}
+						}
+					}
 				}
 			}
 		}
