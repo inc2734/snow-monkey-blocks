@@ -8,6 +8,7 @@
 	--smb-panels--item-box-shadow: none;
 	--smb-panels--item-box-shadow--hover: none;
 	--smb-panels--glue--box-shadow: none;
+	--smb-panels--glue--border-color: var(--wp--preset--color--sm-lighter-gray);
 
 	&__item {
 		--smb-panel--background-color: var(--smb-panels--item-background-color);
@@ -171,5 +172,19 @@
 .smb-panels.smb-panels--glue {
 	--smb-panels--glue--box-shadow: var(--smb-panels--box-shadow);
 
+	overflow: hidden;
+
 	box-shadow: var(--smb-panels--glue--box-shadow);
+
+	> .#{ $_prefix }c-row {
+		margin-right: -1px;
+		margin-left: -1px;
+		margin-bottom: -1px;
+
+		> .#{ $_prefix }c-row__col {
+			border-right: 1px solid var(--smb-panels--glue--border-color);
+			border-bottom: 1px solid var(--smb-panels--glue--border-color);
+		}
+	}
 }
+
