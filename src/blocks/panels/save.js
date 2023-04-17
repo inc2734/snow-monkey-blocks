@@ -3,16 +3,20 @@ import classnames from 'classnames';
 import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
-	const { sm, md, lg, imagePadding, contentJustification } = attributes;
+	const { sm, md, lg, imagePadding, contentJustification, isGlue } =
+		attributes;
 
-	const classes = classnames( 'smb-panels', className );
+	const classes = classnames( 'smb-panels', className, {
+		'smb-panels--glue': isGlue,
+	} );
 
 	const contentJustificationModifier =
 		!! contentJustification && 'left' !== contentJustification
 			? contentJustification.replace( 'space-', '' )
 			: undefined;
 
-	const rowClasses = classnames( 'c-row', 'c-row--margin', 'c-row--fill', {
+	const rowClasses = classnames( 'c-row', 'c-row--fill', {
+		'c-row--margin': ! isGlue,
 		[ `c-row--${ contentJustificationModifier }` ]: contentJustification,
 	} );
 

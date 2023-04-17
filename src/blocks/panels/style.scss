@@ -3,6 +3,11 @@
 .smb-panels {
 	--smb-panels--item-background-color: var(--wp--preset--color--white);
 	--smb-panels--item-color: var(--wp--preset--color--sm-text);
+	--smb-panels--box-shadow: 0 0 35px 0 rgba(0, 0, 0, .1);
+	--smb-panels--box-shadow--hover: 0 7px 35px 0 rgba(0, 0, 0, .15);
+	--smb-panels--item-box-shadow: none;
+	--smb-panels--item-box-shadow--hover: none;
+	--smb-panels--glue--box-shadow: none;
 
 	&__item {
 		--smb-panel--background-color: var(--smb-panels--item-background-color);
@@ -16,11 +21,11 @@
 		background-image: var(--smb-panel--background-image);
     color: var(--smb-panel--color);
 		text-decoration: none;
-		box-shadow: 0 0 35px 0 rgba(#000, .1);
-		@include _transition(all);
+		box-shadow: var(--smb-panels--item-box-shadow);
+		@include _transition(box-shadow);
 
 		@include _hover() {
-			box-shadow: 0 7px 35px 0 rgba(#000, .15);
+			box-shadow: var(--smb-panels--item-box-shadow--hover)
 		}
 
 		&__figure {
@@ -156,4 +161,15 @@
 			}
 		}
 	}
+}
+
+.smb-panels:not(.smb-panels--glue) {
+	--smb-panels--item-box-shadow: var(--smb-panels--box-shadow);
+	--smb-panels--item-box-shadow--hover: var(--smb-panels--box-shadow--hover);
+}
+
+.smb-panels.smb-panels--glue {
+	--smb-panels--glue--box-shadow: var(--smb-panels--box-shadow);
+
+	box-shadow: var(--smb-panels--glue--box-shadow);
 }

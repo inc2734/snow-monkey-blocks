@@ -55,7 +55,8 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		},
 	] );
 
-	const { sm, md, lg, imagePadding, contentJustification } = attributes;
+	const { sm, md, lg, imagePadding, contentJustification, isGlue } =
+		attributes;
 
 	const hasInnerBlocks = useSelect(
 		( select ) =>
@@ -64,7 +65,9 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		[ clientId ]
 	);
 
-	const classes = classnames( 'smb-panels', className );
+	const classes = classnames( 'smb-panels', className, {
+		'smb-panels--glue': isGlue,
+	} );
 
 	const blockProps = useBlockProps( {
 		className: classes,
@@ -75,7 +78,8 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 			? contentJustification.replace( 'space-', '' )
 			: undefined;
 
-	const rowClasses = classnames( 'c-row', 'c-row--margin', 'c-row--fill', {
+	const rowClasses = classnames( 'c-row', 'c-row--fill', {
+		'c-row--margin': ! isGlue,
 		[ `c-row--${ contentJustificationModifier }` ]: contentJustification,
 	} );
 
@@ -199,6 +203,35 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							onChange={ ( value ) =>
 								setAttributes( {
 									imagePadding: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
+
+					<ToolsPanelItem
+						hasValue={ () =>
+							isGlue !== metadata.attributes.isGlue.default
+						}
+						isShownByDefault
+						label={ __(
+							'Glue each item together',
+							'snow-monkey-blocks'
+						) }
+						onDeselect={ () =>
+							setAttributes( {
+								isGlue: metadata.attributes.isGlue.default,
+							} )
+						}
+					>
+						<ToggleControl
+							label={ __(
+								'Glue each item together',
+								'snow-monkey-blocks'
+							) }
+							checked={ isGlue }
+							onChange={ ( value ) =>
+								setAttributes( {
+									isGlue: value,
 								} )
 							}
 						/>

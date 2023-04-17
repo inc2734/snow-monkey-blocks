@@ -29,6 +29,10 @@
 		},
 		"contentJustification": {
 			"type": "string"
+		},
+		"isGlue": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"supports": {
