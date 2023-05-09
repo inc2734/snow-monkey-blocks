@@ -5,11 +5,15 @@ import {
 	Button,
 	SelectControl,
 	ToggleControl,
+	__experimentalUnitControl as UnitControl,
 	__experimentalToolsPanel as ToolsPanel,
 	__experimentalToolsPanelItem as ToolsPanelItem,
+	__experimentalHStack as HStack,
+	__experimentalSpacer as Spacer,
 } from '@wordpress/components';
 
-import { Fragment } from '@wordpress/element';
+import { Fragment, useState } from '@wordpress/element';
+import { settings as settingsIcon } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
 
 import WidthPicker from '@smb/component/width-picker';
@@ -20,8 +24,12 @@ export const PanelBasicSettings = ( {
 	disableContentsMaxWidth,
 	disableContainerAlign,
 	disableDisableContainerPadding,
+	disableCustomHeight,
 	settings,
 } ) => {
+	const [ showCustomHeightControl, setShowCustomHeightControl ] = useState(
+		! disableCustomHeight
+	);
 	const wrapperTagNames = [ 'div', 'section', 'aside' ];
 	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
 
@@ -176,38 +184,99 @@ export const PanelBasicSettings = ( {
 							}
 							isShownByDefault
 							label={ __( 'Height', 'snow-monkey-blocks' ) }
-							onDeselect={ () =>
-								setting.onHeightChange( setting.defaultValue )
-							}
+							onDeselect={ () => {
+								setting.onHeightChange(
+									setting.defaultValue,
+									setting.defaultDisableCustomHeightValue
+								);
+								setShowCustomHeightControl(
+									! setting.defaultDisableCustomHeightValue
+								);
+							} }
 						>
-							<SelectControl
-								label={ __( 'Height', 'snow-monkey-blocks' ) }
-								value={ setting.heightValue }
-								options={ [
-									{
-										value: 'fit',
-										label: __(
-											'Fit',
-											'snow-monkey-blocks'
-										),
-									},
-									{
-										value: 'wide',
-										label: __(
-											'Wide',
-											'snow-monkey-blocks'
-										),
-									},
-									{
-										value: 'full',
-										label: __(
-											'Full',
-											'snow-monkey-blocks'
-										),
-									},
-								] }
-								onChange={ setting.onHeightChange }
-							/>
+							<div>
+								<Spacer>
+									<HStack>
+										<span className="components-base-control__label">
+											{ ! showCustomHeightControl
+												? __(
+														'Height',
+														'snow-monkey-blocks'
+												  )
+												: __(
+														'Min height',
+														'snow-monkey-blocks'
+												  ) }
+										</span>
+
+										<Button
+											label={
+												! showCustomHeightControl
+													? __(
+															'Use preset',
+															'snow-monkey-blocks'
+													  )
+													: __( 'Set custom size' )
+											}
+											icon={ settingsIcon }
+											onClick={ () => {
+												setShowCustomHeightControl(
+													! showCustomHeightControl
+												);
+											} }
+											isPressed={
+												showCustomHeightControl
+											}
+											isSmall
+										/>
+									</HStack>
+								</Spacer>
+
+								{ ! showCustomHeightControl ? (
+									<SelectControl
+										value={ setting.heightValue }
+										options={ [
+											{
+												value: 'fit',
+												label: __(
+													'Fit',
+													'snow-monkey-blocks'
+												),
+											},
+											{
+												value: 'wide',
+												label: __(
+													'Wide',
+													'snow-monkey-blocks'
+												),
+											},
+											{
+												value: 'full',
+												label: __(
+													'Full',
+													'snow-monkey-blocks'
+												),
+											},
+										] }
+										onChange={ ( value ) =>
+											setting.onHeightChange(
+												value,
+												true
+											)
+										}
+									/>
+								) : (
+									<UnitControl
+										value={ setting.heightValue }
+										onChange={ ( value ) =>
+											setting.onHeightChange(
+												value,
+												false
+											)
+										}
+									/>
+								) }
+							</div>
 						</ToolsPanelItem>
 					);
 				}

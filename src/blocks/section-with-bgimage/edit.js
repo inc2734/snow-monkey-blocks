@@ -116,6 +116,7 @@ export default function ( {
 		wrapperTagName,
 		titleTagName,
 		height,
+		disableCustomHeight,
 		containerAlign,
 		disableContainerPadding,
 		contentsMaxWidth,
@@ -198,7 +199,7 @@ export default function ( {
 		className,
 		{
 			[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
-			[ `smb-section--${ height }` ]: !! height,
+			[ `smb-section--${ height }` ]: !! height && disableCustomHeight,
 			[ `is-items-alignment-${ itemsAlignment }` ]:
 				!! itemsAlignment && isItemsAlignmentable,
 			[ `smb-section--top-divider-no-overlay` ]: ! topDividerOverlay,
@@ -293,6 +294,8 @@ export default function ( {
 		'--smb-section--color': textColor || undefined,
 		'--smb-section--contents-wrapper-width':
 			!! contentsMaxWidth && ! isSlim ? contentsMaxWidth : undefined,
+		'--smb-section--min-height':
+			!! height && ! disableCustomHeight ? height : undefined,
 		'--smb-section-with-bgimage--mask-color': maskColor || undefined,
 		'--smb-section-with-bgimage--mask-image':
 			maskGradientColor || undefined,
@@ -366,6 +369,7 @@ export default function ( {
 							'contents-full' !== containerAlign ) ||
 						'full' !== align
 					}
+					disableCustomHeight={ disableCustomHeight }
 					settings={ [
 						{
 							wrapperTagNameValue: wrapperTagName,
@@ -387,11 +391,14 @@ export default function ( {
 						},
 						{
 							heightValue: height,
-							onHeightChange: ( value ) =>
+							onHeightChange: ( value, newDisableCustomHeight ) =>
 								setAttributes( {
 									height: value,
+									disableCustomHeight: newDisableCustomHeight,
 								} ),
 							defaultValue: metadata.attributes.height.default,
+							defaultDisableCustomHeightValue:
+								metadata.attributes.disableCustomHeight.default,
 						},
 						{
 							contentsContainerControl: true,

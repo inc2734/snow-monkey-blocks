@@ -23,6 +23,7 @@ export default function ( { attributes, className } ) {
 
 		titleTagName,
 		height,
+		disableCustomHeight,
 		containerAlign,
 		disableContainerPadding,
 		contentsMaxWidth,
@@ -42,7 +43,7 @@ export default function ( { attributes, className } ) {
 		className,
 		{
 			[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
-			[ `smb-section--${ height }` ]: !! height,
+			[ `smb-section--${ height }` ]: !! height && disableCustomHeight,
 			[ `is-items-alignment-${ itemsAlignment }` ]:
 				!! itemsAlignment && isItemsAlignmentable,
 		}
@@ -94,6 +95,8 @@ export default function ( { attributes, className } ) {
 
 	const sectionStyles = {
 		color: textColor || undefined,
+		'--smb-section--min-height':
+			!! height && ! disableCustomHeight ? height : undefined,
 	};
 
 	const maskStyles = {};

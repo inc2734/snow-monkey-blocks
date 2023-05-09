@@ -2,6 +2,7 @@
 
 .smb-section {
 	--smb-section--color: currentColor;
+	--smb-section--min-height: 0px;
 	--smb-section--padding: var(--_padding3);
 	--smb-section--subtitle-color: inherit;
 	--smb-section--contents-wrapper-width: auto;
@@ -35,6 +36,7 @@
 	display: flex;
 	align-items: center;
 	color: var(--smb-section--color);
+	min-height: var(--smb-section--min-height);
 	padding: var(--smb-section--padding) 0;
 
 	&__fixed-background,
@@ -348,11 +350,11 @@
 	}
 
 	&--wide {
-		min-height: 75vh;
+		--smb-section--min-height: 75vh;
 	}
 
 	&--full {
-		min-height: 100vh;
+		--smb-section--min-height: 100vh;
 	}
 
 	&--top-divider-no-overlay {

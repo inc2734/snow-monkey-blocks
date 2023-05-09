@@ -27,6 +27,7 @@ export default function ( { attributes, className } ) {
 		wrapperTagName,
 		titleTagName,
 		height,
+		disableCustomHeight,
 		containerAlign,
 		disableContainerPadding,
 		contentsMaxWidth,
@@ -65,7 +66,7 @@ export default function ( { attributes, className } ) {
 
 	const classes = classnames( 'smb-section', className, {
 		[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
-		[ `smb-section--${ height }` ]: !! height,
+		[ `smb-section--${ height }` ]: !! height && disableCustomHeight,
 		[ `smb-section--top-divider-no-overlay` ]: ! topDividerOverlay,
 		[ `smb-section--bottom-divider-no-overlay` ]: ! bottomDividerOverlay,
 		[ `is-items-alignment-${ itemsAlignment }` ]:
@@ -118,6 +119,8 @@ export default function ( { attributes, className } ) {
 		'--smb-section--color': textColor || undefined,
 		'--smb-section--contents-wrapper-width':
 			!! contentsMaxWidth && ! isSlim ? contentsMaxWidth : undefined,
+		'--smb-section--min-height':
+			!! height && ! disableCustomHeight ? height : undefined,
 		...generateSpacingProperties( padding ),
 		...generateStylesForSectionBackground( {
 			backgroundHorizontalPosition,

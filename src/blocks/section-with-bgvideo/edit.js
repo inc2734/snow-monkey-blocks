@@ -75,6 +75,7 @@ export default function ( {
 
 		titleTagName,
 		height,
+		disableCustomHeight,
 		containerAlign,
 		disableContainerPadding,
 		contentsMaxWidth,
@@ -101,7 +102,7 @@ export default function ( {
 		className,
 		{
 			[ `smb-section--${ contentsAlignment }` ]: !! contentsAlignment,
-			[ `smb-section--${ height }` ]: !! height,
+			[ `smb-section--${ height }` ]: !! height && disableCustomHeight,
 			[ `is-items-alignment-${ itemsAlignment }` ]:
 				!! itemsAlignment && isItemsAlignmentable,
 		}
@@ -153,6 +154,8 @@ export default function ( {
 
 	const sectionStyles = {
 		color: textColor || undefined,
+		'--smb-section--min-height':
+			!! height && ! disableCustomHeight ? height : undefined,
 	};
 
 	const maskStyles = {};
@@ -221,6 +224,7 @@ export default function ( {
 							'contents-full' !== containerAlign ) ||
 						'full' !== align
 					}
+					disableCustomHeight={ disableCustomHeight }
 					settings={ [
 						{
 							titleTagNameValue: titleTagName,
@@ -233,11 +237,14 @@ export default function ( {
 						},
 						{
 							heightValue: height,
-							onHeightChange: ( value ) =>
+							onHeightChange: ( value, newDisableCustomHeight ) =>
 								setAttributes( {
 									height: value,
+									disableCustomHeight: newDisableCustomHeight,
 								} ),
 							defaultValue: metadata.attributes.height.default,
+							defaultDisableCustomHeightValue:
+								metadata.attributes.disableCustomHeight.default,
 						},
 						{
 							contentsContainerControl: true,

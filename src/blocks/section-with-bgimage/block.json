@@ -225,6 +225,10 @@
 			"type": "string",
 			"default": "fit"
 		},
+		"disableCustomHeight": {
+			"type": "boolean",
+			"default": true
+		},
 		"containerAlign": {
 			"type": "string"
 		},

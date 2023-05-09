@@ -27,6 +27,7 @@ export default function ( { attributes, className } ) {
 		wrapperTagName,
 		titleTagName,
 		height,
+		disableCustomHeight,
 		containerAlign,
 		contentsMaxWidth,
 		isSlim,
@@ -69,7 +70,7 @@ export default function ( { attributes, className } ) {
 		'smb-section-side-heading',
 		className,
 		{
-			[ `smb-section--${ height }` ]: !! height,
+			[ `smb-section--${ height }` ]: !! height && disableCustomHeight,
 			[ `is-items-alignment-${ itemsAlignment }` ]:
 				!! itemsAlignment && isItemsAlignmentable,
 			[ `smb-section--top-divider-no-overlay` ]: ! topDividerOverlay,
@@ -120,6 +121,8 @@ export default function ( { attributes, className } ) {
 		'--smb-section--color': textColor || undefined,
 		'--smb-section--contents-wrapper-width':
 			!! contentsMaxWidth && ! isSlim ? contentsMaxWidth : undefined,
+		'--smb-section--min-height':
+			!! height && ! disableCustomHeight ? height : undefined,
 		...generateSpacingProperties( padding ),
 		...generateStylesForSectionBackground( {
 			backgroundHorizontalPosition,
