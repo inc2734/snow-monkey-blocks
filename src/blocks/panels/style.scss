@@ -64,6 +64,7 @@
 				position: initial;
 				z-index: initial;
 				text-decoration: none;
+				outline: none;
 
 				&::after {
 					content: '';
@@ -73,6 +74,11 @@
 					bottom: 0;
 					left: 0;
 					z-index: 1;
+				}
+
+				&:focus::after {
+					outline: -webkit-focus-ring-color auto 1px;
+					outline-offset: -2px;
 				}
 			}
 		}

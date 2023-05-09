@@ -171,14 +171,18 @@
 	}
 
 	&--blur {
-		.smb-items__banner__figure > img {
-			filter: blur(3px);
-			height: calc(100% + 6px);
-			width: calc(100% + 6px);
-			max-height: none;
-			max-width: none;
-			margin: -3px;
-			transform: translateZ(0);
+		.smb-items__banner__figure {
+			overflow: hidden;
+
+			> img {
+				filter: blur(3px);
+				height: calc(100% + 6px);
+				width: calc(100% + 6px);
+				max-height: none;
+				max-width: none;
+				margin: -3px;
+				transform: translateZ(0);
+			}
 		}
 	}
 
@@ -333,6 +337,11 @@
 			right: 0;
 			bottom: 0;
 			left: 0;
+		}
+
+		> a:focus::after {
+			outline: -webkit-focus-ring-color auto 1px;
+			outline-offset: -2px;
 		}
 	}
 }
