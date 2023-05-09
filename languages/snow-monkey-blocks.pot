@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-05-09T01:39:59+00:00\n"
+"POT-Creation-Date: 2023-05-09T06:29:07+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: snow-monkey-blocks\n"
@@ -1720,6 +1720,22 @@ msgid "Post type"
 msgstr ""
 
 #: dist/blocks/recent-posts/index.js:1
+#: dist/blocks/taxonomy-posts/index.js:1
+#: dist/blocks/taxonomy-terms/index.js:1
+msgid "Taxonomy"
+msgstr ""
+
+#: dist/blocks/recent-posts/index.js:1
+msgid "Filter by %1$s"
+msgstr ""
+
+#: dist/blocks/recent-posts/index.js:1
+#: dist/blocks/taxonomy-posts/index.js:3
+#: dist/blocks/taxonomy-terms/index.js:1
+msgid "Loading taxonomies…"
+msgstr ""
+
+#: dist/blocks/recent-posts/index.js:1
 #: dist/blocks/rss/index.js:1
 #: dist/blocks/taxonomy-posts/index.js:1
 msgid "Number of posts"
@@ -2486,16 +2502,6 @@ msgstr ""
 
 #: dist/blocks/taxonomy-posts/index.js:1
 msgid "Default (Taxonomy selected in this block)"
-msgstr ""
-
-#: dist/blocks/taxonomy-posts/index.js:1
-#: dist/blocks/taxonomy-terms/index.js:1
-msgid "Taxonomy"
-msgstr ""
-
-#: dist/blocks/taxonomy-posts/index.js:3
-#: dist/blocks/taxonomy-terms/index.js:1
-msgid "Loading taxonomies…"
 msgstr ""
 
 #: dist/blocks/taxonomy-posts/index.js:3

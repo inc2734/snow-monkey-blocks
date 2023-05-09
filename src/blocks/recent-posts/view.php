@@ -25,6 +25,7 @@ if ( in_array( $attributes['layout'], array( 'rich-media', 'panel' ), true ) ) {
 $instance = array(
 	'title'               => null,
 	'post-type'           => $attributes['postType'],
+	'taxonomy'            => ! empty( $attributes['taxonomy'] ) && ! empty( $attributes['termId'] ) ? $attributes['taxonomy'] . '@' . $attributes['termId'] : false,
 	'posts-per-page'      => $attributes['postsPerPage'],
 	'layout'              => $attributes['layout'],
 	'ignore-sticky-posts' => $attributes['ignoreStickyPosts'],
@@ -58,6 +59,37 @@ $args = array(
 	'_context' => 'snow-monkey-blocks/recent-posts',
 );
 // phpcs:enable
+
+// @see themes/snow-monkey/app/widget/snow-monkey-recent-posts/_widget.php
+$widget_number = explode( '-', $widget_args['widget_id'] );
+if ( 1 < count( $widget_number ) ) {
+	array_shift( $widget_number );
+	$widget_number = implode( '-', $widget_number );
+} else {
+	$widget_number = $widget_number[0];
+}
+
+if ( $instance['taxonomy'] ) {
+	add_filter(
+		'snow_monkey_recent_posts_widget_args_' . $widget_number,
+		function ( $args ) use ( $instance ) {
+			$taxonomy_arr = explode( '@', $instance['taxonomy'] );
+
+			$args['tax_query'] = array_merge(
+				isset( $args['tax_query'] ) ? $args['tax_query'] : array(),
+				array(
+					array(
+						'taxonomy' => $taxonomy_arr[0],
+						'terms'    => $taxonomy_arr[1],
+						'field'    => 'term_id',
+					),
+				)
+			);
+
+			return $args;
+		}
+	);
+}
 
 ob_start();
 

@@ -10,24 +10,25 @@ import {
 	Spinner,
 	TextareaControl,
 	ToggleControl,
+	TreeSelect,
 	__experimentalToolsPanel as ToolsPanel,
 	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
 
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
-import { useMemo } from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
 
 import ServerSideRender from '@wordpress/server-side-render';
 
-import { toNumber } from '@smb/helper';
+import { toNumber, buildTermsTree } from '@smb/helper';
 
 import metadata from './block.json';
 
 export default function ( { attributes, setAttributes } ) {
 	const {
 		postType,
+		termId,
 		postsPerPage,
 		layout,
 		ignoreStickyPosts,
@@ -42,9 +43,41 @@ export default function ( { attributes, setAttributes } ) {
 		interval,
 	} = attributes;
 
-	const allPostTypes = useSelect( ( select ) => {
-		const { getPostTypes } = select( 'core' );
-		return getPostTypes( { per_page: -1 } ) || [];
+	const { allPostTypes, taxonomiesTerms } = useSelect( ( select ) => {
+		const { getPostTypes, getEntityRecords, getTaxonomy } =
+			select( 'core' );
+
+		let _allPostTypes = getPostTypes( { per_page: -1 } ) || [];
+		_allPostTypes = _allPostTypes.filter(
+			( type ) =>
+				type.viewable &&
+				! type.hierarchical &&
+				'media' !== type.rest_base
+		);
+
+		const _taxonomiesTerms = [];
+		_allPostTypes.forEach( ( _postType ) => {
+			_postType.taxonomies.forEach( ( _taxonomy ) => {
+				const _taxonomyObj = getTaxonomy( _taxonomy );
+				const terms =
+					getEntityRecords( 'taxonomy', _taxonomy, {
+						per_page: -1,
+					} ) || [];
+
+				if ( 0 < terms.length ) {
+					_taxonomiesTerms.push( {
+						taxonomy: _taxonomy,
+						label: _taxonomyObj.name,
+						terms,
+					} );
+				}
+			} );
+		} );
+
+		return {
+			allPostTypes: _allPostTypes,
+			taxonomiesTerms: _taxonomiesTerms,
+		};
 	}, [] );
 
 	const itemThumbnailSizeSlugOption = useSelect( ( select ) => {
@@ -58,17 +91,6 @@ export default function ( { attributes, setAttributes } ) {
 			};
 		} );
 	}, [] );
-
-	const postTypes = useMemo(
-		() =>
-			allPostTypes.filter(
-				( type ) =>
-					type.viewable &&
-					! type.hierarchical &&
-					'media' !== type.rest_base
-			),
-		[ allPostTypes ]
-	);
 
 	const itemTitleTagNames = [ 'h2', 'h3', 'h4' ];
 
@@ -98,12 +120,69 @@ export default function ( { attributes, setAttributes } ) {
 									postType: value,
 								} )
 							}
-							options={ postTypes.map( ( _postType ) => ( {
+							options={ allPostTypes.map( ( _postType ) => ( {
 								label: _postType.name,
 								value: _postType.slug,
 							} ) ) }
 						/>
 					</ToolsPanelItem>
+
+					{ ! taxonomiesTerms.length ? (
+						<div style={ { gridColumn: '1/-1' } }>
+							<BaseControl
+								label={ __(
+									'Loading taxonomies…',
+									'snow-monkey-blocks'
+								) }
+								id="snow-monkey-blocks/taxonomy-posts/taxonomies"
+							>
+								<Spinner />
+							</BaseControl>
+						</div>
+					) : (
+						<ToolsPanelItem
+							hasValue={ () =>
+								termId !== metadata.attributes.termId.default
+							}
+							isShownByDefault
+							label={ __( 'Taxonomy', 'snow-monkey-blocks' ) }
+							onDeselect={ () =>
+								setAttributes( {
+									termId: metadata.attributes.termId.default,
+									taxonomy:
+										metadata.attributes.taxonomy.default,
+								} )
+							}
+						>
+							{ taxonomiesTerms.map( ( taxonomyTerms ) => {
+								return (
+									<TreeSelect
+										key={ taxonomyTerms.taxonomy }
+										label={ sprintf(
+											// translators: %1$s: Term label
+											__(
+												'Filter by %1$s',
+												'snow-monkey-blocks'
+											),
+											taxonomyTerms.label
+										) }
+										noOptionLabel="-"
+										onChange={ ( value ) => {
+											setAttributes( {
+												termId: toNumber( value ),
+												taxonomy:
+													taxonomyTerms.taxonomy,
+											} );
+										} }
+										selectedId={ termId }
+										tree={ buildTermsTree(
+											taxonomyTerms.terms
+										) }
+									/>
+								);
+							} ) }
+						</ToolsPanelItem>
+					) }
 
 					<ToolsPanelItem
 						hasValue={ () =>

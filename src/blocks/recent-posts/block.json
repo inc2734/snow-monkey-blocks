@@ -11,6 +11,14 @@
 			"type": "string",
 			"default": "post"
 		},
+		"taxonomy": {
+			"type": "string",
+			"default": null
+		},
+		"termId": {
+			"type": "number",
+			"default": 0
+		},
 		"postsPerPage": {
 			"type": "number",
 			"default": 6
