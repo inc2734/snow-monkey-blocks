@@ -87,7 +87,8 @@ if ( $instance['taxonomy'] ) {
 			);
 
 			return $args;
-		}
+		},
+		9
 	);
 }
 
