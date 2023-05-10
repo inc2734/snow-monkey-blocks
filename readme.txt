@@ -117,7 +117,6 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 * [Items (Banner)] Fixed a bug that the focus ring was not displayed.
 * [Recent posts] Added the ability to filter by term.
 
-
 = 19.1.0 =
 * [Section (Break the grid)] Fixed a bug that prevented videos from being set up.
 * [Section (Background image/video)] Fixed a bug that prevented videos from being set up.
