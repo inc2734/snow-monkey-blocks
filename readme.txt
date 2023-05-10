@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue, kutsu
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 19.1.0
+Stable tag: 19.2.0
 Requires at least: 6.2
 Tested up to: 6.2
 Requires PHP: 7.4
@@ -108,6 +108,15 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 24. Tabs block (The number of tab can be increased or decreased freely)
 
 == Changelog ==
+
+= 19.2.0 =
+* [Section] Minimum height setting added.
+* [Section (Background image/video)] Minimum height setting added.
+* [Section (Side heading)] Minimum height setting added.
+* [Panels] Fixed a bug that the focus ring was not displayed.
+* [Items (Banner)] Fixed a bug that the focus ring was not displayed.
+* [Recent posts] Added the ability to filter by term.
+
 
 = 19.1.0 =
 * [Section (Break the grid)] Fixed a bug that prevented videos from being set up.
