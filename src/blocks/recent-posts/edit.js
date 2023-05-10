@@ -80,6 +80,16 @@ export default function ( { attributes, setAttributes } ) {
 		};
 	}, [] );
 
+	const taxonomiesTermsWithPostType = [];
+	const taxonomiesWithPostType =
+		allPostTypes.find( ( _postType ) => postType === _postType.slug )
+			?.taxonomies || [];
+	taxonomiesTerms.forEach( ( taxonomyTerms ) => {
+		if ( taxonomiesWithPostType.includes( taxonomyTerms.taxonomy ) ) {
+			taxonomiesTermsWithPostType.push( taxonomyTerms );
+		}
+	} );
+
 	const itemThumbnailSizeSlugOption = useSelect( ( select ) => {
 		const { getSettings } = select( 'core/block-editor' );
 		const { imageSizes } = getSettings();
@@ -127,7 +137,7 @@ export default function ( { attributes, setAttributes } ) {
 						/>
 					</ToolsPanelItem>
 
-					{ ! taxonomiesTerms.length ? (
+					{ ! taxonomiesTermsWithPostType.length ? (
 						<div style={ { gridColumn: '1/-1' } }>
 							<BaseControl
 								label={ __(
@@ -154,33 +164,35 @@ export default function ( { attributes, setAttributes } ) {
 								} )
 							}
 						>
-							{ taxonomiesTerms.map( ( taxonomyTerms ) => {
-								return (
-									<TreeSelect
-										key={ taxonomyTerms.taxonomy }
-										label={ sprintf(
-											// translators: %1$s: Term label
-											__(
-												'Filter by %1$s',
-												'snow-monkey-blocks'
-											),
-											taxonomyTerms.label
-										) }
-										noOptionLabel="-"
-										onChange={ ( value ) => {
-											setAttributes( {
-												termId: toNumber( value ),
-												taxonomy:
-													taxonomyTerms.taxonomy,
-											} );
-										} }
-										selectedId={ termId }
-										tree={ buildTermsTree(
-											taxonomyTerms.terms
-										) }
-									/>
-								);
-							} ) }
+							{ taxonomiesTermsWithPostType.map(
+								( taxonomyTerms ) => {
+									return (
+										<TreeSelect
+											key={ taxonomyTerms.taxonomy }
+											label={ sprintf(
+												// translators: %1$s: Term label
+												__(
+													'Filter by %1$s',
+													'snow-monkey-blocks'
+												),
+												taxonomyTerms.label
+											) }
+											noOptionLabel="-"
+											onChange={ ( value ) => {
+												setAttributes( {
+													termId: toNumber( value ),
+													taxonomy:
+														taxonomyTerms.taxonomy,
+												} );
+											} }
+											selectedId={ termId }
+											tree={ buildTermsTree(
+												taxonomyTerms.terms
+											) }
+										/>
+									);
+								}
+							) }
 						</ToolsPanelItem>
 					) }
 
