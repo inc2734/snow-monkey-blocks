@@ -59,17 +59,19 @@ export default function ( { attributes, setAttributes } ) {
 		_allPostTypes.forEach( ( _postType ) => {
 			_postType.taxonomies.forEach( ( _taxonomy ) => {
 				const _taxonomyObj = getTaxonomy( _taxonomy );
-				const terms =
-					getEntityRecords( 'taxonomy', _taxonomy, {
-						per_page: -1,
-					} ) || [];
+				if ( !! _taxonomyObj?.visibility?.show_ui ) {
+					const terms =
+						getEntityRecords( 'taxonomy', _taxonomy, {
+							per_page: -1,
+						} ) || [];
 
-				if ( 0 < terms.length ) {
-					_taxonomiesTerms.push( {
-						taxonomy: _taxonomy,
-						label: _taxonomyObj.name,
-						terms,
-					} );
+					if ( 0 < terms.length ) {
+						_taxonomiesTerms.push( {
+							taxonomy: _taxonomy,
+							label: _taxonomyObj.name,
+							terms,
+						} );
+					}
 				}
 			} );
 		} );
