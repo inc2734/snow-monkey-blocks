@@ -216,21 +216,6 @@
 								@include _media-max(md) {
 									margin-bottom: calc(-1 * var(--_margin3));
 								}
-
-								@include _media-min(lg) {
-									// deprecated
-									@each $key, $value in $deprecatedImageSizes {
-										&--w-#{ $value } {
-											width: $key * 1%;
-										}
-									}
-
-									@each $key, $value in $imageSizes {
-										&--w-#{ $value } {
-											width: 100 + $key * 1%;
-										}
-									}
-								}
 							}
 						}
 					}
