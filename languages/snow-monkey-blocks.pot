@@ -2,14 +2,14 @@
 # This file is distributed under the GPL2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Snow Monkey Blocks 19.1.0\n"
+"Project-Id-Version: Snow Monkey Blocks 19.2.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-blocks\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-05-09T06:29:07+00:00\n"
+"POT-Creation-Date: 2023-05-15T03:12:38+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: snow-monkey-blocks\n"
@@ -106,7 +106,7 @@ msgstr ""
 
 #: dist/blocks/categories-list/view.php:62
 #: dist/blocks/categories-list/index.js:1
-#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/recent-posts/index.js:5
 #: dist/blocks/taxonomy-posts/index.js:1
 msgid "Recent posts"
 msgstr ""
@@ -158,6 +158,7 @@ msgstr ""
 #: dist/blocks/container/index.js:1
 #: dist/blocks/contents-outline/index.js:1
 #: dist/blocks/countdown/index.js:1
+#: dist/blocks/custom-field/index.js:1
 #: dist/blocks/directory-structure/item/directory/index.js:1
 #: dist/blocks/directory-structure/item/file/index.js:1
 #: dist/blocks/evaluation-star/index.js:1
@@ -627,7 +628,7 @@ msgstr ""
 #: dist/blocks/information/index.js:1
 #: dist/blocks/items/index.js:1
 #: dist/blocks/media-text/index.js:1
-#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/recent-posts/index.js:5
 #: dist/blocks/rss/index.js:3
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-side-heading/index.js:1
@@ -759,7 +760,7 @@ msgstr ""
 
 #: dist/blocks/btn/index.js:1
 #: dist/blocks/child-pages/index.js:1
-#: dist/blocks/recent-posts/index.js:1
+#: dist/blocks/recent-posts/index.js:3
 #: dist/blocks/rss/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-with-bgimage/index.js:1
@@ -854,7 +855,7 @@ msgid "Child pages"
 msgstr ""
 
 #: dist/blocks/child-pages/index.js:1
-#: dist/blocks/recent-posts/index.js:1
+#: dist/blocks/recent-posts/index.js:3
 #: dist/blocks/rss/index.js:1
 #: dist/blocks/taxonomy-posts/index.js:1
 msgid "Layout"
@@ -862,8 +863,8 @@ msgstr ""
 
 #: dist/blocks/child-pages/index.js:1
 #: dist/blocks/child-pages/index.js:3
-#: dist/blocks/recent-posts/index.js:1
 #: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/recent-posts/index.js:5
 #: dist/blocks/rss/index.js:1
 #: dist/blocks/rss/index.js:3
 #: dist/blocks/taxonomy-posts/index.js:1
@@ -872,7 +873,7 @@ msgid "Rich media"
 msgstr ""
 
 #: dist/blocks/child-pages/index.js:1
-#: dist/blocks/recent-posts/index.js:1
+#: dist/blocks/recent-posts/index.js:3
 #: dist/blocks/rss/index.js:1
 #: dist/blocks/tabs/index.js:1
 #: dist/blocks/taxonomy-posts/index.js:1
@@ -880,14 +881,14 @@ msgid "Simple"
 msgstr ""
 
 #: dist/blocks/child-pages/index.js:1
-#: dist/blocks/recent-posts/index.js:1
+#: dist/blocks/recent-posts/index.js:3
 #: dist/blocks/rss/index.js:1
 #: dist/blocks/taxonomy-posts/index.js:1
 msgid "Text 2"
 msgstr ""
 
 #: dist/blocks/child-pages/index.js:1
-#: dist/blocks/recent-posts/index.js:1
+#: dist/blocks/recent-posts/index.js:3
 #: dist/blocks/rss/index.js:1
 #: dist/blocks/taxonomy-posts/index.js:1
 msgid "Panels"
@@ -895,21 +896,21 @@ msgstr ""
 
 #. translators: %1$s: Layout
 #: dist/blocks/child-pages/index.js:3
-#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/recent-posts/index.js:5
 #: dist/blocks/rss/index.js:3
 #: dist/blocks/taxonomy-posts/index.js:3
 msgid "Carousel (%1$s)"
 msgstr ""
 
 #: dist/blocks/child-pages/index.js:3
-#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/recent-posts/index.js:5
 #: dist/blocks/rss/index.js:3
 #: dist/blocks/taxonomy-posts/index.js:3
 msgid "Large image"
 msgstr ""
 
 #: dist/blocks/child-pages/index.js:3
-#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/recent-posts/index.js:5
 #: dist/blocks/rss/index.js:3
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-pickup-slider/index.js:1
@@ -919,7 +920,7 @@ msgid "Display arrows"
 msgstr ""
 
 #: dist/blocks/child-pages/index.js:3
-#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/recent-posts/index.js:5
 #: dist/blocks/rss/index.js:3
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-pickup-slider/index.js:1
@@ -929,7 +930,7 @@ msgid "Display dots"
 msgstr ""
 
 #: dist/blocks/child-pages/index.js:3
-#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/recent-posts/index.js:5
 #: dist/blocks/rss/index.js:3
 #: dist/blocks/slider/index.js:1
 #: dist/blocks/spider-contents-slider/index.js:1
@@ -941,7 +942,7 @@ msgid "Autoplay Speed in seconds"
 msgstr ""
 
 #: dist/blocks/child-pages/index.js:3
-#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/recent-posts/index.js:5
 #: dist/blocks/rss/index.js:3
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-pickup-slider/index.js:1
@@ -972,21 +973,21 @@ msgid "Images size"
 msgstr ""
 
 #: dist/blocks/child-pages/index.js:3
-#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/recent-posts/index.js:5
 #: dist/blocks/rss/index.js:3
 #: dist/blocks/taxonomy-posts/index.js:3
 msgid "Number of columns displayed on mobile device"
 msgstr ""
 
 #: dist/blocks/child-pages/index.js:3
-#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/recent-posts/index.js:5
 #: dist/blocks/rss/index.js:3
 #: dist/blocks/taxonomy-posts/index.js:3
 msgid "1 column"
 msgstr ""
 
 #: dist/blocks/child-pages/index.js:3
-#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/recent-posts/index.js:5
 #: dist/blocks/rss/index.js:3
 #: dist/blocks/taxonomy-posts/index.js:3
 msgid "2 columns"
@@ -1089,6 +1090,14 @@ msgstr ""
 
 #: dist/blocks/countdown/index.js:1
 msgid "Date time"
+msgstr ""
+
+#: dist/blocks/custom-field/index.js:1
+msgid "Custom field name"
+msgstr ""
+
+#: dist/blocks/custom-field/index.js:1
+msgid "Specify a custom field name."
 msgstr ""
 
 #: dist/blocks/directory-structure/item/directory/index.js:1
@@ -1725,60 +1734,61 @@ msgstr ""
 msgid "Taxonomy"
 msgstr ""
 
-#: dist/blocks/recent-posts/index.js:1
+#. translators: %1$s: Term label
+#: dist/blocks/recent-posts/index.js:3
 msgid "Filter by %1$s"
 msgstr ""
 
-#: dist/blocks/recent-posts/index.js:1
+#: dist/blocks/recent-posts/index.js:3
 #: dist/blocks/taxonomy-posts/index.js:3
 #: dist/blocks/taxonomy-terms/index.js:1
 msgid "Loading taxonomies…"
 msgstr ""
 
-#: dist/blocks/recent-posts/index.js:1
+#: dist/blocks/recent-posts/index.js:3
 #: dist/blocks/rss/index.js:1
 #: dist/blocks/taxonomy-posts/index.js:1
 msgid "Number of posts"
 msgstr ""
 
-#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/recent-posts/index.js:5
 #: dist/blocks/rss/index.js:3
 #: dist/blocks/taxonomy-posts/index.js:3
 msgid "Title tag of each items"
 msgstr ""
 
-#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/recent-posts/index.js:5
 #: dist/blocks/taxonomy-posts/index.js:3
 msgid "Images size of each items"
 msgstr ""
 
-#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/recent-posts/index.js:5
 #: dist/blocks/taxonomy-posts/index.js:3
 msgid "Force display meta of each items"
 msgstr ""
 
-#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/recent-posts/index.js:5
 #: dist/blocks/taxonomy-posts/index.js:3
 msgid "If it's already displayed, this setting will be ignored."
 msgstr ""
 
-#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/recent-posts/index.js:5
 #: dist/blocks/taxonomy-posts/index.js:3
 msgid "Force display category label of each items"
 msgstr ""
 
-#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/recent-posts/index.js:5
 #: dist/blocks/taxonomy-posts/index.js:3
 msgid "Ignore sticky posts"
 msgstr ""
 
-#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/recent-posts/index.js:5
 #: dist/blocks/rss/index.js:3
 #: dist/blocks/taxonomy-posts/index.js:3
 msgid "Text if no posts matched"
 msgstr ""
 
-#: dist/blocks/recent-posts/index.js:3
+#: dist/blocks/recent-posts/index.js:5
 #: dist/blocks/rss/index.js:3
 #: dist/blocks/taxonomy-posts/index.js:3
 msgid "Allow HTML"
@@ -2663,6 +2673,16 @@ msgstr ""
 #: dist/blocks/countdown/block.json
 msgctxt "block description"
 msgid "Display the countdown until the set date and time (Front-end only)"
+msgstr ""
+
+#: dist/blocks/custom-field/block.json
+msgctxt "block title"
+msgid "Custom field"
+msgstr ""
+
+#: dist/blocks/custom-field/block.json
+msgctxt "block description"
+msgid "Displays the value of a custom field."
 msgstr ""
 
 #: dist/blocks/directory-structure/block.json

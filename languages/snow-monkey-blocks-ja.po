@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-"
 "blocks\n"
-"POT-Creation-Date: 2023-05-09T06:29:07+00:00\n"
-"PO-Revision-Date: 2023-05-09 15:29+0900\n"
+"POT-Creation-Date: 2023-05-15T03:12:38+00:00\n"
+"PO-Revision-Date: 2023-05-15 12:13+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -108,7 +108,7 @@ msgid "articles"
 msgstr "記事"
 
 #: dist/blocks/categories-list/view.php:62
-#: dist/blocks/categories-list/index.js:1 dist/blocks/recent-posts/index.js:3
+#: dist/blocks/categories-list/index.js:1 dist/blocks/recent-posts/index.js:5
 #: dist/blocks/taxonomy-posts/index.js:1
 msgid "Recent posts"
 msgstr "最近の投稿"
@@ -165,6 +165,7 @@ msgstr ""
 #: dist/blocks/btn/index.js:1 dist/blocks/categories-list/index.js:1
 #: dist/blocks/child-pages/index.js:1 dist/blocks/container/index.js:1
 #: dist/blocks/contents-outline/index.js:1 dist/blocks/countdown/index.js:1
+#: dist/blocks/custom-field/index.js:1
 #: dist/blocks/directory-structure/item/directory/index.js:1
 #: dist/blocks/directory-structure/item/file/index.js:1
 #: dist/blocks/evaluation-star/index.js:1 dist/blocks/faq/item/index.js:1
@@ -560,7 +561,7 @@ msgstr "背景"
 #: dist/blocks/btn-box/index.js:1 dist/blocks/btn/index.js:1
 #: dist/blocks/child-pages/index.js:3 dist/blocks/countdown/index.js:1
 #: dist/blocks/information/index.js:1 dist/blocks/items/index.js:1
-#: dist/blocks/media-text/index.js:1 dist/blocks/recent-posts/index.js:3
+#: dist/blocks/media-text/index.js:1 dist/blocks/recent-posts/index.js:5
 #: dist/blocks/rss/index.js:3 dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-side-heading/index.js:1
 #: dist/blocks/section-with-bgimage/index.js:1
@@ -673,7 +674,7 @@ msgid "Unlink"
 msgstr "リンクを解除"
 
 #: dist/blocks/btn/index.js:1 dist/blocks/child-pages/index.js:1
-#: dist/blocks/recent-posts/index.js:1 dist/blocks/rss/index.js:1
+#: dist/blocks/recent-posts/index.js:3 dist/blocks/rss/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-with-bgimage/index.js:1
 #: dist/blocks/section-with-bgvideo/index.js:1 dist/blocks/section/index.js:1
@@ -760,60 +761,60 @@ msgstr "タイトル"
 msgid "Child pages"
 msgstr "このページの子ページ"
 
-#: dist/blocks/child-pages/index.js:1 dist/blocks/recent-posts/index.js:1
+#: dist/blocks/child-pages/index.js:1 dist/blocks/recent-posts/index.js:3
 #: dist/blocks/rss/index.js:1 dist/blocks/taxonomy-posts/index.js:1
 msgid "Layout"
 msgstr "レイアウト"
 
 #: dist/blocks/child-pages/index.js:1 dist/blocks/child-pages/index.js:3
-#: dist/blocks/recent-posts/index.js:1 dist/blocks/recent-posts/index.js:3
+#: dist/blocks/recent-posts/index.js:3 dist/blocks/recent-posts/index.js:5
 #: dist/blocks/rss/index.js:1 dist/blocks/rss/index.js:3
 #: dist/blocks/taxonomy-posts/index.js:1 dist/blocks/taxonomy-posts/index.js:3
 msgid "Rich media"
 msgstr "リッチメディア"
 
-#: dist/blocks/child-pages/index.js:1 dist/blocks/recent-posts/index.js:1
+#: dist/blocks/child-pages/index.js:1 dist/blocks/recent-posts/index.js:3
 #: dist/blocks/rss/index.js:1 dist/blocks/tabs/index.js:1
 #: dist/blocks/taxonomy-posts/index.js:1
 msgid "Simple"
 msgstr "シンプル"
 
-#: dist/blocks/child-pages/index.js:1 dist/blocks/recent-posts/index.js:1
+#: dist/blocks/child-pages/index.js:1 dist/blocks/recent-posts/index.js:3
 #: dist/blocks/rss/index.js:1 dist/blocks/taxonomy-posts/index.js:1
 msgid "Text 2"
 msgstr "テキスト2"
 
-#: dist/blocks/child-pages/index.js:1 dist/blocks/recent-posts/index.js:1
+#: dist/blocks/child-pages/index.js:1 dist/blocks/recent-posts/index.js:3
 #: dist/blocks/rss/index.js:1 dist/blocks/taxonomy-posts/index.js:1
 msgid "Panels"
 msgstr "パネル"
 
 #. translators: %1$s: Layout
-#: dist/blocks/child-pages/index.js:3 dist/blocks/recent-posts/index.js:3
+#: dist/blocks/child-pages/index.js:3 dist/blocks/recent-posts/index.js:5
 #: dist/blocks/rss/index.js:3 dist/blocks/taxonomy-posts/index.js:3
 msgid "Carousel (%1$s)"
 msgstr "カルーセル（%1$s）"
 
-#: dist/blocks/child-pages/index.js:3 dist/blocks/recent-posts/index.js:3
+#: dist/blocks/child-pages/index.js:3 dist/blocks/recent-posts/index.js:5
 #: dist/blocks/rss/index.js:3 dist/blocks/taxonomy-posts/index.js:3
 msgid "Large image"
 msgstr "大きな画像"
 
-#: dist/blocks/child-pages/index.js:3 dist/blocks/recent-posts/index.js:3
+#: dist/blocks/child-pages/index.js:3 dist/blocks/recent-posts/index.js:5
 #: dist/blocks/rss/index.js:3 dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-pickup-slider/index.js:1
 #: dist/blocks/spider-slider/index.js:1 dist/blocks/taxonomy-posts/index.js:3
 msgid "Display arrows"
 msgstr "矢印を表示"
 
-#: dist/blocks/child-pages/index.js:3 dist/blocks/recent-posts/index.js:3
+#: dist/blocks/child-pages/index.js:3 dist/blocks/recent-posts/index.js:5
 #: dist/blocks/rss/index.js:3 dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-pickup-slider/index.js:1
 #: dist/blocks/spider-slider/index.js:1 dist/blocks/taxonomy-posts/index.js:3
 msgid "Display dots"
 msgstr "ドットを表示"
 
-#: dist/blocks/child-pages/index.js:3 dist/blocks/recent-posts/index.js:3
+#: dist/blocks/child-pages/index.js:3 dist/blocks/recent-posts/index.js:5
 #: dist/blocks/rss/index.js:3 dist/blocks/slider/index.js:1
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-pickup-slider/index.js:1
@@ -822,7 +823,7 @@ msgstr "ドットを表示"
 msgid "Autoplay Speed in seconds"
 msgstr "自動再生の間隔（秒）"
 
-#: dist/blocks/child-pages/index.js:3 dist/blocks/recent-posts/index.js:3
+#: dist/blocks/child-pages/index.js:3 dist/blocks/recent-posts/index.js:5
 #: dist/blocks/rss/index.js:3 dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-pickup-slider/index.js:1
 #: dist/blocks/spider-slider/index.js:1 dist/blocks/taxonomy-posts/index.js:3
@@ -847,17 +848,17 @@ msgstr "タイトルタグ"
 msgid "Images size"
 msgstr "画像サイズ"
 
-#: dist/blocks/child-pages/index.js:3 dist/blocks/recent-posts/index.js:3
+#: dist/blocks/child-pages/index.js:3 dist/blocks/recent-posts/index.js:5
 #: dist/blocks/rss/index.js:3 dist/blocks/taxonomy-posts/index.js:3
 msgid "Number of columns displayed on mobile device"
 msgstr "モバイル端末時の表示カラム数"
 
-#: dist/blocks/child-pages/index.js:3 dist/blocks/recent-posts/index.js:3
+#: dist/blocks/child-pages/index.js:3 dist/blocks/recent-posts/index.js:5
 #: dist/blocks/rss/index.js:3 dist/blocks/taxonomy-posts/index.js:3
 msgid "1 column"
 msgstr "1カラム"
 
-#: dist/blocks/child-pages/index.js:3 dist/blocks/recent-posts/index.js:3
+#: dist/blocks/child-pages/index.js:3 dist/blocks/recent-posts/index.js:5
 #: dist/blocks/rss/index.js:3 dist/blocks/taxonomy-posts/index.js:3
 msgid "2 columns"
 msgstr "2カラム"
@@ -957,6 +958,14 @@ msgstr "時刻の色"
 #: dist/blocks/countdown/index.js:1
 msgid "Date time"
 msgstr "日時"
+
+#: dist/blocks/custom-field/index.js:1
+msgid "Custom field name"
+msgstr "カスタムフィールド名"
+
+#: dist/blocks/custom-field/index.js:1
+msgid "Specify a custom field name."
+msgstr "カスタムフィールド名を指定してください。"
 
 #: dist/blocks/directory-structure/item/directory/index.js:1
 msgid "folder - Solid"
@@ -1574,51 +1583,52 @@ msgstr "投稿タイプ"
 msgid "Taxonomy"
 msgstr "タクソノミー"
 
-#: dist/blocks/recent-posts/index.js:1
+#. translators: %1$s: Term label
+#: dist/blocks/recent-posts/index.js:3
 msgid "Filter by %1$s"
 msgstr "%1$sで絞り込み"
 
-#: dist/blocks/recent-posts/index.js:1 dist/blocks/taxonomy-posts/index.js:3
+#: dist/blocks/recent-posts/index.js:3 dist/blocks/taxonomy-posts/index.js:3
 #: dist/blocks/taxonomy-terms/index.js:1
 msgid "Loading taxonomies…"
 msgstr "タクソノミーを読み込んでいます…"
 
-#: dist/blocks/recent-posts/index.js:1 dist/blocks/rss/index.js:1
+#: dist/blocks/recent-posts/index.js:3 dist/blocks/rss/index.js:1
 #: dist/blocks/taxonomy-posts/index.js:1
 msgid "Number of posts"
 msgstr "表示する投稿数"
 
-#: dist/blocks/recent-posts/index.js:3 dist/blocks/rss/index.js:3
+#: dist/blocks/recent-posts/index.js:5 dist/blocks/rss/index.js:3
 #: dist/blocks/taxonomy-posts/index.js:3
 msgid "Title tag of each items"
 msgstr "各項目のタイトルタグ"
 
-#: dist/blocks/recent-posts/index.js:3 dist/blocks/taxonomy-posts/index.js:3
+#: dist/blocks/recent-posts/index.js:5 dist/blocks/taxonomy-posts/index.js:3
 msgid "Images size of each items"
 msgstr "各項目の画像サイズ"
 
-#: dist/blocks/recent-posts/index.js:3 dist/blocks/taxonomy-posts/index.js:3
+#: dist/blocks/recent-posts/index.js:5 dist/blocks/taxonomy-posts/index.js:3
 msgid "Force display meta of each items"
 msgstr "各項目のメタ情報を強制的に表示する"
 
-#: dist/blocks/recent-posts/index.js:3 dist/blocks/taxonomy-posts/index.js:3
+#: dist/blocks/recent-posts/index.js:5 dist/blocks/taxonomy-posts/index.js:3
 msgid "If it's already displayed, this setting will be ignored."
 msgstr "すでに表示されている場合、この設定は無視されます。"
 
-#: dist/blocks/recent-posts/index.js:3 dist/blocks/taxonomy-posts/index.js:3
+#: dist/blocks/recent-posts/index.js:5 dist/blocks/taxonomy-posts/index.js:3
 msgid "Force display category label of each items"
 msgstr "各項目のカテゴリーラベルを強制的に表示する"
 
-#: dist/blocks/recent-posts/index.js:3 dist/blocks/taxonomy-posts/index.js:3
+#: dist/blocks/recent-posts/index.js:5 dist/blocks/taxonomy-posts/index.js:3
 msgid "Ignore sticky posts"
 msgstr "先頭固定表示を除外する"
 
-#: dist/blocks/recent-posts/index.js:3 dist/blocks/rss/index.js:3
+#: dist/blocks/recent-posts/index.js:5 dist/blocks/rss/index.js:3
 #: dist/blocks/taxonomy-posts/index.js:3
 msgid "Text if no posts matched"
 msgstr "一致する投稿がない場合のテキスト"
 
-#: dist/blocks/recent-posts/index.js:3 dist/blocks/rss/index.js:3
+#: dist/blocks/recent-posts/index.js:5 dist/blocks/rss/index.js:3
 #: dist/blocks/taxonomy-posts/index.js:3
 msgid "Allow HTML"
 msgstr "HTML 許可"
@@ -2464,6 +2474,16 @@ msgstr "カウントダウンタイマー"
 msgctxt "block description"
 msgid "Display the countdown until the set date and time (Front-end only)"
 msgstr "設定した日時までのカウントダウンを表示 (実画面のみ反映)"
+
+#: dist/blocks/custom-field/block.json
+msgctxt "block title"
+msgid "Custom field"
+msgstr "カスタムフィールド"
+
+#: dist/blocks/custom-field/block.json
+msgctxt "block description"
+msgid "Displays the value of a custom field."
+msgstr "カスタムフィールドの値を表示します。"
 
 #: dist/blocks/directory-structure/block.json
 msgctxt "block title"

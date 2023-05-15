@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"textdomain": "snow-monkey-blocks",
+	"name": "snow-monkey-blocks/custom-field",
+	"title": "Custom field",
+	"description": "Displays the value of a custom field.",
+	"category": "smb",
+	"attributes": {
+		"name": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"editorStyle": "snow-monkey-blocks/custom-field/editor",
+	"editorScript": "file:./index.js"
+}
