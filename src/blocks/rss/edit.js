@@ -22,7 +22,7 @@ import {
 	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
 
-import { useState } from '@wordpress/element';
+import { useState, useEffect } from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
 
 import ServerSideRender from '@wordpress/server-side-render';
@@ -31,7 +31,7 @@ import { toNumber } from '@smb/helper';
 
 import metadata from './block.json';
 
-export default function ( { attributes, setAttributes } ) {
+export default function ( { attributes, setAttributes, clientId } ) {
 	const [ isEditing, setIsEditing ] = useState( ! attributes.feedURL );
 
 	const {
@@ -45,6 +45,10 @@ export default function ( { attributes, setAttributes } ) {
 		dots,
 		interval,
 	} = attributes;
+
+	useEffect( () => {
+		setAttributes( { clientId } );
+	}, [ clientId ] );
 
 	const itemTitleTagNames = [ 'h2', 'h3', 'h4' ];
 

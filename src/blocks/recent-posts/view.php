@@ -22,7 +22,31 @@ if ( in_array( $attributes['layout'], array( 'rich-media', 'panel' ), true ) ) {
 	}
 }
 
+$anchor = ! empty( $attributes['myAnchor'] ) ? $attributes['myAnchor'] : null; // Backward compatible
+$anchor = ! empty( $attributes['anchor'] ) ? $attributes['anchor'] : $anchor;
+
+$client_id  = ! empty( $attributes['clientId'] ) ? $attributes['clientId'] : rand();
+$widget_id  = 'snow_monkey_blocks_recent_posts-';
+$widget_id .= ! empty( $anchor ) ? $anchor : $client_id;
+
+$widget_args = array(
+	'before_widget' => '',
+	'after_widget'  => '',
+	'widget_id'     => $widget_id,
+	'id'            => null,
+);
+
+// @see themes/snow-monkey/app/widget/snow-monkey-recent-posts/_widget.php
+$widget_number = explode( '-', $widget_args['widget_id'] );
+if ( 1 < count( $widget_number ) ) {
+	array_shift( $widget_number );
+	$widget_number = implode( '-', $widget_number );
+} else {
+	$widget_number = $widget_number[0];
+}
+
 $instance = array(
+	'entries_id'          => $widget_number,
 	'title'               => null,
 	'post-type'           => $attributes['postType'],
 	'taxonomy'            => ! empty( $attributes['taxonomy'] ) && ! empty( $attributes['termId'] ) ? $attributes['taxonomy'] . '@' . $attributes['termId'] : false,
@@ -41,33 +65,11 @@ $instance = array(
 	'interval'            => $attributes['interval'],
 );
 
-$anchor = ! empty( $attributes['myAnchor'] ) ? $attributes['myAnchor'] : null; // Backward compatible
-$anchor = ! empty( $attributes['anchor'] ) ? $attributes['anchor'] : $anchor;
-
-$widget_id  = 'snow_monkey_blocks_recent_posts-';
-$widget_id .= ! empty( $anchor ) ? $anchor : rand();
-
-$widget_args = array(
-	'before_widget' => '',
-	'after_widget'  => '',
-	'widget_id'     => $widget_id,
-	'id'            => null,
-);
-
 // phpcs:disable VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
 $args = array(
 	'_context' => 'snow-monkey-blocks/recent-posts',
 );
 // phpcs:enable
-
-// @see themes/snow-monkey/app/widget/snow-monkey-recent-posts/_widget.php
-$widget_number = explode( '-', $widget_args['widget_id'] );
-if ( 1 < count( $widget_number ) ) {
-	array_shift( $widget_number );
-	$widget_number = implode( '-', $widget_number );
-} else {
-	$widget_number = $widget_number[0];
-}
 
 if ( $instance['taxonomy'] ) {
 	add_filter(

@@ -46,6 +46,10 @@
 		"anchor": {
 			"type": "string",
 			"default": ""
+		},
+		"clientId": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"supports": {

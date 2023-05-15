@@ -22,7 +22,31 @@ if ( in_array( $attributes['layout'], array( 'rich-media', 'panel' ), true ) ) {
 	}
 }
 
+$anchor = ! empty( $attributes['myAnchor'] ) ? $attributes['myAnchor'] : null; // Backward compatible
+$anchor = ! empty( $attributes['anchor'] ) ? $attributes['anchor'] : $anchor;
+
+$client_id  = ! empty( $attributes['clientId'] ) ? $attributes['clientId'] : rand();
+$widget_id  = 'snow_monkey_blocks_taxonomy_posts-';
+$widget_id .= ! empty( $anchor ) ? $anchor : $client_id;
+
+$widget_args = array(
+	'before_widget' => '',
+	'after_widget'  => '',
+	'widget_id'     => $widget_id,
+	'id'            => null,
+);
+
+// @see themes/snow-monkey/app/widget/snow-monkey-taxonomy-posts/_widget.php
+$widget_number = explode( '-', $widget_args['widget_id'] );
+if ( 1 < count( $widget_number ) ) {
+	array_shift( $widget_number );
+	$widget_number = implode( '-', $widget_number );
+} else {
+	$widget_number = $widget_number[0];
+}
+
 $instance = array(
+	'entries_id'              => $widget_number,
 	'title'                   => null,
 	'taxonomy'                => $attributes['taxonomy'] . '@' . $attributes['termId'],
 	'posts-per-page'          => $attributes['postsPerPage'],
@@ -39,19 +63,6 @@ $instance = array(
 	'arrows'                  => $attributes['arrows'],
 	'dots'                    => $attributes['dots'],
 	'interval'                => $attributes['interval'],
-);
-
-$anchor = ! empty( $attributes['myAnchor'] ) ? $attributes['myAnchor'] : null; // Backward compatible
-$anchor = ! empty( $attributes['anchor'] ) ? $attributes['anchor'] : $anchor;
-
-$widget_id  = 'snow_monkey_blocks_taxonomy_posts-';
-$widget_id .= ! empty( $anchor ) ? $anchor : rand();
-
-$widget_args = array(
-	'before_widget' => '',
-	'after_widget'  => '',
-	'widget_id'     => $widget_id,
-	'id'            => null,
 );
 
 // phpcs:disable VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable

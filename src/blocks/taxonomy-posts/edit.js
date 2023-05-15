@@ -17,7 +17,7 @@ import {
 
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
-import { useMemo } from '@wordpress/element';
+import { useMemo, useEffect } from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
 
 import ServerSideRender from '@wordpress/server-side-render';
@@ -26,7 +26,7 @@ import { toNumber, buildTermsTree } from '@smb/helper';
 
 import metadata from './block.json';
 
-export default function ( { attributes, setAttributes } ) {
+export default function ( { attributes, setAttributes, clientId } ) {
 	const {
 		taxonomy,
 		termId,
@@ -44,6 +44,10 @@ export default function ( { attributes, setAttributes } ) {
 		dots,
 		interval,
 	} = attributes;
+
+	useEffect( () => {
+		setAttributes( { clientId } );
+	}, [ clientId ] );
 
 	const { taxonomiesTerms, taxonomies } = useSelect( ( select ) => {
 		const { getTaxonomies, getEntityRecords } = select( 'core' );
