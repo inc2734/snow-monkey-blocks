@@ -327,7 +327,7 @@ export default [
 									</div>
 								);
 						  }
-				 ).call( this );
+				).call( this );
 			};
 
 			return (
