@@ -22,6 +22,7 @@ registerBlockType( metadata.name, {
 			name: 'full-height',
 			title: __( 'Full height', 'snow-monkey-blocks' ),
 			isDefault: true,
+			attributes: { contentPosition: '' },
 			scope: [ 'inserter', 'transform' ],
 		},
 		{
