@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-"
 "blocks\n"
-"POT-Creation-Date: 2023-05-15T03:12:38+00:00\n"
-"PO-Revision-Date: 2023-05-15 12:13+0900\n"
+"POT-Creation-Date: 2023-05-18T14:16:12+00:00\n"
+"PO-Revision-Date: 2023-05-18 23:16+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -28,8 +28,8 @@ msgstr ""
 
 #. Plugin Name of the plugin
 #: App/Controller/Manager.php:47 App/Controller/Manager.php:48
-#: App/Controller/Manager.php:54 snow-monkey-blocks.php:60
-#: snow-monkey-blocks.php:69 snow-monkey-blocks.php:78
+#: App/Controller/Manager.php:54 snow-monkey-blocks.php:59
+#: snow-monkey-blocks.php:68 snow-monkey-blocks.php:77
 msgid "Snow Monkey Blocks"
 msgstr "Snow Monkey Blocks"
 
@@ -52,55 +52,6 @@ msgstr "利用可能なブロックの設定をリセット"
 #: App/Controller/Manager.php:124
 msgid "Available blocks"
 msgstr "利用可能なブロック"
-
-#: App/Setup/BlockPatterns.php:34
-msgid "Headers"
-msgstr "ヘッダー"
-
-#: App/Setup/BlockPatterns.php:38
-msgid "Features"
-msgstr "特徴"
-
-#: App/Setup/BlockPatterns.php:42
-msgid "Text with image"
-msgstr "テキストと画像"
-
-#: App/Setup/BlockPatterns.php:46
-msgid "Pricing"
-msgstr "価格"
-
-#: App/Setup/BlockPatterns.php:50
-msgid "FAQ"
-msgstr "FAQ"
-
-#. translators: $1: number
-#: App/Setup/BlockPatterns.php:67 App/Setup/BlockPatterns.php:77
-#: App/Setup/BlockPatterns.php:87
-msgid "Header %1$s"
-msgstr "ヘッダー %1$s"
-
-#. translators: $1: number
-#: App/Setup/BlockPatterns.php:97 App/Setup/BlockPatterns.php:107
-#: App/Setup/BlockPatterns.php:117 App/Setup/BlockPatterns.php:127
-#: App/Setup/BlockPatterns.php:137 App/Setup/BlockPatterns.php:147
-msgid "Feature %1$s"
-msgstr "特徴 %1$s"
-
-#. translators: $1: number
-#: App/Setup/BlockPatterns.php:157 App/Setup/BlockPatterns.php:167
-#: App/Setup/BlockPatterns.php:177
-msgid "Text with image %1$s"
-msgstr "テキストと画像 %1$s"
-
-#. translators: $1: number
-#: App/Setup/BlockPatterns.php:187
-msgid "Pricing %1$s"
-msgstr "価格 %1$s"
-
-#. translators: $1: number
-#: App/Setup/BlockPatterns.php:197 App/Setup/BlockPatterns.php:207
-msgid "FAQ %1$s"
-msgstr "FAQ %1$s"
 
 #: dist/blocks/categories-list/view.php:44
 #: dist/blocks/categories-list/index.js:1
@@ -126,24 +77,24 @@ msgstr "ページが見つかりませんでした。"
 msgid "Contents outline"
 msgstr "目次"
 
-#: snow-monkey-blocks.php:62
+#: snow-monkey-blocks.php:61
 msgid "[Common blocks]"
 msgstr "[共通ブロック]"
 
-#: snow-monkey-blocks.php:71
+#: snow-monkey-blocks.php:70
 msgid "[Sections]"
 msgstr "[セクション]"
 
-#: snow-monkey-blocks.php:80
+#: snow-monkey-blocks.php:79
 msgid "[Deprecated]"
 msgstr "[非推奨]"
 
-#: snow-monkey-blocks.php:119
+#: snow-monkey-blocks.php:118
 msgid "[ PR ] Premium WordPress Theme Snow Monkey"
 msgstr "【PR】プレミアム WordPress テーマ Snow Monkey"
 
 #. translators: %1$s: Start a tag, %2$s: End a tag
-#: snow-monkey-blocks.php:137
+#: snow-monkey-blocks.php:136
 msgid ""
 "Snow Monkey Blocks is optimized for the %1$sSnow Monkey%2$s theme, but it "
 "can also be used with other themes."
@@ -152,7 +103,7 @@ msgstr ""
 "テーマでも使用できます。"
 
 #. translators: %1$s: Start a tag, %2$s: End a tag
-#: snow-monkey-blocks.php:143
+#: snow-monkey-blocks.php:142
 msgid ""
 "When used together with the %1$sSnow Monkey%2$s theme, it can be displayed "
 "with the most beautiful balance, and it is displayed on the edit screen with "
@@ -3016,6 +2967,36 @@ msgstr ""
 msgctxt "block description"
 msgid "It is a child block of the thumbnail gallery block."
 msgstr "サムネイルギャラリーブロックの子ブロックです。"
+
+#~ msgid "Headers"
+#~ msgstr "ヘッダー"
+
+#~ msgid "Features"
+#~ msgstr "特徴"
+
+#~ msgid "Text with image"
+#~ msgstr "テキストと画像"
+
+#~ msgid "Pricing"
+#~ msgstr "価格"
+
+#~ msgid "FAQ"
+#~ msgstr "FAQ"
+
+#~ msgid "Header %1$s"
+#~ msgstr "ヘッダー %1$s"
+
+#~ msgid "Feature %1$s"
+#~ msgstr "特徴 %1$s"
+
+#~ msgid "Text with image %1$s"
+#~ msgstr "テキストと画像 %1$s"
+
+#~ msgid "Pricing %1$s"
+#~ msgstr "価格 %1$s"
+
+#~ msgid "FAQ %1$s"
+#~ msgstr "FAQ %1$s"
 
 #~ msgid "Avatar border color"
 #~ msgstr "アバターの枠線の色"

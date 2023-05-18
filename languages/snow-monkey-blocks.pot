@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-05-15T03:12:38+00:00\n"
+"POT-Creation-Date: 2023-05-18T14:16:12+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: snow-monkey-blocks\n"
@@ -18,9 +18,9 @@ msgstr ""
 #: App/Controller/Manager.php:47
 #: App/Controller/Manager.php:48
 #: App/Controller/Manager.php:54
-#: snow-monkey-blocks.php:60
-#: snow-monkey-blocks.php:69
-#: snow-monkey-blocks.php:78
+#: snow-monkey-blocks.php:59
+#: snow-monkey-blocks.php:68
+#: snow-monkey-blocks.php:77
 msgid "Snow Monkey Blocks"
 msgstr ""
 
@@ -42,61 +42,6 @@ msgstr ""
 
 #: App/Controller/Manager.php:124
 msgid "Available blocks"
-msgstr ""
-
-#: App/Setup/BlockPatterns.php:34
-msgid "Headers"
-msgstr ""
-
-#: App/Setup/BlockPatterns.php:38
-msgid "Features"
-msgstr ""
-
-#: App/Setup/BlockPatterns.php:42
-msgid "Text with image"
-msgstr ""
-
-#: App/Setup/BlockPatterns.php:46
-msgid "Pricing"
-msgstr ""
-
-#: App/Setup/BlockPatterns.php:50
-msgid "FAQ"
-msgstr ""
-
-#. translators: $1: number
-#: App/Setup/BlockPatterns.php:67
-#: App/Setup/BlockPatterns.php:77
-#: App/Setup/BlockPatterns.php:87
-msgid "Header %1$s"
-msgstr ""
-
-#. translators: $1: number
-#: App/Setup/BlockPatterns.php:97
-#: App/Setup/BlockPatterns.php:107
-#: App/Setup/BlockPatterns.php:117
-#: App/Setup/BlockPatterns.php:127
-#: App/Setup/BlockPatterns.php:137
-#: App/Setup/BlockPatterns.php:147
-msgid "Feature %1$s"
-msgstr ""
-
-#. translators: $1: number
-#: App/Setup/BlockPatterns.php:157
-#: App/Setup/BlockPatterns.php:167
-#: App/Setup/BlockPatterns.php:177
-msgid "Text with image %1$s"
-msgstr ""
-
-#. translators: $1: number
-#: App/Setup/BlockPatterns.php:187
-msgid "Pricing %1$s"
-msgstr ""
-
-#. translators: $1: number
-#: App/Setup/BlockPatterns.php:197
-#: App/Setup/BlockPatterns.php:207
-msgid "FAQ %1$s"
 msgstr ""
 
 #: dist/blocks/categories-list/view.php:44
@@ -124,29 +69,29 @@ msgstr ""
 msgid "Contents outline"
 msgstr ""
 
-#: snow-monkey-blocks.php:62
+#: snow-monkey-blocks.php:61
 msgid "[Common blocks]"
 msgstr ""
 
-#: snow-monkey-blocks.php:71
+#: snow-monkey-blocks.php:70
 msgid "[Sections]"
 msgstr ""
 
-#: snow-monkey-blocks.php:80
+#: snow-monkey-blocks.php:79
 msgid "[Deprecated]"
 msgstr ""
 
-#: snow-monkey-blocks.php:119
+#: snow-monkey-blocks.php:118
 msgid "[ PR ] Premium WordPress Theme Snow Monkey"
 msgstr ""
 
 #. translators: %1$s: Start a tag, %2$s: End a tag
-#: snow-monkey-blocks.php:137
+#: snow-monkey-blocks.php:136
 msgid "Snow Monkey Blocks is optimized for the %1$sSnow Monkey%2$s theme, but it can also be used with other themes."
 msgstr ""
 
 #. translators: %1$s: Start a tag, %2$s: End a tag
-#: snow-monkey-blocks.php:143
+#: snow-monkey-blocks.php:142
 msgid "When used together with the %1$sSnow Monkey%2$s theme, it can be displayed with the most beautiful balance, and it is displayed on the edit screen with the same design as the front screen."
 msgstr ""
 
