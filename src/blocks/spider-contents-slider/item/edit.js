@@ -243,27 +243,33 @@ export default function ( {
 						{
 							colorValue: boxShadow.color || '',
 							onColorChange: ( value ) => {
-								boxShadow.color = value;
 								setAttributes( {
-									boxShadow: { ...boxShadow },
+									boxShadow: {
+										...boxShadow,
+										color: value,
+									},
 								} );
 							},
 						},
 						{
 							opacityValue: boxShadow.opacity,
 							onOpacityChange: ( value ) => {
-								boxShadow.opacity = value;
 								setAttributes( {
-									boxShadow: { ...boxShadow },
+									boxShadow: {
+										...boxShadow,
+										opacity: value,
+									},
 								} );
 							},
 						},
 						{
 							blurValue: boxShadow.blur,
 							onBlurChange: ( value ) => {
-								boxShadow.blur = value;
 								setAttributes( {
-									boxShadow: { ...boxShadow },
+									boxShadow: {
+										...boxShadow,
+										boxShadow: value,
+									},
 								} );
 							},
 							max: 10,

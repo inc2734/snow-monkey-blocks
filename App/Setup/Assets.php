@@ -127,7 +127,7 @@ class Assets {
 			);
 		}
 
-		if ( ! wp_script_is( 'spider', 'registered' ) ) {
+		// if ( ! wp_script_is( 'spider', 'registered' ) ) {
 			wp_enqueue_script(
 				'spider',
 				SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/packages/spider/dist/js/spider.js',
@@ -135,7 +135,7 @@ class Assets {
 				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/spider/dist/js/spider.js' ),
 				true
 			);
-		}
+		// }
 
 		wp_enqueue_style(
 			'snow-monkey-blocks',

@@ -104,6 +104,8 @@ export default function ( {
 				...canvasPadding,
 				top: maxBlur,
 				bottom: maxBlur,
+				right: maxBlur,
+				left: maxBlur,
 			},
 		} );
 		// Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
@@ -189,6 +191,8 @@ export default function ( {
 	const canvasStyles = {
 		paddingTop: canvasPadding?.top || undefined,
 		paddingBottom: canvasPadding?.bottom || undefined,
+		paddingRight: canvasPadding?.right || undefined,
+		paddingLeft: canvasPadding?.left || undefined,
 	};
 
 	const gutterOptions = [

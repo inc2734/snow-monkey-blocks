@@ -287,11 +287,13 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 				<PanelBoxShadowSettings
 					settings={ [
 						{
-							colorValue: boxShadow.color || '',
+							colorValue: boxShadow.color,
 							onColorChange: ( value ) => {
-								boxShadow.color = value;
 								setAttributes( {
-									boxShadow: { ...boxShadow },
+									boxShadow: {
+										...boxShadow,
+										color: value,
+									},
 								} );
 							},
 							defaultValue:
@@ -300,9 +302,11 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						{
 							opacityValue: boxShadow.opacity,
 							onOpacityChange: ( value ) => {
-								boxShadow.opacity = value;
 								setAttributes( {
-									boxShadow: { ...boxShadow },
+									boxShadow: {
+										...boxShadow,
+										opacity: value,
+									},
 								} );
 							},
 							defaultValue:
@@ -311,9 +315,11 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						{
 							horizontalValue: boxShadow.horizontal,
 							onHorizontalChange: ( value ) => {
-								boxShadow.horizontal = value;
 								setAttributes( {
-									boxShadow: { ...boxShadow },
+									boxShadow: {
+										...boxShadow,
+										horizontal: value,
+									},
 								} );
 							},
 							defaultValue:
@@ -323,9 +329,11 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						{
 							blurValue: boxShadow.blur,
 							onBlurChange: ( value ) => {
-								boxShadow.blur = value;
 								setAttributes( {
-									boxShadow: { ...boxShadow },
+									boxShadow: {
+										...boxShadow,
+										blur: value,
+									},
 								} );
 							},
 							defaultValue:
@@ -334,9 +342,11 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						{
 							spreadValue: boxShadow.spread,
 							onSpreadChange: ( value ) => {
-								boxShadow.spread = value;
 								setAttributes( {
-									boxShadow: { ...boxShadow },
+									boxShadow: {
+										...boxShadow,
+										spread: value,
+									},
 								} );
 							},
 							defaultValue:

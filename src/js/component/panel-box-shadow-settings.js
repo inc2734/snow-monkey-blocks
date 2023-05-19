@@ -34,9 +34,8 @@ export default function ( { settings, label } ) {
 			values.color = setting.colorValue;
 			onChanges.color = setting.onColorChange;
 
-			const multipleOriginColorsAndGradients = {
-				...useMultipleOriginColorsAndGradients(),
-			};
+			const multipleOriginColorsAndGradients =
+				useMultipleOriginColorsAndGradients();
 			multipleOriginColorsAndGradients.colors =
 				multipleOriginColorsAndGradients.colors
 					.map( ( originColorsAndGradient ) => {

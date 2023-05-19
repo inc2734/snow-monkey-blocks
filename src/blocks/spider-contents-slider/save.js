@@ -37,6 +37,8 @@ export default function ( { attributes, className } ) {
 	const canvasStyles = {
 		paddingTop: canvasPadding?.top || undefined,
 		paddingBottom: canvasPadding?.bottom || undefined,
+		paddingRight: canvasPadding?.right || undefined,
+		paddingLeft: canvasPadding?.left || undefined,
 	};
 
 	return (
