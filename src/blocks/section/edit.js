@@ -122,11 +122,7 @@ export default function ( {
 		alignwide:
 			'wide' === containerAlign ||
 			( 'contents-wide' === containerAlign && 'full' === align ),
-		'c-container--no-padding':
-			disableContainerPadding &&
-			( 'full' === containerAlign ||
-				'contents-full' === containerAlign ) &&
-			'full' === align,
+		'c-container--no-padding': disableContainerPadding,
 	} );
 
 	let headerContainerClasses = containerClasses
@@ -225,11 +221,11 @@ export default function ( {
 					disableIsSlim={ !! contentsMaxWidth }
 					disableContentsMaxWidth={ isSlim }
 					disableContainerAlign={ 'full' !== align }
-					disableDisableContainerPadding={
-						( 'full' !== containerAlign &&
-							'contents-full' !== containerAlign ) ||
-						'full' !== align
-					}
+					// disableDisableContainerPadding={
+					// 	( 'full' !== containerAlign &&
+					// 		'contents-full' !== containerAlign ) ||
+					// 	'full' !== align
+					// }
 					disableCustomHeight={ disableCustomHeight }
 					settings={ [
 						{

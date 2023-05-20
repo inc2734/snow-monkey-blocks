@@ -112,11 +112,7 @@ export default function ( { attributes, className } ) {
 		alignwide:
 			'wide' === containerAlign ||
 			( 'contents-wide' === containerAlign && 'full' === align ),
-		'c-container--no-padding':
-			disableContainerPadding &&
-			( 'full' === containerAlign ||
-				'contents-full' === containerAlign ) &&
-			'full' === align,
+		'c-container--no-padding': disableContainerPadding,
 	} );
 
 	let headerContainerClasses = containerClasses
