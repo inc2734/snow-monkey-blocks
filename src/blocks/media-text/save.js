@@ -34,6 +34,7 @@ export default function ( { attributes, className } ) {
 		imageFill,
 		focalPoint,
 		splitPoint,
+		gutter,
 	} = attributes;
 
 	const isFill = 'image' === mediaType && imageFill;
@@ -47,6 +48,7 @@ export default function ( { attributes, className } ) {
 		'smb-media-text--has-background':
 			!! backgroundColor || !! backgroundGradientColor,
 		[ `smb-media-text--mobile-${ mobileOrder }` ]: !! mobileOrder,
+		[ `smb-media-text--gutter-${ gutter }` ]: !! gutter,
 	} );
 
 	const rowClasses = classnames( 'c-row', {

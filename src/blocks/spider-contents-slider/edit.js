@@ -235,7 +235,7 @@ export default function ( {
 							gutter !== metadata.attributes.gutter.default
 						}
 						isShownByDefault
-						label={ __( 'Block spacing', 'snow-monkey-blocks' ) }
+						label={ __( 'Gap', 'snow-monkey-blocks' ) }
 						onDeselect={ () =>
 							setAttributes( {
 								gutter: metadata.attributes.gutter.default,
@@ -243,10 +243,7 @@ export default function ( {
 						}
 					>
 						<SelectControl
-							label={ __(
-								'Block spacing',
-								'snow-monkey-blocks'
-							) }
+							label={ __( 'Gap', 'snow-monkey-blocks' ) }
 							value={ gutter }
 							onChange={ ( value ) =>
 								setAttributes( {

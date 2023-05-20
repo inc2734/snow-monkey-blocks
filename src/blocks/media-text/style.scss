@@ -55,6 +55,17 @@
 		}
 	}
 
+	$gutterSizes: (
+		s: var(--_margin-1),
+		m: var(--_margin1),
+		l: var(--_margin2),
+	);
+	@each $key, $value in $gutterSizes {
+		&--gutter-#{ $key } {
+			--smb-media-text--gap: #{ $value };
+		}
+	}
+
 	&__title {
 		@include _set-fluid-font-size-level(4);
 	}

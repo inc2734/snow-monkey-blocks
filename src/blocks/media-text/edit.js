@@ -75,6 +75,7 @@ export default function ( {
 		imageFill,
 		focalPoint,
 		splitPoint,
+		gutter,
 	} = attributes;
 
 	const hasInnerBlocks = useSelect(
@@ -119,6 +120,7 @@ export default function ( {
 		'smb-media-text--has-background':
 			!! backgroundColor || !! backgroundGradientColor,
 		[ `smb-media-text--mobile-${ mobileOrder }` ]: !! mobileOrder,
+		[ `smb-media-text--gutter-${ gutter }` ]: !! gutter,
 	} );
 
 	const rowClasses = classnames( 'c-row', {
@@ -206,6 +208,49 @@ export default function ( {
 						textColor={ textColor }
 					/>
 				</PanelColorGradientSettings>
+
+				<ToolsPanel label={ __( 'Dimensions', 'snow-monkey-blocks' ) }>
+					<ToolsPanelItem
+						hasValue={ () =>
+							gutter !== metadata.attributes.gutter.default
+						}
+						isShownByDefault
+						label={ __( 'Gap', 'snow-monkey-blocks' ) }
+						onDeselect={ () =>
+							setAttributes( {
+								gutter: metadata.attributes.gutter.default,
+							} )
+						}
+					>
+						<SelectControl
+							label={ __( 'Gap', 'snow-monkey-blocks' ) }
+							value={ gutter }
+							onChange={ ( value ) =>
+								setAttributes( {
+									gutter: value,
+								} )
+							}
+							options={ [
+								{
+									value: '',
+									label: __( 'None', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 's',
+									label: __( 'S', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'm',
+									label: __( 'M', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'l',
+									label: __( 'L', 'snow-monkey-blocks' ),
+								},
+							] }
+						/>
+					</ToolsPanelItem>
+				</ToolsPanel>
 			</InspectorControls>
 
 			<InspectorControls>

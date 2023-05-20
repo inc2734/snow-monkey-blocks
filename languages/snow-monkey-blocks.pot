@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-05-18T14:16:12+00:00\n"
+"POT-Creation-Date: 2023-05-20T00:40:50+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: snow-monkey-blocks\n"
@@ -517,6 +517,7 @@ msgstr ""
 
 #: dist/blocks/box/index.js:1
 #: dist/blocks/information/index.js:1
+#: dist/blocks/media-text/index.js:1
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
 #: dist/blocks/spider-slider/index.js:1
@@ -537,6 +538,7 @@ msgstr ""
 
 #: dist/blocks/box/index.js:1
 #: dist/blocks/information/index.js:1
+#: dist/blocks/media-text/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:17
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
@@ -546,6 +548,7 @@ msgstr ""
 
 #: dist/blocks/box/index.js:1
 #: dist/blocks/information/index.js:1
+#: dist/blocks/media-text/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:17
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
@@ -555,6 +558,7 @@ msgstr ""
 
 #: dist/blocks/box/index.js:1
 #: dist/blocks/information/index.js:1
+#: dist/blocks/media-text/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:17
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
@@ -1498,6 +1502,25 @@ msgid "Media & sentence"
 msgstr ""
 
 #: dist/blocks/media-text/index.js:1
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+msgid "Gap"
+msgstr ""
+
+#: dist/blocks/media-text/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:17
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+msgid "None"
+msgstr ""
+
+#: dist/blocks/media-text/index.js:1
 msgid "Image column size"
 msgstr ""
 
@@ -1853,18 +1876,6 @@ msgstr ""
 #: dist/blocks/section-with-bgvideo/index.js:1
 #: dist/blocks/section/index.js:1
 msgid "Write subtitle…"
-msgstr ""
-
-#: dist/blocks/section-break-the-grid/index.js:1
-#: dist/blocks/section-break-the-grid/index.js:17
-#: dist/blocks/section-side-heading/index.js:1
-#: dist/blocks/section-with-bgimage/index.js:1
-#: dist/blocks/section-with-bgvideo/index.js:1
-#: dist/blocks/section/index.js:1
-#: dist/blocks/spider-contents-slider/index.js:1
-#: dist/blocks/spider-contents-slider/item/index.js:1
-#: dist/blocks/spider-slider/index.js:1
-msgid "None"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
@@ -2331,11 +2342,6 @@ msgstr ""
 #: dist/blocks/spider-pickup-slider/index.js:1
 #: dist/blocks/spider-slider/index.js:1
 msgid "Carousel"
-msgstr ""
-
-#: dist/blocks/spider-contents-slider/index.js:1
-#: dist/blocks/spider-slider/index.js:1
-msgid "Block spacing"
 msgstr ""
 
 #: dist/blocks/spider-contents-slider/index.js:1
