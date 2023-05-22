@@ -38,6 +38,8 @@ export default function ( { attributes, setAttributes, clientId } ) {
 		itemTitleTagName,
 		itemThumbnailSizeSlug,
 		forceDisplayItemMeta,
+		displayItemAuthor,
+		displayItemPublished,
 		forceDisplayItemTerms,
 		categoryLabelTaxonomy,
 		arrows,
@@ -528,6 +530,78 @@ export default function ( { attributes, setAttributes, clientId } ) {
 								onChange={ ( value ) =>
 									setAttributes( {
 										forceDisplayItemMeta: value,
+									} )
+								}
+							/>
+						</ToolsPanelItem>
+					) }
+
+					{ ( taxonomy === 'category' ||
+						taxonomy === 'post_tag' ||
+						forceDisplayItemMeta ) && (
+						<ToolsPanelItem
+							hasValue={ () =>
+								displayItemAuthor !==
+								metadata.attributes.displayItemAuthor.default
+							}
+							isShownByDefault
+							label={ __(
+								'Display author of each items',
+								'snow-monkey-blocks'
+							) }
+							onDeselect={ () =>
+								setAttributes( {
+									displayItemAuthor:
+										metadata.attributes.displayItemAuthor
+											.default,
+								} )
+							}
+						>
+							<ToggleControl
+								label={ __(
+									'Display author of each items',
+									'snow-monkey-blocks'
+								) }
+								checked={ displayItemAuthor }
+								onChange={ ( value ) =>
+									setAttributes( {
+										displayItemAuthor: value,
+									} )
+								}
+							/>
+						</ToolsPanelItem>
+					) }
+
+					{ ( taxonomy === 'category' ||
+						taxonomy === 'post_tag' ||
+						forceDisplayItemMeta ) && (
+						<ToolsPanelItem
+							hasValue={ () =>
+								displayItemPublished !==
+								metadata.attributes.displayItemPublished.default
+							}
+							isShownByDefault
+							label={ __(
+								'Display published date of each items',
+								'snow-monkey-blocks'
+							) }
+							onDeselect={ () =>
+								setAttributes( {
+									displayItemPublished:
+										metadata.attributes.displayItemPublished
+											.default,
+								} )
+							}
+						>
+							<ToggleControl
+								label={ __(
+									'Display published date of each items',
+									'snow-monkey-blocks'
+								) }
+								checked={ displayItemPublished }
+								onChange={ ( value ) =>
+									setAttributes( {
+										displayItemPublished: value,
 									} )
 								}
 							/>

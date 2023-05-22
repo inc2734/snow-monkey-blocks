@@ -65,6 +65,14 @@ $instance = array(
 	'interval'                => $attributes['interval'],
 );
 
+$instance = wp_parse_args(
+	$instance,
+	array(
+		'display-item-author'    => 'category' === $attributes['taxonomy'] || 'post_tag' === $attributes['taxonomy'] || $instance['display-item-meta'] ? $attributes['displayItemAuthor'] : false,
+		'display-item-published' => 'category' === $attributes['taxonomy'] || 'post_tag' === $attributes['taxonomy'] || $instance['display-item-meta'] ? $attributes['displayItemPublished'] : false,
+	)
+);
+
 // phpcs:disable VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
 $args = array(
 	'_context' => 'snow-monkey-blocks/taxonomy-posts',

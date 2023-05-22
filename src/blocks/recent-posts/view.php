@@ -65,6 +65,14 @@ $instance = array(
 	'interval'            => $attributes['interval'],
 );
 
+$instance = wp_parse_args(
+	$instance,
+	array(
+		'display-item-author'    => 'post' === $instance['post-type'] || $instance['display-item-meta'] ? $attributes['displayItemAuthor'] : false,
+		'display-item-published' => 'post' === $instance['post-type'] || $instance['display-item-meta'] ? $attributes['displayItemPublished'] : false,
+	)
+);
+
 // phpcs:disable VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
 $args = array(
 	'_context' => 'snow-monkey-blocks/recent-posts',

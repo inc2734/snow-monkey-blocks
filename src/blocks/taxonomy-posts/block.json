@@ -47,6 +47,14 @@
 			"type": "boolean",
 			"default": false
 		},
+		"displayItemAuthor": {
+			"type": "boolean",
+			"default": true
+		},
+		"displayItemPublished": {
+			"type": "boolean",
+			"default": true
+		},
 		"forceDisplayItemTerms": {
 			"type": "boolean",
 			"default": false
