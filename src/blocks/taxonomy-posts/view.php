@@ -57,6 +57,7 @@ $instance = array(
 	'item-thumbnail-size'     => $attributes['itemThumbnailSizeSlug'],
 	'display-item-meta'       => 'category' !== $attributes['taxonomy'] && 'post_tag' !== $attributes['taxonomy'] && $attributes['forceDisplayItemMeta'] ? true : null,
 	'display-item-terms'      => 'category' !== $attributes['taxonomy'] && 'post_tag' !== $attributes['taxonomy'] && $attributes['forceDisplayItemTerms'] ? true : null,
+	'display-item-excerpt'    => in_array( $attributes['layout'], array( 'rich-media', 'simple', 'panel', 'carousel' ), true ) ? $attributes['displayItemExcerpt'] : false,
 	'category-label-taxonomy' => $attributes['categoryLabelTaxonomy'],
 	'link-text'               => null,
 	'link-url'                => null,

@@ -41,6 +41,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 		displayItemAuthor,
 		displayItemPublished,
 		forceDisplayItemTerms,
+		displayItemExcerpt,
 		categoryLabelTaxonomy,
 		arrows,
 		dots,
@@ -245,6 +246,13 @@ export default function ( { attributes, setAttributes, clientId } ) {
 												? false
 												: true;
 										const newDisplayItemPublished = true;
+										const newDisplayItemExcerpt = [
+											'rich-media',
+											'simple',
+											'caroucel',
+										].includes( layout )
+											? true
+											: false;
 
 										setAttributes( {
 											layout: value,
@@ -252,6 +260,8 @@ export default function ( { attributes, setAttributes, clientId } ) {
 												newDisplayItemAuthor,
 											displayItemPublished:
 												newDisplayItemPublished,
+											displayItemExcerpt:
+												newDisplayItemExcerpt,
 										} );
 									} }
 									options={ [
@@ -615,6 +625,59 @@ export default function ( { attributes, setAttributes, clientId } ) {
 								onChange={ ( value ) =>
 									setAttributes( {
 										displayItemPublished: value,
+									} )
+								}
+							/>
+						</ToolsPanelItem>
+					) }
+
+					{ [ 'rich-media', 'simple', 'panel', 'carousel' ].includes(
+						layout
+					) && (
+						<ToolsPanelItem
+							hasValue={ () => {
+								const defaultDisplayItemExcerpt = [
+									'panel',
+									'text',
+									'text2',
+									'large-image',
+								].includes( layout )
+									? false
+									: true;
+								return (
+									displayItemExcerpt !==
+									defaultDisplayItemExcerpt
+								);
+							} }
+							isShownByDefault
+							label={ __(
+								'Display excerpt of each items',
+								'snow-monkey-blocks'
+							) }
+							onDeselect={ () => {
+								const defaultDisplayItemExcerpt = [
+									'panel',
+									'text',
+									'text2',
+									'large-image',
+								].includes( layout )
+									? false
+									: true;
+								setAttributes( {
+									displayItemExcerpt:
+										defaultDisplayItemExcerpt,
+								} );
+							} }
+						>
+							<ToggleControl
+								label={ __(
+									'Display excerpt of each items',
+									'snow-monkey-blocks'
+								) }
+								checked={ displayItemExcerpt }
+								onChange={ ( value ) =>
+									setAttributes( {
+										displayItemExcerpt: value,
 									} )
 								}
 							/>

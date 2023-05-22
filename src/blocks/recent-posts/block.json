@@ -59,6 +59,10 @@
 			"type": "boolean",
 			"default": false
 		},
+		"displayItemExcerpt": {
+			"type": "boolean",
+			"default": true
+		},
 		"itemThumbnailSizeSlug": {
 			"type": "string",
 			"default": "full"
