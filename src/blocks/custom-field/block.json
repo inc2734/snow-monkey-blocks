@@ -6,6 +6,7 @@
 	"title": "Custom field",
 	"description": "Displays the value of a custom field.",
 	"category": "smb",
+	"usesContext": [ "postId", "postType", "queryId" ],
 	"attributes": {
 		"name": {
 			"type": "string",

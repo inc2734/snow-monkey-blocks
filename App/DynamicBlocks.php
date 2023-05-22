@@ -17,13 +17,15 @@ class DynamicBlocks {
 	 * @param string $slug Slug of the block view.
 	 * @param array  $attributes This variable can be referenced in the template.
 	 * @param string $content Inner content.
+	 * @param WP_Block $block
 	 * @return string
 	 */
 	public static function render(
 		$slug,
 		// phpcs:disable VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
 		$attributes,
-		$content = null
+		$content = null,
+		$block = null,
 		// phpcs:enable
 	) {
 		ob_start();
