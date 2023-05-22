@@ -496,77 +496,82 @@ export default function ( { attributes, setAttributes, clientId } ) {
 						/>
 					</ToolsPanelItem>
 
-					<ToolsPanelItem
-						hasValue={ () =>
-							forceDisplayItemMeta !==
-							metadata.attributes.forceDisplayItemMeta.default
-						}
-						isShownByDefault
-						label={ __(
-							'Force display meta of each items',
-							'snow-monkey-blocks'
-						) }
-						onDeselect={ () =>
-							setAttributes( {
-								forceDisplayItemMeta:
-									metadata.attributes.forceDisplayItemMeta
-										.default,
-							} )
-						}
-					>
-						<ToggleControl
+					{ taxonomy !== 'category' && taxonomy !== 'post_tag' && (
+						<ToolsPanelItem
+							hasValue={ () =>
+								forceDisplayItemMeta !==
+								metadata.attributes.forceDisplayItemMeta.default
+							}
+							isShownByDefault
 							label={ __(
 								'Force display meta of each items',
 								'snow-monkey-blocks'
 							) }
-							help={ __(
-								"If it's already displayed, this setting will be ignored.",
-								'snow-monkey-blocks'
-							) }
-							checked={ forceDisplayItemMeta }
-							onChange={ ( value ) =>
+							onDeselect={ () =>
 								setAttributes( {
-									forceDisplayItemMeta: value,
+									forceDisplayItemMeta:
+										metadata.attributes.forceDisplayItemMeta
+											.default,
 								} )
 							}
-						/>
-					</ToolsPanelItem>
+						>
+							<ToggleControl
+								label={ __(
+									'Force display meta of each items',
+									'snow-monkey-blocks'
+								) }
+								help={ __(
+									"If it's already displayed, this setting will be ignored.",
+									'snow-monkey-blocks'
+								) }
+								checked={ forceDisplayItemMeta }
+								onChange={ ( value ) =>
+									setAttributes( {
+										forceDisplayItemMeta: value,
+									} )
+								}
+							/>
+						</ToolsPanelItem>
+					) }
 
-					<ToolsPanelItem
-						hasValue={ () =>
-							forceDisplayItemTerms !==
-							metadata.attributes.forceDisplayItemTerms.default
-						}
-						isShownByDefault
-						label={ __(
-							'Force display category label of each items',
-							'snow-monkey-blocks'
-						) }
-						onDeselect={ () =>
-							setAttributes( {
-								forceDisplayItemTerms:
-									metadata.attributes.forceDisplayItemTerms
-										.default,
-							} )
-						}
-					>
-						<ToggleControl
+					{ taxonomy !== 'category' && taxonomy !== 'post_tag' && (
+						<ToolsPanelItem
+							hasValue={ () =>
+								forceDisplayItemTerms !==
+								metadata.attributes.forceDisplayItemTerms
+									.default
+							}
+							isShownByDefault
 							label={ __(
 								'Force display category label of each items',
 								'snow-monkey-blocks'
 							) }
-							help={ __(
-								"If it's already displayed, this setting will be ignored.",
-								'snow-monkey-blocks'
-							) }
-							checked={ forceDisplayItemTerms }
-							onChange={ ( value ) =>
+							onDeselect={ () =>
 								setAttributes( {
-									forceDisplayItemTerms: value,
+									forceDisplayItemTerms:
+										metadata.attributes
+											.forceDisplayItemTerms.default,
 								} )
 							}
-						/>
-					</ToolsPanelItem>
+						>
+							<ToggleControl
+								label={ __(
+									'Force display category label of each items',
+									'snow-monkey-blocks'
+								) }
+								help={ __(
+									"If it's already displayed, this setting will be ignored.",
+									'snow-monkey-blocks'
+								) }
+								checked={ forceDisplayItemTerms }
+								onChange={ ( value ) =>
+									setAttributes( {
+										forceDisplayItemTerms: value,
+									} )
+								}
+							/>
+						</ToolsPanelItem>
+					) }
 
 					<ToolsPanelItem
 						hasValue={ () =>
