@@ -238,11 +238,22 @@ export default function ( { attributes, setAttributes, clientId } ) {
 										'snow-monkey-blocks'
 									) }
 									value={ layout }
-									onChange={ ( value ) =>
+									onChange={ ( value ) => {
+										const newDisplayItemAuthor =
+											'text' === value ||
+											'text2' === value
+												? false
+												: true;
+										const newDisplayItemPublished = true;
+
 										setAttributes( {
 											layout: value,
-										} )
-									}
+											displayItemAuthor:
+												newDisplayItemAuthor,
+											displayItemPublished:
+												newDisplayItemPublished,
+										} );
+									} }
 									options={ [
 										{
 											value: 'rich-media',
@@ -538,39 +549,41 @@ export default function ( { attributes, setAttributes, clientId } ) {
 
 					{ ( taxonomy === 'category' ||
 						taxonomy === 'post_tag' ||
-						forceDisplayItemMeta ) && (
-						<ToolsPanelItem
-							hasValue={ () =>
-								displayItemAuthor !==
-								metadata.attributes.displayItemAuthor.default
-							}
-							isShownByDefault
-							label={ __(
-								'Display author of each items',
-								'snow-monkey-blocks'
-							) }
-							onDeselect={ () =>
-								setAttributes( {
-									displayItemAuthor:
-										metadata.attributes.displayItemAuthor
-											.default,
-								} )
-							}
-						>
-							<ToggleControl
+						forceDisplayItemMeta ) &&
+						'text' !== layout && (
+							<ToolsPanelItem
+								hasValue={ () =>
+									displayItemAuthor !==
+									metadata.attributes.displayItemAuthor
+										.default
+								}
+								isShownByDefault
 								label={ __(
 									'Display author of each items',
 									'snow-monkey-blocks'
 								) }
-								checked={ displayItemAuthor }
-								onChange={ ( value ) =>
+								onDeselect={ () =>
 									setAttributes( {
-										displayItemAuthor: value,
+										displayItemAuthor:
+											metadata.attributes
+												.displayItemAuthor.default,
 									} )
 								}
-							/>
-						</ToolsPanelItem>
-					) }
+							>
+								<ToggleControl
+									label={ __(
+										'Display author of each items',
+										'snow-monkey-blocks'
+									) }
+									checked={ displayItemAuthor }
+									onChange={ ( value ) =>
+										setAttributes( {
+											displayItemAuthor: value,
+										} )
+									}
+								/>
+							</ToolsPanelItem>
+						) }
 
 					{ ( taxonomy === 'category' ||
 						taxonomy === 'post_tag' ||
