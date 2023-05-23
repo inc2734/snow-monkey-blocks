@@ -221,11 +221,6 @@ export default function ( {
 					disableIsSlim={ !! contentsMaxWidth }
 					disableContentsMaxWidth={ isSlim }
 					disableContainerAlign={ 'full' !== align }
-					// disableDisableContainerPadding={
-					// 	( 'full' !== containerAlign &&
-					// 		'contents-full' !== containerAlign ) ||
-					// 	'full' !== align
-					// }
 					disableCustomHeight={ disableCustomHeight }
 					settings={ [
 						{

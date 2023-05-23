@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue, kutsu
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 19.2.1
+Stable tag: 19.3.0
 Requires at least: 6.2
 Tested up to: 6.2
 Requires PHP: 7.4
@@ -57,6 +57,7 @@ https://www.youtube.com/watch?v=uD6omb4TLdA&t=283s
 * Information
 * Tabs
 * Insert pattern (Beta)
+* Custom field
 
 = Section blocks =
 
@@ -108,6 +109,22 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 24. Tabs block (The number of tab can be increased or decreased freely)
 
 == Changelog ==
+
+= 19.3.0 =
+* Add new block: Custom field block.
+* Remove all block patterns.
+* [Media text] Added gap setting.
+* [Recent posts] Added author and publised date display settings (when meta is in view).
+* [Taxonomy posts] Added author and publised date display settings (when meta is in view).
+* [Recent posts] Added excerpt display setting (when excerpts are in view)
+* [Taxonomy posts] Added excerpt display setting (when excerpts are in view).
+* [Recent posts] Changed "Force display meta of each items" and "Force display category label of each items" to appear only when the post type is other than "Post".
+* [Taxonomy posts] Changed "Force display meta of each items" and "Force display category label of each items" to appear only when the taxonomy is other than "Category" and "Tag".
+* [Section (Break the grid)] Fixed a bug that images were unintentionally enlarged when the "Sort by mobile" was set to "Image > Text" + "Adjust the height of the media to the height of the block".
+* [Section] "Remove container padding of the contents" can now be set unconditionally.
+* [Section (Background image/video)] "Remove container padding of the contents" can now be set unconditionally.
+* [Contents slider] Fixed a bug that left and right shadows were not seen when box shadow was set.
+* [Contents slider] Fixed a bug that caused slide block variation conversion to fail.
 
 = 19.2.1 =
 * [Recent posts] Fixed a bug that taxonomies not associated with the currently selected post type were also displayed as selectable items.
