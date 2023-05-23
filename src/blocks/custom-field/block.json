@@ -14,7 +14,10 @@
 		}
 	},
 	"supports": {
-		"html": false
+		"html": false,
+		"spacing": {
+			"margin": true
+		}
 	},
 	"editorStyle": "snow-monkey-blocks/custom-field/editor",
 	"editorScript": "file:./index.js"

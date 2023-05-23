@@ -65,7 +65,10 @@
 		}
 	},
 	"supports": {
-		"align": [ "wide", "full" ]
+		"align": [ "wide", "full" ],
+		"spacing": {
+			"margin": true
+		}
 	},
 	"style": "snow-monkey-blocks/slider",
 	"editorScript": "file:./index.js",

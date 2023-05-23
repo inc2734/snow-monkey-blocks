@@ -28,8 +28,14 @@ $classnames[] = 'smb-categories-list';
 if ( ! empty( $attributes['className'] ) ) {
 	$classnames[] = $attributes['className'];
 }
+
+$block_wrapper_attributes = get_block_wrapper_attributes(
+	array(
+		'class' => implode( ' ', $classnames ),
+	)
+);
 ?>
-<div class="<?php echo esc_attr( join( ' ', $classnames ) ); ?>">
+<div <?php echo $block_wrapper_attributes; ?>>
 	<ul class="smb-categories-list__list">
 		<?php foreach ( $categories as $category ) : ?>
 			<?php

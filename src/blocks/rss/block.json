@@ -53,7 +53,10 @@
 		}
 	},
 	"supports": {
-		"anchor": true
+		"anchor": true,
+		"spacing": {
+			"margin": true
+		}
 	},
 	"editorScript": "file:./index.js"
 }

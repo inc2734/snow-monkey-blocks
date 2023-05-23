@@ -89,7 +89,10 @@
 		}
 	},
 	"supports": {
-		"anchor": true
+		"anchor": true,
+		"spacing": {
+			"margin": true
+		}
 	},
 	"example": {
 		"attributes": {

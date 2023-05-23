@@ -25,7 +25,10 @@
 		}
 	},
 	"supports": {
-		"anchor": true
+		"anchor": true,
+		"spacing": {
+			"margin": true
+		}
 	},
 	"style": [ "slick-carousel-theme" ],
 	"editorScript": "file:./index.js"

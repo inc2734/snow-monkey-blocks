@@ -114,6 +114,9 @@
 	"supports": {
 		"align": [ "wide", "full" ],
 		"anchor": true,
+		"spacing": {
+			"margin": true
+		},
 		"snowmonkeyeditor": {
 			"blockPresets": {
 				"ignore": [

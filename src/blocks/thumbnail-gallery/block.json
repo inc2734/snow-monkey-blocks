@@ -25,7 +25,10 @@
 		}
 	},
 	"supports": {
-		"align": [ "wide", "full" ]
+		"align": [ "wide", "full" ],
+		"spacing": {
+			"margin": true
+		}
 	},
 	"style": "snow-monkey-blocks/thumbnail-gallery",
 	"editorScript": "file:./index.js",

@@ -31,9 +31,15 @@ $block_style = isset( $attributes['className'] )
 							&& preg_match( '|(is-style-[^ "\']+)|', $attributes['className'], $match )
 								? $match[1]
 								: false;
+
+$block_wrapper_attributes = get_block_wrapper_attributes(
+	array(
+		'class' => implode( ' ', $classnames ),
+	)
+);
 ?>
 
-<div class="<?php echo esc_attr( implode( ' ', $classnames ) ); ?>">
+<div <?php echo $block_wrapper_attributes; ?>>
 	<ul class="smb-taxonomy-terms__list">
 		<?php foreach ( $terms as $_term ) : ?>
 			<li class="smb-taxonomy-terms__item">

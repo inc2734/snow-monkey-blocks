@@ -82,8 +82,14 @@ if ( empty( $child_pages ) && defined( 'REST_REQUEST' ) && REST_REQUEST ) {
 		return;
 	}
 }
+
+$block_wrapper_attributes = get_block_wrapper_attributes(
+	array(
+		'class' => implode( ' ', $classnames ),
+	)
+);
 ?>
-<div class="<?php echo esc_attr( join( ' ', $classnames ) ); ?>">
+<div <?php echo $block_wrapper_attributes; ?>>
 	<?php
 	if ( empty( $no_posts_text ) ) {
 		// @codingStandardsIgnoreStart

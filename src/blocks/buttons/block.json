@@ -14,7 +14,10 @@
 	"supports": {
 		"anchor": true,
 		"align": [ "left", "right" ],
-		"alignWide": false
+		"alignWide": false,
+		"spacing": {
+			"margin": true
+		}
 	},
 	"example": {
 		"innerBlocks": [

@@ -7,7 +7,10 @@
 	"description": "Display a list of directories and files",
 	"category": "smb",
 	"supports": {
-		"html": false
+		"html": false,
+		"spacing": {
+			"margin": true
+		}
 	},
 	"example": {
 		"innerBlocks": [

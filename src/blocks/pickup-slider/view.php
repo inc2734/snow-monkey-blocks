@@ -59,8 +59,15 @@ $classnames[] = 'smb-pickup-slider';
 if ( ! empty( $attributes['className'] ) ) {
 	$classnames[] = $attributes['className'];
 }
+
+$block_wrapper_attributes = get_block_wrapper_attributes(
+	array(
+		'class' => implode( ' ', $classnames ),
+		'id'    => $anchor,
+	)
+);
 ?>
-<div class="<?php echo esc_attr( join( ' ', $classnames ) ); ?>" id="<?php echo esc_attr( $anchor ); ?>">
+<div <?php echo $block_wrapper_attributes; ?>>
 	<?php
 	// @codingStandardsIgnoreStart
 	echo apply_filters( 'inc2734_wp_awesome_widgets_render_widget', $widget, $widget_args, $instance );

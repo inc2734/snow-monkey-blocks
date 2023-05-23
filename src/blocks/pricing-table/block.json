@@ -16,7 +16,10 @@
 		}
 	},
 	"supports": {
-		"html": false
+		"html": false,
+		"spacing": {
+			"margin": true
+		}
 	},
 	"style": "snow-monkey-blocks/pricing-table",
 	"editorScript": "file:./index.js"

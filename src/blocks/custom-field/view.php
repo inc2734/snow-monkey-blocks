@@ -21,8 +21,14 @@ $value   = apply_filters( 'snow_monkey_blocks_custom_field_value', $value, $name
 if ( ! $value ) {
 	return;
 }
+
+$block_wrapper_attributes = get_block_wrapper_attributes(
+	array(
+		'class' => 'smb-custom-field',
+	)
+);
 ?>
 
-<div <?php echo get_block_wrapper_attributes( array( 'class' => 'smb-custom-field' ) ); ?>>
+<div <?php echo $block_wrapper_attributes; ?>>
 	<?php echo $value; ?>
 </div>

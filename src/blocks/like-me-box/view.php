@@ -17,8 +17,14 @@ $classnames[] = 'smb-like-me-box';
 if ( ! empty( $attributes['className'] ) ) {
 	$classnames[] = $attributes['className'];
 }
+
+$block_wrapper_attributes = get_block_wrapper_attributes(
+	array(
+		'class' => implode( ' ', $classnames ),
+	)
+);
 ?>
-<div class="<?php echo esc_attr( join( ' ', $classnames ) ); ?>">
+<div <?php echo $block_wrapper_attributes; ?>>
 	<?php
 	$template_args = array(
 		'_context'            => 'snow-monkey-blocks/like-me-box',

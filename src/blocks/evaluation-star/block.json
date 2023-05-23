@@ -35,6 +35,9 @@
 	},
 	"supports": {
 		"html": false,
+		"spacing": {
+			"margin": true
+		},
 		"snowmonkeyeditor": {
 			"blockPresets": {
 				"ignore": [ "evaluationValue", "title" ]

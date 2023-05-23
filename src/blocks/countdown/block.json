@@ -21,7 +21,10 @@
 		}
 	},
 	"supports": {
-		"html": false
+		"html": false,
+		"spacing": {
+			"margin": true
+		}
 	},
 	"style": "snow-monkey-blocks/countdown",
 	"editorScript": "file:./index.js",

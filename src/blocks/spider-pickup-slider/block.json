@@ -37,7 +37,10 @@
 		}
 	},
 	"supports": {
-		"align": [ "wide", "full" ]
+		"align": [ "wide", "full" ],
+		"spacing": {
+			"margin": true
+		}
 	},
 	"style": "snow-monkey-blocks/spider-pickup-slider",
 	"editorScript": "file:./index.js",

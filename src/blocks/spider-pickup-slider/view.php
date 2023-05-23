@@ -52,10 +52,16 @@ if ( isset( $attributes['align'] ) ) {
 		$classnames[] = 'alignwide';
 	}
 }
+
+$block_wrapper_attributes = get_block_wrapper_attributes(
+	array(
+		'class' => implode( ' ', $classnames ),
+	)
+);
 ?>
 
 <div
-	class="<?php echo esc_attr( implode( ' ', $classnames ) ); ?>"
+	<?php echo $block_wrapper_attributes; ?>
 	data-interval="<?php echo esc_attr( 0 < $attributes['interval'] ? $attributes['interval'] * 1000 : null ); ?>"
 	data-fade="<?php echo esc_attr( $attributes['fade'] ? 'true' : 'false' ); ?>"
 >

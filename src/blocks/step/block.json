@@ -7,7 +7,10 @@
 	"description": "Express the steps in an easy-to-understand manner.",
 	"category": "smb",
 	"supports": {
-		"html": false
+		"html": false,
+		"spacing": {
+			"margin": true
+		}
 	},
 	"example": {
 		"innerBlocks": [

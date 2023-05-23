@@ -103,8 +103,15 @@ $classnames[] = 'smb-taxonomy-posts';
 if ( ! empty( $attributes['className'] ) ) {
 	$classnames[] = $attributes['className'];
 }
+
+$block_wrapper_attributes = get_block_wrapper_attributes(
+	array(
+		'class' => implode( ' ', $classnames ),
+		'id'    => $anchor,
+	)
+);
 ?>
-<div class="<?php echo esc_attr( join( ' ', $classnames ) ); ?>" id="<?php echo esc_attr( $anchor ); ?>">
+<div <?php echo $block_wrapper_attributes; ?>>
 	<?php
 	if ( empty( $no_posts_text ) ) {
 		// @codingStandardsIgnoreStart
