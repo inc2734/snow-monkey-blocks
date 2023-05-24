@@ -25,7 +25,7 @@ class DynamicBlocks {
 		// phpcs:disable VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
 		$attributes,
 		$content = null,
-		$block = null,
+		$block = null
 		// phpcs:enable
 	) {
 		ob_start();
