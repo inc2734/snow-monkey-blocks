@@ -18,7 +18,7 @@ if ( ! isset( $block->context['postId'] ) ) {
 $post_id = $block->context['postId'];
 $value   = get_post_meta( $post_id, $name, true );
 $value   = apply_filters( 'snow_monkey_blocks_custom_field_value', $value, $name, $post_id );
-if ( ! $value ) {
+if ( false === $value || null === $value || '' === $value ) {
 	return;
 }
 
