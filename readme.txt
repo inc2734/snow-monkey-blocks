@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue, kutsu
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 19.3.1
+Stable tag: 19.3.2
 Requires at least: 6.2
 Tested up to: 6.2
 Requires PHP: 7.4
@@ -109,6 +109,9 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 24. Tabs block (The number of tab can be increased or decreased freely)
 
 == Changelog ==
+
+= 19.3.2 =
+* [Custom field] Fixed a problem in which 0 was not output on the screen when the stored value was 0.
 
 = 19.3.1 =
 * Add new block: Custom field block.
