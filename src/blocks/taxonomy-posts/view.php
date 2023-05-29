@@ -51,6 +51,7 @@ $instance = array(
 	'taxonomy'                => $attributes['taxonomy'] . '@' . $attributes['termId'],
 	'posts-per-page'          => $attributes['postsPerPage'],
 	'layout'                  => $attributes['layout'],
+	'gap'                     => $attributes['gap'],
 	'ignore-sticky-posts'     => $attributes['ignoreStickyPosts'],
 	'force-sm-1col'           => $force_sm_1col,
 	'item-title-tag'          => $attributes['itemTitleTagName'],

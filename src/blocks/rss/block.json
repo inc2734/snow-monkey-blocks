@@ -19,6 +19,10 @@
 			"type": "string",
 			"default": "rich-media"
 		},
+		"gap": {
+			"type": "string",
+			"default": ""
+		},
 		"smCols": {
 			"type": "number",
 			"default": 0

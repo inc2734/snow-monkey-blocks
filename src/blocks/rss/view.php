@@ -48,6 +48,7 @@ $instance = array(
 	'title'          => null,
 	'posts-per-page' => $attributes['postsPerPage'],
 	'layout'         => $attributes['layout'],
+	'gap'            => $attributes['gap'],
 	'force-sm-1col'  => $force_sm_1col,
 	'item-title-tag' => $attributes['itemTitleTagName'],
 	'link-text'      => null,

@@ -32,6 +32,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 		termId,
 		postsPerPage,
 		layout,
+		gap,
 		ignoreStickyPosts,
 		smCols,
 		noPostsText,
@@ -136,50 +137,59 @@ export default function ( { attributes, setAttributes, clientId } ) {
 							</BaseControl>
 						</div>
 					) : (
-						<ToolsPanelItem
-							hasValue={ () =>
-								taxonomy !==
-									metadata.attributes.taxonomy.default ||
-								termId !== metadata.attributes.termId.default
-							}
-							isShownByDefault
-							label={ __( 'Taxonomy', 'snow-monkey-blocks' ) }
-							onDeselect={ () =>
-								setAttributes( {
-									taxonomy:
-										metadata.attributes.taxonomy.default,
-									termId: metadata.attributes.termId.default,
-								} )
-							}
-						>
-							{ taxonomiesTerms.map( ( taxonomyTerms ) => {
-								const _taxonomy = find( taxonomies, [
-									'slug',
-									taxonomyTerms.taxonomy,
-								] );
-
-								const onChangeTaxonomyTermId = ( value ) => {
+						<>
+							<ToolsPanelItem
+								hasValue={ () =>
+									taxonomy !==
+										metadata.attributes.taxonomy.default ||
+									termId !==
+										metadata.attributes.termId.default
+								}
+								isShownByDefault
+								label={ __( 'Taxonomy', 'snow-monkey-blocks' ) }
+								onDeselect={ () =>
 									setAttributes( {
-										taxonomy: _taxonomy.slug,
-										termId: toNumber( value ),
-									} );
-								};
+										taxonomy:
+											metadata.attributes.taxonomy
+												.default,
+										termId: metadata.attributes.termId
+											.default,
+									} )
+								}
+							>
+								{ taxonomiesTerms.map( ( taxonomyTerms ) => {
+									const _taxonomy = find( taxonomies, [
+										'slug',
+										taxonomyTerms.taxonomy,
+									] );
 
-								return (
-									!! _taxonomy && (
-										<TreeSelect
-											key={ `${ _taxonomy.slug }-${ termId }` }
-											label={ _taxonomy.name }
-											noOptionLabel="-"
-											onChange={ onChangeTaxonomyTermId }
-											selectedId={ termId }
-											tree={ buildTermsTree(
-												taxonomyTerms.terms
-											) }
-										/>
-									)
-								);
-							} ) }
+									const onChangeTaxonomyTermId = (
+										value
+									) => {
+										setAttributes( {
+											taxonomy: _taxonomy.slug,
+											termId: toNumber( value ),
+										} );
+									};
+
+									return (
+										!! _taxonomy && (
+											<TreeSelect
+												key={ `${ _taxonomy.slug }-${ termId }` }
+												label={ _taxonomy.name }
+												noOptionLabel="-"
+												onChange={
+													onChangeTaxonomyTermId
+												}
+												selectedId={ termId }
+												tree={ buildTermsTree(
+													taxonomyTerms.terms
+												) }
+											/>
+										)
+									);
+								} ) }
+							</ToolsPanelItem>
 
 							<ToolsPanelItem
 								hasValue={ () =>
@@ -324,7 +334,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 									] }
 								/>
 							</ToolsPanelItem>
-						</ToolsPanelItem>
+						</>
 					) }
 
 					{ 'carousel' === layout && (
@@ -428,6 +438,56 @@ export default function ( { attributes, setAttributes, clientId } ) {
 							</ToolsPanelItem>
 						</>
 					) }
+
+					<ToolsPanelItem
+						hasValue={ () =>
+							gap !== metadata.attributes.gap.default
+						}
+						isShownByDefault
+						label={ __(
+							'The gap between each item',
+							'snow-monkey-blocks'
+						) }
+						onDeselect={ () =>
+							setAttributes( {
+								gap: metadata.attributes.gap.default,
+							} )
+						}
+					>
+						<SelectControl
+							label={ __(
+								'The gap between each item',
+								'snow-monkey-blocks'
+							) }
+							value={ gap }
+							onChange={ ( value ) =>
+								setAttributes( {
+									gap: value,
+								} )
+							}
+							options={ [
+								{
+									value: '',
+									label: __(
+										'Default',
+										'snow-monkey-blocks'
+									),
+								},
+								{
+									value: 's',
+									label: __( 'S', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'm',
+									label: __( 'M', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'l',
+									label: __( 'L', 'snow-monkey-blocks' ),
+								},
+							] }
+						/>
+					</ToolsPanelItem>
 
 					<ToolsPanelItem
 						hasValue={ () =>

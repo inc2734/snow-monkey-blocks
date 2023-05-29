@@ -23,6 +23,10 @@
 			"type": "string",
 			"default": "rich-media"
 		},
+		"gap": {
+			"type": "string",
+			"default": ""
+		},
 		"ignoreStickyPosts": {
 			"type": "boolean",
 			"default": true

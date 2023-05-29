@@ -2,14 +2,14 @@
 # This file is distributed under the GPL2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Snow Monkey Blocks 19.2.1\n"
+"Project-Id-Version: Snow Monkey Blocks 19.3.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-blocks\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-05-22T15:35:54+00:00\n"
+"POT-Creation-Date: 2023-05-29T14:19:10+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: snow-monkey-blocks\n"
@@ -44,19 +44,19 @@ msgstr ""
 msgid "Available blocks"
 msgstr ""
 
-#: dist/blocks/categories-list/view.php:44
+#: dist/blocks/categories-list/view.php:50
 #: dist/blocks/categories-list/index.js:1
 msgid "articles"
 msgstr ""
 
-#: dist/blocks/categories-list/view.php:62
+#: dist/blocks/categories-list/view.php:68
 #: dist/blocks/categories-list/index.js:1
 #: dist/blocks/recent-posts/index.js:5
 #: dist/blocks/taxonomy-posts/index.js:1
 msgid "Recent posts"
 msgstr ""
 
-#: dist/blocks/categories-list/view.php:82
+#: dist/blocks/categories-list/view.php:88
 msgid "(no title)"
 msgstr ""
 
@@ -539,30 +539,39 @@ msgstr ""
 #: dist/blocks/box/index.js:1
 #: dist/blocks/information/index.js:1
 #: dist/blocks/media-text/index.js:1
+#: dist/blocks/recent-posts/index.js:5
+#: dist/blocks/rss/index.js:3
 #: dist/blocks/section-break-the-grid/index.js:17
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
 #: dist/blocks/spider-slider/index.js:1
+#: dist/blocks/taxonomy-posts/index.js:3
 msgid "S"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
 #: dist/blocks/information/index.js:1
 #: dist/blocks/media-text/index.js:1
+#: dist/blocks/recent-posts/index.js:5
+#: dist/blocks/rss/index.js:3
 #: dist/blocks/section-break-the-grid/index.js:17
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
 #: dist/blocks/spider-slider/index.js:1
+#: dist/blocks/taxonomy-posts/index.js:3
 msgid "M"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
 #: dist/blocks/information/index.js:1
 #: dist/blocks/media-text/index.js:1
+#: dist/blocks/recent-posts/index.js:5
+#: dist/blocks/rss/index.js:3
 #: dist/blocks/section-break-the-grid/index.js:17
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
 #: dist/blocks/spider-slider/index.js:1
+#: dist/blocks/taxonomy-posts/index.js:3
 msgid "L"
 msgstr ""
 
@@ -1717,6 +1726,12 @@ msgstr ""
 #: dist/blocks/rss/index.js:1
 #: dist/blocks/taxonomy-posts/index.js:1
 msgid "Number of posts"
+msgstr ""
+
+#: dist/blocks/recent-posts/index.js:5
+#: dist/blocks/rss/index.js:3
+#: dist/blocks/taxonomy-posts/index.js:3
+msgid "The gap between each item"
 msgstr ""
 
 #: dist/blocks/recent-posts/index.js:5

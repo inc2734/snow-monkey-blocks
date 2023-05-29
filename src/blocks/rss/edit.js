@@ -38,6 +38,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 		feedURL,
 		postsPerPage,
 		layout,
+		gap,
 		smCols,
 		noPostsText,
 		itemTitleTagName,
@@ -263,6 +264,56 @@ export default function ( { attributes, setAttributes, clientId } ) {
 							</ToolsPanelItem>
 						</>
 					) }
+
+					<ToolsPanelItem
+						hasValue={ () =>
+							gap !== metadata.attributes.gap.default
+						}
+						isShownByDefault
+						label={ __(
+							'The gap between each item',
+							'snow-monkey-blocks'
+						) }
+						onDeselect={ () =>
+							setAttributes( {
+								gap: metadata.attributes.gap.default,
+							} )
+						}
+					>
+						<SelectControl
+							label={ __(
+								'The gap between each item',
+								'snow-monkey-blocks'
+							) }
+							value={ gap }
+							onChange={ ( value ) =>
+								setAttributes( {
+									gap: value,
+								} )
+							}
+							options={ [
+								{
+									value: '',
+									label: __(
+										'Default',
+										'snow-monkey-blocks'
+									),
+								},
+								{
+									value: 's',
+									label: __( 'S', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'm',
+									label: __( 'M', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'l',
+									label: __( 'L', 'snow-monkey-blocks' ),
+								},
+							] }
+						/>
+					</ToolsPanelItem>
 
 					<ToolsPanelItem
 						hasValue={ () =>
