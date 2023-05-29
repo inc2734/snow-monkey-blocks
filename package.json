@@ -63,7 +63,7 @@
     "blocks": "run-s blocks:format blocks:build blocks:css blocks:php blocks:img",
     "pretest:unit:php": "wp-env start",
     "test:lint:js": "wp-scripts lint-js src/blocks src/js",
-    "test:lint:php": "wp-env start && wp-env run --env-cwd=\"wp-content/plugins/snow-monkey-blocks\" cli composer lint'",
+    "test:lint:php": "wp-env start && wp-env run --env-cwd=\"wp-content/plugins/snow-monkey-blocks\" cli composer lint",
     "test:lint": "run-s test:lint:*",
     "test:unit:php": "wp-env start && wp-env run --env-cwd=\"wp-content/plugins/snow-monkey-blocks\" tests-wordpress vendor/bin/phpunit -c .phpunit.xml.dist --verbose",
     "test:unit": "run-s test:unit:*",
