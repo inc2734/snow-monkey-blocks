@@ -61,7 +61,7 @@
     "blocks:php": "cpy \"src/blocks/**/*.php\" \"dist/blocks\"",
     "blocks:img": "cpy \"src/blocks/**/img/*\" \"dist/blocks\"",
     "blocks": "run-s blocks:format blocks:build blocks:css blocks:php blocks:img",
-    "pretest": "wp-env start && npm run composer 'install --no-interaction'",
+    "pretest:unit:php": "wp-env start",
     "test:lint:js": "wp-scripts lint-js src/blocks src/js",
     "test:lint:php": "wp-env start && npm run composer 'run-script lint'",
     "test:lint": "run-s test:lint:*",
