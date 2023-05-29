@@ -41,6 +41,11 @@ export default function ( { attributes, className } ) {
 		paddingLeft: canvasPadding?.left || undefined,
 	};
 
+	const referenceStyles = {
+		marginRight: canvasPadding?.right || undefined,
+		marginLeft: canvasPadding?.left || undefined,
+	};
+
 	return (
 		<div
 			{ ...useBlockProps.save( { className: classes } ) }
@@ -60,7 +65,10 @@ export default function ( { attributes, className } ) {
 			<div className="spider">
 				{ isShifted && (
 					<div className="c-container">
-						<div className="spider__reference" />
+						<div
+							className="spider__reference"
+							style={ referenceStyles }
+						/>
 					</div>
 				) }
 				<div

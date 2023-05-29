@@ -49,6 +49,7 @@ export default function ( {
 		canvasPadding,
 		sliderClientIds: _sliderClientIds,
 	} = attributes;
+
 	const sliderClientIds = JSON.parse( _sliderClientIds );
 
 	const isAlignwide = 'wide' === attributes.align;
@@ -193,6 +194,11 @@ export default function ( {
 		paddingBottom: canvasPadding?.bottom || undefined,
 		paddingRight: canvasPadding?.right || undefined,
 		paddingLeft: canvasPadding?.left || undefined,
+	};
+
+	const referenceStyles = {
+		marginRight: canvasPadding?.right || undefined,
+		marginLeft: canvasPadding?.left || undefined,
 	};
 
 	const gutterOptions = [
@@ -578,6 +584,7 @@ export default function ( {
 						<div className="c-container">
 							<div
 								className="spider__reference"
+								style={ referenceStyles }
 								ref={ referenceRef }
 							/>
 						</div>
