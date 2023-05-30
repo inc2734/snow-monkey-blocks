@@ -108,23 +108,6 @@
 		}
 	}
 
-	> .smb-section__inner {
-		> .#{ $_prefix }c-container {
-			> .smb-section__contents-wrapper {
-				> .#{ $_prefix }c-row {
-					> .#{ $_prefix }c-row__col {
-						> .smb-section-break-the-grid__figure {
-							@include _media-max(md) {
-								margin-right: calc(-1 * var(--_container-margin-right));
-								margin-left: calc(-1 * var(--_container-margin-left));
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-
 	@include _media-min(lg) {
 		// deprecated
 		@each $key, $value in $deprecatedContentTopVerticalPositions {
@@ -229,9 +212,13 @@
 								}
 							}
 
-							> .smb-section-break-the-grid__figure {
-								@include _media-max(md) {
-									margin-bottom: calc(-1 * var(--_margin3));
+							> .smb-section-break-the-grid__content {
+								@each $key, $value in $contentHorizontalPositions {
+									&--horizontal-#{ $value } {
+										@include _media-max(md) {
+											margin-top: calc(-1 * var(--_margin1) * #{ $key / 10 });
+										}
+									}
 								}
 							}
 						}
@@ -254,8 +241,12 @@
 							}
 
 							> .smb-section-break-the-grid__content {
-								@include _media-max(md) {
-									margin-bottom: calc(-1 * var(--_margin3));
+								@each $key, $value in $contentHorizontalPositions {
+									&--horizontal-#{ $value } {
+										@include _media-max(md) {
+											margin-bottom: calc(-1 * var(--_margin1) * #{ $key / 10 });
+										}
+									}
 								}
 							}
 						}
@@ -464,8 +455,12 @@
 						> .#{ $_prefix }c-row {
 							> .#{ $_prefix }c-row__col {
 								> .smb-section-break-the-grid__content {
-									@include _media-max(md) {
-										margin-bottom: calc(-1 * var(--_margin3));
+									@each $key, $value in $contentHorizontalPositions {
+										&--horizontal-#{ $value } {
+											@include _media-max(md) {
+												margin-top: calc(-1 * var(--_margin1) * #{ $key / 10 });
+											}
+										}
 									}
 								}
 							}
@@ -505,16 +500,27 @@
 							}
 
 							> .smb-section-break-the-grid__figure {
-								@include _media-min(lg) {
-									// deprecated
-									@each $key, $value in $deprecatedImageSizes {
-										&--w-#{ $value } {
+								// deprecated
+								@each $key, $value in $deprecatedImageSizes {
+									&--w-#{ $value } {
+										@include _media-min(lg) {
 											margin-left: -1 * $key + 100%;
 										}
 									}
+								}
 
-									@each $key, $value in $imageSizes {
-										&--w-#{ $value } {
+								margin-left: 10%;
+								margin-right: calc(-1 * var(--_container-margin-left));
+
+								@include _media-min(lg) {
+									margin-right: 0;
+								}
+
+								@each $key, $value in $imageSizes {
+									&--w-#{ $value } {
+										margin-left: max((10% + -1 * ($key * 0.2%)), calc(-1 * var(--_container-margin-left)));
+
+										@include _media-min(lg) {
 											margin-left: -1 * $key * 1%;
 										}
 									}
@@ -577,16 +583,27 @@
 							}
 
 							> .smb-section-break-the-grid__figure {
-								@include _media-min(lg) {
-									// deprecated
-									@each $key, $value in $deprecatedImageSizes {
-										&--w-#{ $value } {
+								// deprecated
+								@each $key, $value in $deprecatedImageSizes {
+									&--w-#{ $value } {
+										@include _media-min(lg) {
 											margin-right: -1 * $key + 100%;
 										}
 									}
+								}
 
-									@each $key, $value in $imageSizes {
-										&--w-#{ $value } {
+								margin-right:10%;
+								margin-left: calc(-1 * var(--_container-margin-left));
+
+								@include _media-min(lg) {
+									margin-left: 0;
+								}
+
+								@each $key, $value in $imageSizes {
+									&--w-#{ $value } {
+										margin-right: max((10% + -1 * ($key * 0.2%)), calc(-1 * var(--_container-margin-right)));
+
+										@include _media-min(lg) {
 											margin-right: -1 * ($key * 1%);
 										}
 									}
@@ -783,6 +800,23 @@
 	// @deprecated
 	> .#{ $_prefix }c-container {
 		max-width: none;
+	}
+
+	> .smb-section__inner {
+		> .#{ $_prefix }c-container {
+			> .smb-section__contents-wrapper {
+				> .#{ $_prefix }c-row {
+					> .#{ $_prefix }c-row__col {
+						> .smb-section-break-the-grid__figure {
+							@include _media-max(md) {
+								margin-right: calc(-1 * var(--_container-margin-right));
+								margin-left: calc(-1 * var(--_container-margin-left));
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 }
 
