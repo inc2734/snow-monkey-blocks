@@ -108,6 +108,23 @@
 		}
 	}
 
+	> .smb-section__inner {
+		> .#{ $_prefix }c-container {
+			> .smb-section__contents-wrapper {
+				> .#{ $_prefix }c-row {
+					> .#{ $_prefix }c-row__col {
+						> .smb-section-break-the-grid__figure {
+							@include _media-max(md) {
+								margin-right: calc(-1 * var(--_container-margin-right));
+								margin-left: calc(-1 * var(--_container-margin-left));
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
 	@include _media-min(lg) {
 		// deprecated
 		@each $key, $value in $deprecatedContentTopVerticalPositions {
@@ -488,15 +505,7 @@
 							}
 
 							> .smb-section-break-the-grid__figure {
-								right: calc(-1 * var(--_s1) * .5);
-
-								@include _media-min(md) {
-									right: calc(-1 * var(--_s1));
-								}
-
 								@include _media-min(lg) {
-									right: 0;
-
 									// deprecated
 									@each $key, $value in $deprecatedImageSizes {
 										&--w-#{ $value } {
@@ -568,15 +577,7 @@
 							}
 
 							> .smb-section-break-the-grid__figure {
-								left: calc(-1 * var(--_s1) * .5);
-
-								@include _media-min(md) {
-									left: calc(-1 * var(--_s1));
-								}
-
 								@include _media-min(lg) {
-									left: 0;
-
 									// deprecated
 									@each $key, $value in $deprecatedImageSizes {
 										&--w-#{ $value } {
@@ -782,42 +783,6 @@
 	// @deprecated
 	> .#{ $_prefix }c-container {
 		max-width: none;
-	}
-}
-
-.alignfull.smb-section-break-the-grid--right {
-	> .smb-section__inner {
-		> .#{ $_prefix }c-container:not(.#{ $_prefix }c-container--no-padding) {
-			> .smb-section__contents-wrapper {
-				> .#{ $_prefix }c-row {
-					> .#{ $_prefix }c-row__col {
-						> .smb-section-break-the-grid__figure {
-							@include _media-min(lg) {
-								right: calc(-1 * var(--_s1));
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-.alignfull.smb-section-break-the-grid--left {
-	> .smb-section__inner {
-		> .#{ $_prefix }c-container:not(.#{ $_prefix }c-container--no-padding) {
-			> .smb-section__contents-wrapper {
-				> .#{ $_prefix }c-row {
-					> .#{ $_prefix }c-row__col {
-						> .smb-section-break-the-grid__figure {
-							@include _media-min(lg) {
-								left: calc(-1 * var(--_s1));
-							}
-						}
-					}
-				}
-			}
-		}
 	}
 }
 
