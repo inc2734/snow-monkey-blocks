@@ -1086,7 +1086,7 @@ export const generateStylesForSectionBackground = ( {
 		styles[ '--smb-section--background-text-color' ] =
 			!! backgroundText?.color ? backgroundText.color : undefined;
 		styles[ '--smb-section--background-text-opacity' ] =
-			!! backgroundText?.opacity && 1 > backgroundText.opacity
+			!! backgroundText?.opacity
 				? String( backgroundText.opacity )
 				: undefined;
 		styles[ '--smb-section--background-text-font-size' ] =
