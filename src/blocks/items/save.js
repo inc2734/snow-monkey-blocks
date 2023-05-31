@@ -11,10 +11,11 @@ export default function ( { attributes, className } ) {
 		isFill,
 		verticalAlignment,
 		contentJustification,
+		gap,
 	} = attributes;
 
 	const classes = classnames( 'smb-items', className, {
-		'smb-items--glue': isGlue,
+		'smb-items--glue': isGlue && ! gap,
 		'smb-items--fill': isFill,
 	} );
 
@@ -24,10 +25,12 @@ export default function ( { attributes, className } ) {
 			: undefined;
 
 	const rowClasses = classnames( 'c-row', {
-		'c-row--margin': ! isGlue,
+		'c-row--margin': ! isGlue && ( 'm' === gap || ! gap ),
 		'c-row--middle': 'center' === verticalAlignment,
 		'c-row--bottom': 'bottom' === verticalAlignment,
 		[ `c-row--${ contentJustificationModifier }` ]: contentJustification,
+		[ `c-row--margin-${ gap }` ]:
+			! isGlue && ( 's' === gap || 'l' === gap ),
 	} );
 
 	return (

@@ -33,6 +33,10 @@
 		},
 		"contentJustification": {
 			"type": "string"
+		},
+		"gap": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"supports": {

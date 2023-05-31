@@ -33,6 +33,10 @@
 		"isGlue": {
 			"type": "boolean",
 			"default": false
+		},
+		"gap": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"supports": {

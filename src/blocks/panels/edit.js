@@ -11,6 +11,7 @@ import {
 
 import {
 	RangeControl,
+	SelectControl,
 	ToggleControl,
 	__experimentalToolsPanel as ToolsPanel,
 	__experimentalToolsPanelItem as ToolsPanelItem,
@@ -55,7 +56,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		},
 	] );
 
-	const { sm, md, lg, imagePadding, contentJustification, isGlue } =
+	const { sm, md, lg, imagePadding, contentJustification, isGlue, gap } =
 		attributes;
 
 	const hasInnerBlocks = useSelect(
@@ -66,7 +67,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 	);
 
 	const classes = classnames( 'smb-panels', className, {
-		'smb-panels--glue': isGlue,
+		'smb-panels--glue': isGlue && ! gap,
 	} );
 
 	const blockProps = useBlockProps( {
@@ -79,8 +80,10 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 			: undefined;
 
 	const rowClasses = classnames( 'c-row', 'c-row--fill', {
-		'c-row--margin': ! isGlue,
+		'c-row--margin': ! isGlue && ( 'm' === gap || ! gap ),
 		[ `c-row--${ contentJustificationModifier }` ]: contentJustification,
+		[ `c-row--margin-${ gap }` ]:
+			! isGlue && ( 's' === gap || 'l' === gap ),
 	} );
 
 	const innerBlocksProps = useInnerBlocksProps(
@@ -208,35 +211,89 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						/>
 					</ToolsPanelItem>
 
-					<ToolsPanelItem
-						hasValue={ () =>
-							isGlue !== metadata.attributes.isGlue.default
-						}
-						isShownByDefault
-						label={ __(
-							'Glue each item together',
-							'snow-monkey-blocks'
-						) }
-						onDeselect={ () =>
-							setAttributes( {
-								isGlue: metadata.attributes.isGlue.default,
-							} )
-						}
-					>
-						<ToggleControl
+					{ ! gap && (
+						<ToolsPanelItem
+							hasValue={ () =>
+								isGlue !== metadata.attributes.isGlue.default
+							}
+							isShownByDefault
 							label={ __(
 								'Glue each item together',
 								'snow-monkey-blocks'
 							) }
-							checked={ isGlue }
-							onChange={ ( value ) =>
+							onDeselect={ () =>
 								setAttributes( {
-									isGlue: value,
+									isGlue: metadata.attributes.isGlue.default,
 								} )
 							}
-						/>
-					</ToolsPanelItem>
+						>
+							<ToggleControl
+								label={ __(
+									'Glue each item together',
+									'snow-monkey-blocks'
+								) }
+								checked={ isGlue }
+								onChange={ ( value ) =>
+									setAttributes( {
+										isGlue: value,
+									} )
+								}
+							/>
+						</ToolsPanelItem>
+					) }
 				</ToolsPanel>
+			</InspectorControls>
+
+			<InspectorControls group="styles">
+				{ ! isGlue && (
+					<ToolsPanel
+						label={ __( 'Dimensions', 'snow-monkey-blocks' ) }
+					>
+						<ToolsPanelItem
+							hasValue={ () =>
+								gap !== metadata.attributes.gap.default
+							}
+							isShownByDefault
+							label={ __( 'Gap', 'snow-monkey-blocks' ) }
+							onDeselect={ () =>
+								setAttributes( {
+									gap: metadata.attributes.gap.default,
+								} )
+							}
+						>
+							<SelectControl
+								label={ __( 'Gap', 'snow-monkey-blocks' ) }
+								value={ gap }
+								onChange={ ( value ) =>
+									setAttributes( {
+										gap: value,
+									} )
+								}
+								options={ [
+									{
+										value: '',
+										label: __(
+											'Default',
+											'snow-monkey-blocks'
+										),
+									},
+									{
+										value: 's',
+										label: __( 'S', 'snow-monkey-blocks' ),
+									},
+									{
+										value: 'm',
+										label: __( 'M', 'snow-monkey-blocks' ),
+									},
+									{
+										value: 'l',
+										label: __( 'L', 'snow-monkey-blocks' ),
+									},
+								] }
+							/>
+						</ToolsPanelItem>
+					</ToolsPanel>
+				) }
 			</InspectorControls>
 
 			<BlockControls group="block">
