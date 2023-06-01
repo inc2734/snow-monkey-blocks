@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue, kutsu
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 19.3.2
+Stable tag: 19.4.0
 Requires at least: 6.2
 Tested up to: 6.2
 Requires PHP: 7.4
@@ -109,6 +109,24 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 24. Tabs block (The number of tab can be increased or decreased freely)
 
 == Changelog ==
+
+= 19.4.0 =
+* [Recent posts] Add setting: "The gap between each item".
+* [Taxonomy posts] Add setting: "The gap between each item".
+* [RSS] Add "The gap between each item".
+* [Custom field] Add filter hook: `snow_monkey_blocks_custom_field_value_{field name}`
+* [Items] Add setting: "Gap"
+* [Panels] Add setting: "Gap"
+* [Section (Break the grid)] Changed so that images are full width size when on mobile + full width.
+* [Section (Break the grid)] Changed so that when mobile + the image position is right or left, the left/right position of the image changes according to the "Image size adjustment" setting.
+* [Section (Break the grid)] Changed so that when mobile + the image position is right or left, the overlap between images and content changes according to the "Degree of overlap of content to image" setting.
+* [Slider] The slider initialization process (the process of turning an image into a slider) is changed to just before the screen is scrolled and the slider is displayed on the screen.
+* [Pickup slider] The slider initialization process (the process of turning an image into a slider) is changed to just before the screen is scrolled and the slider is displayed on the screen.
+* [Contents slider] The slider initialization process (the process of turning an image into a slider) is changed to just before the screen is scrolled and the slider is displayed on the screen.
+* [Contents slider] Fixed a bug that caused the left shadow to be obscured when sliding when a box shadow was set.
+* [Section] Fixed a bug that the opacity of "Background text" was not correct when "Opacity" was set to 1.
+* [Section (Background image/video)] Fixed a bug that the opacity of "Background text" was not correct when "Opacity" was set to 1.
+* [Section (Break the grid)] Fixed a bug that the opacity of "Background text" was not correct when "Opacity" was set to 1.
 
 = 19.3.2 =
 * [Custom field] Fixed a problem in which 0 was not output on the screen when the stored value was 0.
