@@ -49,6 +49,31 @@ export default function ( { attributes, setAttributes, clientId } ) {
 	} = attributes;
 
 	useEffect( () => {
+		let newDisplayItemAuthor;
+		if ( null == displayItemAuthor ) {
+			newDisplayItemAuthor = ! [ 'text', 'text2' ].includes( layout );
+		} else {
+			newDisplayItemAuthor = displayItemAuthor;
+		}
+
+		let newDisplayItemExcerpt;
+		if ( null == displayItemExcerpt ) {
+			newDisplayItemExcerpt = [
+				'rich-media',
+				'simple',
+				'caroucel',
+			].includes( layout );
+		} else {
+			newDisplayItemExcerpt = displayItemExcerpt;
+		}
+
+		setAttributes( {
+			displayItemAuthor: newDisplayItemAuthor,
+			displayItemExcerpt: newDisplayItemExcerpt,
+		} );
+	}, [ layout ] );
+
+	useEffect( () => {
 		setAttributes( { clientId } );
 	}, [ clientId ] );
 
@@ -253,25 +278,8 @@ export default function ( { attributes, setAttributes, clientId } ) {
 							label={ __( 'Layout', 'snow-monkey-blocks' ) }
 							value={ layout }
 							onChange={ ( value ) => {
-								const newDisplayItemAuthor =
-									'text' === value || 'text2' === value
-										? false
-										: true;
-								const newDisplayItemPublished = true;
-								const newDisplayItemExcerpt = [
-									'rich-media',
-									'simple',
-									'caroucel',
-								].includes( layout )
-									? true
-									: false;
-
 								setAttributes( {
 									layout: value,
-									displayItemAuthor: newDisplayItemAuthor,
-									displayItemPublished:
-										newDisplayItemPublished,
-									displayItemExcerpt: newDisplayItemExcerpt,
 								} );
 							} }
 							options={ [
@@ -605,8 +613,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 							<ToolsPanelItem
 								hasValue={ () =>
 									displayItemAuthor !==
-									metadata.attributes.displayItemAuthor
-										.default
+									! [ 'text', 'text2' ].includes( layout )
 								}
 								isShownByDefault
 								label={ __(
@@ -615,9 +622,10 @@ export default function ( { attributes, setAttributes, clientId } ) {
 								) }
 								onDeselect={ () =>
 									setAttributes( {
-										displayItemAuthor:
-											metadata.attributes
-												.displayItemAuthor.default,
+										displayItemAuthor: ! [
+											'text',
+											'text2',
+										].includes( layout ),
 									} )
 								}
 							>
@@ -713,37 +721,28 @@ export default function ( { attributes, setAttributes, clientId } ) {
 						layout
 					) && (
 						<ToolsPanelItem
-							hasValue={ () => {
-								const defaultDisplayItemExcerpt = [
+							hasValue={ () =>
+								displayItemExcerpt ===
+								[
+									'rich-media',
+									'simple',
 									'panel',
-									'text',
-									'text2',
-									'large-image',
+									'carousel',
 								].includes( layout )
-									? false
-									: true;
-								return (
-									displayItemExcerpt !==
-									defaultDisplayItemExcerpt
-								);
-							} }
+							}
 							isShownByDefault
 							label={ __(
 								'Display excerpt of each items',
 								'snow-monkey-blocks'
 							) }
 							onDeselect={ () => {
-								const defaultDisplayItemExcerpt = [
-									'panel',
-									'text',
-									'text2',
-									'large-image',
-								].includes( layout )
-									? false
-									: true;
 								setAttributes( {
-									displayItemExcerpt:
-										defaultDisplayItemExcerpt,
+									displayItemExcerpt: [
+										'rich-media',
+										'simple',
+										'panel',
+										'carousel',
+									].includes( layout ),
 								} );
 							} }
 						>

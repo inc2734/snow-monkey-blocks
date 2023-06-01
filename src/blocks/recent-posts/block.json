@@ -51,21 +51,19 @@
 			"type": "boolean",
 			"default": false
 		},
-		"displayItemAuthor": {
+		"forceDisplayItemTerms": {
 			"type": "boolean",
-			"default": true
+			"default": false
+		},
+		"displayItemAuthor": {
+			"type": "boolean"
 		},
 		"displayItemPublished": {
 			"type": "boolean",
 			"default": true
 		},
-		"forceDisplayItemTerms": {
-			"type": "boolean",
-			"default": false
-		},
 		"displayItemExcerpt": {
-			"type": "boolean",
-			"default": true
+			"type": "boolean"
 		},
 		"itemThumbnailSizeSlug": {
 			"type": "string",

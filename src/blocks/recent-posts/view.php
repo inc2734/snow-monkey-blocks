@@ -57,9 +57,9 @@ $instance = array(
 	'force-sm-1col'        => $force_sm_1col,
 	'item-title-tag'       => $attributes['itemTitleTagName'],
 	'item-thumbnail-size'  => $attributes['itemThumbnailSizeSlug'],
-	'display-item-meta'    => 'post' !== $attributes['postType'] && $attributes['forceDisplayItemMeta'] ? true : null,
-	'display-item-terms'   => 'post' !== $attributes['postType'] && $attributes['forceDisplayItemTerms'] ? true : null,
-	'display-item-excerpt' => in_array( $attributes['layout'], array( 'rich-media', 'simple', 'panel', 'carousel' ), true ) ? $attributes['displayItemExcerpt'] : false,
+	'display-item-meta'    => 'post' === $attributes['postType'] || $attributes['forceDisplayItemMeta'],
+	'display-item-terms'   => 'post' === $attributes['postType'] || $attributes['forceDisplayItemTerms'],
+	'display-item-excerpt' => isset( $attributes['displayItemExcerpt'] ) ? $attributes['displayItemExcerpt'] : null,
 	'link-text'            => null,
 	'link-url'             => null,
 	'arrows'               => $attributes['arrows'],
@@ -70,8 +70,8 @@ $instance = array(
 $instance = wp_parse_args(
 	$instance,
 	array(
-		'display-item-author'    => 'post' === $instance['post-type'] || $instance['display-item-meta'] ? $attributes['displayItemAuthor'] : false,
-		'display-item-published' => 'post' === $instance['post-type'] || $instance['display-item-meta'] ? $attributes['displayItemPublished'] : false,
+		'display-item-author'    => $instance['display-item-meta'] && isset( $attributes['displayItemAuthor'] ) ? $attributes['displayItemAuthor'] : null,
+		'display-item-published' => $instance['display-item-meta'] && isset( $attributes['displayItemPublished'] ) ? $attributes['displayItemPublished'] : null,
 	)
 );
 
