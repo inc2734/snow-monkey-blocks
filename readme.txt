@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue, kutsu
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 19.4.0
+Stable tag: 19.5.0
 Requires at least: 6.2
 Tested up to: 6.2
 Requires PHP: 7.4
@@ -109,6 +109,20 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 24. Tabs block (The number of tab can be increased or decreased freely)
 
 == Changelog ==
+
+= 19.5.0 =
+* [Recent posts] Fixed a bug that caused meta elements to be displayed in installed blocks that were not supposed to be displayed.
+* [Taxonomy posts] Fixed a bug that caused meta elements to be displayed in installed blocks that were not supposed to be displayed.
+* [Slider] Add `.is-scrolling` and `.is-fading`.
+* [Pickup slider] Add `.is-scrolling` and `.is-fading`.
+* [Contents slider] Add `.is-scrolling` and `.is-fading`.
+* [File] Add text color setting.
+* [Contents slider] Added the ability to set box shadows and borders at once.
+* [Contents slider] Changed so that the shadows on the left and right edges of the slider are not displayed when a box shadow is set.
+* [Contents slider] When box shadow is set + "Gutter" is set to "None", the shadow may overlap on top of the slide, changed so that the minimum spacing is maintained.
+* [Contents slider] Fixed a bug that caused a momentary delay in the timing of drawing the previous and next slides when a box shadow was set.
+* [Section (Break the grid)] Add "Remove container padding of the contents" setting.
+* [Directory] Add text color setting.
 
 = 19.4.0 =
 * [Recent posts] Add setting: "The gap between each item".
