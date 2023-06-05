@@ -1,4 +1,5 @@
 import classnames from 'classnames';
+import hexToRgba from 'hex-to-rgba';
 
 import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
@@ -15,6 +16,8 @@ export default function ( { attributes, className } ) {
 		mdSlidesToShow,
 		smSlidesToShow,
 		canvasPadding,
+		border,
+		boxShadow,
 		sliderClientIds: _sliderClientIds,
 	} = attributes;
 	const sliderClientIds = JSON.parse( _sliderClientIds );
@@ -34,20 +37,50 @@ export default function ( { attributes, className } ) {
 		}
 	);
 
+	const borderWidth = String( border.width ).match( /^\d+$/ )
+		? `${ border.width }px`
+		: border.width;
+
+	const borderRadius = String( border.radius ).match( /^\d+$/ )
+		? `${ border.radius }px`
+		: border.radius;
+
 	const styles = {
 		'--smb-spider-contents-slider--canvas-offset-top':
-			`${ canvasPadding?.top }px` || undefined,
+			( !! canvasPadding?.top && `${ canvasPadding?.top }px` ) ||
+			undefined,
 		'--smb-spider-contents-slider--canvas-offset-right':
-			( fade && `${ canvasPadding?.right }px` ) || undefined,
+			( !! canvasPadding?.right &&
+				fade &&
+				`${ canvasPadding?.right }px` ) ||
+			undefined,
 		'--smb-spider-contents-slider--canvas-offset-bottom':
-			`${ canvasPadding?.bottom }px` || undefined,
+			( !! canvasPadding?.bottom && `${ canvasPadding?.bottom }px` ) ||
+			undefined,
 		'--smb-spider-contents-slider--canvas-offset-left':
-			( fade && `${ canvasPadding?.left }px` ) || undefined,
+			( !! canvasPadding?.left &&
+				fade &&
+				`${ canvasPadding?.left }px` ) ||
+			undefined,
 		'--smb-spider-slider--gap':
 			( ! gutter &&
 				! fade &&
+				( !! canvasPadding?.right || !! canvasPadding?.left ) &&
 				`${ ( canvasPadding?.right + canvasPadding?.left ) / 2 }px` ) ||
 			undefined,
+		'--smb-spider-contents-slider--slide-border-width':
+			( !! border.color && 0 < parseInt( borderWidth ) && borderWidth ) ||
+			undefined,
+		'--smb-spider-contents-slider--slide-border-color':
+			border.color || undefined,
+		'--smb-spider-contents-slider--slide-border-radius':
+			( 0 < parseInt( borderRadius ) && borderRadius ) || undefined,
+		'--smb-spider-contents-slider--slide-box-shadow': !! boxShadow.color
+			? `0 0 ${ boxShadow.blur }px ${ hexToRgba(
+					boxShadow.color,
+					boxShadow.opacity
+			  ) }`
+			: undefined,
 	};
 
 	return (

@@ -1,10 +1,13 @@
 import classnames from 'classnames';
+import hexToRgba from 'hex-to-rgba';
 
 import {
 	InnerBlocks,
 	InspectorControls,
 	useBlockProps,
 	useInnerBlocksProps,
+	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
+	__experimentalBorderRadiusControl as BorderRadiusControl,
 } from '@wordpress/block-editor';
 
 import {
@@ -14,6 +17,7 @@ import {
 	ToggleControl,
 	__experimentalToolsPanel as ToolsPanel,
 	__experimentalToolsPanelItem as ToolsPanelItem,
+	__experimentalBorderBoxControl as BorderBoxControl,
 } from '@wordpress/components';
 
 import { useDispatch, useSelect } from '@wordpress/data';
@@ -21,12 +25,22 @@ import { useEffect, useRef, useState } from '@wordpress/element';
 import { Icon, warning } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
 
+import PanelBoxShadowSettings from '@smb/component/panel-box-shadow-settings';
 import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
 import { toNumber } from '@smb/helper';
 
-const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/spider-contents-slider-item' ];
+// @todo For WordPress 6.0
+import { useMultipleOriginColorsAndGradientsFallback } from '@smb/hooks';
+
+// @todo For WordPress 6.0
+if ( undefined === useMultipleOriginColorsAndGradients ) {
+	useMultipleOriginColorsAndGradients =
+		useMultipleOriginColorsAndGradientsFallback;
+}
 
 import metadata from './block.json';
+
+const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/spider-contents-slider-item' ];
 
 export default function ( {
 	attributes,
@@ -47,6 +61,8 @@ export default function ( {
 		mdSlidesToShow,
 		smSlidesToShow,
 		canvasPadding,
+		border,
+		boxShadow,
 		sliderClientIds: _sliderClientIds,
 	} = attributes;
 
@@ -64,20 +80,24 @@ export default function ( {
 	const [ currentSliderClientId, setCurrentSliderClientId ] =
 		useState( undefined );
 
+	const [ maxBlur, setMaxBlur ] = useState( undefined );
+
 	const { updateBlockAttributes, selectBlock } =
 		useDispatch( 'core/block-editor' );
 
-	const nowSliderClientIds = useSelect(
+	const { nowSliderClientIds, slides } = useSelect(
 		( select ) => {
-			return select( 'core/block-editor' ).getBlockOrder( clientId );
+			return {
+				nowSliderClientIds:
+					select( 'core/block-editor' ).getBlockOrder( clientId ),
+				slides: select( 'core/block-editor' ).getBlock( clientId )
+					.innerBlocks,
+			};
 		},
 		[ clientId ]
 	);
 
-	const maxBlur = useSelect( ( select ) => {
-		const slides =
-			select( 'core/block-editor' ).getBlock( clientId ).innerBlocks;
-
+	useEffect( () => {
 		let maxBlurSlide;
 		if ( 0 < slides.length ) {
 			maxBlurSlide = slides.reduce( ( prevSlide, currentSlide ) => {
@@ -93,11 +113,17 @@ export default function ( {
 			} );
 		}
 
-		return !! maxBlurSlide?.attributes?.boxShadow?.color &&
+		const defaultBlur =
+			!! boxShadow?.color && 0 < boxShadow?.blur ? boxShadow?.blur : 0;
+
+		const childBlur =
+			!! maxBlurSlide?.attributes?.boxShadow?.color &&
 			0 < maxBlurSlide?.attributes?.boxShadow?.blur
-			? maxBlurSlide?.attributes?.boxShadow?.blur
-			: undefined;
-	} );
+				? maxBlurSlide?.attributes?.boxShadow?.blur
+				: 0;
+
+		setMaxBlur( defaultBlur > childBlur ? defaultBlur : childBlur );
+	}, [ slides, boxShadow ] );
 
 	useEffect( () => {
 		setAttributes( {
@@ -115,9 +141,6 @@ export default function ( {
 
 	const selectedSlide = useSelect(
 		( select ) => {
-			const slides =
-				select( 'core/block-editor' ).getBlock( clientId ).innerBlocks;
-
 			const selectedSlideClientIds = slides.filter(
 				( slide ) =>
 					slide.clientId ===
@@ -159,7 +182,7 @@ export default function ( {
 			Math.floor( ref.current.offsetWidth );
 		if ( !! width ) {
 			ref.current.style.setProperty(
-				'--spider-canvas-width',
+				'--spider--canvas-width',
 				`${ width }px`
 			);
 			canvasRef.current.style.width = `${ width }px`;
@@ -171,7 +194,7 @@ export default function ( {
 			Math.floor( referenceRef.current.offsetWidth );
 		if ( !! referenceWidth ) {
 			ref.current.style.setProperty(
-				'--spider-reference-width',
+				'--spider--reference-width',
 				`${ referenceWidth }px`
 			);
 		}
@@ -189,20 +212,50 @@ export default function ( {
 		}
 	);
 
+	const borderWidth = String( border.width ).match( /^\d+$/ )
+		? `${ border.width }px`
+		: border.width;
+
+	const borderRadius = String( border.radius ).match( /^\d+$/ )
+		? `${ border.radius }px`
+		: border.radius;
+
 	const styles = {
 		'--smb-spider-contents-slider--canvas-offset-top':
-			`${ canvasPadding?.top }px` || undefined,
+			( !! canvasPadding?.top && `${ canvasPadding?.top }px` ) ||
+			undefined,
 		'--smb-spider-contents-slider--canvas-offset-right':
-			( fade && `${ canvasPadding?.right }px` ) || undefined,
+			( !! canvasPadding?.right &&
+				fade &&
+				`${ canvasPadding?.right }px` ) ||
+			undefined,
 		'--smb-spider-contents-slider--canvas-offset-bottom':
-			`${ canvasPadding?.bottom }px` || undefined,
+			( !! canvasPadding?.bottom && `${ canvasPadding?.bottom }px` ) ||
+			undefined,
 		'--smb-spider-contents-slider--canvas-offset-left':
-			( fade && `${ canvasPadding?.left }px` ) || undefined,
+			( !! canvasPadding?.left &&
+				fade &&
+				`${ canvasPadding?.left }px` ) ||
+			undefined,
 		'--smb-spider-slider--gap':
 			( ! gutter &&
 				! fade &&
+				( !! canvasPadding?.right || !! canvasPadding?.left ) &&
 				`${ ( canvasPadding?.right + canvasPadding?.left ) / 2 }px` ) ||
 			undefined,
+		'--smb-spider-contents-slider--slide-border-width':
+			( !! border.color && 0 < parseInt( borderWidth ) && borderWidth ) ||
+			undefined,
+		'--smb-spider-contents-slider--slide-border-color':
+			border.color || undefined,
+		'--smb-spider-contents-slider--slide-border-radius':
+			( 0 < parseInt( borderRadius ) && borderRadius ) || undefined,
+		'--smb-spider-contents-slider--slide-box-shadow': !! boxShadow.color
+			? `0 0 ${ boxShadow.blur }px ${ hexToRgba(
+					boxShadow.color,
+					boxShadow.opacity
+			  ) }`
+			: undefined,
 	};
 
 	const gutterOptions = [
@@ -263,6 +316,128 @@ export default function ( {
 						/>
 					</ToolsPanelItem>
 				</ToolsPanel>
+
+				<ToolsPanel label={ __( 'Border', 'snow-monkey-blocks' ) }>
+					<ToolsPanelItem
+						hasValue={ () =>
+							border.color !==
+								metadata.attributes.border.default.color ||
+							border.width !==
+								metadata.attributes.border.default.width
+						}
+						isShownByDefault
+						label={ __( 'Border', 'snow-monkey-blocks' ) }
+						onDeselect={ () => {
+							setAttributes( {
+								border: {
+									...border,
+									color: metadata.attributes.border.default
+										.color,
+									width: metadata.attributes.border.default
+										.width,
+								},
+							} );
+						} }
+					>
+						<BorderBoxControl
+							{ ...useMultipleOriginColorsAndGradients() }
+							className="smb-border-box-control"
+							enableAlpha={ false }
+							enableStyle={ false }
+							onChange={ ( value ) => {
+								setAttributes( {
+									border: {
+										...border,
+										color: value.color,
+										width: value.width,
+									},
+								} );
+							} }
+							popoverOffset={ 40 }
+							popoverPlacement="left-start"
+							value={ {
+								color: border.color,
+								width: border.width,
+							} }
+							__experimentalHasMultipleOrigins={ true }
+							__experimentalIsRenderedInSidebar={ true }
+						/>
+					</ToolsPanelItem>
+
+					<ToolsPanelItem
+						hasValue={ () =>
+							border.radius !==
+							metadata.attributes.border.default.radius
+						}
+						isShownByDefault
+						label={ __( 'Border radius', 'snow-monkey-blocks' ) }
+						onDeselect={ () => {
+							setAttributes( {
+								border: {
+									...border,
+									radius: metadata.attributes.border.default
+										.radius,
+								},
+							} );
+						} }
+					>
+						<div className="smb-border-radius-control">
+							<BorderRadiusControl
+								values={ border.radius }
+								onChange={ ( value ) => {
+									setAttributes( {
+										border: {
+											...border,
+											radius: value,
+										},
+									} );
+								} }
+							/>
+						</div>
+					</ToolsPanelItem>
+				</ToolsPanel>
+
+				<PanelBoxShadowSettings
+					settings={ [
+						{
+							colorValue: boxShadow.color || '',
+							onColorChange: ( value ) => {
+								setAttributes( {
+									boxShadow: {
+										...boxShadow,
+										color: value,
+									},
+								} );
+							},
+						},
+						{
+							opacityValue: boxShadow.opacity,
+							onOpacityChange: ( value ) => {
+								setAttributes( {
+									boxShadow: {
+										...boxShadow,
+										opacity: value,
+									},
+								} );
+							},
+						},
+						{
+							blurValue: boxShadow.blur,
+							onBlurChange: ( value ) => {
+								setAttributes( {
+									boxShadow: {
+										...boxShadow,
+										blur: value,
+									},
+								} );
+							},
+							max: 10,
+						},
+					] }
+					defaultValues={ {
+						...metadata.attributes.boxShadow.default,
+					} }
+				/>
 			</InspectorControls>
 
 			<InspectorControls>

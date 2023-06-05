@@ -24,11 +24,12 @@ export default function ( { attributes, className } ) {
 
 	const styles = {
 		'--smb-spider-contents-slider--slide-border-width':
-			( !! border.color && borderWidth ) || undefined,
+			( !! border.color && 0 < parseInt( borderWidth ) && borderWidth ) ||
+			undefined,
 		'--smb-spider-contents-slider--slide-border-color':
 			border.color || undefined,
 		'--smb-spider-contents-slider--slide-border-radius':
-			borderRadius || undefined,
+			( 0 < parseInt( borderRadius ) && borderRadius ) || undefined,
 		'--smb-spider-contents-slider--slide-box-shadow': !! boxShadow.color
 			? `0 0 ${ boxShadow.blur }px ${ hexToRgba(
 					boxShadow.color,

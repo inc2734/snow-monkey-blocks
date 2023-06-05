@@ -97,7 +97,7 @@ export default function ( {
 			Math.floor( ref.current.offsetWidth );
 		if ( !! width ) {
 			ref.current.style.setProperty(
-				'--spider-canvas-width',
+				'--spider--canvas-width',
 				`${ width }px`
 			);
 			canvasRef.current.style.width = `${ width }px`;
@@ -109,7 +109,7 @@ export default function ( {
 			Math.floor( referenceRef.current.offsetWidth );
 		if ( !! referenceWidth ) {
 			ref.current.style.setProperty(
-				'--spider-reference-width',
+				'--spider--reference-width',
 				`${ referenceWidth }px`
 			);
 		}

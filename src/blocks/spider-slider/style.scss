@@ -10,19 +10,19 @@
 	@for $i from 2 through 6 {
 		&[data-sm-slide-to-show="#{ $i }"] {
 			@include _media-only(sm) {
-				--smb-spider-slider--slide-max-width: #{ 100% / $i };
+				--smb-spider-slider--slide-max-width: calc(#{ 100% / $i } - #{ ($i - 1) } * var(--smb-spider-slider--gap) / #{ $i });
 			}
 		}
 
 		&[data-md-slide-to-show="#{ $i }"] {
 			@include _media-only(md) {
-				--smb-spider-slider--slide-max-width: #{ 100% / $i };
+				--smb-spider-slider--slide-max-width: calc(#{ 100% / $i } - #{ ($i - 1) } * var(--smb-spider-slider--gap) / #{ $i });
 			}
 		}
 
 		&[data-lg-slide-to-show="#{ $i }"] {
 			@include _media-min(lg) {
-				--smb-spider-slider--slide-max-width: #{ 100% / $i };
+				--smb-spider-slider--slide-max-width: calc(#{ 100% / $i } - #{ ($i - 1) } * var(--smb-spider-slider--gap) / #{ $i });
 			}
 		}
 	}
@@ -125,28 +125,6 @@
 	}
 }
 
-[class*="smb-spider-slider--gutter-"] {
-	@for $i from 2 through 6 {
-		&[data-sm-slide-to-show="#{ $i }"] {
-			@include _media-only(sm) {
-				--smb-spider-slider--slide-max-width: calc(#{ 100% / $i } - #{ ($i - 1) } * var(--smb-spider-slider--gap) / #{ $i });
-			}
-		}
-
-		&[data-md-slide-to-show="#{ $i }"] {
-			@include _media-only(md) {
-				--smb-spider-slider--slide-max-width: calc(#{ 100% / $i } - #{ ($i - 1) } * var(--smb-spider-slider--gap) / #{ $i });
-			}
-		}
-
-		&[data-lg-slide-to-show="#{ $i }"] {
-			@include _media-min(lg) {
-				--smb-spider-slider--slide-max-width: calc(#{ 100% / $i } - #{ ($i - 1) } * var(--smb-spider-slider--gap) / #{ $i });
-			}
-		}
-	}
-}
-
 .smb-spider-slider--gutter-s {
 	--smb-spider-slider--gap: var(--_margin-1);
 }
@@ -167,54 +145,54 @@
 			content: '';
 			display: block;
 			flex: 0 0 auto;
-			width: calc((var(--spider-canvas-width) - var(--spider-reference-width)) / 2);
+			width: calc((var(--spider--canvas-width) - var(--spider--reference-width)) / 2);
 		}
 
 		> .spider__arrows {
-			max-width: var(--spider-reference-width);
-			left: calc(50% - var(--spider-reference-width) / 2);
+			max-width: var(--spider--reference-width);
+			left: calc(50% - var(--spider--reference-width) / 2);
 		}
 	}
 
 	@for $i from 2 through 6 {
 		&[data-sm-slide-to-show="#{ $i }"] {
 			@include _media-only(sm) {
-				--smb-spider-slider--slide-max-width: calc(var(--spider-reference-width) / #{ $i });
+				--smb-spider-slider--slide-max-width: calc(var(--spider--reference-width) / #{ $i });
 			}
 		}
 
 		&[data-md-slide-to-show="#{ $i }"] {
 			@include _media-only(md) {
-				--smb-spider-slider--slide-max-width: calc(var(--spider-reference-width) / #{ $i });
+				--smb-spider-slider--slide-max-width: calc(var(--spider--reference-width) / #{ $i });
 			}
 		}
 
 		&[data-lg-slide-to-show="#{ $i }"] {
 			@include _media-min(lg) {
-				--smb-spider-slider--slide-max-width: calc(var(--spider-reference-width) / #{ $i });
+				--smb-spider-slider--slide-max-width: calc(var(--spider--reference-width) / #{ $i });
 			}
 		}
 	}
 
 	&[class*="smb-spider-slider--gutter-"] {
-		--smb-spider-slider--slide-max-width: var(--spider-reference-width);
+		--smb-spider-slider--slide-max-width: var(--spider--reference-width);
 
 		@for $i from 2 through 6 {
 			&[data-sm-slide-to-show="#{ $i }"] {
 				@include _media-only(sm) {
-					--smb-spider-slider--slide-max-width: calc(var(--spider-reference-width) / #{ $i } - #{ ($i - 1) } * var(--smb-spider-slider--gap) / #{ $i });
+					--smb-spider-slider--slide-max-width: calc(var(--spider--reference-width) / #{ $i } - #{ ($i - 1) } * var(--smb-spider-slider--gap) / #{ $i });
 				}
 			}
 
 			&[data-md-slide-to-show="#{ $i }"] {
 				@include _media-only(md) {
-					--smb-spider-slider--slide-max-width: calc(var(--spider-reference-width) / #{ $i } - #{ ($i - 1) } * var(--smb-spider-slider--gap) / #{ $i });
+					--smb-spider-slider--slide-max-width: calc(var(--spider--reference-width) / #{ $i } - #{ ($i - 1) } * var(--smb-spider-slider--gap) / #{ $i });
 				}
 			}
 
 			&[data-lg-slide-to-show="#{ $i }"] {
 				@include _media-min(lg) {
-					--smb-spider-slider--slide-max-width: calc(var(--spider-reference-width) / #{ $i } - #{ ($i - 1) } * var(--smb-spider-slider--gap) / #{ $i });
+					--smb-spider-slider--slide-max-width: calc(var(--spider--reference-width) / #{ $i } - #{ ($i - 1) } * var(--smb-spider-slider--gap) / #{ $i });
 				}
 			}
 		}

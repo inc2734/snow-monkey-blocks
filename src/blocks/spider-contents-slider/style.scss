@@ -15,6 +15,7 @@
 	--smb-spider-contents-slider--canvas-offset-bottom: 0px;
 	--smb-spider-contents-slider--canvas-offset-left: 0px;
 
+	border: none !important;
 	overflow: hidden;
 
 	&[data-fade="true"] {
@@ -47,6 +48,7 @@
 				padding-right: var(--smb-spider-contents-slider--canvas-offset-right);
 				padding-bottom: var(--smb-spider-contents-slider--canvas-offset-bottom);
 				padding-left: var(--smb-spider-contents-slider--canvas-offset-left);
+				border: none !important;
 
 				> .smb-spider-contents-slider__item {
 					background-color: var(--smb-spider-contents-slider--slide-background-color);

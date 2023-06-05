@@ -61,10 +61,10 @@ export default function ( {
 			const canvas = thisSlider.parentNode;
 			const wrapper = canvas.parentNode.parentNode;
 			const referenceWidth = wrapper.style
-				.getPropertyValue( '--spider-reference-width' )
+				.getPropertyValue( '--spider--reference-width' )
 				?.replace( 'px', '' );
 			const canvasWidth = wrapper.style
-				.getPropertyValue( '--spider-canvas-width' )
+				.getPropertyValue( '--spider--canvas-width' )
 				?.replace( 'px', '' );
 			const diff = canvasWidth / 2 - referenceWidth / 2;
 			const thisSliderLeft = thisSlider.getBoundingClientRect().left;
@@ -97,11 +97,12 @@ export default function ( {
 
 	const styles = {
 		'--smb-spider-contents-slider--slide-border-width':
-			( !! border.color && borderWidth ) || undefined,
+			( !! border.color && 0 < parseInt( borderWidth ) && borderWidth ) ||
+			undefined,
 		'--smb-spider-contents-slider--slide-border-color':
 			border.color || undefined,
 		'--smb-spider-contents-slider--slide-border-radius':
-			borderRadius || undefined,
+			( 0 < parseInt( borderRadius ) && borderRadius ) || undefined,
 		'--smb-spider-contents-slider--slide-box-shadow': !! boxShadow.color
 			? `0 0 ${ boxShadow.blur }px ${ hexToRgba(
 					boxShadow.color,
@@ -140,11 +141,15 @@ export default function ( {
 						isShownByDefault
 						label={ __( 'Border', 'snow-monkey-blocks' ) }
 						onDeselect={ () => {
-							border.color =
-								metadata.attributes.border.default.color;
-							border.width =
-								metadata.attributes.border.default.width;
-							setAttributes( { border: { ...border } } );
+							setAttributes( {
+								border: {
+									...border,
+									color: metadata.attributes.border.default
+										.color,
+									width: metadata.attributes.border.default
+										.width,
+								},
+							} );
 						} }
 					>
 						<BorderBoxControl
@@ -153,9 +158,13 @@ export default function ( {
 							enableAlpha={ false }
 							enableStyle={ false }
 							onChange={ ( value ) => {
-								border.color = value.color;
-								border.width = value.width;
-								setAttributes( { border: { ...border } } );
+								setAttributes( {
+									border: {
+										...border,
+										color: value.color,
+										width: value.width,
+									},
+								} );
 							} }
 							popoverOffset={ 40 }
 							popoverPlacement="left-start"
@@ -176,17 +185,25 @@ export default function ( {
 						isShownByDefault
 						label={ __( 'Border radius', 'snow-monkey-blocks' ) }
 						onDeselect={ () => {
-							border.radius =
-								metadata.attributes.border.default.radius;
-							setAttributes( { border: { ...border } } );
+							setAttributes( {
+								border: {
+									...border,
+									radius: metadata.attributes.border.default
+										.radius,
+								},
+							} );
 						} }
 					>
 						<div className="smb-border-radius-control">
 							<BorderRadiusControl
 								values={ border.radius }
 								onChange={ ( value ) => {
-									border.radius = value;
-									setAttributes( { border: { ...border } } );
+									setAttributes( {
+										border: {
+											...border,
+											radius: value,
+										},
+									} );
 								} }
 							/>
 						</div>
@@ -268,7 +285,7 @@ export default function ( {
 								setAttributes( {
 									boxShadow: {
 										...boxShadow,
-										boxShadow: value,
+										blur: value,
 									},
 								} );
 							},
