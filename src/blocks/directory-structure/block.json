@@ -8,6 +8,11 @@
 	"category": "smb",
 	"supports": {
 		"html": false,
+		"color": {
+			"background": false,
+			"link": true,
+			"text": true
+		},
 		"spacing": {
 			"margin": true
 		}

@@ -27,7 +27,12 @@
 		}
 	},
 	"supports": {
-		"html": false
+		"html": false,
+		"color": {
+			"background": false,
+			"link": true,
+			"text": true
+		}
 	},
 	"editorScript": "file:./index.js"
 }
