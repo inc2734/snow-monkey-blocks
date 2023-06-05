@@ -1,7 +1,7 @@
 @import '../../css/core/block';
 
 .smb-spider-slider {
-	--smb-spider-slider--gap: 0;
+	--smb-spider-slider--gap: 0px;
 	--smb-spider-slider--dots-gap: var(--_margin-2);
 	--smb-spider-slider--slide-max-width: 100%;
 
@@ -32,7 +32,7 @@
 		max-width: 100%;
 	}
 
-	.spider__slide .smb-spider-slider__item {
+	.spider__slide > .smb-spider-slider__item {
 		position: absolute;
 		bottom: 0;
 		right: 0;
@@ -53,15 +53,12 @@
 
 	> .spider {
 		> .spider__canvas {
-			> * + * {
-				margin-left: var(--smb-spider-slider--gap);
-			}
+			gap: var(--smb-spider-slider--gap);
 
 			> .spider__slide {
 				position: relative;
 				flex: 1 0 100% !important;
 				flex-wrap: wrap;
-				overflow: hidden;
 				max-width: var(--smb-spider-slider--slide-max-width);
 			}
 		}

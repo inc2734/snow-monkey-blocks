@@ -34,21 +34,25 @@ export default function ( { attributes, className } ) {
 		}
 	);
 
-	const canvasStyles = {
-		paddingTop: canvasPadding?.top || undefined,
-		paddingBottom: canvasPadding?.bottom || undefined,
-		paddingRight: canvasPadding?.right || undefined,
-		paddingLeft: canvasPadding?.left || undefined,
-	};
-
-	const referenceStyles = {
-		marginRight: canvasPadding?.right || undefined,
-		marginLeft: canvasPadding?.left || undefined,
+	const styles = {
+		'--smb-spider-contents-slider--canvas-offset-top':
+			`${ canvasPadding?.top }px` || undefined,
+		'--smb-spider-contents-slider--canvas-offset-right':
+			( fade && `${ canvasPadding?.right }px` ) || undefined,
+		'--smb-spider-contents-slider--canvas-offset-bottom':
+			`${ canvasPadding?.bottom }px` || undefined,
+		'--smb-spider-contents-slider--canvas-offset-left':
+			( fade && `${ canvasPadding?.left }px` ) || undefined,
+		'--smb-spider-slider--gap':
+			( ! gutter &&
+				! fade &&
+				`${ ( canvasPadding?.right + canvasPadding?.left ) / 2 }px` ) ||
+			undefined,
 	};
 
 	return (
 		<div
-			{ ...useBlockProps.save( { className: classes } ) }
+			{ ...useBlockProps.save( { className: classes, style: styles } ) }
 			data-fade={ fade ? 'true' : 'false' }
 			data-interval={ 0 < interval ? interval * 1000 : undefined }
 			data-duration={ 0 < duration ? duration * 1000 : undefined }
@@ -65,16 +69,12 @@ export default function ( { attributes, className } ) {
 			<div className="spider">
 				{ isShifted && (
 					<div className="c-container">
-						<div
-							className="spider__reference"
-							style={ referenceStyles }
-						/>
+						<div className="spider__reference" />
 					</div>
 				) }
 				<div
 					{ ...useInnerBlocksProps.save( {
 						className: 'spider__canvas',
-						style: canvasStyles,
 					} ) }
 				/>
 

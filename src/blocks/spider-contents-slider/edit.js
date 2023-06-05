@@ -189,16 +189,20 @@ export default function ( {
 		}
 	);
 
-	const canvasStyles = {
-		paddingTop: canvasPadding?.top || undefined,
-		paddingBottom: canvasPadding?.bottom || undefined,
-		paddingRight: canvasPadding?.right || undefined,
-		paddingLeft: canvasPadding?.left || undefined,
-	};
-
-	const referenceStyles = {
-		marginRight: canvasPadding?.right || undefined,
-		marginLeft: canvasPadding?.left || undefined,
+	const styles = {
+		'--smb-spider-contents-slider--canvas-offset-top':
+			`${ canvasPadding?.top }px` || undefined,
+		'--smb-spider-contents-slider--canvas-offset-right':
+			( fade && `${ canvasPadding?.right }px` ) || undefined,
+		'--smb-spider-contents-slider--canvas-offset-bottom':
+			`${ canvasPadding?.bottom }px` || undefined,
+		'--smb-spider-contents-slider--canvas-offset-left':
+			( fade && `${ canvasPadding?.left }px` ) || undefined,
+		'--smb-spider-slider--gap':
+			( ! gutter &&
+				! fade &&
+				`${ ( canvasPadding?.right + canvasPadding?.left ) / 2 }px` ) ||
+			undefined,
 	};
 
 	const gutterOptions = [
@@ -223,7 +227,6 @@ export default function ( {
 	const innerBlocksProps = useInnerBlocksProps(
 		{
 			className: 'spider__canvas',
-			style: canvasStyles,
 		},
 		{
 			allowedBlocks: ALLOWED_BLOCKS,
@@ -567,7 +570,11 @@ export default function ( {
 			</InspectorControls>
 
 			<div
-				{ ...useBlockProps( { className: classes, ref } ) }
+				{ ...useBlockProps( {
+					className: classes,
+					style: styles,
+					ref,
+				} ) }
 				data-fade={ fade ? 'true' : 'false' }
 				data-lg-slide-to-show={
 					! fade && 1 < lgSlidesToShow ? lgSlidesToShow : undefined
@@ -584,7 +591,6 @@ export default function ( {
 						<div className="c-container">
 							<div
 								className="spider__reference"
-								style={ referenceStyles }
 								ref={ referenceRef }
 							/>
 						</div>
