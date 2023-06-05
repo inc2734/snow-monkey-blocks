@@ -50,6 +50,7 @@ export default function ( { attributes, className } ) {
 		wrapperTagName,
 		titleTagName,
 		containerAlign,
+		disableContainerPadding,
 		padding,
 
 		backgroundHorizontalPosition,
@@ -110,8 +111,14 @@ export default function ( { attributes, className } ) {
 	);
 
 	const containerClasses = classnames( 'c-container', {
-		alignfull: 'full' === containerAlign && 'full' === align,
-		alignwide: 'wide' === containerAlign && 'full' === align,
+		alignfull:
+			( 'full' === containerAlign ||
+				'contents-full' === containerAlign ) &&
+			'full' === align,
+		alignwide:
+			'wide' === containerAlign ||
+			( 'contents-wide' === containerAlign && 'full' === align ),
+		'c-container--no-padding': disableContainerPadding,
 	} );
 
 	const rowClasses = classnames( 'c-row', {
