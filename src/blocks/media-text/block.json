@@ -37,9 +37,6 @@
 			"attribute": "src",
 			"default": ""
 		},
-		"mediaLink": {
-			"type": "string"
-		},
 		"mediaAlt": {
 			"type": "string",
 			"source": "attribute",

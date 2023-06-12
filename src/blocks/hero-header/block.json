@@ -1,0 +1,127 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"textdomain": "snow-monkey-blocks",
+	"name": "snow-monkey-blocks/hero-header",
+	"title": "Hero header",
+	"description": "Text can be displayed over large images and videos.",
+	"category": "smb",
+	"attributes": {
+		"mediaId": {
+			"type": "number",
+			"default": 0
+		},
+		"mediaUrl": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-hero-header__figure img, .smb-hero-header__figure video",
+			"attribute": "src",
+			"default": ""
+		},
+		"mediaAlt": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-hero-header__figure img",
+			"attribute": "alt",
+			"default": ""
+		},
+		"mediaWidth": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-hero-header__figure img, .smb-hero-header__figure video",
+			"attribute": "width",
+			"default": ""
+		},
+		"mediaHeight": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-hero-header__figure img, .smb-hero-header__figure video",
+			"attribute": "height",
+			"default": ""
+		},
+		"mediaSizeSlug": {
+			"type": "string",
+			"default": "full"
+		},
+		"mediaType": {
+			"type": "string"
+		},
+		"focalPoint": {
+			"type": "object"
+		},
+		"columns": {
+			"type": "string",
+			"default": "12"
+		},
+		"rows": {
+			"type": "string",
+			"default": "12"
+		},
+		"figureGridColumnStart": {
+			"type": "string",
+			"default": "1"
+		},
+		"figureGridColumnEnd": {
+			"type": "string",
+			"default": "-1"
+		},
+		"figureGridRowStart": {
+			"type": "string",
+			"default": "1"
+		},
+		"figureGridRowEnd": {
+			"type": "string",
+			"default": "-1"
+		},
+		"figureAspectRatio": {
+			"type": "string",
+			"default": "16 / 9"
+		},
+		"bodyAlignSelf": {
+			"type": "string",
+			"default": "auto"
+		},
+		"bodyJustifySelf": {
+			"type": "string",
+			"default": "auto"
+		},
+		"bodyGridColumnStart": {
+			"type": "string",
+			"default": "1"
+		},
+		"bodyGridColumnEnd": {
+			"type": "string",
+			"default": "-1"
+		},
+		"bodyGridRowStart": {
+			"type": "string",
+			"default": "1"
+		},
+		"bodyGridRowEnd": {
+			"type": "string",
+			"default": "-1"
+		},
+		"bodyMaxWidth": {
+			"type": "string",
+			"default": ""
+		},
+		"bodyPadding": {
+			"type": "object",
+			"default": {}
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "full", "wide" ],
+		"dimensions": {
+			"minHeight": true
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true,
+			"blockGap": true
+		}
+	},
+	"style": "file:./style.css",
+	"editorScript": "file:./index.js"
+}
