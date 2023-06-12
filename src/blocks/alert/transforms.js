@@ -8,9 +8,11 @@ export default {
 			type: 'block',
 			blocks: [ 'core/paragraph' ],
 			transform: ( attributes ) => {
-				return createBlock( metadata.name, {
-					content: `<p>${ attributes.content }</p>`,
-				} );
+				return createBlock( metadata.name, {}, [
+					createBlock( 'core/paragraph', {
+						content: attributes.content,
+					} ),
+				] );
 			},
 		},
 	],
