@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue, kutsu
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 19.5.2
+Stable tag: 19.6.0
 Requires at least: 6.2
 Tested up to: 6.2
 Requires PHP: 7.4
@@ -109,6 +109,12 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 24. Tabs block (The number of tab can be increased or decreased freely)
 
 == Changelog ==
+
+= 19.6.0 =
+* Add new block: Hero header
+* [Box] Added the ability to wrap and unwrap.
+* [Container] Added the ability to wrap and unwrap.
+* [Alert] Fixed a bug that the contents were lost when converting from paragraph block to alert block.
 
 = 19.5.2 =
 * [Contents slider] Fixed a bug that sometimes caused vertical scrolling.
