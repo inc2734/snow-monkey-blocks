@@ -58,6 +58,7 @@ https://www.youtube.com/watch?v=uD6omb4TLdA&t=283s
 * Tabs
 * Insert pattern (Beta)
 * Custom field
+* Hero header
 
 = Section blocks =
 
@@ -107,6 +108,7 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 22. Price menu block (The number of items can be increased or decreased freely)
 23. Information block (The number of items can be increased or decreased freely)
 24. Tabs block (The number of tab can be increased or decreased freely)
+25. Hero header block
 
 == Changelog ==
 
