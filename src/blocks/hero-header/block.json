@@ -57,6 +57,10 @@
 			"type": "string",
 			"default": "12"
 		},
+		"maxWidth": {
+			"type": "string",
+			"default": ""
+		},
 		"figureGridColumnStart": {
 			"type": "string",
 			"default": "1"

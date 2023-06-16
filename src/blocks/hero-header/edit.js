@@ -134,6 +134,7 @@ export default function ( {
 		focalPoint,
 		columns,
 		rows,
+		maxWidth,
 		figureGridColumnStart,
 		figureGridColumnEnd,
 		figureGridRowStart,
@@ -239,6 +240,7 @@ export default function ( {
 		'--smb-hero-header--object-position-y': !! focalPoint?.y
 			? `${ focalPoint?.y * 100 }%`
 			: undefined,
+		'--smb-hero-header--max-width': maxWidth || undefined,
 		'--smb-hero-header--figure-grid-column-start':
 			compileGridStyleValue( figureGridColumnStart, columns + 1 ) ||
 			undefined,
@@ -292,6 +294,32 @@ export default function ( {
 
 	return (
 		<>
+			<InspectorControls group="dimensions">
+				<ToolsPanelItem
+					hasValue={ () =>
+						maxWidth !== metadata.attributes.maxWidth.default
+					}
+					isShownByDefault={ !! maxWidth }
+					label={ __( 'Maximum width', 'snow-monkey-blocks' ) }
+					onDeselect={ () =>
+						setAttributes( {
+							maxWidth: metadata.attributes.maxWidth.default,
+						} )
+					}
+					panelId={ clientId }
+				>
+					<UnitControl
+						label={ __( 'Maximum width', 'snow-monkey-blocks' ) }
+						value={ maxWidth }
+						onChange={ ( value ) =>
+							setAttributes( {
+								maxWidth: value,
+							} )
+						}
+					/>
+				</ToolsPanelItem>
+			</InspectorControls>
+
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }

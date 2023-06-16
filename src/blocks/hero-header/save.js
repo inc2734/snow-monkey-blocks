@@ -51,6 +51,7 @@ export default function ( { attributes, className } ) {
 		focalPoint,
 		columns,
 		rows,
+		maxWidth,
 		figureGridColumnStart,
 		figureGridColumnEnd,
 		figureGridRowStart,
@@ -81,6 +82,7 @@ export default function ( { attributes, className } ) {
 		'--smb-hero-header--object-position-y': !! focalPoint?.y
 			? `${ focalPoint?.y * 100 }%`
 			: undefined,
+		'--smb-hero-header--max-width': maxWidth || undefined,
 		'--smb-hero-header--figure-grid-column-start':
 			compileGridStyleValue( figureGridColumnStart, columns + 1 ) ||
 			undefined,
