@@ -26,19 +26,35 @@
 	&--fill {
 		> .#{ $_prefix }c-row {
 			> .#{ $_prefix }c-row__col {
-				display: flex;
-				flex-direction: column;
+				.smb-items__item {
+					height: 100%;
+				}
 
-				.smb-items__item,
 				.smb-items__item__body {
 					flex: 1 1 0%;
 					display: flex;
 					flex-direction: column;
+					height: 100%;
+
+					> * {
+						margin-right: 0;
+						margin-left: 0;
+					}
 				}
 
-				.smb-items__item__content {
-					margin-bottom: auto;
+				.smb-items__item__body > :last-child,
+				.smb-items__item__body.block-editor-block-list__layout > :nth-last-child(2) {
+					margin-top: auto;
+					margin-bottom: 0;
 				}
+				.smb-items__item__body.block-editor-block-list__layout > :last-child {
+					margin-top: 0;
+					margin-bottom: 0;
+				}
+
+				// .smb-items__item__content {
+				// 	margin-bottom: auto;
+				// }
 			}
 		}
 	}

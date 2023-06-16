@@ -163,7 +163,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 						isShownByDefault
 						label={ __(
-							'Align the bottom of the button of each items (standard, block link item only).',
+							'Align the bottom of the last element of each items',
 							'snow-monkey-blocks'
 						) }
 						onDeselect={ () =>
@@ -174,7 +174,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					>
 						<ToggleControl
 							label={ __(
-								'Align the bottom of the button of each items (standard, block link item only).',
+								'Align the bottom of the last element of each items',
 								'snow-monkey-blocks'
 							) }
 							checked={ isFill }

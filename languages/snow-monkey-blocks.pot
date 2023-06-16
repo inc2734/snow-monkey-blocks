@@ -2,14 +2,14 @@
 # This file is distributed under the GPL2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Snow Monkey Blocks 19.5.2\n"
+"Project-Id-Version: Snow Monkey Blocks 19.6.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-blocks\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-06-12T13:44:09+00:00\n"
+"POT-Creation-Date: 2023-06-16T01:02:43+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: snow-monkey-blocks\n"
@@ -336,7 +336,6 @@ msgstr ""
 
 #: dist/blocks/balloon/index.js:1
 #: dist/blocks/box/index.js:1
-#: dist/blocks/btn/index.js:1
 #: dist/blocks/information/index.js:1
 #: dist/blocks/items/index.js:1
 #: dist/blocks/media-text/index.js:1
@@ -533,14 +532,7 @@ msgid "Border radius"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
-#: dist/blocks/information/index.js:1
-#: dist/blocks/items/index.js:1
-#: dist/blocks/media-text/index.js:1
-#: dist/blocks/panels/index.js:1
-#: dist/blocks/spider-contents-slider/index.js:1
-#: dist/blocks/spider-contents-slider/item/index.js:1
-#: dist/blocks/spider-slider/index.js:1
-msgid "Dimensions"
+msgid "Background"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
@@ -599,10 +591,6 @@ msgstr ""
 #: dist/blocks/spider-slider/index.js:1
 #: dist/blocks/taxonomy-posts/index.js:3
 msgid "L"
-msgstr ""
-
-#: dist/blocks/box/index.js:1
-msgid "Background"
 msgstr ""
 
 #: dist/blocks/btn-box/index.js:1
@@ -1316,6 +1304,10 @@ msgid "Center"
 msgstr ""
 
 #: dist/blocks/hero-header/index.js:1
+msgid "Maximum width"
+msgstr ""
+
+#: dist/blocks/hero-header/index.js:1
 msgid "Number of columns in grid"
 msgstr ""
 
@@ -1379,27 +1371,11 @@ msgid "Contents"
 msgstr ""
 
 #: dist/blocks/hero-header/index.js:1
-msgid "Maximum width"
-msgstr ""
-
-#: dist/blocks/hero-header/index.js:1
 msgid "Alignment on inline axis"
 msgstr ""
 
 #: dist/blocks/hero-header/index.js:1
 msgid "Alignment on cross axis"
-msgstr ""
-
-#: dist/blocks/information/index.js:1
-msgid "Label column background color"
-msgstr ""
-
-#: dist/blocks/information/index.js:1
-msgid "Label column text color"
-msgstr ""
-
-#: dist/blocks/information/index.js:1
-msgid "Content column background color"
 msgstr ""
 
 #: dist/blocks/information/index.js:1
@@ -1448,6 +1424,18 @@ msgstr ""
 msgid "Don't split the column in a smartphone"
 msgstr ""
 
+#: dist/blocks/information/index.js:1
+msgid "Label column background color"
+msgstr ""
+
+#: dist/blocks/information/index.js:1
+msgid "Label column text color"
+msgstr ""
+
+#: dist/blocks/information/index.js:1
+msgid "Content column background color"
+msgstr ""
+
 #: dist/blocks/information/item/index.js:1
 msgid "Write label…"
 msgstr ""
@@ -1458,7 +1446,7 @@ msgid "Glue each item together"
 msgstr ""
 
 #: dist/blocks/items/index.js:1
-msgid "Align the bottom of the button of each items (standard, block link item only)."
+msgid "Align the bottom of the last element of each items"
 msgstr ""
 
 #: dist/blocks/items/index.js:1
