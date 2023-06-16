@@ -145,7 +145,7 @@
 			content: '';
 			display: block;
 			flex: 0 0 auto;
-			width: calc((var(--spider--canvas-width) - var(--spider--reference-width)) / 2);
+			width: calc((var(--spider--canvas-width) - var(--spider--reference-width)) / 2 - var(--smb-spider-slider--gap));
 		}
 
 		> .spider__arrows {
