@@ -215,32 +215,31 @@ export default function ( {
 
 	return (
 		<>
-			<InspectorControls group="styles">
-				<ToolsPanel label={ __( 'Dimensions', 'snow-monkey-blocks' ) }>
-					<ToolsPanelItem
-						hasValue={ () =>
-							gutter !== metadata.attributes.gutter.default
-						}
-						isShownByDefault
+			<InspectorControls group="dimensions">
+				<ToolsPanelItem
+					hasValue={ () =>
+						gutter !== metadata.attributes.gutter.default
+					}
+					isShownByDefault
+					label={ __( 'Gap', 'snow-monkey-blocks' ) }
+					onDeselect={ () =>
+						setAttributes( {
+							gutter: metadata.attributes.gutter.default,
+						} )
+					}
+					panelId={ clientId }
+				>
+					<SelectControl
 						label={ __( 'Gap', 'snow-monkey-blocks' ) }
-						onDeselect={ () =>
+						value={ gutter }
+						onChange={ ( value ) =>
 							setAttributes( {
-								gutter: metadata.attributes.gutter.default,
+								gutter: value,
 							} )
 						}
-					>
-						<SelectControl
-							label={ __( 'Gap', 'snow-monkey-blocks' ) }
-							value={ gutter }
-							onChange={ ( value ) =>
-								setAttributes( {
-									gutter: value,
-								} )
-							}
-							options={ gutterOptions }
-						/>
-					</ToolsPanelItem>
-				</ToolsPanel>
+						options={ gutterOptions }
+					/>
+				</ToolsPanelItem>
 			</InspectorControls>
 
 			<InspectorControls>

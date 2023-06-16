@@ -191,47 +191,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					</ToolsPanelItem>
 				</ToolsPanel>
 
-				<ToolsPanel label={ __( 'Dimensions', 'snow-monkey-blocks' ) }>
-					<ToolsPanelItem
-						hasValue={ () =>
-							contentPadding !==
-							metadata.attributes.contentPadding.default
-						}
-						isShownByDefault
-						label={ __( 'Padding', 'snow-monkey-blocks' ) }
-						onDeselect={ () =>
-							setAttributes( {
-								contentPadding:
-									metadata.attributes.contentPadding.default,
-							} )
-						}
-					>
-						<SelectControl
-							label={ __( 'Padding', 'snow-monkey-blocks' ) }
-							value={ contentPadding }
-							options={ [
-								{
-									value: 's',
-									label: __( 'S', 'snow-monkey-blocks' ),
-								},
-								{
-									value: '',
-									label: __( 'M', 'snow-monkey-blocks' ),
-								},
-								{
-									value: 'l',
-									label: __( 'L', 'snow-monkey-blocks' ),
-								},
-							] }
-							onChange={ ( value ) =>
-								setAttributes( {
-									contentPadding: value,
-								} )
-							}
-						/>
-					</ToolsPanelItem>
-				</ToolsPanel>
-
 				<ToolsPanel label={ __( 'Background', 'snow-monkey-blocks' ) }>
 					<div className="smb-color-gradient-settings-dropdown">
 						<ColorGradientSettingsDropdown
@@ -354,6 +313,48 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						},
 					] }
 				/>
+			</InspectorControls>
+
+			<InspectorControls group="dimensions">
+				<ToolsPanelItem
+					hasValue={ () =>
+						contentPadding !==
+						metadata.attributes.contentPadding.default
+					}
+					isShownByDefault
+					label={ __( 'Padding', 'snow-monkey-blocks' ) }
+					onDeselect={ () =>
+						setAttributes( {
+							contentPadding:
+								metadata.attributes.contentPadding.default,
+						} )
+					}
+					panelId={ clientId }
+				>
+					<SelectControl
+						label={ __( 'Padding', 'snow-monkey-blocks' ) }
+						value={ contentPadding }
+						options={ [
+							{
+								value: 's',
+								label: __( 'S', 'snow-monkey-blocks' ),
+							},
+							{
+								value: '',
+								label: __( 'M', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'l',
+								label: __( 'L', 'snow-monkey-blocks' ),
+							},
+						] }
+						onChange={ ( value ) =>
+							setAttributes( {
+								contentPadding: value,
+							} )
+						}
+					/>
+				</ToolsPanelItem>
 			</InspectorControls>
 
 			<div { ...blockProps }>

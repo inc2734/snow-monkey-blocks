@@ -103,139 +103,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 
 	return (
 		<>
-			<InspectorControls group="styles">
-				<PanelColorGradientSettings
-					title={ __( 'Color', 'snow-monkey-blocks' ) }
-					settings={ [
-						{
-							colorValue: labelColumnBackgroundColor,
-							onColorChange: ( value ) =>
-								setAttributes( {
-									labelColumnBackgroundColor: value,
-								} ),
-							label: __(
-								'Label column background color',
-								'snow-monkey-blocks'
-							),
-						},
-						{
-							colorValue: labelColumnTextColor,
-							onColorChange: ( value ) =>
-								setAttributes( {
-									labelColumnTextColor: value,
-								} ),
-							label: __(
-								'Label column text color',
-								'snow-monkey-blocks'
-							),
-						},
-						{
-							colorValue: contentColumnBackgroundColor,
-							onColorChange: ( value ) =>
-								setAttributes( {
-									contentColumnBackgroundColor: value,
-								} ),
-							label: __(
-								'Content column background color',
-								'snow-monkey-blocks'
-							),
-						},
-					] }
-					__experimentalHasMultipleOrigins={ true }
-					__experimentalIsRenderedInSidebar={ true }
-				/>
-
-				<ToolsPanel label={ __( 'Dimensions', 'snow-monkey-blocks' ) }>
-					<ToolsPanelItem
-						hasValue={ () =>
-							columnPadding !==
-							metadata.attributes.columnPadding.default
-						}
-						isShownByDefault
-						label={ __( 'Padding', 'snow-monkey-blocks' ) }
-						onDeselect={ () =>
-							setAttributes( {
-								columnPadding:
-									metadata.attributes.columnPadding.default,
-							} )
-						}
-					>
-						<SelectControl
-							label={ __( 'Padding', 'snow-monkey-blocks' ) }
-							value={ columnPadding }
-							options={ [
-								{
-									value: '',
-									label: __(
-										'Default',
-										'snow-monkey-blocks'
-									),
-								},
-								{
-									value: 's',
-									label: __( 'S', 'snow-monkey-blocks' ),
-								},
-								{
-									value: 'm',
-									label: __( 'M', 'snow-monkey-blocks' ),
-								},
-								{
-									value: 'l',
-									label: __( 'L', 'snow-monkey-blocks' ),
-								},
-							] }
-							onChange={ ( value ) =>
-								setAttributes( {
-									columnPadding: value,
-								} )
-							}
-						/>
-					</ToolsPanelItem>
-				</ToolsPanel>
-
-				<ToolsPanel label={ __( 'Border', 'snow-monkey-blocks' ) }>
-					<ToolsPanelItem
-						hasValue={ () =>
-							borderColor !==
-								metadata.attributes.borderColor.default ||
-							borderWidth !==
-								metadata.attributes.borderWidth.default
-						}
-						isShownByDefault
-						label={ __( 'Border', 'snow-monkey-blocks' ) }
-						onDeselect={ () =>
-							setAttributes( {
-								borderColor:
-									metadata.attributes.borderColor.default,
-								borderWidth:
-									metadata.attributes.borderWidth.default,
-							} )
-						}
-					>
-						<BorderBoxControl
-							{ ...useMultipleOriginColorsAndGradients() }
-							className="smb-border-box-control"
-							enableAlpha={ false }
-							enableStyle={ false }
-							onChange={ ( value ) => {
-								setAttributes( {
-									borderColor: value.color,
-									borderWidth: value.width,
-								} );
-							} }
-							popoverOffset={ 40 }
-							popoverPlacement="left-start"
-							value={ {
-								color: borderColor,
-								width: borderWidth,
-							} }
-							__experimentalHasMultipleOrigins={ true }
-							__experimentalIsRenderedInSidebar={ true }
-						/>
-					</ToolsPanelItem>
-				</ToolsPanel>
-			</InspectorControls>
-
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
@@ -403,6 +270,137 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						/>
 					</ToolsPanelItem>
 				</ToolsPanel>
+			</InspectorControls>
+
+			<InspectorControls group="styles">
+				<PanelColorGradientSettings
+					title={ __( 'Color', 'snow-monkey-blocks' ) }
+					settings={ [
+						{
+							colorValue: labelColumnBackgroundColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									labelColumnBackgroundColor: value,
+								} ),
+							label: __(
+								'Label column background color',
+								'snow-monkey-blocks'
+							),
+						},
+						{
+							colorValue: labelColumnTextColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									labelColumnTextColor: value,
+								} ),
+							label: __(
+								'Label column text color',
+								'snow-monkey-blocks'
+							),
+						},
+						{
+							colorValue: contentColumnBackgroundColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									contentColumnBackgroundColor: value,
+								} ),
+							label: __(
+								'Content column background color',
+								'snow-monkey-blocks'
+							),
+						},
+					] }
+					__experimentalHasMultipleOrigins={ true }
+					__experimentalIsRenderedInSidebar={ true }
+				/>
+			</InspectorControls>
+
+			<InspectorControls group="border">
+				<ToolsPanelItem
+					hasValue={ () =>
+						borderColor !==
+							metadata.attributes.borderColor.default ||
+						borderWidth !== metadata.attributes.borderWidth.default
+					}
+					isShownByDefault
+					label={ __( 'Border', 'snow-monkey-blocks' ) }
+					onDeselect={ () =>
+						setAttributes( {
+							borderColor:
+								metadata.attributes.borderColor.default,
+							borderWidth:
+								metadata.attributes.borderWidth.default,
+						} )
+					}
+					panelId={ clientId }
+				>
+					<BorderBoxControl
+						{ ...useMultipleOriginColorsAndGradients() }
+						className="smb-border-box-control"
+						enableAlpha={ false }
+						enableStyle={ false }
+						onChange={ ( value ) => {
+							setAttributes( {
+								borderColor: value.color,
+								borderWidth: value.width,
+							} );
+						} }
+						popoverOffset={ 40 }
+						popoverPlacement="left-start"
+						value={ {
+							color: borderColor,
+							width: borderWidth,
+						} }
+						__experimentalHasMultipleOrigins={ true }
+						__experimentalIsRenderedInSidebar={ true }
+					/>
+				</ToolsPanelItem>
+			</InspectorControls>
+
+			<InspectorControls group="dimensions">
+				<ToolsPanelItem
+					hasValue={ () =>
+						columnPadding !==
+						metadata.attributes.columnPadding.default
+					}
+					isShownByDefault
+					label={ __( 'Padding', 'snow-monkey-blocks' ) }
+					onDeselect={ () =>
+						setAttributes( {
+							columnPadding:
+								metadata.attributes.columnPadding.default,
+						} )
+					}
+					panelId={ clientId }
+				>
+					<SelectControl
+						label={ __( 'Padding', 'snow-monkey-blocks' ) }
+						value={ columnPadding }
+						options={ [
+							{
+								value: '',
+								label: __( 'Default', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 's',
+								label: __( 'S', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'm',
+								label: __( 'M', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'l',
+								label: __( 'L', 'snow-monkey-blocks' ),
+							},
+						] }
+						onChange={ ( value ) =>
+							setAttributes( {
+								columnPadding: value,
+							} )
+						}
+					/>
+				</ToolsPanelItem>
 			</InspectorControls>
 
 			<div

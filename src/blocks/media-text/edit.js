@@ -170,6 +170,50 @@ export default function ( {
 
 	return (
 		<>
+			<InspectorControls group="dimensions">
+				<ToolsPanelItem
+					hasValue={ () =>
+						gutter !== metadata.attributes.gutter.default
+					}
+					isShownByDefault
+					label={ __( 'Gap', 'snow-monkey-blocks' ) }
+					onDeselect={ () =>
+						setAttributes( {
+							gutter: metadata.attributes.gutter.default,
+						} )
+					}
+					panelId={ clientId }
+				>
+					<SelectControl
+						label={ __( 'Gap', 'snow-monkey-blocks' ) }
+						value={ gutter }
+						onChange={ ( value ) =>
+							setAttributes( {
+								gutter: value,
+							} )
+						}
+						options={ [
+							{
+								value: '',
+								label: __( 'None', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 's',
+								label: __( 'S', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'm',
+								label: __( 'M', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'l',
+								label: __( 'L', 'snow-monkey-blocks' ),
+							},
+						] }
+					/>
+				</ToolsPanelItem>
+			</InspectorControls>
+
 			<InspectorControls group="styles">
 				<PanelColorGradientSettings
 					title={ __( 'Color', 'snow-monkey-blocks' ) }
@@ -208,49 +252,6 @@ export default function ( {
 						textColor={ textColor }
 					/>
 				</PanelColorGradientSettings>
-
-				<ToolsPanel label={ __( 'Dimensions', 'snow-monkey-blocks' ) }>
-					<ToolsPanelItem
-						hasValue={ () =>
-							gutter !== metadata.attributes.gutter.default
-						}
-						isShownByDefault
-						label={ __( 'Gap', 'snow-monkey-blocks' ) }
-						onDeselect={ () =>
-							setAttributes( {
-								gutter: metadata.attributes.gutter.default,
-							} )
-						}
-					>
-						<SelectControl
-							label={ __( 'Gap', 'snow-monkey-blocks' ) }
-							value={ gutter }
-							onChange={ ( value ) =>
-								setAttributes( {
-									gutter: value,
-								} )
-							}
-							options={ [
-								{
-									value: '',
-									label: __( 'None', 'snow-monkey-blocks' ),
-								},
-								{
-									value: 's',
-									label: __( 'S', 'snow-monkey-blocks' ),
-								},
-								{
-									value: 'm',
-									label: __( 'M', 'snow-monkey-blocks' ),
-								},
-								{
-									value: 'l',
-									label: __( 'L', 'snow-monkey-blocks' ),
-								},
-							] }
-						/>
-					</ToolsPanelItem>
-				</ToolsPanel>
 			</InspectorControls>
 
 			<InspectorControls>

@@ -244,57 +244,54 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 				</ToolsPanel>
 			</InspectorControls>
 
-			<InspectorControls group="styles">
-				{ ! isGlue && (
-					<ToolsPanel
-						label={ __( 'Dimensions', 'snow-monkey-blocks' ) }
+			{ ! isGlue && (
+				<InspectorControls group="dimensions">
+					<ToolsPanelItem
+						hasValue={ () =>
+							gap !== metadata.attributes.gap.default
+						}
+						isShownByDefault
+						label={ __( 'Gap', 'snow-monkey-blocks' ) }
+						onDeselect={ () =>
+							setAttributes( {
+								gap: metadata.attributes.gap.default,
+							} )
+						}
+						panelId={ clientId }
 					>
-						<ToolsPanelItem
-							hasValue={ () =>
-								gap !== metadata.attributes.gap.default
-							}
-							isShownByDefault
+						<SelectControl
 							label={ __( 'Gap', 'snow-monkey-blocks' ) }
-							onDeselect={ () =>
+							value={ gap }
+							onChange={ ( value ) =>
 								setAttributes( {
-									gap: metadata.attributes.gap.default,
+									gap: value,
 								} )
 							}
-						>
-							<SelectControl
-								label={ __( 'Gap', 'snow-monkey-blocks' ) }
-								value={ gap }
-								onChange={ ( value ) =>
-									setAttributes( {
-										gap: value,
-									} )
-								}
-								options={ [
-									{
-										value: '',
-										label: __(
-											'Default',
-											'snow-monkey-blocks'
-										),
-									},
-									{
-										value: 's',
-										label: __( 'S', 'snow-monkey-blocks' ),
-									},
-									{
-										value: 'm',
-										label: __( 'M', 'snow-monkey-blocks' ),
-									},
-									{
-										value: 'l',
-										label: __( 'L', 'snow-monkey-blocks' ),
-									},
-								] }
-							/>
-						</ToolsPanelItem>
-					</ToolsPanel>
-				) }
-			</InspectorControls>
+							options={ [
+								{
+									value: '',
+									label: __(
+										'Default',
+										'snow-monkey-blocks'
+									),
+								},
+								{
+									value: 's',
+									label: __( 'S', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'm',
+									label: __( 'M', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 'l',
+									label: __( 'L', 'snow-monkey-blocks' ),
+								},
+							] }
+						/>
+					</ToolsPanelItem>
+				</InspectorControls>
+			) }
 
 			<BlockControls group="block">
 				<JustifyToolbar

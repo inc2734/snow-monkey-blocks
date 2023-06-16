@@ -14,7 +14,6 @@ import {
 
 import {
 	SelectControl,
-	__experimentalToolsPanel as ToolsPanel,
 	__experimentalToolsPanelItem as ToolsPanelItem,
 	__experimentalBorderBoxControl as BorderBoxControl,
 } from '@wordpress/components';
@@ -129,132 +128,133 @@ export default function ( {
 
 	return (
 		<>
-			<InspectorControls group="styles">
-				<ToolsPanel label={ __( 'Border', 'snow-monkey-blocks' ) }>
-					<ToolsPanelItem
-						hasValue={ () =>
-							border.color !==
-								metadata.attributes.border.default.color ||
-							border.width !==
-								metadata.attributes.border.default.width
-						}
-						isShownByDefault
-						label={ __( 'Border', 'snow-monkey-blocks' ) }
-						onDeselect={ () => {
+			<InspectorControls group="border">
+				<ToolsPanelItem
+					hasValue={ () =>
+						border.color !==
+							metadata.attributes.border.default.color ||
+						border.width !==
+							metadata.attributes.border.default.width
+					}
+					isShownByDefault
+					label={ __( 'Border', 'snow-monkey-blocks' ) }
+					onDeselect={ () => {
+						setAttributes( {
+							border: {
+								...border,
+								color: metadata.attributes.border.default.color,
+								width: metadata.attributes.border.default.width,
+							},
+						} );
+					} }
+					panelId={ clientId }
+				>
+					<BorderBoxControl
+						{ ...useMultipleOriginColorsAndGradients() }
+						className="smb-border-box-control"
+						enableAlpha={ false }
+						enableStyle={ false }
+						onChange={ ( value ) => {
 							setAttributes( {
 								border: {
 									...border,
-									color: metadata.attributes.border.default
-										.color,
-									width: metadata.attributes.border.default
-										.width,
+									color: value.color,
+									width: value.width,
 								},
 							} );
 						} }
-					>
-						<BorderBoxControl
-							{ ...useMultipleOriginColorsAndGradients() }
-							className="smb-border-box-control"
-							enableAlpha={ false }
-							enableStyle={ false }
+						popoverOffset={ 40 }
+						popoverPlacement="left-start"
+						value={ {
+							color: border.color,
+							width: border.width,
+						} }
+						__experimentalHasMultipleOrigins={ true }
+						__experimentalIsRenderedInSidebar={ true }
+					/>
+				</ToolsPanelItem>
+
+				<ToolsPanelItem
+					hasValue={ () =>
+						border.radius !==
+						metadata.attributes.border.default.radius
+					}
+					isShownByDefault
+					label={ __( 'Border radius', 'snow-monkey-blocks' ) }
+					onDeselect={ () => {
+						setAttributes( {
+							border: {
+								...border,
+								radius: metadata.attributes.border.default
+									.radius,
+							},
+						} );
+					} }
+					panelId={ clientId }
+				>
+					<div className="smb-border-radius-control">
+						<BorderRadiusControl
+							values={ border.radius }
 							onChange={ ( value ) => {
 								setAttributes( {
 									border: {
 										...border,
-										color: value.color,
-										width: value.width,
+										radius: value,
 									},
 								} );
 							} }
-							popoverOffset={ 40 }
-							popoverPlacement="left-start"
-							value={ {
-								color: border.color,
-								width: border.width,
-							} }
-							__experimentalHasMultipleOrigins={ true }
-							__experimentalIsRenderedInSidebar={ true }
 						/>
-					</ToolsPanelItem>
+					</div>
+				</ToolsPanelItem>
+			</InspectorControls>
 
-					<ToolsPanelItem
-						hasValue={ () =>
-							border.radius !==
-							metadata.attributes.border.default.radius
-						}
-						isShownByDefault
-						label={ __( 'Border radius', 'snow-monkey-blocks' ) }
-						onDeselect={ () => {
-							setAttributes( {
-								border: {
-									...border,
-									radius: metadata.attributes.border.default
-										.radius,
-								},
-							} );
-						} }
-					>
-						<div className="smb-border-radius-control">
-							<BorderRadiusControl
-								values={ border.radius }
-								onChange={ ( value ) => {
-									setAttributes( {
-										border: {
-											...border,
-											radius: value,
-										},
-									} );
-								} }
-							/>
-						</div>
-					</ToolsPanelItem>
-				</ToolsPanel>
-
-				<ToolsPanel label={ __( 'Dimensions', 'snow-monkey-blocks' ) }>
-					<ToolsPanelItem
-						hasValue={ () =>
-							contentPadding !==
-							metadata.attributes.contentPadding.default
-						}
-						isShownByDefault
+			<InspectorControls group="dimensions">
+				<ToolsPanelItem
+					hasValue={ () =>
+						contentPadding !==
+						metadata.attributes.contentPadding.default
+					}
+					isShownByDefault
+					label={ __( 'Padding', 'snow-monkey-blocks' ) }
+					onDeselect={ () =>
+						setAttributes( {
+							contentPadding:
+								metadata.attributes.contentPadding.default,
+						} )
+					}
+					panelId={ clientId }
+				>
+					<SelectControl
 						label={ __( 'Padding', 'snow-monkey-blocks' ) }
-						onDeselect={ () =>
+						value={ contentPadding }
+						options={ [
+							{
+								value: '',
+								label: __( 'None', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 's',
+								label: __( 'S', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'm',
+								label: __( 'M', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'l',
+								label: __( 'L', 'snow-monkey-blocks' ),
+							},
+						] }
+						onChange={ ( value ) =>
 							setAttributes( {
-								contentPadding:
-									metadata.attributes.contentPadding.default,
+								contentPadding: value,
 							} )
 						}
-					>
-						<SelectControl
-							label={ __( 'Padding', 'snow-monkey-blocks' ) }
-							value={ contentPadding }
-							options={ [
-								{
-									value: '',
-									label: __( 'None', 'snow-monkey-blocks' ),
-								},
-								{
-									value: 's',
-									label: __( 'S', 'snow-monkey-blocks' ),
-								},
-								{
-									value: 'm',
-									label: __( 'M', 'snow-monkey-blocks' ),
-								},
-								{
-									value: 'l',
-									label: __( 'L', 'snow-monkey-blocks' ),
-								},
-							] }
-							onChange={ ( value ) =>
-								setAttributes( {
-									contentPadding: value,
-								} )
-							}
-						/>
-					</ToolsPanelItem>
-				</ToolsPanel>
+					/>
+				</ToolsPanelItem>
+			</InspectorControls>
 
+			<InspectorControls group="styles">
 				<PanelBoxShadowSettings
 					settings={ [
 						{
