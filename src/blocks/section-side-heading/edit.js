@@ -58,6 +58,7 @@ export default function ( {
 		textColor,
 		headingPosition,
 		headingColumnSize,
+		contentColumnSize,
 		contentJustification,
 		itemsAlignment,
 		gap,
@@ -107,8 +108,10 @@ export default function ( {
 		[ clientId ]
 	);
 
-	const { textColumnWidth, imageColumnWidth } =
-		getColumnSize( headingColumnSize );
+	const { textColumnWidth, imageColumnWidth } = getColumnSize(
+		headingColumnSize,
+		contentColumnSize
+	);
 
 	const isItemsAlignmentable = 'fit' !== height;
 
@@ -382,6 +385,56 @@ export default function ( {
 								} )
 							}
 							options={ [
+								{
+									value: 50,
+									label: __( '50%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 33,
+									label: __( '33%', 'snow-monkey-blocks' ),
+								},
+								{
+									value: 25,
+									label: __( '25%', 'snow-monkey-blocks' ),
+								},
+							] }
+						/>
+					</ToolsPanelItem>
+
+					<ToolsPanelItem
+						hasValue={ () =>
+							contentColumnSize !==
+							metadata.attributes.contentColumnSize.default
+						}
+						isShownByDefault
+						label={ __(
+							'Content column size',
+							'snow-monkey-blocks'
+						) }
+						onDeselect={ () =>
+							setAttributes( {
+								contentColumnSize:
+									metadata.attributes.contentColumnSize
+										.default,
+							} )
+						}
+					>
+						<SelectControl
+							label={ __(
+								'Content column size',
+								'snow-monkey-blocks'
+							) }
+							value={ contentColumnSize }
+							onChange={ ( value ) =>
+								setAttributes( {
+									contentColumnSize: value,
+								} )
+							}
+							options={ [
+								{
+									value: '',
+									label: __( 'Auto', 'snow-monkey-blocks' ),
+								},
 								{
 									value: 50,
 									label: __( '50%', 'snow-monkey-blocks' ),

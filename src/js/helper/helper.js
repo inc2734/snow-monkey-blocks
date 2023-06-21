@@ -14,7 +14,7 @@ export const toNumber = ( value, min = 0, max = null ) => {
 	return value;
 };
 
-export const getColumnSize = ( imageColumnSize ) => {
+export const getColumnSize = ( imageColumnSize, textColumnSize = null ) => {
 	let textColumnWidth = '1-3';
 	let imageColumnWidth = '2-3';
 
@@ -33,6 +33,23 @@ export const getColumnSize = ( imageColumnSize ) => {
 	} else if ( 25 === parseInt( imageColumnSize ) ) {
 		textColumnWidth = '3-4';
 		imageColumnWidth = '1-4';
+	}
+
+	if (
+		!! textColumnSize &&
+		100 - parseInt( imageColumnSize ) >= parseInt( textColumnSize )
+	) {
+		if ( 75 === parseInt( textColumnSize ) ) {
+			textColumnWidth = '3-4';
+		} else if ( 66 === parseInt( textColumnSize ) ) {
+			textColumnWidth = '2-3';
+		} else if ( 50 === parseInt( textColumnSize ) ) {
+			textColumnWidth = '1-2';
+		} else if ( 33 === parseInt( textColumnSize ) ) {
+			textColumnWidth = '1-3';
+		} else if ( 25 === parseInt( textColumnSize ) ) {
+			textColumnWidth = '1-4';
+		}
 	}
 
 	return {

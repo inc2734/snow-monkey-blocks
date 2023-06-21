@@ -24,4 +24,14 @@
 			margin-top: var(--_margin2);
 		}
 	}
+
+	> .smb-section__inner {
+		> .c-container {
+			> .smb-section__contents-wrapper {
+				> .c-row {
+					justify-content: space-between;
+				}
+			}
+		}
+	}
 }

@@ -17,6 +17,7 @@ export default function ( { attributes, className } ) {
 		textColor,
 		headingPosition,
 		headingColumnSize,
+		contentColumnSize,
 		contentJustification,
 		itemsAlignment,
 		gap,
@@ -59,8 +60,10 @@ export default function ( { attributes, className } ) {
 		bottomDividerOverlay,
 	} = attributes;
 
-	const { textColumnWidth, imageColumnWidth } =
-		getColumnSize( headingColumnSize );
+	const { textColumnWidth, imageColumnWidth } = getColumnSize(
+		headingColumnSize,
+		contentColumnSize
+	);
 
 	const isItemsAlignmentable = 'fit' !== height;
 

@@ -18,6 +18,10 @@
 			"type": "string",
 			"default": 33
 		},
+		"contentColumnSize": {
+			"type": "string",
+			"default": ""
+		},
 		"contentJustification": {
 			"type": "string"
 		},

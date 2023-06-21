@@ -256,6 +256,8 @@
 		> *,
 		> .#{ $_prefix }c-container > * {
 			text-align: inherit;
+			margin-top: 0;
+			margin-bottom: 0;
 		}
 
 		> * + *,
