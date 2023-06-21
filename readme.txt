@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue, kutsu
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 19.7.1
+Stable tag: 19.8.0
 Requires at least: 6.2
 Tested up to: 6.2
 Requires PHP: 7.4
@@ -111,6 +111,10 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 25. Hero header block
 
 == Changelog ==
+
+= 19.8.0 =
+* [Section (Side heading)] Add new setting: gap
+* [Section (Side heading)] Add new setting: Content column size
 
 = 19.7.1 =
 * [Slider] Fixed "Shifting the slider" bug.
