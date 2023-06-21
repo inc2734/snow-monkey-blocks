@@ -60,6 +60,7 @@ export default function ( {
 		headingColumnSize,
 		contentJustification,
 		itemsAlignment,
+		gap,
 
 		title,
 		subtitle,
@@ -144,7 +145,9 @@ export default function ( {
 		}
 	);
 
-	const rowClasses = classnames( 'c-row', 'c-row--md-margin', {
+	const rowClasses = classnames( 'c-row', {
+		'c-row--md-margin': 'm' === gap || ! gap,
+		[ `c-row--md-margin-${ gap }` ]: 's' === gap || 'l' === gap,
 		'c-row--reverse': 'right' === headingPosition,
 	} );
 
@@ -211,6 +214,48 @@ export default function ( {
 
 	return (
 		<>
+			<InspectorControls group="dimensions">
+				<ToolsPanelItem
+					hasValue={ () => gap !== metadata.attributes.gap.default }
+					isShownByDefault
+					label={ __( 'Gap', 'snow-monkey-blocks' ) }
+					onDeselect={ () =>
+						setAttributes( {
+							gap: metadata.attributes.gap.default,
+						} )
+					}
+					panelId={ clientId }
+				>
+					<SelectControl
+						label={ __( 'Gap', 'snow-monkey-blocks' ) }
+						value={ gap }
+						onChange={ ( value ) =>
+							setAttributes( {
+								gap: value,
+							} )
+						}
+						options={ [
+							{
+								value: '',
+								label: __( 'Default', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 's',
+								label: __( 'S', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'm',
+								label: __( 'M', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'l',
+								label: __( 'L', 'snow-monkey-blocks' ),
+							},
+						] }
+					/>
+				</ToolsPanelItem>
+			</InspectorControls>
+
 			<InspectorControls group="styles">
 				<PanelColorGradientSettings
 					title={ __( 'Color', 'snow-monkey-blocks' ) }

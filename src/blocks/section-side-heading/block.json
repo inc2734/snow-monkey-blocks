@@ -24,6 +24,10 @@
 		"itemsAlignment": {
 			"type": "string"
 		},
+		"gap": {
+			"type": "string",
+			"default": ""
+		},
 
 		"title": {
 			"type": "string",

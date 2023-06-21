@@ -19,6 +19,7 @@ export default function ( { attributes, className } ) {
 		headingColumnSize,
 		contentJustification,
 		itemsAlignment,
+		gap,
 
 		title,
 		subtitle,
@@ -96,7 +97,9 @@ export default function ( { attributes, className } ) {
 		}
 	);
 
-	const rowClasses = classnames( 'c-row', 'c-row--md-margin', {
+	const rowClasses = classnames( 'c-row', {
+		'c-row--md-margin': 'm' === gap || ! gap,
+		[ `c-row--md-margin-${ gap }` ]: 's' === gap || 'l' === gap,
 		'c-row--reverse': 'right' === headingPosition,
 	} );
 
