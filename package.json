@@ -77,7 +77,7 @@
     "clean:zip": "rimraf snow-monkey-blocks.zip",
     "clean:img": "rimraf dist/img",
     "css": "npm run clean:css && node-sass src/css -o dist/css && postcss dist/css/*.css -r",
-    "js": "npm run clean:js && wp-scripts build src/js/background-parallax.js --output-path dist/js --webpack-src-dir=src/js",
+    "js": "npm run clean:js && wp-scripts build src/js/background-parallax.js src/js/editor.js --output-path dist/js --webpack-src-dir=src/js",
     "packages:fontawesome": "cpy 'fontawesome-free/js/all.min.js' 'fontawesome-free/LICENSE.txt' '../../dist/packages' --cwd=node_modules/@fortawesome --parents",
     "packages:slick-carousel": "cpy './slick' '../../dist/packages' --cwd=node_modules/slick-carousel --parents",
     "packages:spider": "cpy './spider' '../../dist/packages' --cwd=node_modules/@inc2734 --parents",

@@ -1,0 +1,100 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"textdomain": "snow-monkey-blocks",
+	"name": "snow-monkey-blocks/flex-layout",
+	"title": "Flex layout",
+	"description": "Child blocks can be layout in flex box.",
+	"category": "smb",
+	"attributes": {
+		"boxShadow": {
+			"type": "object",
+			"default": {
+				"color": "",
+				"opacity": 0.1,
+				"horizontal": 0,
+				"vertical": 0,
+				"blur": 10,
+				"spread": 0,
+				"position": ""
+			}
+		},
+		"style": {
+			"type": "object",
+			"default": {
+				"spacing": {
+					"blockGap": "0"
+				}
+			}
+		},
+		"layout": {
+			"type": "object",
+			"default": {
+				"orientation": "vertical",
+				"type": "flex",
+				"flexWrap": "wrap",
+				"verticalAlignment": "stretch"
+			}
+		},
+		"templateLock": {
+			"type": [ "string", "boolean" ],
+			"enum": [ "all", "insert", "contentOnly", false ]
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "full", "wide" ],
+		"color": {
+			"gradients": true,
+			"link": true,
+			"__experimentalDefaultControls": {
+				"background": true,
+				"text": true
+			}
+		},
+		"__experimentalBorder": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true,
+			"__experimentalDefaultControls": {
+				"color": true,
+				"radius": true,
+				"style": true,
+				"width": true
+			}
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true,
+			"__experimentalFontFamily": true,
+			"__experimentalFontWeight": true,
+			"__experimentalFontStyle": true,
+			"__experimentalTextTransform": true,
+			"__experimentalTextDecoration": true,
+			"__experimentalLetterSpacing": true,
+			"__experimentalDefaultControls": {
+				"fontSize": true
+			}
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true,
+			"blockGap": true,
+			"__experimentalDefaultControls": {
+				"padding": true,
+				"blockGap": true
+			}
+		},
+		"__experimentalLayout": {
+			"allowSwitching": false,
+			"allowInheriting": false,
+			"default": {
+				"type": "flex"
+			}
+		}
+	},
+	"style": "file:./style.css",
+	"editorStyle": "file:./editor.css",
+	"editorScript": "file:./index.js"
+}

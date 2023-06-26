@@ -35,6 +35,7 @@ class Bootstrap {
 	public function _bootstrap() {
 		new App\Setup\TextDomain();
 		new App\Setup\Assets();
+		new App\Setup\Blocks();
 		new App\Setup\JsonLd();
 		new App\Controller\Manager();
 

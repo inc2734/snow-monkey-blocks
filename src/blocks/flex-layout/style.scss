@@ -1,0 +1,29 @@
+.smb-flex-layout {
+	--smb-flex-layout--box-shadow: none;
+
+	flex-direction: column;
+	box-shadow: var(--smb-flex-layout--box-shadow);
+
+	&.is-horizontal {
+		flex-direction: row;
+	}
+
+	&.is-vertical {
+		flex-direction: column;
+	}
+
+	> * {
+		--smb--flex-grow: 0;
+		--smb--flex-shrink: 1;
+		--smb--flex-basis: auto;
+
+		flex-grow: var(--smb--flex-grow);
+		flex-shrink: var(--smb--flex-shrink);
+		flex-basis: var(--smb--flex-basis);
+		min-width: 0;
+	}
+}
+
+.smb-flex-layout.is-layout-flex {
+	gap: 0;
+}

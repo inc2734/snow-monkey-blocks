@@ -2,14 +2,14 @@
 # This file is distributed under the GPL2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Snow Monkey Blocks 19.7.1\n"
+"Project-Id-Version: Snow Monkey Blocks 19.8.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-blocks\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-06-21T02:32:02+00:00\n"
+"POT-Creation-Date: 2023-06-26T06:13:59+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: snow-monkey-blocks\n"
@@ -18,9 +18,9 @@ msgstr ""
 #: App/Controller/Manager.php:47
 #: App/Controller/Manager.php:48
 #: App/Controller/Manager.php:54
-#: snow-monkey-blocks.php:59
-#: snow-monkey-blocks.php:68
-#: snow-monkey-blocks.php:77
+#: snow-monkey-blocks.php:60
+#: snow-monkey-blocks.php:69
+#: snow-monkey-blocks.php:78
 msgid "Snow Monkey Blocks"
 msgstr ""
 
@@ -69,29 +69,29 @@ msgstr ""
 msgid "Contents outline"
 msgstr ""
 
-#: snow-monkey-blocks.php:61
+#: snow-monkey-blocks.php:62
 msgid "[Common blocks]"
 msgstr ""
 
-#: snow-monkey-blocks.php:70
+#: snow-monkey-blocks.php:71
 msgid "[Sections]"
 msgstr ""
 
-#: snow-monkey-blocks.php:79
+#: snow-monkey-blocks.php:80
 msgid "[Deprecated]"
 msgstr ""
 
-#: snow-monkey-blocks.php:118
+#: snow-monkey-blocks.php:119
 msgid "[ PR ] Premium WordPress Theme Snow Monkey"
 msgstr ""
 
 #. translators: %1$s: Start a tag, %2$s: End a tag
-#: snow-monkey-blocks.php:136
+#: snow-monkey-blocks.php:137
 msgid "Snow Monkey Blocks is optimized for the %1$sSnow Monkey%2$s theme, but it can also be used with other themes."
 msgstr ""
 
 #. translators: %1$s: Start a tag, %2$s: End a tag
-#: snow-monkey-blocks.php:142
+#: snow-monkey-blocks.php:143
 msgid "When used together with the %1$sSnow Monkey%2$s theme, it can be displayed with the most beautiful balance, and it is displayed on the edit screen with the same design as the front screen."
 msgstr ""
 
@@ -241,6 +241,7 @@ msgstr ""
 #: dist/blocks/balloon/index.js:1
 #: dist/blocks/box/index.js:1
 #: dist/blocks/btn-box/index.js:1
+#: dist/blocks/flex-layout/index.js:1
 #: dist/blocks/information/index.js:1
 #: dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/items/item/block-link/index.js:1
@@ -264,6 +265,7 @@ msgstr ""
 #: dist/blocks/balloon/index.js:1
 #: dist/blocks/box/index.js:1
 #: dist/blocks/btn-box/index.js:1
+#: dist/blocks/flex-layout/index.js:1
 #: dist/blocks/information/index.js:1
 #: dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/items/item/block-link/index.js:1
@@ -287,6 +289,7 @@ msgstr ""
 #: dist/blocks/balloon/index.js:1
 #: dist/blocks/box/index.js:1
 #: dist/blocks/btn-box/index.js:1
+#: dist/blocks/flex-layout/index.js:1
 #: dist/blocks/information/index.js:1
 #: dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/items/item/block-link/index.js:1
@@ -310,6 +313,7 @@ msgstr ""
 #: dist/blocks/balloon/index.js:1
 #: dist/blocks/box/index.js:1
 #: dist/blocks/btn-box/index.js:1
+#: dist/blocks/flex-layout/index.js:1
 #: dist/blocks/information/index.js:1
 #: dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/items/item/block-link/index.js:1
@@ -425,6 +429,7 @@ msgstr ""
 #: dist/blocks/directory-structure/item/file/index.js:1
 #: dist/blocks/evaluation-star/index.js:1
 #: dist/blocks/faq/item/index.js:1
+#: dist/blocks/flex-layout/index.js:1
 #: dist/blocks/information/index.js:1
 #: dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/items/item/item/index.js:1
@@ -449,6 +454,7 @@ msgid "Color"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
+#: dist/blocks/flex-layout/index.js:1
 #: dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:17
@@ -461,6 +467,7 @@ msgid "Opacity"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
+#: dist/blocks/flex-layout/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
@@ -469,6 +476,7 @@ msgid "Horizontal"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
+#: dist/blocks/flex-layout/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
@@ -477,6 +485,7 @@ msgid "Vertical"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
+#: dist/blocks/flex-layout/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
@@ -484,6 +493,7 @@ msgid "Blur"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
+#: dist/blocks/flex-layout/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
@@ -491,6 +501,7 @@ msgid "Spread"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
+#: dist/blocks/flex-layout/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-with-bgimage/index.js:1
 #: dist/blocks/section-with-bgvideo/index.js:1
@@ -501,6 +512,7 @@ msgid "Position"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
+#: dist/blocks/flex-layout/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
@@ -508,6 +520,7 @@ msgid "Outline"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
+#: dist/blocks/flex-layout/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
@@ -515,6 +528,7 @@ msgid "Inset"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
+#: dist/blocks/flex-layout/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
@@ -2666,6 +2680,22 @@ msgstr ""
 msgid "Write name…"
 msgstr ""
 
+#: dist/js/editor.js:1
+msgid "Allows for stretching from the basic size."
+msgstr ""
+
+#: dist/js/editor.js:1
+msgid "Allow shrinkage from the basic size."
+msgstr ""
+
+#: dist/js/editor.js:1
+msgid "Basic size"
+msgstr ""
+
+#: dist/js/editor.js:1
+msgid "Basic size of the flex item."
+msgstr ""
+
 #: dist/blocks/accordion/block.json
 msgctxt "block title"
 msgid "Accordion"
@@ -2859,6 +2889,16 @@ msgstr ""
 #: dist/blocks/faq/item/block.json
 msgctxt "block description"
 msgid "It is a child block of the FAQ block."
+msgstr ""
+
+#: dist/blocks/flex-layout/block.json
+msgctxt "block title"
+msgid "Flex layout"
+msgstr ""
+
+#: dist/blocks/flex-layout/block.json
+msgctxt "block description"
+msgid "Child blocks can be layout in flex box."
 msgstr ""
 
 #: dist/blocks/hero-header/block.json

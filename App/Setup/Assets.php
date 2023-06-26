@@ -43,6 +43,15 @@ class Assets {
 			$editor_style_dependencies,
 			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/blocks-editor.css' )
 		);
+
+		$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/editor.asset.php' );
+		wp_enqueue_script(
+			'snow-monkey-blocks-editor',
+			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/editor.js',
+			$asset['dependencies'],
+			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/editor.js' ),
+			true
+		);
 	}
 
 	/**

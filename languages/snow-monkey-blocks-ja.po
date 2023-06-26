@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-"
 "blocks\n"
-"POT-Creation-Date: 2023-06-21T02:32:02+00:00\n"
-"PO-Revision-Date: 2023-06-21 11:36+0900\n"
+"POT-Creation-Date: 2023-06-26T06:13:59+00:00\n"
+"PO-Revision-Date: 2023-06-26 15:14+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -28,8 +28,8 @@ msgstr ""
 
 #. Plugin Name of the plugin
 #: App/Controller/Manager.php:47 App/Controller/Manager.php:48
-#: App/Controller/Manager.php:54 snow-monkey-blocks.php:59
-#: snow-monkey-blocks.php:68 snow-monkey-blocks.php:77
+#: App/Controller/Manager.php:54 snow-monkey-blocks.php:60
+#: snow-monkey-blocks.php:69 snow-monkey-blocks.php:78
 msgid "Snow Monkey Blocks"
 msgstr "Snow Monkey Blocks"
 
@@ -77,24 +77,24 @@ msgstr "ページが見つかりませんでした。"
 msgid "Contents outline"
 msgstr "目次"
 
-#: snow-monkey-blocks.php:61
+#: snow-monkey-blocks.php:62
 msgid "[Common blocks]"
 msgstr "[共通ブロック]"
 
-#: snow-monkey-blocks.php:70
+#: snow-monkey-blocks.php:71
 msgid "[Sections]"
 msgstr "[セクション]"
 
-#: snow-monkey-blocks.php:79
+#: snow-monkey-blocks.php:80
 msgid "[Deprecated]"
 msgstr "[非推奨]"
 
-#: snow-monkey-blocks.php:118
+#: snow-monkey-blocks.php:119
 msgid "[ PR ] Premium WordPress Theme Snow Monkey"
 msgstr "【PR】プレミアム WordPress テーマ Snow Monkey"
 
 #. translators: %1$s: Start a tag, %2$s: End a tag
-#: snow-monkey-blocks.php:136
+#: snow-monkey-blocks.php:137
 msgid ""
 "Snow Monkey Blocks is optimized for the %1$sSnow Monkey%2$s theme, but it "
 "can also be used with other themes."
@@ -103,7 +103,7 @@ msgstr ""
 "テーマでも使用できます。"
 
 #. translators: %1$s: Start a tag, %2$s: End a tag
-#: snow-monkey-blocks.php:142
+#: snow-monkey-blocks.php:143
 msgid ""
 "When used together with the %1$sSnow Monkey%2$s theme, it can be displayed "
 "with the most beautiful balance, and it is displayed on the edit screen with "
@@ -231,8 +231,8 @@ msgid "Write title…"
 msgstr "タイトルを書く…"
 
 #: dist/blocks/balloon/index.js:1 dist/blocks/box/index.js:1
-#: dist/blocks/btn-box/index.js:1 dist/blocks/information/index.js:1
-#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/btn-box/index.js:1 dist/blocks/flex-layout/index.js:1
+#: dist/blocks/information/index.js:1 dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
 #: dist/blocks/panels/item/block-link/index.js:1
@@ -251,8 +251,8 @@ msgid "Theme"
 msgstr "テーマ"
 
 #: dist/blocks/balloon/index.js:1 dist/blocks/box/index.js:1
-#: dist/blocks/btn-box/index.js:1 dist/blocks/information/index.js:1
-#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/btn-box/index.js:1 dist/blocks/flex-layout/index.js:1
+#: dist/blocks/information/index.js:1 dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
 #: dist/blocks/panels/item/block-link/index.js:1
@@ -271,8 +271,8 @@ msgid "Default"
 msgstr "デフォルト"
 
 #: dist/blocks/balloon/index.js:1 dist/blocks/box/index.js:1
-#: dist/blocks/btn-box/index.js:1 dist/blocks/information/index.js:1
-#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/btn-box/index.js:1 dist/blocks/flex-layout/index.js:1
+#: dist/blocks/information/index.js:1 dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
 #: dist/blocks/panels/item/block-link/index.js:1
@@ -291,8 +291,8 @@ msgid "Custom"
 msgstr "カスタム"
 
 #: dist/blocks/balloon/index.js:1 dist/blocks/box/index.js:1
-#: dist/blocks/btn-box/index.js:1 dist/blocks/information/index.js:1
-#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/btn-box/index.js:1 dist/blocks/flex-layout/index.js:1
+#: dist/blocks/information/index.js:1 dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
 #: dist/blocks/panels/item/block-link/index.js:1
@@ -390,7 +390,8 @@ msgstr "名前"
 #: dist/blocks/directory-structure/item/directory/index.js:1
 #: dist/blocks/directory-structure/item/file/index.js:1
 #: dist/blocks/evaluation-star/index.js:1 dist/blocks/faq/item/index.js:1
-#: dist/blocks/information/index.js:1 dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/flex-layout/index.js:1 dist/blocks/information/index.js:1
+#: dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/items/item/item/index.js:1 dist/blocks/list/index.js:1
 #: dist/blocks/media-text/index.js:1
 #: dist/blocks/panels/item/block-link/index.js:1
@@ -410,7 +411,8 @@ msgstr "名前"
 msgid "Color"
 msgstr "色"
 
-#: dist/blocks/box/index.js:1 dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/box/index.js:1 dist/blocks/flex-layout/index.js:1
+#: dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:17
 #: dist/blocks/section-with-bgimage/index.js:1
@@ -420,33 +422,38 @@ msgstr "色"
 msgid "Opacity"
 msgstr "不透明度"
 
-#: dist/blocks/box/index.js:1 dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/box/index.js:1 dist/blocks/flex-layout/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
 #: dist/blocks/tabs/index.js:1
 msgid "Horizontal"
 msgstr "水平方向"
 
-#: dist/blocks/box/index.js:1 dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/box/index.js:1 dist/blocks/flex-layout/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
 #: dist/blocks/tabs/index.js:1
 msgid "Vertical"
 msgstr "垂直方向"
 
-#: dist/blocks/box/index.js:1 dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/box/index.js:1 dist/blocks/flex-layout/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
 msgid "Blur"
 msgstr "ぼかし"
 
-#: dist/blocks/box/index.js:1 dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/box/index.js:1 dist/blocks/flex-layout/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
 msgid "Spread"
 msgstr "スプレッド"
 
-#: dist/blocks/box/index.js:1 dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/box/index.js:1 dist/blocks/flex-layout/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-with-bgimage/index.js:1
 #: dist/blocks/section-with-bgvideo/index.js:1 dist/blocks/section/index.js:1
 #: dist/blocks/spider-contents-slider/index.js:1
@@ -454,19 +461,22 @@ msgstr "スプレッド"
 msgid "Position"
 msgstr "位置"
 
-#: dist/blocks/box/index.js:1 dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/box/index.js:1 dist/blocks/flex-layout/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
 msgid "Outline"
 msgstr "アウトライン"
 
-#: dist/blocks/box/index.js:1 dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/box/index.js:1 dist/blocks/flex-layout/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
 msgid "Inset"
 msgstr "インセット"
 
-#: dist/blocks/box/index.js:1 dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/box/index.js:1 dist/blocks/flex-layout/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
 msgid "Box Shadow"
@@ -2444,6 +2454,22 @@ msgstr "スラッシュ"
 msgid "Write name…"
 msgstr "名前を書く…"
 
+#: dist/js/editor.js:1
+msgid "Allows for stretching from the basic size."
+msgstr "基本サイズから伸張できるようにする。"
+
+#: dist/js/editor.js:1
+msgid "Allow shrinkage from the basic size."
+msgstr "基本サイズから縮小できるようにする。"
+
+#: dist/js/editor.js:1
+msgid "Basic size"
+msgstr "基本サイズ"
+
+#: dist/js/editor.js:1
+msgid "Basic size of the flex item."
+msgstr "フレックスアイテムの基本サイズ。"
+
 #: dist/blocks/accordion/block.json
 msgctxt "block title"
 msgid "Accordion"
@@ -2639,6 +2665,16 @@ msgstr "FAQ"
 msgctxt "block description"
 msgid "It is a child block of the FAQ block."
 msgstr "FAQブロックの子ブロックです。"
+
+#: dist/blocks/flex-layout/block.json
+msgctxt "block title"
+msgid "Flex layout"
+msgstr "フレックスレイアウト"
+
+#: dist/blocks/flex-layout/block.json
+msgctxt "block description"
+msgid "Child blocks can be layout in flex box."
+msgstr "子ブロックをフレックスボックス内にレイアウトできます。"
 
 #: dist/blocks/hero-header/block.json
 msgctxt "block title"
@@ -3121,94 +3157,3 @@ msgstr ""
 msgctxt "block description"
 msgid "It is a child block of the thumbnail gallery block."
 msgstr "サムネイルギャラリーブロックの子ブロックです。"
-
-#~ msgid "Dimensions"
-#~ msgstr "寸法"
-
-#~ msgid "Block spacing"
-#~ msgstr "ブロックの間隔"
-
-#~ msgid "Features"
-#~ msgstr "特徴"
-
-#~ msgid "Text with image"
-#~ msgstr "テキストと画像"
-
-#~ msgid "Pricing"
-#~ msgstr "価格"
-
-#~ msgid "FAQ"
-#~ msgstr "FAQ"
-
-#~ msgid "Header %1$s"
-#~ msgstr "ヘッダー %1$s"
-
-#~ msgid "Feature %1$s"
-#~ msgstr "特徴 %1$s"
-
-#~ msgid "Text with image %1$s"
-#~ msgstr "テキストと画像 %1$s"
-
-#~ msgid "Pricing %1$s"
-#~ msgstr "価格 %1$s"
-
-#~ msgid "FAQ %1$s"
-#~ msgstr "FAQ %1$s"
-
-#~ msgid "Avatar border color"
-#~ msgstr "アバターの枠線の色"
-
-#~ msgid "List"
-#~ msgstr "リスト"
-
-#~ msgctxt "block title"
-#~ msgid "Icon list item"
-#~ msgstr "アイコンリスト項目"
-
-#~ msgid "Width"
-#~ msgstr "幅"
-
-#~ msgid "-If set to -1, the default border radius will be applied."
-#~ msgstr "-1 に設定するとデフォルトの角丸半径が適用されます。"
-
-#~ msgid "Enter URL here…"
-#~ msgstr "URL をここに入力…"
-
-#~ msgid "Use URL"
-#~ msgstr "URL を使用"
-
-#~ msgid "Horizontal position"
-#~ msgstr "水平位置"
-
-#~ msgid "Vertical position"
-#~ msgstr "垂直位置"
-
-#~ msgid "Radius"
-#~ msgstr "半径"
-
-#~ msgid "angle-double-right"
-#~ msgstr "angle-double-right"
-
-#~ msgid "arrow-alt-circle-right"
-#~ msgstr "arrow-alt-circle-right"
-
-#~ msgid "5%"
-#~ msgstr "5%"
-
-#~ msgid "15%"
-#~ msgstr "15%"
-
-#~ msgid "Clear"
-#~ msgstr "クリア"
-
-#~ msgid "Reset"
-#~ msgstr "リセット"
-
-#~ msgid "(Deprecated)"
-#~ msgstr "（非推奨）"
-
-#~ msgid "Item"
-#~ msgstr "項目"
-
-#~ msgid "Items (Deprecated)"
-#~ msgstr "項目（非推奨）"
