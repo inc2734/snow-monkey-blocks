@@ -30,14 +30,66 @@ import {
 	editFlexBasisProp,
 } from './flex-basis';
 
-export { editFlexGrowProp, editFlexShrinkProp, editFlexBasisProp };
+import {
+	useIsJustifySelfDisabled,
+	hasJustifySelfValue,
+	resetJustifySelf,
+	JustifySelfEdit,
+	editJustifySelfProp,
+} from './justify-self';
+
+import {
+	useIsAlignSelfDisabled,
+	hasAlignSelfValue,
+	resetAlignSelf,
+	AlignSelfEdit,
+	editAlignSelfProp,
+} from './align-self';
+
+import {
+	useIsGridColumnDisabled,
+	hasGridColumnValue,
+	resetGridColumn,
+	GridColumnEdit,
+	editGridColumnProp,
+} from './grid-column';
+
+import {
+	useIsGridRowDisabled,
+	hasGridRowValue,
+	resetGridRow,
+	GridRowEdit,
+	editGridRowProp,
+} from './grid-row';
+
+export {
+	editFlexGrowProp,
+	editFlexShrinkProp,
+	editFlexBasisProp,
+	editJustifySelfProp,
+	editAlignSelfProp,
+	editGridColumnProp,
+	editGridRowProp,
+};
 
 export function DimensionsPanel( props ) {
 	const isFlexGrowDisabled = useIsFlexGrowDisabled( props );
 	const isFlexShrinkDisabled = useIsFlexShrinkDisabled( props );
 	const isFlexBasisDisabled = useIsFlexBasisDisabled( props );
+	const isJustifySelfDisabled = useIsJustifySelfDisabled( props );
+	const isAlignSelfDisabled = useIsAlignSelfDisabled( props );
+	const isGridColumnDisabled = useIsGridColumnDisabled( props );
+	const isGridRowDisabled = useIsGridRowDisabled( props );
 
-	if ( isFlexGrowDisabled && isFlexShrinkDisabled && isFlexBasisDisabled ) {
+	if (
+		isFlexGrowDisabled &&
+		isFlexShrinkDisabled &&
+		isFlexBasisDisabled &&
+		isJustifySelfDisabled &&
+		isAlignSelfDisabled &&
+		isGridColumnDisabled &&
+		isGridRowDisabled
+	) {
 		return null;
 	}
 
@@ -80,6 +132,58 @@ export function DimensionsPanel( props ) {
 						panelId={ props.clientId }
 					>
 						<FlexBasisEdit { ...props } />
+					</ToolsPanelItem>
+				) }
+
+				{ ! isJustifySelfDisabled && (
+					<ToolsPanelItem
+						hasValue={ () => hasJustifySelfValue( props ) }
+						label="justify-self"
+						onDeselect={ () => resetJustifySelf( props ) }
+						resetAllFilter={ () => resetJustifySelf( props ) }
+						isShownByDefault
+						panelId={ props.clientId }
+					>
+						<JustifySelfEdit { ...props } />
+					</ToolsPanelItem>
+				) }
+
+				{ ! isAlignSelfDisabled && (
+					<ToolsPanelItem
+						hasValue={ () => hasAlignSelfValue( props ) }
+						label="align-self"
+						onDeselect={ () => resetAlignSelf( props ) }
+						resetAllFilter={ () => resetAlignSelf( props ) }
+						isShownByDefault
+						panelId={ props.clientId }
+					>
+						<AlignSelfEdit { ...props } />
+					</ToolsPanelItem>
+				) }
+
+				{ ! isGridColumnDisabled && (
+					<ToolsPanelItem
+						hasValue={ () => hasGridColumnValue( props ) }
+						label="grid-column"
+						onDeselect={ () => resetGridColumn( props ) }
+						resetAllFilter={ () => resetGridColumn( props ) }
+						isShownByDefault
+						panelId={ props.clientId }
+					>
+						<GridColumnEdit { ...props } />
+					</ToolsPanelItem>
+				) }
+
+				{ ! isGridRowDisabled && (
+					<ToolsPanelItem
+						hasValue={ () => hasGridRowValue( props ) }
+						label="grid-row"
+						onDeselect={ () => resetGridRow( props ) }
+						resetAllFilter={ () => resetGridRow( props ) }
+						isShownByDefault
+						panelId={ props.clientId }
+					>
+						<GridRowEdit { ...props } />
 					</ToolsPanelItem>
 				) }
 			</InspectorControls>

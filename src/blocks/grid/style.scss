@@ -1,0 +1,54 @@
+
+@function min($values...) {
+	@return unquote('min(#{$values})');
+}
+
+.smb-grid {
+	--smb-grid--gap: 0px;
+
+	--smb-grid--column-auto-repeat: auto-fit;
+	--smb-grid--columns: 1;
+	--smb-grid--column-min-width: 250px;
+	--smb-grid--grid-template-columns: none;
+
+	--smb-grid--rows: 1;
+	--smb-grid--grid-template-rows: none;
+
+	display: grid;
+	gap: var(--smb-grid--gap);
+
+	> * {
+		--smb--justify-self: stretch;
+		--smb--align-self: stretch;
+		--smb--grid-column: auto;
+		--smb--grid-row: auto;
+
+		margin-top: 0;
+		margin-bottom: 0;
+		min-width: 0;
+		justify-self: var(--smb--justify-self);
+		align-self: var(--smb--align-self);
+		grid-column: var(--smb--grid-column);
+		grid-row: var(--smb--grid-row);
+	}
+}
+
+.smb-grid--columns\:columns {
+	grid-template-columns: repeat(var(--smb-grid--columns), 1fr);
+}
+
+.smb-grid--columns\:min {
+	grid-template-columns: repeat(var(--smb-grid--column-auto-repeat), minmax(min(var(--smb-grid--column-min-width), 100%), 1fr));
+}
+
+.smb-grid--columns\:free {
+	grid-template-columns: var(--smb-grid--grid-template-columns);
+}
+
+.smb-grid--rows\:rows {
+	grid-template-rows: repeat(var(--smb-grid--rows), 1fr);
+}
+
+.smb-grid--rows\:free {
+	grid-template-rows: var(--smb-grid--grid-template-rows);
+}

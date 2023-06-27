@@ -1,0 +1,103 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"textdomain": "snow-monkey-blocks",
+	"name": "snow-monkey-blocks/grid",
+	"title": "Grid",
+	"description": "Child blocks can be layout in grid.",
+	"category": "smb",
+	"attributes": {
+		"columnsOption": {
+			"type": "string",
+			"default": "min"
+		},
+		"columns": {
+			"type": "number",
+			"default": 1
+		},
+		"columnMinWidth": {
+			"type": "string",
+			"default": "250px"
+		},
+		"columnAutoRepeat": {
+			"type": "string",
+			"default": "auto-fit"
+		},
+		"gridTemplateColumns": {
+			"type": "string",
+			"default": ""
+		},
+		"rowsOption": {
+			"type": "string",
+			"default": "rows"
+		},
+		"rows": {
+			"type": "number",
+			"default": 1
+		},
+		"gridTemplateRows": {
+			"type": "string",
+			"default": ""
+		},
+		"style": {
+			"type": "object",
+			"default": {
+				"spacing": {
+					"blockGap": "0"
+				}
+			}
+		},
+		"templateLock": {
+			"type": [ "string", "boolean" ],
+			"enum": [ "all", "insert", "contentOnly", false ]
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "full", "wide" ],
+		"color": {
+			"gradients": true,
+			"link": true,
+			"__experimentalDefaultControls": {
+				"background": true,
+				"text": true
+			}
+		},
+		"__experimentalBorder": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true,
+			"__experimentalDefaultControls": {
+				"color": true,
+				"radius": true,
+				"style": true,
+				"width": true
+			}
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true,
+			"__experimentalFontFamily": true,
+			"__experimentalFontWeight": true,
+			"__experimentalFontStyle": true,
+			"__experimentalTextTransform": true,
+			"__experimentalTextDecoration": true,
+			"__experimentalLetterSpacing": true,
+			"__experimentalDefaultControls": {
+				"fontSize": true
+			}
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true,
+			"blockGap": true,
+			"__experimentalDefaultControls": {
+				"padding": true,
+				"blockGap": true
+			}
+		}
+	},
+	"style": "file:./style.css",
+	"editorScript": "file:./index.js"
+}

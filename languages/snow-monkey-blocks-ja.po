@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-"
 "blocks\n"
-"POT-Creation-Date: 2023-06-26T06:13:59+00:00\n"
-"PO-Revision-Date: 2023-06-26 15:14+0900\n"
+"POT-Creation-Date: 2023-06-27T05:18:36+00:00\n"
+"PO-Revision-Date: 2023-06-27 14:19+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.3.1\n"
+"X-Generator: Poedit 3.3.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -120,8 +120,9 @@ msgstr ""
 #: dist/blocks/directory-structure/item/directory/index.js:1
 #: dist/blocks/directory-structure/item/file/index.js:1
 #: dist/blocks/evaluation-star/index.js:1 dist/blocks/faq/item/index.js:1
-#: dist/blocks/hero-header/index.js:1 dist/blocks/information/index.js:1
-#: dist/blocks/items/index.js:1 dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/grid/index.js:1 dist/blocks/hero-header/index.js:1
+#: dist/blocks/information/index.js:1 dist/blocks/items/index.js:1
+#: dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/item/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
@@ -1046,6 +1047,26 @@ msgstr "A"
 #: dist/blocks/faq/item/index.js:5
 msgid "Write question…"
 msgstr "質問を書く…"
+
+#: dist/blocks/grid/index.js:1
+msgid "Minimum width"
+msgstr "最小幅"
+
+#: dist/blocks/grid/index.js:1
+msgid "Columns count"
+msgstr "カラム数"
+
+#: dist/blocks/grid/index.js:1
+msgid "Free input"
+msgstr "自由入力"
+
+#: dist/blocks/grid/index.js:1
+msgid "Auto repeat"
+msgstr "自動反復"
+
+#: dist/blocks/grid/index.js:1
+msgid "Rows count"
+msgstr "行数"
 
 #: dist/blocks/hero-header/index.js:1 dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/items/item/block-link/index.js:1
@@ -2675,6 +2696,16 @@ msgstr "フレックスレイアウト"
 msgctxt "block description"
 msgid "Child blocks can be layout in flex box."
 msgstr "子ブロックをフレックスボックス内にレイアウトできます。"
+
+#: dist/blocks/grid/block.json
+msgctxt "block title"
+msgid "Grid"
+msgstr "グリッド"
+
+#: dist/blocks/grid/block.json
+msgctxt "block description"
+msgid "Child blocks can be layout in grid."
+msgstr "子ブロックをグリッド内にレイアウトできます。"
 
 #: dist/blocks/hero-header/block.json
 msgctxt "block title"

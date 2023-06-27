@@ -52,6 +52,46 @@ class Blocks {
 					}
 				}
 
+				// --smb--justify-self
+				if ( isset( $block['attrs']['smb']['justifySelf'] ) ) {
+					$style    = $p->get_attribute( 'style' );
+					$property = '--smb--justify-self:';
+					if ( false === strpos( $style, $property ) ) {
+						$style = $style ? $style . ';' : $style;
+						$p->set_attribute( 'style', trim( $style . $property . $block['attrs']['smb']['justifySelf'] ) );
+					}
+				}
+
+				// --smb--align-self
+				if ( isset( $block['attrs']['smb']['alignSelf'] ) ) {
+					$style    = $p->get_attribute( 'style' );
+					$property = '--smb--align-self:';
+					if ( false === strpos( $style, $property ) ) {
+						$style = $style ? $style . ';' : $style;
+						$p->set_attribute( 'style', trim( $style . $property . $block['attrs']['smb']['alignSelf'] ) );
+					}
+				}
+
+				// --smb--grid-column
+				if ( isset( $block['attrs']['smb']['gridColumn'] ) ) {
+					$style    = $p->get_attribute( 'style' );
+					$property = '--smb--grid-column:';
+					if ( false === strpos( $style, $property ) ) {
+						$style = $style ? $style . ';' : $style;
+						$p->set_attribute( 'style', trim( $style . $property . $block['attrs']['smb']['gridColumn'] ) );
+					}
+				}
+
+				// --smb--grid-row
+				if ( isset( $block['attrs']['smb']['gridRow'] ) ) {
+					$style    = $p->get_attribute( 'style' );
+					$property = '--smb--grid-row:';
+					if ( false === strpos( $style, $property ) ) {
+						$style = $style ? $style . ';' : $style;
+						$p->set_attribute( 'style', trim( $style . $property . $block['attrs']['smb']['gridRow'] ) );
+					}
+				}
+
 				$block_content = $p->get_updated_html();
 				return $block_content;
 			},

@@ -7,12 +7,20 @@ import {
 	editFlexGrowProp,
 	editFlexShrinkProp,
 	editFlexBasisProp,
+	editJustifySelfProp,
+	editAlignSelfProp,
+	editGridColumnProp,
+	editGridRowProp,
 } from './editor/dimensions/dimensions';
 
 function addEditProps( settings ) {
 	settings = editFlexGrowProp( settings );
 	settings = editFlexShrinkProp( settings );
 	settings = editFlexBasisProp( settings );
+	settings = editJustifySelfProp( settings );
+	settings = editAlignSelfProp( settings );
+	settings = editGridColumnProp( settings );
+	settings = editGridRowProp( settings );
 
 	return settings;
 }
