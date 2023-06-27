@@ -12,7 +12,7 @@ register_block_type(
 add_filter(
 	'render_block',
 	function ( $block_content, $block ) {
-		if ( 'snow-monkey-blocks/flex-layout' !== $block['blockName'] ) {
+		if ( 'snow-monkey-blocks/flex' !== $block['blockName'] ) {
 			return $block_content;
 		}
 
@@ -46,7 +46,7 @@ add_filter(
 		return array_merge(
 			$allowed_blocks,
 			array(
-				'snow-monkey-blocks/flex-layouts',
+				'snow-monkey-blocks/flexs',
 			)
 		);
 	}

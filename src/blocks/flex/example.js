@@ -14,7 +14,7 @@ export default {
 	},
 	innerBlocks: [
 		{
-			name: 'snow-monkey-blocks/flex-layout',
+			name: 'snow-monkey-blocks/flex',
 			attributes: {
 				boxShadow: {
 					color: '#000000',
@@ -55,7 +55,7 @@ export default {
 			],
 		},
 		{
-			name: 'snow-monkey-blocks/flex-layout',
+			name: 'snow-monkey-blocks/flex',
 			attributes: {
 				boxShadow: {
 					color: '#000000',
@@ -96,7 +96,7 @@ export default {
 			],
 		},
 		{
-			name: 'snow-monkey-blocks/flex-layout',
+			name: 'snow-monkey-blocks/flex',
 			attributes: {
 				boxShadow: {
 					color: '#000000',

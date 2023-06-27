@@ -42,9 +42,7 @@ const withChildBlockAttributes = createHigherOrderComponent(
 				if ( !! parentClientId ) {
 					const parentBlock = getBlock( parentClientId );
 
-					if (
-						'snow-monkey-blocks/flex-layout' === parentBlock?.name
-					) {
+					if ( 'snow-monkey-blocks/flex' === parentBlock?.name ) {
 						newProps.attributes = {
 							...newProps.attributes,
 							__unstableSMBSupports: {
@@ -65,6 +63,6 @@ const withChildBlockAttributes = createHigherOrderComponent(
 
 addFilter(
 	'editor.BlockListBlock',
-	'smb/flex-layout/with-child-block-attributes',
+	'smb/flex/with-child-block-attributes',
 	withChildBlockAttributes
 );

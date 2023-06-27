@@ -39,7 +39,7 @@ export default {
 				} );
 
 				return createBlock(
-					'snow-monkey-blocks/flex-layout',
+					'snow-monkey-blocks/flex',
 					{
 						align: widestAlignment,
 					},

@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-06-27T05:18:36+00:00\n"
+"POT-Creation-Date: 2023-06-27T05:24:23+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: snow-monkey-blocks\n"
@@ -242,7 +242,7 @@ msgstr ""
 #: dist/blocks/balloon/index.js:1
 #: dist/blocks/box/index.js:1
 #: dist/blocks/btn-box/index.js:1
-#: dist/blocks/flex-layout/index.js:1
+#: dist/blocks/flex/index.js:1
 #: dist/blocks/information/index.js:1
 #: dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/items/item/block-link/index.js:1
@@ -266,7 +266,7 @@ msgstr ""
 #: dist/blocks/balloon/index.js:1
 #: dist/blocks/box/index.js:1
 #: dist/blocks/btn-box/index.js:1
-#: dist/blocks/flex-layout/index.js:1
+#: dist/blocks/flex/index.js:1
 #: dist/blocks/information/index.js:1
 #: dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/items/item/block-link/index.js:1
@@ -290,7 +290,7 @@ msgstr ""
 #: dist/blocks/balloon/index.js:1
 #: dist/blocks/box/index.js:1
 #: dist/blocks/btn-box/index.js:1
-#: dist/blocks/flex-layout/index.js:1
+#: dist/blocks/flex/index.js:1
 #: dist/blocks/information/index.js:1
 #: dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/items/item/block-link/index.js:1
@@ -314,7 +314,7 @@ msgstr ""
 #: dist/blocks/balloon/index.js:1
 #: dist/blocks/box/index.js:1
 #: dist/blocks/btn-box/index.js:1
-#: dist/blocks/flex-layout/index.js:1
+#: dist/blocks/flex/index.js:1
 #: dist/blocks/information/index.js:1
 #: dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/items/item/block-link/index.js:1
@@ -430,7 +430,7 @@ msgstr ""
 #: dist/blocks/directory-structure/item/file/index.js:1
 #: dist/blocks/evaluation-star/index.js:1
 #: dist/blocks/faq/item/index.js:1
-#: dist/blocks/flex-layout/index.js:1
+#: dist/blocks/flex/index.js:1
 #: dist/blocks/information/index.js:1
 #: dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/items/item/item/index.js:1
@@ -455,7 +455,7 @@ msgid "Color"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
-#: dist/blocks/flex-layout/index.js:1
+#: dist/blocks/flex/index.js:1
 #: dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:17
@@ -468,7 +468,7 @@ msgid "Opacity"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
-#: dist/blocks/flex-layout/index.js:1
+#: dist/blocks/flex/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
@@ -477,7 +477,7 @@ msgid "Horizontal"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
-#: dist/blocks/flex-layout/index.js:1
+#: dist/blocks/flex/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
@@ -486,7 +486,7 @@ msgid "Vertical"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
-#: dist/blocks/flex-layout/index.js:1
+#: dist/blocks/flex/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
@@ -494,7 +494,7 @@ msgid "Blur"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
-#: dist/blocks/flex-layout/index.js:1
+#: dist/blocks/flex/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
@@ -502,7 +502,7 @@ msgid "Spread"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
-#: dist/blocks/flex-layout/index.js:1
+#: dist/blocks/flex/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-with-bgimage/index.js:1
 #: dist/blocks/section-with-bgvideo/index.js:1
@@ -513,7 +513,7 @@ msgid "Position"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
-#: dist/blocks/flex-layout/index.js:1
+#: dist/blocks/flex/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
@@ -521,7 +521,7 @@ msgid "Outline"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
-#: dist/blocks/flex-layout/index.js:1
+#: dist/blocks/flex/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
@@ -529,7 +529,7 @@ msgid "Inset"
 msgstr ""
 
 #: dist/blocks/box/index.js:1
-#: dist/blocks/flex-layout/index.js:1
+#: dist/blocks/flex/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
@@ -2912,12 +2912,12 @@ msgctxt "block description"
 msgid "It is a child block of the FAQ block."
 msgstr ""
 
-#: dist/blocks/flex-layout/block.json
+#: dist/blocks/flex/block.json
 msgctxt "block title"
-msgid "Flex layout"
+msgid "Flex"
 msgstr ""
 
-#: dist/blocks/flex-layout/block.json
+#: dist/blocks/flex/block.json
 msgctxt "block description"
 msgid "Child blocks can be layout in flex box."
 msgstr ""

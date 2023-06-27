@@ -1,8 +1,8 @@
-.smb-flex-layout {
-	--smb-flex-layout--box-shadow: none;
+.smb-flex {
+	--smb-flex--box-shadow: none;
 
 	flex-direction: column;
-	box-shadow: var(--smb-flex-layout--box-shadow);
+	box-shadow: var(--smb-flex--box-shadow);
 
 	&.is-horizontal {
 		flex-direction: row;
@@ -24,6 +24,6 @@
 	}
 }
 
-.smb-flex-layout.is-layout-flex {
+.smb-flex.is-layout-flex {
 	gap: 0;
 }

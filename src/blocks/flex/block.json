@@ -2,8 +2,8 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
 	"textdomain": "snow-monkey-blocks",
-	"name": "snow-monkey-blocks/flex-layout",
-	"title": "Flex layout",
+	"name": "snow-monkey-blocks/flex",
+	"title": "Flex",
 	"description": "Child blocks can be layout in flex box.",
 	"category": "smb",
 	"attributes": {
