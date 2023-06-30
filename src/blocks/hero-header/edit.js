@@ -19,6 +19,7 @@ import {
 	FocalPointPicker,
 	RangeControl,
 	TextControl,
+	ToggleControl,
 	__experimentalUnitControl as UnitControl,
 	__experimentalToolsPanel as ToolsPanel,
 	__experimentalToolsPanelItem as ToolsPanelItem,
@@ -135,6 +136,7 @@ export default function ( {
 		columns,
 		rows,
 		maxWidth,
+		fit,
 		figureGridColumnStart,
 		figureGridColumnEnd,
 		figureGridRowStart,
@@ -229,7 +231,10 @@ export default function ( {
 	const isVideo = 'video' === mediaType;
 	const isImage = 'image' === mediaType || undefined === mediaType;
 
-	const classes = classnames( 'smb-hero-header', className );
+	const classes = classnames( 'smb-hero-header', className, {
+		'smb-hero-header--fit': fit,
+	} );
+
 	const styles = {
 		'--smb-hero-header--columns': String( columns ) || undefined,
 		'--smb-hero-header--rows': String( rows ) || undefined,
@@ -242,17 +247,22 @@ export default function ( {
 			: undefined,
 		'--smb-hero-header--max-width': maxWidth || undefined,
 		'--smb-hero-header--figure-grid-column-start':
-			compileGridStyleValue( figureGridColumnStart, columns + 1 ) ||
+			( ! fit &&
+				compileGridStyleValue( figureGridColumnStart, columns + 1 ) ) ||
 			undefined,
 		'--smb-hero-header--figure-grid-column-end':
-			compileGridStyleValue( figureGridColumnEnd, columns + 1 ) ||
+			( ! fit &&
+				compileGridStyleValue( figureGridColumnEnd, columns + 1 ) ) ||
 			undefined,
 		'--smb-hero-header--figure-grid-row-start':
-			compileGridStyleValue( figureGridRowStart, rows + 1 ) || undefined,
+			( ! fit &&
+				compileGridStyleValue( figureGridRowStart, rows + 1 ) ) ||
+			undefined,
 		'--smb-hero-header--figure-grid-row-end':
-			compileGridStyleValue( figureGridRowEnd, rows + 1 ) || undefined,
+			( ! fit && compileGridStyleValue( figureGridRowEnd, rows + 1 ) ) ||
+			undefined,
 		'--smb-hero-header--figure-aspect-ratio':
-			figureAspectRatio || undefined,
+			( ! fit && figureAspectRatio ) || undefined,
 		'--smb-hero-header--body-align-self': bodyAlignSelf || undefined,
 		'--smb-hero-header--body-justify-self': bodyJustifySelf || undefined,
 		'--smb-hero-header--body-grid-column-start':
@@ -414,70 +424,82 @@ export default function ( {
 							} )
 						}
 					>
-						<Figure
-							src={ mediaUrl }
-							id={ mediaId }
-							alt={ mediaAlt }
-							width={ mediaWidth }
-							height={ mediaHeight }
-							onSelect={ ( media ) => {
-								const newMediaSizeSlug = !! media?.sizes?.[
-									mediaSizeSlug
-								]
-									? mediaSizeSlug
-									: DEFAULT_MEDIA_SIZE_SLUG;
-								const newMediaUrl =
-									media?.sizes?.[ newMediaSizeSlug ]?.url;
-								const newMediaWidth =
-									media?.sizes?.[ newMediaSizeSlug ]?.width;
-								const newMediaHeight =
-									media?.sizes?.[ newMediaSizeSlug ]?.height;
+						<div className="smb-image-size-control">
+							<Figure
+								src={ mediaUrl }
+								id={ mediaId }
+								alt={ mediaAlt }
+								width={ mediaWidth }
+								height={ mediaHeight }
+								onSelect={ ( media ) => {
+									const newMediaSizeSlug = !! media?.sizes?.[
+										mediaSizeSlug
+									]
+										? mediaSizeSlug
+										: DEFAULT_MEDIA_SIZE_SLUG;
+									const newMediaUrl =
+										media?.sizes?.[ newMediaSizeSlug ]?.url;
+									const newMediaWidth =
+										media?.sizes?.[ newMediaSizeSlug ]
+											?.width;
+									const newMediaHeight =
+										media?.sizes?.[ newMediaSizeSlug ]
+											?.height;
 
-								setAttributes( {
-									mediaType: getMediaType( media ),
-									mediaId: media.id,
-									mediaUrl: newMediaUrl || media.url,
-									mediaAlt: media.alt,
-									mediaWidth: newMediaWidth || media.width,
-									mediaHeight: newMediaHeight || media.height,
-									mediaSizeSlug: newMediaSizeSlug,
-								} );
-							} }
-							onSelectURL={ ( newMediaUrl ) => {
-								if ( newMediaUrl !== mediaUrl ) {
 									setAttributes( {
-										mediaUrl: newMediaUrl,
-										mediaId: 0,
-										mediaSizeSlug: DEFAULT_MEDIA_SIZE_SLUG,
-										mediaType: getMediaType( {
-											media_type: isVideoType(
-												newMediaUrl
-											)
-												? 'video'
-												: 'image',
-										} ),
+										mediaType: getMediaType( media ),
+										mediaId: media.id,
+										mediaUrl: newMediaUrl || media.url,
+										mediaAlt: media.alt,
+										mediaWidth:
+											newMediaWidth || media.width,
+										mediaHeight:
+											newMediaHeight || media.height,
+										mediaSizeSlug: newMediaSizeSlug,
 									} );
-								}
-							} }
-							onRemove={ () => {
-								setAttributes( {
-									mediaUrl:
-										metadata.attributes.mediaUrl.default,
-									mediaAlt:
-										metadata.attributes.mediaAlt.default,
-									mediaWidth:
-										metadata.attributes.mediaWidth.default,
-									mediaHeight:
-										metadata.attributes.mediaHeight.default,
-									mediaId:
-										metadata.attributes.mediaId.default,
-									mediaType:
-										metadata.attributes.mediaType.default,
-								} );
-							} }
-							mediaType={ mediaType }
-							allowedTypes={ ALLOWED_TYPES }
-						/>
+								} }
+								onSelectURL={ ( newMediaUrl ) => {
+									if ( newMediaUrl !== mediaUrl ) {
+										setAttributes( {
+											mediaUrl: newMediaUrl,
+											mediaId: 0,
+											mediaSizeSlug:
+												DEFAULT_MEDIA_SIZE_SLUG,
+											mediaType: getMediaType( {
+												media_type: isVideoType(
+													newMediaUrl
+												)
+													? 'video'
+													: 'image',
+											} ),
+										} );
+									}
+								} }
+								onRemove={ () => {
+									setAttributes( {
+										mediaUrl:
+											metadata.attributes.mediaUrl
+												.default,
+										mediaAlt:
+											metadata.attributes.mediaAlt
+												.default,
+										mediaWidth:
+											metadata.attributes.mediaWidth
+												.default,
+										mediaHeight:
+											metadata.attributes.mediaHeight
+												.default,
+										mediaId:
+											metadata.attributes.mediaId.default,
+										mediaType:
+											metadata.attributes.mediaType
+												.default,
+									} );
+								} }
+								mediaType={ mediaType }
+								allowedTypes={ ALLOWED_TYPES }
+							/>
+						</div>
 					</ToolsPanelItem>
 
 					{ 0 < imageSizeOptions.length && (
@@ -566,184 +588,232 @@ export default function ( {
 
 							<ToolsPanelItem
 								hasValue={ () =>
-									focalPoint !==
-									metadata.attributes.focalPoint.default
+									fit !== metadata.attributes.fit.default
 								}
 								isShownByDefault
 								label={ __(
-									'Focal point picker',
+									'Fit to the contents',
 									'snow-monkey-blocks'
 								) }
 								onDeselect={ () =>
 									setAttributes( {
-										focalPoint:
-											metadata.attributes.focalPoint
-												.default,
+										fit: metadata.attributes.fit.default,
 									} )
 								}
 							>
-								<TextControl
+								<ToggleControl
 									label={ __(
-										'Aspect ratio',
+										'Fit to the contents',
 										'snow-monkey-blocks'
 									) }
-									help={ __(
-										'e.g. 16 / 9',
-										'snow-monkey-blocks'
-									) }
-									value={ figureAspectRatio }
+									checked={ fit }
 									onChange={ ( value ) =>
 										setAttributes( {
-											figureAspectRatio: value,
+											fit: value,
 										} )
 									}
 								/>
 							</ToolsPanelItem>
 
-							<ToolsPanelItem
-								hasValue={ () =>
-									figureGridColumnStart !==
-									metadata.attributes.figureGridColumnStart
-										.default
-								}
-								isShownByDefault
-								label={ __(
-									'Grid column: start',
-									'snow-monkey-blocks'
-								) }
-								onDeselect={ () =>
-									setAttributes( {
-										figureGridColumnStart:
+							{ ! fit && (
+								<>
+									<ToolsPanelItem
+										hasValue={ () =>
+											figureAspectRatio !==
 											metadata.attributes
-												.figureGridColumnStart.default,
-									} )
-								}
-							>
-								<RangeControl
-									label={ __(
-										'Grid column: start',
-										'snow-monkey-blocks'
-									) }
-									value={ Number( figureGridColumnStart ) }
-									onChange={ ( value ) =>
-										setAttributes( {
-											figureGridColumnStart:
-												String( value ),
-										} )
-									}
-									min={ 1 }
-									max={ Number( columns ) + 1 }
-									step={ 1 }
-								/>
-							</ToolsPanelItem>
+												.figureAspectRatio.default
+										}
+										isShownByDefault
+										label={ __(
+											'Aspect ratio',
+											'snow-monkey-blocks'
+										) }
+										onDeselect={ () =>
+											setAttributes( {
+												figureAspectRatio:
+													metadata.attributes
+														.figureAspectRatio
+														.default,
+											} )
+										}
+									>
+										<TextControl
+											label={ __(
+												'Aspect ratio',
+												'snow-monkey-blocks'
+											) }
+											help={ __(
+												'e.g. 16 / 9',
+												'snow-monkey-blocks'
+											) }
+											value={ figureAspectRatio }
+											onChange={ ( value ) =>
+												setAttributes( {
+													figureAspectRatio: value,
+												} )
+											}
+										/>
+									</ToolsPanelItem>
 
-							<ToolsPanelItem
-								hasValue={ () =>
-									figureGridColumnEnd !==
-									metadata.attributes.figureGridColumnEnd
-										.default
-								}
-								isShownByDefault
-								label={ __(
-									'Grid column: end',
-									'snow-monkey-blocks'
-								) }
-								onDeselect={ () =>
-									setAttributes( {
-										figureGridColumnEnd:
+									<ToolsPanelItem
+										hasValue={ () =>
+											figureGridColumnStart !==
 											metadata.attributes
-												.figureGridColumnEnd.default,
-									} )
-								}
-							>
-								<RangeControl
-									label={ __(
-										'Grid column: end',
-										'snow-monkey-blocks'
-									) }
-									value={ Number( figureGridColumnEnd ) }
-									onChange={ ( value ) =>
-										setAttributes( {
-											figureGridColumnEnd:
-												String( value ),
-										} )
-									}
-									min={ Number( columns ) * -1 - 1 }
-									max={ Number( columns ) + 1 }
-									step={ 1 }
-								/>
-							</ToolsPanelItem>
+												.figureGridColumnStart.default
+										}
+										isShownByDefault
+										label={ __(
+											'Grid column: start',
+											'snow-monkey-blocks'
+										) }
+										onDeselect={ () =>
+											setAttributes( {
+												figureGridColumnStart:
+													metadata.attributes
+														.figureGridColumnStart
+														.default,
+											} )
+										}
+									>
+										<RangeControl
+											label={ __(
+												'Grid column: start',
+												'snow-monkey-blocks'
+											) }
+											value={ Number(
+												figureGridColumnStart
+											) }
+											onChange={ ( value ) =>
+												setAttributes( {
+													figureGridColumnStart:
+														String( value ),
+												} )
+											}
+											min={ 1 }
+											max={ Number( columns ) + 1 }
+											step={ 1 }
+										/>
+									</ToolsPanelItem>
 
-							<ToolsPanelItem
-								hasValue={ () =>
-									figureGridRowStart !==
-									metadata.attributes.figureGridRowStart
-										.default
-								}
-								isShownByDefault
-								label={ __(
-									'Grid row: start',
-									'snow-monkey-blocks'
-								) }
-								onDeselect={ () =>
-									setAttributes( {
-										figureGridRowStart:
+									<ToolsPanelItem
+										hasValue={ () =>
+											figureGridColumnEnd !==
 											metadata.attributes
-												.figureGridRowStart.default,
-									} )
-								}
-							>
-								<RangeControl
-									label={ __(
-										'Grid row: start',
-										'snow-monkey-blocks'
-									) }
-									value={ Number( figureGridRowStart ) }
-									onChange={ ( value ) =>
-										setAttributes( {
-											figureGridRowStart: String( value ),
-										} )
-									}
-									min={ 1 }
-									max={ Number( rows ) + 1 }
-									step={ 1 }
-								/>
-							</ToolsPanelItem>
+												.figureGridColumnEnd.default
+										}
+										isShownByDefault
+										label={ __(
+											'Grid column: end',
+											'snow-monkey-blocks'
+										) }
+										onDeselect={ () =>
+											setAttributes( {
+												figureGridColumnEnd:
+													metadata.attributes
+														.figureGridColumnEnd
+														.default,
+											} )
+										}
+									>
+										<RangeControl
+											label={ __(
+												'Grid column: end',
+												'snow-monkey-blocks'
+											) }
+											value={ Number(
+												figureGridColumnEnd
+											) }
+											onChange={ ( value ) =>
+												setAttributes( {
+													figureGridColumnEnd:
+														String( value ),
+												} )
+											}
+											min={ Number( columns ) * -1 - 1 }
+											max={ Number( columns ) + 1 }
+											step={ 1 }
+										/>
+									</ToolsPanelItem>
 
-							<ToolsPanelItem
-								hasValue={ () =>
-									figureGridRowEnd !==
-									metadata.attributes.figureGridRowEnd.default
-								}
-								isShownByDefault
-								label={ __(
-									'Grid row: end',
-									'snow-monkey-blocks'
-								) }
-								onDeselect={ () =>
-									setAttributes( {
-										figureGridRowEnd:
+									<ToolsPanelItem
+										hasValue={ () =>
+											figureGridRowStart !==
+											metadata.attributes
+												.figureGridRowStart.default
+										}
+										isShownByDefault
+										label={ __(
+											'Grid row: start',
+											'snow-monkey-blocks'
+										) }
+										onDeselect={ () =>
+											setAttributes( {
+												figureGridRowStart:
+													metadata.attributes
+														.figureGridRowStart
+														.default,
+											} )
+										}
+									>
+										<RangeControl
+											label={ __(
+												'Grid row: start',
+												'snow-monkey-blocks'
+											) }
+											value={ Number(
+												figureGridRowStart
+											) }
+											onChange={ ( value ) =>
+												setAttributes( {
+													figureGridRowStart:
+														String( value ),
+												} )
+											}
+											min={ 1 }
+											max={ Number( rows ) + 1 }
+											step={ 1 }
+										/>
+									</ToolsPanelItem>
+
+									<ToolsPanelItem
+										hasValue={ () =>
+											figureGridRowEnd !==
 											metadata.attributes.figureGridRowEnd
-												.default,
-									} )
-								}
-							>
-								<RangeControl
-									label={ __(
-										'Grid row: end',
-										'snow-monkey-blocks'
-									) }
-									value={ Number( figureGridRowEnd ) }
-									onChange={ ( value ) =>
-										setAttributes( {
-											figureGridRowEnd: String( value ),
-										} )
-									}
-									min={ Number( rows ) * -1 - 1 }
-									max={ Number( rows ) + 1 }
-									step={ 1 }
-								/>
-							</ToolsPanelItem>
+												.default
+										}
+										isShownByDefault
+										label={ __(
+											'Grid row: end',
+											'snow-monkey-blocks'
+										) }
+										onDeselect={ () =>
+											setAttributes( {
+												figureGridRowEnd:
+													metadata.attributes
+														.figureGridRowEnd
+														.default,
+											} )
+										}
+									>
+										<RangeControl
+											label={ __(
+												'Grid row: end',
+												'snow-monkey-blocks'
+											) }
+											value={ Number( figureGridRowEnd ) }
+											onChange={ ( value ) =>
+												setAttributes( {
+													figureGridRowEnd:
+														String( value ),
+												} )
+											}
+											min={ Number( rows ) * -1 - 1 }
+											max={ Number( rows ) + 1 }
+											step={ 1 }
+										/>
+									</ToolsPanelItem>
+								</>
+							) }
 						</>
 					) }
 				</ToolsPanel>

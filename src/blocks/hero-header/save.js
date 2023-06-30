@@ -52,6 +52,7 @@ export default function ( { attributes, className } ) {
 		columns,
 		rows,
 		maxWidth,
+		fit,
 		figureGridColumnStart,
 		figureGridColumnEnd,
 		figureGridRowStart,
@@ -71,7 +72,10 @@ export default function ( { attributes, className } ) {
 	const isVideo = 'video' === mediaType;
 	const isImage = 'image' === mediaType || undefined === mediaType;
 
-	const classes = classnames( 'smb-hero-header', className );
+	const classes = classnames( 'smb-hero-header', className, {
+		'smb-hero-header--fit': fit,
+	} );
+
 	const styles = {
 		'--smb-hero-header--columns': String( columns ) || undefined,
 		'--smb-hero-header--rows': String( rows ) || undefined,
@@ -84,17 +88,22 @@ export default function ( { attributes, className } ) {
 			: undefined,
 		'--smb-hero-header--max-width': maxWidth || undefined,
 		'--smb-hero-header--figure-grid-column-start':
-			compileGridStyleValue( figureGridColumnStart, columns + 1 ) ||
+			( ! fit &&
+				compileGridStyleValue( figureGridColumnStart, columns + 1 ) ) ||
 			undefined,
 		'--smb-hero-header--figure-grid-column-end':
-			compileGridStyleValue( figureGridColumnEnd, columns + 1 ) ||
+			( ! fit &&
+				compileGridStyleValue( figureGridColumnEnd, columns + 1 ) ) ||
 			undefined,
 		'--smb-hero-header--figure-grid-row-start':
-			compileGridStyleValue( figureGridRowStart, rows + 1 ) || undefined,
+			( ! fit &&
+				compileGridStyleValue( figureGridRowStart, rows + 1 ) ) ||
+			undefined,
 		'--smb-hero-header--figure-grid-row-end':
-			compileGridStyleValue( figureGridRowEnd, rows + 1 ) || undefined,
+			( ! fit && compileGridStyleValue( figureGridRowEnd, rows + 1 ) ) ||
+			undefined,
 		'--smb-hero-header--figure-aspect-ratio':
-			figureAspectRatio || undefined,
+			( ! fit && figureAspectRatio ) || undefined,
 		'--smb-hero-header--body-align-self': bodyAlignSelf || undefined,
 		'--smb-hero-header--body-justify-self': bodyJustifySelf || undefined,
 		'--smb-hero-header--body-grid-column-start':

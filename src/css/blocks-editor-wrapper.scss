@@ -209,6 +209,14 @@
 	}
 }
 
+.smb-image-size-control{
+	img,
+	video {
+		height: auto;
+		max-width: 100%;
+	}
+}
+
 .smb-border-box-control {
 	.components-border-box-control-linked-button {
 		display: none !important;

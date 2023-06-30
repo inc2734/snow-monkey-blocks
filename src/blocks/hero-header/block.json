@@ -77,6 +77,10 @@
 			"type": "string",
 			"default": "-1"
 		},
+		"fit": {
+			"type": "boolean",
+			"default": false
+		},
 		"figureAspectRatio": {
 			"type": "string",
 			"default": "16 / 9"

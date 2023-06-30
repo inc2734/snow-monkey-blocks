@@ -62,3 +62,20 @@
 		padding-left: var(--smb-hero-header--body-padding-left);
 	}
 }
+
+.smb-hero-header--fit {
+	--smb-hero-header--figure-grid-column-start: 1;
+	--smb-hero-header--figure-grid-column-end: -1;
+	--smb-hero-header--figure-grid-row-start: 1;
+	--smb-hero-header--figure-grid-row-end: -1;
+	--smb-hero-header--figure-aspect-ratio: auto;
+
+	> .smb-hero-header__figure {
+		position: relative;
+
+		> * {
+			position: absolute;
+			inset: 0;
+		}
+	}
+}
