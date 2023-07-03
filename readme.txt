@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue, kutsu
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 19.9.0
+Stable tag: 19.10.0
 Requires at least: 6.2
 Tested up to: 6.2
 Requires PHP: 7.4
@@ -59,6 +59,8 @@ https://www.youtube.com/watch?v=uD6omb4TLdA&t=283s
 * Insert pattern (Beta)
 * Custom field
 * Hero header
+* Flex
+* Grid
 
 = Section blocks =
 
@@ -113,6 +115,13 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 27. Grid block
 
 == Changelog ==
+
+= 19.10.0 =
+* [Hero header] Add new setting: Fit to the contents
+* [Hero header] Fixed a bug that caused the inspector to stretch vertically when a video was set as the background.
+* Add new block categories: Layout
+* Flex block and grid block changed category to "Layout".
+* Change block category name: Common blocks → Common
 
 = 19.9.0 =
 * Add new block: Flex
