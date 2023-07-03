@@ -59,7 +59,7 @@ class Bootstrap {
 				'slug'  => 'smb',
 				'title' => __( 'Snow Monkey Blocks', 'snow-monkey-blocks' )
 									. ' '
-									. __( '[Common blocks]', 'snow-monkey-blocks' ),
+									. __( '[Common]', 'snow-monkey-blocks' ),
 			);
 		}
 
@@ -69,6 +69,15 @@ class Bootstrap {
 				'title' => __( 'Snow Monkey Blocks', 'snow-monkey-blocks' )
 									. ' '
 									. __( '[Sections]', 'snow-monkey-blocks' ),
+			);
+		}
+
+		if ( ! in_array( 'smb-layout', $slugs, true ) ) {
+			$categories[] = array(
+				'slug'  => 'smb-layout',
+				'title' => __( 'Snow Monkey Blocks', 'snow-monkey-blocks' )
+									. ' '
+									. __( '[Layout]', 'snow-monkey-blocks' ),
 			);
 		}
 

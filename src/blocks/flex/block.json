@@ -5,7 +5,7 @@
 	"name": "snow-monkey-blocks/flex",
 	"title": "Flex",
 	"description": "Child blocks can be layout in flex box.",
-	"category": "smb",
+	"category": "smb-layout",
 	"attributes": {
 		"boxShadow": {
 			"type": "object",

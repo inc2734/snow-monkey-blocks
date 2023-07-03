@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-06-30T23:02:46+00:00\n"
+"POT-Creation-Date: 2023-07-03T01:32:25+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: snow-monkey-blocks\n"
@@ -21,6 +21,7 @@ msgstr ""
 #: snow-monkey-blocks.php:60
 #: snow-monkey-blocks.php:69
 #: snow-monkey-blocks.php:78
+#: snow-monkey-blocks.php:87
 msgid "Snow Monkey Blocks"
 msgstr ""
 
@@ -70,7 +71,7 @@ msgid "Contents outline"
 msgstr ""
 
 #: snow-monkey-blocks.php:62
-msgid "[Common blocks]"
+msgid "[Common]"
 msgstr ""
 
 #: snow-monkey-blocks.php:71
@@ -78,20 +79,24 @@ msgid "[Sections]"
 msgstr ""
 
 #: snow-monkey-blocks.php:80
+msgid "[Layout]"
+msgstr ""
+
+#: snow-monkey-blocks.php:89
 msgid "[Deprecated]"
 msgstr ""
 
-#: snow-monkey-blocks.php:119
+#: snow-monkey-blocks.php:128
 msgid "[ PR ] Premium WordPress Theme Snow Monkey"
 msgstr ""
 
 #. translators: %1$s: Start a tag, %2$s: End a tag
-#: snow-monkey-blocks.php:137
+#: snow-monkey-blocks.php:146
 msgid "Snow Monkey Blocks is optimized for the %1$sSnow Monkey%2$s theme, but it can also be used with other themes."
 msgstr ""
 
 #. translators: %1$s: Start a tag, %2$s: End a tag
-#: snow-monkey-blocks.php:143
+#: snow-monkey-blocks.php:152
 msgid "When used together with the %1$sSnow Monkey%2$s theme, it can be displayed with the most beautiful balance, and it is displayed on the edit screen with the same design as the front screen."
 msgstr ""
 

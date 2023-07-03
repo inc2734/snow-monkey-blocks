@@ -5,7 +5,7 @@
 	"name": "snow-monkey-blocks/grid",
 	"title": "Grid",
 	"description": "Child blocks can be layout in grid.",
-	"category": "smb",
+	"category": "smb-layout",
 	"attributes": {
 		"columnsOption": {
 			"type": "string",
