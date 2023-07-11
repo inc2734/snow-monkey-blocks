@@ -532,94 +532,102 @@ export default function ( {
 						<ResponsiveTabPanel
 							desktop={ () => (
 								<>
-									<Figure
-										src={ lgImageURL }
-										id={ lgImageID }
-										alt={ lgImageAlt }
-										width={ lgImageWidth }
-										height={ lgImageHeight }
-										onSelect={ ( media ) => {
-											const newLgImageSizeSlug = !! media
-												?.sizes?.[ lgImageSizeSlug ]
-												? lgImageSizeSlug
-												: DEFAULT_MEDIA_SIZE_SLUG;
-											const newLgImageURL =
-												media?.sizes?.[
-													newLgImageSizeSlug
-												]?.url;
-											const newLgImageWidth =
-												media?.sizes?.[
-													newLgImageSizeSlug
-												]?.width;
-											const newLgImageHeight =
-												media?.sizes?.[
-													newLgImageSizeSlug
-												]?.height;
+									<div className="smb-image-size-control">
+										<Figure
+											src={ lgImageURL }
+											id={ lgImageID }
+											alt={ lgImageAlt }
+											width={ lgImageWidth }
+											height={ lgImageHeight }
+											onSelect={ ( media ) => {
+												const newLgImageSizeSlug =
+													!! media?.sizes?.[
+														lgImageSizeSlug
+													]
+														? lgImageSizeSlug
+														: DEFAULT_MEDIA_SIZE_SLUG;
+												const newLgImageURL =
+													media?.sizes?.[
+														newLgImageSizeSlug
+													]?.url;
+												const newLgImageWidth =
+													media?.sizes?.[
+														newLgImageSizeSlug
+													]?.width;
+												const newLgImageHeight =
+													media?.sizes?.[
+														newLgImageSizeSlug
+													]?.height;
 
-											setAttributes( {
-												lgImageURL:
-													newLgImageURL || media.url,
-												lgImageID: media.id,
-												lgImageAlt: media.alt,
-												lgImageWidth:
-													newLgImageWidth ||
-													media.width,
-												lgImageHeight:
-													newLgImageHeight ||
-													media.height,
-												lgImageMediaType:
-													getMediaType( media ),
-												lgImageSizeSlug:
-													newLgImageSizeSlug,
-											} );
-										} }
-										onSelectURL={ ( newLgImageURL ) => {
-											if (
-												newLgImageURL !== lgImageURL
-											) {
 												setAttributes( {
-													lgImageURL: newLgImageURL,
-													lgImageID: 0,
-													lgImageSizeSlug:
-														DEFAULT_MEDIA_SIZE_SLUG,
+													lgImageURL:
+														newLgImageURL ||
+														media.url,
+													lgImageID: media.id,
+													lgImageAlt: media.alt,
+													lgImageWidth:
+														newLgImageWidth ||
+														media.width,
+													lgImageHeight:
+														newLgImageHeight ||
+														media.height,
 													lgImageMediaType:
-														getMediaType( {
-															media_type:
-																isVideoType(
-																	newLgImageURL
-																)
-																	? 'video'
-																	: 'image',
-														} ),
+														getMediaType( media ),
+													lgImageSizeSlug:
+														newLgImageSizeSlug,
 												} );
+											} }
+											onSelectURL={ ( newLgImageURL ) => {
+												if (
+													newLgImageURL !== lgImageURL
+												) {
+													setAttributes( {
+														lgImageURL:
+															newLgImageURL,
+														lgImageID: 0,
+														lgImageSizeSlug:
+															DEFAULT_MEDIA_SIZE_SLUG,
+														lgImageMediaType:
+															getMediaType( {
+																media_type:
+																	isVideoType(
+																		newLgImageURL
+																	)
+																		? 'video'
+																		: 'image',
+															} ),
+													} );
+												}
+											} }
+											onRemove={ () =>
+												setAttributes( {
+													lgImageURL:
+														metadata.attributes
+															.lgImageURL.default,
+													lgImageAlt:
+														metadata.attributes
+															.lgImageAlt.default,
+													lgImageWidth:
+														metadata.attributes
+															.lgImageWidth
+															.default,
+													lgImageHeight:
+														metadata.attributes
+															.lgImageHeight
+															.default,
+													lgImageID:
+														metadata.attributes
+															.lgImageID.default,
+													lgImageMediaType:
+														metadata.attributes
+															.lgImageMediaType
+															.default,
+												} )
 											}
-										} }
-										onRemove={ () =>
-											setAttributes( {
-												lgImageURL:
-													metadata.attributes
-														.lgImageURL.default,
-												lgImageAlt:
-													metadata.attributes
-														.lgImageAlt.default,
-												lgImageWidth:
-													metadata.attributes
-														.lgImageWidth.default,
-												lgImageHeight:
-													metadata.attributes
-														.lgImageHeight.default,
-												lgImageID:
-													metadata.attributes
-														.lgImageID.default,
-												lgImageMediaType:
-													metadata.attributes
-														.lgImageMediaType
-														.default,
-											} )
-										}
-										mediaType={ lgImageMediaType }
-										allowedTypes={ ALLOWED_TYPES }
-									/>
+											mediaType={ lgImageMediaType }
+											allowedTypes={ ALLOWED_TYPES }
+										/>
+									</div>
 
 									{ hasLgBackground && isLgImage && (
 										<>
@@ -692,94 +700,102 @@ export default function ( {
 							) }
 							tablet={ () => (
 								<>
-									<Figure
-										src={ mdImageURL }
-										id={ mdImageID }
-										alt={ mdImageAlt }
-										width={ mdImageWidth }
-										height={ mdImageHeight }
-										onSelect={ ( media ) => {
-											const newMdImageSizeSlug = !! media
-												?.sizes?.[ mdImageSizeSlug ]
-												? mdImageSizeSlug
-												: DEFAULT_MEDIA_SIZE_SLUG;
-											const newMdImageURL =
-												media?.sizes?.[
-													newMdImageSizeSlug
-												]?.url;
-											const newMdImageWidth =
-												media?.sizes?.[
-													newMdImageSizeSlug
-												]?.width;
-											const newMdImageHeight =
-												media?.sizes?.[
-													newMdImageSizeSlug
-												]?.height;
+									<div className="smb-image-size-control">
+										<Figure
+											src={ mdImageURL }
+											id={ mdImageID }
+											alt={ mdImageAlt }
+											width={ mdImageWidth }
+											height={ mdImageHeight }
+											onSelect={ ( media ) => {
+												const newMdImageSizeSlug =
+													!! media?.sizes?.[
+														mdImageSizeSlug
+													]
+														? mdImageSizeSlug
+														: DEFAULT_MEDIA_SIZE_SLUG;
+												const newMdImageURL =
+													media?.sizes?.[
+														newMdImageSizeSlug
+													]?.url;
+												const newMdImageWidth =
+													media?.sizes?.[
+														newMdImageSizeSlug
+													]?.width;
+												const newMdImageHeight =
+													media?.sizes?.[
+														newMdImageSizeSlug
+													]?.height;
 
-											setAttributes( {
-												mdImageURL:
-													newMdImageURL || media.url,
-												mdImageID: media.id,
-												mdImageAlt: media.alt,
-												mdImageWidth:
-													newMdImageWidth ||
-													media.width,
-												mdImageHeight:
-													newMdImageHeight ||
-													media.height,
-												mdImageMediaType:
-													getMediaType( media ),
-												mdImageSizeSlug:
-													newMdImageSizeSlug,
-											} );
-										} }
-										onSelectURL={ ( newMdImageURL ) => {
-											if (
-												newMdImageURL !== mdImageURL
-											) {
 												setAttributes( {
-													mdImageURL: newMdImageURL,
-													mdImageID: 0,
-													mdImageSizeSlug:
-														DEFAULT_MEDIA_SIZE_SLUG,
+													mdImageURL:
+														newMdImageURL ||
+														media.url,
+													mdImageID: media.id,
+													mdImageAlt: media.alt,
+													mdImageWidth:
+														newMdImageWidth ||
+														media.width,
+													mdImageHeight:
+														newMdImageHeight ||
+														media.height,
 													mdImageMediaType:
-														getMediaType( {
-															media_type:
-																isVideoType(
-																	newMdImageURL
-																)
-																	? 'video'
-																	: 'image',
-														} ),
+														getMediaType( media ),
+													mdImageSizeSlug:
+														newMdImageSizeSlug,
 												} );
+											} }
+											onSelectURL={ ( newMdImageURL ) => {
+												if (
+													newMdImageURL !== mdImageURL
+												) {
+													setAttributes( {
+														mdImageURL:
+															newMdImageURL,
+														mdImageID: 0,
+														mdImageSizeSlug:
+															DEFAULT_MEDIA_SIZE_SLUG,
+														mdImageMediaType:
+															getMediaType( {
+																media_type:
+																	isVideoType(
+																		newMdImageURL
+																	)
+																		? 'video'
+																		: 'image',
+															} ),
+													} );
+												}
+											} }
+											onRemove={ () =>
+												setAttributes( {
+													mdImageURL:
+														metadata.attributes
+															.mdImageURL.default,
+													mdImageAlt:
+														metadata.attributes
+															.mdImageAlt.default,
+													mdImageWidth:
+														metadata.attributes
+															.mdImageWidth
+															.default,
+													mdImageHeight:
+														metadata.attributes
+															.mdImageHeight
+															.default,
+													mdImageID:
+														metadata.attributes
+															.mdImageID.default,
+													mdImageMediaType:
+														metadata.attributes
+															.mdImageMediaType
+															.default,
+												} )
 											}
-										} }
-										onRemove={ () =>
-											setAttributes( {
-												mdImageURL:
-													metadata.attributes
-														.mdImageURL.default,
-												mdImageAlt:
-													metadata.attributes
-														.mdImageAlt.default,
-												mdImageWidth:
-													metadata.attributes
-														.mdImageWidth.default,
-												mdImageHeight:
-													metadata.attributes
-														.mdImageHeight.default,
-												mdImageID:
-													metadata.attributes
-														.mdImageID.default,
-												mdImageMediaType:
-													metadata.attributes
-														.mdImageMediaType
-														.default,
-											} )
-										}
-										mediaType={ mdImageMediaType }
-										allowedTypes={ ALLOWED_TYPES }
-									/>
+											mediaType={ mdImageMediaType }
+											allowedTypes={ ALLOWED_TYPES }
+										/>
+									</div>
 
 									{ hasMdBackground && isMdImage && (
 										<>
@@ -852,94 +868,102 @@ export default function ( {
 							) }
 							mobile={ () => (
 								<>
-									<Figure
-										src={ smImageURL }
-										id={ smImageID }
-										alt={ smImageAlt }
-										width={ smImageWidth }
-										height={ smImageHeight }
-										onSelect={ ( media ) => {
-											const newSmImageSizeSlug = !! media
-												?.sizes?.[ smImageSizeSlug ]
-												? smImageSizeSlug
-												: DEFAULT_MEDIA_SIZE_SLUG;
-											const newSmImageURL =
-												media?.sizes?.[
-													newSmImageSizeSlug
-												]?.url;
-											const newSmImageWidth =
-												media?.sizes?.[
-													newSmImageSizeSlug
-												]?.width;
-											const newSmImageHeight =
-												media?.sizes?.[
-													newSmImageSizeSlug
-												]?.height;
+									<div className="smb-image-size-control">
+										<Figure
+											src={ smImageURL }
+											id={ smImageID }
+											alt={ smImageAlt }
+											width={ smImageWidth }
+											height={ smImageHeight }
+											onSelect={ ( media ) => {
+												const newSmImageSizeSlug =
+													!! media?.sizes?.[
+														smImageSizeSlug
+													]
+														? smImageSizeSlug
+														: DEFAULT_MEDIA_SIZE_SLUG;
+												const newSmImageURL =
+													media?.sizes?.[
+														newSmImageSizeSlug
+													]?.url;
+												const newSmImageWidth =
+													media?.sizes?.[
+														newSmImageSizeSlug
+													]?.width;
+												const newSmImageHeight =
+													media?.sizes?.[
+														newSmImageSizeSlug
+													]?.height;
 
-											setAttributes( {
-												smImageURL:
-													newSmImageURL || media.url,
-												smImageID: media.id,
-												smImageAlt: media.alt,
-												smImageWidth:
-													newSmImageWidth ||
-													media.width,
-												smImageHeight:
-													newSmImageHeight ||
-													media.height,
-												smImageMediaType:
-													getMediaType( media ),
-												smImageSizeSlug:
-													newSmImageSizeSlug,
-											} );
-										} }
-										onSelectURL={ ( newSmImageURL ) => {
-											if (
-												newSmImageURL !== smImageURL
-											) {
 												setAttributes( {
-													smImageURL: newSmImageURL,
-													smImageID: 0,
-													smImageSizeSlug:
-														DEFAULT_MEDIA_SIZE_SLUG,
+													smImageURL:
+														newSmImageURL ||
+														media.url,
+													smImageID: media.id,
+													smImageAlt: media.alt,
+													smImageWidth:
+														newSmImageWidth ||
+														media.width,
+													smImageHeight:
+														newSmImageHeight ||
+														media.height,
 													smImageMediaType:
-														getMediaType( {
-															media_type:
-																isVideoType(
-																	newSmImageURL
-																)
-																	? 'video'
-																	: 'image',
-														} ),
+														getMediaType( media ),
+													smImageSizeSlug:
+														newSmImageSizeSlug,
 												} );
+											} }
+											onSelectURL={ ( newSmImageURL ) => {
+												if (
+													newSmImageURL !== smImageURL
+												) {
+													setAttributes( {
+														smImageURL:
+															newSmImageURL,
+														smImageID: 0,
+														smImageSizeSlug:
+															DEFAULT_MEDIA_SIZE_SLUG,
+														smImageMediaType:
+															getMediaType( {
+																media_type:
+																	isVideoType(
+																		newSmImageURL
+																	)
+																		? 'video'
+																		: 'image',
+															} ),
+													} );
+												}
+											} }
+											onRemove={ () =>
+												setAttributes( {
+													smImageURL:
+														metadata.attributes
+															.smImageURL.default,
+													smImageAlt:
+														metadata.attributes
+															.smImageAlt.default,
+													smImageWidth:
+														metadata.attributes
+															.smImageWidth
+															.default,
+													smImageHeight:
+														metadata.attributes
+															.smImageHeight
+															.default,
+													smImageID:
+														metadata.attributes
+															.smImageID.default,
+													smImageMediaType:
+														metadata.attributes
+															.smImageMediaType
+															.default,
+												} )
 											}
-										} }
-										onRemove={ () =>
-											setAttributes( {
-												smImageURL:
-													metadata.attributes
-														.smImageURL.default,
-												smImageAlt:
-													metadata.attributes
-														.smImageAlt.default,
-												smImageWidth:
-													metadata.attributes
-														.smImageWidth.default,
-												smImageHeight:
-													metadata.attributes
-														.smImageHeight.default,
-												smImageID:
-													metadata.attributes
-														.smImageID.default,
-												smImageMediaType:
-													metadata.attributes
-														.smImageMediaType
-														.default,
-											} )
-										}
-										mediaType={ smImageMediaType }
-										allowedTypes={ ALLOWED_TYPES }
-									/>
+											mediaType={ smImageMediaType }
+											allowedTypes={ ALLOWED_TYPES }
+										/>
+									</div>
 
 									{ hasSmBackground && isSmImage && (
 										<>

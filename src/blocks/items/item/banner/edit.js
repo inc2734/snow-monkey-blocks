@@ -186,68 +186,71 @@ export default function ( {
 							label={ __( 'Image', 'snow-monkey-blocks' ) }
 							id="snow-monkey-blocks/items-banner/image"
 						>
-							<Figure
-								src={ imageURL }
-								id={ imageID }
-								alt={ imageAlt }
-								width={ imageWidth }
-								height={ imageHeight }
-								onSelect={ ( media ) => {
-									const newImageSizeSlug = !! media?.sizes?.[
-										imageSizeSlug
-									]
-										? imageSizeSlug
-										: DEFAULT_MEDIA_SIZE_SLUG;
-									const newImageUrl =
-										media?.sizes?.[ newImageSizeSlug ]?.url;
-									const newImageWidth =
-										media?.sizes?.[ newImageSizeSlug ]
-											?.width;
-									const newImageHeight =
-										media?.sizes?.[ newImageSizeSlug ]
-											?.height;
+							<div className="smb-image-size-control">
+								<Figure
+									src={ imageURL }
+									id={ imageID }
+									alt={ imageAlt }
+									width={ imageWidth }
+									height={ imageHeight }
+									onSelect={ ( media ) => {
+										const newImageSizeSlug = !! media
+											?.sizes?.[ imageSizeSlug ]
+											? imageSizeSlug
+											: DEFAULT_MEDIA_SIZE_SLUG;
+										const newImageUrl =
+											media?.sizes?.[ newImageSizeSlug ]
+												?.url;
+										const newImageWidth =
+											media?.sizes?.[ newImageSizeSlug ]
+												?.width;
+										const newImageHeight =
+											media?.sizes?.[ newImageSizeSlug ]
+												?.height;
 
-									setAttributes( {
-										imageURL: newImageUrl || media.url,
-										imageID: media.id,
-										imageAlt: media.alt,
-										imageWidth:
-											newImageWidth || media.width,
-										imageHeight:
-											newImageHeight || media.height,
-										imageSizeSlug: newImageSizeSlug,
-									} );
-								} }
-								onSelectURL={ ( newURL ) => {
-									if ( newURL !== imageURL ) {
 										setAttributes( {
-											imageURL: newURL,
-											imageID: 0,
-											mediaSizeSlug:
-												DEFAULT_MEDIA_SIZE_SLUG,
+											imageURL: newImageUrl || media.url,
+											imageID: media.id,
+											imageAlt: media.alt,
+											imageWidth:
+												newImageWidth || media.width,
+											imageHeight:
+												newImageHeight || media.height,
+											imageSizeSlug: newImageSizeSlug,
 										} );
+									} }
+									onSelectURL={ ( newURL ) => {
+										if ( newURL !== imageURL ) {
+											setAttributes( {
+												imageURL: newURL,
+												imageID: 0,
+												mediaSizeSlug:
+													DEFAULT_MEDIA_SIZE_SLUG,
+											} );
+										}
+									} }
+									onRemove={ () =>
+										setAttributes( {
+											imageID:
+												metadata.attributes.imageID
+													.default,
+											imageURL:
+												metadata.attributes.imageURL
+													.default,
+											imageAlt:
+												metadata.attributes.imageAlt
+													.default,
+											imageWidth:
+												metadata.attributes.imageWidth
+													.default,
+											imageHeight:
+												metadata.attributes.imageHeight
+													.default,
+										} )
 									}
-								} }
-								onRemove={ () =>
-									setAttributes( {
-										imageID:
-											metadata.attributes.imageID.default,
-										imageURL:
-											metadata.attributes.imageURL
-												.default,
-										imageAlt:
-											metadata.attributes.imageAlt
-												.default,
-										imageWidth:
-											metadata.attributes.imageWidth
-												.default,
-										imageHeight:
-											metadata.attributes.imageHeight
-												.default,
-									} )
-								}
-								allowedTypes={ ALLOWED_TYPES }
-							/>
+									allowedTypes={ ALLOWED_TYPES }
+								/>
+							</div>
 						</BaseControl>
 					</ToolsPanelItem>
 
