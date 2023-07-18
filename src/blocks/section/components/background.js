@@ -832,6 +832,7 @@ export const PanelSectionBackgroundTextSettings = ( { settings } ) => {
 							}
 						>
 							<FontSizePicker
+								__nextHasNoMarginBottom={ true }
 								value={ setting.fontSizeValue }
 								onChange={ setting.onFontSizeChange }
 								withReset={ false }
