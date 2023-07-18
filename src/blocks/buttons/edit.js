@@ -49,7 +49,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		renderAppender: hasInnerBlocks
 			? undefined
 			: InnerBlocks.ButtonBlockAppender,
-		__experimentalLayout: LAYOUT,
+		layout: LAYOUT,
 	} );
 
 	const onChangeContentJustification = ( value ) =>

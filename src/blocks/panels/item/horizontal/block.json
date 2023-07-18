@@ -1,6 +1,6 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 2,
+	"apiVersion": 3,
 	"textdomain": "snow-monkey-blocks",
 	"name": "snow-monkey-blocks/panels-item-horizontal",
 	"title": "Panel (Horizontal layout)",
