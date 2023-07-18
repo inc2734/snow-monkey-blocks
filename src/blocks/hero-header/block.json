@@ -131,5 +131,6 @@
 		}
 	},
 	"style": "file:./style.css",
+	"editorStyle": "file:./editor.css",
 	"editorScript": "file:./index.js"
 }
