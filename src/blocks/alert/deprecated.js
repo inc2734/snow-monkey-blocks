@@ -12,6 +12,10 @@ export default [
 	{
 		attributes: {
 			...blockAttributes,
+			icon: {
+				type: 'string',
+				default: 'exclamation-circle',
+			},
 			content: {
 				type: 'string',
 				source: 'html',
@@ -65,6 +69,10 @@ export default [
 	{
 		attributes: {
 			...blockAttributes,
+			icon: {
+				type: 'string',
+				default: 'exclamation-circle',
+			},
 			content: {
 				type: 'string',
 				source: 'html',
@@ -118,6 +126,10 @@ export default [
 	{
 		attributes: {
 			...blockAttributes,
+			icon: {
+				type: 'string',
+				default: 'exclamation-circle',
+			},
 			content: {
 				type: 'string',
 				source: 'html',

@@ -19,7 +19,7 @@
 		},
 		"icon": {
 			"type": "string",
-			"default": "exclamation-circle"
+			"default": "circle-exclamation"
 		}
 	},
 	"supports": {
@@ -52,6 +52,6 @@
 			}
 		]
 	},
-	"style": "snow-monkey-blocks/alert",
+	"style": "file:./style.css",
 	"editorScript": "file:./index.js"
 }

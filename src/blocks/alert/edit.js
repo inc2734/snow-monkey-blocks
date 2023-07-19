@@ -16,6 +16,7 @@ import {
 	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
 
+import { useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 import FontAwesome from '@smb/component/font-awesome';
@@ -32,10 +33,16 @@ export default function ( {
 } ) {
 	const { title, modifier, icon } = attributes;
 
+	useEffect( () => {
+		if ( 'exclamation-circle' === icon ) {
+			setAttributes( { icon: 'circle-exclamation' } );
+		}
+	}, [] );
+
 	const iconList = [
 		{
-			value: 'exclamation-circle',
-			label: __( 'exclamation-circle', 'snow-monkey-blocks' ),
+			value: 'circle-exclamation',
+			label: __( 'circle-exclamation', 'snow-monkey-blocks' ),
 		},
 		{
 			value: 'check',
