@@ -4,9 +4,10 @@ import {
 	InnerBlocks,
 	InspectorControls,
 	RichText,
-	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	useBlockProps,
 	useInnerBlocksProps,
+	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
+	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
 } from '@wordpress/block-editor';
 
 import {
@@ -113,10 +114,8 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 
 	return (
 		<>
-			<InspectorControls group="styles">
-				<PanelColorGradientSettings
-					title={ __( 'Color', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
+			<InspectorControls group="color">
+				<ColorGradientSettingsDropdown
 					settings={ [
 						{
 							colorValue: iconColor,
@@ -127,8 +126,9 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							label: __( 'Icon color', 'snow-monkey-blocks' ),
 						},
 					] }
-					__experimentalHasMultipleOrigins={ true }
-					__experimentalIsRenderedInSidebar={ true }
+					__experimentalIsRenderedInSidebar
+					{ ...useMultipleOriginColorsAndGradients() }
+					panelId={ clientId }
 				/>
 			</InspectorControls>
 

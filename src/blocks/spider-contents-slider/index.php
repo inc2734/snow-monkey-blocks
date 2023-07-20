@@ -6,17 +6,10 @@
  */
 
 wp_register_style(
-	'snow-monkey-blocks/spider-contents-slider',
+	generate_block_asset_handle( 'snow-monkey-blocks/spider-contents-slider', 'style' ),
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/blocks/spider-contents-slider/style.css',
-	array( 'snow-monkey-blocks/spider-slider' ),
+	array( generate_block_asset_handle( 'snow-monkey-blocks/spider-slider', 'style' ) ),
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/blocks/spider-contents-slider/style.css' )
-);
-
-wp_register_style(
-	'snow-monkey-blocks/spider-contents-slider/editor',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/blocks/spider-contents-slider/editor.css',
-	array( 'snow-monkey-blocks/spider-contents-slider' ),
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/blocks/spider-contents-slider/editor.css' )
 );
 
 register_block_type(

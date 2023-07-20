@@ -47,7 +47,12 @@
 		box-sizing: content-box;
 		border: var(--smb-balloon--avatar-border-width) solid var(--smb-balloon--avatar-border-color);
 
-		> img {
+		.components-button.image-button {
+			height: 100%;
+			width: 100%;
+		}
+
+		img {
 			height: 100%;
 			width: 100%;
 			object-fit: cover;

@@ -5,13 +5,6 @@
  * @license GPL-2.0+
  */
 
-wp_register_style(
-	'snow-monkey-blocks/evaluation-star',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/blocks/evaluation-star/style.css',
-	array(),
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/blocks/evaluation-star/style.css' )
-);
-
 register_block_type(
 	__DIR__
 );

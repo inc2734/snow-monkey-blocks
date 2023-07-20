@@ -26,7 +26,7 @@
 			"margin": true
 		}
 	},
-	"style": "snow-monkey-blocks/countdown",
+	"style": "file:./style.css",
 	"editorScript": "file:./index.js",
 	"viewScript": "file:./script.js"
 }

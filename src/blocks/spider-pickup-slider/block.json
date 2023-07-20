@@ -42,7 +42,7 @@
 			"margin": true
 		}
 	},
-	"style": "snow-monkey-blocks/spider-pickup-slider",
+	"style": "snow-monkey-blocks-spider-pickup-slider-style",
 	"editorScript": "file:./index.js",
 	"viewScript": [ "spider", "file:./script.js" ]
 }

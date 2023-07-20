@@ -5,20 +5,6 @@
  * @license GPL-2.0+
  */
 
-wp_register_style(
-	'snow-monkey-blocks/balloon',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/blocks/balloon/style.css',
-	array(),
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/blocks/balloon/style.css' )
-);
-
-wp_register_style(
-	'snow-monkey-blocks/balloon/editor',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/blocks/balloon/editor.css',
-	array( 'snow-monkey-blocks/balloon' ),
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/blocks/balloon/editor.css' )
-);
-
 register_block_type(
 	__DIR__
 );

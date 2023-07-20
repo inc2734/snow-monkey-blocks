@@ -6,7 +6,7 @@
  */
 
 wp_register_style(
-	'snow-monkey-blocks/thumbnail-gallery',
+	generate_block_asset_handle( 'snow-monkey-blocks/thumbnail-gallery', 'style' ),
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/blocks/thumbnail-gallery/style.css',
 	array( 'slick-carousel-theme' ),
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/blocks/thumbnail-gallery/style.css' )

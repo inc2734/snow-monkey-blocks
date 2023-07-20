@@ -88,8 +88,8 @@
 			}
 		]
 	},
-	"style": "snow-monkey-blocks/tabs",
-	"editorStyle": "snow-monkey-blocks/tabs/editor",
+	"style": "file:./style.css",
+	"editorStyle": "file:./editor.css",
 	"editorScript": "file:./index.js",
 	"viewScript": "file:./script.js"
 }

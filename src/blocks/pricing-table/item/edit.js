@@ -413,8 +413,6 @@ export default function ( {
 												} ),
 										},
 									] }
-									__experimentalIsItemGroup={ false }
-									__experimentalHasMultipleOrigins
 									__experimentalIsRenderedInSidebar
 									{ ...multipleOriginColorsAndGradients }
 								/>
@@ -433,8 +431,6 @@ export default function ( {
 												} ),
 										},
 									] }
-									__experimentalIsItemGroup={ false }
-									__experimentalHasMultipleOrigins
 									__experimentalIsRenderedInSidebar
 									{ ...multipleOriginColorsAndGradients }
 								/>

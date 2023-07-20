@@ -347,6 +347,6 @@
 			}
 		}
 	},
-	"style": "snow-monkey-blocks/section-with-bgimage",
+	"style": "snow-monkey-blocks-section-with-bgimage-style",
 	"editorScript": "file:./index.js"
 }

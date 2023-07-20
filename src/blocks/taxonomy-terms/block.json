@@ -31,6 +31,6 @@
 			"taxonomy": "category"
 		}
 	},
-	"style": "snow-monkey-blocks/taxonomy-terms",
+	"style": "file:./style.css",
 	"editorScript": "file:./index.js"
 }

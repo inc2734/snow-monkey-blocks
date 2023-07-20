@@ -30,7 +30,7 @@
 			"margin": true
 		}
 	},
-	"style": "snow-monkey-blocks/categories-list",
+	"style": "file:./style.css",
 	"editorScript": "file:./index.js",
 	"viewScript": "file:./script.js"
 }

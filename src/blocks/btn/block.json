@@ -66,7 +66,6 @@
 			"url": "https://2inc.org"
 		}
 	},
-	"style": "snow-monkey-blocks/btn",
-	"editorStyle": "snow-monkey-blocks/btn/editor",
+	"style": "file:./style.css",
 	"editorScript": "file:./index.js"
 }

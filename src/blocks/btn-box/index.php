@@ -6,9 +6,9 @@
  */
 
 wp_register_style(
-	'snow-monkey-blocks/btn-box',
+	generate_block_asset_handle( 'snow-monkey-blocks/btn-box', 'style' ),
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/blocks/btn-box/style.css',
-	array( 'snow-monkey-blocks/btn' ),
+	array( generate_block_asset_handle( 'snow-monkey-blocks/btn', 'style' ) ),
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/blocks/btn-box/style.css' )
 );
 

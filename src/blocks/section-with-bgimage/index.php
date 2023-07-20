@@ -8,9 +8,9 @@
 use Snow_Monkey\Plugin\Blocks;
 
 wp_register_style(
-	'snow-monkey-blocks/section-with-bgimage',
+	generate_block_asset_handle( 'snow-monkey-blocks/section-with-bgimage', 'style' ),
 	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/blocks/section-with-bgimage/style.css',
-	array( 'snow-monkey-blocks/section' ),
+	array( generate_block_asset_handle( 'snow-monkey-blocks/section', 'style' ) ),
 	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/blocks/section-with-bgimage/style.css' )
 );
 

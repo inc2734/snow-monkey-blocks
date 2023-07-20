@@ -92,8 +92,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 								} ),
 						},
 					] }
-					__experimentalHasMultipleOrigins={ true }
-					__experimentalIsRenderedInSidebar={ true }
+					__experimentalIsRenderedInSidebar
 				>
 					<ContrastChecker
 						backgroundColor={

@@ -33,6 +33,7 @@
 
 	&__label {
 		color: currentColor;
+		white-space: inherit !important;
 	}
 
 	&--little-wider {
@@ -89,5 +90,9 @@
 }
 
 .smb-btn-wrapper.aligncenter {
+	text-align: center;
+}
+
+.aligncenter .smb-btn-wrapper {
 	text-align: center;
 }

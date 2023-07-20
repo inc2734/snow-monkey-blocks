@@ -205,6 +205,6 @@
 			}
 		]
 	},
-	"style": "snow-monkey-blocks/section",
+	"style": "file:./style.css",
 	"editorScript": "file:./index.js"
 }

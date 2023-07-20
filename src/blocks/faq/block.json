@@ -44,6 +44,6 @@
 			}
 		]
 	},
-	"style": "snow-monkey-blocks/faq",
+	"style": "file:./style.css",
 	"editorScript": "file:./index.js"
 }

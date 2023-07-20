@@ -68,6 +68,6 @@
 			}
 		]
 	},
-	"style": "snow-monkey-blocks/box",
+	"style": "file:./style.css",
 	"editorScript": "file:./index.js"
 }

@@ -67,8 +67,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							label: __( 'Number color', 'snow-monkey-blocks' ),
 						},
 					] }
-					__experimentalHasMultipleOrigins={ true }
-					__experimentalIsRenderedInSidebar={ true }
+					__experimentalIsRenderedInSidebar
 				></PanelColorGradientSettings>
 			</InspectorControls>
 

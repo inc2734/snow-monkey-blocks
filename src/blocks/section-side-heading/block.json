@@ -193,6 +193,6 @@
 			}
 		]
 	},
-	"style": "snow-monkey-blocks/section-side-heading",
+	"style": "snow-monkey-blocks-section-side-heading-style",
 	"editorScript": "file:./index.js"
 }

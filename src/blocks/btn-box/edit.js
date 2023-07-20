@@ -127,8 +127,7 @@ export default function ( {
 							),
 						},
 					] }
-					__experimentalHasMultipleOrigins={ true }
-					__experimentalIsRenderedInSidebar={ true }
+					__experimentalIsRenderedInSidebar
 				></PanelColorGradientSettings>
 			</InspectorControls>
 
@@ -260,8 +259,6 @@ export default function ( {
 										} ),
 								},
 							] }
-							__experimentalIsItemGroup={ false }
-							__experimentalHasMultipleOrigins
 							__experimentalIsRenderedInSidebar
 							{ ...useMultipleOriginColorsAndGradients() }
 						/>
@@ -280,8 +277,6 @@ export default function ( {
 										} ),
 								},
 							] }
-							__experimentalIsItemGroup={ false }
-							__experimentalHasMultipleOrigins
 							__experimentalIsRenderedInSidebar
 							{ ...useMultipleOriginColorsAndGradients() }
 						/>

@@ -32,6 +32,6 @@
 			}
 		]
 	},
-	"style": "snow-monkey-blocks/container",
+	"style": "file:./style.css",
 	"editorScript": "file:./index.js"
 }

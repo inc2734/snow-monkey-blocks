@@ -5,13 +5,6 @@
  * @license GPL-2.0+
  */
 
-wp_register_style(
-	'snow-monkey-blocks/media-text',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/blocks/media-text/style.css',
-	array(),
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/blocks/media-text/style.css' )
-);
-
 register_block_type(
 	__DIR__
 );

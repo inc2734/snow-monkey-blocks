@@ -50,6 +50,6 @@
 			"isDisplayNumeric": true
 		}
 	},
-	"style": "snow-monkey-blocks/evaluation-star",
+	"style": "file:./style.css",
 	"editorScript": "file:./index.js"
 }

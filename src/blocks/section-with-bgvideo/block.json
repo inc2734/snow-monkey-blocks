@@ -131,8 +131,8 @@
 			}
 		}
 	},
-	"style": "snow-monkey-blocks/section-with-bgvideo",
-	"editorStyle": "snow-monkey-blocks/section-with-bgvideo/editor",
+	"style": "snow-monkey-blocks-section-with-bgvideo-style",
+	"editorStyle": "file:./editor.css",
 	"editorScript": "file:./index.js",
 	"viewScript": "file:./script.js"
 }

@@ -310,8 +310,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							),
 						},
 					] }
-					__experimentalHasMultipleOrigins={ true }
-					__experimentalIsRenderedInSidebar={ true }
+					__experimentalIsRenderedInSidebar
 				/>
 			</InspectorControls>
 
@@ -351,8 +350,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							color: borderColor,
 							width: borderWidth,
 						} }
-						__experimentalHasMultipleOrigins={ true }
-						__experimentalIsRenderedInSidebar={ true }
+						__experimentalIsRenderedInSidebar
 					/>
 				</ToolsPanelItem>
 			</InspectorControls>

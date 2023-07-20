@@ -39,6 +39,6 @@
 			}
 		]
 	},
-	"editorStyle": "snow-monkey-blocks/limited-datetime/editor",
+	"editorStyle": "file:./editor.css",
 	"editorScript": "file:./index.js"
 }

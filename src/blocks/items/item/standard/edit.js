@@ -461,8 +461,6 @@ export default function ( {
 												} ),
 										},
 									] }
-									__experimentalIsItemGroup={ false }
-									__experimentalHasMultipleOrigins
 									__experimentalIsRenderedInSidebar
 									{ ...multipleOriginColorsAndGradients }
 								/>

@@ -7,13 +7,6 @@
 
 use Snow_Monkey\Plugin\Blocks;
 
-wp_register_style(
-	'snow-monkey-blocks/section',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/blocks/section/style.css',
-	array(),
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/blocks/section/style.css' )
-);
-
 register_block_type(
 	__DIR__
 );

@@ -102,7 +102,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 
 	return (
 		<>
-			<InspectorControls>
+			<InspectorControls group="styles">
 				<PanelColorGradientSettings
 					title={ __( 'Color', 'snow-monkey-blocks' ) }
 					initialOpen={ false }
@@ -116,81 +116,80 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							label: __( 'Text color', 'snow-monkey-blocks' ),
 						},
 					] }
-					__experimentalHasMultipleOrigins={ true }
-					__experimentalIsRenderedInSidebar={ true }
+					__experimentalIsRenderedInSidebar
 				>
 					<ContrastChecker
 						backgroundColor={ backgroundColor }
 						textColor={ textColor }
 					/>
 				</PanelColorGradientSettings>
+			</InspectorControls>
 
-				<ToolsPanel label={ __( 'Border', 'snow-monkey-blocks' ) }>
-					<ToolsPanelItem
-						hasValue={ () =>
-							borderColor !==
-								metadata.attributes.borderColor.default ||
-							borderWidth !==
-								metadata.attributes.borderWidth.default
-						}
-						isShownByDefault
-						label={ __( 'Border', 'snow-monkey-blocks' ) }
-						onDeselect={ () =>
+			<InspectorControls group="border">
+				<ToolsPanelItem
+					hasValue={ () =>
+						borderColor !==
+							metadata.attributes.borderColor.default ||
+						borderWidth !== metadata.attributes.borderWidth.default
+					}
+					isShownByDefault
+					label={ __( 'Border', 'snow-monkey-blocks' ) }
+					onDeselect={ () =>
+						setAttributes( {
+							borderColor:
+								metadata.attributes.borderColor.default,
+							borderWidth:
+								metadata.attributes.borderWidth.default,
+						} )
+					}
+				>
+					<BorderBoxControl
+						{ ...useMultipleOriginColorsAndGradients() }
+						className="smb-border-box-control"
+						enableAlpha={ false }
+						enableStyle={ false }
+						onChange={ ( value ) => {
 							setAttributes( {
-								borderColor:
-									metadata.attributes.borderColor.default,
-								borderWidth:
-									metadata.attributes.borderWidth.default,
-							} )
-						}
-					>
-						<BorderBoxControl
-							{ ...useMultipleOriginColorsAndGradients() }
-							className="smb-border-box-control"
-							enableAlpha={ false }
-							enableStyle={ false }
+								borderColor: value.color,
+								borderWidth: value.width,
+							} );
+						} }
+						popoverOffset={ 40 }
+						popoverPlacement="left-start"
+						value={ {
+							color: borderColor,
+							width: borderWidth,
+						} }
+						__experimentalIsRenderedInSidebar
+					/>
+				</ToolsPanelItem>
+
+				<ToolsPanelItem
+					hasValue={ () =>
+						borderRadius !==
+						metadata.attributes.borderRadius.default
+					}
+					isShownByDefault
+					label={ __( 'Border radius', 'snow-monkey-blocks' ) }
+					onDeselect={ () =>
+						setAttributes( {
+							borderRadius:
+								metadata.attributes.borderRadius.default,
+						} )
+					}
+				>
+					<div className="smb-border-radius-control">
+						<BorderRadiusControl
+							values={ borderRadius }
 							onChange={ ( value ) => {
-								setAttributes( {
-									borderColor: value.color,
-									borderWidth: value.width,
-								} );
+								setAttributes( { borderRadius: value } );
 							} }
-							popoverOffset={ 40 }
-							popoverPlacement="left-start"
-							value={ {
-								color: borderColor,
-								width: borderWidth,
-							} }
-							__experimentalHasMultipleOrigins={ true }
-							__experimentalIsRenderedInSidebar={ true }
 						/>
-					</ToolsPanelItem>
+					</div>
+				</ToolsPanelItem>
+			</InspectorControls>
 
-					<ToolsPanelItem
-						hasValue={ () =>
-							borderRadius !==
-							metadata.attributes.borderRadius.default
-						}
-						isShownByDefault
-						label={ __( 'Border radius', 'snow-monkey-blocks' ) }
-						onDeselect={ () =>
-							setAttributes( {
-								borderRadius:
-									metadata.attributes.borderRadius.default,
-							} )
-						}
-					>
-						<div className="smb-border-radius-control">
-							<BorderRadiusControl
-								values={ borderRadius }
-								onChange={ ( value ) => {
-									setAttributes( { borderRadius: value } );
-								} }
-							/>
-						</div>
-					</ToolsPanelItem>
-				</ToolsPanel>
-
+			<InspectorControls group="styles">
 				<ToolsPanel label={ __( 'Background', 'snow-monkey-blocks' ) }>
 					<div className="smb-color-gradient-settings-dropdown">
 						<ColorGradientSettingsDropdown
@@ -209,8 +208,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 										} ),
 								},
 							] }
-							__experimentalIsItemGroup={ false }
-							__experimentalHasMultipleOrigins
 							__experimentalIsRenderedInSidebar
 							{ ...useMultipleOriginColorsAndGradients() }
 						/>

@@ -45,6 +45,6 @@
 			"margin": true
 		}
 	},
-	"style": "snow-monkey-blocks/panels",
+	"style": "file:./style.css",
 	"editorScript": "file:./index.js"
 }

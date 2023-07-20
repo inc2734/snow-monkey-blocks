@@ -61,6 +61,6 @@
 			}
 		]
 	},
-	"style": "snow-monkey-blocks/directory-structure",
+	"style": "file:./style.css",
 	"editorScript": "file:./index.js"
 }

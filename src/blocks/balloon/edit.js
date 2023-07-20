@@ -147,8 +147,7 @@ export default function ( { attributes, setAttributes, className } ) {
 								color: borderColor,
 								width: borderWidth,
 							} }
-							__experimentalHasMultipleOrigins={ true }
-							__experimentalIsRenderedInSidebar={ true }
+							__experimentalIsRenderedInSidebar
 						/>
 					</ToolsPanelItem>
 
@@ -178,8 +177,6 @@ export default function ( { attributes, setAttributes, className } ) {
 										} ),
 								},
 							] }
-							__experimentalIsItemGroup={ false }
-							__experimentalHasMultipleOrigins
 							__experimentalIsRenderedInSidebar
 							{ ...multipleOriginColorsAndGradients }
 						/>
@@ -315,8 +312,7 @@ export default function ( { attributes, setAttributes, className } ) {
 										color: avatarBorderColor,
 										width: avatarBorderWidth,
 									} }
-									__experimentalHasMultipleOrigins={ true }
-									__experimentalIsRenderedInSidebar={ true }
+									__experimentalIsRenderedInSidebar
 								/>
 							</ToolsPanelItem>
 						</>

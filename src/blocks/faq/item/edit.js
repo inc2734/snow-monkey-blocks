@@ -78,8 +78,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							label: __( 'Answer color', 'snow-monkey-blocks' ),
 						},
 					] }
-					__experimentalHasMultipleOrigins={ true }
-					__experimentalIsRenderedInSidebar={ true }
+					__experimentalIsRenderedInSidebar
 				></PanelColorGradientSettings>
 			</InspectorControls>
 

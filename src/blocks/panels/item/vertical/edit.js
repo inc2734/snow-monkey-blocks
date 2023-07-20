@@ -168,8 +168,7 @@ export default function ( {
 								} ),
 						},
 					] }
-					__experimentalHasMultipleOrigins={ true }
-					__experimentalIsRenderedInSidebar={ true }
+					__experimentalIsRenderedInSidebar
 				>
 					<ContrastChecker
 						backgroundColor={

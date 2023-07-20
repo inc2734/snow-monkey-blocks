@@ -80,7 +80,6 @@
 			}
 		]
 	},
-	"style": "snow-monkey-blocks/balloon",
-	"editorStyle": "snow-monkey-blocks/balloon/editor",
+	"style": "file:./style.css",
 	"editorScript": "file:./index.js"
 }

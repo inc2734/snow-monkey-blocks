@@ -169,8 +169,7 @@ export default function ( {
 							color: border.color,
 							width: border.width,
 						} }
-						__experimentalHasMultipleOrigins={ true }
-						__experimentalIsRenderedInSidebar={ true }
+						__experimentalIsRenderedInSidebar
 					/>
 				</ToolsPanelItem>
 

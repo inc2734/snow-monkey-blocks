@@ -65,8 +65,6 @@ export default function ( { settings, label } ) {
 								onColorChange: setting.onColorChange,
 							},
 						] }
-						__experimentalIsItemGroup={ false }
-						__experimentalHasMultipleOrigins
 						__experimentalIsRenderedInSidebar
 						{ ...multipleOriginColorsAndGradients }
 					/>

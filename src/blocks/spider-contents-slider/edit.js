@@ -85,13 +85,18 @@ export default function ( {
 	const { updateBlockAttributes, selectBlock } =
 		useDispatch( 'core/block-editor' );
 
-	const { nowSliderClientIds, slides } = useSelect(
+	const { nowSliderClientIds, slides, hasChildSelected } = useSelect(
 		( select ) => {
+			const isAncestorOfSelectedBlock = select(
+				'core/block-editor'
+			).hasSelectedInnerBlock( clientId, true );
+
 			return {
 				nowSliderClientIds:
 					select( 'core/block-editor' ).getBlockOrder( clientId ),
 				slides: select( 'core/block-editor' ).getBlock( clientId )
 					.innerBlocks,
+				hasChildSelected: isAncestorOfSelectedBlock,
 			};
 		},
 		[ clientId ]
@@ -358,8 +363,7 @@ export default function ( {
 							color: border.color,
 							width: border.width,
 						} }
-						__experimentalHasMultipleOrigins={ true }
-						__experimentalIsRenderedInSidebar={ true }
+						__experimentalIsRenderedInSidebar
 					/>
 				</ToolsPanelItem>
 
@@ -807,7 +811,7 @@ export default function ( {
 					</div>
 				) }
 
-				{ ( isSelected || !! selectedSlide ) && (
+				{ ( isSelected || hasChildSelected ) && (
 					<div className="smb-slider-pagination">
 						{ sliderClientIds.map( ( sliderClientId, index ) => {
 							return (

@@ -82,8 +82,8 @@
 			"margin": true
 		}
 	},
-	"style": "snow-monkey-blocks/spider-contents-slider",
-	"editorStyle": "snow-monkey-blocks/spider-contents-slider/editor",
+	"style": "snow-monkey-blocks-spider-contents-slider-style",
+	"editorStyle": "file:./editor.css",
 	"editorScript": "file:./index.js",
 	"viewScript": [ "spider", "file:./script.js" ]
 }

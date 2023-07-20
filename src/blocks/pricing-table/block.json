@@ -21,6 +21,6 @@
 			"margin": true
 		}
 	},
-	"style": "snow-monkey-blocks/pricing-table",
+	"style": "snow-monkey-blocks-pricing-table-style",
 	"editorScript": "file:./index.js"
 }

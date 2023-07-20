@@ -350,8 +350,7 @@ export default function ( {
 							label: __( 'Text color', 'snow-monkey-blocks' ),
 						},
 					] }
-					__experimentalHasMultipleOrigins={ true }
-					__experimentalIsRenderedInSidebar={ true }
+					__experimentalIsRenderedInSidebar
 				></PanelColorGradientSettings>
 			</InspectorControls>
 
@@ -1056,8 +1055,6 @@ export default function ( {
 										} ),
 								},
 							] }
-							__experimentalIsItemGroup={ false }
-							__experimentalHasMultipleOrigins
 							__experimentalIsRenderedInSidebar
 							{ ...useMultipleOriginColorsAndGradients() }
 						/>

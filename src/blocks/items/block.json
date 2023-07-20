@@ -45,6 +45,6 @@
 			"margin": true
 		}
 	},
-	"style": "snow-monkey-blocks/items",
+	"style": "snow-monkey-blocks-items-style",
 	"editorScript": "file:./index.js"
 }

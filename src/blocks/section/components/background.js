@@ -118,8 +118,6 @@ export const PanelSectionMovableBackgroundSettings = ( {
 											setting.onGradientChange,
 									},
 								] }
-								__experimentalIsItemGroup={ false }
-								__experimentalHasMultipleOrigins
 								__experimentalIsRenderedInSidebar
 								{ ...multipleOriginColorsAndGradients }
 							/>
@@ -362,8 +360,6 @@ export const PanelSectionFixedBackgroundSettings = ( {
 											setting.onGradientChange,
 									},
 								] }
-								__experimentalIsItemGroup={ false }
-								__experimentalHasMultipleOrigins
 								__experimentalIsRenderedInSidebar
 								{ ...multipleOriginColorsAndGradients }
 							/>
@@ -530,8 +526,6 @@ export const PanelSectionTopDividerSettings = ( { settings } ) => {
 										onColorChange: setting.onColorChange,
 									},
 								] }
-								__experimentalIsItemGroup={ false }
-								__experimentalHasMultipleOrigins
 								__experimentalIsRenderedInSidebar
 								{ ...multipleOriginColorsAndGradients }
 							/>
@@ -697,8 +691,6 @@ export const PanelSectionBottomDividerSettings = ( { settings } ) => {
 										onColorChange: setting.onColorChange,
 									},
 								] }
-								__experimentalIsItemGroup={ false }
-								__experimentalHasMultipleOrigins
 								__experimentalIsRenderedInSidebar
 								{ ...multipleOriginColorsAndGradients }
 							/>
@@ -901,8 +893,6 @@ export const PanelSectionBackgroundTextSettings = ( { settings } ) => {
 											setting.onGradientChange,
 									},
 								] }
-								__experimentalIsItemGroup={ false }
-								__experimentalHasMultipleOrigins
 								__experimentalIsRenderedInSidebar
 								{ ...multipleOriginColorsAndGradients }
 							/>
