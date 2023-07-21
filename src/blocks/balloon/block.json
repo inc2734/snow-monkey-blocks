@@ -61,6 +61,14 @@
 		"spacing": {
 			"margin": true
 		},
+		"layout": {
+			"allowSwitching": false,
+			"allowEditing": false,
+			"allowInheriting": false,
+			"default": {
+				"type": "constrained"
+			}
+		},
 		"snowmonkeyeditor": {
 			"blockPresets": {
 				"ignore": [ "balloonBody" ]

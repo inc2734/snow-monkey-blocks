@@ -20,7 +20,15 @@
 	},
 	"supports": {
 		"html": false,
-		"className": true
+		"className": true,
+		"layout": {
+			"allowSwitching": false,
+			"allowEditing": false,
+			"allowInheriting": false,
+			"default": {
+				"type": "constrained"
+			}
+		}
 	},
 	"editorScript": "file:./index.js"
 }

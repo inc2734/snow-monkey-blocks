@@ -8,7 +8,15 @@
 	"category": "smb",
 	"parent": [ "snow-monkey-blocks/items" ],
 	"supports": {
-		"html": false
+		"html": false,
+		"layout": {
+			"allowSwitching": false,
+			"allowEditing": false,
+			"allowInheriting": false,
+			"default": {
+				"type": "constrained"
+			}
+		}
 	},
 	"editorScript": "file:./index.js"
 }

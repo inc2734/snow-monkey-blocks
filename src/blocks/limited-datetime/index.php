@@ -15,3 +15,13 @@ register_block_type(
 		},
 	)
 );
+
+add_filter(
+	'render_block_snow-monkey-blocks/limited-datetime',
+	function ( $block_content ) {
+		if ( preg_match( '|^<div.*?>(.*?)</div>$|s', $block_content, $match ) ) {
+			return trim( $match[1] );
+		}
+		return $block_content;
+	}
+);

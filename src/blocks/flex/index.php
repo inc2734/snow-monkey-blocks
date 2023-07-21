@@ -10,12 +10,8 @@ register_block_type(
 );
 
 add_filter(
-	'render_block',
+	'render_block_snow-monkey-blocks/flex',
 	function ( $block_content, $block ) {
-		if ( 'snow-monkey-blocks/flex' !== $block['blockName'] ) {
-			return $block_content;
-		}
-
 		$p = new \WP_HTML_Tag_Processor( $block_content );
 		$p->next_tag();
 		$class = $p->get_attribute( 'class' );

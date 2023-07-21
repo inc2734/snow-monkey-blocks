@@ -27,7 +27,15 @@
 	"supports": {
 		"alignWide": false,
 		"customClassName": false,
-		"className": false
+		"className": false,
+		"layout": {
+			"allowSwitching": false,
+			"allowEditing": false,
+			"allowInheriting": false,
+			"default": {
+				"type": "constrained"
+			}
+		}
 	},
 	"example": {
 		"innerBlocks": [

@@ -27,7 +27,15 @@
 		"snow-monkey-blocks/smIsSplitColumn"
 	],
 	"supports": {
-		"anchor": true
+		"anchor": true,
+		"layout": {
+			"allowSwitching": false,
+			"allowEditing": false,
+			"allowInheriting": false,
+			"default": {
+				"type": "constrained"
+			}
+		}
 	},
 	"editorScript": "file:./index.js"
 }

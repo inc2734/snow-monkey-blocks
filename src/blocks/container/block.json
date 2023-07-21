@@ -20,7 +20,15 @@
 		}
 	},
 	"supports": {
-		"html": false
+		"html": false,
+		"layout": {
+			"allowSwitching": false,
+			"allowEditing": false,
+			"allowInheriting": false,
+			"default": {
+				"type": "constrained"
+			}
+		}
 	},
 	"example": {
 		"innerBlocks": [

@@ -19,7 +19,15 @@
 		}
 	},
 	"supports": {
-		"html": false
+		"html": false,
+		"layout": {
+			"allowSwitching": false,
+			"allowEditing": false,
+			"allowInheriting": false,
+			"default": {
+				"type": "constrained"
+			}
+		}
 	},
 	"editorScript": "file:./index.js"
 }

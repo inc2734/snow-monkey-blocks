@@ -128,6 +128,14 @@
 			"margin": true,
 			"padding": true,
 			"blockGap": true
+		},
+		"layout": {
+			"allowSwitching": false,
+			"allowEditing": false,
+			"allowInheriting": false,
+			"default": {
+				"type": "constrained"
+			}
 		}
 	},
 	"style": "file:./style.css",

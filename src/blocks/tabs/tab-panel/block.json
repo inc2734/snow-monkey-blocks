@@ -28,7 +28,15 @@
 		"reusable": false,
 		"html": false,
 		"__experimentalToolbar": false,
-		"inserter": false
+		"inserter": false,
+		"layout": {
+			"allowSwitching": false,
+			"allowEditing": false,
+			"allowInheriting": false,
+			"default": {
+				"type": "constrained"
+			}
+		}
 	},
 	"example": {},
 	"editorScript": "file:./index.js"
