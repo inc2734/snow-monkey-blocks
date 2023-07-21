@@ -7,9 +7,21 @@
 
 	&__list {
 		@include _list-unstyled();
+		display: grid;
+		gap: var(--smb-categories-list--gap);
+
+		@include _media-min(md) {
+			grid-template-columns: repeat(2, 1fr);
+		}
 
 		&.masonry-active {
+			display: block;
+
 			.smb-categories-list__item {
+				&:not(:first-child) {
+					margin-top: var(--smb-categories-list--gap);
+				}
+
 				@include _media-min(md) {
 					width: calc((100% - var(--smb-categories-list--gap)) / 2);
 
@@ -45,10 +57,6 @@
 		box-sizing: border-box;
 		display: flex;
 		flex-direction: row;
-
-		&:not(:first-child) {
-			margin-top: var(--smb-categories-list--gap);
-		}
 
 		&__count {
 			position: relative;

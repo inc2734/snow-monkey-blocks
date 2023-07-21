@@ -13,11 +13,10 @@ import {
 
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
-import { useEffect, useRef } from '@wordpress/element';
+import { useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 import { toNumber } from '@smb/helper';
-import { apply } from './categories-list';
 import { store } from './store';
 
 import metadata from './block.json';
@@ -26,12 +25,6 @@ export default function ( { attributes, setAttributes, className } ) {
 	const { articles, exclusionCategories, orderby, order } = attributes;
 
 	const ulRef = useRef();
-
-	useEffect( () => {
-		if ( !! ulRef.current ) {
-			apply( ulRef.current );
-		}
-	} );
 
 	const articleCategories = useSelect( ( select ) =>
 		select( store ).getArticleCategories()
