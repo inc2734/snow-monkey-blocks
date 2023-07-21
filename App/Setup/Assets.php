@@ -50,7 +50,10 @@ class Assets {
 			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/editor.js',
 			$asset['dependencies'],
 			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/editor.js' ),
-			true
+			array(
+				'strategy'  => 'defer',
+				'in_footer' => false,
+			)
 		);
 	}
 
@@ -100,7 +103,10 @@ class Assets {
 				SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/packages/fontawesome-free/js/all.min.js',
 				array(),
 				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/fontawesome-free/js/all.min.js' ),
-				true
+				array(
+					'strategy'  => 'defer',
+					'in_footer' => false,
+				)
 			);
 		}
 	}
@@ -142,7 +148,10 @@ class Assets {
 				SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/packages/spider/dist/js/spider.js',
 				array(),
 				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/spider/dist/js/spider.js' ),
-				true
+				array(
+					'strategy'  => 'defer',
+					'in_footer' => false,
+				)
 			);
 		// }
 
@@ -184,7 +193,10 @@ class Assets {
 						SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/background-parallax.js',
 						array(),
 						filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/background-parallax.js' ),
-						true
+						array(
+							'strategy'  => 'defer',
+							'in_footer' => false,
+						)
 					);
 				}
 			}
