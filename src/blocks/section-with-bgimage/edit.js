@@ -13,7 +13,6 @@ import {
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
-	__experimentalImageSizeControl as ImageSizeControl,
 } from '@wordpress/block-editor';
 
 import {
@@ -29,6 +28,7 @@ import { __ } from '@wordpress/i18n';
 
 import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
 import Figure from '@smb/component/figure';
+import ResolutionTool from '@smb/component/resolution-tool';
 
 import {
 	toNumber,
@@ -643,8 +643,14 @@ export default function ( {
 												}
 											/>
 
-											<ImageSizeControl
-												onChangeImage={ ( value ) => {
+											<ResolutionTool
+												defaultValue={
+													metadata.attributes
+														.lgImageSizeSlug.default
+												}
+												value={ lgImageSizeSlug }
+												options={ lgImageSizeOptions }
+												onChange={ ( value ) => {
 													const newLgImageURL =
 														lgImage?.media_details
 															?.sizes?.[ value ]
@@ -668,14 +674,7 @@ export default function ( {
 														lgImageSizeSlug: value,
 													} );
 												} }
-												slug={ lgImageSizeSlug }
-												imageSizeOptions={
-													lgImageSizeOptions
-												}
-												isResizable={ false }
-												imageSizeHelp={ __(
-													'Select which image size to load.'
-												) }
+												withToolsPanelItem={ false }
 											/>
 										</>
 									) }
@@ -811,8 +810,14 @@ export default function ( {
 												}
 											/>
 
-											<ImageSizeControl
-												onChangeImage={ ( value ) => {
+											<ResolutionTool
+												defaultValue={
+													metadata.attributes
+														.mdImageSizeSlug.default
+												}
+												value={ mdImageSizeSlug }
+												options={ mdImageSizeOptions }
+												onChange={ ( value ) => {
 													const newMdImageURL =
 														mdImage?.media_details
 															?.sizes?.[ value ]
@@ -836,14 +841,7 @@ export default function ( {
 														mdImageSizeSlug: value,
 													} );
 												} }
-												slug={ mdImageSizeSlug }
-												imageSizeOptions={
-													mdImageSizeOptions
-												}
-												isResizable={ false }
-												imageSizeHelp={ __(
-													'Select which image size to load.'
-												) }
+												withToolsPanelItem={ false }
 											/>
 										</>
 									) }
@@ -979,8 +977,14 @@ export default function ( {
 												}
 											/>
 
-											<ImageSizeControl
-												onChangeImage={ ( value ) => {
+											<ResolutionTool
+												defaultValue={
+													metadata.attributes
+														.smImageSizeSlug.default
+												}
+												value={ smImageSizeSlug }
+												options={ smImageSizeOptions }
+												onChange={ ( value ) => {
 													const newSmImageURL =
 														smImage?.media_details
 															?.sizes?.[ value ]
@@ -1004,14 +1008,7 @@ export default function ( {
 														smImageSizeSlug: value,
 													} );
 												} }
-												slug={ smImageSizeSlug }
-												imageSizeOptions={
-													smImageSizeOptions
-												}
-												isResizable={ false }
-												imageSizeHelp={ __(
-													'Select which image size to load.'
-												) }
+												withToolsPanelItem={ false }
 											/>
 										</>
 									) }

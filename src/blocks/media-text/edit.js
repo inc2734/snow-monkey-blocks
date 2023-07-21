@@ -23,7 +23,6 @@ import {
 	useBlockProps,
 	__experimentalImageURLInputUI as ImageURLInputUI,
 	useInnerBlocksProps,
-	__experimentalImageSizeControl as ImageSizeControl,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 } from '@wordpress/block-editor';
 
@@ -34,6 +33,7 @@ import { pullLeft, pullRight } from '@wordpress/icons';
 import { getColumnSize, getMediaType, isVideoType } from '@smb/helper';
 
 import Figure from '@smb/component/figure';
+import ResolutionTool from '@smb/component/resolution-tool';
 
 const ALLOWED_TYPES = [ 'image', 'video' ];
 const LINK_DESTINATION_MEDIA = 'media';
@@ -307,48 +307,31 @@ export default function ( {
 					</ToolsPanelItem>
 
 					{ 0 < imageSizeOptions.length && (
-						<ToolsPanelItem
-							hasValue={ () =>
-								mediaSizeSlug !==
+						<ResolutionTool
+							defaultValue={
 								metadata.attributes.mediaSizeSlug.default
 							}
-							isShownByDefault
-							label={ __( 'Image size', 'snow-monkey-blocks' ) }
-							onDeselect={ () =>
-								setAttributes( {
-									mediaSizeSlug:
-										metadata.attributes.mediaSizeSlug
-											.default,
-								} )
-							}
-						>
-							<ImageSizeControl
-								slug={ mediaSizeSlug }
-								imageSizeOptions={ imageSizeOptions }
-								isResizable={ false }
-								imageSizeHelp={ __(
-									'Select which image size to load.'
-								) }
-								onChangeImage={ ( value ) => {
-									const newMediaUrl =
-										image?.media_details?.sizes?.[ value ]
-											?.source_url;
-									const newMediaWidth =
-										image?.media_details?.sizes?.[ value ]
-											?.width;
-									const newMediaHeight =
-										image?.media_details?.sizes?.[ value ]
-											?.height;
+							value={ mediaSizeSlug }
+							options={ imageSizeOptions }
+							onChange={ ( value ) => {
+								const newMediaUrl =
+									image?.media_details?.sizes?.[ value ]
+										?.source_url;
+								const newMediaWidth =
+									image?.media_details?.sizes?.[ value ]
+										?.width;
+								const newMediaHeight =
+									image?.media_details?.sizes?.[ value ]
+										?.height;
 
-									setAttributes( {
-										mediaUrl: newMediaUrl,
-										mediaWidth: newMediaWidth,
-										mediaHeight: newMediaHeight,
-										mediaSizeSlug: value,
-									} );
-								} }
-							/>
-						</ToolsPanelItem>
+								setAttributes( {
+									mediaUrl: newMediaUrl,
+									mediaWidth: newMediaWidth,
+									mediaHeight: newMediaHeight,
+									mediaSizeSlug: value,
+								} );
+							} }
+						/>
 					) }
 
 					{ 'image' === mediaType && (

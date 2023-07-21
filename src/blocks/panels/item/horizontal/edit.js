@@ -8,7 +8,6 @@ import {
 	RichText,
 	useBlockProps,
 	__experimentalLinkControl as LinkControl,
-	__experimentalImageSizeControl as ImageSizeControl,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 } from '@wordpress/block-editor';
@@ -31,6 +30,7 @@ import { link as linkIcon, pullLeft, pullRight } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
 
 import Figure from '@smb/component/figure';
+import ResolutionTool from '@smb/component/resolution-tool';
 import { stringToInnerText } from '@smb/helper';
 
 const ALLOWED_TYPES = [ 'image' ];
@@ -267,48 +267,31 @@ export default function ( {
 					</ToolsPanelItem>
 
 					{ displayImage && 0 < imageSizeOptions.length && (
-						<ToolsPanelItem
-							hasValue={ () =>
-								imageSizeSlug !==
+						<ResolutionTool
+							defaultValue={
 								metadata.attributes.imageSizeSlug.default
 							}
-							isShownByDefault
-							label={ __( 'Image size', 'snow-monkey-blocks' ) }
-							onDeselect={ () =>
-								setAttributes( {
-									imageSizeSlug:
-										metadata.attributes.imageSizeSlug
-											.default,
-								} )
-							}
-						>
-							<ImageSizeControl
-								slug={ imageSizeSlug }
-								imageSizeOptions={ imageSizeOptions }
-								isResizable={ false }
-								imageSizeHelp={ __(
-									'Select which image size to load.'
-								) }
-								onChangeImage={ ( value ) => {
-									const newImageUrl =
-										image?.media_details?.sizes?.[ value ]
-											?.source_url;
-									const newImageWidth =
-										image?.media_details?.sizes?.[ value ]
-											?.width;
-									const newImageHeight =
-										image?.media_details?.sizes?.[ value ]
-											?.height;
+							value={ imageSizeSlug }
+							options={ imageSizeOptions }
+							onChange={ ( value ) => {
+								const newImageUrl =
+									image?.media_details?.sizes?.[ value ]
+										?.source_url;
+								const newImageWidth =
+									image?.media_details?.sizes?.[ value ]
+										?.width;
+								const newImageHeight =
+									image?.media_details?.sizes?.[ value ]
+										?.height;
 
-									setAttributes( {
-										imageURL: newImageUrl,
-										imageWidth: newImageWidth,
-										imageHeight: newImageHeight,
-										imageSizeSlug: value,
-									} );
-								} }
-							/>
-						</ToolsPanelItem>
+								setAttributes( {
+									imageURL: newImageUrl,
+									imageWidth: newImageWidth,
+									imageHeight: newImageHeight,
+									imageSizeSlug: value,
+								} );
+							} }
+						/>
 					) }
 				</ToolsPanel>
 

@@ -302,7 +302,9 @@ export default function ( {
 									sizeSlug: value,
 								} );
 							} }
-							help={ __( 'Select which image size to load.' ) }
+							help={ __(
+								'Select the size of the source image.'
+							) }
 						/>
 					</ToolsPanelItem>
 
