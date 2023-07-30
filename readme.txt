@@ -2,9 +2,9 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue, kutsu
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 19.10.1
-Requires at least: 6.2
-Tested up to: 6.2
+Stable tag: 20.0.0-beta1
+Requires at least: 6.3-rc1
+Tested up to: 6.3-rc2
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -115,6 +115,30 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 27. Grid block
 
 == Changelog ==
+
+= 20.0.0 =
+* Update `apiVersion` of block.json is 2 to 3.
+* Set `defer` attribute to `wp_enqueue_script()`.
+* Remove unwrap and add ungroup.
+* Changed CSS loading method to `file:`.
+* Changed block CSS handle name. e.g. snow-monkey-blocks/accordion → snow-monkey-blocks-accordion-style
+* [Accordion:Item] Set layout type: constrained.
+* [Alert] Set layout type: constrained.
+* [Balloon] Set layout type: constrained.
+* [Box] Set layout type: constrained.
+* [Container] Set layout type: constrained.
+* [FAQ:Item] Set layout type: constrained.
+* [Hero header] Set layout type: constrained.
+* [Information:Item] Set layout type: constrained.
+* [Items:free] Set layout type: constrained.
+* [Media text] Set layout type: constrained.
+* [Panels:Block link] Set layout type: constrained.
+* [Panels:Free] Set layout type: constrained.
+* [Section] Set layout type: constrained.
+* [Contents slider:Item] Set layout type: constrained.
+* [Step:Free] Set layout type: constrained.
+* [Step:Standard] Set layout type: constrained.
+* [Tabs:Tab panel] Set layout type: constrained.
 
 = 19.10.1 =
 * [Section (Background image/video)] Fixed a bug that caused the inspector to stretch vertically when a video was set as the background.
