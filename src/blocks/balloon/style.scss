@@ -179,6 +179,11 @@
 	}
 }
 
+:where(.smb-balloon__body.is-layout-constrained > *) {
+	--wp--style--global--content-size: 100%;
+	--wp--style--global--wide-size: 100%;
+}
+
 // For WordPress
 .smb-balloon:where([style*=border-width]) {
 	border: none;

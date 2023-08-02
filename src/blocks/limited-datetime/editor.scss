@@ -23,3 +23,8 @@
 		margin-top: 1em;
 	}
 }
+
+:where(.smb-limited-datetime.is-layout-constrained > *) {
+	--wp--style--global--content-size: 100%;
+	--wp--style--global--wide-size: 100%;
+}

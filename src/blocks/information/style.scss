@@ -147,6 +147,11 @@
 	--smb-information--border-color: var(--smb-information--style--border--border-color);
 }
 
+:where(.smb-information__item__body.is-layout-constrained > *) {
+	--wp--style--global--content-size: 100%;
+	--wp--style--global--wide-size: 100%;
+}
+
 // For WordPress
 .smb-information:where([style*=border-width]) {
 	border: none;

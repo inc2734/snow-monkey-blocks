@@ -76,3 +76,8 @@ $alert-color: #fff9e6 !default;
 		}
 	}
 }
+
+:where(.smb-alert__body.is-layout-constrained > *) {
+	--wp--style--global--content-size: 100%;
+	--wp--style--global--wide-size: 100%;
+}

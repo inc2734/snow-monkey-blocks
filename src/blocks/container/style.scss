@@ -10,3 +10,8 @@
 		padding-left: 0 !important;
 	}
 }
+
+:where(.smb-container__body.is-layout-constrained > *) {
+	--wp--style--global--content-size: 100%;
+	--wp--style--global--wide-size: 100%;
+}

@@ -66,3 +66,8 @@
 		transform: rotate(180deg);
 	}
 }
+
+:where(.smb-accordion__item__body.is-layout-constrained > *) {
+	--wp--style--global--content-size: 100%;
+	--wp--style--global--wide-size: 100%;
+}

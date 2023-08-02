@@ -146,3 +146,8 @@
 		}
 	}
 }
+
+:where(.smb-step__item__summary.is-layout-constrained > *) {
+	--wp--style--global--content-size: 100%;
+	--wp--style--global--wide-size: 100%;
+}
