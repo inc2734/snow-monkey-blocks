@@ -173,6 +173,10 @@
 			&.alignwide {
 				flex-grow: 1;
 			}
+
+			&.alignwide {
+				max-width: var(--wp--style--global--wide-size);
+			}
 		}
 
 		&[class*="is-content-justification-"] {
