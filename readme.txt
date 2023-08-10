@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue, kutsu
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 20.0.0
+Stable tag: 20.0.1
 Requires at least: 6.3
 Tested up to: 6.3
 Requires PHP: 7.4
@@ -115,6 +115,12 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 27. Grid block
 
 == Changelog ==
+
+= 20.0.1 =
+* [Section] Fixed a bug where "Container alignment" did not work.
+* [Section (Background image/video)] Fixed a bug where "Container alignment" did not work.
+* [Section (Side heading)] Fixed a bug where "Container alignment" did not work.
+* [Section (Break the grid)] Fixed a bug where "Container alignment" did not work.
 
 = 20.0.0 =
 * Update `apiVersion` of block.json is 2 to 3.
