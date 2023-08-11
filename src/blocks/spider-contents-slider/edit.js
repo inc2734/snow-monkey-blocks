@@ -253,6 +253,8 @@ export default function ( {
 			undefined,
 		'--smb-spider-contents-slider--slide-border-color':
 			border.color || undefined,
+		'--smb-spider-contents-slider--slide-border-type':
+			border.style || undefined,
 		'--smb-spider-contents-slider--slide-border-radius':
 			( 0 < parseInt( borderRadius ) && borderRadius ) || undefined,
 		'--smb-spider-contents-slider--slide-box-shadow': !! boxShadow.color
@@ -327,6 +329,8 @@ export default function ( {
 					hasValue={ () =>
 						border.color !==
 							metadata.attributes.border.default.color ||
+						border.style !==
+							metadata.attributes.border.default.style ||
 						border.width !==
 							metadata.attributes.border.default.width
 					}
@@ -337,6 +341,7 @@ export default function ( {
 							border: {
 								...border,
 								color: metadata.attributes.border.default.color,
+								style: metadata.attributes.border.default.style,
 								width: metadata.attributes.border.default.width,
 							},
 						} );
@@ -346,13 +351,14 @@ export default function ( {
 					<BorderBoxControl
 						{ ...useMultipleOriginColorsAndGradients() }
 						className="smb-border-box-control"
-						enableAlpha={ false }
-						enableStyle={ false }
+						enableAlpha={ true }
+						enableStyle={ true }
 						onChange={ ( value ) => {
 							setAttributes( {
 								border: {
 									...border,
 									color: value.color,
+									style: value.style,
 									width: value.width,
 								},
 							} );
@@ -361,6 +367,7 @@ export default function ( {
 						popoverPlacement="left-start"
 						value={ {
 							color: border.color,
+							style: border.style,
 							width: border.width,
 						} }
 						__experimentalIsRenderedInSidebar

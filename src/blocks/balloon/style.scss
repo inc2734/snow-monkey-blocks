@@ -4,9 +4,11 @@
 	--smb-balloon--border-radius: var(--_global--border-radius);
 	--smb-balloon--background-color: var(--_lightest-color-gray);
 	--smb-balloon--border-color: var(--_lightest-color-gray);
+	--smb-balloon--border-style: solid;
 	--smb-balloon--border-width: 0px;
 	--smb-balloon--color: inherit;
 	--smb-balloon--avatar-border-color: var(--_lighter-color-gray);
+	--smb-balloon--avatar-border-style: solid;
 	--smb-balloon--avatar-border-width: 3px;
 	--smb-balloon--gap: calc(var(--_margin-1) + var(--smb-balloon--border-width));
 
@@ -45,7 +47,7 @@
 		flex: 0 0 auto;
 		@include _circle(60px);
 		box-sizing: content-box;
-		border: var(--smb-balloon--avatar-border-width) solid var(--smb-balloon--avatar-border-color);
+		border: var(--smb-balloon--avatar-border-width) var(--smb-balloon--avatar-border-style) var(--smb-balloon--avatar-border-color);
 
 		.components-button.image-button {
 			height: 100%;
@@ -70,7 +72,7 @@
 		flex: 1 1 auto;
 		border-radius: var(--smb-balloon--border-radius);
 		background-color: var(--smb-balloon--background-color);
-		border: var(--smb-balloon--border-width) solid var(--smb-balloon--border-color);
+		border: var(--smb-balloon--border-width) var(--smb-balloon--border-style) var(--smb-balloon--border-color);
 		color: var(--smb-balloon--color);
 		overflow-wrap: break-word;
 		padding: var(--_padding1);

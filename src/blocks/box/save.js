@@ -8,6 +8,7 @@ export default function ( { attributes, className } ) {
 		backgroundColor,
 		backgroundGradientColor,
 		borderColor,
+		borderStyle,
 		textColor,
 		borderWidth,
 		borderRadius,
@@ -33,6 +34,7 @@ export default function ( { attributes, className } ) {
 		'--smb-box--background-image': backgroundGradientColor || undefined,
 		'--smb-box--background-opacity': String( opacity ),
 		'--smb-box--border-color': borderColor || undefined,
+		'--smb-box--border-style': borderStyle || undefined,
 		'--smb-box--border-width': String( borderWidth ).match( /^\d+$/ )
 			? `${ borderWidth }px`
 			: borderWidth,

@@ -16,6 +16,9 @@
 		"borderColor": {
 			"type": "string"
 		},
+		"borderStyle": {
+			"type": "string"
+		},
 		"textColor": {
 			"type": "string"
 		},

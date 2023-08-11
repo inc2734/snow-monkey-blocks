@@ -28,6 +28,8 @@ export default function ( { attributes, className } ) {
 			undefined,
 		'--smb-spider-contents-slider--slide-border-color':
 			border.color || undefined,
+		'--smb-spider-contents-slider--slide-border-type':
+			border.style || undefined,
 		'--smb-spider-contents-slider--slide-border-radius':
 			( 0 < parseInt( borderRadius ) && borderRadius ) || undefined,
 		'--smb-spider-contents-slider--slide-box-shadow': !! boxShadow.color

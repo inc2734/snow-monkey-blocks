@@ -43,6 +43,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		backgroundColor,
 		backgroundGradientColor,
 		borderColor,
+		borderStyle,
 		textColor,
 		borderWidth,
 		borderRadius,
@@ -75,6 +76,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		'--smb-box--background-image': backgroundGradientColor || undefined,
 		'--smb-box--background-opacity': String( opacity ),
 		'--smb-box--border-color': borderColor || undefined,
+		'--smb-box--border-style': borderStyle || undefined,
 		'--smb-box--border-width': String( borderWidth ).match( /^\d+$/ )
 			? `${ borderWidth }px`
 			: borderWidth,
@@ -130,6 +132,8 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					hasValue={ () =>
 						borderColor !==
 							metadata.attributes.borderColor.default ||
+						borderStyle !==
+							metadata.attributes.borderStyle.default ||
 						borderWidth !== metadata.attributes.borderWidth.default
 					}
 					isShownByDefault
@@ -138,26 +142,31 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						setAttributes( {
 							borderColor:
 								metadata.attributes.borderColor.default,
+							borderStyle:
+								metadata.attributes.borderStyle.default,
 							borderWidth:
 								metadata.attributes.borderWidth.default,
 						} )
 					}
+					panelId={ clientId }
 				>
 					<BorderBoxControl
 						{ ...useMultipleOriginColorsAndGradients() }
 						className="smb-border-box-control"
-						enableAlpha={ false }
-						enableStyle={ false }
+						enableAlpha={ true }
+						enableStyle={ true }
 						onChange={ ( value ) => {
 							setAttributes( {
 								borderColor: value.color,
 								borderWidth: value.width,
+								borderStyle: value.style,
 							} );
 						} }
 						popoverOffset={ 40 }
 						popoverPlacement="left-start"
 						value={ {
 							color: borderColor,
+							style: borderStyle,
 							width: borderWidth,
 						} }
 						__experimentalIsRenderedInSidebar

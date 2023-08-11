@@ -12,6 +12,7 @@ export default function ( { attributes, className } ) {
 		labelColumnTextColor,
 		contentColumnBackgroundColor,
 		borderColor,
+		borderStyle,
 		borderWidth,
 	} = attributes;
 
@@ -30,6 +31,7 @@ export default function ( { attributes, className } ) {
 		'--smb-information--content-column-background-color':
 			contentColumnBackgroundColor || undefined,
 		'--smb-information--border-color': borderColor || undefined,
+		'--smb-information--border-style': borderStyle || undefined,
 		'--smb-information--border-width': borderWidth || undefined,
 	};
 

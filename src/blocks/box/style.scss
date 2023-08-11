@@ -5,6 +5,7 @@
 	--smb-box--background-image: initial;
 	--smb-box--background-opacity: 1;
 	--smb-box--border-color: var(--_lighter-color-gray);
+	--smb-box--border-style: solid;
 	--smb-box--border-width: 0px;
 	--smb-box--border-radius: var(--_global--border-radius);
 	--smb-box--box-shadow: initial;
@@ -36,7 +37,7 @@
 		left: 0;
 		background-color: var(--smb-box--background-color);
 		background-image: var(--smb-box--background-image);
-		border: var(--smb-box--border-width) solid var(--smb-box--border-color);
+		border: var(--smb-box--border-width) var(--smb-box--border-style) var(--smb-box--border-color);
 		border-radius: var(--smb-box--border-radius);
 		opacity: var(--smb-box--background-opacity);
 	}

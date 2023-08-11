@@ -6,7 +6,7 @@ import {
 	MediaReplaceFlow,
 } from '@wordpress/block-editor';
 
-import {ToolbarButton } from '@wordpress/components';
+import { ToolbarButton } from '@wordpress/components';
 import { memo, useMemo } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 

@@ -62,6 +62,7 @@
 			"type": "object",
 			"default": {
 				"color": "",
+				"style": "",
 				"width": 1,
 				"radius": 0
 			}

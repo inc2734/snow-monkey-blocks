@@ -46,9 +46,11 @@ export default function ( { attributes, setAttributes, className } ) {
 		avatarAlt,
 		avatarURL,
 		avatarBorderColor,
+		avatarBorderStyle,
 		avatarBorderWidth,
 		backgroundColor,
 		borderColor,
+		borderStyle,
 		borderWidth,
 		textColor,
 		balloonName,
@@ -78,9 +80,11 @@ export default function ( { attributes, setAttributes, className } ) {
 		'--smb-balloon--background-color': backgroundColor || undefined,
 		'--smb-balloon--border-color':
 			borderColor || backgroundColor || undefined,
+		'--smb-balloon--border-style': borderStyle || undefined,
 		'--smb-balloon--border-width': borderWidth || undefined,
 		'--smb-balloon--color': textColor || undefined,
 		'--smb-balloon--avatar-border-color': avatarBorderColor || undefined,
+		'--smb-balloon--avatar-border-style': avatarBorderStyle || undefined,
 		'--smb-balloon--avatar-border-width': avatarBorderWidth || undefined,
 	};
 
@@ -115,6 +119,8 @@ export default function ( { attributes, setAttributes, className } ) {
 						hasValue={ () =>
 							borderColor !==
 								metadata.attributes.borderColor.default ||
+							borderStyle !==
+								metadata.attributes.borderStyle.default ||
 							borderWidth !==
 								metadata.attributes.borderWidth.default
 						}
@@ -124,6 +130,8 @@ export default function ( { attributes, setAttributes, className } ) {
 							setAttributes( {
 								borderColor:
 									metadata.attributes.borderColor.default,
+								borderStyle:
+									metadata.attributes.borderStyle.default,
 								borderWidth:
 									metadata.attributes.borderWidth.default,
 							} )
@@ -133,11 +141,12 @@ export default function ( { attributes, setAttributes, className } ) {
 							{ ...multipleOriginColorsAndGradients }
 							className="smb-border-box-control"
 							label={ __( 'Border', 'snow-monkey-blocks' ) }
-							enableAlpha={ false }
-							enableStyle={ false }
+							enableAlpha={ true }
+							enableStyle={ true }
 							onChange={ ( value ) => {
 								setAttributes( {
 									borderColor: value.color,
+									borderStyle: value.style,
 									borderWidth: value.width,
 								} );
 							} }
@@ -145,6 +154,7 @@ export default function ( { attributes, setAttributes, className } ) {
 							popoverPlacement="left-start"
 							value={ {
 								color: borderColor,
+								style: borderStyle,
 								width: borderWidth,
 							} }
 							__experimentalIsRenderedInSidebar
@@ -274,6 +284,9 @@ export default function ( { attributes, setAttributes, className } ) {
 									avatarBorderColor !==
 										metadata.attributes.avatarBorderColor
 											.default ||
+									avatarBorderStyle !==
+										metadata.attributes.avatarBorderStyle
+											.default ||
 									avatarBorderWidth !==
 										metadata.attributes.avatarBorderWidth
 											.default
@@ -285,6 +298,9 @@ export default function ( { attributes, setAttributes, className } ) {
 										avatarBorderColor:
 											metadata.attributes
 												.avatarBorderColor.default,
+										avatarBorderStyle:
+											metadata.attributes
+												.avatarBorderStyle.default,
 										avatarBorderWidth:
 											metadata.attributes
 												.avatarBorderWidth.default,
@@ -298,11 +314,12 @@ export default function ( { attributes, setAttributes, className } ) {
 										'Border',
 										'snow-monkey-blocks'
 									) }
-									enableAlpha={ false }
-									enableStyle={ false }
+									enableAlpha={ true }
+									enableStyle={ true }
 									onChange={ ( value ) => {
 										setAttributes( {
 											avatarBorderColor: value.color,
+											avatarBorderStyle: value.style,
 											avatarBorderWidth: value.width,
 										} );
 									} }
@@ -310,6 +327,7 @@ export default function ( { attributes, setAttributes, className } ) {
 									popoverPlacement="left-start"
 									value={ {
 										color: avatarBorderColor,
+										style: avatarBorderStyle,
 										width: avatarBorderWidth,
 									} }
 									__experimentalIsRenderedInSidebar

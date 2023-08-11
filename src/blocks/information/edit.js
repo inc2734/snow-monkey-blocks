@@ -61,6 +61,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		labelColumnTextColor,
 		contentColumnBackgroundColor,
 		borderColor,
+		borderStyle,
 		borderWidth,
 	} = attributes;
 
@@ -79,6 +80,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		'--smb-information--content-column-background-color':
 			contentColumnBackgroundColor || undefined,
 		'--smb-information--border-color': borderColor || undefined,
+		'--smb-information--border-style': borderStyle || undefined,
 		'--smb-information--border-width': borderWidth || undefined,
 	};
 
@@ -319,6 +321,8 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					hasValue={ () =>
 						borderColor !==
 							metadata.attributes.borderColor.default ||
+						borderStyle !==
+							metadata.attributes.borderStyle.default ||
 						borderWidth !== metadata.attributes.borderWidth.default
 					}
 					isShownByDefault
@@ -327,6 +331,8 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						setAttributes( {
 							borderColor:
 								metadata.attributes.borderColor.default,
+							borderStyle:
+								metadata.attributes.borderStyle.default,
 							borderWidth:
 								metadata.attributes.borderWidth.default,
 						} )
@@ -336,11 +342,12 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					<BorderBoxControl
 						{ ...useMultipleOriginColorsAndGradients() }
 						className="smb-border-box-control"
-						enableAlpha={ false }
-						enableStyle={ false }
+						enableAlpha={ true }
+						enableStyle={ true }
 						onChange={ ( value ) => {
 							setAttributes( {
 								borderColor: value.color,
+								borderStyle: value.style,
 								borderWidth: value.width,
 							} );
 						} }
@@ -348,6 +355,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						popoverPlacement="left-start"
 						value={ {
 							color: borderColor,
+							style: borderStyle,
 							width: borderWidth,
 						} }
 						__experimentalIsRenderedInSidebar

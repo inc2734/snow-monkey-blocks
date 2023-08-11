@@ -32,6 +32,9 @@
 		"avatarBorderColor": {
 			"type": "string"
 		},
+		"avatarBorderStyle": {
+			"type": "string"
+		},
 		"avatarBorderWidth": {
 			"type": "string"
 		},
@@ -39,6 +42,9 @@
 			"type": "string"
 		},
 		"borderColor": {
+			"type": "string"
+		},
+		"borderStyle": {
 			"type": "string"
 		},
 		"borderWidth": {

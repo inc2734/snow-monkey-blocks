@@ -13,9 +13,11 @@ export default function ( { attributes, className } ) {
 		avatarAlt,
 		avatarURL,
 		avatarBorderColor,
+		avatarBorderStyle,
 		avatarBorderWidth,
 		backgroundColor,
 		borderColor,
+		borderStyle,
 		borderWidth,
 		textColor,
 		balloonName,
@@ -26,9 +28,11 @@ export default function ( { attributes, className } ) {
 		'--smb-balloon--background-color': backgroundColor || undefined,
 		'--smb-balloon--border-color':
 			borderColor || backgroundColor || undefined,
+		'--smb-balloon--border-style': borderStyle || undefined,
 		'--smb-balloon--border-width': borderWidth || undefined,
 		'--smb-balloon--color': textColor || undefined,
 		'--smb-balloon--avatar-border-color': avatarBorderColor || undefined,
+		'--smb-balloon--avatar-border-style': avatarBorderStyle || undefined,
 		'--smb-balloon--avatar-border-width': avatarBorderWidth || undefined,
 	};
 

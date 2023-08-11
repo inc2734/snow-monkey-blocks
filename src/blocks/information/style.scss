@@ -16,6 +16,7 @@
 	--smb-information--label-align: left;
 	--smb-information--label-vertical-align: start;
 	--smb-information--border-color: transparent;
+	--smb-information--border-style: solid;
 	--smb-information--border-width: 0px;
 
 	&__body {
@@ -43,8 +44,8 @@
 
 	.smb-information__item__label,
 	.smb-information__item__body {
-		border-right: var(--smb-information--border-width) solid var(--smb-information--border-color);
-		border-bottom: var(--smb-information--border-width) solid var(--smb-information--border-color);
+		border-right: var(--smb-information--border-width) var(--smb-information--border-style) var(--smb-information--border-color);
+		border-bottom: var(--smb-information--border-width) var(--smb-information--border-style) var(--smb-information--border-color);
 	}
 
 	.smb-information__item__label {
@@ -53,7 +54,7 @@
 		justify-content: var(--smb-information--label-vertical-align);
 		text-align: var(--smb-information--label-align);
 		background-color: var(--smb-information--label-column-background-color);
-		border-left: var(--smb-information--border-width) solid var(--smb-information--border-color);
+		border-left: var(--smb-information--border-width) var(--smb-information--border-style) var(--smb-information--border-color);
 		color: var(--smb-information--label-column-text-color);
 	}
 
@@ -65,12 +66,12 @@
 .smb-information:not([data-sm-split-column="true"]) {
 	.smb-information__body > :first-child {
 		.smb-information__item__label {
-			border-top: var(--smb-information--border-width) solid var(--smb-information--border-color);
+			border-top: var(--smb-information--border-width) var(--smb-information--border-style) var(--smb-information--border-color);
 		}
 
 		.smb-information__item__body {
 			@include _media-min(md) {
-				border-top: var(--smb-information--border-width) solid var(--smb-information--border-color);
+				border-top: var(--smb-information--border-width) var(--smb-information--border-style) var(--smb-information--border-color);
 			}
 		}
 	}
@@ -87,7 +88,7 @@
 		padding: var(--smb-information--column-padding);
 
 		@include _media-max(sm) {
-			border-left: var(--smb-information--border-width) solid var(--smb-information--border-color);
+			border-left: var(--smb-information--border-width) var(--smb-information--border-style) var(--smb-information--border-color);
 		}
 	}
 }
@@ -96,7 +97,7 @@
 	.smb-information__body > :first-child {
 		.smb-information__item__label,
 		.smb-information__item__body {
-			border-top: var(--smb-information--border-width) solid var(--smb-information--border-color);
+			border-top: var(--smb-information--border-width) var(--smb-information--border-style) var(--smb-information--border-color);
 		}
 	}
 
