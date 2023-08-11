@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue, kutsu
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 20.0.1
+Stable tag: 20.1.0
 Requires at least: 6.3
 Tested up to: 6.3
 Requires PHP: 7.4
@@ -115,6 +115,13 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 27. Grid block
 
 == Changelog ==
+
+= 20.1.0 =
+* [Box] Fixed a bug that prevented border settings from being displayed.
+* [Balloon] Added style and transparency settings to border settings.
+* [Box] Added style and transparency settings to border settings.
+* [Information] Added style and transparency settings to border settings.
+* [Contents slider] Added style and transparency settings to border settings.
 
 = 20.0.1 =
 * [Section] Fixed a bug where "Container alignment" did not work.
