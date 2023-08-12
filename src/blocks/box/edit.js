@@ -186,6 +186,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 								metadata.attributes.borderRadius.default,
 						} )
 					}
+					panelId={ clientId }
 				>
 					<div className="smb-border-radius-control">
 						<BorderRadiusControl
