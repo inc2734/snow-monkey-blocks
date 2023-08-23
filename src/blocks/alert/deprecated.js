@@ -1,7 +1,12 @@
 import classnames from 'classnames';
 
+import {
+	RichText,
+	useBlockProps,
+	useInnerBlocksProps,
+} from '@wordpress/block-editor';
+
 import { rawHandler } from '@wordpress/blocks';
-import { RichText, useBlockProps } from '@wordpress/block-editor';
 
 import metadata from './block.json';
 
@@ -9,6 +14,47 @@ const blockAttributes = metadata.attributes;
 const blockSupports = metadata.supports;
 
 export default [
+	{
+		attributes: {
+			...blockAttributes,
+			icon: {
+				type: 'string',
+				default: 'exclamation-circle',
+			},
+		},
+
+		supports: {
+			...blockSupports,
+		},
+
+		save( { attributes, className } ) {
+			const { title, modifier, icon } = attributes;
+
+			const classes = classnames( 'smb-alert', {
+				[ className ]: !! className,
+				[ `smb-alert--${ modifier }` ]: !! modifier,
+			} );
+
+			return (
+				<div { ...useBlockProps.save( { className: classes } ) }>
+					{ ! RichText.isEmpty( title ) && (
+						<div className="smb-alert__title">
+							<i className="fa-solid fa-exclamation-circle" />
+							<strong>
+								<RichText.Content value={ title } />
+							</strong>
+						</div>
+					) }
+
+					<div
+						{ ...useInnerBlocksProps.save( {
+							className: 'smb-alert__body',
+						} ) }
+					/>
+				</div>
+			);
+		},
+	},
 	{
 		attributes: {
 			...blockAttributes,
