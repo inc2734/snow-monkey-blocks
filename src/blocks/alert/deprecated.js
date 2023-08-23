@@ -28,7 +28,7 @@ export default [
 		},
 
 		save( { attributes, className } ) {
-			const { title, modifier, icon } = attributes;
+			const { title, modifier } = attributes;
 
 			const classes = classnames( 'smb-alert', {
 				[ className ]: !! className,
