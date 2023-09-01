@@ -4,6 +4,7 @@ import {
 	BaseControl,
 	Button,
 	Disabled,
+	FormTokenField,
 	Placeholder,
 	RangeControl,
 	SelectControl,
@@ -30,6 +31,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 	const {
 		postType,
 		termId,
+		authors,
 		postsPerPage,
 		layout,
 		gap,
@@ -77,44 +79,55 @@ export default function ( { attributes, setAttributes, clientId } ) {
 		setAttributes( { clientId } );
 	}, [ clientId ] );
 
-	const { allPostTypes, taxonomiesTerms } = useSelect( ( select ) => {
-		const { getPostTypes, getEntityRecords, getTaxonomy } =
-			select( 'core' );
+	const { allPostTypes, taxonomiesTerms, allAuthors } = useSelect(
+		( select ) => {
+			const { getPostTypes, getEntityRecords, getTaxonomy } =
+				select( 'core' );
 
-		let _allPostTypes = getPostTypes( { per_page: -1 } ) || [];
-		_allPostTypes = _allPostTypes.filter(
-			( type ) =>
-				type.viewable &&
-				! type.hierarchical &&
-				'media' !== type.rest_base
-		);
+			let _allPostTypes = getPostTypes( { per_page: -1 } ) || [];
+			_allPostTypes = _allPostTypes.filter(
+				( type ) =>
+					type.viewable &&
+					! type.hierarchical &&
+					'media' !== type.rest_base
+			);
 
-		const _taxonomiesTerms = [];
-		_allPostTypes.forEach( ( _postType ) => {
-			_postType.taxonomies.forEach( ( _taxonomy ) => {
-				const _taxonomyObj = getTaxonomy( _taxonomy );
-				if ( !! _taxonomyObj?.visibility?.show_ui ) {
-					const terms =
-						getEntityRecords( 'taxonomy', _taxonomy, {
-							per_page: -1,
-						} ) || [];
+			const _taxonomiesTerms = [];
+			_allPostTypes.forEach( ( _postType ) => {
+				_postType.taxonomies.forEach( ( _taxonomy ) => {
+					const _taxonomyObj = getTaxonomy( _taxonomy );
+					if ( !! _taxonomyObj?.visibility?.show_ui ) {
+						const terms =
+							getEntityRecords( 'taxonomy', _taxonomy, {
+								per_page: -1,
+							} ) || [];
 
-					if ( 0 < terms.length ) {
-						_taxonomiesTerms.push( {
-							taxonomy: _taxonomy,
-							label: _taxonomyObj.name,
-							terms,
-						} );
+						if ( 0 < terms.length ) {
+							_taxonomiesTerms.push( {
+								taxonomy: _taxonomy,
+								label: _taxonomyObj.name,
+								terms,
+							} );
+						}
 					}
-				}
+				} );
 			} );
-		} );
 
-		return {
-			allPostTypes: _allPostTypes,
-			taxonomiesTerms: _taxonomiesTerms,
-		};
-	}, [] );
+			const _allAuthors = select( 'core' ).getUsers( {
+				who: 'authors',
+				per_page: -1,
+				_fields: 'id,name',
+				context: 'view',
+			} );
+
+			return {
+				allPostTypes: _allPostTypes,
+				taxonomiesTerms: _taxonomiesTerms,
+				allAuthors: _allAuthors,
+			};
+		},
+		[]
+	);
 
 	const taxonomiesTermsWithPostType = [];
 	const taxonomiesWithPostType =
@@ -231,6 +244,61 @@ export default function ( { attributes, setAttributes, clientId } ) {
 							) }
 						</ToolsPanelItem>
 					) }
+
+					<ToolsPanelItem
+						hasValue={ () =>
+							authors !== metadata.attributes.authors.default
+						}
+						isShownByDefault
+						label={ __( 'Authors', 'snow-monkey-blocks' ) }
+						onDeselect={ () =>
+							setAttributes( {
+								authors: metadata.attributes.authors.default,
+							} )
+						}
+					>
+						<FormTokenField
+							label={ __( 'Authors', 'snow-monkey-blocks' ) }
+							onChange={ ( newValue ) => {
+								const newAuthors = newValue
+									.map( ( authorNameOrAuthor ) => {
+										const authorName =
+											authorNameOrAuthor?.value ||
+											authorNameOrAuthor;
+										return allAuthors.find(
+											( author ) =>
+												author.name === authorName
+										)?.id;
+									} )
+									.filter( ( v ) => v );
+								setAttributes( {
+									authors: Array.from(
+										new Set( newAuthors )
+									),
+								} );
+							} }
+							suggestions={ [
+								...( allAuthors || [] ).map(
+									( author ) => author.name
+								),
+							] }
+							value={ ( () => {
+								return authors
+									.map( ( authorId ) => {
+										const findedAuthor = allAuthors?.find(
+											( author ) => author.id === authorId
+										);
+										return (
+											!! findedAuthor && {
+												id: findedAuthor.id,
+												value: findedAuthor.name,
+											}
+										);
+									} )
+									.filter( ( v ) => v );
+							} )() }
+						/>
+					</ToolsPanelItem>
 
 					<ToolsPanelItem
 						hasValue={ () =>

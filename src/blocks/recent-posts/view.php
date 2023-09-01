@@ -50,6 +50,7 @@ $instance = array(
 	'title'                => null,
 	'post-type'            => $attributes['postType'],
 	'taxonomy'             => ! empty( $attributes['taxonomy'] ) && ! empty( $attributes['termId'] ) ? $attributes['taxonomy'] . '@' . $attributes['termId'] : false,
+	'authors'              => $attributes['authors'],
 	'posts-per-page'       => $attributes['postsPerPage'],
 	'layout'               => $attributes['layout'],
 	'gap'                  => $attributes['gap'],
@@ -96,6 +97,21 @@ if ( $instance['taxonomy'] ) {
 						'field'    => 'term_id',
 					),
 				)
+			);
+
+			return $args;
+		},
+		9
+	);
+}
+
+if ( $instance['authors'] ) {
+	add_filter(
+		'snow_monkey_recent_posts_widget_args_' . $widget_number,
+		function ( $args ) use ( $instance ) {
+			$args['author__in'] = array_merge(
+				isset( $args['author__in'] ) ? $args['author__in'] : array(),
+				$instance['authors']
 			);
 
 			return $args;
