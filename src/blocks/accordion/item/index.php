@@ -32,3 +32,21 @@ add_filter(
 		return $p1->get_updated_html();
 	}
 );
+
+add_shortcode(
+	'snow-monkey-blocks-accordion-item-control',
+	function( $atts ) {
+		$atts = shortcode_atts(
+			array(
+				'checked' => null,
+			),
+			$atts
+		);
+
+		$checked = $atts['checked'] && 'false' !== $atts['checked']
+			? ' checked="' . esc_attr( $atts['checked'] ) . '"'
+			: '';
+
+		return trim( '<input type="checkbox" class="smb-accordion__item__control"' . $checked . '/>' );
+	}
+);
