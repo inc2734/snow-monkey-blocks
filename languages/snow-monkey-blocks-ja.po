@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-"
 "blocks\n"
-"POT-Creation-Date: 2023-09-01T02:51:31+00:00\n"
-"PO-Revision-Date: 2023-09-01 11:53+0900\n"
+"POT-Creation-Date: 2023-09-01T13:48:35+00:00\n"
+"PO-Revision-Date: 2023-09-01 22:49+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -702,19 +702,19 @@ msgstr "設定した表示順は実際の投稿画面でのみ有効です"
 msgid "orderby"
 msgstr "並べ替えの基準"
 
-#: dist/blocks/categories-list/index.js:1 dist/blocks/taxonomy-terms/index.js:1
+#: dist/blocks/categories-list/index.js:1
 msgid "category id"
 msgstr "カテゴリーID"
 
-#: dist/blocks/categories-list/index.js:1 dist/blocks/taxonomy-terms/index.js:1
+#: dist/blocks/categories-list/index.js:1
 msgid "category name"
 msgstr "カテゴリー名"
 
-#: dist/blocks/categories-list/index.js:1 dist/blocks/taxonomy-terms/index.js:1
+#: dist/blocks/categories-list/index.js:1
 msgid "category slug"
 msgstr "カテゴリースラッグ"
 
-#: dist/blocks/categories-list/index.js:1 dist/blocks/taxonomy-terms/index.js:1
+#: dist/blocks/categories-list/index.js:1
 msgid "category post count"
 msgstr "記事数"
 
@@ -2457,6 +2457,26 @@ msgstr "タグ"
 #: dist/blocks/taxonomy-terms/index.js:1
 msgid "Taxonomies"
 msgstr "タクソノミー"
+
+#: dist/blocks/taxonomy-terms/index.js:1
+msgid "Category id"
+msgstr "カテゴリーID"
+
+#: dist/blocks/taxonomy-terms/index.js:1
+msgid "Category name"
+msgstr "カテゴリー名"
+
+#: dist/blocks/taxonomy-terms/index.js:1
+msgid "Category slug"
+msgstr "カテゴリースラッグ"
+
+#: dist/blocks/taxonomy-terms/index.js:1
+msgid "Category post count"
+msgstr "記事数"
+
+#: dist/blocks/taxonomy-terms/index.js:1
+msgid "Category description"
+msgstr "カテゴリーの説明"
 
 #: dist/blocks/taxonomy-terms/index.js:1
 msgid "Tag"

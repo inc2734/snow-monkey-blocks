@@ -106,31 +106,38 @@ export default function ( { attributes, setAttributes } ) {
 							options={ [
 								{
 									label: __(
-										'category id',
+										'Category id',
 										'snow-monkey-blocks'
 									),
 									value: 'id',
 								},
 								{
 									label: __(
-										'category name',
+										'Category name',
 										'snow-monkey-blocks'
 									),
 									value: 'name',
 								},
 								{
 									label: __(
-										'category slug',
+										'Category slug',
 										'snow-monkey-blocks'
 									),
 									value: 'slug',
 								},
 								{
 									label: __(
-										'category post count',
+										'Category post count',
 										'snow-monkey-blocks'
 									),
 									value: 'count',
+								},
+								{
+									label: __(
+										'Category description',
+										'snow-monkey-blocks'
+									),
+									value: 'description',
 								},
 							] }
 							onChange={ ( value ) =>
