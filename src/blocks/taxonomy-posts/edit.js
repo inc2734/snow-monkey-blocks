@@ -76,7 +76,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 
 	useEffect( () => {
 		setAttributes( {
-			clientId: attributes.clientId ?? clientId,
+			clientId: attributes.clientId || clientId,
 		} );
 	}, [] );
 
