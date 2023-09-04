@@ -47,6 +47,6 @@ add_shortcode(
 			? ' checked="' . esc_attr( $atts['checked'] ) . '"'
 			: '';
 
-		return trim( '<input type="checkbox" class="smb-accordion__item__control"' . $checked . '/>' );
+		return trim( '<input type="checkbox" class="smb-accordion__item__control"' . $checked . ' aria-label="' . __( 'A accordion item', 'snow-monkey-blocks' ) . '" />' );
 	}
 );

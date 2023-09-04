@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-"
 "blocks\n"
-"POT-Creation-Date: 2023-09-04T07:10:55+00:00\n"
-"PO-Revision-Date: 2023-09-04 16:13+0900\n"
+"POT-Creation-Date: 2023-09-04T11:03:36+00:00\n"
+"PO-Revision-Date: 2023-09-04 20:05+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -53,6 +53,10 @@ msgstr "利用可能なブロックの設定をリセット"
 #: App/Controller/Manager.php:124
 msgid "Available blocks"
 msgstr "利用可能なブロック"
+
+#: dist/blocks/accordion/item/index.php:50
+msgid "A accordion item"
+msgstr "アコーディオン項目"
 
 #: dist/blocks/categories-list/view.php:50
 #: dist/blocks/categories-list/index.js:1
