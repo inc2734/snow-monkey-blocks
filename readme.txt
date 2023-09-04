@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue, kutsu
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 20.1.3
+Stable tag: 20.2.0
 Requires at least: 6.3
 Tested up to: 6.3
 Requires PHP: 7.4
@@ -113,8 +113,17 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 25. Hero header block
 26. Flex block
 27. Grid block
+28. Read more box block
 
 == Changelog ==
+
+= 20.2.0 =
+* Add new block: Read more box block.
+* [Recent posts] Add filtering settings by authorsgit push.
+* [Tabs] Add `role="tablist"`.
+* [Accordion:item] Add `aria-label`.
+* [Accordion] Fixed a bug that blocks were broken when posting with less than editor role when multisite.
+* [Tabs] Fixed a bug that blocks were broken when posting with less than editor role when multisite.
 
 = 20.1.3 =
 * [Alert] Fixed a bug that could cause the contents inside to disappear.
