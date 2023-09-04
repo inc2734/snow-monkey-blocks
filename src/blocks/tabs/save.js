@@ -33,7 +33,7 @@ export default function ( { attributes, className } ) {
 			}
 		>
 			{ 0 < tabs.length && (
-				<div className="smb-tabs__tabs">
+				<div className="smb-tabs__tabs" role="tablist">
 					{ tabs.map( ( tab, index ) => {
 						return (
 							<div
