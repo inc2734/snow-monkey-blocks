@@ -1,0 +1,75 @@
+@import '../../css/core/block';
+
+.smb-read-more-box {
+	--smb-read-more-box--content-height: 100px;
+	--smb-read-more-box--mask-color: var(--_global--background-color, #fff);
+
+	&__content {
+		@include _transition(height);
+		position: relative;
+		overflow: hidden;
+
+		&[aria-hidden="true"] {
+			height: var(--smb-read-more-box--content-height);
+		}
+	}
+
+	&__action {
+		margin-top: var(--_padding-1);
+		display: flex;
+		flex-wrap: wrap;
+
+		&.is-content-justification-left {
+			justify-content: start;
+		}
+
+		&.is-content-justification-center {
+			justify-content: center;
+		}
+
+		&.is-content-justification-right {
+			justify-content: end;
+		}
+	}
+
+	&__button {
+		cursor: pointer;
+	}
+
+	&--has-mask {
+		.smb-read-more-box__content[aria-hidden="true"]::after {
+			background: linear-gradient(to bottom, transparent 0%, var(--smb-read-more-box--mask-color) 100%);
+			height: 50px;
+			display: block;
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+		}
+	}
+}
+
+.smb-read-more-box.is-style-ghost {
+	.smb-read-more-box__button {
+		--smb-btn--color: var(--smb-btn--style--ghost--color);
+
+		border: 1px solid var(--smb-btn--style--ghost--border-color);
+		background-color: transparent;
+	}
+}
+
+.smb-read-more-box.is-style-text {
+	.smb-read-more-box__button {
+		--smb-btn--background-color: transparent;
+		--smb-btn--color: var(--smb-btn--style--text--color);
+		--smb-btn--padding: 0px;
+
+		border: none;
+	}
+}
+
+:where(.smb-read-more-box__content.is-layout-constrained > *) {
+	--wp--style--global--content-size: 100%;
+	--wp--style--global--wide-size: 100%;
+}

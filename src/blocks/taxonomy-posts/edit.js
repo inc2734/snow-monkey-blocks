@@ -75,8 +75,10 @@ export default function ( { attributes, setAttributes, clientId } ) {
 	}, [ layout ] );
 
 	useEffect( () => {
-		setAttributes( { clientId } );
-	}, [ clientId ] );
+		setAttributes( {
+			clientId: attributes.clientId ?? clientId,
+		} );
+	}, [] );
 
 	const { taxonomiesTerms, taxonomies } = useSelect( ( select ) => {
 		const { getTaxonomies, getEntityRecords } = select( 'core' );

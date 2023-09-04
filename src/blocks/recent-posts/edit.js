@@ -76,8 +76,10 @@ export default function ( { attributes, setAttributes, clientId } ) {
 	}, [ layout ] );
 
 	useEffect( () => {
-		setAttributes( { clientId } );
-	}, [ clientId ] );
+		setAttributes( {
+			clientId: attributes.clientId ?? clientId,
+		} );
+	}, [] );
 
 	const { allPostTypes, taxonomiesTerms, allAuthors } = useSelect(
 		( select ) => {

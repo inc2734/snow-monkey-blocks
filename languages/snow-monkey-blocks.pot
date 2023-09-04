@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-09-01T13:48:35+00:00\n"
+"POT-Creation-Date: 2023-09-04T07:10:55+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: snow-monkey-blocks\n"
@@ -131,6 +131,7 @@ msgstr ""
 #: dist/blocks/pickup-slider/index.js:1
 #: dist/blocks/pricing-table/index.js:1
 #: dist/blocks/rating-box/item/index.js:1
+#: dist/blocks/read-more-box/index.js:1
 #: dist/blocks/recent-posts/index.js:1
 #: dist/blocks/rss/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
@@ -257,6 +258,7 @@ msgstr ""
 #: dist/blocks/panels/item/horizontal/index.js:1
 #: dist/blocks/panels/item/vertical/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/read-more-box/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-side-heading/index.js:1
 #: dist/blocks/section-with-bgimage/index.js:1
@@ -281,6 +283,7 @@ msgstr ""
 #: dist/blocks/panels/item/horizontal/index.js:1
 #: dist/blocks/panels/item/vertical/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/read-more-box/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-side-heading/index.js:1
 #: dist/blocks/section-with-bgimage/index.js:1
@@ -305,6 +308,7 @@ msgstr ""
 #: dist/blocks/panels/item/horizontal/index.js:1
 #: dist/blocks/panels/item/vertical/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/read-more-box/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-side-heading/index.js:1
 #: dist/blocks/section-with-bgimage/index.js:1
@@ -329,6 +333,7 @@ msgstr ""
 #: dist/blocks/panels/item/horizontal/index.js:1
 #: dist/blocks/panels/item/vertical/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/read-more-box/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-side-heading/index.js:1
 #: dist/blocks/section-with-bgimage/index.js:1
@@ -365,6 +370,7 @@ msgstr ""
 #: dist/blocks/panels/item/horizontal/index.js:1
 #: dist/blocks/panels/item/vertical/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/read-more-box/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:17
 msgid "Background color"
 msgstr ""
@@ -382,6 +388,7 @@ msgstr ""
 #: dist/blocks/panels/item/horizontal/index.js:1
 #: dist/blocks/panels/item/vertical/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/read-more-box/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-side-heading/index.js:1
 #: dist/blocks/section-with-bgimage/index.js:1
@@ -544,6 +551,7 @@ msgstr ""
 #: dist/blocks/btn/index.js:1
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/read-more-box/index.js:1
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
 msgid "Border radius"
@@ -623,6 +631,7 @@ msgstr ""
 #: dist/blocks/items/index.js:1
 #: dist/blocks/media-text/index.js:1
 #: dist/blocks/panels/index.js:1
+#: dist/blocks/read-more-box/index.js:1
 #: dist/blocks/recent-posts/index.js:5
 #: dist/blocks/rss/index.js:3
 #: dist/blocks/section-break-the-grid/index.js:1
@@ -640,6 +649,7 @@ msgstr ""
 
 #: dist/blocks/btn-box/index.js:1
 #: dist/blocks/btn/index.js:1
+#: dist/blocks/read-more-box/index.js:1
 msgid "Ghost"
 msgstr ""
 
@@ -647,6 +657,7 @@ msgstr ""
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/read-more-box/index.js:1
 msgid "Button settings"
 msgstr ""
 
@@ -655,6 +666,7 @@ msgstr ""
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/read-more-box/index.js:1
 msgid "Button size"
 msgstr ""
 
@@ -663,6 +675,7 @@ msgstr ""
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/read-more-box/index.js:1
 msgid "Normal size"
 msgstr ""
 
@@ -671,6 +684,7 @@ msgstr ""
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/read-more-box/index.js:1
 msgid "Litle wider"
 msgstr ""
 
@@ -679,6 +693,7 @@ msgstr ""
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/read-more-box/index.js:1
 msgid "Wider"
 msgstr ""
 
@@ -687,6 +702,7 @@ msgstr ""
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/read-more-box/index.js:1
 msgid "More wider"
 msgstr ""
 
@@ -695,6 +711,7 @@ msgstr ""
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/read-more-box/index.js:1
 msgid "Full size"
 msgstr ""
 
@@ -703,6 +720,7 @@ msgstr ""
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
+#: dist/blocks/read-more-box/index.js:1
 msgid "Wrap"
 msgstr ""
 
@@ -755,6 +773,7 @@ msgstr ""
 
 #: dist/blocks/btn/index.js:1
 #: dist/blocks/child-pages/index.js:1
+#: dist/blocks/read-more-box/index.js:1
 #: dist/blocks/recent-posts/index.js:3
 #: dist/blocks/rss/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
@@ -1845,6 +1864,38 @@ msgstr ""
 
 #: dist/blocks/rating-box/item/index.js:1
 msgid "Rating"
+msgstr ""
+
+#: dist/blocks/read-more-box/index.js:1
+msgid "Read more"
+msgstr ""
+
+#: dist/blocks/read-more-box/index.js:1
+msgid "Close"
+msgstr ""
+
+#: dist/blocks/read-more-box/index.js:1
+msgid "Label"
+msgstr ""
+
+#: dist/blocks/read-more-box/index.js:1
+msgid "Label (for Close)"
+msgstr ""
+
+#: dist/blocks/read-more-box/index.js:1
+msgid "Button justification"
+msgstr ""
+
+#: dist/blocks/read-more-box/index.js:1
+msgid "Height of contents when closed"
+msgstr ""
+
+#: dist/blocks/read-more-box/index.js:1
+msgid "Masks the lower part when closed"
+msgstr ""
+
+#: dist/blocks/read-more-box/index.js:1
+msgid "Mask Color"
 msgstr ""
 
 #: dist/blocks/recent-posts/index.js:1
@@ -3170,6 +3221,16 @@ msgstr ""
 #: dist/blocks/rating-box/item/block.json
 msgctxt "block description"
 msgid "It is a child block of the rating box block."
+msgstr ""
+
+#: dist/blocks/read-more-box/block.json
+msgctxt "block title"
+msgid "Read more box"
+msgstr ""
+
+#: dist/blocks/read-more-box/block.json
+msgctxt "block description"
+msgid "This block can open and close glimpsed contents."
 msgstr ""
 
 #: dist/blocks/recent-posts/block.json

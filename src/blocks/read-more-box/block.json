@@ -1,0 +1,102 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"textdomain": "snow-monkey-blocks",
+	"name": "snow-monkey-blocks/read-more-box",
+	"title": "Read more box",
+	"description": "This block can open and close glimpsed contents.",
+	"category": "smb",
+	"attributes": {
+		"label": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-read-more-box__button",
+			"attribute": "data-label",
+			"default": ""
+		},
+		"closeLabel": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-read-more-box__button",
+			"attribute": "data-close-label",
+			"default": ""
+		},
+		"btnJustification": {
+			"type": "string",
+			"default": "center"
+		},
+		"contenHeight": {
+			"type": "string",
+			"default": "100px"
+		},
+		"mask": {
+			"type": "boolean",
+			"default": false
+		},
+		"maskColor": {
+			"type": "string"
+		},
+		"clientId": {
+			"type": "string",
+			"default": ""
+		},
+		"btnBackgroundColor": {
+			"type": "string"
+		},
+		"btnBackgroundGradientColor": {
+			"type": "string"
+		},
+		"btnTextColor": {
+			"type": "string"
+		},
+		"btnSize": {
+			"type": "string",
+			"default": ""
+		},
+		"btnBorderRadius": {
+			"type": "string"
+		},
+		"btnWrap": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"supports": {
+		"html": false,
+		"spacing": {
+			"margin": true
+		},
+		"layout": {
+			"allowSwitching": false,
+			"allowEditing": false,
+			"allowInheriting": false,
+			"default": {
+				"type": "constrained"
+			}
+		},
+		"snowmonkeyeditor": {
+			"blockPresets": {
+				"ignore": [ "label", "closeLabel", "clientId" ]
+			}
+		}
+	},
+	"example": {
+		"innerBlocks": [
+			{
+				"name": "core/paragraph",
+				"attributes": {
+					"content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cill"
+				}
+			},
+			{
+				"name": "core/paragraph",
+				"attributes": {
+					"content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cill"
+				}
+			}
+		]
+	},
+	"style": "file:./style.css",
+	"editorScript": "file:./index.js",
+	"viewScript": "file:./script.js"
+}
