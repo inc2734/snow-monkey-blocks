@@ -13,7 +13,11 @@ register_block_type(
 
 add_filter(
 	'wp_kses_allowed_html',
-	function ( $tags ) {
+	function ( $tags, $context ) {
+		if ( 'post' !== $context ) {
+			return $tags;
+		}
+
 		$tags['button'] = wp_parse_args(
 			array(
 				'aria-selected' => true,
@@ -22,5 +26,7 @@ add_filter(
 		);
 
 		return $tags;
-	}
+	},
+	10,
+	2
 );
