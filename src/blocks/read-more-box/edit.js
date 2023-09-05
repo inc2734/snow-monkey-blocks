@@ -87,6 +87,14 @@ export default function ( { attributes, setAttributes, clientId, className } ) {
 		'--smb-read-more-box--mask-color': ( mask && maskColor ) || undefined,
 	};
 
+	const btnWrapperClasses = classnames(
+		'smb-read-more-box__btn-wrapper',
+		'smb-btn-wrapper',
+		{
+			[ `smb-btn-wrapper--${ btnSize }` ]: !! btnSize,
+		}
+	);
+
 	const btnClasses = classnames( 'smb-read-more-box__button', 'smb-btn', {
 		[ `smb-btn--${ btnSize }` ]: !! btnSize,
 		'smb-btn--wrap': btnWrap,
@@ -483,7 +491,7 @@ export default function ( { attributes, setAttributes, clientId, className } ) {
 			<div { ...blockProps }>
 				<div { ...innerBlocksProps } id={ clientId } />
 				<div className={ actionClasses }>
-					<div className="smb-btn-box__btn-wrapper">
+					<div className={ btnWrapperClasses }>
 						<button
 							className={ btnClasses }
 							style={ btnStyles }

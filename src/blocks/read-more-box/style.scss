@@ -32,6 +32,10 @@
 		}
 	}
 
+	&__btn-wrapper.smb-btn-wrapper--full {
+		flex-grow: 1;
+	}
+
 	&__button {
 		cursor: pointer;
 	}
