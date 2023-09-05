@@ -9,15 +9,16 @@ if ( empty( $attributes['taxonomy'] ) ) {
 	return;
 }
 
-$terms = get_terms(
-	$attributes['taxonomy'],
-	array(
-		'orderby' => $attributes['orderby'],
-		'order'   => $attributes['order'],
-		'parent'  => 0,
-	)
+$args = array(
+	'taxonomy' => $attributes['taxonomy'],
+	'orderby'  => $attributes['orderby'],
+	'order'    => $attributes['order'],
+	'parent'   => 0,
 );
 
+$args = apply_filters( 'snow_monkey_blocks_taxonomy_terms_args', $args );
+
+$terms = get_terms( $args );
 if ( ! $terms ) {
 	return;
 }

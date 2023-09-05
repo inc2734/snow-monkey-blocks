@@ -18,9 +18,14 @@
 		"order": {
 			"type": "string",
 			"default": "asc"
+		},
+		"anchor": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"supports": {
+		"anchor": true,
 		"html": false,
 		"spacing": {
 			"margin": true
