@@ -16,7 +16,7 @@ $args = array(
 	'parent'   => 0,
 );
 
-$args = apply_filters( 'snow_monkey_blocks_taxonomy_terms_args', $args );
+$args = apply_filters( 'snow_monkey_blocks_taxonomy_terms_args', $args, $attributes );
 
 $terms = get_terms( $args );
 if ( ! $terms ) {
