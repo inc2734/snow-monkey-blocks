@@ -357,9 +357,9 @@ export default function ( {
 							setAttributes( {
 								border: {
 									...border,
-									color: value.color,
-									style: value.style,
-									width: value.width,
+									color: value?.color,
+									style: value?.style,
+									width: value?.width,
 								},
 							} );
 						} }

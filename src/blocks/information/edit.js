@@ -346,9 +346,9 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						enableStyle={ true }
 						onChange={ ( value ) => {
 							setAttributes( {
-								borderColor: value.color,
-								borderStyle: value.style,
-								borderWidth: value.width,
+								borderColor: value?.color,
+								borderStyle: value?.style,
+								borderWidth: value?.width,
 							} );
 						} }
 						popoverOffset={ 40 }

@@ -145,9 +145,9 @@ export default function ( { attributes, setAttributes, className } ) {
 							enableStyle={ true }
 							onChange={ ( value ) => {
 								setAttributes( {
-									borderColor: value.color,
-									borderStyle: value.style,
-									borderWidth: value.width,
+									borderColor: value?.color,
+									borderStyle: value?.style,
+									borderWidth: value?.width,
 								} );
 							} }
 							popoverOffset={ 40 }
@@ -318,9 +318,9 @@ export default function ( { attributes, setAttributes, className } ) {
 									enableStyle={ true }
 									onChange={ ( value ) => {
 										setAttributes( {
-											avatarBorderColor: value.color,
-											avatarBorderStyle: value.style,
-											avatarBorderWidth: value.width,
+											avatarBorderColor: value?.color,
+											avatarBorderStyle: value?.style,
+											avatarBorderWidth: value?.width,
 										} );
 									} }
 									popoverOffset={ 40 }
