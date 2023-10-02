@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue, kutsu
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 20.3.0
+Stable tag: 20.3.1
 Requires at least: 6.3
 Tested up to: 6.3
 Requires PHP: 7.4
@@ -116,6 +116,11 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 28. Read more box block
 
 == Changelog ==
+
+= 20.3.1 =
+* [Taxonomy terms] Added `$attributes` as second argument to filter hook `snow_monkey_blocks_taxonomy_terms_args`.
+* [Box] Fixed a bug that blocks were broken when the border width was left blank.
+* [Section (Break the grid)] Fixed a bug that shadows were displayed before images when using EWWW Image Optimizer.
 
 = 20.3.0 =
 * [Taxonomy] Add filter hook `snow_monkey_blocks_taxonomy_terms_args`.
