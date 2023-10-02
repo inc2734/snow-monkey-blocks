@@ -272,7 +272,13 @@
 									top: 0;
 									bottom: 0;
 
-									> img {
+									> picture {
+										position: relative;
+										height: 100%;
+										width: 100%;
+									}
+
+									img {
 										height: 100%;
 										width: 100%;
 										object-fit: cover;
@@ -349,13 +355,14 @@
 	&__figure {
 		position: relative;
 
-		> img {
+		picture,
+		img {
 			position: relative;
 			width: 100%;
 		}
 
-		> img,
-		> video {
+		img,
+		video {
 			opacity: var(--smb-section-break-the-grid--mask-opacity);
 		}
 	}
