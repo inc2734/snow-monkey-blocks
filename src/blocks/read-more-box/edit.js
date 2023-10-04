@@ -61,9 +61,9 @@ export default function ( { attributes, setAttributes, clientId, className } ) {
 		setAttributes( {
 			label: label || __( 'Read more', 'snow-monkey-blocks' ),
 			closeLabel: closeLabel || __( 'Close', 'snow-monkey-blocks' ),
-			clientId: attributes.clientId || clientId,
+			clientId,
 		} );
-	}, [] );
+	}, [ clientId ] );
 
 	const hasInnerBlocks = useSelect(
 		( select ) =>
