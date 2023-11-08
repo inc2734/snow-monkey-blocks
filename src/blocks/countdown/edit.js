@@ -102,6 +102,13 @@ export default function ( { attributes, setAttributes, className } ) {
 									countdownTime: value,
 								} )
 							}
+							onReset={ () =>
+								setAttributes( {
+									countdownTime:
+										metadata.attributes.countdownTime
+											.default,
+								} )
+							}
 						/>
 					</ToolsPanelItem>
 				</ToolsPanel>
