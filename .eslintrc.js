@@ -6,6 +6,7 @@ module.exports = {
 		...defaultConfig.globals,
 		smb: true,
 		Spider: true,
+		WPElement: true,
 	},
 	rules: {
 		...defaultConfig.rules,
