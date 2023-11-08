@@ -2,9 +2,9 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue, kutsu
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 20.3.2
+Stable tag: 20.3.3
 Requires at least: 6.3
-Tested up to: 6.3
+Tested up to: 6.4
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -116,6 +116,9 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 28. Read more box block
 
 == Changelog ==
+
+= 20.3.3 =
+* [Countdown timer] Fixed a bug that prevented the "Clear" button from working.
 
 = 20.3.2 =
 * [Read more box] Fixed a bug that caused unintended blocks to open and close when duplicating blocks.
