@@ -44,6 +44,7 @@ export default function ( {
 		dots,
 		dotsToThumbnail,
 		fade,
+		shuffle,
 		shifted,
 		gutter,
 		displayCaption,
@@ -440,6 +441,32 @@ export default function ( {
 						/>
 					</ToolsPanelItem>
 
+					<ToolsPanelItem
+						hasValue={ () =>
+							shuffle !== metadata.attributes.shuffle.default
+						}
+						isShownByDefault
+						label={ __( 'Shuffle slides', 'snow-monkey-blocks' ) }
+						onDeselect={ () =>
+							setAttributes( {
+								shuffle: metadata.attributes.shuffle.default,
+							} )
+						}
+					>
+						<ToggleControl
+							label={ __(
+								'Shuffle slides',
+								'snow-monkey-blocks'
+							) }
+							checked={ shuffle }
+							onChange={ ( value ) =>
+								setAttributes( {
+									shuffle: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
+
 					{ isShiftable && (
 						<ToolsPanelItem
 							hasValue={ () =>
@@ -702,6 +729,7 @@ export default function ( {
 				<div
 					{ ...useBlockProps( { className: classes, ref } ) }
 					data-fade={ fade ? 'true' : 'false' }
+					data-shuffle={ shuffle ? 'true' : 'false' }
 					data-lg-slide-to-show={
 						! fade && 1 < lgSlidesToShow
 							? lgSlidesToShow

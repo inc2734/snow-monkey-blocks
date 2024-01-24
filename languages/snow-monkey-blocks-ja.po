@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-"
 "blocks\n"
-"POT-Creation-Date: 2023-09-04T11:03:36+00:00\n"
-"PO-Revision-Date: 2023-09-04 20:05+0900\n"
+"POT-Creation-Date: 2024-01-24T06:23:00+00:00\n"
+"PO-Revision-Date: 2024-01-24 15:23+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -1632,7 +1632,6 @@ msgid "Remove this placeholder"
 msgstr "このプレースホルダーを削除"
 
 #: dist/blocks/pickup-slider/index.js:1
-#: dist/blocks/spider-pickup-slider/index.js:1
 msgid "Display in random order"
 msgstr "ランダムな順序で表示"
 
@@ -2370,6 +2369,12 @@ msgstr "カルーセル"
 #: dist/blocks/spider-slider/index.js:1
 msgid "Fade"
 msgstr "フェード"
+
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-pickup-slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+msgid "Shuffle slides"
+msgstr "スライダーをシャッフル"
 
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-slider/index.js:1

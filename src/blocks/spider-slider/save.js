@@ -10,6 +10,7 @@ export default function ( { attributes, className } ) {
 		dots,
 		dotsToThumbnail,
 		fade,
+		shuffle,
 		shifted,
 		gutter,
 		displayCaption,
@@ -39,6 +40,7 @@ export default function ( { attributes, className } ) {
 		<div
 			{ ...useBlockProps.save( { className: classes } ) }
 			data-fade={ fade ? 'true' : 'false' }
+			data-shuffle={ shuffle ? 'true' : 'false' }
 			data-interval={ 0 < interval ? interval * 1000 : undefined }
 			data-duration={ 0 < duration ? duration * 1000 : undefined }
 			data-lg-slide-to-show={

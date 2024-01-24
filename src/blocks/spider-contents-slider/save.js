@@ -8,6 +8,7 @@ export default function ( { attributes, className } ) {
 		arrows,
 		dots,
 		fade,
+		shuffle,
 		shifted,
 		gutter,
 		interval,
@@ -89,6 +90,7 @@ export default function ( { attributes, className } ) {
 		<div
 			{ ...useBlockProps.save( { className: classes, style: styles } ) }
 			data-fade={ fade ? 'true' : 'false' }
+			data-shuffle={ shuffle ? 'true' : 'false' }
 			data-interval={ 0 < interval ? interval * 1000 : undefined }
 			data-duration={ 0 < duration ? duration * 1000 : undefined }
 			data-lg-slide-to-show={

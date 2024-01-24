@@ -71,6 +71,10 @@
 			"type": "boolean",
 			"default": false
 		},
+		"shuffle": {
+			"type": "boolean",
+			"default": false
+		},
 		"shifted": {
 			"type": "boolean",
 			"default": false

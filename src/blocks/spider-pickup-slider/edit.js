@@ -35,10 +35,7 @@ export default function ( { attributes, setAttributes } ) {
 							random !== metadata.attributes.random.default
 						}
 						isShownByDefault
-						label={ __(
-							'Display in random order',
-							'snow-monkey-blocks'
-						) }
+						label={ __( 'Shuffle slides', 'snow-monkey-blocks' ) }
 						onDeselect={ () =>
 							setAttributes( {
 								random: metadata.attributes.random.default,
@@ -47,7 +44,7 @@ export default function ( { attributes, setAttributes } ) {
 					>
 						<ToggleControl
 							label={ __(
-								'Display in random order',
+								'Shuffle slides',
 								'snow-monkey-blocks'
 							) }
 							checked={ random }

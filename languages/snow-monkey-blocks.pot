@@ -1,17 +1,17 @@
-# Copyright (C) 2023 inc2734
+# Copyright (C) 2024 inc2734
 # This file is distributed under the GPL2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Snow Monkey Blocks 20.2.0\n"
+"Project-Id-Version: Snow Monkey Blocks 20.3.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-blocks\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-09-04T11:03:36+00:00\n"
+"POT-Creation-Date: 2024-01-24T06:23:00+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.7.1\n"
+"X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: snow-monkey-blocks\n"
 
 #. Plugin Name of the plugin
@@ -1800,7 +1800,6 @@ msgid "Remove this placeholder"
 msgstr ""
 
 #: dist/blocks/pickup-slider/index.js:1
-#: dist/blocks/spider-pickup-slider/index.js:1
 msgid "Display in random order"
 msgstr ""
 
@@ -2592,6 +2591,12 @@ msgstr ""
 #: dist/blocks/spider-pickup-slider/index.js:1
 #: dist/blocks/spider-slider/index.js:1
 msgid "Fade"
+msgstr ""
+
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-pickup-slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+msgid "Shuffle slides"
 msgstr ""
 
 #: dist/blocks/spider-contents-slider/index.js:1
