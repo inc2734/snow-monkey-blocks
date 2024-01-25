@@ -42,6 +42,10 @@
 		"interval": {
 			"type": "number",
 			"default": 0
+		},
+		"autoplayButton": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"supports": {

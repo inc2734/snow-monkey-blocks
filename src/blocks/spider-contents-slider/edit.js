@@ -57,6 +57,7 @@ export default function ( {
 		shifted,
 		gutter,
 		interval,
+		autoplayButton,
 		duration,
 		lgSlidesToShow,
 		mdSlidesToShow,
@@ -637,6 +638,40 @@ export default function ( {
 						/>
 					</ToolsPanelItem>
 
+					{ 0 < interval && (
+						<ToolsPanelItem
+							hasValue={ () =>
+								autoplayButton !==
+								metadata.attributes.autoplayButton.default
+							}
+							isShownByDefault
+							label={ __(
+								'Autoplay Speed in seconds',
+								'snow-monkey-blocks'
+							) }
+							onDeselect={ () =>
+								setAttributes( {
+									autoplayButton:
+										metadata.attributes.autoplayButton
+											.default,
+								} )
+							}
+						>
+							<ToggleControl
+								label={ __(
+									'Display pause button for autoplay',
+									'snow-monkey-blocks'
+								) }
+								checked={ autoplayButton }
+								onChange={ ( value ) =>
+									setAttributes( {
+										autoplayButton: value,
+									} )
+								}
+							/>
+						</ToolsPanelItem>
+					) }
+
 					<ToolsPanelItem
 						hasValue={ () =>
 							duration !== metadata.attributes.duration.default
@@ -791,6 +826,7 @@ export default function ( {
 				} ) }
 				data-fade={ fade ? 'true' : 'false' }
 				data-shuffle={ shuffle ? 'true' : 'false' }
+				data-interval={ 0 < interval ? interval * 1000 : undefined }
 				data-lg-slide-to-show={
 					! fade && 1 < lgSlidesToShow ? lgSlidesToShow : undefined
 				}
@@ -830,19 +866,43 @@ export default function ( {
 					) }
 				</div>
 
-				{ dots && (
+				{ ( ( 0 < interval && autoplayButton ) || dots ) && (
 					<div className="spider__dots">
-						{ sliderClientIds.map( ( sliderClientId, index ) => {
-							return (
+						{ autoplayButton && (
+							<>
 								<button
-									className="spider__dot"
-									data-id={ index }
-									key={ index }
+									className="spider__stop"
+									title={ __(
+										'Pause autoplay',
+										'snow-monkey-blocks'
+									) }
 								>
-									{ index }
+									⏸
 								</button>
-							);
-						} ) }
+								<button
+									className="spider__start"
+									title={ __(
+										'Start autoplay',
+										'snow-monkey-blocks'
+									) }
+								>
+									▶
+								</button>
+							</>
+						) }
+
+						{ dots &&
+							sliderClientIds.map( ( sliderClientId, index ) => {
+								return (
+									<button
+										className="spider__dot"
+										data-id={ index }
+										key={ index }
+									>
+										{ index }
+									</button>
+								);
+							} ) }
 					</div>
 				) }
 

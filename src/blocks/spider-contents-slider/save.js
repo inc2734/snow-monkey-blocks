@@ -2,6 +2,7 @@ import classnames from 'classnames';
 import hexToRgba from 'hex-to-rgba';
 
 import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
+import { __ } from '@wordpress/i18n';
 
 export default function ( { attributes, className } ) {
 	const {
@@ -12,6 +13,7 @@ export default function ( { attributes, className } ) {
 		shifted,
 		gutter,
 		interval,
+		autoplayButton,
 		duration,
 		lgSlidesToShow,
 		mdSlidesToShow,
@@ -127,19 +129,44 @@ export default function ( { attributes, className } ) {
 				) }
 			</div>
 
-			{ dots && (
+			{ ( ( 0 < interval && autoplayButton ) || dots ) && (
 				<div className="spider__dots">
-					{ sliderClientIds.map( ( sliderClientId, index ) => {
-						return (
+					{ autoplayButton && (
+						<>
 							<button
-								className="spider__dot"
-								data-id={ index }
-								key={ index }
+								className="spider__stop"
+								title={ __(
+									'Pause autoplay',
+									'snow-monkey-blocks'
+								) }
 							>
-								{ index }
+								⏸
 							</button>
-						);
-					} ) }
+
+							<button
+								className="spider__start"
+								title={ __(
+									'Start autoplay',
+									'snow-monkey-blocks'
+								) }
+							>
+								▶
+							</button>
+						</>
+					) }
+
+					{ dots &&
+						sliderClientIds.map( ( sliderClientId, index ) => {
+							return (
+								<button
+									className="spider__dot"
+									data-id={ index }
+									key={ index }
+								>
+									{ index }
+								</button>
+							);
+						} ) }
 				</div>
 			) }
 		</div>

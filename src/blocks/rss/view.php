@@ -56,6 +56,7 @@ $instance = array(
 	'arrows'         => $attributes['arrows'],
 	'dots'           => $attributes['dots'],
 	'interval'       => $attributes['interval'],
+	'autoplayButton' => $attributes['autoplayButton'],
 );
 
 // phpcs:disable VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable

@@ -98,32 +98,39 @@ $block_wrapper_attributes = get_block_wrapper_attributes(
 		<?php endif; ?>
 	</div>
 
-	<?php if ( $attributes['dots'] ) : ?>
+	<?php if ( ( 0 < $attributes['interval'] && $attributes['autoplayButton'] ) || $attributes['dots'] ) : ?>
 		<div
 			class="spider__dots"
 			data-thumbnails="<?php echo esc_attr( $attributes['dotsToThumbnail'] ? 'true' : 'false' ); ?>"
 		>
-			<?php $index = 0; ?>
-			<?php while ( $query->have_posts() ) : ?>
-				<?php
-				$query->the_post();
-				?>
-					<button
-						class="spider__dot"
-						data-id="<?php echo esc_attr( $index ); ?>"
-						<?php if ( $attributes['dotsToThumbnail'] ) : ?>
-							data-has-thumbnail="<?php echo esc_attr( has_post_thumbnail() ? 'true' : 'false' ); ?>"
-						<?php endif; ?>
-					>
-						<?php if ( $attributes['dotsToThumbnail'] ) : ?>
-							<?php the_post_thumbnail( 'medium', array( 'class' => 'spider__figure' ) ); ?>
-						<?php else : ?>
-							<?php echo esc_html( $index ); ?>
-						<?php endif; ?>
-					</button>
-				<?php $index ++; ?>
-			<?php endwhile; ?>
-			<?php wp_reset_postdata(); ?>
+			<?php if ( $attributes['autoplayButton'] ) : ?>
+				<button class="spider__stop" title="<?php esc_html_e( 'Pause autoplay', 'snow-monkey-blocks' ); ?>">⏸</button>
+				<button class="spider__start" title="<?php esc_html_e( 'Start autoplay', 'snow-monkey-blocks' ); ?>">▶</button>
+			<?php endif; ?>
+
+			<?php if ( $attributes['dots'] ) : ?>
+				<?php $index = 0; ?>
+				<?php while ( $query->have_posts() ) : ?>
+					<?php
+					$query->the_post();
+					?>
+						<button
+							class="spider__dot"
+							data-id="<?php echo esc_attr( $index ); ?>"
+							<?php if ( $attributes['dotsToThumbnail'] ) : ?>
+								data-has-thumbnail="<?php echo esc_attr( has_post_thumbnail() ? 'true' : 'false' ); ?>"
+							<?php endif; ?>
+						>
+							<?php if ( $attributes['dotsToThumbnail'] ) : ?>
+								<?php the_post_thumbnail( 'medium', array( 'class' => 'spider__figure' ) ); ?>
+							<?php else : ?>
+								<?php echo esc_html( $index ); ?>
+							<?php endif; ?>
+						</button>
+					<?php $index ++; ?>
+				<?php endwhile; ?>
+				<?php wp_reset_postdata(); ?>
+			<?php endif; ?>
 		</div>
 	<?php endif; ?>
 </div>

@@ -49,6 +49,7 @@ export default function ( {
 		gutter,
 		displayCaption,
 		interval,
+		autoplayButton,
 		duration,
 		lgSlidesToShow,
 		mdSlidesToShow,
@@ -577,6 +578,40 @@ export default function ( {
 						/>
 					</ToolsPanelItem>
 
+					{ 0 < interval && (
+						<ToolsPanelItem
+							hasValue={ () =>
+								autoplayButton !==
+								metadata.attributes.autoplayButton.default
+							}
+							isShownByDefault
+							label={ __(
+								'Autoplay Speed in seconds',
+								'snow-monkey-blocks'
+							) }
+							onDeselect={ () =>
+								setAttributes( {
+									autoplayButton:
+										metadata.attributes.autoplayButton
+											.default,
+								} )
+							}
+						>
+							<ToggleControl
+								label={ __(
+									'Display pause button for autoplay',
+									'snow-monkey-blocks'
+								) }
+								checked={ autoplayButton }
+								onChange={ ( value ) =>
+									setAttributes( {
+										autoplayButton: value,
+									} )
+								}
+							/>
+						</ToolsPanelItem>
+					) }
+
 					<ToolsPanelItem
 						hasValue={ () =>
 							duration !== metadata.attributes.duration.default
@@ -810,40 +845,64 @@ export default function ( {
 						) }
 					</div>
 
-					{ dots && (
+					{ ( ( 0 < interval && autoplayButton ) || dots ) && (
 						<div
 							className="spider__dots"
 							data-thumbnails={
 								dotsToThumbnail ? 'true' : 'false'
 							}
 						>
-							{ images.map( ( img, index ) => {
-								return (
+							{ autoplayButton && (
+								<>
 									<button
-										className="spider__dot"
-										data-id={ index }
-										key={ index }
-									>
-										{ dotsToThumbnail ? (
-											<img
-												className={ `spider__figure wp-image-${ img.id }` }
-												src={ img.url }
-												alt={ img.alt }
-												width={
-													img.width ||
-													img.sizes?.full?.width
-												}
-												height={
-													img.height ||
-													img.sizes?.full?.height
-												}
-											/>
-										) : (
-											<>{ index }</>
+										className="spider__stop"
+										title={ __(
+											'Pause autoplay',
+											'snow-monkey-blocks'
 										) }
+									>
+										⏸
 									</button>
-								);
-							} ) }
+									<button
+										className="spider__start"
+										title={ __(
+											'Start autoplay',
+											'snow-monkey-blocks'
+										) }
+									>
+										▶
+									</button>
+								</>
+							) }
+
+							{ dots &&
+								images.map( ( img, index ) => {
+									return (
+										<button
+											className="spider__dot"
+											data-id={ index }
+											key={ index }
+										>
+											{ dotsToThumbnail ? (
+												<img
+													className={ `spider__figure wp-image-${ img.id }` }
+													src={ img.url }
+													alt={ img.alt }
+													width={
+														img.width ||
+														img.sizes?.full?.width
+													}
+													height={
+														img.height ||
+														img.sizes?.full?.height
+													}
+												/>
+											) : (
+												<>{ index }</>
+											) }
+										</button>
+									);
+								} ) }
 						</div>
 					) }
 

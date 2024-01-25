@@ -65,6 +65,7 @@ $instance = array(
 	'arrows'                  => $attributes['arrows'],
 	'dots'                    => $attributes['dots'],
 	'interval'                => $attributes['interval'],
+	'autoplayButton'          => $attributes['autoplayButton'],
 );
 
 $instance = wp_parse_args(

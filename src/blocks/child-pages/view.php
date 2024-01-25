@@ -54,6 +54,7 @@ if ( class_exists( '\Framework\Helper' ) ) {
 			'_arrows'              => $attributes['arrows'],
 			'_dots'                => $attributes['dots'],
 			'_interval'            => $attributes['interval'],
+			'_autoplayButton'      => $attributes['autoplayButton'],
 		)
 	);
 } else {
@@ -71,6 +72,7 @@ if ( class_exists( '\Framework\Helper' ) ) {
 			'_arrows'              => $attributes['arrows'],
 			'_dots'                => $attributes['dots'],
 			'_interval'            => $attributes['interval'],
+			'_autoplayButton'      => $attributes['autoplayButton'],
 		)
 	);
 }

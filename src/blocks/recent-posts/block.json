@@ -85,6 +85,10 @@
 			"type": "number",
 			"default": 0
 		},
+		"autoplayButton": {
+			"type": "boolean",
+			"default": false
+		},
 		"anchor": {
 			"type": "string",
 			"default": ""

@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-01-24T06:23:00+00:00\n"
+"POT-Creation-Date: 2024-01-25T12:08:29+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: snow-monkey-blocks\n"
@@ -65,13 +65,25 @@ msgstr ""
 msgid "(no title)"
 msgstr ""
 
-#: dist/blocks/child-pages/view.php:80
+#: dist/blocks/child-pages/view.php:82
 msgid "No pages found."
 msgstr ""
 
 #: dist/blocks/contents-outline/view.php:47
 #: dist/blocks/contents-outline/index.js:1
 msgid "Contents outline"
+msgstr ""
+
+#: dist/blocks/spider-pickup-slider/view.php:107
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+msgid "Pause autoplay"
+msgstr ""
+
+#: dist/blocks/spider-pickup-slider/view.php:108
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+msgid "Start autoplay"
 msgstr ""
 
 #: snow-monkey-blocks.php:62
@@ -963,6 +975,16 @@ msgstr ""
 #: dist/blocks/spider-slider/index.js:1
 #: dist/blocks/taxonomy-posts/index.js:3
 msgid "If \"0\", no scroll."
+msgstr ""
+
+#: dist/blocks/child-pages/index.js:3
+#: dist/blocks/recent-posts/index.js:5
+#: dist/blocks/rss/index.js:3
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-pickup-slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+#: dist/blocks/taxonomy-posts/index.js:3
+msgid "Display pause button for autoplay"
 msgstr ""
 
 #: dist/blocks/child-pages/index.js:3

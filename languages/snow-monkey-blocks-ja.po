@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-"
 "blocks\n"
-"POT-Creation-Date: 2024-01-24T06:23:00+00:00\n"
-"PO-Revision-Date: 2024-01-24 15:23+0900\n"
+"POT-Creation-Date: 2024-01-25T12:08:29+00:00\n"
+"PO-Revision-Date: 2024-01-25 21:10+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -73,7 +73,7 @@ msgstr "最近の投稿"
 msgid "(no title)"
 msgstr "(タイトルなし)"
 
-#: dist/blocks/child-pages/view.php:80
+#: dist/blocks/child-pages/view.php:82
 msgid "No pages found."
 msgstr "ページが見つかりませんでした。"
 
@@ -81,6 +81,18 @@ msgstr "ページが見つかりませんでした。"
 #: dist/blocks/contents-outline/index.js:1
 msgid "Contents outline"
 msgstr "目次"
+
+#: dist/blocks/spider-pickup-slider/view.php:107
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+msgid "Pause autoplay"
+msgstr "自動再生を一時停止"
+
+#: dist/blocks/spider-pickup-slider/view.php:108
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+msgid "Start autoplay"
+msgstr "自動再生を開始"
 
 #: snow-monkey-blocks.php:62
 msgid "[Common]"
@@ -836,6 +848,13 @@ msgstr "自動再生の間隔（秒）"
 #: dist/blocks/spider-slider/index.js:1 dist/blocks/taxonomy-posts/index.js:3
 msgid "If \"0\", no scroll."
 msgstr "「0」の場合、スクロールしません。"
+
+#: dist/blocks/child-pages/index.js:3 dist/blocks/recent-posts/index.js:5
+#: dist/blocks/rss/index.js:3 dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-pickup-slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1 dist/blocks/taxonomy-posts/index.js:3
+msgid "Display pause button for autoplay"
+msgstr "自動再生の一時停止ボタンを表示"
 
 #: dist/blocks/child-pages/index.js:3
 #: dist/blocks/items/item/block-link/index.js:1

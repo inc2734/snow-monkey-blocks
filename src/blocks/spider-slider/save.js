@@ -1,6 +1,7 @@
 import classnames from 'classnames';
 
 import { useBlockProps } from '@wordpress/block-editor';
+import { __ } from '@wordpress/i18n';
 
 export default function ( { attributes, className } ) {
 	const {
@@ -15,6 +16,7 @@ export default function ( { attributes, className } ) {
 		gutter,
 		displayCaption,
 		interval,
+		autoplayButton,
 		duration,
 		lgSlidesToShow,
 		mdSlidesToShow,
@@ -107,37 +109,63 @@ export default function ( { attributes, className } ) {
 				) }
 			</div>
 
-			{ dots && (
+			{ ( ( 0 < interval && autoplayButton ) || dots ) && (
 				<div
 					className="spider__dots"
 					data-thumbnails={ dotsToThumbnail ? 'true' : 'false' }
 				>
-					{ images.map( ( img, index ) => {
-						return (
+					{ autoplayButton && (
+						<>
 							<button
-								className="spider__dot"
-								data-id={ index }
-								key={ index }
-							>
-								{ dotsToThumbnail ? (
-									<img
-										className={ `spider__figure wp-image-${ img.id }` }
-										src={ img.url }
-										alt={ img.alt }
-										width={
-											img.width || img.sizes?.full?.width
-										}
-										height={
-											img.height ||
-											img.sizes?.full?.height
-										}
-									/>
-								) : (
-									<>{ index }</>
+								className="spider__stop"
+								title={ __(
+									'Pause autoplay',
+									'snow-monkey-blocks'
 								) }
+							>
+								⏸
 							</button>
-						);
-					} ) }
+
+							<button
+								className="spider__start"
+								title={ __(
+									'Start autoplay',
+									'snow-monkey-blocks'
+								) }
+							>
+								▶
+							</button>
+						</>
+					) }
+
+					{ dots &&
+						images.map( ( img, index ) => {
+							return (
+								<button
+									className="spider__dot"
+									data-id={ index }
+									key={ index }
+								>
+									{ dotsToThumbnail ? (
+										<img
+											className={ `spider__figure wp-image-${ img.id }` }
+											src={ img.url }
+											alt={ img.alt }
+											width={
+												img.width ||
+												img.sizes?.full?.width
+											}
+											height={
+												img.height ||
+												img.sizes?.full?.height
+											}
+										/>
+									) : (
+										<>{ index }</>
+									) }
+								</button>
+							);
+						} ) }
 				</div>
 			) }
 		</div>

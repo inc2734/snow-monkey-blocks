@@ -95,6 +95,10 @@
 			"type": "number",
 			"default": 0
 		},
+		"autoplayButton": {
+			"type": "boolean",
+			"default": false
+		},
 		"duration": {
 			"type": "number",
 			"default": 0

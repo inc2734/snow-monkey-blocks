@@ -32,6 +32,7 @@ export default function ( { attributes, setAttributes } ) {
 		arrows,
 		dots,
 		interval,
+		autoplayButton,
 		parent,
 	} = attributes;
 
@@ -247,6 +248,41 @@ export default function ( { attributes, setAttributes } ) {
 									max="10"
 								/>
 							</ToolsPanelItem>
+
+							{ 0 < interval && (
+								<ToolsPanelItem
+									hasValue={ () =>
+										autoplayButton !==
+										metadata.attributes.autoplayButton
+											.default
+									}
+									isShownByDefault
+									label={ __(
+										'Autoplay Speed in seconds',
+										'snow-monkey-blocks'
+									) }
+									onDeselect={ () =>
+										setAttributes( {
+											autoplayButton:
+												metadata.attributes
+													.autoplayButton.default,
+										} )
+									}
+								>
+									<ToggleControl
+										label={ __(
+											'Display pause button for autoplay',
+											'snow-monkey-blocks'
+										) }
+										checked={ autoplayButton }
+										onChange={ ( value ) =>
+											setAttributes( {
+												autoplayButton: value,
+											} )
+										}
+									/>
+								</ToolsPanelItem>
+							) }
 						</>
 					) }
 
