@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue, kutsu
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 20.3.5
+Stable tag: 20.4.0
 Requires at least: 6.3
 Tested up to: 6.4
 Requires PHP: 7.4
@@ -116,6 +116,17 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 28. Read more box block
 
 == Changelog ==
+
+= 20.4.0 =
+* [Slider] Add the feature of shuffling slides.
+* [Contents slider] Add the feature of shuffling slides.
+* [Slider] Add pause button setting for autoplay.
+* [Contents slider] Add pause button setting for autoplay.
+* [Pickup slider] Add pause button setting for autoplay when the layout is caroucel.
+* [Recent posts] Add pause button setting for autoplay when the layout is caroucel.
+* [Taxonomy posts] Add pause button setting for autoplay when the layout is caroucel.
+* [RSS] Add pause button setting for autoplay when the layout is caroucel.
+* [Child pages] Add pause button setting for autoplay when the layout is caroucel.
 
 = 20.3.4 =
 * Fixed missing packages files.
