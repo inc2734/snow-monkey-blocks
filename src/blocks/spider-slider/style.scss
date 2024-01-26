@@ -2,7 +2,6 @@
 
 .smb-spider-slider {
 	--smb-spider-slider--gap: 0px;
-	--smb-spider-slider--dots-gap: var(--_margin-2);
 	--smb-spider-slider--slide-max-width: 100%;
 
 	overflow: hidden;
@@ -66,7 +65,6 @@
 
 	> .spider__dots {
 		margin: var(--_margin-1) 0 0;
-		gap: var(--smb-spider-slider--dots-gap);
 
 		.spider__dot {
 			margin: 0;
@@ -75,6 +73,7 @@
 
 	> .spider__dots[data-thumbnails="true"] {
 		--smb-spider-slider--dots-gap: var(--_margin-1);
+		--spider--dots-gap: var(--smb-spider-slider--dots-gap);
 
 		flex-wrap: wrap;
 		justify-content: flex-start;

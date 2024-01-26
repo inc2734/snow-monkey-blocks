@@ -3,7 +3,6 @@
 .smb-spider-pickup-slider {
 	--smb-spider-pickup-slider--background-color: var(--wp--preset--color--black);
 	--smb-spider-pickup-slider--mask-color: rgba(0, 0, 0, .15);
-	--smb-spider-pickup-slider--dots-gap: var(--_margin-2);
 
 	.spider__slide {
 		position: relative;
@@ -44,7 +43,6 @@
 
 	.spider__dots {
 		margin: var(--_margin-1) 0 0;
-		gap: var(--smb-spider-pickup-slider--dots-gap);
 
 		.spider__dot {
 			margin: 0;
@@ -53,6 +51,7 @@
 
 	.spider__dots[data-thumbnails="true"] {
 		--smb-spider-pickup-slider--dots-gap: var(--_margin-1);
+		--spider--dots-gap: var(--smb-spider-pickup-slider--dots-gap);
 
 		flex-wrap: wrap;
 		justify-content: flex-start;
