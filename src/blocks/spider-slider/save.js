@@ -116,24 +116,48 @@ export default function ( { attributes, className } ) {
 				>
 					{ autoplayButton && (
 						<>
-							<button
-								className="spider__stop"
-								title={ __(
-									'Pause autoplay',
-									'snow-monkey-blocks'
-								) }
-							>
-								⏸
+							<button className="spider__stop">
+								<svg
+									width="12"
+									height="16"
+									viewBox="0 0 12 16"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+									title={ __(
+										'Pause autoplay',
+										'snow-monkey-blocks'
+									) }
+								>
+									<rect
+										width="5"
+										height="16"
+										fill="currentColor"
+									></rect>
+									<rect
+										x="7"
+										width="5"
+										height="16"
+										fill="currentColor"
+									></rect>
+								</svg>
 							</button>
-
-							<button
-								className="spider__start"
-								title={ __(
-									'Start autoplay',
-									'snow-monkey-blocks'
-								) }
-							>
-								▶
+							<button className="spider__start">
+								<svg
+									width="12"
+									height="16"
+									viewBox="0 0 12 16"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+									title={ __(
+										'Start autoplay',
+										'snow-monkey-blocks'
+									) }
+								>
+									<path
+										d="M12 8L-2.29967e-06 16L-2.29967e-06 0L12 8Z"
+										fill="currentColor"
+									></path>
+								</svg>
 							</button>
 						</>
 					) }
