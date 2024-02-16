@@ -83,40 +83,42 @@ $args = array(
 );
 // phpcs:enable
 
+$add_tax_query = function( $args ) use ( $instance ) {
+	$taxonomy_arr = explode( '@', $instance['taxonomy'] );
+
+	$args['tax_query'] = array_merge(
+		isset( $args['tax_query'] ) ? $args['tax_query'] : array(),
+		array(
+			array(
+				'taxonomy' => $taxonomy_arr[0],
+				'terms'    => $taxonomy_arr[1],
+				'field'    => 'term_id',
+			),
+		)
+	);
+
+	return $args;
+};
 if ( $instance['taxonomy'] ) {
 	add_filter(
 		'snow_monkey_recent_posts_widget_args_' . $widget_number,
-		function ( $args ) use ( $instance ) {
-			$taxonomy_arr = explode( '@', $instance['taxonomy'] );
-
-			$args['tax_query'] = array_merge(
-				isset( $args['tax_query'] ) ? $args['tax_query'] : array(),
-				array(
-					array(
-						'taxonomy' => $taxonomy_arr[0],
-						'terms'    => $taxonomy_arr[1],
-						'field'    => 'term_id',
-					),
-				)
-			);
-
-			return $args;
-		},
+		$add_tax_query,
 		9
 	);
 }
 
+$add_authors_query = function( $args ) use ( $instance ) {
+	$args['author__in'] = array_merge(
+		isset( $args['author__in'] ) ? $args['author__in'] : array(),
+		$instance['authors']
+	);
+
+	return $args;
+};
 if ( $instance['authors'] ) {
 	add_filter(
 		'snow_monkey_recent_posts_widget_args_' . $widget_number,
-		function ( $args ) use ( $instance ) {
-			$args['author__in'] = array_merge(
-				isset( $args['author__in'] ) ? $args['author__in'] : array(),
-				$instance['authors']
-			);
-
-			return $args;
-		},
+		$add_authors_query,
 		9
 	);
 }
@@ -130,6 +132,18 @@ if ( file_exists( get_theme_file_path( $custom_template ) ) ) {
 }
 
 $widget = ob_get_clean();
+
+remove_filter(
+	'snow_monkey_recent_posts_widget_args_' . $widget_number,
+	$add_tax_query,
+	9
+);
+
+remove_filter(
+	'snow_monkey_recent_posts_widget_args_' . $widget_number,
+	$add_authors_query,
+	9
+);
 
 if ( empty( $widget ) ) {
 	$no_posts_text = $attributes['noPostsText'];
