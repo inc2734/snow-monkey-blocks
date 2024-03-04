@@ -26,7 +26,7 @@ class Blocks {
 				if ( isset( $block['attrs']['smb']['flexGrow'] ) ) {
 					$style    = $p->get_attribute( 'style' );
 					$property = '--smb--flex-grow:';
-					if ( false === strpos( $style, $property ) ) {
+					if ( $style && false === strpos( $style, $property ) ) {
 						$style = $style ? $style . ';' : $style;
 						$p->set_attribute( 'style', trim( $style . $property . $block['attrs']['smb']['flexGrow'] ) );
 					}
@@ -36,7 +36,7 @@ class Blocks {
 				if ( isset( $block['attrs']['smb']['flexShrink'] ) ) {
 					$style    = $p->get_attribute( 'style' );
 					$property = '--smb--flex-shrink:';
-					if ( false === strpos( $style, $property ) ) {
+					if ( $style && false === strpos( $style, $property ) ) {
 						$style = $style ? $style . ';' : $style;
 						$p->set_attribute( 'style', trim( $style . $property . $block['attrs']['smb']['flexShrink'] ) );
 					}
@@ -46,7 +46,7 @@ class Blocks {
 				if ( isset( $block['attrs']['smb']['flexBasis'] ) ) {
 					$style    = $p->get_attribute( 'style' );
 					$property = '--smb--flex-basis:';
-					if ( false === strpos( $style, $property ) ) {
+					if ( $style && false === strpos( $style, $property ) ) {
 						$style = $style ? $style . ';' : $style;
 						$p->set_attribute( 'style', trim( $style . $property . $block['attrs']['smb']['flexBasis'] ) );
 					}
@@ -56,7 +56,7 @@ class Blocks {
 				if ( isset( $block['attrs']['smb']['justifySelf'] ) ) {
 					$style    = $p->get_attribute( 'style' );
 					$property = '--smb--justify-self:';
-					if ( false === strpos( $style, $property ) ) {
+					if ( $style && false === strpos( $style, $property ) ) {
 						$style = $style ? $style . ';' : $style;
 						$p->set_attribute( 'style', trim( $style . $property . $block['attrs']['smb']['justifySelf'] ) );
 					}
@@ -66,7 +66,7 @@ class Blocks {
 				if ( isset( $block['attrs']['smb']['alignSelf'] ) ) {
 					$style    = $p->get_attribute( 'style' );
 					$property = '--smb--align-self:';
-					if ( false === strpos( $style, $property ) ) {
+					if ( $style && false === strpos( $style, $property ) ) {
 						$style = $style ? $style . ';' : $style;
 						$p->set_attribute( 'style', trim( $style . $property . $block['attrs']['smb']['alignSelf'] ) );
 					}
@@ -76,7 +76,7 @@ class Blocks {
 				if ( isset( $block['attrs']['smb']['gridColumn'] ) ) {
 					$style    = $p->get_attribute( 'style' );
 					$property = '--smb--grid-column:';
-					if ( false === strpos( $style, $property ) ) {
+					if ( $style && false === strpos( $style, $property ) ) {
 						$style = $style ? $style . ';' : $style;
 						$p->set_attribute( 'style', trim( $style . $property . $block['attrs']['smb']['gridColumn'] ) );
 					}
@@ -86,7 +86,7 @@ class Blocks {
 				if ( isset( $block['attrs']['smb']['gridRow'] ) ) {
 					$style    = $p->get_attribute( 'style' );
 					$property = '--smb--grid-row:';
-					if ( false === strpos( $style, $property ) ) {
+					if ( $style && false === strpos( $style, $property ) ) {
 						$style = $style ? $style . ';' : $style;
 						$p->set_attribute( 'style', trim( $style . $property . $block['attrs']['smb']['gridRow'] ) );
 					}
