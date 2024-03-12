@@ -26,15 +26,6 @@ import {
 import { pullLeft, pullRight } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
 
-// @todo For WordPress 6.0
-import { useMultipleOriginColorsAndGradientsFallback } from '@smb/hooks';
-
-// @todo For WordPress 6.0
-if ( undefined === useMultipleOriginColorsAndGradients ) {
-	useMultipleOriginColorsAndGradients =
-		useMultipleOriginColorsAndGradientsFallback;
-}
-
 import metadata from './block.json';
 
 const TEMPLATE = [ [ 'core/paragraph' ] ];

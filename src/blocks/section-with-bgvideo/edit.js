@@ -9,7 +9,7 @@ import {
 	JustifyToolbar,
 	useInnerBlocksProps,
 	useBlockProps,
-	useSetting,
+	useSettings,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
@@ -34,15 +34,6 @@ import {
 	PanelSectionBackgroundTextSettings,
 	SectionBackground,
 } from '../section/components/background';
-
-// @todo For WordPress 6.0
-import { useMultipleOriginColorsAndGradientsFallback } from '@smb/hooks';
-
-// @todo For WordPress 6.0
-if ( undefined === useMultipleOriginColorsAndGradients ) {
-	useMultipleOriginColorsAndGradients =
-		useMultipleOriginColorsAndGradientsFallback;
-}
 
 const HORIZONTAL_JUSTIFY_CONTROLS = [ 'left', 'center', 'right' ];
 
@@ -186,7 +177,7 @@ export default function ( {
 		}
 	);
 
-	const fontSizes = useSetting( 'typography.fontSizes' ) || [];
+	const [ fontSizes ] = useSettings( 'typography.fontSizes' );
 	const newBackgroundText = { ...backgroundText };
 
 	return (

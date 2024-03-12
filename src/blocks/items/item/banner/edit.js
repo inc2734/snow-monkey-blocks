@@ -34,15 +34,6 @@ import Figure from '@smb/component/figure';
 import ResolutionTool from '@smb/component/resolution-tool';
 import { toNumber } from '@smb/helper';
 
-// @todo For WordPress 6.0
-import { useMultipleOriginColorsAndGradientsFallback } from '@smb/hooks';
-
-// @todo For WordPress 6.0
-if ( undefined === useMultipleOriginColorsAndGradients ) {
-	useMultipleOriginColorsAndGradients =
-		useMultipleOriginColorsAndGradientsFallback;
-}
-
 const ALLOWED_TYPES = [ 'image' ];
 const DEFAULT_MEDIA_SIZE_SLUG = 'full';
 

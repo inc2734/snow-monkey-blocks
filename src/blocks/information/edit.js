@@ -20,16 +20,7 @@ import {
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
-import {
-	useMigrateDoubleHyphenToSingleHyphen,
-	useMultipleOriginColorsAndGradientsFallback, // @todo For WordPress 6.0
-} from '@smb/hooks';
-
-// @todo For WordPress 6.0
-if ( undefined === useMultipleOriginColorsAndGradients ) {
-	useMultipleOriginColorsAndGradients =
-		useMultipleOriginColorsAndGradientsFallback;
-}
+import { useMigrateDoubleHyphenToSingleHyphen } from '@smb/hooks';
 
 const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/information-item' ];
 const TEMPLATE = [ [ 'snow-monkey-blocks/information-item' ] ];

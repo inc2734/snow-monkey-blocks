@@ -26,15 +26,6 @@ import { useState, useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { link as linkIcon } from '@wordpress/icons';
 
-// @todo For WordPress 6.0
-import { useMultipleOriginColorsAndGradientsFallback } from '@smb/hooks';
-
-// @todo For WordPress 6.0
-if ( undefined === useMultipleOriginColorsAndGradients ) {
-	useMultipleOriginColorsAndGradients =
-		useMultipleOriginColorsAndGradientsFallback;
-}
-
 import metadata from './block.json';
 
 export default function ( {

@@ -22,15 +22,6 @@ import { __ } from '@wordpress/i18n';
 import { divider } from '@smb/helper';
 import SpacingControl from '@smb/component/spacing-control';
 
-// @todo For WordPress 6.0
-import { useMultipleOriginColorsAndGradientsFallback } from '@smb/hooks';
-
-// @todo For WordPress 6.0
-if ( undefined === useMultipleOriginColorsAndGradients ) {
-	useMultipleOriginColorsAndGradients =
-		useMultipleOriginColorsAndGradientsFallback;
-}
-
 const textureOptions = [
 	{
 		value: '',

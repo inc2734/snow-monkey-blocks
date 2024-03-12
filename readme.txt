@@ -3,8 +3,8 @@ Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richab
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
 Stable tag: 20.4.3
-Requires at least: 6.3
-Tested up to: 6.4
+Requires at least: 6.5-rc1
+Tested up to: 6.5
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html

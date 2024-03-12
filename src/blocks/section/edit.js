@@ -10,7 +10,7 @@ import {
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	useInnerBlocksProps,
 	useBlockProps,
-	useSetting,
+	useSettings,
 } from '@wordpress/block-editor';
 
 import { useSelect } from '@wordpress/data';
@@ -192,7 +192,7 @@ export default function ( {
 		}
 	);
 
-	const fontSizes = useSetting( 'typography.fontSizes' ) || [];
+	const [ fontSizes ] = useSettings( 'typography.fontSizes' );
 	const newBackgroundText = { ...backgroundText };
 
 	return (

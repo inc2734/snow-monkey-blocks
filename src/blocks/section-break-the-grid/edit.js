@@ -8,7 +8,7 @@ import {
 	InnerBlocks,
 	InspectorControls,
 	useBlockProps,
-	useSetting,
+	useSettings,
 	useInnerBlocksProps,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
@@ -53,15 +53,6 @@ import {
 } from '../section/components/background';
 
 import PanelBoxShadowSettings from '@smb/component/panel-box-shadow-settings';
-
-// @todo For WordPress 6.0
-import { useMultipleOriginColorsAndGradientsFallback } from '@smb/hooks';
-
-// @todo For WordPress 6.0
-if ( undefined === useMultipleOriginColorsAndGradients ) {
-	useMultipleOriginColorsAndGradients =
-		useMultipleOriginColorsAndGradientsFallback;
-}
 
 const ALLOWED_TYPES = [ 'image', 'video' ];
 const DEFAULT_MEDIA_SIZE_SLUG = 'full';
@@ -318,7 +309,7 @@ export default function ( {
 		}
 	);
 
-	const fontSizes = useSetting( 'typography.fontSizes' ) || [];
+	const [ fontSizes ] = useSettings( 'typography.fontSizes' );
 	const newBackgroundText = { ...backgroundText };
 
 	let contentSizeOptions = [

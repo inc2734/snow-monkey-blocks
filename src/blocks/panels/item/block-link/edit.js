@@ -9,7 +9,6 @@ import {
 	useInnerBlocksProps,
 	__experimentalLinkControl as LinkControl,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
-	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 } from '@wordpress/block-editor';
 
 import { useMergeRefs } from '@wordpress/compose';
@@ -18,15 +17,6 @@ import { useState, useRef } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 import { link as linkIcon } from '@wordpress/icons';
-
-// @todo For WordPress 6.0
-import { useMultipleOriginColorsAndGradientsFallback } from '@smb/hooks';
-
-// @todo For WordPress 6.0
-if ( undefined === useMultipleOriginColorsAndGradients ) {
-	useMultipleOriginColorsAndGradients =
-		useMultipleOriginColorsAndGradientsFallback;
-}
 
 export default function ( {
 	attributes,

@@ -29,15 +29,6 @@ import PanelBoxShadowSettings from '@smb/component/panel-box-shadow-settings';
 import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
 import { toNumber } from '@smb/helper';
 
-// @todo For WordPress 6.0
-import { useMultipleOriginColorsAndGradientsFallback } from '@smb/hooks';
-
-// @todo For WordPress 6.0
-if ( undefined === useMultipleOriginColorsAndGradients ) {
-	useMultipleOriginColorsAndGradients =
-		useMultipleOriginColorsAndGradientsFallback;
-}
-
 import metadata from './block.json';
 
 const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/spider-contents-slider-item' ];

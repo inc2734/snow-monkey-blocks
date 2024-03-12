@@ -27,15 +27,6 @@ import { __ } from '@wordpress/i18n';
 import PanelBoxShadowSettings from '@smb/component/panel-box-shadow-settings';
 import { toNumber } from '@smb/helper';
 
-// @todo For WordPress 6.0
-import { useMultipleOriginColorsAndGradientsFallback } from '@smb/hooks';
-
-// @todo For WordPress 6.0
-if ( undefined === useMultipleOriginColorsAndGradients ) {
-	useMultipleOriginColorsAndGradients =
-		useMultipleOriginColorsAndGradientsFallback;
-}
-
 import metadata from './block.json';
 
 export default function ( { attributes, setAttributes, className, clientId } ) {

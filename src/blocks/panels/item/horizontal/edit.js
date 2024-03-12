@@ -9,7 +9,6 @@ import {
 	useBlockProps,
 	__experimentalLinkControl as LinkControl,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
-	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 } from '@wordpress/block-editor';
 
 import {
@@ -35,15 +34,6 @@ import { stringToInnerText } from '@smb/helper';
 
 const ALLOWED_TYPES = [ 'image' ];
 const DEFAULT_MEDIA_SIZE_SLUG = 'full';
-
-// @todo For WordPress 6.0
-import { useMultipleOriginColorsAndGradientsFallback } from '@smb/hooks';
-
-// @todo For WordPress 6.0
-if ( undefined === useMultipleOriginColorsAndGradients ) {
-	useMultipleOriginColorsAndGradients =
-		useMultipleOriginColorsAndGradientsFallback;
-}
 
 import metadata from './block.json';
 
