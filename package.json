@@ -90,6 +90,7 @@
     "zip": "npm run clean:zip && npm run zip:pack && npm run zip:archive",
     "make-pot": "npm run wp i18n -- make-pot . ./languages/snow-monkey-blocks.pot --exclude=src",
     "make-json": "rimraf languages/*.json && npm run wp i18n -- make-json ./languages/snow-monkey-blocks-ja.po --no-purge",
+		"make-php": "npm run cli php -- wp-content/plugins/snow-monkey-blocks/bin/l10n.php",
     "img": "npm run clean:img && cpy 'src/img/**' 'dist/img'"
   },
   "dependencies": {}
