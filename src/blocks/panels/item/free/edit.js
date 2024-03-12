@@ -13,7 +13,12 @@ import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
-	const { backgroundColor, backgroundGradientColor, textColor } = attributes;
+	const {
+		backgroundColor,
+		backgroundGradientColor,
+		textColor,
+		templateLock,
+	} = attributes;
 
 	const hasInnerBlocks = useSelect(
 		( select ) =>
@@ -44,6 +49,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 			className: 'smb-panels__item__body',
 		},
 		{
+			templateLock,
 			renderAppender: hasInnerBlocks
 				? InnerBlocks.DefaultBlockAppender
 				: InnerBlocks.ButtonBlockAppender,

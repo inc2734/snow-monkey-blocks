@@ -88,6 +88,8 @@ export default function ( {
 		bottomDividerVerticalPosition,
 		bottomDividerOverlay,
 		backgroundText,
+
+		templateLock,
 	} = attributes;
 
 	const hasInnerBlocks = useSelect(
@@ -186,6 +188,7 @@ export default function ( {
 			className: 'smb-section__body',
 		},
 		{
+			templateLock,
 			renderAppender: hasInnerBlocks
 				? InnerBlocks.DefaultBlockAppender
 				: InnerBlocks.ButtonBlockAppender,

@@ -38,6 +38,10 @@
 			"selector": ".smb-tabs",
 			"attribute": "data-orientation",
 			"default": "horizontal"
+		},
+		"templateLock": {
+			"type": [ "string", "boolean" ],
+			"enum": [ "all", "insert", "contentOnly", false ]
 		}
 	},
 	"supports": {

@@ -21,6 +21,10 @@
 			"selector": ".smb-tab-panel",
 			"attribute": "aria-hidden",
 			"default": "true"
+		},
+		"templateLock": {
+			"type": [ "string", "boolean" ],
+			"enum": [ "all", "insert", "contentOnly", false ]
 		}
 	},
 	"supports": {

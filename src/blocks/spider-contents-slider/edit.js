@@ -57,6 +57,7 @@ export default function ( {
 		border,
 		boxShadow,
 		sliderClientIds: _sliderClientIds,
+		templateLock,
 	} = attributes;
 
 	const sliderClientIds = JSON.parse( _sliderClientIds );
@@ -282,6 +283,7 @@ export default function ( {
 			className: 'spider__canvas',
 		},
 		{
+			templateLock,
 			allowedBlocks: ALLOWED_BLOCKS,
 			orientation: 'horizontal',
 			renderAppender: false,

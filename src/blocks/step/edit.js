@@ -16,13 +16,15 @@ const ALLOWED_BLOCKS = [
 
 const TEMPLATE = [ [ 'snow-monkey-blocks/step-item-free' ] ];
 
-export default function ( { className, clientId } ) {
+export default function ( { attributes, className, clientId } ) {
 	useMigrateDoubleHyphenToSingleHyphen( clientId, [
 		{
 			oldBlockName: 'snow-monkey-blocks/step--item--free',
 			newBlockName: 'snow-monkey-blocks/step-item-free',
 		},
 	] );
+
+	const { templateLock } = attributes;
 
 	const hasInnerBlocks = useSelect(
 		( select ) =>
@@ -44,7 +46,7 @@ export default function ( { className, clientId } ) {
 		{
 			allowedBlocks: ALLOWED_BLOCKS,
 			template: TEMPLATE,
-			templateLock: false,
+			templateLock,
 			renderAppender: hasInnerBlocks
 				? InnerBlocks.DefaultBlockAppender
 				: InnerBlocks.ButtonBlockAppender,

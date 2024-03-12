@@ -20,7 +20,8 @@ export default function ( {
 	clientId,
 	context,
 } ) {
-	const { label } = attributes;
+	const { label, templateLock } = attributes;
+
 	const {
 		'snow-monkey-blocks/labelColumnSize': labelColumnSize,
 		'snow-monkey-blocks/smIsSplitColumn': smIsSplitColumn,
@@ -68,6 +69,7 @@ export default function ( {
 			className: 'smb-information__item__body',
 		},
 		{
+			templateLock,
 			renderAppender: hasInnerBlocks
 				? InnerBlocks.DefaultBlockAppender
 				: InnerBlocks.ButtonBlockAppender,

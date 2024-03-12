@@ -6,6 +6,12 @@
 	"title": "Directory structure",
 	"description": "Display a list of directories and files",
 	"category": "smb",
+	"attributes": {
+		"templateLock": {
+			"type": [ "string", "boolean" ],
+			"enum": [ "all", "insert", "contentOnly", false ]
+		}
+	},
 	"supports": {
 		"html": false,
 		"color": {

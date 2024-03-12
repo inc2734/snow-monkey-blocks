@@ -6,6 +6,12 @@
 	"title": "Steps",
 	"description": "Express the steps in an easy-to-understand manner.",
 	"category": "smb",
+	"attributes": {
+		"templateLock": {
+			"type": [ "string", "boolean" ],
+			"enum": [ "all", "insert", "contentOnly", false ]
+		}
+	},
 	"supports": {
 		"html": false,
 		"spacing": {

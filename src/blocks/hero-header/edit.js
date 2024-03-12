@@ -151,6 +151,7 @@ export default function ( {
 		bodyMaxWidth,
 		bodyPadding,
 		style,
+		templateLock,
 	} = attributes;
 
 	const hasInnerBlocks = useSelect(
@@ -296,6 +297,7 @@ export default function ( {
 			className: 'smb-hero-header__body',
 		},
 		{
+			templateLock,
 			renderAppender: hasInnerBlocks
 				? InnerBlocks.DefaultBlockAppender
 				: InnerBlocks.ButtonBlockAppender,

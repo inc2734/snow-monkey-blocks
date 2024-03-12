@@ -34,6 +34,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		rows,
 		gridTemplateRows,
 		style,
+		templateLock,
 	} = attributes;
 
 	const hasInnerBlocks = useSelect(
@@ -78,6 +79,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 	} );
 
 	const innerBlocksProps = useInnerBlocksProps( blockProps, {
+		templateLock,
 		renderAppender: hasInnerBlocks
 			? InnerBlocks.DefaultBlockAppender
 			: InnerBlocks.ButtonBlockAppender,

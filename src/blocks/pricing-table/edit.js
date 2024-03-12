@@ -35,7 +35,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		},
 	] );
 
-	const { columnSize, childrenCount } = attributes;
+	const { columnSize, childrenCount, templateLock } = attributes;
 
 	const hasInnerBlocks = useSelect(
 		( select ) =>
@@ -79,7 +79,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		{
 			allowedBlocks: ALLOWED_BLOCKS,
 			template: TEMPLATE,
-			templateLock: false,
+			templateLock,
 			orientation: 'horizontal',
 			renderAppender: hasInnerBlocks
 				? InnerBlocks.DefaultBlockAppender

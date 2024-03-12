@@ -13,7 +13,7 @@ import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
-	const { title, numberColor } = attributes;
+	const { title, numberColor, templateLock } = attributes;
 
 	const hasInnerBlocks = useSelect(
 		( select ) =>
@@ -38,6 +38,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 			className: 'smb-step__item__summary',
 		},
 		{
+			templateLock,
 			renderAppender: hasInnerBlocks
 				? InnerBlocks.DefaultBlockAppender
 				: InnerBlocks.ButtonBlockAppender,

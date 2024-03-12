@@ -53,6 +53,7 @@ export default function ( {
 		linkURL,
 		linkTarget,
 		linkColor,
+		templateLock,
 	} = attributes;
 
 	const [ isEditingURL, setIsEditingURL ] = useState( false );
@@ -118,6 +119,7 @@ export default function ( {
 			className: 'smb-step__item__summary',
 		},
 		{
+			templateLock,
 			renderAppender: hasInnerBlocks
 				? InnerBlocks.DefaultBlockAppender
 				: InnerBlocks.ButtonBlockAppender,

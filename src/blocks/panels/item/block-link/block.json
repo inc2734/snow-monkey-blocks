@@ -30,6 +30,10 @@
 			"selector": ".smb-panels__item__action > a",
 			"attribute": "target",
 			"default": "_self"
+		},
+		"templateLock": {
+			"type": [ "string", "boolean" ],
+			"enum": [ "all", "insert", "contentOnly", false ]
 		}
 	},
 	"supports": {

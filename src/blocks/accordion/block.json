@@ -6,6 +6,12 @@
 	"title": "Accordion",
 	"description": "You can set up a content area that expands and contracts like the accordion.",
 	"category": "smb",
+	"attributes": {
+		"templateLock": {
+			"type": [ "string", "boolean" ],
+			"enum": [ "all", "insert", "contentOnly", false ]
+		}
+	},
 	"supports": {
 		"html": false,
 		"spacing": {

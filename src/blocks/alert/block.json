@@ -20,6 +20,10 @@
 		"icon": {
 			"type": "string",
 			"default": "circle-exclamation"
+		},
+		"templateLock": {
+			"type": [ "string", "boolean" ],
+			"enum": [ "all", "insert", "contentOnly", false ]
 		}
 	},
 	"supports": {

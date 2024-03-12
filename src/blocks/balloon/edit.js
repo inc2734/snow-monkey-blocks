@@ -46,6 +46,7 @@ export default function ( { attributes, setAttributes, className } ) {
 		textColor,
 		balloonName,
 		modifier,
+		templateLock,
 	} = attributes;
 
 	const multipleOriginColorsAndGradients =
@@ -96,7 +97,7 @@ export default function ( { attributes, setAttributes, className } ) {
 		{
 			// allowedBlocks: ALLOWED_BLOCKS,
 			template: TEMPLATE,
-			templateLock: false,
+			templateLock,
 		}
 	);
 

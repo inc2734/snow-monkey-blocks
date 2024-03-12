@@ -21,8 +21,14 @@ import { __, sprintf } from '@wordpress/i18n';
 import metadata from './block.json';
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
-	const { question, questionColor, answerColor, questionLabel, answerLabel } =
-		attributes;
+	const {
+		question,
+		questionColor,
+		answerColor,
+		questionLabel,
+		answerLabel,
+		templateLock,
+	} = attributes;
 
 	const hasInnerBlocks = useSelect(
 		( select ) =>
@@ -48,6 +54,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 			className: 'smb-faq__item__answer__body',
 		},
 		{
+			templateLock,
 			renderAppender: hasInnerBlocks
 				? InnerBlocks.DefaultBlockAppender
 				: InnerBlocks.ButtonBlockAppender,

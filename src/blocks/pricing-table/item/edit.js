@@ -70,6 +70,7 @@ export default function ( {
 		btnSize,
 		btnBorderRadius,
 		btnWrap,
+		templateLock,
 	} = attributes;
 
 	const [ isEditingURL, setIsEditingURL ] = useState( false );
@@ -142,7 +143,7 @@ export default function ( {
 		{
 			allowedBlocks: ALLOWED_BLOCKS,
 			template: TEMPLATE,
-			templateLock: false,
+			templateLock,
 		}
 	);
 

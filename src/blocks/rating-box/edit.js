@@ -13,13 +13,15 @@ import { useMigrateDoubleHyphenToSingleHyphen } from '@smb/hooks';
 const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/rating-box-item' ];
 const TEMPLATE = [ [ 'snow-monkey-blocks/rating-box-item' ] ];
 
-export default function ( { className, clientId } ) {
+export default function ( { attributes, className, clientId } ) {
 	useMigrateDoubleHyphenToSingleHyphen( clientId, [
 		{
 			oldBlockName: 'snow-monkey-blocks/rating-box--item',
 			newBlockName: 'snow-monkey-blocks/rating-box-item',
 		},
 	] );
+
+	const { templateLock } = attributes;
 
 	const hasInnerBlocks = useSelect(
 		( select ) =>
@@ -41,7 +43,7 @@ export default function ( { className, clientId } ) {
 		{
 			allowedBlocks: ALLOWED_BLOCKS,
 			template: TEMPLATE,
-			templateLock: false,
+			templateLock,
 			renderAppender: hasInnerBlocks
 				? InnerBlocks.DefaultBlockAppender
 				: InnerBlocks.ButtonBlockAppender,

@@ -43,6 +43,7 @@ export default function ( { attributes, setAttributes, clientId, className } ) {
 		btnSize,
 		btnBorderRadius,
 		btnWrap,
+		templateLock,
 	} = attributes;
 
 	const multipleOriginColorsAndGradients =
@@ -117,7 +118,7 @@ export default function ( { attributes, setAttributes, clientId, className } ) {
 		{
 			'aria-hidden': 'false',
 			className: innerClasses,
-			templateLock: false,
+			templateLock,
 			renderAppender: hasInnerBlocks
 				? InnerBlocks.DefaultBlockAppender
 				: InnerBlocks.ButtonBlockAppender,

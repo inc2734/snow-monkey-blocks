@@ -31,7 +31,7 @@ export default function ( {
 	isSelected,
 	className,
 } ) {
-	const { title, modifier, icon } = attributes;
+	const { title, modifier, icon, templateLock } = attributes;
 
 	useEffect( () => {
 		if ( 'exclamation-circle' === icon ) {
@@ -86,7 +86,7 @@ export default function ( {
 		{
 			// allowedBlocks: ALLOWED_BLOCKS,
 			template: TEMPLATE,
-			templateLock: false,
+			templateLock,
 		}
 	);
 

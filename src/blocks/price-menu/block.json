@@ -6,6 +6,12 @@
 	"title": "Price menu",
 	"description": "Display the menu name and the price.",
 	"category": "smb",
+	"attributes": {
+		"templateLock": {
+			"type": [ "string", "boolean" ],
+			"enum": [ "all", "insert", "contentOnly", false ]
+		}
+	},
 	"supports": {
 		"html": false,
 		"spacing": {

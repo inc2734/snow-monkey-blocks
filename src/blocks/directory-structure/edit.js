@@ -15,7 +15,7 @@ const ALLOWED_BLOCKS = [
 	'snow-monkey-blocks/directory-structure-item-file',
 ];
 
-export default function ( { className, clientId } ) {
+export default function ( { attributes, className, clientId } ) {
 	useMigrateDoubleHyphenToSingleHyphen( clientId, [
 		{
 			oldBlockName:
@@ -28,6 +28,8 @@ export default function ( { className, clientId } ) {
 			newBlockName: 'snow-monkey-blocks/directory-structure-item-file',
 		},
 	] );
+
+	const { templateLock } = attributes;
 
 	const hasInnerBlocks = useSelect(
 		( select ) =>
@@ -44,7 +46,7 @@ export default function ( { className, clientId } ) {
 
 	const innerBlocksProps = useInnerBlocksProps( blockProps, {
 		allowedBlocks: ALLOWED_BLOCKS,
-		templateLock: false,
+		templateLock,
 		renderAppender: hasInnerBlocks
 			? InnerBlocks.DefaultBlockAppender
 			: InnerBlocks.ButtonBlockAppender,

@@ -15,7 +15,7 @@ import PanelBoxShadowSettings from '@smb/component/panel-box-shadow-settings';
 import metadata from './block.json';
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
-	const { boxShadow } = attributes;
+	const { boxShadow, templateLock } = attributes;
 
 	const hasInnerBlocks = useSelect(
 		( select ) => {
@@ -45,6 +45,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 	} );
 
 	const innerBlocksProps = useInnerBlocksProps( blockProps, {
+		templateLock,
 		renderAppender: hasInnerBlocks
 			? InnerBlocks.DefaultBlockAppender
 			: InnerBlocks.ButtonBlockAppender,

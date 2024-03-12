@@ -49,6 +49,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		fade,
 		rtl,
 		aspectRatio,
+		templateLock,
 	} = attributes;
 
 	const hasInnerBlocks = useSelect(
@@ -71,7 +72,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		{
 			allowedBlocks: ALLOWED_BLOCKS,
 			template: TEMPLATE,
-			templateLock: false,
+			templateLock,
 			renderAppender: hasInnerBlocks
 				? InnerBlocks.DefaultBlockAppender
 				: InnerBlocks.ButtonBlockAppender,

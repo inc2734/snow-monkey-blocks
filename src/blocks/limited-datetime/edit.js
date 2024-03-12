@@ -23,7 +23,8 @@ import DateTimePicker from '@smb/component/date-time-picker';
 import metadata from './block.json';
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
-	const { isUseStartDate, startDate, isUseEndDate, endDate } = attributes;
+	const { isUseStartDate, startDate, isUseEndDate, endDate, templateLock } =
+		attributes;
 
 	const hasInnerBlocks = useSelect(
 		( select ) => {
@@ -43,6 +44,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 			className: classes,
 		},
 		{
+			templateLock,
 			renderAppender: hasInnerBlocks
 				? undefined
 				: InnerBlocks.ButtonBlockAppender,

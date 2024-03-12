@@ -33,8 +33,14 @@ export default function ( {
 	isSelected,
 	clientId,
 } ) {
-	const { sliderId, contentPosition, contentPadding, border, boxShadow } =
-		attributes;
+	const {
+		sliderId,
+		contentPosition,
+		contentPadding,
+		border,
+		boxShadow,
+		templateLock,
+	} = attributes;
 
 	const ref = useRef();
 
@@ -113,6 +119,7 @@ export default function ( {
 			className: itemClasses,
 		},
 		{
+			templateLock,
 			renderAppender: hasInnerBlocks
 				? InnerBlocks.DefaultBlockAppender
 				: InnerBlocks.ButtonBlockAppender,

@@ -22,7 +22,8 @@ import WidthPicker from '@smb/component/width-picker';
 import metadata from './block.json';
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
-	const { contentsMaxWidth, isSlim, removeGutters } = attributes;
+	const { contentsMaxWidth, isSlim, removeGutters, templateLock } =
+		attributes;
 
 	const hasInnerBlocks = useSelect(
 		( select ) => {
@@ -55,6 +56,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 			style: bodyStyles,
 		},
 		{
+			templateLock,
 			renderAppender: hasInnerBlocks
 				? InnerBlocks.DefaultBlockAppender
 				: InnerBlocks.ButtonBlockAppender,

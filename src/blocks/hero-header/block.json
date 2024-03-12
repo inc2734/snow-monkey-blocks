@@ -116,6 +116,10 @@
 		"bodyPadding": {
 			"type": "object",
 			"default": {}
+		},
+		"templateLock": {
+			"type": [ "string", "boolean" ],
+			"enum": [ "all", "insert", "contentOnly", false ]
 		}
 	},
 	"supports": {

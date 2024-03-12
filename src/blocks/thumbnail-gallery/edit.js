@@ -33,7 +33,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		},
 	] );
 
-	const { arrows, speed, autoplaySpeed } = attributes;
+	const { arrows, speed, autoplaySpeed, templateLock } = attributes;
 
 	const hasInnerBlocks = useSelect(
 		( select ) =>
@@ -55,7 +55,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		{
 			allowedBlocks: ALLOWED_BLOCKS,
 			template: TEMPLATE,
-			templateLock: false,
+			templateLock,
 			renderAppender: hasInnerBlocks
 				? InnerBlocks.DefaultBlockAppender
 				: InnerBlocks.ButtonBlockAppender,

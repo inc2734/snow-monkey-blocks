@@ -24,7 +24,7 @@ const HORIZONTAL_JUSTIFY_CONTROLS = [
 ];
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
-	const { contentJustification } = attributes;
+	const { contentJustification, templateLock } = attributes;
 
 	const hasInnerBlocks = useSelect(
 		( select ) =>
@@ -46,6 +46,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		allowedBlocks: ALLOWED_BLOCKS,
 		template: TEMPLATE,
 		orientation: 'horizontal',
+		templateLock,
 		renderAppender: hasInnerBlocks
 			? undefined
 			: InnerBlocks.ButtonBlockAppender,

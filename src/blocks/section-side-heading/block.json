@@ -166,6 +166,11 @@
 		"bottomDividerVerticalPosition": {
 			"type": "number",
 			"default": 0
+		},
+
+		"templateLock": {
+			"type": [ "string", "boolean" ],
+			"enum": [ "all", "insert", "contentOnly", false ]
 		}
 	},
 	"supports": {

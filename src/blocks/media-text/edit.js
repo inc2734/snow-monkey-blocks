@@ -76,6 +76,7 @@ export default function ( {
 		focalPoint,
 		splitPoint,
 		gutter,
+		templateLock,
 	} = attributes;
 
 	const hasInnerBlocks = useSelect(
@@ -162,6 +163,7 @@ export default function ( {
 			className: 'smb-media-text__body',
 		},
 		{
+			templateLock,
 			renderAppender: hasInnerBlocks
 				? InnerBlocks.DefaultBlockAppender
 				: InnerBlocks.ButtonBlockAppender,

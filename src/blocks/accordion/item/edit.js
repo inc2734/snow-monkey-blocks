@@ -18,7 +18,7 @@ import { __ } from '@wordpress/i18n';
 import metadata from './block.json';
 
 export default function ( { attributes, setAttributes, className } ) {
-	const { title, initialState } = attributes;
+	const { title, initialState, templateLock } = attributes;
 
 	const classes = classnames( 'smb-accordion__item', className );
 
@@ -26,9 +26,12 @@ export default function ( { attributes, setAttributes, className } ) {
 		className: classes,
 	} );
 
-	const innerBlocksProps = useInnerBlocksProps( {
-		className: 'smb-accordion__item__body',
-	} );
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: 'smb-accordion__item__body',
+		},
+		{ templateLock }
+	);
 
 	return (
 		<>

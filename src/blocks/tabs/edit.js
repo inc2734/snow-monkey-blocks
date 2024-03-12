@@ -41,6 +41,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		tabsJustification,
 		tabsId,
 		orientation,
+		templateLock,
 	} = attributes;
 	const tabs = JSON.parse( _tabs );
 
@@ -171,7 +172,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		},
 		{
 			allowedBlocks: ALLOWED_BLOCKS,
-			templateLock: false,
+			templateLock,
 			renderAppender: false,
 		}
 	);

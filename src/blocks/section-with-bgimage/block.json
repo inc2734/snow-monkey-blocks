@@ -304,6 +304,11 @@
 					"left": null
 				}
 			}
+		},
+
+		"templateLock": {
+			"type": [ "string", "boolean" ],
+			"enum": [ "all", "insert", "contentOnly", false ]
 		}
 	},
 	"supports": {

@@ -26,7 +26,7 @@ const ALLOWED_BLOCKS = [ 'core/list-item' ];
 const TEMPLATE = [ [ 'core/list-item' ] ];
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
-	const { icon, iconColor } = attributes;
+	const { icon, iconColor, templateLock } = attributes;
 
 	const iconList = [
 		{
@@ -78,7 +78,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		{
 			allowedBlocks: ALLOWED_BLOCKS,
 			template: TEMPLATE,
-			templateLock: false,
+			templateLock,
 		}
 	);
 

@@ -74,6 +74,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		verticalAlignment,
 		contentJustification,
 		gap,
+		templateLock,
 	} = attributes;
 
 	const hasInnerBlocks = useSelect(
@@ -112,7 +113,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		},
 		{
 			allowedBlocks: ALLOWED_BLOCKS,
-			templateLock: false,
+			templateLock,
 			renderAppender: hasInnerBlocks
 				? InnerBlocks.DefaultBlockAppender
 				: InnerBlocks.ButtonBlockAppender,

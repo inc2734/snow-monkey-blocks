@@ -56,8 +56,16 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		},
 	] );
 
-	const { sm, md, lg, imagePadding, contentJustification, isGlue, gap } =
-		attributes;
+	const {
+		sm,
+		md,
+		lg,
+		imagePadding,
+		contentJustification,
+		isGlue,
+		gap,
+		templateLock,
+	} = attributes;
 
 	const hasInnerBlocks = useSelect(
 		( select ) =>
@@ -92,7 +100,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		},
 		{
 			allowedBlocks: ALLOWED_BLOCKS,
-			templateLock: false,
+			templateLock,
 			renderAppender: hasInnerBlocks
 				? InnerBlocks.DefaultBlockAppender
 				: InnerBlocks.ButtonBlockAppender,

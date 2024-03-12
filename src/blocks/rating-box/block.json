@@ -6,6 +6,12 @@
 	"title": "Rating box",
 	"description": "Evaluate with bars.",
 	"category": "smb",
+	"attributes": {
+		"templateLock": {
+			"type": [ "string", "boolean" ],
+			"enum": [ "all", "insert", "contentOnly", false ]
+		}
+	},
 	"supports": {
 		"html": false,
 		"spacing": {

@@ -41,6 +41,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		opacity,
 		contentPadding,
 		boxShadow,
+		templateLock,
 	} = attributes;
 
 	const hasInnerBlocks = useSelect(
@@ -87,6 +88,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 			className: 'smb-box__body',
 		},
 		{
+			templateLock,
 			renderAppender: hasInnerBlocks
 				? InnerBlocks.DefaultBlockAppender
 				: InnerBlocks.ButtonBlockAppender,

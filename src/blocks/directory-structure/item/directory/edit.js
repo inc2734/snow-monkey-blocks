@@ -51,7 +51,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		[ clientId ]
 	);
 
-	const { iconColor, iconVendor, iconClass, name } = attributes;
+	const { iconColor, iconVendor, iconClass, name, templateLock } = attributes;
 
 	const classes = classnames(
 		'smb-directory-structure__item',
@@ -78,7 +78,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		},
 		{
 			allowedBlocks: ALLOWED_BLOCKS,
-			templateLock: false,
+			templateLock,
 			renderAppender: hasInnerBlocks
 				? InnerBlocks.DefaultBlockAppender
 				: InnerBlocks.ButtonBlockAppender,

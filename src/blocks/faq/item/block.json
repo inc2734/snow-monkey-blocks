@@ -31,6 +31,10 @@
 			"source": "html",
 			"selector": ".smb-faq__item__answer__label",
 			"default": "A"
+		},
+		"templateLock": {
+			"type": [ "string", "boolean" ],
+			"enum": [ "all", "insert", "contentOnly", false ]
 		}
 	},
 	"supports": {
