@@ -10,6 +10,7 @@ import {
 	useInnerBlocksProps,
 	useBlockProps,
 	useSettings,
+	useSetting, // @deprecated
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
@@ -180,7 +181,10 @@ export default function ( {
 		}
 	);
 
-	const [ fontSizes ] = useSettings( 'typography.fontSizes' );
+	const [ fontSizes ] =
+		null != useSettings
+			? useSettings( 'typography.fontSizes' )
+			: [ useSetting( 'typography.fontSizes' ) ].filter( Boolean );
 	const newBackgroundText = { ...backgroundText };
 
 	return (

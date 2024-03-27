@@ -11,6 +11,7 @@ import {
 	useInnerBlocksProps,
 	useBlockProps,
 	useSettings,
+	useSetting, // @deprecated
 } from '@wordpress/block-editor';
 
 import { useSelect } from '@wordpress/data';
@@ -195,7 +196,10 @@ export default function ( {
 		}
 	);
 
-	const [ fontSizes ] = useSettings( 'typography.fontSizes' );
+	const [ fontSizes ] =
+		null != useSettings
+			? useSettings( 'typography.fontSizes' )
+			: [ useSetting( 'typography.fontSizes' ) ].filter( Boolean );
 	const newBackgroundText = { ...backgroundText };
 
 	return (
@@ -297,7 +301,9 @@ export default function ( {
 							paddingValue: padding,
 							onPaddingChange: ( value ) =>
 								setAttributes( {
-									padding: value,
+									padding: isNaN( value )
+										? value
+										: `${ value }px`,
 								} ),
 							defaultValue: metadata.attributes.padding.default,
 						},

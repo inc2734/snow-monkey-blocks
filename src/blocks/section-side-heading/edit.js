@@ -347,7 +347,9 @@ export default function ( {
 							paddingValue: padding,
 							onPaddingChange: ( value ) =>
 								setAttributes( {
-									padding: value,
+									padding: isNaN( value )
+										? value
+										: `${ value }px`,
 								} ),
 							defaultValue: metadata.attributes.padding.default,
 						},

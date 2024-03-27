@@ -3,7 +3,10 @@ import {
 	__experimentalBoxControl as BoxControl,
 } from '@wordpress/components';
 
-import { useSettings } from '@wordpress/block-editor';
+import {
+	useSettings,
+	useSetting, // @deprecated
+} from '@wordpress/block-editor';
 
 /**
  * @param {Object} props
@@ -14,7 +17,10 @@ import { useSettings } from '@wordpress/block-editor';
 export default function ( props ) {
 	const { label, sides, values, onChange, allowReset } = props;
 
-	const [ spacingUnits ] = useSettings( 'spacing.units' );
+	const [ spacingUnits ] =
+		null != useSettings
+			? useSettings( 'spacing.units' )
+			: [ useSetting( 'spacing.units' ) ].filter( Boolean );
 
 	const units = useCustomUnits( {
 		availableUnits: spacingUnits || [ '%', 'px', 'em', 'rem', 'vw' ],
