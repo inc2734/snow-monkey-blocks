@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue, kutsu
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 20.5.0
+Stable tag: 20.5.1
 Requires at least: 6.4
 Tested up to: 6.5
 Requires PHP: 7.4
@@ -116,6 +116,9 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 28. Read more box block
 
 == Changelog ==
+
+= 20.5.1 =
+- [Pickup slider] Fixed a bug where the order of content overlap was below the image and could not be seen.
 
 = 20.5.0 =
 - WordPress 6.5 support.
