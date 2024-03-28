@@ -4,11 +4,14 @@
 	--smb-spider-pickup-slider--background-color: var(--wp--preset--color--black);
 	--smb-spider-pickup-slider--mask-color: rgba(0, 0, 0, .15);
 
+	.spider__canvas {
+		min-height: clamp(210px, 56.25vw, 650px);
+	}
+
 	.spider__slide {
 		position: relative;
 		overflow: hidden;
 		background-color: var(--smb-spider-pickup-slider--background-color);
-		min-height: clamp(210px, 56.25vw, 650px);
 
 		&::after {
 			content: '';
@@ -60,6 +63,7 @@
 	}
 
 	&__item {
+		z-index: 1;
 		width: 100%;
 		display: flex;
 		flex-direction: column;
