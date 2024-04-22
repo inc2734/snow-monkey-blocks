@@ -19,6 +19,6 @@
 			"margin": true
 		}
 	},
-	"editorStyle": "snow-monkey-blocks/custom-field/editor",
+	"editorStyle": "file:./editor.css",
 	"editorScript": "file:./index.js"
 }
