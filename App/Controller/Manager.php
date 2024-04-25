@@ -48,7 +48,7 @@ class Manager {
 			__( 'Snow Monkey Blocks', 'snow-monkey-blocks' ),
 			'manage_options',
 			self::MENU_SLUG,
-			function() {
+			function () {
 				?>
 				<div class="wrap">
 					<h1><?php esc_html_e( 'Snow Monkey Blocks', 'snow-monkey-blocks' ); ?></h1>
@@ -103,7 +103,7 @@ class Manager {
 		register_setting(
 			self::MENU_SLUG,
 			self::AVAILABLE_BLOCKS_NAME,
-			function( $option ) use ( $blocks ) {
+			function ( $option ) use ( $blocks ) {
 				if ( isset( $option['reset'] ) && '1' === $option['reset'] ) {
 					return array();
 				}
@@ -122,7 +122,7 @@ class Manager {
 		add_settings_section(
 			self::AVAILABLE_BLOCKS_NAME,
 			__( 'Available blocks', 'snow-monkey-blocks' ),
-			function() {
+			function () {
 			},
 			self::MENU_SLUG
 		);
@@ -133,7 +133,7 @@ class Manager {
 				// phpcs:disable WordPress.WP.I18n.NonSingularStringLiteralText
 				'<label for="available-' . $block->name . '">' . esc_html_x( $block->title ? $block->title : $block->name, 'block title', 'snow-monkey-blocks' ) . '</label>',
 				// phpcs:enable
-				function() use ( $block ) {
+				function () use ( $block ) {
 					$checked = 0 !== $this->_get_option( $block->name, self::AVAILABLE_BLOCKS_NAME );
 					?>
 					<input
@@ -207,7 +207,10 @@ class Manager {
 				continue;
 			}
 
-			$data                  = json_decode( file_get_contents( realpath( $file->getPathname() ) ) );
+			// phpcs:disable WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+			$data = json_decode( file_get_contents( realpath( $file->getPathname() ) ) );
+			// phpcs:enable
+
 			$blocks[ $data->name ] = (object) array(
 				'name'   => $data->name,
 				'title'  => $data->title,
@@ -218,11 +221,12 @@ class Manager {
 
 		return array_filter(
 			$blocks,
-			function( $block_type ) {
+			function ( $block_type ) {
 				return false !== strpos( $block_type->name, 'snow-monkey-blocks/' )
+						&& false === strpos( $block_type->name, '--' )
 						&& 'snow-monkey-blocks/btn' !== $block_type->name
-						&& ! $block_type->parent || 'core/post-content' !== $block_type->name
-						&& false === strpos( $block_type->name, '--' );
+						&& 'core/post-content' !== $block_type->name
+						&& ! $block_type->parent;
 			}
 		);
 	}
@@ -251,7 +255,7 @@ class Manager {
 	protected function _is_option_page() {
 		$current_url = admin_url( '/options-general.php?page=' . static::MENU_SLUG );
 		$current_url = preg_replace( '|^(.+)?(/wp-admin/.*?)$|', '$2', $current_url );
-		$request_uri = $_SERVER['REQUEST_URI'];
+		$request_uri = filter_input( INPUT_SERVER, 'REQUEST_URI' );
 		$request_uri = preg_replace( '|^(.+)?(/wp-admin/.*?)$|', '$2', $request_uri );
 		return false !== strpos( $request_uri, $current_url );
 	}
@@ -264,7 +268,7 @@ class Manager {
 	protected function _is_options_page() {
 		$current_url = admin_url( '/options.php' );
 		$current_url = preg_replace( '|^(.+)?(/wp-admin/.*?)$|', '$2', $current_url );
-		$request_uri = $_SERVER['REQUEST_URI'];
+		$request_uri = filter_input( INPUT_SERVER, 'REQUEST_URI' );
 		$request_uri = preg_replace( '|^(.+)?(/wp-admin/.*?)$|', '$2', $request_uri );
 		return false !== strpos( $request_uri, $current_url );
 	}

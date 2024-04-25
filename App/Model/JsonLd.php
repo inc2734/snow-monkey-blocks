@@ -84,7 +84,7 @@ class JsonLd {
 		foreach ( $data as $dataset ) {
 			?>
 			<script type="application/ld+json">
-				<?php echo json_encode( $dataset, JSON_UNESCAPED_UNICODE ); ?>
+				<?php echo wp_json_encode( $dataset, JSON_UNESCAPED_UNICODE ); ?>
 			</script>
 			<?php
 		}

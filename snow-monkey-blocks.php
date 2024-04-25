@@ -108,7 +108,7 @@ class Bootstrap {
 				continue;
 			}
 
-			include_once( realpath( $file->getPathname() ) );
+			include_once realpath( $file->getPathname() );
 		}
 	}
 
@@ -141,14 +141,14 @@ class Bootstrap {
 		?>
 		<p>
 			<?php
-			echo sprintf(
-				// translators: %1$s: Start a tag, %2$s: End a tag
+			printf(
+				// translators: %1$s: Start a tag, %2$s: End a tag.
 				esc_html__( 'Snow Monkey Blocks is optimized for the %1$sSnow Monkey%2$s theme, but it can also be used with other themes.', 'snow-monkey-blocks' ),
 				'<a href="https://snow-monkey.2inc.org/" target="_blank">',
 				'</a>'
 			);
-			echo sprintf(
-				// translators: %1$s: Start a tag, %2$s: End a tag
+			printf(
+				// translators: %1$s: Start a tag, %2$s: End a tag.
 				esc_html__( 'When used together with the %1$sSnow Monkey%2$s theme, it can be displayed with the most beautiful balance, and it is displayed on the edit screen with the same design as the front screen.', 'snow-monkey-blocks' ),
 				'<a href="https://snow-monkey.2inc.org/" target="_blank">',
 				'</a>'
@@ -167,7 +167,7 @@ class Bootstrap {
 	public function _the_content_for_slider( $content ) {
 		$content = preg_replace_callback(
 			'|data-slick="\{([^}]+?)\}"|',
-			function( $matches ) {
+			function ( $matches ) {
 				$matches[0] = str_replace( '"', '\'', $matches[0] );
 				$matches[0] = str_replace( '&quot;', '"', $matches[0] );
 				return $matches[0];
@@ -178,7 +178,7 @@ class Bootstrap {
 	}
 }
 
-require_once( __DIR__ . '/vendor/autoload.php' );
+require_once __DIR__ . '/vendor/autoload.php';
 
 /**
  * Directory url of this plugin.

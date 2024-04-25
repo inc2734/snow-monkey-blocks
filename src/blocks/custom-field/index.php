@@ -18,7 +18,7 @@ wp_register_style(
 register_block_type(
 	__DIR__,
 	array(
-		'render_callback' => function( $attributes, $content, $block ) {
+		'render_callback' => function ( $attributes, $content, $block ) {
 			return DynamicBlocks::render( 'custom-field', $attributes, $content, $block );
 		},
 	)

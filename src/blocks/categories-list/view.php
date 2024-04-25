@@ -17,7 +17,7 @@ $exclusion_ids = array();
 if ( isset( $attributes['exclusionCategories'] ) && ! empty( $attributes['exclusionCategories'] ) ) {
 	$exclusion_ids = explode( ',', $attributes['exclusionCategories'] );
 	$exclusion_ids = array_map(
-		function( $value ) {
+		function ( $value ) {
 			return (int) $value;
 		},
 		$exclusion_ids
@@ -35,7 +35,7 @@ $block_wrapper_attributes = get_block_wrapper_attributes(
 	)
 );
 ?>
-<div <?php echo $block_wrapper_attributes; ?>>
+<div <?php echo wp_kses_post( $block_wrapper_attributes ); ?>>
 	<ul class="smb-categories-list__list">
 		<?php foreach ( $categories as $category ) : ?>
 			<?php

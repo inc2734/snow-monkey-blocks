@@ -23,7 +23,7 @@ add_filter(
 				$p->set_attribute( 'class', trim( $class . ' ' . $target ) );
 			}
 		} else {
-			$p->set_attribute( 'class', trim( $class . ' ' . 'is-vertical' ) );
+			$p->set_attribute( 'class', trim( $class . ' is-vertical' ) );
 		}
 
 		$block_content = $p->get_updated_html();
@@ -38,7 +38,7 @@ add_filter(
  */
 add_filter(
 	'excerpt_allowed_blocks',
-	function( $allowed_blocks ) {
+	function ( $allowed_blocks ) {
 		return array_merge(
 			$allowed_blocks,
 			array(

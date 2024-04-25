@@ -23,7 +23,7 @@ register_block_type(
  */
 add_filter(
 	'excerpt_allowed_blocks',
-	function( $allowed_blocks ) {
+	function ( $allowed_blocks ) {
 		return array_merge(
 			$allowed_blocks,
 			array(
@@ -38,7 +38,7 @@ add_filter(
  */
 add_filter(
 	'render_block_snow-monkey-blocks/section-break-the-grid',
-	function( $block_content ) {
+	function ( $block_content ) {
 		$block_content = preg_replace(
 			'|(--smb-section-break-the-grid--mask-opacity:\d+(?:\.\d+)?)px|',
 			'$1',
@@ -50,7 +50,7 @@ add_filter(
 
 add_filter(
 	'render_block_snow-monkey-blocks/section-break-the-grid',
-	function( $content ) {
+	function ( $content ) {
 		$p1 = new WP_HTML_Tag_Processor( $content );
 		$p1->next_tag( array( 'class_name' => 'is-layout-constrained' ) );
 		$p1_class = $p1->get_attribute( 'class' );

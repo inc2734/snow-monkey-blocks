@@ -61,7 +61,7 @@ $block_wrapper_attributes = get_block_wrapper_attributes(
 ?>
 
 <div
-	<?php echo $block_wrapper_attributes; ?>
+	<?php echo wp_kses_post( $block_wrapper_attributes ); ?>
 	data-interval="<?php echo esc_attr( 0 < $attributes['interval'] ? $attributes['interval'] * 1000 : null ); ?>"
 	data-fade="<?php echo esc_attr( $attributes['fade'] ? 'true' : 'false' ); ?>"
 >
@@ -87,7 +87,7 @@ $block_wrapper_attributes = get_block_wrapper_attributes(
 						</ul>
 					</div>
 				</div>
-				<?php $index ++; ?>
+				<?php ++$index; ?>
 			<?php endwhile; ?>
 			<?php wp_reset_postdata(); ?>
 		</div>
@@ -162,7 +162,7 @@ $block_wrapper_attributes = get_block_wrapper_attributes(
 								<?php echo esc_html( $index ); ?>
 							<?php endif; ?>
 						</button>
-					<?php $index ++; ?>
+					<?php ++$index; ?>
 				<?php endwhile; ?>
 				<?php wp_reset_postdata(); ?>
 			<?php endif; ?>

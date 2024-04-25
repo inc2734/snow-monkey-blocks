@@ -17,7 +17,7 @@ wp_register_style(
 register_block_type(
 	__DIR__,
 	array(
-		'render_callback' => function( $attributes, $content ) {
+		'render_callback' => function ( $attributes, $content ) {
 			return DynamicBlocks::render( 'spider-pickup-slider', $attributes, $content );
 		},
 	)

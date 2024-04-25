@@ -40,7 +40,7 @@ $block_wrapper_attributes = get_block_wrapper_attributes(
 );
 ?>
 
-<div <?php echo $block_wrapper_attributes; ?>>
+<div <?php echo wp_kses_post( $block_wrapper_attributes ); ?>>
 	<ul class="smb-taxonomy-terms__list">
 		<?php foreach ( $terms as $_term ) : ?>
 			<li class="smb-taxonomy-terms__item">

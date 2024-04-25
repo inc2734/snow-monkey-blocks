@@ -17,19 +17,17 @@ class DynamicBlocks {
 	 * @param string $slug Slug of the block view.
 	 * @param array  $attributes This variable can be referenced in the template.
 	 * @param string $content Inner content.
-	 * @param WP_Block $block
+	 * @param WP_Block $block WP_Block object.
 	 * @return string
 	 */
-	public static function render(
+	public static function render( // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed
 		$slug,
-		// phpcs:disable VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
 		$attributes,
 		$content = null,
 		$block = null
-		// phpcs:enable
 	) {
 		ob_start();
-		include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/blocks/' . $slug . '/view.php' );
+		include SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/blocks/' . $slug . '/view.php';
 		return ob_get_clean();
 	}
 }

@@ -44,7 +44,7 @@ class Assets {
 			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/blocks-editor.css' )
 		);
 
-		$asset = include( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/editor.asset.php' );
+		$asset = include SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/editor.asset.php';
 		wp_enqueue_script(
 			'snow-monkey-blocks-editor',
 			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/editor.js',
@@ -142,18 +142,16 @@ class Assets {
 			);
 		}
 
-		// if ( ! wp_script_is( 'spider', 'registered' ) ) {
-			wp_enqueue_script(
-				'spider',
-				SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/packages/spider/dist/js/spider.js',
-				array(),
-				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/spider/dist/js/spider.js' ),
-				array(
-					'strategy'  => 'defer',
-					'in_footer' => false,
-				)
-			);
-		// }
+		wp_enqueue_script(
+			'spider',
+			SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/packages/spider/dist/js/spider.js',
+			array(),
+			filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/spider/dist/js/spider.js' ),
+			array(
+				'strategy'  => 'defer',
+				'in_footer' => false,
+			)
+		);
 
 		wp_enqueue_style(
 			'snow-monkey-blocks',
@@ -184,7 +182,7 @@ class Assets {
 			return $block_content;
 		}
 
-		// Parallax assets for the section with background image/video block
+		// Parallax assets for the section with background image/video block.
 		if ( 'snow-monkey-blocks/section-with-bgimage' === $block['blockName'] ) {
 			if ( isset( $block['attrs']['parallax'] ) && true === $block['attrs']['parallax'] ) {
 				if ( ! wp_script_is( 'snow-monkey-blocks/background-parallax', 'registered' ) ) {

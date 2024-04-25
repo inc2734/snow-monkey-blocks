@@ -10,7 +10,7 @@ use Snow_Monkey\Plugin\Blocks\App\DynamicBlocks;
 register_block_type(
 	__DIR__,
 	array(
-		'render_callback' => function( $attributes ) {
+		'render_callback' => function ( $attributes ) {
 			return DynamicBlocks::render( 'categories-list', $attributes );
 		},
 	)

@@ -11,8 +11,8 @@ use Snow_Monkey\Plugin\Blocks\App\Helper;
 register_block_type(
 	__DIR__,
 	array(
-		'render_callback' => function( $attributes, $content ) {
-			$dom = new \DOMDocument;
+		'render_callback' => function ( $attributes, $content ) {
+			$dom = new \DOMDocument();
 			// phpcs:disable WordPress.PHP.NoSilencedErrors.Discouraged
 			@$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'auto' ) );
 			// phpcs:enable
@@ -47,7 +47,7 @@ register_block_type(
 
 add_filter(
 	'render_block_snow-monkey-blocks/faq-item',
-	function( $content ) {
+	function ( $content ) {
 		$p1 = new WP_HTML_Tag_Processor( $content );
 		$p1->next_tag( array( 'class_name' => 'is-layout-constrained' ) );
 		$p1_class = $p1->get_attribute( 'class' );

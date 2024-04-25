@@ -13,7 +13,7 @@ register_block_type(
 
 add_filter(
 	'render_block_snow-monkey-blocks/step--item',
-	function( $content ) {
+	function ( $content ) {
 		$p1 = new WP_HTML_Tag_Processor( $content );
 		$p1->next_tag( array( 'class_name' => 'is-layout-constrained' ) );
 		$p1_class = $p1->get_attribute( 'class' );

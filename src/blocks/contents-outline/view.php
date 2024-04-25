@@ -31,7 +31,7 @@ if ( $attributes['includesSectionHeadings'] ) {
 	$selectors[] = '.smb-section__body';
 }
 
-$anchor = ! empty( $attributes['myAnchor'] ) ? $attributes['myAnchor'] : null; // Backward compatible
+$anchor = ! empty( $attributes['myAnchor'] ) ? $attributes['myAnchor'] : null; // Backward compatible.
 $anchor = ! empty( $attributes['anchor'] ) ? $attributes['anchor'] : $anchor;
 
 echo do_shortcode(

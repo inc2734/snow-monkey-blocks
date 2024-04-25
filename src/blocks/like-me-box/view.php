@@ -24,7 +24,7 @@ $block_wrapper_attributes = get_block_wrapper_attributes(
 	)
 );
 ?>
-<div <?php echo $block_wrapper_attributes; ?>>
+<div <?php echo wp_kses_post( $block_wrapper_attributes ); ?>>
 	<?php
 	$template_args = array(
 		'_context'            => 'snow-monkey-blocks/like-me-box',

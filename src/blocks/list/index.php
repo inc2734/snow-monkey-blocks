@@ -14,7 +14,7 @@ register_block_type(
  */
 add_filter(
 	'excerpt_allowed_blocks',
-	function( $allowed_blocks ) {
+	function ( $allowed_blocks ) {
 		return array_merge(
 			$allowed_blocks,
 			array(

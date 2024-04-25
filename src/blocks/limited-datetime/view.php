@@ -12,7 +12,7 @@ $is_use_end_date = ! empty( $attributes['isUseEndDate'] ) ? $attributes['isUseEn
 $end_date        = $is_use_end_date && isset( $attributes['endDate'] ) ? $attributes['endDate'] : false;
 
 if ( ! $start_date && ! $end_date ) {
-	echo '<div>' . $content . '</div>'; // XSS ok.
+	echo '<div>' . $content . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	return;
 }
 
@@ -35,4 +35,4 @@ if ( $end_date ) {
 	}
 }
 
-echo '<div>' . $content . '</div>'; // XSS ok.
+echo '<div>' . $content . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

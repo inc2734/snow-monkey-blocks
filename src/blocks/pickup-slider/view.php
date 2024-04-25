@@ -23,11 +23,11 @@ $instance = array(
 	'posts_per_page' => $attributes['postsPerPage'],
 );
 
-$anchor = ! empty( $attributes['myAnchor'] ) ? $attributes['myAnchor'] : null; // Backward compatible
+$anchor = ! empty( $attributes['myAnchor'] ) ? $attributes['myAnchor'] : null; // Backward compatible.
 $anchor = ! empty( $attributes['anchor'] ) ? $attributes['anchor'] : $anchor;
 
 $widget_id  = 'snow_monkey_blocks_pickup_slider-';
-$widget_id .= $anchor ? $anchor : rand();
+$widget_id .= $anchor ? $anchor : wp_rand();
 
 $widget_args = array(
 	'before_widget' => '',
@@ -44,9 +44,9 @@ $args = array(
 ob_start();
 
 if ( file_exists( get_theme_file_path( $custom_template ) ) ) {
-	include( get_theme_file_path( $custom_template ) );
+	include get_theme_file_path( $custom_template );
 } elseif ( file_exists( $default_template ) ) {
-	include( $default_template );
+	include $default_template;
 }
 
 $widget = ob_get_clean();
@@ -67,7 +67,7 @@ $block_wrapper_attributes = get_block_wrapper_attributes(
 	)
 );
 ?>
-<div <?php echo $block_wrapper_attributes; ?>>
+<div <?php echo wp_kses_data( $block_wrapper_attributes ); ?>>
 	<?php
 	// @codingStandardsIgnoreStart
 	echo apply_filters( 'inc2734_wp_awesome_widgets_render_widget', $widget, $widget_args, $instance );

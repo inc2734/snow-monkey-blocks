@@ -22,10 +22,10 @@ if ( in_array( $attributes['layout'], array( 'rich-media', 'panel' ), true ) ) {
 	}
 }
 
-$anchor = ! empty( $attributes['myAnchor'] ) ? $attributes['myAnchor'] : null; // Backward compatible
+$anchor = ! empty( $attributes['myAnchor'] ) ? $attributes['myAnchor'] : null; // Backward compatible.
 $anchor = ! empty( $attributes['anchor'] ) ? $attributes['anchor'] : $anchor;
 
-$client_id  = ! empty( $attributes['clientId'] ) ? $attributes['clientId'] : rand();
+$client_id  = ! empty( $attributes['clientId'] ) ? $attributes['clientId'] : wp_rand();
 $widget_id  = 'snow_monkey_blocks_taxonomy_posts-';
 $widget_id .= ! empty( $anchor ) ? $anchor : $client_id;
 
@@ -85,9 +85,9 @@ $args = array(
 ob_start();
 
 if ( file_exists( get_theme_file_path( $custom_template ) ) ) {
-	include( get_theme_file_path( $custom_template ) );
+	include get_theme_file_path( $custom_template );
 } elseif ( file_exists( $default_template ) ) {
-	include( $default_template );
+	include $default_template;
 }
 
 $widget = ob_get_clean();
@@ -113,7 +113,7 @@ $block_wrapper_attributes = get_block_wrapper_attributes(
 	)
 );
 ?>
-<div <?php echo $block_wrapper_attributes; ?>>
+<div <?php echo wp_kses_post( $block_wrapper_attributes ); ?>>
 	<?php
 	if ( empty( $no_posts_text ) ) {
 		// @codingStandardsIgnoreStart

@@ -11,7 +11,7 @@ use Snow_Monkey\Plugin\Blocks\App\DynamicBlocks;
 register_block_type(
 	__DIR__,
 	array(
-		'render_callback' => function( $attributes, $content ) {
+		'render_callback' => function ( $attributes, $content ) {
 			return DynamicBlocks::render( 'pickup-slider', $attributes, $content );
 		},
 	)
