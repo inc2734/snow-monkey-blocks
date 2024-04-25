@@ -8,13 +8,6 @@
 use Snow_Monkey\Plugin\Blocks;
 use Snow_Monkey\Plugin\Blocks\App\DynamicBlocks;
 
-wp_register_style(
-	'snow-monkey-blocks/custom-field/editor',
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/blocks/custom-field/editor.css',
-	array( 'snow-monkey-blocks/accordion' ),
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/blocks/custom-field/editor.css' )
-);
-
 register_block_type(
 	__DIR__,
 	array(
