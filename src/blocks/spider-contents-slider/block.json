@@ -2,6 +2,7 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"textdomain": "snow-monkey-blocks",
+	"version": "20.5.4",
 	"name": "snow-monkey-blocks/spider-contents-slider",
 	"title": "Contents slider",
 	"description": "Show contents as beautiful sliders.",

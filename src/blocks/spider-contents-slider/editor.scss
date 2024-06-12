@@ -2,7 +2,7 @@
 	> .spider {
 		> .block-editor-block-list__layout {
 			overflow: hidden;
-			scroll-snap-type: x mandatory;
+			scroll-snap-type: initial;
 
 			> .spider__slide {
 				opacity: 1 !important;

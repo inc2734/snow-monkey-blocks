@@ -13,7 +13,7 @@
 
 .smb-inspector-tabs {
 	border: 1px solid #e2e4e7;
-	padding: 1rem;
+	padding: 12px !important;
 
 	.components-tab-panel__tabs {
 		border-bottom: 2px solid #e2e4e7;
@@ -158,6 +158,16 @@
 			width: 24px;
 			overflow: hidden;
 		}
+	}
+}
+.smb-spider-slider--shifted.alignfull,
+.smb-spider-slider--shifted.alignwide {
+	> .smb-slider-pagination::before,
+	> .smb-slider-pagination::after {
+		content: '';
+		display: block;
+		flex: 0 0 auto;
+		width: calc((var(--spider--canvas-width) - var(--spider--reference-width)) / 2 - var(--smb-spider-slider--gap));
 	}
 }
 
