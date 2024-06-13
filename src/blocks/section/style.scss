@@ -365,13 +365,13 @@
 
 	&--top-divider-no-overlay {
 		> .smb-section__inner {
-			padding-top: var(--smb-section--top-divider-level);
+			padding-top: max(var(--smb-section--top-divider-level), calc(var(--smb-section--top-divider-level) * -1));
 		}
 	}
 
 	&--bottom-divider-no-overlay {
 		> .smb-section__inner {
-			padding-bottom: var(--smb-section--bottom-divider-level);
+			padding-bottom: max(var(--smb-section--bottom-divider-level), calc(var(--smb-section--bottom-divider-level) * -1));
 		}
 	}
 

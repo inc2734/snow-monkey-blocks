@@ -197,6 +197,7 @@
 
 	.block-editor-tools-panel-color-gradient-settings__item:first-child,
 	:not(.block-editor-tools-panel-color-gradient-settings__item) + .block-editor-tools-panel-color-gradient-settings__item {
+		margin-top: 0;
 		border-top: 1px solid rgba(0, 0, 0, .1);
 	}
 
