@@ -1105,7 +1105,7 @@ export default function ( {
 					] }
 				/>
 
-				<ToolsPanel label={ __( 'Mask', 'snow-monkey-blocks' ) }>
+				<ToolsPanel label={ __( 'Overlay', 'snow-monkey-blocks' ) }>
 					<div className="smb-color-gradient-settings-dropdown">
 						<ColorGradientSettingsDropdown
 							settings={ [

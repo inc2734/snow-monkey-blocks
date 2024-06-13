@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-06-13T09:41:00+00:00\n"
+"POT-Creation-Date: 2024-06-13T09:44:27+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: snow-monkey-blocks\n"
@@ -1325,6 +1325,10 @@ msgid "Grid row: end"
 msgstr ""
 
 #: dist/blocks/hero-header/index.js:1
+#: dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:25
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
 msgid "Overlay"
 msgstr ""
 
@@ -1477,13 +1481,6 @@ msgstr ""
 
 #: dist/blocks/items/item/banner/index.js:1
 msgid "Shade off"
-msgstr ""
-
-#: dist/blocks/items/item/banner/index.js:1
-#: dist/blocks/section-break-the-grid/index.js:25
-#: dist/blocks/section-with-bgimage/index.js:1
-#: dist/blocks/section-with-bgvideo/index.js:1
-msgid "Mask"
 msgstr ""
 
 #: dist/blocks/items/item/banner/index.js:1
