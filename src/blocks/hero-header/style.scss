@@ -14,6 +14,10 @@
 	--smb-hero-header--figure-grid-row-end: -1;
 	--smb-hero-header--figure-aspect-ratio: auto;
 
+	--smb-hero-header--mask-color: transparent;
+	--smb-hero-header--mask-image: initial;
+	--smb-hero-header--mask-opacity: 1;
+
 	--smb-hero-header--body-align-self: auto;
 	--smb-hero-header--body-justify-self: auto;
 	--smb-hero-header--body-grid-column-start: 1;
@@ -33,7 +37,15 @@
 	min-height: var(--smb-hero-header--min-height);
 	max-width: var(--smb-hero-header--max-width) !important;
 
+	&__mask {
+		position: absolute;
+		inset: 0;
+		background-color: var(--smb-hero-header--mask-color);
+		background-image: var(--smb-hero-header--mask-image);
+	}
+
 	&__figure {
+		position: relative;
 		grid-column: var(--smb-hero-header--figure-grid-column-start) / var(--smb-hero-header--figure-grid-column-end);
 		grid-row: var(--smb-hero-header--figure-grid-row-start) / var(--smb-hero-header--figure-grid-row-end);
 		aspect-ratio: var(--smb-hero-header--figure-aspect-ratio);
@@ -42,11 +54,14 @@
 			aspect-ratio: calc(1 / (var(--smb-hero-header--figure-aspect-ratio)));
 		}
 
-		> * {
+		> img,
+		> video {
+			position: relative;
 			object-fit: cover;
 			object-position: var(--smb-hero-header--object-position-x) var(--smb-hero-header--object-position-y);
 			height: 100% !important;
 			width: 100% !important;
+			opacity: var(--smb-hero-header--mask-opacity);
 		}
 	}
 

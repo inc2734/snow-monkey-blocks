@@ -9,6 +9,8 @@ import {
 	useInnerBlocksProps,
 	__experimentalSpacingSizesControl as SpacingSizesControl,
 	__experimentalBlockVariationPicker as BlockVariationPicker,
+	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
+	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
 	store as blockEditorStore,
 } from '@wordpress/block-editor';
 
@@ -34,7 +36,7 @@ import { useSelect, useDispatch } from '@wordpress/data';
 import { useEffect, useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
-import { getMediaType, isVideoType } from '@smb/helper';
+import { getMediaType, isVideoType, toNumber } from '@smb/helper';
 
 import Figure from '@smb/component/figure';
 import ResolutionTool from '@smb/component/resolution-tool';
@@ -142,6 +144,9 @@ export default function ( {
 		figureGridRowStart,
 		figureGridRowEnd,
 		figureAspectRatio,
+		maskColor,
+		maskGradientColor,
+		maskOpacity,
 		bodyAlignSelf,
 		bodyJustifySelf,
 		bodyGridColumnStart,
@@ -195,6 +200,9 @@ export default function ( {
 
 		[ isSelected, mediaId, clientId ]
 	);
+
+	const multipleOriginColorsAndGradients =
+		useMultipleOriginColorsAndGradients();
 
 	if ( isShowPlaceholder ) {
 		return (
@@ -264,6 +272,10 @@ export default function ( {
 			undefined,
 		'--smb-hero-header--figure-aspect-ratio':
 			( ! fit && figureAspectRatio ) || undefined,
+		'--smb-hero-header--mask-color': maskColor || undefined,
+		'--smb-hero-header--mask-image': maskGradientColor || undefined,
+		'--smb-hero-header--mask-opacity':
+			!! maskColor || !! maskGradientColor ? maskOpacity : undefined,
 		'--smb-hero-header--body-align-self': bodyAlignSelf || undefined,
 		'--smb-hero-header--body-justify-self': bodyJustifySelf || undefined,
 		'--smb-hero-header--body-grid-column-start':
@@ -803,6 +815,66 @@ export default function ( {
 					) }
 				</ToolsPanel>
 
+				<ToolsPanel label={ __( 'Overlay', 'snow-monkey-blocks' ) }>
+					<div className="smb-color-gradient-settings-dropdown">
+						<ColorGradientSettingsDropdown
+							settings={ [
+								{
+									label: __( 'Color', 'snow-monkey-blocks' ),
+									colorValue: maskColor,
+									gradientValue: maskGradientColor,
+									onColorChange: ( value ) =>
+										setAttributes( {
+											maskColor: value,
+										} ),
+									onGradientChange: ( value ) =>
+										setAttributes( {
+											maskGradientColor: value,
+										} ),
+								},
+							] }
+							__experimentalIsRenderedInSidebar
+							{ ...multipleOriginColorsAndGradients }
+						/>
+					</div>
+
+					{ ( !! maskColor || !! maskGradientColor ) && (
+						<ToolsPanelItem
+							hasValue={ () =>
+								maskOpacity !==
+								metadata.attributes.maskOpacity.default
+							}
+							isShownByDefault
+							label={ __( 'Opacity', 'snow-monkey-blocks' ) }
+							onDeselect={ () =>
+								setAttributes( {
+									maskOpacity:
+										metadata.attributes.maskOpacity.default,
+								} )
+							}
+						>
+							<RangeControl
+								label={ __( 'Opacity', 'snow-monkey-blocks' ) }
+								value={ Number(
+									( 1 - maskOpacity ).toFixed( 1 )
+								) }
+								onChange={ ( value ) =>
+									setAttributes( {
+										maskOpacity: toNumber(
+											( 1 - value ).toFixed( 1 ),
+											0,
+											1
+										),
+									} )
+								}
+								min={ 0 }
+								max={ 1 }
+								step={ 0.1 }
+							/>
+						</ToolsPanelItem>
+					) }
+				</ToolsPanel>
+
 				<ToolsPanel label={ __( 'Contents', 'snow-monkey-blocks' ) }>
 					<ToolsPanelItem
 						hasValue={ () =>
@@ -1104,6 +1176,10 @@ export default function ( {
 			<div { ...blockProps }>
 				{ !! mediaUrl && (
 					<div className="smb-hero-header__figure">
+						{ 0 < Number( ( 1 - maskOpacity ).toFixed( 1 ) ) && (
+							<div className="smb-hero-header__mask" />
+						) }
+
 						{ isImage && (
 							<img
 								src={ mediaUrl }

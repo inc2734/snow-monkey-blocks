@@ -58,6 +58,9 @@ export default function ( { attributes, className } ) {
 		figureGridRowStart,
 		figureGridRowEnd,
 		figureAspectRatio,
+		maskColor,
+		maskGradientColor,
+		maskOpacity,
 		bodyAlignSelf,
 		bodyJustifySelf,
 		bodyGridColumnStart,
@@ -104,6 +107,10 @@ export default function ( { attributes, className } ) {
 			undefined,
 		'--smb-hero-header--figure-aspect-ratio':
 			( ! fit && figureAspectRatio ) || undefined,
+		'--smb-hero-header--mask-color': maskColor || undefined,
+		'--smb-hero-header--mask-image': maskGradientColor || undefined,
+		'--smb-hero-header--mask-opacity':
+			!! maskColor || !! maskGradientColor ? maskOpacity : undefined,
 		'--smb-hero-header--body-align-self': bodyAlignSelf || undefined,
 		'--smb-hero-header--body-justify-self': bodyJustifySelf || undefined,
 		'--smb-hero-header--body-grid-column-start':
@@ -140,6 +147,10 @@ export default function ( { attributes, className } ) {
 		<div { ...blockProps }>
 			{ !! mediaUrl && (
 				<div className="smb-hero-header__figure">
+					{ 0 < Number( ( 1 - maskOpacity ).toFixed( 1 ) ) && (
+						<div className="smb-hero-header__mask" />
+					) }
+
 					{ isImage && (
 						<img
 							src={ mediaUrl }

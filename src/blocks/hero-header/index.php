@@ -24,6 +24,21 @@ add_filter(
 	}
 );
 
+/**
+ * In the case of numerical values, "px" is sometimes auto-completed, so it should be removed.
+ */
+add_filter(
+	'render_block_snow-monkey-blocks/hero-header',
+	function ( $block_content ) {
+		$block_content = preg_replace(
+			'|(--smb-hero-header--mask-opacity:\d+(?:\.\d+)?)px|',
+			'$1',
+			$block_content
+		);
+		return $block_content;
+	}
+);
+
 add_filter(
 	'render_block_snow-monkey-blocks/hero-header',
 	function ( $content ) {
