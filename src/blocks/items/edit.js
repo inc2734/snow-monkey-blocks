@@ -11,8 +11,8 @@ import {
 } from '@wordpress/block-editor';
 
 import {
+	BaseControl,
 	RangeControl,
-	SelectControl,
 	ToggleControl,
 	__experimentalToolsPanel as ToolsPanel,
 	__experimentalToolsPanelItem as ToolsPanelItem,
@@ -120,6 +120,21 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 			orientation: 'horizontal',
 		}
 	);
+
+	const gapOptions = [
+		{
+			label: 'S',
+			value: 1,
+		},
+		{
+			label: 'M',
+			value: 2,
+		},
+		{
+			label: 'L',
+			value: 3,
+		},
+	];
 
 	return (
 		<>
@@ -272,36 +287,46 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 						panelId={ clientId }
 					>
-						<SelectControl
+						<BaseControl
+							id="snow-monkey-blocks/items/gap"
 							label={ __( 'Gap', 'snow-monkey-blocks' ) }
-							value={ gap }
-							onChange={ ( value ) =>
-								setAttributes( {
-									gap: value,
-								} )
-							}
-							options={ [
-								{
-									value: '',
-									label: __(
-										'Default',
-										'snow-monkey-blocks'
-									),
-								},
-								{
-									value: 's',
-									label: __( 'S', 'snow-monkey-blocks' ),
-								},
-								{
-									value: 'm',
-									label: __( 'M', 'snow-monkey-blocks' ),
-								},
-								{
-									value: 'l',
-									label: __( 'L', 'snow-monkey-blocks' ),
-								},
-							] }
-						/>
+							className="spacing-sizes-control"
+						>
+							<RangeControl
+								className="spacing-sizes-control__range-control"
+								value={
+									gapOptions.filter(
+										( option ) =>
+											option.label?.toLowerCase() === gap
+									)?.[ 0 ]?.value
+								}
+								resetFallbackValue={ undefined }
+								onChange={ ( value ) =>
+									setAttributes( {
+										gap: gapOptions
+											.filter(
+												( option ) =>
+													option.value === value
+											)?.[ 0 ]
+											?.label?.toLowerCase(),
+									} )
+								}
+								withInputField={ false }
+								min={ 1 }
+								max={ 3 }
+								marks
+								renderTooltipContent={ ( _value ) =>
+									gapOptions
+										.filter(
+											( option ) =>
+												option.value === _value
+										)?.[ 0 ]
+										?.label?.toUpperCase()
+								}
+								hideLabelFromVision
+								__nextHasNoMarginBottom
+							/>
+						</BaseControl>
 					</ToolsPanelItem>
 				</InspectorControls>
 			) }
