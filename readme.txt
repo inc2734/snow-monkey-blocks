@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue, kutsu, toru
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks, page builder, landing page, microcopy, steps, call to action
-Stable tag: 20.5.4
+Stable tag: 20.5.5
 Requires at least: 6.4
 Tested up to: 6.5
 Requires PHP: 7.4
@@ -116,6 +116,23 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 28. Read more box block
 
 == Changelog ==
+
+= 20.5.5 =
+* [Contents slider] Fixed a bug that caused the appearance to be different on the editor and at the front.
+* [Slider] Fixed a bug that caused the appearance to be different on the editor and at the front.
+* [Items] The "Gap" UI changed to the same as the core.
+* [Panels] The "Gap" UI changed to the same as the core.
+* [Recent posts] The "Gap" UI changed to the same as the core.
+* [Taxonomy posts] The "Gap" UI changed to the same as the core.
+* [RSS] The "Gap" UI changed to the same as the core.
+* [Section] Fixed a bug that "Overlap divider on content" did not work when the level of delimitation is negative.
+* [Section (Break the grid)] Fixed a bug that "Overlap divider on content" did not work when the level of delimitation is negative.
+* [Section (Side heading)] Fixed a bug that "Overlap divider on content" did not work when the level of delimitation is negative.
+* [Section (Background image/video)] Fixed a bug that "Overlap divider on content" did not work when the level of delimitation is negative.
+* [Hero header] Add overlay feature.
+* [Items:Banner] Change label name "Mask" to "Overlay".
+* [Section (Break the grid)] Change label name "Mask" to "Overlay".
+* [Section (Background image/video)] Change label name "Mask" to "Overlay".
 
 = 20.5.4 =
 * Fix PHP Deprecated on PHP 8.1.
