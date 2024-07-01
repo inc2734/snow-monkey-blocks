@@ -49,6 +49,7 @@
 				padding-bottom: var(--smb-spider-contents-slider--canvas-offset-bottom);
 				padding-left: var(--smb-spider-contents-slider--canvas-offset-left);
 				border: none !important;
+				background-color: transparent !important;
 
 				> .smb-spider-contents-slider__item {
 					background-color: var(--smb-spider-contents-slider--slide-background-color);

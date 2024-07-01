@@ -39,6 +39,8 @@ export default function ( {
 		contentPadding,
 		border,
 		boxShadow,
+		backgroundColor,
+		style,
 		templateLock,
 	} = attributes;
 
@@ -107,6 +109,10 @@ export default function ( {
 					boxShadow.opacity
 			  ) }`
 			: undefined,
+		'--smb-spider-contents-slider--slide-background-color':
+			!! backgroundColor
+				? `var(--wp--preset--color--${ backgroundColor })`
+				: style?.color?.background || undefined,
 	};
 
 	const blockProps = useBlockProps( {

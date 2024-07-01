@@ -4,8 +4,15 @@ import hexToRgba from 'hex-to-rgba';
 import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
-	const { sliderId, contentPosition, contentPadding, border, boxShadow } =
-		attributes;
+	const {
+		sliderId,
+		contentPosition,
+		contentPadding,
+		border,
+		boxShadow,
+		backgroundColor,
+		style,
+	} = attributes;
 
 	const classes = classnames( 'spider__slide', className );
 
@@ -38,6 +45,10 @@ export default function ( { attributes, className } ) {
 					boxShadow.opacity
 			  ) }`
 			: undefined,
+		'--smb-spider-contents-slider--slide-background-color':
+			!! backgroundColor
+				? `var(--wp--preset--color--${ backgroundColor })`
+				: style?.color?.background || undefined,
 	};
 
 	return (
