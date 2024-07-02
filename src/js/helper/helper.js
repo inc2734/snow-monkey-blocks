@@ -274,8 +274,9 @@ export function getExtension( filename = '' ) {
  * @return {boolean} Whether the file is a video.
  */
 export function isVideoType( filename = '' ) {
-	if ( ! filename ) return false;
-	return VIDEO_EXTENSIONS.includes( getExtension( filename ) );
+	return ! filename
+		? false
+		: VIDEO_EXTENSIONS.includes( getExtension( filename ) );
 }
 
 /**
