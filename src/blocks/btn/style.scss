@@ -1,6 +1,7 @@
 @import '../../css/core/block';
 
-.smb-btn {
+// The style of the global style link (0.1.0) needs to be adjusted in the level of detail as it will be loaded later.
+:is(a, span, div).smb-btn {
 	--smb-btn--background-color: var(--wp--preset--color--black);
 	--smb-btn--background-image: initial;
 	--smb-btn--border: none;
