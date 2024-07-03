@@ -1,6 +1,10 @@
 import classnames from 'classnames';
 
-import { RichText, useBlockProps } from '@wordpress/block-editor';
+import {
+	RichText,
+	useBlockProps,
+	__experimentalGetSpacingClassesAndStyles as getSpacingClassesAndStyles,
+} from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
 	const {
@@ -14,6 +18,8 @@ export default function ( { attributes, className } ) {
 		textColor,
 		wrap,
 	} = attributes;
+
+	const spacingProps = getSpacingClassesAndStyles( attributes );
 
 	const wrapperClasses = classnames( 'smb-btn-wrapper', className, {
 		[ `smb-btn-wrapper--${ modifier }` ]: !! modifier,
@@ -31,6 +37,7 @@ export default function ( { attributes, className } ) {
 			? `${ borderRadius }px`
 			: borderRadius,
 		'--smb-btn--color': textColor || undefined,
+		...spacingProps.style,
 	};
 
 	if (

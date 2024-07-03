@@ -55,10 +55,20 @@
 	},
 	"supports": {
 		"align": [ "left", "center", "right" ],
+		"spacing": {
+			"__experimentalSkipSerialization": true,
+			"margin": false,
+			"padding": true
+		},
 		"snowmonkeyeditor": {
 			"blockPresets": {
 				"ignore": [ "content", "url", "target", "linkDestination" ]
 			}
+		}
+	},
+	"selectors": {
+		"spacing": {
+			"padding": ".smb-btn"
 		}
 	},
 	"example": {

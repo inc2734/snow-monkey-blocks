@@ -18,6 +18,7 @@ import {
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	__experimentalLinkControl as LinkControl,
 	__experimentalBorderRadiusControl as BorderRadiusControl,
+	__experimentalGetSpacingClassesAndStyles as useSpacingProps,
 } from '@wordpress/block-editor';
 
 import { useMergeRefs } from '@wordpress/compose';
@@ -45,6 +46,8 @@ export default function ( {
 		textColor,
 		wrap,
 	} = attributes;
+
+	const spacingProps = useSpacingProps( attributes );
 
 	const [ isEditingURL, setIsEditingURL ] = useState( false );
 	const isURLSet = !! url;
@@ -80,6 +83,7 @@ export default function ( {
 			? `${ borderRadius }px`
 			: borderRadius,
 		'--smb-btn--color': textColor || undefined,
+		...spacingProps.style,
 	};
 
 	if (
