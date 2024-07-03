@@ -20,10 +20,12 @@
 	padding: var(--smb-box--padding);
 	overflow: visible;
 
+	// @deprecated
 	&--p-s {
 		--smb-box--padding: var(--_padding-1);
 	}
 
+	// @deprecated
 	&--p-l {
 		--smb-box--padding: var(--_padding2);
 	}

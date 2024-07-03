@@ -22,6 +22,10 @@ export default [
 			borderRadius: {
 				type: 'number',
 			},
+			contentPadding: {
+				type: 'string',
+				default: '',
+			},
 		},
 
 		supports: {
@@ -91,6 +95,10 @@ export default [
 			},
 			borderWidth: {
 				type: 'number',
+			},
+			contentPadding: {
+				type: 'string',
+				default: '',
 			},
 		},
 
@@ -168,6 +176,10 @@ export default [
 			borderWidth: {
 				type: 'number',
 			},
+			contentPadding: {
+				type: 'string',
+				default: '',
+			},
 		},
 
 		save( { attributes, className } ) {
@@ -200,6 +212,10 @@ export default [
 			},
 			borderWidth: {
 				type: 'number',
+			},
+			contentPadding: {
+				type: 'string',
+				default: '',
 			},
 		},
 

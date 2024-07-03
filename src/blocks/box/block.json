@@ -1,6 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
+	"version": "21.0.0",
 	"textdomain": "snow-monkey-blocks",
 	"name": "snow-monkey-blocks/box",
 	"title": "Box",
@@ -33,10 +34,6 @@
 			"type": "number",
 			"default": 1
 		},
-		"contentPadding": {
-			"type": "string",
-			"default": ""
-		},
 		"boxShadow": {
 			"type": "object",
 			"default": {
@@ -57,7 +54,8 @@
 	"supports": {
 		"html": false,
 		"spacing": {
-			"margin": true
+			"margin": true,
+			"padding": true
 		},
 		"layout": {
 			"allowSwitching": false,

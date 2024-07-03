@@ -3,7 +3,7 @@ import hexToRgba from 'hex-to-rgba';
 
 import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
-export default function ( { attributes, className } ) {
+export default function ( { attributes } ) {
 	const {
 		backgroundColor,
 		backgroundGradientColor,
@@ -13,7 +13,6 @@ export default function ( { attributes, className } ) {
 		borderWidth,
 		borderRadius,
 		opacity,
-		contentPadding,
 		boxShadow,
 	} = attributes;
 
@@ -40,9 +39,7 @@ export default function ( { attributes, className } ) {
 			: borderWidth,
 	};
 
-	const classes = classnames( 'smb-box', className, {
-		[ `smb-box--p-${ contentPadding }` ]: !! contentPadding,
-	} );
+	const classes = classnames( 'smb-box' );
 
 	return (
 		<div

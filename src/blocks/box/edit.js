@@ -15,7 +15,6 @@ import {
 
 import {
 	RangeControl,
-	SelectControl,
 	__experimentalToolsPanel as ToolsPanel,
 	__experimentalToolsPanelItem as ToolsPanelItem,
 	__experimentalBorderBoxControl as BorderBoxControl,
@@ -29,7 +28,7 @@ import { toNumber } from '@smb/helper';
 
 import metadata from './block.json';
 
-export default function ( { attributes, setAttributes, className, clientId } ) {
+export default function ( { attributes, setAttributes, clientId } ) {
 	const {
 		backgroundColor,
 		backgroundGradientColor,
@@ -39,7 +38,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		borderWidth,
 		borderRadius,
 		opacity,
-		contentPadding,
 		boxShadow,
 		templateLock,
 	} = attributes;
@@ -74,9 +72,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 			: borderWidth,
 	};
 
-	const classes = classnames( 'smb-box', className, {
-		[ `smb-box--p-${ contentPadding }` ]: !! contentPadding,
-	} );
+	const classes = classnames( 'smb-box' );
 
 	const blockProps = useBlockProps( {
 		className: classes,
@@ -313,48 +309,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						},
 					] }
 				/>
-			</InspectorControls>
-
-			<InspectorControls group="dimensions">
-				<ToolsPanelItem
-					hasValue={ () =>
-						contentPadding !==
-						metadata.attributes.contentPadding.default
-					}
-					isShownByDefault
-					label={ __( 'Padding', 'snow-monkey-blocks' ) }
-					onDeselect={ () =>
-						setAttributes( {
-							contentPadding:
-								metadata.attributes.contentPadding.default,
-						} )
-					}
-					panelId={ clientId }
-				>
-					<SelectControl
-						label={ __( 'Padding', 'snow-monkey-blocks' ) }
-						value={ contentPadding }
-						options={ [
-							{
-								value: 's',
-								label: __( 'S', 'snow-monkey-blocks' ),
-							},
-							{
-								value: '',
-								label: __( 'M', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'l',
-								label: __( 'L', 'snow-monkey-blocks' ),
-							},
-						] }
-						onChange={ ( value ) =>
-							setAttributes( {
-								contentPadding: value,
-							} )
-						}
-					/>
-				</ToolsPanelItem>
 			</InspectorControls>
 
 			<div { ...blockProps }>
