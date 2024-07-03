@@ -29,7 +29,8 @@
 	"supports": {
 		"html": false,
 		"spacing": {
-			"margin": true
+			"margin": true,
+			"padding": true
 		},
 		"layout": {
 			"allowSwitching": false,
