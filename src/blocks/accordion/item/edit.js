@@ -5,6 +5,10 @@ import {
 	RichText,
 	useBlockProps,
 	useInnerBlocksProps,
+	withColors,
+	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
+	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
+	__experimentalGetSpacingClassesAndStyles as useSpacingProps,
 } from '@wordpress/block-editor';
 
 import {
@@ -17,18 +21,34 @@ import { __ } from '@wordpress/i18n';
 
 import metadata from './block.json';
 
-export default function ( { attributes, setAttributes, className } ) {
-	const { title, initialState, templateLock } = attributes;
+function Edit( { attributes, setAttributes, className, clientId } ) {
+	const {
+		title,
+		initialState,
+		titleBackgroundColor,
+		titleColor,
+		templateLock,
+	} = attributes;
+
+	const spacingProps = useSpacingProps( attributes );
 
 	const classes = classnames( 'smb-accordion__item', className );
 
 	const blockProps = useBlockProps( {
 		className: classes,
+		style: {
+			'--smb-accordion-item--background-color':
+				titleBackgroundColor || undefined,
+			'--smb-accordion-item--color': titleColor || undefined,
+		},
 	} );
 
 	const innerBlocksProps = useInnerBlocksProps(
 		{
 			className: 'smb-accordion__item__body',
+			style: {
+				...spacingProps.style,
+			},
 		},
 		{ templateLock }
 	);
@@ -72,6 +92,38 @@ export default function ( { attributes, setAttributes, className } ) {
 				</ToolsPanel>
 			</InspectorControls>
 
+			<InspectorControls group="color">
+				<ColorGradientSettingsDropdown
+					panelId={ clientId }
+					__experimentalIsRenderedInSidebar
+					{ ...useMultipleOriginColorsAndGradients() }
+					settings={ [
+						{
+							colorValue: titleBackgroundColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									titleBackgroundColor: value,
+								} ),
+							label: __(
+								'Title background color',
+								'snow-monkey-blocks'
+							),
+						},
+						{
+							colorValue: titleColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									titleColor: value,
+								} ),
+							label: __(
+								'Title text color',
+								'snow-monkey-blocks'
+							),
+						},
+					] }
+				/>
+			</InspectorControls>
+
 			<div { ...blockProps }>
 				<div className="smb-accordion__item__title">
 					<RichText
@@ -97,3 +149,8 @@ export default function ( { attributes, setAttributes, className } ) {
 		</>
 	);
 }
+
+export default withColors( {
+	titleBackgroundColor: 'background-color',
+	titleColor: 'color',
+} )( Edit );

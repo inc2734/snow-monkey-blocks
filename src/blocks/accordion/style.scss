@@ -3,18 +3,25 @@
 .smb-accordion {
 	--smb-accordion--gap: var(--_margin-1);
 	--smb-accordion--title-background-color: var(--_lighter-color-gray);
+	--smb-accordion--title-color: inherit;
+	--smb-accordion--body-padding: var(--_padding1);
 
 	> * + * {
 		margin-top: var(--smb-accordion--gap);
 	}
 
 	&__item {
+		--smb-accordion-item--background-color: var(--smb-accordion--title-background-color);
+		--smb-accordion-item--color: var(--smb-accordion--title-color);
+		--smb-accordion-item--padding: var(--smb-accordion--body-padding);
+
 		position: relative;
 
 		&__title {
 			display: flex;
 			align-items: center;
-			background-color: var(--smb-accordion--title-background-color);
+			background-color: var(--smb-accordion-item--background-color);
+			color: var(--smb-accordion-item--color);
 			padding: calc(var(--_padding-1) * .5) var(--_padding-1);
 
 			&__label {
@@ -53,7 +60,7 @@
 			position: relative;
 			z-index: 2;
 			display: none;
-			padding: var(--_padding1);
+			padding: var(--smb-accordion--body-padding);
 		}
 	}
 

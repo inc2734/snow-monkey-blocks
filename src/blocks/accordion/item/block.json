@@ -17,6 +17,12 @@
 			"type": "boolean",
 			"default": false
 		},
+		"titleBackgroundColor": {
+			"type": "string"
+		},
+		"titleColor": {
+			"type": "string"
+		},
 		"templateLock": {
 			"type": [ "string", "boolean" ],
 			"enum": [ "all", "insert", "contentOnly", false ]
@@ -32,6 +38,16 @@
 			"default": {
 				"type": "constrained"
 			}
+		},
+		"spacing": {
+			"__experimentalSkipSerialization": true,
+			"margin": false,
+			"padding": true
+		}
+	},
+	"selectors": {
+		"spacing": {
+			"padding": ".smb-accordion__item__body"
 		}
 	},
 	"editorScript": "file:./index.js"
