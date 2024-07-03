@@ -1,9 +1,7 @@
 import classnames from 'classnames';
 
 import {
-	BlockControls,
 	InnerBlocks,
-	JustifyToolbar,
 	useInnerBlocksProps,
 	useBlockProps,
 } from '@wordpress/block-editor';
@@ -12,19 +10,9 @@ import { useSelect } from '@wordpress/data';
 
 const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/btn' ];
 const TEMPLATE = [ [ 'snow-monkey-blocks/btn' ] ];
-const LAYOUT = {
-	type: 'default',
-	alignments: [],
-};
-const HORIZONTAL_JUSTIFY_CONTROLS = [
-	'left',
-	'center',
-	'right',
-	'space-between',
-];
 
-export default function ( { attributes, setAttributes, className, clientId } ) {
-	const { contentJustification, templateLock } = attributes;
+export default function ( { attributes, clientId } ) {
+	const { templateLock } = attributes;
 
 	const hasInnerBlocks = useSelect(
 		( select ) =>
@@ -33,10 +21,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		[ clientId ]
 	);
 
-	const classes = classnames( 'smb-buttons', className, {
-		[ `is-content-justification-${ contentJustification }` ]:
-			contentJustification,
-	} );
+	const classes = classnames( 'smb-buttons' );
 
 	const blockProps = useBlockProps( {
 		className: classes,
@@ -50,23 +35,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		renderAppender: hasInnerBlocks
 			? undefined
 			: InnerBlocks.ButtonBlockAppender,
-		layout: LAYOUT,
 	} );
 
-	const onChangeContentJustification = ( value ) =>
-		setAttributes( { contentJustification: value } );
-
-	return (
-		<>
-			<BlockControls group="block">
-				<JustifyToolbar
-					allowedControls={ HORIZONTAL_JUSTIFY_CONTROLS }
-					value={ contentJustification }
-					onChange={ onChangeContentJustification }
-				/>
-			</BlockControls>
-
-			<div { ...innerBlocksProps } />
-		</>
-	);
+	return <div { ...innerBlocksProps } />;
 }

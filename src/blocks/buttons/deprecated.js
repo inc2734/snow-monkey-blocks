@@ -1,16 +1,71 @@
 import classnames from 'classnames';
 
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import {
+	InnerBlocks,
+	useBlockProps,
+	useInnerBlocksProps,
+} from '@wordpress/block-editor';
 
 import metadata from './block.json';
 
 const blockAttributes = metadata.attributes;
+const blockSupports = metadata.supports;
 
 export default [
 	{
 		attributes: {
 			...blockAttributes,
 			textAlign: {
+				type: 'string',
+			},
+			contentJustification: {
+				type: 'string',
+			},
+		},
+
+		supports: {
+			...blockSupports,
+		},
+
+		isEligible: ( attributes ) => !! attributes.contentJustification,
+
+		migrate( attributes ) {
+			const newAttributes = {
+				...attributes,
+				layout: {
+					...attributes?.layout,
+					type: 'flex',
+					justifyContent:
+						attributes?.contentJustification || undefined,
+				},
+			};
+			return newAttributes;
+		},
+
+		save( { attributes, className } ) {
+			const { contentJustification } = attributes;
+
+			const classes = classnames( 'smb-buttons', className, {
+				[ `is-content-justification-${ contentJustification }` ]:
+					contentJustification,
+			} );
+
+			return (
+				<div
+					{ ...useInnerBlocksProps.save(
+						useBlockProps.save( { className: classes } )
+					) }
+				/>
+			);
+		},
+	},
+	{
+		attributes: {
+			...blockAttributes,
+			textAlign: {
+				type: 'string',
+			},
+			contentJustification: {
 				type: 'string',
 			},
 		},

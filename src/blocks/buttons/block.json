@@ -7,9 +7,6 @@
 	"description": "Prompt visitors to take action with a group of button-style links.",
 	"category": "smb",
 	"attributes": {
-		"contentJustification": {
-			"type": "string"
-		},
 		"templateLock": {
 			"type": [ "string", "boolean" ],
 			"enum": [ "all", "insert", "contentOnly", false ]
@@ -20,7 +17,15 @@
 		"align": [ "left", "right" ],
 		"alignWide": false,
 		"spacing": {
-			"margin": true
+			"margin": true,
+			"blockGap": true
+		},
+		"layout": {
+			"allowSwitching": false,
+			"allowInheriting": false,
+			"default": {
+				"type": "flex"
+			}
 		}
 	},
 	"example": {
