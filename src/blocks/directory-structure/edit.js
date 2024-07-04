@@ -19,6 +19,8 @@ const ALLOWED_BLOCKS = [
 	'snow-monkey-blocks/directory-structure-item-file',
 ];
 
+import metadata from './block.json';
+
 export default function ( { attributes, setAttributes, className, clientId } ) {
 	const { iconColor } = attributes;
 
@@ -74,6 +76,9 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 								setAttributes( {
 									iconColor: value,
 								} ),
+							resetAllFilter: () => ( {
+								iconColor: metadata.iconColor,
+							} ),
 							label: __( 'Icon color', 'snow-monkey-blocks' ),
 						},
 					] }

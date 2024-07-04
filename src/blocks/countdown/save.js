@@ -29,6 +29,7 @@ export default function ( { attributes, className } ) {
 	const clockFontSizeClass = !! clockFontSizeSlug
 		? getFontSizeClass( clockFontSizeSlug )
 		: undefined;
+
 	const numericFontSizeClass = !! numericFontSizeSlug
 		? getFontSizeClass( numericFontSizeSlug )
 		: undefined;

@@ -104,6 +104,10 @@ function Edit( { attributes, setAttributes, className, clientId } ) {
 								setAttributes( {
 									titleBackgroundColor: value,
 								} ),
+							resetAllFilter: () => ( {
+								titleBackgroundColor:
+									metadata.titleBackgroundColor,
+							} ),
 							label: __(
 								'Title background color',
 								'snow-monkey-blocks'
@@ -115,6 +119,9 @@ function Edit( { attributes, setAttributes, className, clientId } ) {
 								setAttributes( {
 									titleColor: value,
 								} ),
+							resetAllFilter: () => ( {
+								titleColor: metadata.titleColor,
+							} ),
 							label: __(
 								'Title text color',
 								'snow-monkey-blocks'

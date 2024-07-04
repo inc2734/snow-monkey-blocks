@@ -8,9 +8,9 @@ import {
 	FontSizePicker,
 	InspectorControls,
 	useSettings,
+	useBlockProps,
 	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
 	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
-	useBlockProps,
 } from '@wordpress/block-editor';
 
 import {
@@ -53,20 +53,22 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 	const clockFontSizeClass = !! clockFontSizeSlug
 		? getFontSizeClass( clockFontSizeSlug )
 		: undefined;
+
 	const numericFontSizeClass = !! numericFontSizeSlug
 		? getFontSizeClass( numericFontSizeSlug )
 		: undefined;
 
-	const selectedClockFontSize = fontSizes.find( ( fontSize ) =>
-		!! clockFontSizeSlug
-			? fontSize.slug === clockFontSizeSlug
-			: clockFontSize
-	)?.size;
-	const selectedNumericFontSize = fontSizes.find( ( fontSize ) =>
-		!! numericFontSizeSlug
-			? fontSize.slug === numericFontSizeSlug
-			: clockFontSize
-	)?.size;
+	const selectedClockFontSize =
+		fontSizes.find(
+			( fontSize ) =>
+				!! clockFontSizeSlug && fontSize.slug === clockFontSizeSlug
+		)?.size || clockFontSize;
+
+	const selectedNumericFontSize =
+		fontSizes.find(
+			( fontSize ) =>
+				!! numericFontSizeSlug && fontSize.slug === numericFontSizeSlug
+		)?.size || clockFontSize;
 
 	const blockProps = useBlockProps( {
 		className: classes,
@@ -95,6 +97,10 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					}
 					isShownByDefault
 					label={ __( 'Numeric font size', 'snow-monkey-blocks' ) }
+					resetAllFilter={ () => ( {
+						numericFontSizeSlug: metadata.numericFontSizeSlug,
+						numericFontSize: metadata.numericFontSize,
+					} ) }
 					onDeselect={ () => {
 						setAttributes( {
 							numericFontSizeSlug: metadata.numericFontSizeSlug,
@@ -136,6 +142,10 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					}
 					isShownByDefault
 					label={ __( 'Clock font size', 'snow-monkey-blocks' ) }
+					resetAllFilter={ () => ( {
+						clockFontSizeSlug: metadata.clockFontSizeSlug,
+						clockFontSize: metadata.clockFontSize,
+					} ) }
 					onDeselect={ () => {
 						setAttributes( {
 							clockFontSizeSlug: metadata.clockFontSizeSlug,
@@ -182,6 +192,9 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 								setAttributes( {
 									numericColor: value,
 								} ),
+							resetAllFilter: () => ( {
+								numericColor: metadata.numericColor,
+							} ),
 							label: __( 'Numeric color', 'snow-monkey-blocks' ),
 						},
 						{
@@ -190,6 +203,9 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 								setAttributes( {
 									clockColor: value,
 								} ),
+							resetAllFilter: () => ( {
+								clockColor: metadata.clockColor,
+							} ),
 							label: __( 'Clock color', 'snow-monkey-blocks' ),
 						},
 					] }

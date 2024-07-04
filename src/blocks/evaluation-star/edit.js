@@ -98,6 +98,9 @@ export default function ( {
 								setAttributes( {
 									iconColor: value,
 								} ),
+							resetAllFilter: () => ( {
+								iconColor: metadata.iconColor,
+							} ),
 							label: __( 'Icon color', 'snow-monkey-blocks' ),
 						},
 						{
@@ -106,6 +109,9 @@ export default function ( {
 								setAttributes( {
 									numericColor: value,
 								} ),
+							resetAllFilter: () => ( {
+								numericColor: metadata.numericColor,
+							} ),
 							label: __( 'Numeric color', 'snow-monkey-blocks' ),
 						},
 					] }

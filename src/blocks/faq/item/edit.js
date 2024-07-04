@@ -1,15 +1,21 @@
 import classnames from 'classnames';
 
 import {
+	FontSizePicker,
 	InnerBlocks,
 	InspectorControls,
 	RichText,
-	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	useBlockProps,
 	useInnerBlocksProps,
+	getFontSizeClass,
+	getFontSizeObjectByValue,
+	useSettings,
+	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
+	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 } from '@wordpress/block-editor';
 
 import {
+	BaseControl,
 	TextControl,
 	__experimentalToolsPanel as ToolsPanel,
 	__experimentalToolsPanelItem as ToolsPanelItem,
@@ -23,12 +29,20 @@ import metadata from './block.json';
 export default function ( { attributes, setAttributes, className, clientId } ) {
 	const {
 		question,
+		questionFontSizeSlug,
+		questionFontSize,
+		questionLabelFontSizeSlug,
+		questionLabelFontSize,
+		answerLabelFontSizeSlug,
+		answerLabelFontSize,
 		questionColor,
 		answerColor,
 		questionLabel,
 		answerLabel,
 		templateLock,
 	} = attributes;
+
+	const [ fontSizes ] = useSettings( 'typography.fontSizes' );
 
 	const hasInnerBlocks = useSelect(
 		( select ) =>
@@ -61,12 +75,197 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		}
 	);
 
+	const selectedQuestionFontSize =
+		fontSizes.find(
+			( fontSize ) =>
+				!! questionFontSizeSlug &&
+				fontSize.slug === questionFontSizeSlug
+		)?.size || questionFontSize;
+
+	const selectedQuestionLabelFontSize =
+		fontSizes.find(
+			( fontSize ) =>
+				!! questionLabelFontSizeSlug &&
+				fontSize.slug === questionLabelFontSizeSlug
+		)?.size || questionLabelFontSize;
+
+	const selectedAnswerLabelFontSize =
+		fontSizes.find(
+			( fontSize ) =>
+				!! answerLabelFontSizeSlug &&
+				fontSize.slug === answerLabelFontSizeSlug
+		)?.size || answerLabelFontSize;
+
+	const questionFontSizeClass = !! questionFontSizeSlug
+		? getFontSizeClass( questionFontSizeSlug )
+		: undefined;
+
+	const questionLabelFontSizeClass = !! questionLabelFontSizeSlug
+		? getFontSizeClass( questionLabelFontSizeSlug )
+		: undefined;
+
+	const answerLabelFontSizeClass = !! answerLabelFontSizeSlug
+		? getFontSizeClass( answerLabelFontSizeSlug )
+		: undefined;
+
 	return (
 		<>
-			<InspectorControls group="styles">
-				<PanelColorGradientSettings
-					title={ __( 'Color', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
+			<InspectorControls group="typography">
+				<ToolsPanelItem
+					panelId={ clientId }
+					hasValue={ () =>
+						questionFontSizeSlug !==
+							metadata.questionFontSizeSlug ||
+						questionFontSize !== metadata.questionFontSize
+					}
+					isShownByDefault
+					label={ __( 'Question font size', 'snow-monkey-blocks' ) }
+					resetAllFilter={ () => ( {
+						questionFontSizeSlug: metadata.questionFontSizeSlug,
+						questionFontSize: metadata.questionFontSize,
+					} ) }
+					onDeselect={ () => {
+						setAttributes( {
+							questionFontSizeSlug: metadata.questionFontSizeSlug,
+							questionFontSize: metadata.questionFontSize,
+						} );
+					} }
+				>
+					<BaseControl
+						label={ __( 'Question', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/faq-item/question-font-size"
+					>
+						<FontSizePicker
+							value={ selectedQuestionFontSize }
+							onChange={ ( value ) => {
+								const fontSizeSlug = getFontSizeObjectByValue(
+									fontSizes,
+									value
+								).slug;
+
+								setAttributes( {
+									questionFontSizeSlug:
+										fontSizeSlug || undefined,
+									questionFontSize: ! fontSizeSlug
+										? value
+										: undefined,
+								} );
+							} }
+							withReset={ false }
+							withSlider
+						/>
+					</BaseControl>
+				</ToolsPanelItem>
+
+				<ToolsPanelItem
+					panelId={ clientId }
+					hasValue={ () =>
+						questionLabelFontSizeSlug !==
+							metadata.questionLabelFontSizeSlug ||
+						questionLabelFontSize !== metadata.questionLabelFontSize
+					}
+					isShownByDefault
+					label={ __(
+						'Question label font size',
+						'snow-monkey-blocks'
+					) }
+					resetAllFilter={ () => ( {
+						questionLabelFontSizeSlug:
+							metadata.questionLabelFontSizeSlug,
+						questionLabelFontSize: metadata.questionLabelFontSize,
+					} ) }
+					onDeselect={ () => {
+						setAttributes( {
+							questionLabelFontSizeSlug:
+								metadata.questionLabelFontSizeSlug,
+							questionLabelFontSize:
+								metadata.questionLabelFontSize,
+						} );
+					} }
+				>
+					<BaseControl
+						label={ __( 'Question label', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/faq-item/question-label-font-size"
+					>
+						<FontSizePicker
+							value={ selectedQuestionLabelFontSize }
+							onChange={ ( value ) => {
+								const fontSizeSlug = getFontSizeObjectByValue(
+									fontSizes,
+									value
+								).slug;
+
+								setAttributes( {
+									questionLabelFontSizeSlug:
+										fontSizeSlug || undefined,
+									questionLabelFontSize: ! fontSizeSlug
+										? value
+										: undefined,
+								} );
+							} }
+							withReset={ false }
+							withSlider
+						/>
+					</BaseControl>
+				</ToolsPanelItem>
+
+				<ToolsPanelItem
+					panelId={ clientId }
+					hasValue={ () =>
+						answerLabelFontSizeSlug !==
+							metadata.answerLabelFontSizeSlug ||
+						answerLabelFontSize !== metadata.answerLabelFontSize
+					}
+					isShownByDefault
+					label={ __(
+						'Answer label font size',
+						'snow-monkey-blocks'
+					) }
+					resetAllFilter={ () => ( {
+						answerLabelFontSizeSlug:
+							metadata.answerLabelFontSizeSlug,
+						answerLabelFontSize: metadata.answerLabelFontSize,
+					} ) }
+					onDeselect={ () => {
+						setAttributes( {
+							answerLabelFontSizeSlug:
+								metadata.answerLabelFontSizeSlug,
+							answerLabelFontSize: metadata.answerLabelFontSize,
+						} );
+					} }
+				>
+					<BaseControl
+						label={ __( 'Answer label', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/faq-item/answer-label-font-size"
+					>
+						<FontSizePicker
+							value={ selectedAnswerLabelFontSize }
+							onChange={ ( value ) => {
+								const fontSizeSlug = getFontSizeObjectByValue(
+									fontSizes,
+									value
+								).slug;
+
+								setAttributes( {
+									answerLabelFontSizeSlug:
+										fontSizeSlug || undefined,
+									answerLabelFontSize: ! fontSizeSlug
+										? value
+										: undefined,
+								} );
+							} }
+							withReset={ false }
+							withSlider
+						/>
+					</BaseControl>
+				</ToolsPanelItem>
+			</InspectorControls>
+
+			<InspectorControls group="color">
+				<ColorGradientSettingsDropdown
+					panelId={ clientId }
+					__experimentalIsRenderedInSidebar
+					{ ...useMultipleOriginColorsAndGradients() }
 					settings={ [
 						{
 							colorValue: questionColor,
@@ -74,6 +273,9 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 								setAttributes( {
 									questionColor: value,
 								} ),
+							resetAllFilter: () => ( {
+								questionColor: metadata.questionColor,
+							} ),
 							label: __( 'Question color', 'snow-monkey-blocks' ),
 						},
 						{
@@ -82,11 +284,13 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 								setAttributes( {
 									answerColor: value,
 								} ),
+							resetAllFilter: () => ( {
+								answerColor: metadata.answerColor,
+							} ),
 							label: __( 'Answer color', 'snow-monkey-blocks' ),
 						},
 					] }
-					__experimentalIsRenderedInSidebar
-				></PanelColorGradientSettings>
+				/>
 			</InspectorControls>
 
 			<InspectorControls>
@@ -168,11 +372,25 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 
 			<div { ...blockProps }>
 				<div className="smb-faq__item__question">
-					<div className="smb-faq__item__question__label">
+					<div
+						className={ classnames(
+							'smb-faq__item__question__label',
+							questionLabelFontSizeClass
+						) }
+						style={ {
+							fontSize: questionLabelFontSize || undefined,
+						} }
+					>
 						{ questionLabel }
 					</div>
 					<RichText
-						className="smb-faq__item__question__body"
+						className={ classnames(
+							'smb-faq__item__question__body',
+							questionFontSizeClass
+						) }
+						style={ {
+							fontSize: questionFontSize || undefined,
+						} }
 						placeholder={ __(
 							'Write question…',
 							'snow-monkey-blocks'
@@ -188,7 +406,15 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 				</div>
 
 				<div className="smb-faq__item__answer">
-					<div className="smb-faq__item__answer__label">
+					<div
+						className={ classnames(
+							'smb-faq__item__answer__label',
+							answerLabelFontSizeClass
+						) }
+						style={ {
+							fontSize: answerLabelFontSize || undefined,
+						} }
+					>
 						{ answerLabel }
 					</div>
 

@@ -14,6 +14,24 @@
 			"selector": ".smb-faq__item__question__body",
 			"default": ""
 		},
+		"questionFontSizeSlug": {
+			"type": "string"
+		},
+		"questionFontSize": {
+			"type": "string"
+		},
+		"questionLabelFontSizeSlug": {
+			"type": "string"
+		},
+		"questionLabelFontSize": {
+			"type": "string"
+		},
+		"answerLabelFontSizeSlug": {
+			"type": "string"
+		},
+		"answerLabelFontSize": {
+			"type": "string"
+		},
 		"questionColor": {
 			"type": "string"
 		},
@@ -39,6 +57,9 @@
 	},
 	"supports": {
 		"anchor": true,
+		"spacing": {
+			"padding": true
+		},
 		"layout": {
 			"allowSwitching": false,
 			"allowEditing": false,
