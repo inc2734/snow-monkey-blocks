@@ -32,6 +32,18 @@
 			"background": false,
 			"link": true,
 			"text": true
+		},
+		"typography": {
+			"fontSize": true,
+			"__experimentalFontFamily": true,
+			"__experimentalTextDecoration": true,
+			"__experimentalFontStyle": true,
+			"__experimentalFontWeight": true,
+			"__experimentalLetterSpacing": true,
+			"__experimentalTextTransform": true,
+			"__experimentalDefaultControls": {
+				"fontSize": true
+			}
 		}
 	},
 	"editorScript": "file:./index.js"

@@ -4,7 +4,7 @@
 	--smb-directory-structure--background-color: var(--_lightest-color-gray);
 	--smb-directory-structure--padding: var(--_padding1);
 	--smb-directory-structure--gap: var(--_margin-2);
-	--smb-directory-structure--icon-color: currentColor;
+	--smb-directory-structure--icon-color: inherit;
 
 	background-color: var(--smb-directory-structure--background-color);
 	padding: var(--smb-directory-structure--padding);
@@ -16,8 +16,6 @@
 	}
 
 	&__item {
-		--smb-directory-structure--icon-color: currentColor;
-
 		p {
 			display: flex;
 			flex-wrap: nowrap;
@@ -28,6 +26,13 @@
 	.fa-fw {
 		color: var(--smb-directory-structure--icon-color);
 		width: auto;
+	}
+
+	.svg-inline--fa {
+		display: var(--fa-display, inline-block);
+		height: 1em;
+		overflow: visible;
+		vertical-align: -0.125em;
 	}
 
 	&__item__name {

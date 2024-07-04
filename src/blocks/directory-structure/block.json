@@ -1,12 +1,16 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
+	"version": "21.0.0",
 	"textdomain": "snow-monkey-blocks",
 	"name": "snow-monkey-blocks/directory-structure",
 	"title": "Directory structure",
 	"description": "Display a list of directories and files",
 	"category": "smb",
 	"attributes": {
+		"iconColor": {
+			"type": "string"
+		},
 		"templateLock": {
 			"type": [ "string", "boolean" ],
 			"enum": [ "all", "insert", "contentOnly", false ]
@@ -15,12 +19,37 @@
 	"supports": {
 		"html": false,
 		"color": {
-			"background": false,
+			"background": true,
 			"link": true,
 			"text": true
 		},
 		"spacing": {
-			"margin": true
+			"margin": true,
+			"padding": true
+		},
+		"typography": {
+			"fontSize": true,
+			"__experimentalFontFamily": true,
+			"__experimentalTextDecoration": true,
+			"__experimentalFontStyle": true,
+			"__experimentalFontWeight": true,
+			"__experimentalLetterSpacing": true,
+			"__experimentalTextTransform": true,
+			"__experimentalDefaultControls": {
+				"fontSize": true
+			}
+		},
+		"__experimentalBorder": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true,
+			"__experimentalDefaultControls": {
+				"color": true,
+				"radius": true,
+				"style": true,
+				"width": true
+			}
 		}
 	},
 	"example": {
