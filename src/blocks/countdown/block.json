@@ -18,6 +18,18 @@
 		},
 		"clockColor": {
 			"type": "string"
+		},
+		"clockFontSizeSlug": {
+			"type": "string"
+		},
+		"clockFontSize": {
+			"type": "string"
+		},
+		"numericFontSizeSlug": {
+			"type": "string"
+		},
+		"numericFontSize": {
+			"type": "string"
 		}
 	},
 	"supports": {
