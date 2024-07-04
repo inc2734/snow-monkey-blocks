@@ -34,7 +34,25 @@
 	},
 	"supports": {
 		"anchor": true,
-		"customClassName": false
+		"customClassName": false,
+		"color": {
+			"background": true,
+			"link": false,
+			"text": true
+		},
+		"__experimentalBorder": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true,
+			"__experimentalDefaultControls": {
+				"color": true,
+				"radius": true,
+				"style": true,
+				"width": true
+			}
+		}
 	},
+	"style": "file:./style.css",
 	"editorScript": "file:./index.js"
 }

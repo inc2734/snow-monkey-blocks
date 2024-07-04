@@ -1,0 +1,13 @@
+.smb-contents-outline {
+	--smb-contents-outline--background-color: var(--wp--preset--color--sm-lightest-gray);
+	--smb-contents-outline--color: inherit;
+
+	background-color: var(--smb-contents-outline--background-color);
+	color: var(--smb-contents-outline--color);
+	padding: 0 !important;
+
+	.wpco {
+		background-color: inherit;
+		color: inherit;
+	}
+}

@@ -1,6 +1,7 @@
 import { indexOf } from 'lodash';
 
 import {
+	Flex,
 	ToggleControl,
 	__experimentalToolsPanel as ToolsPanel,
 	__experimentalToolsPanelItem as ToolsPanelItem,
@@ -38,10 +39,9 @@ export default function ( { attributes, setAttributes } ) {
 	};
 
 	const blockProps = useBlockProps( {
-		className: 'wpco-wrapper',
+		className: 'wpco-wrapper smb-contents-outline',
 	} );
 
-	// 全部はずして全てリセットをすると h2 だけリセットされない
 	return (
 		<>
 			<InspectorControls>
@@ -60,56 +60,61 @@ export default function ( { attributes, setAttributes } ) {
 							} )
 						}
 					>
-						<ToggleControl
-							name="headings[]"
-							value="h2"
-							label={ __( 'Show h2', 'snow-monkey-blocks' ) }
-							checked={
-								-1 !== indexOf( headings.split( ',' ), 'h2' )
-							}
-							onChange={ ( isChecked ) =>
-								setAttributes( {
-									headings: _generateNewHeadings(
-										isChecked,
-										'h2'
-									),
-								} )
-							}
-						/>
+						<Flex direction="column">
+							<ToggleControl
+								name="headings[]"
+								value="h2"
+								label={ __( 'Show h2', 'snow-monkey-blocks' ) }
+								checked={
+									-1 !==
+									indexOf( headings.split( ',' ), 'h2' )
+								}
+								onChange={ ( isChecked ) =>
+									setAttributes( {
+										headings: _generateNewHeadings(
+											isChecked,
+											'h2'
+										),
+									} )
+								}
+							/>
 
-						<ToggleControl
-							name="headings[]"
-							value="h3"
-							label={ __( 'Show h3', 'snow-monkey-blocks' ) }
-							checked={
-								-1 !== indexOf( headings.split( ',' ), 'h3' )
-							}
-							onChange={ ( isChecked ) =>
-								setAttributes( {
-									headings: _generateNewHeadings(
-										isChecked,
-										'h3'
-									),
-								} )
-							}
-						/>
+							<ToggleControl
+								name="headings[]"
+								value="h3"
+								label={ __( 'Show h3', 'snow-monkey-blocks' ) }
+								checked={
+									-1 !==
+									indexOf( headings.split( ',' ), 'h3' )
+								}
+								onChange={ ( isChecked ) =>
+									setAttributes( {
+										headings: _generateNewHeadings(
+											isChecked,
+											'h3'
+										),
+									} )
+								}
+							/>
 
-						<ToggleControl
-							name="headings[]"
-							value="h4"
-							label={ __( 'Show h4', 'snow-monkey-blocks' ) }
-							checked={
-								-1 !== indexOf( headings.split( ',' ), 'h4' )
-							}
-							onChange={ ( isChecked ) =>
-								setAttributes( {
-									headings: _generateNewHeadings(
-										isChecked,
-										'h4'
-									),
-								} )
-							}
-						/>
+							<ToggleControl
+								name="headings[]"
+								value="h4"
+								label={ __( 'Show h4', 'snow-monkey-blocks' ) }
+								checked={
+									-1 !==
+									indexOf( headings.split( ',' ), 'h4' )
+								}
+								onChange={ ( isChecked ) =>
+									setAttributes( {
+										headings: _generateNewHeadings(
+											isChecked,
+											'h4'
+										),
+									} )
+								}
+							/>
+						</Flex>
 					</ToolsPanelItem>
 
 					<ToolsPanelItem
