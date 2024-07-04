@@ -1,6 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
+	"version": "21.0.0",
 	"textdomain": "snow-monkey-blocks",
 	"name": "snow-monkey-blocks/evaluation-star",
 	"title": "Evaluation star",
@@ -37,6 +38,9 @@
 		"html": false,
 		"spacing": {
 			"margin": true
+		},
+		"typography": {
+			"fontSize": true
 		},
 		"snowmonkeyeditor": {
 			"blockPresets": {
