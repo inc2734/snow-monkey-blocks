@@ -22,10 +22,11 @@ import { toNumber } from '@smb/helper';
 
 import metadata from './block.json';
 
-export default function ( { attributes, setAttributes } ) {
+export default function ( { attributes, setAttributes, clientId } ) {
 	const {
 		title,
 		layout,
+		gap,
 		smCols,
 		itemTitleTagName,
 		itemThumbnailSizeSlug,
@@ -49,6 +50,21 @@ export default function ( { attributes, setAttributes } ) {
 	}, [] );
 
 	const itemTitleTagNames = [ 'h2', 'h3', 'h4' ];
+
+	const gapOptions = [
+		{
+			label: 'S',
+			value: 1,
+		},
+		{
+			label: 'M',
+			value: 2,
+		},
+		{
+			label: 'L',
+			value: 3,
+		},
+	];
 
 	return (
 		<>
@@ -461,6 +477,65 @@ export default function ( { attributes, setAttributes } ) {
 						/>
 					</ToolsPanelItem>
 				</ToolsPanel>
+			</InspectorControls>
+
+			<InspectorControls group="dimensions">
+				<ToolsPanelItem
+					hasValue={ () => gap !== metadata.attributes.gap.default }
+					isShownByDefault
+					label={ __(
+						'The gap between each item',
+						'snow-monkey-blocks'
+					) }
+					onDeselect={ () =>
+						setAttributes( {
+							gap: metadata.attributes.gap.default,
+						} )
+					}
+					panelId={ clientId }
+				>
+					<BaseControl
+						id="snow-monkey-blocks/child-pages/gap"
+						label={ __(
+							'The gap between each item',
+							'snow-monkey-blocks'
+						) }
+						className="spacing-sizes-control"
+					>
+						<RangeControl
+							className="spacing-sizes-control__range-control"
+							value={
+								gapOptions.filter(
+									( option ) =>
+										option.label?.toLowerCase() === gap
+								)?.[ 0 ]?.value
+							}
+							resetFallbackValue={ undefined }
+							onChange={ ( value ) =>
+								setAttributes( {
+									gap: gapOptions
+										.filter(
+											( option ) => option.value === value
+										)?.[ 0 ]
+										?.label?.toLowerCase(),
+								} )
+							}
+							withInputField={ false }
+							min={ 1 }
+							max={ 3 }
+							marks
+							renderTooltipContent={ ( _value ) =>
+								gapOptions
+									.filter(
+										( option ) => option.value === _value
+									)?.[ 0 ]
+									?.label?.toUpperCase()
+							}
+							hideLabelFromVision
+							__nextHasNoMarginBottom
+						/>
+					</BaseControl>
+				</ToolsPanelItem>
 			</InspectorControls>
 
 			<div { ...useBlockProps() }>
