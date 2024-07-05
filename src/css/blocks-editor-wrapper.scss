@@ -1,5 +1,11 @@
 @import 'core/block';
 
+.components-tools-panel {
+	> .block-editor-contrast-checker {
+		grid-column: 1 / -1;
+	}
+}
+
 .smb-list-icon-selector {
 	.components-button {
 		margin: 1px;

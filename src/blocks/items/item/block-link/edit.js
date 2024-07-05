@@ -22,6 +22,7 @@ import {
 	__experimentalLinkControl as LinkControl,
 	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
 	__experimentalBorderRadiusControl as BorderRadiusControl,
+	__experimentalUseColorProps as useColorProps,
 } from '@wordpress/block-editor';
 
 import { useState, useRef } from '@wordpress/element';
@@ -67,6 +68,8 @@ export default function ( {
 		btnBorderRadius,
 		btnWrap,
 	} = attributes;
+
+	const colorProps = useColorProps( attributes );
 
 	const [ isEditingURL, setIsEditingURL ] = useState( false );
 	const isURLSet = !! url;
@@ -451,7 +454,14 @@ export default function ( {
 			</InspectorControls>
 
 			<div { ...blockProps }>
-				<div className="smb-items__item smb-items__item--block-link">
+				<div
+					className={ classnames(
+						'smb-items__item',
+						'smb-items__item--block-link',
+						colorProps?.className
+					) }
+					style={ { ...colorProps?.style } }
+				>
 					{ displayImage && (
 						<div className="smb-items__item__figure">
 							<Figure

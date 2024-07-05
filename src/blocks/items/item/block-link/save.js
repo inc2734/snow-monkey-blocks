@@ -1,6 +1,10 @@
 import classnames from 'classnames';
 
-import { RichText, useBlockProps } from '@wordpress/block-editor';
+import {
+	RichText,
+	useBlockProps,
+	__experimentalGetColorClassesAndStyles as getColorClassesAndStyles,
+} from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
 	const {
@@ -26,6 +30,8 @@ export default function ( { attributes, className } ) {
 		btnWrap,
 	} = attributes;
 
+	const colorProps = getColorClassesAndStyles( attributes );
+
 	const classes = classnames( 'c-row__col', className );
 
 	const btnClasses = classnames( 'smb-items__item__btn', 'smb-btn', {
@@ -45,7 +51,12 @@ export default function ( { attributes, className } ) {
 	return (
 		<div { ...useBlockProps.save( { className: classes } ) }>
 			<a
-				className="smb-items__item smb-items__item--block-link"
+				className={ classnames(
+					'smb-items__item',
+					'smb-items__item--block-link',
+					colorProps?.className
+				) }
+				style={ { ...colorProps?.style } }
 				href={ url }
 				target={ '_self' === target ? undefined : target }
 				rel={ '_self' === target ? undefined : 'noopener noreferrer' }

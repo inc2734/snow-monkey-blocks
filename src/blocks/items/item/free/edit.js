@@ -4,12 +4,17 @@ import {
 	InnerBlocks,
 	useBlockProps,
 	useInnerBlocksProps,
+	__experimentalUseColorProps as useColorProps,
+	__experimentalGetSpacingClassesAndStyles as useSpacingProps,
 } from '@wordpress/block-editor';
 
 import { useSelect } from '@wordpress/data';
 
 export default function ( { attributes, className, clientId } ) {
 	const { templateLock } = attributes;
+
+	const colorProps = useColorProps( attributes );
+	const spacingProps = useSpacingProps( attributes );
 
 	const hasInnerBlocks = useSelect(
 		( select ) =>
@@ -22,7 +27,9 @@ export default function ( { attributes, className, clientId } ) {
 
 	const itemClasses = classnames(
 		'smb-items__item',
-		'smb-items__item--free'
+		'smb-items__item--free',
+		colorProps?.className,
+		spacingProps?.className
 	);
 
 	const blockProps = useBlockProps( {
@@ -32,6 +39,10 @@ export default function ( { attributes, className, clientId } ) {
 	const innerBlocksProps = useInnerBlocksProps(
 		{
 			className: 'smb-items__item__body',
+			style: {
+				...colorProps?.style,
+				...spacingProps?.style,
+			},
 		},
 		{
 			templateLock,

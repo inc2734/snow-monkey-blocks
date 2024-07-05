@@ -68,6 +68,18 @@
 		display: block;
 		position: relative;
 
+		&.has-background {
+			padding: 0;
+
+			> .smb-items__item__figure {
+				margin-bottom: 0;
+			}
+
+			> .smb-items__item__body {
+				padding: var(--_padding1);
+			}
+		}
+
 		&__figure {
 			text-align: center;
 		}
@@ -119,11 +131,8 @@
 		}
 
 		&--free {
-			.smb-items__item__body {
-				> * {
-					margin-top: 0;
-					margin-bottom: 0;
-				}
+			&.has-background > .smb-items__item__body {
+				padding: 0;
 			}
 		}
 	}

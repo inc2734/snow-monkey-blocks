@@ -15,6 +15,16 @@
 	},
 	"supports": {
 		"html": false,
+		"color": {
+			"__experimentalSkipSerialization": true,
+			"background": true,
+			"text": true,
+			"link": true
+		},
+		"spacing": {
+			"__experimentalSkipSerialization": true,
+			"padding": true
+		},
 		"layout": {
 			"allowSwitching": false,
 			"allowEditing": false,
