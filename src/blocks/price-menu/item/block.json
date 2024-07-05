@@ -19,10 +19,25 @@
 			"source": "html",
 			"selector": ".smb-price-menu__item__price",
 			"default": ""
+		},
+		"titleFontSizeSlug": {
+			"type": "string"
+		},
+		"titleFontSize": {
+			"type": "string"
+		},
+		"priceFontSizeSlug": {
+			"type": "string"
+		},
+		"priceFontSize": {
+			"type": "string"
 		}
 	},
 	"supports": {
-		"html": false
+		"html": false,
+		"spacing": {
+			"padding": true
+		}
 	},
 	"editorScript": "file:./index.js"
 }
