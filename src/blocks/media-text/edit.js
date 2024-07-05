@@ -16,7 +16,6 @@ import {
 import {
 	BlockControls,
 	BlockVerticalAlignmentToolbar,
-	ContrastChecker,
 	InnerBlocks,
 	InspectorControls,
 	RichText,
