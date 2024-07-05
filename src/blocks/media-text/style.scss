@@ -15,6 +15,7 @@
 	background-image: var(--smb-media-text--background-image);
 	color: var(--smb-media-text--color);
 	overflow: hidden;
+	gap: 0 !important;
 
 	&.is-style-border {
 		border: 1px solid var(--smb-media-text--style--border--border-color);
@@ -55,6 +56,7 @@
 		}
 	}
 
+	// @deprecated
 	$gutterSizes: (
 		s: var(--_margin-1),
 		m: var(--_margin1),

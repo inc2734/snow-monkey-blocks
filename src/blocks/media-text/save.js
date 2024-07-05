@@ -5,6 +5,7 @@ import {
 	RichText,
 	useBlockProps,
 	useInnerBlocksProps,
+	__experimentalGetGapCSSValue as getGapCSSValue,
 } from '@wordpress/block-editor';
 
 import { getColumnSize } from '@smb/helper';
@@ -34,7 +35,6 @@ export default function ( { attributes, className } ) {
 		imageFill,
 		focalPoint,
 		splitPoint,
-		gutter,
 	} = attributes;
 
 	const isFill = 'image' === mediaType && imageFill;
@@ -48,7 +48,6 @@ export default function ( { attributes, className } ) {
 		'smb-media-text--has-background':
 			!! backgroundColor || !! backgroundGradientColor,
 		[ `smb-media-text--mobile-${ mobileOrder }` ]: !! mobileOrder,
-		[ `smb-media-text--gutter-${ gutter }` ]: !! gutter,
 	} );
 
 	const rowClasses = classnames( 'c-row', {
@@ -125,6 +124,10 @@ export default function ( { attributes, className } ) {
 						isFill && !! focalPoint?.y
 							? `${ focalPoint.y * 100 }%`
 							: undefined,
+					'--smb-media-text--gap':
+						getGapCSSValue(
+							attributes?.style?.spacing?.blockGap
+						) || undefined,
 				},
 				'data-sm-split-point': splitPoint,
 			} ) }

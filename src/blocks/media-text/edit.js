@@ -23,7 +23,9 @@ import {
 	useBlockProps,
 	__experimentalImageURLInputUI as ImageURLInputUI,
 	useInnerBlocksProps,
-	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
+	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
+	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
+	__experimentalGetGapCSSValue as getGapCSSValue,
 } from '@wordpress/block-editor';
 
 import { useSelect } from '@wordpress/data';
@@ -75,7 +77,6 @@ export default function ( {
 		imageFill,
 		focalPoint,
 		splitPoint,
-		gutter,
 		templateLock,
 	} = attributes;
 
@@ -121,7 +122,6 @@ export default function ( {
 		'smb-media-text--has-background':
 			!! backgroundColor || !! backgroundGradientColor,
 		[ `smb-media-text--mobile-${ mobileOrder }` ]: !! mobileOrder,
-		[ `smb-media-text--gutter-${ gutter }` ]: !! gutter,
 	} );
 
 	const rowClasses = classnames( 'c-row', {
@@ -154,6 +154,9 @@ export default function ( {
 				isFill && !! focalPoint?.y
 					? `${ focalPoint.y * 100 }%`
 					: undefined,
+			'--smb-media-text--gap':
+				getGapCSSValue( attributes?.style?.spacing?.blockGap ) ||
+				undefined,
 		},
 		'data-sm-split-point': splitPoint,
 	} );
@@ -172,57 +175,19 @@ export default function ( {
 
 	return (
 		<>
-			<InspectorControls group="dimensions">
-				<ToolsPanelItem
-					hasValue={ () =>
-						gutter !== metadata.attributes.gutter.default
-					}
-					isShownByDefault
-					label={ __( 'Gap', 'snow-monkey-blocks' ) }
-					onDeselect={ () =>
-						setAttributes( {
-							gutter: metadata.attributes.gutter.default,
-						} )
-					}
+			<InspectorControls group="color">
+				<ColorGradientSettingsDropdown
 					panelId={ clientId }
-				>
-					<SelectControl
-						label={ __( 'Gap', 'snow-monkey-blocks' ) }
-						value={ gutter }
-						onChange={ ( value ) =>
-							setAttributes( {
-								gutter: value,
-							} )
-						}
-						options={ [
-							{
-								value: '',
-								label: __( 'None', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 's',
-								label: __( 'S', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'm',
-								label: __( 'M', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'l',
-								label: __( 'L', 'snow-monkey-blocks' ),
-							},
-						] }
-					/>
-				</ToolsPanelItem>
-			</InspectorControls>
-
-			<InspectorControls group="styles">
-				<PanelColorGradientSettings
-					title={ __( 'Color', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
+					__experimentalIsRenderedInSidebar
+					{ ...useMultipleOriginColorsAndGradients() }
 					settings={ [
 						{
 							colorValue: backgroundColor,
+							resetAllFilter: () => ( {
+								backgroundColor: metadata.backgroundColor,
+								backgroundGradientColor:
+									metadata.backgroundGradientColor,
+							} ),
 							onColorChange: ( value ) =>
 								setAttributes( {
 									backgroundColor: value,
@@ -239,6 +204,9 @@ export default function ( {
 						},
 						{
 							colorValue: textColor,
+							resetAllFilter: () => ( {
+								textColor: metadata.textColor,
+							} ),
 							onColorChange: ( value ) =>
 								setAttributes( {
 									textColor: value,
@@ -246,13 +214,7 @@ export default function ( {
 							label: __( 'Text color', 'snow-monkey-blocks' ),
 						},
 					] }
-					__experimentalIsRenderedInSidebar
-				>
-					<ContrastChecker
-						backgroundColor={ backgroundColor }
-						textColor={ textColor }
-					/>
-				</PanelColorGradientSettings>
+				/>
 			</InspectorControls>
 
 			<InspectorControls>

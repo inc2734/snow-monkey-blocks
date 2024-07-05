@@ -123,9 +123,6 @@
 			"type": "string",
 			"default": "lg"
 		},
-		"gutter": {
-			"type": "string"
-		},
 		"templateLock": {
 			"type": [ "string", "boolean" ],
 			"enum": [ "all", "insert", "contentOnly", false ]
@@ -134,7 +131,8 @@
 	"supports": {
 		"anchor": true,
 		"spacing": {
-			"margin": true
+			"margin": true,
+			"blockGap": true
 		},
 		"layout": {
 			"allowSwitching": false,
