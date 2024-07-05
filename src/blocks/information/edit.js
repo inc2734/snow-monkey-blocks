@@ -10,6 +10,8 @@ import {
 } from '@wordpress/block-editor';
 
 import {
+	BaseControl,
+	RangeControl,
 	SelectControl,
 	ToggleControl,
 	__experimentalToolsPanel as ToolsPanel,
@@ -94,6 +96,21 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 				: InnerBlocks.ButtonBlockAppender,
 		}
 	);
+
+	const paddingOptions = [
+		{
+			label: 'S',
+			value: 1,
+		},
+		{
+			label: 'M',
+			value: 2,
+		},
+		{
+			label: 'L',
+			value: 3,
+		},
+	];
 
 	return (
 		<>
@@ -371,33 +388,46 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					}
 					panelId={ clientId }
 				>
-					<SelectControl
+					<BaseControl
+						id="snow-monkey-blocks/information/padding"
 						label={ __( 'Padding', 'snow-monkey-blocks' ) }
-						value={ columnPadding }
-						options={ [
-							{
-								value: '',
-								label: __( 'Default', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 's',
-								label: __( 'S', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'm',
-								label: __( 'M', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'l',
-								label: __( 'L', 'snow-monkey-blocks' ),
-							},
-						] }
-						onChange={ ( value ) =>
-							setAttributes( {
-								columnPadding: value,
-							} )
-						}
-					/>
+						className="spacing-sizes-control"
+					>
+						<RangeControl
+							className="spacing-sizes-control__range-control"
+							value={
+								paddingOptions.filter(
+									( option ) =>
+										option.label?.toLowerCase() ===
+										columnPadding
+								)?.[ 0 ]?.value
+							}
+							resetFallbackValue={ undefined }
+							onChange={ ( value ) =>
+								setAttributes( {
+									columnPadding: paddingOptions
+										.filter(
+											( option ) => option.value === value
+										)?.[ 0 ]
+										?.label?.toLowerCase(),
+								} )
+							}
+							withInputField={ false }
+							min={ 1 }
+							max={ 3 }
+							marks
+							renderTooltipContent={ ( _value ) =>
+								paddingOptions
+									.filter(
+										( option ) => option.value === _value
+									)?.[ 0 ]
+									?.label?.toUpperCase()
+							}
+							hideLabelFromVision
+							__nextHasNoMarginBottom
+							withReset
+						/>
+					</BaseControl>
 				</ToolsPanelItem>
 			</InspectorControls>
 
