@@ -27,15 +27,6 @@
 				}
 			}
 		},
-		"layout": {
-			"type": "object",
-			"default": {
-				"orientation": "vertical",
-				"type": "flex",
-				"flexWrap": "wrap",
-				"verticalAlignment": "stretch"
-			}
-		},
 		"templateLock": {
 			"type": [ "string", "boolean" ],
 			"enum": [ "all", "insert", "contentOnly", false ]
@@ -90,7 +81,10 @@
 			"allowSwitching": false,
 			"allowInheriting": false,
 			"default": {
-				"type": "flex"
+				"orientation": "vertical",
+				"type": "flex",
+				"flexWrap": "wrap",
+				"verticalAlignment": "stretch"
 			}
 		}
 	},
