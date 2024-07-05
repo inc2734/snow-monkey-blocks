@@ -24,15 +24,6 @@
 			"selector": ".smb-panels__item__content",
 			"default": ""
 		},
-		"backgroundColor": {
-			"type": "string"
-		},
-		"backgroundGradientColor": {
-			"type": "string"
-		},
-		"textColor": {
-			"type": "string"
-		},
 		"displayLink": {
 			"type": "boolean",
 			"default": false
@@ -103,7 +94,13 @@
 		}
 	},
 	"supports": {
-		"html": false
+		"html": false,
+		"color": {
+			"background": true,
+			"gradients": true,
+			"text": true,
+			"link": true
+		}
 	},
 	"editorScript": "file:./index.js"
 }

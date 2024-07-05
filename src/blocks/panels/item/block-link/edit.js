@@ -1,14 +1,12 @@
 import classnames from 'classnames';
 
 import {
-	ContrastChecker,
 	BlockControls,
 	InnerBlocks,
-	InspectorControls,
 	useBlockProps,
 	useInnerBlocksProps,
 	__experimentalLinkControl as LinkControl,
-	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
+	__experimentalUseColorProps as useColorProps,
 } from '@wordpress/block-editor';
 
 import { useMergeRefs } from '@wordpress/compose';
@@ -22,17 +20,20 @@ export default function ( {
 	attributes,
 	setAttributes,
 	isSelected,
-	className,
 	clientId,
 } ) {
-	const {
-		backgroundColor,
-		backgroundGradientColor,
-		textColor,
-		linkURL,
-		linkTarget,
-		templateLock,
-	} = attributes;
+	const { linkURL, linkTarget, templateLock } = attributes;
+
+	const colorProps = useColorProps( {
+		style: {
+			color: {
+				...attributes?.style?.color,
+			},
+		},
+		backgroundColor: attributes?.backgroundColor || undefined,
+		textColor: attributes?.textColor || undefined,
+		gradient: attributes?.gradient || undefined,
+	} );
 
 	const [ isEditingURL, setIsEditingURL ] = useState( false );
 	const isURLSet = !! linkURL;
@@ -49,23 +50,20 @@ export default function ( {
 		[ clientId ]
 	);
 
-	const classes = classnames( 'c-row__col', className );
+	const classes = 'c-row__col';
 
 	const itemClasses = classnames(
 		'smb-panels__item',
-		'smb-panels__item--block-link'
+		'smb-panels__item--block-link',
+		colorProps?.className
 	);
+
+	const itemStyles = colorProps?.style;
 
 	const actionClasses = classnames(
 		'smb-panels__item__action',
 		'smb-panels__item__action--nolabel'
 	);
-
-	const itemStyles = {
-		'--smb-panel--background-color': backgroundColor,
-		'--smb-panel--background-image': backgroundGradientColor,
-		'--smb-panel--color': textColor,
-	};
 
 	const ref = useRef();
 
@@ -96,47 +94,6 @@ export default function ( {
 
 	return (
 		<>
-			<InspectorControls>
-				<PanelColorGradientSettings
-					title={ __( 'Color', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
-					settings={ [
-						{
-							label: __(
-								'Background color',
-								'snow-monkey-blocks'
-							),
-							colorValue: backgroundColor,
-							onColorChange: ( value ) =>
-								setAttributes( {
-									backgroundColor: value,
-								} ),
-							gradientValue: backgroundGradientColor,
-							onGradientChange: ( value ) =>
-								setAttributes( {
-									backgroundGradientColor: value,
-								} ),
-						},
-						{
-							label: __( 'Text color', 'snow-monkey-blocks' ),
-							colorValue: textColor,
-							onColorChange: ( value ) =>
-								setAttributes( {
-									textColor: value,
-								} ),
-						},
-					] }
-					__experimentalIsRenderedInSidebar
-				>
-					<ContrastChecker
-						backgroundColor={
-							backgroundColor || backgroundGradientColor
-						}
-						textColor={ textColor }
-					/>
-				</PanelColorGradientSettings>
-			</InspectorControls>
-
 			<div { ...blockProps }>
 				<div className={ itemClasses } style={ itemStyles }>
 					<div { ...innerBlocksProps } />

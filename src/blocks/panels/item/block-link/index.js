@@ -7,6 +7,7 @@ import icon from '../../icon';
 import edit from './edit';
 import save from './save';
 import transforms from './transforms';
+import deprecated from './deprecated';
 
 registerBlockType( metadata.name, {
 	icon: {
@@ -16,4 +17,5 @@ registerBlockType( metadata.name, {
 	edit,
 	save,
 	transforms,
+	deprecated,
 } );

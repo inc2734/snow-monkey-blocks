@@ -1,15 +1,16 @@
 import classnames from 'classnames';
 
-import { RichText, useBlockProps } from '@wordpress/block-editor';
+import {
+	RichText,
+	useBlockProps,
+	__experimentalGetColorClassesAndStyles as getColorClassesAndStyles,
+} from '@wordpress/block-editor';
 
-export default function ( { attributes, className } ) {
+export default function ( { attributes } ) {
 	const {
 		titleTagName,
 		title,
 		summary,
-		backgroundColor,
-		backgroundGradientColor,
-		textColor,
 		displayLink,
 		linkLabel,
 		linkURL,
@@ -22,25 +23,25 @@ export default function ( { attributes, className } ) {
 		imageHeight,
 	} = attributes;
 
-	const classes = classnames( 'c-row__col', className );
+	const colorProps = getColorClassesAndStyles( {
+		style: {
+			color: {
+				...attributes?.style?.color,
+			},
+		},
+		backgroundColor: attributes?.backgroundColor || undefined,
+		textColor: attributes?.textColor || undefined,
+		gradient: attributes?.gradient || undefined,
+	} );
 
-	const itemClasses = 'smb-panels__item';
+	const classes = 'c-row__col';
+
+	const itemClasses = classnames( 'smb-panels__item', colorProps?.className );
+	const itemStyles = colorProps?.style;
 
 	const actionClasses = classnames( 'smb-panels__item__action', {
 		'smb-panels__item__action--nolabel': ! linkLabel,
 	} );
-
-	const itemStyles = {
-		'--smb-panel--background-color': backgroundColor,
-		'--smb-panel--background-image': backgroundGradientColor,
-		'--smb-panel--color': textColor,
-	};
-
-	// const linkLabelHtml = ! RichText.isEmpty( linkLabel ) && (
-	// 	<div className="smb-panels__item__link">
-	// 		<RichText.Content value={ linkLabel } />
-	// 	</div>
-	// );
 
 	return (
 		<div { ...useBlockProps.save( { className: classes } ) }>

@@ -1,34 +1,41 @@
 import classnames from 'classnames';
 
-import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	useInnerBlocksProps,
+	__experimentalGetColorClassesAndStyles as getColorClassesAndStyles,
+} from '@wordpress/block-editor';
+
 import { __ } from '@wordpress/i18n';
 
-export default function ( { attributes, className } ) {
-	const {
-		backgroundColor,
-		backgroundGradientColor,
-		textColor,
-		linkURL,
-		linkTarget,
-	} = attributes;
+export default function ( { attributes } ) {
+	const { linkURL, linkTarget } = attributes;
 
-	const classes = classnames( 'c-row__col', className );
+	const colorProps = getColorClassesAndStyles( {
+		style: {
+			color: {
+				...attributes?.style?.color,
+			},
+		},
+		backgroundColor: attributes?.backgroundColor || undefined,
+		textColor: attributes?.textColor || undefined,
+		gradient: attributes?.gradient || undefined,
+	} );
+
+	const classes = 'c-row__col';
 
 	const itemClasses = classnames(
 		'smb-panels__item',
-		'smb-panels__item--block-link'
+		'smb-panels__item--block-link',
+		colorProps?.className
 	);
+
+	const itemStyles = colorProps?.style;
 
 	const actionClasses = classnames(
 		'smb-panels__item__action',
 		'smb-panels__item__action--nolabel'
 	);
-
-	const itemStyles = {
-		'--smb-panel--background-color': backgroundColor,
-		'--smb-panel--background-image': backgroundGradientColor,
-		'--smb-panel--color': textColor,
-	};
 
 	return (
 		<div { ...useBlockProps.save( { className: classes } ) }>

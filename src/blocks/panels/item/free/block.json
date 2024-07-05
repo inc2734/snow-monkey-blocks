@@ -8,15 +8,6 @@
 	"category": "smb",
 	"parent": [ "snow-monkey-blocks/panels" ],
 	"attributes": {
-		"backgroundColor": {
-			"type": "string"
-		},
-		"backgroundGradientColor": {
-			"type": "string"
-		},
-		"textColor": {
-			"type": "string"
-		},
 		"templateLock": {
 			"type": [ "string", "boolean" ],
 			"enum": [ "all", "insert", "contentOnly", false ]
@@ -24,6 +15,12 @@
 	},
 	"supports": {
 		"html": false,
+		"color": {
+			"background": true,
+			"gradients": true,
+			"text": true,
+			"link": true
+		},
 		"layout": {
 			"allowSwitching": false,
 			"allowEditing": false,

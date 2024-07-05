@@ -10,10 +10,23 @@
 	--smb-panels--glue--box-shadow: none;
 	--smb-panels--glue--border-color: var(--wp--preset--color--sm-lighter-gray);
 
+	> .#{ $_prefix }c-row {
+		> .#{ $_prefix }c-row__col {
+			background-color: transparent !important;
+			background-image: none !important;
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+	}
+
 	&__item {
 		--smb-panel--background-color: var(--smb-panels--item-background-color);
 		--smb-panel--background-image: initial;
 		--smb-panel--color: var(--smb-panels--item-color);
+
+		&.has-background {
+			padding: 0;
+		}
 
 		flex: 1;
 		position: relative;

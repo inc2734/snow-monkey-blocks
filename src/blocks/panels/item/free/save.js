@@ -1,22 +1,32 @@
 import classnames from 'classnames';
 
-import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	useInnerBlocksProps,
+	__experimentalGetColorClassesAndStyles as getColorClassesAndStyles,
+} from '@wordpress/block-editor';
 
-export default function ( { attributes, className } ) {
-	const { backgroundColor, backgroundGradientColor, textColor } = attributes;
+export default function ( { attributes } ) {
+	const colorProps = getColorClassesAndStyles( {
+		style: {
+			color: {
+				...attributes?.style?.color,
+			},
+		},
+		backgroundColor: attributes?.backgroundColor || undefined,
+		textColor: attributes?.textColor || undefined,
+		gradient: attributes?.gradient || undefined,
+	} );
 
-	const classes = classnames( 'c-row__col', className );
+	const classes = 'c-row__col';
 
 	const itemClasses = classnames(
 		'smb-panels__item',
-		'smb-panels__item--free'
+		'smb-panels__item--free',
+		colorProps?.className
 	);
 
-	const itemStyles = {
-		'--smb-panel--background-color': backgroundColor,
-		'--smb-panel--background-image': backgroundGradientColor,
-		'--smb-panel--color': textColor,
-	};
+	const itemStyles = colorProps?.style;
 
 	return (
 		<div { ...useBlockProps.save( { className: classes } ) }>
