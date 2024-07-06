@@ -9,8 +9,6 @@ import {
 
 import { Save as Header } from './components/header';
 
-import { generateSpacingProperties } from '@smb/helper';
-
 export default function ( { attributes, className } ) {
 	const {
 		align,
@@ -32,7 +30,6 @@ export default function ( { attributes, className } ) {
 		disableContainerPadding,
 		contentsMaxWidth,
 		isSlim,
-		padding,
 
 		backgroundHorizontalPosition,
 		backgroundVerticalPosition,
@@ -117,7 +114,6 @@ export default function ( { attributes, className } ) {
 			!! contentsMaxWidth && ! isSlim ? contentsMaxWidth : undefined,
 		'--smb-section--min-height':
 			!! height && ! disableCustomHeight ? height : undefined,
-		...generateSpacingProperties( padding ),
 		...generateStylesForSectionBackground( {
 			backgroundHorizontalPosition,
 			backgroundVerticalPosition,

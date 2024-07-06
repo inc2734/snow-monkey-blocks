@@ -31,12 +31,7 @@ import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
 import Figure from '@smb/component/figure';
 import ResolutionTool from '@smb/component/resolution-tool';
 
-import {
-	toNumber,
-	getMediaType,
-	isVideoType,
-	generateSpacingProperties,
-} from '@smb/helper';
+import { toNumber, getMediaType, isVideoType } from '@smb/helper';
 
 import { PanelBasicSettings } from '../section/components/basic';
 import { Edit as Header } from '../section/components/header';
@@ -113,7 +108,6 @@ export default function ( {
 		disableContainerPadding,
 		contentsMaxWidth,
 		isSlim,
-		padding,
 
 		topDividerType,
 		topDividerLevel,
@@ -299,7 +293,6 @@ export default function ( {
 		'--smb-section-with-bgimage--sm-media-position': smPointValue,
 		'--smb-section-with-bgimage--sm-repeatable-image':
 			smImageRepeat && !! smImageURL ? `url(${ smImageURL })` : undefined,
-		...generateSpacingProperties( padding ),
 		...generateStylesForSectionBackground( {
 			topDividerVerticalPosition,
 			topDividerLevel,
@@ -425,17 +418,6 @@ export default function ( {
 									isSlim: value,
 								} ),
 							defaultValue: metadata.attributes.isSlim.default,
-						},
-						{
-							sides: [ 'top', 'bottom' ],
-							paddingValue: padding,
-							onPaddingChange: ( value ) =>
-								setAttributes( {
-									padding: isNaN( value )
-										? value
-										: `${ value }px`,
-								} ),
-							defaultValue: metadata.attributes.padding.default,
 						},
 					] }
 				/>

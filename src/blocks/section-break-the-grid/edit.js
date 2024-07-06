@@ -30,12 +30,7 @@ import { useSelect } from '@wordpress/data';
 import { __, sprintf } from '@wordpress/i18n';
 import { pullLeft, pullRight } from '@wordpress/icons';
 
-import {
-	toNumber,
-	getMediaType,
-	isVideoType,
-	generateSpacingProperties,
-} from '@smb/helper';
+import { toNumber, getMediaType, isVideoType } from '@smb/helper';
 
 import Figure from '@smb/component/figure';
 import ResolutionTool from '@smb/component/resolution-tool';
@@ -106,7 +101,6 @@ export default function ( {
 		titleTagName,
 		containerAlign,
 		disableContainerPadding,
-		padding,
 
 		backgroundHorizontalPosition,
 		backgroundVerticalPosition,
@@ -273,7 +267,6 @@ export default function ( {
 			maskGradientColor || undefined,
 		'--smb-section-break-the-grid--mask-opacity':
 			!! maskColor || !! maskGradientColor ? maskOpacity : undefined,
-		...generateSpacingProperties( padding ),
 		...generateStylesForSectionBackground( {
 			backgroundHorizontalPosition,
 			backgroundVerticalPosition,
@@ -433,17 +426,6 @@ export default function ( {
 							defaultValue:
 								metadata.attributes.disableContainerPadding
 									.default,
-						},
-						{
-							sides: [ 'top', 'bottom' ],
-							paddingValue: padding,
-							onPaddingChange: ( value ) =>
-								setAttributes( {
-									padding: isNaN( value )
-										? value
-										: `${ value }px`,
-								} ),
-							defaultValue: metadata.attributes.padding.default,
 						},
 					] }
 				/>

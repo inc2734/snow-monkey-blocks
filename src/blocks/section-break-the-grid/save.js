@@ -10,8 +10,6 @@ import {
 
 import { Save as Header } from '../section/components/header';
 
-import { generateSpacingProperties } from '@smb/helper';
-
 export default function ( { attributes, className } ) {
 	const {
 		align,
@@ -51,7 +49,6 @@ export default function ( { attributes, className } ) {
 		titleTagName,
 		containerAlign,
 		disableContainerPadding,
-		padding,
 
 		backgroundHorizontalPosition,
 		backgroundVerticalPosition,
@@ -187,7 +184,6 @@ export default function ( { attributes, className } ) {
 			maskGradientColor || undefined,
 		'--smb-section-break-the-grid--mask-opacity':
 			!! maskColor || !! maskGradientColor ? maskOpacity : undefined,
-		...generateSpacingProperties( padding ),
 		...generateStylesForSectionBackground( {
 			backgroundHorizontalPosition,
 			backgroundVerticalPosition,

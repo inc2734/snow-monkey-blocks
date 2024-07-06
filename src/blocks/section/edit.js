@@ -17,7 +17,7 @@ import {
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
-import { toNumber, generateSpacingProperties } from '@smb/helper';
+import { toNumber } from '@smb/helper';
 
 import { PanelBasicSettings } from './components/basic';
 import { Edit as Header } from './components/header';
@@ -63,7 +63,6 @@ export default function ( {
 		disableContainerPadding,
 		contentsMaxWidth,
 		isSlim,
-		padding,
 
 		backgroundHorizontalPosition,
 		backgroundVerticalPosition,
@@ -156,7 +155,6 @@ export default function ( {
 			!! contentsMaxWidth && ! isSlim ? contentsMaxWidth : undefined,
 		'--smb-section--min-height':
 			!! height && ! disableCustomHeight ? height : undefined,
-		...generateSpacingProperties( padding ),
 		...generateStylesForSectionBackground( {
 			backgroundHorizontalPosition,
 			backgroundVerticalPosition,
@@ -295,17 +293,6 @@ export default function ( {
 									isSlim: value,
 								} ),
 							defaultValue: metadata.attributes.isSlim.default,
-						},
-						{
-							sides: [ 'top', 'bottom' ],
-							paddingValue: padding,
-							onPaddingChange: ( value ) =>
-								setAttributes( {
-									padding: isNaN( value )
-										? value
-										: `${ value }px`,
-								} ),
-							defaultValue: metadata.attributes.padding.default,
 						},
 					] }
 				/>

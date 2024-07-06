@@ -286,6 +286,10 @@ export function isVideoType( filename = '' ) {
  * @return {Object} js padding value.
  */
 export function generateSpacingProperties( values ) {
+	if ( null == values ) {
+		return {};
+	}
+
 	Object.keys( values ).forEach( ( key ) => {
 		const value = values?.[ key ];
 		if ( null === value || '' === value ) {

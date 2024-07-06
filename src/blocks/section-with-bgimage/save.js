@@ -9,8 +9,6 @@ import {
 
 import { Save as Header } from '../section/components/header';
 
-import { generateSpacingProperties } from '@smb/helper';
-
 export default function ( { attributes, className } ) {
 	const {
 		align,
@@ -60,7 +58,6 @@ export default function ( { attributes, className } ) {
 		disableContainerPadding,
 		contentsMaxWidth,
 		isSlim,
-		padding,
 
 		topDividerType,
 		topDividerLevel,
@@ -185,7 +182,6 @@ export default function ( { attributes, className } ) {
 		'--smb-section-with-bgimage--sm-media-position': smPointValue,
 		'--smb-section-with-bgimage--sm-repeatable-image':
 			smImageRepeat && !! smImageURL ? `url(${ smImageURL })` : undefined,
-		...generateSpacingProperties( padding ),
 		...generateStylesForSectionBackground( {
 			topDividerVerticalPosition,
 			topDividerLevel,
