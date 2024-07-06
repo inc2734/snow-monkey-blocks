@@ -6,6 +6,7 @@
 	--smb-step--number-size: 2.5rem;
 	--smb-step--number-background-color: var(--wp--preset--color--black);
 	--smb-step--number-color: var(--wp--preset--color--white);
+	--smb-step--title-color: inherit;
 
 	counter-reset: item;
 
@@ -38,6 +39,7 @@
 			align-items: center;
 			margin-bottom: var(--_margin-1);
 			font-weight: bold;
+			color: var(--smb-step--title-color);
 
 			> .smb-step__item__number {
 				position: absolute;

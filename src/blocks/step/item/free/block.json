@@ -17,6 +17,15 @@
 		"numberColor": {
 			"type": "string"
 		},
+		"titleColor": {
+			"type": "string"
+		},
+		"titleFontSizeSlug": {
+			"type": "string"
+		},
+		"titleFontSize": {
+			"type": "string"
+		},
 		"templateLock": {
 			"type": [ "string", "boolean" ],
 			"enum": [ "all", "insert", "contentOnly", false ]
