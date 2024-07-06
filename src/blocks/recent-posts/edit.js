@@ -231,35 +231,39 @@ export default function ( { attributes, setAttributes, clientId } ) {
 								} )
 							}
 						>
-							{ taxonomiesTermsWithPostType.map(
-								( taxonomyTerms ) => {
-									return (
-										<TreeSelect
-											key={ taxonomyTerms.taxonomy }
-											label={ sprintf(
-												// translators: %1$s: Term label
-												__(
-													'Filter by %1$s',
-													'snow-monkey-blocks'
-												),
-												taxonomyTerms.label
-											) }
-											noOptionLabel="-"
-											onChange={ ( value ) => {
-												setAttributes( {
-													termId: toNumber( value ),
-													taxonomy:
-														taxonomyTerms.taxonomy,
-												} );
-											} }
-											selectedId={ termId }
-											tree={ buildTermsTree(
-												taxonomyTerms.terms
-											) }
-										/>
-									);
-								}
-							) }
+							<div style={ { display: 'grid', gap: '16px' } }>
+								{ taxonomiesTermsWithPostType.map(
+									( taxonomyTerms ) => {
+										return (
+											<TreeSelect
+												key={ taxonomyTerms.taxonomy }
+												label={ sprintf(
+													// translators: %1$s: Term label
+													__(
+														'Filter by %1$s',
+														'snow-monkey-blocks'
+													),
+													taxonomyTerms.label
+												) }
+												noOptionLabel="-"
+												onChange={ ( value ) => {
+													setAttributes( {
+														termId: toNumber(
+															value
+														),
+														taxonomy:
+															taxonomyTerms.taxonomy,
+													} );
+												} }
+												selectedId={ termId }
+												tree={ buildTermsTree(
+													taxonomyTerms.terms
+												) }
+											/>
+										);
+									}
+								) }
+							</div>
 						</ToolsPanelItem>
 					) }
 
