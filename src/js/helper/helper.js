@@ -337,3 +337,31 @@ export function generateSpacingProperties( values ) {
 		paddingLeft: left,
 	};
 }
+
+/**
+ * Removed falsy values from nested object.
+ *
+ * @see https://github.com/WordPress/gutenberg/blob/857356c1602a42f342a61976ba67eb41284050ca/packages/block-editor/src/hooks/utils.js
+ *
+ * @param {*} object
+ * @return {*} Object cleaned from falsy values
+ */
+export const cleanEmptyObject = ( object ) => {
+	if (
+		object === null ||
+		typeof object !== 'object' ||
+		Array.isArray( object )
+	) {
+		return object;
+	}
+
+	const cleanedNestedObjects = Object.entries( object )
+		.map( ( [ key, value ] ) => [ key, cleanEmptyObject( value ) ] )
+		.filter(
+			( [ , value ] ) =>
+				value !== undefined && value !== null && value !== ''
+		);
+	return ! cleanedNestedObjects.length
+		? undefined
+		: Object.fromEntries( cleanedNestedObjects );
+};

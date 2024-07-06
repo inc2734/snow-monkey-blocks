@@ -35,6 +35,10 @@
 		cursor: pointer;
 		font-family: inherit;
 
+		&.has-background {
+			border: none;
+		}
+
 		&[aria-selected="false"] {
 			opacity: .5;
 		}
@@ -53,6 +57,10 @@
 	color: var(--smb-tabs--color);
 	padding: var(--_padding1);
 	pointer-events: none !important;
+
+	&.has-background {
+		border: none;
+	}
 
 	&[aria-hidden="true"] {
 		visibility: hidden;
@@ -78,12 +86,18 @@
 		}
 
 		.smb-tabs__tab {
+			border-top-left-radius: var(--smb-tabs--tab-border-radius);
+			border-top-right-radius: var(--smb-tabs--tab-border-radius);
 			padding: var(--_padding-2) var(--_padding1);
 			white-space: nowrap;
 
+			&.has-background {
+				&[aria-selected="false"] {
+					height: calc(100% - 1px);
+				}
+			}
+
 			&[aria-selected="true"] {
-				border-top-left-radius: var(--smb-tabs--tab-border-radius);
-				border-top-right-radius: var(--smb-tabs--tab-border-radius);
 				border-bottom-color: transparent;
 			}
 		}
@@ -119,12 +133,19 @@
 		max-width: 240px;
 
 		.smb-tabs__tab {
-			padding: var(--_padding1);
+			border-top-left-radius: var(--smb-tabs--tab-border-radius);
+			border-bottom-left-radius: var(--smb-tabs--tab-border-radius);
+			padding: var(--_padding-1) var(--_padding1);
 			text-align: left;
 
+			&.has-background {
+				&[aria-selected="false"] {
+					flex-grow: 0;
+					width: calc(100% - 1px);
+				}
+			}
+
 			&[aria-selected="true"] {
-				border-top-left-radius: var(--smb-tabs--tab-border-radius);
-				border-bottom-left-radius: var(--smb-tabs--tab-border-radius);
 				border-right-color: transparent;
 			}
 		}
@@ -162,14 +183,27 @@
 
 .smb-tabs.is-style-simple {
 	> .smb-tabs__tabs {
+		&:has(.smb-tabs__tab.has-background) {
+			.smb-tabs__tab {
+				padding: var(--_padding-2) var(--_padding1);
+			}
+		}
+
 		.smb-tabs__tab {
 			background-color: transparent;
 			border: none;
+			border-radius: 0;
 			padding: 0;
 		}
 	}
 
 	> .smb-tabs__body {
+		&:has(.smb-tab-panel.has-background) {
+			> .smb-tab-panel {
+				padding: var(--_padding1);
+			}
+		}
+
 		> .smb-tab-panel {
 			background-color: transparent;
 			border: none;
@@ -179,24 +213,28 @@
 
 	&[data-orientation="horizontal"] {
 		> .smb-tabs__tabs {
-			margin-bottom: var(--_margin1);
+			&:where(:not(:has(.smb-tabs__tab.has-background))) {
+				margin-bottom: var(--_margin-1);
+
+				.smb-tabs__tab-wrapper:not(:first-child) {
+					margin-left: var(--_margin1);
+				}
+			}
 
 			.smb-tabs__tab-wrapper {
 				display: block;
-			}
-
-			.smb-tabs__tab-wrapper:not(:first-child) {
-				margin-left: var(--_margin1);
 			}
 		}
 	}
 
 	&[data-orientation="vertical"] {
 		> .smb-tabs__tabs {
-			padding-right: var(--_margin1);
+			&:where(:not(:has(.smb-tabs__tab.has-background))) {
+				padding-right: var(--_margin1);
 
-			.smb-tabs__tab-wrapper:not(:first-child) {
-				margin-top: var(--_margin1);
+				.smb-tabs__tab-wrapper:not(:first-child) {
+					margin-top: var(--_margin-1);
+				}
 			}
 		}
 	}
@@ -232,6 +270,12 @@
 	}
 
 	> .smb-tabs__body {
+		&:has(.smb-tab-panel.has-background) {
+			> .smb-tab-panel {
+				padding: var(--_padding1);
+			}
+		}
+
 		> .smb-tab-panel {
 			background-color: transparent;
 			border: none;
@@ -250,7 +294,9 @@
 		}
 
 		> .smb-tabs__tabs {
-			margin-bottom: var(--_margin1);
+			&:not(:has(.smb-tabs__tab.has-background)) {
+				margin-bottom: var(--_margin1);
+			}
 
 			.smb-tabs__tab {
 				&[aria-selected="true"] {
@@ -280,9 +326,13 @@
 				width: 1px;
 			}
 
-			.smb-tabs__tab {
-				padding-left: 0;
+			&:not(:has(.smb-tabs__tab.has-background)) {
+				.smb-tabs__tab {
+					padding-left: 0;
+				}
+			}
 
+			.smb-tabs__tab {
 				&[aria-selected="true"] {
 					&::after {
 						top: 0;

@@ -33,6 +33,11 @@
 		"html": false,
 		"__experimentalToolbar": false,
 		"inserter": false,
+		"color": {
+			"background": true,
+			"text": true,
+			"link": true
+		},
 		"layout": {
 			"allowSwitching": false,
 			"allowEditing": false,

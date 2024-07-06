@@ -4,6 +4,7 @@ import {
 	RichText,
 	useBlockProps,
 	useInnerBlocksProps,
+	__experimentalGetColorClassesAndStyles as getColorClassesAndStyles,
 } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
@@ -35,6 +36,8 @@ export default function ( { attributes, className } ) {
 			{ 0 < tabs.length && (
 				<div className="smb-tabs__tabs" role="tablist">
 					{ tabs.map( ( tab, index ) => {
+						const colorProps = getColorClassesAndStyles( tab );
+
 						return (
 							<div
 								className="smb-tabs__tab-wrapper"
@@ -43,7 +46,11 @@ export default function ( { attributes, className } ) {
 								<RichText.Content
 									tagName="button"
 									value={ tab.title }
-									className="smb-tabs__tab"
+									className={ classnames(
+										'smb-tabs__tab',
+										colorProps?.className
+									) }
+									style={ colorProps?.style }
 									role="tab"
 									aria-controls={ tab.tabPanelId }
 									aria-selected={

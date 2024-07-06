@@ -6,6 +6,7 @@ import {
 	RichText,
 	useBlockProps,
 	useInnerBlocksProps,
+	__experimentalGetColorClassesAndStyles as getColorClassesAndStyles,
 } from '@wordpress/block-editor';
 
 import {
@@ -51,6 +52,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		moveBlocksUp,
 		moveBlocksDown,
 		updateBlockAttributes,
+		selectBlock,
 	} = useDispatch( 'core/block-editor' );
 
 	const { getBlockOrder, getBlock } = useSelect( ( select ) => {
@@ -351,6 +353,14 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 
 						const onClickTab = () => {
 							setCurrentTabPanelId( tab.tabPanelId );
+
+							selectBlock( targetClientId );
+						};
+
+						const onClickTitle = ( e ) => {
+							e.stopPropagation();
+
+							setCurrentTabPanelId( tab.tabPanelId );
 						};
 
 						const onChangeTitle = ( value ) => {
@@ -401,6 +411,8 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 								tabs[ index + 1 ].tabPanelId
 							);
 						};
+
+						const colorProps = getColorClassesAndStyles( tab );
 
 						return (
 							<div
@@ -478,7 +490,11 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 								) }
 
 								<button
-									className="smb-tabs__tab"
+									className={ classnames(
+										'smb-tabs__tab',
+										colorProps?.className
+									) }
+									style={ colorProps?.style }
 									role="tab"
 									aria-controls={ tab.tabPanelId }
 									aria-selected={
@@ -491,6 +507,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 									<RichText
 										value={ tab.title }
 										onChange={ onChangeTitle }
+										onClick={ onClickTitle }
 										placeholder={ __(
 											'Tab',
 											'snow-monkey-blocks'
