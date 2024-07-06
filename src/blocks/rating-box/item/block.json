@@ -20,6 +20,18 @@
 		},
 		"color": {
 			"type": "string"
+		},
+		"titleFontSizeSlug": {
+			"type": "string"
+		},
+		"titleFontSize": {
+			"type": "string"
+		},
+		"numericFontSizeSlug": {
+			"type": "string"
+		},
+		"numericFontSize": {
+			"type": "string"
 		}
 	},
 	"supports": {

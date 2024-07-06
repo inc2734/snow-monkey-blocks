@@ -1,13 +1,19 @@
 import classnames from 'classnames';
 
 import {
+	FontSizePicker,
 	InspectorControls,
 	RichText,
-	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	useBlockProps,
+	getFontSizeClass,
+	getFontSizeObjectByValue,
+	useSettings,
+	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
+	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 } from '@wordpress/block-editor';
 
 import {
+	BaseControl,
 	RangeControl,
 	__experimentalToolsPanel as ToolsPanel,
 	__experimentalToolsPanelItem as ToolsPanelItem,
@@ -19,8 +25,18 @@ import { toNumber } from '@smb/helper';
 
 import metadata from './block.json';
 
-export default function ( { attributes, setAttributes, className } ) {
-	const { title, rating, color } = attributes;
+export default function ( { attributes, setAttributes, className, clientId } ) {
+	const {
+		title,
+		rating,
+		color,
+		titleFontSizeSlug,
+		titleFontSize,
+		numericFontSizeSlug,
+		numericFontSize,
+	} = attributes;
+
+	const [ fontSizes ] = useSettings( 'typography.fontSizes' );
 
 	const classes = classnames( 'smb-rating-box__item', className );
 
@@ -37,12 +53,125 @@ export default function ( { attributes, setAttributes, className } ) {
 		style: styles,
 	} );
 
+	const selectedTitleFontSize =
+		fontSizes.find(
+			( fontSize ) =>
+				!! titleFontSizeSlug && fontSize.slug === titleFontSizeSlug
+		)?.size || titleFontSize;
+
+	const selectedNumericFontSize =
+		fontSizes.find(
+			( fontSize ) =>
+				!! numericFontSizeSlug && fontSize.slug === numericFontSizeSlug
+		)?.size || numericFontSize;
+
+	const titleFontSizeClass = !! titleFontSizeSlug
+		? getFontSizeClass( titleFontSizeSlug )
+		: undefined;
+
+	const numericFontSizeClass = !! numericFontSizeSlug
+		? getFontSizeClass( numericFontSizeSlug )
+		: undefined;
+
 	return (
 		<>
-			<InspectorControls group="styles">
-				<PanelColorGradientSettings
-					title={ __( 'Color', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
+			<InspectorControls group="typography">
+				<ToolsPanelItem
+					panelId={ clientId }
+					hasValue={ () =>
+						titleFontSizeSlug !== metadata.titleFontSizeSlug ||
+						titleFontSize !== metadata.titleFontSize
+					}
+					isShownByDefault
+					label={ __( 'Title font size', 'snow-monkey-blocks' ) }
+					resetAllFilter={ () => ( {
+						titleFontSizeSlug: metadata.titleFontSizeSlug,
+						titleFontSize: metadata.titleFontSize,
+					} ) }
+					onDeselect={ () => {
+						setAttributes( {
+							titleFontSizeSlug: metadata.titleFontSizeSlug,
+							titleFontSize: metadata.titleFontSize,
+						} );
+					} }
+				>
+					<BaseControl
+						label={ __( 'Title', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/rating-box-item/title-font-size"
+					>
+						<FontSizePicker
+							value={ selectedTitleFontSize }
+							onChange={ ( value ) => {
+								const fontSizeSlug = getFontSizeObjectByValue(
+									fontSizes,
+									value
+								).slug;
+
+								setAttributes( {
+									titleFontSizeSlug:
+										fontSizeSlug || undefined,
+									titleFontSize: ! fontSizeSlug
+										? value
+										: undefined,
+								} );
+							} }
+							withReset={ false }
+							withSlider
+						/>
+					</BaseControl>
+				</ToolsPanelItem>
+
+				<ToolsPanelItem
+					panelId={ clientId }
+					hasValue={ () =>
+						numericFontSizeSlug !== metadata.numericFontSizeSlug ||
+						numericFontSize !== metadata.numericFontSize
+					}
+					isShownByDefault
+					label={ __( 'Numeric font size', 'snow-monkey-blocks' ) }
+					resetAllFilter={ () => ( {
+						numericFontSizeSlug: metadata.numericFontSizeSlug,
+						numericFontSize: metadata.numericFontSize,
+					} ) }
+					onDeselect={ () => {
+						setAttributes( {
+							numericFontSizeSlug: metadata.numericFontSizeSlug,
+							numericFontSize: metadata.numericFontSize,
+						} );
+					} }
+				>
+					<BaseControl
+						label={ __( 'Numeric', 'snow-monkey-blocks' ) }
+						id="snow-monkey-blocks/rating-box-item/numeric-font-size"
+					>
+						<FontSizePicker
+							value={ selectedNumericFontSize }
+							onChange={ ( value ) => {
+								const fontSizeSlug = getFontSizeObjectByValue(
+									fontSizes,
+									value
+								).slug;
+
+								setAttributes( {
+									numericFontSizeSlug:
+										fontSizeSlug || undefined,
+									numericFontSize: ! fontSizeSlug
+										? value
+										: undefined,
+								} );
+							} }
+							withReset={ false }
+							withSlider
+						/>
+					</BaseControl>
+				</ToolsPanelItem>
+			</InspectorControls>
+
+			<InspectorControls group="color">
+				<ColorGradientSettingsDropdown
+					panelId={ clientId }
+					__experimentalIsRenderedInSidebar
+					{ ...useMultipleOriginColorsAndGradients() }
 					settings={ [
 						{
 							colorValue: color,
@@ -50,11 +179,13 @@ export default function ( { attributes, setAttributes, className } ) {
 								setAttributes( {
 									color: value,
 								} ),
+							resetAllFilter: () => ( {
+								color: metadata.color,
+							} ),
 							label: __( 'Bar color', 'snow-monkey-blocks' ),
 						},
 					] }
-					__experimentalIsRenderedInSidebar
-				></PanelColorGradientSettings>
+				/>
 			</InspectorControls>
 
 			<InspectorControls>
@@ -89,23 +220,43 @@ export default function ( { attributes, setAttributes, className } ) {
 			</InspectorControls>
 
 			<div { ...blockProps }>
-				<RichText
-					className="smb-rating-box__item__title"
-					placeholder={ __( 'Write title…', 'snow-monkey-blocks' ) }
-					value={ title }
-					multiline={ false }
-					onChange={ ( value ) =>
-						setAttributes( {
-							title: value,
-						} )
-					}
-				/>
+				<div className="smb-rating-box__item__body">
+					<RichText
+						className={ classnames(
+							'smb-rating-box__item__title',
+							titleFontSizeClass
+						) }
+						style={ {
+							fontSize: titleFontSize || undefined,
+						} }
+						placeholder={ __(
+							'Write title…',
+							'snow-monkey-blocks'
+						) }
+						value={ title }
+						multiline={ false }
+						onChange={ ( value ) =>
+							setAttributes( {
+								title: value,
+							} )
+						}
+					/>
+
+					<div
+						className={ classnames(
+							'smb-rating-box__item__numeric',
+							numericFontSizeClass
+						) }
+						style={ {
+							fontSize: numericFontSize || undefined,
+						} }
+					>
+						{ rating }
+					</div>
+				</div>
 
 				<div className="smb-rating-box__item__evaluation">
 					<div className="smb-rating-box__item__evaluation__bar">
-						<div className="smb-rating-box__item__evaluation__numeric">
-							{ rating }
-						</div>
 						<div
 							className="smb-rating-box__item__evaluation__rating"
 							style={ itemEvaluationRatingStyles }

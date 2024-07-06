@@ -4,7 +4,13 @@
 	--smb-rating-box--gap: var(--_margin-1);
 	--smb-rating-box--bar-border-radius: var(--_global--border-radius);
 	--smb-rating-box--bar-background-color: var(--_lighter-color-gray);
+	--smb-rating-box--bar-height: 1rem;
 	--smb-rating-box--rating-background-color: #f9bb2d;
+
+	// @deprecated
+	> .smb-rating-box__item__title {
+		margin-bottom: var(--_margin-2);
+	}
 
 	&__body {
 		> * + * {
@@ -13,14 +19,26 @@
 	}
 
 	&__item {
-		&__title {
-			margin-bottom: var(--_margin-2);
+		display: grid;
+		gap: var(--_margin-2);
+
+		&__body {
+			display: grid;
+			grid-template-columns: 1fr auto;
+			gap: var(--_margin1);
+			align-items: end;
+		}
+
+		&__numeric {
+			@include _set-font-size-level(-2);
 		}
 
 		&__evaluation {
+			grid-column: 1 / -1;
+
 			&__bar,
 			&__rating {
-				height: 1rem;
+				height: var(--smb-rating-box--bar-height);
 				border-radius: var(--smb-rating-box--bar-border-radius);
 			}
 
@@ -36,9 +54,10 @@
 				background-color: var(--smb-rating-box--rating-background-color);
 			}
 
+			// @deprecated
 			&__numeric {
 				position: absolute;
-				top: -2rem;
+				bottom: calc(var(--smb-rating-box--bar-height) + var(--_s-2));
 				right: 0;
 				@include _set-font-size-level(-2);
 			}
