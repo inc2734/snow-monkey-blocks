@@ -24,15 +24,12 @@
 		--smb-panel--background-image: initial;
 		--smb-panel--color: var(--smb-panels--item-color);
 
-		&.has-background {
-			padding: 0;
-		}
-
 		flex: 1;
 		position: relative;
 		display: block;
 		background-color: var(--smb-panel--background-color);
 		background-image: var(--smb-panel--background-image);
+		padding: 0;
     color: var(--smb-panel--color);
 		text-decoration: none;
 		box-shadow: var(--smb-panels--item-box-shadow);

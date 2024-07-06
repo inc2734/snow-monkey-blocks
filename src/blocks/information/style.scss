@@ -27,10 +27,7 @@
 
 	&__item {
 		overflow: hidden;
-
-		&.has-background {
-			padding: 0;
-		}
+		padding: 0;
 
 		> .#{ $_prefix }c-row {
 			--_gap: var(--smb-information--gap);

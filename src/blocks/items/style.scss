@@ -67,10 +67,9 @@
 	&__item {
 		display: block;
 		position: relative;
+		padding: 0;
 
 		&.has-background {
-			padding: 0;
-
 			> .smb-items__item__figure {
 				margin-bottom: 0;
 			}
@@ -131,7 +130,7 @@
 		}
 
 		&--free {
-			&.has-background > .smb-items__item__body {
+			> .smb-items__item__body {
 				padding: 0;
 			}
 		}

@@ -116,7 +116,12 @@
 		}
 	},
 	"supports": {
-		"html": false
+		"html": false,
+		"color": {
+			"background": true,
+			"text": true,
+			"link": true
+		}
 	},
 	"editorScript": "file:./index.js"
 }

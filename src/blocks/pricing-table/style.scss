@@ -86,6 +86,8 @@
 
 	.#{ $_prefix }c-row {
 		&__col {
+			padding: 0;
+
 			&:not(:first-child) {
 				border-top: 1px solid var(--smb-pricing-table--border-color);
 
