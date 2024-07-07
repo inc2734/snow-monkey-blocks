@@ -8,6 +8,7 @@ import {
 } from '@wordpress/block-editor';
 
 import {
+	BaseControl,
 	RangeControl,
 	__experimentalToolsPanel as ToolsPanel,
 	__experimentalToolsPanelItem as ToolsPanelItem,
@@ -33,7 +34,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		},
 	] );
 
-	const { md, lg, templateLock } = attributes;
+	const { md, lg, gap, templateLock } = attributes;
 
 	const hasInnerBlocks = useSelect(
 		( select ) =>
@@ -43,7 +44,9 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 	);
 
 	const classes = classnames( 'smb-testimonial', className );
-	const rowClasses = classnames( 'c-row', 'c-row--margin' );
+	const rowClasses = classnames( 'c-row', 'c-row--margin', {
+		[ `c-row--margin-${ gap }` ]: !! gap,
+	} );
 
 	const blockProps = useBlockProps( {
 		className: classes,
@@ -63,6 +66,21 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 			orientation: 'horizontal',
 		}
 	);
+
+	const gapOptions = [
+		{
+			label: 'S',
+			value: 1,
+		},
+		{
+			label: 'M',
+			value: 2,
+		},
+		{
+			label: 'L',
+			value: 3,
+		},
+	];
 
 	return (
 		<>
@@ -120,6 +138,65 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						/>
 					</ToolsPanelItem>
 				</ToolsPanel>
+			</InspectorControls>
+
+			<InspectorControls group="dimensions">
+				<ToolsPanelItem
+					hasValue={ () => gap !== metadata.attributes.gap.default }
+					isShownByDefault
+					label={ __(
+						'The gap between each item',
+						'snow-monkey-blocks'
+					) }
+					onDeselect={ () =>
+						setAttributes( {
+							gap: metadata.attributes.gap.default,
+						} )
+					}
+					panelId={ clientId }
+				>
+					<BaseControl
+						id="snow-monkey-blocks/testimonials/gap"
+						label={ __(
+							'The gap between each item',
+							'snow-monkey-blocks'
+						) }
+						className="spacing-sizes-control"
+					>
+						<RangeControl
+							className="spacing-sizes-control__range-control"
+							value={
+								gapOptions.filter(
+									( option ) =>
+										option.label?.toLowerCase() === gap
+								)?.[ 0 ]?.value
+							}
+							resetFallbackValue={ undefined }
+							onChange={ ( value ) =>
+								setAttributes( {
+									gap: gapOptions
+										.filter(
+											( option ) => option.value === value
+										)?.[ 0 ]
+										?.label?.toLowerCase(),
+								} )
+							}
+							withInputField={ false }
+							min={ 1 }
+							max={ 3 }
+							marks
+							renderTooltipContent={ ( _value ) =>
+								gapOptions
+									.filter(
+										( option ) => option.value === _value
+									)?.[ 0 ]
+									?.label?.toUpperCase()
+							}
+							hideLabelFromVision
+							__nextHasNoMarginBottom
+						/>
+					</BaseControl>
+				</ToolsPanelItem>
 			</InspectorControls>
 
 			<div { ...blockProps }>

@@ -15,6 +15,10 @@
 			"type": "number",
 			"default": 2
 		},
+		"gap": {
+			"type": "string",
+			"default": ""
+		},
 		"templateLock": {
 			"type": [ "string", "boolean" ],
 			"enum": [ "all", "insert", "contentOnly", false ]
