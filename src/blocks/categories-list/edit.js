@@ -226,7 +226,9 @@ export default function ( { attributes, setAttributes, className } ) {
 							) }
 						</p>
 
-						<ArticleCategoriesList />
+						<div style={ { display: 'grid', gap: '16px' } }>
+							<ArticleCategoriesList />
+						</div>
 					</ToolsPanelItem>
 				</ToolsPanel>
 
