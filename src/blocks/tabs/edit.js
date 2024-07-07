@@ -351,16 +351,14 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						const targetClientId =
 							getBlockOrder( clientId )[ index ];
 
-						const onClickTab = () => {
+						const onClickTab = ( e ) => {
 							setCurrentTabPanelId( tab.tabPanelId );
 
-							selectBlock( targetClientId );
-						};
-
-						const onClickTitle = ( e ) => {
-							e.stopPropagation();
-
-							setCurrentTabPanelId( tab.tabPanelId );
+							if (
+								e.target.classList.contains( 'smb-tabs__tab' )
+							) {
+								selectBlock( targetClientId );
+							}
 						};
 
 						const onChangeTitle = ( value ) => {
@@ -507,7 +505,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 									<RichText
 										value={ tab.title }
 										onChange={ onChangeTitle }
-										onClick={ onClickTitle }
 										placeholder={ __(
 											'Tab',
 											'snow-monkey-blocks'
