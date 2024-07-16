@@ -2,9 +2,9 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue, kutsu, toru
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks
-Stable tag: 20.5.5
-Requires at least: 6.6-RC1
-Tested up to: 6.5
+Stable tag: 21.0.0
+Requires at least: 6.6
+Tested up to: 6.6
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -116,6 +116,39 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 28. Read more box block
 
 == Changelog ==
+
+= 21.0.0 =
+* WordPress 6.6 compatible.
+* [Testimonials] Add gap setting.
+* [Tabs] Add color settings to chldren blocks.
+* [Step] Add title font size and color settings to chldren blocks.
+* [Section] Migration of padding settings to core functions.
+* [Section (Break the grid)] Migration of padding settings to core functions.
+* [Section (Side heading)] Migration of padding settings to core functions.
+* [Section (Background image/video)] Migration of padding settings to core functions.
+* [Rating box] Add color, padding and border settings. Add font size setting to children blocks.
+* [Pricing table] Add color settings to children blocks.
+* [Price menu] Add typography, padding, color and border settings. Add font size and padding settings to children blocks.
+* [Panels] Migration of color settings to core functions.
+* [Media text] Migration of gap settings to core functions.
+* [Items:Standard] Add color settings.
+* [Items:Block link] Add color settings.
+* [Items:Free] Add color and padding settings.
+* [Information] Add color settings to children blocks.
+* [Hero header] Add color, typography and border settings.
+* [FAQ] Add question color, question label color, answer label color and padding settings.
+* [Evaluation star] Add font size setting.
+* [Directory structure] Add typography, background, icon color, padding and border settings.
+* [Counddown timer] Add font size setting.
+* [Contents outline] Add color and border settings.
+* [Child pages] Add gap setting.
+* [Buttons] Add gap settings.
+* [Button] Add padding setting.
+* [Button box] Add padding setting.
+* [Box] Migration of  padding setting to core functions.
+* [Alert] Add padding setting.
+* [Accordion] Add title background, text color and body padding settings.
+* `enqueue_block_editor_assets` to `enqueue_block_assets`.
 
 = 20.5.5 =
 * [Contents slider] Fixed a bug that caused the appearance to be different on the editor and at the front.
