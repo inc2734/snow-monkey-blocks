@@ -128,12 +128,18 @@ class Assets {
 		);
 
 		if ( apply_filters( 'snow_monkey_blocks_enqueue_fallback_style', ! Blocks\is_pro() ) ) {
-			wp_enqueue_style(
-				'snow-monkey-blocks-fallback',
-				SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/css/fallback.css',
-				array(),
-				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/fallback.css' )
-			);
+			if ( ! wp_style_is( 'sass-basis-core' ) ) {
+				wp_dequeue_style(  'sass-basis-core' );
+			}
+
+			if ( ! wp_style_is( 'sass-basis' ) ) {
+				wp_enqueue_style(
+					'sass-basis',
+					SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/css/fallback.css',
+					array(),
+					filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/fallback.css' )
+				);
+			}
 		}
 
 		if ( is_admin() ) {
