@@ -129,7 +129,7 @@ class Assets {
 
 		if ( apply_filters( 'snow_monkey_blocks_enqueue_fallback_style', ! Blocks\is_pro() ) ) {
 			if ( ! wp_style_is( 'sass-basis-core' ) ) {
-				wp_dequeue_style(  'sass-basis-core' );
+				wp_dequeue_style( 'sass-basis-core' );
 			}
 
 			if ( ! wp_style_is( 'sass-basis' ) ) {
