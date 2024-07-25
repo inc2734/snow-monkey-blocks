@@ -17,7 +17,7 @@ class TextDomain {
 	public function __construct() {
 		add_filter( 'load_textdomain_mofile', array( $this, '_load_textdomain_mofile' ), 10, 2 );
 		load_plugin_textdomain( 'snow-monkey-blocks', false, basename( SNOW_MONKEY_BLOCKS_DIR_PATH ) . '/languages' );
-		add_action( 'enqueue_block_editor_assets', array( $this, '_enqueue_block_editor_assets' ), 11 );
+		add_action( 'enqueue_block_assets', array( $this, '_enqueue_block_assets' ), 11 );
 	}
 
 	/**
@@ -41,7 +41,7 @@ class TextDomain {
 	/**
 	 * Enqueue block script for editor.
 	 */
-	public function _enqueue_block_editor_assets() {
+	public function _enqueue_block_assets() {
 		foreach ( \WP_Block_Type_Registry::get_instance()->get_all_registered() as $block_type => $block ) {
 			if ( 0 === strpos( $block_type, 'snow-monkey-blocks/' ) ) {
 				$handle = str_replace( '/', '-', $block_type ) . '-editor-script';

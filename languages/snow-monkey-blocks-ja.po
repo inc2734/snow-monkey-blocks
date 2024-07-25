@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-"
 "blocks\n"
-"POT-Creation-Date: 2024-06-13T09:44:27+00:00\n"
-"PO-Revision-Date: 2024-06-13 18:45+0900\n"
+"POT-Creation-Date: 2024-07-25T06:53:20+00:00\n"
+"PO-Revision-Date: 2024-07-25 15:56+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -73,11 +73,11 @@ msgstr "最近の投稿"
 msgid "(no title)"
 msgstr "(タイトルなし)"
 
-#: dist/blocks/child-pages/view.php:82
+#: dist/blocks/child-pages/view.php:84
 msgid "No pages found."
 msgstr "ページが見つかりませんでした。"
 
-#: dist/blocks/contents-outline/view.php:47
+#: dist/blocks/contents-outline/view.php:54
 #: dist/blocks/contents-outline/index.js:1
 msgid "Contents outline"
 msgstr "目次"
@@ -174,6 +174,14 @@ msgid "Display in open state"
 msgstr "開いた状態で表示"
 
 #: dist/blocks/accordion/item/index.js:1
+msgid "Title background color"
+msgstr "タイトルの背景色"
+
+#: dist/blocks/accordion/item/index.js:1
+msgid "Title text color"
+msgstr "タイトルの文字色"
+
+#: dist/blocks/accordion/item/index.js:1
 msgid "Enter title here"
 msgstr "タイトルを入力"
 
@@ -268,10 +276,6 @@ msgstr "枠線"
 #: dist/blocks/balloon/index.js:1 dist/blocks/btn-box/index.js:1
 #: dist/blocks/btn/index.js:1 dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1 dist/blocks/media-text/index.js:1
-#: dist/blocks/panels/item/block-link/index.js:1
-#: dist/blocks/panels/item/free/index.js:1
-#: dist/blocks/panels/item/horizontal/index.js:1
-#: dist/blocks/panels/item/vertical/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
 #: dist/blocks/read-more-box/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:25
@@ -283,10 +287,6 @@ msgstr "背景色"
 #: dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1 dist/blocks/media-text/index.js:1
-#: dist/blocks/panels/item/block-link/index.js:1
-#: dist/blocks/panels/item/free/index.js:1
-#: dist/blocks/panels/item/horizontal/index.js:1
-#: dist/blocks/panels/item/vertical/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
 #: dist/blocks/read-more-box/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
@@ -331,17 +331,10 @@ msgid "Name"
 msgstr "名前"
 
 #: dist/blocks/box/index.js:1 dist/blocks/btn-box/index.js:1
-#: dist/blocks/btn/index.js:1 dist/blocks/countdown/index.js:1
-#: dist/blocks/evaluation-star/index.js:1 dist/blocks/faq/item/index.js:1
-#: dist/blocks/flex/index.js:1 dist/blocks/hero-header/index.js:1
-#: dist/blocks/information/index.js:1 dist/blocks/items/item/banner/index.js:1
+#: dist/blocks/btn/index.js:1 dist/blocks/flex/index.js:1
+#: dist/blocks/hero-header/index.js:1 dist/blocks/information/index.js:1
+#: dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/items/item/item/index.js:1 dist/blocks/list/index.js:1
-#: dist/blocks/media-text/index.js:1
-#: dist/blocks/panels/item/block-link/index.js:1
-#: dist/blocks/panels/item/free/index.js:1
-#: dist/blocks/panels/item/horizontal/index.js:1
-#: dist/blocks/panels/item/vertical/index.js:1
-#: dist/blocks/rating-box/item/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:25
 #: dist/blocks/section-side-heading/index.js:1
@@ -349,7 +342,6 @@ msgstr "名前"
 #: dist/blocks/section-with-bgvideo/index.js:1 dist/blocks/section/index.js:1
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
-#: dist/blocks/step/item/free/index.js:1
 #: dist/blocks/step/item/standard/index.js:1
 msgid "Color"
 msgstr "色"
@@ -438,53 +430,12 @@ msgstr "角丸半径"
 msgid "Background"
 msgstr "背景"
 
-#: dist/blocks/box/index.js:1 dist/blocks/hero-header/index.js:1
-#: dist/blocks/information/index.js:1
-#: dist/blocks/section-break-the-grid/index.js:1
-#: dist/blocks/section-break-the-grid/index.js:25
-#: dist/blocks/section-side-heading/index.js:1
-#: dist/blocks/section-with-bgimage/index.js:1
-#: dist/blocks/section-with-bgvideo/index.js:1 dist/blocks/section/index.js:1
-#: dist/blocks/spider-contents-slider/item/index.js:1
-msgid "Padding"
-msgstr "パディング"
-
-#: dist/blocks/box/index.js:1 dist/blocks/information/index.js:1
-#: dist/blocks/media-text/index.js:1
-#: dist/blocks/section-break-the-grid/index.js:25
-#: dist/blocks/section-side-heading/index.js:1
-#: dist/blocks/spider-contents-slider/index.js:1
-#: dist/blocks/spider-contents-slider/item/index.js:1
-#: dist/blocks/spider-slider/index.js:1
-msgid "S"
-msgstr "S"
-
-#: dist/blocks/box/index.js:1 dist/blocks/information/index.js:1
-#: dist/blocks/media-text/index.js:1
-#: dist/blocks/section-break-the-grid/index.js:25
-#: dist/blocks/section-side-heading/index.js:1
-#: dist/blocks/spider-contents-slider/index.js:1
-#: dist/blocks/spider-contents-slider/item/index.js:1
-#: dist/blocks/spider-slider/index.js:1
-msgid "M"
-msgstr "M"
-
-#: dist/blocks/box/index.js:1 dist/blocks/information/index.js:1
-#: dist/blocks/media-text/index.js:1
-#: dist/blocks/section-break-the-grid/index.js:25
-#: dist/blocks/section-side-heading/index.js:1
-#: dist/blocks/spider-contents-slider/index.js:1
-#: dist/blocks/spider-contents-slider/item/index.js:1
-#: dist/blocks/spider-slider/index.js:1
-msgid "L"
-msgstr "L"
-
 #: dist/blocks/btn-box/index.js:1 dist/blocks/btn/index.js:1
 #: dist/blocks/child-pages/index.js:4 dist/blocks/countdown/index.js:1
-#: dist/blocks/hero-header/index.js:1 dist/blocks/information/index.js:1
-#: dist/blocks/items/index.js:1 dist/blocks/media-text/index.js:1
-#: dist/blocks/read-more-box/index.js:1 dist/blocks/recent-posts/index.js:7
-#: dist/blocks/rss/index.js:4 dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/hero-header/index.js:1 dist/blocks/items/index.js:1
+#: dist/blocks/media-text/index.js:1 dist/blocks/read-more-box/index.js:1
+#: dist/blocks/recent-posts/index.js:7 dist/blocks/rss/index.js:4
+#: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-side-heading/index.js:1
 #: dist/blocks/section-with-bgimage/index.js:1
 #: dist/blocks/section-with-bgvideo/index.js:1 dist/blocks/section/index.js:1
@@ -622,6 +573,10 @@ msgid "Loading setting data"
 msgstr "設定をロード中"
 
 #: dist/blocks/categories-list/index.js:1
+msgid "Only the actual contribution screen is displayed"
+msgstr "通常の投稿画面のみ表示されます"
+
+#: dist/blocks/categories-list/index.js:1
 msgid "Categories list articles"
 msgstr "カテゴリーリストの記事数"
 
@@ -680,11 +635,8 @@ msgstr "昇順"
 msgid "desc"
 msgstr "降順"
 
-#: dist/blocks/categories-list/index.js:1
-msgid "Only the actual contribution screen is displayed"
-msgstr "通常の投稿画面のみ表示されます"
-
-#: dist/blocks/child-pages/index.js:1
+#: dist/blocks/child-pages/index.js:1 dist/blocks/price-menu/item/index.js:1
+#: dist/blocks/rating-box/item/index.js:1 dist/blocks/step/item/free/index.js:1
 msgid "Title"
 msgstr "タイトル"
 
@@ -809,6 +761,12 @@ msgstr "親ページを指定する"
 msgid "Search"
 msgstr "検索"
 
+#: dist/blocks/child-pages/index.js:4 dist/blocks/recent-posts/index.js:7
+#: dist/blocks/rss/index.js:4 dist/blocks/taxonomy-posts/index.js:4
+#: dist/blocks/testimonial/index.js:1
+msgid "The gap between each item"
+msgstr "各項目間の間隔"
+
 #: dist/blocks/container/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-side-heading/index.js:1
@@ -885,6 +843,22 @@ msgstr "インライン"
 msgid "Countdown"
 msgstr "カウントダウン"
 
+#: dist/blocks/countdown/index.js:1 dist/blocks/rating-box/item/index.js:1
+msgid "Numeric font size"
+msgstr "数値の文字サイズ"
+
+#: dist/blocks/countdown/index.js:1 dist/blocks/rating-box/item/index.js:1
+msgid "Numeric"
+msgstr "数値"
+
+#: dist/blocks/countdown/index.js:1
+msgid "Clock font size"
+msgstr "時刻の文字サイズ"
+
+#: dist/blocks/countdown/index.js:1
+msgid "Clock"
+msgstr "時刻"
+
 #: dist/blocks/countdown/index.js:1 dist/blocks/evaluation-star/index.js:1
 msgid "Numeric color"
 msgstr "数値の色"
@@ -905,6 +879,13 @@ msgstr "カスタムフィールド名"
 msgid "Specify a custom field name."
 msgstr "カスタムフィールド名を指定してください。"
 
+#: dist/blocks/directory-structure/index.js:1
+#: dist/blocks/directory-structure/item/directory/index.js:1
+#: dist/blocks/directory-structure/item/file/index.js:1
+#: dist/blocks/evaluation-star/index.js:1 dist/blocks/list/index.js:1
+msgid "Icon color"
+msgstr "アイコンの色"
+
 #: dist/blocks/directory-structure/item/directory/index.js:1
 msgid "folder - Solid"
 msgstr "フォルダ - Solid"
@@ -920,12 +901,6 @@ msgstr "開いているフォルダ - Regular"
 #: dist/blocks/directory-structure/item/directory/index.js:1
 msgid "folder - Regular"
 msgstr "フォルダ - Regular"
-
-#: dist/blocks/directory-structure/item/directory/index.js:1
-#: dist/blocks/directory-structure/item/file/index.js:1
-#: dist/blocks/evaluation-star/index.js:1 dist/blocks/list/index.js:1
-msgid "Icon color"
-msgstr "アイコンの色"
 
 #: dist/blocks/directory-structure/item/directory/index.js:1
 msgid "Write directory name…"
@@ -972,16 +947,36 @@ msgid "Numeric position"
 msgstr "数値の位置"
 
 #: dist/blocks/faq/item/index.js:1
+msgid "Question font size"
+msgstr "質問の文字サイズ"
+
+#: dist/blocks/faq/item/index.js:1
+msgid "Question"
+msgstr "質問"
+
+#: dist/blocks/faq/item/index.js:1
+msgid "Question label font size"
+msgstr "質問のラベルの文字サイズ"
+
+#: dist/blocks/faq/item/index.js:1
+msgid "Question label"
+msgstr "質問のラベル"
+
+#: dist/blocks/faq/item/index.js:1
+msgid "Answer label font size"
+msgstr "回答のラベルの文字サイズ"
+
+#: dist/blocks/faq/item/index.js:1 dist/blocks/faq/item/index.js:4
+msgid "Answer label"
+msgstr "回答のラベル"
+
+#: dist/blocks/faq/item/index.js:1
 msgid "Question color"
 msgstr "質問の色"
 
 #: dist/blocks/faq/item/index.js:1
 msgid "Answer color"
 msgstr "回答の色"
-
-#: dist/blocks/faq/item/index.js:1
-msgid "Question label"
-msgstr "質問のラベル"
 
 #: dist/blocks/faq/item/index.js:1
 msgid "Q"
@@ -991,10 +986,6 @@ msgstr "Q"
 #: dist/blocks/faq/item/index.js:4 dist/blocks/faq/item/index.js:7
 msgid "Recommend length up to %d"
 msgstr "文字長は%dまでを推奨します"
-
-#: dist/blocks/faq/item/index.js:4
-msgid "Answer label"
-msgstr "回答のラベル"
 
 #: dist/blocks/faq/item/index.js:4
 msgid "A"
@@ -1199,6 +1190,16 @@ msgstr "オーバレイ"
 msgid "Contents"
 msgstr "コンテンツ"
 
+#: dist/blocks/hero-header/index.js:1 dist/blocks/information/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:25
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1 dist/blocks/section/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+msgid "Padding"
+msgstr "パディング"
+
 #: dist/blocks/hero-header/index.js:1
 msgid "Alignment on inline axis"
 msgstr "インライン軸での配置"
@@ -1293,8 +1294,8 @@ msgstr "行あたりのカラム数（ミディアムウインドウ）"
 msgid "Columns per row (Small window)"
 msgstr "行あたりのカラム数（スモールウインドウ）"
 
-#: dist/blocks/items/index.js:1 dist/blocks/media-text/index.js:1
-#: dist/blocks/panels/index.js:1 dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/items/index.js:1 dist/blocks/panels/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-slider/index.js:1
 msgid "Gap"
@@ -1460,18 +1461,6 @@ msgid "Media & sentence"
 msgstr "メディアと文章"
 
 #: dist/blocks/media-text/index.js:1
-#: dist/blocks/section-break-the-grid/index.js:1
-#: dist/blocks/section-break-the-grid/index.js:25
-#: dist/blocks/section-side-heading/index.js:1
-#: dist/blocks/section-with-bgimage/index.js:1
-#: dist/blocks/section-with-bgvideo/index.js:1 dist/blocks/section/index.js:1
-#: dist/blocks/spider-contents-slider/index.js:1
-#: dist/blocks/spider-contents-slider/item/index.js:1
-#: dist/blocks/spider-slider/index.js:1
-msgid "None"
-msgstr "なし"
-
-#: dist/blocks/media-text/index.js:1
 msgid "Image column size"
 msgstr "画像カラムのサイズ"
 
@@ -1597,6 +1586,19 @@ msgstr "ピックアップスライダー"
 #: dist/blocks/spider-pickup-slider/index.js:1
 msgid "Posts with \"pickup\" tag are displayed as sliders."
 msgstr "「pickup」タグが付与された記事をスライダーとして表示します。"
+
+#: dist/blocks/price-menu/item/index.js:1
+#: dist/blocks/rating-box/item/index.js:1 dist/blocks/step/item/free/index.js:1
+msgid "Title font size"
+msgstr "タイトルの文字サイズ"
+
+#: dist/blocks/price-menu/item/index.js:1
+msgid "Price font size"
+msgstr "価格の文字サイズ"
+
+#: dist/blocks/price-menu/item/index.js:1
+msgid "Price"
+msgstr "価格"
 
 #: dist/blocks/price-menu/item/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
@@ -1749,11 +1751,6 @@ msgstr "一致する投稿がない場合のテキスト"
 msgid "Allow HTML"
 msgstr "HTML 許可"
 
-#: dist/blocks/recent-posts/index.js:7 dist/blocks/rss/index.js:4
-#: dist/blocks/taxonomy-posts/index.js:4
-msgid "The gap between each item"
-msgstr "各項目間の間隔"
-
 #: dist/blocks/rss/index.js:1
 msgid "Edit RSS URL"
 msgstr "RSS の URL を編集"
@@ -1855,6 +1852,17 @@ msgstr "コンテンツ部分のコンテナーの余白を削除"
 #: dist/blocks/section-with-bgvideo/index.js:1 dist/blocks/section/index.js:1
 msgid "Write subtitle…"
 msgstr "サブタイトルを書く…"
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:25
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1 dist/blocks/section/index.js:1
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+msgid "None"
+msgstr "なし"
 
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-side-heading/index.js:1
@@ -2157,6 +2165,30 @@ msgid "Background opacity"
 msgstr "背景の不透明度"
 
 #: dist/blocks/section-break-the-grid/index.js:25
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+msgid "S"
+msgstr "S"
+
+#: dist/blocks/section-break-the-grid/index.js:25
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+msgid "M"
+msgstr "M"
+
+#: dist/blocks/section-break-the-grid/index.js:25
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+msgid "L"
+msgstr "L"
+
+#: dist/blocks/section-break-the-grid/index.js:25
 msgid "Remove outside padding"
 msgstr "外側のパディングを削除"
 
@@ -2359,6 +2391,10 @@ msgstr "キャプションを表示"
 #: dist/blocks/step/item/standard/index.js:1
 msgid "Number color"
 msgstr "番号の色"
+
+#: dist/blocks/step/item/free/index.js:1
+msgid "Title color"
+msgstr "タイトルの色"
 
 #: dist/blocks/step/item/standard/index.js:1
 msgid "Link color"
@@ -3203,29 +3239,3 @@ msgstr ""
 msgctxt "block description"
 msgid "It is a child block of the thumbnail gallery block."
 msgstr "サムネイルギャラリーブロックの子ブロックです。"
-
-#~ msgid "Mask"
-#~ msgstr "マスク"
-
-#~ msgctxt "Indicates this palette comes from the theme."
-#~ msgid "Theme"
-#~ msgstr "テーマ"
-
-#~ msgctxt "Indicates this palette comes from WordPress."
-#~ msgid "Default"
-#~ msgstr "デフォルト"
-
-#~ msgctxt "Indicates this palette comes from the theme."
-#~ msgid "Custom"
-#~ msgstr "カスタム"
-
-#~ msgctxt "Indicates this palette is created by the user."
-#~ msgid "Custom"
-#~ msgstr "カスタム"
-
-#~ msgid "Image size"
-#~ msgstr "画像サイズ"
-
-#~ msgctxt "block title"
-#~ msgid "Flex layout"
-#~ msgstr "フレックスレイアウト"

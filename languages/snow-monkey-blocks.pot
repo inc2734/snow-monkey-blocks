@@ -2,14 +2,14 @@
 # This file is distributed under the GPL2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Snow Monkey Blocks 20.5.4\n"
+"Project-Id-Version: Snow Monkey Blocks 21.0.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-blocks\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-06-13T09:44:27+00:00\n"
+"POT-Creation-Date: 2024-07-25T06:53:20+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: snow-monkey-blocks\n"
@@ -65,11 +65,11 @@ msgstr ""
 msgid "(no title)"
 msgstr ""
 
-#: dist/blocks/child-pages/view.php:82
+#: dist/blocks/child-pages/view.php:84
 msgid "No pages found."
 msgstr ""
 
-#: dist/blocks/contents-outline/view.php:47
+#: dist/blocks/contents-outline/view.php:54
 #: dist/blocks/contents-outline/index.js:1
 msgid "Contents outline"
 msgstr ""
@@ -172,6 +172,14 @@ msgstr ""
 
 #: dist/blocks/accordion/item/index.js:1
 msgid "Display in open state"
+msgstr ""
+
+#: dist/blocks/accordion/item/index.js:1
+msgid "Title background color"
+msgstr ""
+
+#: dist/blocks/accordion/item/index.js:1
+msgid "Title text color"
 msgstr ""
 
 #: dist/blocks/accordion/item/index.js:1
@@ -281,10 +289,6 @@ msgstr ""
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
 #: dist/blocks/media-text/index.js:1
-#: dist/blocks/panels/item/block-link/index.js:1
-#: dist/blocks/panels/item/free/index.js:1
-#: dist/blocks/panels/item/horizontal/index.js:1
-#: dist/blocks/panels/item/vertical/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
 #: dist/blocks/read-more-box/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:25
@@ -299,10 +303,6 @@ msgstr ""
 #: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
 #: dist/blocks/media-text/index.js:1
-#: dist/blocks/panels/item/block-link/index.js:1
-#: dist/blocks/panels/item/free/index.js:1
-#: dist/blocks/panels/item/horizontal/index.js:1
-#: dist/blocks/panels/item/vertical/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
 #: dist/blocks/read-more-box/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
@@ -353,21 +353,12 @@ msgstr ""
 #: dist/blocks/box/index.js:1
 #: dist/blocks/btn-box/index.js:1
 #: dist/blocks/btn/index.js:1
-#: dist/blocks/countdown/index.js:1
-#: dist/blocks/evaluation-star/index.js:1
-#: dist/blocks/faq/item/index.js:1
 #: dist/blocks/flex/index.js:1
 #: dist/blocks/hero-header/index.js:1
 #: dist/blocks/information/index.js:1
 #: dist/blocks/items/item/banner/index.js:1
 #: dist/blocks/items/item/item/index.js:1
 #: dist/blocks/list/index.js:1
-#: dist/blocks/media-text/index.js:1
-#: dist/blocks/panels/item/block-link/index.js:1
-#: dist/blocks/panels/item/free/index.js:1
-#: dist/blocks/panels/item/horizontal/index.js:1
-#: dist/blocks/panels/item/vertical/index.js:1
-#: dist/blocks/rating-box/item/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:25
 #: dist/blocks/section-side-heading/index.js:1
@@ -376,7 +367,6 @@ msgstr ""
 #: dist/blocks/section/index.js:1
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-contents-slider/item/index.js:1
-#: dist/blocks/step/item/free/index.js:1
 #: dist/blocks/step/item/standard/index.js:1
 msgid "Color"
 msgstr ""
@@ -479,58 +469,11 @@ msgstr ""
 msgid "Background"
 msgstr ""
 
-#: dist/blocks/box/index.js:1
-#: dist/blocks/hero-header/index.js:1
-#: dist/blocks/information/index.js:1
-#: dist/blocks/section-break-the-grid/index.js:1
-#: dist/blocks/section-break-the-grid/index.js:25
-#: dist/blocks/section-side-heading/index.js:1
-#: dist/blocks/section-with-bgimage/index.js:1
-#: dist/blocks/section-with-bgvideo/index.js:1
-#: dist/blocks/section/index.js:1
-#: dist/blocks/spider-contents-slider/item/index.js:1
-msgid "Padding"
-msgstr ""
-
-#: dist/blocks/box/index.js:1
-#: dist/blocks/information/index.js:1
-#: dist/blocks/media-text/index.js:1
-#: dist/blocks/section-break-the-grid/index.js:25
-#: dist/blocks/section-side-heading/index.js:1
-#: dist/blocks/spider-contents-slider/index.js:1
-#: dist/blocks/spider-contents-slider/item/index.js:1
-#: dist/blocks/spider-slider/index.js:1
-msgid "S"
-msgstr ""
-
-#: dist/blocks/box/index.js:1
-#: dist/blocks/information/index.js:1
-#: dist/blocks/media-text/index.js:1
-#: dist/blocks/section-break-the-grid/index.js:25
-#: dist/blocks/section-side-heading/index.js:1
-#: dist/blocks/spider-contents-slider/index.js:1
-#: dist/blocks/spider-contents-slider/item/index.js:1
-#: dist/blocks/spider-slider/index.js:1
-msgid "M"
-msgstr ""
-
-#: dist/blocks/box/index.js:1
-#: dist/blocks/information/index.js:1
-#: dist/blocks/media-text/index.js:1
-#: dist/blocks/section-break-the-grid/index.js:25
-#: dist/blocks/section-side-heading/index.js:1
-#: dist/blocks/spider-contents-slider/index.js:1
-#: dist/blocks/spider-contents-slider/item/index.js:1
-#: dist/blocks/spider-slider/index.js:1
-msgid "L"
-msgstr ""
-
 #: dist/blocks/btn-box/index.js:1
 #: dist/blocks/btn/index.js:1
 #: dist/blocks/child-pages/index.js:4
 #: dist/blocks/countdown/index.js:1
 #: dist/blocks/hero-header/index.js:1
-#: dist/blocks/information/index.js:1
 #: dist/blocks/items/index.js:1
 #: dist/blocks/media-text/index.js:1
 #: dist/blocks/read-more-box/index.js:1
@@ -695,6 +638,10 @@ msgid "Loading setting data"
 msgstr ""
 
 #: dist/blocks/categories-list/index.js:1
+msgid "Only the actual contribution screen is displayed"
+msgstr ""
+
+#: dist/blocks/categories-list/index.js:1
 msgid "Categories list articles"
 msgstr ""
 
@@ -754,11 +701,10 @@ msgstr ""
 msgid "desc"
 msgstr ""
 
-#: dist/blocks/categories-list/index.js:1
-msgid "Only the actual contribution screen is displayed"
-msgstr ""
-
 #: dist/blocks/child-pages/index.js:1
+#: dist/blocks/price-menu/item/index.js:1
+#: dist/blocks/rating-box/item/index.js:1
+#: dist/blocks/step/item/free/index.js:1
 msgid "Title"
 msgstr ""
 
@@ -923,6 +869,14 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
+#: dist/blocks/child-pages/index.js:4
+#: dist/blocks/recent-posts/index.js:7
+#: dist/blocks/rss/index.js:4
+#: dist/blocks/taxonomy-posts/index.js:4
+#: dist/blocks/testimonial/index.js:1
+msgid "The gap between each item"
+msgstr ""
+
 #: dist/blocks/container/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-side-heading/index.js:1
@@ -1002,6 +956,24 @@ msgid "Countdown"
 msgstr ""
 
 #: dist/blocks/countdown/index.js:1
+#: dist/blocks/rating-box/item/index.js:1
+msgid "Numeric font size"
+msgstr ""
+
+#: dist/blocks/countdown/index.js:1
+#: dist/blocks/rating-box/item/index.js:1
+msgid "Numeric"
+msgstr ""
+
+#: dist/blocks/countdown/index.js:1
+msgid "Clock font size"
+msgstr ""
+
+#: dist/blocks/countdown/index.js:1
+msgid "Clock"
+msgstr ""
+
+#: dist/blocks/countdown/index.js:1
 #: dist/blocks/evaluation-star/index.js:1
 msgid "Numeric color"
 msgstr ""
@@ -1022,6 +994,14 @@ msgstr ""
 msgid "Specify a custom field name."
 msgstr ""
 
+#: dist/blocks/directory-structure/index.js:1
+#: dist/blocks/directory-structure/item/directory/index.js:1
+#: dist/blocks/directory-structure/item/file/index.js:1
+#: dist/blocks/evaluation-star/index.js:1
+#: dist/blocks/list/index.js:1
+msgid "Icon color"
+msgstr ""
+
 #: dist/blocks/directory-structure/item/directory/index.js:1
 msgid "folder - Solid"
 msgstr ""
@@ -1036,13 +1016,6 @@ msgstr ""
 
 #: dist/blocks/directory-structure/item/directory/index.js:1
 msgid "folder - Regular"
-msgstr ""
-
-#: dist/blocks/directory-structure/item/directory/index.js:1
-#: dist/blocks/directory-structure/item/file/index.js:1
-#: dist/blocks/evaluation-star/index.js:1
-#: dist/blocks/list/index.js:1
-msgid "Icon color"
 msgstr ""
 
 #: dist/blocks/directory-structure/item/directory/index.js:1
@@ -1090,15 +1063,36 @@ msgid "Numeric position"
 msgstr ""
 
 #: dist/blocks/faq/item/index.js:1
+msgid "Question font size"
+msgstr ""
+
+#: dist/blocks/faq/item/index.js:1
+msgid "Question"
+msgstr ""
+
+#: dist/blocks/faq/item/index.js:1
+msgid "Question label font size"
+msgstr ""
+
+#: dist/blocks/faq/item/index.js:1
+msgid "Question label"
+msgstr ""
+
+#: dist/blocks/faq/item/index.js:1
+msgid "Answer label font size"
+msgstr ""
+
+#: dist/blocks/faq/item/index.js:1
+#: dist/blocks/faq/item/index.js:4
+msgid "Answer label"
+msgstr ""
+
+#: dist/blocks/faq/item/index.js:1
 msgid "Question color"
 msgstr ""
 
 #: dist/blocks/faq/item/index.js:1
 msgid "Answer color"
-msgstr ""
-
-#: dist/blocks/faq/item/index.js:1
-msgid "Question label"
 msgstr ""
 
 #: dist/blocks/faq/item/index.js:1
@@ -1109,10 +1103,6 @@ msgstr ""
 #: dist/blocks/faq/item/index.js:4
 #: dist/blocks/faq/item/index.js:7
 msgid "Recommend length up to %d"
-msgstr ""
-
-#: dist/blocks/faq/item/index.js:4
-msgid "Answer label"
 msgstr ""
 
 #: dist/blocks/faq/item/index.js:4
@@ -1337,6 +1327,18 @@ msgid "Contents"
 msgstr ""
 
 #: dist/blocks/hero-header/index.js:1
+#: dist/blocks/information/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:25
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+msgid "Padding"
+msgstr ""
+
+#: dist/blocks/hero-header/index.js:1
 msgid "Alignment on inline axis"
 msgstr ""
 
@@ -1439,7 +1441,6 @@ msgid "Columns per row (Small window)"
 msgstr ""
 
 #: dist/blocks/items/index.js:1
-#: dist/blocks/media-text/index.js:1
 #: dist/blocks/panels/index.js:1
 #: dist/blocks/section-side-heading/index.js:1
 #: dist/blocks/spider-contents-slider/index.js:1
@@ -1609,19 +1610,6 @@ msgid "Media & sentence"
 msgstr ""
 
 #: dist/blocks/media-text/index.js:1
-#: dist/blocks/section-break-the-grid/index.js:1
-#: dist/blocks/section-break-the-grid/index.js:25
-#: dist/blocks/section-side-heading/index.js:1
-#: dist/blocks/section-with-bgimage/index.js:1
-#: dist/blocks/section-with-bgvideo/index.js:1
-#: dist/blocks/section/index.js:1
-#: dist/blocks/spider-contents-slider/index.js:1
-#: dist/blocks/spider-contents-slider/item/index.js:1
-#: dist/blocks/spider-slider/index.js:1
-msgid "None"
-msgstr ""
-
-#: dist/blocks/media-text/index.js:1
 msgid "Image column size"
 msgstr ""
 
@@ -1742,6 +1730,20 @@ msgstr ""
 #: dist/blocks/pickup-slider/index.js:1
 #: dist/blocks/spider-pickup-slider/index.js:1
 msgid "Posts with \"pickup\" tag are displayed as sliders."
+msgstr ""
+
+#: dist/blocks/price-menu/item/index.js:1
+#: dist/blocks/rating-box/item/index.js:1
+#: dist/blocks/step/item/free/index.js:1
+msgid "Title font size"
+msgstr ""
+
+#: dist/blocks/price-menu/item/index.js:1
+msgid "Price font size"
+msgstr ""
+
+#: dist/blocks/price-menu/item/index.js:1
+msgid "Price"
 msgstr ""
 
 #: dist/blocks/price-menu/item/index.js:1
@@ -1909,12 +1911,6 @@ msgstr ""
 msgid "Allow HTML"
 msgstr ""
 
-#: dist/blocks/recent-posts/index.js:7
-#: dist/blocks/rss/index.js:4
-#: dist/blocks/taxonomy-posts/index.js:4
-msgid "The gap between each item"
-msgstr ""
-
 #: dist/blocks/rss/index.js:1
 msgid "Edit RSS URL"
 msgstr ""
@@ -2029,6 +2025,18 @@ msgstr ""
 #: dist/blocks/section-with-bgvideo/index.js:1
 #: dist/blocks/section/index.js:1
 msgid "Write subtitle…"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-break-the-grid/index.js:25
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+#: dist/blocks/section/index.js:1
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+msgid "None"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
@@ -2356,6 +2364,30 @@ msgid "Background opacity"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:25
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+msgid "S"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:25
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+msgid "M"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:25
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-contents-slider/item/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+msgid "L"
+msgstr ""
+
+#: dist/blocks/section-break-the-grid/index.js:25
 msgid "Remove outside padding"
 msgstr ""
 
@@ -2557,6 +2589,10 @@ msgstr ""
 #: dist/blocks/step/item/free/index.js:1
 #: dist/blocks/step/item/standard/index.js:1
 msgid "Number color"
+msgstr ""
+
+#: dist/blocks/step/item/free/index.js:1
+msgid "Title color"
 msgstr ""
 
 #: dist/blocks/step/item/standard/index.js:1
