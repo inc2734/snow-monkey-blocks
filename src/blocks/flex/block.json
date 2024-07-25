@@ -20,6 +20,14 @@
 				"position": ""
 			}
 		},
+		"style": {
+			"type": "object",
+			"default": {
+				"spacing": {
+					"blockGap": "0px"
+				}
+			}
+		},
 		"templateLock": {
 			"type": [ "string", "boolean" ],
 			"enum": [ "all", "insert", "contentOnly", false ]

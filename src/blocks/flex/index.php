@@ -11,7 +11,7 @@ register_block_type(
 
 add_filter(
 	'render_block_snow-monkey-blocks/flex',
-	function ( $block_content, $block ) {
+	function ( $block_content, $block, $instance ) {
 		$block_type      = \WP_Block_Type_Registry::get_instance()->get_registered( $block['blockName'] );
 		$global_settings = wp_get_global_settings();
 
@@ -19,16 +19,16 @@ add_filter(
 			return $block_content;
 		}
 
-		$gap_value = isset( $block['attrs']['style']['spacing']['blockGap'] )
-			? $block['attrs']['style']['spacing']['blockGap']
+		$gap_value = isset( $instance->attributes['style']['spacing']['blockGap'] )
+			? $instance->attributes['style']['spacing']['blockGap']
 			: null;
-		if ( ! is_null( $gap_value ) ) {
-			return $block_content;
+
+		if ( is_null( $gap_value ) ) {
+			$gap_value = isset( $block_type->supports['spacing']['blockGap']['__experimentalDefault'] )
+				? $block_type->supports['spacing']['blockGap']['__experimentalDefault']
+				: null;
 		}
 
-		$gap_value = isset( $block_type->supports['spacing']['blockGap']['__experimentalDefault'] )
-			? $block_type->supports['spacing']['blockGap']['__experimentalDefault']
-			: null;
 		if ( is_null( $gap_value ) ) {
 			return $block_content;
 		}
@@ -66,7 +66,7 @@ add_filter(
 		return $block_content;
 	},
 	11,
-	2
+	3
 );
 
 add_filter(
