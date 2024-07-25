@@ -12,6 +12,66 @@ register_block_type(
 add_filter(
 	'render_block_snow-monkey-blocks/flex',
 	function ( $block_content, $block ) {
+		$block_type      = \WP_Block_Type_Registry::get_instance()->get_registered( $block['blockName'] );
+		$global_settings = wp_get_global_settings();
+
+		if ( current_theme_supports( 'disable-layout-styles' ) ) {
+			return $block_content;
+		}
+
+		$gap_value = isset( $block['attrs']['style']['spacing']['blockGap'] )
+			? $block['attrs']['style']['spacing']['blockGap']
+			: null;
+		if ( ! is_null( $gap_value ) ) {
+			return $block_content;
+		}
+
+		$gap_value = isset( $block_type->supports['spacing']['blockGap']['__experimentalDefault'] )
+			? $block_type->supports['spacing']['blockGap']['__experimentalDefault']
+			: null;
+		if ( is_null( $gap_value ) ) {
+			return $block_content;
+		}
+
+		$block_gap             = isset( $global_settings['spacing']['blockGap'] )
+			? $global_settings['spacing']['blockGap']
+			: null;
+		$has_block_gap_support = isset( $block_gap );
+		if ( ! $has_block_gap_support ) {
+			return $block_content;
+		}
+
+		$p = new \WP_HTML_Tag_Processor( $block_content );
+		$p->next_tag();
+		$class = $p->get_attribute( 'class' );
+		if ( ! preg_match( '|wp-container\-snow-monkey\-blocks\-flex\-is\-layout\-\d+|ms', $class, $match ) ) {
+			return $block_content;
+		}
+
+		$selector = '.' . $match[0];
+		$style    = wp_style_engine_get_stylesheet_from_css_rules(
+			array(
+				array(
+					'selector'     => $selector,
+					'declarations' => array( 'gap' => $gap_value ),
+				),
+			),
+			array(
+				'context'  => 'block-supports',
+				'optimize' => true,
+				'prettify' => false,
+			)
+		);
+
+		return $block_content;
+	},
+	11,
+	2
+);
+
+add_filter(
+	'render_block_snow-monkey-blocks/flex',
+	function ( $block_content, $block ) {
 		$p = new \WP_HTML_Tag_Processor( $block_content );
 		$p->next_tag();
 		$class = $p->get_attribute( 'class' );
