@@ -105,11 +105,11 @@ export default function ( { attributes, setAttributes, clientId } ) {
 							value={ postsPerPage }
 							onChange={ ( value ) =>
 								setAttributes( {
-									postsPerPage: toNumber( value, 1, 12 ),
+									postsPerPage: toNumber( value, 1, 50 ),
 								} )
 							}
 							min="1"
-							max="12"
+							max="50"
 						/>
 					</ToolsPanelItem>
 

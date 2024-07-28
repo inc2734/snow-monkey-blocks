@@ -263,12 +263,12 @@ export default function ( { attributes, setAttributes, clientId } ) {
 											postsPerPage: toNumber(
 												value,
 												1,
-												12
+												50
 											),
 										} )
 									}
 									min="1"
-									max="12"
+									max="50"
 								/>
 							</ToolsPanelItem>
 
