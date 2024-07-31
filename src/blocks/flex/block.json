@@ -72,10 +72,7 @@
 		"spacing": {
 			"margin": true,
 			"padding": true,
-			"blockGap": {
-				"sides": [ "horizontal", "vertical" ],
-				"__experimentalDefault": "0px"
-			},
+			"blockGap": true,
 			"__experimentalDefaultControls": {
 				"padding": true,
 				"blockGap": true
