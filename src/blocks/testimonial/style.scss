@@ -1,4 +1,4 @@
-@import '../../css/core/block';
+@use '../../../node_modules/sass-basis/src/css/core';
 
 .smb-testimonial {
 	&__item {
@@ -11,7 +11,7 @@
 			flex: 0 0 auto;
 			margin-top: calc(var(--_half-leading) * 1rem);
 			margin-right: var(--_margin-1);
-			@include _circle(48px);
+			@include core.circle(48px);
 
 			img {
 				height: 100%;
@@ -27,7 +27,7 @@
 		}
 
 		&__name {
-			@include _set-font-size-level(-2);
+			@include core.set-font-size-level(-2);
 
 			a {
 				color: inherit;
@@ -35,7 +35,7 @@
 		}
 
 		&__lede {
-			@include _set-font-size-level(-2);
+			@include core.set-font-size-level(-2);
 
 			a {
 				color: inherit;
@@ -44,7 +44,7 @@
 
 		&__content {
 			margin-bottom: var(--_margin-1);
-			@include _set-font-size-level(-1);
+			@include core.set-font-size-level(-1);
 
 			&::after {
 				margin-top: var(--_margin-1);

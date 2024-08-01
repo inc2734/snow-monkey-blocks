@@ -1,11 +1,11 @@
-@import 'core/block';
+@use 'sass:math';
+@use '../../format/highlighter/format' as *;
+@use '../../format/badge/format' as *;
+@use '../../node_modules/sass-basis/src/css/core';
 
-@import '../../format/highlighter/format';
-@import '../../format/badge/format';
-
-.#{ $_prefix }c-row {
-	@each $size, $screen-min in $_sizes {
-		@include _media-min($screen-min) {
+.c-row {
+	@each $size, $screen-min in core.$sizes {
+		@include core.media-min($screen-min) {
 			$prefix: '';
 			@if $size != 'sm' {
 				$prefix: -#{ $size };
@@ -13,14 +13,14 @@
 
 			@for $i from 1 through 6 {
 				&[data#{ $prefix }-columns="#{ $i }"] {
-					--_item-width: #{ 1 / $i * 100% };
+					--_item-width: #{ math.div(1, $i) * 100% };
 				}
 			}
 		}
 	}
 }
 
-.#{ $_prefix }c-container--no-padding {
+.c-container--no-padding {
 	padding-right: 0 !important;
 	padding-left: 0 !important;
 }

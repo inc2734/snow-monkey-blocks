@@ -1,4 +1,4 @@
-@import '../../css/core/block';
+@use '../../../node_modules/sass-basis/src/css/core';
 
 .smb-panels {
 	--smb-panels--item-background-color: var(--wp--preset--color--white);
@@ -10,8 +10,8 @@
 	--smb-panels--glue--box-shadow: none;
 	--smb-panels--glue--border-color: var(--wp--preset--color--sm-lighter-gray);
 
-	> .#{ $_prefix }c-row {
-		> .#{ $_prefix }c-row__col {
+	> .c-row {
+		> .c-row__col {
 			background-color: transparent !important;
 			background-image: none !important;
 			padding-top: 0;
@@ -33,9 +33,9 @@
     color: var(--smb-panel--color);
 		text-decoration: none;
 		box-shadow: var(--smb-panels--item-box-shadow);
-		@include _transition(box-shadow);
+		@include core.transition(box-shadow);
 
-		@include _hover() {
+		@include core.hover() {
 			box-shadow: var(--smb-panels--item-box-shadow--hover)
 		}
 
@@ -104,7 +104,7 @@
 	flex-direction: column;
 	text-align: center;
 
-	@include _media-min(md) {
+	@include core.media-min(md) {
 		flex-direction: row;
 		text-align: left;
 
@@ -161,7 +161,7 @@
 
 	.smb-panels__item--horizontal {
 		> .smb-panels__item__figure {
-			@include _media-min(md) {
+			@include core.media-min(md) {
 				padding: var(--_padding-1) 0 var(--_padding-1) var(--_padding-1);
 			}
 		}
@@ -170,7 +170,7 @@
 			> .smb-panels__item__figure {
 				padding: 0 var(--_padding-1) var(--_padding-1) var(--_padding-1);
 
-				@include _media-min(md) {
+				@include core.media-min(md) {
 					padding: var(--_padding-1) var(--_padding-1) var(--_padding-1) 0;
 				}
 			}
@@ -190,12 +190,12 @@
 
 	box-shadow: var(--smb-panels--glue--box-shadow);
 
-	> .#{ $_prefix }c-row {
+	> .c-row {
 		margin-right: -1px;
 		margin-left: -1px;
 		margin-bottom: -1px;
 
-		> .#{ $_prefix }c-row__col {
+		> .c-row__col {
 			border-right: 1px solid var(--smb-panels--glue--border-color);
 			border-bottom: 1px solid var(--smb-panels--glue--border-color);
 		}

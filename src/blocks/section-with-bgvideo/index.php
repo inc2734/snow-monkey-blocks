@@ -7,16 +7,6 @@
 
 use Snow_Monkey\Plugin\Blocks;
 
-wp_register_style(
-	generate_block_asset_handle( 'snow-monkey-blocks/section-with-bgvideo', 'style' ),
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/blocks/section-with-bgvideo/style.css',
-	array(
-		generate_block_asset_handle( 'snow-monkey-blocks/section', 'style' ),
-		generate_block_asset_handle( 'snow-monkey-blocks/section-with-bgimage', 'style' ),
-	),
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/blocks/section-with-bgvideo/style.css' )
-);
-
 register_block_type(
 	__DIR__
 );

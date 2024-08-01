@@ -1,4 +1,4 @@
-@import '../../css/core/block';
+@use '../../../node_modules/sass-basis/src/css/core';
 
 .smb-faq {
 	--smb-faq--border-color: var(--_lighter-color-gray);
@@ -23,7 +23,7 @@
 				flex: 0 0 0%;
 				margin-top: calc(var(--_half-leading) * -1em - 0.125em);
 				margin-right: var(--smb-faq--item-gap);
-				@include _set-fluid-font-size-level(3);
+				@include core.set-fluid-font-size-level(3);
 				font-weight: normal;
 				min-width: .8em;
 			}

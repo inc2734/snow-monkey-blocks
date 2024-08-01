@@ -1,6 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
+	"version": "21.0.6",
 	"textdomain": "snow-monkey-blocks",
 	"name": "snow-monkey-blocks/section-with-bgimage",
 	"title": "Section (with background image/video)",
@@ -357,6 +358,6 @@
 			}
 		}
 	},
-	"style": "snow-monkey-blocks-section-with-bgimage-style",
+	"style": [ "file:./style-index.css", "snow-monkey-blocks-section-style" ],
 	"editorScript": "file:./index.js"
 }

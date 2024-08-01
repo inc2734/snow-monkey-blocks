@@ -1,4 +1,4 @@
-@import '../../css/core/block';
+@use '../../../node_modules/sass-basis/src/css/core';
 
 .smb-section {
 	--smb-section--color: currentColor;
@@ -166,7 +166,7 @@
 		align-items: center;
 		max-width: 100%;
 
-		> .#{ $_prefix }c-container {
+		> .c-container {
 			position: relative;
 
 			&.alignfull,
@@ -180,7 +180,7 @@
 		}
 
 		&[class*="is-content-justification-"] {
-			> .#{ $_prefix }c-container {
+			> .c-container {
 				display: flex;
 
 				> .smb-section__contents-wrapper {
@@ -191,19 +191,19 @@
 		}
 
 		&.is-content-justification-left {
-			> .#{ $_prefix }c-container {
+			> .c-container {
 				justify-content: flex-start;
 			}
 		}
 
 		&.is-content-justification-center {
-			> .#{ $_prefix }c-container {
+			> .c-container {
 				justify-content: center;
 			}
 		}
 
 		&.is-content-justification-right {
-			> .#{ $_prefix }c-container {
+			> .c-container {
 				justify-content: flex-end;
 			}
 		}
@@ -223,7 +223,7 @@
 		&--center,
 		&--right {
 			> .smb-section__header,
-			> .smb-section__header .#{ $_prefix }c-container {
+			> .smb-section__header .c-container {
 				text-align: inherit;
 			}
 		}
@@ -258,14 +258,14 @@
 		text-align: center;
 
 		> *,
-		> .#{ $_prefix }c-container > * {
+		> .c-container > * {
 			text-align: inherit;
 			margin-top: 0;
 			margin-bottom: 0;
 		}
 
 		> * + *,
-		> .#{ $_prefix }c-container > * + * {
+		> .c-container > * + * {
 			margin-top: var(--_margin-2);
 		}
 
@@ -277,12 +277,12 @@
 
 	&__subtitle {
 		color: var(--smb-section--subtitle-color);
-		@include _set-font-size-level(-2);
+		@include core.set-font-size-level(-2);
 		font-weight: bold;
 	}
 
 	&__title {
-		@include _set-fluid-font-size-level(4);
+		@include core.set-fluid-font-size-level(4);
 	}
 
 	&__lede-wrapper {
@@ -291,7 +291,7 @@
 	}
 
 	&__lede {
-		@include _set-font-size-level(-1);
+		@include core.set-font-size-level(-1);
 	}
 
 	&__body {
@@ -306,7 +306,7 @@
 	&--left,
 	&--right {
 		> .smb-section__inner {
-			> .#{ $_prefix }c-container {
+			> .c-container {
 				> .smb-section__lede-wrapper {
 					display: block;
 				}
@@ -317,7 +317,7 @@
 	// @deprecated
 	&--left {
 		> .smb-section__inner {
-			> .#{ $_prefix }c-container {
+			> .c-container {
 				> .smb-section__subtitle,
 				> .smb-section__title,
 				> .smb-section__lede-wrapper > .smb-section__lede,
@@ -331,7 +331,7 @@
 	// @deprecated
 	&--center {
 		> .smb-section__inner {
-			> .#{ $_prefix }c-container {
+			> .c-container {
 				> .smb-section__subtitle,
 				> .smb-section__title,
 				> .smb-section__body {
@@ -344,7 +344,7 @@
 	// @deprecated
 	&--right {
 		> .smb-section__inner {
-			> .#{ $_prefix }c-container {
+			> .c-container {
 				> .smb-section__subtitle,
 				> .smb-section__title,
 				> .smb-section__lede-wrapper > .smb-section__lede,
@@ -380,7 +380,7 @@
 	&.is-content-justification-center,
 	&.is-content-justification-right {
 		> .smb-section__inner {
-			> .#{ $_prefix }c-container {
+			> .c-container {
 				display: flex;
 				flex-wrap: wrap;
 
@@ -402,7 +402,7 @@
 	// @deprecated
 	&.is-content-justification-left {
 		> .smb-section__inner {
-			> .#{ $_prefix }c-container {
+			> .c-container {
 				justify-content: flex-start;
 			}
 		}
@@ -411,7 +411,7 @@
 	// @deprecated
 	&.is-content-justification-center {
 		> .smb-section__inner {
-			> .#{ $_prefix }c-container {
+			> .c-container {
 				justify-content: center;
 			}
 		}
@@ -420,7 +420,7 @@
 	// @deprecated
 	&.is-content-justification-right {
 		> .smb-section__inner {
-			> .#{ $_prefix }c-container {
+			> .c-container {
 				justify-content: flex-end;
 			}
 		}

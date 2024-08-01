@@ -1,4 +1,4 @@
-@import '../../css/core/block';
+@use '../../../node_modules/sass-basis/src/css/core';
 
 .smb-media-text {
 	--smb-media-text--background-color: transparent;
@@ -32,13 +32,13 @@
 		}
 	}
 
-	> .#{ $_prefix }c-row {
+	> .c-row {
 		flex-direction: var(--smb-media-text--direction);
 	}
 
-	&:where(:not(.smb-media-text--mobile-text):not(.smb-media-text--mobile-text)) > .#{ $_prefix }c-row,
-	&.smb-media-text--mobile-text > .#{ $_prefix }c-row,
-	&.smb-media-text--mobile-text > .#{ $_prefix }c-row--reverse {
+	&:where(:not(.smb-media-text--mobile-text):not(.smb-media-text--mobile-text)) > .c-row,
+	&.smb-media-text--mobile-text > .c-row,
+	&.smb-media-text--mobile-text > .c-row--reverse {
 		--smb-media-text--direction: column;
 
 		.smb-media-text__contents-wrapper {
@@ -46,9 +46,9 @@
 		}
 	}
 
-	&:where(:not(.smb-media-text--mobile-text):not(.smb-media-text--mobile-text)) > .#{ $_prefix }c-row--reverse,
-	&.smb-media-text--mobile-image > .#{ $_prefix }c-row,
-	&.smb-media-text--mobile-image > .#{ $_prefix }c-row--reverse {
+	&:where(:not(.smb-media-text--mobile-text):not(.smb-media-text--mobile-text)) > .c-row--reverse,
+	&.smb-media-text--mobile-image > .c-row,
+	&.smb-media-text--mobile-image > .c-row--reverse {
 		--smb-media-text--direction: column-reverse;
 
 		.smb-media-text__contents-wrapper {
@@ -69,7 +69,7 @@
 	}
 
 	&__title {
-		@include _set-fluid-font-size-level(4);
+		@include core.set-fluid-font-size-level(4);
 	}
 
 	&__title,
@@ -103,7 +103,7 @@
 
 	&__caption {
 		margin-top: var(--_margin-2);
-		@include _set-font-size-level(-1);
+		@include core.set-font-size-level(-1);
 	}
 
 	&__contents-wrapper {
@@ -114,7 +114,7 @@
 	}
 }
 
-@include _media-min(lg) {
+@include core.media-min(lg) {
 	.smb-media-text[data-sm-split-point="lg"] {
 		&.is-style-border,
 		&.smb-media-text--has-background {
@@ -127,7 +127,7 @@
 			}
 		}
 
-		> .#{ $_prefix }c-row {
+		> .c-row {
 			--smb-media-text--direction: row;
 
 			.smb-media-text__contents-wrapper {
@@ -135,7 +135,7 @@
 			}
 		}
 
-		> .#{ $_prefix }c-row--reverse {
+		> .c-row--reverse {
 			--smb-media-text--direction: row-reverse;
 
 			.smb-media-text__contents-wrapper {
@@ -145,7 +145,7 @@
 	}
 }
 
-@include _media-min(md) {
+@include core.media-min(md) {
 	.smb-media-text[data-sm-split-point="md"] {
 		&.is-style-border,
 		&.smb-media-text--has-background {
@@ -158,7 +158,7 @@
 			}
 		}
 
-		> .#{ $_prefix }c-row {
+		> .c-row {
 			--smb-media-text--direction: row;
 
 			.smb-media-text__contents-wrapper {
@@ -166,7 +166,7 @@
 			}
 		}
 
-		> .#{ $_prefix }c-row--reverse {
+		> .c-row--reverse {
 			--smb-media-text--direction: row-reverse;
 
 			.smb-media-text__contents-wrapper {

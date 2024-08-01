@@ -1,4 +1,4 @@
-@import '../../css/core/block';
+@use '../../../node_modules/sass-basis/src/css/core';
 
 .smb-categories-list {
 	--smb-categories-list--count-background-color: var(--_lighter-color-gray);
@@ -6,11 +6,11 @@
 	--smb-categories-list--gap: var(--_margin-2);
 
 	&__list {
-		@include _list-unstyled();
+		@include core.list-unstyled();
 		display: grid;
 		gap: var(--smb-categories-list--gap);
 
-		@include _media-min(md) {
+		@include core.media-min(md) {
 			grid-template-columns: repeat(2, 1fr);
 		}
 
@@ -22,7 +22,7 @@
 					margin-top: var(--smb-categories-list--gap);
 				}
 
-				@include _media-min(md) {
+				@include core.media-min(md) {
 					width: calc((100% - var(--smb-categories-list--gap)) / 2);
 
 					&:nth-child(2) {
@@ -37,13 +37,13 @@
 
 			.smb-categories-list__item:nth-child(2n - 1) {
 				.smb-categories-list__item__count {
-					@include _media-min(md) {
+					@include core.media-min(md) {
 						order: 1;
 
 						&::after {
 							left: auto;
 							right: 100%;
-							@include _triangle-left(8px, 16px, var(--smb-categories-list--count-background-color));
+							@include core.triangle-left(8px, 16px, var(--smb-categories-list--count-background-color));
 						}
 					}
 				}
@@ -77,11 +77,11 @@
 				position: absolute;
 				left: 100%;
 				content: '';
-				@include _triangle-right(8px, 16px, var(--smb-categories-list--count-background-color));
+				@include core.triangle-right(8px, 16px, var(--smb-categories-list--count-background-color));
 			}
 
 			span {
-				@include _set-font-size-level(-1);
+				@include core.set-font-size-level(-1);
 			}
 		}
 
@@ -92,7 +92,7 @@
 
 		&__category-description {
 			margin-bottom: var(--_margin-2);
-			@include _set-font-size-level(-1);
+			@include core.set-font-size-level(-1);
 		}
 
 		&__recent-label {
@@ -102,7 +102,7 @@
 			flex-direction: row;
 			align-items: center;
 			justify-content: center;
-			@include _set-font-size-level(-1);
+			@include core.set-font-size-level(-1);
 			font-weight: bold;
 
 			&:before,
@@ -125,8 +125,8 @@
 		}
 
 		&__list {
-			@include _list-unstyled();
-			@include _set-font-size-level(-1);
+			@include core.list-unstyled();
+			@include core.set-font-size-level(-1);
 			word-break: break-word;
 
 			> * + * {
@@ -138,7 +138,7 @@
 			flex-grow: 1;
 			padding: var(--_padding1) var(--_padding1) var(--_padding1) var(--_padding2);
 
-			@include _media-min(md) {
+			@include core.media-min(md) {
 				.smb-categories-list__item:nth-child(2n - 1) & {
 					padding: var(--_padding1) var(--_padding2) var(--_padding1) var(--_padding1);
 				}
@@ -148,7 +148,7 @@
 				color: inherit;
 				text-decoration: none;
 
-				@include _hover() {
+				@include core.hover() {
 					text-decoration: underline;
 				}
 			}

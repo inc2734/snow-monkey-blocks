@@ -5,13 +5,6 @@
  * @license GPL-2.0+
  */
 
-wp_register_style(
-	generate_block_asset_handle( 'snow-monkey-blocks/spider-slider', 'style' ),
-	SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/blocks/spider-slider/style.css',
-	array( 'spider' ),
-	filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/blocks/spider-slider/style.css' )
-);
-
 register_block_type(
 	__DIR__
 );

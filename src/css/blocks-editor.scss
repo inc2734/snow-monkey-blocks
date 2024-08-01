@@ -1,5 +1,4 @@
 // @todo 全部見直し
-@import 'core/block';
 
 html :where(.wp-block-post-content,.wp-block-widget-area__inner-blocks) {
 	/**
@@ -12,8 +11,8 @@ html :where(.wp-block-post-content,.wp-block-widget-area__inner-blocks) {
 }
 
 .block-editor-block-list__block {
-	.#{ $_prefix }c-row[data-columns],
-	.#{ $_prefix }c-row--margin {
+	.c-row[data-columns],
+	.c-row--margin {
 		> .block-list-appender {
 			margin-right: calc(var(--_gap) * .5);
 			margin-left: calc(var(--_gap) * .5);

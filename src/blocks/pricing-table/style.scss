@@ -1,4 +1,5 @@
-@import '../../css/core/block';
+@use 'sass:math';
+@use '../../../node_modules/sass-basis/src/css/core';
 
 .smb-pricing-table {
 	--smb-pricing-table--border-color: var(--_lighter-color-gray);
@@ -6,7 +7,7 @@
 
 	border: 1px solid var(--smb-pricing-table--border-color);
 
-	@include _media-min(md) {
+	@include core.media-min(md) {
 		overflow: auto;
 
 		&::-webkit-scrollbar {
@@ -24,31 +25,31 @@
 
 	// @deprecated Fallback
 	&:not([data-has-items]) {
-		@include _media-min(md) {
+		@include core.media-min(md) {
 			white-space: nowrap;
 		}
 	}
 
 	&:where([data-has-items]) .c-row {
-		@include _media-min(md) {
+		@include core.media-min(md) {
 			--_item-width: var(--smb-pricing-table--item-width);
 		}
 	}
 
 	&:where([data-has-items="1"]) .c-row {
-		@include _media-min(md) {
+		@include core.media-min(md) {
 			--smb-pricing-table--item-width: 100%;
 		}
 	}
 
 	&:where([data-has-items="2"]) .c-row {
-		@include _media-min(md) {
+		@include core.media-min(md) {
 			--smb-pricing-table--item-width: 50%;
 		}
 	}
 
 	&:where([data-has-items="3"]) .c-row {
-		@include _media-min(md) {
+		@include core.media-min(md) {
 			--smb-pricing-table--item-width: 33.3333%;
 		}
 	}
@@ -62,19 +63,19 @@
 
 	@each $key, $value in $columnSize {
 		&--col-size-#{ $value } {
-			@include _media-min(md) {
+			@include core.media-min(md) {
 				white-space: normal;
 
-				.#{ $_prefix }c-row {
+				.c-row {
 					--smb-pricing-table--item-width: #{ 1% * $key };
 				}
 
-				$max-items: 100 / $key;
-				// max-items より has-items が少ないときは border をつい以下
-				@for $i from 1 through $max-items - 1 {
+				$max-items: math.div(100, $key);
+				// max-items より has-items が少ないときは border を追加
+				@for $i from 1 through math.floor($max-items - 1) {
 					&[data-has-items="#{ $i }"] {
-						.#{ $_prefix }c-row__col:last-child {
-							@include _media-min(lg) {
+						.c-row__col:last-child {
+							@include core.media-min(lg) {
 								border-right: 1px solid var(--smb-pricing-table--border-color);
 							}
 						}
@@ -84,14 +85,14 @@
 		}
 	}
 
-	.#{ $_prefix }c-row {
+	.c-row {
 		&__col {
 			padding: 0;
 
 			&:not(:first-child) {
 				border-top: 1px solid var(--smb-pricing-table--border-color);
 
-				@include _media-min(lg) {
+				@include core.media-min(lg) {
 					border-top: none;
 					border-left: 1px solid var(--smb-pricing-table--border-color);
 				}
@@ -113,18 +114,18 @@
 		}
 
 		&__price {
-			@include _set-fluid-font-size-level(3);
+			@include core.set-fluid-font-size-level(3);
 			font-weight: bold;
 			text-align: center;
 		}
 
 		&__lede {
-			@include _set-font-size-level(-1);
+			@include core.set-font-size-level(-1);
 			text-align: center;
 		}
 
 		ul {
-			@include _list-unstyled();
+			@include core.list-unstyled();
 			text-align: center;
 		}
 

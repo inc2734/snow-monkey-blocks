@@ -1,9 +1,9 @@
-@import '../../css/core/block';
+@use '../../../node_modules/sass-basis/src/css/core';
 
 .smb-taxonomy-terms {
 	&.is-style-tag {
 		.smb-taxonomy-terms__list {
-			@include _list-unstyled();
+			@include core.list-unstyled();
 		}
 
 		.smb-taxonomy-terms__item {
@@ -14,7 +14,7 @@
 
 	&.is-style-slash {
 		.smb-taxonomy-terms__list {
-			@include _list-unstyled();
+			@include core.list-unstyled();
 			display: flex;
 			flex-wrap: wrap;
 		}

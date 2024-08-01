@@ -1,4 +1,4 @@
-@import '../../css/core/block';
+@use '../../../node_modules/sass-basis/src/css/core';
 
 .smb-box {
 	--smb-box--background-color: transparent;
@@ -31,7 +31,7 @@
 	}
 
 	&__background {
-		@include _alert();
+		@include core.alert();
 		position: absolute;
 		top: 0;
 		right: 0;

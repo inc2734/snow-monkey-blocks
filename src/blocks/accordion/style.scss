@@ -1,4 +1,4 @@
-@import '../../css/core/block';
+@use '../../../node_modules/sass-basis/src/css/core';
 
 .smb-accordion {
 	--smb-accordion--gap: var(--_margin-1);
@@ -30,17 +30,14 @@
 
 			&__icon {
 				margin-left: var(--_margin-1);
-				@include _transition(transform);
+				@include core.transition(transform);
 				flex: 0 0 auto;
 			}
 		}
 
 		&__control {
 			position: absolute !important;
-			top: 0 !important;
-			right: 0 !important;
-			bottom: 0 !important;
-			left: 0 !important;
+			inset: 0 !important;
 			z-index: 1 !important;
 			appearance: none !important;
 			display: block !important;

@@ -1,4 +1,5 @@
-@import '../../css/core/block';
+@use 'sass:math';
+@use '../../../node_modules/sass-basis/src/css/core';
 
 .smb-slider > .smb-slider__canvas.slick-initialized {
 	margin-bottom: 0;
@@ -31,13 +32,13 @@
 
 	&--16to9 {
 		.smb-slider__item__figure::before {
-			padding-top: 9 / 16 * 100%;
+			padding-top: math.div(9, 16) * 100%;
 		}
 	}
 
 	&--4to3 {
 		.smb-slider__item__figure::before {
-			padding-top: 3 / 4 * 100%;
+			padding-top: math.div(3, 4 )* 100%;
 		}
 	}
 
@@ -95,7 +96,7 @@
 			display: flex;
 			justify-content: center;
 			flex-direction: row;
-			@include _set-font-size-level(-1);
+			@include core.set-font-size-level(-1);
 		}
 	}
 

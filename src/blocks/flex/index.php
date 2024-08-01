@@ -36,6 +36,10 @@ add_filter(
 			}
 		}
 
+		if ( preg_match( '/var:preset\|([^\|]+)\|(.+)/', $gap_value, $match ) ) {
+			$gap_value = 'var(--wp--preset--' . $match[1] . '--' . $match[2] . ')';
+		}
+
 		$block_gap = isset( $global_settings['spacing']['blockGap'] )
 			? $global_settings['spacing']['blockGap']
 			: null;
@@ -53,7 +57,8 @@ add_filter(
 		}
 
 		$selector = '.' . $match[0];
-		$style    = wp_style_engine_get_stylesheet_from_css_rules(
+
+		wp_style_engine_get_stylesheet_from_css_rules(
 			array(
 				array(
 					'selector'     => $selector,
@@ -63,7 +68,6 @@ add_filter(
 			array(
 				'context'  => 'block-supports',
 				'optimize' => true,
-				'prettify' => false,
 			)
 		);
 

@@ -170,6 +170,30 @@ class Assets {
 				)
 			);
 		}
+
+		/**
+		 * nopro
+		 */
+		if ( ! Blocks\is_pro() && ! is_admin() ) {
+			wp_enqueue_style(
+				'snow-monkey-blocks/nopro',
+				SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/css/nopro.css',
+				array(),
+				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/nopro.css' )
+			);
+		}
+
+		/**
+		 * nopro
+		 */
+		if ( ! Blocks\is_pro() && is_admin() ) {
+			wp_enqueue_style(
+				'snow-monkey-blocks/nopro/editor',
+				SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/css/nopro-editor.css',
+				array(),
+				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/css/nopro-editor.css' )
+			);
+		}
 	}
 
 	/**

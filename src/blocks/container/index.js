@@ -8,6 +8,8 @@ import edit from './edit';
 import save from './save';
 import transforms from './transforms';
 
+import './style.scss';
+
 registerBlockType( metadata.name, {
 	icon: {
 		foreground: blockConfig.blockIconColor,

@@ -1,4 +1,4 @@
-@import '../../css/core/block';
+@use '../../../node_modules/sass-basis/src/css/core';
 
 .smb-items {
 	--smb-items--style--boundary-line--border-color: var(--_lighter-color-gray);
@@ -10,13 +10,13 @@
 	--smb-items--banner--mask-opacity: 1;
 
 	&--glue {
-		> .#{ $_prefix }c-row {
+		> .c-row {
 			--_gap: var(--_margin1);
 
 			margin-right: 0;
 			margin-left: 0;
 
-			> .#{ $_prefix }c-row__col {
+			> .c-row__col {
 				padding-right: 0;
 				padding-left: 0;
 			}
@@ -24,8 +24,8 @@
 	}
 
 	&--fill {
-		> .#{ $_prefix }c-row {
-			> .#{ $_prefix }c-row__col {
+		> .c-row {
+			> .c-row__col {
 				display: flex;
 				flex-direction: column;
 
@@ -57,9 +57,9 @@
 	a.smb-items__item {
 		color: inherit;
 		text-decoration: none;
-		@include _transition(opacity);
+		@include core.transition(opacity);
 
-		@include _hover() {
+		@include core.hover() {
 			opacity: .8;
 		}
 	}
@@ -85,12 +85,12 @@
 
 		&__title {
 			margin: 0;
-			@include _set-fluid-font-size-level(2);
+			@include core.set-fluid-font-size-level(2);
 			font-weight: bold;
 		}
 
 		&__lede {
-			@include _set-font-size-level(-1);
+			@include core.set-font-size-level(-1);
 
 			> a {
 				color: inherit;
@@ -158,7 +158,7 @@
 	overflow: hidden;
 	color: var(--smb-items--banner--color);
 
-	@include _hover() {
+	@include core.hover() {
 		.smb-items__banner__figure {
 			filter: brightness(80%);
 		}
@@ -290,7 +290,7 @@
 	}
 
 	&__figure {
-		@include _transition(filter);
+		@include core.transition(filter);
 
 		> img {
 			position: relative;
@@ -346,7 +346,7 @@
 
 	&__lede {
 		margin-top: var(--_margin-2);
-		@include _set-font-size-level(-2);
+		@include core.set-font-size-level(-2);
 	}
 
 	&__action {

@@ -1,4 +1,4 @@
-@import '../../css/core/block';
+@use '../../../node_modules/sass-basis/src/css/core';
 
 .smb-information {
 	--smb-information--column-padding-s: var(--_padding-1);
@@ -29,7 +29,7 @@
 		overflow: hidden;
 		padding: 0;
 
-		> .#{ $_prefix }c-row {
+		> .c-row {
 			--_gap: var(--smb-information--gap);
 
 			> * {
@@ -71,7 +71,7 @@
 		}
 
 		.smb-information__item__body {
-			@include _media-min(md) {
+			@include core.media-min(md) {
 				border-top: var(--smb-information--border-width) var(--smb-information--border-style) var(--smb-information--border-color);
 			}
 		}
@@ -80,7 +80,7 @@
 	.smb-information__item__label {
 		padding: calc(var(--smb-information--column-padding) * .5) var(--smb-information--column-padding);
 
-		@include _media-min(md) {
+		@include core.media-min(md) {
 			padding: var(--smb-information--column-padding);
 		}
 	}
@@ -88,7 +88,7 @@
 	.smb-information__item__body {
 		padding: var(--smb-information--column-padding);
 
-		@include _media-max(sm) {
+		@include core.media-max(sm) {
 			border-left: var(--smb-information--border-width) var(--smb-information--border-style) var(--smb-information--border-color);
 		}
 	}
@@ -109,7 +109,7 @@
 }
 
 .smb-information:not([data-sm-split-column="true"])[data-label-align="center"] {
-	@include _media-min(md) {
+	@include core.media-min(md) {
 		--smb-information--label-align: center;
 	}
 }
@@ -119,7 +119,7 @@
 }
 
 .smb-information:not([data-sm-split-column="true"])[data-label-align="right"] {
-	@include _media-min(md) {
+	@include core.media-min(md) {
 		--smb-information--label-align: right;
 	}
 }

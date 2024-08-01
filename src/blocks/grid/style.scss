@@ -1,8 +1,3 @@
-
-@function min($values...) {
-	@return unquote('min(#{$values})');
-}
-
 .smb-grid {
 	--smb-grid--gap: 0px;
 

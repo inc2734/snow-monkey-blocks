@@ -1,4 +1,4 @@
-@import '../../css/core/block';
+@use '../../../node_modules/sass-basis/src/css/core';
 
 $alert-color: #fff9e6 !default;
 
@@ -25,7 +25,7 @@ $alert-color: #fff9e6 !default;
 	--smb-alert--remark-color: var(--_color-text);
 	--smb-alert--remark-icon-color: var(--_color-gray);
 
-	@include _alert();
+	@include core.alert();
 	background-color: var(--smb-alert--background-color);
 	border: 1px solid var(--smb-alert--border-color);
 	border-radius: var(--smb-alert--border-radius);
@@ -71,7 +71,7 @@ $alert-color: #fff9e6 !default;
 			position: relative;
 			top: -1px;
 			margin-right: var(--_margin-2);
-			@include _set-fluid-font-size-level(3);
+			@include core.set-fluid-font-size-level(3);
 			height: 1em;
 		}
 	}

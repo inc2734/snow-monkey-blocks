@@ -1,6 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
+	"version": "21.0.6",
 	"textdomain": "snow-monkey-blocks",
 	"name": "snow-monkey-blocks/custom-field",
 	"title": "Custom field",
@@ -19,6 +20,6 @@
 			"margin": true
 		}
 	},
-	"editorStyle": "file:./editor.css",
+	"editorStyle": "file:./index.css",
 	"editorScript": "file:./index.js"
 }

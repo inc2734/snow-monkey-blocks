@@ -1,4 +1,4 @@
-@import '../../css/core/block';
+@use '../../../node_modules/sass-basis/src/css/core';
 
 .smb-step {
 	--smb-step--border-color: var(--_light-color-gray);
@@ -55,14 +55,14 @@
 		}
 
 		&__number {
-			@include _circle(var(--smb-step--number-size));
+			@include core.circle(var(--smb-step--number-size));
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			background-color: var(--smb-step--number-background-color);
 			color: var(--smb-step--number-color);
 			font-weight: normal;
-			@include _set-font-size-level(-2);
+			@include core.set-font-size-level(-2);
 
 			&::before {
 				counter-increment: item;
@@ -100,7 +100,7 @@
 		&--image-left,
 		&--image-right {
 			.smb-step__item__body {
-				@include _media-min(md) {
+				@include core.media-min(md) {
 					display: flex;
 
 					> .smb-step__item__figure,
@@ -119,7 +119,7 @@
 			.smb-step__item__figure {
 				margin: 0 0 var(--_margin1);
 
-				@include _media-min(md) {
+				@include core.media-min(md) {
 					margin: 0 var(--_margin1) 0 0;
 				}
 			}
@@ -133,7 +133,7 @@
 
 		&--image-right {
 			.smb-step__item__body {
-				@include _media-min(md) {
+				@include core.media-min(md) {
 					flex-direction: row-reverse;
 				}
 			}
@@ -141,7 +141,7 @@
 			.smb-step__item__figure {
 				margin: 0 0 var(--_margin1);
 
-				@include _media-min(md) {
+				@include core.media-min(md) {
 					margin: 0 0 0 var(--_margin1);
 				}
 			}

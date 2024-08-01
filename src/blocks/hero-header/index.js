@@ -9,6 +9,9 @@ import save from './save';
 import example from './example';
 import variations from './variations';
 
+import './style.scss';
+import './index.scss';
+
 registerBlockType( metadata.name, {
 	icon: {
 		foreground: blockConfig.blockIconColor,

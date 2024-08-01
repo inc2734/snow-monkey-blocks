@@ -1,4 +1,4 @@
-@import '../../css/core/block';
+@use '../../../node_modules/sass-basis/src/css/core';
 
 // The style of the global style link (0.1.0) needs to be adjusted in the level of detail as it will be loaded later.
 .smb-btn:not(:root) {
@@ -29,9 +29,9 @@
 	padding: var(--smb-btn--padding-vertical) var(--smb-btn--padding-horizontal);
 	max-width: 100%;
 	white-space: nowrap;
-	@include _transition(all);
+	@include core.transition(all);
 
-	@include _hover() {
+	@include core.hover() {
 		filter: brightness(90%);
 	}
 
@@ -51,7 +51,7 @@
 	&--more-wider {
 		width: 100%;
 
-		@include _media-min(md) {
+		@include core.media-min(md) {
 			--smb-btn--padding-horizontal: var(--_padding4);
 
 			width: auto;

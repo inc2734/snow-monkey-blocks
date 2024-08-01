@@ -1,4 +1,4 @@
-@import '../../css/core/block';
+@use '../../../node_modules/sass-basis/src/css/core';
 
 .smb-countdown {
 	--smb-countdown--gap: var(--_margin-2);
@@ -31,14 +31,14 @@
 		&__numeric {
 			display: block;
 			color: var(--smb-countdown--numeric-color);
-			@include _set-fluid-font-size-level(3);
+			@include core.set-fluid-font-size-level(3);
 			font-weight: bold;
 		}
 
 		&__clock {
 			display: block;
 			color: var(--smb-countdown--clock-color);
-			@include _set-font-size-level(-1);
+			@include core.set-font-size-level(-1);
 		}
 	}
 

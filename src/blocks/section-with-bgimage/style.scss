@@ -1,4 +1,4 @@
-@import '../../css/core/block';
+@use '../../../node_modules/sass-basis/src/css/core';
 
 .smb-section-with-bgimage {
 	--smb-section-with-bgimage--mask-color: var(--wp--preset--color--black)
@@ -51,7 +51,7 @@
 		}
 
 		&--md {
-			@include _media-min(lg) {
+			@include core.media-min(lg) {
 				display: none;
 			}
 
@@ -68,7 +68,7 @@
 		}
 
 		&--sm {
-			@include _media-min(md) {
+			@include core.media-min(md) {
 				display: none;
 			}
 
@@ -111,7 +111,7 @@
 
 	// @deprecated
 	&--left:not([class*="smb-section--"]) {
-		> .#{ $_prefix }c-container {
+		> .c-container {
 			> .smb-section__subtitle,
 			> .smb-section__title,
 			> .smb-section__lede,
@@ -128,7 +128,7 @@
 
 	// @deprecated
 	&--center:not([class*="smb-section--"]) {
-		> .#{ $_prefix }c-container {
+		> .c-container {
 			> .smb-section__title,
 			> .smb-section__body {
 				text-align: center;
@@ -138,7 +138,7 @@
 
 	// @deprecated
 	&--right:not([class*="smb-section--"]) {
-		> .#{ $_prefix }c-container {
+		> .c-container {
 			> .smb-section__subtitle,
 			> .smb-section__title,
 			> .smb-section__lede,

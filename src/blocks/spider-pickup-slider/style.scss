@@ -1,4 +1,5 @@
-@import '../../css/core/block';
+@use 'sass:map';
+@use '../../../node_modules/sass-basis/src/css/core';
 
 .smb-spider-pickup-slider {
 	--smb-spider-pickup-slider--background-color: var(--wp--preset--color--black);
@@ -71,12 +72,12 @@
 		padding: var(--_padding1);
 		color: var(--wp--preset--color--white);
 
-		@include _media-min(md) {
-			max-width: _px2rem(map-get($_sizes, md));
+		@include core.media-min(md) {
+			max-width: map.get(core.$sizes, md);
 		}
 
-		@include _media-min(lg) {
-			max-width: _px2rem(map-get($_sizes, lg));
+		@include core.media-min(lg) {
+			max-width: map.get(core.$sizes, lg);
 		}
 
 		> * + * {
@@ -85,7 +86,7 @@
 
 		&__title {
 			font-weight: bold;
-			@include _set-fluid-font-size-level(4);
+			@include core.set-fluid-font-size-level(4);
 
 			a {
 				color: inherit;
@@ -102,7 +103,7 @@
 
 		&__meta {
 			color: var(--wp--preset--color--white);
-			@include _set-font-size-level(-1);
+			@include core.set-font-size-level(-1);
 
 			img {
 				display: inline-block !important;

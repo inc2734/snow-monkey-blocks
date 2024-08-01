@@ -1,6 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
+	"version": "21.0.6",
 	"textdomain": "snow-monkey-blocks",
 	"name": "snow-monkey-blocks/list",
 	"title": "Icon list",
@@ -47,8 +48,8 @@
 			}
 		]
 	},
-	"style": "file:./style.css",
-	"editorStyle": "file:./editor.css",
+	"style": "file:./style-index.css",
+	"editorStyle": "file:./index.css",
 	"editorScript": "file:./index.js",
 	"viewScript": "file:./script.js"
 }

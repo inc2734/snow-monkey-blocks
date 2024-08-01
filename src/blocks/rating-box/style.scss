@@ -1,4 +1,4 @@
-@import '../../css/core/block';
+@use '../../../node_modules/sass-basis/src/css/core';
 
 .smb-rating-box {
 	--smb-rating-box--gap: var(--_margin-1);
@@ -30,7 +30,7 @@
 		}
 
 		&__numeric {
-			@include _set-font-size-level(-2);
+			@include core.set-font-size-level(-2);
 		}
 
 		&__evaluation {
@@ -59,7 +59,7 @@
 				position: absolute;
 				bottom: calc(var(--smb-rating-box--bar-height) + var(--_s-2));
 				right: 0;
-				@include _set-font-size-level(-2);
+				@include core.set-font-size-level(-2);
 			}
 		}
 	}

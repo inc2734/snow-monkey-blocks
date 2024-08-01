@@ -7,6 +7,8 @@ import metadata from './block.json';
 import edit from './edit';
 import save from './save';
 
+import './index.scss';
+
 registerBlockType( metadata.name, {
 	icon: {
 		foreground: blockConfig.blockIconColor,

@@ -1,4 +1,4 @@
-@import '../../css/core/block';
+@use '../../../node_modules/sass-basis/src/css/core';
 
 .smb-list {
 	ul {
@@ -8,7 +8,7 @@
 				position: absolute;
 				top: 8px;
 				left: -1.5em;
-				@include _circle(10px);
+				@include core.circle(10px);
 				border: 2px solid currentColor
 			}
 

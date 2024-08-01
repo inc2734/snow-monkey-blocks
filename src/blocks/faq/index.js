@@ -8,6 +8,8 @@ import edit from './edit';
 import save from './save';
 import deprecated from './deprecated';
 
+import './style.scss';
+
 registerBlockType( metadata.name, {
 	icon: {
 		foreground: blockConfig.blockIconColor,

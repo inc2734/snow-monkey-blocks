@@ -1,0 +1,18 @@
+@use 'core/pro-badge' as *;
+
+.block-editor-block-types-list__item {
+	&.editor-block-list-item-snow-monkey-blocks-child-pages,
+	&.editor-block-list-item-snow-monkey-blocks-contents-outline,
+	&.editor-block-list-item-snow-monkey-blocks-like-me-box,
+	&.editor-block-list-item-snow-monkey-blocks-pickup-slider,
+	&.editor-block-list-item-snow-monkey-blocks-recent-posts,
+	&.editor-block-list-item-snow-monkey-blocks-rss,
+	&.editor-block-list-item-snow-monkey-blocks-taxonomy-posts,
+	&.editor-block-list-item-snow-monkey-blocks-taxonomy-terms {
+		position: relative;
+
+		&::before {
+			@include pro-badge();
+		}
+	}
+}

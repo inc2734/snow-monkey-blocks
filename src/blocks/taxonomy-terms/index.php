@@ -16,27 +16,3 @@ register_block_type(
 		},
 	)
 );
-
-/**
- * nopro
- */
-if ( ! Blocks\is_pro() && ! is_admin() ) {
-	wp_enqueue_style(
-		'snow-monkey-blocks/taxonomy-terms/nopro',
-		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/blocks/taxonomy-terms/nopro.css',
-		array(),
-		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/blocks/taxonomy-terms/nopro.css' )
-	);
-}
-
-/**
- * nopro
- */
-if ( ! Blocks\is_pro() && is_admin() ) {
-	wp_enqueue_style(
-		'snow-monkey-blocks/taxonomy-terms/nopro/editor',
-		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/blocks/taxonomy-terms/nopro-editor.css',
-		array(),
-		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/blocks/taxonomy-terms/nopro-editor.css' )
-	);
-}

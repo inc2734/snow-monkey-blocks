@@ -1,6 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
+	"version": "21.0.6",
 	"textdomain": "snow-monkey-blocks",
 	"name": "snow-monkey-blocks/spider-pickup-slider",
 	"title": "Pickup slider",
@@ -46,7 +47,10 @@
 			"margin": true
 		}
 	},
-	"style": "snow-monkey-blocks-spider-pickup-slider-style",
+	"style": [
+		"file:./style-index.css",
+		"snow-monkey-blocks-spider-slider-style"
+	],
 	"editorScript": "file:./index.js",
 	"viewScript": [ "spider", "file:./script.js" ]
 }

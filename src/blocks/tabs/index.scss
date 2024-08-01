@@ -1,4 +1,4 @@
-@import '../../css/core/block';
+@use '../../../node_modules/sass-basis/src/css/core';
 
 .smb-tabs__add-tab,
 .smb-tabs__up-tab,
@@ -22,7 +22,7 @@
 	.smb-tabs__down-tab {
 		opacity: 0.3;
 
-		@include _hover() {
+		@include core.hover() {
 			opacity: 1;
 		}
 	}

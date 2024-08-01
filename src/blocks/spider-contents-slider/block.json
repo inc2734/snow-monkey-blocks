@@ -1,8 +1,8 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
+	"version": "21.0.6",
 	"textdomain": "snow-monkey-blocks",
-	"version": "20.5.4",
 	"name": "snow-monkey-blocks/spider-contents-slider",
 	"title": "Contents slider",
 	"description": "Show contents as beautiful sliders.",
@@ -96,8 +96,11 @@
 			"margin": true
 		}
 	},
-	"style": "snow-monkey-blocks-spider-contents-slider-style",
-	"editorStyle": "file:./editor.css",
+	"style": [
+		"file:./style-index.css",
+		"snow-monkey-blocks-spider-slider-style"
+	],
+	"editorStyle": "file:./index.css",
 	"editorScript": "file:./index.js",
 	"viewScript": [ "spider", "file:./script.js" ]
 }

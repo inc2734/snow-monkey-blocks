@@ -16,27 +16,3 @@ register_block_type(
 		},
 	)
 );
-
-/**
- * nopro
- */
-if ( ! Blocks\is_pro() && ! is_admin() ) {
-	wp_enqueue_style(
-		'snow-monkey-blocks/recent-posts/nopro',
-		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/blocks/recent-posts/nopro.css',
-		array(),
-		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/blocks/recent-posts/nopro.css' )
-	);
-}
-
-/**
- * nopro
- */
-if ( ! Blocks\is_pro() && is_admin() ) {
-	wp_enqueue_style(
-		'snow-monkey-blocks/recent-posts/nopro/editor',
-		SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/blocks/recent-posts/nopro-editor.css',
-		array(),
-		filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/blocks/recent-posts/nopro-editor.css' )
-	);
-}

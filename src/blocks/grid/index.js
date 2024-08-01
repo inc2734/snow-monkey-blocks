@@ -13,6 +13,8 @@ import save from './save';
 import transforms from './transforms';
 // import example from './example';
 
+import './style.scss';
+
 registerBlockType( metadata.name, {
 	icon: {
 		foreground: blockConfig.blockIconColor,

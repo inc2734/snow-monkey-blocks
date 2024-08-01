@@ -1,4 +1,4 @@
-@import '../../css/core/block';
+@use '../../../node_modules/sass-basis/src/css/core';
 
 .smb-thumbnail-gallery > .smb-thumbnail-gallery__canvas.slick-initialized {
 	margin-bottom: 0;
@@ -18,7 +18,7 @@
 			position: static;
 			width: auto;
 			margin-top: var(--_margin-1);
-			@include _row();
+			@include core.row();
 			margin-bottom: calc(-1 * var(--smb-thumbnail-gallery--dots-gap));
 			margin-right: calc(-1 * var(--smb-thumbnail-gallery--dots-gap) * .5);
 			margin-left: calc(-1 * var(--smb-thumbnail-gallery--dots-gap) * .5);
@@ -48,7 +48,7 @@
 			display: flex;
 			justify-content: center;
 			flex-direction: row;
-			@include _set-font-size-level(-1);
+			@include core.set-font-size-level(-1);
 		}
 	}
 

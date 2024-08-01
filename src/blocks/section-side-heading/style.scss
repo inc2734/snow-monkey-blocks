@@ -1,4 +1,4 @@
-@import '../../css/core/block';
+@use '../../../node_modules/sass-basis/src/css/core';
 
 .smb-section-side-heading {
 	// @deprecated
@@ -19,8 +19,8 @@
 		justify-content: flex-start;
 	}
 
-	:where(.smb-section__contents-wrapper > .#{ $_prefix }c-row > * + *) {
-		@include _media-max(sm) {
+	:where(.smb-section__contents-wrapper > .c-row > * + *) {
+		@include core.media-max(sm) {
 			margin-top: var(--_margin2);
 		}
 	}

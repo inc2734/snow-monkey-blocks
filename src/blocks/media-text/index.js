@@ -10,6 +10,8 @@ import save from './save';
 import deprecated from './deprecated';
 import example from './example';
 
+import './style.scss';
+
 registerBlockType( metadata.name, {
 	icon: {
 		foreground: blockConfig.blockIconColor,
