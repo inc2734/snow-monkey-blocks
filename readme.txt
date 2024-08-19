@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue, kutsu, toru
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks
-Stable tag: 21.0.6
+Stable tag: 21.0.7
 Requires at least: 6.6
 Tested up to: 6.6
 Requires PHP: 7.4
@@ -116,6 +116,9 @@ Yes! You can use Snow Monkey Blocks with any theme, but we recommend using our <
 28. Read more box block
 
 == Changelog ==
+
+= 21.0.7 =
+* [Hero header] Fixed a bug that caused images to be displayed on a higher level when used with themes other than Snow Monkey theme.
 
 = 21.0.6 =
 * Replace node-sass to node.
