@@ -66,6 +66,7 @@
 	}
 
 	&__body {
+		position: relative;
 		grid-column: var(--smb-hero-header--body-grid-column-start) / var(--smb-hero-header--body-grid-column-end);
 		grid-row: var(--smb-hero-header--body-grid-row-start) / var(--smb-hero-header--body-grid-row-end);
 		align-self: var(--smb-hero-header--body-align-self);
