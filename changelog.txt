@@ -1,0 +1,1591 @@
+*** Changelog ***
+
+= 22.0.0 =
+* Fixed a bug that could cause infinite rendering and errors during pattern insertion when using Snow Monkey Blocks blocks in a synchronized pattern.
+* The automatic renaming process from the old child block name to the new child block name has been eliminated.
+
+= 21.0.7 =
+* [Hero header] Fixed a bug that caused images to be displayed on a higher level when used with themes other than Snow Monkey theme.
+
+= 21.0.6 =
+* Replace node-sass to node.
+* [Flex] Fix gap value.
+
+= 21.0.5 =
+* [Recent posts] Max value of "Number of posts" changed from 12 to 50.
+* [Taxonomy posts] Max value of "Number of posts" changed from 12 to 50.
+* [RSS] Max value of "Number of posts" changed from 12 to 50.
+
+= 21.0.4 =
+* Translation omissions corrected.
+
+= 21.0.3 =
+* [Flex] Fixed a bug where gap settings were not reflected on the front.
+
+= 21.0.1 =
+* [Contents slider] Fixed a bug where the background colour of slides was not reflected.
+
+= 21.0.0 =
+* WordPress 6.6 compatible.
+* [Testimonials] Add gap setting.
+* [Tabs] Add color settings to chldren blocks.
+* [Step] Add title font size and color settings to chldren blocks.
+* [Section] Migration of padding settings to core functions.
+* [Section (Break the grid)] Migration of padding settings to core functions.
+* [Section (Side heading)] Migration of padding settings to core functions.
+* [Section (Background image/video)] Migration of padding settings to core functions.
+* [Rating box] Add color, padding and border settings. Add font size setting to children blocks.
+* [Pricing table] Add color settings to children blocks.
+* [Price menu] Add typography, padding, color and border settings. Add font size and padding settings to children blocks.
+* [Panels] Migration of color settings to core functions.
+* [Media text] Migration of gap settings to core functions.
+* [Items:Standard] Add color settings.
+* [Items:Block link] Add color settings.
+* [Items:Free] Add color and padding settings.
+* [Information] Add color settings to children blocks.
+* [Hero header] Add color, typography and border settings.
+* [FAQ] Add question color, question label color, answer label color and padding settings.
+* [Evaluation star] Add font size setting.
+* [Directory structure] Add typography, background, icon color, padding and border settings.
+* [Counddown timer] Add font size setting.
+* [Contents outline] Add color and border settings.
+* [Child pages] Add gap setting.
+* [Buttons] Add gap settings.
+* [Button] Add padding setting.
+* [Button box] Add padding setting.
+* [Box] Migration of  padding setting to core functions.
+* [Alert] Add padding setting.
+* [Accordion] Add title background, text color and body padding settings.
+* `enqueue_block_editor_assets` to `enqueue_block_assets`.
+
+= 20.5.5 =
+* [Contents slider] Fixed a bug that caused the appearance to be different on the editor and at the front.
+* [Slider] Fixed a bug that caused the appearance to be different on the editor and at the front.
+* [Items] The "Gap" UI changed to the same as the core.
+* [Panels] The "Gap" UI changed to the same as the core.
+* [Recent posts] The "Gap" UI changed to the same as the core.
+* [Taxonomy posts] The "Gap" UI changed to the same as the core.
+* [RSS] The "Gap" UI changed to the same as the core.
+* [Section] Fixed a bug that "Overlap divider on content" did not work when the level of delimitation is negative.
+* [Section (Break the grid)] Fixed a bug that "Overlap divider on content" did not work when the level of delimitation is negative.
+* [Section (Side heading)] Fixed a bug that "Overlap divider on content" did not work when the level of delimitation is negative.
+* [Section (Background image/video)] Fixed a bug that "Overlap divider on content" did not work when the level of delimitation is negative.
+* [Hero header] Add overlay feature.
+* [Items:Banner] Change label name "Mask" to "Overlay".
+* [Section (Break the grid)] Change label name "Mask" to "Overlay".
+* [Section (Background image/video)] Change label name "Mask" to "Overlay".
+
+= 20.5.4 =
+* Fix PHP Deprecated on PHP 8.1.
+
+= 20.5.3 =
+* Update wpcs.
+* [Custom field] Fix missing Dependencies.
+
+= 20.5.2 =
+* [Flex] Fixed a bug where CSS custom properties that were supposed to be added to child blocks were not being added at the front.
+* [Grid] Fixed a bug where CSS custom properties that were supposed to be added to child blocks were not being added at the front.
+
+= 20.5.1 =
+- [Pickup slider] Fixed a bug where the order of content overlap was below the image and could not be seen.
+
+= 20.5.0 =
+- WordPress 6.5 support.
+- Add support "Apply to all blocks inside".
+- [Pickup slider] Adjust layout.
+- [Pickup slider] Fixed a bug that pickup slider was not linked as a whole.
+- [Section] Fixed a bug where padding settings were not reflected.
+- [Section (Break the grid)] Fixed a bug where padding settings were not reflected.
+- [Section (Side heading)] Fixed a bug where padding settings were not reflected.
+- [Section (Background image/video)] Fixed a bug where padding settings were not reflected.
+- [Slider] Fixed a bug where it would flicker when sliding.
+- [Contents slider] Fixed a bug where it would flicker when sliding.
+- [Pickup slider] Fixed a bug where it would flicker when sliding.
+
+= 20.4.3 =
+* [Recent posts] Fixed a bug that the second and later blocks may not be displayed when multiple recent post blocks are lined up.
+
+= 20.4.2 =
+* [Slider] Change autoplay buttons to svg.
+* [Contents slider] Change autoplay buttons to svg.
+
+= 20.4.1 =
+* [Slider] Enlarge the click range of dots and autoplay buttons.
+* [Contents slider] Enlarge the click range of dots and autoplay buttons.
+
+= 20.4.0 =
+* [Slider] Add the feature of shuffling slides.
+* [Contents slider] Add the feature of shuffling slides.
+* [Slider] Add pause button setting for autoplay.
+* [Contents slider] Add pause button setting for autoplay.
+* [Pickup slider] Add pause button setting for autoplay when the layout is caroucel.
+* [Recent posts] Add pause button setting for autoplay when the layout is caroucel.
+* [Taxonomy posts] Add pause button setting for autoplay when the layout is caroucel.
+* [RSS] Add pause button setting for autoplay when the layout is caroucel.
+* [Child pages] Add pause button setting for autoplay when the layout is caroucel.
+
+= 20.3.4 =
+* Fixed missing packages files.
+
+= 20.3.3 =
+* [Countdown timer] Fixed a bug that prevented the "Clear" button from working.
+
+= 20.3.2 =
+* [Read more box] Fixed a bug that caused unintended blocks to open and close when duplicating blocks.
+
+= 20.3.1 =
+* [Taxonomy terms] Added `$attributes` as second argument to filter hook `snow_monkey_blocks_taxonomy_terms_args`.
+* [Box] Fixed a bug that blocks were broken when the border width was left blank.
+* [Section (Break the grid)] Fixed a bug that shadows were displayed before images when using EWWW Image Optimizer.
+
+= 20.3.0 =
+* [Taxonomy] Add filter hook `snow_monkey_blocks_taxonomy_terms_args`.
+* [Read more box] Fixed a bug that button size "Full" was not reflected.
+
+= 20.2.2 =
+* [Tabs] Fix Warning error.
+
+= 20.2.1 =
+* Add new block: Read more box block.
+* [Recent posts] Add filtering settings by authorsgit push.
+* [Tabs] Add `role="tablist"`.
+* [Accordion:item] Add `aria-label`.
+* [Accordion] Fixed a bug that blocks were broken when posting with less than editor role when multisite.
+* [Tabs] Fixed a bug that blocks were broken when posting with less than editor role when multisite.
+
+= 20.1.3 =
+* [Alert] Fixed a bug that could cause the contents inside to disappear.
+
+= 20.1.2 =
+* Fixed a bug that `.is-layout-constrained` was given to an unintended position when there was no child block.
+
+= 20.1.1 =
+* [Box] Fixed a bug that prevented border radius settings from being displayed.
+
+= 20.1.0 =
+* [Box] Fixed a bug that prevented border settings from being displayed.
+* [Balloon] Added style and transparency settings to border settings.
+* [Box] Added style and transparency settings to border settings.
+* [Information] Added style and transparency settings to border settings.
+* [Contents slider] Added style and transparency settings to border settings.
+
+= 20.0.1 =
+* [Section] Fixed a bug where "Container alignment" did not work.
+* [Section (Background image/video)] Fixed a bug where "Container alignment" did not work.
+* [Section (Side heading)] Fixed a bug where "Container alignment" did not work.
+* [Section (Break the grid)] Fixed a bug where "Container alignment" did not work.
+
+= 20.0.0 =
+* Update `apiVersion` of block.json is 2 to 3.
+* Set `defer` attribute to `wp_enqueue_script()`.
+* Remove unwrap and add ungroup.
+* Changed CSS loading method to `file:`.
+* Changed block CSS handle name. e.g. snow-monkey-blocks/accordion → snow-monkey-blocks-accordion-style
+* [Accordion:Item] Set layout type: constrained.
+* [Alert] Set layout type: constrained.
+* [Balloon] Set layout type: constrained.
+* [Box] Set layout type: constrained.
+* [Container] Set layout type: constrained.
+* [FAQ:Item] Set layout type: constrained.
+* [Hero header] Set layout type: constrained.
+* [Information:Item] Set layout type: constrained.
+* [Items:free] Set layout type: constrained.
+* [Media text] Set layout type: constrained.
+* [Panels:Block link] Set layout type: constrained.
+* [Panels:Free] Set layout type: constrained.
+* [Section] Set layout type: constrained.
+* [Contents slider:Item] Set layout type: constrained.
+* [Step:Free] Set layout type: constrained.
+* [Step:Standard] Set layout type: constrained.
+* [Tabs:Tab panel] Set layout type: constrained.
+
+= 19.10.1 =
+* [Section (Background image/video)] Fixed a bug that caused the inspector to stretch vertically when a video was set as the background.
+
+= 19.10.0 =
+* [Hero header] Add new setting: Fit to the contents
+* [Hero header] Fixed a bug that caused the inspector to stretch vertically when a video was set as the background.
+* Add new block categories: Layout
+* Flex block and grid block changed category to "Layout".
+* Change block category name: Common blocks → Common
+
+= 19.9.0 =
+* Add new block: Flex
+* Add new block: Grid
+* [Items (Standard)] Fix "Align the bottom of the last element of each items" bug.
+
+= 19.8.0 =
+* [Section (Side heading)] Add new setting: gap
+* [Section (Side heading)] Add new setting: Content column size
+
+= 19.7.1 =
+* [Slider] Fixed "Shifting the slider" bug.
+* [Contents slider] Fixed "Shifting the slider" bug.
+
+= 19.7.0 =
+* [Hero header] Add new setting: Maximum width.
+* [Items] Remove setting: Align the bottom of the button of each items (standard, block link item only).
+* [Items] Add new setting: Align the bottom of the last element of each items
+
+= 19.6.0 =
+* Add new block: Hero header
+* [Box] Added the ability to wrap and unwrap.
+* [Container] Added the ability to wrap and unwrap.
+* [Alert] Fixed a bug that the contents were lost when converting from paragraph block to alert block.
+
+= 19.5.2 =
+* [Contents slider] Fixed a bug that sometimes caused vertical scrolling.
+
+= 19.5.1 =
+* [Taxonomy posts] Fixed a bug in which the display settings for the meta and excerpts were not reflected correctly.
+
+= 19.5.0 =
+* [Recent posts] Fixed a bug that caused meta elements to be displayed in installed blocks that were not supposed to be displayed.
+* [Taxonomy posts] Fixed a bug that caused meta elements to be displayed in installed blocks that were not supposed to be displayed.
+* [Slider] Add `.is-scrolling` and `.is-fading`.
+* [Pickup slider] Add `.is-scrolling` and `.is-fading`.
+* [Contents slider] Add `.is-scrolling` and `.is-fading`.
+* [File] Add text color setting.
+* [Contents slider] Added the ability to set box shadows and borders at once.
+* [Contents slider] Changed so that the shadows on the left and right edges of the slider are not displayed when a box shadow is set.
+* [Contents slider] When box shadow is set + "Gutter" is set to "None", the shadow may overlap on top of the slide, changed so that the minimum spacing is maintained.
+* [Contents slider] Fixed a bug that caused a momentary delay in the timing of drawing the previous and next slides when a box shadow was set.
+* [Section (Break the grid)] Add "Remove container padding of the contents" setting.
+* [Directory] Add text color setting.
+
+= 19.4.0 =
+* [Recent posts] Add setting: "The gap between each item".
+* [Taxonomy posts] Add setting: "The gap between each item".
+* [RSS] Add "The gap between each item".
+* [Custom field] Add filter hook: `snow_monkey_blocks_custom_field_value_{field name}`
+* [Items] Add setting: "Gap"
+* [Panels] Add setting: "Gap"
+* [Section (Break the grid)] Changed so that images are full width size when on mobile + full width.
+* [Section (Break the grid)] Changed so that when mobile + the image position is right or left, the left/right position of the image changes according to the "Image size adjustment" setting.
+* [Section (Break the grid)] Changed so that when mobile + the image position is right or left, the overlap between images and content changes according to the "Degree of overlap of content to image" setting.
+* [Slider] The slider initialization process (the process of turning an image into a slider) is changed to just before the screen is scrolled and the slider is displayed on the screen.
+* [Pickup slider] The slider initialization process (the process of turning an image into a slider) is changed to just before the screen is scrolled and the slider is displayed on the screen.
+* [Contents slider] The slider initialization process (the process of turning an image into a slider) is changed to just before the screen is scrolled and the slider is displayed on the screen.
+* [Contents slider] Fixed a bug that caused the left shadow to be obscured when sliding when a box shadow was set.
+* [Section] Fixed a bug that the opacity of "Background text" was not correct when "Opacity" was set to 1.
+* [Section (Background image/video)] Fixed a bug that the opacity of "Background text" was not correct when "Opacity" was set to 1.
+* [Section (Break the grid)] Fixed a bug that the opacity of "Background text" was not correct when "Opacity" was set to 1.
+
+= 19.3.2 =
+* [Custom field] Fixed a problem in which 0 was not output on the screen when the stored value was 0.
+
+= 19.3.1 =
+* Add new block: Custom field block.
+* Remove all block patterns.
+* [Media text] Added gap setting.
+* [Recent posts] Added author and publised date display settings (when meta is in view).
+* [Taxonomy posts] Added author and publised date display settings (when meta is in view).
+* [Recent posts] Added excerpt display setting (when excerpts are in view)
+* [Taxonomy posts] Added excerpt display setting (when excerpts are in view).
+* [Recent posts] Changed "Force display meta of each items" and "Force display category label of each items" to appear only when the post type is other than "Post".
+* [Taxonomy posts] Changed "Force display meta of each items" and "Force display category label of each items" to appear only when the taxonomy is other than "Category" and "Tag".
+* [Section (Break the grid)] Fixed a bug that images were unintentionally enlarged when the "Sort by mobile" was set to "Image > Text" + "Adjust the height of the media to the height of the block".
+* [Section] "Remove container padding of the contents" can now be set unconditionally.
+* [Section (Background image/video)] "Remove container padding of the contents" can now be set unconditionally.
+* [Contents slider] Fixed a bug that left and right shadows were not seen when box shadow was set.
+* [Contents slider] Fixed a bug that caused slide block variation conversion to fail.
+
+= 19.2.1 =
+* [Recent posts] Fixed a bug that taxonomies not associated with the currently selected post type were also displayed as selectable items.
+
+= 19.2.0 =
+* [Section] Minimum height setting added.
+* [Section (Background image/video)] Minimum height setting added.
+* [Section (Side heading)] Minimum height setting added.
+* [Panels] Fixed a bug that the focus ring was not displayed.
+* [Items (Banner)] Fixed a bug that the focus ring was not displayed.
+* [Recent posts] Added the ability to filter by term.
+
+= 19.1.0 =
+* [Section (Break the grid)] Fixed a bug that prevented videos from being set up.
+* [Section (Background image/video)] Fixed a bug that prevented videos from being set up.
+* [Media text] Fixed a bug that prevented videos from being set up.
+* [Pricing table] Fixed a bug in which column sizes were not always reflected.
+* [Panels] Add "Glue each item together" setting.
+* [Section] Add vertical padding setting.
+* [Section (Side heading)] Add vertical padding setting.
+* [Section (Background image/video)] Add vertical padding setting.
+
+= 19.0.1 =
+* [Balloon] Fixed a bug that balloon contents may disappear after recovery.
+
+= 19.0.0 =
+* Added "Overlap divider on content" setting.
+* Added "Triangle (large)" to section divider.
+* Change `CheckboxControl` to `ToggleControl`.
+* Change `ImageSizeSelectControl` to `ImageSizeControl`.
+* Change `__experimentalGetSettings` to `getSettiings`.
+* Change `anchorRef` to `anchor`.
+* Change `is{Variant}` to `variant="{variant}"`.
+* Changed the link setting popover to open with a button click instead of automatically displaying when it has been set.
+* Changed to allow transform between each section block.
+* Changed to use BorderBoxControl for border settings.
+* Changed to use `ToolsPanel`.
+* Changed to use inspector style tabs on some blocks.
+* Fixed a bug in WordPress 6.2 that caused `DateTimePicker` layout to break.
+* Fixed a bug in WordPress 6.2 that caused placeholder of RSS block layout to break.
+* Fixed a bug that could cause design corruption in iframe preview.
+* [Alert] Change to use InnerBlocks for contents.
+* [Balloon] Add border settings and avatar visibility setting.
+* [Balloon] Change to use InnerBlocks for contents.
+* [Contents outline] Fixed a bug that titles were not displayed when titles were not set.
+* [Icon list] Change to use InnerBlocks for contents.
+* [Information] Add label column text color setting.
+* [Information] Add "Center" to label alignment.
+* [Information] Add "50%" to label column size.
+* [Information (Row)] Fixed a bug that caused the label entry field to drop one line.
+* [Item (Block link)] Add "Display button" setting.
+* [Item (Block link)] Add "Display image" setting.
+* [Item (Standard)] Add "Display button" setting.
+* [Item (Standard)] Add "Display image" setting.
+* [Items (Banner)]GFixed a bug that sometimes left gaps between each banner when "lue each item together" was enabled.
+* [Media text] Add fill setting, color settings, column split timing setting and block style "Border".
+* [Media text] Fixed a bug that the size specified in "Image column size" was not accurate.
+* [Panels (Block link)] Add color settings.
+* [Panels (Free)] Add color settings.
+* [Panels (Horizontal layout)] Add "Display button" setting.
+* [Panels (Horizontal layout)] Add "Display image" setting.
+* [Panels (Horizontal layout)] Add color settings.
+* [Panels (Vertical layout)] Add "Display button" setting.
+* [Panels (Vertical layout)] Add "Display image" setting.
+* [Panels (Vertical layout)] Add color settings.
+* [Pricing table (Plan)] Add "Display button" setting.
+* [Pricing table (Plan)] Add "Display image" setting.
+* [Pricing table (Plan)] Adjusted the design of nested listings.
+* [Pricing table (Plan)] Change to use InnerBlocks for contents.
+* [Pricing table] Fixed a bug that prevented the column size setting from working.
+* [Section (background image/video)] Add divider settings.
+
+= 18.2.0 =
+* Snow Monkey v19.2.0 or higher is required to use with the Snow Monkey theme.
+* Fluid typography applied.
+* [Accordion] Add a margin to the left of the toggle button.
+* [Tabs] Fixed an issue where the tab button position may become misaligned depending on the iOS version.
+* [FAQ] Fixed a bug in which labels and text were not aligned vertically.
+
+= 18.1.7 =
+* [Section (Break the grid)] Change video to autoplay, loop, or mute.
+* [Information] Fixed a bug that the display position of labels was inherited when nested.
+* [Tabs] Fix a bug that tab color is blue on iOS.
+
+= 18.1.6 =
+* [Panel] Fixed a bug that sometimes caused the text to be white depending on the combination of blocks.
+
+= 18.1.5 =
+* [Contents outline] Fix PHP Warning error.
+
+= 18.1.4 =
+* [Section (Break the grid)] Fixed a bug that sometimes resulted in a PHP fatal error.
+
+= 18.1.3 =
+* [Section] Fix "Max width of the contents" bug.
+* Update styles of .c-row > .block-list-appender.
+
+= 18.1.2 =
+* [Section (Break the grid)] Fixed a bug that prevented setting the background color of content when the color selected in the color picker was CSS var.
+* [Section (Break the grid)] Fixed a bug that prevented masks from being set.
+* Update styles of .c-row > .block-list-appender.
+
+= 18.1.1 =
+* [Button] Fixed a bug that text was not centered when set to full size.
+
+= 18.1.0 =
+* [Button] Changed to the same look and feel as the button block in the core.
+* [Contents outline] Added title setting.
+
+= 18.0.1 =
+* [Panels] Fixed a bug that the heights of each panel were not aligned.
+* [Panels] Change the size of the title of the panel to a smaller size.
+* [Container] Added a setting to remove spaces on the left and right.
+* [Media text] Fixed a bug in that "Sort by mobile" was sometimes not reflected correctly.
+* Remove CSS from fallback.css that affects the entire page.
+
+= 18.0.0 =
+* Require sass-basis@18.0.0 or later.
+* Add some CSS vars.
+* New block: Insert pattern (Beta)
+* [Balloon] Changed design to use CSS vars.
+* [Box] Changed design to use CSS vars.
+* [Button] Changed design to use CSS vars.
+* [Button box] Changed design to use CSS vars.
+* [Countdown] Changed design to use CSS vars.
+* [Directory structure] Changed design to use CSS vars.
+* [Evaluation star] Changed design to use CSS vars.
+* [Evaluation star] Refactoring CSS
+* [FAQ] Changed design to use CSS vars.
+* [FAQ] Refactoring CSS.
+* [Items] Changed design to use CSS vars.
+* [Pricing table] Changed design to use CSS vars.
+* [rating box] Changed design to use CSS vars.
+* [Section] Changed design to use CSS vars.
+* [Section (Break the grid)] Changed design to use CSS vars.
+* [Section (Side heading)] Changed design to use CSS vars.
+* [Section (Background image/video)] Changed design to use CSS vars.
+* [Contents slider] Changed design to use CSS vars.
+* [Slider] Changed design to use CSS vars.
+* [Step] Changed design to use CSS vars.
+* [Items (Banner)] Fix bug than in panel block, the link is not clickable.
+* Fixed a bug in which multiple slider-type blocks did not slide correctly when the arrows were clicked.
+* Update patterns.
+* Refactoring block manager.
+
+= 17.2.1 =
+* [Child pages] Fixed a bug that prevented blocks from being selected on the editor.
+
+= 17.2.0 =
+* Support block presets feature of Snow Monkey Editor plugin.
+* [RSS] Fixed a bug that caused a block error when trying to enter a feed URL.
+
+= 17.1.0 =
+* Added support for move_to attribute in table of contents block.
+
+= 17.0.3 =
+* Fixed a bug that caused fallback CSS to be loaded even in environments where fallback CSS is not required.
+
+= 17.0.2 =
+* Fixed a bug that caused a Fatal Error when opening Settings → Snow Monkey Blocks.
+* Fixed a bug that caused a Fatal Error when saving settings.
+
+= 17.0.1 =
+* [Contents slider] Fixed a bug that sometimes prevented the display.
+* [Recent posts] Fixed a bug that could result in invalid content.
+* [Taxonomy posts] Fixed a bug that could result in invalid content.
+* [RSS] Fixed a bug that could result in invalid content.
+* [Recent posts] Fixed a bug that prevented selection on the editor.
+* [Taxonomy posts] Fixed a bug that prevented selection on the editor.
+* [RSS] Fixed a bug that prevented selection on the editor.
+* [Taxonomy] Fixed a bug that prevented selection on the editor.
+* [Pickup slider] Fixed a bug that prevented selection on the editor.
+* [Like me box] Fixed a bug that prevented selection on the editor.
+
+= 17.0.0 =
+* Requires WordPress 6.1 or later.
+* [Panels] Fixed a bug that images were not included in the clickable area of links in horizontal layouts.
+* [Buttons] Added background gradient settings.
+* [Button box] Added background gradient settings.
+* [Items] Added background gradient settings.
+* [Pricing table] Added background gradient settings.
+* [Slider] Fixed a bug that images sometimes did not reflect width and height.
+
+= 16.1.0 =
+* [FAQ] Add structured data.
+* [Tabs] Fixed a bug that when a slider block (fade) was placed, the slider block was displayed even when its tab panel was hidden.
+* [Tabs] Fixed a bug that caused unintended display when using "Duplicate Block" and "Delete Block".
+
+= 16.0.9 =
+* [Tabs] Fixed an issue where slider blocks placed on the second and subsequent tabs were displayed a little larger.
+
+= 16.0.8 =
+* [Tabs] Fixed an issue where slider blocks placed on the second and subsequent tabs were displayed a little larger.
+
+= 16.0.7 =
+* [Contents Slider] Fixed a bug that caused padding to be added to the top and bottom of the slider for displaying a box shadow even if a box shadow was not set.
+
+= 16.0.6 =
+* [Section] Fixed a bug that caused a block validation error when copying and pasting the block to another site with the texture set.
+* [Section (Break the grid)] Fixed a bug that caused a block validation error when copying and pasting the block to another site with the texture set.
+* [Section (Side heading)] Fixed a bug that caused a block validation error when copying and pasting the block to another site with the texture set.
+
+= 16.0.5 =
+* [Tabs] Fixed an issue where moving the tab position after adding a tab would cause the tab to be incorrectly linked to the content.
+
+= 16.0.4 =
+* [Tabs] Fixed a bug that lines were not displayed on tabs that required scrolling when the block style "Line" was used.
+
+= 16.0.3 =
+* Fixed a bug that prevented some blocks from being inserted on Windows servers.
+
+= 16.0.2 =
+* [Tabs] Fixed an issue where unnecessary space was sometimes created at the bottom of tab blocks depending on the content of the hidden block.
+* [Slider] Changed so that when the next/prev button is clicked, it loops if the user is in the first/last position.
+* [Contents slider] Changed so that when the next/prev button is clicked, it loops if the user is in the first/last position.
+
+= 16.0.1 =
+* [Tabs] Fixed a bug that the second and subsequent tabs were displayed out of alignment when "Align the height of each tab panel" was not checked.
+
+= 16.0.0 =
+* Requires WordPress 6.0 or later.
+* Changes due to changes in WordPress 6.0.
+* Update FontAwesome 5 to 6.
+* [Balloon] Changed to apply margins between elements.
+* [Contents slider] Fixed a bug that blocks could be broken when selecting slides.
+* [Contents slider] Fixed a bug that sometimes prevented the correct background color from being applied to slides.
+* [Tabs] Fixed a bug that slider blocks were sometimes not displayed when they were inserted inside a slider block.
+
+= 15.0.6 =
+* Fixed a bug that prevented the block manager from working if WordPress was installed in the sub directory.
+
+= 15.0.5 =
+* Fixed a bug that prevented the block manager from working if WordPress was installed in the own directory.
+
+= 15.0.4 =
+* Fixed a bug in which settings could not be changed in the block manager.
+
+= 15.0.3 =
+* Refactoring the blocks manager.
+* Fixed a bug that caused js errors in the customizer.
+
+= 15.0.2 =
+* [FAQ] Addressing the fact that when the Q and A labels are unchanged, the start of the sentence is misaligned.
+* [Section] Fixed a bug where the texture "Noise" sometimes did not lay down cleanly.
+* [Section (Break the grid)] Fixed a bug where the texture "Noise" sometimes did not lay down cleanly.
+* [Section (Side heading)] Fixed a bug where the texture "Noise" sometimes did not lay down cleanly.
+
+= 15.0.1 =
+* [Contents slider] Fixed a bug where scrolling down the page after sliding an item could cause the slide to go back to the first one.
+* [Section] Fixed a bug where the bottom of the background text could not be set correctly.
+* [Section (Break the grid)] Fixed a bug where the bottom of the background text could not be set correctly.
+* [Section (Side heading)] Fixed a bug where the bottom of the background text could not be set correctly.
+* [Section (Background image/video)] Fixed a bug where the bottom of the background text could not be set correctly.
+
+【セクション】【セクション（ブロークングリッド）】【セクション（サイド見出し）】【セクション（背景画像/動画）】背景テキストの下基準位置がおかしい
+
+= 15.0.0 =
+* [Section (YouTube)] Abolition.
+* [Accordion] Changed to show outline when accordion block is focused during keyboard operation.
+
+= 14.1.1 =
+* Update sass-basis@17.0.0
+
+= 14.1.0 =
+* [Slider] Fixed a bug where images were not width:100%.
+* [Taxonomy posts] Added the ability to select the taxonomy to be used for category labels.
+
+= 14.0.1 =
+* [Contents outline] Fixed a bug that headings in group blocks are not targeted in WordPress 5.9.
+
+= 14.0.0 =
+* Requires WordPress 5.9 or later.
+* End of support for ie11.
+* Changes due to changes in WordPress 5.9.
+* Renamed and order of the settings panel for each block.
+* Renamed the child blocks of each block.
+* [Balloon] Moved avatar position settings to the block toolbar.
+* [Panel] Moved image position settings to the block toolbar.
+* [Items:banner] Fixed a bug that images were not being used as `cover`.
+* [Items:banner] Fixed a bug where an unwanted margin would appear at the top of the image when the image size was 4:3.
+* [Contents slider] Fixed a bug where the background color was not reflected when set to a gradient.
+* [Section (Break the grid)] Fixed a bug where the image would disappear when the media was moved to the top or bottom after "Adjust the height of the media to the height of the block." was enabled.
+
+= 13.7.3 =
+* [Media text] Fixed "Sort by mobile" bug.
+
+= 13.7.2 =
+* [Media text] Fixed bug that when "Sort by mobile" was set, InnerBlocks with `.c-row` would also be affected.
+
+= 13.7.1 =
+* [Items] Fix "Border" block style bug.
+
+= 13.7.0 =
+* [Items] Add block styles: "Boundary line" and "Border".
+* [Items:banner] Add new settings: "3:4" and "9:16" into "Image aspect ratio".
+* [Items:banner] Add new feature: Content alignment setting.
+
+= 13.6.0 =
+* [Contents slider] Improved display in the editor.
+* [Contents slider] Fixed bug that caused a validation error when saving a slide with the background color set.
+* [Child pages] Fix "Specify the parent page." bug.
+* Update examples.
+
+= 13.5.0 =
+* Add the "Contents Slider" block.
+* [Panel] Add the "Item (Free input / Block link)" block.
+* [Section] Add new feature: Background text.
+* [Section (Break the grid)] Add new feature: Background text.
+* [Section (Background image/video)] Add new feature: Background text.
+* [Section (YouTube)] Add new feature: Background text.
+* [Child pages] Add new feature: Specify the parent page.
+* [Box] Add new feature: Content Padding.
+* [Contents outline] Fix bug that "Show section block titles" is not refrected.
+* [Section (Break the grid)] Fixed bug that the lead text was not centered even if the text alignment was centered.
+
+= 13.4.0 =
+* [Section] Add new setting: Remove container padding.
+* [Section] Changed "Container alignment" to show only when the block is full width.
+* [Section] Add new setting: Add "Full width (Content only)" and "Full width (Content only)" to "Container alignment".
+* [Section (Background image/video)] Remove container padding.
+* [Section (Background image/video)] "Container alignment" to show only when the block is full width.
+* [Section (Background image/video)] Add new setting: Add "Full width (Content only)" and "Full width (Content only)" to "Container alignment".
+* [Section (YouTube)] Remove container padding.
+* [Section (YouTube)] "Container alignment" to show only when the block is full width.
+* [Section (YouTube)] Add new setting: Add "Full width (Content only)" and "Full width (Content only)" to "Container alignment".
+* [Section (Side heading)] "Container alignment" to show only when the block is full width.
+* [Section (Break the grid)] "Container alignment" to show only when the block is full width.
+* [Slider] Improved the display in the editor when the slider is shifted.
+
+= 13.3.0 =
+* Change some blocks name. Double hyphens to single hyphen. eg. `snow-monkey-blocks/step--item` to `snow-monkey-blocks/step-item`.
+* [Section (Break the grid)] Add new feature: Adjust the height of the media to the height of the block.
+
+= 13.2.1 =
+* [Box] Fix box shadow bug.
+
+= 13.2.0 =
+* [Slider] Add new setting: Animation speed.
+* [Box] Add new setting: Box shadow.
+
+= 13.1.0 =
+* Add `max-width: 100%` to `.smb-section__inner`.
+* [Container] Add new setting: Max width of the contents.
+* [Section]
+* [Section (Side heading)] Fixed a bug where the "Max content width" was not maintained when the block was positioned right or left.
+* [Section (Background image/video)] Fixed a bug where the "Max content width" was not maintained when the block was positioned right or left.
+* [Section (YouTube)] Fixed a bug where the "Max content width" was not maintained when the block was positioned right or left.
+
+= 13.0.3 =
+* Fix typo.
+
+= 13.0.2 =
+* [Section] Fix bug that layout is corrupted when old HTML structure.
+* Fixed bug where the editing screen might not be displayed.
+
+= 13.0.1 =
+* Change image name.
+
+= 13.0.0 =
+* [Section] Change HTML structures.
+* [Section] Add new setting: Max width of the contents.
+* [Section] Add new setting: Container alignment.
+* [Section (Background image/video)] Change HTML structures.
+* [Section (Background image/video)] Add new setting: Max width of the contents.
+* [Section (Background image/video)] Add new setting: Container alignment.
+* [Section (Background image/video)] Add new setting: Image size.
+* [Section (YouTube)] Change HTML structures.
+* [Section (YouTube)] Add new setting: Max width of the contents.
+* [Section (YouTube)] Add new setting: Container alignment.
+* [Section (Side heading)] Change HTML structures.
+* [Section (Side heading)] Add new setting: Max width of the contents.
+* [Section (Side heading)] Add new setting: Container alignment.
+* [Section (Break the grid)] Change HTML structures.
+* [Section (Break the grid)] Changed so that containers are not full width even if they are full width.
+* [Section (Break the grid)] Add new setting: Container alignment.
+* [Section (Break the grid)] Add new settings: Background settings.
+* [Section (Break the grid)] Add new settings: Fixed background settings.
+* [Section (Break the grid)] Add new setting: Padding.
+* [Section (Break the grid)] Add new settings: "Top" and "Bottom" to "Media position".
+* [Section (Break the grid)] Add new settings: "No wrap" to "Sort by mobile".
+* [Section (Break the grid)] Add new paramaters of "Image Size Adjustment".
+* [Section (Break the grid)] Add new paramaters of "Content Size Adjustment".
+* [Section (Break the grid)] Add new paramaters of "Degree of overlap of content to image".
+* [Section (Break the grid)] Change block attribute values. "imageSize", "contentSize" and "contentHorizontalPosition".
+* [Button] Fixed a bug that the background color setting was not reflected when entering a class in the additional CSS class after setting the block style to ghost.
+* [Button box] Fixed a bug that the background color setting was not reflected when entering a class in the additional CSS class after setting the block style to ghost.
+* [Items:banner] Fix block validation error.
+* Change images in block patterns.
+* Change block pattern categories name.
+
+= 12.6.1 =
+* [Slider] Fixed a bug that the slide position was shifted when set to alignwide.
+
+= 12.6.0 =
+* [Section (Break the grid)] Move "Contents alignment" inspector to block toolbar.
+* [Section (Side heading)] Move "heading position" inspector to block toolbar.
+* [Section (Background image/video)] Add new setting: "Full" into "Height".
+* [Section (Background image/video)] Add new setting: Vertical alignment.
+* [Section (Background image/video)] Add new setting: Horizontal alignment.
+* [Section (Background image/video)] Move "Contents alignment" inspector to block toolbar.
+* [Section (YouTube)] Add new setting: "Full" into "Height".
+* [Section (YouTube)] Add new setting: Vertical alignment.
+* [Section (YouTube)] Add new setting: Horizontal alignment.
+* [Section (YouTube)] Move "Contents alignment" inspector to block toolbar.
+* [Section] Add new setting: "Full" into "Height".
+* [Section] Add new setting: Vertical alignment.
+* [Section] Add new setting: Horizontal alignment.
+* [Section] Move "Contents alignment" inspector to block toolbar.
+* [Child pages] Add new setting: "Large image" into "Layout".
+* [Recent posts] Add new setting: "Large image" into "Layout".
+* [RSS] Add new setting: "Large image" into "Layout".
+* [Taxonomy posts] Add new setting: "Large image" into "Layout".
+
+= 12.5.1 =
+* [Slider] Refactoring HTML.
+
+= 12.5.0 =
+* [Slider] Add setting: Margin size between slides.
+* [Slider] Add setting: Shifting the slider.
+* [Media text] Change Japanese translation.
+
+= 12.4.1 =
+* Add some block keywords.
+* [Slider] Enables scrolling by drag.
+* [Pickup slider] Enables scrolling by drag.
+* [Recent posts] Enables scrolling by drag.
+* [Taxonomy posts] Enables scrolling by drag.
+* [Balloon] The name can be decorated.
+
+= 12.4.0 =
+* [Pickup Slider] Fix bug that additional CSS classes is not refrected.
+* [Pickup Slider] Add settings. "Fade", "Display arrows", "Display dots" and "Change dots to thumbnails".
+
+= 12.3.1 =
+* [Tabs] Update design of "Line" block style.
+* Update icons.
+
+= 12.3.0 =
+* Add new block: Tabs block.
+* Update icons.
+
+= 12.2.0 =
+* [Items] Add setting for item justification.
+* [Panels] Add setting for item justification.
+* [Box] Add border radius setting.
+
+= 12.1.0 =
+* [Section (Break the grid)] Add "Contents alignment" setting.
+
+= 12.0.3 =
+* [Section (Break the grid)] Fixed a bug where media could not be placed on the left.
+
+= 12.0.2 =
+* Fixed a bug in which the "Contents alignment" of child sections was not correctly reflected when section-based blocks were nested.
+* [Section (Break the grid)] Fixed a bug where the lead text was not centered even if the "Contents alignment" was centered.
+* [Section (YouTube)] Fixed a bug where the lead text was not centered even if the "Contents alignment" was centered.
+
+= 12.0.1 =
+* [Recent posts] Fixed a bug where this is not being re-rendered in the block based widget screen. This may affect the compatibility with older block. In this case, please reconfigure a new block.
+* [Taxonomy posts] Fixed a bug where this is not being re-rendered in the block based widget screen. This may affect the compatibility with older block. In this case, please reconfigure a new block.
+
+= 12.0.0 =
+* Compatible with WordPress 5.8. 5.7 is not supported.
+* CSS changes with the WordPress 5.8 update.
+* [Button] Change the margin from `margin` to `gap`.
+* [Section] Add setting the vertical position of the content.
+* [Section] Add height setting.
+* [Section (Background image/video)] Change the class name of vertical alignment and height.
+* [Section (YouTube)] Change the class name of vertical alignment and height.
+* [Section (Background image/video)] Fixed a bug that caused videos to be treated as images when specified as URLs in the media.
+* [Section (Break the grid)] Fixed a bug that caused videos to be treated as images when specified as URLs in the media.
+* [Media text] Fixed a bug that caused videos to be treated as images when specified as URLs in the media.
+* [Slider (Deprecated)] Fixed a bug where images were sometimes not displayed in full width.
+
+= 11.4.1 =
+* [Box] Fixed a bug that the ruled lines were sometimes missing in Safari.
+* [Slider] Fixed a bug that could scroll horizontally even though it was a fade.
+
+= 11.4.0 =
+* The section blocks can now be displayed in all themes.
+* [Section] Fixed a bug where applying formatting to a lead could break the layout.
+* [Section (Background image/video)] Fixed a bug where applying formatting to a lead could break the layout.
+* [Section (YouTube)] Fixed a bug where applying formatting to a lead could break the layout.
+* [Section (Break the grid)] Fixed a bug where applying formatting to a lead could break the layout.
+
+= 11.3.1 =
+* [Section] Fixed a bug where applying formatting to a lead could break the layout.
+* [Section (Background image/video)] Fixed a bug where applying formatting to a lead could break the layout.
+* [Section (YouTube)] Fixed a bug where applying formatting to a lead could break the layout.
+* [Section (Break the grid)] Fixed a bug where applying formatting to a lead could break the layout.
+* [Section (Break the grid)] Fixed a bug that images did not extend to the edge of the screen when made full width in the editor.
+* [Section] Fixed a bug where it tried to load a texture image even if the texture was set to "None".
+* [Section (Side heading)] Fixed a bug where it tried to load a texture image even if the texture was set to "None".
+
+= 11.3.0 =
+* [Balloon] Add text color setting.
+* [Section] Add "Background (Fixed) Settings".
+* [Section (Side heading)] Add "Background (Fixed) Settings".
+* [Section] Add texture settings.
+* [Section (Side heading)] Add texture settings.
+* [Section] Changed so that moving the background color does not move the position of the separator.
+* [Section (Side heading)] Changed so that moving the background color does not move the position of the separator.
+* [Section] Change "Background Settings" to "Background (Movable) Settings".
+* [Section (Side heading)] Change "Background Settings" to "Background (Movable) Settings".
+* [Section] Fixed a bug that caused the delimiters to shrink in Firefox.
+* [Section (Side heading)] Fixed a bug that caused the delimiters to shrink in Firefox.
+* [Section (Background image/video)] Fixed a bug where the gradient was not reflected.
+* [Section (YouTube)] Fixed a bug where the gradient was not reflected.
+* [Countdown] Fixed a bug where the block style was not reflected.
+
+= 11.2.0 =
+* [Recent posts] Added the ability to display meta information and category labels.
+* [Taxonomy posts]　Added the ability to display meta information and category labels.
+* [Recent posts] Add new layout "Carousel (Rich media)".
+* [Taxonomy posts] Add new layout "Carousel (Rich media)".
+* [RSS] Add new layout "Carousel (Rich media)".
+* [Child pages] Add new layout "Carousel (Rich media)".
+* [Section (Background image/video)]Gradients in background mask color settings changed to core components.
+* [Section (YouTube)] Gradients in background mask color settings changed to core components.
+* [Step] Refactoring CSS.
+* [Section] Fixed a bug that sometimes caused thin lines to be displayed when setting delimiters.
+* [Section (Side heading)] Fixed a bug that sometimes caused thin lines to be displayed when setting delimiters.
+* Update CSS of each blocks for block editor.
+* Changed the popover display conditions for buttons in each block.
+* Fixed some translations.
+
+= 11.2.1 =
+* [Step] Correct the misalignment of the line.
+
+= 11.1.0 =
+* [Media text] Add media link and attachment link settings.
+* Update link/unlink icons.
+
+= 11.0.3 =
+* [Slider] Fixed a bug in which loop playback was not performed when the number of slides to be displayed was more than two.
+* [Buttons] Fixed a bug that blocks could be broken after changing the alignment.
+
+= 11.0.2 =
+* [Section (Break the grid)] Fixed a bug in which the bottom part of the text was sometimes cut off when using alignfull + mobile.
+
+= 11.0.1 =
+* [Section] Fixed a bug where the background would be covered by the next element when the background position was shifted.
+* [Section (Break the grid)] Fixed a bug where the shadow would be covered by the next element when the shadow position was shifted.
+
+= 11.0.0 =
+* [Box] Add gradient setting to background color setting.
+* [Items] Add new setting. "Align the bottom of the button of each items (standard, block link item only)."
+* [Section] Change the gradient setting to the core.
+* [Section (Side heading)] Change the gradient setting to the core.
+* [Buttons] Updates horizontal alignment settings to match core blocks.
+* [Testimonial] Fix bottom margin bug on editor.
+* [Slider] Fixed a bug that prevented slide interval from being reflected.
+* [Pickup slider] Fixed a bug that prevented slide interval from being reflected.
+* [Like me box] Fixed a bug that sometimes resulted in a Fatal error.
+* Change `className="components-disabled"` to `<Disabled />`.
+* Change `registerStore` to `createReduxStore`.
+* Fixed a bug where the title and description of each block were not translated.
+* In Snow Monkey theme, some layouts are broken when "White space size between elements" is set to "Wide".
+* Fix heading3 block pattern bug.
+
+= 10.3.3 =
+* [Slider] Fixed a bug that prevented slide interval from being reflected on iOS.
+* [Pickup Slider] Fixed a bug that prevented slide interval from being reflected on iOS.
+
+= 10.3.2 =
+* [Section(YouTube)] Fixed a bug that caused images to be shifted to the left on Safari.
+
+= 10.3.1 =
+* [Slider] Fixed a bug that prevented slide interval from being reflected on iOS.
+* [Slider] Fixed a bug where the bottom margin was not correct in the editor.
+* [Thumbnail gallery] Fixed a bug where the bottom margin was not correct in the editor.
+
+= 10.3.0 =
+* [Slider] Fixed bug that caused images to not be displayed in the editor when the fade setting was enabled.
+* [Slider] Change the HTML structure of the slider block.
+* [Child pages] Add some settings.
+
+= 10.2.1 =
+* [Slider] Fixed a bug that prevented slide interval from being reflected on iOS.
+* [Pickup Slider] Fixed a bug that prevented slide interval from being reflected on iOS.
+* Fixed a bug that images of block patterns (feature1, feature6) were not displayed.
+* Fixed a bug where it was possible to insert blocks even if they were disabled in the block manager.
+
+= 10.2.0 =
+* Add blocks manager. Dashboard > Settings > Snow Monkey Blocks.
+
+= 10.1.0 =
+* [Section (Background image/video)] Add focal point setting.
+* [Items] Add vertical alignment setting.
+* [Section] Fixed a bug in which setting the separator and background position at the same time resulted in an unintended display.
+* [Pickup slider] Fixed a cumulative bug in Safari.
+* [Slider] Fixed a cumulative bug in Safari.
+
+= 10.0.1 =
+* [Items] Refactoring CSS.
+* [Information] Fixed a bug in the editor where the placeholders for labels were misaligned.
+* [Section] Add "Make sure the background doesn't overflow to the outside" sestting.
+
+= 10.0.0 =
+* WordPress 5.6 compatibility.
+* Added the ability to specify the URL for each block of images.
+* [Items] Add the option to glue each item together.
+* [Items] Add free input child block.
+* [Panels] Add free input child block.
+* [Panels] Change max per row 4 to 6.
+* [Information] Add new block.
+* [Button] Add text block style.
+* [Section] Change background position styles.
+
+= 9.7.1 =
+* [Evaluation star] Title not being displayed fixed.
+* [Slider] Fix IE11 layout bug.
+* Fixed an issue where link formats could be set for each button.
+* Speeding up PHP file loading.
+
+= 9.7.0 =
+* [Slider] Fixed layout mismatch in ie11.
+* [Pickup slider] Fixed layout mismatch in ie11.
+* [Panel] Change children items name.
+* [Buttons] Update layout.
+* [Button] Fixed a bug that prevented it from becoming full size.
+* [Items (Banner)] Add text alignment setting.
+* [Items (Banner)] Add "Fit the content" to size setting.
+* [Items (Banner)] Change the size setting from "Default" to "Fit to image".
+
+= 9.6.2 =
+* Fix bug that Assets::_enqueue_block_scripts() does not return $block_content in admin context.
+* [Pricing table] Fix auto column size bug.
+
+= 9.6.1 =
+* [Section(break the grid)] Some fixes for 9.6.0.
+
+= 9.6.0 =
+* [Button] Changed to allow multiple buttons to be lined up like the core button block.
+* [Button] Add border radius setting.
+* [Button] Add new button size settings.
+* [Section(break the grid)] Add mask setting.
+* [Section(break the grid)] Add content background opacity setting.
+* [Section(break the grid)] Add mobile order setting.
+* [Button box] Add button setting.
+* [Items] Add button setting.
+* [Pricing table] Add button setting.
+* [Section(background image/video)] Move mask color setting to mask setting.
+* [Section(YouTube)] Move mask color setting to mask setting.
+* [Section(break the grid)] Move image position setting to toolbar.
+* [Section(break the grid)] Move vertical alignment setting to toolbar.
+* [Items] Fixed an issue with blocked links not being set if the button label is not entered.
+* [Panels] Fixed an issue where images would be collapsed in IE11 when viewed horizontally.
+
+= 9.5.0 =
+* [Recent posts] Add text2 layout. (Require Snow Monkey v11.4.0)
+* [Taxonomy posts] Add text2 layout. (Require Snow Monkey v11.4.0)
+* [RSS] Add text2 layout. (Require Snow Monkey v11.4.0)
+* [Evaluation star] Add title setting.
+* Change registering block patterns timing `plugins_loaded` to `init`.
+* Formatting is now available for all blocks of text entry.
+
+= 9.4.2 =
+* [Child pages] Fixed a bug that caused the title tag to be printed even if the title was not entered.
+* [Section (Background image/video)] Fixed a bug that the image would not spread to full size in the editor.
+* [Section (Background image/video)] Fixed a bug that the mask did not work when "Repeat" was enabled.
+* [Section (Background image/video)] Fixed a bug that the number of digits of opacity was not correct.
+* [Items (Banner)] Fixed a bug that the number of digits of opacity was not correct.
+* [Button] Change the position of the link settings in the toolbar.
+* [Button box] Change the position of the link settings in the toolbar.
+
+= 9.4.1 =
+* [Slider] Fixed a bug that the number displayed on a smartphone is not properly reflected.
+* [Slider] Hide scrollbar.
+* [Pickup Slider] Hide scrollbar.
+* [Button] Add wrap option.
+
+= 9.4.0 =
+* [Slider] Add slides to show settings.
+* Add CSS custom properties: `--_color-white`, `--_color-gray`, `--_dark-color-gray`, `--_darker-color-gray`, `--_darkest-color-gray`, `--_dark-color-text`, `--_darker-color-text`, `--_darkest-color-text`.
+
+= 9.3.0 =
+* [Media text] Add vertial alignment setting.
+* [Media text] Changed the image position setting to the block toolbar.
+* [Section (with background image/video)] Fixed an issue where images for PC/tablet use were not inherited to smaller sizes.
+
+= 9.2.0 =
+* [Recent posts] Fix columns setting bug.
+* [RSS] Fix columns setting bug.
+* [Taxonomy posts] Fix columns setting bug.
+* [Section (with background image/video)] Add image repeat setting.
+
+= 9.1.0 =
+* [Recent posts] Fix columns setting bug.
+* [Recent posts] Columns setting only show layout setting is rich-media or panel.
+* [RSS] Fix columns setting bug.
+* [RSS] Columns setting only show layout setting is rich-media or panel.
+* [Taxonomy posts] Fix columns setting bug.
+* [Taxonomy posts] Columns setting only show layout setting is rich-media or panel.
+* [Slider] Fix fade bug.
+* [Slider] Add autoplay setting.
+* [Slider] Add caption setting.
+* [Pickup slider] Fix bug that alignfull/alignwide not applied.
+* [Pickup slider] Add autoplay setting.
+
+= 9.0.3 =
+* [Rating box] Bug fixes.
+* [Slider] Bug fixes.
+
+= 9.0.2 =
+* [Rating box] Bug fixes.
+
+= 9.0.1 =
+* [Step] Bug fixes.
+
+= 9.0.0 =
+* WordPress 5.5 compatibility.
+* The block template feature of Snow Monkey Blocks has been integrated into block patterns.
+* [Media text] Add media and text order setting for mobile devices.
+* [Slider] It has been deprecated. A new block has been added.
+* [Pickup slider] It has been deprecated. A new block has been added.
+* [Thumbnail gallery] It has been deprecated.
+* [Section] The parallax feature has been deprecated.
+* [Recent posts] Added a setting for the number of columns displayed on smartphones.
+* [Taxonomy posts] Added a setting for the number of columns displayed on smartphones.
+* [Balloon] Fixed avatar misalignment in the editor.
+* [Balloon] Add color settings.
+* [Contents outline] Add "Show section block titles" and "Show heading blocks in section blocks" settings.
+* [Text highlighter]  It has been removed.
+* [Text badge]  It has been removed.
+* [Format clear button]  It has been removed.
+
+= 8.8.3 =
+* Fixed a bug that the image of the headings block templates were not displayed.
+* Fixed a bug that caused the editor to load unnecessary JavaScript.
+
+= 8.8.2 =
+* Some fixes
+
+= 8.8.1 =
+* Remove `snow_monkey_blocks_enqueue_slick` filter hook.
+* Fixed bug that broken headings block templates.
+* Update parallax effect.
+* [Slider / Thumbnail gallery] Changed the script of slick-caroucel is loaded when required.
+* [Directory structure] Changed to not fold back.
+
+= 8.8.0 =
+* [Slider] Add image aspect ratio setting.
+* [Box] Fix box border radius style bug.
+* [Section (with background image/video)] Fixed a bug that the border is displayed when the mask opacity is 0.
+
+= 8.7.0 =
+* Changed to display an unlink button for blocks with links.
+* Change Japanese translation: 透明度 to 不透明度
+* [Pricing table] Changed to display the button only when both label and URL are set.
+* [Box] Add background opacity setting.
+* [Item (Banner)] Change HTML structure.
+* [Item (Block link)] Change HTML structure.
+
+= 8.6.2 =
+* Remove moment.
+* [Countdown] Fixed a bug that calendar date cannot be selected.
+
+= 8.6.1 =
+* [Recent posts] Change default item thumbnail size. medium to large.
+* [Taxonomy posts] Change default item thumbnail size. medium to large.
+* [Section (with background image/video)] Fixed a problem that large size image can be seen through when setting mask with multiple size images set.
+
+= 8.6.0 =
+* Require Snow Monkey v10.7.0 or later.
+* [Slider] Fixed a bug that a margin may be added at the bottom when displaying multiple images.
+* [Recent posts] Add item title tag setting.
+* [Recent posts] Add item thumbnail size setting.
+* [Taxonomy posts] Add item title tag setting.
+* [Taxonomy posts] Add item thumbnail size setting.
+* [RSS] Add item title tag setting.
+* Add width/height attribute to image.
+
+= 8.5.0 =
+* Require Snow Monkey v10.6.0 or later.
+* Add new block "RSS".
+* Fixed a screen crash when trying to use the block template function.
+
+= 8.4.2 =
+* [Taxonomy terms] Change name "Taxonomy terms" to "Taxonomy".
+* [Slider] Add attributes width and height.
+
+= 8.4.1 =
+* [Taxonomy terms] Fixed minor bugs.
+
+= 8.4.0 =
+* Add image delete button to toolbar with image.
+* Add new block "Taxonomy terms".
+* [Panels] Changed to save the link URL even if the link label is not entered.
+
+= 8.3.1 =
+* [Items] Layout is broken when text link is set in the text of "Contents" while "Link" is set.
+* [Items] Change HTML structure.
+
+= 8.3.0 =
+* [Items] Add image size option.
+* [Media text] Add image size option.
+* [Panels] Add image size option.
+* [Pricing table] Add image size option.
+* [Section (Break the grid)] Add image size option.
+* [Slider] Add image size option.
+* [Step] Add image size option.
+* [Thumbnail gallery] Add image size option.
+
+= 8.2.4 =
+* [Slider] Fixed a bug that the image is displayed in the size when it is smaller than the screen size.
+
+= 8.2.3 =
+* [Slider] Fixed a bug with a subtle gap at the bottom.
+* [Slider] Fixed a bug that a large margin may appear at the bottom when displaying multiple images.
+
+= 8.2.2 =
+* [Limited datetime] Fixed a bug that end date is not reflected.
+* [Recent posts] Fixed so that false clicks do not occur in the editor.
+* [Taxonomy posts] Fixed so that false clicks do not occur in the editor.
+
+= 8.2.1 =
+* [Section] Reverse background position setting.
+* [Section] Divider into background.
+
+= 8.2.0 =
+* Require Snow Monkey v10.1.1 or later.
+* [Section] Add background potision setting.
+* [Section break the grid] You can now insert videos.
+* [Each sections] Add subtitle and lede settings.
+
+= 8.1.0 =
+* [Media text] You can now insert videos.
+* Add some block templates.
+* [Section with background video] Rename to "Section with background YouTube video"
+
+= 8.0.2 =
+* Change link and btn setting UI. Popover to toolbar.
+
+= 8.0.1 =
+* Change link and btn setting UI.
+* Fix image setting UI.
+
+= 8.0.0 =
+* WordPress 5.4 compatible
+
+= 7.4.1 =
+* Minor refactoring of code.
+
+= 7.4.0 =
+* [Accordion] Fixed a bug that TwentyTwenty could not open / close.
+* [Recent posts] You can set the text to be displayed when there is no matching post.
+* [Taxonomy posts] You can set the text to be displayed when there is no matching post.
+* Add filter hook `snow_monkey_blocks_taxonomy_posts_no_posts_text`
+* Add filter hook `snow_monkey_blocks_recent_posts_no_posts_text`
+
+= 7.3.5 =
+* [Recent posts] Add layout Panels.
+* [Taxonomy posts] Add layout Panels.
+* [Button box] Changed to keep button label placeholder.
+* [Button] Changed to keep button label placeholder.
+* [Item (Standard)] Changed to keep button label placeholder.
+* [Item (Block link)] Changed to keep button label placeholder.
+* [Pricing table] Changed to keep button label placeholder.
+
+= 7.3.4 =
+* [Slider] Fix autoplay bug.
+* [Thumbnail slider] Fix autoplay bug.
+
+= 7.3.3 =
+* Update categories list block styles.
+
+= 7.3.2 =
+* Update browserslist. Using @wordpress/browserslist-config
+
+= 7.3.1 =
+* Changed some blocks to appear in excerpts.
+
+= 7.3.0 =
+* [Like me box] Add Like me box block.
+
+= 7.2.8 =
+* [Contents outline] Fixed a bug that the order was not correct when multiple selectors were specified.
+
+= 7.2.7 =
+* Adjust the design with a relaxed and bright overall.
+* [Alert] Add remark pattern.
+
+= 7.2.6 =
+* Removed color change effect when hovering over button.
+
+= 7.2.5 =
+* [Panel (horizontal)] Fixed a bug that images were not stuck exactly up and down on the editor.
+* [Media text] Add caption setting.
+
+= 7.2.4 =
+* Fix IE11 JS error.
+
+= 7.2.3 =
+* [Btn box] Fix ghost style bug.
+* [Btn] Fix ghost style bug.
+* Organizing color settings panels.
+
+= 7.2.2 =
+* Fixed bugs in the editor CSS.
+
+= 7.2.1 =
+* Refactoring loading proccess of CSS for editor.
+
+= 7.2.0 =
+* [Section] Extends divier level
+* [Secion side heading] Extends divier level
+
+= 7.1.1 =
+* [Contents Outline] Fix anchor setting bug. (Requires Snow Monkey Theme 8.4.1 or later)
+* [Banner] Fixed a bug where blocks are broken when clearing and saving color settings.
+
+= 7.1.0 =
+* [Contents Outline] Add anchor setting.
+* [Section with background image] Add image settings for each breakpoints.
+* [Section side heading] Add heading position setting.
+* Add example for each blocks. And remove blocks screenshot in sidebar.
+
+= 7.0.0 =
+* Change how each block is read according to the gutenberg handbook.
+* [Pickup slider] Added setting for maximum display number (Requires Snow Monkey Theme 8.2.0 or later).
+
+= 6.0.1 =
+* [FAQ] Fix bug that the question can not input on editor.
+
+= 6.0.0 =
+* Requires WordPress 5.3 or later
+
+= 5.2.1 =
+* [Pricing table] Fix bug that column size not refrected on editor.
+* [Alert] Transforms from paragraph.
+
+= 5.2.0 =
+* [Media text] Add image link setting.
+* [Directory structure] Fix bug that icon is not displayed on editor.
+* [Badge] Fixed a bug that pop-up does not open even when the cursor is hovered.
+* WordPress 5.3 compatibility.
+
+= 5.1.0 =
+* [Pickup Slider] Add HTML anchor setting.
+* [Pickup Slider] Add filter hook `inc2734_wp_awesome_widgets_pickup_slider_widget_args_<id>`
+
+= 5.0.1 =
+* Requires at least: 5.2
+* Change APIs path.
+* [Highlighter] Bug fix.
+* [Badge] Bug fix.
+
+= 5.0.0 =
+* Refactoring
+* Change protocol of maxresdefault.jpg http to htttps.
+
+= 4.12.0 =
+* Add format clear button.
+* Fix FAQ 1 block template bug.
+* Fix Pricing table 1 block template bug.
+* Refactoring block template inserter.
+
+= 4.11.1 =
+* [FAQ] Add anchor setting.
+* [Badge] Adjusting the vertical position display. Multiple lines are no longer allowed.
+* [Step] Can convert child blocks of steps.
+* [Step] Changed default child block to free input version.
+
+= 4.11.0 =
+* [Banner] Fixed a bug that the block is broken when the subtitle is saved.
+* [Child pages] Add title setting.
+* Added processing to avoid duplication of block categories
+
+= 4.10.0 =
+* Add text badge format.
+* [Step] Add anchor setting.
+* [Media text] Add anchor setting.
+
+= 4.9.1 =
+* [Items] Add banner block.
+
+= 4.8.0 =
+* [Media text] Add title tag setting.
+
+= 4.7.0 =
+* [Panels] Fixed a bug that the display width of the image differs depending on the content even if the same image is used.
+* [Sections] Add h1 to title tag setting.
+* [Slider] Add "slide to show" and "slide to scroll" setting for mobiles.
+
+= 4.6.0 =
+* [Sections] Add wrapper tag setting.
+
+= 4.5.1 =
+* [Slider] Fix bug that caused the link to fire when clicking on the image in the editor.
+
+= 4.5.0 =
+* [FAQ] The answer changed to free entry.
+* [Slider] Add link url/target setting.
+* Fix bug that there is no bottom margin of thumbnail gallery/slider block on editor.
+
+= 4.4.0 =
+* Add the Price menu block.
+* Add the Section side heading block.
+* Fix bug that container width shifts when making the section block wide/full width in editor.
+* Fix bug that margin may be created on the right side of the image of the horizontal panel block on E11.
+
+= 4.3.1 =
+* [Pricing table] Fix layout broken on the smartphone.
+* [Pricing table] Added column size settings for PC and tablet.
+
+= 4.3.0 =
+* Add Section (Break the grid) block.
+* [Section] Refactoring gradation panel.
+* [Section with background image] Refactoring gradation panel.
+* [Section with background video] Refactoring gradation panel.
+
+= 4.2.0 =
+* [Section] Add text color setting.
+
+= 4.1.0 =
+* [Section] Add background color gradation settings.
+* [Section with background image] Add background mask color gradation settings.
+* [Section with background image] Fix bug that output blank img tag when background image is not set.
+* [Section with background video] Add background mask color gradation settings.
+
+= 4.0.1 =
+* [Section] Fixed a bug that broke the block when setting the slim width.
+
+= 4.0.0 =
+* Add block template feature.
+* Add container block.
+* Merge `is_pro()` and `is_snow_monkey()`.
+* [Thumbnail gallery] Add caption setting.
+* [Section (with background image/background video)] Add content width setting.
+* [Contents outline] Add "move to before first heading" setting.
+* [Testimonial] Add columns setting
+* [Step] Abolish child block insertion restriction.
+* [Step] Add free input child block.
+
+= 3.7.0 =
+* [Pricing table] Add horizontal scroll on tablet/PC.
+* [Section with background image] Fix bug that parallax effect is not applied.
+* [Panels] Add none option to titleTag setting.
+* [Items] Add none option to titleTag setting.
+* [Section] Add titleTag setting.
+
+= 3.6.0 =
+* Add countdown timer block.
+* Add directory structure block.
+
+= 3.5.4 =
+* [Balloon] Change design.
+* Update ja translations.
+
+= 3.5.3 =
+* [Taxonomy posts] Fixed a bug that "No posts found" is displayed on the editor when selecting a parent category.
+* Change block icons color.
+
+= 3.5.2 =
+* [Taxonomy posts] Fixed a bug that "No posts found" is displayed on the editor when selecting a parent category.
+* [FAQ] Make Q and A changeable.
+* [Section background image/video] Fixed bug that blocks will be broken when you clear the mask color.
+* Fix image to reflect alt attribute.
+* Change block icons color.
+
+= 3.5.1 =
+* [Button] Fixed the bug that alignment setting is not reflected on editor.
+
+= 3.5.0 =
+* [Button] Add styles setting.
+* [Button box] Add styles setting.
+
+= 3.4.1 =
+* [Section with background video] Changed to display thumbnail instead of video for mobile.
+
+= 3.4.0 =
+* Fix vertical margin of some blocks.
+* Fix bug that the input probrem at the spotlight mode.
+* Add description of blocks.
+* Add fade setting to the slider block.
+
+= 3.3.0 =
+* Add limited datetime block.
+* Add toggle arrow to the accordion block.
+* Refactoring category list block.
+
+= 3.2.1 =
+* Refactoring taxonomy posts block.
+* Refactoring recent posts block.
+
+= 3.2.0 =
+* Add taxonomy posts block. This block working on Snow Monkey v5.4.7
+* Add post type setting to the recent posts block.
+
+= 3.1.6 =
+* Add id to the recent posts block. So you can use `snow_monkey_recent_posts_widget_args_<id>` hook.
+
+= 3.1.5 =
+* Fix notice error at className of dynamic blocks.
+
+= 3.1.4 =
+* Fix bug that broken dynamic blocks when set custom class name.
+
+= 3.1.3 =
+* Add anchor setting to the section with background image block and the section with background video block.
+
+= 3.1.2 =
+* Deprecated the items > item block.
+* Add the items > item (standard) block.
+* Add the items > item (block link) block.
+
+= 3.1.0 =
+* Add the section with background video block.
+* Add arrow setting to the thumbnail gallery block.
+* Add ignore sticky posts setting to the related posts block.
+* Apply masonry layout to the category list block on editor.
+
+= 3.0.10 =
+* Fixed bug that the block toolbar was not fixed.
+* Fixed bug that blocks containing link elements are broken.
+* Refactoring slider block.
+* Refactoring thumbnail gallery block.
+
+= 3.0.9 =
+* Fixed bug that image of panel block (landscape) shrinks on IE11
+* Fixed bug that layout of the section (with background image) block collapses on IE11
+* Fixed bug that layout of the slider block collapses on IE11
+* Fixed bug that layout of the step block collapses on IE11
+* Fixed bug that accordion block does not work correctly on IE11
+
+= 3.0.8 =
+* Fix bug that setting of right image is not reflected in the step block.
+* Change URL input from TextControl to URLInput.
+* Add display order settings to the category list block.
+
+= 3.0.7 =
+* Add exclude feature to the category list block.
+
+= 3.0.6 =
+* Allow mutual conversion of child blocks of the item block.
+* Changed to display child block addition button of repeatable blocks.
+* Fix to reflect additional CSS class setting when editing.
+
+= 3.0.5 =
+* Add horizontal panel item.
+
+= 3.0.4 =
+* Fix duplicate slash in file path.
+* Changed so that you can reconfigure without deleting the image.
+* Removed unneed files.
+
+= 3.0.3 =
+* Fixed bug that the contents outline heading restrictions are not reflected.
+* The item summary of the step block to InnerBlocks.
+* The item of items block is supported block link.
+* Add a simple layout with only text display on recent post block.
+
+= 3.0.2 =
+* Changed to add padding that is same of level of divider when section divider set.
+
+= 3.0.1 =
+* Fix bug that the accordion block and the child pages block not working on Snow Monkey v4
+* Fix bug that title of the section block can not be changed.
+
+= 3.0.0 =
+* Add the accordion block.
+* Add the child pages block.
+* Add parallax setting to the section with background image block.
+* Add text color setting to the section with background image block.
+* Add item title tag setting to the panel block and the items block.
+* Add anchor setting to the section block.
+* Fix the categories list block styles on mobile.
+* Refactoring repeatable blocks.
+* Refactoring color settings panel.
+
+= 2.1.0 =
+* Add the categories list block.
+* Add the content outline block.
+* Add the evaluation star block.
+* Fix RangeControl bug.
+
+= 2.0.0 =
+* Fixed bug that the recent post blocks are not displayed in Snow Monkey v5.
+* If the position of the image in the media text block is on the left side, on the smartphone, change the image so that the image is displayed at the top.
+* Add the thumbnail gallery block.
+* Remove the section with image block.
+
+= 1.7.7 =
+* Fixed bug that Japanese translation was not applied in WordPress 5.0
+* Support Snow Monkey v5
+
+= 1.7.6 =
+* WordPress 5.0 compatible
+
+= 1.7.5 =
+* Fix bug that column size of medium window size setting of the panel and items block is not working.
+* Add link color setting of the step block.
+* Add .wp-image-xxxxx to img.
+
+= 1.7.4 =
+* Fixed a bug that Gutenberg toolbar did not become sticky.
+
+= 1.7.3 =
+* Improve the usability of UI on Gutenberg.
+
+= 1.7.2 =
+* Fix text color of the section with bgimage block.
+
+= 1.7.1 =
+* Add the media text block.
+
+= 1.7.0 =
+* Add the recent posts block.
+* Add the pickup slider block.
+* Add triangle divider.
+
+= 1.6.2 =
+* Fix ColorPalette bug.
+* Fix section-with-image block bug.
+
+= 1.6.1 =
+* Add alignwide and alignfull setting to the slider block.
+
+= 1.6.0 =
+* Add shape divider settings to the section block.
+
+= 1.5.2 =
+* Fix the icon list block bug.
+* Support direct file upload and drag and drop upload at MediaPlaceholder on some blocks.
+
+= 1.5.1 =
+* Some fixes for the panel block.
+
+= 1.5.0 =
+* Add panel block.
+* Add sm and md col width setting to the items block.
+* Add caption setting to the slider block.
+
+= 1.4.2 =
+* Fix that the slick-carousel is not install installed.
+
+= 1.4.1 =
+* Fix bug that autoSpeed settings of slider does not work properly.
+* Change to prevent image setting by D&D and direct file upload in MediaPlaceholder.
+* Refactoring icon list block. The icon renderd with JavaScript.
+
+= 1.4.0 =
+* Add slider block
+* Add repeatable item add/remove button.
+
+= 1.3.0 =
+* Add image field to the pricing table block.
+* Add image sizes to the section with image block.
+
+= 1.2.1 =
+* Gutenberg 4.2.0 compatible
+* Remove section-with-items block
+
+= 1.2.0 =
+* Add text highlighter.
+* Fix iconlist block bug.
+
+= 1.1.3 =
+* Remove styles for Snow Monkey
+
+= 1.1.2 =
+* Fix bug that media is not set in repeater blocks.
+
+= 1.1.1 =
+* Update readme.txt
+
+= 1.1.0 =
+* Add items block.
+
+= 1.0.10 =
+* Fixed bug that Snow Monkey accent color is not reflected.
+* Changed to run only when Gutenberg is enabled.
+
+= 1.0.9 =
+* Change snow-monkey-blocks/section-has-bgimage to snow-monkey-blocks/section-with-bgimage
+* Change snow-monkey-blocks/section-has-image to snow-monkey-blocks/section-with-image
+* Change snow-monkey-blocks/section-has-items to snow-monkey-blocks/section-with-items
+
+= 1.0.8 =
+* Fix about translations.
+
+= 1.0.7 =
+* Fixed a bug that balloon block can not be set as avatar image if image size to be uploaded is small.
+* Add button size setting of the button box block.
+* Add conetnts width setting of section block.
+
+= 1.0.6 =
+* Fixed a bug in Gutenberg where alert block text color is not reflected.
+* Fixed a bug that layout of testmonial block might collapse on Gutenberg.
+
+= 1.0.5 =
+* Update build process.
+
+= 1.0.4 =
+* Add filter hook `snow_monkey_blocks_enqueue_fontawesome`
+* Add filter hook `snow_monkey_blocks_enqueue_fallback_style`
+
+= 1.0.3 =
+* Initial release.
