@@ -12,8 +12,6 @@ import {
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
-import { useMigrateDoubleHyphenToSingleHyphen } from '@smb/hooks';
-
 const ALLOWED_BLOCKS = [
 	'snow-monkey-blocks/directory-structure-item-directory',
 	'snow-monkey-blocks/directory-structure-item-file',
@@ -22,22 +20,7 @@ const ALLOWED_BLOCKS = [
 import metadata from './block.json';
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
-	const { iconColor } = attributes;
-
-	useMigrateDoubleHyphenToSingleHyphen( clientId, [
-		{
-			oldBlockName:
-				'snow-monkey-blocks/directory-structure--item--directory',
-			newBlockName:
-				'snow-monkey-blocks/directory-structure-item-directory',
-		},
-		{
-			oldBlockName: 'snow-monkey-blocks/directory-structure--item--file',
-			newBlockName: 'snow-monkey-blocks/directory-structure-item-file',
-		},
-	] );
-
-	const { templateLock } = attributes;
+	const { iconColor, templateLock } = attributes;
 
 	const hasInnerBlocks = useSelect(
 		( select ) =>

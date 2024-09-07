@@ -7,23 +7,12 @@ import {
 } from '@wordpress/block-editor';
 
 import { useSelect } from '@wordpress/data';
-import { useMigrateDoubleHyphenToSingleHyphen } from '@smb/hooks';
 
-const ALLOWED_BLOCKS = [
-	// 'snow-monkey-blocks/step--item',
-	'snow-monkey-blocks/step-item-free',
-];
+const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/step-item-free' ];
 
 const TEMPLATE = [ [ 'snow-monkey-blocks/step-item-free' ] ];
 
 export default function ( { attributes, className, clientId } ) {
-	useMigrateDoubleHyphenToSingleHyphen( clientId, [
-		{
-			oldBlockName: 'snow-monkey-blocks/step--item--free',
-			newBlockName: 'snow-monkey-blocks/step-item-free',
-		},
-	] );
-
 	const { templateLock } = attributes;
 
 	const hasInnerBlocks = useSelect(

@@ -22,21 +22,12 @@ import {
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
-import { useMigrateDoubleHyphenToSingleHyphen } from '@smb/hooks';
-
 const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/information-item' ];
 const TEMPLATE = [ [ 'snow-monkey-blocks/information-item' ] ];
 
 import metadata from './block.json';
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
-	useMigrateDoubleHyphenToSingleHyphen( clientId, [
-		{
-			oldBlockName: 'snow-monkey-blocks/information--item',
-			newBlockName: 'snow-monkey-blocks/information-item',
-		},
-	] );
-
 	const hasInnerBlocks = useSelect(
 		( select ) =>
 			!! select( 'core/block-editor' ).getBlock( clientId )?.innerBlocks

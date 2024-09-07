@@ -8,19 +8,10 @@ import {
 
 import { useSelect } from '@wordpress/data';
 
-import { useMigrateDoubleHyphenToSingleHyphen } from '@smb/hooks';
-
 const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/rating-box-item' ];
 const TEMPLATE = [ [ 'snow-monkey-blocks/rating-box-item' ] ];
 
 export default function ( { attributes, className, clientId } ) {
-	useMigrateDoubleHyphenToSingleHyphen( clientId, [
-		{
-			oldBlockName: 'snow-monkey-blocks/rating-box--item',
-			newBlockName: 'snow-monkey-blocks/rating-box-item',
-		},
-	] );
-
 	const { templateLock } = attributes;
 
 	const hasInnerBlocks = useSelect(

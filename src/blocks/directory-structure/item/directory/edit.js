@@ -21,7 +21,6 @@ import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
 import FontAwesome from '@smb/component/font-awesome';
-import { useMigrateDoubleHyphenToSingleHyphen } from '@smb/hooks';
 
 const ALLOWED_BLOCKS = [
 	'snow-monkey-blocks/directory-structure-item-directory',
@@ -31,19 +30,6 @@ const ALLOWED_BLOCKS = [
 import metadata from './block.json';
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
-	useMigrateDoubleHyphenToSingleHyphen( clientId, [
-		{
-			oldBlockName:
-				'snow-monkey-blocks/directory-structure--item--directory',
-			newBlockName:
-				'snow-monkey-blocks/directory-structure-item-directory',
-		},
-		{
-			oldBlockName: 'snow-monkey-blocks/directory-structure--item--file',
-			newBlockName: 'snow-monkey-blocks/directory-structure-item-file',
-		},
-	] );
-
 	const hasInnerBlocks = useSelect(
 		( select ) =>
 			!! select( 'core/block-editor' ).getBlock( clientId )?.innerBlocks

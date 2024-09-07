@@ -22,7 +22,6 @@ import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
 import { toNumber } from '@smb/helper';
-import { useMigrateDoubleHyphenToSingleHyphen } from '@smb/hooks';
 import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
 
 const ALLOWED_BLOCKS = [
@@ -42,29 +41,6 @@ const HORIZONTAL_JUSTIFY_CONTROLS = [
 import metadata from './block.json';
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
-	useMigrateDoubleHyphenToSingleHyphen( clientId, [
-		{
-			oldBlockName: 'snow-monkey-blocks/items--item--standard',
-			newBlockName: 'snow-monkey-blocks/items-item-standard',
-		},
-		{
-			oldBlockName: 'snow-monkey-blocks/items--banner',
-			newBlockName: 'snow-monkey-blocks/items-banner',
-		},
-		{
-			oldBlockName: 'snow-monkey-blocks/items--item--block-link',
-			newBlockName: 'snow-monkey-blocks/items-item-block-link',
-		},
-		{
-			oldBlockName: 'snow-monkey-blocks/items--item--free',
-			newBlockName: 'snow-monkey-blocks/items-item-free',
-		},
-		{
-			oldBlockName: 'snow-monkey-blocks/items--item',
-			newBlockName: 'snow-monkey-blocks/items-item',
-		},
-	] );
-
 	const {
 		sm,
 		md,

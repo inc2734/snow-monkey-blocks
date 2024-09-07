@@ -19,7 +19,6 @@ import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
 import { toNumber } from '@smb/helper';
-import { useMigrateDoubleHyphenToSingleHyphen } from '@smb/hooks';
 import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
 
 const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/slider-item' ];
@@ -28,13 +27,6 @@ const TEMPLATE = [ [ 'snow-monkey-blocks/slider-item' ] ];
 import metadata from './block.json';
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
-	useMigrateDoubleHyphenToSingleHyphen( clientId, [
-		{
-			oldBlockName: 'snow-monkey-blocks/slider--item',
-			newBlockName: 'snow-monkey-blocks/slider-item',
-		},
-	] );
-
 	const {
 		slidesToShow,
 		slidesToScroll,
