@@ -2,14 +2,14 @@
 # This file is distributed under the GPL2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Snow Monkey Blocks 21.0.3\n"
+"Project-Id-Version: Snow Monkey Blocks 22.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-blocks\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-07-25T06:53:20+00:00\n"
+"POT-Creation-Date: 2024-09-07T06:55:37+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: snow-monkey-blocks\n"
@@ -2114,7 +2114,7 @@ msgstr ""
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-side-heading/index.js:1
 #: dist/blocks/section/index.js:1
-msgid "Background (Movable) "
+msgid "Background (Movable)"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1
@@ -2150,7 +2150,7 @@ msgstr ""
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-side-heading/index.js:1
 #: dist/blocks/section/index.js:1
-msgid "Background (Fixed) "
+msgid "Background (Fixed)"
 msgstr ""
 
 #: dist/blocks/section-break-the-grid/index.js:1

@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-"
 "blocks\n"
-"POT-Creation-Date: 2024-07-25T06:53:20+00:00\n"
-"PO-Revision-Date: 2024-07-25 15:56+0900\n"
+"POT-Creation-Date: 2024-09-07T06:55:37+00:00\n"
+"PO-Revision-Date: 2024-09-07 16:06+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -1929,7 +1929,7 @@ msgstr "三角（大）"
 
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-side-heading/index.js:1 dist/blocks/section/index.js:1
-msgid "Background (Movable) "
+msgid "Background (Movable)"
 msgstr "背景（移動可能）"
 
 #: dist/blocks/section-break-the-grid/index.js:1
@@ -1959,7 +1959,7 @@ msgstr "テクスチャの不透明度"
 
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-side-heading/index.js:1 dist/blocks/section/index.js:1
-msgid "Background (Fixed) "
+msgid "Background (Fixed)"
 msgstr "背景（固定）"
 
 #: dist/blocks/section-break-the-grid/index.js:1

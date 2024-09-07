@@ -79,7 +79,7 @@ export const PanelSectionMovableBackgroundSettings = ( {
 
 	return (
 		<ToolsPanel
-			label={ __( 'Background (Movable) ', 'snow-monkey-blocks' ) }
+			label={ __( 'Background (Movable)', 'snow-monkey-blocks' ) }
 		>
 			{ settings.map( ( setting, index ) => {
 				if (
@@ -322,7 +322,7 @@ export const PanelSectionFixedBackgroundSettings = ( {
 		useMultipleOriginColorsAndGradients();
 
 	return (
-		<ToolsPanel label={ __( 'Background (Fixed) ', 'snow-monkey-blocks' ) }>
+		<ToolsPanel label={ __( 'Background (Fixed)', 'snow-monkey-blocks' ) }>
 			{ settings.map( ( setting, index ) => {
 				if (
 					setting.hasOwnProperty( 'colorValue' ) &&
