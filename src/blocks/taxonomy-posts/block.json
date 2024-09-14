@@ -62,6 +62,10 @@
 			"type": "boolean",
 			"default": true
 		},
+		"displayItemModified": {
+			"type": "boolean",
+			"default": false
+		},
 		"displayItemExcerpt": {
 			"type": "boolean"
 		},

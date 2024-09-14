@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-09-07T06:55:37+00:00\n"
+"POT-Creation-Date: 2024-09-14T12:14:37+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: snow-monkey-blocks\n"
@@ -1882,6 +1882,11 @@ msgstr ""
 #: dist/blocks/recent-posts/index.js:7
 #: dist/blocks/taxonomy-posts/index.js:4
 msgid "Display published date of each items"
+msgstr ""
+
+#: dist/blocks/recent-posts/index.js:7
+#: dist/blocks/taxonomy-posts/index.js:4
+msgid "Display modified date of each items"
 msgstr ""
 
 #: dist/blocks/recent-posts/index.js:7

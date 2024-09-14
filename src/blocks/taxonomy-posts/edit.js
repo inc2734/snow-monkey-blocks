@@ -41,6 +41,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 		forceDisplayItemMeta,
 		displayItemAuthor,
 		displayItemPublished,
+		displayItemModified,
 		forceDisplayItemTerms,
 		displayItemExcerpt,
 		categoryLabelTaxonomy,
@@ -693,6 +694,42 @@ export default function ( { attributes, setAttributes, clientId } ) {
 								onChange={ ( value ) =>
 									setAttributes( {
 										displayItemPublished: value,
+									} )
+								}
+							/>
+						</ToolsPanelItem>
+					) }
+
+					{ ( taxonomy === 'category' ||
+						taxonomy === 'post_tag' ||
+						forceDisplayItemMeta ) && (
+						<ToolsPanelItem
+							hasValue={ () =>
+								displayItemModified !==
+								metadata.attributes.displayItemModified.default
+							}
+							isShownByDefault
+							label={ __(
+								'Display modified date of each items',
+								'snow-monkey-blocks'
+							) }
+							onDeselect={ () =>
+								setAttributes( {
+									displayItemModified:
+										metadata.attributes.displayItemModified
+											.default,
+								} )
+							}
+						>
+							<ToggleControl
+								label={ __(
+									'Display modified date of each items',
+									'snow-monkey-blocks'
+								) }
+								checked={ displayItemModified }
+								onChange={ ( value ) =>
+									setAttributes( {
+										displayItemModified: value,
 									} )
 								}
 							/>

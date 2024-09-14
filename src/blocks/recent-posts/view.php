@@ -74,6 +74,7 @@ $instance = wp_parse_args(
 	array(
 		'display-item-author'    => $instance['display-item-meta'] && isset( $attributes['displayItemAuthor'] ) ? $attributes['displayItemAuthor'] : null,
 		'display-item-published' => $instance['display-item-meta'] && isset( $attributes['displayItemPublished'] ) ? $attributes['displayItemPublished'] : null,
+		'display-item-modified'  => $instance['display-item-meta'] && isset( $attributes['displayItemModified'] ) ? $attributes['displayItemModified'] : null,
 	)
 );
 
