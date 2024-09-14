@@ -1,5 +1,10 @@
 *** Changelog ***
 
+= 22.1.0 =
+* Snow Monkey v27.1.0 or higher is required to use with the Snow Monkey theme.
+* [Recent posts] Add new setting: Display modified date of each items.
+* [Taxonomy posts] Add new setting: Display modified date of each items.
+
 = 22.0.0 =
 * Fixed a bug that could cause infinite rendering and errors during pattern insertion when using Snow Monkey Blocks blocks in a synchronized pattern.
 * The automatic renaming process from the old child block name to the new child block name has been eliminated.
