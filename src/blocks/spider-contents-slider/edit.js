@@ -74,27 +74,28 @@ export default function ( {
 	const [ currentSliderClientId, setCurrentSliderClientId ] =
 		useState( undefined );
 
-	const [ maxBlur, setMaxBlur ] = useState( undefined );
-
 	const { updateBlockAttributes, selectBlock } =
 		useDispatch( 'core/block-editor' );
 
-	const { nowSliderClientIds, slides, hasChildSelected } = useSelect(
-		( select ) => {
-			const isAncestorOfSelectedBlock = select(
-				'core/block-editor'
-			).hasSelectedInnerBlock( clientId, true );
+	const { getBlockAttributes, nowSliderClientIds, slides, hasChildSelected } =
+		useSelect(
+			( select ) => {
+				const isAncestorOfSelectedBlock = select(
+					'core/block-editor'
+				).hasSelectedInnerBlock( clientId, true );
 
-			return {
-				nowSliderClientIds:
-					select( 'core/block-editor' ).getBlockOrder( clientId ),
-				slides: select( 'core/block-editor' ).getBlock( clientId )
-					.innerBlocks,
-				hasChildSelected: isAncestorOfSelectedBlock,
-			};
-		},
-		[ clientId ]
-	);
+				return {
+					getBlockAttributes:
+						select( 'core/block-editor' ).getBlockAttributes,
+					nowSliderClientIds:
+						select( 'core/block-editor' ).getBlockOrder( clientId ),
+					slides: select( 'core/block-editor' ).getBlock( clientId )
+						.innerBlocks,
+					hasChildSelected: isAncestorOfSelectedBlock,
+				};
+			},
+			[ clientId ]
+		);
 
 	useEffect( () => {
 		let maxBlurSlide;
@@ -121,22 +122,25 @@ export default function ( {
 				? maxBlurSlide?.attributes?.boxShadow?.blur
 				: 0;
 
-		setMaxBlur( defaultBlur > childBlur ? defaultBlur : childBlur );
-	}, [ slides, boxShadow ] );
+		const maxBlur = defaultBlur > childBlur ? defaultBlur : childBlur;
 
-	useEffect( () => {
-		setAttributes( {
-			canvasPadding: {
-				...canvasPadding,
-				top: maxBlur,
-				bottom: maxBlur,
-				right: maxBlur,
-				left: maxBlur,
-			},
-		} );
-		// Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [ maxBlur ] );
+		if (
+			maxBlur !== canvasPadding?.top ||
+			maxBlur !== canvasPadding?.bottom ||
+			maxBlur !== canvasPadding?.right ||
+			maxBlur !== canvasPadding?.left
+		) {
+			setAttributes( {
+				canvasPadding: {
+					...canvasPadding,
+					top: maxBlur,
+					bottom: maxBlur,
+					right: maxBlur,
+					left: maxBlur,
+				},
+			} );
+		}
+	}, [ slides.join(), boxShadow.blur ] );
 
 	const selectedSlide = useSelect(
 		( select ) => {
@@ -153,7 +157,7 @@ export default function ( {
 
 			return undefined;
 		},
-		[ clientId ]
+		[ slides.join() ]
 	);
 
 	useEffect( () => {
@@ -161,16 +165,22 @@ export default function ( {
 			setCurrentSliderClientId( nowSliderClientIds[ 0 ] );
 		}
 
-		setAttributes( {
-			sliderClientIds: JSON.stringify( nowSliderClientIds ),
-		} );
+		// Since what is actually needed is the number of InnerBlocks, exact clientIds are not necessary.
+		if ( sliderClientIds.length !== nowSliderClientIds.length ) {
+			setAttributes( {
+				sliderClientIds: JSON.stringify( nowSliderClientIds ),
+			} );
+		}
 
 		nowSliderClientIds.forEach( ( sliderClientId, index ) => {
-			updateBlockAttributes( sliderClientId, { sliderId: index } );
+			const sliderClientAttributes = getBlockAttributes( sliderClientId );
+			if ( index !== parseInt( sliderClientAttributes?.sliderId ) ) {
+				updateBlockAttributes( sliderClientId, { sliderId: index } );
+			}
 		} );
 		// Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [ nowSliderClientIds, currentSliderClientId ] );
+	}, [ nowSliderClientIds.join(), currentSliderClientId ] );
 
 	const useEffectDeps = !! ref.current && ref.current.offsetWidth;
 	useEffect( () => {
@@ -751,9 +761,9 @@ export default function ( {
 										}
 										min="1"
 										max={
-											6 < sliderClientIds.length
+											6 < nowSliderClientIds.length
 												? 6
-												: sliderClientIds.length
+												: nowSliderClientIds.length
 										}
 									/>
 								) }
@@ -775,9 +785,9 @@ export default function ( {
 										}
 										min="1"
 										max={
-											6 < sliderClientIds.length
+											6 < nowSliderClientIds.length
 												? 6
-												: sliderClientIds.length
+												: nowSliderClientIds.length
 										}
 									/>
 								) }
@@ -799,9 +809,9 @@ export default function ( {
 										}
 										min="1"
 										max={
-											6 < sliderClientIds.length
+											6 < nowSliderClientIds.length
 												? 6
-												: sliderClientIds.length
+												: nowSliderClientIds.length
 										}
 									/>
 								) }
@@ -910,23 +920,25 @@ export default function ( {
 						) }
 
 						{ dots &&
-							sliderClientIds.map( ( sliderClientId, index ) => {
-								return (
-									<button
-										className="spider__dot"
-										data-id={ index }
-										key={ index }
-									>
-										{ index }
-									</button>
-								);
-							} ) }
+							nowSliderClientIds.map(
+								( sliderClientId, index ) => {
+									return (
+										<button
+											className="spider__dot"
+											data-id={ index }
+											key={ index }
+										>
+											{ index }
+										</button>
+									);
+								}
+							) }
 					</div>
 				) }
 
 				{ ( isSelected || hasChildSelected ) && (
 					<div className="smb-slider-pagination">
-						{ sliderClientIds.map( ( sliderClientId, index ) => {
+						{ nowSliderClientIds.map( ( sliderClientId, index ) => {
 							return (
 								<Button
 									variant={

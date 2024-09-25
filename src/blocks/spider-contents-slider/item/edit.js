@@ -76,7 +76,7 @@ export default function ( {
 				canvas.scrollLeft = thisSlider.offsetLeft - diff;
 			}
 		}
-	}, [ clientId, isSelected, sliderId ] );
+	}, [ isSelected, ref?.current?.parentNode ] );
 
 	const classes = classnames( 'spider__slide', className );
 
