@@ -1,5 +1,8 @@
 *** Changelog ***
 
+= 22.1.1 =
+* [Contents slider] Fixed a bug that caused infinite rendering and broken blocks when patterned.
+
 = 22.1.0 =
 * Snow Monkey v27.1.0 or higher is required to use with the Snow Monkey theme.
 * [Recent posts] Add new setting: Display modified date of each items.
