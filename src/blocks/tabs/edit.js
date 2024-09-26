@@ -92,7 +92,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		} );
 		// Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [ clientId, tabs, tabsId ] );
+	}, [ clientId, tabs.join() ] );
 
 	// For duplicate blcok.
 	useEffect( () => {
@@ -114,10 +114,9 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		setCurrentTabPanelId( tabs[ 0 ].tabPanelId );
 		// Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [ clientId, tabs, tabsId ] );
+	}, [ clientId, tabs.join(), tabsId ] );
 
 	// For duplicate/Remove tabPanel blcoks.
-	const innerBlocks = getBlock( clientId ).innerBlocks;
 	useEffect( () => {
 		const blockOrder = getBlockOrder( clientId );
 		if ( blockOrder.length === tabs.length ) {
@@ -156,7 +155,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		setAttributes( { tabs: JSON.stringify( newTabs ) } );
 		// Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [ innerBlocks, clientId, tabs ] );
+	}, [ clientId, tabs.join() ] );
 
 	const dataMatchHeightBoolean =
 		'vertical' === orientation ||
@@ -355,7 +354,13 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							setCurrentTabPanelId( tab.tabPanelId );
 
 							if (
-								e.target.classList.contains( 'smb-tabs__tab' )
+								e.target.classList.contains(
+									'smb-tabs__tab'
+								) &&
+								0 !== e.clientX &&
+								0 !== e.clientY &&
+								0 !== e.pageX &&
+								0 !== e.pageY
 							) {
 								selectBlock( targetClientId );
 							}

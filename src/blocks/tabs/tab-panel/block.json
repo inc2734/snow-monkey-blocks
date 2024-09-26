@@ -31,6 +31,7 @@
 		"customClassName": false,
 		"reusable": false,
 		"html": false,
+		"anchor": true,
 		"__experimentalToolbar": false,
 		"inserter": false,
 		"color": {
