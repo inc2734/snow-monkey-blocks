@@ -42,6 +42,7 @@ export default function ( { attributes, className } ) {
 							<div
 								className="smb-tabs__tab-wrapper"
 								key={ index }
+								id={ `smb-tab-for-${ tab?.anchor }` }
 							>
 								<RichText.Content
 									tagName="button"
@@ -52,7 +53,7 @@ export default function ( { attributes, className } ) {
 									) }
 									style={ colorProps?.style }
 									role="tab"
-									aria-controls={ tab.tabPanelId }
+									aria-controls={ tab?.anchor }
 									aria-selected={
 										0 === index ? 'true' : 'false'
 									}

@@ -11,44 +11,80 @@ import { useEffect } from '@wordpress/element';
 
 import { cleanEmptyObject } from '@smb/helper';
 
-export default function ( { attributes, className, clientId } ) {
-	const { tabPanelId, backgroundColor, textColor, style, templateLock } =
-		attributes;
+export default function ( { attributes, setAttributes, className, clientId } ) {
+	const {
+		tabPanelId,
+		backgroundColor,
+		textColor,
+		anchor,
+		style,
+		templateLock,
+	} = attributes;
 
 	const { updateBlockAttributes } = useDispatch( 'core/block-editor' );
 
-	const parentId = useSelect(
-		( select ) =>
-			select( 'core/block-editor' ).getBlockParents( clientId, true )[ 0 ]
-	);
-	const parentAttributes = useSelect( ( select ) =>
-		select( 'core/block-editor' ).getBlockAttributes( parentId )
-	);
+	const { getBlockParents, getBlockAttributes, getBlockOrder } =
+		useSelect( 'core/block-editor' );
+
+	const parentId = getBlockParents( clientId, true )[ 0 ];
 
 	useEffect( () => {
-		const _tabs = parentAttributes?.tabs;
+		const _tabs = getBlockAttributes( parentId )?.tabs;
 		if ( ! _tabs ) {
 			return;
 		}
 
-		const newTabs = JSON.parse( _tabs ).map( ( tab ) => {
-			if ( tab.tabPanelId === tabPanelId ) {
-				return cleanEmptyObject( {
-					...tab,
-					backgroundColor: backgroundColor || undefined,
-					textColor: textColor || undefined,
-					style: {
-						...tab?.style,
-						color: {
-							...tab?.style?.color,
-							background: style?.color?.background || undefined,
-							text: style?.color?.text || undefined,
+		const tabs = JSON.parse( _tabs );
+		const newTabs = getBlockOrder( parentId ).map(
+			( tabPanelClientId, index ) => {
+				const tab = tabs[ index ];
+
+				if ( tabPanelClientId === clientId ) {
+					const currentTabPanelId = `block-${ clientId }`;
+					const newTabPanelId =
+						tabPanelId !== currentTabPanelId
+							? currentTabPanelId
+							: tabPanelId;
+
+					if ( tabPanelId !== newTabPanelId ) {
+						setAttributes( {
+							tabPanelId: newTabPanelId,
+						} );
+					}
+
+					const newAnchor =
+						anchor?.match( /^block(-([\da-z]+?)){5}$/ ) &&
+						anchor !== newTabPanelId
+							? newTabPanelId
+							: anchor || newTabPanelId;
+
+					if ( anchor !== newAnchor ) {
+						setAttributes( {
+							anchor: newAnchor,
+						} );
+					}
+
+					return cleanEmptyObject( {
+						...tab,
+						anchor: newAnchor,
+						tabPanelId: newTabPanelId,
+						backgroundColor: backgroundColor || undefined,
+						textColor: textColor || undefined,
+						style: {
+							...tab?.style,
+							color: {
+								...tab?.style?.color,
+								background:
+									style?.color?.background || undefined,
+								text: style?.color?.text || undefined,
+							},
 						},
-					},
-				} );
+					} );
+				}
+
+				return tab;
 			}
-			return tab;
-		} );
+		);
 
 		updateBlockAttributes( parentId, {
 			tabs: JSON.stringify( newTabs ),
@@ -58,6 +94,8 @@ export default function ( { attributes, className, clientId } ) {
 		textColor,
 		style?.color?.background,
 		style?.color?.text,
+		anchor,
+		clientId,
 	] );
 
 	const hasInnerBlocks = useSelect(
@@ -87,7 +125,7 @@ export default function ( { attributes, className, clientId } ) {
 
 	return (
 		<>
-			<div { ...blockProps } id={ tabPanelId } role="tabpanel">
+			<div { ...blockProps } role="tabpanel" id={ anchor }>
 				<div { ...innerBlocksProps } />
 			</div>
 		</>

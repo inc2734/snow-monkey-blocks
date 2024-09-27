@@ -10,9 +10,6 @@
 	"attributes": {
 		"tabPanelId": {
 			"type": "string",
-			"source": "attribute",
-			"selector": ".smb-tab-panel",
-			"attribute": "id",
 			"default": ""
 		},
 		"ariaHidden": {

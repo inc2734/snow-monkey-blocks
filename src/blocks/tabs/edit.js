@@ -1,5 +1,4 @@
 import classnames from 'classnames';
-import { find, reject } from 'lodash';
 
 import {
 	InspectorControls,
@@ -55,18 +54,16 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		selectBlock,
 	} = useDispatch( 'core/block-editor' );
 
-	const { getBlockOrder, getBlock } = useSelect( ( select ) => {
-		return {
-			getBlockOrder: select( 'core/block-editor' ).getBlockOrder,
-			getBlock: select( 'core/block-editor' ).getBlock,
-		};
-	}, [] );
+	const { getBlockOrder, getBlock } = useSelect( 'core/block-editor' );
 
 	const [ currentTabPanelId, setCurrentTabPanelId ] = useState( undefined );
+	const [ currentTabPanelAnchor, setCurrentTabPanelAnchor ] =
+		useState( undefined );
 
 	useEffect( () => {
 		if ( 0 < tabs.length ) {
-			setCurrentTabPanelId( tabs[ 0 ].tabPanelId );
+			setCurrentTabPanelId( tabs[ 0 ]?.tabPanelId );
+			setCurrentTabPanelAnchor( tabs[ 0 ]?.anchor );
 		}
 
 		if ( ! tabsId ) {
@@ -81,81 +78,30 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 			return;
 		}
 
-		getBlockOrder( clientId ).forEach( ( tabPanelClientId ) => {
-			const tab = getBlock( tabPanelClientId );
-			updateBlockAttributes( tabPanelClientId, {
-				ariaHidden:
-					tab.attributes.tabPanelId === tabs[ 0 ].tabPanelId
-						? 'false'
-						: 'true',
-			} );
-		} );
-		// Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [ clientId, tabs.join() ] );
+		const tabPanelsClientIds = getBlockOrder( clientId );
 
-	// For duplicate blcok.
-	useEffect( () => {
-		const sameTabsBlocks = document.querySelectorAll(
-			`[data-tabs-id="${ tabsId }"]`
-		);
-		if ( 2 > sameTabsBlocks.length ) {
-			return;
+		// Process for when currentTabPanelAnchor is not set.
+		if ( ! currentTabPanelAnchor ) {
+			const tabPanel = getBlock( tabPanelsClientIds[ 0 ] );
+			setCurrentTabPanelId( tabPanel.attributes.tabPanelId );
+			setCurrentTabPanelAnchor( tabPanel.attributes.anchor );
 		}
 
-		getBlockOrder( clientId ).forEach( ( tabPanelClientId, index ) => {
-			const tabPanelId = `block-${ tabPanelClientId }`;
-			tabs[ index ].tabPanelId = tabPanelId;
-			updateBlockAttributes( tabPanelClientId, { tabPanelId } );
-		} );
+		tabPanelsClientIds.forEach( ( tabPanelClientId, index ) => {
+			const tabPanel = getBlock( tabPanelClientId );
 
-		setAttributes( { tabsId: clientId, tabs: JSON.stringify( tabs ) } );
-
-		setCurrentTabPanelId( tabs[ 0 ].tabPanelId );
-		// Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [ clientId, tabs.join(), tabsId ] );
-
-	// For duplicate/Remove tabPanel blcoks.
-	useEffect( () => {
-		const blockOrder = getBlockOrder( clientId );
-		if ( blockOrder.length === tabs.length ) {
-			return;
-		}
-
-		let tabsCopy = { ...tabs };
-
-		const newTabs = [];
-		blockOrder.forEach( ( tabPanelClientId, index ) => {
-			const tab = getBlock( tabPanelClientId );
-			const matchTab = find( tabsCopy, {
-				tabPanelId: tab.attributes.tabPanelId,
-			} );
-			if ( matchTab ) {
-				newTabs[ index ] = matchTab;
-				tabsCopy = reject( tabsCopy, {
-					tabPanelId: tab.attributes.tabPanelId,
-				} );
-			} else {
-				const _matchTab = find( tabs, {
-					tabPanelId: tab.attributes.tabPanelId,
-				} );
-
-				const tabPanelId = `block-${ tabPanelClientId }`;
-				updateBlockAttributes( tabPanelClientId, { tabPanelId } );
-				newTabs[ index ] = { tabPanelId, title: _matchTab.title };
+			// Processing for when the anchor in the tab panel is changed.
+			if ( tabPanel.attributes.tabPanelId === currentTabPanelId ) {
+				setCurrentTabPanelAnchor( tabPanel.attributes.anchor );
 			}
+
+			updateBlockAttributes( tabPanelClientId, {
+				ariaHidden: 0 === index ? 'false' : 'true',
+			} );
 		} );
-
-		// When a tab is deleted, focus on the first tab. When a tab is duplicated, the focus remains on the current tab.
-		if ( tabs.length > newTabs.length ) {
-			setCurrentTabPanelId( newTabs[ 0 ].tabPanelId );
-		}
-
-		setAttributes( { tabs: JSON.stringify( newTabs ) } );
 		// Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [ clientId, tabs.join() ] );
+	}, [ clientId, _tabs ] );
 
 	const dataMatchHeightBoolean =
 		'vertical' === orientation ||
@@ -351,7 +297,8 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							getBlockOrder( clientId )[ index ];
 
 						const onClickTab = ( e ) => {
-							setCurrentTabPanelId( tab.tabPanelId );
+							setCurrentTabPanelId( tab?.tabPanelId );
+							setCurrentTabPanelAnchor( tab?.anchor );
 
 							if (
 								e.target.classList.contains(
@@ -380,7 +327,8 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							tabs.splice( index, 1 );
 							setAttributes( { tabs: JSON.stringify( tabs ) } );
 
-							setCurrentTabPanelId( tabs[ 0 ].tabPanelId );
+							setCurrentTabPanelId( tabs[ 0 ]?.tabPanelId );
+							setCurrentTabPanelAnchor( tabs[ 0 ]?.anchor );
 						};
 
 						const onClickUpTabButton = () => {
@@ -395,7 +343,10 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							setAttributes( { tabs: JSON.stringify( tabs ) } );
 
 							setCurrentTabPanelId(
-								tabs[ index - 1 ].tabPanelId
+								tabs[ index - 1 ]?.tabPanelId
+							);
+							setCurrentTabPanelAnchor(
+								tabs[ index - 1 ]?.anchor
 							);
 						};
 
@@ -411,7 +362,10 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							setAttributes( { tabs: JSON.stringify( tabs ) } );
 
 							setCurrentTabPanelId(
-								tabs[ index + 1 ].tabPanelId
+								tabs[ index + 1 ]?.tabPanelId
+							);
+							setCurrentTabPanelAnchor(
+								tabs[ index + 1 ]?.anchor
 							);
 						};
 
@@ -422,7 +376,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 								className="smb-tabs__tab-wrapper"
 								key={ `${ clientId }-${ index }` }
 								aria-selected={
-									currentTabPanelId === tab.tabPanelId
+									currentTabPanelAnchor === tab?.anchor
 										? 'true'
 										: 'false'
 								}
@@ -499,9 +453,9 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 									) }
 									style={ colorProps?.style }
 									role="tab"
-									aria-controls={ tab.tabPanelId }
+									aria-controls={ tab?.anchor }
 									aria-selected={
-										currentTabPanelId === tab.tabPanelId
+										currentTabPanelAnchor === tab?.anchor
 											? 'true'
 											: 'false'
 									}
@@ -529,6 +483,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 								const tabPanelId = `block-${ tabPanel.clientId }`;
 
 								tabPanel.attributes.tabPanelId = tabPanelId;
+								tabPanel.attributes.anchor = tabPanelId;
 								insertBlocks(
 									tabPanel,
 									tabs.length,
@@ -538,12 +493,14 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 
 								tabs.push( {
 									tabPanelId,
+									anchor: tabPanelId,
 								} );
 								setAttributes( {
 									tabs: JSON.stringify( tabs ),
 								} );
 
 								setCurrentTabPanelId( tabPanelId );
+								setCurrentTabPanelAnchor( tabPanelId );
 							} }
 						>
 							<Icon icon={ plus } />
@@ -552,12 +509,12 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 				</div>
 				<div { ...innerBlocksProps } />
 
-				{ !! currentTabPanelId && ! dataMatchHeightBoolean && (
+				{ !! currentTabPanelAnchor && ! dataMatchHeightBoolean && (
 					<style>
-						{ `[data-tabs-id="${ tabsId }"] > .smb-tabs__body > .smb-tab-panel:not(#${ currentTabPanelId }) {display: none !important}` }
+						{ `[data-tabs-id="${ tabsId }"] > .smb-tabs__body > .smb-tab-panel:not(#${ currentTabPanelAnchor }) {display: none !important}` }
 					</style>
 				) }
-				{ !! currentTabPanelId && dataMatchHeightBoolean && (
+				{ !! currentTabPanelAnchor && dataMatchHeightBoolean && (
 					<style>
 						{ tabs.map(
 							( tab, index ) =>
@@ -566,7 +523,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 								}) {left: ${ -100 * index }%}`
 						) }
 
-						{ `[data-tabs-id="${ tabsId }"] > .smb-tabs__body > .smb-tab-panel:not(#${ currentTabPanelId }) {visibility: hidden !important}` }
+						{ `[data-tabs-id="${ tabsId }"] > .smb-tabs__body > .smb-tab-panel:not(#${ currentTabPanelAnchor }) {visibility: hidden !important}` }
 					</style>
 				) }
 			</div>
