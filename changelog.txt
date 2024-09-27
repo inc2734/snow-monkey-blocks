@@ -1,5 +1,9 @@
 *** Changelog ***
 
+= 22.2.0 =
+* [Tab panel] Add anchor setting.
+* [Tab] Added functionality to open tabs by specifying the ID of the tab as an anchor.
+
 = 22.1.1 =
 * [Contents slider] Fixed a bug that caused infinite rendering and broken blocks when patterned.
 
