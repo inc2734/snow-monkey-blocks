@@ -73,9 +73,15 @@ const applyOpenTabHashNav = ( link ) => {
 	link.addEventListener(
 		'click',
 		( event ) => {
-			event.preventDefault();
-			openTabWithHash( event.target.hash );
-			return false;
+			const targetURL = event.target.href.replace(
+				event.target.hash,
+				''
+			);
+
+			if ( window.location.href.includes( targetURL ) ) {
+				event.preventDefault();
+				openTabWithHash( event.target.hash );
+			}
 		},
 		false
 	);
@@ -90,7 +96,7 @@ document.addEventListener(
 		openTabWithHash( window.location.hash );
 
 		const tabLinks = document.querySelectorAll(
-			'a[href^="#smb-tab-for-"]'
+			'a[href*="#smb-tab-for-"]'
 		);
 		forEachHtmlNodes( tabLinks, applyOpenTabHashNav );
 	},
