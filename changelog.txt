@@ -1,5 +1,8 @@
 *** Changelog ***
 
+= 22.2.1 =
+* [Tab] Changed the function to open any tab in the tab block on the current page with an anchor link so that links beginning with “http” will also work.
+
 = 22.2.0 =
 * [Tab panel] Add anchor setting.
 * [Tab] Added functionality to open tabs by specifying the ID of the tab as an anchor.
