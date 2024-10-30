@@ -81,7 +81,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 	const innerBlocksProps = useInnerBlocksProps( blockProps, {
 		templateLock,
 		renderAppender: hasInnerBlocks
-			? InnerBlocks.DefaultBlockAppender
+			? undefined
 			: InnerBlocks.ButtonBlockAppender,
 	} );
 
