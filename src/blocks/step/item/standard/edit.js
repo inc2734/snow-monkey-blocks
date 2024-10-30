@@ -181,6 +181,7 @@ export default function ( {
 						}
 					>
 						<SelectControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Image position',
 								'snow-monkey-blocks'

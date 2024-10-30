@@ -127,6 +127,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<SelectControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Label column size',
 								'snow-monkey-blocks'
@@ -172,6 +173,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<SelectControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Label horizontal alignment',
 								'snow-monkey-blocks'
@@ -218,6 +220,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<SelectControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Label vertical alignment',
 								'snow-monkey-blocks'
@@ -259,6 +262,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							label={ __(
 								"Don't split the column in a smartphone",
 								'snow-monkey-blocks'
@@ -380,6 +384,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					panelId={ clientId }
 				>
 					<BaseControl
+						__nextHasNoMarginBottom
 						id="snow-monkey-blocks/information/padding"
 						label={ __( 'Padding', 'snow-monkey-blocks' ) }
 						className="spacing-sizes-control"

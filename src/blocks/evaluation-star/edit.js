@@ -172,6 +172,7 @@ export default function ( {
 						}
 					>
 						<SelectControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Title position',
 								'snow-monkey-blocks'
@@ -217,6 +218,7 @@ export default function ( {
 						}
 					>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							label={ __( 'Show numeric', 'snow-monkey-blocks' ) }
 							checked={ isDisplayNumeric }
 							onChange={ ( value ) =>
@@ -242,6 +244,7 @@ export default function ( {
 						}
 					>
 						<SelectControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Numeric position',
 								'snow-monkey-blocks'

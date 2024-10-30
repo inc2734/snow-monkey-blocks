@@ -107,6 +107,7 @@ export default function ( {
 						}
 					>
 						<BaseControl
+							__nextHasNoMarginBottom
 							label={ __( 'Title tag', 'snow-monkey-blocks' ) }
 							id="snow-monkey-blocks/items-item/title-tag-name"
 						>
@@ -153,6 +154,7 @@ export default function ( {
 						}
 					>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							label={ __( 'Block link', 'snow-monkey-blocks' ) }
 							description={ __(
 								'Link is made not only to the button but to the whole block.',

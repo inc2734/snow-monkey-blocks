@@ -108,6 +108,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Show dot indicators',
 								'snow-monkey-blocks'
@@ -134,6 +135,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Prev/Next arrows',
 								'snow-monkey-blocks'
@@ -229,6 +231,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							label={ __( 'Enable fade', 'snow-monkey-blocks' ) }
 							checked={ fade }
 							onChange={ ( value ) =>
@@ -255,6 +258,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							label={ __(
 								"Change the slider's direction to become right-to-left",
 								'snow-monkey-blocks'
@@ -283,6 +287,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<SelectControl
+							__nextHasNoMarginBottom
 							label={ __( 'Aspect ratio', 'snow-monkey-blocks' ) }
 							value={ aspectRatio }
 							onChange={ ( value ) =>

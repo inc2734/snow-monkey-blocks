@@ -73,6 +73,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Prev/Next arrows',
 								'snow-monkey-blocks'

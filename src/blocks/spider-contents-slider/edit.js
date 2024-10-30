@@ -317,6 +317,7 @@ export default function ( {
 					panelId={ clientId }
 				>
 					<SelectControl
+						__nextHasNoMarginBottom
 						label={ __( 'Gap', 'snow-monkey-blocks' ) }
 						value={ gutter }
 						onChange={ ( value ) =>
@@ -474,6 +475,7 @@ export default function ( {
 						}
 					>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Display arrows',
 								'snow-monkey-blocks'
@@ -500,6 +502,7 @@ export default function ( {
 						}
 					>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							label={ __( 'Display dots', 'snow-monkey-blocks' ) }
 							checked={ dots }
 							onChange={ ( value ) =>
@@ -523,6 +526,7 @@ export default function ( {
 						}
 					>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							label={ __( 'Fade', 'snow-monkey-blocks' ) }
 							checked={ fade }
 							onChange={ ( value ) =>
@@ -546,6 +550,7 @@ export default function ( {
 						}
 					>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Shuffle slides',
 								'snow-monkey-blocks'
@@ -577,6 +582,7 @@ export default function ( {
 							}
 						>
 							<ToggleControl
+								__nextHasNoMarginBottom
 								label={ __(
 									'Shifting the slider',
 									'snow-monkey-blocks'
@@ -661,6 +667,7 @@ export default function ( {
 							}
 						>
 							<ToggleControl
+								__nextHasNoMarginBottom
 								label={ __(
 									'Display pause button for autoplay',
 									'snow-monkey-blocks'

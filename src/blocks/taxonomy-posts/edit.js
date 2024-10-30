@@ -172,6 +172,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 					{ ! taxonomiesTerms.length ? (
 						<div style={ { gridColumn: '1/-1' } }>
 							<BaseControl
+								__nextHasNoMarginBottom
 								label={ __(
 									'Loading taxonomies…',
 									'snow-monkey-blocks'
@@ -225,6 +226,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 											return (
 												!! _taxonomy && (
 													<TreeSelect
+														__nextHasNoMarginBottom
 														key={ `${ _taxonomy.slug }-${ termId }` }
 														label={ _taxonomy.name }
 														noOptionLabel="-"
@@ -296,6 +298,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 								}
 							>
 								<SelectControl
+									__nextHasNoMarginBottom
 									label={ __(
 										'Layout',
 										'snow-monkey-blocks'
@@ -389,6 +392,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 								}
 							>
 								<ToggleControl
+									__nextHasNoMarginBottom
 									label={ __(
 										'Display arrows',
 										'snow-monkey-blocks'
@@ -418,6 +422,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 								}
 							>
 								<ToggleControl
+									__nextHasNoMarginBottom
 									label={ __(
 										'Display dots',
 										'snow-monkey-blocks'
@@ -490,6 +495,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 									}
 								>
 									<ToggleControl
+										__nextHasNoMarginBottom
 										label={ __(
 											'Display pause button for autoplay',
 											'snow-monkey-blocks'
@@ -525,6 +531,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 						}
 					>
 						<BaseControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Title tag of each items',
 								'snow-monkey-blocks'
@@ -582,6 +589,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 						}
 					>
 						<SelectControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Images size of each items',
 								'snow-monkey-blocks'
@@ -616,6 +624,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 							}
 						>
 							<ToggleControl
+								__nextHasNoMarginBottom
 								label={ __(
 									'Force display meta of each items',
 									'snow-monkey-blocks'
@@ -658,6 +667,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 								}
 							>
 								<ToggleControl
+									__nextHasNoMarginBottom
 									label={ __(
 										'Display author of each items',
 										'snow-monkey-blocks'
@@ -694,6 +704,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 							}
 						>
 							<ToggleControl
+								__nextHasNoMarginBottom
 								label={ __(
 									'Display published date of each items',
 									'snow-monkey-blocks'
@@ -730,6 +741,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 							}
 						>
 							<ToggleControl
+								__nextHasNoMarginBottom
 								label={ __(
 									'Display modified date of each items',
 									'snow-monkey-blocks'
@@ -774,6 +786,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 							} }
 						>
 							<ToggleControl
+								__nextHasNoMarginBottom
 								label={ __(
 									'Display excerpt of each items',
 									'snow-monkey-blocks'
@@ -809,6 +822,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 							}
 						>
 							<ToggleControl
+								__nextHasNoMarginBottom
 								label={ __(
 									'Force display category label of each items',
 									'snow-monkey-blocks'
@@ -846,6 +860,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 						}
 					>
 						<SelectControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Taxonomy to use for the category label',
 								'snow-monkey-blocks'
@@ -881,6 +896,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 							}
 						>
 							<SelectControl
+								__nextHasNoMarginBottom
 								label={ __(
 									'Number of columns displayed on mobile device',
 									'snow-monkey-blocks'
@@ -937,6 +953,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 						}
 					>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Ignore sticky posts',
 								'snow-monkey-blocks'
@@ -968,6 +985,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 						}
 					>
 						<TextareaControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Text if no posts matched',
 								'snow-monkey-blocks'
@@ -1000,6 +1018,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 					panelId={ clientId }
 				>
 					<BaseControl
+						__nextHasNoMarginBottom
 						id="snow-monkey-blocks/recent-posts/gap"
 						label={ __(
 							'The gap between each item',

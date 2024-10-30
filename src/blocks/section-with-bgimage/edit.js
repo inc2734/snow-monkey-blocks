@@ -446,6 +446,7 @@ export default function ( {
 							}
 						>
 							<ToggleControl
+								__nextHasNoMarginBottom
 								label={ __(
 									'Parallax (Deprecated)',
 									'snow-monkey-blocks'
@@ -613,6 +614,7 @@ export default function ( {
 									{ hasLgBackground && isLgImage && (
 										<>
 											<ToggleControl
+												__nextHasNoMarginBottom
 												label={ __(
 													'Repeat images',
 													'snow-monkey-blocks'
@@ -663,6 +665,7 @@ export default function ( {
 
 									{ showLgFocalPointPicker && (
 										<FocalPointPicker
+											__nextHasNoMarginBottom
 											label={ __(
 												'Focal point picker',
 												'snow-monkey-blocks'
@@ -780,6 +783,7 @@ export default function ( {
 									{ hasMdBackground && isMdImage && (
 										<>
 											<ToggleControl
+												__nextHasNoMarginBottom
 												label={ __(
 													'Repeat images',
 													'snow-monkey-blocks'
@@ -830,6 +834,7 @@ export default function ( {
 
 									{ showMdFocalPointPicker && (
 										<FocalPointPicker
+											__nextHasNoMarginBottom
 											label={ __(
 												'Focal point picker',
 												'snow-monkey-blocks'
@@ -947,6 +952,7 @@ export default function ( {
 									{ hasSmBackground && isSmImage && (
 										<>
 											<ToggleControl
+												__nextHasNoMarginBottom
 												label={ __(
 													'Repeat images',
 													'snow-monkey-blocks'
@@ -997,6 +1003,7 @@ export default function ( {
 
 									{ showSmFocalPointPicker && (
 										<FocalPointPicker
+											__nextHasNoMarginBottom
 											label={ __(
 												'Focal point picker',
 												'snow-monkey-blocks'

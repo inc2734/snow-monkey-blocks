@@ -208,6 +208,7 @@ export default function ( { attributes, setAttributes, className } ) {
 						}
 					>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							label={ __( 'Show avatar', 'snow-monkey-blocks' ) }
 							checked={ showAvatar }
 							onChange={ ( value ) =>
@@ -239,6 +240,7 @@ export default function ( { attributes, setAttributes, className } ) {
 								}
 							>
 								<SelectControl
+									__nextHasNoMarginBottom
 									label={ __(
 										'Avatar position',
 										'snow-monkey-blocks'

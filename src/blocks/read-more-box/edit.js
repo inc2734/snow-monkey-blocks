@@ -144,6 +144,7 @@ export default function ( { attributes, setAttributes, clientId, className } ) {
 						}
 					>
 						<TextControl
+							__nextHasNoMarginBottom
 							label={ __( 'Label', 'snow-monkey-blocks' ) }
 							value={
 								label || __( 'Read more', 'snow-monkey-blocks' )
@@ -172,6 +173,7 @@ export default function ( { attributes, setAttributes, clientId, className } ) {
 						}
 					>
 						<TextControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Label (for Close)',
 								'snow-monkey-blocks'
@@ -205,6 +207,7 @@ export default function ( { attributes, setAttributes, clientId, className } ) {
 						}
 					>
 						<BaseControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Button justification',
 								'snow-monkey-blocks'
@@ -245,6 +248,7 @@ export default function ( { attributes, setAttributes, clientId, className } ) {
 						}
 					>
 						<TextControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Height of contents when closed',
 								'snow-monkey-blocks'
@@ -272,6 +276,7 @@ export default function ( { attributes, setAttributes, clientId, className } ) {
 						}
 					>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Masks the lower part when closed',
 								'snow-monkey-blocks'
@@ -339,6 +344,7 @@ export default function ( { attributes, setAttributes, clientId, className } ) {
 						}
 					>
 						<SelectControl
+							__nextHasNoMarginBottom
 							label={ __( 'Button size', 'snow-monkey-blocks' ) }
 							value={ btnSize }
 							onChange={ ( value ) =>
@@ -420,6 +426,7 @@ export default function ( { attributes, setAttributes, clientId, className } ) {
 						}
 					>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							label={ __( 'Wrap', 'snow-monkey-blocks' ) }
 							checked={ btnWrap }
 							onChange={ ( value ) =>

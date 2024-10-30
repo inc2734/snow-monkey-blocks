@@ -77,6 +77,7 @@ function Edit( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Display in open state',
 								'snow-monkey-blocks'

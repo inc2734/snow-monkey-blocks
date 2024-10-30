@@ -126,6 +126,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 						}
 					>
 						<SelectControl
+							__nextHasNoMarginBottom
 							label={ __( 'Layout', 'snow-monkey-blocks' ) }
 							value={ layout }
 							onChange={ ( value ) =>
@@ -199,6 +200,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 								}
 							>
 								<ToggleControl
+									__nextHasNoMarginBottom
 									label={ __(
 										'Display arrows',
 										'snow-monkey-blocks'
@@ -228,6 +230,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 								}
 							>
 								<ToggleControl
+									__nextHasNoMarginBottom
 									label={ __(
 										'Display dots',
 										'snow-monkey-blocks'
@@ -300,6 +303,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 									}
 								>
 									<ToggleControl
+										__nextHasNoMarginBottom
 										label={ __(
 											'Display pause button for autoplay',
 											'snow-monkey-blocks'
@@ -335,6 +339,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 						}
 					>
 						<BaseControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Title tag of each items',
 								'snow-monkey-blocks'
@@ -390,6 +395,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 							}
 						>
 							<SelectControl
+								__nextHasNoMarginBottom
 								label={ __(
 									'Number of columns displayed on mobile device',
 									'snow-monkey-blocks'
@@ -445,6 +451,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 						}
 					>
 						<TextareaControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Text if no posts matched',
 								'snow-monkey-blocks'
@@ -477,6 +484,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 					panelId={ clientId }
 				>
 					<BaseControl
+						__nextHasNoMarginBottom
 						id="snow-monkey-blocks/recent-posts/gap"
 						label={ __(
 							'The gap between each item',

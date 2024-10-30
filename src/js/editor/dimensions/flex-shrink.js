@@ -33,6 +33,7 @@ export function FlexShrinkEdit( props ) {
 
 	return (
 		<ToggleControl
+			__nextHasNoMarginBottom
 			label={ __( 'Fit' ) }
 			help={ __(
 				'Allow shrinkage from the basic size.',

@@ -32,6 +32,7 @@ export function GridColumnEdit( props ) {
 
 	return (
 		<TextControl
+			__nextHasNoMarginBottom
 			label="grid-column"
 			value={ smb?.gridColumn || '' }
 			onChange={ ( newValue ) => {

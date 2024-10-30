@@ -62,6 +62,7 @@ export function AlignSelfEdit( props ) {
 
 	return (
 		<ToggleGroupControl
+			__nextHasNoMarginBottom
 			label="align-self"
 			value={ smb?.alignSelf || 'stretch' }
 			onChange={ ( newValue ) => {

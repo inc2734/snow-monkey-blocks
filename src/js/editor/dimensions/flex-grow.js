@@ -33,6 +33,7 @@ export function FlexGrowEdit( props ) {
 
 	return (
 		<ToggleControl
+			__nextHasNoMarginBottom
 			label={ __( 'Fill' ) }
 			help={ __(
 				'Allows for stretching from the basic size.',

@@ -173,6 +173,7 @@ export default function ( {
 						}
 					>
 						<BaseControl
+							__nextHasNoMarginBottom
 							label={ __( 'Image', 'snow-monkey-blocks' ) }
 							id="snow-monkey-blocks/items-banner/image"
 						>
@@ -261,6 +262,7 @@ export default function ( {
 						}
 					>
 						<SelectControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Image aspect ratio',
 								'snow-monkey-blocks'
@@ -350,6 +352,7 @@ export default function ( {
 						}
 					>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							label={ __( 'Shade off', 'snow-monkey-blocks' ) }
 							checked={ blur }
 							onChange={ ( value ) =>

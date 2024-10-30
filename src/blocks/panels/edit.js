@@ -205,6 +205,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Set padding around images',
 								'snow-monkey-blocks'
@@ -235,6 +236,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							}
 						>
 							<ToggleControl
+								__nextHasNoMarginBottom
 								label={ __(
 									'Glue each item together',
 									'snow-monkey-blocks'
@@ -267,6 +269,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						panelId={ clientId }
 					>
 						<BaseControl
+							__nextHasNoMarginBottom
 							id="snow-monkey-blocks/panels/gap"
 							label={ __( 'Gap', 'snow-monkey-blocks' ) }
 							className="spacing-sizes-control"

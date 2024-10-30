@@ -235,6 +235,7 @@ export default function ( {
 					panelId={ clientId }
 				>
 					<SelectControl
+						__nextHasNoMarginBottom
 						label={ __( 'Padding', 'snow-monkey-blocks' ) }
 						value={ contentPadding }
 						options={ [

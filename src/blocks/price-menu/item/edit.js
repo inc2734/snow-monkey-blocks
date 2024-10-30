@@ -90,6 +90,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					} }
 				>
 					<BaseControl
+						__nextHasNoMarginBottom
 						label={ __( 'Title', 'snow-monkey-blocks' ) }
 						id="snow-monkey-blocks/price-menu-item/title-font-size"
 					>
@@ -135,6 +136,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					} }
 				>
 					<BaseControl
+						__nextHasNoMarginBottom
 						label={ __( 'Price', 'snow-monkey-blocks' ) }
 						id="snow-monkey-blocks/price-menu-item/price-font-size"
 					>

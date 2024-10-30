@@ -158,6 +158,7 @@ export default function ( {
 						}
 					>
 						<BaseControl
+							__nextHasNoMarginBottom
 							label={ __( 'Title tag', 'snow-monkey-blocks' ) }
 							id="snow-monkey-blocks/panels-item-horizontal/title-tag-name"
 						>
@@ -207,6 +208,7 @@ export default function ( {
 						}
 					>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Display image',
 								'snow-monkey-blocks'
@@ -267,6 +269,7 @@ export default function ( {
 						}
 					>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							label={ __( 'Display link', 'snow-monkey-blocks' ) }
 							checked={ displayLink }
 							onChange={ ( value ) =>

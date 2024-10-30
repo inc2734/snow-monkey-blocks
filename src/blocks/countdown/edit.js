@@ -109,6 +109,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					} }
 				>
 					<BaseControl
+						__nextHasNoMarginBottom
 						label={ __( 'Numeric', 'snow-monkey-blocks' ) }
 						id="snow-monkey-blocks/countdown/numeric-font-size"
 					>
@@ -154,6 +155,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					} }
 				>
 					<BaseControl
+						__nextHasNoMarginBottom
 						label={ __( 'Clock', 'snow-monkey-blocks' ) }
 						id="snow-monkey-blocks/countdown/clock-font-size"
 					>

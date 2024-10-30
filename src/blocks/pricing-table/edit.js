@@ -99,6 +99,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<SelectControl
+							__nextHasNoMarginBottom
 							label={ __( 'Column size', 'snow-monkey-blocks' ) }
 							help={ __(
 								'If the text of each item is long, it is recommended to select other than "Auto".',

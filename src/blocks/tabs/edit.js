@@ -145,6 +145,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<SelectControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Tabs orientation',
 								'snow-monkey-blocks'
@@ -195,6 +196,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 								}
 							>
 								<ToggleControl
+									__nextHasNoMarginBottom
 									label={ __(
 										'Align the height of each tab panels',
 										'snow-monkey-blocks'
@@ -230,6 +232,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 								}
 							>
 								<SelectControl
+									__nextHasNoMarginBottom
 									label={ __(
 										'Tabs justification',
 										'snow-monkey-blocks'

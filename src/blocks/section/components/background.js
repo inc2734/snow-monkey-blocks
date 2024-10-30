@@ -222,6 +222,7 @@ export const PanelSectionMovableBackgroundSettings = ( {
 								}
 							>
 								<ToggleControl
+									__nextHasNoMarginBottom
 									label={ __(
 										"Make sure the background doesn't overflow to the outside",
 										'snow-monkey-blocks'
@@ -254,6 +255,7 @@ export const PanelSectionMovableBackgroundSettings = ( {
 								}
 							>
 								<SelectControl
+									__nextHasNoMarginBottom
 									label={ __(
 										'Texture',
 										'snow-monkey-blocks'
@@ -376,6 +378,7 @@ export const PanelSectionFixedBackgroundSettings = ( {
 							}
 						>
 							<SelectControl
+								__nextHasNoMarginBottom
 								key={ index }
 								label={ __( 'Texture', 'snow-monkey-blocks' ) }
 								value={ setting.textureValue }
@@ -459,6 +462,7 @@ export const PanelSectionTopDividerSettings = ( { settings } ) => {
 							}
 						>
 							<SelectControl
+								__nextHasNoMarginBottom
 								label={ __( 'Type', 'snow-monkey-blocks' ) }
 								value={ setting.typeValue }
 								onChange={ setting.onTypeChange }
@@ -582,6 +586,7 @@ export const PanelSectionTopDividerSettings = ( { settings } ) => {
 							}
 						>
 							<ToggleControl
+								__nextHasNoMarginBottom
 								label={ __(
 									'Overlap divider on content',
 									'snow-monkey-blocks'
@@ -624,6 +629,7 @@ export const PanelSectionBottomDividerSettings = ( { settings } ) => {
 							}
 						>
 							<SelectControl
+								__nextHasNoMarginBottom
 								label={ __( 'Type', 'snow-monkey-blocks' ) }
 								value={ setting.typeValue }
 								onChange={ setting.onTypeChange }
@@ -747,6 +753,7 @@ export const PanelSectionBottomDividerSettings = ( { settings } ) => {
 							}
 						>
 							<ToggleControl
+								__nextHasNoMarginBottom
 								label={ __(
 									'Overlap divider on content',
 									'snow-monkey-blocks'
@@ -789,6 +796,7 @@ export const PanelSectionBackgroundTextSettings = ( { settings } ) => {
 							}
 						>
 							<TextareaControl
+								__nextHasNoMarginBottom
 								label={ __( 'Text', 'snow-monkey-blocks' ) }
 								value={ setting.textValue }
 								onChange={ setting.onTextChange }

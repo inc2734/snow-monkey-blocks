@@ -37,6 +37,7 @@ export default function ( { attributes, setAttributes } ) {
 						}
 					>
 						<TextControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Custom field name',
 								'snow-monkey-blocks'

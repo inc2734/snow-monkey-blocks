@@ -62,6 +62,7 @@ export default function ( { attributes, setAttributes } ) {
 					>
 						<Flex direction="column">
 							<ToggleControl
+								__nextHasNoMarginBottom
 								name="headings[]"
 								value="h2"
 								label={ __( 'Show h2', 'snow-monkey-blocks' ) }
@@ -80,6 +81,7 @@ export default function ( { attributes, setAttributes } ) {
 							/>
 
 							<ToggleControl
+								__nextHasNoMarginBottom
 								name="headings[]"
 								value="h3"
 								label={ __( 'Show h3', 'snow-monkey-blocks' ) }
@@ -98,6 +100,7 @@ export default function ( { attributes, setAttributes } ) {
 							/>
 
 							<ToggleControl
+								__nextHasNoMarginBottom
 								name="headings[]"
 								value="h4"
 								label={ __( 'Show h4', 'snow-monkey-blocks' ) }
@@ -136,6 +139,7 @@ export default function ( { attributes, setAttributes } ) {
 						}
 					>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							value={ true }
 							label={ __(
 								'Show section block titles',
@@ -169,6 +173,7 @@ export default function ( { attributes, setAttributes } ) {
 						}
 					>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							value={ true }
 							label={ __(
 								'Show heading blocks in section blocks',
@@ -202,6 +207,7 @@ export default function ( { attributes, setAttributes } ) {
 						}
 					>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Move to before 1st heading',
 								'snow-monkey-blocks'

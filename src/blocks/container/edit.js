@@ -92,6 +92,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							}
 						>
 							<BaseControl
+								__nextHasNoMarginBottom
 								label={ __(
 									'Max width of the contents',
 									'snow-monkey-blocks'
@@ -128,6 +129,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							}
 						>
 							<ToggleControl
+								__nextHasNoMarginBottom
 								label={ __(
 									'Make the contents width slim',
 									'snow-monkey-blocks'
@@ -160,6 +162,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Remove left and right spaces',
 								'snow-monkey-blocks'

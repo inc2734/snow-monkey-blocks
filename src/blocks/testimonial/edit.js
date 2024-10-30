@@ -148,6 +148,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					panelId={ clientId }
 				>
 					<BaseControl
+						__nextHasNoMarginBottom
 						id="snow-monkey-blocks/testimonials/gap"
 						label={ __(
 							'The gap between each item',

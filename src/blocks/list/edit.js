@@ -119,6 +119,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<BaseControl
+							__nextHasNoMarginBottom
 							label={ __( 'Icon', 'snow-monkey-blocks' ) }
 							id="snow-monkey-blocks/list/icon"
 						>

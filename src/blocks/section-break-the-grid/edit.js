@@ -480,6 +480,7 @@ export default function ( {
 							}
 						>
 							<SelectControl
+								__nextHasNoMarginBottom
 								label={ __(
 									'Sort by mobile',
 									'snow-monkey-blocks'
@@ -542,6 +543,7 @@ export default function ( {
 						}
 					>
 						<SelectControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Image Size Adjustment',
 								'snow-monkey-blocks'
@@ -621,6 +623,7 @@ export default function ( {
 							}
 						>
 							<ToggleControl
+								__nextHasNoMarginBottom
 								label={ __(
 									'Adjust the height of the media to the height of the block.',
 									'snow-monkey-blocks'
@@ -657,6 +660,7 @@ export default function ( {
 						}
 					>
 						<SelectControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Content size adjustment',
 								'snow-monkey-blocks'
@@ -691,6 +695,7 @@ export default function ( {
 						}
 					>
 						<SelectControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Degree of overlap of content to image',
 								'snow-monkey-blocks'
@@ -766,6 +771,7 @@ export default function ( {
 								}
 							>
 								<SelectControl
+									__nextHasNoMarginBottom
 									label={ __(
 										'Vertical position of content',
 										'snow-monkey-blocks'
@@ -979,6 +985,7 @@ export default function ( {
 						}
 					>
 						<SelectControl
+							__nextHasNoMarginBottom
 							label={ __( 'Padding', 'snow-monkey-blocks' ) }
 							value={ contentPadding }
 							options={ [
@@ -1029,6 +1036,7 @@ export default function ( {
 							}
 						>
 							<ToggleControl
+								__nextHasNoMarginBottom
 								label={ __(
 									'Remove outside padding',
 									'snow-monkey-blocks'

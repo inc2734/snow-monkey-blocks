@@ -100,6 +100,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					} }
 				>
 					<BaseControl
+						__nextHasNoMarginBottom
 						label={ __( 'Title', 'snow-monkey-blocks' ) }
 						id="snow-monkey-blocks/step-item-free/title-font-size"
 					>

@@ -565,6 +565,7 @@ export default function ( {
 								}
 							>
 								<FocalPointPicker
+									__nextHasNoMarginBottom
 									label={ __(
 										'Focal point picker',
 										'snow-monkey-blocks'
@@ -599,6 +600,7 @@ export default function ( {
 								}
 							>
 								<ToggleControl
+									__nextHasNoMarginBottom
 									label={ __(
 										'Fit to the contents',
 										'snow-monkey-blocks'
@@ -635,6 +637,7 @@ export default function ( {
 										}
 									>
 										<TextControl
+											__nextHasNoMarginBottom
 											label={ __(
 												'Aspect ratio',
 												'snow-monkey-blocks'
@@ -952,6 +955,7 @@ export default function ( {
 						}
 					>
 						<BaseControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Alignment on inline axis',
 								'snow-monkey-blocks'
@@ -1004,6 +1008,7 @@ export default function ( {
 						}
 					>
 						<BaseControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Alignment on cross axis',
 								'snow-monkey-blocks'

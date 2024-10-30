@@ -115,6 +115,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<ToggleGroupControl
+							__nextHasNoMarginBottom
 							label="grid-template-columns"
 							value={ columnsOption }
 							onChange={ ( value ) => {
@@ -192,6 +193,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 								/>
 
 								<ToggleGroupControl
+									__nextHasNoMarginBottom
 									label={ __(
 										'Auto repeat',
 										'snow-monkey-blocks'
@@ -218,6 +220,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 
 						{ 'free' === columnsOption && (
 							<TextControl
+								__nextHasNoMarginBottom
 								value={ gridTemplateColumns }
 								onChange={ ( value ) =>
 									setAttributes( {
@@ -247,6 +250,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<ToggleGroupControl
+							__nextHasNoMarginBottom
 							label="grid-template-rows"
 							value={ rowsOption }
 							onChange={ ( value ) => {
@@ -296,6 +300,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 
 						{ 'free' === rowsOption && (
 							<TextControl
+								__nextHasNoMarginBottom
 								value={ gridTemplateRows }
 								onChange={ ( value ) =>
 									setAttributes( {

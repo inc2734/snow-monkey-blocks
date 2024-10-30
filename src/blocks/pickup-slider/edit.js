@@ -39,6 +39,7 @@ export default function ( { attributes, setAttributes } ) {
 						}
 					>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Display in random order',
 								'snow-monkey-blocks'
@@ -63,6 +64,7 @@ export default function ( { attributes, setAttributes } ) {
 						}
 					>
 						<SelectControl
+							__nextHasNoMarginBottom
 							label={ __( 'Link type', 'snow-monkey-blocks' ) }
 							value={ linkType }
 							onChange={ ( value ) =>

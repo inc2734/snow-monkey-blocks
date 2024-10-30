@@ -51,6 +51,7 @@ export default function ( { attributes, setAttributes } ) {
 					{ ! taxonomies.length ? (
 						<div style={ { gridColumn: '1/-1' } }>
 							<BaseControl
+								__nextHasNoMarginBottom
 								label={ __(
 									'Loading taxonomies…',
 									'snow-monkey-blocks'
@@ -76,6 +77,7 @@ export default function ( { attributes, setAttributes } ) {
 							}
 						>
 							<SelectControl
+								__nextHasNoMarginBottom
 								label={ __( 'Taxonomy', 'snow-monkey-blocks' ) }
 								value={ taxonomy }
 								onChange={ ( value ) =>
@@ -101,6 +103,7 @@ export default function ( { attributes, setAttributes } ) {
 						}
 					>
 						<SelectControl
+							__nextHasNoMarginBottom
 							label={ __( 'orderby', 'snow-monkey-blocks' ) }
 							value={ orderby }
 							options={ [
@@ -161,6 +164,7 @@ export default function ( { attributes, setAttributes } ) {
 						}
 					>
 						<SelectControl
+							__nextHasNoMarginBottom
 							label={ __( 'order', 'snow-monkey-blocks' ) }
 							value={ order }
 							options={ [

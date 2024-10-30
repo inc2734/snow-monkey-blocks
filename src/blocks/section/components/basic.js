@@ -57,6 +57,7 @@ export const PanelBasicSettings = ( {
 							}
 						>
 							<BaseControl
+								__nextHasNoMarginBottom
 								key={ index }
 								label={ __(
 									'Wrapper tag',
@@ -125,6 +126,7 @@ export const PanelBasicSettings = ( {
 							}
 						>
 							<BaseControl
+								__nextHasNoMarginBottom
 								label={ __(
 									'Title tag',
 									'snow-monkey-blocks'
@@ -234,6 +236,7 @@ export const PanelBasicSettings = ( {
 
 								{ ! showCustomHeightControl ? (
 									<SelectControl
+										__nextHasNoMarginBottom
 										value={ setting.heightValue }
 										options={ [
 											{
@@ -342,6 +345,7 @@ export const PanelBasicSettings = ( {
 							}
 						>
 							<SelectControl
+								__nextHasNoMarginBottom
 								label={ __(
 									'Container alignment',
 									'snow-monkey-blocks'
@@ -381,6 +385,7 @@ export const PanelBasicSettings = ( {
 							}
 						>
 							<ToggleControl
+								__nextHasNoMarginBottom
 								label={ __(
 									'Remove container padding of the contents',
 									'snow-monkey-blocks'
@@ -419,6 +424,7 @@ export const PanelBasicSettings = ( {
 							}
 						>
 							<BaseControl
+								__nextHasNoMarginBottom
 								label={ __(
 									'Max width of the contents',
 									'snow-monkey-blocks'
@@ -458,6 +464,7 @@ export const PanelBasicSettings = ( {
 							}
 						>
 							<ToggleControl
+								__nextHasNoMarginBottom
 								label={ __(
 									'Make the contents width slim',
 									'snow-monkey-blocks'

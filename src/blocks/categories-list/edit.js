@@ -67,6 +67,7 @@ export default function ( { attributes, setAttributes, className } ) {
 		return articleCategories.map( ( category ) => {
 			return (
 				<ToggleControl
+					__nextHasNoMarginBottom
 					key={ category.id }
 					label={ category.name }
 					value={ String( category.id ) }
@@ -258,6 +259,7 @@ export default function ( { attributes, setAttributes, className } ) {
 						}
 					>
 						<SelectControl
+							__nextHasNoMarginBottom
 							label={ __( 'orderby', 'snow-monkey-blocks' ) }
 							value={ orderby }
 							options={ [
@@ -318,6 +320,7 @@ export default function ( { attributes, setAttributes, className } ) {
 						}
 					>
 						<SelectControl
+							__nextHasNoMarginBottom
 							label={ __( 'order', 'snow-monkey-blocks' ) }
 							value={ order }
 							options={ [

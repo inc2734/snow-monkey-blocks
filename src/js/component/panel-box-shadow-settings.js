@@ -168,6 +168,7 @@ export default function ( { settings, label } ) {
 
 			return (
 				<SelectControl
+					__nextHasNoMarginBottom
 					key={ index }
 					label={ __( 'Position', 'snow-monkey-blocks' ) }
 					value={ setting.positionValue }

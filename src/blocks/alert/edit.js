@@ -109,6 +109,7 @@ export default function ( {
 						}
 					>
 						<SelectControl
+							__nextHasNoMarginBottom
 							label={ __( 'Type', 'snow-monkey-blocks' ) }
 							value={ modifier }
 							onChange={ ( value ) =>
@@ -160,6 +161,7 @@ export default function ( {
 						}
 					>
 						<BaseControl
+							__nextHasNoMarginBottom
 							label={ __( 'Icon', 'snow-monkey-blocks' ) }
 							id="snow-monkey-blocks/alert/icon"
 						>

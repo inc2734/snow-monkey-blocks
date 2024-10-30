@@ -238,6 +238,7 @@ export default function ( {
 						}
 					>
 						<SelectControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Image column size',
 								'snow-monkey-blocks'
@@ -316,6 +317,7 @@ export default function ( {
 							}
 						>
 							<ToggleControl
+								__nextHasNoMarginBottom
 								label={ __(
 									'Crop image to fill entire column',
 									'snow-monkey-blocks'
@@ -349,6 +351,7 @@ export default function ( {
 							}
 						>
 							<FocalPointPicker
+								__nextHasNoMarginBottom
 								label={ __(
 									'Focal point picker',
 									'snow-monkey-blocks'
@@ -383,6 +386,7 @@ export default function ( {
 						}
 					>
 						<SelectControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Sort by mobile',
 								'snow-monkey-blocks'
@@ -438,6 +442,7 @@ export default function ( {
 						}
 					>
 						<SelectControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'When to divide columns',
 								'snow-monkey-blocks'
@@ -476,6 +481,7 @@ export default function ( {
 						}
 					>
 						<BaseControl
+							__nextHasNoMarginBottom
 							label={ __( 'Title tag', 'snow-monkey-blocks' ) }
 							id="snow-monkey-blocks/media-text/title-tag-name"
 						>

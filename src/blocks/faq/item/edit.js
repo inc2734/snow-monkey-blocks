@@ -132,6 +132,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					} }
 				>
 					<BaseControl
+						__nextHasNoMarginBottom
 						label={ __( 'Question', 'snow-monkey-blocks' ) }
 						id="snow-monkey-blocks/faq-item/question-font-size"
 					>
@@ -184,6 +185,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					} }
 				>
 					<BaseControl
+						__nextHasNoMarginBottom
 						label={ __( 'Question label', 'snow-monkey-blocks' ) }
 						id="snow-monkey-blocks/faq-item/question-label-font-size"
 					>
@@ -235,6 +237,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					} }
 				>
 					<BaseControl
+						__nextHasNoMarginBottom
 						label={ __( 'Answer label', 'snow-monkey-blocks' ) }
 						id="snow-monkey-blocks/faq-item/answer-label-font-size"
 					>
@@ -312,6 +315,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<TextControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Question label',
 								'snow-monkey-blocks'
@@ -349,6 +353,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<TextControl
+							__nextHasNoMarginBottom
 							label={ __( 'Answer label', 'snow-monkey-blocks' ) }
 							value={ answerLabel }
 							placeholder={ __( 'A', 'snow-monkey-blocks' ) }

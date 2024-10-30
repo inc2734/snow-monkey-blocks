@@ -139,6 +139,7 @@ export default function ( {
 						}
 					>
 						<SelectControl
+							__nextHasNoMarginBottom
 							label={ __( 'Button size', 'snow-monkey-blocks' ) }
 							value={ btnSize }
 							onChange={ ( value ) =>
@@ -220,6 +221,7 @@ export default function ( {
 						}
 					>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							label={ __( 'Wrap', 'snow-monkey-blocks' ) }
 							checked={ btnWrap }
 							onChange={ ( value ) =>

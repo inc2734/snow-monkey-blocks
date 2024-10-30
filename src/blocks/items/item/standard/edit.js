@@ -158,6 +158,7 @@ export default function ( {
 						}
 					>
 						<BaseControl
+							__nextHasNoMarginBottom
 							label={ __( 'Title tag', 'snow-monkey-blocks' ) }
 							id="snow-monkey-blocks/items-item-standard/title-tag-name"
 						>
@@ -207,6 +208,7 @@ export default function ( {
 						}
 					>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Display image',
 								'snow-monkey-blocks'
@@ -267,6 +269,7 @@ export default function ( {
 						}
 					>
 						<ToggleControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Display button',
 								'snow-monkey-blocks'
@@ -300,6 +303,7 @@ export default function ( {
 								}
 							>
 								<SelectControl
+									__nextHasNoMarginBottom
 									label={ __(
 										'Button size',
 										'snow-monkey-blocks'
@@ -395,6 +399,7 @@ export default function ( {
 								}
 							>
 								<ToggleControl
+									__nextHasNoMarginBottom
 									label={ __( 'Wrap', 'snow-monkey-blocks' ) }
 									checked={ btnWrap }
 									onChange={ ( value ) =>
