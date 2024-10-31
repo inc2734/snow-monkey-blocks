@@ -43,6 +43,12 @@ html :where(.wp-block-post-content,.wp-block-widget-area__inner-blocks) {
 			overflow: hidden;
 		}
 	}
+
+	> .block-editor-inserter {
+		.block-editor-button-block-appender {
+			height: 100%;
+		}
+	}
 }
 
 .smb-spider-slider--shifted.alignfull,
