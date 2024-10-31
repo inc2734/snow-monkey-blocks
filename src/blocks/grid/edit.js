@@ -119,6 +119,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						<BaseControl
 							label="grid-template-columns"
 							className="smb-toggle-group-control"
+							id="snow-monkey-blocks/grid/grid-template-columns"
 						>
 							<ToggleGroupControl
 								__nextHasNoMarginBottom
@@ -264,6 +265,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						<BaseControl
 							label="grid-template-rows"
 							className="smb-toggle-group-control"
+							id="snow-monkey-blocks/grid/grid-template-rows"
 						>
 							<ToggleGroupControl
 								__nextHasNoMarginBottom
