@@ -184,3 +184,12 @@
 		margin-right: 0 !important;
 	}
 }
+
+.smb-toggle-group-control {
+	&__body {
+		border: 1px solid #949494;
+		border-radius: 0 0 2px 2px;
+		border-top: none;
+		padding: 16px 8px !important;
+	}
+}

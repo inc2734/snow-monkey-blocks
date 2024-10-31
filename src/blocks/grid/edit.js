@@ -9,6 +9,7 @@ import {
 } from '@wordpress/block-editor';
 
 import {
+	BaseControl,
 	TextControl,
 	RangeControl,
 	__experimentalToolsPanel as ToolsPanel,
@@ -16,6 +17,7 @@ import {
 	__experimentalToggleGroupControl as ToggleGroupControl,
 	__experimentalToggleGroupControlOption as ToggleGroupControlOption,
 	__experimentalUnitControl as UnitControl,
+	__experimentalVStack as VStack,
 } from '@wordpress/components';
 
 import { useSelect } from '@wordpress/data';
@@ -114,121 +116,131 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							} )
 						}
 					>
-						<ToggleGroupControl
-							__nextHasNoMarginBottom
+						<BaseControl
 							label="grid-template-columns"
-							value={ columnsOption }
-							onChange={ ( value ) => {
-								setAttributes( {
-									columnsOption: value,
-									columns:
-										metadata.attributes.columns.default,
-									columnMinWidth:
-										metadata.attributes.columnMinWidth
-											.default,
-									columnAutoRepeat:
-										metadata.attributes.columnAutoRepeat
-											.default,
-									gridTemplateColumns:
-										metadata.attributes.gridTemplateColumns
-											.default,
-								} );
-							} }
-							isBlock
+							className="smb-toggle-group-control"
 						>
-							<ToggleGroupControlOption
-								value="min"
-								label={ __(
-									'Minimum width',
-									'snow-monkey-blocks'
-								) }
-							/>
-							<ToggleGroupControlOption
-								value="columns"
-								label={ __(
-									'Columns count',
-									'snow-monkey-blocks'
-								) }
-							/>
-							<ToggleGroupControlOption
-								value="free"
-								label={ __(
-									'Free input',
-									'snow-monkey-blocks'
-								) }
-							/>
-						</ToggleGroupControl>
-
-						{ 'columns' === columnsOption && (
-							<RangeControl
-								label={ __(
-									'Columns count',
-									'snow-monkey-blocks'
-								) }
-								value={ parseInt( columns ) }
-								onChange={ ( value ) =>
+							<ToggleGroupControl
+								__nextHasNoMarginBottom
+								hideLabelFromVision
+								value={ columnsOption }
+								onChange={ ( value ) => {
 									setAttributes( {
-										columns: parseInt( value ),
-									} )
-								}
-								min={ 1 }
-								max={ 12 }
-								step={ 1 }
-							/>
-						) }
-
-						{ 'min' === columnsOption && (
-							<>
-								<UnitControl
+										columnsOption: value,
+										columns:
+											metadata.attributes.columns.default,
+										columnMinWidth:
+											metadata.attributes.columnMinWidth
+												.default,
+										columnAutoRepeat:
+											metadata.attributes.columnAutoRepeat
+												.default,
+										gridTemplateColumns:
+											metadata.attributes
+												.gridTemplateColumns.default,
+									} );
+								} }
+								isBlock
+							>
+								<ToggleGroupControlOption
+									value="min"
 									label={ __(
 										'Minimum width',
 										'snow-monkey-blocks'
 									) }
-									value={ columnMinWidth }
-									onChange={ ( value ) =>
-										setAttributes( {
-											columnMinWidth: value,
-										} )
-									}
 								/>
-
-								<ToggleGroupControl
-									__nextHasNoMarginBottom
+								<ToggleGroupControlOption
+									value="columns"
 									label={ __(
-										'Auto repeat',
+										'Columns count',
 										'snow-monkey-blocks'
 									) }
-									value={ columnAutoRepeat }
-									onChange={ ( value ) => {
-										setAttributes( {
-											columnAutoRepeat: value,
-										} );
-									} }
-									isBlock
-								>
-									<ToggleGroupControlOption
-										value="auto-fit"
-										label="auto-fit"
-									/>
-									<ToggleGroupControlOption
-										value="auto-fill"
-										label="auto-fill"
-									/>
-								</ToggleGroupControl>
-							</>
-						) }
+								/>
+								<ToggleGroupControlOption
+									value="free"
+									label={ __(
+										'Free input',
+										'snow-monkey-blocks'
+									) }
+								/>
+							</ToggleGroupControl>
 
-						{ 'free' === columnsOption && (
-							<TextControl
-								__nextHasNoMarginBottom
-								value={ gridTemplateColumns }
-								onChange={ ( value ) =>
-									setAttributes( {
-										gridTemplateColumns: value,
-									} )
-								}
-							/>
-						) }
+							<VStack
+								className="smb-toggle-group-control__body"
+								spacing="16px"
+							>
+								{ 'columns' === columnsOption && (
+									<RangeControl
+										label={ __(
+											'Columns count',
+											'snow-monkey-blocks'
+										) }
+										value={ parseInt( columns ) }
+										onChange={ ( value ) =>
+											setAttributes( {
+												columns: parseInt( value ),
+											} )
+										}
+										min={ 1 }
+										max={ 12 }
+										step={ 1 }
+									/>
+								) }
+
+								{ 'min' === columnsOption && (
+									<>
+										<UnitControl
+											label={ __(
+												'Minimum width',
+												'snow-monkey-blocks'
+											) }
+											value={ columnMinWidth }
+											onChange={ ( value ) =>
+												setAttributes( {
+													columnMinWidth: value,
+												} )
+											}
+										/>
+
+										<ToggleGroupControl
+											__nextHasNoMarginBottom
+											label={ __(
+												'Auto repeat',
+												'snow-monkey-blocks'
+											) }
+											value={ columnAutoRepeat }
+											onChange={ ( value ) => {
+												setAttributes( {
+													columnAutoRepeat: value,
+												} );
+											} }
+											isBlock
+										>
+											<ToggleGroupControlOption
+												value="auto-fit"
+												label="auto-fit"
+											/>
+											<ToggleGroupControlOption
+												value="auto-fill"
+												label="auto-fill"
+											/>
+										</ToggleGroupControl>
+									</>
+								) }
+
+								{ 'free' === columnsOption && (
+									<TextControl
+										__nextHasNoMarginBottom
+										value={ gridTemplateColumns }
+										onChange={ ( value ) =>
+											setAttributes( {
+												gridTemplateColumns: value,
+											} )
+										}
+									/>
+								) }
+							</VStack>
+						</BaseControl>
 					</ToolsPanelItem>
 
 					<ToolsPanelItem
@@ -249,66 +261,76 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							} )
 						}
 					>
-						<ToggleGroupControl
-							__nextHasNoMarginBottom
+						<BaseControl
 							label="grid-template-rows"
-							value={ rowsOption }
-							onChange={ ( value ) => {
-								setAttributes( {
-									rowsOption: value,
-									rows: metadata.attributes.rows.default,
-									gridTemplateRows:
-										metadata.attributes.gridTemplateRows
-											.default,
-								} );
-							} }
-							isBlock
+							className="smb-toggle-group-control"
 						>
-							<ToggleGroupControlOption
-								value="rows"
-								label={ __(
-									'Rows count',
-									'snow-monkey-blocks'
-								) }
-							/>
-							<ToggleGroupControlOption
-								value="free"
-								label={ __(
-									'Free input',
-									'snow-monkey-blocks'
-								) }
-							/>
-						</ToggleGroupControl>
-
-						{ 'rows' === rowsOption && (
-							<RangeControl
-								label={ __(
-									'Rows count',
-									'snow-monkey-blocks'
-								) }
-								value={ parseInt( rows ) }
-								onChange={ ( value ) =>
-									setAttributes( {
-										rows: parseInt( value ),
-									} )
-								}
-								min={ 1 }
-								max={ 12 }
-								step={ 1 }
-							/>
-						) }
-
-						{ 'free' === rowsOption && (
-							<TextControl
+							<ToggleGroupControl
 								__nextHasNoMarginBottom
-								value={ gridTemplateRows }
-								onChange={ ( value ) =>
+								hideLabelFromVision
+								value={ rowsOption }
+								onChange={ ( value ) => {
 									setAttributes( {
-										gridTemplateRows: value,
-									} )
-								}
-							/>
-						) }
+										rowsOption: value,
+										rows: metadata.attributes.rows.default,
+										gridTemplateRows:
+											metadata.attributes.gridTemplateRows
+												.default,
+									} );
+								} }
+								isBlock
+							>
+								<ToggleGroupControlOption
+									value="rows"
+									label={ __(
+										'Rows count',
+										'snow-monkey-blocks'
+									) }
+								/>
+								<ToggleGroupControlOption
+									value="free"
+									label={ __(
+										'Free input',
+										'snow-monkey-blocks'
+									) }
+								/>
+							</ToggleGroupControl>
+
+							<VStack
+								className="smb-toggle-group-control__body"
+								spacing="16px"
+							>
+								{ 'rows' === rowsOption && (
+									<RangeControl
+										label={ __(
+											'Rows count',
+											'snow-monkey-blocks'
+										) }
+										value={ parseInt( rows ) }
+										onChange={ ( value ) =>
+											setAttributes( {
+												rows: parseInt( value ),
+											} )
+										}
+										min={ 1 }
+										max={ 12 }
+										step={ 1 }
+									/>
+								) }
+
+								{ 'free' === rowsOption && (
+									<TextControl
+										__nextHasNoMarginBottom
+										value={ gridTemplateRows }
+										onChange={ ( value ) =>
+											setAttributes( {
+												gridTemplateRows: value,
+											} )
+										}
+									/>
+								) }
+							</VStack>
+						</BaseControl>
 					</ToolsPanelItem>
 				</ToolsPanel>
 			</InspectorControls>
