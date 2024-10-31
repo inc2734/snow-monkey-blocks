@@ -54,6 +54,7 @@
 	&__action {
 		display: flex;
 		justify-content: space-between;
+		margin-top: 16px;
 
 		.components-button {
 			flex: 0 0 auto;
@@ -61,6 +62,10 @@
 	}
 
 	.components-datetime {
+		.components-heading {
+			margin-bottom: 0;
+		}
+
 		.components-datetime__date-help-button {
 			display: none;
 		}
