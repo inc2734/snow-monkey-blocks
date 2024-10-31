@@ -1,17 +1,17 @@
 import { indexOf } from 'lodash';
 
 import {
-	Flex,
-	ToggleControl,
-	__experimentalToolsPanel as ToolsPanel,
-	__experimentalToolsPanelItem as ToolsPanelItem,
-} from '@wordpress/components';
-
-import {
 	InspectorControls,
 	useBlockProps,
 	RichText,
 } from '@wordpress/block-editor';
+
+import {
+	ToggleControl,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
+	__experimentalVStack as VStack,
+} from '@wordpress/components';
 
 import { __ } from '@wordpress/i18n';
 
@@ -60,7 +60,7 @@ export default function ( { attributes, setAttributes } ) {
 							} )
 						}
 					>
-						<Flex direction="column">
+						<VStack spacing="16px">
 							<ToggleControl
 								__nextHasNoMarginBottom
 								name="headings[]"
@@ -117,7 +117,7 @@ export default function ( { attributes, setAttributes } ) {
 									} )
 								}
 							/>
-						</Flex>
+						</VStack>
 					</ToolsPanelItem>
 
 					<ToolsPanelItem
