@@ -1,5 +1,8 @@
 *** Changelog ***
 
+= 22.2.2 =
+* WordPress 6.7 compatible.
+
 = 22.2.1 =
 * [Tab] Changed the function to open any tab in the tab block on the current page with an anchor link so that links beginning with “http” will also work.
 
