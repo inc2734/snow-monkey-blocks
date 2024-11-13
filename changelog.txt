@@ -1,14 +1,17 @@
 *** Changelog ***
 
+= 22.2.3 =
+* [Tabs] Fixed an issue where unnecessary space was sometimes created at the bottom of tab blocks depending on the content of the hidden block.
+
 = 22.2.2 =
 * WordPress 6.7 compatible.
 
 = 22.2.1 =
-* [Tab] Changed the function to open any tab in the tab block on the current page with an anchor link so that links beginning with “http” will also work.
+* [Tabs] Changed the function to open any tab in the tab block on the current page with an anchor link so that links beginning with “http” will also work.
 
 = 22.2.0 =
 * [Tab panel] Add anchor setting.
-* [Tab] Added functionality to open tabs by specifying the ID of the tab as an anchor.
+* [Tabs] Added functionality to open tabs by specifying the ID of the tab as an anchor.
 
 = 22.1.1 =
 * [Contents slider] Fixed a bug that caused infinite rendering and broken blocks when patterned.
