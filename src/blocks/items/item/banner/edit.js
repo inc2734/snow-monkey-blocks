@@ -341,10 +341,7 @@ export default function ( {
 							blur !== metadata.attributes.blur.default
 						}
 						isShownByDefault
-						label={ __(
-							'Image aspect ratio',
-							'snow-monkey-blocks'
-						) }
+						label={ __( 'Shade off', 'snow-monkey-blocks' ) }
 						onDeselect={ () =>
 							setAttributes( {
 								blur: metadata.attributes.blur.default,
