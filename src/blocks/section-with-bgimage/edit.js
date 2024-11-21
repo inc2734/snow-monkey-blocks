@@ -1062,6 +1062,7 @@ export default function ( {
 							}
 						>
 							<RangeControl
+								__nextHasNoMarginBottom
 								label={ __( 'Opacity', 'snow-monkey-blocks' ) }
 								value={ Number(
 									( 1 - maskOpacity ).toFixed( 1 )

@@ -951,6 +951,7 @@ export default function ( {
 							}
 						>
 							<RangeControl
+								__nextHasNoMarginBottom
 								label={ __(
 									'Background opacity',
 									'snow-monkey-blocks'
@@ -1134,6 +1135,7 @@ export default function ( {
 							}
 						>
 							<RangeControl
+								__nextHasNoMarginBottom
 								label={ __( 'Opacity', 'snow-monkey-blocks' ) }
 								value={ Number(
 									( 1 - maskOpacity ).toFixed( 1 )

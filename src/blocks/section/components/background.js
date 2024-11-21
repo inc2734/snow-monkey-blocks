@@ -143,6 +143,7 @@ export const PanelSectionMovableBackgroundSettings = ( {
 								}
 							>
 								<RangeControl
+									__nextHasNoMarginBottom
 									label={ __(
 										'Background position (Left / Right)',
 										'snow-monkey-blocks'
@@ -182,6 +183,7 @@ export const PanelSectionMovableBackgroundSettings = ( {
 								}
 							>
 								<RangeControl
+									__nextHasNoMarginBottom
 									label={ __(
 										'Background Position (Top / Bottom)',
 										'snow-monkey-blocks'
@@ -293,6 +295,7 @@ export const PanelSectionMovableBackgroundSettings = ( {
 								}
 							>
 								<RangeControl
+									__nextHasNoMarginBottom
 									label={ __(
 										'Texture opacity',
 										'snow-monkey-blocks'
@@ -414,6 +417,7 @@ export const PanelSectionFixedBackgroundSettings = ( {
 							}
 						>
 							<RangeControl
+								__nextHasNoMarginBottom
 								key={ index }
 								label={ __(
 									'Texture opacity',
@@ -490,6 +494,7 @@ export const PanelSectionTopDividerSettings = ( { settings } ) => {
 							}
 						>
 							<RangeControl
+								__nextHasNoMarginBottom
 								label={ __( 'Level', 'snow-monkey-blocks' ) }
 								value={ setting.levelValue }
 								onChange={ setting.onLevelChange }
@@ -552,6 +557,7 @@ export const PanelSectionTopDividerSettings = ( { settings } ) => {
 							}
 						>
 							<RangeControl
+								__nextHasNoMarginBottom
 								label={ __(
 									'Position (Top / Bottom)',
 									'snow-monkey-blocks'
@@ -657,6 +663,7 @@ export const PanelSectionBottomDividerSettings = ( { settings } ) => {
 							}
 						>
 							<RangeControl
+								__nextHasNoMarginBottom
 								label={ __( 'Level', 'snow-monkey-blocks' ) }
 								value={ setting.levelValue }
 								onChange={ setting.onLevelChange }
@@ -719,6 +726,7 @@ export const PanelSectionBottomDividerSettings = ( { settings } ) => {
 							}
 						>
 							<RangeControl
+								__nextHasNoMarginBottom
 								label={ __(
 									'Position (Top / Bottom)',
 									'snow-monkey-blocks'
@@ -852,6 +860,7 @@ export const PanelSectionBackgroundTextSettings = ( { settings } ) => {
 							}
 						>
 							<RangeControl
+								__nextHasNoMarginBottom
 								label={ __(
 									'Line height',
 									'snow-monkey-blocks'
@@ -917,6 +926,7 @@ export const PanelSectionBackgroundTextSettings = ( { settings } ) => {
 							}
 						>
 							<RangeControl
+								__nextHasNoMarginBottom
 								label={ __( 'Opacity', 'snow-monkey-blocks' ) }
 								value={ Number(
 									setting.opacityValue.toFixed( 1 )

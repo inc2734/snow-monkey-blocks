@@ -103,6 +103,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<RangeControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Slide animation speed in milliseconds',
 								'snow-monkey-blocks'
@@ -138,6 +139,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<RangeControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Autoplay Speed in seconds',
 								'snow-monkey-blocks'

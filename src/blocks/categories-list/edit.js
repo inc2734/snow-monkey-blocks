@@ -180,6 +180,7 @@ export default function ( { attributes, setAttributes, className } ) {
 						}
 					>
 						<RangeControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Categories list articles',
 								'snow-monkey-blocks'

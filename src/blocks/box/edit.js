@@ -225,6 +225,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 						}
 					>
 						<RangeControl
+							__nextHasNoMarginBottom
 							label={ __( 'Opacity', 'snow-monkey-blocks' ) }
 							value={ opacity }
 							onChange={ ( value ) =>

@@ -117,6 +117,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<BaseControl
+							__nextHasNoMarginBottom
 							label="grid-template-columns"
 							className="smb-toggle-group-control"
 							id="snow-monkey-blocks/grid/grid-template-columns"
@@ -172,6 +173,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							>
 								{ 'columns' === columnsOption && (
 									<RangeControl
+										__nextHasNoMarginBottom
 										label={ __(
 											'Columns count',
 											'snow-monkey-blocks'
@@ -263,6 +265,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<BaseControl
+							__nextHasNoMarginBottom
 							label="grid-template-rows"
 							className="smb-toggle-group-control"
 							id="snow-monkey-blocks/grid/grid-template-rows"
@@ -304,6 +307,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							>
 								{ 'rows' === rowsOption && (
 									<RangeControl
+										__nextHasNoMarginBottom
 										label={ __(
 											'Rows count',
 											'snow-monkey-blocks'

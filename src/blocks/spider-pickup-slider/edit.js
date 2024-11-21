@@ -76,6 +76,7 @@ export default function ( { attributes, setAttributes } ) {
 						}
 					>
 						<RangeControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Maximum number of displays',
 								'snow-monkey-blocks'
@@ -221,6 +222,7 @@ export default function ( { attributes, setAttributes } ) {
 						}
 					>
 						<RangeControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Autoplay Speed in seconds',
 								'snow-monkey-blocks'

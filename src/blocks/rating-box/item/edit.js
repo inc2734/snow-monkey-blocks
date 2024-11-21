@@ -207,6 +207,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<RangeControl
+							__nextHasNoMarginBottom
 							label={ __( 'Rating', 'snow-monkey-blocks' ) }
 							value={ rating }
 							onChange={ ( value ) =>

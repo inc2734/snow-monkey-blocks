@@ -250,6 +250,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 								}
 							>
 								<RangeControl
+									__nextHasNoMarginBottom
 									label={ __(
 										'Autoplay Speed in seconds',
 										'snow-monkey-blocks'
@@ -512,6 +513,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 						className="spacing-sizes-control"
 					>
 						<RangeControl
+							__nextHasNoMarginBottom
 							className="spacing-sizes-control__range-control"
 							value={
 								gapOptions.filter(
@@ -541,7 +543,6 @@ export default function ( { attributes, setAttributes, clientId } ) {
 									?.label?.toUpperCase()
 							}
 							hideLabelFromVision
-							__nextHasNoMarginBottom
 						/>
 					</BaseControl>
 				</ToolsPanelItem>

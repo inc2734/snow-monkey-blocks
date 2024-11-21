@@ -317,6 +317,7 @@ export default function ( {
 						}
 					>
 						<RangeControl
+							__nextHasNoMarginBottom
 							label={ __( 'Video width', 'snow-monkey-blocks' ) }
 							value={ videoWidth }
 							onChange={ ( value ) =>
@@ -344,6 +345,7 @@ export default function ( {
 						}
 					>
 						<RangeControl
+							__nextHasNoMarginBottom
 							label={ __( 'Video height', 'snow-monkey-blocks' ) }
 							value={ videoHeight }
 							onChange={ ( value ) =>
@@ -395,6 +397,7 @@ export default function ( {
 						}
 					>
 						<RangeControl
+							__nextHasNoMarginBottom
 							label={ __( 'Opacity', 'snow-monkey-blocks' ) }
 							value={ Number( ( 1 - maskOpacity ).toFixed( 1 ) ) }
 							onChange={ ( value ) =>

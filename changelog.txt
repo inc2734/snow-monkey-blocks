@@ -1,5 +1,8 @@
 *** Changelog ***
 
+= 22.2.4 =
+* [Items:Banner] Fixed a bug that could cause the image aspect ratio setting to be reset.
+
 = 22.2.3 =
 * [Tabs] Fixed an issue where unnecessary space was sometimes created at the bottom of tab blocks depending on the content of the hidden block.
 

@@ -72,6 +72,7 @@ export default function ( { settings, label } ) {
 
 			return (
 				<RangeControl
+					__nextHasNoMarginBottom
 					key={ index }
 					label={ __( 'Opacity', 'snow-monkey-blocks' ) }
 					value={ Number( setting.opacityValue.toFixed( 1 ) ) }
@@ -92,6 +93,7 @@ export default function ( { settings, label } ) {
 
 			return (
 				<RangeControl
+					__nextHasNoMarginBottom
 					key={ index }
 					label={ __( 'Horizontal', 'snow-monkey-blocks' ) }
 					value={ setting.horizontalValue }
@@ -111,6 +113,7 @@ export default function ( { settings, label } ) {
 
 			return (
 				<RangeControl
+					__nextHasNoMarginBottom
 					key={ index }
 					label={ __( 'Vertical', 'snow-monkey-blocks' ) }
 					value={ setting.verticalValue }
@@ -130,6 +133,7 @@ export default function ( { settings, label } ) {
 
 			return (
 				<RangeControl
+					__nextHasNoMarginBottom
 					key={ index }
 					label={ __( 'Blur', 'snow-monkey-blocks' ) }
 					value={ setting.blurValue }
@@ -149,6 +153,7 @@ export default function ( { settings, label } ) {
 
 			return (
 				<RangeControl
+					__nextHasNoMarginBottom
 					key={ index }
 					label={ __( 'Spread', 'snow-monkey-blocks' ) }
 					value={ setting.spreadValue }

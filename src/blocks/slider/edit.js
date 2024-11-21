@@ -165,6 +165,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<RangeControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Slide animation speed in milliseconds',
 								'snow-monkey-blocks'
@@ -199,6 +200,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<RangeControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Autoplay Speed in seconds',
 								'snow-monkey-blocks'
@@ -339,6 +341,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							desktop={ () => (
 								<>
 									<RangeControl
+										__nextHasNoMarginBottom
 										label={ __(
 											'# of slides to show (Large window)',
 											'snow-monkey-blocks'
@@ -358,6 +361,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 									/>
 
 									<RangeControl
+										__nextHasNoMarginBottom
 										label={ __(
 											'# of slides to scroll (Large window)',
 											'snow-monkey-blocks'
@@ -380,6 +384,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							tablet={ () => (
 								<>
 									<RangeControl
+										__nextHasNoMarginBottom
 										label={ __(
 											'# of slides to show (Medium window)',
 											'snow-monkey-blocks'
@@ -399,6 +404,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 									/>
 
 									<RangeControl
+										__nextHasNoMarginBottom
 										label={ __(
 											'# of slides to scroll (Medium window)',
 											'snow-monkey-blocks'
@@ -421,6 +427,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							mobile={ () => (
 								<>
 									<RangeControl
+										__nextHasNoMarginBottom
 										label={ __(
 											'# of slides to show (Small window)',
 											'snow-monkey-blocks'
@@ -438,7 +445,9 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 										min="1"
 										max="6"
 									/>
+
 									<RangeControl
+										__nextHasNoMarginBottom
 										label={ __(
 											'# of slides to scroll (Small window)',
 											'snow-monkey-blocks'

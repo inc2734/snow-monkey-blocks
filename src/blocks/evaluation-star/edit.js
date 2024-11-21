@@ -140,6 +140,7 @@ export default function ( {
 						}
 					>
 						<RangeControl
+							__nextHasNoMarginBottom
 							label={ __( 'Evaluation', 'snow-monkey-blocks' ) }
 							help={ __(
 								'Five-grade evaluation',

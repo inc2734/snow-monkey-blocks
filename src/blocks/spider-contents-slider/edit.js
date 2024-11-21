@@ -628,6 +628,7 @@ export default function ( {
 						}
 					>
 						<RangeControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Autoplay Speed in seconds',
 								'snow-monkey-blocks'
@@ -698,6 +699,7 @@ export default function ( {
 						}
 					>
 						<RangeControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Animation speed in seconds',
 								'snow-monkey-blocks'
@@ -752,6 +754,7 @@ export default function ( {
 							<ResponsiveTabPanel
 								desktop={ () => (
 									<RangeControl
+										__nextHasNoMarginBottom
 										label={ __(
 											'# of slides to show (Large window)',
 											'snow-monkey-blocks'
@@ -776,6 +779,7 @@ export default function ( {
 								) }
 								tablet={ () => (
 									<RangeControl
+										__nextHasNoMarginBottom
 										label={ __(
 											'# of slides to show (Medium window)',
 											'snow-monkey-blocks'
@@ -800,6 +804,7 @@ export default function ( {
 								) }
 								mobile={ () => (
 									<RangeControl
+										__nextHasNoMarginBottom
 										label={ __(
 											'# of slides to show (Small window)',
 											'snow-monkey-blocks'

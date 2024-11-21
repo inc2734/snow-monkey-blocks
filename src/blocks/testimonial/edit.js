@@ -97,6 +97,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						<ResponsiveTabPanel
 							desktop={ () => (
 								<RangeControl
+									__nextHasNoMarginBottom
 									label={ __(
 										'Columns per row (Large window)',
 										'snow-monkey-blocks'
@@ -113,6 +114,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							) }
 							tablet={ () => (
 								<RangeControl
+									__nextHasNoMarginBottom
 									label={ __(
 										'Columns per row (Medium window)',
 										'snow-monkey-blocks'
@@ -157,6 +159,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						className="spacing-sizes-control"
 					>
 						<RangeControl
+							__nextHasNoMarginBottom
 							className="spacing-sizes-control__range-control"
 							value={
 								gapOptions.filter(
@@ -186,7 +189,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 									?.label?.toUpperCase()
 							}
 							hideLabelFromVision
-							__nextHasNoMarginBottom
 						/>
 					</BaseControl>
 				</ToolsPanelItem>

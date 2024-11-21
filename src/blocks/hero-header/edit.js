@@ -364,6 +364,7 @@ export default function ( {
 						}
 					>
 						<RangeControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Number of columns in grid',
 								'snow-monkey-blocks'
@@ -396,6 +397,7 @@ export default function ( {
 						}
 					>
 						<RangeControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Number of rows in grid',
 								'snow-monkey-blocks'
@@ -676,6 +678,7 @@ export default function ( {
 										}
 									>
 										<RangeControl
+											__nextHasNoMarginBottom
 											label={ __(
 												'Grid column: start',
 												'snow-monkey-blocks'
@@ -716,6 +719,7 @@ export default function ( {
 										}
 									>
 										<RangeControl
+											__nextHasNoMarginBottom
 											label={ __(
 												'Grid column: end',
 												'snow-monkey-blocks'
@@ -756,6 +760,7 @@ export default function ( {
 										}
 									>
 										<RangeControl
+											__nextHasNoMarginBottom
 											label={ __(
 												'Grid row: start',
 												'snow-monkey-blocks'
@@ -796,6 +801,7 @@ export default function ( {
 										}
 									>
 										<RangeControl
+											__nextHasNoMarginBottom
 											label={ __(
 												'Grid row: end',
 												'snow-monkey-blocks'
@@ -857,6 +863,7 @@ export default function ( {
 							}
 						>
 							<RangeControl
+								__nextHasNoMarginBottom
 								label={ __( 'Opacity', 'snow-monkey-blocks' ) }
 								value={ Number(
 									( 1 - maskOpacity ).toFixed( 1 )
@@ -1065,6 +1072,7 @@ export default function ( {
 						}
 					>
 						<RangeControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Grid column: start',
 								'snow-monkey-blocks'
@@ -1097,6 +1105,7 @@ export default function ( {
 						}
 					>
 						<RangeControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Grid column: end',
 								'snow-monkey-blocks'
@@ -1129,6 +1138,7 @@ export default function ( {
 						}
 					>
 						<RangeControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Grid row: start',
 								'snow-monkey-blocks'
@@ -1160,6 +1170,7 @@ export default function ( {
 						}
 					>
 						<RangeControl
+							__nextHasNoMarginBottom
 							label={ __(
 								'Grid row: end',
 								'snow-monkey-blocks'

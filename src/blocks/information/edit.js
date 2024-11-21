@@ -390,6 +390,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						className="spacing-sizes-control"
 					>
 						<RangeControl
+							__nextHasNoMarginBottom
 							className="spacing-sizes-control__range-control"
 							value={
 								paddingOptions.filter(
@@ -420,7 +421,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 									?.label?.toUpperCase()
 							}
 							hideLabelFromVision
-							__nextHasNoMarginBottom
 							withReset
 						/>
 					</BaseControl>
