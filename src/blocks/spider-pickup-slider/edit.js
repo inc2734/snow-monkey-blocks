@@ -250,7 +250,7 @@ export default function ( { attributes, setAttributes } ) {
 							}
 							isShownByDefault
 							label={ __(
-								'Autoplay Speed in seconds',
+								'Display pause button for autoplay',
 								'snow-monkey-blocks'
 							) }
 							onDeselect={ () =>

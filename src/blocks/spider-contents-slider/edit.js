@@ -656,7 +656,7 @@ export default function ( {
 							}
 							isShownByDefault
 							label={ __(
-								'Autoplay Speed in seconds',
+								'Display pause button for autoplay',
 								'snow-monkey-blocks'
 							) }
 							onDeselect={ () =>
