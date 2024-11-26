@@ -1,5 +1,14 @@
 *** Changelog ***
 
+= 22.2.5 =
+* [Slider] Fixed a bug that caused "Autoplay Speed in seconds" to be reset.
+* [Contents slider] Fixed a bug that caused "Autoplay Speed in seconds" to be reset.
+* [Pickup slider] Fixed a bug that caused "Autoplay Speed in seconds" to be reset.
+* [Recent posts] Fixed a bug that caused "Autoplay Speed in seconds" to be reset.
+* [Taxonomy posts] Fixed a bug that caused "Autoplay Speed in seconds" to be reset.
+* [RSS] Fixed a bug that caused "Autoplay Speed in seconds" to be reset.
+* [Child pages] Fixed a bug that caused "Autoplay Speed in seconds" to be reset.
+
 = 22.2.4 =
 * [Items:Banner] Fixed a bug that could cause the image aspect ratio setting to be reset.
 
