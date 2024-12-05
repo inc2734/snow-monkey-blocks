@@ -2,6 +2,7 @@ import classnames from 'classnames';
 import hexToRgba from 'hex-to-rgba';
 
 import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
+import { __ } from '@wordpress/i18n';
 
 export default function ( { attributes } ) {
 	const {
@@ -14,7 +15,13 @@ export default function ( { attributes } ) {
 		borderRadius,
 		opacity,
 		boxShadow,
+		rel,
+		href,
+		linkTarget,
+		linkText,
 	} = attributes;
+
+	const isHrefSet = !! href;
 
 	const styles = {
 		'--smb-box--color': textColor || undefined,
@@ -39,7 +46,7 @@ export default function ( { attributes } ) {
 			: borderWidth,
 	};
 
-	const classes = classnames( 'smb-box' );
+	const classes = classnames( 'smb-box', { 'smb-box--has-link': isHrefSet } );
 
 	return (
 		<div
@@ -54,6 +61,17 @@ export default function ( { attributes } ) {
 					className: 'smb-box__body',
 				} ) }
 			/>
+
+			{ isHrefSet && (
+				<a
+					className="smb-box__link"
+					href={ href }
+					target={ linkTarget }
+					rel={ rel }
+				>
+					{ linkText ?? __( 'Learn more', 'snow-monkey-blocks' ) }
+				</a>
+			) }
 		</div>
 	);
 }

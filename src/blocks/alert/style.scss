@@ -1,24 +1,26 @@
 @use '../../../node_modules/sass-basis/src/css/core';
 
+@use 'sass:color';
+
 $alert-color: #fff9e6 !default;
 
 .smb-alert {
 	--smb-alert--border-radius: var(--_global--border-radius);
 	--smb-alert--background-color: #{ $alert-color };
-	--smb-alert--border-color: #{ darken($alert-color, 5%) };
-	--smb-alert--color: #{ darken(desaturate($alert-color, 60%), 70%) };
+	--smb-alert--border-color: #{ color.adjust($alert-color, $lightness: -5%) };
+	--smb-alert--color: #{ color.adjust(color.adjust($alert-color, $saturation: -60%), $lightness: -70%) };
 	--smb-alert--padding: var(--_padding1);
-	--smb-alert--icon-color: #{ darken($alert-color, 40%) };
+	--smb-alert--icon-color: #{ color.adjust($alert-color, $lightness: -40%) };
 
-	--smb-alert--warning-background-color: #{ adjust-hue($alert-color, -30deg) };
-	--smb-alert--warning-border-color: #{ adjust-hue(darken($alert-color, 5%), -30deg) };
-	--smb-alert--warning-color: #{ adjust-hue(darken(desaturate($alert-color, 60%), 80%), -30deg) };
-	--smb-alert--warning-icon-color: #{ adjust-hue(darken($alert-color, 40%), -30deg) };
+	--smb-alert--warning-background-color: #{ color.adjust($alert-color, $hue: -30deg) };
+	--smb-alert--warning-border-color: #{ color.adjust(color.adjust($alert-color, $lightness: -5%), $hue: -30deg) };
+	--smb-alert--warning-color: #{ color.adjust(color.adjust(color.adjust($alert-color, $saturation: -60%), $lightness: -80%), $hue: -30deg) };
+	--smb-alert--warning-icon-color: #{ color.adjust(color.adjust($alert-color, $lightness: -40%), $hue: -30deg) };
 
-	--smb-alert--success-background-color: #{ adjust-hue($alert-color, 40deg) };
-	--smb-alert--success-border-color: #{ adjust-hue(darken($alert-color, 10%), 40deg) };
-	--smb-alert--success-color: #{ adjust-hue(darken(desaturate($alert-color, 70%), 80%), 40deg) };
-	--smb-alert--success-icon-color: #{ adjust-hue(darken($alert-color, 50%), 40deg) };
+	--smb-alert--success-background-color: #{ color.adjust($alert-color, $hue: 40deg) };
+	--smb-alert--success-border-color: #{ color.adjust(color.adjust($alert-color, $lightness: -10%), $hue: 40deg) };
+	--smb-alert--success-color: #{ color.adjust(color.adjust(color.adjust($alert-color, $saturation: -70%), $lightness: -80%), $hue: 40deg) };
+	--smb-alert--success-icon-color: #{ color.adjust(color.adjust($alert-color, $lightness: -50%), $hue: 40deg) };
 
 	--smb-alert--remark-background-color: var(--_lightest-color-gray);
 	--smb-alert--remark-border-color: var(--_lighter-color-gray);

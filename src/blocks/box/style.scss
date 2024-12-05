@@ -49,6 +49,23 @@
 	}
 }
 
+.smb-box--has-link {
+	cursor: pointer;
+
+	&:has(:focus-visible) {
+		outline: auto;
+		outline: auto -webkit-focus-ring-color; /* for Chrome */
+	}
+}
+
+.smb-box__link {
+	position: static !important;
+	display: block !important;
+	height: 0 !important;
+	width: 0 !important;
+	text-indent: -99999px !important;
+}
+
 :where(.smb-box__body.is-layout-constrained > *) {
 	--wp--style--global--content-size: 100%;
 	--wp--style--global--wide-size: 100%;

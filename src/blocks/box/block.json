@@ -46,6 +46,30 @@
 				"position": ""
 			}
 		},
+		"linkText": {
+			"type": "string",
+			"source": "html",
+			"selector": "a",
+			"role": "content"
+		},
+		"href": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "a",
+			"attribute": "href"
+		},
+		"rel": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "a",
+			"attribute": "rel"
+		},
+		"linkTarget": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "a",
+			"attribute": "target"
+		},
 		"templateLock": {
 			"type": [ "string", "boolean" ],
 			"enum": [ "all", "insert", "contentOnly", false ]
@@ -82,5 +106,6 @@
 		]
 	},
 	"style": "file:./style-index.css",
-	"editorScript": "file:./index.js"
+	"editorScript": "file:./index.js",
+	"viewScript": "file:./view.js"
 }
