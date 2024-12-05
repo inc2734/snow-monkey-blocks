@@ -1,6 +1,6 @@
 *** Changelog ***
 
-= 22.3.0 =
+= 22.3.1 =
 * [Box] Add box link features.
 * [Slider] Fixed a bug that caused content to protrude from some slides depending on the content.
 * [Contents slider] Fixed a bug that caused content to protrude from some slides depending on the content.

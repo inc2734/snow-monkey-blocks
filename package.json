@@ -62,7 +62,7 @@
 		"blocks:build": "rimraf dist/blocks && wp-scripts build --output-path=dist",
 		"blocks:php": "cpy \"src/blocks/**/*.php\" \"dist/blocks\"",
 		"blocks:img": "cpy \"src/blocks/**/img/*\" \"dist/blocks\"",
-		"blocks": "run-s blocks:format && run-p blocks:build blocks:php blocks:img",
+		"blocks": "run-s blocks:format && run-s blocks:build blocks:php blocks:img",
 		"pretest:unit:php": "wp-env start",
 		"test:lint:js": "wp-scripts lint-js src/blocks src/js",
 		"test:lint:php": "wp-env start && npm run composer lint",
