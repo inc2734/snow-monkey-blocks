@@ -1,5 +1,15 @@
 *** Changelog ***
 
+= 22.3.0 =
+* [Box] Add box link features.
+* [Slider] Fixed a bug that caused content to protrude from some slides depending on the content.
+* [Contents slider] Fixed a bug that caused content to protrude from some slides depending on the content.
+* [Pickup slider] Fixed a bug that caused content to protrude from some slides depending on the content.
+* [Recent posts] Fixed a bug that caused content to protrude from some slides depending on the content.
+* [Taxonomy posts] Fixed a bug that caused content to protrude from some slides depending on the content.
+* [RSS] Fixed a bug that caused content to protrude from some slides depending on the content.
+* [Child pages] Fixed a bug that caused content to protrude from some slides depending on the content.
+
 = 22.2.5 =
 * [Slider] Fixed a bug that caused "Autoplay Speed in seconds" to be reset.
 * [Contents slider] Fixed a bug that caused "Autoplay Speed in seconds" to be reset.
