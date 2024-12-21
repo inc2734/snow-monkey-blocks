@@ -1,5 +1,8 @@
 *** Changelog ***
 
+= 22.3.2 =
+* [Tabs] Fixed a bug where the tab panels of the source and destination tab blocks would not be displayed when duplicating a tab block.
+
 = 22.3.1 =
 * [Box] Add box link features.
 * [Slider] Fixed a bug that caused content to protrude from some slides depending on the content.
