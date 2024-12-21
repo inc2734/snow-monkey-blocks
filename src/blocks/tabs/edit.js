@@ -61,22 +61,16 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		useState( undefined );
 
 	useEffect( () => {
-		if ( 0 < tabs.length ) {
-			setCurrentTabPanelId( tabs[ 0 ]?.tabPanelId );
-			setCurrentTabPanelAnchor( tabs[ 0 ]?.anchor );
-		}
-
-		if ( ! tabsId ) {
+		if ( tabsId !== clientId ) {
 			setAttributes( { tabsId: clientId } );
 		}
-		// Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [] );
 
-	useEffect( () => {
 		if ( 1 > tabs.length ) {
 			return;
 		}
+
+		setCurrentTabPanelId( tabs[ 0 ]?.tabPanelId );
+		setCurrentTabPanelAnchor( tabs[ 0 ]?.anchor );
 
 		const tabPanelsClientIds = getBlockOrder( clientId );
 
