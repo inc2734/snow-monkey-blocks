@@ -56,11 +56,9 @@ export default function ( {
 		canvasPadding,
 		border,
 		boxShadow,
-		sliderClientIds: _sliderClientIds,
+		sliderClientIds,
 		templateLock,
 	} = attributes;
-
-	const sliderClientIds = JSON.parse( _sliderClientIds );
 
 	const isAlignwide = 'wide' === attributes.align;
 	const isAlignfull = 'full' === attributes.align;
@@ -168,7 +166,7 @@ export default function ( {
 		// Since what is actually needed is the number of InnerBlocks, exact clientIds are not necessary.
 		if ( sliderClientIds.length !== nowSliderClientIds.length ) {
 			setAttributes( {
-				sliderClientIds: JSON.stringify( nowSliderClientIds ),
+				sliderClientIds: nowSliderClientIds,
 			} );
 		}
 

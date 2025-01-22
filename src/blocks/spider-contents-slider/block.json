@@ -64,8 +64,8 @@
 			"default": {}
 		},
 		"sliderClientIds": {
-			"type": "string",
-			"default": "[]"
+			"type": "array",
+			"default": []
 		},
 		"border": {
 			"type": "object",

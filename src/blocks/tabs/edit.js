@@ -36,14 +36,13 @@ import metadata from './block.json';
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
 	const {
-		tabs: _tabs,
+		tabs,
 		matchHeight,
 		tabsJustification,
 		tabsId,
 		orientation,
 		templateLock,
 	} = attributes;
-	const tabs = JSON.parse( _tabs );
 
 	const {
 		removeBlocks,
@@ -95,7 +94,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		} );
 		// Temporarily disabling exhaustive-deps to avoid introducing unexpected side effecst.
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [ clientId, _tabs ] );
+	}, [ clientId, tabs ] );
 
 	const dataMatchHeightBoolean =
 		'vertical' === orientation ||
@@ -312,7 +311,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 
 						const onChangeTitle = ( value ) => {
 							tabs[ index ].title = value;
-							setAttributes( { tabs: JSON.stringify( tabs ) } );
+							setAttributes( { tabs: [ ...tabs ] } );
 						};
 
 						const onClickRemoveTabButton = () => {
@@ -322,7 +321,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							);
 
 							tabs.splice( index, 1 );
-							setAttributes( { tabs: JSON.stringify( tabs ) } );
+							setAttributes( { tabs: [ ...tabs ] } );
 
 							setCurrentTabPanelId( tabs[ 0 ]?.tabPanelId );
 							setCurrentTabPanelAnchor( tabs[ 0 ]?.anchor );
@@ -337,7 +336,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							const targetTab = tabs[ index ];
 							tabs.splice( index, 1 );
 							tabs.splice( index - 1, 0, targetTab );
-							setAttributes( { tabs: JSON.stringify( tabs ) } );
+							setAttributes( { tabs: [ ...tabs ] } );
 
 							setCurrentTabPanelId(
 								tabs[ index - 1 ]?.tabPanelId
@@ -356,7 +355,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							const targetTab = tabs[ index ];
 							tabs.splice( index, 1 );
 							tabs.splice( index + 1, 0, targetTab );
-							setAttributes( { tabs: JSON.stringify( tabs ) } );
+							setAttributes( { tabs: [ ...tabs ] } );
 
 							setCurrentTabPanelId(
 								tabs[ index + 1 ]?.tabPanelId
@@ -493,7 +492,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 									anchor: tabPanelId,
 								} );
 								setAttributes( {
-									tabs: JSON.stringify( tabs ),
+									tabs,
 								} );
 
 								setCurrentTabPanelId( tabPanelId );

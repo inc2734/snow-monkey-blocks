@@ -21,9 +21,8 @@ export default function ( { attributes, className } ) {
 		canvasPadding,
 		border,
 		boxShadow,
-		sliderClientIds: _sliderClientIds,
+		sliderClientIds,
 	} = attributes;
-	const sliderClientIds = JSON.parse( _sliderClientIds );
 
 	const isAlignwide = 'wide' === attributes.align;
 	const isAlignfull = 'full' === attributes.align;

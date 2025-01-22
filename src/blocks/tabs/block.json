@@ -9,8 +9,8 @@
 	"category": "smb",
 	"attributes": {
 		"tabs": {
-			"type": "string",
-			"default": "[]"
+			"type": "array",
+			"default": []
 		},
 		"matchHeight": {
 			"type": "string",

@@ -29,12 +29,11 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 	const parentId = getBlockParents( clientId, true )[ 0 ];
 
 	useEffect( () => {
-		const _tabs = getBlockAttributes( parentId )?.tabs;
-		if ( ! _tabs ) {
+		const tabs = getBlockAttributes( parentId )?.tabs;
+		if ( ! tabs ) {
 			return;
 		}
 
-		const tabs = JSON.parse( _tabs );
 		const newTabs = getBlockOrder( parentId ).map(
 			( tabPanelClientId, index ) => {
 				const tab = tabs[ index ];
@@ -87,7 +86,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		);
 
 		updateBlockAttributes( parentId, {
-			tabs: JSON.stringify( newTabs ),
+			tabs: newTabs,
 		} );
 	}, [
 		backgroundColor,

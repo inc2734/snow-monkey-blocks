@@ -8,14 +8,8 @@ import {
 } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
-	const {
-		tabs: _tabs,
-		matchHeight,
-		tabsJustification,
-		tabsId,
-		orientation,
-	} = attributes;
-	const tabs = JSON.parse( _tabs );
+	const { tabs, matchHeight, tabsJustification, tabsId, orientation } =
+		attributes;
 
 	const dataMatchHeightBoolean =
 		'vertical' === orientation ||
