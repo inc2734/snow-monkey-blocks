@@ -1,5 +1,9 @@
 *** Changelog ***
 
+= 22.3.4 =
+* [Tabs] Fix deprecated proccess.
+* [Contents Slider] Fix deprecated proccess.
+
 = 22.3.3 =
 * [Tabs] Fixed a bug that the editor sometimes crashes on the editing screen of the duplicated article when duplicating an article containing a tab block using a plugin that allows duplicating articles.
 
