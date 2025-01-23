@@ -23,6 +23,15 @@ export default [
 			...blockSupports,
 		},
 
+		migrate( attributes ) {
+			const { sliderClientIds } = attributes;
+
+			return {
+				...attributes,
+				sliderClientIds: JSON.parse( sliderClientIds ),
+			};
+		},
+
 		save( { attributes, className } ) {
 			const {
 				arrows,
@@ -254,6 +263,15 @@ export default [
 			...blockSupports,
 		},
 
+		migrate( attributes ) {
+			const { sliderClientIds } = attributes;
+
+			return {
+				...attributes,
+				sliderClientIds: JSON.parse( sliderClientIds ),
+			};
+		},
+
 		save( { attributes, className } ) {
 			const {
 				arrows,
@@ -461,6 +479,15 @@ export default [
 			...blockSupports,
 		},
 
+		migrate( attributes ) {
+			const { sliderClientIds } = attributes;
+
+			return {
+				...attributes,
+				sliderClientIds: JSON.parse( sliderClientIds ),
+			};
+		},
+
 		save( { attributes, className } ) {
 			const {
 				arrows,
@@ -640,6 +667,15 @@ export default [
 			...blockSupports,
 		},
 
+		migrate( attributes ) {
+			const { sliderClientIds } = attributes;
+
+			return {
+				...attributes,
+				sliderClientIds: JSON.parse( sliderClientIds ),
+			};
+		},
+
 		save( { attributes, className } ) {
 			const {
 				arrows,
@@ -817,6 +853,15 @@ export default [
 			...blockSupports,
 		},
 
+		migrate( attributes ) {
+			const { sliderClientIds } = attributes;
+
+			return {
+				...attributes,
+				sliderClientIds: JSON.parse( sliderClientIds ),
+			};
+		},
+
 		save( { attributes, className } ) {
 			const {
 				arrows,
@@ -957,6 +1002,15 @@ export default [
 			...blockSupports,
 		},
 
+		migrate( attributes ) {
+			const { sliderClientIds } = attributes;
+
+			return {
+				...attributes,
+				sliderClientIds: JSON.parse( sliderClientIds ),
+			};
+		},
+
 		save( { attributes, className } ) {
 			const {
 				arrows,
@@ -1092,6 +1146,15 @@ export default [
 			...blockSupports,
 		},
 
+		migrate( attributes ) {
+			const { sliderClientIds } = attributes;
+
+			return {
+				...attributes,
+				sliderClientIds: JSON.parse( sliderClientIds ),
+			};
+		},
+
 		save( { attributes, className } ) {
 			const {
 				arrows,
@@ -1217,6 +1280,15 @@ export default [
 
 		supports: {
 			...blockSupports,
+		},
+
+		migrate( attributes ) {
+			const { sliderClientIds } = attributes;
+
+			return {
+				...attributes,
+				sliderClientIds: JSON.parse( sliderClientIds ),
+			};
 		},
 
 		save( { attributes, className } ) {

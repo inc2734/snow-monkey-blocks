@@ -129,6 +129,15 @@ export default [
 			...blockSupports,
 		},
 
+		migrate( attributes ) {
+			const { tabs } = attributes;
+
+			return {
+				...attributes,
+				tabs: JSON.parse( tabs ),
+			};
+		},
+
 		save( { attributes, className } ) {
 			const {
 				tabs: _tabs,
@@ -221,6 +230,15 @@ export default [
 
 		supports: {
 			...blockSupports,
+		},
+
+		migrate( attributes ) {
+			const { tabs } = attributes;
+
+			return {
+				...attributes,
+				tabs: JSON.parse( tabs ),
+			};
 		},
 
 		save( { attributes, className } ) {
