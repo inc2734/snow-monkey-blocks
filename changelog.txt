@@ -1,5 +1,10 @@
 *** Changelog ***
 
+= 22.3.5 =
+* [Box] Fixed a bug where when setting a block link, it would link even when right-clicking.
+* [Box] Support for "Open in new window" and "Open in new tab" for block link.
+* Fixed a bug where FontAwesome's JavaScript variables were global variables and caused various interferences.
+
 = 22.3.4 =
 * [Tabs] Fix deprecated proccess.
 * [Contents Slider] Fix deprecated proccess.
