@@ -67,9 +67,9 @@ class Assets {
 		if ( apply_filters( 'snow_monkey_blocks_enqueue_fontawesome', true ) ) {
 			wp_enqueue_script(
 				'fontawesome6',
-				SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/packages/fontawesome-free/all.min.js',
+				SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/js/fontawesome-all.js',
 				array(),
-				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/packages/fontawesome-free/all.min.js' ),
+				filemtime( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/js/fontawesome-all.js' ),
 				array(
 					'strategy'  => 'defer',
 					'in_footer' => false,
