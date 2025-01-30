@@ -28,6 +28,7 @@
 	border-radius: var(--smb-btn--border-radius);
 	padding: var(--smb-btn--padding-vertical) var(--smb-btn--padding-horizontal);
 	max-width: 100%;
+	cursor: pointer;
 	white-space: nowrap;
 	@include core.transition(all);
 

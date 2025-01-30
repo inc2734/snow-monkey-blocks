@@ -52,7 +52,7 @@ export default function ( { attributes, className } ) {
 		<div { ...useBlockProps.save( { className: wrapperClasses } ) }>
 			<a
 				className={ classes }
-				href={ url }
+				href={ url || undefined }
 				style={ styles }
 				target={ '_self' === target ? undefined : target }
 				rel={ '_self' === target ? undefined : 'noopener noreferrer' }

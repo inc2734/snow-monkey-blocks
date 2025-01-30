@@ -23,3 +23,10 @@ add_filter(
 		);
 	}
 );
+
+add_filter(
+	'render_block_snow-monkey-blocks/btn',
+	function( $block_content ) {
+		return str_replace( 'href=""', '', $block_content );
+	}
+);
