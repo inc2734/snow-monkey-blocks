@@ -1,5 +1,9 @@
 *** Changelog ***
 
+= 23.0.0 =
+* [Button] Change target event for hover processing in CSS. `:hover` / `:active` / `:focus` => `@media (any-hover: hover) + :hover` / `:focus-visible`.
+* [Button] Changed so that href attribute is not output when href is empty.
+
 = 22.3.5 =
 * [Box] Fixed a bug where when setting a block link, it would link even when right-clicking.
 * [Box] Support for "Open in new window" and "Open in new tab" for block link.
