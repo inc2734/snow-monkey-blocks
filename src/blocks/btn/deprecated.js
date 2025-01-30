@@ -1,6 +1,10 @@
 import classnames from 'classnames';
 
-import { RichText, useBlockProps } from '@wordpress/block-editor';
+import {
+	RichText,
+	useBlockProps,
+	__experimentalGetSpacingClassesAndStyles as getSpacingClassesAndStyles,
+} from '@wordpress/block-editor';
 
 import metadata from './block.json';
 
