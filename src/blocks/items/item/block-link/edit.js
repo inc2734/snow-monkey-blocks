@@ -25,18 +25,83 @@ import {
 	__experimentalUseColorProps as useColorProps,
 } from '@wordpress/block-editor';
 
-import { useState, useRef } from '@wordpress/element';
+import { useMergeRefs } from '@wordpress/compose';
 import { useSelect } from '@wordpress/data';
+import { useState, useMemo, useRef } from '@wordpress/element';
+import { link, linkOff } from '@wordpress/icons';
+import { displayShortcut } from '@wordpress/keycodes';
+import { prependHTTP } from '@wordpress/url';
 import { __ } from '@wordpress/i18n';
-import { link as linkIcon } from '@wordpress/icons';
 
 import Figure from '@smb/component/figure';
 import ResolutionTool from '@smb/component/resolution-tool';
 
+import metadata from './block.json';
+
+const NEW_TAB_REL = 'noreferrer noopener';
+const NEW_TAB_TARGET = '_blank';
+const NOFOLLOW_REL = 'nofollow';
+
+const LINK_SETTINGS = [
+	...LinkControl.DEFAULT_LINK_SETTINGS,
+	{
+		id: 'nofollow',
+		title: __( 'Mark as nofollow', 'snow-monkey-blocks' ),
+	},
+];
+
 const ALLOWED_TYPES = [ 'image' ];
 const DEFAULT_MEDIA_SIZE_SLUG = 'full';
 
-import metadata from './block.json';
+/**
+ * Updates the link attributes.
+ *
+ * @see https://github.com/WordPress/gutenberg/blob/trunk/packages/block-library/src/button/get-updated-link-attributes.js
+ *
+ * @param {Object}  attributes               The current block attributes.
+ * @param {string}  attributes.rel           The current link rel attribute.
+ * @param {string}  attributes.url           The current link url.
+ * @param {string}  attributes.title         The current link text.
+ * @param {boolean} attributes.opensInNewTab Whether the link should open in a new window.
+ * @param {boolean} attributes.nofollow      Whether the link should be marked as nofollow.
+ */
+export function getUpdatedLinkAttributes( {
+	rel = '',
+	url = '',
+	title,
+	opensInNewTab,
+	nofollow,
+} ) {
+	let newLinkTarget;
+	// Since `rel` is editable attribute, we need to check for existing values and proceed accordingly.
+	let updatedRel = rel;
+
+	if ( opensInNewTab ) {
+		newLinkTarget = NEW_TAB_TARGET;
+		updatedRel = updatedRel?.includes( NEW_TAB_REL )
+			? updatedRel
+			: updatedRel + ` ${ NEW_TAB_REL }`;
+	} else {
+		const relRegex = new RegExp( `\\b${ NEW_TAB_REL }\\s*`, 'g' );
+		updatedRel = updatedRel?.replace( relRegex, '' ).trim();
+	}
+
+	if ( nofollow ) {
+		updatedRel = updatedRel?.includes( NOFOLLOW_REL )
+			? updatedRel
+			: ( updatedRel + ` ${ NOFOLLOW_REL }` ).trim();
+	} else {
+		const relRegex = new RegExp( `\\b${ NOFOLLOW_REL }\\s*`, 'g' );
+		updatedRel = updatedRel?.replace( relRegex, '' ).trim();
+	}
+
+	return {
+		url: prependHTTP( url ),
+		btnLabel: title,
+		target: newLinkTarget,
+		rel: updatedRel || undefined,
+	};
+}
 
 export default function ( {
 	attributes,
@@ -51,6 +116,7 @@ export default function ( {
 		lede,
 		summary,
 		url,
+		rel,
 		target,
 		displayImage,
 		imageID,
@@ -71,13 +137,33 @@ export default function ( {
 
 	const colorProps = useColorProps( attributes );
 
-	const [ isEditingURL, setIsEditingURL ] = useState( false );
-	const isURLSet = !! url;
-	const opensInNewTab = target === '_blank';
+	const ref = useRef();
+	const [ popoverAnchor, setPopoverAnchor ] = useState();
+	const [ isEditingHref, setIsEditingHref ] = useState( false );
+	const isHrefSet = !! url;
+	const opensInNewTab = target === NEW_TAB_TARGET;
+	const nofollow = !! rel?.includes( NOFOLLOW_REL );
 
-	// Use internal state instead of a ref to make sure that the component
-	// re-renders when the popover's anchor updates.
-	const [ popoverAnchor, setPopoverAnchor ] = useState( null );
+	// Memoize link value to avoid overriding the LinkControl's internal state.
+	// This is a temporary fix. See https://github.com/WordPress/gutenberg/issues/51256.
+	const linkValue = useMemo(
+		() => ( { url, title: btnLabel, opensInNewTab, nofollow } ),
+		[ url, btnLabel, opensInNewTab, nofollow ]
+	);
+
+	function startEditing( event ) {
+		event.preventDefault();
+		setIsEditingHref( true );
+	}
+
+	function unlink() {
+		setAttributes( {
+			url: undefined,
+			target: undefined,
+			rel: undefined,
+		} );
+		setIsEditingHref( false );
+	}
 
 	const { imageSizes, image } = useSelect(
 		( select ) => {
@@ -123,19 +209,10 @@ export default function ( {
 		'--smb-btn--color': btnTextColor || undefined,
 	};
 
-	const richTextRef = useRef();
-
 	const blockProps = useBlockProps( {
 		className: classes,
+		ref: useMergeRefs( [ setPopoverAnchor, ref ] ),
 	} );
-
-	const unlink = () => {
-		setAttributes( {
-			url: undefined,
-			target: undefined,
-		} );
-		setIsEditingURL( false );
-	};
 
 	return (
 		<>
@@ -584,28 +661,43 @@ export default function ( {
 							/>
 						) }
 
-						{ displayBtn && (
+						{ ( isHrefSet || displayBtn ) && (
 							<div className="smb-items__item__action">
 								<span
-									ref={ setPopoverAnchor }
-									className={ btnClasses }
-									style={ btnStyles }
+									className={
+										displayBtn ? btnClasses : undefined
+									}
+									style={ displayBtn ? btnStyles : undefined }
+									href={ url }
+									target={ target }
+									rel={ rel }
 								>
-									<RichText
-										className="smb-btn__label"
-										value={ btnLabel }
-										placeholder={ __(
-											'Button',
-											'snow-monkey-blocks'
-										) }
-										onChange={ ( value ) =>
-											setAttributes( {
-												btnLabel: value,
-											} )
-										}
-										withoutInteractiveFormatting={ true }
-										ref={ richTextRef }
-									/>
+									{ displayBtn ? (
+										<RichText
+											className="smb-btn__label"
+											value={ btnLabel }
+											placeholder={ __(
+												'Button',
+												'snow-monkey-blocks'
+											) }
+											onChange={ ( value ) =>
+												setAttributes( {
+													btnLabel: value,
+												} )
+											}
+											withoutInteractiveFormatting={
+												true
+											}
+										/>
+									) : (
+										<span className="screen-reader-text">
+											{ btnLabel ||
+												__(
+													'Learn more',
+													'snow-monkey-blocks'
+												) }
+										</span>
+									) }
 								</span>
 							</div>
 						) }
@@ -614,47 +706,71 @@ export default function ( {
 			</div>
 
 			<BlockControls group="block">
-				<ToolbarButton
-					name="link"
-					icon={ linkIcon }
-					title={ __( 'Link', 'snow-monkey-blocks' ) }
-					onClick={ ( event ) => {
-						event.preventDefault();
-						setIsEditingURL( true );
-					} }
-					isActive={ isURLSet }
-				/>
+				{ ! isHrefSet && (
+					<ToolbarButton
+						name="link"
+						icon={ link }
+						title={ __( 'Link' ) }
+						shortcut={ displayShortcut.primary( 'k' ) }
+						onClick={ startEditing }
+					/>
+				) }
+				{ isHrefSet && (
+					<ToolbarButton
+						name="link"
+						icon={ linkOff }
+						title={ __( 'Unlink' ) }
+						shortcut={ displayShortcut.primaryShift( 'k' ) }
+						onClick={ unlink }
+						isActive={ true }
+					/>
+				) }
 			</BlockControls>
 
-			{ isSelected && isEditingURL && (
+			{ isSelected && ( isEditingHref || isHrefSet ) && (
 				<Popover
-					placement="bottom"
-					anchor={ popoverAnchor }
+					placement="bottom center"
 					onClose={ () => {
-						setIsEditingURL( false );
-						richTextRef.current?.focus();
+						setIsEditingHref( false );
 					} }
+					anchor={ popoverAnchor }
+					focusOnMount={ isEditingHref ? 'firstElement' : false }
 				>
 					<LinkControl
 						className="wp-block-navigation-link__inline-link-input"
-						value={ {
-							url,
-							opensInNewTab,
-						} }
+						value={ linkValue }
 						onChange={ ( {
-							url: newUrl,
+							url: newHref = '',
+							title: newLinkText,
 							opensInNewTab: newOpensInNewTab,
-						} ) =>
-							setAttributes( {
-								url: newUrl,
-								target: ! newOpensInNewTab ? '_self' : '_blank',
-							} )
-						}
+							nofollow: newNofollow,
+						} ) => {
+							setAttributes(
+								getUpdatedLinkAttributes( {
+									rel,
+									url: newHref,
+									title: newLinkText,
+									opensInNewTab: newOpensInNewTab,
+									nofollow: newNofollow,
+								} )
+							);
+						} }
 						onRemove={ () => {
 							unlink();
-							richTextRef.current?.focus();
 						} }
-						forceIsEditingLink={ ! isURLSet }
+						forceIsEditingLink={ isEditingHref }
+						hasRichPreviews
+						hasTextControl={ ! displayBtn }
+						settings={ LINK_SETTINGS }
+						showInitialSuggestions
+						suggestionsQuery={ {
+							// always show Pages as initial suggestions
+							initialSuggestionsSearchOptions: {
+								type: 'post',
+								subtype: 'page',
+								perPage: 20,
+							},
+						} }
 					/>
 				</Popover>
 			) }

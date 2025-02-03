@@ -365,3 +365,51 @@ export const cleanEmptyObject = ( object ) => {
 		? undefined
 		: Object.fromEntries( cleanedNestedObjects );
 };
+
+export function boxLink( target, link ) {
+	let down, up;
+
+	if ( ! link ) {
+		return;
+	}
+
+	target.addEventListener( 'pointerdown', ( event ) => {
+		event.stopPropagation();
+		down = +new Date();
+	} );
+
+	target.addEventListener( 'pointerup', ( event ) => {
+		event.stopPropagation();
+
+		if ( 0 !== event.button ) {
+			return false;
+		}
+
+		if (
+			[ 'A', 'BUTTON', 'INPUT', 'SELECT', 'TEXTAREA' ].includes(
+				event.target?.tagName
+			)
+		) {
+			return false;
+		}
+
+		up = +new Date();
+		if ( up - down < 200 ) {
+			const pressedKeys =
+				event.shiftKey || event.ctrlKey || event.metaKey;
+			if ( pressedKeys ) {
+				const originalTarget = link.getAttribute( 'target' );
+				const originalRel = link.getAttribute( 'rel' );
+				link.setAttribute( 'target', '_blank' );
+				link.setAttribute( 'rel', 'noopener noreferrer' );
+
+				link.click();
+
+				link.setAttribute( 'target', originalTarget || '' );
+				link.setAttribute( 'rel', originalRel || '' );
+			} else {
+				link.click();
+			}
+		}
+	} );
+}

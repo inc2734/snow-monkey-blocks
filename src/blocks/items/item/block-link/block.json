@@ -1,6 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
+	"version": "23.0.1",
 	"textdomain": "snow-monkey-blocks",
 	"name": "snow-monkey-blocks/items-item-block-link",
 	"title": "Item (Block Link)",
@@ -33,16 +34,20 @@
 		"url": {
 			"type": "string",
 			"source": "attribute",
-			"selector": ".smb-items__item--block-link",
-			"attribute": "href",
-			"default": ""
+			"selector": ".smb-items__item__action > a",
+			"attribute": "href"
+		},
+		"rel": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-items__item__action > a",
+			"attribute": "rel"
 		},
 		"target": {
 			"type": "string",
 			"source": "attribute",
-			"selector": ".smb-items__item--block-link",
-			"attribute": "target",
-			"default": "_self"
+			"selector": ".smb-items__item__action > a",
+			"attribute": "target"
 		},
 		"displayImage": {
 			"type": "boolean",
@@ -91,8 +96,8 @@
 		"btnLabel": {
 			"type": "string",
 			"source": "html",
-			"selector": ".smb-items__item__btn > .smb-btn__label",
-			"default": ""
+			"selector": ".smb-items__item__action > a > span",
+			"role": "content"
 		},
 		"btnBackgroundColor": {
 			"type": "string"
@@ -124,5 +129,6 @@
 			"link": true
 		}
 	},
-	"editorScript": "file:./index.js"
+	"editorScript": "file:./index.js",
+	"viewScript": "file:./view.js"
 }

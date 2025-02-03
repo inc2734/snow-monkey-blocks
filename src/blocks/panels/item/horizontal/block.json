@@ -1,6 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
+	"version": "23.0.1",
 	"textdomain": "snow-monkey-blocks",
 	"name": "snow-monkey-blocks/panels-item-horizontal",
 	"title": "Panel (Horizontal layout)",
@@ -32,21 +33,25 @@
 			"type": "string",
 			"source": "text",
 			"selector": ".smb-panels__item__link",
-			"default": ""
+			"role": "content"
 		},
 		"linkURL": {
 			"type": "string",
 			"source": "attribute",
 			"selector": ".smb-panels__item__action > a",
-			"attribute": "href",
-			"default": ""
+			"attribute": "href"
+		},
+		"rel": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".smb-panels__item__action > a",
+			"attribute": "rel"
 		},
 		"linkTarget": {
 			"type": "string",
 			"source": "attribute",
 			"selector": ".smb-panels__item__action > a",
-			"attribute": "target",
-			"default": "_self"
+			"attribute": "target"
 		},
 		"displayImage": {
 			"type": "boolean",
@@ -102,5 +107,6 @@
 			"link": true
 		}
 	},
-	"editorScript": "file:./index.js"
+	"editorScript": "file:./index.js",
+	"viewScript": "file:/view.js"
 }

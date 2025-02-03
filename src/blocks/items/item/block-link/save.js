@@ -6,6 +6,8 @@ import {
 	__experimentalGetColorClassesAndStyles as getColorClassesAndStyles,
 } from '@wordpress/block-editor';
 
+import { __ } from '@wordpress/i18n';
+
 export default function ( { attributes, className } ) {
 	const {
 		titleTagName,
@@ -13,6 +15,7 @@ export default function ( { attributes, className } ) {
 		lede,
 		summary,
 		url,
+		rel,
 		target,
 		displayImage,
 		imageID,
@@ -29,6 +32,8 @@ export default function ( { attributes, className } ) {
 		btnBorderRadius,
 		btnWrap,
 	} = attributes;
+
+	const isHrefSet = !! url;
 
 	const colorProps = getColorClassesAndStyles( attributes );
 
@@ -50,16 +55,13 @@ export default function ( { attributes, className } ) {
 
 	return (
 		<div { ...useBlockProps.save( { className: classes } ) }>
-			<a
+			<div
 				className={ classnames(
 					'smb-items__item',
 					'smb-items__item--block-link',
 					colorProps?.className
 				) }
 				style={ { ...colorProps?.style } }
-				href={ url }
-				target={ '_self' === target ? undefined : target }
-				rel={ '_self' === target ? undefined : 'noopener noreferrer' }
 			>
 				{ displayImage && (
 					<div className="smb-items__item__figure">
@@ -94,29 +96,35 @@ export default function ( { attributes, className } ) {
 						</div>
 					) }
 
-					{ displayBtn && (
+					{ ( isHrefSet || displayBtn ) && (
 						<div className="smb-items__item__action">
-							<span
-								className={ btnClasses }
+							<a
+								className={
+									displayBtn ? btnClasses : undefined
+								}
+								style={ displayBtn ? btnStyles : undefined }
 								href={ url }
-								style={ btnStyles }
-								target={
-									'_self' === target ? undefined : target
-								}
-								rel={
-									'_self' === target
-										? undefined
-										: 'noopener noreferrer'
-								}
+								target={ target }
+								rel={ rel }
 							>
-								<span className="smb-btn__label">
-									<RichText.Content value={ btnLabel } />
-								</span>
-							</span>
+								{ displayBtn ? (
+									<span className="smb-btn__label">
+										<RichText.Content value={ btnLabel } />
+									</span>
+								) : (
+									<span className="screen-reader-text">
+										{ btnLabel ||
+											__(
+												'Learn more',
+												'snow-monkey-blocks'
+											) }
+									</span>
+								) }
+							</a>
 						</div>
 					) }
 				</div>
-			</a>
+			</div>
 		</div>
 	);
 }

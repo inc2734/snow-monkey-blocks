@@ -102,24 +102,16 @@
 		}
 
 		&--block-link {
-			:not(.smb-items__item__action) a {
-				position: relative;
-				z-index: 1;
+			cursor: pointer;
+
+			&:has(:focus-visible) {
+				outline: auto;
+				outline: auto -webkit-focus-ring-color; /* for Chrome */
 			}
 
 			.smb-items__item__action {
 				a {
 					filter: none !important; // Patch to blink
-
-					// Fallback
-					&::after {
-						content: '';
-						position: absolute;
-						top: 0;
-						right: 0;
-						bottom: 0;
-						left: 0;
-					}
 				}
 			}
 		}

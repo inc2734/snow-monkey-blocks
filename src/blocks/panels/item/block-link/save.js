@@ -9,7 +9,9 @@ import {
 import { __ } from '@wordpress/i18n';
 
 export default function ( { attributes } ) {
-	const { linkURL, linkTarget } = attributes;
+	const { rel, linkURL, linkTarget, linkText } = attributes;
+
+	const isHrefSet = !! linkURL;
 
 	const colorProps = getColorClassesAndStyles( {
 		style: {
@@ -46,21 +48,12 @@ export default function ( { attributes } ) {
 					} ) }
 				/>
 
-				{ !! linkURL && (
+				{ isHrefSet && (
 					<div className={ actionClasses }>
-						<a
-							href={ linkURL }
-							target={
-								'_self' === linkTarget ? undefined : linkTarget
-							}
-							rel={
-								'_self' === linkTarget
-									? undefined
-									: 'noopener noreferrer'
-							}
-						>
+						<a href={ linkURL } target={ linkTarget } rel={ rel }>
 							<span className="screen-reader-text">
-								{ __( 'Link', 'snow-monkey-blocks' ) }
+								{ linkText ??
+									__( 'Learn more', 'snow-monkey-blocks' ) }
 							</span>
 						</a>
 					</div>

@@ -468,6 +468,7 @@ export default function ( {
 											} )
 										}
 										ref={ richTextRef }
+										withoutInteractiveFormatting
 									/>
 								) }
 
@@ -485,6 +486,7 @@ export default function ( {
 												lede: value,
 											} )
 										}
+										withoutInteractiveFormatting
 									/>
 								) }
 							</div>

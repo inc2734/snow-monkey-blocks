@@ -6,12 +6,15 @@ import {
 	__experimentalGetColorClassesAndStyles as getColorClassesAndStyles,
 } from '@wordpress/block-editor';
 
+import { __ } from '@wordpress/i18n';
+
 export default function ( { attributes } ) {
 	const {
 		titleTagName,
 		title,
 		summary,
 		displayLink,
+		rel,
 		linkLabel,
 		linkURL,
 		linkTarget,
@@ -22,6 +25,8 @@ export default function ( { attributes } ) {
 		imageWidth,
 		imageHeight,
 	} = attributes;
+
+	const isHrefSet = !! linkURL;
 
 	const colorProps = getColorClassesAndStyles( {
 		style: {
@@ -36,11 +41,16 @@ export default function ( { attributes } ) {
 
 	const classes = 'c-row__col';
 
-	const itemClasses = classnames( 'smb-panels__item', colorProps?.className );
+	const itemClasses = classnames(
+		'smb-panels__item',
+		'smb-panels__item--vertical',
+		colorProps?.className
+	);
+
 	const itemStyles = colorProps?.style;
 
 	const actionClasses = classnames( 'smb-panels__item__action', {
-		'smb-panels__item__action--nolabel': ! linkLabel,
+		'smb-panels__item__action--nolabel': ! displayLink,
 	} );
 
 	return (
@@ -74,41 +84,27 @@ export default function ( { attributes } ) {
 						</div>
 					) }
 
-					{ ( !! linkURL || displayLink ) && (
+					{ ( isHrefSet || displayLink ) && (
 						<div className={ actionClasses }>
-							{ !! linkURL ? (
-								<a
-									href={ linkURL }
-									target={
-										'_self' === linkTarget
-											? undefined
-											: linkTarget
-									}
-									rel={
-										'_self' === linkTarget
-											? undefined
-											: 'noopener noreferrer'
-									}
-								>
-									{ displayLink && (
-										<div className="smb-panels__item__link">
-											<RichText.Content
-												value={ linkLabel }
-											/>
-										</div>
-									) }
-								</a>
-							) : (
-								<>
-									{ displayLink && (
-										<div className="smb-panels__item__link">
-											<RichText.Content
-												value={ linkLabel }
-											/>
-										</div>
-									) }
-								</>
-							) }
+							<a
+								href={ linkURL }
+								target={ linkTarget }
+								rel={ rel }
+							>
+								{ displayLink ? (
+									<div className="smb-panels__item__link">
+										<RichText.Content value={ linkLabel } />
+									</div>
+								) : (
+									<div className="smb-panels__item__link screen-reader-text">
+										{ linkLabel ||
+											__(
+												'Learn more',
+												'snow-monkey-blocks'
+											) }
+									</div>
+								) }
+							</a>
 						</div>
 					) }
 				</div>

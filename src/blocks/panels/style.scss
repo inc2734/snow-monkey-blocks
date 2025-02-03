@@ -75,21 +75,6 @@
 				z-index: initial;
 				text-decoration: none;
 				outline: none;
-
-				&::after {
-					content: '';
-					position: absolute;
-					top: 0;
-					right: 0;
-					bottom: 0;
-					left: 0;
-					z-index: 1;
-				}
-
-				&:focus::after {
-					outline: -webkit-focus-ring-color auto 1px;
-					outline-offset: -2px;
-				}
 			}
 		}
 	}
@@ -151,7 +136,15 @@
 	}
 }
 
-.smb-panels__item--block-link {
+.smb-panels__item--block-link,
+.smb-panels__item--vertical,
+.smb-panels__item--horizontal {
+	cursor: pointer;
+
+	&:has(:focus-visible) {
+		outline: auto;
+		outline: auto -webkit-focus-ring-color; /* for Chrome */
+	}
 }
 
 .smb-panels[data-image-padding="true"] {
