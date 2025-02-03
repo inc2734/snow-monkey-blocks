@@ -1,5 +1,9 @@
 *** Changelog ***
 
+= 23.0.1 =
+[Items] The implementation of block links has been revised for accessibility.
+[Panel] The implementation of block links has been revised for accessibility.
+
 = 23.0.0 =
 * [Button] Change target event for hover processing in CSS. `:hover` / `:active` / `:focus` => `@media (any-hover: hover) + :hover` / `:focus-visible`.
 * [Button] Changed so that href attribute is not output when href is empty.
