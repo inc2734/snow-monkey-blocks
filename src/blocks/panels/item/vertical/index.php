@@ -12,7 +12,7 @@ register_block_type(
 // Backward compatibility.
 add_filter(
 	'render_block_snow-monkey-blocks/panels-item',
-	function( $block_content ) {
+	function ( $block_content ) {
 		$p = new \WP_HTML_Tag_Processor( $block_content );
 		$p->next_tag( array( 'class_name' => 'smb-panels__item' ) );
 		$p->add_class( 'smb-panels__item--vertical' );
