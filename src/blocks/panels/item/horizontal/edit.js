@@ -549,7 +549,7 @@ export default function ( {
 
 			{ isSelected && ( isEditingHref || isHrefSet ) && (
 				<Popover
-					placement="bottom center"
+					position="bottom center"
 					onClose={ () => {
 						setIsEditingHref( false );
 					} }
