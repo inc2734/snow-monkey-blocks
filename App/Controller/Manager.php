@@ -255,7 +255,10 @@ class Manager {
 	protected function _is_option_page() {
 		$current_url = admin_url( '/options-general.php?page=' . static::MENU_SLUG ) ?? '';
 		$current_url = preg_replace( '|^(.+)?(/wp-admin/.*?)$|', '$2', $current_url );
-		$request_uri = filter_input( INPUT_SERVER, 'REQUEST_URI' ) ?? '';
+		$request_uri = filter_input( INPUT_SERVER, 'REQUEST_URI' );
+		if ( ! $request_uri ) {
+			$request_uri = esc_html( wp_unslash( $_SERVER['REQUEST_URI'] ?? '' ) ); // @phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+		}
 		$request_uri = preg_replace( '|^(.+)?(/wp-admin/.*?)$|', '$2', $request_uri );
 		return false !== strpos( $request_uri, $current_url );
 	}
@@ -268,7 +271,10 @@ class Manager {
 	protected function _is_options_page() {
 		$current_url = admin_url( '/options.php' ) ?? '';
 		$current_url = preg_replace( '|^(.+)?(/wp-admin/.*?)$|', '$2', $current_url );
-		$request_uri = filter_input( INPUT_SERVER, 'REQUEST_URI' ) ?? '';
+		$request_uri = filter_input( INPUT_SERVER, 'REQUEST_URI' );
+		if ( ! $request_uri ) {
+			$request_uri = esc_html( wp_unslash( $_SERVER['REQUEST_URI'] ?? '' ) ); // @phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+		}
 		$request_uri = preg_replace( '|^(.+)?(/wp-admin/.*?)$|', '$2', $request_uri );
 		return false !== strpos( $request_uri, $current_url );
 	}
