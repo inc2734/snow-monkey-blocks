@@ -17,7 +17,7 @@ import {
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
-import { toNumber } from '@smb/helper';
+import { toNumber, cleanEmptyObject } from '@smb/helper';
 
 import { PanelBasicSettings } from './components/basic';
 import { Edit as Header } from './components/header';
@@ -533,12 +533,35 @@ export default function ( {
 						{
 							positionValue: backgroundText.position,
 							onPositionChange: ( value ) => {
-								newBackgroundText.position = value;
+								newBackgroundText.position.top =
+									null != value?.top
+										? value?.top.match( /^\d+$/ )
+											? `${ value?.top }px`
+											: value?.top
+										: undefined;
+								newBackgroundText.position.right =
+									null != value?.right
+										? value?.right.match( /^\d+$/ )
+											? `${ value?.right }px`
+											: value?.right
+										: undefined;
+								newBackgroundText.position.bottom =
+									null != value?.bottom
+										? value?.bottom.match( /^\d+$/ )
+											? `${ value?.bottom }px`
+											: value?.bottom
+										: undefined;
+								newBackgroundText.position.left =
+									null != value?.left
+										? value?.left.match( /^\d+$/ )
+											? `${ value?.left }px`
+											: value?.left
+										: undefined;
 
 								setAttributes( {
-									backgroundText: {
+									backgroundText: cleanEmptyObject( {
 										...newBackgroundText,
-									},
+									} ),
 								} );
 							},
 							defaultValue:
