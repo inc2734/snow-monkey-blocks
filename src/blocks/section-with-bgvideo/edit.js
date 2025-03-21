@@ -26,7 +26,7 @@ import {
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
-import { toNumber } from '@smb/helper';
+import { toNumber, cleanEmptyObject } from '@smb/helper';
 
 import { PanelBasicSettings } from '../section/components/basic';
 import { Edit as Header } from '../section/components/header';
@@ -510,29 +510,25 @@ export default function ( {
 							positionValue: backgroundText.position,
 							onPositionChange: ( value ) => {
 								newBackgroundText.position.top =
-									null != value?.top
-										? value?.top.match( /^\d+$/ )
-											? `${ value?.top }px`
-											: value?.top
-										: undefined;
+									null != value?.top &&
+									value?.top.match( /^\d+$/ )
+										? `${ value?.top }px`
+										: value?.top;
 								newBackgroundText.position.right =
-									null != value?.right
-										? value?.right.match( /^\d+$/ )
-											? `${ value?.right }px`
-											: value?.right
-										: undefined;
+									null != value?.right &&
+									value?.right.match( /^\d+$/ )
+										? `${ value?.right }px`
+										: value?.right;
 								newBackgroundText.position.bottom =
-									null != value?.bottom
-										? value?.bottom.match( /^\d+$/ )
-											? `${ value?.bottom }px`
-											: value?.bottom
-										: undefined;
+									null != value?.bottom &&
+									value?.bottom.match( /^\d+$/ )
+										? `${ value?.bottom }px`
+										: value?.bottom;
 								newBackgroundText.position.left =
-									null != value?.left
-										? value?.left.match( /^\d+$/ )
-											? `${ value?.left }px`
-											: value?.left
-										: undefined;
+									null != value?.left &&
+									value?.left.match( /^\d+$/ )
+										? `${ value?.left }px`
+										: value?.left;
 
 								setAttributes( {
 									backgroundText: cleanEmptyObject( {
