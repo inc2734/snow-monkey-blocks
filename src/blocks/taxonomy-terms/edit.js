@@ -3,6 +3,7 @@ import {
 	Disabled,
 	Placeholder,
 	SelectControl,
+	ToggleControl,
 	Spinner,
 	__experimentalToolsPanel as ToolsPanel,
 	__experimentalToolsPanelItem as ToolsPanelItem,
@@ -17,7 +18,7 @@ import ServerSideRender from '@wordpress/server-side-render';
 import metadata from './block.json';
 
 export default function ( { attributes, setAttributes } ) {
-	const { taxonomy, orderby, order } = attributes;
+	const { taxonomy, orderby, order, displayCount } = attributes;
 
 	const { taxonomies } = useSelect( ( select ) => {
 		const { getTaxonomies } = select( 'core' );
@@ -180,6 +181,35 @@ export default function ( { attributes, setAttributes } ) {
 							onChange={ ( value ) =>
 								setAttributes( {
 									order: value,
+								} )
+							}
+						/>
+					</ToolsPanelItem>
+
+					<ToolsPanelItem
+						hasValue={ () =>
+							displayCount !==
+							metadata.attributes.displayCount.default
+						}
+						isShownByDefault
+						label={ __( 'Display count', 'snow-monkey-blocks' ) }
+						onDeselect={ () =>
+							setAttributes( {
+								displayCount:
+									metadata.attributes.displayCount.default,
+							} )
+						}
+					>
+						<ToggleControl
+							__nextHasNoMarginBottom
+							label={ __(
+								'Display count',
+								'snow-monkey-blocks'
+							) }
+							checked={ displayCount }
+							onChange={ ( value ) =>
+								setAttributes( {
+									displayCount: value,
 								} )
 							}
 						/>

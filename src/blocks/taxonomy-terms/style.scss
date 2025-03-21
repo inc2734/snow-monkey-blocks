@@ -1,6 +1,32 @@
 @use '../../../node_modules/sass-basis/src/css/core';
 
 .smb-taxonomy-terms {
+	&__item > a {
+		display: inline-flex !important;
+		align-items: center;
+	}
+
+	&__item__count {
+		margin-left: .4em;
+		display: inline-block;
+		text-decoration: none;
+
+		span {
+			display: inline-flex;
+			align-items: center;
+
+			&::before {
+				content: '(';
+				font-size: .8em;
+			}
+
+			&::after {
+				content: ')';
+				font-size: .8em;
+			}
+		}
+	}
+
 	&.is-style-tag {
 		.smb-taxonomy-terms__list {
 			@include core.list-unstyled();

@@ -47,7 +47,12 @@ $block_wrapper_attributes = get_block_wrapper_attributes(
 				<a
 					href="<?php echo esc_url( get_term_link( $_term ) ); ?>"
 					class="<?php echo esc_attr( 'is-style-tag' === $block_style ? 'tag-cloud-link' : '' ); ?>"
-				><?php echo esc_html( $_term->name ); ?></a>
+				>
+					<?php echo esc_html( $_term->name ); ?>
+					<?php if ( $attributes['displayCount'] ) : ?>
+						<span class="smb-taxonomy-terms__item__count"><span><?php echo esc_html( $_term->count ); ?></span></span>
+					<?php endif; ?>
+				</a>
 			</li>
 		<?php endforeach; ?>
 	</ul>
