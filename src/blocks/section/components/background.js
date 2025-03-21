@@ -1099,24 +1099,24 @@ export const generateStylesForSectionBackground = ( {
 				: undefined;
 		styles[ '--smb-section--background-text-top' ] =
 			!! backgroundText?.position?.top &&
-			backgroundText.position.top.match( /^\d+$/ )
-				? `${ backgroundText.position.top }px`
-				: backgroundText.position.top;
+			backgroundText?.position?.top.match( /^\d+$/ )
+				? `${ backgroundText?.position?.top }px`
+				: backgroundText?.position?.top;
 		styles[ '--smb-section--background-text-right' ] =
 			!! backgroundText?.position?.right &&
 			backgroundText.position.right.match( /^\d+$/ )
-				? `${ backgroundText.position.right }px`
-				: backgroundText.position.right;
+				? `${ backgroundText?.position?.right }px`
+				: backgroundText?.position?.right;
 		styles[ '--smb-section--background-text-bottom' ] =
 			!! backgroundText?.position?.bottom &&
-			backgroundText.position.bottom.match( /^\d+$/ )
-				? `${ backgroundText.position.bottom }px`
-				: backgroundText.position.bottom;
+			backgroundText?.position?.bottom.match( /^\d+$/ )
+				? `${ backgroundText?.position?.bottom }px`
+				: backgroundText?.position?.bottom;
 		styles[ '--smb-section--background-text-left' ] =
 			!! backgroundText?.position?.left &&
-			backgroundText.position.left.match( /^\d+$/ )
-				? `${ backgroundText.position.left }px`
-				: backgroundText.position.left;
+			backgroundText?.position?.left.match( /^\d+$/ )
+				? `${ backgroundText?.position?.left }px`
+				: backgroundText?.position?.left;
 	}
 
 	return styles;
