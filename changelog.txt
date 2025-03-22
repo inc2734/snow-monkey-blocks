@@ -1,5 +1,11 @@
 *** Changelog ***
 
+= 23.1.0 =
+* [Taxonomy] Add new feature: Display count
+* [Section] Fixed a bug where the position of "Background Text" was sometimes not reflected in the editor.
+* [Section (Break the grid)] Fixed a bug where the position of "Background Text" was sometimes not reflected in the editor.
+* [Section (Background image/video)] Fixed a bug where the position of "Background Text" was sometimes not reflected in the editor.
+
 = 23.0.3 =
 * Fixed a bug where REQUEST_URI could not be obtained.
 
