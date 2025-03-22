@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-"
 "blocks\n"
-"POT-Creation-Date: 2024-12-05T06:35:47+00:00\n"
-"PO-Revision-Date: 2024-12-05 15:36+0900\n"
+"POT-Creation-Date: 2025-03-22T01:40:30+00:00\n"
+"PO-Revision-Date: 2025-03-22 10:42+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -27,22 +27,25 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-4: languages\n"
 
 #. Plugin Name of the plugin
-#: App/Controller/Manager.php:47 App/Controller/Manager.php:48
-#: App/Controller/Manager.php:54 snow-monkey-blocks.php:60
-#: snow-monkey-blocks.php:69 snow-monkey-blocks.php:78
-#: snow-monkey-blocks.php:87
+#: snow-monkey-blocks.php App/Controller/Manager.php:47
+#: App/Controller/Manager.php:48 App/Controller/Manager.php:54
+#: snow-monkey-blocks.php:60 snow-monkey-blocks.php:69
+#: snow-monkey-blocks.php:78 snow-monkey-blocks.php:87
 msgid "Snow Monkey Blocks"
 msgstr "Snow Monkey Blocks"
 
 #. Description of the plugin
+#: snow-monkey-blocks.php
 msgid "Gutenberg blocks collection made by MonkeyWrench."
 msgstr "モンキーレンチ作のブロック集"
 
 #. Author of the plugin
+#: snow-monkey-blocks.php
 msgid "inc2734"
 msgstr "inc2734"
 
 #. Author URI of the plugin
+#: snow-monkey-blocks.php
 msgid "https://2inc.org"
 msgstr "https://2inc.org"
 
@@ -417,7 +420,10 @@ msgstr "インセット"
 msgid "Box Shadow"
 msgstr "ボックスシャドウ"
 
-#: dist/blocks/box/index.js:1
+#: dist/blocks/box/index.js:1 dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/panels/item/block-link/index.js:1
+#: dist/blocks/panels/item/horizontal/index.js:1
+#: dist/blocks/panels/item/vertical/index.js:1
 msgid "Mark as nofollow"
 msgstr "nofollow をマーク"
 
@@ -434,7 +440,10 @@ msgstr "角丸半径"
 msgid "Background"
 msgstr "背景"
 
-#: dist/blocks/box/index.js:1
+#: dist/blocks/box/index.js:1 dist/blocks/items/item/block-link/index.js:1
+#: dist/blocks/panels/item/block-link/index.js:1
+#: dist/blocks/panels/item/horizontal/index.js:1
+#: dist/blocks/panels/item/vertical/index.js:1
 msgid "Learn more"
 msgstr "さらに詳しく"
 
@@ -548,7 +557,6 @@ msgstr "注釈を書く…"
 
 #: dist/blocks/btn-box/index.js:1 dist/blocks/btn/index.js:1
 #: dist/blocks/items/item/banner/index.js:1
-#: dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/item/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
 #: dist/blocks/panels/item/block-link/index.js:1
@@ -2515,6 +2523,10 @@ msgstr "記事数"
 #: dist/blocks/taxonomy-terms/index.js:1
 msgid "Category description"
 msgstr "カテゴリーの説明"
+
+#: dist/blocks/taxonomy-terms/index.js:1
+msgid "Display count"
+msgstr "件数を表示"
 
 #: dist/blocks/taxonomy-terms/index.js:1
 msgid "Tag"
