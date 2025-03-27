@@ -1,5 +1,10 @@
 *** Changelog ***
 
+= 23.1.2 =
+* [Section] Fixed bug that could cause blocks to crash when updating the Background Text position setting.
+* [Section (Break the grid)] Fixed bug that could cause blocks to crash when updating the Background Text position setting.
+* [Section (Background image/video)] Fixed bug that could cause blocks to crash when updating the Background Text position setting.
+
 = 23.1.1 =
 * [Taxonomy] Add new feature: Display count
 * [Section] Fixed a bug where the position of "Background Text" was sometimes not reflected in the editor.
