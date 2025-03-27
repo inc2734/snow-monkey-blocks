@@ -30,12 +30,7 @@ import { useSelect } from '@wordpress/data';
 import { __, sprintf } from '@wordpress/i18n';
 import { pullLeft, pullRight } from '@wordpress/icons';
 
-import {
-	toNumber,
-	getMediaType,
-	isVideoType,
-	cleanEmptyObject,
-} from '@smb/helper';
+import { toNumber, getMediaType, isVideoType } from '@smb/helper';
 
 import Figure from '@smb/component/figure';
 import ResolutionTool from '@smb/component/resolution-tool';
@@ -1420,9 +1415,9 @@ export default function ( {
 										: value?.left;
 
 								setAttributes( {
-									backgroundText: cleanEmptyObject( {
+									backgroundText: {
 										...newBackgroundText,
-									} ),
+									},
 								} );
 							},
 							defaultValue:

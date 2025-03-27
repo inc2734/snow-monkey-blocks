@@ -31,12 +31,7 @@ import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
 import Figure from '@smb/component/figure';
 import ResolutionTool from '@smb/component/resolution-tool';
 
-import {
-	toNumber,
-	getMediaType,
-	isVideoType,
-	cleanEmptyObject,
-} from '@smb/helper';
+import { toNumber, getMediaType, isVideoType } from '@smb/helper';
 
 import { PanelBasicSettings } from '../section/components/basic';
 import { Edit as Header } from '../section/components/header';
@@ -1204,9 +1199,9 @@ export default function ( {
 										: value?.left;
 
 								setAttributes( {
-									backgroundText: cleanEmptyObject( {
+									backgroundText: {
 										...newBackgroundText,
-									} ),
+									},
 								} );
 							},
 							defaultValue:

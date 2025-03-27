@@ -17,7 +17,7 @@ import {
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
-import { toNumber, cleanEmptyObject } from '@smb/helper';
+import { toNumber } from '@smb/helper';
 
 import { PanelBasicSettings } from './components/basic';
 import { Edit as Header } from './components/header';
@@ -555,9 +555,9 @@ export default function ( {
 										: value?.left;
 
 								setAttributes( {
-									backgroundText: cleanEmptyObject( {
+									backgroundText: {
 										...newBackgroundText,
-									} ),
+									},
 								} );
 							},
 							defaultValue:
