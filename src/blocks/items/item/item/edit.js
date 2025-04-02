@@ -18,7 +18,7 @@ import {
 	PanelColorSettings,
 	RichText,
 	useBlockProps,
-	__experimentalLinkControl as LinkControl,
+	LinkControl,
 } from '@wordpress/block-editor';
 
 import { useState, useRef } from '@wordpress/element';

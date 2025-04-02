@@ -1,4 +1,4 @@
-import { __experimentalLinkControl as LinkControl } from '@wordpress/block-editor';
+import { LinkControl } from '@wordpress/block-editor';
 import { BaseControl } from '@wordpress/components';
 
 export default function ( { label, ...props } ) {

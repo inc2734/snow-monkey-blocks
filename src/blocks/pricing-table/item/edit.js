@@ -7,8 +7,8 @@ import {
 	RichText,
 	useBlockProps,
 	useInnerBlocksProps,
+	LinkControl,
 	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
-	__experimentalLinkControl as LinkControl,
 	__experimentalBorderRadiusControl as BorderRadiusControl,
 	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
 } from '@wordpress/block-editor';

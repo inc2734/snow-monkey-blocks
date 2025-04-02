@@ -5,7 +5,7 @@ import {
 	InnerBlocks,
 	useBlockProps,
 	useInnerBlocksProps,
-	__experimentalLinkControl as LinkControl,
+	LinkControl,
 	__experimentalUseColorProps as useColorProps,
 } from '@wordpress/block-editor';
 

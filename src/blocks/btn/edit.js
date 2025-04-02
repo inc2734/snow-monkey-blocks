@@ -15,8 +15,8 @@ import {
 	InspectorControls,
 	RichText,
 	useBlockProps,
+	LinkControl,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
-	__experimentalLinkControl as LinkControl,
 	__experimentalBorderRadiusControl as BorderRadiusControl,
 	__experimentalGetSpacingClassesAndStyles as useSpacingProps,
 } from '@wordpress/block-editor';

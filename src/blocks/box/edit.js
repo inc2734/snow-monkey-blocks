@@ -8,11 +8,11 @@ import {
 	InspectorControls,
 	useBlockProps,
 	useInnerBlocksProps,
+	LinkControl,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 	__experimentalBorderRadiusControl as BorderRadiusControl,
 	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
-	__experimentalLinkControl as LinkControl,
 } from '@wordpress/block-editor';
 
 import {

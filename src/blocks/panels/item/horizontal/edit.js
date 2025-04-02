@@ -6,7 +6,7 @@ import {
 	InspectorControls,
 	RichText,
 	useBlockProps,
-	__experimentalLinkControl as LinkControl,
+	LinkControl,
 	__experimentalUseColorProps as useColorProps,
 } from '@wordpress/block-editor';
 
