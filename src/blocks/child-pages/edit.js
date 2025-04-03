@@ -92,6 +92,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 						}
 					>
 						<TextControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __( 'Title', 'snow-monkey-blocks' ) }
 							value={ title }
@@ -120,6 +121,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 						}
 					>
 						<SelectControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __( 'Layout', 'snow-monkey-blocks' ) }
 							value={ layout }
@@ -257,6 +259,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 								}
 							>
 								<RangeControl
+									__next40pxDefaultSize
 									__nextHasNoMarginBottom
 									label={ __(
 										'Autoplay Speed in seconds',
@@ -383,6 +386,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 						}
 					>
 						<SelectControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __( 'Images size', 'snow-monkey-blocks' ) }
 							value={ itemThumbnailSizeSlug }
@@ -412,6 +416,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 							}
 						>
 							<SelectControl
+								__next40pxDefaultSize
 								__nextHasNoMarginBottom
 								label={ __(
 									'Number of columns displayed on mobile device',
@@ -520,6 +525,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 						className="spacing-sizes-control"
 					>
 						<RangeControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							className="spacing-sizes-control__range-control"
 							value={

@@ -64,6 +64,7 @@ export default function ( { attributes, setAttributes } ) {
 						}
 					>
 						<SelectControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __( 'Link type', 'snow-monkey-blocks' ) }
 							value={ linkType }
@@ -109,6 +110,7 @@ export default function ( { attributes, setAttributes } ) {
 						}
 					>
 						<RangeControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Maximum number of displays',

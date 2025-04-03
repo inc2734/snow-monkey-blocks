@@ -95,6 +95,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						id="snow-monkey-blocks/price-menu-item/title-font-size"
 					>
 						<FontSizePicker
+							__next40pxDefaultSize
 							value={ selectedTitleFontSize }
 							onChange={ ( value ) => {
 								const fontSizeSlug = getFontSizeObjectByValue(
@@ -141,6 +142,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						id="snow-monkey-blocks/price-menu-item/price-font-size"
 					>
 						<FontSizePicker
+							__next40pxDefaultSize
 							value={ selectedPriceFontSize }
 							onChange={ ( value ) => {
 								const fontSizeSlug = getFontSizeObjectByValue(

@@ -140,6 +140,7 @@ export default function ( {
 						}
 					>
 						<RangeControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __( 'Evaluation', 'snow-monkey-blocks' ) }
 							help={ __(
@@ -173,6 +174,7 @@ export default function ( {
 						}
 					>
 						<SelectControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Title position',
@@ -245,6 +247,7 @@ export default function ( {
 						}
 					>
 						<SelectControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Numeric position',

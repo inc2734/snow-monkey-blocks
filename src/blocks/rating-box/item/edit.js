@@ -101,6 +101,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						id="snow-monkey-blocks/rating-box-item/title-font-size"
 					>
 						<FontSizePicker
+							__next40pxDefaultSize
 							value={ selectedTitleFontSize }
 							onChange={ ( value ) => {
 								const fontSizeSlug = getFontSizeObjectByValue(
@@ -147,6 +148,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						id="snow-monkey-blocks/rating-box-item/numeric-font-size"
 					>
 						<FontSizePicker
+							__next40pxDefaultSize
 							value={ selectedNumericFontSize }
 							onChange={ ( value ) => {
 								const fontSizeSlug = getFontSizeObjectByValue(
@@ -207,6 +209,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<RangeControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __( 'Rating', 'snow-monkey-blocks' ) }
 							value={ rating }

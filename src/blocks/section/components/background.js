@@ -143,6 +143,7 @@ export const PanelSectionMovableBackgroundSettings = ( {
 								}
 							>
 								<RangeControl
+									__next40pxDefaultSize
 									__nextHasNoMarginBottom
 									label={ __(
 										'Background position (Left / Right)',
@@ -183,6 +184,7 @@ export const PanelSectionMovableBackgroundSettings = ( {
 								}
 							>
 								<RangeControl
+									__next40pxDefaultSize
 									__nextHasNoMarginBottom
 									label={ __(
 										'Background Position (Top / Bottom)',
@@ -257,6 +259,7 @@ export const PanelSectionMovableBackgroundSettings = ( {
 								}
 							>
 								<SelectControl
+									__next40pxDefaultSize
 									__nextHasNoMarginBottom
 									label={ __(
 										'Texture',
@@ -295,6 +298,7 @@ export const PanelSectionMovableBackgroundSettings = ( {
 								}
 							>
 								<RangeControl
+									__next40pxDefaultSize
 									__nextHasNoMarginBottom
 									label={ __(
 										'Texture opacity',
@@ -381,6 +385,7 @@ export const PanelSectionFixedBackgroundSettings = ( {
 							}
 						>
 							<SelectControl
+								__next40pxDefaultSize
 								__nextHasNoMarginBottom
 								key={ index }
 								label={ __( 'Texture', 'snow-monkey-blocks' ) }
@@ -417,6 +422,7 @@ export const PanelSectionFixedBackgroundSettings = ( {
 							}
 						>
 							<RangeControl
+								__next40pxDefaultSize
 								__nextHasNoMarginBottom
 								key={ index }
 								label={ __(
@@ -466,6 +472,7 @@ export const PanelSectionTopDividerSettings = ( { settings } ) => {
 							}
 						>
 							<SelectControl
+								__next40pxDefaultSize
 								__nextHasNoMarginBottom
 								label={ __( 'Type', 'snow-monkey-blocks' ) }
 								value={ setting.typeValue }
@@ -494,6 +501,7 @@ export const PanelSectionTopDividerSettings = ( { settings } ) => {
 							}
 						>
 							<RangeControl
+								__next40pxDefaultSize
 								__nextHasNoMarginBottom
 								label={ __( 'Level', 'snow-monkey-blocks' ) }
 								value={ setting.levelValue }
@@ -557,6 +565,7 @@ export const PanelSectionTopDividerSettings = ( { settings } ) => {
 							}
 						>
 							<RangeControl
+								__next40pxDefaultSize
 								__nextHasNoMarginBottom
 								label={ __(
 									'Position (Top / Bottom)',
@@ -635,6 +644,7 @@ export const PanelSectionBottomDividerSettings = ( { settings } ) => {
 							}
 						>
 							<SelectControl
+								__next40pxDefaultSize
 								__nextHasNoMarginBottom
 								label={ __( 'Type', 'snow-monkey-blocks' ) }
 								value={ setting.typeValue }
@@ -663,6 +673,7 @@ export const PanelSectionBottomDividerSettings = ( { settings } ) => {
 							}
 						>
 							<RangeControl
+								__next40pxDefaultSize
 								__nextHasNoMarginBottom
 								label={ __( 'Level', 'snow-monkey-blocks' ) }
 								value={ setting.levelValue }
@@ -726,6 +737,7 @@ export const PanelSectionBottomDividerSettings = ( { settings } ) => {
 							}
 						>
 							<RangeControl
+								__next40pxDefaultSize
 								__nextHasNoMarginBottom
 								label={ __(
 									'Position (Top / Bottom)',
@@ -831,6 +843,7 @@ export const PanelSectionBackgroundTextSettings = ( { settings } ) => {
 							}
 						>
 							<FontSizePicker
+								__next40pxDefaultSize
 								__nextHasNoMarginBottom={ true }
 								value={ setting.fontSizeValue }
 								onChange={ setting.onFontSizeChange }
@@ -860,6 +873,7 @@ export const PanelSectionBackgroundTextSettings = ( { settings } ) => {
 							}
 						>
 							<RangeControl
+								__next40pxDefaultSize
 								__nextHasNoMarginBottom
 								label={ __(
 									'Line height',
@@ -926,6 +940,7 @@ export const PanelSectionBackgroundTextSettings = ( { settings } ) => {
 							}
 						>
 							<RangeControl
+								__next40pxDefaultSize
 								__nextHasNoMarginBottom
 								label={ __( 'Opacity', 'snow-monkey-blocks' ) }
 								value={ Number(

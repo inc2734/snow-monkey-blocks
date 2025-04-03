@@ -376,6 +376,7 @@ export default function ( {
 								}
 							>
 								<SelectControl
+									__next40pxDefaultSize
 									__nextHasNoMarginBottom
 									label={ __(
 										'Button size',

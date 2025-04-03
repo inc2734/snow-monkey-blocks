@@ -98,6 +98,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 						}
 					>
 						<RangeControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Number of posts',
@@ -127,6 +128,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 						}
 					>
 						<SelectControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __( 'Layout', 'snow-monkey-blocks' ) }
 							value={ layout }
@@ -264,6 +266,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 								}
 							>
 								<RangeControl
+									__next40pxDefaultSize
 									__nextHasNoMarginBottom
 									label={ __(
 										'Autoplay Speed in seconds',
@@ -397,6 +400,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 							}
 						>
 							<SelectControl
+								__next40pxDefaultSize
 								__nextHasNoMarginBottom
 								label={ __(
 									'Number of columns displayed on mobile device',
@@ -495,6 +499,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 						className="spacing-sizes-control"
 					>
 						<RangeControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							className="spacing-sizes-control__range-control"
 							value={
@@ -545,7 +550,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 						>
 							<HStack wrap>
 								<InputControl
-									__next36pxDefaultSize
+									__next40pxDefaultSize
 									placeholder={ __( 'Enter URL here…' ) }
 									value={ feedURL }
 									onChange={ ( value ) =>

@@ -291,6 +291,7 @@ export default function ( {
 						}
 					>
 						<TextControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __( 'YouTube URL', 'snow-monkey-blocks' ) }
 							value={ videoURL }
@@ -317,6 +318,7 @@ export default function ( {
 						}
 					>
 						<RangeControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __( 'Video width', 'snow-monkey-blocks' ) }
 							value={ videoWidth }
@@ -345,6 +347,7 @@ export default function ( {
 						}
 					>
 						<RangeControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __( 'Video height', 'snow-monkey-blocks' ) }
 							value={ videoHeight }
@@ -397,6 +400,7 @@ export default function ( {
 						}
 					>
 						<RangeControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __( 'Opacity', 'snow-monkey-blocks' ) }
 							value={ Number( ( 1 - maskOpacity ).toFixed( 1 ) ) }

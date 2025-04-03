@@ -94,6 +94,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<SelectControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __( 'Column size', 'snow-monkey-blocks' ) }
 							help={ __(

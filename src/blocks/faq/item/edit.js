@@ -137,6 +137,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						id="snow-monkey-blocks/faq-item/question-font-size"
 					>
 						<FontSizePicker
+							__next40pxDefaultSize
 							value={ selectedQuestionFontSize }
 							onChange={ ( value ) => {
 								const fontSizeSlug = getFontSizeObjectByValue(
@@ -190,6 +191,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						id="snow-monkey-blocks/faq-item/question-label-font-size"
 					>
 						<FontSizePicker
+							__next40pxDefaultSize
 							value={ selectedQuestionLabelFontSize }
 							onChange={ ( value ) => {
 								const fontSizeSlug = getFontSizeObjectByValue(
@@ -242,6 +244,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						id="snow-monkey-blocks/faq-item/answer-label-font-size"
 					>
 						<FontSizePicker
+							__next40pxDefaultSize
 							value={ selectedAnswerLabelFontSize }
 							onChange={ ( value ) => {
 								const fontSizeSlug = getFontSizeObjectByValue(
@@ -315,6 +318,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<TextControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Question label',
@@ -353,6 +357,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<TextControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __( 'Answer label', 'snow-monkey-blocks' ) }
 							value={ answerLabel }

@@ -72,6 +72,7 @@ export default function ( { settings, label } ) {
 
 			return (
 				<RangeControl
+					__next40pxDefaultSize
 					__nextHasNoMarginBottom
 					key={ index }
 					label={ __( 'Opacity', 'snow-monkey-blocks' ) }
@@ -93,6 +94,7 @@ export default function ( { settings, label } ) {
 
 			return (
 				<RangeControl
+					__next40pxDefaultSize
 					__nextHasNoMarginBottom
 					key={ index }
 					label={ __( 'Horizontal', 'snow-monkey-blocks' ) }
@@ -113,6 +115,7 @@ export default function ( { settings, label } ) {
 
 			return (
 				<RangeControl
+					__next40pxDefaultSize
 					__nextHasNoMarginBottom
 					key={ index }
 					label={ __( 'Vertical', 'snow-monkey-blocks' ) }
@@ -133,6 +136,7 @@ export default function ( { settings, label } ) {
 
 			return (
 				<RangeControl
+					__next40pxDefaultSize
 					__nextHasNoMarginBottom
 					key={ index }
 					label={ __( 'Blur', 'snow-monkey-blocks' ) }
@@ -153,6 +157,7 @@ export default function ( { settings, label } ) {
 
 			return (
 				<RangeControl
+					__next40pxDefaultSize
 					__nextHasNoMarginBottom
 					key={ index }
 					label={ __( 'Spread', 'snow-monkey-blocks' ) }
@@ -173,6 +178,7 @@ export default function ( { settings, label } ) {
 
 			return (
 				<SelectControl
+					__next40pxDefaultSize
 					__nextHasNoMarginBottom
 					key={ index }
 					label={ __( 'Position', 'snow-monkey-blocks' ) }

@@ -138,6 +138,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<SelectControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Tabs orientation',
@@ -225,6 +226,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 								}
 							>
 								<SelectControl
+									__next40pxDefaultSize
 									__nextHasNoMarginBottom
 									label={ __(
 										'Tabs justification',

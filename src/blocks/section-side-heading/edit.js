@@ -227,6 +227,7 @@ export default function ( {
 					panelId={ clientId }
 				>
 					<SelectControl
+						__next40pxDefaultSize
 						__nextHasNoMarginBottom
 						label={ __( 'Gap', 'snow-monkey-blocks' ) }
 						value={ gap }
@@ -362,6 +363,7 @@ export default function ( {
 						}
 					>
 						<SelectControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Heading column size',
@@ -409,6 +411,7 @@ export default function ( {
 						}
 					>
 						<SelectControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Content column size',

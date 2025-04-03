@@ -109,6 +109,7 @@ export default function ( {
 						}
 					>
 						<SelectControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __( 'Type', 'snow-monkey-blocks' ) }
 							value={ modifier }

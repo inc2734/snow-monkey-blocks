@@ -131,6 +131,8 @@ export default function ( { attributes, setAttributes, className } ) {
 					>
 						<BorderBoxControl
 							{ ...multipleOriginColorsAndGradients }
+							__next40pxDefaultSize
+							__experimentalIsRenderedInSidebar
 							className="smb-border-box-control"
 							label={ __( 'Border', 'snow-monkey-blocks' ) }
 							enableAlpha={ true }
@@ -149,7 +151,6 @@ export default function ( { attributes, setAttributes, className } ) {
 								style: borderStyle,
 								width: borderWidth,
 							} }
-							__experimentalIsRenderedInSidebar
 						/>
 					</ToolsPanelItem>
 
@@ -240,6 +241,7 @@ export default function ( { attributes, setAttributes, className } ) {
 								}
 							>
 								<SelectControl
+									__next40pxDefaultSize
 									__nextHasNoMarginBottom
 									label={ __(
 										'Avatar position',
@@ -303,6 +305,8 @@ export default function ( { attributes, setAttributes, className } ) {
 							>
 								<BorderBoxControl
 									{ ...multipleOriginColorsAndGradients }
+									__next40pxDefaultSize
+									__experimentalIsRenderedInSidebar
 									className="smb-border-box-control"
 									label={ __(
 										'Border',
@@ -324,7 +328,6 @@ export default function ( { attributes, setAttributes, className } ) {
 										style: avatarBorderStyle,
 										width: avatarBorderWidth,
 									} }
-									__experimentalIsRenderedInSidebar
 								/>
 							</ToolsPanelItem>
 						</>

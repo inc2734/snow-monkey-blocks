@@ -326,6 +326,7 @@ export default function ( {
 					panelId={ clientId }
 				>
 					<UnitControl
+						__next40pxDefaultSize
 						label={ __( 'Maximum width', 'snow-monkey-blocks' ) }
 						value={ maxWidth }
 						onChange={ ( value ) =>
@@ -357,6 +358,7 @@ export default function ( {
 						}
 					>
 						<RangeControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Number of columns in grid',
@@ -390,6 +392,7 @@ export default function ( {
 						}
 					>
 						<RangeControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Number of rows in grid',
@@ -632,6 +635,7 @@ export default function ( {
 										}
 									>
 										<TextControl
+											__next40pxDefaultSize
 											__nextHasNoMarginBottom
 											label={ __(
 												'Aspect ratio',
@@ -671,6 +675,7 @@ export default function ( {
 										}
 									>
 										<RangeControl
+											__next40pxDefaultSize
 											__nextHasNoMarginBottom
 											label={ __(
 												'Grid column: start',
@@ -712,6 +717,7 @@ export default function ( {
 										}
 									>
 										<RangeControl
+											__next40pxDefaultSize
 											__nextHasNoMarginBottom
 											label={ __(
 												'Grid column: end',
@@ -753,6 +759,7 @@ export default function ( {
 										}
 									>
 										<RangeControl
+											__next40pxDefaultSize
 											__nextHasNoMarginBottom
 											label={ __(
 												'Grid row: start',
@@ -794,6 +801,7 @@ export default function ( {
 										}
 									>
 										<RangeControl
+											__next40pxDefaultSize
 											__nextHasNoMarginBottom
 											label={ __(
 												'Grid row: end',
@@ -856,6 +864,7 @@ export default function ( {
 							}
 						>
 							<RangeControl
+								__next40pxDefaultSize
 								__nextHasNoMarginBottom
 								label={ __( 'Opacity', 'snow-monkey-blocks' ) }
 								value={ Number(
@@ -894,6 +903,7 @@ export default function ( {
 						}
 					>
 						<UnitControl
+							__next40pxDefaultSize
 							label={ __(
 								'Maximum width',
 								'snow-monkey-blocks'
@@ -1065,6 +1075,7 @@ export default function ( {
 						}
 					>
 						<RangeControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Grid column: start',
@@ -1098,6 +1109,7 @@ export default function ( {
 						}
 					>
 						<RangeControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Grid column: end',
@@ -1131,6 +1143,7 @@ export default function ( {
 						}
 					>
 						<RangeControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Grid row: start',
@@ -1163,6 +1176,7 @@ export default function ( {
 						}
 					>
 						<RangeControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Grid row: end',

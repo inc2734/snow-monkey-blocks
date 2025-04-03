@@ -33,6 +33,7 @@ export function FlexBasisEdit( props ) {
 
 	return (
 		<UnitControl
+			__next40pxDefaultSize
 			label={ __( 'Basic size', 'snow-monkey-blocks' ) }
 			help={ __( 'Basic size of the flex item.', 'snow-monkey-blocks' ) }
 			value={ smb?.flexBasis || '' }

@@ -97,6 +97,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						<ResponsiveTabPanel
 							desktop={ () => (
 								<RangeControl
+									__next40pxDefaultSize
 									__nextHasNoMarginBottom
 									label={ __(
 										'Columns per row (Large window)',
@@ -114,6 +115,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							) }
 							tablet={ () => (
 								<RangeControl
+									__next40pxDefaultSize
 									__nextHasNoMarginBottom
 									label={ __(
 										'Columns per row (Medium window)',
@@ -159,6 +161,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						className="spacing-sizes-control"
 					>
 						<RangeControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							className="spacing-sizes-control__range-control"
 							value={

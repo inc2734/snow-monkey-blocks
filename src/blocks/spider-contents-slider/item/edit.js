@@ -160,6 +160,8 @@ export default function ( {
 				>
 					<BorderBoxControl
 						{ ...useMultipleOriginColorsAndGradients() }
+						__next40pxDefaultSize
+						__experimentalIsRenderedInSidebar
 						className="smb-border-box-control"
 						enableAlpha={ true }
 						enableStyle={ true }
@@ -180,7 +182,6 @@ export default function ( {
 							style: border.style,
 							width: border.width,
 						} }
-						__experimentalIsRenderedInSidebar
 					/>
 				</ToolsPanelItem>
 
@@ -235,6 +236,7 @@ export default function ( {
 					panelId={ clientId }
 				>
 					<SelectControl
+						__next40pxDefaultSize
 						__nextHasNoMarginBottom
 						label={ __( 'Padding', 'snow-monkey-blocks' ) }
 						value={ contentPadding }

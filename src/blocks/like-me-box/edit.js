@@ -37,6 +37,7 @@ export default function ( { attributes, setAttributes } ) {
 						}
 					>
 						<TextControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Facebook page name',

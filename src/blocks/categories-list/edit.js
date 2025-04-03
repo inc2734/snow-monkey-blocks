@@ -180,6 +180,7 @@ export default function ( { attributes, setAttributes, className } ) {
 						}
 					>
 						<RangeControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Categories list articles',
@@ -260,6 +261,7 @@ export default function ( { attributes, setAttributes, className } ) {
 						}
 					>
 						<SelectControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __( 'orderby', 'snow-monkey-blocks' ) }
 							value={ orderby }
@@ -321,6 +323,7 @@ export default function ( { attributes, setAttributes, className } ) {
 						}
 					>
 						<SelectControl
+							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __( 'order', 'snow-monkey-blocks' ) }
 							value={ order }
