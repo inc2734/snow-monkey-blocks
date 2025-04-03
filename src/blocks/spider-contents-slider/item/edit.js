@@ -14,8 +14,8 @@ import {
 
 import {
 	SelectControl,
+	BorderBoxControl,
 	__experimentalToolsPanelItem as ToolsPanelItem,
-	__experimentalBorderBoxControl as BorderBoxControl,
 } from '@wordpress/components';
 
 import { useSelect } from '@wordpress/data';

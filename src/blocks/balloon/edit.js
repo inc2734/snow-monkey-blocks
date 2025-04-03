@@ -18,9 +18,9 @@ import {
 	ToolbarButton,
 	ToolbarGroup,
 	SelectControl,
+	BorderBoxControl,
 	__experimentalToolsPanel as ToolsPanel,
 	__experimentalToolsPanelItem as ToolsPanelItem,
-	__experimentalBorderBoxControl as BorderBoxControl,
 } from '@wordpress/components';
 
 import { pullLeft, pullRight } from '@wordpress/icons';

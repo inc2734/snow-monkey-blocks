@@ -19,9 +19,9 @@ import {
 	Popover,
 	RangeControl,
 	ToolbarButton,
+	BorderBoxControl,
 	__experimentalToolsPanel as ToolsPanel,
 	__experimentalToolsPanelItem as ToolsPanelItem,
-	__experimentalBorderBoxControl as BorderBoxControl,
 } from '@wordpress/components';
 
 import { useSelect } from '@wordpress/data';
