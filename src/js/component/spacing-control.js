@@ -1,6 +1,6 @@
 import {
+	BoxControl,
 	__experimentalUseCustomUnits as useCustomUnits,
-	__experimentalBoxControl as BoxControl,
 } from '@wordpress/components';
 
 import {
