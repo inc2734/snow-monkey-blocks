@@ -80,29 +80,23 @@ export default function ( {
 	} = attributes;
 
 	const hasInnerBlocks = useSelect(
-		( select ) => {
-			const { getBlock } = select( 'core/block-editor' );
-			const block = getBlock( clientId );
-			return !! ( block && block.innerBlocks.length );
-		},
+		( select ) =>
+			!! select( 'core/block-editor' ).getBlock( clientId )?.innerBlocks
+				?.length,
 		[ clientId ]
 	);
 
-	const { imageSizes, image } = useSelect(
-		( select ) => {
-			const { getSettings } = select( 'core/block-editor' );
-			return {
-				image:
-					mediaId && isSelected
-						? select( 'core' ).getMedia( mediaId, {
-								context: 'view',
-						  } )
-						: null,
-				imageSizes: getSettings()?.imageSizes,
-			};
-		},
+	const imageSizes = useSelect(
+		( select ) => select( 'core/block-editor' ).getSettings()?.imageSizes,
+		[]
+	);
 
-		[ isSelected, mediaId, clientId ]
+	const image = useSelect(
+		( select ) =>
+			mediaId
+				? select( 'core' ).getMedia( mediaId, { context: 'view' } )
+				: null,
+		[ mediaId ]
 	);
 
 	const imageSizeOptions = imageSizes

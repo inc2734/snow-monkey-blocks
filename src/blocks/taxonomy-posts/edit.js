@@ -27,6 +27,8 @@ import { toNumber, buildTermsTree } from '@smb/helper';
 
 import metadata from './block.json';
 
+const EMPTY_ARRAY = [];
+
 export default function ( { attributes, setAttributes, clientId } ) {
 	const {
 		taxonomy,
@@ -83,46 +85,54 @@ export default function ( { attributes, setAttributes, clientId } ) {
 		} );
 	}, [] );
 
-	const { taxonomiesTerms, taxonomies } = useSelect( ( select ) => {
-		const { getTaxonomies, getEntityRecords } = select( 'core' );
-		const allTaxonomies = getTaxonomies( { per_page: -1 } ) || [];
-		const shownTaxonomies = allTaxonomies.filter(
-			( _taxonomy ) => _taxonomy.visibility.show_ui
-		);
+	const allTaxonomies = useSelect(
+		( select ) =>
+			select( 'core' ).getTaxonomies( { per_page: -1 } ) || EMPTY_ARRAY,
+		[]
+	);
+	const taxonomies = useMemo(
+		() =>
+			allTaxonomies.filter(
+				( _taxonomy ) => _taxonomy.visibility.show_ui
+			),
+		[ allTaxonomies ]
+	);
 
-		const _taxonomiesTerms = shownTaxonomies
-			.map( ( _taxonomy ) => {
-				const terms =
-					getEntityRecords( 'taxonomy', _taxonomy.slug, {
-						per_page: -1,
-					} ) || [];
-				if ( 0 < terms.length ) {
-					return {
-						taxonomy: _taxonomy.slug,
-						terms,
-					};
-				}
-				return {};
-			} )
-			.filter( ( taxonomyTerms ) => taxonomyTerms );
+	const taxonomiesTerms = useSelect(
+		( select ) => {
+			const { getEntityRecords } = select( 'core' );
 
-		return {
-			taxonomiesTerms: _taxonomiesTerms,
-			taxonomies: shownTaxonomies,
-		};
-	}, [] );
+			return taxonomies
+				.map( ( _taxonomy ) => {
+					const terms =
+						getEntityRecords( 'taxonomy', _taxonomy.slug, {
+							per_page: -1,
+						} ) || [];
+					if ( 0 < terms.length ) {
+						return {
+							taxonomy: _taxonomy.slug,
+							terms,
+						};
+					}
+					return {};
+				} )
+				.filter( ( taxonomyTerms ) => taxonomyTerms );
+		},
+		[ taxonomies ]
+	);
 
-	const itemThumbnailSizeSlugOption = useSelect( ( select ) => {
+	const imageSizes = useSelect( ( select ) => {
 		const { getSettings } = select( 'core/block-editor' );
-		const { imageSizes } = getSettings();
-
-		return imageSizes.map( ( imageSize ) => {
-			return {
-				value: imageSize.slug,
-				label: imageSize.name,
-			};
-		} );
+		const settings = getSettings();
+		return settings.imageSizes || EMPTY_ARRAY;
 	}, [] );
+
+	const itemThumbnailSizeSlugOption = useMemo( () => {
+		return imageSizes.map( ( imageSize ) => ( {
+			value: imageSize.slug,
+			label: imageSize.name,
+		} ) );
+	}, [ imageSizes ] );
 
 	const categoryLabelTaxonomyOptions = useMemo( () => {
 		const _categoryLabelTaxonomyOptions = taxonomies.map( ( _taxonomy ) => {

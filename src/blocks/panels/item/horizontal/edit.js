@@ -100,12 +100,7 @@ export function getUpdatedLinkAttributes( {
 	};
 }
 
-export default function ( {
-	attributes,
-	setAttributes,
-	isSelected,
-	clientId,
-} ) {
+export default function ( { attributes, setAttributes, isSelected } ) {
 	const {
 		titleTagName,
 		title,
@@ -164,21 +159,17 @@ export default function ( {
 		setIsEditingHref( false );
 	}
 
-	const { imageSizes, image } = useSelect(
-		( select ) => {
-			const { getSettings } = select( 'core/block-editor' );
-			return {
-				image:
-					imageID && isSelected
-						? select( 'core' ).getMedia( imageID, {
-								context: 'view',
-						  } )
-						: null,
-				imageSizes: getSettings()?.imageSizes,
-			};
-		},
+	const imageSizes = useSelect(
+		( select ) => select( 'core/block-editor' ).getSettings()?.imageSizes,
+		[]
+	);
 
-		[ isSelected, imageID, clientId ]
+	const image = useSelect(
+		( select ) =>
+			imageID
+				? select( 'core' ).getMedia( imageID, { context: 'view' } )
+				: null,
+		[ imageID ]
 	);
 
 	const imageSizeOptions = imageSizes

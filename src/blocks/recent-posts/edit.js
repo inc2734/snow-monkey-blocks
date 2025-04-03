@@ -18,7 +18,7 @@ import {
 
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
-import { useEffect } from '@wordpress/element';
+import { useEffect, useMemo } from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
 
 import ServerSideRender from '@wordpress/server-side-render';
@@ -26,6 +26,8 @@ import ServerSideRender from '@wordpress/server-side-render';
 import { toNumber, buildTermsTree } from '@smb/helper';
 
 import metadata from './block.json';
+
+const EMPTY_ARRAY = [];
 
 export default function ( { attributes, setAttributes, clientId } ) {
 	const {
@@ -83,28 +85,34 @@ export default function ( { attributes, setAttributes, clientId } ) {
 		} );
 	}, [] );
 
-	const { allPostTypes, taxonomiesTerms, allAuthors } = useSelect(
-		( select ) => {
-			const { getPostTypes, getEntityRecords, getTaxonomy } =
-				select( 'core' );
+	const allPostTypes = useSelect(
+		( select ) =>
+			select( 'core' ).getPostTypes( { per_page: -1 } ) || EMPTY_ARRAY,
+		[]
+	);
 
-			let _allPostTypes = getPostTypes( { per_page: -1 } ) || [];
-			_allPostTypes = _allPostTypes.filter(
-				( type ) =>
-					type.viewable &&
-					! type.hierarchical &&
-					'media' !== type.rest_base
-			);
+	const filteredPostTypes = useMemo( () => {
+		return allPostTypes.filter(
+			( type ) =>
+				type.viewable &&
+				! type.hierarchical &&
+				type.rest_base !== 'media'
+		);
+	}, [ allPostTypes ] );
+
+	const taxonomiesTerms = useSelect(
+		( select ) => {
+			const { getEntityRecords, getTaxonomy } = select( 'core' );
 
 			const _taxonomiesTerms = [];
-			_allPostTypes.forEach( ( _postType ) => {
+			filteredPostTypes.forEach( ( _postType ) => {
 				_postType.taxonomies.forEach( ( _taxonomy ) => {
 					const _taxonomyObj = getTaxonomy( _taxonomy );
 					if ( !! _taxonomyObj?.visibility?.show_ui ) {
 						const terms =
 							getEntityRecords( 'taxonomy', _taxonomy, {
 								per_page: -1,
-							} ) || [];
+							} ) || EMPTY_ARRAY;
 
 						if ( 0 < terms.length ) {
 							_taxonomiesTerms.push( {
@@ -117,43 +125,42 @@ export default function ( { attributes, setAttributes, clientId } ) {
 				} );
 			} );
 
-			const _allAuthors = select( 'core' ).getUsers( {
-				who: 'authors',
-				per_page: -1,
-				_fields: 'id,name',
-				context: 'view',
-			} );
-
-			return {
-				allPostTypes: _allPostTypes,
-				taxonomiesTerms: _taxonomiesTerms,
-				allAuthors: _allAuthors,
-			};
+			return _taxonomiesTerms;
 		},
-		[]
+		[ filteredPostTypes ]
 	);
+
+	const allAuthors = useSelect( ( select ) => {
+		return select( 'core' ).getUsers( {
+			who: 'authors',
+			per_page: -1,
+			_fields: 'id,name',
+			context: 'view',
+		} );
+	}, [] );
 
 	const taxonomiesTermsWithPostType = [];
 	const taxonomiesWithPostType =
-		allPostTypes.find( ( _postType ) => postType === _postType.slug )
-			?.taxonomies || [];
+		filteredPostTypes.find( ( _postType ) => postType === _postType.slug )
+			?.taxonomies || EMPTY_ARRAY;
 	taxonomiesTerms.forEach( ( taxonomyTerms ) => {
 		if ( taxonomiesWithPostType.includes( taxonomyTerms.taxonomy ) ) {
 			taxonomiesTermsWithPostType.push( taxonomyTerms );
 		}
 	} );
 
-	const itemThumbnailSizeSlugOption = useSelect( ( select ) => {
+	const imageSizes = useSelect( ( select ) => {
 		const { getSettings } = select( 'core/block-editor' );
-		const { imageSizes } = getSettings();
-
-		return imageSizes.map( ( imageSize ) => {
-			return {
-				value: imageSize.slug,
-				label: imageSize.name,
-			};
-		} );
+		const settings = getSettings();
+		return settings.imageSizes || EMPTY_ARRAY;
 	}, [] );
+
+	const itemThumbnailSizeSlugOption = useMemo( () => {
+		return imageSizes.map( ( imageSize ) => ( {
+			value: imageSize.slug,
+			label: imageSize.name,
+		} ) );
+	}, [ imageSizes ] );
 
 	const itemTitleTagNames = [ 'h2', 'h3', 'h4' ];
 
@@ -199,10 +206,12 @@ export default function ( { attributes, setAttributes, clientId } ) {
 									postType: value,
 								} )
 							}
-							options={ allPostTypes.map( ( _postType ) => ( {
-								label: _postType.name,
-								value: _postType.slug,
-							} ) ) }
+							options={ filteredPostTypes.map(
+								( _postType ) => ( {
+									label: _postType.name,
+									value: _postType.slug,
+								} )
+							) }
 						/>
 					</ToolsPanelItem>
 
@@ -1073,7 +1082,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 			</InspectorControls>
 
 			<div { ...useBlockProps() }>
-				{ ! allPostTypes ? (
+				{ ! filteredPostTypes ? (
 					<Placeholder
 						icon="editor-ul"
 						label={ __( 'Recent posts', 'snow-monkey-blocks' ) }

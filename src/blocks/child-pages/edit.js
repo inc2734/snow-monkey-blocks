@@ -14,6 +14,7 @@ import {
 
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
+import { useMemo } from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
 import ServerSideRender from '@wordpress/server-side-render';
 
@@ -21,6 +22,8 @@ import SearchPostControl from '@smb/component/search-post-control';
 import { toNumber } from '@smb/helper';
 
 import metadata from './block.json';
+
+const EMPTY_ARRAY = [];
 
 export default function ( { attributes, setAttributes, clientId } ) {
 	const {
@@ -37,17 +40,21 @@ export default function ( { attributes, setAttributes, clientId } ) {
 		parent,
 	} = attributes;
 
-	const itemThumbnailSizeSlugOption = useSelect( ( select ) => {
+	const imageSizes = useSelect( ( select ) => {
 		const { getSettings } = select( 'core/block-editor' );
-		const { imageSizes } = getSettings();
+		const { imageSizes: _imageSizes } = getSettings();
 
+		return _imageSizes || EMPTY_ARRAY;
+	}, [] );
+
+	const itemThumbnailSizeSlugOption = useMemo( () => {
 		return imageSizes.map( ( imageSize ) => {
 			return {
 				value: imageSize.slug,
 				label: imageSize.name,
 			};
 		} );
-	}, [] );
+	}, [ imageSizes ] );
 
 	const itemTitleTagNames = [ 'h2', 'h3', 'h4' ];
 

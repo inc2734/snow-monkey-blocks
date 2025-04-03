@@ -33,7 +33,6 @@ export default function ( {
 	setAttributes,
 	isSelected,
 	className,
-	clientId,
 } ) {
 	const {
 		imageID,
@@ -55,21 +54,17 @@ export default function ( {
 	// re-renders when the popover's anchor updates.
 	const [ popoverAnchor, setPopoverAnchor ] = useState( null );
 
-	const { imageSizes, image } = useSelect(
-		( select ) => {
-			const { getSettings } = select( 'core/block-editor' );
-			return {
-				image:
-					imageID && isSelected
-						? select( 'core' ).getMedia( imageID, {
-								context: 'view',
-						  } )
-						: null,
-				imageSizes: getSettings()?.imageSizes,
-			};
-		},
+	const imageSizes = useSelect(
+		( select ) => select( 'core/block-editor' ).getSettings()?.imageSizes,
+		[]
+	);
 
-		[ isSelected, imageID, clientId ]
+	const image = useSelect(
+		( select ) =>
+			imageID
+				? select( 'core' ).getMedia( imageID, { context: 'view' } )
+				: null,
+		[ imageID ]
 	);
 
 	const imageSizeOptions = imageSizes

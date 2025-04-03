@@ -18,11 +18,9 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 	const { boxShadow, templateLock } = attributes;
 
 	const hasInnerBlocks = useSelect(
-		( select ) => {
-			const { getBlock } = select( 'core/block-editor' );
-			const block = getBlock( clientId );
-			return !! ( block && block.innerBlocks.length );
-		},
+		( select ) =>
+			!! select( 'core/block-editor' ).getBlock( clientId )?.innerBlocks
+				?.length,
 		[ clientId ]
 	);
 

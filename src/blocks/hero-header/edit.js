@@ -122,7 +122,6 @@ export default function ( {
 	name,
 	attributes,
 	setAttributes,
-	isSelected,
 	className,
 	clientId,
 } ) {
@@ -160,11 +159,9 @@ export default function ( {
 	} = attributes;
 
 	const hasInnerBlocks = useSelect(
-		( select ) => {
-			const { getBlock } = select( blockEditorStore );
-			const block = getBlock( clientId );
-			return !! ( block && block.innerBlocks.length );
-		},
+		( select ) =>
+			!! select( 'core/block-editor' ).getBlock( clientId )?.innerBlocks
+				?.length,
 		[ clientId ]
 	);
 
@@ -184,21 +181,17 @@ export default function ( {
 		setIsShowPlaceholder( ! hasInnerBlocks && ! mediaUrl );
 	}, [ mediaUrl, hasInnerBlocks ] );
 
-	const { imageSizes, image } = useSelect(
-		( select ) => {
-			const { getSettings } = select( blockEditorStore );
-			return {
-				image:
-					mediaId && isSelected
-						? select( 'core' ).getMedia( mediaId, {
-								context: 'view',
-						  } )
-						: null,
-				imageSizes: getSettings()?.imageSizes,
-			};
-		},
+	const imageSizes = useSelect(
+		( select ) => select( 'core/block-editor' ).getSettings()?.imageSizes,
+		[]
+	);
 
-		[ isSelected, mediaId, clientId ]
+	const image = useSelect(
+		( select ) =>
+			mediaId
+				? select( 'core' ).getMedia( mediaId, { context: 'view' } )
+				: null,
+		[ mediaId ]
 	);
 
 	const multipleOriginColorsAndGradients =

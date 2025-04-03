@@ -131,32 +131,34 @@ export default function ( {
 		[ clientId ]
 	);
 
-	const { imageSizes, lgImage, mdImage, smImage } = useSelect(
+	const imageSizes = useSelect(
+		( select ) => select( 'core/block-editor' ).getSettings()?.imageSizes,
+		[]
+	);
+
+	const { lgImage, mdImage, smImage } = useSelect(
 		( select ) => {
-			const { getSettings } = select( 'core/block-editor' );
+			const { getMedia } = select( 'core' );
+
 			return {
-				lgImage:
-					lgImageID && isSelected
-						? select( 'core' ).getMedia( lgImageID, {
-								context: 'view',
-						  } )
-						: null,
-				mdImage:
-					mdImageID && isSelected
-						? select( 'core' ).getMedia( mdImageID, {
-								context: 'view',
-						  } )
-						: null,
-				smImage:
-					smImageID && isSelected
-						? select( 'core' ).getMedia( smImageID, {
-								context: 'view',
-						  } )
-						: null,
-				imageSizes: getSettings()?.imageSizes,
+				lgImage: lgImageID
+					? getMedia( lgImageID, {
+							context: 'view',
+					  } )
+					: null,
+				mdImage: mdImageID
+					? getMedia( mdImageID, {
+							context: 'view',
+					  } )
+					: null,
+				smImage: smImageID
+					? getMedia( smImageID, {
+							context: 'view',
+					  } )
+					: null,
 			};
 		},
-		[ isSelected, lgImageID, mdImageID, smImageID, clientId ]
+		[ lgImageID, mdImageID, smImageID ]
 	);
 
 	const lgImageSizeOptions = imageSizes

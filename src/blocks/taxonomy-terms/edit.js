@@ -11,26 +11,31 @@ import {
 
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
+import { useMemo } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 import ServerSideRender from '@wordpress/server-side-render';
 
 import metadata from './block.json';
 
+const EMPTY_ARRAY = [];
+
 export default function ( { attributes, setAttributes } ) {
 	const { taxonomy, orderby, order, displayCount } = attributes;
 
-	const { taxonomies } = useSelect( ( select ) => {
+	const { allTaxonomies } = useSelect( ( select ) => {
 		const { getTaxonomies } = select( 'core' );
-		const allTaxonomies = getTaxonomies( { per_page: -1 } ) || [];
-		const shownTaxonomies = allTaxonomies.filter(
-			( _taxonomy ) => _taxonomy.visibility.show_ui
-		);
 
 		return {
-			taxonomies: shownTaxonomies,
+			allTaxonomies: getTaxonomies( { per_page: -1 } ) || EMPTY_ARRAY,
 		};
 	}, [] );
+
+	const taxonomies = useMemo( () => {
+		return allTaxonomies.filter(
+			( _taxonomy ) => _taxonomy.visibility.show_ui
+		);
+	}, [ allTaxonomies ] );
 
 	const taxonomyOptions = taxonomies.map( ( _taxonomy ) => {
 		return {
