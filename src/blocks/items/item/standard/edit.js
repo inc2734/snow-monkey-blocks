@@ -361,7 +361,7 @@ export default function ( {
 								}
 								isShownByDefault
 								label={ __(
-									'Button size',
+									'Border radius',
 									'snow-monkey-blocks'
 								) }
 								onDeselect={ () =>
