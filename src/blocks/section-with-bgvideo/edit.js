@@ -185,7 +185,10 @@ export default function ( {
 		null != useSettings
 			? useSettings( 'typography.fontSizes' )
 			: [ useSetting( 'typography.fontSizes' ) ].filter( Boolean );
-	const newBackgroundText = { ...backgroundText };
+	const newBackgroundText = {
+		...backgroundText,
+		position: { ...backgroundText.position },
+	};
 
 	return (
 		<>
