@@ -4,6 +4,11 @@
 * WordPress 6.8 compatible.
 * Requires WordPress 6.8 or higher.
 
+= 23.1.4 =
+* [Section] Fixed an issue where background text position settings were reflected in other blocks of the same block type.
+* [Section (Break the grid)] Fixed an issue where background text position settings were reflected in other blocks of the same block type.
+* [Section (Background image/video)] Fixed an issue where background text position settings were reflected in other blocks of the same block type.
+
 = 23.1.3 =
 * [Items: Standard] Fixed a bug that caused button size to be reset.
 
