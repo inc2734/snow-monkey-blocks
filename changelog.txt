@@ -1,5 +1,8 @@
 *** Changelog ***
 
+= 24.0.1 =
+* [Icon list] Fixed an issue where new list item blocks could not be added.
+
 = 24.0.0 =
 * WordPress 6.8 compatible.
 * Requires WordPress 6.8 or higher.
