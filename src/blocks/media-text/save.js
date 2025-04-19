@@ -52,9 +52,9 @@ export default function ( { attributes, className } ) {
 
 	const rowClasses = classnames( 'c-row', {
 		'c-row--reverse': 'left' === mediaPosition,
-		'c-row--top': ! isFill && 'top' === verticalAlignment,
-		'c-row--middle': ! isFill && 'center' === verticalAlignment,
-		'c-row--bottom': ! isFill && 'bottom' === verticalAlignment,
+		'c-row--lg-top': ! isFill && 'top' === verticalAlignment,
+		'c-row--lg-middle': ! isFill && 'center' === verticalAlignment,
+		'c-row--lg-bottom': ! isFill && 'bottom' === verticalAlignment,
 		'c-row--fill': isFill,
 	} );
 
