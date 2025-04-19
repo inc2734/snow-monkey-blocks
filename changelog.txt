@@ -1,5 +1,8 @@
 *** Changelog ***
 
+= 24.0.2 =
+* [Media text] Fixed an issue where content could shrink when stacked vertically if vertical alignment was set.
+
 = 24.0.1 =
 * [Icon list] Fixed an issue where new list item blocks could not be added.
 
