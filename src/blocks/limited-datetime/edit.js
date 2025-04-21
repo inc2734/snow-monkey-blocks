@@ -19,6 +19,7 @@ import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
 import DateTimePicker from '@smb/component/date-time-picker';
+import { useToolsPanelDropdownMenuProps } from '@smb/helper';
 
 import metadata from './block.json';
 
@@ -48,6 +49,8 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 				: InnerBlocks.ButtonBlockAppender,
 		}
 	);
+
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
 
 	let formatedStartDate = __( 'Not been set.', 'snow-monkey-blocks' );
 	if ( isUseStartDate ) {
@@ -82,6 +85,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>

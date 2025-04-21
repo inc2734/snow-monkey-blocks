@@ -18,6 +18,7 @@ import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
 import WidthPicker from '@smb/component/width-picker';
+import { useToolsPanelDropdownMenuProps } from '@smb/helper';
 
 import metadata from './block.json';
 
@@ -61,6 +62,8 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		}
 	);
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	const disableIsSlim = !! contentsMaxWidth;
 	const disableContentsMaxWidth = isSlim;
 
@@ -69,6 +72,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					{ ! disableContentsMaxWidth && (
 						<ToolsPanelItem

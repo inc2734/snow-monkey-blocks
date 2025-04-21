@@ -16,7 +16,7 @@ import { useSelect } from '@wordpress/data';
 import { useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
-import { toNumber } from '@smb/helper';
+import { toNumber, useToolsPanelDropdownMenuProps } from '@smb/helper';
 import { store } from './store';
 
 import metadata from './block.json';
@@ -25,6 +25,8 @@ export default function ( { attributes, setAttributes, className } ) {
 	const { articles, exclusionCategories, orderby, order } = attributes;
 
 	const ulRef = useRef();
+
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
 
 	const articleCategories = useSelect( ( select ) =>
 		select( store ).getArticleCategories()
@@ -163,6 +165,7 @@ export default function ( { attributes, setAttributes, className } ) {
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>
@@ -203,6 +206,7 @@ export default function ( { attributes, setAttributes, className } ) {
 						'Exclusion categories settings',
 						'snow-monkey-blocks'
 					) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>
@@ -240,6 +244,7 @@ export default function ( { attributes, setAttributes, className } ) {
 						'Display order settings',
 						'snow-monkey-blocks'
 					) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<p style={ { gridColumn: '1/-1' } }>
 						{ __(

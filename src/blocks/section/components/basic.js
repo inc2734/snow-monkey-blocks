@@ -16,6 +16,8 @@ import { Fragment, useState } from '@wordpress/element';
 import { settings as settingsIcon } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
 
+import { useToolsPanelDropdownMenuProps } from '@smb/helper';
+
 import WidthPicker from '@smb/component/width-picker';
 import SpacingControl from '@smb/component/spacing-control';
 
@@ -30,11 +32,17 @@ export const PanelBasicSettings = ( {
 	const [ showCustomHeightControl, setShowCustomHeightControl ] = useState(
 		! disableCustomHeight
 	);
+
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	const wrapperTagNames = [ 'div', 'section', 'aside' ];
 	const titleTagNames = [ 'h1', 'h2', 'h3', 'none' ];
 
 	return (
-		<ToolsPanel label={ __( 'Block settings', 'snow-monkey-blocks' ) }>
+		<ToolsPanel
+			label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+			dropdownMenuProps={ dropdownMenuProps }
+		>
 			{ settings.map( ( setting, index ) => {
 				if (
 					setting.hasOwnProperty( 'wrapperTagNameValue' ) &&

@@ -30,6 +30,8 @@ import { useDispatch, useSelect } from '@wordpress/data';
 import { useEffect, useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
+import { useToolsPanelDropdownMenuProps } from '@smb/helper';
+
 const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/tab-panel' ];
 
 import metadata from './block.json';
@@ -117,11 +119,14 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		}
 	);
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	return (
 		<>
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>

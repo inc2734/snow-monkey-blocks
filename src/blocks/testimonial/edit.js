@@ -17,7 +17,8 @@ import {
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
-import { toNumber } from '@smb/helper';
+import { toNumber, useToolsPanelDropdownMenuProps } from '@smb/helper';
+
 import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
 
 const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/testimonial-item' ];
@@ -59,6 +60,8 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		}
 	);
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	const gapOptions = [
 		{
 			label: 'S',
@@ -79,6 +82,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>

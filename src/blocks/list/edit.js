@@ -3,9 +3,10 @@ import { times } from 'lodash';
 
 import {
 	InspectorControls,
-	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	useInnerBlocksProps,
 	useBlockProps,
+	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
+	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 } from '@wordpress/block-editor';
 
 import {
@@ -16,6 +17,8 @@ import {
 } from '@wordpress/components';
 
 import { __ } from '@wordpress/i18n';
+
+import { useToolsPanelDropdownMenuProps } from '@smb/helper';
 
 import metadata from './block.json';
 
@@ -82,12 +85,15 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		}
 	);
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	return (
 		<>
-			<InspectorControls group="styles">
-				<PanelColorGradientSettings
-					title={ __( 'Color', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
+			<InspectorControls group="color">
+				<ColorGradientSettingsDropdown
+					{ ...useMultipleOriginColorsAndGradients() }
+					panelId={ clientId }
+					__experimentalIsRenderedInSidebar
 					settings={ [
 						{
 							colorValue: iconColor,
@@ -98,13 +104,13 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							label: __( 'Icon color', 'snow-monkey-blocks' ),
 						},
 					] }
-					__experimentalIsRenderedInSidebar
-				></PanelColorGradientSettings>
+				/>
 			</InspectorControls>
 
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>

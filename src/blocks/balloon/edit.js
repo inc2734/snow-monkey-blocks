@@ -26,6 +26,8 @@ import {
 import { pullLeft, pullRight } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
 
+import { useToolsPanelDropdownMenuProps } from '@smb/helper';
+
 import metadata from './block.json';
 
 const TEMPLATE = [ [ 'core/paragraph' ] ];
@@ -101,11 +103,14 @@ export default function ( { attributes, setAttributes, className } ) {
 		}
 	);
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	return (
 		<>
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Balloon settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>
@@ -193,6 +198,7 @@ export default function ( { attributes, setAttributes, className } ) {
 
 				<ToolsPanel
 					label={ __( 'Avatar settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>

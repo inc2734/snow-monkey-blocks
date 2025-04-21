@@ -8,7 +8,8 @@ import {
 	JustifyToolbar,
 	useBlockProps,
 	useInnerBlocksProps,
-	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
+	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
+	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 } from '@wordpress/block-editor';
 
 import {
@@ -23,7 +24,11 @@ import { useSelect } from '@wordpress/data';
 import { pullLeft, pullRight } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
 
-import { toNumber, getColumnSize } from '@smb/helper';
+import {
+	toNumber,
+	getColumnSize,
+	useToolsPanelDropdownMenuProps,
+} from '@smb/helper';
 
 import { PanelBasicSettings } from '../section/components/basic';
 import { Edit as Header } from '../section/components/header';
@@ -212,6 +217,8 @@ export default function ( {
 		}
 	);
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	return (
 		<>
 			<InspectorControls group="dimensions">
@@ -258,10 +265,11 @@ export default function ( {
 				</ToolsPanelItem>
 			</InspectorControls>
 
-			<InspectorControls group="styles">
-				<PanelColorGradientSettings
-					title={ __( 'Color', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
+			<InspectorControls group="color">
+				<ColorGradientSettingsDropdown
+					{ ...useMultipleOriginColorsAndGradients() }
+					panelId={ clientId }
+					__experimentalIsRenderedInSidebar
 					settings={ [
 						{
 							colorValue: textColor,
@@ -272,8 +280,7 @@ export default function ( {
 							label: __( 'Text color', 'snow-monkey-blocks' ),
 						},
 					] }
-					__experimentalIsRenderedInSidebar
-				></PanelColorGradientSettings>
+				/>
 			</InspectorControls>
 
 			<InspectorControls>
@@ -343,6 +350,7 @@ export default function ( {
 
 				<ToolsPanel
 					label={ __( 'Columns settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>

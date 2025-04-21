@@ -11,7 +11,6 @@ import {
 	useBlockProps,
 	useSettings,
 	useSetting, // @deprecated
-	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
 } from '@wordpress/block-editor';
@@ -26,7 +25,7 @@ import {
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
-import { toNumber } from '@smb/helper';
+import { toNumber, useToolsPanelDropdownMenuProps } from '@smb/helper';
 
 import { PanelBasicSettings } from '../section/components/basic';
 import { Edit as Header } from '../section/components/header';
@@ -181,6 +180,8 @@ export default function ( {
 		}
 	);
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	const [ fontSizes ] =
 		null != useSettings
 			? useSettings( 'typography.fontSizes' )
@@ -192,10 +193,11 @@ export default function ( {
 
 	return (
 		<>
-			<InspectorControls group="styles">
-				<PanelColorGradientSettings
-					title={ __( 'Color', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
+			<InspectorControls group="color">
+				<ColorGradientSettingsDropdown
+					{ ...useMultipleOriginColorsAndGradients() }
+					panelId={ clientId }
+					__experimentalIsRenderedInSidebar
 					settings={ [
 						{
 							colorValue: textColor,
@@ -206,8 +208,7 @@ export default function ( {
 							label: __( 'Text color', 'snow-monkey-blocks' ),
 						},
 					] }
-					__experimentalIsRenderedInSidebar
-				></PanelColorGradientSettings>
+				/>
 			</InspectorControls>
 
 			<InspectorControls>
@@ -280,6 +281,7 @@ export default function ( {
 
 				<ToolsPanel
 					label={ __( 'Video settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>

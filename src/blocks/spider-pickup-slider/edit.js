@@ -9,7 +9,7 @@ import {
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 
-import { toNumber } from '@smb/helper';
+import { toNumber, useToolsPanelDropdownMenuProps } from '@smb/helper';
 
 import metadata from './block.json';
 
@@ -25,11 +25,14 @@ export default function ( { attributes, setAttributes } ) {
 		autoplayButton,
 	} = attributes;
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	return (
 		<>
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>

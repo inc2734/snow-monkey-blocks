@@ -10,16 +10,21 @@ import { __ } from '@wordpress/i18n';
 
 import ServerSideRender from '@wordpress/server-side-render';
 
+import { useToolsPanelDropdownMenuProps } from '@smb/helper';
+
 import metadata from './block.json';
 
 export default function ( { attributes, setAttributes } ) {
 	const { pageName } = attributes;
+
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
 
 	return (
 		<>
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>

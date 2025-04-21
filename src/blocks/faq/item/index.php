@@ -13,9 +13,11 @@ register_block_type(
 	array(
 		'render_callback' => function ( $attributes, $content ) {
 			$dom = new \DOMDocument();
+			libxml_use_internal_errors( true );
 			// phpcs:disable WordPress.PHP.NoSilencedErrors.Discouraged
-			@$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'auto' ) );
+			@$dom->loadHTML( mb_encode_numericentity( $content, array( 0x80, 0x10ffff, 0, 0x1fffff ) ) );
 			// phpcs:enable
+			libxml_clear_errors();
 			$xpath = new \DOMXPath( $dom );
 
 			$question_item = $xpath->query( '//*[@class="smb-faq__item__question__body"]' )->item( 0 );

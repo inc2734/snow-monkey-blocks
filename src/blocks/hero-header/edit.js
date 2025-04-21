@@ -36,7 +36,12 @@ import { useSelect, useDispatch } from '@wordpress/data';
 import { useEffect, useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
-import { getMediaType, isVideoType, toNumber } from '@smb/helper';
+import {
+	getMediaType,
+	isVideoType,
+	toNumber,
+	useToolsPanelDropdownMenuProps,
+} from '@smb/helper';
 
 import Figure from '@smb/component/figure';
 import ResolutionTool from '@smb/component/resolution-tool';
@@ -309,6 +314,8 @@ export default function ( {
 		}
 	);
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	return (
 		<>
 			<InspectorControls group="dimensions">
@@ -341,6 +348,7 @@ export default function ( {
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>
@@ -413,6 +421,7 @@ export default function ( {
 
 				<ToolsPanel
 					label={ __( 'Background image', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>
@@ -825,7 +834,10 @@ export default function ( {
 					) }
 				</ToolsPanel>
 
-				<ToolsPanel label={ __( 'Overlay', 'snow-monkey-blocks' ) }>
+				<ToolsPanel
+					label={ __( 'Overlay', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
+				>
 					<div className="smb-color-gradient-settings-dropdown">
 						<ColorGradientSettingsDropdown
 							settings={ [
@@ -887,7 +899,10 @@ export default function ( {
 					) }
 				</ToolsPanel>
 
-				<ToolsPanel label={ __( 'Contents', 'snow-monkey-blocks' ) }>
+				<ToolsPanel
+					label={ __( 'Contents', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
+				>
 					<ToolsPanelItem
 						hasValue={ () =>
 							bodyMaxWidth !==

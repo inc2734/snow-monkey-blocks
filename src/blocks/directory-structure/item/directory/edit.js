@@ -21,6 +21,7 @@ import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
 import FontAwesome from '@smb/component/font-awesome';
+import { useToolsPanelDropdownMenuProps } from '@smb/helper';
 
 const ALLOWED_BLOCKS = [
 	'snow-monkey-blocks/directory-structure-item-directory',
@@ -70,6 +71,8 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 				: InnerBlocks.ButtonBlockAppender,
 		}
 	);
+
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
 
 	const iconList = [
 		{
@@ -124,6 +127,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>

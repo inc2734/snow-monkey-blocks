@@ -5,10 +5,11 @@ import {
 	InnerBlocks,
 	InspectorControls,
 	RichText,
-	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	useBlockProps,
 	useInnerBlocksProps,
 	LinkControl,
+	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
+	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 } from '@wordpress/block-editor';
 
 import {
@@ -26,6 +27,8 @@ import { link as linkIcon } from '@wordpress/icons';
 
 import Figure from '@smb/component/figure';
 import ResolutionTool from '@smb/component/resolution-tool';
+
+import { useToolsPanelDropdownMenuProps } from '@smb/helper';
 
 const ALLOWED_TYPES = [ 'image' ];
 const DEFAULT_MEDIA_SIZE_SLUG = 'full';
@@ -122,6 +125,8 @@ export default function ( {
 		}
 	);
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	const unlink = () => {
 		setAttributes( {
 			linkURL: undefined,
@@ -132,10 +137,11 @@ export default function ( {
 
 	return (
 		<>
-			<InspectorControls group="styles">
-				<PanelColorGradientSettings
-					title={ __( 'Color', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
+			<InspectorControls group="color">
+				<ColorGradientSettingsDropdown
+					{ ...useMultipleOriginColorsAndGradients() }
+					panelId={ clientId }
+					__experimentalIsRenderedInSidebar
 					settings={ [
 						{
 							colorValue: numberColor,
@@ -154,13 +160,13 @@ export default function ( {
 							label: __( 'Link color', 'snow-monkey-blocks' ),
 						},
 					] }
-					__experimentalIsRenderedInSidebar
-				></PanelColorGradientSettings>
+				/>
 			</InspectorControls>
 
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>

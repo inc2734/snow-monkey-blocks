@@ -22,6 +22,7 @@ import {
 import { __ } from '@wordpress/i18n';
 
 import DateTimePicker from '@smb/component/date-time-picker';
+import { useToolsPanelDropdownMenuProps } from '@smb/helper';
 
 import metadata from './block.json';
 
@@ -74,6 +75,8 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		className: classes,
 		style: styles,
 	} );
+
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
 
 	return (
 		<>
@@ -219,6 +222,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>

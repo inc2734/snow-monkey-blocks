@@ -31,7 +31,12 @@ import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 import { pullLeft, pullRight } from '@wordpress/icons';
 
-import { getColumnSize, getMediaType, isVideoType } from '@smb/helper';
+import {
+	getColumnSize,
+	getMediaType,
+	isVideoType,
+	useToolsPanelDropdownMenuProps,
+} from '@smb/helper';
 
 import Figure from '@smb/component/figure';
 import ResolutionTool from '@smb/component/resolution-tool';
@@ -166,6 +171,8 @@ export default function ( {
 		}
 	);
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	return (
 		<>
 			<InspectorControls group="color">
@@ -213,6 +220,7 @@ export default function ( {
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>

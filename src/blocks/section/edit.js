@@ -7,11 +7,12 @@ import {
 	InnerBlocks,
 	InspectorControls,
 	JustifyToolbar,
-	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	useInnerBlocksProps,
 	useBlockProps,
 	useSettings,
 	useSetting, // @deprecated
+	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
+	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 } from '@wordpress/block-editor';
 
 import { useSelect } from '@wordpress/data';
@@ -205,10 +206,11 @@ export default function ( {
 
 	return (
 		<>
-			<InspectorControls group="styles">
-				<PanelColorGradientSettings
-					title={ __( 'Color', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
+			<InspectorControls group="color">
+				<ColorGradientSettingsDropdown
+					{ ...useMultipleOriginColorsAndGradients() }
+					panelId={ clientId }
+					__experimentalIsRenderedInSidebar
 					settings={ [
 						{
 							colorValue: textColor,
@@ -219,8 +221,7 @@ export default function ( {
 							label: __( 'Text color', 'snow-monkey-blocks' ),
 						},
 					] }
-					__experimentalIsRenderedInSidebar
-				></PanelColorGradientSettings>
+				/>
 			</InspectorControls>
 
 			<InspectorControls>

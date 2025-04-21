@@ -13,9 +13,13 @@ import {
 import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
+import { useToolsPanelDropdownMenuProps } from '@smb/helper';
+
 export default function ( { settings, label } ) {
 	const values = {};
 	const onChanges = {};
+
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
 
 	const components = settings.map( ( setting, index ) => {
 		if (
@@ -205,6 +209,7 @@ export default function ( { settings, label } ) {
 		<ToolsPanel
 			label={ label || __( 'Box Shadow', 'snow-monkey-blocks' ) }
 			className="smb-box-shadow-tools-panel"
+			dropdownMenuProps={ dropdownMenuProps }
 		>
 			<ToolsPanelItem
 				label={ label || __( 'Box Shadow', 'snow-monkey-blocks' ) }

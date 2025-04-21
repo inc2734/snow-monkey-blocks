@@ -19,6 +19,8 @@ import {
 
 import { __ } from '@wordpress/i18n';
 
+import { useToolsPanelDropdownMenuProps } from '@smb/helper';
+
 import metadata from './block.json';
 
 function Edit( { attributes, setAttributes, className, clientId } ) {
@@ -53,11 +55,14 @@ function Edit( { attributes, setAttributes, className, clientId } ) {
 		{ templateLock }
 	);
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	return (
 		<>
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>

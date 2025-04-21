@@ -23,7 +23,11 @@ import { __, sprintf } from '@wordpress/i18n';
 
 import ServerSideRender from '@wordpress/server-side-render';
 
-import { toNumber, buildTermsTree } from '@smb/helper';
+import {
+	toNumber,
+	buildTermsTree,
+	useToolsPanelDropdownMenuProps,
+} from '@smb/helper';
 
 import metadata from './block.json';
 
@@ -84,6 +88,8 @@ export default function ( { attributes, setAttributes, clientId } ) {
 			clientId: attributes.clientId || clientId,
 		} );
 	}, [] );
+
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
 
 	const allTaxonomies = useSelect(
 		( select ) =>
@@ -178,6 +184,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					{ ! taxonomiesTerms.length ? (
 						<div style={ { gridColumn: '1/-1' } }>

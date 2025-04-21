@@ -15,6 +15,8 @@ import {
 
 import { __ } from '@wordpress/i18n';
 
+import { useToolsPanelDropdownMenuProps } from '@smb/helper';
+
 import metadata from './block.json';
 
 export default function ( { attributes, setAttributes } ) {
@@ -42,11 +44,14 @@ export default function ( { attributes, setAttributes } ) {
 		className: 'wpco-wrapper smb-contents-outline',
 	} );
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	return (
 		<>
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>

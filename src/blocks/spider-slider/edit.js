@@ -20,7 +20,7 @@ import { Icon, warning } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
 
 import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
-import { toNumber } from '@smb/helper';
+import { toNumber, useToolsPanelDropdownMenuProps } from '@smb/helper';
 
 import useImageSizes from './use-image-sizes';
 
@@ -136,6 +136,8 @@ export default function ( {
 		isSelected,
 		getSettings
 	);
+
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
 
 	const aspectRatioOptions = [
 		{
@@ -255,6 +257,7 @@ export default function ( {
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>

@@ -5,7 +5,7 @@ import {
 	InspectorControls,
 	useBlockProps,
 	useInnerBlocksProps,
-	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
+	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
 	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 } from '@wordpress/block-editor';
 
@@ -21,6 +21,8 @@ import {
 
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
+
+import { useToolsPanelDropdownMenuProps } from '@smb/helper';
 
 const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/information-item' ];
 const TEMPLATE = [ [ 'snow-monkey-blocks/information-item' ] ];
@@ -88,6 +90,8 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		}
 	);
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	const paddingOptions = [
 		{
 			label: 'S',
@@ -108,6 +112,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>
@@ -281,9 +286,11 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 				</ToolsPanel>
 			</InspectorControls>
 
-			<InspectorControls group="styles">
-				<PanelColorGradientSettings
-					title={ __( 'Color', 'snow-monkey-blocks' ) }
+			<InspectorControls group="color">
+				<ColorGradientSettingsDropdown
+					{ ...useMultipleOriginColorsAndGradients() }
+					panelId={ clientId }
+					__experimentalIsRenderedInSidebar
 					settings={ [
 						{
 							colorValue: labelColumnBackgroundColor,
@@ -319,7 +326,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							),
 						},
 					] }
-					__experimentalIsRenderedInSidebar
 				/>
 			</InspectorControls>
 

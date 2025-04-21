@@ -11,7 +11,6 @@ import {
 	useBlockProps,
 	useSettings,
 	useSetting, // @deprecated
-	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
 } from '@wordpress/block-editor';
@@ -31,7 +30,12 @@ import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
 import Figure from '@smb/component/figure';
 import ResolutionTool from '@smb/component/resolution-tool';
 
-import { toNumber, getMediaType, isVideoType } from '@smb/helper';
+import {
+	toNumber,
+	getMediaType,
+	isVideoType,
+	useToolsPanelDropdownMenuProps,
+} from '@smb/helper';
 
 import { PanelBasicSettings } from '../section/components/basic';
 import { Edit as Header } from '../section/components/header';
@@ -321,6 +325,8 @@ export default function ( {
 		}
 	);
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	const [ fontSizes ] =
 		null != useSettings
 			? useSettings( 'typography.fontSizes' )
@@ -332,10 +338,11 @@ export default function ( {
 
 	return (
 		<>
-			<InspectorControls group="styles">
-				<PanelColorGradientSettings
-					title={ __( 'Color', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
+			<InspectorControls group="color">
+				<ColorGradientSettingsDropdown
+					{ ...useMultipleOriginColorsAndGradients() }
+					panelId={ clientId }
+					__experimentalIsRenderedInSidebar
 					settings={ [
 						{
 							colorValue: textColor,
@@ -346,8 +353,7 @@ export default function ( {
 							label: __( 'Text color', 'snow-monkey-blocks' ),
 						},
 					] }
-					__experimentalIsRenderedInSidebar
-				></PanelColorGradientSettings>
+				/>
 			</InspectorControls>
 
 			<InspectorControls>
@@ -429,6 +435,7 @@ export default function ( {
 
 				<ToolsPanel
 					label={ __( 'Media settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					{ ( hasLgBackground ||
 						hasMdBackground ||
@@ -1028,7 +1035,10 @@ export default function ( {
 					</ToolsPanelItem>
 				</ToolsPanel>
 
-				<ToolsPanel label={ __( 'Overlay', 'snow-monkey-blocks' ) }>
+				<ToolsPanel
+					label={ __( 'Overlay', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
+				>
 					<div className="smb-color-gradient-settings-dropdown">
 						<ColorGradientSettingsDropdown
 							settings={ [

@@ -27,7 +27,7 @@ import { __ } from '@wordpress/i18n';
 
 import PanelBoxShadowSettings from '@smb/component/panel-box-shadow-settings';
 import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
-import { toNumber } from '@smb/helper';
+import { toNumber, useToolsPanelDropdownMenuProps } from '@smb/helper';
 
 import metadata from './block.json';
 
@@ -298,6 +298,8 @@ export default function ( {
 		}
 	);
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	return (
 		<>
 			<InspectorControls group="dimensions">
@@ -461,6 +463,7 @@ export default function ( {
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>

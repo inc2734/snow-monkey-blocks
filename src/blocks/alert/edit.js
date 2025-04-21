@@ -21,6 +21,8 @@ import { __ } from '@wordpress/i18n';
 
 import FontAwesome from '@smb/component/font-awesome';
 
+import { useToolsPanelDropdownMenuProps } from '@smb/helper';
+
 import metadata from './block.json';
 
 const TEMPLATE = [ [ 'core/paragraph' ] ];
@@ -90,11 +92,14 @@ export default function ( {
 		}
 	);
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	return (
 		<>
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>

@@ -27,7 +27,7 @@ import { __, sprintf } from '@wordpress/i18n';
 
 import ServerSideRender from '@wordpress/server-side-render';
 
-import { toNumber } from '@smb/helper';
+import { toNumber, useToolsPanelDropdownMenuProps } from '@smb/helper';
 
 import metadata from './block.json';
 
@@ -51,6 +51,8 @@ export default function ( { attributes, setAttributes, clientId } ) {
 	useEffect( () => {
 		setAttributes( { clientId } );
 	}, [ clientId ] );
+
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
 
 	const itemTitleTagNames = [ 'h2', 'h3', 'h4' ];
 
@@ -82,6 +84,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>

@@ -19,7 +19,6 @@ import {
 	useBlockProps,
 	LinkControl,
 	__experimentalBlockAlignmentMatrixControl as BlockAlignmentMatrixControl,
-	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
 } from '@wordpress/block-editor';
@@ -32,7 +31,7 @@ import { link as linkIcon } from '@wordpress/icons';
 
 import Figure from '@smb/component/figure';
 import ResolutionTool from '@smb/component/resolution-tool';
-import { toNumber } from '@smb/helper';
+import { toNumber, useToolsPanelDropdownMenuProps } from '@smb/helper';
 
 const ALLOWED_TYPES = [ 'image' ];
 const DEFAULT_MEDIA_SIZE_SLUG = 'full';
@@ -44,6 +43,7 @@ export default function ( {
 	setAttributes,
 	isSelected,
 	className,
+	clientId,
 } ) {
 	const {
 		title,
@@ -119,6 +119,8 @@ export default function ( {
 		ref: useMergeRefs( [ setPopoverAnchor, ref ] ),
 	} );
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	const unlink = () => {
 		setAttributes( {
 			url: undefined,
@@ -129,10 +131,11 @@ export default function ( {
 
 	return (
 		<>
-			<InspectorControls>
-				<PanelColorGradientSettings
-					title={ __( 'Color', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
+			<InspectorControls group="color">
+				<ColorGradientSettingsDropdown
+					{ ...useMultipleOriginColorsAndGradients() }
+					panelId={ clientId }
+					__experimentalIsRenderedInSidebar
 					settings={ [
 						{
 							colorValue: textColor,
@@ -143,11 +146,13 @@ export default function ( {
 							label: __( 'Text color', 'snow-monkey-blocks' ),
 						},
 					] }
-					__experimentalIsRenderedInSidebar
-				></PanelColorGradientSettings>
+				/>
+			</InspectorControls>
 
+			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>
@@ -357,7 +362,10 @@ export default function ( {
 					</ToolsPanelItem>
 				</ToolsPanel>
 
-				<ToolsPanel label={ __( 'Overlay', 'snow-monkey-blocks' ) }>
+				<ToolsPanel
+					label={ __( 'Overlay', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
+				>
 					<div className="smb-color-gradient-settings-dropdown">
 						<ColorGradientSettingsDropdown
 							settings={ [

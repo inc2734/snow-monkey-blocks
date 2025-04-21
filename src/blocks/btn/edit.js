@@ -11,12 +11,12 @@ import {
 
 import {
 	BlockControls,
-	ContrastChecker,
 	InspectorControls,
 	RichText,
 	useBlockProps,
 	LinkControl,
-	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
+	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
+	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 	__experimentalBorderRadiusControl as BorderRadiusControl,
 	__experimentalGetSpacingClassesAndStyles as useSpacingProps,
 } from '@wordpress/block-editor';
@@ -25,6 +25,8 @@ import { useMergeRefs } from '@wordpress/compose';
 import { useState, useEffect, useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { link as linkIcon, linkOff as linkOffIcon } from '@wordpress/icons';
+
+import { useToolsPanelDropdownMenuProps } from '@smb/helper';
 
 import metadata from './block.json';
 
@@ -102,6 +104,8 @@ export default function ( {
 		ref: useMergeRefs( [ setPopoverAnchor, ref ] ),
 	} );
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	const unlink = () => {
 		setAttributes( {
 			url: undefined,
@@ -115,6 +119,7 @@ export default function ( {
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>
@@ -201,10 +206,11 @@ export default function ( {
 				</ToolsPanel>
 			</InspectorControls>
 
-			<InspectorControls group="styles">
-				<PanelColorGradientSettings
-					title={ __( 'Color', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
+			<InspectorControls group="color">
+				<ColorGradientSettingsDropdown
+					{ ...useMultipleOriginColorsAndGradients() }
+					panelId={ clientId }
+					__experimentalIsRenderedInSidebar
 					settings={ [
 						{
 							colorValue: backgroundColor,
@@ -231,13 +237,7 @@ export default function ( {
 							label: __( 'Text color', 'snow-monkey-blocks' ),
 						},
 					] }
-					__experimentalIsRenderedInSidebar
-				>
-					<ContrastChecker
-						backgroundColor={ backgroundColor }
-						textColor={ textColor }
-					/>
-				</PanelColorGradientSettings>
+				/>
 			</InspectorControls>
 
 			<InspectorControls group="border">

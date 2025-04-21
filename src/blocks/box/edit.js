@@ -3,13 +3,11 @@ import hexToRgba from 'hex-to-rgba';
 
 import {
 	BlockControls,
-	ContrastChecker,
 	InnerBlocks,
 	InspectorControls,
 	useBlockProps,
 	useInnerBlocksProps,
 	LinkControl,
-	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 	__experimentalBorderRadiusControl as BorderRadiusControl,
 	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
@@ -33,7 +31,7 @@ import { prependHTTP } from '@wordpress/url';
 import { __ } from '@wordpress/i18n';
 
 import PanelBoxShadowSettings from '@smb/component/panel-box-shadow-settings';
-import { toNumber } from '@smb/helper';
+import { toNumber, useToolsPanelDropdownMenuProps } from '@smb/helper';
 
 import metadata from './block.json';
 
@@ -200,12 +198,15 @@ export default function ( {
 		}
 	);
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	return (
 		<>
-			<InspectorControls group="styles">
-				<PanelColorGradientSettings
-					title={ __( 'Color', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
+			<InspectorControls group="color">
+				<ColorGradientSettingsDropdown
+					{ ...useMultipleOriginColorsAndGradients() }
+					panelId={ clientId }
+					__experimentalIsRenderedInSidebar
 					settings={ [
 						{
 							colorValue: textColor,
@@ -216,13 +217,7 @@ export default function ( {
 							label: __( 'Text color', 'snow-monkey-blocks' ),
 						},
 					] }
-					__experimentalIsRenderedInSidebar
-				>
-					<ContrastChecker
-						backgroundColor={ backgroundColor }
-						textColor={ textColor }
-					/>
-				</PanelColorGradientSettings>
+				/>
 			</InspectorControls>
 
 			<InspectorControls group="border">
@@ -299,7 +294,10 @@ export default function ( {
 			</InspectorControls>
 
 			<InspectorControls group="styles">
-				<ToolsPanel label={ __( 'Background', 'snow-monkey-blocks' ) }>
+				<ToolsPanel
+					label={ __( 'Background', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
+				>
 					<div className="smb-color-gradient-settings-dropdown">
 						<ColorGradientSettingsDropdown
 							settings={ [

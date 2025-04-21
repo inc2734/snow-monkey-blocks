@@ -16,7 +16,6 @@ import {
 	RichText,
 	useBlockProps,
 	LinkControl,
-	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 	__experimentalBorderRadiusControl as BorderRadiusControl,
 	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
@@ -26,6 +25,8 @@ import { useState, useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { link as linkIcon } from '@wordpress/icons';
 
+import { useToolsPanelDropdownMenuProps } from '@smb/helper';
+
 import metadata from './block.json';
 
 export default function ( {
@@ -33,6 +34,7 @@ export default function ( {
 	setAttributes,
 	isSelected,
 	className,
+	clientId,
 } ) {
 	const {
 		lede,
@@ -91,6 +93,8 @@ export default function ( {
 		style: styles,
 	} );
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	const unlink = () => {
 		setAttributes( {
 			btnURL: undefined,
@@ -101,10 +105,11 @@ export default function ( {
 
 	return (
 		<>
-			<InspectorControls group="styles">
-				<PanelColorGradientSettings
-					title={ __( 'Color', 'snow-monkey-blocks' ) }
-					initialOpen={ false }
+			<InspectorControls group="color">
+				<ColorGradientSettingsDropdown
+					{ ...useMultipleOriginColorsAndGradients() }
+					panelId={ clientId }
+					__experimentalIsRenderedInSidebar
 					settings={ [
 						{
 							colorValue: backgroundColor,
@@ -118,13 +123,13 @@ export default function ( {
 							),
 						},
 					] }
-					__experimentalIsRenderedInSidebar
-				></PanelColorGradientSettings>
+				/>
 			</InspectorControls>
 
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Button settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>

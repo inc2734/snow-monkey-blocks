@@ -26,6 +26,7 @@ import { __ } from '@wordpress/i18n';
 import { link as linkIcon } from '@wordpress/icons';
 
 import Figure from '@smb/component/figure';
+import { useToolsPanelDropdownMenuProps } from '@smb/helper';
 
 import metadata from './block.json';
 
@@ -78,6 +79,8 @@ export default function ( {
 		// ref,
 	} );
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	const unlink = () => {
 		setAttributes( {
 			btnURL: undefined,
@@ -91,6 +94,7 @@ export default function ( {
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>

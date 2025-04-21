@@ -31,7 +31,7 @@ import { __ } from '@wordpress/i18n';
 
 import Figure from '@smb/component/figure';
 import ResolutionTool from '@smb/component/resolution-tool';
-import { stringToInnerText } from '@smb/helper';
+import { stringToInnerText, useToolsPanelDropdownMenuProps } from '@smb/helper';
 
 import metadata from './block.json';
 
@@ -202,11 +202,14 @@ export default function ( { attributes, setAttributes, isSelected } ) {
 		ref: useMergeRefs( [ setPopoverAnchor, ref ] ),
 	} );
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	return (
 		<>
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>
@@ -257,6 +260,7 @@ export default function ( { attributes, setAttributes, isSelected } ) {
 
 				<ToolsPanel
 					label={ __( 'Image settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>
@@ -318,6 +322,7 @@ export default function ( { attributes, setAttributes, isSelected } ) {
 
 				<ToolsPanel
 					label={ __( 'Link settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>

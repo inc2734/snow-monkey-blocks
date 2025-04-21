@@ -20,6 +20,8 @@ import { useState, useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { link as linkIcon } from '@wordpress/icons';
 
+import { useToolsPanelDropdownMenuProps } from '@smb/helper';
+
 import Figure from '@smb/component/figure';
 import ResolutionTool from '@smb/component/resolution-tool';
 
@@ -81,6 +83,8 @@ export default function ( {
 		className: classes,
 		ref: useMergeRefs( [ setPopoverAnchor, ref ] ),
 	} );
+
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
 
 	const unlink = () => {
 		setAttributes( {
@@ -195,6 +199,7 @@ export default function ( {
 				{ 0 < imageSizeOptions.length && (
 					<ToolsPanel
 						label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+						dropdownMenuProps={ dropdownMenuProps }
 					>
 						<ResolutionTool
 							defaultValue={

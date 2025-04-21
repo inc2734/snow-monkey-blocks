@@ -33,6 +33,8 @@ import { link as linkIcon } from '@wordpress/icons';
 import Figure from '@smb/component/figure';
 import ResolutionTool from '@smb/component/resolution-tool';
 
+import { useToolsPanelDropdownMenuProps } from '@smb/helper';
+
 const ALLOWED_TYPES = [ 'image' ];
 const DEFAULT_MEDIA_SIZE_SLUG = 'full';
 
@@ -124,6 +126,8 @@ export default function ( {
 		className: classes,
 	} );
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	const unlink = () => {
 		setAttributes( {
 			url: undefined,
@@ -137,6 +141,7 @@ export default function ( {
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>
@@ -187,6 +192,7 @@ export default function ( {
 
 				<ToolsPanel
 					label={ __( 'Image settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>
@@ -248,6 +254,7 @@ export default function ( {
 
 				<ToolsPanel
 					label={ __( 'Button settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>

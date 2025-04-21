@@ -10,6 +10,8 @@ import { __experimentalToolsPanel as ToolsPanel } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
+import { useToolsPanelDropdownMenuProps } from '@smb/helper';
+
 import Figure from '@smb/component/figure';
 import ResolutionTool from '@smb/component/resolution-tool';
 
@@ -59,12 +61,15 @@ export default function ( {
 		className: classes,
 	} );
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	return (
 		<>
 			<InspectorControls>
 				{ 0 < imageSizeOptions.length && (
 					<ToolsPanel
 						label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+						dropdownMenuProps={ dropdownMenuProps }
 					>
 						<ResolutionTool
 							defaultValue={

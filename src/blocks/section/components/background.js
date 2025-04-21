@@ -19,7 +19,7 @@ import {
 import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
-import { divider } from '@smb/helper';
+import { divider, useToolsPanelDropdownMenuProps } from '@smb/helper';
 import SpacingControl from '@smb/component/spacing-control';
 
 const textureOptions = [
@@ -77,9 +77,12 @@ export const PanelSectionMovableBackgroundSettings = ( {
 	const multipleOriginColorsAndGradients =
 		useMultipleOriginColorsAndGradients();
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	return (
 		<ToolsPanel
 			label={ __( 'Background (Movable)', 'snow-monkey-blocks' ) }
+			dropdownMenuProps={ dropdownMenuProps }
 		>
 			{ settings.map( ( setting, index ) => {
 				if (
@@ -330,8 +333,13 @@ export const PanelSectionFixedBackgroundSettings = ( {
 	const multipleOriginColorsAndGradients =
 		useMultipleOriginColorsAndGradients();
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	return (
-		<ToolsPanel label={ __( 'Background (Fixed)', 'snow-monkey-blocks' ) }>
+		<ToolsPanel
+			label={ __( 'Background (Fixed)', 'snow-monkey-blocks' ) }
+			dropdownMenuProps={ dropdownMenuProps }
+		>
 			{ settings.map( ( setting, index ) => {
 				if (
 					setting.hasOwnProperty( 'colorValue' ) &&
@@ -451,8 +459,13 @@ export const PanelSectionTopDividerSettings = ( { settings } ) => {
 	const multipleOriginColorsAndGradients =
 		useMultipleOriginColorsAndGradients();
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	return (
-		<ToolsPanel label={ __( 'Top divider', 'snow-monkey-blocks' ) }>
+		<ToolsPanel
+			label={ __( 'Top divider', 'snow-monkey-blocks' ) }
+			dropdownMenuProps={ dropdownMenuProps }
+		>
 			{ settings.map( ( setting, index ) => {
 				if (
 					setting.hasOwnProperty( 'typeValue' ) &&
@@ -623,8 +636,13 @@ export const PanelSectionBottomDividerSettings = ( { settings } ) => {
 	const multipleOriginColorsAndGradients =
 		useMultipleOriginColorsAndGradients();
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	return (
-		<ToolsPanel label={ __( 'Bottom divider', 'snow-monkey-blocks' ) }>
+		<ToolsPanel
+			label={ __( 'Bottom divider', 'snow-monkey-blocks' ) }
+			dropdownMenuProps={ dropdownMenuProps }
+		>
 			{ settings.map( ( setting, index ) => {
 				if (
 					setting.hasOwnProperty( 'typeValue' ) &&
@@ -795,8 +813,13 @@ export const PanelSectionBackgroundTextSettings = ( { settings } ) => {
 	const multipleOriginColorsAndGradients =
 		useMultipleOriginColorsAndGradients();
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	return (
-		<ToolsPanel label={ __( 'Background text', 'snow-monkey-blocks' ) }>
+		<ToolsPanel
+			label={ __( 'Background text', 'snow-monkey-blocks' ) }
+			dropdownMenuProps={ dropdownMenuProps }
+		>
 			{ settings.map( ( setting, index ) => {
 				if (
 					setting.hasOwnProperty( 'textValue' ) &&

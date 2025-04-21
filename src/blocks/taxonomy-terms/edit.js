@@ -16,12 +16,16 @@ import { __ } from '@wordpress/i18n';
 
 import ServerSideRender from '@wordpress/server-side-render';
 
+import { useToolsPanelDropdownMenuProps } from '@smb/helper';
+
 import metadata from './block.json';
 
 const EMPTY_ARRAY = [];
 
 export default function ( { attributes, setAttributes } ) {
 	const { taxonomy, orderby, order, displayCount } = attributes;
+
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
 
 	const { allTaxonomies } = useSelect( ( select ) => {
 		const { getTaxonomies } = select( 'core' );
@@ -53,6 +57,7 @@ export default function ( { attributes, setAttributes } ) {
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					{ ! taxonomies.length ? (
 						<div style={ { gridColumn: '1/-1' } }>

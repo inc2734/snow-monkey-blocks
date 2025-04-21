@@ -23,7 +23,11 @@ import { __, sprintf } from '@wordpress/i18n';
 
 import ServerSideRender from '@wordpress/server-side-render';
 
-import { toNumber, buildTermsTree } from '@smb/helper';
+import {
+	toNumber,
+	buildTermsTree,
+	useToolsPanelDropdownMenuProps,
+} from '@smb/helper';
 
 import metadata from './block.json';
 
@@ -139,6 +143,8 @@ export default function ( { attributes, setAttributes, clientId } ) {
 		} );
 	}, [] );
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	const taxonomiesTermsWithPostType = [];
 	const taxonomiesWithPostType =
 		filteredPostTypes.find( ( _postType ) => postType === _postType.slug )
@@ -184,6 +190,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 			<InspectorControls>
 				<ToolsPanel
 					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
 				>
 					<ToolsPanelItem
 						hasValue={ () =>
