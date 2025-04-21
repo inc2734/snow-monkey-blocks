@@ -1,5 +1,8 @@
 *** Changelog ***
 
+= 24.0.3 =
+* Adjusted the display position of the popover for each block's settings panel.
+
 = 24.0.2 =
 * [Media text] Fixed an issue where content could shrink when stacked vertically if vertical alignment was set.
 
