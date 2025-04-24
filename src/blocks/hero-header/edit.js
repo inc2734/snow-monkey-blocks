@@ -202,41 +202,7 @@ export default function ( {
 	const multipleOriginColorsAndGradients =
 		useMultipleOriginColorsAndGradients();
 
-	if ( isShowPlaceholder ) {
-		return (
-			<div { ...useInnerBlocksProps( { ...useBlockProps() } ) }>
-				<Placeholder
-					name={ name }
-					onSelect={ ( nextVariation ) => {
-						setIsShowPlaceholder( false );
-
-						if ( !! nextVariation?.attributes ) {
-							setAttributes( nextVariation.attributes );
-						}
-
-						if ( !! nextVariation?.innerBlocks ) {
-							replaceInnerBlocks(
-								clientId,
-								createBlocksFromInnerBlocksTemplate(
-									nextVariation.innerBlocks
-								),
-								true
-							);
-						}
-					} }
-				/>
-			</div>
-		);
-	}
-
-	const imageSizeOptions = imageSizes
-		.filter(
-			( { slug } ) => image?.media_details?.sizes?.[ slug ]?.source_url
-		)
-		.map( ( { name: label, slug } ) => ( { value: slug, label } ) );
-
-	const isVideo = 'video' === mediaType;
-	const isImage = 'image' === mediaType || undefined === mediaType;
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
 
 	const classes = classnames( 'smb-hero-header', className, {
 		'smb-hero-header--fit': fit,
@@ -297,6 +263,8 @@ export default function ( {
 			compileStyleValue( bodyPadding?.left ) || undefined,
 	};
 
+	const placeholderBlockProps = useBlockProps();
+
 	const blockProps = useBlockProps( {
 		className: classes,
 		style: styles,
@@ -314,7 +282,41 @@ export default function ( {
 		}
 	);
 
-	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+	if ( isShowPlaceholder ) {
+		return (
+			<div { ...placeholderBlockProps }>
+				<Placeholder
+					name={ name }
+					onSelect={ ( nextVariation ) => {
+						setIsShowPlaceholder( false );
+
+						if ( !! nextVariation?.attributes ) {
+							setAttributes( nextVariation.attributes );
+						}
+
+						if ( !! nextVariation?.innerBlocks ) {
+							replaceInnerBlocks(
+								clientId,
+								createBlocksFromInnerBlocksTemplate(
+									nextVariation.innerBlocks
+								),
+								true
+							);
+						}
+					} }
+				/>
+			</div>
+		);
+	}
+
+	const imageSizeOptions = imageSizes
+		.filter(
+			( { slug } ) => image?.media_details?.sizes?.[ slug ]?.source_url
+		)
+		.map( ( { name: label, slug } ) => ( { value: slug, label } ) );
+
+	const isVideo = 'video' === mediaType;
+	const isImage = 'image' === mediaType || undefined === mediaType;
 
 	return (
 		<>
