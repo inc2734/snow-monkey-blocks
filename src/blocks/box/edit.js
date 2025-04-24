@@ -112,7 +112,7 @@ export default function ( {
 		borderWidth,
 		borderRadius,
 		opacity,
-		boxShadow,
+		boxShadow: { ...boxShadow },
 		rel,
 		href,
 		linkText,
@@ -354,10 +354,11 @@ export default function ( {
 						{
 							colorValue: boxShadow.color,
 							onColorChange: ( value ) => {
+								boxShadow.color = value;
+
 								setAttributes( {
 									boxShadow: {
 										...boxShadow,
-										color: value,
 									},
 								} );
 							},
@@ -367,10 +368,11 @@ export default function ( {
 						{
 							opacityValue: boxShadow.opacity,
 							onOpacityChange: ( value ) => {
+								boxShadow.opacity = value;
+
 								setAttributes( {
 									boxShadow: {
 										...boxShadow,
-										opacity: value,
 									},
 								} );
 							},
@@ -380,10 +382,11 @@ export default function ( {
 						{
 							horizontalValue: boxShadow.horizontal,
 							onHorizontalChange: ( value ) => {
+								boxShadow.horizontal = value;
+
 								setAttributes( {
 									boxShadow: {
 										...boxShadow,
-										horizontal: value,
 									},
 								} );
 							},
@@ -394,10 +397,11 @@ export default function ( {
 						{
 							blurValue: boxShadow.blur,
 							onBlurChange: ( value ) => {
+								boxShadow.blur = value;
+
 								setAttributes( {
 									boxShadow: {
 										...boxShadow,
-										blur: value,
 									},
 								} );
 							},
@@ -407,10 +411,11 @@ export default function ( {
 						{
 							spreadValue: boxShadow.spread,
 							onSpreadChange: ( value ) => {
+								boxShadow.spread = value;
+
 								setAttributes( {
 									boxShadow: {
 										...boxShadow,
-										spread: value,
 									},
 								} );
 							},

@@ -161,9 +161,7 @@
 
 .smb-box-shadow-tools-panel {
 	> .components-tools-panel-item {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0px, 1fr));
-		gap: calc(16px) calc(8px);
+		grid-column: initial;
 	}
 }
 

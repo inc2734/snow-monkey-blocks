@@ -54,8 +54,8 @@ export default function ( {
 		mdSlidesToShow,
 		smSlidesToShow,
 		canvasPadding,
-		border,
-		boxShadow,
+		border: { ...border },
+		boxShadow: { ...boxShadow },
 		sliderClientIds,
 		templateLock,
 	} = attributes;
@@ -343,6 +343,17 @@ export default function ( {
 					}
 					isShownByDefault
 					label={ __( 'Border', 'snow-monkey-blocks' ) }
+					resetAllFilter={ () => {
+						border.color = metadata.attributes.border.default.color;
+						border.style = metadata.attributes.border.default.style;
+						border.width = metadata.attributes.border.default.width;
+
+						setAttributes( {
+							border: {
+								...border,
+							},
+						} );
+					} }
 					onDeselect={ () => {
 						setAttributes( {
 							border: {
@@ -389,6 +400,16 @@ export default function ( {
 					}
 					isShownByDefault
 					label={ __( 'Border radius', 'snow-monkey-blocks' ) }
+					resetAllFilter={ () => {
+						border.radius =
+							metadata.attributes.border.default.radius;
+
+						setAttributes( {
+							border: {
+								...border,
+							},
+						} );
+					} }
 					onDeselect={ () => {
 						setAttributes( {
 							border: {
@@ -420,43 +441,49 @@ export default function ( {
 				<PanelBoxShadowSettings
 					settings={ [
 						{
-							colorValue: boxShadow.color || '',
+							colorValue: boxShadow.color,
 							onColorChange: ( value ) => {
+								boxShadow.color = value;
+
 								setAttributes( {
 									boxShadow: {
 										...boxShadow,
-										color: value,
 									},
 								} );
 							},
+							defaultValue:
+								metadata.attributes.boxShadow.default.color,
 						},
 						{
 							opacityValue: boxShadow.opacity,
 							onOpacityChange: ( value ) => {
+								boxShadow.opacity = value;
+
 								setAttributes( {
 									boxShadow: {
 										...boxShadow,
-										opacity: value,
 									},
 								} );
 							},
+							defaultValue:
+								metadata.attributes.boxShadow.default.opacity,
 						},
 						{
 							blurValue: boxShadow.blur,
 							onBlurChange: ( value ) => {
+								boxShadow.blur = value;
+
 								setAttributes( {
 									boxShadow: {
 										...boxShadow,
-										blur: value,
 									},
 								} );
 							},
 							max: 10,
+							defaultValue:
+								metadata.attributes.boxShadow.default.blur,
 						},
 					] }
-					defaultValues={ {
-						...metadata.attributes.boxShadow.default,
-					} }
 				/>
 			</InspectorControls>
 

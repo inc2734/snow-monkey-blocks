@@ -10,25 +10,19 @@ import {
 	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 } from '@wordpress/block-editor';
 
-import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 import { useToolsPanelDropdownMenuProps } from '@smb/helper';
 
 export default function ( { settings, label } ) {
-	const values = {};
-	const onChanges = {};
-
 	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
 
-	const components = settings.map( ( setting, index ) => {
+	const component = ( setting, index ) => {
 		if (
 			setting.hasOwnProperty( 'colorValue' ) &&
-			setting.hasOwnProperty( 'onColorChange' )
+			setting.hasOwnProperty( 'onColorChange' ) &&
+			setting.hasOwnProperty( 'defaultValue' )
 		) {
-			values.color = setting.colorValue;
-			onChanges.color = setting.onColorChange;
-
 			const multipleOriginColorsAndGradients =
 				useMultipleOriginColorsAndGradients();
 			multipleOriginColorsAndGradients.colors =
@@ -58,6 +52,12 @@ export default function ( { settings, label } ) {
 								label: __( 'Color', 'snow-monkey-blocks' ),
 								colorValue: setting.colorValue,
 								onColorChange: setting.onColorChange,
+								resetAllFilter: () => {
+									console.log( 'Color reset All' );
+									setting.onColorChange(
+										setting.defaultValue
+									);
+								},
 							},
 						] }
 						__experimentalIsRenderedInSidebar
@@ -69,224 +69,227 @@ export default function ( { settings, label } ) {
 
 		if (
 			setting.hasOwnProperty( 'opacityValue' ) &&
-			setting.hasOwnProperty( 'onOpacityChange' )
+			setting.hasOwnProperty( 'onOpacityChange' ) &&
+			setting.hasOwnProperty( 'defaultValue' )
 		) {
-			values.opacity = setting.opacityValue;
-			onChanges.opacity = setting.onOpacityChange;
-
 			return (
-				<RangeControl
-					__next40pxDefaultSize
-					__nextHasNoMarginBottom
-					key={ index }
+				<ToolsPanelItem
 					label={ __( 'Opacity', 'snow-monkey-blocks' ) }
-					value={ Number( setting.opacityValue.toFixed( 1 ) ) }
-					onChange={ setting.onOpacityChange }
-					min={ 0 }
-					max={ 1 }
-					step={ 0.1 }
-				/>
+					hasValue={ () =>
+						setting.opacityValue !== setting.defaultValue
+					}
+					isShownByDefault
+					onDeselect={ () =>
+						setting.onOpacityChange( setting.defaultValue )
+					}
+					resetAllFilter={ () =>
+						setting.onOpacityChange( setting.defaultValue )
+					}
+					key={ index }
+				>
+					<RangeControl
+						__next40pxDefaultSize
+						__nextHasNoMarginBottom
+						label={ __( 'Opacity', 'snow-monkey-blocks' ) }
+						value={ Number( setting.opacityValue.toFixed( 1 ) ) }
+						onChange={ setting.onOpacityChange }
+						min={ 0 }
+						max={ 1 }
+						step={ 0.1 }
+					/>
+				</ToolsPanelItem>
 			);
 		}
 
 		if (
 			setting.hasOwnProperty( 'horizontalValue' ) &&
-			setting.hasOwnProperty( 'onHorizontalChange' )
+			setting.hasOwnProperty( 'onHorizontalChange' ) &&
+			setting.hasOwnProperty( 'defaultValue' )
 		) {
-			values.horizontal = setting.horizontalValue;
-			onChanges.horizontal = setting.onHorizontalChange;
-
 			return (
-				<RangeControl
-					__next40pxDefaultSize
-					__nextHasNoMarginBottom
-					key={ index }
+				<ToolsPanelItem
 					label={ __( 'Horizontal', 'snow-monkey-blocks' ) }
-					value={ setting.horizontalValue }
-					onChange={ setting.onHorizontalChange }
-					min={ setting?.min ?? -100 }
-					max={ setting?.max ?? 100 }
-				/>
+					hasValue={ () =>
+						setting.horizontalValue !== setting.defaultValue
+					}
+					isShownByDefault
+					onDeselect={ () =>
+						setting.onHorizontalChange( setting.defaultValue )
+					}
+					resetAllFilter={ () =>
+						setting.onHorizontalChange( setting.defaultValue )
+					}
+					key={ index }
+				>
+					<RangeControl
+						__next40pxDefaultSize
+						__nextHasNoMarginBottom
+						label={ __( 'Horizontal', 'snow-monkey-blocks' ) }
+						value={ setting.horizontalValue }
+						onChange={ setting.onHorizontalChange }
+						min={ setting?.min ?? -100 }
+						max={ setting?.max ?? 100 }
+					/>
+				</ToolsPanelItem>
 			);
 		}
 
 		if (
 			setting.hasOwnProperty( 'verticalValue' ) &&
-			setting.hasOwnProperty( 'onVerticalChange' )
+			setting.hasOwnProperty( 'onVerticalChange' ) &&
+			setting.hasOwnProperty( 'defaultValue' )
 		) {
-			values.vertical = setting.verticalValue;
-			onChanges.vertical = setting.onVerticalChange;
-
 			return (
-				<RangeControl
-					__next40pxDefaultSize
-					__nextHasNoMarginBottom
-					key={ index }
+				<ToolsPanelItem
 					label={ __( 'Vertical', 'snow-monkey-blocks' ) }
-					value={ setting.verticalValue }
-					onChange={ setting.onVerticalChange }
-					min={ setting?.min ?? -100 }
-					max={ setting?.max ?? 100 }
-				/>
+					hasValue={ () =>
+						setting.verticalValue !== setting.defaultValue
+					}
+					isShownByDefault
+					onDeselect={ () =>
+						setting.onVerticalChange( setting.defaultValue )
+					}
+					resetAllFilter={ () =>
+						setting.onVerticalChange( setting.defaultValue )
+					}
+					key={ index }
+				>
+					<RangeControl
+						__next40pxDefaultSize
+						__nextHasNoMarginBottom
+						label={ __( 'Vertical', 'snow-monkey-blocks' ) }
+						value={ setting.verticalValue }
+						onChange={ setting.onVerticalChange }
+						min={ setting?.min ?? -100 }
+						max={ setting?.max ?? 100 }
+					/>
+				</ToolsPanelItem>
 			);
 		}
 
 		if (
 			setting.hasOwnProperty( 'blurValue' ) &&
-			setting.hasOwnProperty( 'onBlurChange' )
+			setting.hasOwnProperty( 'onBlurChange' ) &&
+			setting.hasOwnProperty( 'defaultValue' )
 		) {
-			values.blur = setting.blurValue;
-			onChanges.blur = setting.onBlurChange;
-
 			return (
-				<RangeControl
-					__next40pxDefaultSize
-					__nextHasNoMarginBottom
-					key={ index }
+				<ToolsPanelItem
 					label={ __( 'Blur', 'snow-monkey-blocks' ) }
-					value={ setting.blurValue }
-					onChange={ setting.onBlurChange }
-					min={ setting?.min ?? 0 }
-					max={ setting?.max ?? 100 }
-				/>
+					hasValue={ () =>
+						setting.blurValue !== setting.defaultValue
+					}
+					isShownByDefault
+					onDeselect={ () =>
+						setting.onBlurChange( setting.defaultValue )
+					}
+					resetAllFilter={ () =>
+						setting.onBlurChange( setting.defaultValue )
+					}
+					key={ index }
+				>
+					<RangeControl
+						__next40pxDefaultSize
+						__nextHasNoMarginBottom
+						label={ __( 'Blur', 'snow-monkey-blocks' ) }
+						value={ setting.blurValue }
+						onChange={ setting.onBlurChange }
+						min={ setting?.min ?? 0 }
+						max={ setting?.max ?? 100 }
+					/>
+				</ToolsPanelItem>
 			);
 		}
 
 		if (
 			setting.hasOwnProperty( 'spreadValue' ) &&
-			setting.hasOwnProperty( 'onSpreadChange' )
+			setting.hasOwnProperty( 'onSpreadChange' ) &&
+			setting.hasOwnProperty( 'defaultValue' )
 		) {
-			values.spread = setting.spreadValue;
-			onChanges.spread = setting.onSpreadChange;
-
 			return (
-				<RangeControl
-					__next40pxDefaultSize
-					__nextHasNoMarginBottom
-					key={ index }
+				<ToolsPanelItem
 					label={ __( 'Spread', 'snow-monkey-blocks' ) }
-					value={ setting.spreadValue }
-					onChange={ setting.onSpreadChange }
-					min={ setting?.min ?? -100 }
-					max={ setting?.max ?? 100 }
-				/>
+					hasValue={ () =>
+						setting.spreadValue !== setting.defaultValue
+					}
+					isShownByDefault
+					onDeselect={ () =>
+						setting.onSpreadChange( setting.defaultValue )
+					}
+					resetAllFilter={ () =>
+						setting.onSpreadChange( setting.defaultValue )
+					}
+					key={ index }
+				>
+					<RangeControl
+						__next40pxDefaultSize
+						__nextHasNoMarginBottom
+						label={ __( 'Spread', 'snow-monkey-blocks' ) }
+						value={ setting.spreadValue }
+						onChange={ setting.onSpreadChange }
+						min={ setting?.min ?? -100 }
+						max={ setting?.max ?? 100 }
+					/>
+				</ToolsPanelItem>
 			);
 		}
 
 		if (
 			setting.hasOwnProperty( 'positionValue' ) &&
-			setting.hasOwnProperty( 'onPositionChange' )
+			setting.hasOwnProperty( 'onPositionChange' ) &&
+			setting.hasOwnProperty( 'defaultValue' )
 		) {
-			values.position = setting.positionValue;
-			onChanges.position = setting.onPositionChange;
-
 			return (
-				<SelectControl
-					__next40pxDefaultSize
-					__nextHasNoMarginBottom
-					key={ index }
+				<ToolsPanelItem
 					label={ __( 'Position', 'snow-monkey-blocks' ) }
-					value={ setting.positionValue }
-					onChange={ setting.onPositionChange }
-					options={ [
-						{
-							value: '',
-							label: __( 'Outline', 'snow-monkey-blocks' ),
-						},
-						{
-							value: 'inset',
-							label: __( 'Inset', 'snow-monkey-blocks' ),
-						},
-					] }
-				/>
+					hasValue={ () =>
+						setting.positionValue !== setting.defaultValue
+					}
+					isShownByDefault
+					onDeselect={ () =>
+						setting.onPositionChange( setting.defaultValue )
+					}
+					resetAllFilter={ () =>
+						setting.onPositionChange( setting.defaultValue )
+					}
+					key={ index }
+				>
+					<SelectControl
+						__next40pxDefaultSize
+						__nextHasNoMarginBottom
+						label={ __( 'Position', 'snow-monkey-blocks' ) }
+						value={ setting.positionValue }
+						onChange={ setting.onPositionChange }
+						options={ [
+							{
+								value: '',
+								label: __( 'Outline', 'snow-monkey-blocks' ),
+							},
+							{
+								value: 'inset',
+								label: __( 'Inset', 'snow-monkey-blocks' ),
+							},
+						] }
+					/>
+				</ToolsPanelItem>
 			);
 		}
 
-		return <Fragment key={ index }></Fragment>;
-	} );
+		return null;
+	};
 
 	return (
 		<ToolsPanel
 			label={ label || __( 'Box Shadow', 'snow-monkey-blocks' ) }
 			className="smb-box-shadow-tools-panel"
 			dropdownMenuProps={ dropdownMenuProps }
+			resetAll={ ( filters ) => {
+				console.log( filters );
+				filters.forEach( ( filter ) => filter() );
+			} }
 		>
-			<ToolsPanelItem
-				label={ label || __( 'Box Shadow', 'snow-monkey-blocks' ) }
-				hasValue={ () => {
-					return settings.some( ( setting ) => {
-						if ( setting.hasOwnProperty( 'defaultValue' ) ) {
-							let value;
-							if ( setting.hasOwnProperty( 'opacityValue' ) ) {
-								value = setting.opacityValue;
-							} else if (
-								setting.hasOwnProperty( 'horizontalValue' )
-							) {
-								value = setting.horizontalValue;
-							} else if (
-								setting.hasOwnProperty( 'verticalValue' )
-							) {
-								value = setting.verticalValue;
-							} else if (
-								setting.hasOwnProperty( 'blurValue' )
-							) {
-								value = setting.blurValue;
-							} else if (
-								setting.hasOwnProperty( 'spreadValue' )
-							) {
-								value = setting.spreadValue;
-							} else if (
-								setting.hasOwnProperty( 'positionValue' )
-							) {
-								value = setting.positionValue;
-							}
-
-							if ( 'undefined' !== typeof value ) {
-								return setting.defaultValue !== value;
-							}
-							return false;
-						}
-						return false;
-					} );
-				} }
-				isShownByDefault
-				onDeselect={ () => {
-					settings.forEach( ( setting ) => {
-						if ( setting.hasOwnProperty( 'defaultValue' ) ) {
-							let onChange;
-							if ( setting.hasOwnProperty( 'onOpacityChange' ) ) {
-								onChange = setting.onOpacityChange;
-							} else if (
-								setting.hasOwnProperty( 'onHorizontalChange' )
-							) {
-								onChange = setting.onHorizontalChange;
-							} else if (
-								setting.hasOwnProperty( 'onVerticalChange' )
-							) {
-								onChange = setting.onVerticalChange;
-							} else if (
-								setting.hasOwnProperty( 'onBlurChange' )
-							) {
-								onChange = setting.onBlurChange;
-							} else if (
-								setting.hasOwnProperty( 'onSpreadChange' )
-							) {
-								onChange = setting.onSpreadChange;
-							} else if (
-								setting.hasOwnProperty( 'onPositionChange' )
-							) {
-								onChange = setting.onPositionChange;
-							}
-
-							if ( 'undefined' !== typeof onChange ) {
-								onChange( setting.defaultValue );
-							}
-						}
-					} );
-				} }
-			>
-				{ components }
-			</ToolsPanelItem>
+			{ settings.map( ( setting, index ) => {
+				return component( setting, index );
+			} ) }
 		</ToolsPanel>
 	);
 }

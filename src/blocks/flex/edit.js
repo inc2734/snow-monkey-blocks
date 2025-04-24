@@ -15,7 +15,10 @@ import PanelBoxShadowSettings from '@smb/component/panel-box-shadow-settings';
 import metadata from './block.json';
 
 export default function ( { attributes, setAttributes, className, clientId } ) {
-	const { boxShadow, templateLock } = attributes;
+	const {
+		boxShadow: { ...boxShadow },
+		templateLock,
+	} = attributes;
 
 	const hasInnerBlocks = useSelect(
 		( select ) =>
@@ -57,10 +60,11 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						{
 							colorValue: boxShadow.color,
 							onColorChange: ( value ) => {
+								boxShadow.color = value;
+
 								setAttributes( {
 									boxShadow: {
 										...boxShadow,
-										color: value,
 									},
 								} );
 							},
@@ -70,10 +74,11 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						{
 							opacityValue: boxShadow.opacity,
 							onOpacityChange: ( value ) => {
+								boxShadow.opacity = value;
+
 								setAttributes( {
 									boxShadow: {
 										...boxShadow,
-										opacity: value,
 									},
 								} );
 							},
@@ -83,10 +88,11 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						{
 							horizontalValue: boxShadow.horizontal,
 							onHorizontalChange: ( value ) => {
+								boxShadow.horizontal = value;
+
 								setAttributes( {
 									boxShadow: {
 										...boxShadow,
-										horizontal: value,
 									},
 								} );
 							},
@@ -97,10 +103,11 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						{
 							blurValue: boxShadow.blur,
 							onBlurChange: ( value ) => {
+								boxShadow.blur = value;
+
 								setAttributes( {
 									boxShadow: {
 										...boxShadow,
-										blur: value,
 									},
 								} );
 							},
@@ -110,10 +117,11 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						{
 							spreadValue: boxShadow.spread,
 							onSpreadChange: ( value ) => {
+								boxShadow.spread = value;
+
 								setAttributes( {
 									boxShadow: {
 										...boxShadow,
-										spread: value,
 									},
 								} );
 							},
