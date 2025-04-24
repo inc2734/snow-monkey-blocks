@@ -1,5 +1,10 @@
 *** Changelog ***
 
+= 24.0.4 =
+* Fixed a bug where the "Reset all" option in the settings panel did not work properly for some blocks.
+* Fixed an error in the Tabs block example.
+* Fixed a bug where selecting a block in the hero header block variation picker would cause the block to crash.
+
 = 24.0.3 =
 * Adjusted the display position of the popover for each block's settings panel.
 
