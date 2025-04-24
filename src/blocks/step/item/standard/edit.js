@@ -149,6 +149,10 @@ export default function ( {
 								setAttributes( {
 									numberColor: value,
 								} ),
+							resetAllFilter: () => ( {
+								numberColor:
+									metadata.attributes.numberColor?.default,
+							} ),
 							label: __( 'Number color', 'snow-monkey-blocks' ),
 						},
 						{
@@ -157,6 +161,10 @@ export default function ( {
 								setAttributes( {
 									linkColor: value,
 								} ),
+							resetAllFilter: () => ( {
+								linkColor:
+									metadata.attributes.linkColor?.default,
+							} ),
 							label: __( 'Link color', 'snow-monkey-blocks' ),
 						},
 					] }

@@ -15,6 +15,9 @@ import { __ } from '@wordpress/i18n';
 import { useToolsPanelDropdownMenuProps } from '@smb/helper';
 
 export default function ( { settings, label } ) {
+	const multipleOriginColorsAndGradients =
+		useMultipleOriginColorsAndGradients();
+
 	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
 
 	const component = ( setting, index ) => {
@@ -23,8 +26,6 @@ export default function ( { settings, label } ) {
 			setting.hasOwnProperty( 'onColorChange' ) &&
 			setting.hasOwnProperty( 'defaultValue' )
 		) {
-			const multipleOriginColorsAndGradients =
-				useMultipleOriginColorsAndGradients();
 			multipleOriginColorsAndGradients.colors =
 				multipleOriginColorsAndGradients.colors
 					.map( ( originColorsAndGradient ) => {
@@ -53,7 +54,6 @@ export default function ( { settings, label } ) {
 								colorValue: setting.colorValue,
 								onColorChange: setting.onColorChange,
 								resetAllFilter: () => {
-									console.log( 'Color reset All' );
 									setting.onColorChange(
 										setting.defaultValue
 									);
@@ -283,7 +283,6 @@ export default function ( { settings, label } ) {
 			className="smb-box-shadow-tools-panel"
 			dropdownMenuProps={ dropdownMenuProps }
 			resetAll={ ( filters ) => {
-				console.log( filters );
 				filters.forEach( ( filter ) => filter() );
 			} }
 		>

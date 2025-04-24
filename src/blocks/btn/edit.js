@@ -223,6 +223,14 @@ export default function ( {
 								setAttributes( {
 									backgroundGradientColor: value,
 								} ),
+							resetAllFilter: () => ( {
+								backgroundColor:
+									metadata.attributes.backgroundColor
+										?.default,
+								backgroundGradientColor:
+									metadata.attributes.backgroundGradientColor
+										?.default,
+							} ),
 							label: __(
 								'Background color',
 								'snow-monkey-blocks'
@@ -234,6 +242,10 @@ export default function ( {
 								setAttributes( {
 									textColor: value,
 								} ),
+							resetAllFilter: () => ( {
+								textColor:
+									metadata.attributes.textColor?.default,
+							} ),
 							label: __( 'Text color', 'snow-monkey-blocks' ),
 						},
 					] }

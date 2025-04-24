@@ -70,7 +70,7 @@
 		"test:unit:php": "wp-env start && wp-env run --env-cwd=\"wp-content/plugins/snow-monkey-blocks\" tests-wordpress vendor/bin/phpunit -c .phpunit.xml.dist --verbose",
 		"test:unit": "run-s test:unit:*",
 		"test": "run-s test:*",
-		"build": "run-s format css js packages img blocks",
+		"build": "run-s css js packages img blocks",
 		"clean:css": "rimraf dist/css",
 		"clean:js": "rimraf dist/js",
 		"clean:packages": "rimraf dist/packages",

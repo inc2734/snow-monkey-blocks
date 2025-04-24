@@ -117,6 +117,11 @@ export default function ( {
 								setAttributes( {
 									backgroundColor: value,
 								} ),
+							resetAllFilter: () => ( {
+								backgroundColor:
+									metadata.attributes.backgroundColor
+										?.default,
+							} ),
 							label: __(
 								'Background color',
 								'snow-monkey-blocks'

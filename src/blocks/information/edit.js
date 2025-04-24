@@ -298,6 +298,11 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 								setAttributes( {
 									labelColumnBackgroundColor: value,
 								} ),
+							resetAllFilter: () => ( {
+								labelColumnBackgroundColor:
+									metadata.attributes
+										.labelColumnBackgroundColor?.default,
+							} ),
 							label: __(
 								'Label column background color',
 								'snow-monkey-blocks'
@@ -309,6 +314,11 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 								setAttributes( {
 									labelColumnTextColor: value,
 								} ),
+							resetAllFilter: () => ( {
+								labelColumnTextColor:
+									metadata.attributes.labelColumnTextColor
+										?.default,
+							} ),
 							label: __(
 								'Label column text color',
 								'snow-monkey-blocks'
@@ -320,6 +330,11 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 								setAttributes( {
 									contentColumnBackgroundColor: value,
 								} ),
+							resetAllFilter: () => ( {
+								contentColumnBackgroundColor:
+									metadata.attributes
+										.contentColumnBackgroundColor?.default,
+							} ),
 							label: __(
 								'Content column background color',
 								'snow-monkey-blocks'

@@ -218,6 +218,10 @@ export default function ( {
 								setAttributes( {
 									textColor: value,
 								} ),
+							resetAllFilter: () => ( {
+								textColor:
+									metadata.attributes.textColor?.default,
+							} ),
 							label: __( 'Text color', 'snow-monkey-blocks' ),
 						},
 					] }

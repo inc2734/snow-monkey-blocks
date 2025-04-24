@@ -112,7 +112,8 @@ function Edit( { attributes, setAttributes, className, clientId } ) {
 								} ),
 							resetAllFilter: () => ( {
 								titleBackgroundColor:
-									metadata.titleBackgroundColor,
+									metadata.attributes.titleBackgroundColor
+										?.default,
 							} ),
 							label: __(
 								'Title background color',

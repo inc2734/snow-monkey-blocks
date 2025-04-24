@@ -101,6 +101,10 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 								setAttributes( {
 									iconColor: value,
 								} ),
+							resetAllFilter: () => ( {
+								iconColor:
+									metadata.attributes.iconColor?.default,
+							} ),
 							label: __( 'Icon color', 'snow-monkey-blocks' ),
 						},
 					] }
