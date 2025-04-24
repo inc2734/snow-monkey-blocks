@@ -58,7 +58,16 @@
 	},
 	"example": {
 		"attributes": {
-			"tabs": "[{\"title\":\"Tab\",\"tabPanelId\":\"1\"},{\"title\": \"Tab\",\"tabPanelId\":\"2\"}]"
+			"tabs": [
+				{
+					"title": "Tab",
+					"tabPanelId": "1"
+				},
+				{
+					"title": "Tab",
+					"tabPanelId": "2"
+				}
+			]
 		},
 		"innerBlocks": [
 			{
