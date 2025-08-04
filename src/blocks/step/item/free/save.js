@@ -8,9 +8,18 @@ import {
 } from '@wordpress/block-editor';
 
 export default function ( { attributes, className } ) {
-	const { title, numberColor, titleColor, titleFontSizeSlug, titleFontSize } =
-		attributes;
+	const {
+		tagName,
+		titleTagName,
+		title,
+		numberColor,
+		titleColor,
+		titleFontSizeSlug,
+		titleFontSize,
+	} = attributes;
 
+	const TagName = tagName;
+	const TitleTagName = titleTagName;
 	const classes = classnames( 'smb-step__item', className );
 
 	const styles = {
@@ -23,8 +32,10 @@ export default function ( { attributes, className } ) {
 		: undefined;
 
 	return (
-		<div { ...useBlockProps.save( { className: classes, style: styles } ) }>
-			<div
+		<TagName
+			{ ...useBlockProps.save( { className: classes, style: styles } ) }
+		>
+			<TitleTagName
 				className={ classnames(
 					'smb-step__item__title',
 					titleFontSizeClass
@@ -35,7 +46,7 @@ export default function ( { attributes, className } ) {
 			>
 				<div className="smb-step__item__number" />
 				<RichText.Content tagName="span" value={ title } />
-			</div>
+			</TitleTagName>
 
 			<div className="smb-step__item__body">
 				<div
@@ -44,6 +55,6 @@ export default function ( { attributes, className } ) {
 					} ) }
 				/>
 			</div>
-		</div>
+		</TagName>
 	);
 }

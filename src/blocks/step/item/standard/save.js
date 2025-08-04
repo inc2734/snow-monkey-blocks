@@ -8,6 +8,8 @@ import {
 
 export default function ( { attributes, className } ) {
 	const {
+		tagName,
+		titleTagName,
 		title,
 		numberColor,
 		imagePosition,
@@ -21,6 +23,9 @@ export default function ( { attributes, className } ) {
 		linkTarget,
 		linkColor,
 	} = attributes;
+
+	const TagName = tagName;
+	const TitleTagName = titleTagName;
 
 	const classes = classnames(
 		'smb-step__item',
@@ -37,14 +42,14 @@ export default function ( { attributes, className } ) {
 	};
 
 	return (
-		<div { ...useBlockProps.save( { className: classes } ) }>
-			<div className="smb-step__item__title">
+		<TagName { ...useBlockProps.save( { className: classes } ) }>
+			<TitleTagName className="smb-step__item__title">
 				<div
 					className="smb-step__item__number"
 					style={ itemNumberStyles }
 				/>
 				<RichText.Content tagName="span" value={ title } />
-			</div>
+			</TitleTagName>
 
 			<div className="smb-step__item__body">
 				{ !! imageURL && (
@@ -88,6 +93,6 @@ export default function ( { attributes, className } ) {
 					</a>
 				) }
 			</div>
-		</div>
+		</TagName>
 	);
 }

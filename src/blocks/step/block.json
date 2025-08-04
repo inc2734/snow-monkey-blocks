@@ -1,17 +1,24 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"version": "21.0.6",
+	"version": "24.1.0",
 	"textdomain": "snow-monkey-blocks",
 	"name": "snow-monkey-blocks/step",
 	"title": "Steps",
 	"description": "Express the steps in an easy-to-understand manner.",
 	"category": "smb",
 	"attributes": {
+		"tagName": {
+			"type": "string",
+			"default": "div"
+		},
 		"templateLock": {
 			"type": [ "string", "boolean" ],
 			"enum": [ "all", "insert", "contentOnly", false ]
 		}
+	},
+	"providesContext": {
+		"snow-monkey-blocks/tagName": "tagName"
 	},
 	"supports": {
 		"html": false,

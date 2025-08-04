@@ -1,6 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
+	"version": "24.1.0",
 	"textdomain": "snow-monkey-blocks",
 	"name": "snow-monkey-blocks/step-item-free",
 	"title": "Step (Free input)",
@@ -8,6 +9,14 @@
 	"category": "smb",
 	"parent": [ "snow-monkey-blocks/step" ],
 	"attributes": {
+		"tagName": {
+			"type": "string",
+			"default": "div"
+		},
+		"titleTagName": {
+			"type": "string",
+			"default": "div"
+		},
 		"title": {
 			"type": "string",
 			"source": "html",
@@ -31,6 +40,7 @@
 			"enum": [ "all", "insert", "contentOnly", false ]
 		}
 	},
+	"usesContext": [ "snow-monkey-blocks/tagName" ],
 	"supports": {
 		"anchor": true,
 		"layout": {

@@ -1,4 +1,5 @@
 import classnames from 'classnames';
+import { times } from 'lodash';
 
 import {
 	BlockControls,
@@ -13,6 +14,8 @@ import {
 } from '@wordpress/block-editor';
 
 import {
+	BaseControl,
+	Button,
 	Popover,
 	SelectControl,
 	ToolbarButton,
@@ -21,7 +24,7 @@ import {
 } from '@wordpress/components';
 
 import { useSelect } from '@wordpress/data';
-import { useState, useRef } from '@wordpress/element';
+import { useState, useRef, useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { link as linkIcon } from '@wordpress/icons';
 
@@ -41,8 +44,11 @@ export default function ( {
 	isSelected,
 	className,
 	clientId,
+	context,
 } ) {
 	const {
+		tagName,
+		titleTagName,
 		title,
 		numberColor,
 		imagePosition,
@@ -86,6 +92,21 @@ export default function ( {
 				: null,
 		[ imageID ]
 	);
+
+	useEffect( () => {
+		setAttributes( {
+			tagName: [ 'ul', 'ol' ].includes(
+				context[ 'snow-monkey-blocks/tagName' ]
+			)
+				? 'li'
+				: 'div',
+		} );
+	}, [ context[ 'snow-monkey-blocks/tagName' ] ] );
+
+	const TagName = tagName;
+
+	const TitleTagName = titleTagName;
+	const titleTagNames = [ 'div', 'h2', 'h3', 'h4' ];
 
 	const imageSizeOptions = imageSizes
 		.filter(
@@ -137,6 +158,58 @@ export default function ( {
 
 	return (
 		<>
+			<InspectorControls>
+				<ToolsPanel
+					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
+				>
+					<ToolsPanelItem
+						hasValue={ () =>
+							tagName !== metadata.attributes.titleTagName.default
+						}
+						isShownByDefault
+						label={ __( 'Title tag', 'snow-monkey-blocks' ) }
+						onDeselect={ () =>
+							setAttributes( {
+								tagName:
+									metadata.attributes.titleTagName.default,
+							} )
+						}
+					>
+						<BaseControl
+							__nextHasNoMarginBottom
+							label={ __( 'Title tag', 'snow-monkey-blocks' ) }
+							id="snow-monkey-blocks/step-item/title-tag-name"
+						>
+							<div className="smb-list-icon-selector">
+								{ times( titleTagNames.length, ( index ) => {
+									const onClicktagName = () =>
+										setAttributes( {
+											titleTagName:
+												titleTagNames[ index ],
+										} );
+
+									return (
+										<Button
+											variant={
+												titleTagName ===
+												titleTagNames[ index ]
+													? 'primary'
+													: 'secondary'
+											}
+											onClick={ onClicktagName }
+											key={ index }
+										>
+											{ titleTagNames[ index ] }
+										</Button>
+									);
+								} ) }
+							</div>
+						</BaseControl>
+					</ToolsPanelItem>
+				</ToolsPanel>
+			</InspectorControls>
+
 			<InspectorControls group="color">
 				<ColorGradientSettingsDropdown
 					{ ...useMultipleOriginColorsAndGradients() }
@@ -256,8 +329,8 @@ export default function ( {
 				</ToolsPanel>
 			</InspectorControls>
 
-			<div { ...blockProps }>
-				<div className="smb-step__item__title">
+			<TagName { ...blockProps }>
+				<TitleTagName className="smb-step__item__title">
 					<div
 						className="smb-step__item__number"
 						style={ itemNumberStyles }
@@ -277,7 +350,7 @@ export default function ( {
 							} )
 						}
 					/>
-				</div>
+				</TitleTagName>
 
 				<div className="smb-step__item__body">
 					{ ( !! imageURL || isSelected ) && (
@@ -382,7 +455,7 @@ export default function ( {
 						/>
 					</span>
 				</div>
-			</div>
+			</TagName>
 
 			<BlockControls group="block">
 				<ToolbarButton

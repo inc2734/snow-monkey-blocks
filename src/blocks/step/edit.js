@@ -1,19 +1,33 @@
 import classnames from 'classnames';
+import { times } from 'lodash';
 
 import {
+	InspectorControls,
 	InnerBlocks,
 	useBlockProps,
 	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
+import {
+	BaseControl,
+	Button,
+	__experimentalToolsPanel as ToolsPanel,
+	__experimentalToolsPanelItem as ToolsPanelItem,
+} from '@wordpress/components';
+
 import { useSelect } from '@wordpress/data';
+import { __ } from '@wordpress/i18n';
+
+import { useToolsPanelDropdownMenuProps } from '@smb/helper';
 
 const ALLOWED_BLOCKS = [ 'snow-monkey-blocks/step-item-free' ];
 
 const TEMPLATE = [ [ 'snow-monkey-blocks/step-item-free' ] ];
 
-export default function ( { attributes, className, clientId } ) {
-	const { templateLock } = attributes;
+import metadata from './block.json';
+
+export default function ( { attributes, setAttributes, className, clientId } ) {
+	const { tagName, templateLock } = attributes;
 
 	const hasInnerBlocks = useSelect(
 		( select ) =>
@@ -21,6 +35,11 @@ export default function ( { attributes, className, clientId } ) {
 				?.length,
 		[ clientId ]
 	);
+
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
+	const TagName = tagName;
+	const tagNames = [ 'div', 'ul', 'ol' ];
 
 	const classes = classnames( 'smb-step', className );
 
@@ -43,8 +62,59 @@ export default function ( { attributes, className, clientId } ) {
 	);
 
 	return (
-		<div { ...blockProps }>
-			<div { ...innerBlocksProps } />
-		</div>
+		<>
+			<InspectorControls>
+				<ToolsPanel
+					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
+				>
+					<ToolsPanelItem
+						hasValue={ () =>
+							tagName !== metadata.attributes.tagName.default
+						}
+						isShownByDefault
+						label={ __( 'Tag', 'snow-monkey-blocks' ) }
+						onDeselect={ () =>
+							setAttributes( {
+								tagName: metadata.attributes.tagName.default,
+							} )
+						}
+					>
+						<BaseControl
+							__nextHasNoMarginBottom
+							label={ __( 'Tag', 'snow-monkey-blocks' ) }
+							id="snow-monkey-blocks/step/tag-name"
+						>
+							<div className="smb-list-icon-selector">
+								{ times( tagNames.length, ( index ) => {
+									const onClicktagName = () =>
+										setAttributes( {
+											tagName: tagNames[ index ],
+										} );
+
+									return (
+										<Button
+											variant={
+												tagName === tagNames[ index ]
+													? 'primary'
+													: 'secondary'
+											}
+											onClick={ onClicktagName }
+											key={ index }
+										>
+											{ tagNames[ index ] }
+										</Button>
+									);
+								} ) }
+							</div>
+						</BaseControl>
+					</ToolsPanelItem>
+				</ToolsPanel>
+			</InspectorControls>
+
+			<div { ...blockProps }>
+				<TagName { ...innerBlocksProps } />
+			</div>
+		</>
 	);
 }

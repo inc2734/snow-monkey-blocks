@@ -1,4 +1,5 @@
 import classnames from 'classnames';
+import { times } from 'lodash';
 
 import {
 	FontSizePicker,
@@ -16,16 +17,29 @@ import {
 
 import {
 	BaseControl,
+	Button,
+	__experimentalToolsPanel as ToolsPanel,
 	__experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
 
 import { useSelect } from '@wordpress/data';
+import { useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
+
+import { useToolsPanelDropdownMenuProps } from '@smb/helper';
 
 import metadata from './block.json';
 
-export default function ( { attributes, setAttributes, className, clientId } ) {
+export default function ( {
+	attributes,
+	setAttributes,
+	className,
+	clientId,
+	context,
+} ) {
 	const {
+		tagName,
+		titleTagName,
 		title,
 		numberColor,
 		titleColor,
@@ -35,6 +49,21 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 	} = attributes;
 
 	const [ fontSizes ] = useSettings( 'typography.fontSizes' );
+
+	useEffect( () => {
+		setAttributes( {
+			tagName: [ 'ul', 'ol' ].includes(
+				context[ 'snow-monkey-blocks/tagName' ]
+			)
+				? 'li'
+				: 'div',
+		} );
+	}, [ context[ 'snow-monkey-blocks/tagName' ] ] );
+
+	const TagName = tagName;
+
+	const TitleTagName = titleTagName;
+	const titleTagNames = [ 'div', 'h2', 'h3', 'h4' ];
 
 	const hasInnerBlocks = useSelect(
 		( select ) =>
@@ -67,6 +96,8 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 		}
 	);
 
+	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+
 	const selectedTitleFontSize =
 		fontSizes.find(
 			( fontSize ) =>
@@ -79,6 +110,58 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 
 	return (
 		<>
+			<InspectorControls>
+				<ToolsPanel
+					label={ __( 'Block settings', 'snow-monkey-blocks' ) }
+					dropdownMenuProps={ dropdownMenuProps }
+				>
+					<ToolsPanelItem
+						hasValue={ () =>
+							tagName !== metadata.attributes.titleTagName.default
+						}
+						isShownByDefault
+						label={ __( 'Title tag', 'snow-monkey-blocks' ) }
+						onDeselect={ () =>
+							setAttributes( {
+								tagName:
+									metadata.attributes.titleTagName.default,
+							} )
+						}
+					>
+						<BaseControl
+							__nextHasNoMarginBottom
+							label={ __( 'Title tag', 'snow-monkey-blocks' ) }
+							id="snow-monkey-blocks/step-item-free/title-tag-name"
+						>
+							<div className="smb-list-icon-selector">
+								{ times( titleTagNames.length, ( index ) => {
+									const onClicktagName = () =>
+										setAttributes( {
+											titleTagName:
+												titleTagNames[ index ],
+										} );
+
+									return (
+										<Button
+											variant={
+												titleTagName ===
+												titleTagNames[ index ]
+													? 'primary'
+													: 'secondary'
+											}
+											onClick={ onClicktagName }
+											key={ index }
+										>
+											{ titleTagNames[ index ] }
+										</Button>
+									);
+								} ) }
+							</div>
+						</BaseControl>
+					</ToolsPanelItem>
+				</ToolsPanel>
+			</InspectorControls>
+
 			<InspectorControls group="typography">
 				<ToolsPanelItem
 					panelId={ clientId }
@@ -160,8 +243,8 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 				/>
 			</InspectorControls>
 
-			<div { ...blockProps }>
-				<div
+			<TagName { ...blockProps }>
+				<TitleTagName
 					className={ classnames(
 						'smb-step__item__title',
 						titleFontSizeClass
@@ -186,12 +269,12 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							} )
 						}
 					/>
-				</div>
+				</TitleTagName>
 
 				<div className="smb-step__item__body">
 					<div { ...innerBlocksProps } />
 				</div>
-			</div>
+			</TagName>
 		</>
 	);
 }
