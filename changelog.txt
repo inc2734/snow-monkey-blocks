@@ -1,5 +1,10 @@
 *** Changelog ***
 
+= 24.1.0 =
+* [Step] Added the ability to change tags to `ol` and `ul`.
+* [Step:Free] Added the ability to change the title tag from `h2` to `h4`.
+* [Step:Standard] Added the ability to change the title tag from `h2` to `h4`.
+
 = 24.0.4 =
 * Fixed a bug where the "Reset all" option in the settings panel did not work properly for some blocks.
 * Fixed an error in the Tabs block example.
