@@ -83,7 +83,7 @@
 		"packages:slick-carousel": "cpy 'node_modules/slick-carousel/slick/**' 'dist/packages/slick'",
 		"packages:spider": "cpy 'node_modules/@inc2734/spider/**' 'dist/packages/spider'",
 		"packages": "npm run clean:packages && npm-run-all packages:*",
-		"zip:pack": "rsync -a --exclude='/bin' --exclude='/vendor' --exclude='/node_modules' --exclude='.*' --exclude='*.ruleset.xml' --exclude='*.config.js' --exclude='*.xml.dist' --exclude='/sql' --exclude='/tests' --exclude='package*.json' --exclude='src/img' . snow-monkey-blocks && wp-env start && npm run composer install -- --no-dev -d snow-monkey-blocks",
+		"zip:pack": "rsync -a --exclude='/bin' --exclude='/vendor' --exclude='/node_modules' --exclude='/src' --exclude='.*' --exclude='*.ruleset.xml' --exclude='*.config.js' --exclude='*.xml.dist' --exclude='/sql' --exclude='/tests' --exclude='package*.json' --exclude='src/img' . snow-monkey-blocks && wp-env start && npm run composer install -- --no-dev -d snow-monkey-blocks",
 		"zip:archive": "zip -9 -qmr snow-monkey-blocks.zip snow-monkey-blocks",
 		"zip": "npm run clean:zip && npm run zip:pack && npm run zip:archive",
 		"make-pot": "npm run wp i18n -- make-pot . ./languages/snow-monkey-blocks.pot --exclude=src",
