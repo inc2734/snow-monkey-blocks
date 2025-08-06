@@ -1,5 +1,12 @@
 *** Changelog ***
 
+= 24.1.1 =
+* [Section] Changed the default `max-width` of `.smb-section__contents-wrapper` to `100%`.
+* [Section (break the grid)] Changed the default `max-width` of `.smb-section__contents-wrapper` to `100%`.
+* [Section (Side heading)] Changed the default `max-width` of `.smb-section__contents-wrapper` to `100%`.
+* [Section (Background image/video)] Changed the default `max-width` of `.smb-section__contents-wrapper` to `100%`.
+* Remove src directory of builded zip.
+
 = 24.1.0 =
 * [Step] Added the ability to change tags to `ol` and `ul`.
 * [Step:Free] Added the ability to change the title tag from `h2` to `h4`.
