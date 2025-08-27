@@ -1,5 +1,9 @@
 *** Changelog ***
 
+= 24.1.2 =
+* [Contents Slider] Removed `overflow: hidden` from the outer frame so that the arrow can be displayed outside.
+* [Custom Field] Fixed a problem where a fatal error would occur if the value was an array.
+
 = 24.1.1 =
 * [Section] Changed the default `max-width` of `.smb-section__contents-wrapper` to `100%`.
 * [Section (break the grid)] Changed the default `max-width` of `.smb-section__contents-wrapper` to `100%`.
