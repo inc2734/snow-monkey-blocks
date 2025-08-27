@@ -5,8 +5,6 @@
 	--smb-spider-slider--gap: 0px;
 	--smb-spider-slider--slide-max-width: 100%;
 
-	overflow: hidden;
-
 	@for $i from 2 through 6 {
 		&[data-sm-slide-to-show="#{ $i }"] {
 			@include core.media-only(sm) {
