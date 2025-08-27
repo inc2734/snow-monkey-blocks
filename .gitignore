@@ -9,3 +9,4 @@ npm-debug.log
 /.translation/
 /.export/*
 .phpunit.result.cache
+error_log

@@ -23,6 +23,11 @@ if ( false === $value || null === $value || '' === $value ) {
 	return;
 }
 
+if ( is_array( $value ) ) {
+	error_log( '[Snow Monkey Blocks] Custom Field: This value is not in the correct format. The field name is {' . $name . '}' );
+	return;
+}
+
 $block_wrapper_attributes = get_block_wrapper_attributes(
 	array(
 		'class' => 'smb-custom-field',
