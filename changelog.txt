@@ -1,5 +1,8 @@
 *** Changelog ***
 
+= 24.1.3 =
+* [Pricing Table:Item] Fixed a bug that prevented list items from being added.
+
 = 24.1.2 =
 * [Contents Slider] Removed `overflow: hidden` from the outer frame so that the arrow can be displayed outside.
 * [Custom Field] Fixed a problem where a fatal error would occur if the value was an array.
