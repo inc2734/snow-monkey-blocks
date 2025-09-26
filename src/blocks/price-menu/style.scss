@@ -14,6 +14,7 @@
 	&__item {
 		border-bottom: 1px solid var(--smb-price-menu--border-color);
 		padding: var(--smb-price-menu--item-padding) 0;
+		column-gap: var(--_margin-1);
 
 		@include core.media-min(md) {
 			display: flex;
@@ -22,7 +23,11 @@
 			justify-content: space-between;
 			align-items: center;
 
-			> * {
+			> :where(.smb-price-menu__item__title) {
+				flex: 1 1 auto;
+			}
+
+			> :where(.smb-price-menu__item__price) {
 				flex: 0 0 auto;
 			}
 		}
