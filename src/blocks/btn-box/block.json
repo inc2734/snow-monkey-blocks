@@ -84,6 +84,6 @@
 			"btnURL": "https://2inc.org"
 		}
 	},
-	"style": [ "file:./style-index.css", "snow-monkey-blocks-btn-style" ],
+	"style": [ "snow-monkey-blocks-btn-style", "file:./style-index.css" ],
 	"editorScript": "file:./index.js"
 }

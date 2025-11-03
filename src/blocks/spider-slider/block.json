@@ -123,7 +123,7 @@
 			"margin": true
 		}
 	},
-	"style": [ "file:./style-index.css", "spider" ],
+	"style": [ "spider", "file:./style-index.css" ],
 	"editorStyle": "file:./index.css",
 	"editorScript": "file:./index.js",
 	"viewScript": [ "spider", "file:./script.js" ]

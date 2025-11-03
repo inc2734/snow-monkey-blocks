@@ -146,9 +146,9 @@
 		}
 	},
 	"style": [
-		"file:./style-index.css",
 		"snow-monkey-blocks-section-style",
-		"snow-monkey-blocks-section-with-bgimage-style"
+		"snow-monkey-blocks-section-with-bgimage-style",
+		"file:./style-index.css"
 	],
 	"editorStyle": "file:./index.css",
 	"editorScript": "file:./index.js",

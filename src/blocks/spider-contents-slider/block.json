@@ -97,8 +97,8 @@
 		}
 	},
 	"style": [
-		"file:./style-index.css",
-		"snow-monkey-blocks-spider-slider-style"
+		"snow-monkey-blocks-spider-slider-style",
+		"file:./style-index.css"
 	],
 	"editorStyle": "file:./index.css",
 	"editorScript": "file:./index.js",

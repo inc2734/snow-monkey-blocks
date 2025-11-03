@@ -48,8 +48,8 @@
 		}
 	},
 	"style": [
-		"file:./style-index.css",
-		"snow-monkey-blocks-spider-slider-style"
+		"snow-monkey-blocks-spider-slider-style",
+		"file:./style-index.css"
 	],
 	"editorScript": "file:./index.js",
 	"viewScript": [ "spider", "file:./script.js" ]
