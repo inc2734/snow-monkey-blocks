@@ -22,7 +22,7 @@
 			background-color: var(--smb-spider-pickup-slider--mask-color);
 		}
 
-		.spider__figure {
+		.spider__figure, > :first-child:not(.smb-spider-pickup-slider__item) {
 			position: absolute;
 			height: 100%;
 			width: 100%;

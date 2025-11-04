@@ -12,6 +12,20 @@ register_block_type(
 	)
 );
 
+wp_enqueue_block_style(
+	'snow-monkey-blocks/spider-contents-slider',
+	array(
+		'handle' => generate_block_asset_handle( 'snow-monkey-blocks/spider-contents-slider', 'style' ),
+		'src'    => SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/blocks/spider-contents-slider/style-index.css',
+		'deps'   => array(
+			'spider',
+			generate_block_asset_handle( 'snow-monkey-blocks/spider-slider', 'style' ),
+		),
+		'ver'    => filemtime( __DIR__ . '/style-index.css' ),
+		'file'   => __DIR__ . '/style-index.css',
+	)
+);
+
 add_filter(
 	'render_block_snow-monkey-blocks/spider-contents-slider-item',
 	function ( $content ) {

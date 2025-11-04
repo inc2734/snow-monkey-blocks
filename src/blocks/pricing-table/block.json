@@ -26,6 +26,5 @@
 			"margin": true
 		}
 	},
-	"style": [ "snow-monkey-blocks-btn-style", "file:./style-index.css" ],
 	"editorScript": "file:./index.js"
 }

@@ -11,6 +11,17 @@ register_block_type(
 	__DIR__
 );
 
+wp_enqueue_block_style(
+	'snow-monkey-blocks/section-side-heading',
+	array(
+		'handle' => generate_block_asset_handle( 'snow-monkey-blocks/section-side-heading', 'style' ),
+		'src'    => SNOW_MONKEY_BLOCKS_DIR_URL . '/dist/blocks/section-side-heading/style-index.css',
+		'deps'   => array( generate_block_asset_handle( 'snow-monkey-blocks/section', 'style' ) ),
+		'ver'    => filemtime( __DIR__ . '/style-index.css' ),
+		'file'   => __DIR__ . '/style-index.css',
+	)
+);
+
 /**
  * excerpt_allowed_blocks
  */

@@ -622,7 +622,7 @@ export default function ( {
 									( ! isAlignfull || ! isAlignwide ) && (
 										<>
 											<Icon
-												icon={ warning }
+												icon={ caution }
 												style={ { fill: '#d94f4f' } }
 											/>
 											{ __(

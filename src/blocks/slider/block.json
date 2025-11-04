@@ -75,7 +75,6 @@
 			"margin": true
 		}
 	},
-	"style": [ "slick-carousel-theme", "file:./style-index.css" ],
 	"editorScript": "file:./index.js",
 	"viewScript": [ "slick-carousel", "file:./script.js" ]
 }

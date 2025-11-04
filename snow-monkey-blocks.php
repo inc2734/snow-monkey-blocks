@@ -95,21 +95,82 @@ class Bootstrap {
 
 	/**
 	 * Register blocks.
+	 * Organize your load order taking dependencies into account.
 	 */
 	public function _register_blocks() {
-		$iterator = new RecursiveDirectoryIterator( SNOW_MONKEY_BLOCKS_DIR_PATH . '/dist/blocks', FilesystemIterator::SKIP_DOTS );
-		$iterator = new RecursiveIteratorIterator( $iterator );
-		foreach ( $iterator as $file ) {
-			if ( ! $file->isFile() ) {
-				continue;
-			}
-
-			if ( 'index.php' !== $file->getBasename() ) {
-				continue;
-			}
-
-			include_once realpath( $file->getPathname() );
-		}
+		include_once __DIR__ . '/dist/blocks/accordion/index.php';
+		include_once __DIR__ . '/dist/blocks/accordion/item/index.php';
+		include_once __DIR__ . '/dist/blocks/alert/index.php';
+		include_once __DIR__ . '/dist/blocks/balloon/index.php';
+		include_once __DIR__ . '/dist/blocks/box/index.php';
+		include_once __DIR__ . '/dist/blocks/btn/index.php';
+		include_once __DIR__ . '/dist/blocks/btn-box/index.php';
+		include_once __DIR__ . '/dist/blocks/buttons/index.php';
+		include_once __DIR__ . '/dist/blocks/categories-list/index.php';
+		include_once __DIR__ . '/dist/blocks/child-pages/index.php';
+		include_once __DIR__ . '/dist/blocks/container/index.php';
+		include_once __DIR__ . '/dist/blocks/contents-outline/index.php';
+		include_once __DIR__ . '/dist/blocks/countdown/index.php';
+		include_once __DIR__ . '/dist/blocks/custom-field/index.php';
+		include_once __DIR__ . '/dist/blocks/directory-structure/index.php';
+		include_once __DIR__ . '/dist/blocks/directory-structure/item/directory/index.php';
+		include_once __DIR__ . '/dist/blocks/directory-structure/item/file/index.php';
+		include_once __DIR__ . '/dist/blocks/evaluation-star/index.php';
+		include_once __DIR__ . '/dist/blocks/faq/index.php';
+		include_once __DIR__ . '/dist/blocks/faq/item/index.php';
+		include_once __DIR__ . '/dist/blocks/flex/index.php';
+		include_once __DIR__ . '/dist/blocks/grid/index.php';
+		include_once __DIR__ . '/dist/blocks/hero-header/index.php';
+		include_once __DIR__ . '/dist/blocks/information/index.php';
+		include_once __DIR__ . '/dist/blocks/information/item/index.php';
+		include_once __DIR__ . '/dist/blocks/items/index.php';
+		include_once __DIR__ . '/dist/blocks/items/item/free/index.php';
+		include_once __DIR__ . '/dist/blocks/items/item/standard/index.php';
+		include_once __DIR__ . '/dist/blocks/items/item/banner/index.php';
+		include_once __DIR__ . '/dist/blocks/items/item/item/index.php';
+		include_once __DIR__ . '/dist/blocks/items/item/block-link/index.php';
+		include_once __DIR__ . '/dist/blocks/like-me-box/index.php';
+		include_once __DIR__ . '/dist/blocks/limited-datetime/index.php';
+		include_once __DIR__ . '/dist/blocks/list/index.php';
+		include_once __DIR__ . '/dist/blocks/media-text/index.php';
+		include_once __DIR__ . '/dist/blocks/panels/index.php';
+		include_once __DIR__ . '/dist/blocks/panels/item/free/index.php';
+		include_once __DIR__ . '/dist/blocks/panels/item/horizontal/index.php';
+		include_once __DIR__ . '/dist/blocks/panels/item/vertical/index.php';
+		include_once __DIR__ . '/dist/blocks/panels/item/block-link/index.php';
+		include_once __DIR__ . '/dist/blocks/pattern-inserter/index.php';
+		include_once __DIR__ . '/dist/blocks/pickup-slider/index.php';
+		include_once __DIR__ . '/dist/blocks/price-menu/index.php';
+		include_once __DIR__ . '/dist/blocks/price-menu/item/index.php';
+		include_once __DIR__ . '/dist/blocks/pricing-table/index.php';
+		include_once __DIR__ . '/dist/blocks/pricing-table/item/index.php';
+		include_once __DIR__ . '/dist/blocks/rating-box/index.php';
+		include_once __DIR__ . '/dist/blocks/rating-box/item/index.php';
+		include_once __DIR__ . '/dist/blocks/read-more-box/index.php';
+		include_once __DIR__ . '/dist/blocks/recent-posts/index.php';
+		include_once __DIR__ . '/dist/blocks/rss/index.php';
+		include_once __DIR__ . '/dist/blocks/section/index.php';
+		include_once __DIR__ . '/dist/blocks/section-break-the-grid/index.php';
+		include_once __DIR__ . '/dist/blocks/section-side-heading/index.php';
+		include_once __DIR__ . '/dist/blocks/section-with-bgimage/index.php';
+		include_once __DIR__ . '/dist/blocks/section-with-bgvideo/index.php';
+		include_once __DIR__ . '/dist/blocks/slider/index.php';
+		include_once __DIR__ . '/dist/blocks/slider/item/index.php';
+		include_once __DIR__ . '/dist/blocks/spider-slider/index.php';
+		include_once __DIR__ . '/dist/blocks/spider-pickup-slider/index.php';
+		include_once __DIR__ . '/dist/blocks/spider-contents-slider/index.php';
+		include_once __DIR__ . '/dist/blocks/spider-contents-slider/item/index.php';
+		include_once __DIR__ . '/dist/blocks/step/index.php';
+		include_once __DIR__ . '/dist/blocks/step/item/free/index.php';
+		include_once __DIR__ . '/dist/blocks/step/item/standard/index.php';
+		include_once __DIR__ . '/dist/blocks/tabs/index.php';
+		include_once __DIR__ . '/dist/blocks/tabs/tab-panel/index.php';
+		include_once __DIR__ . '/dist/blocks/taxonomy-posts/index.php';
+		include_once __DIR__ . '/dist/blocks/taxonomy-terms/index.php';
+		include_once __DIR__ . '/dist/blocks/testimonial/index.php';
+		include_once __DIR__ . '/dist/blocks/testimonial/item/index.php';
+		include_once __DIR__ . '/dist/blocks/thumbnail-gallery/index.php';
+		include_once __DIR__ . '/dist/blocks/thumbnail-gallery/item/index.php';
 	}
 
 	/**

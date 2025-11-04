@@ -30,6 +30,6 @@
 			"margin": true
 		}
 	},
-	"style": [ "slick-carousel-theme" ],
+	"style": [ "slick-carousel", "slick-carousel-theme" ],
 	"editorScript": "file:./index.js"
 }
