@@ -22,7 +22,7 @@ import {
 
 import { useDispatch, useSelect } from '@wordpress/data';
 import { useEffect, useRef, useState } from '@wordpress/element';
-import { Icon, warning } from '@wordpress/icons';
+import { Icon, caution } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
 
 import PanelBoxShadowSettings from '@smb/component/panel-box-shadow-settings';

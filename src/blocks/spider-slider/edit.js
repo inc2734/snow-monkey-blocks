@@ -16,7 +16,7 @@ import {
 
 import { useSelect } from '@wordpress/data';
 import { useEffect, useRef } from '@wordpress/element';
-import { Icon, warning } from '@wordpress/icons';
+import { Icon, caution } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
 
 import ResponsiveTabPanel from '@smb/component/responsive-tab-panel';
