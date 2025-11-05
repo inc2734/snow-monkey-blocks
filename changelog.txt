@@ -1,5 +1,8 @@
 *** Changelog ***
 
+= 24.1.5 =
+* Update block CSS dependencies.
+
 = 24.1.4 =
 * [Price menu] Fixed a bug where long titles would not wrap and would overflow.
 
