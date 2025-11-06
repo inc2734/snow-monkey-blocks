@@ -1,5 +1,8 @@
 *** Changelog ***
 
+= 24.1.6 =
+* [Items] Fixed a bug where the margins between child blocks in the editor would sometimes be unbalanced when "Align the bottom of the last element of each items" was enabled.
+
 = 24.1.5 =
 * Update block CSS dependencies.
 
