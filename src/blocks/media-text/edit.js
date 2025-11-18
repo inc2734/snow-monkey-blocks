@@ -99,7 +99,11 @@ export default function ( {
 	const image = useSelect(
 		( select ) =>
 			mediaId
-				? select( 'core' ).getMedia( mediaId, { context: 'view' } )
+				? select( 'core' ).getEntityRecord(
+						'postType',
+						'attachment',
+						mediaId
+				  )
 				: null,
 		[ mediaId ]
 	);

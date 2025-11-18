@@ -77,8 +77,8 @@ export default function ( {
 			}
 
 			return (
-				select( 'core' ).getMediaItems( {
-					include: imageIds.join( ',' ),
+				select( 'core' ).getEntityRecords( 'postType', 'attachment', {
+					include: imageIds,
 					per_page: -1,
 					orderby: 'include',
 				} ) ?? EMPTY_ARRAY

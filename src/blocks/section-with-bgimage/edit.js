@@ -142,23 +142,17 @@ export default function ( {
 
 	const { lgImage, mdImage, smImage } = useSelect(
 		( select ) => {
-			const { getMedia } = select( 'core' );
+			const { getEntityRecord } = select( 'core' );
 
 			return {
 				lgImage: lgImageID
-					? getMedia( lgImageID, {
-							context: 'view',
-					  } )
+					? getEntityRecord( 'postType', 'attachment', lgImageID )
 					: null,
 				mdImage: mdImageID
-					? getMedia( mdImageID, {
-							context: 'view',
-					  } )
+					? getEntityRecord( 'postType', 'attachment', mdImageID )
 					: null,
 				smImage: smImageID
-					? getMedia( smImageID, {
-							context: 'view',
-					  } )
+					? getEntityRecord( 'postType', 'attachment', smImageID )
 					: null,
 			};
 		},

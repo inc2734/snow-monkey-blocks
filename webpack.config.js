@@ -1,10 +1,6 @@
 const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
 const path = require( 'path' );
 
-if ('clean' in defaultConfig?.output) {
-	delete defaultConfig.output.clean; //delete output.clean
-}
-
 const plugins =
 defaultConfig?.plugins?.filter(
 	( plugin ) => plugin.constructor?.name !== 'CleanWebpackPlugin'
@@ -12,11 +8,10 @@ defaultConfig?.plugins?.filter(
 
 module.exports = {
 	...defaultConfig,
-	plugins,
-};
-
-module.exports = {
-	...defaultConfig,
+	output: {
+		...defaultConfig?.output,
+		clean: false,
+	},
 	plugins,
 	resolve: {
 		...defaultConfig.resolve,
