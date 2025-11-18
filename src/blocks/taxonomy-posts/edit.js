@@ -104,28 +104,27 @@ export default function ( { attributes, setAttributes, clientId } ) {
 		[ allTaxonomies ]
 	);
 
-	const taxonomiesTerms = useSelect(
-		( select ) => {
-			const { getEntityRecords } = select( 'core' );
-
-			return taxonomies
-				.map( ( _taxonomy ) => {
-					const terms =
-						getEntityRecords( 'taxonomy', _taxonomy.slug, {
-							per_page: -1,
-						} ) || [];
-					if ( 0 < terms.length ) {
-						return {
-							taxonomy: _taxonomy.slug,
-							terms,
-						};
-					}
-					return {};
-				} )
-				.filter( ( taxonomyTerms ) => taxonomyTerms );
-		},
-		[ taxonomies ]
+	const { getEntityRecords } = useSelect(
+		( select ) => select( 'core' ),
+		[]
 	);
+	const taxonomiesTerms = useMemo( () => {
+		return taxonomies
+			.map( ( _taxonomy ) => {
+				const terms =
+					getEntityRecords( 'taxonomy', _taxonomy.slug, {
+						per_page: -1,
+					} ) || [];
+				if ( 0 < terms.length ) {
+					return {
+						taxonomy: _taxonomy.slug,
+						terms,
+					};
+				}
+				return null;
+			} )
+			.filter( Boolean );
+	}, [ taxonomies, getEntityRecords ] );
 
 	const imageSizes = useSelect( ( select ) => {
 		const { getSettings } = select( 'core/block-editor' );
