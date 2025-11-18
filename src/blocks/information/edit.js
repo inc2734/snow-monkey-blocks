@@ -355,6 +355,11 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					}
 					isShownByDefault
 					label={ __( 'Border', 'snow-monkey-blocks' ) }
+					resetAllFilter={ () => ( {
+						borderColor: metadata.attributes.borderColor.default,
+						borderStyle: metadata.attributes.borderStyle.default,
+						borderWidth: metadata.attributes.borderWidth.default,
+					} ) }
 					onDeselect={ () =>
 						setAttributes( {
 							borderColor:

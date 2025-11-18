@@ -123,6 +123,14 @@ export default function ( { attributes, setAttributes, className } ) {
 						}
 						isShownByDefault
 						label={ __( 'Border', 'snow-monkey-blocks' ) }
+						resetAllFilter={ () => ( {
+							borderColor:
+								metadata.attributes.borderColor.default,
+							borderStyle:
+								metadata.attributes.borderStyle.default,
+							borderWidth:
+								metadata.attributes.borderWidth.default,
+						} ) }
 						onDeselect={ () =>
 							setAttributes( {
 								borderColor:
@@ -295,6 +303,17 @@ export default function ( { attributes, setAttributes, className } ) {
 								}
 								isShownByDefault
 								label={ __( 'Border', 'snow-monkey-blocks' ) }
+								resetAllFilter={ () => ( {
+									avatarBorderColor:
+										metadata.attributes.avatarBorderColor
+											.default,
+									avatarBorderStyle:
+										metadata.attributes.avatarBorderStyle
+											.default,
+									avatarBorderWidth:
+										metadata.attributes.avatarBorderWidth
+											.default,
+								} ) }
 								onDeselect={ () =>
 									setAttributes( {
 										avatarBorderColor:
