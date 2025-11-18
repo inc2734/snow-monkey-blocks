@@ -25,7 +25,10 @@ import { useState, useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { link as linkIcon } from '@wordpress/icons';
 
-import { useToolsPanelDropdownMenuProps } from '@smb/helper';
+import {
+	toBorderRadiusValue,
+	useToolsPanelDropdownMenuProps,
+} from '@smb/helper';
 
 import metadata from './block.json';
 
@@ -73,9 +76,7 @@ export default function ( {
 	const btnStyles = {
 		'--smb-btn--background-color': btnBackgroundColor || undefined,
 		'--smb-btn--background-image': btnBackgroundGradientColor || undefined,
-		'--smb-btn--border-radius': String( btnBorderRadius ).match( /^\d+$/ )
-			? `${ btnBorderRadius }px`
-			: btnBorderRadius,
+		'--smb-btn--border-radius': toBorderRadiusValue( btnBorderRadius ),
 		'--smb-btn--color': btnTextColor || undefined,
 	};
 	if (

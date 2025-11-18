@@ -31,7 +31,11 @@ import { prependHTTP } from '@wordpress/url';
 import { __ } from '@wordpress/i18n';
 
 import PanelBoxShadowSettings from '@smb/component/panel-box-shadow-settings';
-import { toNumber, useToolsPanelDropdownMenuProps } from '@smb/helper';
+import {
+	toBorderRadiusValue,
+	toNumber,
+	useToolsPanelDropdownMenuProps,
+} from '@smb/helper';
 
 import metadata from './block.json';
 
@@ -157,9 +161,7 @@ export default function ( {
 
 	const styles = {
 		'--smb-box--color': textColor || undefined,
-		'--smb-box--border-radius': String( borderRadius ).match( /^\d+$/ )
-			? `${ borderRadius }px`
-			: borderRadius,
+		'--smb-box--border-radius': toBorderRadiusValue( borderRadius ),
 		'--smb-box--box-shadow': !! boxShadow.color
 			? `${ boxShadow.horizontal }px ${ boxShadow.vertical }px ${
 					boxShadow.blur

@@ -431,3 +431,61 @@ export function useToolsPanelDropdownMenuProps() {
 		  }
 		: {};
 }
+
+/**
+ * BorderRadiusControl が返す値を CSS で使える文字列へ変換する。
+ *
+ * - 数値なら px を付与
+ * - 文字列ならそのまま
+ * - オブジェクトの場合は各辺を並べて shorthand にする
+ *
+ * @param {number|string|Object} value
+ * @return {string|undefined}
+ */
+export const toBorderRadiusValue = ( value ) => {
+	if ( null == value ) {
+		return undefined;
+	}
+
+	// BorderRadiusControl returns an object when per-corner values are used.
+	if ( 'object' === typeof value && ! Array.isArray( value ) ) {
+		const corners = [
+			value.topLeft,
+			value.topRight,
+			value.bottomRight,
+			value.bottomLeft,
+		].map( ( v ) => {
+			if ( null == v || '' === v ) {
+				return '';
+			}
+
+			return /^\d+$/.test( String( v ) ) ? `${ v }px` : String( v );
+		} );
+
+		const nonEmptyCorners = corners.filter( Boolean );
+		if ( 0 === nonEmptyCorners.length ) {
+			return undefined;
+		}
+
+		// 4値すべて揃っている場合のみ CSS shorthand 最適化を行う。
+		if ( 4 === nonEmptyCorners.length ) {
+			const [ top, right, bottom, left ] = corners;
+
+			if ( top === right && right === bottom && bottom === left ) {
+				return top;
+			}
+
+			if ( top === bottom && right === left ) {
+				return `${ top } ${ right }`;
+			}
+
+			if ( right === left ) {
+				return `${ top } ${ right } ${ bottom }`;
+			}
+		}
+
+		return nonEmptyCorners.join( ' ' );
+	}
+
+	return /^\d+$/.test( String( value ) ) ? `${ value }px` : value;
+};

@@ -5,6 +5,7 @@ import {
 	useBlockProps,
 	__experimentalGetSpacingClassesAndStyles as getSpacingClassesAndStyles,
 } from '@wordpress/block-editor';
+import { toBorderRadiusValue } from '@smb/helper';
 
 export default function ( { attributes, className } ) {
 	const {
@@ -33,9 +34,7 @@ export default function ( { attributes, className } ) {
 	const styles = {
 		'--smb-btn--background-color': backgroundColor || undefined,
 		'--smb-btn--background-image': backgroundGradientColor || undefined,
-		'--smb-btn--border-radius': String( borderRadius ).match( /^\d+$/ )
-			? `${ borderRadius }px`
-			: borderRadius,
+		'--smb-btn--border-radius': toBorderRadiusValue( borderRadius ),
 		'--smb-btn--color': textColor || undefined,
 		...spacingProps.style,
 	};
