@@ -440,7 +440,7 @@ export function useToolsPanelDropdownMenuProps() {
  * - オブジェクトの場合は各辺を並べて shorthand にする
  *
  * @param {number|string|Object} value
- * @return {string|undefined}
+ * @return {string|undefined} value
  */
 export const toBorderRadiusValue = ( value ) => {
 	if ( null == value ) {
