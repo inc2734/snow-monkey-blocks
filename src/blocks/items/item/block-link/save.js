@@ -6,6 +6,8 @@ import {
 	__experimentalGetColorClassesAndStyles as getColorClassesAndStyles,
 } from '@wordpress/block-editor';
 
+import { toBorderRadiusValue } from '@smb/helper';
+
 import { __ } from '@wordpress/i18n';
 
 export default function ( { attributes, className } ) {
@@ -47,9 +49,7 @@ export default function ( { attributes, className } ) {
 	const btnStyles = {
 		'--smb-btn--background-color': btnBackgroundColor || undefined,
 		'--smb-btn--background-image': btnBackgroundGradientColor || undefined,
-		'--smb-btn--border-radius': String( btnBorderRadius ).match( /^\d+$/ )
-			? `${ btnBorderRadius }px`
-			: btnBorderRadius,
+		'--smb-btn--border-radius': toBorderRadiusValue( btnBorderRadius ),
 		'--smb-btn--color': btnTextColor || undefined,
 	};
 

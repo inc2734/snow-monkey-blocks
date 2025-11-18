@@ -1,6 +1,7 @@
 import classnames from 'classnames';
 
 import { RichText, useBlockProps } from '@wordpress/block-editor';
+import { toBorderRadiusValue } from '@smb/helper';
 
 import metadata from './block.json';
 
@@ -23,11 +24,7 @@ export default [
 		migrate( attributes ) {
 			const { btnBorderRadius } = attributes;
 
-			attributes.btnBorderRadius = String( btnBorderRadius ).match(
-				/^\d+$/
-			)
-				? `${ btnBorderRadius }px`
-				: btnBorderRadius;
+			attributes.btnBorderRadius = toBorderRadiusValue( btnBorderRadius );
 
 			return [ { ...attributes } ];
 		},
@@ -64,9 +61,7 @@ export default [
 				'--smb-btn--background-image':
 					btnBackgroundGradientColor || undefined,
 				'--smb-btn--border-radius':
-					!! btnBorderRadius || 0 <= btnBorderRadius
-						? `${ btnBorderRadius }px`
-						: undefined,
+					toBorderRadiusValue( btnBorderRadius ),
 				'--smb-btn--color': btnTextColor || undefined,
 			};
 			if (
@@ -165,10 +160,7 @@ export default [
 			const btnBoxBtnStyles = {
 				backgroundColor: btnBackgroundColor || undefined,
 				backgroundImage: btnBackgroundGradientColor || undefined,
-				borderRadius:
-					'undefined' !== typeof btnBorderRadius
-						? `${ btnBorderRadius }px`
-						: undefined,
+				borderRadius: toBorderRadiusValue( btnBorderRadius ),
 			};
 			if (
 				!! attributes.className &&
@@ -274,10 +266,7 @@ export default [
 
 			const btnBoxBtnStyles = {
 				backgroundColor: btnBackgroundColor || undefined,
-				borderRadius:
-					'undefined' !== typeof btnBorderRadius
-						? `${ btnBorderRadius }px`
-						: undefined,
+				borderRadius: toBorderRadiusValue( btnBorderRadius ),
 			};
 			if ( 'is-style-ghost' === attributes.className ) {
 				btnBoxBtnStyles.borderColor = btnBackgroundColor || undefined;

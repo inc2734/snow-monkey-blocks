@@ -25,7 +25,10 @@ import { useSelect } from '@wordpress/data';
 import { useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
-import { useToolsPanelDropdownMenuProps } from '@smb/helper';
+import {
+	toBorderRadiusValue,
+	useToolsPanelDropdownMenuProps,
+} from '@smb/helper';
 
 import metadata from './block.json';
 
@@ -97,9 +100,7 @@ export default function ( { attributes, setAttributes, clientId, className } ) {
 	const btnStyles = {
 		'--smb-btn--background-color': btnBackgroundColor || undefined,
 		'--smb-btn--background-image': btnBackgroundGradientColor || undefined,
-		'--smb-btn--border-radius': String( btnBorderRadius ).match( /^\d+$/ )
-			? `${ btnBorderRadius }px`
-			: btnBorderRadius || undefined,
+		'--smb-btn--border-radius': toBorderRadiusValue( btnBorderRadius ),
 		'--smb-btn--color': btnTextColor || undefined,
 	};
 	if (
