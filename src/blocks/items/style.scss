@@ -40,10 +40,6 @@
 					display: flex;
 					flex-direction: column;
 
-					> * {
-						margin-top: 0;
-					}
-
 					> :last-child:not(.block-list-appender) {
 						margin-top: auto;
 						margin-bottom: 0;
