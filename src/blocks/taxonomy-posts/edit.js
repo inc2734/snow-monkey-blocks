@@ -1,4 +1,4 @@
-import { find, times } from 'lodash';
+import { find, isEqual, times } from 'lodash';
 
 import {
 	BaseControl,
@@ -18,7 +18,7 @@ import {
 
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
-import { useMemo, useEffect } from '@wordpress/element';
+import { useMemo, useEffect, useRef } from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
 
 import ServerSideRender from '@wordpress/server-side-render';
@@ -91,34 +91,50 @@ export default function ( { attributes, setAttributes, clientId } ) {
 
 	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
 
+	const taxonomiesRef = useRef( EMPTY_ARRAY );
+	const taxonomiesTermsRef = useRef( EMPTY_ARRAY );
+
 	const { taxonomiesTerms, taxonomies, isResolvingTerms } = useSelect(
 		( select ) => {
 			const core = select( 'core' );
 
 			const allTaxonomies =
 				core.getTaxonomies( { per_page: -1 } ) || EMPTY_ARRAY;
-			const _taxonomies = allTaxonomies.filter(
+			let _taxonomies = allTaxonomies.filter(
 				( _taxonomy ) => _taxonomy.visibility.show_ui
 			);
+			if ( isEqual( taxonomiesRef.current, _taxonomies ) ) {
+				_taxonomies = taxonomiesRef.current;
+			} else {
+				taxonomiesRef.current = _taxonomies;
+			}
+
+			let _taxonomiesTerms = _taxonomies
+				.map( ( _taxonomy ) => {
+					const terms =
+						core.getEntityRecords( 'taxonomy', _taxonomy.slug, {
+							per_page: -1,
+						} ) || EMPTY_ARRAY;
+
+					if ( 0 < terms.length ) {
+						return {
+							taxonomy: _taxonomy.slug,
+							terms,
+						};
+					}
+					return null;
+				} )
+				.filter( Boolean );
+
+			if ( isEqual( taxonomiesTermsRef.current, _taxonomiesTerms ) ) {
+				_taxonomiesTerms = taxonomiesTermsRef.current;
+			} else {
+				taxonomiesTermsRef.current = _taxonomiesTerms;
+			}
 
 			return {
 				taxonomies: _taxonomies,
-				taxonomiesTerms: _taxonomies
-					.map( ( _taxonomy ) => {
-						const terms =
-							core.getEntityRecords( 'taxonomy', _taxonomy.slug, {
-								per_page: -1,
-							} ) || EMPTY_ARRAY;
-
-						if ( 0 < terms.length ) {
-							return {
-								taxonomy: _taxonomy.slug,
-								terms,
-							};
-						}
-						return null;
-					} )
-					.filter( Boolean ),
+				taxonomiesTerms: _taxonomiesTerms,
 				isResolvingTerms:
 					!! taxonomy &&
 					core.isResolving( 'getEntityRecords', [

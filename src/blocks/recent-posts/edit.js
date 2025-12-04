@@ -1,4 +1,4 @@
-import { times } from 'lodash';
+import { isEqual, times } from 'lodash';
 
 import {
 	BaseControl,
@@ -18,7 +18,7 @@ import {
 
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
-import { useEffect, useMemo } from '@wordpress/element';
+import { useEffect, useMemo, useRef } from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
 
 import ServerSideRender from '@wordpress/server-side-render';
@@ -89,14 +89,17 @@ export default function ( { attributes, setAttributes, clientId } ) {
 		} );
 	}, [] );
 
+	const filteredPostTypesRef = useRef( EMPTY_ARRAY );
+	const taxonomiesTermsRef = useRef( EMPTY_ARRAY );
+
 	const { filteredPostTypes, taxonomiesTerms } = useSelect( ( select ) => {
 		const core = select( 'core' );
-		const _taxonomiesTerms = [];
+		let _taxonomiesTerms = [];
 
 		const allPostTypes =
-			select( 'core' ).getPostTypes( { per_page: -1 } ) || EMPTY_ARRAY;
+			core.getPostTypes( { per_page: -1 } ) || EMPTY_ARRAY;
 
-		const _filteredPostTypes = allPostTypes.filter(
+		let _filteredPostTypes = allPostTypes.filter(
 			( type ) =>
 				type.viewable &&
 				! type.hierarchical &&
@@ -122,6 +125,18 @@ export default function ( { attributes, setAttributes, clientId } ) {
 				}
 			} );
 		} );
+
+		if ( isEqual( filteredPostTypesRef.current, _filteredPostTypes ) ) {
+			_filteredPostTypes = filteredPostTypesRef.current;
+		} else {
+			filteredPostTypesRef.current = _filteredPostTypes;
+		}
+
+		if ( isEqual( taxonomiesTermsRef.current, _taxonomiesTerms ) ) {
+			_taxonomiesTerms = taxonomiesTermsRef.current;
+		} else {
+			taxonomiesTermsRef.current = _taxonomiesTerms;
+		}
 
 		return {
 			filteredPostTypes: _filteredPostTypes,
