@@ -91,35 +91,45 @@ export default function ( { attributes, setAttributes, clientId } ) {
 
 	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
 
-	const { taxonomiesTerms, taxonomies } = useSelect( ( select ) => {
-		const core = select( 'core' );
+	const { taxonomiesTerms, taxonomies, isResolvingTerms } = useSelect(
+		( select ) => {
+			const core = select( 'core' );
 
-		const allTaxonomies =
-			core.getTaxonomies( { per_page: -1 } ) || EMPTY_ARRAY;
-		const _taxonomies = allTaxonomies.filter(
-			( _taxonomy ) => _taxonomy.visibility.show_ui
-		);
+			const allTaxonomies =
+				core.getTaxonomies( { per_page: -1 } ) || EMPTY_ARRAY;
+			const _taxonomies = allTaxonomies.filter(
+				( _taxonomy ) => _taxonomy.visibility.show_ui
+			);
 
-		return {
-			taxonomies: _taxonomies,
-			taxonomiesTerms: _taxonomies
-				.map( ( _taxonomy ) => {
-					const terms =
-						core.getEntityRecords( 'taxonomy', _taxonomy.slug, {
-							per_page: -1,
-						} ) || EMPTY_ARRAY;
+			return {
+				taxonomies: _taxonomies,
+				taxonomiesTerms: _taxonomies
+					.map( ( _taxonomy ) => {
+						const terms =
+							core.getEntityRecords( 'taxonomy', _taxonomy.slug, {
+								per_page: -1,
+							} ) || EMPTY_ARRAY;
 
-					if ( 0 < terms.length ) {
-						return {
-							taxonomy: _taxonomy.slug,
-							terms,
-						};
-					}
-					return null;
-				} )
-				.filter( Boolean ),
-		};
-	}, [] );
+						if ( 0 < terms.length ) {
+							return {
+								taxonomy: _taxonomy.slug,
+								terms,
+							};
+						}
+						return null;
+					} )
+					.filter( Boolean ),
+				isResolvingTerms:
+					!! taxonomy &&
+					core.isResolving( 'getEntityRecords', [
+						'taxonomy',
+						taxonomy,
+						{ per_page: -1 },
+					] ),
+			};
+		},
+		[ taxonomy ]
+	);
 
 	const imageSizes = useSelect( ( select ) => {
 		const { getSettings } = select( 'core/block-editor' );
@@ -151,10 +161,13 @@ export default function ( { attributes, setAttributes, clientId } ) {
 		return _categoryLabelTaxonomyOptions;
 	}, [ taxonomies ] );
 
-	const terms = find( taxonomiesTerms, { taxonomy } );
-	const selectedTerm = !! terms
-		? find( terms.terms, [ 'id', toNumber( termId ) ] )
-		: [];
+	const taxonomyTerms = find( taxonomiesTerms, { taxonomy } );
+	const terms = taxonomyTerms?.terms;
+	const selectedTerm =
+		terms && terms.length
+			? find( terms, [ 'id', toNumber( termId ) ] )
+			: null;
+	const isTermsLoading = !! taxonomy && isResolvingTerms && ! taxonomyTerms;
 
 	const itemTitleTagNames = [ 'h2', 'h3', 'h4' ];
 
@@ -216,12 +229,12 @@ export default function ( { attributes, setAttributes, clientId } ) {
 							>
 								<Flex direction="column">
 									{ taxonomiesTerms.map(
-										( taxonomyTerms ) => {
+										( taxonomyTermsItem ) => {
 											const _taxonomy = find(
 												taxonomies,
 												[
 													'slug',
-													taxonomyTerms.taxonomy,
+													taxonomyTermsItem.taxonomy,
 												]
 											);
 
@@ -247,7 +260,7 @@ export default function ( { attributes, setAttributes, clientId } ) {
 														}
 														selectedId={ termId }
 														tree={ buildTermsTree(
-															taxonomyTerms.terms
+															taxonomyTermsItem.terms
 														) }
 													/>
 												)
@@ -1084,21 +1097,47 @@ export default function ( { attributes, setAttributes, clientId } ) {
 			</InspectorControls>
 
 			<div { ...useBlockProps() }>
-				{ ! selectedTerm || ! terms ? (
-					<Placeholder
-						icon="editor-ul"
-						label={ __( 'Taxonomy posts', 'snow-monkey-blocks' ) }
-					>
-						<Spinner />
-					</Placeholder>
-				) : (
-					<Disabled>
-						<ServerSideRender
-							block="snow-monkey-blocks/taxonomy-posts"
-							attributes={ attributes }
-						/>
-					</Disabled>
-				) }
+				{ ( () => {
+					if ( isTermsLoading ) {
+						return (
+							<Placeholder
+								icon="editor-ul"
+								label={ __(
+									'Taxonomy posts',
+									'snow-monkey-blocks'
+								) }
+							>
+								<Spinner />
+							</Placeholder>
+						);
+					}
+
+					if ( ! selectedTerm ) {
+						return (
+							<Placeholder
+								icon="editor-ul"
+								label={ __(
+									'Taxonomy posts',
+									'snow-monkey-blocks'
+								) }
+							>
+								{ __(
+									'Please select a term.',
+									'snow-monkey-blocks'
+								) }
+							</Placeholder>
+						);
+					}
+
+					return (
+						<Disabled>
+							<ServerSideRender
+								block="snow-monkey-blocks/taxonomy-posts"
+								attributes={ attributes }
+							/>
+						</Disabled>
+					);
+				} )() }
 			</div>
 		</>
 	);
