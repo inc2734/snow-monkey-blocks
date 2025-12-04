@@ -1,5 +1,9 @@
 *** Changelog ***
 
+= 24.1.8 =
+* [Recent posts] Fixed a bug that prevented taxonomies from being listed on the editor.
+* [Taxonomy posts] Fixed a bug that prevented taxonomies from being listed on the editor.
+
 = 24.1.7 =
 * [Items] Fixed a margin issue when "Align the bottom of the last element of each items" is enabled.
 * Fixed a bug that prevented "Reset All" from being performed for border settings.
