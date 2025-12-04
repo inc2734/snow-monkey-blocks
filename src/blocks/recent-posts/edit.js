@@ -89,33 +89,26 @@ export default function ( { attributes, setAttributes, clientId } ) {
 		} );
 	}, [] );
 
-	const allPostTypes = useSelect(
-		( select ) =>
-			select( 'core' ).getPostTypes( { per_page: -1 } ) || EMPTY_ARRAY,
-		[]
-	);
+	const { filteredPostTypes, taxonomiesTerms } = useSelect( ( select ) => {
+		const core = select( 'core' );
+		const _taxonomiesTerms = [];
 
-	const filteredPostTypes = useMemo( () => {
-		return allPostTypes.filter(
+		const allPostTypes =
+			select( 'core' ).getPostTypes( { per_page: -1 } ) || EMPTY_ARRAY;
+
+		const _filteredPostTypes = allPostTypes.filter(
 			( type ) =>
 				type.viewable &&
 				! type.hierarchical &&
 				type.rest_base !== 'media'
 		);
-	}, [ allPostTypes ] );
 
-	const { getEntityRecords, getTaxonomy } = useSelect(
-		( select ) => select( 'core' ),
-		[]
-	);
-	const taxonomiesTerms = useMemo( () => {
-		const _taxonomiesTerms = [];
-		filteredPostTypes.forEach( ( _postType ) => {
+		_filteredPostTypes.forEach( ( _postType ) => {
 			_postType.taxonomies.forEach( ( _taxonomy ) => {
-				const _taxonomyObj = getTaxonomy( _taxonomy );
+				const _taxonomyObj = core.getTaxonomy( _taxonomy );
 				if ( !! _taxonomyObj?.visibility?.show_ui ) {
 					const terms =
-						getEntityRecords( 'taxonomy', _taxonomy, {
+						core.getEntityRecords( 'taxonomy', _taxonomy, {
 							per_page: -1,
 						} ) || EMPTY_ARRAY;
 
@@ -130,8 +123,11 @@ export default function ( { attributes, setAttributes, clientId } ) {
 			} );
 		} );
 
-		return _taxonomiesTerms;
-	}, [ filteredPostTypes, getEntityRecords, getTaxonomy ] );
+		return {
+			filteredPostTypes: _filteredPostTypes,
+			taxonomiesTerms: _taxonomiesTerms,
+		};
+	}, [] );
 
 	const allAuthors = useSelect( ( select ) => {
 		return select( 'core' ).getUsers( {

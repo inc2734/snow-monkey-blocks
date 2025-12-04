@@ -91,40 +91,35 @@ export default function ( { attributes, setAttributes, clientId } ) {
 
 	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
 
-	const allTaxonomies = useSelect(
-		( select ) =>
-			select( 'core' ).getTaxonomies( { per_page: -1 } ) || EMPTY_ARRAY,
-		[]
-	);
-	const taxonomies = useMemo(
-		() =>
-			allTaxonomies.filter(
-				( _taxonomy ) => _taxonomy.visibility.show_ui
-			),
-		[ allTaxonomies ]
-	);
+	const { taxonomiesTerms, taxonomies } = useSelect( ( select ) => {
+		const core = select( 'core' );
 
-	const { getEntityRecords } = useSelect(
-		( select ) => select( 'core' ),
-		[]
-	);
-	const taxonomiesTerms = useMemo( () => {
-		return taxonomies
-			.map( ( _taxonomy ) => {
-				const terms =
-					getEntityRecords( 'taxonomy', _taxonomy.slug, {
-						per_page: -1,
-					} ) || [];
-				if ( 0 < terms.length ) {
-					return {
-						taxonomy: _taxonomy.slug,
-						terms,
-					};
-				}
-				return null;
-			} )
-			.filter( Boolean );
-	}, [ taxonomies, getEntityRecords ] );
+		const allTaxonomies =
+			core.getTaxonomies( { per_page: -1 } ) || EMPTY_ARRAY;
+		const _taxonomies = allTaxonomies.filter(
+			( _taxonomy ) => _taxonomy.visibility.show_ui
+		);
+
+		return {
+			taxonomies: _taxonomies,
+			taxonomiesTerms: _taxonomies
+				.map( ( _taxonomy ) => {
+					const terms =
+						core.getEntityRecords( 'taxonomy', _taxonomy.slug, {
+							per_page: -1,
+						} ) || EMPTY_ARRAY;
+
+					if ( 0 < terms.length ) {
+						return {
+							taxonomy: _taxonomy.slug,
+							terms,
+						};
+					}
+					return null;
+				} )
+				.filter( Boolean ),
+		};
+	}, [] );
 
 	const imageSizes = useSelect( ( select ) => {
 		const { getSettings } = select( 'core/block-editor' );
