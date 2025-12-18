@@ -1,6 +1,7 @@
 import classnames from 'classnames';
 
 import { RichText, useBlockProps } from '@wordpress/block-editor';
+
 import { toBorderRadiusValue } from '@smb/helper';
 
 import metadata from './block.json';

@@ -34,7 +34,7 @@
 			"default": ""
 		},
 		"borderRadius": {
-			"type": "string"
+			"type": [ "string", "object" ]
 		},
 		"backgroundColor": {
 			"type": "string"

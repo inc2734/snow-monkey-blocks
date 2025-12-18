@@ -28,7 +28,7 @@
 			"default": 1
 		},
 		"borderRadius": {
-			"type": "string"
+			"type": [ "string", "object" ]
 		},
 		"opacity": {
 			"type": "number",
