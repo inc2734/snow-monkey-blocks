@@ -1,5 +1,8 @@
 *** Changelog ***
 
+= 24.1.9 =
+* [Button][Box][Button box][Read more box][Pricing table:item][Items:item (Standard)][Items:item (Block link)] Fixed an issue where border radius settings could not be saved, causing block recovery.
+
 = 24.1.8 =
 * [Recent posts] Fixed a bug that prevented taxonomies from being listed on the editor.
 * [Taxonomy posts] Fixed a bug that prevented taxonomies from being listed on the editor.
