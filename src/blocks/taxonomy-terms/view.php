@@ -19,7 +19,7 @@ $args = array(
 $args = apply_filters( 'snow_monkey_blocks_taxonomy_terms_args', $args, $attributes );
 
 $terms = get_terms( $args );
-if ( ! $terms ) {
+if ( is_wp_error( $terms ) || ! $terms ) {
 	return;
 }
 
@@ -43,9 +43,15 @@ $block_wrapper_attributes = get_block_wrapper_attributes(
 <div <?php echo wp_kses_post( $block_wrapper_attributes ); ?>>
 	<ul class="smb-taxonomy-terms__list">
 		<?php foreach ( $terms as $_term ) : ?>
+			<?php
+			$term_link = get_term_link( $_term );
+			if ( is_wp_error( $term_link ) ) {
+				continue;
+			}
+			?>
 			<li class="smb-taxonomy-terms__item">
 				<a
-					href="<?php echo esc_url( get_term_link( $_term ) ); ?>"
+					href="<?php echo esc_url( $term_link ); ?>"
 					class="<?php echo esc_attr( 'is-style-tag' === $block_style ? 'tag-cloud-link' : '' ); ?>"
 				>
 					<?php echo esc_html( $_term->name ); ?>
