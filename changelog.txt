@@ -1,5 +1,8 @@
 *** Changelog ***
 
+= 24.1.10 =
+* [Taxonomy] Fixed a bug where an error message would sometimes be displayed depending on the term status.
+
 = 24.1.9 =
 * [Button][Box][Button box][Read more box][Pricing table:item][Items:item (Standard)][Items:item (Block link)] Fixed an issue where border radius settings could not be saved, causing block recovery.
 
