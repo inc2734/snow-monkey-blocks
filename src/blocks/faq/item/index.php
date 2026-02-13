@@ -20,9 +20,9 @@ register_block_type(
 			libxml_clear_errors();
 			$xpath = new \DOMXPath( $dom );
 
-			$question_item = $xpath->query( '//*[@class="smb-faq__item__question__body"]' )->item( 0 );
+			$question_item = $xpath->query( '//*[contains(concat(" ", normalize-space(@class), " "), " smb-faq__item__question__body ")]' )->item( 0 );
 			$question      = $question_item ? Helper::inner_html( $question_item ) : null;
-			$answer_item   = $xpath->query( '//*[@class="smb-faq__item__answer__body"]' )->item( 0 );
+			$answer_item   = $xpath->query( '//*[contains(concat(" ", normalize-space(@class), " "), " smb-faq__item__answer__body ")]' )->item( 0 );
 			$answer        = $answer_item ? Helper::inner_html( $answer_item ) : null;
 
 			JsonLd::start();
