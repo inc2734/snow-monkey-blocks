@@ -1,5 +1,8 @@
 *** Changelog ***
 
+= 24.1.11 =
+* [FAQ] Fixed a bug where correct structured data was not output.
+
 = 24.1.10 =
 * [Taxonomy] Fixed a bug where an error message would sometimes be displayed depending on the term status.
 
