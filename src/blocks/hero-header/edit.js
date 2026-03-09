@@ -243,7 +243,9 @@ export default function ( {
 		'--smb-hero-header--mask-color': maskColor || undefined,
 		'--smb-hero-header--mask-image': maskGradientColor || undefined,
 		'--smb-hero-header--mask-opacity':
-			!! maskColor || !! maskGradientColor ? maskOpacity : undefined,
+			!! maskColor || !! maskGradientColor
+				? String( maskOpacity )
+				: undefined,
 		'--smb-hero-header--body-align-self': bodyAlignSelf || undefined,
 		'--smb-hero-header--body-justify-self': bodyJustifySelf || undefined,
 		'--smb-hero-header--body-grid-column-start':
