@@ -24,7 +24,7 @@
 			"type": "string"
 		},
 		"borderWidth": {
-			"type": "string",
+			"type": [ "string", "number" ],
 			"default": 1
 		},
 		"borderRadius": {
