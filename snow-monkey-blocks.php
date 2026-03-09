@@ -42,7 +42,6 @@ class Bootstrap {
 		add_filter( 'block_categories_all', array( $this, '_block_categories_all' ) );
 		add_action( 'init', array( $this, '_register_blocks' ) );
 		add_action( 'add_meta_boxes', array( $this, '_add_pr_meta_box' ) );
-		add_filter( 'the_content', array( $this, '_the_content_for_slider' ), 11 );
 	}
 
 	/**
@@ -217,25 +216,6 @@ class Bootstrap {
 			?>
 		</p>
 		<?php
-	}
-
-	/**
-	 * Because the data attribute is destroyed by the influence of wptexturize, it corrects it.
-	 *
-	 * @param string $content The post content.
-	 * @return string
-	 */
-	public function _the_content_for_slider( $content ) {
-		$content = preg_replace_callback(
-			'|data-slick="\{([^}]+?)\}"|',
-			function ( $matches ) {
-				$matches[0] = str_replace( '"', '\'', $matches[0] );
-				$matches[0] = str_replace( '&quot;', '"', $matches[0] );
-				return $matches[0];
-			},
-			$content
-		);
-		return $content;
 	}
 }
 
