@@ -183,6 +183,31 @@
 	}
 }
 
+.smb-responsive-settings-container {
+	.components-base-control__label {
+		margin-bottom: 0 !important;
+	}
+
+	.block-editor-hooks__flex-layout-justification-controls {
+		margin-bottom: 0 !important;
+	}
+
+	.components-dropdown .components-button.has-icon {
+		padding: 0;
+		min-width: 24px;
+		height: 24px;
+	}
+
+	.smb-toggle-group-control {
+		border: 1px solid var(--wp-components-color-gray-700, #757575);
+		outline: none !important;
+
+		&:hover {
+			border-color: var(--wp-components-color-gray-700, #757575);
+		}
+	}
+}
+
 .smb-toggle-group-control {
 	&__body {
 		border: 1px solid #949494;

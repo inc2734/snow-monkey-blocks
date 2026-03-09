@@ -122,12 +122,13 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						<BaseControl
 							__nextHasNoMarginBottom
 							label="grid-template-columns"
-							className="smb-toggle-group-control"
+							className="smb-responsive-settings-container"
 							id="snow-monkey-blocks/grid/grid-template-columns"
 						>
 							<ToggleGroupControl
 								__next40pxDefaultSize
 								__nextHasNoMarginBottom
+								className="smb-toggle-group-control"
 								hideLabelFromVision
 								value={ columnsOption }
 								onChange={ ( value ) => {
@@ -275,12 +276,13 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						<BaseControl
 							__nextHasNoMarginBottom
 							label="grid-template-rows"
-							className="smb-toggle-group-control"
+							className="smb-responsive-settings-container"
 							id="snow-monkey-blocks/grid/grid-template-rows"
 						>
 							<ToggleGroupControl
 								__next40pxDefaultSize
 								__nextHasNoMarginBottom
+								className="smb-toggle-group-control"
 								hideLabelFromVision
 								value={ rowsOption }
 								onChange={ ( value ) => {
