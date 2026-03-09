@@ -75,7 +75,7 @@
 				@for $i from 1 through math.floor($max-items - 1) {
 					&[data-has-items="#{ $i }"] {
 						.c-row__col:last-child {
-							@include core.media-min(lg) {
+							@include core.media-min(md) {
 								border-right: 1px solid var(--smb-pricing-table--border-color);
 							}
 						}
@@ -92,7 +92,7 @@
 			&:not(:first-child) {
 				border-top: 1px solid var(--smb-pricing-table--border-color);
 
-				@include core.media-min(lg) {
+				@include core.media-min(md) {
 					border-top: none;
 					border-left: 1px solid var(--smb-pricing-table--border-color);
 				}

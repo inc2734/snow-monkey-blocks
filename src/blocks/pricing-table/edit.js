@@ -90,7 +90,7 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							metadata.attributes.columnSize.default
 						}
 						isShownByDefault
-						label={ __( 'Title tag', 'snow-monkey-blocks' ) }
+						label={ __( 'Column size', 'snow-monkey-blocks' ) }
 						onDeselect={ () =>
 							setAttributes( {
 								columnSize:
