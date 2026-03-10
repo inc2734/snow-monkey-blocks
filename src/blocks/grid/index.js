@@ -1,5 +1,3 @@
-import blockConfig from '@smb/config/block';
-
 import { registerBlockType } from '@wordpress/blocks';
 import { store as blockEditorStore } from '@wordpress/block-editor';
 import { createHigherOrderComponent } from '@wordpress/compose';
@@ -17,7 +15,6 @@ import './style.scss';
 
 registerBlockType( metadata.name, {
 	icon: {
-		foreground: blockConfig.blockIconColor,
 		src: icon,
 	},
 	edit,

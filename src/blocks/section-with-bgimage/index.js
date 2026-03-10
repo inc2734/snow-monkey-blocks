@@ -1,5 +1,3 @@
-import blockConfig from '@smb/config/block';
-
 import { registerBlockType } from '@wordpress/blocks';
 import { __ } from '@wordpress/i18n';
 
@@ -15,7 +13,6 @@ import './style.scss';
 
 registerBlockType( metadata.name, {
 	icon: {
-		foreground: blockConfig.blockIconColor,
 		src: icon,
 	},
 	keywords: [

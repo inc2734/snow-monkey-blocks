@@ -1,5 +1,3 @@
-import blockConfig from '@smb/config/block';
-
 import { registerBlockType } from '@wordpress/blocks';
 import { addFilter } from '@wordpress/hooks';
 
@@ -11,7 +9,6 @@ import deprecated from './deprecated';
 
 registerBlockType( metadata.name, {
 	icon: {
-		foreground: blockConfig.blockIconColor,
 		src: icon,
 	},
 	edit,

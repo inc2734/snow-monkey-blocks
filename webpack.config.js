@@ -20,7 +20,6 @@ module.exports = {
 			'@smb/helper': path.resolve( __dirname, 'src/js/helper/helper' ),
 			'@smb/component': path.resolve( __dirname, 'src/js/component' ),
 			'@smb/hooks': path.resolve( __dirname, 'src/js/hooks' ),
-			'@smb/config': path.resolve( __dirname, 'src/js/config' ),
 		},
 	},
 };
