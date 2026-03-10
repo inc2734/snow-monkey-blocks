@@ -1762,7 +1762,7 @@ export default function ( {
 														media.height,
 													imageMediaType:
 														getMediaType( media ),
-													mediaSizeSlug:
+													imageSizeSlug:
 														newImageSizeSlug,
 												} );
 											} }
@@ -1773,43 +1773,45 @@ export default function ( {
 													setAttributes( {
 														imageURL: newImageURL,
 														imageID: 0,
-														mediaSizeSlug:
+														imageSizeSlug:
 															DEFAULT_MEDIA_SIZE_SLUG,
-														mediaType: getMediaType(
-															{
+														imageMediaType:
+															getMediaType( {
 																media_type:
 																	isVideoType(
 																		newImageURL
 																	)
 																		? 'video'
 																		: 'image',
-															}
-														),
+															} ),
 													} );
 												}
 											} }
 											onRemove={ () =>
 												setAttributes( {
-													mdImageURL:
+													imageURL:
 														metadata.attributes
-															.mdImageURL.default,
-													mdImageAlt:
+															.imageURL.default,
+													imageAlt:
 														metadata.attributes
-															.mdImageAlt.default,
-													mdImageWidth:
+															.imageAlt.default,
+													imageWidth:
 														metadata.attributes
-															.mdImageWidth
+															.imageWidth.default,
+													imageHeight:
+														metadata.attributes
+															.imageHeight
 															.default,
-													mdImageHeight:
+													imageID:
 														metadata.attributes
-															.mdImageHeight
+															.imageID.default,
+													imageMediaType:
+														metadata.attributes
+															.imageMediaType
 															.default,
-													mdImageID:
+													imageSizeSlug:
 														metadata.attributes
-															.mdImageID.default,
-													mdImageMediaType:
-														metadata.attributes
-															.mdImageMediaType
+															.imageSizeSlug
 															.default,
 												} )
 											}
