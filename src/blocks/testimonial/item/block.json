@@ -10,39 +10,45 @@
 	"attributes": {
 		"avatarID": {
 			"type": "number",
-			"default": 0
+			"default": 0,
+			"role": "content"
 		},
 		"avatarURL": {
 			"type": "string",
 			"source": "attribute",
 			"selector": ".smb-testimonial__item__figure > img",
 			"attribute": "src",
-			"default": "https://0.gravatar.com/avatar/00000000000000000000000000000000?s=128&d=mp&r=g"
+			"default": "https://0.gravatar.com/avatar/00000000000000000000000000000000?s=128&d=mp&r=g",
+			"role": "content"
 		},
 		"avatarAlt": {
 			"type": "string",
 			"source": "attribute",
 			"selector": ".smb-testimonial__item__figure > img",
 			"attribute": "alt",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"name": {
 			"type": "string",
 			"source": "html",
 			"selector": ".smb-testimonial__item__name",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"lede": {
 			"type": "string",
 			"source": "html",
 			"selector": ".smb-testimonial__item__lede",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"content": {
 			"type": "string",
 			"source": "html",
 			"selector": ".smb-testimonial__item__content",
-			"default": ""
+			"default": "",
+			"role": "content"
 		}
 	},
 	"supports": {

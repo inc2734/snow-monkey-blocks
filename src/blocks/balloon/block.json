@@ -14,21 +14,24 @@
 		},
 		"avatarID": {
 			"type": "number",
-			"default": 0
+			"default": 0,
+			"role": "content"
 		},
 		"avatarURL": {
 			"type": "string",
 			"source": "attribute",
 			"selector": "img",
 			"attribute": "src",
-			"default": "https://0.gravatar.com/avatar/00000000000000000000000000000000?s=128&d=mp&r=g"
+			"default": "https://0.gravatar.com/avatar/00000000000000000000000000000000?s=128&d=mp&r=g",
+			"role": "content"
 		},
 		"avatarAlt": {
 			"type": "string",
 			"source": "attribute",
 			"selector": "img",
 			"attribute": "alt",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"avatarBorderColor": {
 			"type": "string"
@@ -56,7 +59,8 @@
 		},
 		"balloonName": {
 			"type": "string",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"modifier": {
 			"type": "string",
@@ -80,6 +84,7 @@
 				"type": "constrained"
 			}
 		},
+		"contentRole": true,
 		"snowmonkeyeditor": {
 			"blockPresets": {
 				"ignore": [ "balloonBody" ]

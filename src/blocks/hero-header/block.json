@@ -17,14 +17,16 @@
 			"source": "attribute",
 			"selector": ".smb-hero-header__figure img, .smb-hero-header__figure video",
 			"attribute": "src",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"mediaAlt": {
 			"type": "string",
 			"source": "attribute",
 			"selector": ".smb-hero-header__figure img",
 			"attribute": "alt",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"mediaWidth": {
 			"type": "string",
@@ -45,7 +47,8 @@
 			"default": "full"
 		},
 		"mediaType": {
-			"type": "string"
+			"type": "string",
+			"role": "content"
 		},
 		"focalPoint": {
 			"type": "object"
@@ -181,7 +184,8 @@
 			"default": {
 				"type": "constrained"
 			}
-		}
+		},
+		"contentRole": true
 	},
 	"style": "file:./style-index.css",
 	"editorStyle": "file:./index.css",

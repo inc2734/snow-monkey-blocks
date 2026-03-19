@@ -34,7 +34,9 @@
 				"style": true,
 				"width": true
 			}
-		}
+		},
+		"contentRole": true,
+		"listView": true
 	},
 	"example": {
 		"innerBlocks": [

@@ -56,7 +56,8 @@
 			"type": "string",
 			"source": "attribute",
 			"selector": "a",
-			"attribute": "href"
+			"attribute": "href",
+			"role": "content"
 		},
 		"rel": {
 			"type": "string",
@@ -89,6 +90,7 @@
 				"type": "constrained"
 			}
 		},
+		"contentRole": true,
 		"snowmonkeyeditor": {
 			"blockPresets": {
 				"ignore": true

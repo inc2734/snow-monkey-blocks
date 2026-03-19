@@ -21,7 +21,8 @@
 			"type": "string",
 			"source": "html",
 			"selector": ".smb-step__item__title > span",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"numberColor": {
 			"type": "string"
@@ -50,7 +51,8 @@
 			"default": {
 				"type": "constrained"
 			}
-		}
+		},
+		"contentRole": true
 	},
 	"editorScript": "file:./index.js"
 }

@@ -33,7 +33,8 @@
 			"default": {
 				"type": "constrained"
 			}
-		}
+		},
+		"contentRole": true
 	},
 	"example": {
 		"innerBlocks": [

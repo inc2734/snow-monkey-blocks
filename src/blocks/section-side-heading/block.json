@@ -38,19 +38,22 @@
 			"type": "string",
 			"source": "html",
 			"selector": ".smb-section__title",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"subtitle": {
 			"type": "string",
 			"source": "html",
 			"selector": ".smb-section__subtitle",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"lede": {
 			"type": "string",
 			"source": "html",
 			"selector": ".smb-section__lede",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 
 		"wrapperTagName": {
@@ -185,6 +188,7 @@
 				"type": "constrained"
 			}
 		},
+		"contentRole": true,
 		"snowmonkeyeditor": {
 			"blockPresets": {
 				"ignore": [ "title", "subtitle", "lede" ]

@@ -12,7 +12,8 @@
 			"type": "string",
 			"source": "html",
 			"selector": ".smb-directory-structure__item__name",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"iconVendor": {
 			"type": "string",
@@ -48,7 +49,8 @@
 			"__experimentalDefaultControls": {
 				"fontSize": true
 			}
-		}
+		},
+		"contentRole": true
 	},
 	"editorScript": "file:./index.js"
 }

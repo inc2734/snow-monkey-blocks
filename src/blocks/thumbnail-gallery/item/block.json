@@ -10,21 +10,24 @@
 	"attributes": {
 		"imageID": {
 			"type": "number",
-			"default": 0
+			"default": 0,
+			"role": "content"
 		},
 		"imageURL": {
 			"type": "string",
 			"source": "attribute",
 			"selector": ".smb-thumbnail-gallery__item__figure > img",
 			"attribute": "src",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"imageAlt": {
 			"type": "string",
 			"source": "attribute",
 			"selector": ".smb-thumbnail-gallery__item__figure > img",
 			"attribute": "alt",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"imageWidth": {
 			"type": "string",
@@ -48,7 +51,8 @@
 			"type": "string",
 			"source": "html",
 			"selector": ".smb-thumbnail-gallery__item__caption",
-			"default": ""
+			"default": "",
+			"role": "content"
 		}
 	},
 	"supports": {

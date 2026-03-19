@@ -27,7 +27,9 @@
 			"default": {
 				"type": "flex"
 			}
-		}
+		},
+		"contentRole": true,
+		"listView": true
 	},
 	"example": {
 		"innerBlocks": [

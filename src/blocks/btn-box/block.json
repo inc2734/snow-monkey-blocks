@@ -12,13 +12,15 @@
 			"type": "string",
 			"source": "html",
 			"selector": ".smb-btn-box__lede",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"note": {
 			"type": "string",
 			"source": "html",
 			"selector": ".smb-btn-box__note",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"backgroundColor": {
 			"type": "string"
@@ -27,14 +29,16 @@
 			"type": "string",
 			"source": "html",
 			"selector": ".smb-btn__label",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"btnURL": {
 			"type": "string",
 			"source": "attribute",
 			"selector": ".smb-btn",
 			"attribute": "href",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"btnTarget": {
 			"type": "string",

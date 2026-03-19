@@ -33,7 +33,9 @@
 		"align": [ "wide", "full" ],
 		"spacing": {
 			"margin": true
-		}
+		},
+		"contentRole": true,
+		"listView": true
 	},
 	"editorScript": "file:./index.js",
 	"viewScript": [ "slick-carousel", "file:./script.js" ]

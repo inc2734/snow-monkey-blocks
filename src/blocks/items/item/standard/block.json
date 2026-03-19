@@ -16,26 +16,30 @@
 			"type": "string",
 			"source": "html",
 			"selector": ".smb-items__item__title",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"lede": {
 			"type": "string",
 			"source": "html",
 			"selector": ".smb-items__item__lede",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"summary": {
 			"type": "string",
 			"source": "html",
 			"selector": ".smb-items__item__content",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"url": {
 			"type": "string",
 			"source": "attribute",
 			"selector": ".smb-items__item__action a",
 			"attribute": "href",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"target": {
 			"type": "string",
@@ -50,21 +54,24 @@
 		},
 		"imageID": {
 			"type": "number",
-			"default": 0
+			"default": 0,
+			"role": "content"
 		},
 		"imageURL": {
 			"type": "string",
 			"source": "attribute",
 			"selector": ".smb-items__item__figure > img",
 			"attribute": "src",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"imageAlt": {
 			"type": "string",
 			"source": "attribute",
 			"selector": ".smb-items__item__figure > img",
 			"attribute": "alt",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"imageWidth": {
 			"type": "string",
@@ -92,7 +99,8 @@
 			"type": "string",
 			"source": "html",
 			"selector": ".smb-items__item__btn > .smb-btn__label",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"btnBackgroundColor": {
 			"type": "string"

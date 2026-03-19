@@ -12,7 +12,8 @@
 			"type": "string",
 			"source": "html",
 			"selector": ".smb-directory-structure__item__name",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"iconVendor": {
 			"type": "string",

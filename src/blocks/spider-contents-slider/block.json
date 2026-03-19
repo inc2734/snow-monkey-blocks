@@ -94,7 +94,9 @@
 		"align": [ "wide", "full" ],
 		"spacing": {
 			"margin": true
-		}
+		},
+		"contentRole": true,
+		"listView": true
 	},
 	"editorStyle": "file:./index.css",
 	"editorScript": "file:./index.js",

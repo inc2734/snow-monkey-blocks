@@ -10,7 +10,8 @@
 	"attributes": {
 		"title": {
 			"type": "string",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"headings": {
 			"type": "string",

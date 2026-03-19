@@ -59,7 +59,8 @@
 			"default": {
 				"type": "constrained"
 			}
-		}
+		},
+		"contentRole": true
 	},
 	"editorScript": "file:./index.js"
 }

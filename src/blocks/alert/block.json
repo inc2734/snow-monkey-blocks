@@ -12,7 +12,8 @@
 			"type": "string",
 			"source": "html",
 			"selector": ".smb-alert__title strong",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"modifier": {
 			"type": "string",
@@ -41,6 +42,7 @@
 				"type": "constrained"
 			}
 		},
+		"contentRole": true,
 		"snowmonkeyeditor": {
 			"blockPresets": {
 				"ignore": [ "title" ]

@@ -13,14 +13,16 @@
 			"type": "string",
 			"source": "html",
 			"selector": ".smb-btn__label",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"url": {
 			"type": "string",
 			"source": "attribute",
 			"selector": ".smb-btn-wrapper a",
 			"attribute": "href",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"target": {
 			"type": "string",

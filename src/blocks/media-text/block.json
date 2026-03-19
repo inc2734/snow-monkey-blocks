@@ -25,25 +25,29 @@
 			"type": "string",
 			"source": "html",
 			"selector": ".smb-media-text__title",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"mediaId": {
 			"type": "number",
-			"default": 0
+			"default": 0,
+			"role": "content"
 		},
 		"mediaUrl": {
 			"type": "string",
 			"source": "attribute",
 			"selector": ".smb-media-text__figure img, .smb-media-text__figure video",
 			"attribute": "src",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"mediaAlt": {
 			"type": "string",
 			"source": "attribute",
 			"selector": ".smb-media-text__figure img",
 			"attribute": "alt",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"mediaWidth": {
 			"type": "string",
@@ -64,13 +68,15 @@
 			"default": "full"
 		},
 		"mediaType": {
-			"type": "string"
+			"type": "string",
+			"role": "content"
 		},
 		"caption": {
 			"type": "string",
 			"source": "html",
 			"selector": ".smb-media-text__caption",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"mediaPosition": {
 			"type": "string",
@@ -142,7 +148,8 @@
 			"default": {
 				"type": "constrained"
 			}
-		}
+		},
+		"contentRole": true
 	},
 	"style": "file:./style-index.css",
 	"editorScript": "file:./index.js"

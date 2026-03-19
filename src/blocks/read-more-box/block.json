@@ -79,6 +79,7 @@
 				"type": "constrained"
 			}
 		},
+		"contentRole": true,
 		"snowmonkeyeditor": {
 			"blockPresets": {
 				"ignore": [ "label", "closeLabel", "clientId" ]

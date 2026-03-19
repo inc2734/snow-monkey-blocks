@@ -12,7 +12,8 @@
 			"type": "string",
 			"source": "html",
 			"selector": ".smb-faq__item__question__body",
-			"default": ""
+			"default": "",
+			"role": "content"
 		},
 		"questionFontSizeSlug": {
 			"type": "string"
@@ -42,13 +43,15 @@
 			"type": "string",
 			"source": "html",
 			"selector": ".smb-faq__item__question__label",
-			"default": "Q"
+			"default": "Q",
+			"role": "content"
 		},
 		"answerLabel": {
 			"type": "string",
 			"source": "html",
 			"selector": ".smb-faq__item__answer__label",
-			"default": "A"
+			"default": "A",
+			"role": "content"
 		},
 		"templateLock": {
 			"type": [ "string", "boolean" ],
@@ -67,7 +70,8 @@
 			"default": {
 				"type": "constrained"
 			}
-		}
+		},
+		"contentRole": true
 	},
 	"editorScript": "file:./index.js"
 }
