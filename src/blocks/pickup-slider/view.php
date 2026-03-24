@@ -63,7 +63,6 @@ if ( ! empty( $attributes['className'] ) ) {
 $block_wrapper_attributes = get_block_wrapper_attributes(
 	array(
 		'class' => implode( ' ', $classnames ),
-		'id'    => $anchor,
 	)
 );
 ?>
