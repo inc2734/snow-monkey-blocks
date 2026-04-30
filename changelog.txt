@@ -1,5 +1,11 @@
 *** Changelog ***
 
+= 24.1.12 =
+* [Baloon] Fix incorrect styles.
+* [Slider] Fix a vulnerability.
+* [Hero header] Some fixes.
+* [Box] Some fixes.
+
 = 24.1.11 =
 * [FAQ] Fixed a bug where correct structured data was not output.
 
