@@ -2,7 +2,7 @@
 Contributors: inc2734, mayukojpn, livevalue, kmix39, kngsmym, kokuboyuki, richaber, witch_doktor, rocketmartue, kutsu, toru
 Donate link: https://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: gutenberg, block, blocks, editor, gutenberg blocks
-Stable tag: 24.1.11
+Stable tag: 24.1.12
 Requires at least: 7.0-beta3
 Tested up to: 7.0-beta3
 Requires PHP: 7.4
