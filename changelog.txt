@@ -1,5 +1,14 @@
 *** Changelog ***
 
+= 25.0.0 =
+* WordPress 7.0 compatible.
+* Requires WordPress 7.0 or higher.
+* The icons for each block have been redesigned.
+* [Balloon] Fixed a bug where setting the border color would cause the border to appear outside the element.
+* [Box] Minor bug fixes.
+* [Pricing table] Fixed a bug that caused the design to break when viewed on a tablet screen.
+* [Section (Break the grid)] Fixed a bug that caused an Uncaught TypeError to be output in the editor.
+
 = 24.1.12 =
 * [Baloon] Fix incorrect styles.
 * [Slider] Fix a vulnerability.
