@@ -1,5 +1,8 @@
 *** Changelog ***
 
+= 25.0.1 =
+* Fix uninstall process.
+
 = 25.0.0 =
 * WordPress 7.0 compatible.
 * Requires WordPress 7.0 or higher.
