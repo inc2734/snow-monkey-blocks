@@ -222,6 +222,13 @@ class Bootstrap {
 require_once __DIR__ . '/vendor/autoload.php';
 
 /**
+ * Main file path of this plugin.
+ *
+ * @var string
+ */
+define( 'SNOW_MONKEY_BLOCKS_MAIN_FILE_PATH', __FILE__ );
+
+/**
  * Directory url of this plugin.
  *
  * @var string

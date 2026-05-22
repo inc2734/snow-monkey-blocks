@@ -34,7 +34,7 @@ class Manager {
 		add_action( 'init', array( $this, '_unregister_block_type' ), 10000 );
 
 		register_uninstall_hook(
-			__FILE__,
+			SNOW_MONKEY_BLOCKS_MAIN_FILE_PATH,
 			array( '\Snow_Monkey\Plugin\Blocks\App\Controller\Manager', '_uninstall' )
 		);
 	}
