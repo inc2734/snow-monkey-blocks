@@ -12,7 +12,7 @@ const isPassiveSupported = () => {
 
 		window.addEventListener( 'test', options, options );
 		window.removeEventListener( 'test', options, options );
-	} catch ( err ) {
+	} catch {
 		passiveSupported = false;
 	}
 
