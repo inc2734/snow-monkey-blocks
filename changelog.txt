@@ -1,5 +1,8 @@
 *** Changelog ***
 
+= 25.0.2 =
+* [Read more box] Fixed an issue where button color settings were sometimes not applied.
+
 = 25.0.1 =
 * Fix uninstall process.
 
