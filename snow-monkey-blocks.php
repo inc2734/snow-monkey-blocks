@@ -170,7 +170,6 @@ class Bootstrap {
 		include_once __DIR__ . '/dist/blocks/thumbnail-gallery/index.php';
 		include_once __DIR__ . '/dist/blocks/thumbnail-gallery/item/index.php';
 	}
-
 }
 
 require_once __DIR__ . '/vendor/autoload.php';
