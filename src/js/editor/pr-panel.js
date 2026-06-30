@@ -3,17 +3,17 @@ import { PluginDocumentSettingPanel } from '@wordpress/editor';
 import { __ } from '@wordpress/i18n';
 import { createInterpolateElement } from '@wordpress/element';
 
-if ( ! window.smb?.isPro ) {
+if (!window.smb?.isPro) {
 	const SnowMonkeyPrPanel = () => (
 		<PluginDocumentSettingPanel
 			name="snow-monkey-pr"
-			title={ __(
+			title={__(
 				'[ PR ] Premium WordPress Theme Snow Monkey',
 				'snow-monkey-blocks'
-			) }
+			)}
 		>
 			<p>
-				{ createInterpolateElement(
+				{createInterpolateElement(
 					__(
 						'Snow Monkey Blocks is optimized for the <a>Snow Monkey</a> theme, but it can also be used with other themes.',
 						'snow-monkey-blocks'
@@ -24,14 +24,14 @@ if ( ! window.smb?.isPro ) {
 							<a
 								href="https://snow-monkey.2inc.org/"
 								target="_blank"
-								rel="noreferrer"
+								rel="noopener noreferrer"
 							/>
 						),
 					}
-				) }
+				)}
 			</p>
 			<p>
-				{ createInterpolateElement(
+				{createInterpolateElement(
 					__(
 						'When used together with the <a>Snow Monkey</a> theme, it can be displayed with the most beautiful balance, and it is displayed on the edit screen with the same design as the front screen.',
 						'snow-monkey-blocks'
@@ -42,14 +42,14 @@ if ( ! window.smb?.isPro ) {
 							<a
 								href="https://snow-monkey.2inc.org/"
 								target="_blank"
-								rel="noreferrer"
+								rel="noopener noreferrer"
 							/>
 						),
 					}
-				) }
+				)}
 			</p>
 		</PluginDocumentSettingPanel>
 	);
 
-	registerPlugin( 'snow-monkey-pr', { render: SnowMonkeyPrPanel } );
+	registerPlugin('snow-monkey-pr', { render: SnowMonkeyPrPanel });
 }

@@ -12,6 +12,7 @@ import {
 	editGridColumnProp,
 	editGridRowProp,
 } from './editor/dimensions/dimensions';
+import './editor/pr-panel';
 
 function addEditProps( settings ) {
 	settings = editFlexGrowProp( settings );
@@ -74,5 +75,3 @@ addFilter(
 	'smb/editor/with-inspector-controls',
 	withInspectorControls
 );
-
-import './editor/pr-panel';
