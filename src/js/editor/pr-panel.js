@@ -20,6 +20,7 @@ if ( ! window.smb?.isPro ) {
 					),
 					{
 						a: (
+							// eslint-disable-next-line jsx-a11y/anchor-has-content
 							<a
 								href="https://snow-monkey.2inc.org/"
 								target="_blank"
@@ -37,6 +38,7 @@ if ( ! window.smb?.isPro ) {
 					),
 					{
 						a: (
+							// eslint-disable-next-line jsx-a11y/anchor-has-content
 							<a
 								href="https://snow-monkey.2inc.org/"
 								target="_blank"
