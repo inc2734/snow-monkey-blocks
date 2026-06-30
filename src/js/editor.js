@@ -74,3 +74,5 @@ addFilter(
 	'smb/editor/with-inspector-controls',
 	withInspectorControls
 );
+
+import './editor/pr-panel';
