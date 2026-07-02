@@ -1,5 +1,8 @@
 *** Changelog ***
 
+= 25.0.3 =
+* Removed the old PR meta box and migrated to the `PluginDocumentSettingPanel`.
+
 = 25.0.2 =
 * [Read more box] Fixed an issue where button color settings were sometimes not applied.
 
