@@ -1,7 +1,33 @@
 import { registerPlugin } from '@wordpress/plugins';
 import { PluginDocumentSettingPanel } from '@wordpress/editor';
 import { __ } from '@wordpress/i18n';
-import { createInterpolateElement } from '@wordpress/element';
+
+const SnowMonkeyLink = ( { children } ) => (
+	<a
+		href="https://snow-monkey.2inc.org/"
+		target="_blank"
+		rel="noopener noreferrer"
+	>
+		{ children }
+	</a>
+);
+
+const createLinkedText = ( text ) => {
+	if ( ! text.includes( '%1$s' ) || ! text.includes( '%2$s' ) ) {
+		return text;
+	}
+
+	const [ beforeLink, afterStartTag ] = text.split( '%1$s' );
+	const [ linkText, afterLink ] = afterStartTag.split( '%2$s' );
+
+	return (
+		<>
+			{ beforeLink }
+			<SnowMonkeyLink>{ linkText }</SnowMonkeyLink>
+			{ afterLink }
+		</>
+	);
+};
 
 if ( ! window.smb?.isPro ) {
 	const SnowMonkeyPrPanel = () => (
@@ -13,39 +39,21 @@ if ( ! window.smb?.isPro ) {
 			) }
 		>
 			<p>
-				{ createInterpolateElement(
+				{ createLinkedText(
+					// translators: %1$s: Start a tag, %2$s: End a tag.
 					__(
-						'Snow Monkey Blocks is optimized for the <a>Snow Monkey</a> theme, but it can also be used with other themes.',
+						'Snow Monkey Blocks is optimized for the %1$sSnow Monkey%2$s theme, but it can also be used with other themes.',
 						'snow-monkey-blocks'
-					),
-					{
-						a: (
-							// eslint-disable-next-line jsx-a11y/anchor-has-content
-							<a
-								href="https://snow-monkey.2inc.org/"
-								target="_blank"
-								rel="noopener noreferrer"
-							/>
-						),
-					}
+					)
 				) }
 			</p>
 			<p>
-				{ createInterpolateElement(
+				{ createLinkedText(
+					// translators: %1$s: Start a tag, %2$s: End a tag.
 					__(
-						'When used together with the <a>Snow Monkey</a> theme, it can be displayed with the most beautiful balance, and it is displayed on the edit screen with the same design as the front screen.',
+						'When used together with the %1$sSnow Monkey%2$s theme, it can be displayed with the most beautiful balance, and it is displayed on the edit screen with the same design as the front screen.',
 						'snow-monkey-blocks'
-					),
-					{
-						a: (
-							// eslint-disable-next-line jsx-a11y/anchor-has-content
-							<a
-								href="https://snow-monkey.2inc.org/"
-								target="_blank"
-								rel="noopener noreferrer"
-							/>
-						),
-					}
+					)
 				) }
 			</p>
 		</PluginDocumentSettingPanel>

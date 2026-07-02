@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Snow Monkey Blocks\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-"
 "blocks\n"
-"POT-Creation-Date: 2025-12-05T11:05:38+00:00\n"
-"PO-Revision-Date: 2025-12-05 20:06+0900\n"
+"POT-Creation-Date: 2026-07-02T02:04:27+00:00\n"
+"PO-Revision-Date: 2026-07-02 11:05+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: Takashi Kitajima <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -29,8 +29,8 @@ msgstr ""
 #. Plugin Name of the plugin
 #: snow-monkey-blocks.php App/Controller/Manager.php:47
 #: App/Controller/Manager.php:48 App/Controller/Manager.php:54
-#: snow-monkey-blocks.php:60 snow-monkey-blocks.php:69
-#: snow-monkey-blocks.php:78 snow-monkey-blocks.php:87
+#: snow-monkey-blocks.php:58 snow-monkey-blocks.php:67
+#: snow-monkey-blocks.php:76 snow-monkey-blocks.php:85
 msgid "Snow Monkey Blocks"
 msgstr "Snow Monkey Blocks"
 
@@ -68,7 +68,7 @@ msgstr "記事"
 
 #: dist/blocks/categories-list/view.php:68
 #: dist/blocks/categories-list/index.js:1 dist/blocks/recent-posts/index.js:7
-#: dist/blocks/taxonomy-posts/index.js:1
+#: dist/blocks/taxonomy-posts/index.js:4
 msgid "Recent posts"
 msgstr "最近の投稿"
 
@@ -80,7 +80,7 @@ msgstr "(タイトルなし)"
 msgid "No pages found."
 msgstr "ページが見つかりませんでした。"
 
-#: dist/blocks/contents-outline/view.php:54
+#: dist/blocks/contents-outline/view.php:50
 #: dist/blocks/contents-outline/index.js:1
 msgid "Contents outline"
 msgstr "目次"
@@ -97,46 +97,21 @@ msgstr "自動再生を一時停止"
 msgid "Start autoplay"
 msgstr "自動再生を開始"
 
-#: snow-monkey-blocks.php:62
+#: snow-monkey-blocks.php:60
 msgid "[Common]"
 msgstr "[一般]"
 
-#: snow-monkey-blocks.php:71
+#: snow-monkey-blocks.php:69
 msgid "[Sections]"
 msgstr "[セクション]"
 
-#: snow-monkey-blocks.php:80
+#: snow-monkey-blocks.php:78
 msgid "[Layout]"
 msgstr "[レイアウト]"
 
-#: snow-monkey-blocks.php:89
+#: snow-monkey-blocks.php:87
 msgid "[Deprecated]"
 msgstr "[非推奨]"
-
-#: snow-monkey-blocks.php:189
-msgid "[ PR ] Premium WordPress Theme Snow Monkey"
-msgstr "【PR】プレミアム WordPress テーマ Snow Monkey"
-
-#. translators: %1$s: Start a tag, %2$s: End a tag.
-#: snow-monkey-blocks.php:207
-#, php-format
-msgid ""
-"Snow Monkey Blocks is optimized for the %1$sSnow Monkey%2$s theme, but it "
-"can also be used with other themes."
-msgstr ""
-"Snow Monkey Blocksは %1$sSnow Monkey%2$s テーマに最適化されていますが、他の"
-"テーマでも使用できます。"
-
-#. translators: %1$s: Start a tag, %2$s: End a tag.
-#: snow-monkey-blocks.php:213
-#, php-format
-msgid ""
-"When used together with the %1$sSnow Monkey%2$s theme, it can be displayed "
-"with the most beautiful balance, and it is displayed on the edit screen with "
-"the same design as the front screen."
-msgstr ""
-"%1$sSnow Monkey%2$s テーマと一緒に使用すると、最も美しいバランスで表示され、"
-"フロントスクリーンと同じデザインで編集画面に表示されます。"
 
 #: dist/blocks/accordion/item/index.js:1 dist/blocks/alert/index.js:1
 #: dist/blocks/btn/index.js:1 dist/blocks/categories-list/index.js:1
@@ -448,26 +423,6 @@ msgstr "背景"
 msgid "Learn more"
 msgstr "さらに詳しく"
 
-#: dist/blocks/btn-box/index.js:1 dist/blocks/btn/index.js:1
-#: dist/blocks/child-pages/index.js:4 dist/blocks/countdown/index.js:1
-#: dist/blocks/hero-header/index.js:1 dist/blocks/items/index.js:1
-#: dist/blocks/media-text/index.js:1 dist/blocks/read-more-box/index.js:1
-#: dist/blocks/recent-posts/index.js:7 dist/blocks/rss/index.js:4
-#: dist/blocks/section-break-the-grid/index.js:1
-#: dist/blocks/section-side-heading/index.js:1
-#: dist/blocks/section-with-bgimage/index.js:1
-#: dist/blocks/section-with-bgvideo/index.js:1 dist/blocks/section/index.js:1
-#: dist/blocks/slider/index.js:1 dist/blocks/spider-slider/index.js:1
-#: dist/blocks/tabs/index.js:1 dist/blocks/taxonomy-posts/index.js:4
-#: dist/blocks/taxonomy-terms/index.js:1
-msgid "Default"
-msgstr "デフォルト"
-
-#: dist/blocks/btn-box/index.js:1 dist/blocks/btn/index.js:1
-#: dist/blocks/read-more-box/index.js:1
-msgid "Ghost"
-msgstr "ゴースト"
-
 #: dist/blocks/btn-box/index.js:1 dist/blocks/items/item/block-link/index.js:1
 #: dist/blocks/items/item/standard/index.js:1
 #: dist/blocks/pricing-table/item/index.js:1
@@ -567,6 +522,26 @@ msgstr "注釈を書く…"
 #: dist/blocks/step/item/standard/index.js:1
 msgid "Link"
 msgstr "リンク"
+
+#: dist/blocks/btn-box/index.js:1 dist/blocks/btn/index.js:1
+#: dist/blocks/child-pages/index.js:4 dist/blocks/countdown/index.js:1
+#: dist/blocks/hero-header/index.js:1 dist/blocks/items/index.js:1
+#: dist/blocks/media-text/index.js:1 dist/blocks/read-more-box/index.js:1
+#: dist/blocks/recent-posts/index.js:7 dist/blocks/rss/index.js:4
+#: dist/blocks/section-break-the-grid/index.js:1
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1 dist/blocks/section/index.js:1
+#: dist/blocks/slider/index.js:1 dist/blocks/spider-slider/index.js:1
+#: dist/blocks/tabs/index.js:1 dist/blocks/taxonomy-posts/index.js:4
+#: dist/blocks/taxonomy-terms/index.js:1
+msgid "Default"
+msgstr "デフォルト"
+
+#: dist/blocks/btn-box/index.js:1 dist/blocks/btn/index.js:1
+#: dist/blocks/read-more-box/index.js:1
+msgid "Ghost"
+msgstr "ゴースト"
 
 #: dist/blocks/btn/index.js:1
 msgid "Unlink"
@@ -743,7 +718,6 @@ msgstr "自動再生の一時停止ボタンを表示"
 #: dist/blocks/items/item/standard/index.js:1 dist/blocks/media-text/index.js:1
 #: dist/blocks/panels/item/horizontal/index.js:1
 #: dist/blocks/panels/item/vertical/index.js:1
-#: dist/blocks/pricing-table/index.js:1
 #: dist/blocks/section-break-the-grid/index.js:1
 #: dist/blocks/section-side-heading/index.js:1
 #: dist/blocks/section-with-bgimage/index.js:1
@@ -838,30 +812,6 @@ msgstr "最初の見出しの前に移動"
 msgid "In the actual screen, it is displayed when headings exists on the page."
 msgstr "実際の画面では、見出しがページに存在する場合に表示されます。"
 
-#: dist/blocks/countdown/index.js:1
-msgid "Days"
-msgstr "日"
-
-#: dist/blocks/countdown/index.js:1
-msgid "Hours"
-msgstr "時間"
-
-#: dist/blocks/countdown/index.js:1
-msgid "Minutes"
-msgstr "分"
-
-#: dist/blocks/countdown/index.js:1
-msgid "Seconds"
-msgstr "秒"
-
-#: dist/blocks/countdown/index.js:1
-msgid "Inline"
-msgstr "インライン"
-
-#: dist/blocks/countdown/index.js:1
-msgid "Countdown"
-msgstr "カウントダウン"
-
 #: dist/blocks/countdown/index.js:1 dist/blocks/rating-box/item/index.js:1
 msgid "Numeric font size"
 msgstr "数値の文字サイズ"
@@ -889,6 +839,30 @@ msgstr "時刻の色"
 #: dist/blocks/countdown/index.js:1
 msgid "Date time"
 msgstr "日時"
+
+#: dist/blocks/countdown/index.js:1
+msgid "Days"
+msgstr "日"
+
+#: dist/blocks/countdown/index.js:1
+msgid "Hours"
+msgstr "時間"
+
+#: dist/blocks/countdown/index.js:1
+msgid "Minutes"
+msgstr "分"
+
+#: dist/blocks/countdown/index.js:1
+msgid "Seconds"
+msgstr "秒"
+
+#: dist/blocks/countdown/index.js:1
+msgid "Inline"
+msgstr "インライン"
+
+#: dist/blocks/countdown/index.js:1
+msgid "Countdown"
+msgstr "カウントダウン"
 
 #: dist/blocks/custom-field/index.js:1
 msgid "Custom field name"
@@ -1112,43 +1086,6 @@ msgid "Justify items bottom"
 msgstr "コンテンツを下揃え"
 
 #: dist/blocks/hero-header/index.js:1
-msgid "Left / Top / Out"
-msgstr "左 / 上 / アウト"
-
-#: dist/blocks/hero-header/index.js:1
-msgid "Right / Top / Out"
-msgstr "右 / 上 / アウト"
-
-#: dist/blocks/hero-header/index.js:1
-msgid "Left / Bottom / Out"
-msgstr "左 / 下 / アウト"
-
-#: dist/blocks/hero-header/index.js:1
-msgid "Right / Bottom / Out"
-msgstr "右 / 下 / アウト"
-
-#: dist/blocks/hero-header/index.js:1
-msgid "Left / Top / In"
-msgstr "左 / 上 / イン"
-
-#: dist/blocks/hero-header/index.js:1
-msgid "Right / Top / In"
-msgstr "右 / 上 / イン"
-
-#: dist/blocks/hero-header/index.js:1
-msgid "Left / Bottom / In"
-msgstr "左 / 下 / イン"
-
-#: dist/blocks/hero-header/index.js:1
-msgid "Right / Bottom / In"
-msgstr "右 / 下 / イン"
-
-#: dist/blocks/hero-header/index.js:1 dist/blocks/information/index.js:1
-#: dist/blocks/step/item/standard/index.js:1 dist/blocks/tabs/index.js:1
-msgid "Center"
-msgstr "中央"
-
-#: dist/blocks/hero-header/index.js:1
 msgid "Maximum width"
 msgstr "最大幅"
 
@@ -1226,6 +1163,43 @@ msgstr "インライン軸での配置"
 #: dist/blocks/hero-header/index.js:1
 msgid "Alignment on cross axis"
 msgstr "交差軸での配置"
+
+#: dist/blocks/hero-header/index.js:1
+msgid "Left / Top / Out"
+msgstr "左 / 上 / アウト"
+
+#: dist/blocks/hero-header/index.js:1
+msgid "Right / Top / Out"
+msgstr "右 / 上 / アウト"
+
+#: dist/blocks/hero-header/index.js:1
+msgid "Left / Bottom / Out"
+msgstr "左 / 下 / アウト"
+
+#: dist/blocks/hero-header/index.js:1
+msgid "Right / Bottom / Out"
+msgstr "右 / 下 / アウト"
+
+#: dist/blocks/hero-header/index.js:1
+msgid "Left / Top / In"
+msgstr "左 / 上 / イン"
+
+#: dist/blocks/hero-header/index.js:1
+msgid "Right / Top / In"
+msgstr "右 / 上 / イン"
+
+#: dist/blocks/hero-header/index.js:1
+msgid "Left / Bottom / In"
+msgstr "左 / 下 / イン"
+
+#: dist/blocks/hero-header/index.js:1
+msgid "Right / Bottom / In"
+msgstr "右 / 下 / イン"
+
+#: dist/blocks/hero-header/index.js:1 dist/blocks/information/index.js:1
+#: dist/blocks/step/item/standard/index.js:1 dist/blocks/tabs/index.js:1
+msgid "Center"
+msgstr "中央"
 
 #: dist/blocks/information/index.js:1
 msgid "Label column size"
@@ -1476,10 +1450,6 @@ msgid "circle-chevron-right"
 msgstr "circle-chevron-right"
 
 #: dist/blocks/media-text/index.js:1
-msgid "Media & sentence"
-msgstr "メディアと文章"
-
-#: dist/blocks/media-text/index.js:1
 msgid "Image column size"
 msgstr "画像カラムのサイズ"
 
@@ -1532,6 +1502,10 @@ msgstr "メディアを右に表示"
 #: dist/blocks/thumbnail-gallery/item/index.js:1
 msgid "Write caption…"
 msgstr "キャプションを書く…"
+
+#: dist/blocks/media-text/index.js:1
+msgid "Media & sentence"
+msgstr "メディアと文章"
 
 #: dist/blocks/panels/index.js:1
 msgid "Set padding around images"
@@ -1687,14 +1661,6 @@ msgstr "閉じているとき下部をマスクする"
 msgid "Mask Color"
 msgstr "マスクの色"
 
-#: dist/blocks/recent-posts/index.js:1 dist/blocks/taxonomy-posts/index.js:1
-msgid "Posts list"
-msgstr "投稿リスト"
-
-#: dist/blocks/recent-posts/index.js:1 dist/blocks/taxonomy-posts/index.js:1
-msgid "Latest posts"
-msgstr "最新の投稿"
-
 #: dist/blocks/recent-posts/index.js:1
 msgid "Post type"
 msgstr "投稿タイプ"
@@ -1773,6 +1739,14 @@ msgstr "一致する投稿がない場合のテキスト"
 #: dist/blocks/taxonomy-posts/index.js:4
 msgid "Allow HTML"
 msgstr "HTML 許可"
+
+#: dist/blocks/recent-posts/index.js:7 dist/blocks/taxonomy-posts/index.js:4
+msgid "Posts list"
+msgstr "投稿リスト"
+
+#: dist/blocks/recent-posts/index.js:7 dist/blocks/taxonomy-posts/index.js:4
+msgid "Latest posts"
+msgstr "最新の投稿"
 
 #: dist/blocks/rss/index.js:1
 msgid "Edit RSS URL"
@@ -2034,27 +2008,6 @@ msgid "Line height"
 msgstr "行の高さ"
 
 #: dist/blocks/section-break-the-grid/index.js:1
-#: dist/blocks/section-side-heading/index.js:1
-#: dist/blocks/section-with-bgimage/index.js:1
-#: dist/blocks/section-with-bgvideo/index.js:1
-msgid "Outer"
-msgstr "外枠"
-
-#: dist/blocks/section-break-the-grid/index.js:1
-#: dist/blocks/section-side-heading/index.js:1
-#: dist/blocks/section-with-bgimage/index.js:1
-#: dist/blocks/section-with-bgvideo/index.js:1
-msgid "Wrapper"
-msgstr "ラッパー"
-
-#: dist/blocks/section-break-the-grid/index.js:1
-#: dist/blocks/section-side-heading/index.js:1
-#: dist/blocks/section-with-bgimage/index.js:1
-#: dist/blocks/section-with-bgvideo/index.js:1
-msgid "Container"
-msgstr "コンテナー"
-
-#: dist/blocks/section-break-the-grid/index.js:1
 msgid "-50%"
 msgstr "-50%"
 
@@ -2227,6 +2180,27 @@ msgstr "メディアを上に表示"
 msgid "Show media on bottom"
 msgstr "メディアを下に表示"
 
+#: dist/blocks/section-break-the-grid/index.js:25
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+msgid "Outer"
+msgstr "外枠"
+
+#: dist/blocks/section-break-the-grid/index.js:25
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+msgid "Wrapper"
+msgstr "ラッパー"
+
+#: dist/blocks/section-break-the-grid/index.js:25
+#: dist/blocks/section-side-heading/index.js:1
+#: dist/blocks/section-with-bgimage/index.js:1
+#: dist/blocks/section-with-bgvideo/index.js:1
+msgid "Container"
+msgstr "コンテナー"
+
 #: dist/blocks/section-side-heading/index.js:1
 msgid "Columns settings"
 msgstr "カラム設定"
@@ -2248,15 +2222,6 @@ msgid "Show heading on right"
 msgstr "見出しを右に表示"
 
 #: dist/blocks/section-with-bgimage/index.js:1
-#: dist/blocks/section-with-bgvideo/index.js:1
-msgid "Main visual"
-msgstr "メインビジュアル"
-
-#: dist/blocks/section-with-bgimage/index.js:1
-msgid "Header image"
-msgstr "ヘッダー画像"
-
-#: dist/blocks/section-with-bgimage/index.js:1
 msgid "Parallax (Deprecated)"
 msgstr "パララックス（非推奨）"
 
@@ -2272,9 +2237,14 @@ msgstr ""
 msgid "Repeat images"
 msgstr "画像を繰り返す"
 
+#: dist/blocks/section-with-bgimage/index.js:1
 #: dist/blocks/section-with-bgvideo/index.js:1
-msgid "Header video"
-msgstr "ヘッダー動画"
+msgid "Main visual"
+msgstr "メインビジュアル"
+
+#: dist/blocks/section-with-bgimage/index.js:1
+msgid "Header image"
+msgstr "ヘッダー画像"
 
 #: dist/blocks/section-with-bgvideo/index.js:1
 msgid "Video settings"
@@ -2291,6 +2261,10 @@ msgstr "動画の横幅"
 #: dist/blocks/section-with-bgvideo/index.js:1
 msgid "Video height"
 msgstr "ビデオの高さ"
+
+#: dist/blocks/section-with-bgvideo/index.js:1
+msgid "Header video"
+msgstr "ヘッダー動画"
 
 #: dist/blocks/slider/index.js:1
 msgid "Show dot indicators"
@@ -2347,12 +2321,6 @@ msgstr "スクロールするスライド数（スモールウインドウ）"
 #: dist/blocks/spider-contents-slider/index.js:1
 #: dist/blocks/spider-pickup-slider/index.js:1
 #: dist/blocks/spider-slider/index.js:1
-msgid "Carousel"
-msgstr "カルーセル"
-
-#: dist/blocks/spider-contents-slider/index.js:1
-#: dist/blocks/spider-pickup-slider/index.js:1
-#: dist/blocks/spider-slider/index.js:1
 msgid "Fade"
 msgstr "フェード"
 
@@ -2382,6 +2350,12 @@ msgstr "アニメーションの速さ（秒）"
 msgid "If \"0\", default animation speed."
 msgstr "「0」の場合、デフォルトの速さが使用されます。"
 
+#: dist/blocks/spider-contents-slider/index.js:1
+#: dist/blocks/spider-pickup-slider/index.js:1
+#: dist/blocks/spider-slider/index.js:1
+msgid "Carousel"
+msgstr "カルーセル"
+
 #: dist/blocks/spider-contents-slider/item/index.js:1
 msgid "Full height"
 msgstr "高さ100%"
@@ -2392,13 +2366,13 @@ msgstr "配置可能"
 
 #: dist/blocks/spider-pickup-slider/index.js:1
 #: dist/blocks/spider-slider/index.js:1
-msgid "Slider"
-msgstr "スライダー"
+msgid "Change dots to thumbnails"
+msgstr "ドットをサムネイルに変更"
 
 #: dist/blocks/spider-pickup-slider/index.js:1
 #: dist/blocks/spider-slider/index.js:1
-msgid "Change dots to thumbnails"
-msgstr "ドットをサムネイルに変更"
+msgid "Slider"
+msgstr "スライダー"
 
 #: dist/blocks/spider-slider/index.js:1
 msgid "Drag images, upload new ones or select files from your library."
@@ -2504,18 +2478,6 @@ msgid "Please select a term."
 msgstr "タームを選択してください。"
 
 #: dist/blocks/taxonomy-terms/index.js:1
-msgid "Categories"
-msgstr "カテゴリー"
-
-#: dist/blocks/taxonomy-terms/index.js:1
-msgid "Tags"
-msgstr "タグ"
-
-#: dist/blocks/taxonomy-terms/index.js:1
-msgid "Taxonomies"
-msgstr "タクソノミー"
-
-#: dist/blocks/taxonomy-terms/index.js:1
 msgid "Category id"
 msgstr "カテゴリーID"
 
@@ -2540,6 +2502,18 @@ msgid "Display count"
 msgstr "件数を表示"
 
 #: dist/blocks/taxonomy-terms/index.js:1
+msgid "Categories"
+msgstr "カテゴリー"
+
+#: dist/blocks/taxonomy-terms/index.js:1
+msgid "Tags"
+msgstr "タグ"
+
+#: dist/blocks/taxonomy-terms/index.js:1
+msgid "Taxonomies"
+msgstr "タクソノミー"
+
+#: dist/blocks/taxonomy-terms/index.js:1
 msgid "Slash"
 msgstr "スラッシュ"
 
@@ -2562,6 +2536,29 @@ msgstr "基本サイズ"
 #: dist/js/editor.js:1
 msgid "Basic size of the flex item."
 msgstr "フレックスアイテムの基本サイズ。"
+
+#: dist/js/editor.js:1
+msgid "[ PR ] Premium WordPress Theme Snow Monkey"
+msgstr "【PR】プレミアム WordPress テーマ Snow Monkey"
+
+#. translators: %1$s: Start a tag, %2$s: End a tag.
+#: dist/js/editor.js:4
+msgid ""
+"Snow Monkey Blocks is optimized for the %1$sSnow Monkey%2$s theme, but it "
+"can also be used with other themes."
+msgstr ""
+"Snow Monkey Blocksは %1$sSnow Monkey%2$s テーマに最適化されていますが、他の"
+"テーマでも使用できます。"
+
+#. translators: %1$s: Start a tag, %2$s: End a tag.
+#: dist/js/editor.js:7
+msgid ""
+"When used together with the %1$sSnow Monkey%2$s theme, it can be displayed "
+"with the most beautiful balance, and it is displayed on the edit screen with "
+"the same design as the front screen."
+msgstr ""
+"%1$sSnow Monkey%2$s テーマと一緒に使用すると、最も美しいバランスで表示され、"
+"フロントスクリーンと同じデザインで編集画面に表示されます。"
 
 #: dist/blocks/accordion/block.json
 msgctxt "block title"
