@@ -41,7 +41,6 @@ class Bootstrap {
 
 		add_filter( 'block_categories_all', array( $this, '_block_categories_all' ) );
 		add_action( 'init', array( $this, '_register_blocks' ) );
-		add_action( 'add_meta_boxes', array( $this, '_add_pr_meta_box' ) );
 	}
 
 	/**
@@ -170,52 +169,6 @@ class Bootstrap {
 		include_once __DIR__ . '/dist/blocks/testimonial/item/index.php';
 		include_once __DIR__ . '/dist/blocks/thumbnail-gallery/index.php';
 		include_once __DIR__ . '/dist/blocks/thumbnail-gallery/item/index.php';
-	}
-
-	/**
-	 * Add meta box for the Snow Monkey PR when the Gutenberg page or not using the Snow Monkey.
-	 *
-	 * @param string $post_type The post type.
-	 * @return void
-	 */
-	public function _add_pr_meta_box( $post_type ) {
-		if ( ! is_block_editor() || is_pro() ) {
-			return;
-		}
-
-		add_meta_box(
-			'snow-monkey-pr',
-			__( '[ PR ] Premium WordPress Theme Snow Monkey', 'snow-monkey-blocks' ),
-			array( $this, '_pr_meta_box_html' ),
-			$post_type,
-			'normal'
-		);
-	}
-
-	/**
-	 * Display Snow Monkey PR meta box html.
-	 *
-	 * @return void
-	 */
-	public function _pr_meta_box_html() {
-		?>
-		<p>
-			<?php
-			printf(
-				// translators: %1$s: Start a tag, %2$s: End a tag.
-				esc_html__( 'Snow Monkey Blocks is optimized for the %1$sSnow Monkey%2$s theme, but it can also be used with other themes.', 'snow-monkey-blocks' ),
-				'<a href="https://snow-monkey.2inc.org/" target="_blank">',
-				'</a>'
-			);
-			printf(
-				// translators: %1$s: Start a tag, %2$s: End a tag.
-				esc_html__( 'When used together with the %1$sSnow Monkey%2$s theme, it can be displayed with the most beautiful balance, and it is displayed on the edit screen with the same design as the front screen.', 'snow-monkey-blocks' ),
-				'<a href="https://snow-monkey.2inc.org/" target="_blank">',
-				'</a>'
-			);
-			?>
-		</p>
-		<?php
 	}
 }
 
