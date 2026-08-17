@@ -13,6 +13,8 @@ import {
 } from '@wordpress/block-editor';
 
 import {
+	BaseControl,
+	RangeControl,
 	SelectControl,
 	ToolbarButton,
 	ToolbarGroup,
@@ -218,6 +220,20 @@ export default function ( {
 	);
 
 	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
+	const gapOptions = [
+		{
+			label: 'S',
+			value: 1,
+		},
+		{
+			label: 'M',
+			value: 2,
+		},
+		{
+			label: 'L',
+			value: 3,
+		},
+	];
 
 	return (
 		<>
@@ -233,34 +249,45 @@ export default function ( {
 					}
 					panelId={ clientId }
 				>
-					<SelectControl
+					<BaseControl
 						__nextHasNoMarginBottom
+						id="snow-monkey-blocks/section-side-heading/gap"
 						label={ __( 'Gap', 'snow-monkey-blocks' ) }
-						value={ gap }
-						onChange={ ( value ) =>
-							setAttributes( {
-								gap: value,
-							} )
-						}
-						options={ [
-							{
-								value: '',
-								label: __( 'Default', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 's',
-								label: __( 'S', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'm',
-								label: __( 'M', 'snow-monkey-blocks' ),
-							},
-							{
-								value: 'l',
-								label: __( 'L', 'snow-monkey-blocks' ),
-							},
-						] }
-					/>
+						className="spacing-sizes-control"
+					>
+						<RangeControl
+							__nextHasNoMarginBottom
+							className="spacing-sizes-control__range-control"
+							value={
+								gapOptions.filter(
+									( option ) =>
+										option.label?.toLowerCase() === gap
+								)?.[ 0 ]?.value
+							}
+							resetFallbackValue={ undefined }
+							onChange={ ( value ) =>
+								setAttributes( {
+									gap: gapOptions
+										.filter(
+											( option ) => option.value === value
+										)?.[ 0 ]
+										?.label?.toLowerCase(),
+								} )
+							}
+							withInputField={ false }
+							min={ 1 }
+							max={ 3 }
+							marks
+							renderTooltipContent={ ( value ) =>
+								gapOptions
+									.filter(
+										( option ) => option.value === value
+									)?.[ 0 ]
+									?.label?.toUpperCase()
+							}
+							hideLabelFromVision
+						/>
+					</BaseControl>
 				</ToolsPanelItem>
 			</InspectorControls>
 

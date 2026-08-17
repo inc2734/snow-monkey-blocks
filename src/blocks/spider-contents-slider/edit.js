@@ -11,9 +11,9 @@ import {
 } from '@wordpress/block-editor';
 
 import {
+	BaseControl,
 	Button,
 	RangeControl,
-	SelectControl,
 	ToggleControl,
 	BorderBoxControl,
 	__experimentalToolsPanel as ToolsPanel,
@@ -269,20 +269,16 @@ export default function ( {
 
 	const gutterOptions = [
 		{
-			value: '',
-			label: __( 'None', 'snow-monkey-blocks' ),
+			label: 'S',
+			value: 1,
 		},
 		{
-			value: 's',
-			label: __( 'S', 'snow-monkey-blocks' ),
+			label: 'M',
+			value: 2,
 		},
 		{
-			value: 'm',
-			label: __( 'M', 'snow-monkey-blocks' ),
-		},
-		{
-			value: 'l',
-			label: __( 'L', 'snow-monkey-blocks' ),
+			label: 'L',
+			value: 3,
 		},
 	];
 
@@ -316,17 +312,45 @@ export default function ( {
 					}
 					panelId={ clientId }
 				>
-					<SelectControl
+					<BaseControl
 						__nextHasNoMarginBottom
+						id="snow-monkey-blocks/spider-contents-slider/gap"
 						label={ __( 'Gap', 'snow-monkey-blocks' ) }
-						value={ gutter }
-						onChange={ ( value ) =>
-							setAttributes( {
-								gutter: value,
-							} )
-						}
-						options={ gutterOptions }
-					/>
+						className="spacing-sizes-control"
+					>
+						<RangeControl
+							__nextHasNoMarginBottom
+							className="spacing-sizes-control__range-control"
+							value={
+								gutterOptions.filter(
+									( option ) =>
+										option.label?.toLowerCase() === gutter
+								)?.[ 0 ]?.value
+							}
+							resetFallbackValue={ undefined }
+							onChange={ ( value ) =>
+								setAttributes( {
+									gutter: gutterOptions
+										.filter(
+											( option ) => option.value === value
+										)?.[ 0 ]
+										?.label?.toLowerCase(),
+								} )
+							}
+							withInputField={ false }
+							min={ 1 }
+							max={ 3 }
+							marks
+							renderTooltipContent={ ( value ) =>
+								gutterOptions
+									.filter(
+										( option ) => option.value === value
+									)?.[ 0 ]
+									?.label?.toUpperCase()
+							}
+							hideLabelFromVision
+						/>
+					</BaseControl>
 				</ToolsPanelItem>
 			</InspectorControls>
 
