@@ -1,5 +1,5 @@
 {
-	"core": null,
+	"core": "https://wordpress.org/wordpress-7.1-RC3.zip",
 	"testsEnvironment": false,
 	"plugins": [ "." ],
 	"config": {
