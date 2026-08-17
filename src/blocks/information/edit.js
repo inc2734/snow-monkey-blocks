@@ -10,7 +10,6 @@ import {
 } from '@wordpress/block-editor';
 
 import {
-	BaseControl,
 	RangeControl,
 	SelectControl,
 	ToggleControl,
@@ -409,47 +408,38 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 					}
 					panelId={ clientId }
 				>
-					<BaseControl
+					<RangeControl
 						__nextHasNoMarginBottom
-						id="snow-monkey-blocks/information/padding"
 						label={ __( 'Padding', 'snow-monkey-blocks' ) }
-						className="spacing-sizes-control"
-					>
-						<RangeControl
-							__nextHasNoMarginBottom
-							className="spacing-sizes-control__range-control"
-							value={
-								paddingOptions.filter(
-									( option ) =>
-										option.label?.toLowerCase() ===
-										columnPadding
-								)?.[ 0 ]?.value
-							}
-							resetFallbackValue={ undefined }
-							onChange={ ( value ) =>
-								setAttributes( {
-									columnPadding: paddingOptions
-										.filter(
-											( option ) => option.value === value
-										)?.[ 0 ]
-										?.label?.toLowerCase(),
-								} )
-							}
-							withInputField={ false }
-							min={ 1 }
-							max={ 3 }
-							marks
-							renderTooltipContent={ ( _value ) =>
-								paddingOptions
+						value={
+							paddingOptions.filter(
+								( option ) =>
+									option.label?.toLowerCase() ===
+									columnPadding
+							)?.[ 0 ]?.value
+						}
+						resetFallbackValue={ undefined }
+						onChange={ ( value ) =>
+							setAttributes( {
+								columnPadding: paddingOptions
 									.filter(
-										( option ) => option.value === _value
+										( option ) => option.value === value
 									)?.[ 0 ]
-									?.label?.toUpperCase()
-							}
-							hideLabelFromVision
-							withReset
-						/>
-					</BaseControl>
+									?.label?.toLowerCase(),
+							} )
+						}
+						withInputField={ false }
+						min={ 1 }
+						max={ 3 }
+						marks
+						renderTooltipContent={ ( _value ) =>
+							paddingOptions
+								.filter(
+									( option ) => option.value === _value
+								)?.[ 0 ]
+								?.label?.toUpperCase()
+						}
+					/>
 				</ToolsPanelItem>
 			</InspectorControls>
 
