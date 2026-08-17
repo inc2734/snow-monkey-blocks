@@ -204,7 +204,7 @@ export default function ( {
 
 	return (
 		<>
-			<InspectorControls group="color">
+			<InspectorControls group="typography">
 				<ColorGradientSettingsDropdown
 					{ ...useMultipleOriginColorsAndGradients() }
 					panelId={ clientId }
@@ -220,7 +220,7 @@ export default function ( {
 								textColor:
 									metadata.attributes.textColor?.default,
 							} ),
-							label: __( 'Text color', 'snow-monkey-blocks' ),
+							label: __( 'Color', 'snow-monkey-blocks' ),
 						},
 					] }
 				/>

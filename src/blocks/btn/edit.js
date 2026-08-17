@@ -206,7 +206,29 @@ export default function ( {
 				</ToolsPanel>
 			</InspectorControls>
 
-			<InspectorControls group="color">
+			<InspectorControls group="typography">
+				<ColorGradientSettingsDropdown
+					{ ...useMultipleOriginColorsAndGradients() }
+					panelId={ clientId }
+					__experimentalIsRenderedInSidebar
+					settings={ [
+						{
+							colorValue: textColor,
+							onColorChange: ( value ) =>
+								setAttributes( {
+									textColor: value,
+								} ),
+							resetAllFilter: () => ( {
+								textColor:
+									metadata.attributes.textColor?.default,
+							} ),
+							label: __( 'Color', 'snow-monkey-blocks' ),
+						},
+					] }
+				/>
+			</InspectorControls>
+
+			<InspectorControls group="background">
 				<ColorGradientSettingsDropdown
 					{ ...useMultipleOriginColorsAndGradients() }
 					panelId={ clientId }
@@ -231,22 +253,7 @@ export default function ( {
 									metadata.attributes.backgroundGradientColor
 										?.default,
 							} ),
-							label: __(
-								'Background color',
-								'snow-monkey-blocks'
-							),
-						},
-						{
-							colorValue: textColor,
-							onColorChange: ( value ) =>
-								setAttributes( {
-									textColor: value,
-								} ),
-							resetAllFilter: () => ( {
-								textColor:
-									metadata.attributes.textColor?.default,
-							} ),
-							label: __( 'Text color', 'snow-monkey-blocks' ),
+							label: __( 'Color', 'snow-monkey-blocks' ),
 						},
 					] }
 				/>
