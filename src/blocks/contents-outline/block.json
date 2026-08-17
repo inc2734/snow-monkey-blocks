@@ -36,7 +36,11 @@
 		"color": {
 			"background": true,
 			"link": false,
-			"text": true
+			"text": true,
+			"__experimentalDefaultControls": {
+				"background": true,
+				"text": true
+			}
 		},
 		"__experimentalBorder": {
 			"color": true,

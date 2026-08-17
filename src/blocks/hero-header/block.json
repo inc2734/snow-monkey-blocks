@@ -142,7 +142,12 @@
 		"color": {
 			"background": true,
 			"text": true,
-			"link": true
+			"link": true,
+			"__experimentalDefaultControls": {
+				"background": true,
+				"link": true,
+				"text": true
+			}
 		},
 		"__experimentalBorder": {
 			"color": true,

@@ -21,7 +21,12 @@
 		"color": {
 			"background": true,
 			"link": true,
-			"text": true
+			"text": true,
+			"__experimentalDefaultControls": {
+				"background": true,
+				"link": true,
+				"text": true
+			}
 		},
 		"spacing": {
 			"margin": true,

@@ -50,7 +50,11 @@
 		"color": {
 			"text": true,
 			"background": true,
-			"gradients": false
+			"gradients": false,
+			"__experimentalDefaultControls": {
+				"background": true,
+				"text": true
+			}
 		},
 		"layout": {
 			"allowSwitching": false,
