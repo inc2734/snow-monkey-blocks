@@ -7,7 +7,6 @@ import {
 } from '@wordpress/block-editor';
 
 import {
-	BaseControl,
 	RangeControl,
 	SelectControl,
 	ToggleControl,
@@ -236,45 +235,37 @@ export default function ( {
 					}
 					panelId={ clientId }
 				>
-					<BaseControl
+					<RangeControl
 						__nextHasNoMarginBottom
-						id="snow-monkey-blocks/spider-slider/gap"
 						label={ __( 'Gap', 'snow-monkey-blocks' ) }
-						className="spacing-sizes-control"
-					>
-						<RangeControl
-							__nextHasNoMarginBottom
-							className="spacing-sizes-control__range-control"
-							value={
-								gutterOptions.filter(
-									( option ) =>
-										option.label?.toLowerCase() === gutter
-								)?.[ 0 ]?.value
-							}
-							resetFallbackValue={ undefined }
-							onChange={ ( value ) =>
-								setAttributes( {
-									gutter: gutterOptions
-										.filter(
-											( option ) => option.value === value
-										)?.[ 0 ]
-										?.label?.toLowerCase(),
-								} )
-							}
-							withInputField={ false }
-							min={ 1 }
-							max={ 3 }
-							marks
-							renderTooltipContent={ ( value ) =>
-								gutterOptions
+						value={
+							gutterOptions.filter(
+								( option ) =>
+									option.label?.toLowerCase() === gutter
+							)?.[ 0 ]?.value
+						}
+						resetFallbackValue={ undefined }
+						onChange={ ( value ) =>
+							setAttributes( {
+								gutter: gutterOptions
 									.filter(
 										( option ) => option.value === value
 									)?.[ 0 ]
-									?.label?.toUpperCase()
-							}
-							hideLabelFromVision
-						/>
-					</BaseControl>
+									?.label?.toLowerCase(),
+							} )
+						}
+						withInputField={ false }
+						min={ 1 }
+						max={ 3 }
+						marks
+						renderTooltipContent={ ( value ) =>
+							gutterOptions
+								.filter(
+									( option ) => option.value === value
+								)?.[ 0 ]
+								?.label?.toUpperCase()
+						}
+					/>
 				</ToolsPanelItem>
 			</InspectorControls>
 
