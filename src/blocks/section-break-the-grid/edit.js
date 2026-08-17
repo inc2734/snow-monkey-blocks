@@ -26,6 +26,7 @@ import {
 } from '@wordpress/components';
 
 import { useSelect } from '@wordpress/data';
+import { useRef } from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
 import { pullLeft, pullRight } from '@wordpress/icons';
 
@@ -293,8 +294,10 @@ export default function ( {
 		} ),
 	};
 
+	const blockRef = useRef();
 	const blockProps = useBlockProps( {
 		className: classes,
+		ref: blockRef,
 		style: styles,
 	} );
 
@@ -913,18 +916,22 @@ export default function ( {
 											const match =
 												value.match( /^var\((.+)\)$/ );
 											if ( match ) {
-												newValue = window
+												const { ownerDocument } =
+													blockRef.current;
+												const { defaultView } =
+													ownerDocument;
+												newValue = defaultView
 													.getComputedStyle(
-														document.documentElement
+														ownerDocument.documentElement
 													)
 													.getPropertyValue(
 														match[ 1 ]
 													)
 													.trim();
 												if ( ! newValue ) {
-													newValue = window
+													newValue = defaultView
 														.getComputedStyle(
-															document.body
+															ownerDocument.body
 														)
 														.getPropertyValue(
 															match[ 1 ]
