@@ -32,7 +32,6 @@ export function GridRowEdit( props ) {
 
 	return (
 		<TextControl
-			__next40pxDefaultSize
 			__nextHasNoMarginBottom
 			label="grid-row"
 			value={ smb?.gridRow || '' }

@@ -256,7 +256,6 @@ export default function ( {
 				>
 					<BorderBoxControl
 						{ ...useMultipleOriginColorsAndGradients() }
-						__next40pxDefaultSize
 						__experimentalIsRenderedInSidebar
 						className="smb-border-box-control"
 						enableAlpha={ true }
@@ -344,7 +343,6 @@ export default function ( {
 						}
 					>
 						<RangeControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __( 'Opacity', 'snow-monkey-blocks' ) }
 							value={ opacity }

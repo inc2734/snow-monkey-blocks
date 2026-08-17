@@ -494,7 +494,6 @@ export default function ( {
 							}
 						>
 							<SelectControl
-								__next40pxDefaultSize
 								__nextHasNoMarginBottom
 								label={ __(
 									'Sort by mobile',
@@ -558,7 +557,6 @@ export default function ( {
 						}
 					>
 						<SelectControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Image Size Adjustment',
@@ -677,7 +675,6 @@ export default function ( {
 						}
 					>
 						<SelectControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Content size adjustment',
@@ -713,7 +710,6 @@ export default function ( {
 						}
 					>
 						<SelectControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Degree of overlap of content to image',
@@ -790,7 +786,6 @@ export default function ( {
 								}
 							>
 								<SelectControl
-									__next40pxDefaultSize
 									__nextHasNoMarginBottom
 									label={ __(
 										'Vertical position of content',
@@ -971,7 +966,6 @@ export default function ( {
 							}
 						>
 							<RangeControl
-								__next40pxDefaultSize
 								__nextHasNoMarginBottom
 								label={ __(
 									'Background opacity',
@@ -1007,7 +1001,6 @@ export default function ( {
 						}
 					>
 						<SelectControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __( 'Padding', 'snow-monkey-blocks' ) }
 							value={ contentPadding }
@@ -1160,7 +1153,6 @@ export default function ( {
 							}
 						>
 							<RangeControl
-								__next40pxDefaultSize
 								__nextHasNoMarginBottom
 								label={ __( 'Opacity', 'snow-monkey-blocks' ) }
 								value={ Number(

@@ -244,7 +244,6 @@ export const PanelBasicSettings = ( {
 
 								{ ! showCustomHeightControl ? (
 									<SelectControl
-										__next40pxDefaultSize
 										__nextHasNoMarginBottom
 										value={ setting.heightValue }
 										options={ [
@@ -279,7 +278,6 @@ export const PanelBasicSettings = ( {
 									/>
 								) : (
 									<UnitControl
-										__next40pxDefaultSize
 										value={ setting.heightValue }
 										onChange={ ( value ) =>
 											setting.onHeightChange(
@@ -355,7 +353,6 @@ export const PanelBasicSettings = ( {
 							}
 						>
 							<SelectControl
-								__next40pxDefaultSize
 								__nextHasNoMarginBottom
 								label={ __(
 									'Container alignment',

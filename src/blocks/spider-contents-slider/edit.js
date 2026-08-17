@@ -317,7 +317,6 @@ export default function ( {
 					panelId={ clientId }
 				>
 					<SelectControl
-						__next40pxDefaultSize
 						__nextHasNoMarginBottom
 						label={ __( 'Gap', 'snow-monkey-blocks' ) }
 						value={ gutter }
@@ -368,7 +367,6 @@ export default function ( {
 				>
 					<BorderBoxControl
 						{ ...useMultipleOriginColorsAndGradients() }
-						__next40pxDefaultSize
 						__experimentalIsRenderedInSidebar
 						className="smb-border-box-control"
 						enableAlpha={ true }
@@ -658,7 +656,6 @@ export default function ( {
 						}
 					>
 						<RangeControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Autoplay Speed in seconds',
@@ -730,7 +727,6 @@ export default function ( {
 						}
 					>
 						<RangeControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Animation speed in seconds',
@@ -786,7 +782,6 @@ export default function ( {
 							<ResponsiveTabPanel
 								desktop={ () => (
 									<RangeControl
-										__next40pxDefaultSize
 										__nextHasNoMarginBottom
 										label={ __(
 											'# of slides to show (Large window)',
@@ -812,7 +807,6 @@ export default function ( {
 								) }
 								tablet={ () => (
 									<RangeControl
-										__next40pxDefaultSize
 										__nextHasNoMarginBottom
 										label={ __(
 											'# of slides to show (Medium window)',
@@ -838,7 +832,6 @@ export default function ( {
 								) }
 								mobile={ () => (
 									<RangeControl
-										__next40pxDefaultSize
 										__nextHasNoMarginBottom
 										label={ __(
 											'# of slides to show (Small window)',

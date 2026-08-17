@@ -168,7 +168,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<RangeControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Slide animation speed in milliseconds',
@@ -204,7 +203,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<RangeControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Autoplay Speed in seconds',
@@ -294,7 +292,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<SelectControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __( 'Aspect ratio', 'snow-monkey-blocks' ) }
 							value={ aspectRatio }
@@ -347,7 +344,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							desktop={ () => (
 								<>
 									<RangeControl
-										__next40pxDefaultSize
 										__nextHasNoMarginBottom
 										label={ __(
 											'# of slides to show (Large window)',
@@ -368,7 +364,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 									/>
 
 									<RangeControl
-										__next40pxDefaultSize
 										__nextHasNoMarginBottom
 										label={ __(
 											'# of slides to scroll (Large window)',
@@ -392,7 +387,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							tablet={ () => (
 								<>
 									<RangeControl
-										__next40pxDefaultSize
 										__nextHasNoMarginBottom
 										label={ __(
 											'# of slides to show (Medium window)',
@@ -413,7 +407,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 									/>
 
 									<RangeControl
-										__next40pxDefaultSize
 										__nextHasNoMarginBottom
 										label={ __(
 											'# of slides to scroll (Medium window)',
@@ -437,7 +430,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							mobile={ () => (
 								<>
 									<RangeControl
-										__next40pxDefaultSize
 										__nextHasNoMarginBottom
 										label={ __(
 											'# of slides to show (Small window)',
@@ -458,7 +450,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 									/>
 
 									<RangeControl
-										__next40pxDefaultSize
 										__nextHasNoMarginBottom
 										label={ __(
 											'# of slides to scroll (Small window)',

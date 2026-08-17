@@ -126,7 +126,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							id="snow-monkey-blocks/grid/grid-template-columns"
 						>
 							<ToggleGroupControl
-								__next40pxDefaultSize
 								__nextHasNoMarginBottom
 								className="smb-toggle-group-control"
 								hideLabelFromVision
@@ -178,7 +177,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							>
 								{ 'columns' === columnsOption && (
 									<RangeControl
-										__next40pxDefaultSize
 										__nextHasNoMarginBottom
 										label={ __(
 											'Columns count',
@@ -199,7 +197,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 								{ 'min' === columnsOption && (
 									<>
 										<UnitControl
-											__next40pxDefaultSize
 											label={ __(
 												'Minimum width',
 												'snow-monkey-blocks'
@@ -213,7 +210,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 										/>
 
 										<ToggleGroupControl
-											__next40pxDefaultSize
 											__nextHasNoMarginBottom
 											label={ __(
 												'Auto repeat',
@@ -241,7 +237,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 
 								{ 'free' === columnsOption && (
 									<TextControl
-										__next40pxDefaultSize
 										__nextHasNoMarginBottom
 										value={ gridTemplateColumns }
 										onChange={ ( value ) =>
@@ -280,7 +275,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							id="snow-monkey-blocks/grid/grid-template-rows"
 						>
 							<ToggleGroupControl
-								__next40pxDefaultSize
 								__nextHasNoMarginBottom
 								className="smb-toggle-group-control"
 								hideLabelFromVision
@@ -318,7 +312,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							>
 								{ 'rows' === rowsOption && (
 									<RangeControl
-										__next40pxDefaultSize
 										__nextHasNoMarginBottom
 										label={ __(
 											'Rows count',
@@ -338,7 +331,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 
 								{ 'free' === rowsOption && (
 									<TextControl
-										__next40pxDefaultSize
 										__nextHasNoMarginBottom
 										value={ gridTemplateRows }
 										onChange={ ( value ) =>

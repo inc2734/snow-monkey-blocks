@@ -135,7 +135,6 @@ export default function ( {
 						}
 					>
 						<SelectControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __( 'Button size', 'snow-monkey-blocks' ) }
 							value={ modifier }

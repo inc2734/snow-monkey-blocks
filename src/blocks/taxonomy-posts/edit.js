@@ -266,7 +266,6 @@ export default function ( { attributes, setAttributes, clientId } ) {
 											return (
 												!! _taxonomy && (
 													<TreeSelect
-														__next40pxDefaultSize
 														__nextHasNoMarginBottom
 														key={ `${ _taxonomy.slug }-${ termId }` }
 														label={ _taxonomy.name }
@@ -305,7 +304,6 @@ export default function ( { attributes, setAttributes, clientId } ) {
 								}
 							>
 								<RangeControl
-									__next40pxDefaultSize
 									__nextHasNoMarginBottom
 									label={ __(
 										'Number of posts',
@@ -341,7 +339,6 @@ export default function ( { attributes, setAttributes, clientId } ) {
 								}
 							>
 								<SelectControl
-									__next40pxDefaultSize
 									__nextHasNoMarginBottom
 									label={ __(
 										'Layout',
@@ -499,7 +496,6 @@ export default function ( { attributes, setAttributes, clientId } ) {
 								}
 							>
 								<RangeControl
-									__next40pxDefaultSize
 									__nextHasNoMarginBottom
 									label={ __(
 										'Autoplay Speed in seconds',
@@ -635,7 +631,6 @@ export default function ( { attributes, setAttributes, clientId } ) {
 						}
 					>
 						<SelectControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Images size of each items',
@@ -907,7 +902,6 @@ export default function ( { attributes, setAttributes, clientId } ) {
 						}
 					>
 						<SelectControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Taxonomy to use for the category label',
@@ -944,7 +938,6 @@ export default function ( { attributes, setAttributes, clientId } ) {
 							}
 						>
 							<SelectControl
-								__next40pxDefaultSize
 								__nextHasNoMarginBottom
 								label={ __(
 									'Number of columns displayed on mobile device',
@@ -1076,7 +1069,6 @@ export default function ( { attributes, setAttributes, clientId } ) {
 						className="spacing-sizes-control"
 					>
 						<RangeControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							className="spacing-sizes-control__range-control"
 							value={

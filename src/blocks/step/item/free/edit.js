@@ -188,7 +188,6 @@ export default function ( {
 						id="snow-monkey-blocks/step-item-free/title-font-size"
 					>
 						<FontSizePicker
-							__next40pxDefaultSize
 							value={ selectedTitleFontSize }
 							onChange={ ( value ) => {
 								const fontSizeSlug = getFontSizeObjectByValue(

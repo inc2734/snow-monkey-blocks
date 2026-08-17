@@ -215,7 +215,6 @@ export default function ( { attributes, setAttributes, clientId } ) {
 						}
 					>
 						<SelectControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __( 'Post type', 'snow-monkey-blocks' ) }
 							value={ postType }
@@ -266,7 +265,6 @@ export default function ( { attributes, setAttributes, clientId } ) {
 									( taxonomyTerms ) => {
 										return (
 											<TreeSelect
-												__next40pxDefaultSize
 												__nextHasNoMarginBottom
 												key={ taxonomyTerms.taxonomy }
 												label={ sprintf(
@@ -312,7 +310,6 @@ export default function ( { attributes, setAttributes, clientId } ) {
 						}
 					>
 						<FormTokenField
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __( 'Authors', 'snow-monkey-blocks' ) }
 							onChange={ ( newValue ) => {
@@ -371,7 +368,6 @@ export default function ( { attributes, setAttributes, clientId } ) {
 						}
 					>
 						<RangeControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Number of posts',
@@ -401,7 +397,6 @@ export default function ( { attributes, setAttributes, clientId } ) {
 						}
 					>
 						<SelectControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __( 'Layout', 'snow-monkey-blocks' ) }
 							value={ layout }
@@ -539,7 +534,6 @@ export default function ( { attributes, setAttributes, clientId } ) {
 								}
 							>
 								<RangeControl
-									__next40pxDefaultSize
 									__nextHasNoMarginBottom
 									label={ __(
 										'Autoplay Speed in seconds',
@@ -675,7 +669,6 @@ export default function ( { attributes, setAttributes, clientId } ) {
 						}
 					>
 						<SelectControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Images size of each items',
@@ -939,7 +932,6 @@ export default function ( { attributes, setAttributes, clientId } ) {
 							}
 						>
 							<SelectControl
-								__next40pxDefaultSize
 								__nextHasNoMarginBottom
 								label={ __(
 									'Number of columns displayed on mobile device',
@@ -1071,7 +1063,6 @@ export default function ( { attributes, setAttributes, clientId } ) {
 						className="spacing-sizes-control"
 					>
 						<RangeControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							className="spacing-sizes-control__range-control"
 							value={

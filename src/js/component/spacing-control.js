@@ -28,7 +28,6 @@ export default function ( props ) {
 
 	return (
 		<BoxControl
-			__next40pxDefaultSize
 			values={ values }
 			onChange={ onChange }
 			label={ label }

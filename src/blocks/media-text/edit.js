@@ -244,7 +244,6 @@ export default function ( {
 						}
 					>
 						<SelectControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Image column size',
@@ -393,7 +392,6 @@ export default function ( {
 						}
 					>
 						<SelectControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Sort by mobile',
@@ -450,7 +448,6 @@ export default function ( {
 						}
 					>
 						<SelectControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'When to divide columns',

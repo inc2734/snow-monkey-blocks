@@ -117,7 +117,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						id="snow-monkey-blocks/countdown/numeric-font-size"
 					>
 						<FontSizePicker
-							__next40pxDefaultSize
 							value={ selectedNumericFontSize }
 							onChange={ ( value ) => {
 								const fontSizeSlug = getFontSizeObjectByValue(
@@ -164,7 +163,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						id="snow-monkey-blocks/countdown/clock-font-size"
 					>
 						<FontSizePicker
-							__next40pxDefaultSize
 							value={ selectedClockFontSize }
 							onChange={ ( value ) => {
 								const fontSizeSlug = getFontSizeObjectByValue(

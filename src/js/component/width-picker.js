@@ -24,7 +24,6 @@ export default function ( { label, onChange, value, withReset = true }, ref ) {
 				>
 					<FlexItem isBlock>
 						<UnitControl
-							__next40pxDefaultSize
 							label={ label }
 							labelPosition="edge"
 							value={ value }

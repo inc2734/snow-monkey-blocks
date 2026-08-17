@@ -79,7 +79,6 @@ export default function ( { attributes, setAttributes } ) {
 						}
 					>
 						<RangeControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Maximum number of displays',
@@ -226,7 +225,6 @@ export default function ( { attributes, setAttributes } ) {
 						}
 					>
 						<RangeControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Autoplay Speed in seconds',

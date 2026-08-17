@@ -88,7 +88,6 @@ export default function ( { attributes, setAttributes } ) {
 							}
 						>
 							<SelectControl
-								__next40pxDefaultSize
 								__nextHasNoMarginBottom
 								label={ __( 'Taxonomy', 'snow-monkey-blocks' ) }
 								value={ taxonomy }
@@ -115,7 +114,6 @@ export default function ( { attributes, setAttributes } ) {
 						}
 					>
 						<SelectControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __( 'orderby', 'snow-monkey-blocks' ) }
 							value={ orderby }
@@ -177,7 +175,6 @@ export default function ( { attributes, setAttributes } ) {
 						}
 					>
 						<SelectControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __( 'order', 'snow-monkey-blocks' ) }
 							value={ order }

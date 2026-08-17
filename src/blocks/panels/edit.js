@@ -136,7 +136,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							desktop={ () => {
 								return (
 									<RangeControl
-										__next40pxDefaultSize
 										__nextHasNoMarginBottom
 										label={ __(
 											'Columns per row (Large window)',
@@ -156,7 +155,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							tablet={ () => {
 								return (
 									<RangeControl
-										__next40pxDefaultSize
 										__nextHasNoMarginBottom
 										label={ __(
 											'Columns per row (Medium window)',
@@ -176,7 +174,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							mobile={ () => {
 								return (
 									<RangeControl
-										__next40pxDefaultSize
 										__nextHasNoMarginBottom
 										label={ __(
 											'Columns per row (Small window)',
@@ -284,7 +281,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 							className="spacing-sizes-control"
 						>
 							<RangeControl
-								__next40pxDefaultSize
 								__nextHasNoMarginBottom
 								className="spacing-sizes-control__range-control"
 								value={

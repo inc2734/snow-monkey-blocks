@@ -270,7 +270,6 @@ export default function ( {
 						}
 					>
 						<SelectControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Image aspect ratio',
@@ -414,7 +413,6 @@ export default function ( {
 						}
 					>
 						<RangeControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __( 'Opacity', 'snow-monkey-blocks' ) }
 							value={ Number( ( 1 - maskOpacity ).toFixed( 1 ) ) }

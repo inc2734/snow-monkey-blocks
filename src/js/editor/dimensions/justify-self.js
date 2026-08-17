@@ -67,7 +67,6 @@ export function JustifySelfEdit( props ) {
 
 	return (
 		<ToggleGroupControl
-			__next40pxDefaultSize
 			__nextHasNoMarginBottom
 			label="justify-self"
 			value={ smb?.justifySelf || 'stretch' }

@@ -144,7 +144,6 @@ export default function ( { attributes, setAttributes, className } ) {
 					>
 						<BorderBoxControl
 							{ ...multipleOriginColorsAndGradients }
-							__next40pxDefaultSize
 							__experimentalIsRenderedInSidebar
 							className="smb-border-box-control"
 							label={ __( 'Border', 'snow-monkey-blocks' ) }
@@ -255,7 +254,6 @@ export default function ( { attributes, setAttributes, className } ) {
 								}
 							>
 								<SelectControl
-									__next40pxDefaultSize
 									__nextHasNoMarginBottom
 									label={ __(
 										'Avatar position',
@@ -330,7 +328,6 @@ export default function ( { attributes, setAttributes, className } ) {
 							>
 								<BorderBoxControl
 									{ ...multipleOriginColorsAndGradients }
-									__next40pxDefaultSize
 									__experimentalIsRenderedInSidebar
 									className="smb-border-box-control"
 									label={ __(

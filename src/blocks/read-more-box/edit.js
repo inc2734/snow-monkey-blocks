@@ -150,7 +150,6 @@ export default function ( { attributes, setAttributes, clientId, className } ) {
 						}
 					>
 						<TextControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __( 'Label', 'snow-monkey-blocks' ) }
 							value={
@@ -180,7 +179,6 @@ export default function ( { attributes, setAttributes, clientId, className } ) {
 						}
 					>
 						<TextControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Label (for Close)',
@@ -256,7 +254,6 @@ export default function ( { attributes, setAttributes, clientId, className } ) {
 						}
 					>
 						<TextControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Height of contents when closed',
@@ -354,7 +351,6 @@ export default function ( { attributes, setAttributes, clientId, className } ) {
 						}
 					>
 						<SelectControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __( 'Button size', 'snow-monkey-blocks' ) }
 							value={ btnSize }

@@ -1075,7 +1075,6 @@ export default function ( {
 							}
 						>
 							<RangeControl
-								__next40pxDefaultSize
 								__nextHasNoMarginBottom
 								label={ __( 'Opacity', 'snow-monkey-blocks' ) }
 								value={ Number(

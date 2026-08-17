@@ -132,7 +132,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<SelectControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Label column size',
@@ -179,7 +178,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<SelectControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Label horizontal alignment',
@@ -227,7 +225,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<SelectControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Label vertical alignment',
@@ -374,7 +371,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 				>
 					<BorderBoxControl
 						{ ...useMultipleOriginColorsAndGradients() }
-						__next40pxDefaultSize
 						__experimentalIsRenderedInSidebar
 						className="smb-border-box-control"
 						enableAlpha={ true }
@@ -420,7 +416,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						className="spacing-sizes-control"
 					>
 						<RangeControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							className="spacing-sizes-control__range-control"
 							value={

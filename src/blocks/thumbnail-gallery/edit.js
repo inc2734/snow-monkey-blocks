@@ -106,7 +106,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<RangeControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Slide animation speed in milliseconds',
@@ -143,7 +142,6 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 						}
 					>
 						<RangeControl
-							__next40pxDefaultSize
 							__nextHasNoMarginBottom
 							label={ __(
 								'Autoplay Speed in seconds',

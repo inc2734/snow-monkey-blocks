@@ -43,7 +43,6 @@ export default function ( {
 
 	const ResolutionSelectControl = () => (
 		<SelectControl
-			__next40pxDefaultSize
 			__nextHasNoMarginBottom
 			label={ __( 'Resolution' ) }
 			value={ displayValue }
