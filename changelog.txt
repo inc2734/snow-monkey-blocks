@@ -1,5 +1,9 @@
 *** Changelog ***
 
+= 26.0.0 =
+* WordPress 7.1 compatible.
+* Requires WordPress 7.1 or higher.
+
 = 25.0.3 =
 * Removed the old PR meta box and migrated to the `PluginDocumentSettingPanel`.
 
