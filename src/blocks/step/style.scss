@@ -52,7 +52,7 @@
 				transform: translateY(-50%);
 			}
 
-			> span {
+			> .smb-step__item__number + span {
 				flex: 1 1 auto;
 			}
 		}

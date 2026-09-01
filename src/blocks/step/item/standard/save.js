@@ -44,7 +44,7 @@ export default function ( { attributes, className } ) {
 	return (
 		<TagName { ...useBlockProps.save( { className: classes } ) }>
 			<TitleTagName className="smb-step__item__title">
-				<div
+				<span
 					className="smb-step__item__number"
 					style={ itemNumberStyles }
 				/>

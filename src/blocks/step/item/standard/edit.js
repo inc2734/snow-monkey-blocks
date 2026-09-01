@@ -334,7 +334,7 @@ export default function ( {
 
 			<TagName { ...blockProps }>
 				<TitleTagName className="smb-step__item__title">
-					<div
+					<span
 						className="smb-step__item__number"
 						style={ itemNumberStyles }
 					/>

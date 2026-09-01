@@ -1,5 +1,8 @@
 *** Changelog ***
 
+= 26.0.1 =
+* [Step] Fixed a markup error.
+
 = 26.0.0 =
 * WordPress 7.1 compatible.
 * Requires WordPress 7.1 or higher.

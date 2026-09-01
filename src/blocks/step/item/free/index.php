@@ -22,15 +22,26 @@ add_filter(
 		$p2->next_tag( array( 'class_name' => 'smb-step__item__summary' ) );
 		$p2_class = $p2->get_attribute( 'class' );
 
-		if ( $p1_class === $p2_class ) {
-			return $content;
+		if ( $p1_class !== $p2_class ) {
+			$p1->remove_class( 'is-layout-constrained' );
+			$p1->remove_class( 'wp-block-step-item-free-is-layout-constrained' );
+			$p1->next_tag( array( 'class_name' => 'smb-step__item__summary' ) );
+			$p1->add_class( 'is-layout-constrained' );
+			$p1->add_class( 'wp-block-step-item-free-is-layout-constrained' );
+			$content = $p1->get_updated_html();
 		}
 
-		$p1->remove_class( 'is-layout-constrained' );
-		$p1->remove_class( 'wp-block-step-item-free-is-layout-constrained' );
-		$p1->next_tag( array( 'class_name' => 'smb-step__item__summary' ) );
-		$p1->add_class( 'is-layout-constrained' );
-		$p1->add_class( 'wp-block-step-item-free-is-layout-constrained' );
-		return $p1->get_updated_html();
+		/*
+		 * Compatibility patch for markup saved before the number element was
+		 * changed to a span. This is not required for the block to function.
+		 */
+		$patched_content = preg_replace(
+			'/<div(\s[^>]*\bclass=(["\'])[^"\']*\bsmb-step__item__number\b[^"\']*\2[^>]*)>\s*<\/div>/',
+			'<span$1></span>',
+			$content,
+			1
+		);
+
+		return null !== $patched_content ? $patched_content : $content;
 	}
 );

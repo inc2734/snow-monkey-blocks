@@ -44,7 +44,7 @@ export default function ( { attributes, className } ) {
 					fontSize: titleFontSize || undefined,
 				} }
 			>
-				<div className="smb-step__item__number" />
+				<span className="smb-step__item__number" />
 				<RichText.Content tagName="span" value={ title } />
 			</TitleTagName>
 

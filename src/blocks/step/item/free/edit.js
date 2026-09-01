@@ -252,7 +252,7 @@ export default function ( {
 						fontSize: titleFontSize || undefined,
 					} }
 				>
-					<div className="smb-step__item__number" />
+					<span className="smb-step__item__number" />
 
 					<RichText
 						tagName="span"
