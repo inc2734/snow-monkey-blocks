@@ -52,6 +52,12 @@
 				"text": true
 			}
 		},
+		"background": {
+			"gradient": true,
+			"__experimentalDefaultControls": {
+				"gradient": true
+			}
+		},
 		"layout": {
 			"allowSwitching": false,
 			"allowEditing": false,

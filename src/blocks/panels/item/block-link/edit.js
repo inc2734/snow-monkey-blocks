@@ -142,8 +142,6 @@ export default function ( {
 		colorProps?.className
 	);
 
-	const itemStyles = colorProps?.style;
-
 	const actionClasses = classnames(
 		'smb-panels__item__action',
 		'smb-panels__item__action--nolabel'
@@ -153,6 +151,11 @@ export default function ( {
 		className: classes,
 		ref: useMergeRefs( [ setPopoverAnchor, ref ] ),
 	} );
+
+	const itemStyles = {
+		...colorProps?.style,
+		backgroundImage: blockProps?.style?.backgroundImage,
+	};
 
 	const innerBlocksProps = useInnerBlocksProps(
 		{

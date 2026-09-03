@@ -47,14 +47,19 @@ export default function ( { attributes } ) {
 		colorProps?.className
 	);
 
-	const itemStyles = colorProps?.style;
-
 	const actionClasses = classnames( 'smb-panels__item__action', {
 		'smb-panels__item__action--nolabel': ! displayLink,
 	} );
 
+	const blockProps = useBlockProps.save( { className: classes } );
+
+	const itemStyles = {
+		...colorProps?.style,
+		backgroundImage: blockProps?.style?.backgroundImage,
+	};
+
 	return (
-		<div { ...useBlockProps.save( { className: classes } ) }>
+		<div { ...blockProps }>
 			<div className={ itemClasses } style={ itemStyles }>
 				{ displayImage && (
 					<div className="smb-panels__item__figure">

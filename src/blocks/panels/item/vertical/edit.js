@@ -190,8 +190,6 @@ export default function ( { attributes, setAttributes, isSelected } ) {
 		colorProps?.className
 	);
 
-	const itemStyles = colorProps?.style;
-
 	const actionClasses = classnames( 'smb-panels__item__action', {
 		'smb-panels__item__action--nolabel': ! linkLabel && ! isSelected,
 	} );
@@ -200,6 +198,11 @@ export default function ( { attributes, setAttributes, isSelected } ) {
 		className: classes,
 		ref: useMergeRefs( [ setPopoverAnchor, ref ] ),
 	} );
+
+	const itemStyles = {
+		...colorProps?.style,
+		backgroundImage: blockProps?.style?.backgroundImage,
+	};
 
 	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
 

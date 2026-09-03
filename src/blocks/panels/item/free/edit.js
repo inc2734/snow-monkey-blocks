@@ -38,11 +38,14 @@ export default function ( { attributes, clientId } ) {
 		colorProps?.className
 	);
 
-	const itemStyles = colorProps?.style;
-
 	const blockProps = useBlockProps( {
 		className: classes,
 	} );
+
+	const itemStyles = {
+		...colorProps?.style,
+		backgroundImage: blockProps?.style?.backgroundImage,
+	};
 
 	const innerBlocksProps = useInnerBlocksProps(
 		{

@@ -32,15 +32,20 @@ export default function ( { attributes } ) {
 		colorProps?.className
 	);
 
-	const itemStyles = colorProps?.style;
-
 	const actionClasses = classnames(
 		'smb-panels__item__action',
 		'smb-panels__item__action--nolabel'
 	);
 
+	const blockProps = useBlockProps.save( { className: classes } );
+
+	const itemStyles = {
+		...colorProps?.style,
+		backgroundImage: blockProps?.style?.backgroundImage,
+	};
+
 	return (
-		<div { ...useBlockProps.save( { className: classes } ) }>
+		<div { ...blockProps }>
 			<div className={ itemClasses } style={ itemStyles }>
 				<div
 					{ ...useInnerBlocksProps.save( {
