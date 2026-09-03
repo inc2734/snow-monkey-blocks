@@ -1,5 +1,10 @@
 *** Changelog ***
 
+= 26.0.2 =
+* [flex] Supportted `supports.background.gradient`.
+* [Grid] Supportted `supports.background.gradient`.
+* [Panels] Supportted `supports.background.gradient`.
+
 = 26.0.1 =
 * [Step] Fixed a markup error.
 
