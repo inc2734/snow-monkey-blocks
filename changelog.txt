@@ -1,5 +1,9 @@
 *** Changelog ***
 
+= 26.0.3 =
+* Updated @inc2734/spider and WordPress packages.
+* Updated the Node.js development environment and test setup.
+
 = 26.0.2 =
 * [flex] Supportted `supports.background.gradient`.
 * [Grid] Supportted `supports.background.gradient`.
