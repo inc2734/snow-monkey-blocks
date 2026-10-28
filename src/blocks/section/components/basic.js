@@ -29,9 +29,8 @@ export const PanelBasicSettings = ( {
 	disableCustomHeight,
 	settings,
 } ) => {
-	const [ showCustomHeightControl, setShowCustomHeightControl ] = useState(
-		! disableCustomHeight
-	);
+	const [ showCustomHeightControl, setShowCustomHeightControl ] =
+		useState( ! disableCustomHeight );
 
 	const dropdownMenuProps = useToolsPanelDropdownMenuProps();
 
@@ -212,11 +211,11 @@ export const PanelBasicSettings = ( {
 												? __(
 														'Height',
 														'snow-monkey-blocks'
-												  )
+													)
 												: __(
 														'Min height',
 														'snow-monkey-blocks'
-												  ) }
+													) }
 										</span>
 
 										<Button
@@ -225,7 +224,7 @@ export const PanelBasicSettings = ( {
 													? __(
 															'Use preset',
 															'snow-monkey-blocks'
-													  )
+														)
 													: __( 'Set custom size' )
 											}
 											icon={ settingsIcon }

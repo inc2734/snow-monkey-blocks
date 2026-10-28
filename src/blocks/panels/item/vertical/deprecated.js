@@ -683,14 +683,14 @@ export default [
 										<PanelsItemContent />
 									</a>
 								);
-						  }
+							}
 						: () => {
 								return (
 									<div className="smb-panels__item">
 										<PanelsItemContent />
 									</div>
 								);
-						  }
+							}
 				).call( this );
 			};
 

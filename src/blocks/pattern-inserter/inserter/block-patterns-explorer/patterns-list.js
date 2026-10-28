@@ -70,12 +70,12 @@ function PatternList( { filterValue, selectedCategory, patternCategories } ) {
 			return allPatterns.filter( ( pattern ) =>
 				selectedCategory === 'uncategorized'
 					? ! pattern.categories?.length ||
-					  pattern.categories.every(
+						pattern.categories.every(
 							( category ) =>
 								! registeredPatternCategories.includes(
 									category
 								)
-					  )
+						)
 					: pattern.categories?.includes( selectedCategory )
 			);
 		}

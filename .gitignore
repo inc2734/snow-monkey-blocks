@@ -6,6 +6,7 @@ snow-monkey-blocks
 dist/
 npm-debug.log
 .wp-env.override.json
+.wp-env.tests.override.json
 /.translation/
 /.export/*
 .phpunit.result.cache

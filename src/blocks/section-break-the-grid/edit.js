@@ -154,7 +154,7 @@ export default function ( {
 						'postType',
 						'attachment',
 						imageID
-				  )
+					)
 				: null,
 		[ imageID ]
 	);
@@ -262,7 +262,7 @@ export default function ( {
 			!! shadowHorizontalPosition && !! shadowVerticalPosition
 				? `translate(${ shadowHorizontalPosition || 0 }%, ${
 						shadowVerticalPosition || 0
-				  }%)`
+					}%)`
 				: undefined,
 		'--smb-section-break-the-grid--content-background-color':
 			contentBackgroundColor &&
@@ -372,7 +372,7 @@ export default function ( {
 					value: '50',
 					label: __( '+50%', 'snow-monkey-blocks' ),
 				},
-		  ] )
+			] )
 		: contentSizeOptions;
 
 	return (

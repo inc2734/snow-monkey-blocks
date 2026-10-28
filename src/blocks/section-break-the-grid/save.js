@@ -174,7 +174,7 @@ export default function ( { attributes, className } ) {
 			!! shadowHorizontalPosition && !! shadowVerticalPosition
 				? `translate(${ shadowHorizontalPosition || 0 }%, ${
 						shadowVerticalPosition || 0
-				  }%)`
+					}%)`
 				: undefined,
 		'--smb-section-break-the-grid--content-background-color':
 			contentBackgroundColor &&

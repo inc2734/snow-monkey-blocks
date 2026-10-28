@@ -107,7 +107,7 @@ export default function ( {
 			? `0 0 ${ boxShadow.blur }px ${ hexToRgba(
 					boxShadow.color,
 					boxShadow.opacity
-			  ) }`
+				) }`
 			: undefined,
 		'--smb-spider-contents-slider--slide-background-color':
 			!! backgroundColor

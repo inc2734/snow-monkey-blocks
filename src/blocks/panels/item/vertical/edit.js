@@ -169,7 +169,7 @@ export default function ( { attributes, setAttributes, isSelected } ) {
 						'postType',
 						'attachment',
 						imageID
-				  )
+					)
 				: null,
 		[ imageID ]
 	);

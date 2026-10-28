@@ -16,6 +16,7 @@ module.exports = [
 		languageOptions: {
 			globals: {
 				...defaultConfig.globals,
+				IntersectionObserver: 'readonly',
 				smb: true,
 				Spider: true,
 				WPElement: true,

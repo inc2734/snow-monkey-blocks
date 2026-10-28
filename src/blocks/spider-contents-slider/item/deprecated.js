@@ -67,7 +67,7 @@ export default [
 						? `0 0 ${ boxShadow.blur }px ${ hexToRgba(
 								boxShadow.color,
 								boxShadow.opacity
-						  ) }`
+							) }`
 						: undefined,
 			};
 
@@ -143,7 +143,7 @@ export default [
 						? `0 0 ${ boxShadow.blur }px ${ hexToRgba(
 								boxShadow.color,
 								boxShadow.opacity
-						  ) }`
+							) }`
 						: undefined,
 			};
 
@@ -215,7 +215,7 @@ export default [
 						? `0 0 ${ boxShadow.blur }px ${ hexToRgba(
 								boxShadow.color,
 								boxShadow.opacity
-						  ) }`
+							) }`
 						: undefined,
 			};
 
@@ -279,7 +279,7 @@ export default [
 						? `0 0 ${ boxShadow.blur }px ${ hexToRgba(
 								boxShadow.color,
 								boxShadow.opacity
-						  ) }`
+							) }`
 						: undefined,
 			};
 
@@ -347,7 +347,7 @@ export default [
 					? `0 0 ${ boxShadow.blur }px ${ hexToRgba(
 							boxShadow.color,
 							boxShadow.opacity
-					  ) }`
+						) }`
 					: undefined,
 			};
 
@@ -403,7 +403,7 @@ export default [
 					? `0 0 ${ boxShadow.blur }px ${ hexToRgba(
 							boxShadow.color,
 							boxShadow.opacity
-					  ) }`
+						) }`
 					: undefined,
 			};
 

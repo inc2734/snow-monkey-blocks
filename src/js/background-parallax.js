@@ -70,7 +70,7 @@ document.addEventListener(
 			target.setAttribute( 'data-is-loaded', 'true' );
 
 			const init = () => {
-				const observer = new IntersectionObserver( // eslint-disable-line no-undef
+				const observer = new IntersectionObserver(
 					( entries ) =>
 						entries.forEach( ( entry ) =>
 							toggle( entry.isIntersecting )

@@ -391,11 +391,11 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 												? __(
 														'Move to left',
 														'snow-monkey-blocks'
-												  )
+													)
 												: __(
 														'Move to up',
 														'snow-monkey-blocks'
-												  )
+													)
 										}
 									>
 										<Icon
@@ -430,11 +430,11 @@ export default function ( { attributes, setAttributes, className, clientId } ) {
 												? __(
 														'Move to right',
 														'snow-monkey-blocks'
-												  )
+													)
 												: __(
 														'Move to down',
 														'snow-monkey-blocks'
-												  )
+													)
 										}
 									>
 										<Icon

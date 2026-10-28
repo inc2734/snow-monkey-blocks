@@ -12,10 +12,10 @@ export default function ( { attributes } ) {
 		'--smb-flex--box-shadow': !! boxShadow.color
 			? `${ boxShadow.horizontal }px ${ boxShadow.vertical }px ${
 					boxShadow.blur
-			  }px ${ boxShadow.spread }px ${ hexToRgba(
+				}px ${ boxShadow.spread }px ${ hexToRgba(
 					boxShadow.color,
 					boxShadow.opacity
-			  ) }`
+				) }`
 			: undefined,
 	};
 

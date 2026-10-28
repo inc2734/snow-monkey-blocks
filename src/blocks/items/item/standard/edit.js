@@ -95,7 +95,7 @@ export default function ( {
 						'postType',
 						'attachment',
 						imageID
-				  )
+					)
 				: null,
 		[ imageID ]
 	);

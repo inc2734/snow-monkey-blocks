@@ -198,7 +198,7 @@ export default function ( {
 						'postType',
 						'attachment',
 						mediaId
-				  )
+					)
 				: null,
 		[ mediaId ]
 	);
